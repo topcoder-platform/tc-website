@@ -62,27 +62,23 @@
 				</TABLE>
 			<STRONG><font size="4">How it works</font></STRONG><BR/>
 			On the member registration page, there is a "Referring Member" field. If you convince a fellow coder to register with TopCoder, 
-			ask him or her to provide your handle in the "Referring Member" field when they register on www.topcoder.com.</P>
+			ask him or her to provide your handle in the "Referring Member" field.</P>
 
-			<P>For a one-year period following registration, the referring member (you) will receive a referral commission equal to 10% of any 
-			cash prize that the referred member wins in the following 12 months.</P>
+			<P>The referring member (you) will receive a referral commission equal to 10% of any 
+			cash prize that the referred member wins during the 12 months following registration.</P>
 
 
-			<P>TopCoder will keep track of all member commissions earned during the year and pay them out at the end of each quarter. </P>
+			<P>TopCoder will keep track of all member commissions earned and will pay them out at the end of each quarter. </P>
 
 			<P>The "Referring Member" field in the registration cannot be changed once the registration process has been completed. 
 			Therefore, please ensure that any referred member provides the correct handle upon registering with TopCoder.</P>
 
-			<P><STRONG><font size="4">Checking on your referrals</font></STRONG><BR/>
-			The handle of every member you refer, along with his or her earnings history, will be available in the "My Features" portion 
-			of your member home page.</P>
-
 			<P><STRONG><font size="4">Official Rules</font></STRONG><BR/>
-			The Referral Program will apply only to those referred members who have registered with TopCoder between May 1, 
-			2004 and April 30, 2005.</P>
+			The Referral Program will apply only to those referred members who have registered with TopCoder between April 29, 
+			2004 and April 28, 2005.</P>
 
 			<P>Any eligible TopCoder member whose TopCoder handle was provided in the "Referring Member" field of the TopCoder 
-			registration process after May 1, 2004 will be placed into the Referral Program.</P>
+			registration process on or after April 29, 2004 will be placed into the Referral Program.</P>
 
 			<P>TopCoder will pay a referral commission equal to 10% of any cash prize won by a referred member during the 365-day 
 			period following the initial registration date of the referred member. No additional referral compensation will be paid 
@@ -94,12 +90,11 @@
 
 			<P>The "Referring Member" field in the registration may not be changed once the registration process has been completed.</P>
 
-			<P>TopCoder strongly discourages members from "spamming" individuals with unsolicited emails in an attempt to entice people 
-			to register and participate at TopCoder. Sending such unsolicited emails to people will not be tolerated, and such activity 
-			may lead to your termination from the TopCoder Referral Program.</P>
+			<P>TopCoder prohibits members from "spamming" individuals with unsolicited emails in an attempt to entice people 
+			to register and participate at TopCoder. Sending such unsolicited emails may lead to your termination from the TopCoder Referral Program.</P>
 
-			<P>TopCoder reserves the right to modify, cancel and/or disqualify any TopCoder member from the TopCoder Referral 
-			Program at any time for any reason.</P>
+			<P>TopCoder reserves the right to modify or cancel the TopCoder Referral Program at any time for any reason. TopCoder also reserves 
+			the right to disqualify any TopCoder member from the TopCoder Referral Program at any time for any reason.</P>
 		
 		</TD>
 	</TR>
