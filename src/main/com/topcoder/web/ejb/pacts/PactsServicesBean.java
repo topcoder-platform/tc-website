@@ -9,7 +9,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.jms.JMSException;
-import java.rmi.RemoteException;
 import java.sql.*;
 import java.text.*;
 import java.util.*;

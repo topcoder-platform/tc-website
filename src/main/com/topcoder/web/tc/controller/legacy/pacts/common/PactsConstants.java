@@ -38,6 +38,8 @@ public interface PactsConstants {
 
     // Affidavit type codes
     public static final int CONTEST_WINNING_AFFIDAVIT = 1;
+    public static final int TCCC05_ALGORITHM_AFFIDAVIT = 2;
+    public static final int TCCC05_COMPONENT_AFFIDAVIT = 3;
 
     // Payment type codes
     public static final int CONTEST_PAYMENT = 1;
@@ -295,6 +297,7 @@ public interface PactsConstants {
     public static final String NAV_OBJECT_ATTR = "navigation";
     public static final String TABLE_MODEL = "table_data";
     public static final String MODULE_KEY = "module";
+    public static final String AFFIDAVIT_TYPE_ID = "aftid";
 
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
