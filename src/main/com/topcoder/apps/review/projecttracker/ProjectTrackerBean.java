@@ -1617,7 +1617,7 @@ public class ProjectTrackerBean implements SessionBean {
                     + "winner_id, overview, "
                     + "notes, project_type_id, "
                     + "project_stat_id, notification_sent, "
-                    + "modify_user, modify_reason, level_id "
+                    + "modify_user, modify_reason, level_id, "
                     + "cur_version) VALUES "
                     + "(0, ?, ?, ?, null, ?, ?, ?, ?, 0, ?, 'Created', ?, 1)");
 
