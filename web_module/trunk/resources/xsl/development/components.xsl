@@ -207,7 +207,7 @@
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7311989" class="statText">Priority Queue</a></td>
                     <td class="formHandleOdd" align="center">3</td>
-                    <td class="formHandleOdd" align="center">1</td>
+                    <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309381"><strong>esessoms</strong></a></td>
                     <td class="formHandleOdd" align="center">89.88</td>
                     <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
