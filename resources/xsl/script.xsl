@@ -408,7 +408,11 @@ function goTo(selection)
    else if (sel == "apr2202")
   {
     window.location = "/index?t=statistics&c=coder_of_week042202";
-  }                                
+  }
+   else if (sel == "apr2902")
+  {
+    window.location = "/index?t=statistics&c=coder_of_week042902";
+  }                                   
   else
   {}
 }
