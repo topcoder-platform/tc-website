@@ -1,8 +1,11 @@
 package com.topcoder.web.tc.controller.request.card;
 
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.RowNotFoundException;
+import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -28,6 +31,22 @@ public class Data extends Base {
     protected void businessProcessing() throws TCWebException {
 
         try {
+            String coderId = StringUtils.checkNull(getRequest().getParameter("cr"));
+            if (coderId.equals("")) {
+                throw new TCWebException("Coder id parameter not included in request");
+            }
+
+            //let users always look at their own card.  this is only gonna work if
+            //they've got their cookie, otherwise, it'll just bomb out like anyone else
+            if (getUser().getId()!=Long.parseLong(coderId)) {
+                UserPreference up = (UserPreference)createEJB(getInitialContext(), UserPreference.class);
+                try {
+                    up.getValue(Long.parseLong(coderId), Constants.UNLOCK_CARD_PREFERENCE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                } catch (RowNotFoundException e) {
+                    throw new TCWebException("user has not unlocked their card.");
+                }
+            }
+
             getResponse().setContentType("text/xml");
             PrintWriter out = getResponse().getWriter();
             StreamResult streamResult = new StreamResult(out);
@@ -38,15 +57,8 @@ public class Data extends Base {
             serializer.setOutputProperty(OutputKeys.ENCODING,"ISO-8859-1");
             //flash doesn't like the whitespace
             serializer.setOutputProperty(OutputKeys.INDENT,"no");
-//            serializer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
             hd.setResult(streamResult);
             hd.startDocument();
-
-
-            String coderId = StringUtils.checkNull(getRequest().getParameter("cr"));
-            if (coderId.equals("")) {
-                throw new TCWebException("Coder id parameter not included in request");
-            }
 
             Request profileRequest = new Request();
             profileRequest.setContentHandle("card_profile_info");
