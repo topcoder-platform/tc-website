@@ -166,7 +166,7 @@ public class UserEdit extends BaseProcessor {
         if (secTok.createNew) {
             // find company item for user
             Contact contactTable = (
-                    (ContactHome) ic.lookup(ContactHome.EJB_REF_NAME)
+                    (ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)
                     ).create();
             // link user with company
             contactTable.createContact(secTok.primaryUserCompanyID, targetUserID);
@@ -207,7 +207,7 @@ public class UserEdit extends BaseProcessor {
     protected void retrieveUserDataFromDB(InitialContext ic) throws Exception {
         // user first, last names
         User userTable = (
-                (UserHome) ic.lookup(UserHome.EJB_REF_NAME)
+                (UserHome) ic.lookup("corp:"+UserHome.EJB_REF_NAME)
                 ).create();
         firstName = userTable.getFirstName(targetUserID);
         lastName = userTable.getLastName(targetUserID);
@@ -615,7 +615,7 @@ public class UserEdit extends BaseProcessor {
             throws RemoteException, CreateException, NamingException {
         // user first, last names
         User userTable = (
-                (UserHome) ic.lookup(UserHome.EJB_REF_NAME)
+                (UserHome) ic.lookup("corp:"+UserHome.EJB_REF_NAME)
                 ).create();
         if (createNew) {
             userTable.createUser(targetUserID, userName, 'A');
@@ -703,7 +703,7 @@ public class UserEdit extends BaseProcessor {
             try {
                 icEJB = (InitialContext)TCContext.getInitial();
                 contactTable = (
-                        (ContactHome) icEJB.lookup(ContactHome.EJB_REF_NAME)
+                        (ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)
                         ).create();
                 loggedUserCompanyID = contactTable.getCompanyId(loggedUserID);
                 Company companyTable = (
@@ -745,7 +745,7 @@ public class UserEdit extends BaseProcessor {
                     try {
                         ic = (InitialContext)TCContext.getInitial();
                         contactTable = (
-                                (ContactHome) ic.lookup(ContactHome.EJB_REF_NAME)
+                                (ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)
                                 ).create();
                     } finally {
                         Util.closeIC(ic);

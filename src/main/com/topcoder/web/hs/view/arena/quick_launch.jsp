@@ -31,7 +31,7 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
               NOTE: If a red button to "Load Competition Arena" does <b>not</b> appear below,
               you may not have the appropriate Plug-in software installed.  
               <SCRIPT type="text/javascript">
-                function getReq(){u='/hs/faq/soft_req.jsp';window.open(u);close();}
+                function getReq(){u='?module=Static&d1=faq&d2=soft_req';window.open(u);close();}
               </SCRIPT>
 <BR>
 <a href="Javascript:getReq()">
