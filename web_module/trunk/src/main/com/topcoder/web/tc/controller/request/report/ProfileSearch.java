@@ -247,18 +247,18 @@ public class ProfileSearch extends Base {
     }
     private String stringMatcher(String val, String col, boolean cs){
         boolean like = false;;
+        String rv;
+        if(cs && col.equals("u.handle")){
+            rv = "u.handle_lower";
+        }else if(cs){
+            rv = "lower('"+val+"')";
+        }else{
+            rv = "'"+val+"'";
+        }
         if(val.indexOf('%') != -1 || val.indexOf('_') != -1){
-            if(cs){
-                return "    AND "+col+" LIKE '"+val+"'\n";
-            }else{
-                return "    AND lower("+col+") LIKE lower('"+val+"')\n";
-            }
+            return "    AND "+col+" LIKE "+rv+"\n";
         } else {
-            if(cs){
-                return "    AND "+col+" = '"+val+"'\n";
-            }else{
-                return "    AND lower("+col+") = lower('"+val+"')\n";
-            }
+            return "    AND "+col+" = "+rv+"\n";
         }
     }
     private String buildCoderConstraints(TCRequest request, boolean skill){
@@ -393,7 +393,7 @@ public class ProfileSearch extends Base {
         Map demo = new HashMap();
         String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating"};
         String[] checkBoxes = {"count","pro","stud","resume","travel","auth","casesensitive"};
-        boolean[] def = {false,true,true,false,false,false,true};
+        boolean[] def = {false,true,true,false,false,false,false};
         boolean revise = "on".equals(request.getParameter("revise"));
         for(int i = 0; !revise && i<languages.getRowCount(); i++){
             ResultSetContainer.ResultSetRow lang = languages.getRow(i);
