@@ -104,7 +104,7 @@
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=appian" target="_top"><img src="/i/es/appian/appian_logo.gif" width="121" height="38" alt="Appian Corp" border="0" /></a></td>
                                 <td width="99%" class="bodyText"><strong>Appian</strong> is a young, fast growing software and technical consulting firm 
                                 specializing in highly scalable, high performance web and wireless applications for major government and commercial customers.  
-                                Our expertise is in large volume data systems and real-time analytics.  We are looking for 
+                                Our expertise is in large volume data systems and real-time analytics.  We are looking for. 
                                 <A href="/?&amp;t=tces&amp;c=appian" class="bodyText" target="_top">Software Engineers</A> with a passion for 
                                 coding and designing non-trivial applications.<br/><br/></td>
                             </tr>
@@ -112,19 +112,16 @@
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- Appian ends -->
 
-<!-- Cryptic begins ### Cryptic's contract has expired 2/4/03 ###
-  <tr>
-        <td valign="middle" class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=cryptic"><img src="/i/es/cryptic/cryptic_logo.gif" width="120" height="63" alt="" border="0" vspace="10"/></a></td>
-        <td><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-        <td width="100%" valign="middle" class="bodyText">Want to be a part of creating the world's first super powered MMP experience?  
-        Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We're 
-        looking for an Associate Game Designer and an entry level Level Designer.            
-          <a href="/?&amp;t=tces&amp;c=cryptic" class="bodyText">Click here</a> for more information.<br/><br/></td>
-    </tr>
-    <tr>
-        <td colspan="3" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-    </tr>       
- Cryptic ends -->
+<!-- Cryptic begins-->
+                            <tr valign="top">
+                              <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=cryptic"><img src="/i/es/cryptic/cryptic_logo.gif" width="120" height="63" alt="" border="0"/></a></td>
+                              <td width="99%" class="bodyText">Want to be a part of creating the world's first super powered MMP experience?  
+                              Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We're looking for a Quality Assurance Engineer..            
+                              <a href="/?&amp;t=tces&amp;c=cryptic" class="bodyText">Click here</a> for more information.<br/><br/></td>
+                              </tr>
+
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+<!-- Cryptic ends -->
 
 <!-- DiversifiedData begins -->
                             <tr valign="top">
