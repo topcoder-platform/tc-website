@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!--  Builder.com Javaone -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://builder.com.com/5100-6370_14-5260946.html" target="_blank"><img src="/i/pressroom/builder_logo.gif" alt="javaone" width="135" height="40" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://builder.com.com/5100-6370_14-5260946.html" target="_blank">CNET engineer wins JavaOne Coding Challenge</A></strong></font><br />
+                        We always thought we worked with a bunch of smart people here at CNET, but now we have actual proof. Matthew McEachen, a senior software engineer based in our San Francisco office, won the Coding Challenge at the recent JavaOne conference. We got a few minutes from him recently to answer some questions about his accomplishment.<span class="prHead"> [July 9]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!--  Javaone -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
