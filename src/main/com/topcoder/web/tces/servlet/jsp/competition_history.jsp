@@ -68,7 +68,7 @@
               <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "state_code").toString()%>
               <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "zip").toString()%> <BR/>
               <A HREF="mailto:<%=CompetitionHistoryTask.getMemberInfo().getItem(0, "email").toString() %>" CLASS="statText"><%= CompetitionHistoryTask.getMemberInfo().getItem(0, "email").toString() %></A> | <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "home_phone").toString()%> <BR/>
-              <B>Interested in:</B> <jsp:getProperty name="CoderDemographicsTask" property="JobName"/><BR/>
+              <B>Interested in:</B> <jsp:getProperty name="CompetitionHistoryTask" property="JobName"/><BR/>
               <% if (CompetitionHistoryTask.hasResume()) { %>
                 <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>" class="statText"><B>Resume</B></a>
               <% } %>

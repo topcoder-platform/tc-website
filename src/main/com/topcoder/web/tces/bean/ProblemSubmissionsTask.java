@@ -35,6 +35,10 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
     /** Holds value of property submissionList. */
     private List submissionList;
 
+    private ResultSetContainer memberInfo;
+    private String jobName;
+    private boolean hasResume;
+
     /** Creates new ProblemSubmissionsTask */
     public ProblemSubmissionsTask() {
         super();
@@ -121,6 +125,11 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
                                  " cid="+Integer.toString(getCampaignID())+
                                  " does not belong to uid="+Integer.toString(uid) );
         }
+
+        setMemberInfo((ResultSetContainer) resultMap.get("TCES_Member_Profile"));
+        setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
+                getItem(0, "job_desc").toString());
+
 
         dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         resultMap = dai.getData(dataRequest);
@@ -215,6 +224,30 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
      */
     public void setSubmissionList(List submissionList) {
         this.submissionList = submissionList;
+    }
+
+        public ResultSetContainer getMemberInfo() {
+        return memberInfo;
+    }
+
+    public void setMemberInfo(ResultSetContainer memberInfo) {
+        this.memberInfo = memberInfo;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
+
+    public boolean hasResume() {
+        return hasResume;
+    }
+
+    public void setHasResume(boolean hasResume) {
+        this.hasResume = hasResume;
     }
 
 }
