@@ -594,7 +594,11 @@ public class TransactionServlet extends HttpServlet {
         loginPageDest
                 .append(loginApplicationPage).append('?')
                 .append(Login.KEY_DESTINATION_PAGE).append('=')
-                .append(originatingPage);
+                .append(URLEncoder.encode(originatingPage));
         fetchRegularPage(req, resp, loginPageDest.toString(), true);
     }
+
+
+
+
 }
