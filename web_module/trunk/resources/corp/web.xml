@@ -148,6 +148,11 @@
             <param-value>/Tx/helper_form.jsp</param-value>
             <description>intermediate form used to organize user to VeriSign interaction</description>
         </init-param>
+        <init-param>
+            <param-name>terms</param-name>
+            <param-value>/Tx/product_terms.jsp</param-value>
+            <description>user must agree to terms in order to make purchase</description>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
