@@ -130,7 +130,7 @@
                   </TD>
                 </TR>
                 
-                </tces:mapIterator>
+                </tces:rowIterator>
 
                 <% if(CampaignInterestTask.getHitList().isEmpty()){ %>
                 <TR>

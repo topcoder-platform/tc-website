@@ -50,10 +50,10 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     /* Holds the order that the hit list should be sorted in */
     private String sortOrder;
 
-    /* Holds the field that the hit list should be sorted by */
+    /* Holds the field that the hit list should be sorted by after sortBy */
     private String backSortBy;
 
-    /* Holds the order that the hit list should be sorted in */
+    /* Holds the secondary order that the hit list should be sorted in */
     private String backSortOrder;
 
     /* Creates new PositionInterestTask */
