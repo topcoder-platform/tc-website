@@ -83,7 +83,7 @@
                     else info = nav.getSessionInfo();
                 }
             %>
-                <tr><td id="<%=level2.equals("round_overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=round_overview<%=request.getParameter("rd")==null?"":"&rd="+request.getParameter("rd")%>>Round Overview</a></td></tr>
+                <tr><td id="<%=level2.equals("round_overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=round_overview<%=request.getParameter("rd")==null?"":"&rd="+request.getParameter("rd")%>">Round Overview</a></td></tr>
                 <tr><td id="<%=level2.equals("last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>
                 <% if (!info.isAnonymous() && info.getRating()>0) { %>
                     <tr><td id="<%=level2.equals("my_last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=coder_room_stats&cr=<%=info.getUserId()%>">My Last Match</a></td></tr>
