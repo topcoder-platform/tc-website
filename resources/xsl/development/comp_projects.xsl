@@ -28,7 +28,7 @@
 <head>
     <xsl:call-template name="Preload" />
 
-<title>Open Component Projects Available for TopCoder Software Development</title>
+<title>Component Projects</title>
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 
     <xsl:call-template name="CSS" />

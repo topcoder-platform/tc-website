@@ -63,7 +63,7 @@
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                                 <tr valign="middle">
-                                    <td class="projectTitles" colspan="4">Open Application Design Projects</td>
+                                    <td class="projectTitles" colspan="4">Application Design Projects</td>
                                 </tr>
 
                                 <tr valign="middle">
@@ -89,7 +89,7 @@
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                                 <tr valign="middle">
-                                    <td class="projectTitles" colspan="4">Open Application Development Projects</td>
+                                    <td class="projectTitles" colspan="4">Application Development Projects</td>
                                 </tr>
 
                                 <tr valign="middle">
