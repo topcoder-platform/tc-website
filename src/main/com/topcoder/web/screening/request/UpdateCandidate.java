@@ -66,7 +66,8 @@ public class UpdateCandidate extends BaseProcessor
      * 
      * @throws Exception Thrown if there is input error.
      */
-    public synchronized void process() throws Exception {
+    public void process() throws Exception {
+        synchronized(UpdateCandidate.class) {
         requireLogin();
         
         request = getRequest();
@@ -169,6 +170,7 @@ public class UpdateCandidate extends BaseProcessor
         ut.commit();
         
         determineNextPage();
+        }
     }
 
     /** 

@@ -26,7 +26,8 @@ import com.topcoder.web.screening.model.EmailInfo;
 import com.topcoder.web.screening.model.SessionInfo;
 
 public class UpdateSession extends BaseSessionProcessor {
-    public synchronized void process() throws Exception {
+    public void process() throws Exception {
+        synchronized(UpdateSession.class) {
         requireLogin();
         
         updateSessionInfo(); // we need this just in case of session timeout
@@ -122,5 +123,6 @@ public class UpdateSession extends BaseSessionProcessor {
 
         setNextPage(Constants.DEFAULT_PAGE);
         setNextPageInContext(false);
+        }
     }
 }
