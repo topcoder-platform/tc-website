@@ -74,6 +74,7 @@ public class Constants
     
     public static String CITY;
     public static int AREA_OF_INTEREST_ID;
+    public static int DEGREE_ID;
     
     public static String DEMOG_PREFIX;
 
