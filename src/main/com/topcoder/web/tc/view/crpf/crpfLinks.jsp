@@ -11,9 +11,9 @@
 
 <!-- Summary tab -->
             <% if (selectedTab.equals("overview")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview" class="statTextBig"><img src="/i/events/crpf03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos" class="statTextBig"><img src="/i/events/crpf03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview" class="statTextBig"><img src="/i/events/crpf03/tab_overview_off.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos" class="statTextBig"><img src="/i/events/crpf03/tab_overview_off.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
             <% } %>
 
 <!-- Schedule tab -->
