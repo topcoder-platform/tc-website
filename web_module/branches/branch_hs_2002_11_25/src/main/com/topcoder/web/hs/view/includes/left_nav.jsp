@@ -71,7 +71,7 @@ sub = NavZone.getLevel1();
 <TABLE WIDTH="170" CELLSPACING="0" CELLPADDING="0" BORDER="0" BGCOLOR="#000000">
 
     <%=rootsep%>
-    <%=rootheader("What's inside")%>
+    <%=rootheader("What's Inside")%>
     <%=rootsep%>
     <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How Schools Compete", "how_hs_compete", false)%>
     <%=rootsep%>
