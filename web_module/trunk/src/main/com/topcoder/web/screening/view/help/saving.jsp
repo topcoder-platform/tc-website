@@ -61,7 +61,7 @@
 
 <!-- Help Nav begins -->
                         <jsp:include page="helpLeft.jsp" >
-                            <jsp:param name="selected" value="index"/>
+                            <jsp:param name="selected" value="saving"/>
                         </jsp:include>
 <!-- Help Nav ends -->
 
