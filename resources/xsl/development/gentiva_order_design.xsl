@@ -86,10 +86,6 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        <strong>
-                                                            <a name="overview">Overview</a>
-                                                        </strong>
-                                                        <br/>
                                                         The Gentiva Order Processing application gives users the ability to track
                                                         and process incoming health care orders from the Gentiva ordering software.
                                                         This processing consists of submitting the orders to one of several back-end
