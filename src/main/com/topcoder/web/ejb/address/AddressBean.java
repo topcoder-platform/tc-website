@@ -37,7 +37,6 @@ public class AddressBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
         long ret = 0;
 
         try {
