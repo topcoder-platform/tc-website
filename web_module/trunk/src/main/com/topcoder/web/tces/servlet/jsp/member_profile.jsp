@@ -57,19 +57,23 @@
             <TD class="bodyText" ALIGN="left">
 
               <B>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </B>
-              <BR>
-              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%>
-              <BR>
+              <br/>
+              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "middle_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%>
+              <br/>
               <%= MemberInfo.getItem(0, "address1").toString()%>
               <%= MemberInfo.getItem(0, "address2").toString().equals("")?"<BR>":"<BR>"+MemberInfo.getItem(0, "address2").toString()+"<BR>"%>
+              <%= MemberInfo.getItem(0, "address3").toString().equals("")?"<BR>":"<BR>"+MemberInfo.getItem(0, "address3").toString()+"<BR>"%>
+              <%= MemberInfo.getItem(0, "province").toString()%>
               <%= MemberInfo.getItem(0, "city").toString()%>,
               <%= MemberInfo.getItem(0, "state_code").toString()%>
               <%= MemberInfo.getItem(0, "zip").toString()%>
-              <BR>
+              <br/>
+              <%= MemberInfo.getItem(0, "country_name").toString()%>
+              <br/>
               <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" class="bodyText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%>
-              <BR>
+              <br/>
               <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
-              <BR>
+              <br/>
               <% if (MemberProfileTask.hasResume()) { %>
                 <a href="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
               <% } %>
