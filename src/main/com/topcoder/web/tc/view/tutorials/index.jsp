@@ -70,6 +70,10 @@
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3"><strong>Section 3: Finding the Best Path through a Graph</strong></a>
 				</td></tr>
 				<tr valign=top><td class="bodyText">
+					<a class="bodyText" href="/stat?c=member_profile&amp;cr=7371063">Supernova</a>
+					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=greedyAlg"><strong>Greed is Good</strong></a>
+				</td></tr>
+				<tr valign=top><td class="bodyText">
 					<a class="bodyText" href="/stat?c=member_profile&amp;cr=7305703">Dumitru</a>
 					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=dynProg"><strong>Dynamic Programming:</strong> From novice to advanced</a>
 				</td></tr>
