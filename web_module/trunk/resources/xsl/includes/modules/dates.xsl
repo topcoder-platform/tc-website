@@ -14,14 +14,7 @@
           <xsl:attribute name="CLASS"><xsl:value-of select="$class"/></xsl:attribute>
           <A>
             <xsl:attribute name="CLASS"><xsl:value-of select="$class"/></xsl:attribute>
-            <xsl:choose>
-              <xsl:when test="RoundId='64' or RoundId='68'">
-                <xsl:attribute name="href">/?t=schedule&amp;c=tourny_sched</xsl:attribute>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:attribute name="href">/?RoundId=<xsl:value-of select="RoundId"/>&amp;t=schedule&amp;c=srm</xsl:attribute>
-              </xsl:otherwise>
-            </xsl:choose>
+            <xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;RoundId=<xsl:value-of select="RoundId"/>&amp;t=schedule&amp;c=srm</xsl:attribute>
             <b><xsl:value-of select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,0,11)"/></b><br/>
             Register:&#160;
             <xsl:value-of select="format-number(RoundSegments/RoundSegment[SegmentId='1']/StartHour,'##')"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/><br/>
