@@ -142,7 +142,7 @@ public final class MainServlet extends HttpServlet {
             requestTask = request.getParameter("t");
             requestCommand = request.getParameter("c");
 
-            if (!"sponsor_image".equals(requestCommand.toLowerCase())) {
+            if (!"sponsor_image".equals(requestCommand)) {
                 WebAuthentication authentication = new BasicAuthentication(
                         new SessionPersistor(session),
                         tcRequest,
