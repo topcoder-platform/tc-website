@@ -78,15 +78,15 @@ public class FullRegConfirm extends FullRegBase {
             } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
                 try {
                     r.setAnswerId(Long.parseLong(value));
+                    responses.add(r);
                 } catch (NumberFormatException e) {
-                    r.setAnswerId(DemographicAnswer.DELINE.getAnswerId());
+                    //skip it, it's invalid, checking will have to pick it up later
                 }
             } else if (q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                 log.debug("don't know what to do with multiselect yet");
             } else {
                 //todo error handling here, not a valid question
             }
-            responses.add(r);
         }
         info.setResponses(responses);
 
@@ -108,6 +108,7 @@ public class FullRegConfirm extends FullRegBase {
         DemographicResponse r = null;
         DemographicQuestion q = null;
         try {
+            //todo must confirm that they answered all required questions
             for (Iterator it = info.getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
                 q = findQuestion(r.getQuestionId());
