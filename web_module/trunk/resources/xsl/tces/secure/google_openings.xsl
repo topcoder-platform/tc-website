@@ -70,6 +70,12 @@
 <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 <FORM METHOD="" ACTION="/jobposting">
 <INPUT TYPE="HIDDEN" NAME="t" VALUE="JobHitTask"/>
+
+<P>
+Positions based in the San Francisco Bay Area unless otherwise noted in
+job description.
+</P>
+
 <P>
 <B>Positions currently available</B>
 </P>
