@@ -185,8 +185,13 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setEmail(user.getEmail());
         setCoderType(coder.getCoderType().getCoderTypeDesc());
         setCoderTypeId(Integer.toString(coder.getCoderType().getCoderTypeId()));
-        setGpa(String.valueOf(coder.getCurrentSchool().getGpa()));
-        setGpaScale(String.valueOf(coder.getCurrentSchool().getGpaScale()));
+        if (coder.getCurrentSchool().getGpa() > 0 && coder.getCurrentSchool().getGpaScale() > 0) {
+            setGpa(String.valueOf(coder.getCurrentSchool().getGpa()));
+            setGpaScale(String.valueOf(coder.getCurrentSchool().getGpaScale()));
+        } else { 
+            setGpa("");
+            setGpaScale("");
+        }
         if (!oltpResult.isEmpty()) {
             setSchool(oltpResult.getItem(0, "school_name").toString());
             setMemberSince(oltpResult.getItem(0, "member_since_date").toString());

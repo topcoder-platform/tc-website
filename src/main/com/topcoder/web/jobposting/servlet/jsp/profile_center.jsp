@@ -60,7 +60,7 @@
       Most Recent Rated Event: <jsp:getProperty name="JobHitTask" property="MostRecentEvent" /><br>
       <br/>
       GPA: <jsp:getProperty name="JobHitTask" property="Gpa" /><br>
-      GPA: <jsp:getProperty name="JobHitTask" property="GpaScale" /><br>
+      GPA Scale: <jsp:getProperty name="JobHitTask" property="GpaScale" /><br>
     </td>
   </tr>
   <tr valign="middle">
