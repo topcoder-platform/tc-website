@@ -61,6 +61,8 @@ public class Constants {
     public static String RP_PROBLEM_STATEMENT;
     public static String RP_SAVE;
     public static String RP_SAVE_RESPONSE;
+    public static String RP_COMPILE;
+    public static String RP_COMPILE_RESPONSE;
 
     //session keys
     public static String TEST_SET_A;
