@@ -66,6 +66,44 @@
         </rsc:iterator>
         <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes <%=compCount%> Competitor Votes</td></tr>
     </table>
+    <table BORDER="0" CELLSPACING="0" CELLPADDING="5" WIDTH="100%">
+      <tr>
+         <td>
+         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+         codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+         WIDTH="300" HEIGHT="200" id="problem_rating" ALIGN="">
+         <PARAM NAME=movie VALUE="/i/problem_rating.swf"> <PARAM NAME=quality VALUE=medium> <PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="/i/problem_rating.swf" quality=medium bgcolor=#FFFFFF  WIDTH="300" HEIGHT="200" NAME="problem_rating" ALIGN=""
+         TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+         </OBJECT>
+         </td>
+         <td>
+         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+         codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+         WIDTH="300" HEIGHT="200" id="problem_rating" ALIGN="">
+         <PARAM NAME=movie VALUE="/i/problem_rating.swf"> <PARAM NAME=quality VALUE=medium> <PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="/i/problem_rating.swf" quality=medium bgcolor=#FFFFFF  WIDTH="300" HEIGHT="200" NAME="problem_rating" ALIGN=""
+         TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+         </OBJECT>
+         </td>
+      </tr>
+      <tr>
+         <td>
+         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+         codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+         WIDTH="300" HEIGHT="200" id="problem_rating" ALIGN="">
+         <PARAM NAME=movie VALUE="/i/problem_rating.swf"> <PARAM NAME=quality VALUE=medium> <PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="/i/problem_rating.swf" quality=medium bgcolor=#FFFFFF  WIDTH="300" HEIGHT="200" NAME="problem_rating" ALIGN=""
+         TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+         </OBJECT>
+         </td>
+         <td>
+         <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+         codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+         WIDTH="300" HEIGHT="200" id="problem_rating" ALIGN="">
+         <PARAM NAME=movie VALUE="/i/problem_rating.swf"> <PARAM NAME=quality VALUE=medium> <PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="/i/problem_rating.swf" quality=medium bgcolor=#FFFFFF  WIDTH="300" HEIGHT="200" NAME="problem_rating" ALIGN=""
+         TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+         </OBJECT>
+         </td>
+      </tr>
+   </table>
       </td>
 <!-- Center Column Ends -->
 
