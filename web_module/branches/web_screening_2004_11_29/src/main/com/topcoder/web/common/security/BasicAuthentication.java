@@ -32,7 +32,7 @@ public class BasicAuthentication implements WebAuthentication {
     private TCRequest request;
     private TCResponse response;
     private User guest = SimpleUser.createGuest();
-    private Resource defaultCookiePath;
+    protected Resource defaultCookiePath;
 
     public static final Resource CORP_SITE = new SimpleResource("/corp");
     public static final Resource MAIN_SITE = new SimpleResource("/");
@@ -159,7 +159,7 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     /** Fill in the name field from the user id. */
-    private User makeUser(long id) {
+    protected User makeUser(long id) {
         try {
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             UserPrincipal up = pmgr.getUser(id);
