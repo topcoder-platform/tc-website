@@ -356,7 +356,7 @@ public final class TaskSearch {
                             stat.setMemberSince(new java.sql.Date(((Date)rsc.getItem(0, "member_since").getResultData()).getTime()));
                             stat.setHandle(rsc.getItem(0, "handle").toString());
                             stat.setRating(((Integer)rsc.getItem(0, "rating").getResultData()).intValue());
-                            stat.setTotalEarnings(((Float)rsc.getItem(0, "total_earnings").getResultData()).floatValue());
+                            stat.setTotalEarnings(new Float(rsc.getItem(0, "total_earnings").toString()).floatValue());
                             referrals.remove(i);
                             referrals.add(i, stat);
                         }
