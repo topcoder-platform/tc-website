@@ -7,6 +7,10 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCData;
 import com.topcoder.web.tces.common.TCESConstants;
 
+import com.topcoder.shared.security.AuthenticationException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.User;
+
 import javax.servlet.http.*;
 import java.io.Serializable;
 import java.util.Map;
@@ -101,30 +105,68 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     }
 
     public void processStep(String step) throws Exception {
+        /* variable to hold requestedURL next page  */
+        String checkNextPage = ((String)session.getAttribute("requestedURL")).trim();
 
         if (step!=null && step.equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
-            if (Authentication.getRequestedURL(session).trim().length()>0) {
-                setNextPage(Authentication.getRequestedURL(session).trim());
+
+            if (checkNextPage != null && checkNextPage.length() > 0) {
+                setNextPage(checkNextPage);
                 customRedir=true;
-                Authentication.resetRequestedURL(session);
             }
-            if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "")) {
-                if (!customRedir)
-                    setNextPage(TCESConstants.LOGIN_OK_PAGE );
+            session.setAttribute("requestedURL","");
+
+            String handle = getHandleInput();
+            String passw = getPasswordInput();
+
+            log.debug("TCES: login attempt for: "+handle);
+
+            User possibleUser = new SimpleUser(handle, passw);
+
+            try {
+                authToken.login(possibleUser);
+                log.debug("TCES: user "+possibleUser.getUserName()+" has logged in");
+                if (!customRedir) {
+                    setNextPage(TCESConstants.LOGIN_OK_PAGE);
+                }
             }
-            else {
-                setMessage(Authentication.getErrorMessage(session));
-                setNextPage(TCESConstants.LOGIN_PAGE );
+            catch(AuthenticationException ae) {
+                setMessage("Username and/or password are incorrect");
+                setNextPage(TCESConstants.LOGIN_PAGE);
             }
-        } else if (Authentication.isLoggedIn(session)) {
-            if (Authentication.getRequestedURL(session).trim().length()>0) {
-                setNextPage(Authentication.getRequestedURL(session).trim());
+        } else if (authToken.isLoggedIn()) {
+            if (checkNextPage != null && checkNextPage.length() > 0) {
+                setNextPage(checkNextPage);
                 customRedir=true;
-                Authentication.resetRequestedURL(session);
+                session.setAttribute("requestedURL","");
             } else {
                 setNextPage(TCESConstants.LOGIN_OK_PAGE );
-            }
+            }     
         }
+//            if (Authentication.getRequestedURL(session).trim().length()>0) {
+//                setNextPage(Authentication.getRequestedURL(session).trim());
+//                customRedir=true;
+//                Authentication.resetRequestedURL(session);
+//            }
+
+//            if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "")) {
+//                if (!customRedir)
+//                    setNextPage(TCESConstants.LOGIN_OK_PAGE );
+//            }
+//            else {
+//                setMessage(Authentication.getErrorMessage(session));
+//                setNextPage(TCESConstants.LOGIN_PAGE );
+//            }
+//        } else if (Authentication.isLoggedIn(session)) {
+//            if (Authentication.getRequestedURL(session).trim().length()>0) {
+//                setNextPage(Authentication.getRequestedURL(session).trim());
+//                customRedir=true;
+//                Authentication.resetRequestedURL(session);
+//            } else {
+//                setNextPage(TCESConstants.LOGIN_OK_PAGE );
+//            }
+//        }
+
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
