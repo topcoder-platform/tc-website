@@ -52,7 +52,7 @@
                 <tr>
                      <td class="dc_regTableQuestion"><b>Personal</b></td>
                     <td class="dc_regTableAnswer">
-                        <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.DC_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                        <a class="bodyText_link" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.DC_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                     </td>
                 </tr>
                 <tr>
@@ -127,7 +127,7 @@
                 <tr>
                     <td class="dc_regTableQuestion"><b>Demographics</b></td>
                     <td class="dc_regTableAnswer">
-                        <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.DC_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                        <a class="bodyText_link" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.DC_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                     </td>
                 </tr>
 
@@ -143,8 +143,8 @@
                 </pl:responseIterator>
 
                 <tr>
-                   <td colspan="2" align="center">
-                      <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
+                   <td class="dc_regTableQuestion"></td>
+                   <td class="dc_regTableAnswer"><a class="bodyText_link" href="javascript: document.regForm.submit();">Submit</a>
                    </td>
                 </tr>
 
