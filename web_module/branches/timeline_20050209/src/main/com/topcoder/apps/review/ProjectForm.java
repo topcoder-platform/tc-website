@@ -932,10 +932,11 @@ private Log log = null;
      */
     public void setAdjustStartDate(int index, String adjust) {
         adjustStartDates[index] = Boolean.getBoolean(adjust);
-
+        log(Level.INFO, "setAdjustStartDate("+index+","+adjust+"): " +adjustStartDates[index]);
+/*
         if (adjustStartDates[index]) {
             forcedStartDates[index] = "";
-        }
+        }*/
     }
 
 
@@ -1276,6 +1277,7 @@ log (Level.INFO, "adjustStartDates [" + i+"]: " +adjustStartDates[i]);
             if (!adjustStartDates[i]) {
                 startDate = parseDate(forcedStartDates[i]);
             }
+log (Level.INFO, "StartDate [" + i+"]=" +startDate);
             phase.setStartDate(startDate);
             phase.setLength(phaseLengths[i]);
 
