@@ -52,10 +52,10 @@
             
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/final/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
+            <span class="leadPhotoCaption">tomek poses for the crowd<br/><br/></span>
             </div>
             
-            <h2>Final Round</h2>
+            <h2>tomek comes out on top</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             Friday, December 5, 2003</p>

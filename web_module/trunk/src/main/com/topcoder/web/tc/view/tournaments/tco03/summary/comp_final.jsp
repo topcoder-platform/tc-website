@@ -52,7 +52,7 @@
             
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/comp_final/summary_des.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
+            <span class="leadPhotoCaption">Pops, $10,000 richer and lovin' it<br/><br/></span>
             </div>
             
             <h2>Pops is tops!</h2>
@@ -214,7 +214,7 @@ round and the reviewers unanimously named him the winner.</p>
 
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/comp_final/summary_dev.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
+            <span class="leadPhotoCaption">rnielsen beat the odds.<br/><br/></span>
             </div>
             
             <h2>Component Final Round</h2>
