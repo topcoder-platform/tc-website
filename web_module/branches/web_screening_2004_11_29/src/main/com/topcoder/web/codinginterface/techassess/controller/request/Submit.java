@@ -53,11 +53,11 @@ public class Submit extends Base {
                         new String[] {Constants.PROBLEM_TYPE_ID},
                         new String[] {String.valueOf(problemTypeId)}));
             } else if (response.getStatus()==ScreeningSubmitResponse.ERROR) {
-                throw new NavigationException(response.getMessage(),
-                        buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
+                //todo you gotta make this work with the processing page complexity.
+                addError(Constants.CODE, response.getMessage());
+                closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
                         new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
-                        new String[] {String.valueOf(problemTypeId),
-                                      String.valueOf(componentId)}));
+                        new String[] {String.valueOf(problemTypeId), String.valueOf(componentId)}));
             } else if (response.getStatus()==ScreeningSubmitResponse.RESUBMIT) {
                 //ask them if they really want to resubmit
                 //todo
