@@ -56,8 +56,8 @@
                 <tr><td id="leftNav"><a href="/corp/?module=Static&d1=corp&d2=tces_home" class="left">Employment Services</a></td></tr>
                 <tr><td id="leftNav"><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class="left">Marketing Services</a></td></tr>
                 <tr><td id="leftNav"><a href="" class="left">Client List</a></td></tr>
-                <tr><td id="leftNav"><a href="" class="left">Press Room</a></td></tr>
-                <tr><td id="leftNav"><a href="" class="left">Developer Center</a></td></tr>
+                <tr><td id="leftNav"><a href="/?t=news_events&c=index" class="left">Press Room</a></td></tr>
+                <tr><td id="leftNav"><a href="/tc" class="left">Developer Center</a></td></tr>
     <% } else { %>
                 <tr><td id="leftNavTitle">Corporate Services:</td></tr>
                 <tr><td id="leftNav"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=tces_home" class="left">Employment Services</a></td></tr>
