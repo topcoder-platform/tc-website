@@ -46,7 +46,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="244">
          <img src="/i/clear.gif" width="180" height="10" border="0"><br/>
          <jsp:include page="srm_sponsor.jsp" />
          <jsp:include page="coder_of_month.jsp" />
