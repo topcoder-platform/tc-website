@@ -85,7 +85,7 @@ public class TCES extends Task implements Serializable {
 						doUpdate = true;
 					}
 					if (htParams.get("lastName") != null) {
-						coderObject.last_name = ((String[])htParams.get("lastName"))[0]
+						coderObject.last_name = ((String[])htParams.get("lastName"))[0];
 						doUpdate = true;
 					}
 					if (doUpdate) {
