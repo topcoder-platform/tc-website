@@ -6,7 +6,7 @@
             
             <table cellspacing="0" cellpadding="5" border="0" width="200" bgcolor="#1B2E5D">
                 <tr valign="top">
-                    <td class="resoursesnav" width="100%">
+                    <td class="resoursesnav" width="100%" align="left">
                         <p><strong><font size="3">Java</font></strong><br>
                         <a href="http://java.sun.com/" target="_blank" class="resoursesnav">java.sun.com</a><br>
                         <a href="http://www.javaworld.com/" target="_blank" class="resoursesnav">www.javaworld.com</a><br>
