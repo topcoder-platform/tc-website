@@ -83,6 +83,55 @@ public final class ProjectManagerReviewAction extends ReviewAction {
             } else {
                 form = new SubmissionForm();
                 ((SubmissionForm) form).fromSubmission(submission, pr.getSubmissions(), pr.getScorecards());
+                
+                //set advanced flag if screening
+                if(((SubmissionForm) form).getIsScreening()) {
+                    //build scores array
+                    //get top 5 scores first
+                    ArrayList scores = new ArrayList();
+                    
+                    AbstractScorecard[] scorecards = pr.getScorecards();
+                    
+                    double minscore;
+                    try {
+                        minscore = ConfigHelper.getMinimumScore();
+                    } catch(Exception e) {
+                        minscore = 75;
+                    }
+                
+                    
+                    for(int i = 0; i < pr.getSubmissions().length; i++) {
+                        if (!pr.getSubmissions()[i].isRemoved()) {
+                            for (int j = 0; j < scorecards.length; j++) {
+                                if (scorecards[j].getSubmission().equals(pr.getSubmissions()[i]) && scorecards[j].isCompleted()) {
+                                    if (((ScreeningScorecard)scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
+                                        scores.add(new Double(scorecards[j].getScore()));
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    //sort list
+                    Collections.sort(scores);
+                    Collections.reverse(scores);
+                    //remove all but top five scores.  No need to check ties, this will gaurentee they advance
+                    while(scores.size() > 5) {                
+                        scores.remove(5);
+                    }
+                    
+                    for (int i = 0; i < ((SubmissionForm) form).getScorecards().length; i++) {
+                        AbstractScorecard scorecard = ((SubmissionForm) form).getScorecards()[i];
+                        if (scorecard.getSubmission().getSubmitter().getId() == sid) {
+                            if(scores.contains(new Double(scorecard.getScore()))) {
+                                ((SubmissionForm) form).setAdvanced(true);
+                            } else {
+                                ((SubmissionForm) form).setAdvanced(false);
+                            }
+                        }
+                    }
+                }
+                
                 request.getSession().setAttribute(mapping.getAttribute(), form);
 
                 saveToken(request);
