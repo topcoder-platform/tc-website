@@ -626,11 +626,14 @@ public class EmailBean implements SessionBean {
                 "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("UPDATE email SET primary = 0");
+            ps = conn.prepareStatement("UPDATE email SET primary = 0 " +
+                                       "WHERE user_id = ?");
+
+            ps.setLong(1, userId);
 
             int rows = ps.executeUpdate();
 
-            ps = conn.prepareStatement("UPDATE email SET primary = 1" +
+            ps = conn.prepareStatement("UPDATE email SET primary = 1 " +
                                        "WHERE user_id = ? AND email_id = ?");
 
             ps.setLong(1, userId);

@@ -97,7 +97,8 @@ public class PhoneBean implements SessionBean {
                 "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("INSERT INTO phone (user_id, phone_id) VALUES (?,?)");
+            ps = conn.prepareStatement("INSERT INTO phone (user_id, " +
+                                       "phone_id) VALUES (?,?)");
             ps.setLong(1, userId);
             ps.setLong(2, ret);
 
@@ -623,11 +624,14 @@ public class PhoneBean implements SessionBean {
                 "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("UPDATE phone SET primary = 0");
+            ps = conn.prepareStatement("UPDATE phone SET primary = 0 " +
+                                       "WHERE user_id = ?");
+
+            ps.setLong(1, userId);
 
             int rows = ps.executeUpdate();
 
-            ps = conn.prepareStatement("UPDATE phone SET primary = 1" +
+            ps = conn.prepareStatement("UPDATE phone SET primary = 1 " +
                                        "WHERE user_id = ? AND phone_id = ?");
 
             ps.setLong(1, userId);
