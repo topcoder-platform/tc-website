@@ -46,7 +46,7 @@
             
             <div align="center">
             
-            <form action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TX_BEGIN%>" method="POST" name="frmTerms">
+            <form action="<%=request.getContextPath()+"/Tx/"%>" method="POST" name="frmTerms">
             
             <table border="0" cellspacing="0" cellpadding="5">
             <jsp:useBean id="TransactionInfo" scope="request" class="com.topcoder.web.corp.model.TransactionInfo" />
@@ -55,9 +55,10 @@
                 <tr valign="middle"><td class="errorForm"><tc-webtag:errorIterator id="err" refname="<%=Constants.KEY_AGREE_TO_TERMS%>"><%=err%></tc-webtag:errorIterator></td></tr>
                 <tr valign="middle"><td class="bodyText">I Agree to the Terms and Conditions stated above&#160;<tc-webtag:chkBox name="<%=Constants.KEY_AGREE_TO_TERMS%>" value="<%=TransactionInfo.hasAgreed()%>"/></td></tr>
                 <tr valign="middle"><td align="center">
-                        <input type="hidden" name="module" value="Registration">
-                        <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID" />">
-                        <input type="submit" onClick="" name="submit" value=" Continue">
+                        <input type="hidden" name="<%=TransactionServlet.KEY_OPERATION%>" value="<%=TransactionServlet.OP_TX_BEGIN%>"/>
+                        <input type="hidden" name="module" value="Registration"/>
+                        <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID" />"/>
+                        <input type="submit" onClick="" name="submit" value=" Continue"/>
                     </td>
                 </tr>
             </table>
