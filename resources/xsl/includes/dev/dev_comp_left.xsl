@@ -20,27 +20,31 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/i/steel_gray_bg2.gif" bgcolor="#43515E"> 
 				<tr><td colspan="2" background="" height="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0"/></td></tr>
 
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=index" class="subNav">Development Overview</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+
+				<tr><td colspan="2" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
+
 				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=components" class="subNav">This Week's Component Project Winners</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
-				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
+				<tr><td colspan="2" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
 				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_des_projects" class="subNav">All Open Component Design Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
-				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
+				<tr><td colspan="2" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
 				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_dev_projects" class="subNav">All Open Component Development Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
-				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
+				<tr><td colspan="2" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_des_meth" class="subNav">Component Design Methodology</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_meth" class="subNav">Component Development Methodology</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
-				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
+				<tr><td colspan="2" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_dev_meth" class="subNav">Component Development Methodology</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr><td valign="top" background="" class="subNav" align="right">&#160;&#160;&#160;::&#160;&#160;</td><td valign="top" height="15" background="" class="subNav" width="100%"><a href="/index?t=support&amp;c=dev_faq" class="subNav">Development FAQ</a></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>
 
 				<tr><td colspan="2" background="" height="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
-				<tr><td colspan="3" background="/i/steel_gray_bg.gif" align="right"><img src="/i/sub_navbox_btm_right.gif" width="13" height="17" alt="" border="0"/></td></tr>
+				<tr><td colspan="2" background="/i/steel_gray_bg.gif" align="right"><img src="/i/sub_navbox_btm_right.gif" width="13" height="17" alt="" border="0"/></td></tr>
 			</table>
 
 			<table border="0" cellspacing="0" cellpadding="0">
