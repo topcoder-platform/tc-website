@@ -103,7 +103,7 @@ public class TCESServlet extends HttpServlet {
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
                 WebAuthentication authToken
                         = new BasicAuthentication(persistor, tcRequest, tcResponse, BasicAuthentication.CORP_SITE);
-
+                RequestTracker.trackRequest(authToken.getActiveUser(), tcRequest);
                 TCSubject tcUser = Util.retrieveTCSubject(
                         authToken.getActiveUser().getId()
                 );

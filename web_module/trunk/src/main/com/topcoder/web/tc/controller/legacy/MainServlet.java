@@ -132,8 +132,20 @@ public final class MainServlet extends HttpServlet {
             }
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
+
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             document = new XMLDocument("TC");
-            nav = getNav(HttpObjectFactory.createRequest(request), response);
+            nav = getNav(tcRequest, response);
+
+            WebAuthentication authentication = new BasicAuthentication(
+                    new SessionPersistor(session),
+                    tcRequest,
+                    HttpObjectFactory.createResponse(response),
+                    BasicAuthentication.MAIN_SITE);
+            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+
+
+
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
             requestTask = request.getParameter("t");

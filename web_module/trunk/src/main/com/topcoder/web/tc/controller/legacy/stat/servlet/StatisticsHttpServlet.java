@@ -10,6 +10,12 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.stat.bean.CoderRatingStyleBean;
 import com.topcoder.web.tc.controller.legacy.stat.bean.QuickStatListBean;
 import com.topcoder.web.tc.controller.legacy.stat.common.StatXMLParser;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.shared.util.DBMS;
 
 
@@ -135,6 +141,14 @@ public class StatisticsHttpServlet extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 nav = (Navigation) session.getAttribute("navigation");
                 if (nav == null) nav = new Navigation(request, response);
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                WebAuthentication authentication = new BasicAuthentication(
+                        new SessionPersistor(session),
+                        tcRequest,
+                        HttpObjectFactory.createResponse(response),
+                        BasicAuthentication.MAIN_SITE);
+                RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+
                 session.setAttribute("navigation", nav);;
 
                 log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " +
