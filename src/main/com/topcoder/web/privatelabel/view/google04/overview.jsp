@@ -58,7 +58,7 @@
 			<br/><br/>
 			<span class=greenSubtitle>How it works</span>
 			<br/><br/>
-			Download the Google Code Jam 2004 Qualification Round Competition Manual <a href="/i/events/google2004/competitionManual2.pdf">here</a>.
+			Download the Google Code Jam 2004 Competition Manual <a href="/i/events/google2004/competitionManual2.pdf">here</a>.
 			<br/><br/>
 			The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. Here’s the line-by-line documentation:
 			<br/><br/>
