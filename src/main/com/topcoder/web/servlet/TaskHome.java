@@ -163,7 +163,7 @@ public final class TaskHome {
             } else {
                 xsldocURLString = TCServlet.XSL_ROOT + XSL_DIR + "home.xsl";
             }
-            log.debug(document.getXML(2));
+//            log.debug(document.getXML(2));
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             log.error("TaskHome:ERROR:\n" + ne);
