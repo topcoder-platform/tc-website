@@ -164,7 +164,7 @@
                                     <span id="calendarTCO03Date">15</span><br />
                                     <strong>2003 TCO: Coding</strong><br />
                                     Online Round #1<br />
-                                    Login by: 9:20&#160;PM<br />
+                                    Registration: 6:30-9:25&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
