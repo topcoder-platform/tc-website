@@ -6,13 +6,16 @@ import com.topcoder.shared.security.AuthorizationException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.policy.GenericPermission;
-import com.topcoder.security.policy.PolicyLocalHome;
-import com.topcoder.security.policy.PolicyLocal;
+import com.topcoder.security.policy.PolicyRemoteHome;
+import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.shared.util.ApplicationServer;
 
+import java.util.Hashtable;
 import javax.naming.InitialContext;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+import java.rmi.RemoteException;
 import javax.ejb.CreateException;
 
 /**
@@ -46,13 +49,18 @@ public class TCSAuthorization implements Authorization {
         Context ctx = null;
 
         try {
-            ctx = new InitialContext();
+            Hashtable env = new Hashtable();
+            env.put(Context.INITIAL_CONTEXT_FACTORY,
+                "org.jnp.interfaces.NamingContextFactory");
+            env.put(Context.PROVIDER_URL,
+                ApplicationServer.SECURITY_PROVIDER_URL);
+            ctx = new InitialContext(env);
 
-            PolicyLocalHome pHome = (PolicyLocalHome)
+            PolicyRemoteHome pHome = (PolicyRemoteHome)
                 PortableRemoteObject.narrow(
-                    ctx.lookup(PolicyLocalHome.class.getName()),
-                    PolicyLocalHome.class);
-            PolicyLocal policy = pHome.create();
+                    ctx.lookup(PolicyRemoteHome.class.getName()),
+                    PolicyRemoteHome.class);
+            PolicyRemote policy = pHome.create();
 
             GenericPermission permission = new GenericPermission(r.getName());
 
@@ -70,6 +78,9 @@ public class TCSAuthorization implements Authorization {
             throw new AuthorizationException(e);
         }
         catch (GeneralSecurityException e) {
+            throw new AuthorizationException(e);
+        }
+        catch (RemoteException e) {
             throw new AuthorizationException(e);
         }
     }
