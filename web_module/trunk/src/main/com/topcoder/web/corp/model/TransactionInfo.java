@@ -38,6 +38,7 @@ public class TransactionInfo {
     private String rcVeriSign = null;
     private Exception tcExc = null;
     private String terms = null;
+    private boolean agreed = false;
 
     public TransactionInfo() {
         terms = "";
@@ -246,4 +247,14 @@ public class TransactionInfo {
     public void setTerms(String terms) {
         this.terms = terms;
     }
+
+    public boolean hasAgreed() {
+        return agreed;
+    }
+
+    public void setAgreed(boolean agreed) {
+        this.agreed = agreed;
+    }
 }
+
+

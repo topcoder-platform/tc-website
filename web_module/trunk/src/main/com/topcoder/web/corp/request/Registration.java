@@ -123,6 +123,13 @@ public final class Registration extends UserEdit {
             TermsOfUse terms = ((TermsOfUseHome)ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
             setFormFieldDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
+            UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+            if (userTerms.hasTermsOfUse(secTok.loggedUserID, Constants.GENERAL_PRODUCT_TERMS_ID)) {
+                setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.TRUE.toString());
+            } else {
+                setFormFieldDefault(Constants.KEY_AGREE_TO_TERMS, Boolean.FALSE.toString());
+            }
+
         } finally {
             Util.closeIC(ic);
         }
