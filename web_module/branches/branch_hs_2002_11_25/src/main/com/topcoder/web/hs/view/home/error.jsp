@@ -42,9 +42,12 @@
    if(exception==null) exception = (Exception)request.getAttribute("exception");
    if(exception!=null) {
  %>
+<h3>Error: <%= exception.getMessage() %></h3>
+<%--
 <h3>Exception: <%= exception.toString() %></h3>
 <h3>Trace:</h3>
 <p><pre> <% exception.printStackTrace(new PrintWriter(out)); %> </pre></p>
+--%>
 <% } %>
 </font>
 

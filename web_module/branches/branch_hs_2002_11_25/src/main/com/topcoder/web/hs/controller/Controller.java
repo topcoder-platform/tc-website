@@ -42,8 +42,7 @@ public final class Controller extends HttpServlet {
         try {
             RequestProcessor rp;
 
-            log.info("    "+request.getMethod()+" from "+request.getRemoteHost());
-            log.info("--- "+HttpUtils.getRequestURL(request));
+            log.info(request.getMethod()+" "+HttpUtils.getRequestURL(request)+" from "+request.getRemoteHost());
 
             String canonpath = request.getContextPath() + request.getServletPath();
             log.debug("canonical path to servlet = "+canonpath);
