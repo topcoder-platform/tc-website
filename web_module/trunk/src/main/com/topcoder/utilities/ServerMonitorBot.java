@@ -44,6 +44,7 @@ public class ServerMonitorBot {
 
                 Process p = r.exec(callAndArgs);
                 p.waitFor();
+                p.destroy();
 
                 String ret = getData(p.getErrorStream());
 
@@ -69,7 +70,7 @@ public class ServerMonitorBot {
                     fiveone = true;
                 }
 
-                String[] callAndArgs2 = {"wget",
+                /*String[] callAndArgs2 = {"wget",
                                          "http://192.168.12.52:7030",
                                          "--header=Host: www.topcoder.com",
                                          "--timeout=30",
@@ -100,7 +101,7 @@ public class ServerMonitorBot {
                     }
                 } else {
                     fivetwo = true;
-                }
+                }*/
 
             } catch (Exception e) {
                 e.printStackTrace();
