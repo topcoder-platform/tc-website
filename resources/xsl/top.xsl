@@ -61,14 +61,14 @@
                 <tr valign="middle"><form name="selectform">
                     <td width="99%" align="left">
                         <xsl:choose>
-                            <xsl:when test="number(/TC/Rating)&lt;1200">
-                                <IMG src="/i/top_div2_badge.jpg" width="390" height="75" border="0" alt="DIVISION II" />
+                            <xsl:when test="number(/TC/Rating)>1199">
+                                <IMG src="/i/top_div1_badge.jpg" width="370" height="75" border="0" alt="DIVISION I" />
                             </xsl:when>
                             <xsl:when test="number(/TC/Rating)&lt;1">
                                 <IMG src="/i/top_unrated_badge.jpg" width="390" height="75" border="0" alt="NON-RATED" />
                             </xsl:when>
                             <xsl:otherwise>
-                                <IMG src="/i/top_div1_badge.jpg" width="370" height="75" border="0" alt="DIVISION I" />
+                                <IMG src="/i/top_div2_badge.jpg" width="390" height="75" border="0" alt="DIVISION II" />
                             </xsl:otherwise>
                         </xsl:choose>
                     </td>
