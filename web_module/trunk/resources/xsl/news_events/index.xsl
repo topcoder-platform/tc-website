@@ -192,7 +192,7 @@
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="middle">
                                 <td class="prOtherPubs">AS SEEN ON:</td>
-                                <td><A href="http://www.eedesign.com/pressreleases/prnewswire/82547" target="_blank"><img src="/i/pressroom/eetimes_logo_sm.gif" alt="EETimes" width="73" height="18" hspace="3" border="0" /></A></td>
+                                <td><A href="http://www.eedesign.com/pressreleases/prnewswire/82547" target="_blank"><img src="/i/pressroom/eetimes_logo_sm.gif" alt="EETimes" width="73" height="18" hspace="3" border="0" /></A> <A href="http://biz.yahoo.com/prnews/030616/nym167_1.html" target="_blank"><img src="/i/pressroom/yahoo_finance_logo_sm.gif" alt="Yahoo! Finance" width="149" height="16" hspace="3" border="0" /></A></td>
                             </tr>
                          </table>
                     </td>
@@ -335,7 +335,7 @@
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="middle">
                                 <td class="prOtherPubs">AS SEEN ON:</td>
-                                <td><A href="http://www.newswire.ca/releases/April2003/07/c8582.html" target="_blank"><img src="/i/pressroom/canada_newswire_logo_sm.gif" alt="Canada NewsWire" width="51" height="35" hspace="3" border="0" /></A></td>
+                                <td><A href="http://www.newswire.ca/releases/April2003/07/c8582.html" target="_blank"><img src="/i/pressroom/canada_newswire_logo_sm.gif" alt="Canada NewsWire" width="51" height="35" hspace="3" border="0" /></A> <A href="http://java.sun.com/industry/news/story/51532.do" target="_blank"><img src="/i/pressroom/java_dot_sun_logo_sm.gif" alt="java.sun.com" width="103" height="20" hspace="3" border="0" /></A></td>
                             </tr>
                          </table>
                     </td>
