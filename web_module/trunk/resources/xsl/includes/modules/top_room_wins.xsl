@@ -53,14 +53,12 @@
                 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
                 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
                 <TD align="left" CLASS="statText">
-                  <A CLASS="statText">
+                  <A>
                     <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                    <FONT>
-                      <xsl:attribute name="color">
-                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                      <xsl:attribute name="class">
+                        <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                       </xsl:attribute>
                       <xsl:value-of select="handle"/>
-                    </FONT>
                   </A>
                 </TD>
                 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -81,14 +79,12 @@
                 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
                 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
                 <TD align="left" CLASS="statText">
-                  <A CLASS="statText">
+                  <A>
                     <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                    <FONT>
-                      <xsl:attribute name="color">
-                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                      <xsl:attribute name="class">
+                        <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                       </xsl:attribute>
                       <xsl:value-of select="handle"/>
-                    </FONT>
                   </A>
                 </TD>
                 <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -137,14 +133,12 @@
           <TR>
             <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">&#160;&#160;&#160;<xsl:value-of select="rank"/>&#160;&#160;&#160;</TD>
             <TD CLASS="statText" VALIGN="middle">
-              <A CLASS="statText">
+              <A>
                 <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                <FONT>
-                  <xsl:attribute name="color">
-                    <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                  <xsl:attribute name="class">
+                    <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                   </xsl:attribute>
                   <xsl:value-of select="handle"/>
-                </FONT>
               </A>
             </TD>
             <TD CLASS="statText" VALIGN="middle" ALIGN="center"><xsl:value-of select="room_name"/></TD>
@@ -185,14 +179,12 @@
           <TR>
             <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">&#160;&#160;&#160;<xsl:value-of select="rank"/>&#160;&#160;&#160;</TD>
             <TD CLASS="statText" VALIGN="middle">
-              <A CLASS="statText">
+              <A>
                 <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                <FONT>
-                  <xsl:attribute name="color">
-                    <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                  <xsl:attribute name="class">
+                    <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                   </xsl:attribute>
                   <xsl:value-of select="handle"/>
-                </FONT>
               </A>
             </TD>
             <TD CLASS="statText" VALIGN="middle" ALIGN="center"><xsl:value-of select="room_name"/></TD>

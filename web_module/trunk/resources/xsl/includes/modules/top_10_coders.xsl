@@ -56,22 +56,12 @@
 
                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="coderTextRed">
 
-                    <A CLASS="statText">
-
+                    <A>
                       <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
-
-                      <FONT>
-
-                        <xsl:attribute name="color">
-
-                          <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="Rating"/></xsl:with-param></xsl:call-template>
-
+                        <xsl:attribute name="class">
+                          <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="Rating"/></xsl:with-param></xsl:call-template>
                         </xsl:attribute>
-
                         <xsl:value-of select="Handle"/>
-
-                      </FONT>
-
                     </A>
 
                   </TD>

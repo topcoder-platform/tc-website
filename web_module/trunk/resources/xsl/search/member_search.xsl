@@ -351,13 +351,10 @@
               <TD CLASS="statText" VALIGN="middle" HEIGHT="13">
                 <A>
                   <xsl:attribute name="HREF">?t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="CoderId"/></xsl:attribute>
-                  <xsl:attribute name="CLASS">statText</xsl:attribute>
-                  <FONT>
-                    <xsl:attribute name="color">
-                      <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="Rating"/></xsl:with-param></xsl:call-template>
+                    <xsl:attribute name="class">
+                      <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="Rating"/></xsl:with-param></xsl:call-template>
                     </xsl:attribute>
                     <xsl:value-of select="Handle"/>
-                  </FONT>
                 </A>
               </TD>
               <TD CLASS="statText" VALIGN="middle" ALIGN="right"><xsl:value-of select="Rating"/></TD>
