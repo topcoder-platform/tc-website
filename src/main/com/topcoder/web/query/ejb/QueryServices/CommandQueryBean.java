@@ -24,7 +24,7 @@ import java.sql.SQLException;
  */
 public class CommandQueryBean extends BaseEJB {
 
-    private static Logger log = Logger.getLogger(CommandGroupBean.class);
+    private static Logger log = Logger.getLogger(CommandQueryBean.class);
 
     public void createCommandQuery(long commandId, long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("createCommandQuery called...command: " + commandId + " query: " + queryId);
@@ -232,7 +232,7 @@ public class CommandQueryBean extends BaseEJB {
     }
 
     public ResultSetContainer getCommandsForQuery(long queryId, String dataSourceName) throws RemoteException, EJBException {
-        log.debug("getCommandsForQuery called...command: " + queryId);
+        log.debug("getCommandsForQuery called...query: " + queryId);
 
         ResultSet rs = null;
         PreparedStatement ps = null;
