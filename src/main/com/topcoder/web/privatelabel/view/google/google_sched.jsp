@@ -123,7 +123,7 @@ function openWin(url, name, w, h) {
                         <td class="sidebarText">Online Round 1</td>
                         <td class="sidebarText">
                            Friday, October 24th<br />
-                           Sign in:  8:55 PM<br />
+                           Register: 6:00 PM<br />
                            START: 9:00 PM<br />
                         </td>
                         <td class="sidebarText" align="center">500</td>
