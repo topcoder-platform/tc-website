@@ -74,8 +74,8 @@ String sSortUrl = "?module=Statistics&c=ratings_history&cr="+srb.getProperty("cr
 <% if (!bEmpty) { %>
                  <TR>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="6" HEIGHT="18">&nbsp; <B>Ratings History</B>
-                     <A HREF="JavaScript:void(getGraph('c=rating_history_graph&cr=<%=pageContext.getAttribute("coder_id")%>','800','600', 'history'))" class="statText">&nbsp;&nbsp;Rating History Graph</a>
-                     <A HREF="JavaScript:void(getGraph('c=rating_distribution_graph','600','400', 'history'))" class="statText">&nbsp;&nbsp;Distribution Graph</a>
+                     <A HREF="JavaScript:void(getGraph('c=rating_history_graph&cr=<%=pageContext.getAttribute("coder_id")%>','800','600','history'))" class="statText">&nbsp;&nbsp;Rating History Graph</a>
+                     <A HREF="JavaScript:void(getGraph('c=rating_distribution_graph','600','400','history'))" class="statText">&nbsp;&nbsp;Distribution Graph</a>
 </TD>
                 </TR>
                  <TR>
