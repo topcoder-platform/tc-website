@@ -45,7 +45,13 @@ public class PasswordFix {
 
 
             log.debug("next");
-            InitialContext ctx = TCContext.getInitial();
+            InitialContext ctx = null;
+            try {
+                ctx = TCContext.getInitial();
+            } catch (NoClassDefFoundError e) {
+                e.printStackTrace();
+
+            }
             log.debug("next");
             DataSource ds = (DataSource) ctx.lookup(SOURCE_DS);
             Connection conn = null;
