@@ -9,6 +9,7 @@ import com.topcoder.web.tc.model.SurveyResponse;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.security.ClassResource;
 
 import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
@@ -22,6 +23,8 @@ public class Submit extends View {
         InitialContext ctx = null;
         UserTransaction tx = null;
         try {
+            if (getUser().isAnonymous())
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             if (alreadyResponded()) {
                 throw new NavigationException("Sorry, you may only respond to a survey once.");
             } else {

@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.survey;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.Answer;
 import com.topcoder.web.tc.model.Question;
@@ -10,6 +11,7 @@ import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 
 import javax.naming.InitialContext;
 import java.util.List;
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 
 public class View extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
+        if (getUser().isAnonymous())
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         try {
             if (alreadyResponded()) {
                 SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
