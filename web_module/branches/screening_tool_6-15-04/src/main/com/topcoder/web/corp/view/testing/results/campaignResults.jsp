@@ -216,7 +216,7 @@ function getProblemDetail(id) {
                             document.write(' align="middle">');
                             document.write(' <param name="allowScriptAccess" value="sameDomain" />');
                             document.write(' <param name="movie" ');
-                            document.write(' value="<%=swfFiles[counter % 2]%>"/>');
+                            document.write(' value="<%=swfFiles[counter % 2]%>&?preference=<%=row.getStringItem("preference")%>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<%=row.getStringItem("user_id")%>"/>');
                             document.write(' <param name="menu" value="false" />');
                             document.write(' <param name="quality" value="high" />');
                             document.write(' <param name="bgcolor" value="#ffffff" />');

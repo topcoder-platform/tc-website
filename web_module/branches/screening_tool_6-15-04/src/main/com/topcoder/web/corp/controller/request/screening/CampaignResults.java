@@ -163,6 +163,8 @@ public class CampaignResults extends BaseScreeningProcessor {
 
             // Redirect the user to campaign results JSP
             log.info("Forwarding the request to " + Constants.CAMPAIGN_RESULTS_PAGE);
+            
+            getRequest().setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
             setNextPage(Constants.CAMPAIGN_RESULTS_PAGE);
             setIsNextPageInContext(true);
 
