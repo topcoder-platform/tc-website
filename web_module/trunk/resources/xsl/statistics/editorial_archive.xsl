@@ -55,6 +55,7 @@
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Match Editorial Archive - 2002</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">&#160;<B>August</B></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.07.02</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;SRM 107 - <A HREF="/index?t=statistics&amp;c=srm107_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>	
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.01.02</TD><TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;SRM 106 - <A HREF="/index?t=statistics&amp;c=srm106_prob" CLASS="bodyGeneric">Problem Set &amp; Analysis</A></TD></TR>		
 		
 		
