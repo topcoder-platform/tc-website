@@ -114,7 +114,7 @@ public class DataServlet extends HttpServlet {
 
             command = request.getParameter("c") == null ? "" : request.getParameter("c");
             nav = (Navigation) request.getSession().getAttribute("navigation");
-            if (nav == null || !nav.getLoggedIn())
+            if (nav == null || !nav.isIdentified())
                 response.sendRedirect("http://" + request.getServerName() +
                         "/?t=authentication&c=login&errorMsg=" +
                         "You must log in to view this portion of the site.&errorURL=" +

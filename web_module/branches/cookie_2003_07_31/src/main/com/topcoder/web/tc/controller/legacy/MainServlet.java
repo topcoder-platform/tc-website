@@ -169,7 +169,7 @@ public final class MainServlet extends HttpServlet {
             } else {
                 user = nav.getUser();
             }
-            if (nav.getLoggedIn()) {
+            if (nav.isIdentified()) {
                 // CHECK TO SEE IF THE SERIALIZED NAV OBJECT
                 // IN SESSION HAS LOGGED IN ATTRIB = TRUE.
                 // IF THE USER'S SESSION INDICATES LOGGED IN,
@@ -494,7 +494,7 @@ public final class MainServlet extends HttpServlet {
             document.addTag(new ValueTag("Today", DateTime.getCurrentDate().getTime()));
             DataCache cache = Cache.get();
             document.addTag(new ValueTag("MemberCount", cache.getMemberCount()));
-            if (nav.getLoggedIn()) {
+            if (nav.isIdentified()) {
                 document.addTag(new ValueTag("UserId", nav.getUser().getUserId()));
                 document.addTag(new ValueTag("Handle", nav.getUser().getHandle()));
                 HashMap userTypeDetails = nav.getUser().getUserTypeDetails();
