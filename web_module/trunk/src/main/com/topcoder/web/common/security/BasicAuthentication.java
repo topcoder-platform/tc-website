@@ -194,6 +194,7 @@ public class BasicAuthentication implements WebAuthentication {
                         log.info("replacing cookie in old format");
                         Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
                         c.setMaxAge(Integer.MAX_VALUE);
+                        c.setPath("/");  //force everyone to have the same path regardless of servlet used in call
                         response.addCookie(c);
                     } else {
                         if(!hash.equals(st.nextToken())) continue;
