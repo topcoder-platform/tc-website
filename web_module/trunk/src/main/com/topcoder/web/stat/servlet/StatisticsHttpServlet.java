@@ -16,7 +16,7 @@ import javax.xml.parsers.*;
 
 public class StatisticsHttpServlet extends HttpServlet{
   private static final String LAST_MOD_HDR = "Last-Modified";
-  private static final String XML_FILE = "/opt/apps/resources/stat/statServlet.xml";
+  private static final String XML_FILE = "/user/web/resources/stat/statServlet.xml";
   private static final String PUBLIC = "0";
   private static final String LOGGED_IN_ONLY = "1";
   private static final String ACCESS_MAP_KEY = "ACCESSCTRL";
