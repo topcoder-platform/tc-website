@@ -58,7 +58,11 @@
             <TR>
               <TD CLASS="statText" ALIGN="right">DB: </TD>
               <TD CLASS="statText" ALIGN="left">
-                <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyInputTask.getDb()%>"/>
+                <% if (ModifyInputTask.isNewInput()) { %>
+                  <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyInputTask.getDb()%>"/>
+                <% } else { %>
+                  <jsp:getProperty name="ModifyInputTask" property="Db"/>
+                <% } %>
               </TD>
             </TR>
             <TR>

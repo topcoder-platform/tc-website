@@ -39,7 +39,7 @@
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_INPUT_NAME%></TD></TR>
             <TR><TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">Query: <jsp:getProperty name="ModifyQueryInputTask" property="QueryName"/></TD></TR>
             <TR>
-              <TD CLASS="statText" ALIGN="center" COLSPAN="2">DB: <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyQueryInputTask.getDb()%>"/></TD>
+              <TD CLASS="statText" ALIGN="center" COLSPAN="2">DB: <jsp:getProperty name="ModifyQueryInputTask" property="Db"/></TD>
             </TR>
             <TR>
               <TD COLSPAN="2">
