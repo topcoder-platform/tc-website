@@ -7,6 +7,7 @@
 
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%
     String s;
     Set hs;
@@ -157,7 +158,7 @@
         <select size="3" multiple name="demo_<rsc:item name="demographic_question_id" row="<%=resultRow%>"/>">
         <%
         hs = new HashSet();
-        hs.addAll(Arrays.asList(request.get("demo_"+answer.getIntItem("demographic_question_id")));
+        hs.addAll(Arrays.asList(request.get("demo_"+resultRow.getIntItem("demographic_question_id"))));
         while(idx < demographic_answers.getRowCount()){
             answer = demographic_answers.getRow(idx);
             if(answer.getIntItem("demographic_question_id") == resultRow.getIntItem("demographic_question_id")){
@@ -219,8 +220,8 @@
         <option>5</option>
         </select>
         <select multiple size=10 name="skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
-            <% List skills = Arrays.asList(request.getParameterValues("skillset"+resultRow.getStringItem("skill_type_id"))); %>
-            <logic:iterate id="skill" name="skills">
+            <% List skillsList = Arrays.asList(request.getParameterValues("skillset"+resultRow.getStringItem("skill_type_id"))); %>
+            <logic:iterate id="skill" name="skillsList">
                 <option value="<%=skill%>">
                     <%= skillNames.get(new Integer(skill.substring(0,skill.indexOf("_")))) %>
                 </option>
