@@ -1281,7 +1281,7 @@ final class UserDbCoder {
                 currentSchool.getCountry().setCountryCode(rs.getString("country_code"));
                 currentSchool.getCountry().setCountryName(rs.getString("country_name"));
                 currentSchool.setGpa(rs.getFloat("gpa"));
-                currentSchool.setGpa(rs.getFloat("gpa_scale"));
+                currentSchool.setGpaScale(rs.getFloat("gpa_scale"));
                 currentSchool.setModified("S");
             }
             XMLDocument test = new XMLDocument("test");
