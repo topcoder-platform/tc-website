@@ -25,9 +25,10 @@
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
                     <td class="bodyText"> 
-                        <p><span class=testHead>Campaign Results</span><br/>
+                        <p><span class=testHead>Position Results</span><br/>
                         Company Name: Brooks<br/>
                         Campaign Name: Operation FindGeek<br/>
+                        Position Name: <b>Head Geek</b><br/>
                         Total Candidates: 73
                         </p>
                     </td>
@@ -48,7 +49,6 @@
                     <td class="screeningHeader" width="10%"><A class=screeningHeader href="/">State/<br/>Province</A></td>
                     <td class="screeningHeader" width="10%"><A class=screeningHeader href="/">Country</A></td>
                     <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Type</A></td>
-                    <td class="screeningHeader" width="10%"><A class=screeningHeader href="/">Position</A></td>
                     <td class="screeningHeader" width="10%"><A class=screeningHeader href="/">Problem</A></td>
                     <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Time</A></td>
                     <td class="screeningHeader" width="10%" align=center><A class=screeningHeader href="/">Results</A></td>
@@ -64,7 +64,6 @@ for (i = 0; i <= 50; i++)
                     document.write("<td class='screeningCell'>CT</td>")
                     document.write("<td class='screeningCell' nowrap=nowrap>United States</td>")
                     document.write("<td class='screeningCell' align=center>student</td>")
-                    document.write("<td class='screeningCell'><A href='/corp/testing/candidate/positionResults.jsp'>architect</A></td>")
                     document.write("<td class='screeningCell'><A href='/'>Rain</A></td>")
                     document.write("<td class='screeningCell' align=center>00:40.20</td>")
                     document.write("<td class='screeningCell' align=center><A href='/'>view</A></td>")

@@ -127,9 +127,7 @@
                     <td width="15%" align="center" class="screeningHeader">Date Created</td>
                 </tr>
                 <tr>
-                    <td valign=top width="70%"class=screeningCell><strong>Peter: HOLY CRAP! I'm communticating with nature! Uh, tree, if one of you falls and no one is around to hear you, do you make a noise?<br/>
-Tree: Oh yeah, Scott fell over last week and hasn't shut up about it since.<br/>
-Scott the Tree: Oh yeah, go ahead and bitch, but you don't see anyone trying to HELP ME!</strong></td>
+                    <td valign=top width="70%"class=screeningCell><strong>Peter: HOLY CRAP! I'm communticating with nature! Uh, tree, if one of you falls and no one is around to hear you, do you make a noise?<br/>Tree: Oh yeah, Scott fell over last week and hasn't shut up about it since.<br/>Scott the Tree: Oh yeah, go ahead and bitch, but you don't see anyone trying to HELP ME!</strong></td>
                     <td valign=top width="15%"class=screeningCell align=center>PGriffin</td>
                     <td valign=top width="15%"class=screeningCell align=center>06/20/2004</td>
                 </tr>
