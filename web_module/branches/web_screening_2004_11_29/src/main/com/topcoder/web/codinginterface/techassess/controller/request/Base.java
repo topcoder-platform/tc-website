@@ -199,7 +199,7 @@ public abstract class Base extends BaseProcessor {
         buf.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >");
         buf.append("<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >");
         buf.append("</head>");
-        buf.append("<body onLoad=\"window.location.replace(\'");
+        buf.append("<body onLoad=\"top.location.replace(\'");
         buf.append(nextPage);
         buf.append("\')\">");
         buf.append("<table class=bodyCenter cellspacing=0 cellpadding=0>");
