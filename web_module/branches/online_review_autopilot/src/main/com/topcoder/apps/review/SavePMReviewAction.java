@@ -132,10 +132,11 @@ public final class SavePMReviewAction extends ReviewAction {
                     
                     //save
                     if (((SubmissionForm) form).getIsScreening()) {
-                        ((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
+                        InitialSubmission sub = documentManager.getInitialSubmission(data.getProject(), sid, orpd.getUser().getTCSubject());
+                        sub.setAdvancedToReview(((SubmissionForm) form).getAdvanced());
 
                         try {
-                            documentManager.saveInitialSubmission((InitialSubmission)((SubmissionForm) form).getSubmission(), data.getUser().getTCSubject());
+                            documentManager.saveInitialSubmission(sub, data.getUser().getTCSubject());
                         } catch(Exception e) {
                             return null;
                         }

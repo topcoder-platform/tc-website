@@ -37,12 +37,15 @@ public class AutoPilot {
             boolean passed = false;
             double minscore = ConfigHelper.getMinimumScore();
 
+            int count = 0;
             ScreeningScorecard[] scorecard = docManager.getScreeningScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
                 if(!scorecard[i].isCompleted() || !scorecard[i].isPMReviewed()) {
                     //nothing to do
                     return new SuccessResult();
                 }
+                
+                count++;
 
                 if(scorecard[i].getScore() >= minscore) {
                     passed = true;
@@ -50,6 +53,10 @@ public class AutoPilot {
             } 
             
             if(!passed)
+                return new SuccessResult();
+            
+            //get submission count
+            if(count != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
                 return new SuccessResult();
             
             //check project for reviewers
@@ -126,17 +133,24 @@ public class AutoPilot {
             boolean passed = false;
             double minscore = ConfigHelper.getMinimumScore();
 
+            int count = 0;
             ScreeningScorecard[] scorecard = docManager.getScreeningScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
                 if(!scorecard[i].isCompleted()) {
                     //nothing to do
                     return new SuccessResult();
                 }
+                
+                count++;
 
                 if(scorecard[i].getScore() >= minscore) {
                     passed = true;
                 }
             } 
+            
+            //get submission count
+            if(count != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
+                return new SuccessResult();
 
             //lookup pm
             String email = "";
@@ -204,17 +218,24 @@ public class AutoPilot {
             boolean passed = false;
             double minscore = ConfigHelper.getMinimumScore();
 
+            int count = 0;
             ReviewScorecard[] scorecard = docManager.getReviewScorecard(project, user.getTCSubject());
             for (int i = 0; i < scorecard.length; i++) {
                 if(!scorecard[i].isCompleted()) {
                     //nothing to do
                     return new SuccessResult();
                 }
+                
+                count++;
 
                 if(scorecard[i].getScore() >= minscore) {
                     passed = true;
                 }
             } 
+            
+            //get submission count
+            if((count * 3) != docManager.getInitialSubmissions(project, false, user.getTCSubject()).length)
+                return new SuccessResult();
 
             //lookup pm
             String email = "";
