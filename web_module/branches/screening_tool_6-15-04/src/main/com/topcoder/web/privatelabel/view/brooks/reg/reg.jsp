@@ -45,7 +45,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">First Name</td>
+                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> First Name</td>
                             <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.FIRST_NAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -63,7 +63,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Last Name</td>
+                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Last Name</td>
                             <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.LAST_NAME%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -72,7 +72,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Phone Number</td>
+                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Phone Number</td>
                             <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -81,7 +81,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Email</td>
+                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Email</td>
                             <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/></td>
                         </tr>
                         <tr>
@@ -90,7 +90,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Address1</td>
+                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Address1</td>
                             <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="30" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -117,7 +117,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">City</td>
+                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> City</td>
                             <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.CITY%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
@@ -146,7 +146,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Country</td>
+                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Country</td>
                             <td class="brRegTableAnswer">
                                 <% ResultSetContainer countryRsc = (ResultSetContainer)request.getAttribute("countryList"); %>
                                 <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
@@ -159,7 +159,7 @@
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion">
-                                Student/Professional
+                                <span class="brErrorText">*</span> Student/Professional
                             </td>
                             <td class="brRegTableAnswer">
                                 Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
