@@ -69,7 +69,7 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-              <TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="statText"><!-- Single Round Match 71 -->2002 TCCC Regional Championships</A></TD>            
+              <TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?t=tournaments&amp;c=tourny_sched" CLASS="statText"><!-- Single Round Match 71 -->2002 TCCC Regional Championships</A></TD>
               <TD VALIGN="middle" CLASS="statText">Monday, March 13</TD>
               <TD VALIGN="middle" CLASS="statText">8:00pm EST</TD>
             </TR>            
