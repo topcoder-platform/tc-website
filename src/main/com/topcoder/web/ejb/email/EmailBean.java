@@ -6,6 +6,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -26,16 +27,10 @@ public class EmailBean extends BaseEJB {
 
         Connection conn = null;
         PreparedStatement ps = null;
-        InitialContext ctx = null;
 
         try {
-            ctx = new InitialContext();
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
-                        "current_value", 9999999999L, 1, false);
-            }
 
-            email_id = IdGenerator.nextId("EMAIL_SEQ");
+            email_id = IdGeneratorClient.getSeqId("EMAIL_SEQ");
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
@@ -55,13 +50,9 @@ public class EmailBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
         return (email_id);
     }
