@@ -304,7 +304,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 <TD CLASS="statText" ALIGN="right"><rsc:item row="<%=resultRow%>" name="point_change" format="0.00" /></TD>
 <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
 <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 10 /* final pts */ + "].resultData" %>'/></TD>
-<TD CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="division_placed" /></TD>
+<TD CLASS="statText" ALIGN="right"><rsc:item row="<%=resultRow%>" name="division_placed" />&#160;&#160;&#160;&#160;&#160;&#160;</TD>
 <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 11 /* advanced */ + "]" %>'/></TD>
 <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 12 /* old rating */ + "].resultData" %>'/></TD>
 <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
