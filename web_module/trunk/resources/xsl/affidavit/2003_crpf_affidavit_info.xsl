@@ -74,17 +74,17 @@
                             <br/>
                             <br/>
                             In order to receive your grand prize, please complete the follwoing steps.  Please note that each
-                            item must be completed by 12:00 PM (noon) EST Monday, November 17th to receive your prize.  This is to
+                            item must be completed by 12:00 PM (noon) EST Tuesday, November 18th to receive your prize.  This is to
                             ensure we have enough time to make all travel arrangements, reserve hotel rooms, and confirm
                             your attendance at "A Magical Evening."  If you do not complete the following items by
-                            12:00 PM (noon) EST on Monday, November 17th, then you will forfeit your prize.  If
+                            12:00 PM (noon) EST on Tuesday, November 18th, then you will forfeit your prize.  If
                             you have any questions please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
                         </p>
 
                             <ol>
                                 <li>
                                 <p><strong>AFFIDAVIT</strong> - please complete, sign and fax to 860.657.4276 and mail original
-                                    to TopCoder at the address below.  Faxes must be received by 12:00 PM (noon) EST, Monday, November 17th.</p>
+                                    to TopCoder at the address below.  Faxes must be received by 12:00 PM (noon) EST, Tuesday, November 18th.</p>
                                 <p>
                                     View a <a href="/?&amp;t=affidavit&amp;c=2003_crpf_affidavit">printable version</a> of your affidavit.
                                     Please read and complete the affidavit, sign it, fax it and mail the original to us at the address below.  Note that you do not
@@ -93,7 +93,7 @@
                                 </li>
                                 <li>
                                 <p><strong>TAX FORM</strong> - please complete, sign and fax to (860.657.4276) and mail original to
-                                    TopCoder at the address below.  Faxes must be received by 12:00 PM (noon) EST, Monday, November 17th.</p>
+                                    TopCoder at the address below.  Faxes must be received by 12:00 PM (noon) EST, Tuesday, November 18th.</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) via fax or mail to the address below.  If you don't know the form
@@ -113,13 +113,13 @@
                                 </xsl:choose>
                                 </li>
                                 <li>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 12:00 PM (noon) EST, Monday, November 17th:</p>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 12:00 PM (noon) EST, Tuesday, November 18th:</p>
 
                                 <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_crpf_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                                 </li>
 
                                 <li>
-                                <p><strong>HEAD SHOT</strong> - must be emailed by 12:00 PM (noon) EST, November 17th:</p>
+                                <p><strong>HEAD SHOT</strong> - must be emailed by 12:00 PM (noon) EST, November 18th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -139,7 +139,7 @@
                             Glastonbury, CT 06033
                         </div>
 
-                        <p><strong>Reminder, you will forfeit your grand prize if all necessary items above are not completed by 12:00 PM (noon) EST, Monday, November 17th.  Any
+                        <p><strong>Reminder, you will forfeit your grand prize if all necessary items above are not completed by 12:00 PM (noon) EST, Tuesday, November 18th.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
