@@ -244,7 +244,8 @@
             <img src="/i/es/srmanimation_home.gif" alt="" width="244" height="142" border="0" usemap="#srmanimation_home" /><br />
             <map name="srmanimation_home">
             <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" />  -->
-            <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?RoundId=4540&amp;t=schedule&amp;c=srm" />
+            <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?RoundId=4540&amp;t=schedule&amp;c=srm" /> -->
+            <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?t=sponsor&amp;c=javaone2003" />
             <area shape="poly" alt="SRM Match 146" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4540&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
