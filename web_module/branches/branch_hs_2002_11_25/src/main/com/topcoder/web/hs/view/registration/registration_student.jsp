@@ -22,13 +22,11 @@
 <SCRIPT type="text/javascript">
  var schools=new Array(<%=schools.size()%>)
  var codes=new Array(<%=codes.size()%>)
- var sizes=new Array(<%=schools.size()%>)
  <% for (int i=0;i<schools.size();i++) {
      ArrayList state_schools=(ArrayList)schools.get(i);
      ArrayList school_codes=(ArrayList)codes.get(i); %>
  schools[<%=i%>]=new Array(<%=state_schools.size()%>)
  codes[<%=i%>]=new Array(<%=school_codes.size()%>)
- sizes[<%=i%>]=<%=state_schools.size()%>
   <% for (int j=0;j<state_schools.size();j++) { %>
  schools[<%=i%>][<%=j%>]="<%=state_schools.get(j)%>"
  codes[<%=i%>][<%=j%>]=<%=school_codes.get(j)%>
@@ -46,7 +44,7 @@
   else {
    document.regForm.school.disabled=false
    document.regForm.school.options.length=schools[idx].length+1
-   for (i=0;i<sizes[idx];i++) {
+   for (i=0;i<schools[idx].length;i++) {
     document.regForm.school.options[i+1].text=schools[idx][i]
     document.regForm.school.options[i+1].value=codes[idx][i]
    } 
