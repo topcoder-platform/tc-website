@@ -3,6 +3,7 @@ package com.topcoder.dde.user;
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.dde.DDEException;
+import com.topcoder.dde.util.Constants;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.file.render.ValueTag;
 import com.topcoder.file.render.XMLDocument;
@@ -474,24 +475,9 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         } catch (NamingException e) {
             throw new EJBException("" + e);
         } finally {
-            if (rs != null) try {
-                rs.close();
-            } catch (SQLException sqle) {
-            } finally {
-                rs = null;
-            }
-            if (ps != null) try {
-                ps.close();
-            } catch (SQLException sqle) {
-            } finally {
-                ps = null;
-            }
-            if (conn != null) try {
-                conn.close();
-            } catch (SQLException sqle) {
-            } finally {
-                conn = null;
-            }
+            close(rs);
+            close(ps);
+            close(conn);
         }
     }
 
@@ -788,24 +774,9 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             } catch (NamingException e) {
                 throw new EJBException("" + e);
             } finally {
-                if (rs != null) try {
-                    rs.close();
-                } catch (SQLException sqle) {
-                } finally {
-                    rs = null;
-                }
-                if (ps != null) try {
-                    ps.close();
-                } catch (SQLException sqle) {
-                } finally {
-                    ps = null;
-                }
-                if (conn != null) try {
-                    conn.close();
-                } catch (SQLException sqle) {
-                } finally {
-                    conn = null;
-                }
+                close(rs);
+                close(ps);
+                close(conn);
             }
 
 
@@ -1028,8 +999,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
     public void registerInquiry(long userId, long componentId, long rating, long tcUserId,
                                 String comments, boolean agreeToTerms, long phase, long version, long projectId)
-            throws RemoteException, DDEException, NoSuchUserException,
-            EJBException {
+            throws DDEException, NoSuchUserException, EJBException {
         try {
             Context context = new InitialContext();
             LocalDDEComponentInquiryHome componentInquiryHome = (LocalDDEComponentInquiryHome) context.lookup(LocalDDEComponentInquiryHome.EJB_REF_NAME);
@@ -1056,7 +1026,11 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new DDEException("Could create online review user inquiry!" +
                     e.getMessage());
+        } catch (RemoteException e) {
+            throw new DDEException("Could create online review user inquiry!" +
+                    e.detail.getMessage());
         }
+
 
     }
 
@@ -1111,7 +1085,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
     public boolean sampleInquiry(String firstName, String lastName,
                                  String emailAddress, String catalog, int countryId, int contactMe)
-            throws RemoteException, EJBException {
+            throws EJBException {
 
         boolean success = true;
         try {
@@ -1128,6 +1102,90 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         return success;
 
     }
+
+
+    public void agreeToComponentTerms(long userId) throws EJBException {
+        Context ctx = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            ctx = new InitialContext();
+            final String sqlUpdate =
+                "INSERT " +
+                "INTO user_terms_of_use_xref (user_id,terms_of_use_id) " +
+                "VALUES (?,?)";
+            DataSource datasource = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDS");
+            conn = datasource.getConnection();
+
+
+            ps = conn.prepareStatement(sqlUpdate);
+            ps.setLong(1, userId);
+            ps.setInt(2, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
+            int retVal = ps.executeUpdate();
+            if (retVal!=1) throw new EJBException("Failed to insert into user_terms_of_use_xref");
+
+        } catch (NamingException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+
+    }
+
+
+
+    protected void close(ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (Exception ignore) {
+                logger.error("FAILED to close ResultSet.");
+                ignore.printStackTrace();
+            }
+        }
+    }
+
+    protected void close(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (Exception ignore) {
+                logger.error("FAILED to close Connection.");
+                ignore.printStackTrace();
+            }
+        }
+
+    }
+
+    protected void close(Context ctx) {
+        if (ctx != null) {
+            try {
+                ctx.close();
+            } catch (Exception ignore) {
+                logger.error("FAILED to close Context.");
+                ignore.printStackTrace();
+            }
+        }
+
+    }
+
+    protected void close(PreparedStatement ps) {
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (Exception ignore) {
+                logger.error("FAILED to close PreparedStatement.");
+                ignore.printStackTrace();
+            }
+        }
+
+    }
+
+
 
 }
 

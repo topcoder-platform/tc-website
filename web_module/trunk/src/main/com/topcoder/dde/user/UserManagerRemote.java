@@ -57,5 +57,6 @@ public interface UserManagerRemote extends javax.ejb.EJBObject {
     long getRatingForInquiry(long userId, long version, long componentId)
         throws RemoteException, DDEException, NoSuchUserException, EJBException;
 */
+    void agreeToComponentTerms(long userId) throws EJBException, RemoteException;
 
 }
