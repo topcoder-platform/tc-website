@@ -111,7 +111,9 @@ public final class TaskDevelopment {
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String comp = Conversion.checkNull(request.getParameter("comp"));
             devTag.addTag(new ValueTag("comp", comp));
-            devTag.addTag(new ValueTag("MaxInquiries", Constants.MAX_INQUIRIES));
+            devTag.addTag(new ValueTag("MaxInquiries", Constants.MAX_RATED_INQUIRIES+Constants.MAX_UNRATED_INQUIRIES));
+            devTag.addTag(new ValueTag("MaxRatedInquiries", Constants.MAX_RATED_INQUIRIES));
+            devTag.addTag(new ValueTag("MaxUnratedInquiries", Constants.MAX_UNRATED_INQUIRIES));
             String date = Conversion.checkNull(request.getParameter("date"));
             String payment = Conversion.checkNull(request.getParameter("payment"));
 
@@ -436,7 +438,7 @@ public final class TaskDevelopment {
                         long phase = Long.parseLong(request.getParameter("phase"));
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
-                            if (!isProjectLockedOut(componentId, version, phase) ||
+                            if (!isProjectLockedOut(componentId, version, phase, nav.getSessionInfo().getUserId()) ||
                                     isTournamentComponent(componentId, version, phase)) {
 
                                 Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
@@ -622,15 +624,35 @@ public final class TaskDevelopment {
         return result;
     }
 
-    static boolean isProjectLockedOut(long componentId, long version, long phase) throws Exception {
+    static boolean isProjectLockedOut(long componentId, long version, long phase, long userId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        Request r = new Request();
-        r.setContentHandle("inquiry_count");
-        r.setProperty("cd", String.valueOf(componentId));
-        r.setProperty("vid", String.valueOf(version));
-        r.setProperty("ph", String.valueOf(phase));
-        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("inquiry_count");
-        return rsc.getIntItem(0, "count") >= Constants.MAX_INQUIRIES;
+        Request inquiryRequest = new Request();
+        inquiryRequest.setContentHandle("inquiry_count");
+        inquiryRequest.setProperty("cd", String.valueOf(componentId));
+        inquiryRequest.setProperty("vid", String.valueOf(version));
+        inquiryRequest.setProperty("ph", String.valueOf(phase));
+        ResultSetContainer totalRsc = (ResultSetContainer) dAccess.getData(inquiryRequest).get("inquiry_count");
+        ResultSetContainer ratedRsc = (ResultSetContainer) dAccess.getData(inquiryRequest).get("rated_inquiry_count");
+
+        int ratedCount = ratedRsc.getIntItem(0, "count");
+        int unratedCount = totalRsc.getIntItem(0, "count")-ratedCount;
+
+        Request ratingRequest = new Request();
+        ratingRequest.setContentHandle("rating_info");
+        ratingRequest.setProperty("uid", String.valueOf(userId));
+        ratingRequest.setProperty("ph", String.valueOf(phase));
+        ResultSetContainer ratingRsc = (ResultSetContainer) dAccess.getData(ratingRequest).get("rating_info");
+        boolean rated = ratingRsc.getIntItem(0, "num_ratings")>0;
+
+        boolean ret = false;
+        if (rated && ratedCount>=Constants.MAX_RATED_INQUIRIES) {
+            ret = true;
+        } else if (!rated && unratedCount>=Constants.MAX_UNRATED_INQUIRIES) {
+            ret = true;
+        }
+
+        return ret;
+
     }
 
     static boolean isTournamentComponent(long componentId, long version, long phase) throws Exception {
