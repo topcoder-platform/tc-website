@@ -59,8 +59,9 @@
                           </tr>
                           
                             <tr>
+                            	<td valign="bottom"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><img src="/i/sponsor/intel_ids/intel_centrino_vertical.gif" width="268" height="235" /> </A> </td>
                                  	 <td align="left" class="bodyText">
-                                	<br/>
+                             
                         			<p class="promoText"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel&#174; Developer Services </strong></A>offers the resources and 
                         			opportunities you need to keep stride with industry innovations, take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
                         
@@ -69,10 +70,11 @@
                         
                         </td>
                         
-                            	<td valign="top"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><img src="/i/sponsor/intel_ids/intel_centrino_vertical.gif" width="268" height="235" /> </A> </td>
+                            	
                             </tr>
                             <tr>
                             	<td align="left" colspan="2">
+                            	<br />
                         			<p class="promoCallout">Register at <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">www.intel.com/IDS</A> today and get FREE 
                         			technical resources designed to help you capitalize on today's technology trends&#58;</p>
                             	</td>
