@@ -29,7 +29,6 @@
 					<td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
 					<td width="100%" valign="top">
 					    <p class="brBody"><span class="brBodyTitle">Registration</span><br/><br/>
-						Registration explanation goes here.
 						</p>
 						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
                                                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.BROOKS_REG_CONFIRM%>"/>

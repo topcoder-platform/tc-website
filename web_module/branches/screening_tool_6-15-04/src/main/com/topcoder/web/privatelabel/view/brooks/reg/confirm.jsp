@@ -34,7 +34,6 @@
 					<td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
 					<td width="100%" valign="top">
 					    <p class="content"><span class="brBodyTitle">Registration</span><br/><br/>
-						Confirmation text goes here.
 						</p>
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                         <tr>
@@ -81,14 +80,12 @@
                             <td class="brRegTableQuestion">City</td>
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="City"/></td>
                         </tr>
-
                         <tr>
-                            <td class="brRegTableQuestion">State</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="StateName"/></td>
+                            <td class="brRegTableQuestion">Province</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Province"/></td>
                         </tr>
-
                         <tr>
-                            <td class="brRegTableQuestion">Zip Code</td>
+                            <td class="brRegTableQuestion">Pin/Zip Code</td>
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Zip"/></td>
                         </tr>
 

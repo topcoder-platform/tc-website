@@ -27,7 +27,6 @@
 					<td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
 					<td width="100%" valign="top">
 					    <p class="brBody"><span class="brBodyTitle">Registration</span><br/><br/>
-						Registration explanation goes here.
 						</p>
 						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.BROOKS_REG_DEMOG%>"/>
@@ -117,14 +116,13 @@
                         </tr>
                         <tr>
                             <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">State</td>
+                            <td class="brRegTableQuestion">Province</td>
                             <td class="brRegTableAnswer">
-                                <% ResultSetContainer stateRsc = (ResultSetContainer)request.getAttribute("stateList"); %>
-                                <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=stateRsc%>" fieldText="state_name" fieldValue="state_code"/>
+                                <tc-webtag:textInput name="<%=Constants.PROVINCE%>"  size="15" maxlength="50"/>
                             </td>
                         </tr>
                         <tr>
@@ -133,7 +131,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Zip Code</td>
+                            <td class="brRegTableQuestion">Pin/Zip Code</td>
                             <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.ZIP%>"  size="10" maxlength="15"/></td>
                         </tr>
                         <tr>
