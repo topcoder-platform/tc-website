@@ -83,27 +83,7 @@ return false;
       TopCoder currently has several clients looking to hire TopCoder members.  Register <a href="/tc?module=ContractingPreferences">here</a> to provide us with your salary and travel requirements and rate your experience with a variety of programming languages, database platforms and relevant Industry experience.  Then let TopCoder work for you!
 		<br/><br/>
 		</p>
-      <p span class="bigRed">Please note that your placement information will only be accessible by TopCoder personnel.  TopCoder will NOT submit your information to any company without the candidate’s expressed approval.</p>
-
-      <%--
-      <hr noshade="noshade" size="1" width="100%">
-
-      <table border="0" cellpadding="6" cellspacing="0" width="100%">
-         <tr>
-            <td><A href="/tc?module=Static&d1=contracting&d2=jumptrading"><img src="/i/contracting/jumptrading_logo.gif" border=0/></A></td>
-         </tr>
-      </table>
-
-      <hr noshade="noshade" size="1" width="100%">
-
-      <table border="0" cellpadding="6" cellspacing="0" width="100%">
-         <tr>
-            <td><A href="/tc?module=Static&d1=contracting&d2=oreilly"><img src="/i/contracting/oreilly_logo.gif" border=0/></A></td>
-         </tr>
-      </table>
-
-      <hr noshade="noshade" size="1" width="100%">
-      --%>
+      <p span class="bigRed">Please note that your placement information will only be accessible by TopCoder personnel.  TopCoder will NOT submit your information to any company without your prior approval.</p>
 
         </div>
         <p><br/></p>
