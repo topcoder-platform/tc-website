@@ -8,6 +8,8 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -40,16 +42,14 @@ public class Login extends Base {
             } else {
                 try {
                     try {
-
-                        getAuthentication().login(new SimpleUser(0, username, password));
-
-                        char status = getStatus(getAuthentication().getUser().getId());
+                        char status = getStatus(getUserId(username));
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)>0) {
                             log.debug("user active");
                             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                             setNextPage(dest);
                             setIsNextPageInContext(false);
+                            getAuthentication().login(new SimpleUser(0, username, password));
                             doLegacyCrap(getRequest());
                             return;
                         } else {
@@ -60,9 +60,8 @@ public class Login extends Base {
                                         "If you believe this is an error, please contact TopCoder.");
                             } else if (Arrays.binarySearch(Activate.UNACTIVE_STATI, status)>0) {
                                 log.debug("user unactive");
-                                setNextPage(Constants.UNACTIVE);
-                                setIsNextPageInContext(false);
-                                return;
+                                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  "+
+                                        "Please review the activation email that was sent to you after registration.");
                             } else {
                                 throw new NavigationException("Invalid account status");
                             }
@@ -116,6 +115,14 @@ public class Login extends Base {
         CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
         Navigation nav = new Navigation(request, ret);
         request.getSession(true).setAttribute("navigation", nav);
+    }
+
+    private long getUserId(String handle) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("user_id_using_handle");
+        r.setProperty("hn", handle);
+        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("user_id");
+        return rsc.getLongItem(0, "user_id");
     }
 
 }
