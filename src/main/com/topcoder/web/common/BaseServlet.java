@@ -115,7 +115,7 @@ public abstract class BaseServlet extends HttpServlet {
 
                         request.setAttribute(MODULE, LOGIN_PROCESSOR);
                         /* forward to self */
-                        fetchRegularPage(request, response, getServletName(), true);
+                        fetchRegularPage(request, response, getServlet, true);
                         return;
                     }
                 }
