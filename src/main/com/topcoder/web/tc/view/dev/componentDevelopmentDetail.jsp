@@ -85,7 +85,7 @@
                         for this project is available on the TopCoder Software web site.</p>
 
                         <p><strong>Requirement Specification</strong><br />
-                           <p>View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project
+                           View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project
                             </p>
 
 <%-- Payment --%>
