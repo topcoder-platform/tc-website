@@ -2,22 +2,22 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../top.xsl" />
     <xsl:import href="../script.xsl" />
-    <xsl:import href="../includes/body_top.xsl" />  
+    <xsl:import href="../includes/body_top.xsl" />
     <xsl:import href="../foot.xsl" />
-    <xsl:import href="../includes/modules/stats_intro.xsl" />  
-  <xsl:import href="../includes/global_left.xsl"/>  
-    <xsl:import href="../includes/dev/public_dev_right.xsl" />     
+    <xsl:import href="../includes/modules/stats_intro.xsl" />
+  <xsl:import href="../includes/global_left.xsl"/>
+    <xsl:import href="../includes/dev/public_dev_right.xsl" />
     <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
     <xsl:template match="/">
 
 <html>
 <head>
 
-    <xsl:call-template name="Preload" />      
+    <xsl:call-template name="Preload" />
 
  <title>Open Application Projects for TopCoder Software Development</title>
 
-    <xsl:call-template name="CSS" />      
+    <xsl:call-template name="CSS" />
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
@@ -52,7 +52,7 @@
             </xsl:call-template>
 
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
-                
+
             <p>There are also <A href="/index?t=development&amp;c=comp_projects">Component Projects</A> available.</p>
 
             <table border="0" cellspacing="0" cellpadding="5" width="100%">
@@ -64,20 +64,22 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Second Place</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Inquire By</td>
                 </tr>
-               
-                <tr valign="top">
-                    <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
-                </tr>
 
                 <!--
                 <tr valign="top">
-                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
-                    <td class="formTextOdd" align="center">$1,860</td>
-                    <td class="formTextOdd" align="center">$690</td>
-                    <td class="formTextOdd" align="center">closed</td>
+                    <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
                 </tr>
                 -->
-            </table>
+
+
+                <tr valign="top">
+                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=email_tool_enhancements">Email Tool Enhancements</a></td>
+                    <td class="formTextOdd" align="center">$1,290</td>
+                    <td class="formTextOdd" align="center">$420</td>
+                    <td class="formTextOdd" align="center">10.20.2003</td>
+                </tr>
+
+             </table>
 
             <br/>
 
@@ -135,10 +137,10 @@
 
 <!-- Right Column Begins -->
         <td width="244">
-            <xsl:call-template name="public_dev_right" />        
+            <xsl:call-template name="public_dev_right" />
         </td>
 <!-- Right Column Ends -->
-    
+
     </tr>
 </table>
 
