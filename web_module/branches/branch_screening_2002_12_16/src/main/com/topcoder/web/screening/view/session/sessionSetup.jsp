@@ -11,7 +11,7 @@
 function showEmail() {
     var size = "top=2,left=2,width=600,height=549,status=0";
     var name="graph";
-    var id = document.sessionSetupForm.userId.options[sessionSetupForm.userId.selectedIndex].value;
+    var id = document.sessionSetupForm.cid.options[sessionSetupForm.cid.selectedIndex].value;
     <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PreviewEmail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+id,name,size);
     return;

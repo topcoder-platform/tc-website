@@ -102,12 +102,12 @@ document.sessionConfirmForm.submit();
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>	        
 	        <TR>
-              <input type="HIDDEN" name="candidateEmail" value="<jsp:useBean name="sessionInfo" property="candidateEmail" />" >
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;- <B><jsp:useBean name="sessionInfo" property="candidateEmail" /></B></TD>	       
+              <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="sessionInfo" property="candidateEmail" />" >
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="candidateEmail" /></B></TD>	       
 	        </TR>
 	        <TR>
-              <input type="HIDDEN" name="repEmail" value="<jsp:useBean name="sessionInfo" property="repEmail" />" >
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;- <B><jsp:useBean name="sessionInfo" property="repEmail" /></B></TD>	       
+              <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="sessionInfo" property="repEmail" />" >
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="repEmail" /></B></TD>	       
 	        </TR>	        	        
            <TR>
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
