@@ -43,6 +43,11 @@ public class Authentication implements Serializable {
                                     HttpSession session) throws AuthenticationException, Exception {
         log.debug("handle: " + handle + " pass: " + password);
 
+                setUserId(132456);  //me
+                setLoggedIn(true);
+                session.setAttribute(AUTHENTICATION_KEY, this);
+
+/* authenticate everyone.  since the schema is all up in the air, just let everyone in.
         String errorMessage = null;
         QueryAuthenticationHome qaHome = (QueryAuthenticationHome) ctx.lookup(ApplicationServer.Q_QUERY_AUTHENTICATION);
         QueryAuthentication qa = qaHome.create();
@@ -66,6 +71,7 @@ public class Authentication implements Serializable {
         if (errorMessage != null) {
             throw new AuthenticationException(errorMessage);
         }
+*/
     }
 
     public static Authentication getAuthentication(HttpSession session) {
@@ -94,3 +100,4 @@ public class Authentication implements Serializable {
     }
 
 }
+
