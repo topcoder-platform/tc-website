@@ -1,12 +1,11 @@
-<%@ page errorPage="../home/error.jsp"
-  import="com.topcoder.shared.dataAccess.*,
-          com.topcoder.shared.dataAccess.resultSet.*,
-          com.topcoder.shared.problem.*
-          com.topcoder.shared.language.*
-          com.topcoder.shared.problemParser.*
-          com.topcoder.common.web.render.ProblemRenderer,
-          com.topcoder.web.stat.common.JSPUtils,
-          java.text.DecimalFormat"
+<%@ page import="com.topcoder.shared.dataAccess.*,
+                 com.topcoder.shared.dataAccess.resultSet.*,
+                 com.topcoder.shared.problem.*
+                 com.topcoder.shared.language.*
+                 com.topcoder.shared.problemParser.*
+                 com.topcoder.common.web.render.ProblemRenderer,
+                 com.topcoder.web.stat.common.JSPUtils,
+                 java.text.DecimalFormat"
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
