@@ -42,7 +42,9 @@ public class PersistStore {
      * @return PersistStore
      */
     public static PersistStore getInstance(File dir) {
-        log.debug("--- where xml would be= "+dir.getAbsolutePath());
+        if( dir != null ) {
+            log.debug("--- where xml would be= "+dir.getAbsolutePath());
+        }
         if( me == null ) {
             synchronized(STORAGE_FILE) {
                 if( me == null ) {

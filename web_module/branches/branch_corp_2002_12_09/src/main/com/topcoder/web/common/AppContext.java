@@ -65,6 +65,7 @@ public class AppContext {
 				// populate from properties
 				me.appProperties = new Properties();
 				if( propertiesFileName != null ) {
+                    log.debug("---- props file name ---- "+propertiesFileName);
 					me.appProperties.load(new FileInputStream(propertiesFileName));
 				}
 				me.doInit(propertiesFileName);
@@ -82,6 +83,13 @@ public class AppContext {
         // instantiate persistent store
         if( propertiesFileName != null ) {
             File dir = new File((new File(propertiesFileName)).getParent());
+            if( dir == null ) {
+                log.debug("-- dir --"+dir);
+            }
+            else {
+                log.debug("-- dir path --"+dir.getAbsolutePath());
+            }
+                
             persistStore = PersistStore.getInstance(dir);
         } 
         
