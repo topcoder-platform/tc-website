@@ -372,7 +372,7 @@ public class HistoryPlot
             g.drawString("You call this progress?", pb, pb - 10);
         else
 */
-            g.drawString("Rating History", pb, pb - 10);
+        g.drawString("Rating History", pb, pb - 10);
         g.setTransform(save);
 
         g.setFont(Font.decode("SanSerif-plain-13"));
