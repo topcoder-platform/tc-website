@@ -9,9 +9,11 @@ import com.topcoder.web.common.TCWebException;
 abstract class FullReg extends FullRegBase {
     protected void registrationProcessing() throws TCWebException {
         try {
-            getRequest().setAttribute("countryList", getCountryList());
-            getRequest().setAttribute("stateList", getStateList());
-            setDefaults(regInfo);
+            if (!hasErrors()) {
+                getRequest().setAttribute("countryList", getCountryList());
+                getRequest().setAttribute("stateList", getStateList());
+                setDefaults(regInfo);
+            }
             setNextPage();
         } catch (Exception e) {
             throw new TCWebException(e);
