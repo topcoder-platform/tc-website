@@ -65,7 +65,6 @@ function checkInputs(){
   if(reg.<%=Registration.PHONE%>.value==""){alert("Please enter a Phone Number.");reg.<%=Registration.PHONE%>.focus();return false;}
   if(reg.<%=Registration.PHONE%>.value!="" && reg.<%=Registration.PHONE%>.value.length<7)
     {alert("A phone number must be at least 7 characters long.");reg.<%=Registration.PHONE%>.focus();return false;}
-  if(reg.<%=Registration.EDITOR%>.selectedIndex==0){alert("Please bSelectb a default editor.");reg.<%=Registration.EDITOR%>.focus();return false;}
   if(reg.<%=Registration.LANGUAGE%>.selectedIndex==0){alert("Please bSelectb a default programming language.");reg.<%=Registration.LANGUAGE%>.focus();return false;}
   var found=false;
   for(i=0;i<reg.elements.length;i++){
@@ -420,29 +419,10 @@ function checkInputs(){
 
                 <tr valign="middle"><td colspan="2" class="statText" valign="middle">&nbsp;</td></tr>  
   
-                <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">Editor &amp; Language</td></tr>
+                <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">Language</td></tr>
   
                 <tr valign="middle"><td colspan="2" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td></tr>  
 
-                <tr>
-                    <td></td>
-                    <td class="errorText"><jsp:getProperty name="Registration" property="EditorError" /></td>
-                </tr>
-                
-                <tr>
-                    <td class="registerLabel">Default Editor</td>
-                    <td class="statText">
-                        <tc:getProperty id="editor" name="Registration" property="Editor" />
-                        <tc:editorSelect class="dropdown" name="<%=Registration.EDITOR%>" selectedValue="<%=editor%>" />
-                    </td>
-                </tr>
-  
-                <tr>
-                    <td class="registerLabel">&nbsp;</td>
-                    <td class="statText" valign="top">The competition applet allows for a choice of editor types. UNIX users comfortable with vi may opt for JVI. Those more familiar with 
-                    the behavior of Windows Notepad should choose Standard.</td>
-                </tr>
-                
                 <tr>
                     <td></td>
                     <td class="errorText"><jsp:getProperty name="Registration" property="LanguageError" /></td>
