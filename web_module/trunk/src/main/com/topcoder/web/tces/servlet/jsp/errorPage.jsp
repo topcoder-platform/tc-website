@@ -80,10 +80,10 @@
                   <TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
                 </TR>                
                 <TR>
-                  <TD class="errorText" HEIGHT="18" align="left" colspan="20">
+                  <TD class="statText" HEIGHT="18" align="left" colspan="20">
 
                       <!-- Error message content pane -->
-     An error has occurred.  If you would like to report this to TopCoder click <A CLASS="bodyText" HREF="mailto:service@topcoder.com">here</A>.
+     An error has occurred.  If you would like to report this to TopCoder click <A CLASS="statText" HREF="mailto:service@topcoder.com">here</A>.
 
 <%--
 <!-- web-app debug time stack trace  BEGIN -->
