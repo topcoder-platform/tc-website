@@ -69,8 +69,15 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td class="bodyText" width="25%" align="center"><A href="/?t=development&amp;c=comp_projects"><img src="/i/development/promo_openprojects.gif" alt="Open Projects" width="126" height="126" border="0" /></A></td>
                 </tr>
-            </table><br/>
-            
+            </table>
+
+<!--Getting Started -->
+		<br/><br/>
+		<div align="center"><a href="/?t=development&amp;c=getting_started"><img src="/i/development/getting_started.gif" border="0" width="534" height="35"/></a></div>
+		<br/>
+
+            <hr width="534" size="1px" noshade="noshade"/>
+
 <!--Component Development begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="534">
                 <tr valign="top">
