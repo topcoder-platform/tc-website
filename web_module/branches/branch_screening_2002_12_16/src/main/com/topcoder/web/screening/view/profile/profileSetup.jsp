@@ -159,9 +159,10 @@ function submitConfirm() {
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testB" property="difficultyDesc" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testB" property="businessCategoryList" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testB" property="algorithmicCategoryList" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="#" CLASS="bodyText" onClick="submitRemove(<jsp:getProperty name="testB" property="roundId" />,<jsp:getProperty name="testB" property="problemId"/>)" >Remove</A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="#remove" CLASS="bodyText" onClick="submitRemove(<jsp:getProperty name="testB" property="roundId" />,<jsp:getProperty name="testB" property="problemId"/>)" >Remove</A></TD>
 	        </TR>
             </screen:listIterator>
+            <a name="remove" />
            <TR>
               <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="30" border="0" /></TD>
            </TR>
@@ -175,7 +176,7 @@ function submitConfirm() {
               </TD>
            </TR>
            <TR>
-              <TD COLSPAN="5" ALIGN="center"><A HREF="#" CLASS="bodyText" onClick="submitAdd()">Add</A></TD>
+              <TD COLSPAN="5" ALIGN="center"><a name="add" /><A HREF="#add" CLASS="bodyText" onClick="submitAdd()">Add</A></TD>
            </TR>
          </TABLE>
 
@@ -201,7 +202,7 @@ function submitConfirm() {
               <TD><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">Clear | <A HREF="#" CLASS="bodyText" onClick="submitConfirm()">Confirm</A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText"><a name="submit" />Clear | <A HREF="#submit" CLASS="bodyText" onClick="submitConfirm()">Confirm</A></TD>
 	        </TR>
          </TABLE>
 </screen:form>

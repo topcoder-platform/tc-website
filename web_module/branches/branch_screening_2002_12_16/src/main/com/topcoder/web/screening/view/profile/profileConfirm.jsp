@@ -164,7 +164,7 @@ function submitUpdate() {
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
-              <TD ALIGN="center"><a HREF="" CLASS="bodyText" onClick="submitEdit()">Edit</A> | <A HREF="" CLASS="bodyText" onClick="submitUpdate()">Submit</A></TD>
+              <TD ALIGN="center"><a name="submit" /><a HREF="#submit" CLASS="bodyText" onClick="submitEdit()">Edit</A> | <A HREF="#submit" CLASS="bodyText" onClick="submitUpdate()">Submit</A></TD>
            </TR>
          </TABLE>
 </screen:form>
