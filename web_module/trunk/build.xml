@@ -19,8 +19,8 @@
     <property name="Jive.jar" value="${bin}/Jive.jar"/>
     <property name="servlets" value="${build}/servlets"/>
     <property name="web" value="src/main/com/topcoder/web"/>
-    <property name="tc_cluster" value="../weblogic_corp/tc_cluster"/>
-    <property name="public_html" value="../weblogic_corp/tc_cluster/public_html"/>
+    <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
+    <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
     <property environment="env"/>
 
     <property name="deprecation" value="false"/>
@@ -529,52 +529,29 @@
 
     <target name="build_hs_ejbs" depends="compile">
         <antcall target="package-EJB-QueryServicesBean"/>
-        <antcall target="package-EJB-UserBean"/>
-        <antcall target="package-EJB-TermsOfUseBean"/>
-        <antcall target="package-EJB-EmailBean"/>
-        <antcall target="package-EJB-SchoolBean"/>
-        <antcall target="package-EJB-RatingBean"/>
-        <antcall target="package-EJB-CoderBean"/>
-    </target>
-
-
-    <target name="package-EJB-UserBean" depends="compile">
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="User"/>
+            <param name="unit-jar-name" value="HSUser"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
             <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/hs"/>
         </antcall>
-    </target>
-
-    <target name="package-EJB-TermsOfUseBean" depends="compile">
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="TermsOfUse"/>
+            <param name="unit-jar-name" value="HSTermsOfUse"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse/hs"/>
         </antcall>
-    </target>
-
-    <target name="package-EJB-EmailBean" depends="compile">
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Email"/>
+            <param name="unit-jar-name" value="HSEmail"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/hs"/>
         </antcall>
-    </target>
-
-    <target name="package-EJB-SchoolBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="School"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/school"/>
         </antcall>
-    </target>
-
-    <target name="package-EJB-RatingBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Rating"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/rating"/>
         </antcall>
-    </target>
-
-    <target name="package-EJB-CoderBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Coder"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/coder"/>
@@ -701,8 +678,9 @@
 
         <!-- Email ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Email"/>
+            <param name="unit-jar-name" value="CorpEmail"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/corp"/>
         </antcall>
 
         <!-- Phone ejb -->
@@ -719,13 +697,14 @@
 
         <!-- TermsOfUse ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="TermsOfUse"/>
+            <param name="unit-jar-name" value="CorpTermsOfUse"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse/corp"/>
         </antcall>
 
         <!-- User ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="User"/>
+            <param name="unit-jar-name" value="CorpUser"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
             <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/corp"/>
         </antcall>
@@ -807,8 +786,9 @@
         </antcall>
 
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Email"/>
+            <param name="unit-jar-name" value="ScreeningEmail"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/screening"/>
         </antcall>
 
         <antcall target="build-ejb-unit">
@@ -827,7 +807,7 @@
         </antcall>
 
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="User"/>
+            <param name="unit-jar-name" value="ScreeningUser"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
             <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/screening"/>
         </antcall>
