@@ -405,6 +405,28 @@ AND handle not like '%guest%'
 ORDER BY 1
 "
 
+java com.topcoder.utilities.QueryLoader "OLTP" 1000 "TCES_Company_Name" 0 0 "
+SELECT com.company_name
+  FROM contact con,
+       company com
+ WHERE con.contact_id = @uid@
+   AND com.company_id = con.company_id
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1001 "TCES_Campaign_List" 0 0 "
+SELECT c.campaign_id,
+       c.campaign_name,
+       c.start_date,
+       c.end_date,
+       slu.status_desc
+  FROM contact con,
+       campaign c,
+       status_lu slu
+ WHERE con.contact_id = @uid@
+   AND c.company_id = con.company_id
+   AND slu.status_id = c.status_id
+"
+
 java com.topcoder.utilities.QueryLoader "OLTP" 1100 "TCES_User_And_Password" 0 0 "
 SELECT u.user_id, u.password
   FROM user u
