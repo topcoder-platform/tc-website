@@ -58,8 +58,8 @@
                     <td width="33%" class="bodyText">
                       <h1 class="bodyTitle"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=recruiting&d3=index">Recruiting</a></h1>
                         <p>TopCoder Recruiting provides you with innovative programs designed to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=recruiting&d3=index"><strong>attract, identify, and evaluate</strong></a>
-                        collegiate candidates and experienced professionals for full time employment consideration.  With a member base in excess of 24,000&#151;including more than
-                        12,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including code samples and statistics, that is not
+                        collegiate candidates and experienced professionals for full time employment consideration.  With a member base in excess of 30,000&#151;including more than
+                        17,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including code samples and statistics, that is not
                         found elsewhere.</p>
 
                         <p><a href="/corp/tces/?task=MainTask">Go to Recruiting Reporting Tool now</a></p>

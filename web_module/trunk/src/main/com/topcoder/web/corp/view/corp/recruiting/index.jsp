@@ -51,8 +51,8 @@
                         <h3><strong>Candidate Identification</strong></h3>
 
                         <p>We provide employers with innovative programs designed to attract, identify, and evaluate collegiate candidates and 
-                        experienced professionals for full time employment consideration.  With a member base in excess of 20,000&#151;including 
-                        more than 12,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including 
+                        experienced professionals for full time employment consideration.  With a member base in excess of 30,000&#151;including 
+                        more than 17,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including 
                         code samples and statistics, that is not found elsewhere.</p>
 
                         <h3><strong>Employment Advertisement and Job Postings</strong></h3>
