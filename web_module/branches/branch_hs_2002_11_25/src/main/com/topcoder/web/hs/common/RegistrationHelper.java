@@ -145,6 +145,9 @@ public class RegistrationHelper {
     _srb.setStateCode(getParameter(_request,"state_code",_srb.getStateCode()));
     _srb.setSchoolId(getParameterLong(_request,"school_id",_srb.getSchoolId()));
     _srb.setHandle(getParameter(_request,"handle",_srb.getHandle()));
+    _srb.setChangePassword("true".equals(getParameter(_request,
+                                                      "change_password",
+                                                      "false")));
     _srb.setPassword(getParameter(_request,"password",_srb.getPassword()));
     _srb.setConfirmPassword(getParameter(_request,"confirm_password",
                                          _srb.getConfirmPassword()));
@@ -489,6 +492,9 @@ public class RegistrationHelper {
     _crb.setStateCode(getParameter(_request,"state_code",_crb.getStateCode()));
     _crb.setSchoolId(getParameterLong(_request,"school_id",_crb.getSchoolId()));
     _crb.setHandle(getParameter(_request,"handle",_crb.getHandle()));
+    _crb.setChangePassword("true".equals(getParameter(_request,
+                                                      "change_password",
+                                                      "false")));
     _crb.setPassword(getParameter(_request,"password",_crb.getPassword()));
     _crb.setConfirmPassword(getParameter(_request,"confirm_password",
                                          _crb.getConfirmPassword()));
