@@ -72,12 +72,15 @@
    document.advForm.cmd.value="";
    document.advForm.submit();
   }
-  function submitEnter(e) {
+  function submitSearch() {
+   document.advForm.submit();
+  }
+  function submitEnter(_event) {
    var keycode;
    if (window.event) {
     keycode=window.event.keyCode;
    }
-   else if (e) {
+   else if (_event) {
     keycode=e.which;
    }
    else {
@@ -90,41 +93,6 @@
    else {
     return(true);
    }
-  }
-  function submitSearch() {
-   if (checkInput()) {
-    document.advForm.submit();
-   }
-  }
-  function checkInput() {
-   if (isNaN(document.advForm.min_rating.value)) {
-    alert("Please enter a valid number.");
-    document.advForm.min_rating.focus();
-    return(false);
-   }
-   if (document.advForm.min_rating.value<0) {
-    alert("Please enter a non-negative number.");
-    document.advForm.min_rating.focus();
-    return(false);
-   }
-   if (isNaN(document.advForm.max_rating.value)) {
-    alert("Please enter a valid number.");
-    document.advForm.max_rating.focus();
-    return(false);
-   }
-   if (document.advForm.max_rating.value<0) {
-    alert("Please enter a non-negative number.");
-    document.advForm.max_rating.focus();
-    return(false);
-   }
-   tempMax = parseInt(document.advForm.max_rating.value);
-   tempMin = parseInt(document.advForm.min_rating.value);
-   if (tempMax<tempMin) {
-    alert("The the Max Rating must be greater than the Min Rating.");
-    document.advForm.max_rating.focus();
-    return(false);
-   }
-   return true;
   }
  </SCRIPT>
 </FORM>
