@@ -297,8 +297,9 @@
               {
                 ocl = document.profileListForm[othercol].length;
                 cl = document.profileListForm[col].length;
-                if(s1< document.profileListForm[col].options.length){
-
+                var sl;
+                for(sl=0;sl< document.profileListForm[col].options.length;sl++){
+                  if(!document.profileListForm[col].options[sl].selected || !document.profileListForm[col].options[sl].value > "")continue;
                   pText = document.profileListForm[col].options[sl].text;
                   pValue = document.profileListForm[col].options[sl].value;
                   if (document.profileListForm[col].options[sl].value > "" && select == 0) {
@@ -330,10 +331,8 @@
                     op = new Option();
                     op.value = pValue;
                     op.text = pText;
-                    document.profileListForm[othercol].options[ocl] = op;
+                    document.profileListForm[othercol].options[ocl++] = op;
                   }
-                } else {
-                  alert("Please select a column");
                 }
               }
             // -->
