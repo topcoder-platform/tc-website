@@ -83,19 +83,30 @@ li {
 							<h1 class="devSubhead"><strong>Documentation and Sample Submissions</strong></h1>
                                     
 							<p><strong>Component Design Deliverables</strong><br />
-							<a href="/i/development/downloads/tcs_design_deliverables.doc" class="statText">Design Deliverables</a> provides an overview of the 
+							<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Design Deliverables</a> provides an overview of the 
 							design process including the required deliverables for submission and the responsibilities of the winning designer. Submissions which 
 							do not meet the screening requirements will not be reviewed by the Architecture Review Board.</p>
 
 							<p><strong>Component Development Deliverables</strong><br />
-							<a href="/i/development/downloads/tcs_dev_deliverables.doc" class="statText">Development Deliverables</a> provides an overview 
+							<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Development Deliverables</a> provides an overview 
 							of the design process including the required deliverables for submission.  Submissions which do not meet the screening requirements 
 							will not be reviewed by the Development Review Board.</p>
 							
 							<p><strong>Component Specification</strong><br />
-							This <a href="/i/development/downloads/component_specification.dot" class="statText">template</a> was created in Microsoft Word 
+							This <a target="tcsdocs" href="/i/development/downloads/Component_Specification.dot" class="statText">template</a> was created in Microsoft Word 
 							2000. The purpose of the specification is to provide additional details about the design, including implementation details which may not be 
-							covered in the UML diagrams.  This template should be filled out and submitted with each design submission.</p>
+							covered in the UML diagrams.  This template should be filled out and submitted with each design submission.
+							<br/>
+							If you do not have Microsoft Word 2000, please submit a Component Specification in rtf or txt format.  Please use this <a target="tcsdocs" href="/i/development/downloads/Component_Specification.pdf" class="statText">PDF version</a> as a reference.
+							</p>
+
+							<p><strong>Deployment Guide</strong><br />
+							This <a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.dot" class="statText">template</a> was created in Microsoft Word 
+							2000. The purpose of the deployment guide is to provide additional details about the solution, including configuration details which may not be not be
+							evident to the end-user.  This template should be filled out and submitted with each development submission.
+							<br/>
+							If you do not have Microsoft Word 2000, please submit a Deployment Guide in rtf or txt format.  Please use this <a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.pdf" class="statText">PDF version</a> as a reference.
+							</p>
 
 							<p>For more information about deliverables see the <a href="/?&amp;t=development&amp;c=comp_meth" class="statText">TopCoder Component Methodology.</a></p>
 					</td>
