@@ -148,8 +148,8 @@ You must be a rated TopCoder member, 18 years of age or older and be one of the 
 </P>
 <P>
 There will be a conference call to address the following: requirements, design considerations for the components, specific time lines, deliverables, and any outstanding issues. <BR/>
-Project Start Date: September 27th, 2002<BR/>
-Project End Date: October 11th, 2002
+Project Start Date: September 27<SUP>th</SUP>, 2002<BR/>
+Project End Date: October 11<SUP>th</SUP>, 2002
 </P>
 
 
