@@ -71,8 +71,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 135</strong></a><br />
-                            Tuesday, February 11, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>2003 TCCC Round 1 NE/SE</strong></a><br />
+                            Tuesday, February 18, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -139,26 +139,24 @@
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
                 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;brett1479<br /><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;lbackstrom<br /><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="tahoma, verdana"><strong>SRM 135</strong></font></td>
+                        <font size="2" color="#000000" face="tahoma, verdana"><strong>2003 TCCC Round 1 NE/SE</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm135_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_nese_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>The last competition before the Collegiate Championship went off without a hitch.   Well over 400 competed in what
-                        turned out to be a very exciting match.  In Division 1 it was a close race between all of the top rated competitors.
-                        Lunatic Fringe came out early finishing the easy and medium problems before anyone.  At one point yellow rated
-                        coders led all of the rooms.  This slowly changed as Yarin, John Dethridge, and Ambrose came through - submitting
-                        their solutions to the hard problem.  Despite their efforts, Modulator, a yellow rated competitor, emerged from the
-                        coding phase with the highest score.  In the challenge phase, the top position exchanged numerous times between
-                        Yarin and Modulator.   Once the system testing had completed, Yarin prevailed with one of the few correct solutions
-                        to the hard problem. <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm135_prob</xsl:attribute>Get the analysis</a></p>
+                        <p>The first problem set of the collegiate challenge turned out to be a little bit trickier than previous first round
+    problem sets have been, though still easier than the average division 1 problem set.  Only 191 people competed
+    from the two regions, and of those only 113 ended up with positive points - 78 from the northeast, and 35 from the
+    southeast.  dgarthur was able to complete all three of the problems in an impressive 35 minutes, and with 50 points
+    from the challenge phase, he easily took first.  In second, 160 points behind, is insomnia, with 4 successful
+    challenges.  Good luck to everyone in the next round! <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=tccc03_nese_prob</xsl:attribute>Get the analysis</a></p>
                     </td>
                 </tr>
             </table>
