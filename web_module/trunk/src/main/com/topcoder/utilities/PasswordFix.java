@@ -27,8 +27,11 @@ public class PasswordFix {
             try {
                 log.debug("first");
                 Context ctx = TCContext.getInitial();
+                log.debug("first");
                 long begin = System.currentTimeMillis();
+                log.debug("first");
                 int count = um.getUsers(ctx);
+                log.debug("first");
                 long end = System.currentTimeMillis();
                 log.debug("all done, " + count + " moved in " + (double) ((end - begin) / 1000) + " seconds");
             } catch (Exception e) {
