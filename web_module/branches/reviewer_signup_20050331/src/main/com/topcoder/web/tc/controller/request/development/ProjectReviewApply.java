@@ -65,25 +65,21 @@ public class ProjectReviewApply extends Base {
                 } else if (rba.exists(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
                     throw new NavigationException("You have already applied to review this project.");
                 } else {
-                    System.out.println("checking reviewer timestamps");
                     Timestamp ts = null;
                     try {
                         ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
                     } catch (RemoteException e) {
                         if (e.detail instanceof RowNotFoundException) {
-                            System.out.println("none found");
                             // No previous review application found, we don't need to do anything here.
                         } else {
-                            throw new TCWebException(e);
+                            throw e;
                         }
                     }
                     if (ts != null && System.currentTimeMillis() < ts.getTime() + APPLICATION_DELAY) {
-                        System.out.println("found");
                         throw new NavigationException("Sorry, you can not apply for a new review yet.  "
                                 + "You will need to wait until "
                                 + DateTime.timeStampToString(new Timestamp(ts.getTime() + APPLICATION_DELAY)));
                     }
-                    System.out.println("done");
                     
                     try {
                         if (catalog == Constants.JAVA_CATALOG_ID || catalog == Constants.CUSTOM_JAVA_CATALOG_ID) {
