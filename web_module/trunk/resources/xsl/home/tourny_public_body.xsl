@@ -290,6 +290,9 @@ Someone to watch for in upcoming matches will be <B>vorthys.</B> In his debut ma
 	  <P>
 This problem set was probably a little bit easy for most of the Division I coders, as was evidenced by the high success percentages on the first and second problems. Even I was actually able to solve the first two Division I problems this time. I can't remember the last time I did that! Oh well, nothing like a little confidence booster before the big Invitational next month.
 	  </P>
+	  <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm114_prob</xsl:attribute>get&#160;analysis
+      </A>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
   </TR>
