@@ -226,7 +226,11 @@ public abstract class BaseProcessor implements RequestProcessor {
      *
      */
     public static Object createEJB(InitialContext ctx, Class remoteclass) throws NamingException, Exception {
-        Object remotehome = ctx.lookup(remoteclass.getName() + "Home");
+        return createEJB(ctx, remoteclass, "");
+    }
+
+    public static Object createEJB(InitialContext ctx, Class remoteclass, String prefix) throws NamingException, Exception {
+        Object remotehome = ctx.lookup(prefix + remoteclass.getName() + "Home");
         Method createmethod = remotehome.getClass().getMethod("create", null);
         return createmethod.invoke(remotehome, null);
     }
