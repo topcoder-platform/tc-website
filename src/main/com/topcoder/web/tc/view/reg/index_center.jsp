@@ -128,7 +128,7 @@ function checkInputs(){
                 <tr valign="middle">
                     <td class="registerLabel" width="200">Member Photo</td>
                     <td class="statText" width="99%">Let other TopCoder Members know what you look like. Send us a head shot that is at least 200 pixels (3 inches) across.
-                        <a href="JavaScript:void window.open('/tc?module=Static&d1=member_photos&d2=index','Photo_Info','top=2,left=2,width=600,height=700,status=0');" class="statTextBig">Click here</a>
+                        <a href="JavaScript:void window.open('/tc?module=Static&d1=member_photos&d2=index','Photo_Info','top=2,left=2,resizable=yes,width=600,height=700,status=0');" class="statTextBig">Click here</a>
                         for more info about member photos.</td>
                 </tr>
 
@@ -157,14 +157,14 @@ function checkInputs(){
 
                     <% if (Registration.hasResume()) { %>
 
-                        <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=400,height=200,status=0');" class="statTextBig">Upload</a>
+                        <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
                         a new resume.<br/>
 
                        <a href="/Resume?&t=DownloadTask" class="statTextBig">Download</a> your resume.
 
                     <% } else { %>
 
-                        <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=400,height=200,status=0');" class="statTextBig">Upload</a>
+                        <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,resizable=yes,width=400,height=200,status=0');" class="statTextBig">Upload</a>
                         your resume.
 
                     <% } %>
