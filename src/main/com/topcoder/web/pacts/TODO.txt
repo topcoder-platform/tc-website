@@ -1,0 +1,49 @@
+*******************  TODO ***********************
+
+6/5/2002 8:48 pm edt  jason n. evans
+Generate affidavits should not populate the affidavits directly. Affidavits should be pulled from the template table when viewing and saved to the affidavit table when affirmed.
+
+6/5/2002 8:49 pm edt  jason n. evans
+Chinese and New Zealand affidavits
+
+6/5/2002 8:57 pm edt  jason n. evans
+Create an affidavit jsp to enter and update affidavits
+
+6/5/2002 8:57 pm edt  jason n. evans
+Date filed on tax form should be user related not tax form related (Both Member and Internal)
+
+6/5/2002 8:57 pm edt  jason n. evans
+Date filed should be defaulted to current date if not filled in when TC Staff enter in a user tax form
+
+6/5/2002 8:57 pm edt  jason n. evans
+Forcing one active tax form on file
+
+6/5/2002 8:57 pm edt  jason n. evans
+Set focus on jsps (Internal)
+
+6/5/2002 8:57 pm edt  jason n. evans
+get rid of out.print lines in all jsps
+
+6/5/2002 8:57 pm edt  jason n. evans
+use encapsulation every where
+
+6/5/2002 8:57 pm edt  jason n. evans
+Add funtionality for user to decide to print all payments or just the payments on the screen
+
+6/5/2002 8:57 pm edt  jason n. evans
+store payment files based on user and time
+
+
+
+
+
+****************** BEING WORKED ON  ***********************
+6/5/2002 8:58 pm edt  jason n. evans
+Put payments on hold if users do not have a tax form on file
+
+**************** TESTING ******************************
+
+
+
+
+*************** COMPLETED
