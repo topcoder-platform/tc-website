@@ -19,7 +19,7 @@
                 <a class="<%=tl2.equals("schedule")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick05&d2=schedule">Schedule</a>
             </td>
             <td align="center" class="<%=tl2.equals("registration")?"dc_subnav_on":"dc_subnav"%>">
-                <a class="<%=tl2.equals("registration")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick05&d2=reg">Registration</a>
+                <a class="<%=tl2.equals("registration")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?module=DC05Reg&cid=2998&eid=1">Registration</a>
             </td>
             <td align="center" class="<%=tl2.equals("rules")?"dc_subnav_on":"dc_subnav"%>">
                 <a class="<%=tl2.equals("rules")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick05&d2=rules">Rules</a>
