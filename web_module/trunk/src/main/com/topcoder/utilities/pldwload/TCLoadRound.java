@@ -143,12 +143,6 @@ public class TCLoadRound extends TCLoad {
                 log.info("New challengenullified id is " + CHALLENGE_NULLIFIED);
             }
 
-            tmp = retrieveIntParam("studentgroup", params, true, true);
-            if (tmp != null) {
-                STUDENT_GROUP_ID = tmp.intValue();
-                log.info("New studentgroup id is " + STUDENT_GROUP_ID);
-            }
-
             tmpBool = retrieveBooleanParam("fullload", params, true);
             if (tmpBool != null) {
                 FULL_LOAD = tmpBool.booleanValue();
@@ -319,11 +313,6 @@ public class TCLoadRound extends TCLoad {
             query.append("  FROM room_result rr ");
             query.append(" WHERE rr.round_id = ? ");
             query.append("   AND rr.attended = 'Y' ");
-            query.append("   AND EXISTS ");
-            query.append("     (SELECT 'dok' ");
-            query.append("        FROM user_group_xref ugx");
-            query.append("       WHERE ugx.login_id = rr.coder_id");
-            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -334,11 +323,6 @@ public class TCLoadRound extends TCLoad {
             query.append(" WHERE rr.coder_id = ? ");
             query.append("   AND rr.attended = 'Y' ");
             query.append("   AND rr.new_rating > 0 ");
-            query.append("   AND EXISTS ");
-            query.append("     (SELECT 'dok' ");
-            query.append("        FROM user_group_xref ugx");
-            query.append("       WHERE ugx.login_id = rr.coder_id");
-            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSelMinMaxRatings = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -504,11 +488,6 @@ public class TCLoadRound extends TCLoad {
             query.append(" LEFT OUTER JOIN compilation c ");
             query.append(" ON cs.component_state_id = c.component_state_id");
             query.append(" WHERE cs.round_id = ?");
-            query.append("   AND EXISTS ");
-            query.append("     (SELECT 'dok' ");
-            query.append("        FROM user_group_xref ugx");
-            query.append("       WHERE ugx.login_id = cs.coder_id");
-            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -719,11 +698,6 @@ public class TCLoadRound extends TCLoad {
             query.append("  FROM system_test_result str, component comp ");
             query.append(" WHERE str.round_id = ?");
             query.append(" AND comp.component_id = str.component_id");
-            query.append("   AND EXISTS ");
-            query.append("     (SELECT 'dok' ");
-            query.append("        FROM user_group_xref ugx");
-            query.append("       WHERE ugx.login_id = str.coder_id");
-            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1583,11 +1557,6 @@ if students change schools, reloading an old round will lose historical data
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
             query.append("   AND rr.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
-            query.append("   AND EXISTS ");
-            query.append("     (SELECT 'dok' ");
-            query.append("        FROM user_group_xref ugx");
-            query.append("       WHERE ugx.login_id = rr.coder_id");
-            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1786,11 +1755,6 @@ if students change schools, reloading an old round will lose historical data
             query.append(" AND rr.coder_id = cs.coder_id");
             query.append(" WHERE cs.round_id = ?");
             query.append("   AND rr.attended = 'Y'");
-            query.append("   AND EXISTS ");
-            query.append("     (SELECT 'dok' ");
-            query.append("        FROM user_group_xref ugx");
-            query.append("       WHERE ugx.login_id = cs.coder_id");
-            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1994,11 +1958,6 @@ if students change schools, reloading an old round will lose historical data
             query.append(" WHERE chal.round_id = ? ");
             query.append("   AND chal.component_id = comp.component_id");
             query.append("   AND chal.status_id <> " + CHALLENGE_NULLIFIED);
-            query.append("   AND EXISTS ");
-            query.append("     (SELECT 'dok' ");
-            query.append("        FROM user_group_xref ugx");
-            query.append("       WHERE ugx.login_id = chal.defendant_id");
-            query.append("         AND ugx.group_id = " + STUDENT_GROUP_ID + ")");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
