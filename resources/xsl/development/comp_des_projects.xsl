@@ -72,7 +72,7 @@
 				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804393">Email Address Validator</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=email_validator_design">Email Address Validator</a><br/>
 						Posted: 11.14.2002<br/>
 						Submission Deadline: 11.27.2002<br/>
 						</p>   
@@ -92,7 +92,7 @@
 
 					<td class="statText" width="50%">
 						<p>
-						Project: <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804505">Simple Cache</a><br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=simple_cache">Simple Cache</a><br/>
 						Posted: 11.14.2002<br/>
 						Submission Deadline: 11.27.2002<br/>
 						</p>   
