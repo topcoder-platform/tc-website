@@ -584,6 +584,7 @@
 
     <target name="dev_wars" depends="compile">
         <antcall target="dev_war_query"/>
+        <antcall target="dev_war_email"/>
     </target>
          
     <target name="dev_war_query" depends="compile">
@@ -606,6 +607,28 @@
         </fileset>
       </copy>
     </target>
+
+    <target name="dev_war_email" depends="compile">
+      <delete dir="${tc_cluster}/${email.war.name}"/>
+      <mkdir dir="${tc_cluster}/${email.war.name}"/>
+      <copy todir="${tc_cluster}/${email.war.name}">
+        <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
+          <include name="**/*.jsp"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${email.war.name}/WEB-INF">
+        <fileset dir="${resources}/${email.war.name}">
+          <include name="*.tld"/>
+          <include name="*.xml"/>
+        </fileset>
+      </copy>
+      <copy todir="${tc_cluster}/${email.war.name}/classes">
+        <fileset dir="${classes}">
+          <include name="com/topcoder/web/email/**"/>
+        </fileset>
+      </copy>
+    </target>
+
     
     <target name="war_email" depends="compile">
         <war warfile="${war.dir}/${email.war.name}.war" webxml="${resources}/email/web.xml">
