@@ -58,6 +58,23 @@ public class ReviewProjectDetail extends Base {
                                     detail.getLongItem(0, "project_id")));
                         }
                     }
+
+                    //if there is no primary spot in the list, put one in there
+                    //and make sure it's the Failure reviewer
+                    ReviewBoardApplication app = null;
+                    boolean hasPrimary = false;
+                    for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                        app = (ReviewBoardApplication)it.next();
+                        hasPrimary|=app.isPrimary();
+                    }
+                    if (!hasPrimary) {
+                        for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                            app = (ReviewBoardApplication)it.next();
+                            if (app.getReviewerType().equals("Failure"))
+                                app.setPrimary(true);
+                        }
+                    }
+
                 } else {
                     ResultSetContainer reviewers = (ResultSetContainer)results.get("design_reviewers");
                     ResultSetContainer.ResultSetRow row = null;
@@ -82,6 +99,17 @@ public class ReviewProjectDetail extends Base {
                                 detail.getIntItem(0, "phase_id"),
                                 detail.getIntItem(0, "level_id"),
                                 detail.getLongItem(0, "project_id")));
+                    }
+
+                    //if there is no primary spot in the list, put one in there
+                    ReviewBoardApplication app = null;
+                    boolean hasPrimary = false;
+                    for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                        app = (ReviewBoardApplication)it.next();
+                        hasPrimary|=app.isPrimary();
+                    }
+                    if (!hasPrimary) {
+                        ((ReviewBoardApplication)reviewerList.get(0)).setPrimary(true);
                     }
                 }
 
