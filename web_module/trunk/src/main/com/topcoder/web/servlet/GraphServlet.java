@@ -10,9 +10,10 @@ import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.utilities.graph.HistoryPlot;
 import org.faceless.graph.*;
+import org.faceless.graph.formatter.DateFormatter;
 import org.faceless.graph.formatter.NullFormatter;
+import org.faceless.graph.math.DataCurve;
 import org.faceless.graph.output.PNGOutput;
 
 import javax.servlet.ServletConfig;
@@ -25,11 +26,10 @@ import javax.servlet.http.HttpUtils;
 import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.FileInputStream;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Date;
 
 /**
  *  A servlet to generate graph images
@@ -740,14 +740,13 @@ public final class GraphServlet extends HttpServlet {
     }
 
 
+
     /**
      ****************************************************************************************
      * getRatingsHistory()
      * Builds a line graph that plots a coder's rating history.
-     * @author Greg paul
      ****************************************************************************************
      */
-/*
     private static byte[] getRatingsHistory(RequestInt dataRequest)
             throws NavigationException {
         log.debug("taskGraph:getRatingsHistory called...");
@@ -806,12 +805,11 @@ public final class GraphServlet extends HttpServlet {
                     TCServlet.NAVIGATION_ERROR_PAGE);
         }
     }
-*/
 
 
 
 
-
+/*
     private static byte[] getRatingsHistory(RequestInt dataRequest)
             throws NavigationException {
         log.debug("taskGraph:getRatingsHistory called...");
@@ -876,7 +874,7 @@ public final class GraphServlet extends HttpServlet {
         }
         return null;
     }
-
+*/
 
     private static byte[] getRatingsDistribution(RequestInt dataRequest)
             throws NavigationException {
