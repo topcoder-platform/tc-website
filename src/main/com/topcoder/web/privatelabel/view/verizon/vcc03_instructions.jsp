@@ -132,13 +132,13 @@
                            
                         <dd><strong>Java Code Template</strong><br/>
                         
-                        import &#60;necessary classes&#62;<br/>
-                        public class &#60;class-name&#62; {<br/>
-                        public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
-                        //your source here<br/>
-                        return &#60;results&#62;;<br/>
-                        }<br/>
-                        }</dd><br/>
+                        &#09;import &#60;necessary classes&#62;<br/><br/>
+                        &#09;public class &#60;class-name&#62; {<br/>
+                        &#09;&#09;public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
+                        &#09;&#09;&#09;//your source here<br/>
+                        &#09;&#09;&#09;return &#60;results&#62;;<br/>
+                        &#09;&#09;}<br/>
+                        &#09;}</dd><br/>
                           
 
                           <dd><strong>C++ Code Template</strong><br/>
@@ -166,7 +166,7 @@
                           
                           <dd><strong>VB.NET Code Template</strong><br/>
                           <tt> Imports &#60necessary-classes&#62;<br/><br/>
-                          Publicc Class &#60class-name&#62;<br/><br/>
+                          Public Class &#60class-name&#62;<br/><br/>
                           public Function &#60method-name&#62; (arg1 as &#60argument-type&#62;) As &#60return-type&#62;<br/>
                           --your source here<br/>
                           Return &#60result&#62;<br/>
