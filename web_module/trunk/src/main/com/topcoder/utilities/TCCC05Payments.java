@@ -138,7 +138,7 @@ public class TCCC05Payments {
                         log.debug(""+currCoders.size() + " coders for place " +  currPlace + " room " + currRoom);
                         //we'll just round everything down
                         int moneyPile = 0;
-                        for (int i=currPlace; i<currCoders.size()&&i<money.length; i++) {
+                        for (int i=currPlace; i<currPlace+currCoders.size()&&i<money.length; i++) {
                             moneyPile+=money[i];
                         }
                         log.debug("pile is " + moneyPile);
