@@ -19,6 +19,12 @@ import java.util.Map;
 public class CoderSessionInfo extends SessionInfo {
     private int rating;
 
+    //these can probably go away when we get away from the legacy controller
+    //they really just support some of the xsl
+    private int rank;
+    private String activationCode;
+    private boolean hasImage;
+
     public CoderSessionInfo() {
         super();
     }
@@ -26,10 +32,17 @@ public class CoderSessionInfo extends SessionInfo {
     public CoderSessionInfo(HttpServletRequest request, WebAuthentication authentication, Set groups) throws Exception {
         super(request, authentication, groups);
         rating = 0;
+        rank = 0;
         if (!authentication.getActiveUser().isAnonymous()) {
             ResultSetContainer info = getInfo(authentication.getActiveUser().getId());
             if (!info.isEmpty()) {
                 rating = info.getIntItem(0, "rating");
+                hasImage = info.getIntItem(0, "has_image")>0;
+                activationCode = info.getStringItem(0, "activation_code");
+            }
+            ResultSetContainer rsc = getDwInfo(authentication.getActiveUser().getId());
+            if (!rsc.isEmpty()) {
+                rank = rsc.getIntItem(0, "rank");
             }
         }
     }
@@ -38,6 +51,17 @@ public class CoderSessionInfo extends SessionInfo {
         return rating;
     }
 
+    public int getRank() {
+        return rank;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public boolean hasImage() {
+        return hasImage;
+    }
 
     private ResultSetContainer getInfo(long userId) throws Exception {
         InitialContext context = null;
@@ -58,4 +82,25 @@ public class CoderSessionInfo extends SessionInfo {
         Map m = dAccess.getData(r);
         return (ResultSetContainer)m.get("session_info");
     }
+
+    private ResultSetContainer getDwInfo(long userId) throws Exception {
+        InitialContext context = null;
+        DataSource ds = null;
+        try {
+            context = new InitialContext();
+            ds = (DataSource)
+                    PortableRemoteObject.narrow(context.lookup(DBMS.DW_DATASOURCE_NAME),
+                            DataSource.class);
+        } finally {
+            BaseProcessor.close(context);
+        }
+        DataAccessInt dAccess = new CachedDataAccess(ds);
+
+        Request r = new Request();
+        r.setContentHandle("session_info");
+        r.setProperty("cr", String.valueOf(userId));
+        Map m = dAccess.getData(r);
+        return (ResultSetContainer)m.get("session_info");
+    }
+
 }

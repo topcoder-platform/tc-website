@@ -89,7 +89,7 @@ if (!rsc.isEmpty()) {
                    <TD CLASS="statText" ROWSPAN="12" VALIGN="top">
 <% if (vieweeHasImage) { %>
                      <IMG SRC="<bean:write name="resultRow" property='<%= "item[" + 22 /*"image path"*/ + "]" %>'/>" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
-<% } else if (nav.getLoggedIn()) { %>
+<% } else if (nav.isIdentified()) { %>
                      <A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
 <% } else { %>
                      <A HREF="<%="?t=authentication&c=login&errorMsg=You must log in to submit your photo.&errorURL=https://"+request.getServerName()+"/reg/index.jsp"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
@@ -147,7 +147,7 @@ if (!rsc.isEmpty()) {
                 </TR>                
                 <TR>
                   <TD COLSPAN="4" CLASS="statText">
-                  <% if ( nav.getLoggedIn() && Integer.parseInt(rsr.getItem(1).toString())==nav.getUserId() ) { %><A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="statText" TARGET="_parent">Update your profile</A>
+                  <% if ( nav.isIdentified() && Integer.parseInt(rsr.getItem(1).toString())==nav.getUserId() ) { %><A HREF="<%="https://"+request.getServerName()+"/reg/index.jsp"%>" CLASS="statText" TARGET="_parent">Update your profile</A>
                   <% } else { %>&#160;<%}%>
                   </TD>
                 </TR>                

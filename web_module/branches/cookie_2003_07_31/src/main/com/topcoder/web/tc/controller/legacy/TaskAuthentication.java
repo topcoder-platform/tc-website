@@ -221,7 +221,7 @@ public final class TaskAuthentication {
                             new SessionPersistor(request.getSession()), request, response);
                     //we're gonna cheat and not do the actual login, just set the cookie
                     auth.login(new SimpleUser(0, handle, password));
-                    nav.setAuthentication(auth);
+                 //   nav.setAuthentication(auth);
 
                     if (loginURL.equals("")) {
                         result = "home";

@@ -24,7 +24,7 @@
     user = n.getUser();
     HashMap userTypeDetails = user.getUserTypeDetails();
     HashMap sessionObjects = n.getSessionObjects();
-    if ( n.getLoggedIn() ) {
+    if ( n.isIdentified() ) {
       rtUser =user.getHandle();
       rtPassword =user.getPassword();
     }

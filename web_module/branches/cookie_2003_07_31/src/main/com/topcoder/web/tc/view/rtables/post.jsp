@@ -24,7 +24,7 @@
     String responseURL = "";
     String responsePostURL = responseURL.equals("") ? "" :  responseURL.substring(1);
     n = (Navigation) session.getAttribute("navigation");
-    if (n==null || !n.getLoggedIn() ) {
+    if (n==null || !n.isIdentified() ) {
       StringBuffer errorURL = new StringBuffer(100);
       if ("POST".equalsIgnoreCase(request.getMethod())) {
           String[] keys = {"mode", "forum", "thread", "message"};
@@ -60,7 +60,7 @@
       String rtPassword = "";
       try {
         user = n.getUser();
-        if ( n.getLoggedIn() ) {
+        if ( n.isIdentified() ) {
           rtUser =user.getHandle();
           rtPassword =user.getPassword();
         }
