@@ -16,7 +16,7 @@
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.SIMPLE_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -30,7 +30,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -44,7 +44,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -58,7 +58,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -72,7 +72,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -86,7 +86,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -100,7 +100,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -114,7 +114,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -128,7 +128,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -142,7 +142,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -156,7 +156,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -170,7 +170,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -185,7 +185,7 @@
             </tr>
 
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
