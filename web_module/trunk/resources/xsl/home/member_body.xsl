@@ -474,27 +474,23 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 
 <!-- Coder Point of View Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-                <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
+                <tr><td valign="top" colspan="3"><img src="/i/label_coders_pov.gif" alt="Coder's Point of View" width="154" height="30" border="0" /></td></tr>
 
-                <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;Yarin<br/><i>[TC]&#160;Member</i><br /></td>
-                    <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
-                    <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 140</strong></font></td>
-                </tr>
-
-                <tr>
-                    <td valign="top" class="bodyText" width="100%">
-                        <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm140_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                <tr valign="top">
+                    <td width="55" class="bodyText">
+                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5"/><br />
+                        By&#160;<strong>Yarin</strong><br/>
+                        <span class="smallText"><em>TopCoder Member</em></span></td>
+                    <td width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
+                    <td width="99%" class="bodyText">
+                        <p><strong>Single Round Match 140</strong><br />
+                        <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm140_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a></p>
 
                         <p>Another difficult Division-I hard problem made the competition miserable for everyone in Division-I. After the system 
                         testing phase, none of the 11 submissions were still standing. The other two problems had high acceptance rates, and 
                         very few successful challenges were delivered on those two. <b>radeye</b> became the top scorer in Divison-I thanks to two 
                         fast submissions and two successful challenges. Division-II had a well balanced problem set where several people got 
-                        all three problems, and <b>fx4m</b> was the one to get them all fastest.
-						</p>
+                        all three problems, and <b>fx4m</b> was the one to get them all fastest.</p>
                     </td>
                 </tr>
             </table>
@@ -535,14 +531,10 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 
 <!-- TCS Promo Begins -->
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
-            <a href="/index?t=development&amp;c=online_review&amp;t=app"><img src="/i/development/tcs_new_app_project.gif" alt="New Application Project" width="244" height="107" border="0" /></a><br />
+            <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
+            <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/development/tcs_congrats_winner.gif" alt="Congratulations to pops, our $2000 Component Design Contest Winner" border="0" width="244" height="144" /></a><br />
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?&amp;t=development&amp;c=components"><img src="/i/development/tcs_royalties_2.gif" alt="Royalty Payments" width="244" height="50" border="0" /></a><br />
-            <!-- <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_promo.gif" alt="Win $2000" width="244" height="109" border="0" /></a><br /> -->
-            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
+            <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
                 <tr valign="middle">

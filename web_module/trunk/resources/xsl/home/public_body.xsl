@@ -61,14 +61,14 @@
                 </table>
 
 <!-- Summary/Best/Worst Begins -->
-                <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
                     <tr>
-                        <td valign="middle" width="184"><img src="/i/label_srm_summary.gif" alt="Last Match Summary" width="184" height="26" border="0" align="left"/></td>
+                        <td valign="middle" width="184"><img src="/i/label_srm_summary.gif" alt="Last Match Summary" width="192" height="30" border="0" align="left" /></td>
                         <td width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
                     </tr>
                 </table>
 
-                <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+                <table border="0" cellspacing="1" cellpadding="0" width="100%">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
                             <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 140</strong></a><br />
@@ -79,7 +79,7 @@
                     <tr>
                         <td valign="middle" align="center" bgcolor="#CCCCCC" width="33%" nowrap="nowrap" height="15">
                             <a class="bodyGeneric">
-                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#leaders</xsl:attribute>Div. Leaders</a>
+                            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#leaders</xsl:attribute>Division Leaders</a>
                         </td>
                         <td valign="middle" align="center" bgcolor="#CCCCCC" width="34%" nowrap="nowrap">
                             <a class="bodyGeneric">
@@ -96,7 +96,7 @@
                     <tr>
                         <td valign="middle" class="statText" width="100%">
                             <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#001935">
-                                <tr><td valign="middle" height="17" align="center" colspan="5" class="statTextBig" background="/i/steel_bluebv_bg.gif">Best/Worst Rating Change</td></tr>
+                                <tr><td valign="middle" height="17" align="center" colspan="5" class="statTextBig" background="/i/steel_bluebv_bg.gif">Best / Worst Rating Change</td></tr>
                                 <tr><td colspan="5" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td></tr>
 
                                 <xsl:for-each select="/TC/HOME/GainersAndLosers/Coder">
@@ -137,76 +137,53 @@
 
 <!-- Coder Point of View Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-                <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
+                <tr><td valign="top" colspan="3"><img src="/i/label_coders_pov.gif" alt="Coder's Point of View" width="154" height="30" border="0" /></td></tr>
 
-                <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;Yarin<br/><i>[TC]&#160;Member</i><br /></td>
-                    <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
-                    <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 140</strong></font></td>
-                </tr>
-
-                <tr>
-                    <td valign="top" class="bodyText" width="100%">
-                        <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm140_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                <tr valign="top">
+                    <td width="55" class="bodyText">
+                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5"/><br />
+                        By&#160;<strong>Yarin</strong><br/>
+                        <span class="smallText"><em>TopCoder Member</em></span></td>
+                    <td width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
+                    <td width="99%" class="bodyText">
+                        <p><strong>Single Round Match 140</strong><br />
+                        <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm140_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a></p>
 
                         <p>Another difficult Division-I hard problem made the competition miserable for everyone in Division-I. After the system 
                         testing phase, none of the 11 submissions were still standing. The other two problems had high acceptance rates, and 
                         very few successful challenges were delivered on those two. <b>radeye</b> became the top scorer in Divison-I thanks to two 
                         fast submissions and two successful challenges. Division-II had a well balanced problem set where several people got 
-                        all three problems, and <b>fx4m</b> was the one to get them all fastest.
-						</p>
+                        all three problems, and <b>fx4m</b> was the one to get them all fastest.</p>
                     </td>
                 </tr>
             </table>
 <!-- End of Point of View -->
 
-
             <hr width="100%" size="1px" color="43515E" />
 
 <!-- Feature -->
-            <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+            <table border="0" cellspacing="1" cellpadding="0" width="100%">
                 <tr>
-                    <td valign="middle" width="40%" bgcolor="#FFFFFF" height="26"><img src="/i/label_feat.gif" alt="Weekly Feature" width="184" height="26" border="0" /></td>
-                    <td width="60%" bgcolor="#FFFFFF"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                </tr>
-
-                <tr>
-                    <td valign="middle" bgcolor="#CCCCCC" align="center" height="15">
-                        <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>
-                        Upcoming/Past Features
-                        </a>
-                    </td>
-                    <td valign="middle" bgcolor="#CCCCCC" align="center"> <a class="bodyGeneric">
-                    <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_topics</xsl:attribute>Want to write?</a></td>
-                </tr>
-            </table>
-
-            <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
-                <tr>
-                    <td valign="top" width="55" align="left" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
-                        <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->
-                        <!-- <img src="/i/m/the_gigi_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/> --><br />
-                        <a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="15"/></a></td>
+                    <td valign="top" width="55" align="left" class="bodyText">
+                        <a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a></td>
                     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
-                    <td valign="top" width="100%" align="left" class="bodyText"><br />
-                        <a class="bodyGeneric">
+                    <td valign="top" width="100%" align="left" class="bodyText">
+                        <p><a class="bodyGeneric">
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_031703</xsl:attribute>
-                        <strong>Component-Based Development: TopCoder Style</strong></a><br />
-                        Monday, March 17, 2003<br />
+                        <img src="/i/label_feature_title.gif" alt="Component-Based Development: TopCoder Style" width="400" height="30" border="0" /></a><br />
+                        Monday, March 17, 2003</p>
 
-                        <p>By&#160;srowen<br /><i>TopCoder Member</i></p>
+                        <p>By&#160;<strong>srowen</strong><br />
+                        <span class="smallText"><em>TopCoder Member</em></span></p>
                         
                         <p>There is programming, and there is software development. You, dear TopCoder member, demonstrate weekly that you 
                         can solve well-stated programming puzzles quickly.</p>
-						<p>Yet solutions to real-world problems require more: deciding *what* puzzles must be solved, describing them thoroughly, 
-						developing solutions that are open to change, and verifying those solutions: design, documentation and testing. 
-						Together with the actual programming, these make up the software development process...
-						<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_031703</xsl:attribute>full&#160;story</a>
-                    	</p>
+                        
+                        <p>Yet solutions to real-world problems require more: deciding *what* puzzles must be solved, describing them thoroughly, 
+                        developing solutions that are open to change, and verifying those solutions: design, documentation and testing. 
+                        Together with the actual programming, these make up the software development process...
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_031703</xsl:attribute>&gt;&#160;full&#160;story</a>
+                        </p>
                     </td>
                 </tr>
             </table>
@@ -269,14 +246,10 @@
 
 <!-- TCS Promo Begins -->
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
-            <a href="/index?t=development&amp;c=online_review&amp;t=app"><img src="/i/development/tcs_new_app_project.gif" alt="New Application Project" width="244" height="107" border="0" /></a><br />
+            <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
+            <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/development/tcs_congrats_winner.gif" alt="Congratulations to pops, our $2000 Component Design Contest Winner" border="0" width="244" height="144" /></a><br />
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?&amp;t=development&amp;c=components"><img src="/i/development/tcs_royalties_2.gif" alt="Royalty Payments" width="244" height="50" border="0" /></a><br />
-            <!-- <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_promo.gif" alt="Win $2000" width="244" height="109" border="0" /></a><br /> -->
-            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
+            <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
                 <tr valign="middle">
