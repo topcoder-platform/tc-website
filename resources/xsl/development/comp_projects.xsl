@@ -155,7 +155,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Design Competition begins on 11/6/2003</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Design Competition begins on 11/11/2003</strong></td>
                         </tr>
                 </xsl:if>
 
@@ -219,7 +219,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Development Competition begins on 11/6/2003</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Development Competition begins on 11/11/2003</strong></td>
                         </tr>
                 </xsl:if>
                 <tr>
