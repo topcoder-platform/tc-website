@@ -567,6 +567,7 @@
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/idgeneratorclient/IdGeneratorClient.class"/>
          </jar>
      </target>
 
