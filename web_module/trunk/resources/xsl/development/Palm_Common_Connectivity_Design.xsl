@@ -111,7 +111,7 @@
 
                                                         <strong>Note:</strong>
                                                         <br/>
-                                                        TopCoder Will supply Code Warrior 8 to all participating members.
+                                                        TopCoder will supply Code Warrior 8 to all participating members.
 
 
                                                     </p>
