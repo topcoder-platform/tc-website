@@ -12,7 +12,7 @@
         <html>
             <head>
                 <xsl:call-template name="Preload"/>
-                <title>TopCoder | Application</title>
+                <title>Email Tool Enhancements Application Design Project at TopCoder</title>
                 <xsl:call-template name="CSS"/>
                 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
                 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -46,11 +46,11 @@
                             <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
                             <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>
                             <table border="0" cellspacing="0" cellpadding="0"  width="100%">
-                                <tr>
-                                    <td  valign="top" width="11">
+                                <tr valign="top">
+                                    <td width="11">
                                         <img src="/i/clear.gif" alt="" width="11" height="1" border="0"/>
                                     </td>
-                                    <td class="bodyText" colspan="2" valign="top"  width="100%">
+                                    <td class="bodyText"  width="100%">
                                         <img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
                                         <br/>
 
