@@ -126,8 +126,10 @@
           </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
+        <B><FONT COLOR="#CC0000">&#62;&#62; There are 136 open spots!</FONT></B><BR/>
 Based on your profile information and your rated event participation, you are eligible to sign up for the 2002 TopCoder Invitational tournament.  Even if your rating is below the current cut-off, signing up for the event now will ensure that you are on the stand-by list in the event that not all of the invited members accept their invitations.<BR/><BR/>
-          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">Click here to sign up for the 2002 TopCoder Invitational</A><BR/><BR/>
+          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">Click here to sign up for the 2002 TopCoder Invitational</A><BR/>
+          <BR/>
         </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
