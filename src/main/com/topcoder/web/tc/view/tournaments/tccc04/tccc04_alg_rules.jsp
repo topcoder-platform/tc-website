@@ -45,9 +45,9 @@
 
             <p>
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="#conditions">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#structure">Competition Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="#prizes">About the Prizes</a></p>
+                        <a href="#prizes">About the Prizes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="#conditions">Conditions of Participation</a></p>
                         
     <!-- overview -->
 
@@ -58,11 +58,11 @@
 
             <p>
             The 2004 TopCoder Collegiate Challenge ("TCCC") Algorithm Competition will take place between February 
-            23rd and April 16th, 2004.  It will consist of one (1) online qualification round, four (4) online elimination 
+            23 and April 16, 2004.  It will consist of one (1) online qualification round, four (4) online elimination 
             rounds and two (2) onsite final rounds, being the Semifinal and Championship rounds.  The prize purse for this 
             competition is $40,000 in cash.  Up to 500 competitors will receive a prize just for competing in Online Round 
             #1.  The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds, 
-            being held at the Boston Park Plaza Hotel & Towers in Boston, Massachusetts on April 15th and 16th.
+            being held at the Boston Park Plaza Hotel & Towers in Boston, Massachusetts, USA on April 15 and 16.
             </p>
             
 <!-- eligibility -->
@@ -74,111 +74,30 @@
             TopCoder members meeting the following eligibility criteria are eligible to compete in the TCCC: 
             </p>
             <ul>
-            <li>Must be at least 18 years of age (as of February 23, 2004)</li>
+            <li>Must be at least 18 years of age (as of February 1, 2004)</li>
             <li>Must be matriculated full-time at an accredited college or university</li>
             </ul>
             <p>
-            TopCoder members who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Collegiate Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
+            The TopCoder Collegiate Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
             </p>
             <p>
             Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
             </p>
             
             <p><span class="bodySubtitle">Registration</span><br/>
-            Registration for the 2004 TopCoder Collegiate Challenge will open at 9:00AM EST on Monday, February 1, 2004, and will close at 9:00AM EST on Monday, February 23, 2004.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, however each individual may only register once.</p>
+            Registration for the 2004 TopCoder Collegiate Challenge will open at 9:00AM EST on Monday, February 1, and will close at 9:00AM EST on Monday, February 23.  In order to be eligible to compete in the Algorithm Competition, each competitor must be a registered TopCoder member and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, however each individual may only register once.</p>
 
-            <p><span class="bodySubtitle">Qualification Round - 12:00PM EST Monday, February 23 to 12:00PM EST Tuesday, February 24</span><br/>
-            The Qualification Round will be open for 24 hours from 12:00PM EST Monday, February 23 through 12:00PM EST Tuesday, February 24, 2004.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time during the 24 hours.</p>
+            <p><span class="bodySubtitle">Qualification Round</span><br/>
+            The Qualification Round will be open for 24 hours from 12:00PM EST on Monday, February 23 through 12:00PM EST on Tuesday, February 24.  Each competitor may attempt to qualify at any time during the 24 hours.  Competitors may only attempt to qualify one time during the 24 hours.</p>
 
-            <p>The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.  NOTE: The Qualification Round will not include a Challenge Phase</p>
+            <p>The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.  NOTE: The Qualification Round will not include a Challenge Phase.</p>
             
-            <p><b>The Qualification Round Coding Phase</b> is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</p>
+            <p><b>The Qualification Round Coding Phase</b> is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  NOTE: Qualification will end promptly at 8:00AM EST on Tuesday, February 24..  A competitor who begins the qualification attempt after 8:00AM EST on Tuesday February 24 will have less than 60 minutes to attempt qualification.</p>
 
-            <p><b>The Qualification Round System Testing Phase</b> is applied to all submitted code at the conclusion of the Qualification Round. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</p>
+            <p><b>The Qualification Round System Testing Phase</b> is applied to all submitted code at the conclusion of the Qualification Round. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</p>
 
             <p>Upon logging in to the TopCoder Arena during the Qualification Round, each competitor who has registered for the Algorithm Competition will receive a message indicating which set of problems he/she has been assigned.  The 100 highest scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Online Round #1 of the Algorithm Competition.  A maximum of 500 competitors will advance.  Advancers will be posted within 24 hours after the conclusion of the Qualification Round.  Members will be rated at the conclusion of the Qualification Round based on their performance against others with the same problem set.</p>
 
-<!-- Conditions of Participation -->
-            <a name="conditions"></a>
-            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
-            </a>Eligibility</h2>
-         <h2>Conditions of Participation</h2>
-         
-         <p>By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which 
-         are final, binding and conclusive in all matters.</p>
-
-         <h3><font color="#CC0000">Contestants must not cheat. All ideas for any code and/or challenge submitted must be 
-         the contestant's alone.</font></h3>
-
-         <p>Winners in each round of competition will be those competitors who win the most points in their respective rooms. 
-         All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to 
-         the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
-
-         <p>Prizewinners will be notified via e-mail within 10 days of the completion of the Online Round #1 that they have 
-         won a prize.  Contestants who advance to Online Round #4 must complete the following documents online by 9:00 pm 
-         EST on Wednesday, March 17, 2004:</p>
-
-         <ul>
-         <li>Competitor questionnaire - the questions and responses will be published in the 2004 TopCoder Collegiate Challenge Guide</li>
-         <li>Travel form - provides TopCoder with the appropriate travel information in the event you advance to the onsite tournament rounds</li>
-         </ul>
-
-         <p>Contestants who advance to Online Round #4 must also complete the following documents and return them to TopCoder 
-         by Wednesday, March 24, 2004:</p>
-
-         <ul>
-         <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless you already have a notarized 
-         affidavit on file with TopCoder)</li>
-         <li>Applicable tax form (unless your tax form is already on file with TopCoder)</li>
-         </ul>
-
-         <p>Prizes will be presented within 60 days of making an eligibility determination. Unclaimed or undeliverable prizes 
-         will not be awarded.  Competitors who do not submit the required information listed above by the applicable deadlines 
-         will forfeit their prizes.</p>
-
-         <p>As a condition of participation in the tournament, all information provided by you in your TopCoder member profile 
-         must be comprehensive, accurate and up-to-date. TopCoder may require you to complete an additional registration form 
-         to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and 
-         all registration forms required by TopCoder.</p>
-
-         <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Wednesday, March 17, 
-         2004 a completed (i) competitor questionnaire, and (ii) travel form; and by Wednesday, March 24, 2004 a completed 
-         (i) notarized Affidavit of Eligibility and Liability and Publicity Release, and (ii) IRS Form W-9 or W-8BEN, as appropriate, 
-         if one is not already on file with TopCoder. In completing the Affidavit of Eligibility and Liability and Publicity Release, a 
-         winner (i) confirms his/her eligibility, (ii) represents and warrants that he/she has not cheated; that the idea for the 
-         code and/or challenge submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted 
-         to, and contained in, the TopCoder member database, (iv) authorizes TopCoder to publicize the tournament's results, (v) 
-         agrees to sign any applicable forms required by tax authorities, (vi) licenses to TopCoder rights to all information submitted 
-         during the tournament (including rights to source code and other executables), and (vii) releases TopCoder from liability 
-         arising out of any prize won. TopCoder requires contestants to complete the Form W-9 or W-8BEN for tax reporting 
-         purposes. If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit, or the W-9 or 
-         W-8BEN, as specified, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. 
-         Providing false information in the registration process or in the required forms described in this paragraph will disqualify 
-         a winner.</p>
-
-         <p>By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless TopCoder, its 
-         affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective 
-         directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property 
-         damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, 
-         from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, 
-         use or misuse of a prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard 
-         to, any prize given.</p>
-
-         <p>In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This 
-         includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, 
-         for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder 
-         and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify 
-         TopCoder if a third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result 
-         of the prizewinner's participation in the tournament.</p>
-
-         <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this 
-         tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder 
-         suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, 
-         or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is 
-         not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized 
-         intervention or technical failures of any sort.</p>
-         
-                     
 <!-- structure -->
             <a name="structure"></a>
             <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
@@ -209,7 +128,7 @@
             <p>NOTE:  In the event of a tie for any advancing position (i.e., room winner or wildcard spot), the tie will be resolved in the following manner:</p>
 
             <ul>
-            <li>Total points acquired (higher is better) during the rounds of the tournament in which all of the tied participants were presented with the same set of problems (excluding the Qualification Round)</li>
+            <li>Total points acquired (higher is better) during the rounds of the tournament in which all of the tied participants were presented with the same set of problems (excludes the Qualification Round)</li>
             <li>If a tie still remains, then by rating (higher is better) following the Qualification Round</li>
             <li>If a tie still remains, all tied coders will advance to the next round</li>
             </ul>
@@ -223,7 +142,7 @@
             <p><b>The System Testing Phase</b> is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</p>
 
             <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
-            The twenty-four (24) advancers from Online Round #4 will travel to the Boston Park Plaza Hotel & Towers on Wednesday, April 14th to compete in the Semifinal round of the tournament being held on Thursday, April 15th.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 pm on Wednesday, April 14th.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.</p>
+            The twenty-four (24) advancers from Online Round #4 will travel to the Boston Park Plaza Hotel & Towers on Wednesday, April 14 to compete in the Semifinal round of the tournament being held on Thursday, April 15.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 pm on Wednesday, April 14.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.  All 24 advancing competitors will be required to confirm their ability to travel to and attend the onsite finals by <b>6:00PM EST on Wednesday, March 24</b>.</p>
 
             <p>TopCoder will provide travel arrangements for each competitor, up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  The Boston Park Plaza Hotel & Towers will provide travel arrangements to and from the airport and TopCoder will provide accomodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will <b>not</b> provide travel or lodging accommodations for competitor guests at the 2004 TCCC.</p>
 
@@ -286,16 +205,97 @@
                 </tr>
             </table>
 
+<!-- Conditions of Participation -->
+            <a name="conditions"></a>
+            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>Conditions of Participation</h2>
+         
+         <p>By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which 
+         are final, binding and conclusive in all matters.</p>
+
+         <h3><font color="#CC0000">Contestants must not cheat. All ideas for any code and/or challenge submitted must be 
+         the contestant's alone.</font></h3>
+
+         <p>Winners in each online and onsite round of competition will be those competitors who win the most points in their respective rooms. 
+         All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to 
+         the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
+
+         <p>Prizewinners will be notified via e-mail within 10 days of the completion of the Online Round #1 that they have 
+         won a prize.  Contestants who advance to Online Round #4 must complete the following documents online by 9:00 pm 
+         EST on Wednesday, March 17, 2004:</p>
+
+         <ul>
+         <li>Update member profile - all information contained in the member's profile must be updated prior to attending the onsite finals</li>
+         <li>Competitor questionnaire - the questions and responses will be published in the 2004 TopCoder Collegiate Challenge Program</li>
+         <li>Travel form - provides TopCoder with the appropriate travel information in the event you advance to the onsite tournament rounds</li>
+         </ul>
+
+         <p>Contestants who advance to Online Round #4 must also complete the following documents and return them to TopCoder 
+         by Wednesday, March 24, 2004:</p>
+
+         <ul>
+         <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless you already have a notarized 
+         affidavit on file with TopCoder)</li>
+         <li>Applicable tax form (unless your tax form is already on file with TopCoder)</li>
+         </ul>
+
+         <p>Prizes will be presented within 60 days of making an eligibility determination. Unclaimed or undeliverable prizes 
+         will not be awarded.  Competitors who do not submit the required information listed above by the applicable deadlines 
+         will forfeit their prizes.</p>
+
+         <p>As a condition of participation in the tournament, all information provided in TopCoder member profile 
+         must be comprehensive, accurate and up-to-date. TopCoder may require each competitor to complete an additional registration form 
+         to register for the tournament. In order to be eligible to participate in the tournament, each competitor must have completed any and 
+         all registration forms required by TopCoder.</p>
+
+         <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Wednesday, March 17, 
+         2004 a completed (i) competitor questionnaire, and (ii) travel form; and by Wednesday, March 24, 2004 a completed 
+         (i) notarized Affidavit of Eligibility and Liability and Publicity Release, and (ii) IRS Form W-9 or W-8BEN, as appropriate, 
+         if one is not already on file with TopCoder. In completing the Affidavit of Eligibility and Liability and Publicity Release, a 
+         winner (i) confirms his/her eligibility, (ii) represents and warrants that he/she has not cheated; that the idea for the 
+         code and/or challenge submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted 
+         to, and contained in, the TopCoder member database, (iv) authorizes TopCoder to publicize the tournament's results, (v) 
+         agrees to sign any applicable forms required by tax authorities, (vi) licenses to TopCoder rights to all information submitted 
+         during the tournament (including rights to source code and other executables), and (vii) releases TopCoder from liability 
+         arising out of any prize won. TopCoder requires contestants to complete the Form W-9 or W-8BEN for tax reporting 
+         purposes. If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit, or the W-9 or 
+         W-8BEN, as specified, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. 
+         Providing false information in the registration process or in the required forms described in this paragraph will disqualify 
+         a winner.</p>
+
+         <p>By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless TopCoder, its 
+         affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their respective 
+         directors, officers, employees, representatives and agents, from and against any and all liability for any loss, property 
+         damage or damage to person, including without limitation, death and injury, due in whole or in part, directly or indirectly, 
+         from or arising out of participation in this tournament, or participation in any tournament-related activity, or the receipt, 
+         use or misuse of a prize. TopCoder specifically disclaims all liability associated with, and makes no warranties with regard 
+         to, any prize given.</p>
+
+         <p>In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. This 
+         includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, 
+         for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder 
+         and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify 
+         TopCoder if a third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result 
+         of the prizewinner's participation in the tournament.</p>
+
+         <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this 
+         tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder 
+         suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, 
+         or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is 
+         not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized 
+         intervention or technical failures of any sort.</p>
+         
             <p><span class="bodySubtitle">Other</span><br />
             The tournament is void in whole or in part where prohibited by law.</p>
 
             <p>A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/, and will be
             displayed for at least 3 months after the end of the tournament.</p>
 
-            <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 am Eastern Time on the date following the round for which the appeal is being addressed.</p>
+            <p>The results of a round of competition will be considered, by TopCoder, to be final at 11:00 AM ET on the day following the round of competition.  Any appeals regarding the validity of these results must be received by TopCoder at the <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> email address no later than 11:00 AM ET on the second day following the date on which the round of competition was held.</p>
 
             <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
+                     
         <p><br/></p>
          </td>
 <!-- Center Column Ends -->

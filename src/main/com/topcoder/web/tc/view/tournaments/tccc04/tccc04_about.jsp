@@ -51,8 +51,9 @@
             
             <p><span class="bodySubtitle">What's new?</span><br/>
             <ul>
-            <li><b>More onsite competitors:</b> This tournament is bigger than ever.  24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.  There may be more finalists now, but only three of them will be crowned champions.  Will you be part of the elite?</li>
-            <li><b>Coaches:</b> The 2004 TCCC marks the first TopCoder tournament to have coaches.  Coaches will provide competitors in the Component Design Competition with technical guidance and support during the contest.  Not in college, but love to design components?  <a href="mailto:service@topcoder.com">Sign up</a> to be a coach.  Looking for a little guidance in the tournament?  <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coachesreq">Request a coach</a>.</li>
+            <li><b>More onsite competitors:</b> This tournament is bigger than ever.  24 Algorithm finalists and 8 Component finalists will be invited to compete live at the onsite finals in Boston.  There may be more finalists now, but only three of them will be crowned champions.  Will you be one of them?</li>
+            <li><b>Second Chance in Algorithm Competition:</b> The 2nd and 3rd place finishers in each Semifinal Round will compete in a Wildcard Round for a second chance to make it to the Championship Round.</li>
+            <li><b>Coaches:</b> The 2004 TCCC marks the first TopCoder tournament to have coaches.  Coaches will provide competitors in the Component Design Competition with technical guidance and support during the contest.  Not in college, but love to design components?  <a href="mailto:service@topcoder.com">Sign up to be a coach</a>.  Looking for a little guidance in the tournament?  <A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_coachesreq">Request a coach</a>.</li>
             <li><b>Registration:</b> In addition to being a TopCoder member, each competition hopeful must register for the Algorithm Competition.  Registration is unlimited but each competitor may only register once.</li>
             <li><b>Open Qualification:</b> Each registered competitor will attempt to qualify at any time during an open 24-hour period.</li>
             </ul>
@@ -62,7 +63,7 @@
 
             <ul>
                 <li><strong>$100,000 prize purse</strong><br />
-                <li><strong>Elimination Starts</strong><br />
+                <li><strong>Competition Starts</strong><br />
                     January 27, 2004 - Component<br />
                     February 23, 2004 - Algorithm<br /></li>
                 <li><strong>Onsite Finals</strong><br />
