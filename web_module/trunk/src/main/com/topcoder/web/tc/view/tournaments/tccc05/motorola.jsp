@@ -33,10 +33,10 @@
                Exciting career opportunities present themselves to ambitious, driven individuals eager to revolutionize technology with an industry leader.  Our Global Software Group will provide the challenges that keep will keep you an elite TopCoder. 
                <br><br>
                Motorola is looking to hire 
-               <a href="JavaScript:void window.open('/tc?module=Static&d1=tournaments&d2=tccc05&d3=jobs&d4=motoSoftEng','MotorolaJob','top=2,left=2,width=300,height=400,status=0');" >Software Engineers</A>, 
-               <a href="JavaScript:void window.open('/','MotorolaJob','top=2,left=2,width=300,height=400,status=0');" >Software Design Engineers</A>, 
-               <a href="JavaScript:void window.open('/','MotorolaJob','top=2,left=2,width=300,height=400,status=0');" >Sr. Staff Software Engineers</A>, and 
-               <a href="JavaScript:void window.open('/','MotorolaJob','top=2,left=2,width=300,height=400,status=0');" >Engineering Interns</A>.  
+               <a href="JavaScript:void window.open('/tc?module=Static&d1=tournaments&d2=tccc05&d3=jobs&d4=motoSoftEng','MotorolaJob','top=2,left=2,width=400,height=400,scrollbars=1,status=0');" >Software Engineers</A>, 
+               <a href="JavaScript:void window.open('/tc?module=Static&d1=tournaments&d2=tccc05&d3=jobs&d4=motoSoftDesEng','MotorolaJob','top=2,left=2,width=400,height=400,scrollbars=1,status=0');" >Software Design Engineers</A>, 
+               <a href="JavaScript:void window.open('/tc?module=Static&d1=tournaments&d2=tccc05&d3=jobs&d4=motoSrStaffSoftEng','MotorolaJob','top=2,left=2,width=400,height=400,scrollbars=1,status=0');" >Sr. Staff Software Engineers</A>, and 
+               <a href="JavaScript:void window.open('/tc?module=Static&d1=tournaments&d2=tccc05&d3=jobs&d4=motoEngInt','MotorolaJob','top=2,left=2,width=400,height=400,scrollbars=1,status=0');" >Engineering Interns</A>.  
                If would like to be considered for a job at Motorola, <A href="/tc?module=JobHit&jid=251&jt=1">apply now</A>.
                </p>
 

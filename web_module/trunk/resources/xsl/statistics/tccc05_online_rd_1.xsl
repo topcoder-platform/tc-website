@@ -267,7 +267,7 @@ for(int i=1; i&lt;=n; i++) // n = number of moves we want the answer for
             for(int d=0; d&lt;8; d++) {
                 if (x+dx[d] &gt;= 0 &amp;&amp; x+dx[d] &lt; 8 &amp;&amp;
                     y+dy[d] &gt;= 0 &amp;&amp; y+dy[d] &lt; 8)
-                    prob += boardprob[i-1][y+dy[d]][x+dx[d]];
+                    prob += boardprob[i-1][y+dy[d]][x+dx[d]] / 8.0;
             }
             boardprob[i][y][x] = prob / 8;
         }
