@@ -16,10 +16,6 @@
                     ((ArrayList)o).add(temp);
                 }
             }
-            if (o==null) {
-                o = request.getAttribute(Constants.PROBLEM_SETS);
-            }
-
 if (o!=null) {
     List problems = (List)o;
         %>
