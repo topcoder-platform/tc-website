@@ -33,7 +33,7 @@
 <%-- CONTENT --%>
             <td class=bodyContent>
             <br /><br />
-            <p class=pC><span class=bodySmallTitle>Processing</span></p>
+            <p class=pC><span class=bodySmallTitle>Processing...</span></p>
             <br /><br />
             </td>
             <td class=bodyR>&#160;</td>
