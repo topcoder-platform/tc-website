@@ -13,7 +13,7 @@
             <display-name>Company EJB</display-name>
             <ejb-name>Company</ejb-name>
             <home>com.topcoder.web.ejb.company.CompanyHome</home>
-            <remote>com.topcoder.web.ejb.company.CompanySkill</remote>
+            <remote>com.topcoder.web.ejb.company.Company</remote>
             <!--
                         <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>

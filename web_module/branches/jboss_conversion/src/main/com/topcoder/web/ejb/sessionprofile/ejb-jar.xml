@@ -36,13 +36,13 @@
             <description>Session Profile Language EJB</description>
             <display-name>Session Profile Language EJB</display-name>
             <ejb-name>SessionProfileLanguage</ejb-name>
-            <home>com.topcoder.web.ejb.session.SessionProfileLanguageHome</home>
-            <remote>com.topcoder.web.ejb.session.SessionProfileLanguage</remote>
+            <home>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome</home>
+            <remote>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguage</remote>
             <!--
                         <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
-            <ejb-class>com.topcoder.web.ejb.session.SessionProfileLanguageBean</ejb-class>
+            <ejb-class>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
@@ -60,13 +60,13 @@
             <description>Session Profile Problem EJB</description>
             <display-name>Session Profile Problem EJB</display-name>
             <ejb-name>SessionProfileProblem</ejb-name>
-            <home>com.topcoder.web.ejb.session.SessionProfileProblemHome</home>
-            <remote>com.topcoder.web.ejb.session.SessionProfileProblem</remote>
+            <home>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome</home>
+            <remote>com.topcoder.web.ejb.sessionprofile.SessionProfileProblem</remote>
             <!--
                         <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
-            <ejb-class>com.topcoder.web.ejb.session.SessionProfileProblemBean</ejb-class>
+            <ejb-class>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
             <resource-ref>
