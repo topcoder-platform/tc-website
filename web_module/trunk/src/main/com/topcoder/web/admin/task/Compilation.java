@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet.admin.task.coder;
+package com.topcoder.web.admin.task;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.Round;
@@ -13,7 +13,7 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.servlet.admin.XSL;
+import com.topcoder.web.admin.Constants;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +24,7 @@ import java.util.HashMap;
 public final class Compilation {
 
 
-    private static final String DIR = XSL.DIR + "compilation/";
+    private static final String DIR = Constants.DIR + "compilation/";
     private static Logger log = Logger.getLogger(Compilation.class);
 
     public static String process(HttpServletRequest request, HttpServletResponse response,
@@ -46,7 +46,7 @@ public final class Compilation {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("admin.task.coder.Compilation: ERROR:\n " + e, XSL.NAVIGATION_ERROR_URL);
+            throw new NavigationException("admin.task.coder.Compilation: ERROR:\n " + e, Constants.NAVIGATION_ERROR_URL);
 
         }
         return result;
@@ -68,7 +68,7 @@ public final class Compilation {
                 contestAdminServicesHome = null;
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSL.NAVIGATION_ERROR_URL);
+                throw new NavigationException("DB ERROR", Constants.NAVIGATION_ERROR_URL);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -91,7 +91,7 @@ public final class Compilation {
             throw ne;
         } catch (Exception e) {
             throw new NavigationException("admin.task.coder.Compilation.getRounds: ERROR:\n " + e,
-                    XSL.NAVIGATION_ERROR_URL);
+                    Constants.NAVIGATION_ERROR_URL);
 
         }
         return result;
@@ -113,7 +113,7 @@ public final class Compilation {
                 contestAdminServicesHome = null;
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSL.NAVIGATION_ERROR_URL);
+                throw new NavigationException("DB ERROR", Constants.NAVIGATION_ERROR_URL);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -138,7 +138,7 @@ public final class Compilation {
             throw ne;
         } catch (Exception e) {
             throw new NavigationException("admin.task.coder.Compilation.getCoders: ERROR:\n " + e,
-                    XSL.NAVIGATION_ERROR_URL);
+                    Constants.NAVIGATION_ERROR_URL);
 
         }
         return result;
@@ -161,7 +161,7 @@ public final class Compilation {
                 contestAdminServicesHome = null;
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSL.NAVIGATION_ERROR_URL);
+                throw new NavigationException("DB ERROR", Constants.NAVIGATION_ERROR_URL);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -186,7 +186,7 @@ public final class Compilation {
             throw ne;
         } catch (Exception e) {
             throw new NavigationException("admin.task.coder.Compilation.getCompilations : ERROR:\n " + e,
-                    XSL.NAVIGATION_ERROR_URL);
+                    Constants.NAVIGATION_ERROR_URL);
 
         }
         return result;

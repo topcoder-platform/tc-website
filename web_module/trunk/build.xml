@@ -858,6 +858,9 @@
 
     <target name="deploy-admin" depends="compile">
         <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
+            <fileset dir="${java}/com/topcoder/web/admin/view">
+                <include name="**/*.jsp"/>
+            </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/shared/util/"/>
                 <include name="com/topcoder/shared/docGen/"/>

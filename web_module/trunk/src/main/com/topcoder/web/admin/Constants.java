@@ -1,8 +1,8 @@
-package com.topcoder.web.servlet.admin;
+package com.topcoder.web.admin;
 
 import com.topcoder.common.web.constant.TCServlet;
 
-public final class XSL {
+public final class Constants {
 
     public static final String DIR = TCServlet.XSL_ROOT + "admin/";
     private static final String ERROR_SUB_DIR = "error/";
