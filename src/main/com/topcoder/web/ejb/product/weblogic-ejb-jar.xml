@@ -21,4 +21,20 @@
     </caching-descriptor>      
     <jndi-name>com.topcoder.web.ejb.product.PurchaseHome</jndi-name>
   </weblogic-enterprise-bean>
+    <weblogic-enterprise-bean>
+      <ejb-name>ProductUnit</ejb-name>
+      <caching-descriptor>
+        <max-beans-in-free-pool>20</max-beans-in-free-pool>
+        <initial-beans-in-free-pool>0</initial-beans-in-free-pool>
+      </caching-descriptor>
+      <jndi-name>com.topcoder.web.ejb.product.ProductUnit</jndi-name>
+    </weblogic-enterprise-bean>
+    <weblogic-enterprise-bean>
+      <ejb-name>Unit</ejb-name>
+      <caching-descriptor>
+        <max-beans-in-free-pool>20</max-beans-in-free-pool>
+        <initial-beans-in-free-pool>0</initial-beans-in-free-pool>
+      </caching-descriptor>
+      <jndi-name>com.topcoder.web.ejb.product.Unit</jndi-name>
+    </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

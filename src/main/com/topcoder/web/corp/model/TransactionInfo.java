@@ -2,14 +2,14 @@ package com.topcoder.web.corp.model;
 
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.ejb.product.Product;
-import com.topcoder.web.ejb.product.ProductHome;
+import com.topcoder.web.ejb.product.*;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.user.ContactHome;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.TransactionServlet;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +19,7 @@ import javax.naming.InitialContext;
 import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.sql.Date;
 
 
@@ -37,6 +38,8 @@ public class TransactionInfo {
     private Exception tcExc = null;
     private String terms = null;
     private boolean agreed = false;
+
+    private static final int TIME_UNIT_TYPE_ID = 1;
 
     public TransactionInfo() {
         terms = "";
@@ -89,10 +92,13 @@ public class TransactionInfo {
                 throw new Exception("No valid product found for ID given");
             }
 
-            qtty = productTable.getNumUnits(productID);
+            ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
+            qtty = productUnit.getNumUnits(productID, getUnitIdByType(TIME_UNIT_TYPE_ID, productID));
+
             if (qtty <= 0) {
                 throw new Exception("No valid unit found for ID given");
             }
+
 
             Contact contactTable = (
                     (ContactHome) icEJB.lookup(ContactHome.EJB_REF_NAME)
@@ -130,6 +136,36 @@ public class TransactionInfo {
         }
     }
 
+    /**
+     * figures out what unit is associated with the given product
+     * for the given unit_type_id.  it will return the first
+     * unit_id that matches those criteria.
+     * @param unitTypeId
+     * @param productId
+     * @return
+     * @throws NamingException
+     * @throws CreateException
+     * @throws RemoteException
+     */
+    private long getUnitIdByType(int unitTypeId, long productId)
+            throws NamingException, CreateException, RemoteException {
+        long ret = -1;
+        InitialContext icEJB = null;
+        try {
+            ProductUnit productUnit = ((ProductUnitHome) icEJB.lookup(ProductUnitHome.EJB_REF_NAME)).create();
+            ResultSetContainer unitList = productUnit.getUnits(productId);
+            ResultSetContainer.ResultSetRow row = null;
+            for (Iterator it = unitList.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
+                if (row.getItem("unit_type_id").getResultData().equals(new Integer(unitTypeId))) {
+                    ret = ((Long) row.getItem("unit_id").getResultData()).longValue();
+                }
+            }
+        } finally {
+            Util.closeIC(icEJB);
+        }
+        return ret;
+    }
 
     public String getUserBackPage() {
         return userBackPage;
@@ -185,12 +221,11 @@ public class TransactionInfo {
         try {
             icEJB = (InitialContext) TCContext.getInitial();
             // check if there is such product
-            Product productTable = ((ProductHome) icEJB.lookup(ProductHome.EJB_REF_NAME)).create();
+            Unit unit = ((UnitHome) icEJB.lookup(UnitHome.EJB_REF_NAME)).create();
 
             // calculate start date / end date
             int field = -1;
-            String unitName;
-            unitName = productTable.getUnitTypeDesc(productID);
+            String unitName = unit.getUnitDesc(getUnitIdByType(TIME_UNIT_TYPE_ID, productID));
             if ("day".equalsIgnoreCase(unitName)) {
                 field = Calendar.DAY_OF_MONTH;
             } else if ("week".equalsIgnoreCase(unitName)) {

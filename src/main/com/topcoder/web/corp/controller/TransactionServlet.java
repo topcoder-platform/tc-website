@@ -130,7 +130,7 @@ public class TransactionServlet extends HttpServlet {
         if (OP_TX_STATUS.equals(op)) {
             try {
                 // put prefix of the url into request
-                String retPage = txStatus(req, resp);
+                String retPage = txStatus(req);
                 req.getRequestDispatcher(retPage).forward(req, resp);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -215,7 +215,7 @@ public class TransactionServlet extends HttpServlet {
         WebAuthentication auth = null;
         if (OP_TX_STATUS.equals(op)) {
             try {
-                String retPage = txStatus(req, resp);
+                String retPage = txStatus(req);
 //                req.getRequestDispatcher(retPage).forward(req, resp);
                 resp.sendRedirect(retPage);
             } catch (Exception e) {
@@ -297,10 +297,9 @@ public class TransactionServlet extends HttpServlet {
      * This method contains the logic to show status of the transaction.
      *
      * @param req
-     * @param resp
      * @throws Exception
      */
-    private String txStatus(HttpServletRequest req, HttpServletResponse resp)
+    private String txStatus(HttpServletRequest req)
             throws Exception {
         // VeriSign has returned after transaction copletion
 //        String txRc = req.getParameter(KEY_RC);
@@ -349,7 +348,7 @@ public class TransactionServlet extends HttpServlet {
             userTerms.createUserTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID);
         }
         txInfo.setAgreed(true);
-        req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost() * txInfo.getQtty()));
+        req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost()));
 //        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
 //        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
 //        req.setAttribute(Constants.KEY_CCTX_CONFIRM, Constants.CCTX_CONFIRM);
@@ -371,7 +370,7 @@ public class TransactionServlet extends HttpServlet {
      */
     private boolean refreshRetCode(HttpServletRequest req, TransactionInfo txi) {
         String rcString = req.getParameter(RETKEY_IRESULT);
-        log.debug("request return code: " + rcString);
+        log.info("request return code: " + rcString);
         if (rcString == null || rcString.trim().length() == 0) {
             return txi.getRcVeriSign() == null;
         }
@@ -383,7 +382,7 @@ public class TransactionServlet extends HttpServlet {
         }
 
         if (rc != RCINT_APPROVED) {
-            txi.setRcVeriSign(req.getParameter(RETKEY_SRESULT) + ", rc=" + rc);
+            txi.setRcVeriSign(req.getParameter(RETKEY_SRESULT) + ", " + KEY_RC + "=" + rc);
         } else {
             txi.setRcVeriSign(null);
         }
