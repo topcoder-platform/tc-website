@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>TopCoder | Tournaments</title>
+<title>TopCoder | Tournaments</title> 
 
 <!-- Include external CSS files -->
 <xsl:call-template name="CSS"/>
