@@ -105,4 +105,6 @@
     </tr>
 </table>
 
-<jsp:include page="menu.jsp" />
+<jsp:include page="menu.jsp">
+    <jsp:param name="level1" value="competition"/>
+</jsp:include>
