@@ -122,7 +122,7 @@
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
-                                    <xsl:value-of select="./version_text"/>
+                                    &#160;<xsl:value-of select="./version_text"/>
                                 </a>
                             </td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
@@ -174,7 +174,7 @@
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
-                                    <xsl:value-of select="./version_text"/>
+                                    &#160;<xsl:value-of select="./version_text"/>
                                 </a>
                             </td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
