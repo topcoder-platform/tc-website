@@ -32,8 +32,12 @@ import com.topcoder.servlet.request.*;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 
+import com.topcoder.web.ejb.resume.ResumeServices;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
+
+
 /**
  *
  * @author  rfairfax
@@ -144,15 +148,14 @@ abstract public class ContractingBase extends BaseProcessor {
                 }
             }
             
-            if(info.getResume() == null) {
-                good = false;
-                addError("Resume", "A resume is required.");
-            }
-            
             if(!good) {
                 addError(Constants.PREFERENCE_PREFIX + Constants.PREFERENCE_CONTRACTING, "Please indicate interest in either contract or permanent positions.");
             }
-            
+
+            ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
+            if(!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                addError("Resume", "A resume is required.");
+            }
         }
         
         if(hasErrors())
