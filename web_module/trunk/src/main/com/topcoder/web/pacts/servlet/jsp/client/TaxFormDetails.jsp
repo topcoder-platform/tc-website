@@ -6,14 +6,11 @@
   errorPage="/errorPage.jsp"
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <HTML>
  <HEAD>
    <TITLE>TopCoder :: P.A.C.T.s</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-<%@include file="baseHRef.jsp" %>   
    <%@ include file="/script.jsp" %>
 <script language="JavaScript">
 <!--
