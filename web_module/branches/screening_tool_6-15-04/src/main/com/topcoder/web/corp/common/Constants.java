@@ -88,6 +88,15 @@ public class Constants
     public static int SEARCH_SCROLL_SIZE;
 
     /**
+     * <p>A <code>String</code> name of the processor to be used to add the new note to candidate's profile.</p>
+     *
+     * <p>The controller servlet configuration file must have a "note_create_processor" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String NOTE_CREATE_PROCESSOR;
+
+    /**
      * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the content of
      * candidate's profile.</p>
      *
