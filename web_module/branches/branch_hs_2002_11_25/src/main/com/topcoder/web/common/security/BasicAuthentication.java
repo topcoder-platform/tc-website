@@ -47,7 +47,7 @@ public class BasicAuthentication implements WebAuthentication {
             Long uid = new Long(sub.getUserId());
 
             response.addCookie(new Cookie("user_id", uid.toString()));
-            persistor.setObject(request.getSession().getId()+"user_id", new Long(sub.getUserId()));
+            persistor.setObject(request.getSession().getId()+"user_id", uid);
 
         } catch (Exception e) {
             throw new LoginException(e);

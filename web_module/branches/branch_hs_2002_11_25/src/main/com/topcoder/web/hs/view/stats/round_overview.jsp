@@ -3,7 +3,6 @@
 <script language="JavaScript">
    function submitForm(){
  	var frm = document.coderRankForm;
- 	frm.action = "";
     if (isNaN(parseInt(frm.er.value)))
       alert(frm.er.value+" is not a valid integer");
     else{
@@ -169,7 +168,7 @@ pageContext.setAttribute("resultSetDates", rsc);
   </TR>
   <TR>
     <TD BGCOLOR="#1B2E5D" COLSPAN="6" ALIGN="center" CLASS="statText">
-<FORM name="coderRankForm" action="javaScript:submitForm();" method="get">
+<FORM name="coderRankForm" action="" method="get">
 <%if(!lastMatch){%>
 <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
 <%}%>
