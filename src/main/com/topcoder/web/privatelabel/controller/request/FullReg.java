@@ -6,7 +6,7 @@ import com.topcoder.web.common.TCWebException;
  *
  * @author gpaul 06.27.2003
  */
-abstract class FullReg extends FullRegBase {
+public abstract class FullReg extends FullRegBase {
     protected void registrationProcessing() throws TCWebException {
         try {
             if (!hasErrors()) {
