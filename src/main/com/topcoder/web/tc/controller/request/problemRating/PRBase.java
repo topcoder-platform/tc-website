@@ -37,7 +37,7 @@ abstract public class PRBase extends Base {
         //get the info for the distribution graphs
         List overall = getDistributionList(getDataAccess().getData(r), "overall_problem_rating_distribution");
         List div1 = getDistributionList(getDataAccess().getData(r), "div1_problem_rating_distribution");
-        List div2 = getDistributionList(getDataAccess().getData(r), "div1_problem_rating_distribution");
+        List div2 = getDistributionList(getDataAccess().getData(r), "div2_problem_rating_distribution");
         ProblemRatingResult overallAvg = avg(overall);
         ProblemRatingResult div1Avg = avg(div1);
         ProblemRatingResult div2Avg = avg(div2);
