@@ -749,13 +749,14 @@ public class TCLoadCoders extends TCLoad {
             query.append("INSERT INTO current_school ");
             query.append(" (coder_id ");
             query.append(" ,school_name ");
-            query.append(" ,school_id) ");
+            query.append(" ,school_id ");
+            query.append(" ,degree_number) ");
             query.append("VALUES (");
-            query.append("?,?,?)");
+            query.append("?,?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append(" UPDATE current_school SET school_name = ?, school_id = ?, WHERE coder_id = ?");
+            query.append(" UPDATE current_school SET school_name = ?, school_id = ?, degree_number = ? WHERE coder_id = ?");
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadCurrentSchool");
@@ -767,12 +768,14 @@ public class TCLoadCoders extends TCLoad {
                     psIns.setInt(1, coder_id);
                     psIns.setString(2, rs.getString("school_name"));
                     psIns.setString(3, rs.getString("school_id"));
+                    psIns.setInt(4, rs.getInt("degree_number"));
                     retVal = psIns.executeUpdate();
                 } catch (Exception e) {
                     // the insert failed, so try an update
                     psUpd.setString(1, rs.getString("school_name"));
                     psUpd.setString(2, rs.getString("school_id"));
-                    psUpd.setInt(3, coder_id);
+                    psUpd.setInt(3, rs.getInt("degree_number"));
+                    psUpd.setInt(4, coder_id);
                     retVal = psUpd.executeUpdate();
                 }
 
