@@ -101,6 +101,10 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     static final String FINAL_REVIEW_FAIL_XSL = "final_review_fail_xsl";
 
+    /**
+     * class name used to calculate the start date of a project.
+     */
+    static final String START_DATE_CALCULATOR_CLASSNAME = "start_date_calculator_classname";
 
     /**
      * The list of properties.
@@ -247,6 +251,10 @@ public class ConfigHelper implements ConfigManagerInterface {
         return ConfigManager.getInstance().getString(NAMESPACE, xsl);
     }
 
+    static String getString(String property) throws Exception {
+        return ConfigManager.getInstance().getString(NAMESPACE, property);
+    }
+
     /**
      * Get the namespace.
      *
@@ -302,5 +310,15 @@ public class ConfigHelper implements ConfigManagerInterface {
     public static String getMailTemplatePath() throws UnknownNamespaceException {
         return ConfigManager.getInstance().getString(NAMESPACE, MAIL_TEMPLATE_PATH);
     }
+
+    /**
+     * Get the class name used to calculate the start date of a project.
+     *
+     * @return the class name used to calculate the start date of a project.
+     */
+    public static String getStartDateCalculatorClassname() throws UnknownNamespaceException {
+        return ConfigManager.getInstance().getString(NAMESPACE, START_DATE_CALCULATOR_CLASSNAME);
+    }
+
 }
 

@@ -12,7 +12,7 @@ import com.topcoder.date.workdays.WorkdaysUnitOfTime;
  * - Support for 0 length phases
  * - Support for construction using start and end date instead of start and length.
  * - Use minutes instead of hours.
- * 
+ *
  * In order to use that class, the project must have an instance of TCWorkdays as its Workdays, because
  * this class has the needed method to substract dates.
  * VERY IMPORTANT:  if the Phase class is upgraded, please check that all the methods that use the
@@ -38,7 +38,7 @@ public class TCPhase extends Phase {
      * calculation.</p>
      */
     private Date endDate = null;
-    
+
     /**
      * Builds a phase for the indicated project, that starts in startDate and ends in endDate
      *
@@ -63,7 +63,7 @@ public class TCPhase extends Phase {
      */
     public TCPhase(Project project, Date startDate, Date endDate, List dependencies) {
         super(project, startDate, 1, dependencies);
-        this.project = project;        
+        this.project = project;
         fixLength( startDate, endDate);
     }
 
@@ -81,6 +81,7 @@ public class TCPhase extends Phase {
      */
     public TCPhase(Project project, Date startDate, int length) {
         super(project, startDate, length == 0? 1 : length );
+        this.project = project;
         if (length == 0) {
             setLength(0);
         }
@@ -103,6 +104,7 @@ public class TCPhase extends Phase {
      */
     public TCPhase(Project project, Date startDate, int length, List dependencies) {
         super(project, startDate, length == 0? 1 : length, dependencies);
+        this.project = project;
         if (length == 0) {
             setLength(0);
         }
@@ -166,7 +168,7 @@ public class TCPhase extends Phase {
         // Copy is made since Date is mutable.
         return new Date(endDate.getTime());
     }
-    
+
     /**
      * Adjust the start date of the phase, it will be called in the project.adjustPhases() method to adjust the
      * Phase.adjustedStartDate() to correct time.
@@ -177,6 +179,6 @@ public class TCPhase extends Phase {
         endDate = null;
         super.adjustStartDate(startDate);
     }
-    
+
 
 }

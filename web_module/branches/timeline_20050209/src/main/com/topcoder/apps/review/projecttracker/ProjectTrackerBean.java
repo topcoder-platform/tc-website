@@ -18,6 +18,9 @@ import com.topcoder.apps.review.GeneralSecurityException;
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.security.*;
+import com.topcoder.apps.review.StartDateCalculator;
+import com.topcoder.apps.review.ConfigHelper;
+
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -1938,29 +1941,43 @@ public class ProjectTrackerBean implements SessionBean {
     }
 
 
+    /**
+     * Calculate the dates for the phases of a project.
+     * If any error occurs, it is logged and null is returned, so empty dates will be used.
+     *
+     *
+     * @return the start dates of each phase and the end date of the last phase.
+     */
     private Date[] calcDates(long projectTypeId, Phase[] phaseArr ) {
 
-        int n = phaseArr.length;
-        java.util.Date startDate = new java.util.Date(); // Fix
+        try {
+            int n = phaseArr.length;
 
-        com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate, new TCWorkdays());
+            StartDateCalculator sdc = (StartDateCalculator) Class.forName(ConfigHelper.getStartDateCalculatorClassname()).newInstance();
+            java.util.Date startDate = sdc.calculateNextStart(projectTypeId);
 
-        TCPhase[] phases = new TCPhase[n];
-        for (int i=0; i < n; i++) {
-            phases[i] = new TCPhase(project, startDate, phaseArr[i].getDefaultDuration());
-            if (i > 0) {
-                phases [i].addDependency(phases[i - 1]);
+            com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate, new TCWorkdays());
+
+            TCPhase[] phases = new TCPhase[n];
+            for (int i=0; i < n; i++) {
+                phases[i] = new TCPhase(project, startDate, phaseArr[i].getDefaultDuration());
+                if (i > 0) {
+                    phases [i].addDependency(phases[i - 1]);
+                }
             }
+
+            Date[] result = new Date [n + 1];
+
+            for (int i=0; i < n; i++) {
+                result [i] = new Date(phases[i].getStartDate().getTime());
+            }
+            result[n] = new Date (phases [n - 1].calcEndDate().getTime());
+
+            return result;
+        } catch (Exception e) {
+            info("Couldn't calculate the project dates due to: " + e);
+            return null;
         }
-
-        Date[] result = new Date [n + 1];
-
-        for (int i=0; i < n; i++) {
-            result [i] = new Date(phases[i].getStartDate().getTime());
-        }
-        result[n] = new Date (phases [n - 1].calcEndDate().getTime());
-
-        return result;
 
 
     }
