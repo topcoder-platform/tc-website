@@ -7,7 +7,7 @@
 
 <html>
 <head>
-<title>TopCoder | Login</title>
+<title>TopCoder | Password</title>
 
 <jsp:include page="../script.jsp" />
 
