@@ -72,37 +72,37 @@ public class Google {
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
 */
-                fraud = new SimilarSourceSubsequences(normalizedSource, submissions);
+                fraud = new SimilarSourceSubsequences(normalizedSource, submissions, 1000);
                 log.info("****************** SIMILAR SUBSEQUENCES **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
 
-                fraud = new EditDistance(normalizedSource, submissions);
+                fraud = new EditDistance(normalizedSource, submissions, 1000);
                 log.info("****************** EDIT DISTANCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
 
-                fraud = new SimilarHistogram(nonNormalizedSource, submissions);
+                fraud = new SimilarHistogram(nonNormalizedSource, submissions, 100);
                 log.info("****************** SIMILAR HISTOGRAM **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
 
-                fraud = new Similar(nonNormalizedSource, submissions);
+                fraud = new Similar(nonNormalizedSource, submissions, 1000);
                 log.info("****************** SIMILAR SOURCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
 
-                fraud = new Same(normalizedSource, submissions);
+                fraud = new Same(normalizedSource, submissions, 100000);
                 log.info("****************** SAME NORMALIZED SOURCE**************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
 
-                fraud = new CPS(submissions);
+                fraud = new CPS(submissions, 1000);
                 log.info("****************** CPS **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
@@ -155,6 +155,7 @@ public class Google {
             query.append(" AND cc.round_id = r.round_id ");
             query.append(" AND r.room_type_id = 2 ");
             query.append(" AND cc.component_id = ? ");
+            query.append(" AND s.submission_points >= 0 ");//
             query.append(" AND s.component_state_id = cc.component_state_id ");
             query.append(" AND rr.round_id = r.round_id ");
             query.append(" AND rr.room_id = r.room_id ");
@@ -162,15 +163,14 @@ public class Google {
             query.append(" AND rr.round_id = cc.round_id ");
             query.append(" AND u.user_id = cc.coder_id ");
             query.append(" AND u.user_id = rr.coder_id ");
-            query.append(" AND cc.submission_number = s.submission_number ");
+//            query.append(" AND cc.submission_number = s.submission_number ");
             query.append(" AND scf.submission_number = s.submission_number ");
             query.append(" AND scf.component_state_id = s.component_state_id ");
-            query.append(" AND scf.submission_number = cc.submission_number ");
+//            query.append(" AND scf.submission_number = cc.submission_number ");
             query.append(" AND scf.component_state_id = cc.component_state_id ");
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
             query.append(" AND co.component_state_id = s.component_state_id");
-
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, roundId);

@@ -13,11 +13,13 @@ public class SimilarSourceSubsequences implements Fraud {
     private List submissions = null;
     private static final double STD_DEV_THRESHHOLD = 5.0D;
     private ArrayList potentialViolators = new ArrayList();
+    private int reportCount;
 
-    public SimilarSourceSubsequences(List tokens, List submissions) {
+    public SimilarSourceSubsequences(List tokens, List submissions, int reportCount) {
         report = new StringBuffer(submissions.size() * 10);
         this.tokens = tokens;
         this.submissions = submissions;
+        this.reportCount = reportCount;
     }
 
     public void execute() throws Exception {
@@ -44,7 +46,7 @@ public class SimilarSourceSubsequences implements Fraud {
         Collections.sort(results);
         double suspicious = avg + STD_DEV_THRESHHOLD * stddev;
         ComparisonResult r = null;
-        for (int i = results.size() - 1, k = 0; i > -1 && k < MAX_REPORT; i--, k++) {
+        for (int i = results.size() - 1, k = 0; i > -1 && k < reportCount; i--, k++) {
             r = (ComparisonResult) results.get(i);
             if (r.getValue() > suspicious) {
                 s1 = (Submission) submissions.get(r.getIndex1());

@@ -12,11 +12,13 @@ public class SimilarHistogram implements Fraud {
     private List tokens = null;
     private List submissions = null;
     private ArrayList potentialViolators = new ArrayList();
+    private int reportCount;
 
-    public SimilarHistogram(List tokens, List submissions) {
+    public SimilarHistogram(List tokens, List submissions, int reportCount) {
         report = new StringBuffer(submissions.size() * 10);
         this.tokens = tokens;
         this.submissions = submissions;
+        this.reportCount = reportCount;
     }
 
     public void execute() throws Exception {
@@ -45,7 +47,7 @@ public class SimilarHistogram implements Fraud {
         report.append("std dev histogram difference is " + stddev + "\n");
         Collections.sort(results);
         ComparisonResult r = null;
-        for (int i = 0; i < MAX_REPORT && i < results.size(); i++) {
+        for (int i = 0; i < reportCount && i < results.size(); i++) {
             r = (ComparisonResult) results.get(i);
             s1 = (Submission) submissions.get(r.getIndex1());
             s2 = (Submission) submissions.get(r.getIndex2());
