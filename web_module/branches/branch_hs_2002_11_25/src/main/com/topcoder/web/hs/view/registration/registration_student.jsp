@@ -4,7 +4,7 @@
    ResultSetContainer.ResultSetRow rsr;
    ArrayList states=new ArrayList();
    ArrayList schools=new ArrayList();
-   rsc=data.get("state_schools");
+   rsc=(ResultSetContainer)data.get("state_schools");
    for (Iterator i=rsc.iterator();i.hasNext();) {
     rsr=(ResultSetContainer.ResultSetRow)i.next();
     String name=(String)rsr.getItem("state_name").getResultData();
@@ -13,7 +13,7 @@
      schools.add(new ArrayList());
     }
     ArrayList state_schools=(ArrayList)schools.get(schools.size()-1);
-    state_schools.add(rsr.getItem("short_name").getResultData();
+    state_schools.add(rsr.getItem("short_name").getResultData());
    } %>
 <SCRIPT type="text/javascript">
  var schools=new Array(<%=schools.size()%>)
