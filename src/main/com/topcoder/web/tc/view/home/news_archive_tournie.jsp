@@ -35,6 +35,8 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.11.05 3:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_wildcard_analysis">misof wins the WildCard Round</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.11.05 12:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_leader_website">radeye wins Day 1 of the Spectator Showdown</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.10.05 9:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room3_analysis">mathijs wins Room 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.10.05 6:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room2_analysis">ploh wins Room 2</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.10.05 3:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room1_analysis">tomek takes Room 1</A></td></tr>
