@@ -127,13 +127,13 @@
                         </tr>
                         <tr>
                             <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Province</td>
+                            <td class="brRegTableQuestion">State</td>
                             <td class="brRegTableAnswer">
-                                <tc-webtag:textInput name="<%=Constants.PROVINCE%>"  size="15" maxlength="50"/>
+                                <tc-webtag:textInput name="<%=Constants.STATE_CODE%>"  size="15" maxlength="50"/>
                             </td>
                         </tr>
                         <tr>

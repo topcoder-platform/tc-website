@@ -14,7 +14,7 @@ import com.topcoder.web.common.TCWebException;
 public class Reg extends FullReg {
 
     protected void setNextPage() {
-        setNextPage(Constants.BROOKS_REG_PAGE);
+        setNextPage(Constants.DEMO_REG_PAGE);
         setIsNextPageInContext(true);
     }
 

@@ -354,7 +354,7 @@ public class Submit extends FullRegSubmit {
         Calendar c = Calendar.getInstance();
         c.set(Integer.parseInt(year),
                months[Integer.parseInt(month)],
-               Integer.parseInt(day),
+               Integer.parseInt(day), 
                Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
