@@ -74,15 +74,15 @@ public class TCCC05ContestDetails extends StatBase {
             {
                 int pts = 0;
 
-                if(rscDetails.getItem(i, "final_score").getResultData() != null) {
-                    if(rscDetails.getDoubleItem(i, "final_score") >= 70) {
-                        if(i < placementPoints.length)  {
-                            pts = placementPoints[i];
+                if(rscDetails.getItem(j, "final_score").getResultData() != null) {
+                    if(rscDetails.getDoubleItem(j, "final_score") >= 70) {
+                        if(j < placementPoints.length)  {
+                            pts = placementPoints[j];
                         }
                     }
                 }
 
-                addPoints(rscDetails.getStringItem(i, "handle"), rscDetails.getIntItem(i, "user_id"), pts, bComplete);
+                addPoints(rscDetails.getStringItem(j, "handle"), rscDetails.getIntItem(j, "user_id"), pts, bComplete);
             }
         }
         
