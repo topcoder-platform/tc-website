@@ -163,7 +163,7 @@
                 <tr valign="top">
                     <td class="sidebarText" nowrap=nowrap>Wildcard Round</td>
                     <td class="sidebarText">
-                        Thursday, March 10th<br />
+                        Friday, March 11th<br />
                         Compete: 10:00 AM PST<br />
                     </td>
                     <td class="sidebarText">6</td>
