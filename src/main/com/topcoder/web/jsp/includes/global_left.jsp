@@ -470,21 +470,6 @@
     return;
   }
   Iterator forums = ff.forums();
-  if( !forums.hasNext() ) {
-%>
-
-                      <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD>
-
-                        <TD ALIGN="center" class="statText">
-
-                          <I> No forums have been created. Please contact the administrator and yell at him/her! :)</I>
-
-                        </TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD>
-
-                      </TR>
-
-<%
-  }
   while( forums.hasNext() ) {
     Forum f = (Forum)forums.next();
     int fID = f.getID();
@@ -577,40 +562,6 @@
     <TR> 
     <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333" COLSPAN="3"><jsp:include page="../includes/modules/simpleSearch.jsp"/></TD></TR>  
     <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-
-
-
-
-
-<!--
-all_time_wins
-all_time_wins_by_div
-winning_debuts
-impressive_debuts
-highest_totals
-biggest_rating_gains
-most_consecutive_wins
-highest_accuracy
-best_challengers
-round_stats
-round_stats_sorted
-last_match
-last_match_sorted
-room_stats
-problem_statement
-problem_solution
-earnings_history
-ratings_history
-coder_room_stats
-coder_ratings
-member_profile
-round_overview
-school_avg_rating
--->
-
-
-
-
 
 
 </TABLE>
