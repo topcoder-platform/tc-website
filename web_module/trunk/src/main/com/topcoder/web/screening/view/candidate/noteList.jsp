@@ -42,18 +42,18 @@
             
             <table cellspacing="0" cellpadding="3" width="100%" class="testFrame">
                 <tr>
-                    <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Notes</B></TD>
-                    <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Author</B></TD>
-                    <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666" HEIGHT="15">&#160;<B>Date Created</B></TD>
+                    <td align="center" class="testTableTitleSmall">Notes</td>
+                    <td align="center" class="testTableTitleSmall">Author</td>
+                    <td align="center" class="testTableTitleSmall">Date Created</td>
                 </tr>
                 
                 <% { boolean even = true; %>
                 <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
-                <TR>
-                    <td <% if(even){ %>class="testTableEven"<% } %><% } else %>class="testTableOdd"><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
-                    <td align="center" <% if(even){ %>class="testTableEven"<% } else %>class="testTableOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
-                    <td align="center" <% if(even){ %>class="testTableEven"<% } else %>class="testTableOdd"<% } %>><strong><screen:resultSetItem row="<%=row%>" name="create_date" /></strong></td>
-                </TR>
+                <tr>
+                    <td <% if(even){ %>class="testTableEven"<% } %><% } else { %>class="testTableOdd"><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
+                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
+                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><strong><screen:resultSetItem row="<%=row%>" name="create_date" /></strong></td>
+                </tr>
                 <% even = !even; %>
                 </screen:resultSetRowIterator>
                 <% } %>
