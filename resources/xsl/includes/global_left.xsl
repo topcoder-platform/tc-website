@@ -990,6 +990,40 @@
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
 <!-- TCES ends -->
+<!-- no task -->
+        <xsl:when test="/TC/Task=''">
+            <xsl:choose>
+                <xsl:when test="/TC/LoggedIn='true'">
+                     <!-- <xsl:call-template name="my_stats"/> -->
+                </xsl:when>
+                <xsl:otherwise>
+                     <!-- <xsl:call-template name="module_login"/> -->
+                </xsl:otherwise>
+            </xsl:choose>
+
+            <xsl:call-template name="left_nav_top_row" />
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <xsl:call-template name="competition_row"/>
+                <xsl:call-template name="applet_row"/>
+                <xsl:call-template name="sched_row"/>
+                <xsl:call-template name="stats_row"/>
+                <xsl:call-template name="feat_row"/>
+                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="rtables_row"/>
+                <xsl:call-template name="rules_row"/>
+                <xsl:call-template name="tc_info_row"/>
+                <xsl:call-template name="about_row"/>
+                <xsl:call-template name="press_row"/>
+                <xsl:call-template name="contacts_row"/>
+            </table>
+
+            <xsl:call-template name="srm_dates"/>
+            <xsl:call-template name="calendar"/>
+            <xsl:call-template name="simple_search"/>
+            <xsl:call-template name="left_nav_btm_row"/>
+        </xsl:when>
+<!-- no task -->
+
 
         <xsl:otherwise>
             <xsl:choose>
@@ -1017,7 +1051,6 @@
                 <xsl:call-template name="contacts_row"/>
             </table>
           
-            <xsl:call-template name="srm_dates"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:otherwise>
