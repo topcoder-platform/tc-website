@@ -17,6 +17,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.bean.Registration;
 
 import javax.naming.Context;
@@ -28,6 +29,7 @@ import java.util.HashMap;
 
 public final class TaskAuthentication {
 
+    private static Logger log = Logger.getLogger(TaskAuthentication.class);
 
     private static final String XSL_DIR = TCServlet.XSL_ROOT + "authentication/";
     private static final String LOGIN_PAGE = XSL_DIR + "login.xsl";
@@ -136,6 +138,7 @@ public final class TaskAuthentication {
             loginURL = Conversion.checkNull(request.getParameter("errorURL"));
             String handle = Conversion.checkNull(request.getParameter("Handle"));
             String password = Conversion.checkNull(request.getParameter("Password"));
+            log.debug("logging in " + handle + "/" + password);
             boolean authenticated = ProcessAuthentication.authenticate(login, handle, password);
             if (authenticated) {
                 if (
