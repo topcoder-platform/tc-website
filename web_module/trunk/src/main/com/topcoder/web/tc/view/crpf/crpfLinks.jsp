@@ -57,7 +57,14 @@ function openWin(url, name, w, h) {
                  <td class="statTextBig" width="128"><A href="/tc/?&module=CRPFReport" class="statTextBig"><img src="/i/tournament/crpf03/tab_top_fundraisers_on.gif" alt="Fundraisers" width="128" height="22" border="0" /></A></td>
             <% } else { %>
                  <td class="statTextBig" width="128"><A href="/tc/?&module=CRPFReport" class="statTextBig"><img src="/i/tournament/crpf03/tab_top_fundraisers_off.gif" alt="Fundraisers" width="128" height="22" border="0" /></A></td>
-            <% } %>            
+            <% } %>
+
+<!-- Donate tab -->
+            <% if (selectedTab.equals("donate")) {%>
+                 <td class="statTextBig" width="88"><A href="/tc/?&module=Static&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/tournament/crpf03/tab_donate_on.gif" alt="Donate" width="88" height="22" border="0" /></A></td>
+            <% } else { %>
+                 <td class="statTextBig" width="88"><A href="/tc/?&module=Static&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/tournament/crpf03/tab_donate_off.gif" alt="Donate" width="88" height="22" border="0" /></A></td>
+            <% } %>
 
                                 
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>

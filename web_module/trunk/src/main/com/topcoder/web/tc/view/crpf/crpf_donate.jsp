@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+ 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value="review_board"/>
 </jsp:include>
@@ -58,6 +58,20 @@
                
 
                <blockquote>
+               <p>Donations can be made by:<br />
+               <ul>
+               <li>Credit card online at <A href="http://www.christopherreeve.org/topcoder">www.christopherreeve.org/topcoder</A>.  
+               Donators will enter in the TopCoder member’s name and/or handle so the donation can be matched with a TopCoder member.  
+               This is important as eligibility and prizes are determined based on how much money each member raises.</li>
+               <li>Check.  Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A> and submit the form and a check to:<br />
+                     <ul>
+                     <li>VirtualSprockets<br />
+                     17610 West Willard Road<br />
+                     Poolsville, MD  20837<br />
+                     ATTN:  CRPF DONATIONS</li>
+                     </ul></li>
+               </ul>
+               </p>
                </blockquote>
             
             <p><br /></p>
