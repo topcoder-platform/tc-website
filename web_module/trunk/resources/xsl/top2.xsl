@@ -60,7 +60,9 @@
                     <SPAN CLASS="smallBrackets">]</SPAN>
                   </xsl:otherwise>
                 </xsl:choose>
-                <BR/><BR/>
+                <BR/>
+<a href="Javascript:tcTime()" class="statTextBig">Current time at TopCoder</a>
+                <BR/>
                 
               </TD>
               <TD WIDTH="50" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/></TD>
