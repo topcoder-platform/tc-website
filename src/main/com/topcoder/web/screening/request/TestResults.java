@@ -46,8 +46,6 @@ public class TestResults extends BaseProcessor {
         SessionInfo sessionInfo = new SessionInfo();
         sessionInfo.setBeginDate(((Date)result.getItem(0, "begin_time").getResultData()));
         sessionInfo.setEndDate(((Date)result.getItem(0, "end_time").getResultData()));
-        log.debug("begin set to: " + sessionInfo.getBeginDate());
-        log.debug("end set to: " + sessionInfo.getEndDate());
         getRequest().setAttribute("sessionInfo",sessionInfo);
 
         dAccess = getDataAccess(Constants.DW_DATA_SOURCE, true);
