@@ -45,7 +45,7 @@
          <span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 			<br><br>
          <span class="greenSubtitle">Summary of the Tournament</span><br>
-         The Google&#153; India Code Jam 2005 (GICJ05) is being offered by Google Online India Private Limited ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the GICJ05 to identify possible employees for Google's Research & Development Center in Bangalore, India.  The GICJ05 will take place between Tuesday, February 8 and Saturday, March 26, 2005.  It begins with an 18-day online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) day of qualification, one (1) online elimination round and one (1) onsite final round.  In addition, Google will award Rs. 1,600,000 in cash prizes to the 50 finalists in the tournament.
+         The Google&#153; India Code Jam 2005 (GICJ05) is being offered by Google Online India Private Limited ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the GICJ05 to identify possible employees for Google's Research & Development Center in Bangalore, India.  The GICJ05 will take place between Tuesday, February 8 and Saturday, March 26, 2005.  It begins with an 18-day online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) qualification round, one (1) online elimination round and one (1) onsite final round.  In addition, Google will award Rs. 1,600,000 in cash prizes to the 50 finalists in the tournament.
          <br><br>
          <strong>Eligibility</strong><br>
          All individuals who are residents of India, Indonesia, Malaysia, Maldives, Myanmar, Nepal, Singapore and Thailand may register and compete in the Google India Code Jam 2005.  
@@ -67,14 +67,14 @@
          </ul>
 
          <strong>Qualification Round</strong><br>
-         The Qualification Round will be open for 5 hours from 9:00AM IST through 2:00PM IST on Sunday, February 27, 2005.
+         The Qualification Round will be open for 12 hours from 9:00AM through 9:00PM IST on Sunday, February 27, 2005.
          <br><br>
          The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.
          <ul>
-         <li><strong>The Qualification Round Coding Phase</strong> is a timed event where contestants are presented with a randomly generated problem set.</li>
+         <li><strong>The Qualification Round Coding Phase</strong> is a timed event where contestants are presented with a randomly generated problem set. Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted. Competitors will have 60 minutes to complete either or both of the problems. The 60 minutes will begin to elapse once the first problem is opened. The timer in the coding window will count down to the end of the 60 minutes. A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</li>
          <li><strong>The Qualification Round System Testing Phase</strong> is applied to all submitted code after the conclusion of the Qualification Round Coding Phase. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question. </li>
          </ul>
-         The Qualification Round will contain ten (10) virtual rooms.  The top 500 positive (i.e., greater than zero) scorers from the problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the GICJ05. 
+         The top 500 positive (i.e., greater than zero) scorers from the problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the GICJ05. 
          <br><br>
          <strong>The Competition Field</strong><br>
          Up to 500 individuals will qualify to compete in Round 1.  The top 50 scorers from Round 1 will advance to the Championship Round, which will be held onsite at or near Google's office in Bangalore, India.

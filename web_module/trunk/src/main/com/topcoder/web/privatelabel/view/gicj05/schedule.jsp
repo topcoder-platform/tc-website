@@ -44,7 +44,7 @@
 
 			<!-- Qualification Rounds begins -->
 			<span class=greenSubtitle>Qualification Rounds</span><br/>
-			The top 100 scorers from each problem set presented during the Qualification Round will be eligible to compete in Round 1 of the India Code Jam 2005.</p>
+			The top 500 scorers from the Qualification Round will be eligible to compete in Round 1 of the India Code Jam 2005.</p>
 			<br/><br/>
 
 			<a name="sched"></a>
@@ -57,7 +57,7 @@
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Qualification Round</td>
-					<td class="sidebarText" nowrap=nowrap>9:00 AM through<br>12:00 PM<br>Sunday, February 27<br /></td>
+					<td class="sidebarText" nowrap=nowrap>9:00 AM through<br>9:00 PM<br>Sunday, February 27<br /></td>
 					<td class="sidebarText" align="center">All eligible members</td>
 					<td class="sidebarText" align="center">500</td>
 				</tr>
