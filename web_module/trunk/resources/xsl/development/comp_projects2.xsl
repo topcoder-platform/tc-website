@@ -102,7 +102,7 @@
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                 </tr>
 
-
+                <xsl:value-of select="/TC/DEVELOPMENT/design_projects"/>
 
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
