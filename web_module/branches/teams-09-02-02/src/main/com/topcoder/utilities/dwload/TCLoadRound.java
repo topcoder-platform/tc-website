@@ -490,13 +490,12 @@ public class TCLoadRound extends TCLoad {
             query.append(" WHERE problem_status_id = cs.status_id) ");
             query.append(" ,c.compilation_text");      //13
             query.append(" ,s.submission_number");     //14
-            query.append(" FROM component_state cs, component cm ");
+            query.append(" FROM component_state cs ");
             query.append(" LEFT OUTER JOIN submission s ");
             query.append(" ON cs.component_state_id = s.component_state_id");
             query.append(" LEFT OUTER JOIN compilation c ");
             query.append(" ON cs.component_state_id = c.component_state_id");
             query.append(" WHERE cs.round_id = ?");
-            query.append("   AND cs.component_id = cm.component_id");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
