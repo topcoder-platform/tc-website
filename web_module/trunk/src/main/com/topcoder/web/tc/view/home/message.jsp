@@ -5,7 +5,6 @@
     <table cellspacing="0" cellpadding="5" class="messageBoxFrame">
         <tr>
             <td class="messageBoxText">
-                Component projects available for review.<br/><div align="right"><a href="/tc?module=ViewReviewProjects">Click here</a></div>
             </td>
         </tr>
     </table>
