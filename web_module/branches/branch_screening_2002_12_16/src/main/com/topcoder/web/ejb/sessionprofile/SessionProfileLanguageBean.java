@@ -54,7 +54,7 @@ public class SessionProfileLanguageBean extends BaseEJB
             StringBuffer query = new StringBuffer(180);
             query.append("INSERT INTO session_profile_language_xref ");
             query.append("(screening_profile_id, language_id, modify_date, ");
-            query.append("create_date) VALUES(?,?,?,?)");
+            query.append("create_date) VALUES(?,?,CURRENT,CURRENT)");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
