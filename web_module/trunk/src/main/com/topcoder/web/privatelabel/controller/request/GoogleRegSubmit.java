@@ -30,9 +30,9 @@ public class GoogleRegSubmit extends FullRegSubmit {
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject("TopCoder Google Activation");
 
-            buf.append("wanna activate your account? click here:");
+            buf.append("wanna activate your account? click here:\n\n");
             buf.append("http://");
-            buf.append(ApplicationServer.HOST_URL);
+            buf.append(ApplicationServer.SERVER_NAME);
             SessionInfo sInfo = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
             buf.append(sInfo.getServletPath());
             buf.append("?");
