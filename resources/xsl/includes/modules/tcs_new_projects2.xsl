@@ -1,5 +1,19 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:template name="formatmmddyyyy">
+		<xsl:param name="DATE"/>
+		<xsl:if test='boolean($DATE)'>
+			<xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/>
+		</xsl:if>
+    </xsl:template>
+    <xsl:template name="urldate">
+        <!--MM&#47;DD&#47;YYYY-->
+		<xsl:param name="DATE"/>
+		<xsl:if test='boolean($DATE)'>
+			<xsl:value-of select="substring($DATE, 6,2)"/>%2e<xsl:value-of select="substring($DATE, 9,2)"/>%2e<xsl:value-of select="substring($DATE, 1,4)"/>
+		</xsl:if>
+    </xsl:template>
+
     <xsl:template name="tcs_new_projects">
     <xsl:param name="projects"/>
             <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
