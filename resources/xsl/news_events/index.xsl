@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- CIO Article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://searchcio.techtarget.com/originalContent/0,289142,sid19_gci1006375,00.html" target="_blank"><img src="/i/pressroom/searchcio_logo.gif" alt="CIO" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://searchcio.techtarget.com/originalContent/0,289142,sid19_gci1006375,00.html" target="_blank">Outsourcing trend touches independents, too</A></strong></font><br />
+                        During 14 years of contract work, Roberts [Pops] managed to secure long-term agreements with major corporations to provide IT services ranging from project management to development. One contract spread over seven years. Another project lasted six years. But those kinds of gigs are scarce nowadays. <span class="prHead">[September 15]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Morris -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
