@@ -37,7 +37,7 @@ public abstract class SurveyData extends Base {
                 throw new NavigationException("Survey doesn't exist");
             } else {
                 getRequest().setAttribute("surveyInfo", survey);
-                questionInfo = getQuestionInfo(surveyId, false);
+                questionInfo = getQuestionInfo(surveyId);
                 getRequest().setAttribute("questionInfo", questionInfo);
             }
             surveyProcessing();
@@ -46,12 +46,11 @@ public abstract class SurveyData extends Base {
         }
     }
 
-    protected final List getQuestionInfo(long surveyId, boolean includeFreeForm) throws Exception {
+    protected List getQuestionInfo(long surveyId) throws Exception {
         Request r = new Request();
         r.setContentHandle("survey_questions");
         r.setProperty("sid", String.valueOf(surveyId));
-        //todo cache the questions, response data has to be live
-        DataAccessInt dataAccess = getDataAccess();
+        DataAccessInt dataAccess = getDataAccess(true);
         Map qMap = dataAccess.getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("question_list");
 
@@ -60,16 +59,13 @@ public abstract class SurveyData extends Base {
         List questionList = new ArrayList(questions.size());
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
-            int temp = question.getIntItem("question_style_id");
-            if ((includeFreeForm && isFreeForm(temp)) || !isFreeForm(temp)) {
-                q = new Question();
-                q.setId(question.getLongItem("question_id"));
-                q.setStyleId(temp);
-                q.setTypeId(question.getIntItem("question_type_id"));
-                q.setText(question.getStringItem("question_text"));
-                q.setAnswerInfo(makeAnswerInfo(surveyId, q.getId()));
-                questionList.add(q);
-            }
+            q = new Question();
+            q.setId(question.getLongItem("question_id"));
+            q.setStyleId(question.getIntItem("question_style_id"));
+            q.setTypeId(question.getIntItem("question_type_id"));
+            q.setText(question.getStringItem("question_text"));
+            q.setAnswerInfo(makeAnswerInfo(surveyId, q.getId()));
+            questionList.add(q);
         }
         return questionList;
     }

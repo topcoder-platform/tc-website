@@ -26,7 +26,6 @@ public class Submit extends View {
             String paramName = null;
             List responses = new ArrayList(10);
             //we need the full list in this case, include free for questions
-            List questionInfo = getQuestionInfo(survey.getId(), true);
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String) params.nextElement();
                 log.debug("param: " + paramName);
