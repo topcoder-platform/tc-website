@@ -71,11 +71,12 @@
 
             <table border="0" cellpadding="0" cellspacing="10" width="75%">
                 <tr>
-                    <td>
-                        <h1 id="bodyTitle">Help Guide</h1>
+                    <td class="bodyText">
+                        <h1 class="bodyTitle">The Timer</h1>
                         
-                        <p>Welcome to the help guide for the Testing Application powered by TopCoder. Please read through this document in its entirety to 
-                        familiarize yourself with the Testing Application process and features.</p>
+                        <p>The timer in the coding window will be always counting down to the end of the current testing phase.  Remember that there 
+                        is variable latency between your computer and our servers.  For that reason, it is ALWAYS best to perform any submissions 
+                        with at least 30 seconds left on the timer.</p>
 
                     </td>
                 </tr>

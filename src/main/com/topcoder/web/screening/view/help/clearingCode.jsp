@@ -71,11 +71,11 @@
 
             <table border="0" cellpadding="0" cellspacing="10" width="75%">
                 <tr>
-                    <td>
-                        <h1 id="bodyTitle">Help Guide</h1>
+                    <td class="bodyText">
+                        <h1 class="bodyTitle">Clearing the Code</h1>
                         
-                        <p>Welcome to the help guide for the Testing Application powered by TopCoder. Please read through this document in its entirety to 
-                        familiarize yourself with the Testing Application process and features.</p>
+                        <p>Using the <strong>Clear</strong> button, you can quickly clear out the coding window.  Use this option <strong>ONLY</strong> if you wish to start 
+                        over on a particular problem.  <i>Warning:  Once you clear your code, there is no way to retrieve it!</i></p>
 
                     </td>
                 </tr>

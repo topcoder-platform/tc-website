@@ -57,6 +57,9 @@
                                     C# Code Template<br>
                                     Compiling<br>
                                     User Testing<br>
+                                    The Problem Arguments Window<br>
+                                    Simple Data Types<br>
+                                    Complex Data Types<br>
                                     Submitting
                                 </td>
                             </tr>
@@ -91,4 +94,6 @@
                             <% } %>
                             </tr>
  <!-- The Timer ends -->
+
+                            <tr><td class="helpTitle">&#160;</td></tr>
                         </table>

@@ -71,11 +71,13 @@
 
             <table border="0" cellpadding="0" cellspacing="10" width="75%">
                 <tr>
-                    <td>
-                        <h1 id="bodyTitle">Help Guide</h1>
+                    <td class="bodyText">
+                        <h1 class="bodyTitle">Loading the Testing App</h1>
                         
-                        <p>Welcome to the help guide for the Testing Application powered by TopCoder. Please read through this document in its entirety to 
-                        familiarize yourself with the Testing Application process and features.</p>
+                        <p>The Testing Application is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the 
+                        application by using the URL that has been provided to you.  Once you click on the URL, you will be notified if you need to 
+                        upgrade your Java runtime.  If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade 
+                        is not required, the application will load automatically and present you with a red <strong>Launch Testing Application</strong> button.</p>
 
                     </td>
                 </tr>
