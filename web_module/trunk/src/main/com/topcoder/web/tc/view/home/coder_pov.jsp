@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,13 +19,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tccc04_online_rd_2">TCCC04 Round 2 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, March 3, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tccc04_online_rd_3">TCCC04 Round 3 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, March 10, 2004</p>
 
                         <p>
-While the easy problem last night was a bit on the tricky side, nearly exhaustive examples assured that almost everyone got it correct in the end.  The medium problem, however, was a whole different story.  The algorithm wasn't overly tricky, and a lot of people submitted solutions that were nearly correct.  
+It must be tournament time. I've never seen so many reds open and abandon multiple problems. Of the fifty advancers, at least fourteen abandoned either the easy or the medium problem. And at the end of the night, seven reds and yellows were left with all three problems open, but unsubmitted. Congratulations to bstanescu, who rode two problems and a challenge to victory!
 
-                       <a href="/?t=statistics&amp;c=tccc04_online_rd_2" class="bodyText"><strong>full&#160;story</strong></a>
+                       <a href="/?t=statistics&amp;c=tccc04_online_rd_3" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
