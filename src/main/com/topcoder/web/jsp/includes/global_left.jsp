@@ -15,6 +15,8 @@
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
     String level3 = request.getParameter("level3")==null?"":request.getParameter("level3");
     CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+    //bleh, gott do this for registration cuz it does a redirect to a jsp
+    if (info==null) info = new Navigation(request, response).getSessionInfo();
 %>
 
             <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
