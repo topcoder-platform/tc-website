@@ -1,3 +1,4 @@
+
 <?xml version="1.0"?>
 
 <!DOCTYPE ejb-jar PUBLIC
@@ -21,6 +22,16 @@
             <ejb-class>com.topcoder.web.ejb.session.SessionBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
+            <resource-ref>
+                <res-ref-name>jts_datasource_name</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+            <resource-ref>
+                <res-ref-name>datasource_name</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
         </session>
         <session>
             <description>Session Segment EJB</description>
@@ -35,6 +46,16 @@
             <ejb-class>com.topcoder.web.ejb.session.SessionSegmentBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
+            <resource-ref>
+                <res-ref-name>jts_datasource_name</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+            <resource-ref>
+                <res-ref-name>datasource_name</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
         </session>
     </enterprise-beans>
     <assembly-descriptor>
