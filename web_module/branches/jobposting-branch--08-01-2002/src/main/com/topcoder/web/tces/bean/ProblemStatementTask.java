@@ -87,15 +87,14 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
-        HttpSession session = request.getSession(true);
+         HttpSession session = request.getSession(true);
 
-        Integer userId = (Integer)session.getAttribute("user_id");
-        if (userId == null || (userId.intValue()<0) ) {
-            log.debug("User not authenticated for access to ES main page.");
-            throw new TCESAuthenticationException("User not authenticated for access to ES main page.");
-        }
+         if (!Authentication.isLoggedIn(session)) {
+             log.debug("User not authenticated for access to TCES resource.");
+             throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
+         }
 
-        uid = userId.intValue();
+         uid = Authentication.userLoggedIn(session);
     }
 
     public void processStep(String step) throws Exception {

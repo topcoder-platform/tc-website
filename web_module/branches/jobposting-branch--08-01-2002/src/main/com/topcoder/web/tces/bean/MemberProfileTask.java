@@ -125,13 +125,12 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     {
         HttpSession session = request.getSession(true);
 
-        Integer userId = (Integer)session.getAttribute("user_id");
-        if (userId == null || (userId.intValue()<0) ) {
-            log.debug("User not authenticated for TCES access.");
-            throw new TCESAuthenticationException();
+        if (!Authentication.isLoggedIn(session)) {
+            log.debug("User not authenticated for access to TCES resource.");
+            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
         }
 
-        uid = userId.intValue();
+        uid = Authentication.userLoggedIn(session);
     }
 
     public void processStep(String step)
