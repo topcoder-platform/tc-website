@@ -124,7 +124,15 @@ public class UserPreferenceBean extends BaseEJB {
                 dataSource).intValue();
     }
 
-    private static final String GET_PREFERENCES_BY_GROUP_SQL = "SELECT * FROM " +
+    private static final String GET_PREFERENCES_BY_GROUP_SQL =
+            "SELECT up.user_id" +
+                " , up.preference_id" +
+                " , up.value" +
+                " , up.preference_value_id" +
+                " , p.preference_name" +
+                " , p.preference_desc" +
+                " , p.preference_type_id " +
+            " FROM  " +
             "user_preference up, preference_lu p, preference_group_lu pg " +
             "where p.preference_id = up.preference_id and " +
             "pg.preference_group_id = p.preference_group_id and " +
