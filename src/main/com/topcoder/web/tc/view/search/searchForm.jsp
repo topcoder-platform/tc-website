@@ -6,18 +6,22 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 
-                <table border="0" cellspacing="0" cellpadding="0" bgcolor="#333333" width="100%">
+                <table border="0" cellspacing="0" cellpadding="0"width="100%">
                     <input type="hidden" name="module" value="AdvancedSearch"/>
                     <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
                     <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
 
                     <tr valign="top">
-                        <td colspan="2" bgcolor="#555555"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
-                            <table border="0" cellspacing="0" cellpadding="5" width="100%">
-                                <tr><td class="statTextBig">
+                        <td colspan="2"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+                            <table border="0" cellspacing="0" cellpadding="5" width="100%" bgcolor="#FFFFFF">
+                                <tr>
+                                <td class="statTextBig">
                                 Enter search criteria below then click the go button. Search results matching the criteria
                                 selections will be returned. Click on a Handle to view information about the Coder.
-                                </td></tr>
+                                </td>
+                                </tr>
+                             </table>                                
+                            <table border="0" cellspacing="0" cellpadding="5" width="100%" bgcolor="#555555">
                                 <tr><td class="statTextBig">Member Search: Search by handle, rating or state.</td></tr>
 
                                 <tr>
@@ -32,7 +36,7 @@
 
                     <tr valign="top">
                         <td width="50%">
-                            <table border="0" cellspacing="5" cellpadding="0">
+                            <table border="0" cellspacing="5" cellpadding="0" bgcolor="#333333" >
                                 <tr><td class="statText">Handle</td></tr>
                                 <tr>
                                     <td class="statText">

@@ -70,7 +70,7 @@
                   </td>
               </tr>
             </table>
-        </td>
+        </td> 
 
 
 <!-- Center Column Ends -->
