@@ -7,7 +7,7 @@ import java.io.*;
  *
  * @author Ambrose Feinstein
  */
-public class SimpleUser implements User, Serializable {
+public class SimpleUser implements User {
 
     private static int GUEST_ID = -1;
     private static String GUEST_NAME = "anonymous";

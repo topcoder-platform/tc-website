@@ -1,11 +1,13 @@
 package com.topcoder.shared.security;
 
+import java.io.Serializable;
+
 /**
  * interface for User objects.
  *
  * @author Greg Paul, Ambrose Feinstein
  */
-public interface User {
+public interface User extends Serializable {
     /** Constants for anonymous users */
     public long getId();
 
