@@ -20,8 +20,8 @@
     <TR><TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>    <TR>
       <TD WIDTH="170" VALIGN="top">
         <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=CommandListTask.getDb()%>"/>
-          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=CommandListTask.getServletPath()%>"/>
+          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyQueryInputTask.getDb()%>"/>
+          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=ModifyQueryInputTask.getServletPath()%>"/>
         </jsp:include>      </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" VALIGN="top" ALIGN="left">

@@ -21,8 +21,8 @@
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=CommandListTask.getDb()%>"/>
-          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=CommandListTask.getServletPath()%>"/>
+          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyInputTask.getDb()%>"/>
+          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=ModifyInputTask.getServletPath()%>"/>
         </jsp:include>      </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top" ALIGN="left">
