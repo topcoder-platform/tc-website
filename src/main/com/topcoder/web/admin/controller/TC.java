@@ -216,7 +216,7 @@ public final class TC extends HttpServlet {
 
     private boolean isAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
         WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
-        TCSAuthorization authorization = new TCSAuthorization(new TCSubject(authToken.getUser().getId()));
+        TCSAuthorization authorization = new TCSAuthorization(new TCSubject(authToken.getActiveUser().getId()));
         return authorization.getGroups().contains("Admin");
     }
 
