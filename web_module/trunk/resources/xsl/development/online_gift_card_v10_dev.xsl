@@ -109,7 +109,7 @@
                                             <li>Mock-Ups of all site pages.</li>
                                             <li>Sample code for credit card authorization interface.</li>
                                             <li>File format and rules for creation of sales audit extract.</li>
-                                        </ul>                                        
+                                        </ul>    </p>                                    
                                         <p>
                                             <strong>Site Development</strong> - Must implement the following functionality according to the design:
                                             <br/>
