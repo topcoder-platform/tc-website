@@ -134,10 +134,10 @@
 <!-- TCO-Intel notebook sweepstakes Starts -->
             <IMG src="/i/promos/tco_intel_notebook_right.gif" alt="rantonc" width="244" height="119" border="0" usemap="#intel_Map" /><br />
             <map name="intel_Map">
-                <area shape="poly" alt="rantonc has won an Intel&#174; Centrino&#8482; mobile technology-based notebook!" coords="174,0, 174,99, 0,99, 0,42, 52,42, 52,26, 0,26, 0,0" href="/?t=tournaments&amp;c=tco03_intel" target="_top" />
-                <area shape="rect" alt="rantonc" coords="8,27,50,41" href="/stat?c=member_profile&amp;cr=7447022" target="_top" />
-                <area shape="rect" alt="rantonc" coords="174,0,243,98" href="/stat?c=member_profile&amp;cr=7447022" target="_top" />
-                <area shape="rect" alt="Next drawing during Qualification Round on Oct 9" coords="0,99,243,118" href="/?t=tournaments&amp;c=tco03_intel" target="_top" />
+                <area shape="poly" alt="joely has won an Intel&#174; Centrino&#8482; mobile technology-based notebook!" coords="174,0, 174,99, 0,99, 0,42, 52,42, 52,26, 0,26, 0,0" href="/?t=tournaments&amp;c=tco03_intel" target="_top" />
+                <area shape="rect" alt="joely" coords="8,27,50,41" href="/stat?c=member_profile&amp;cr=7443907" target="_top" />
+                <area shape="rect" alt="joely" coords="174,0,243,98" href="/stat?c=member_profile&amp;cr=7443907" target="_top" />
+                <area shape="rect" alt="Next drawing during SRM 171 on November 11" coords="0,99,243,118" href="/?t=tournaments&amp;c=tco03_intel" target="_top" />
             </map>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
