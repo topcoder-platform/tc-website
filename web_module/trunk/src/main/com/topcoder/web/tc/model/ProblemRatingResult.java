@@ -41,7 +41,7 @@ public class ProblemRatingResult {
             format.format(it.next(), buf, fp);
             buf.append(',');
         }
-        return buf.substring(0, buf.length() - 1);  //skip that last comma
+        return buf.substring(0, buf.length()>0?buf.length() - 1:0);  //skip that last comma
     }
 
     /**
