@@ -40,7 +40,7 @@
         <PARAM value="LaunchApplet" name="name">
         <PARAM value="com.topcoder.client.contestApplet.LaunchApplet.class" name="code">
         <PARAM name="codebase" value="http://www.topcoder.com/contest/classes">
-        <PARAM value="ContestApplet.jar" name="archive">
+        <PARAM value="GoogleContestApplet.jar" name="archive">
         <PARAM value="application/x-java-applet;version=1.3" name="type">
         <PARAM value="false" name="scriptable">
         <PARAM name="host" value="www.topcoder.com">
@@ -54,7 +54,7 @@
             code="com.topcoder.client.contestApplet.LaunchApplet.class"
             codebase="http://www.topcoder.com/contest/classes"
             name="LaunchApplet"
-            archive="ContestApplet.jar"
+            archive="GoogleContestApplet.jar"
             host="www.topcoder.com"
             port="5051"
             tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001"
