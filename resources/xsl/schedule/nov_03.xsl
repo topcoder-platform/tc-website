@@ -20,6 +20,12 @@
 <!-- Include External CSS file -->
 <xsl:call-template name="CSS"/>      
 
+<STYLE TYPE="text/css"> 
+<!-- Additional Styles for CRPF Event --> 
+#calendarCRPF { color: #FFF; font-size: 11px; font-weight: normal; text-align: left; vertical-align: top; background-color: #4C9ED8; } 
+#calendarCRPFDate  { 	color: #012B62; font-weight: bold; } 
+</STYLE> 
+
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
@@ -116,7 +122,14 @@
                             <tr> 
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
-                                <td id="calendar">11</td>
+                                <td id="calendarCRPF">
+                                    <span id="calendarCRPFDate">11</span><br />
+                                    <strong>CRPF Charity Challenge</strong><br />
+                                    Online Round #1<br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/tc/?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">12</span><br />
                                     <strong>Match 171</strong><br />
@@ -125,14 +138,28 @@
                                     <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4660&amp;t=schedule&amp;c=srm">Details</A></td>
-                                <td id="calendar">13</td>
+                                <td id="calendarCRPF">
+                                    <span id="calendarCRPFDate">13</span><br />
+                                    <strong>CRPF Charity Challenge</strong><br />
+                                    Online Round #2<br />
+                                    Login by: 8:50&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/tc/?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
                             </tr>
                             
                             <tr> 
                                 <td id="calendar">16</td>
-                                <td id="calendar">17</td>
+                                <td id="calendarCRPF">
+                                    <span id="calendarCRPFDate">17</span><br />
+                                    <strong>CRPF Charity Challenge</strong><br />
+                                    Online Round #3<br />
+                                    Login by: 8:50&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/tc/?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendarSRM">
