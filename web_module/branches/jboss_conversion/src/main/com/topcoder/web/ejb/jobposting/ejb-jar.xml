@@ -12,13 +12,13 @@
             <description>Job Posting Services EJB</description>
             <display-name>Job Posting Services EJB</display-name>
             <ejb-name>JobPostingServices</ejb-name>
-            <home>com.topcoder.web.ejb.fileconversion.JobPostingServicesHome</home>
-            <remote>com.topcoder.web.ejb.fileconversion.JobPostingServices</remote>
+            <home>com.topcoder.web.ejb.jobposting.JobPostingServicesHome</home>
+            <remote>com.topcoder.web.ejb.jobposting.JobPostingServices</remote>
             <!--
                         <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
                         <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
             -->
-            <ejb-class>com.topcoder.web.ejb.fileconversion.JobPostingServicesBean</ejb-class>
+            <ejb-class>com.topcoder.web.ejb.jobposting.JobPostingServicesBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
         </session>
