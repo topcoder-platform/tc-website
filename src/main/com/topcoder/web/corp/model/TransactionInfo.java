@@ -364,4 +364,16 @@ public class TransactionInfo {
                 rolesPerProduct.add( new RolePrincipal(roleDescr, id));
             }
     }
+
+    public String getCacheKey() {
+        StringBuffer buf = new StringBuffer(100);
+        buf.append("productid:").append(productID);
+        buf.append("userid:").append(buyerID);
+        buf.append("companyId:").append(companyID);
+        buf.append("quantity:").append(qtty);
+        buf.append("cost:").append(cost);
+        return buf.toString();
+    }
+
+
 }

@@ -11,6 +11,8 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.model.TransactionInfo;
@@ -725,22 +727,20 @@ public class TransactionServlet extends HttpServlet {
         );
     }
 
-    private TransactionInfo getTransaction(HttpServletRequest request) {
+    private TransactionInfo getTransaction(HttpServletRequest request) throws Exception {
         log.debug("get transaction");
-        return (TransactionInfo)getTransactions(request).get(transactionKey(request));
+        CacheClient cc = CacheClientFactory.createCacheClient();
+        //keying based on the session id from the original request
+        //verisign gives this back to us useing a parameter
+        return (TransactionInfo)cc.get(KEY_TRANSACTION_INFO+transactionKey(request));
+
     }
 
-    private void addTransaction(HttpServletRequest request, TransactionInfo info) {
+    private void addTransaction(HttpServletRequest request, TransactionInfo info) throws Exception {
         log.debug("add transaction for " + info.getBuyerID() + " " + info.getProductID());
-        getTransactions(request).put(transactionKey(request), info);
+        CacheClient cc = CacheClientFactory.createCacheClient();
+        //keying based on the session id from the original request
+        cc.set(KEY_TRANSACTION_INFO+transactionKey(request), info, 1000*60*60);
     }
 
-    private Hashtable getTransactions(HttpServletRequest request) {
-        Hashtable map = (Hashtable)request.getSession(true).getAttribute(KEY_TRANSACTION_INFO);
-        if (map == null) {
-            map = new Hashtable();
-            request.getSession(true).setAttribute(KEY_TRANSACTION_INFO, map);
-        }
-        return map;
-    }
 }
