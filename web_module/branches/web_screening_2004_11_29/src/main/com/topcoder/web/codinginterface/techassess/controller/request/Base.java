@@ -56,7 +56,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     public void setSessionId(long sessionId) {
-        log.debug("session id set to " + sessionId);
+        //log.debug("session id set to " + sessionId);
         this.sessionId = sessionId;
         getRequest().getSession().setAttribute(Constants.SESSION_ID, new Long(sessionId));
     }
@@ -74,7 +74,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     public void setCompanyId(long companyId) {
-        log.debug("company id set to " + companyId);
+        //log.debug("company id set to " + companyId);
         this.companyId = companyId;
         getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
     }
@@ -102,24 +102,28 @@ public abstract class Base extends BaseProcessor {
 
     protected void clearSessionErrors(String messageId) {
         getRequest().getSession().removeAttribute(ERRORS_KEY + messageId);
+/*
         if (errors == null)
             log.debug("errors is null");
         else
             log.debug("errors is " + errors);
+*/
     }
 
     protected void clearSessionDefaults(String messageId) {
         getRequest().getSession().removeAttribute(DEFAULTS_KEY + messageId);
+/*
         if (defaults == null)
             log.debug("defaults is null");
         else
             log.debug("defaults is " + defaults);
+*/
     }
 
     protected void loadSessionErrorsIntoRequest(String messageId) {
         HashMap m = (HashMap) getRequest().getSession().getAttribute(ERRORS_KEY + messageId);
         Map.Entry me = null;
-        log.debug("loading session errors into request " + m);
+        //log.debug("loading session errors into request " + m);
         if (m != null) {
             for (Iterator it = m.entrySet().iterator(); it.hasNext();) {
                 me = (Map.Entry) it.next();
@@ -132,7 +136,7 @@ public abstract class Base extends BaseProcessor {
     protected void loadSessionDefaultsIntoRequest(String messageId) {
         HashMap m = (HashMap) getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId);
         Map.Entry me = null;
-        log.debug("loading session defaults into request " + m);
+        //log.debug("loading session defaults into request " + m);
         if (m != null) {
             for (Iterator it = m.entrySet().iterator(); it.hasNext();) {
                 me = (Map.Entry) it.next();
