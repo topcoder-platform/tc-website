@@ -76,21 +76,21 @@
                                             the Development Phase.  The functional requirements for the Admin Tool project have
                                             been seperated into 3 groups.  For this project there will be 2 members selected per
                                             functional group to compete for the winning submission.
-                                            <br/>Group 1 - Must implement the following functionality according to the design:
-                                            <br/>Add Time
-                                            <br/>Advance Contest Phase
-                                            <br/>Compiler and Tester Restart
-                                            <br/>Dynamic Loading of Terms
+                                            <br/><br/>Group 1 - Must implement the following functionality according to the design:
+                                            <br/>&#160;&#160;&#160;Add Time
+                                            <br/>&#160;&#160;&#160;Advance Contest Phase
+                                            <br/>&#160;&#160;&#160;Compiler and Tester Restart
+                                            <br/>&#160;&#160;&#160;Dynamic Loading of Terms
 
-                                            <br/>Group 2 - Must implement the following functionality according to the design:
-                                            <br/>Implement Round Sequence
-                                            <br/>Auto room assigments
-                                            <br/>Security Object Upgrade
+                                            <br/><br/>Group 2 - Must implement the following functionality according to the design:
+                                            <br/>&#160;&#160;&#160;Implement Round Sequence
+                                            <br/>&#160;&#160;&#160;Auto room assigments
+                                            <br/>&#160;&#160;&#160;Security Object Upgrade
 
-                                            <br/>Group 3 - Must implement the following functionality according to the design:
-                                            <br/>Admin Broadcast Problem
-                                            <br/>Backup and Restore Tables
-                                            <br/>Statistics Warehouse Load
+                                            <br/><br/>Group 3 - Must implement the following functionality according to the design:
+                                            <br/>&#160;&#160;&#160;Admin Broadcast Problem
+                                            <br/>&#160;&#160;&#160;Backup and Restore Tables
+                                            <br/>&#160;&#160;&#160;Statistics Warehouse Load
 
                                         </p>
                                         <p>
