@@ -48,6 +48,8 @@ public class PrinterTestResults extends TestResults {
         dr.setProperties(getParameterMap());
         dr.setContentHandle("noteList");
         dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
+        dr.setProperty("cid", String.valueOf(cinfo.getUserId()));
+
 
         Map map = getDataAccess().getData(dr);
 
