@@ -890,7 +890,7 @@
     <target name="war-tc" depends="compile,package-Jive">
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
-                <include name="**/*.jsp"/>
+                <include name="**/*.*"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
