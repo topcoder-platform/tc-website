@@ -100,7 +100,7 @@ public class Preferences extends ContractingBase {
 
             if (Constants.JOB_HIT_MESSAGE_NOT_REGISTERED.equals(getRequest().getParameter(Constants.MESSAGE))) {
                 getRequest().setAttribute(Constants.MESSAGE, "Thank you for expressing interest in this job " +
-                        "opportunity.  In order for TopCoder to considered and contacted for the position please " +
+                        "opportunity.  In order to be considered and contacted for the position please " +
                         "take a moment and provide us with your salary and travel requirements and rate your " +
                         "experience with a variety of programming languages, database platforms and relevant " +
                         "Industry experience.");

@@ -41,7 +41,7 @@
 		<p>
       <span class="bodySubtitle">Software Engineer<br>(Java/Perl/MySQL/Linux/XML/Web Services)</span>
       <br><br>
-      Do you have experience with web application development on enterprise-class applications? Are you passionate about open source technologies including Java, Perl, Linux, XML, and MySQL? Are you someone who enjoys working in a collaborative environment and is able to manage deadline driven projects? These positions are responsible for development and maintenance of enterprise-class business and client-oriented applications in a team environment, using creative and cutting edge technologies. 
+      Do you have experience with web application development on enterprise-class applications? Are you passionate about open source technologies including Java, Perl, Linux, XML, and MySQL? Are you someone who enjoys working in a collaborative environment and is able to manage deadline driven projects? These positions are responsible for development and maintenance of enterprise-class business and client-oriented applications in a team environment, using creative and cutting edge technologies.
       <br><br>
       <strong>Minimum Requirements:</strong>
       <ul>
@@ -59,7 +59,7 @@
       </ul>
       Location: Sebastopol, CA
       <br><br>
-      <a href="/tc?module=ContractingPreferences">Register for this position here!</a>
+      <a href="/tc?module=JobHit&jid=268&jt=4">Register for this position here!</a>
 		<br/><br/>
 		</p>
 
