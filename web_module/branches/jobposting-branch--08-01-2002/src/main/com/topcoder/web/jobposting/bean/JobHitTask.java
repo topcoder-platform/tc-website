@@ -4,6 +4,7 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.web.jobposting.common.Constants;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServicesHome;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServices;
@@ -161,7 +162,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         Map dwMap = data.getData(dataRequest);
         ResultSetContainer dwResult = (ResultSetContainer)dwMap.get("TCES_Coder_Stats");
         if (!dwResult.isEmpty()) {
-            setMostRecentEvent(dwResult.getItem(0, "last_rated_event").toString());
+            setMostRecentEvent(getDate(dwResult.getRow(0), "last_rated_event"));
         }
 
 
@@ -391,5 +392,38 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     public void setMostRecentEvent(String mostRecentEvent) {
         this.mostRecentEvent = mostRecentEvent;
     }
+
+
+    /** Retreives and parses a date from a ResultSetRow
+     * @param row Row from which the date should be retreived
+     * @param key Key for the date item within row
+     */
+    private String getDate(ResultSetContainer.ResultSetRow row,
+                                     String key) {
+        String defaultVal = "00/00/0000";
+        try {
+            StringTokenizer tok1 = new StringTokenizer(
+                    ((TCTimestampResult) row.getItem(key)).toString());
+            StringTokenizer token = new StringTokenizer(
+                    (String) tok1.nextElement(), "-");
+
+            String year = (String) token.nextElement();
+            String returnString = "";
+            while (token.hasMoreElements()) {
+                returnString += (String) token.nextElement() + "/";
+            }
+
+            return returnString + year;
+        } catch (Exception e) {
+            log.debug("getDate got excepted with key=" + key);
+            e.printStackTrace();
+
+            if (defaultVal != null && defaultVal.equals("00/00/00"))
+                return "00/00/0000";
+            else
+                return defaultVal;
+        }
+    }
+
 
 }
