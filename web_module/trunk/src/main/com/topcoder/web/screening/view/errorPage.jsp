@@ -9,7 +9,8 @@
  %>
 <html>
 <head>
-   <TITLE>Screening Tool Error</TITLE>
+<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+
 <jsp:include page="/script.jsp"/>
 </HEAD>
 <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
