@@ -548,7 +548,7 @@ public class DbForum implements Forum {
 
     public ForumPermissions getPermissions(Authorization authorization) {
         int userID = authorization.getUserID();
-        boolean cacheEnabled = factory.isCacheEnabled();
+        boolean cacheEnabled = factory.isUserPermCacheEnabled();
 
         //Simple case: if cache is turned on and the user is already cached,
         //we can simply return the cached permissions.
