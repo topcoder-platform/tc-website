@@ -12,30 +12,6 @@
   <body>
     <script language="javascript">
 
-        <%
-            Object o = request.getAttribute(Constants.PROBLEM_SETS);
-            List problems = null;
-            if (o!=null) {
-                System.out.println("o was not null\n\n\n\n\n\n");
-                if (o instanceof ScreeningProblemSet) {
-                    problems = new ArrayList();
-                    problems.add(o);
-                } else {
-                    problems = (List)o;
-                }
-        %>
-        var times= new Array(<%=problems.size()%>);
-        var ids = new Array(<%=problems.size()%>);
-        <%
-                for (int i=0; i<problems.size(); i++) {
-                    %> times(<%=i%>) = new Date(<%=((ScreeningProblemSet)problems.get(i)).getCompletionTime().intValue()%>); <%
-                    %> ids(<%=i%>) = 'problemTimer<%=((ScreeningProblemSet)problems.get(i)).getProblemLabels()[0].getComponentID()%>'; <%
-                }
-            } else System.out.println("o was null, wtf?\n\n\n\n\n\n");
-
-        %>
-
-
         //perform clock sync, time below is in milliseconds after epoch
         var serverTime = new Date(<%=request.getAttribute("currentTime")%>);
         var localTime = new Date();
@@ -47,12 +23,6 @@
 
         serverTime = new Date(serverTime.getTime() - ((serverOffset - offset) * 60 * 60 * 1000));
         var syncedOffset = localTime.getTime() - serverTime.getTime();
-
-        <% if (o!=null) { %>
-        for (i=0;i<times.length; i++) {
-          times[i]=new Date(times[i].getTime() - ((serverOffset - offset) * 60 * 60 * 1000));
-        }
-        <% } %>
 
         function update() {
             var d = new Date();
@@ -67,46 +37,8 @@
 
             updateDivOrSpan(top.mainFrame.document, "currentTime", text);
 
-            <% if (o!=null) { %>
-            for (i=0; i<times.length;i++) {
-                var timeLeft = times[i].getTime() - d.getTime();
-                if(timeLeft > 0 ) {
-                    text = convertToTimeString(timeLeft);
-                } else {
-                    text = "Expired";
-                }
-                updateDivOrSpan(top.mainFrame.document, ids[i], text);
-            }
-            <% } %>
-
             setTimeout("update()", 1000);
         }
-
-        function convertToTimeString(time) {
-            time = (time - (time % 1000)) / 1000;
-            var secs = time % 60;
-            time = time - secs;
-            var minutes = (time % 3600) / 60;
-            time = time - (minutes * 60);
-            var hours = time / 3600;
-
-            return padWithZeroes(hours) + ":" + padWithZeroes(minutes) + ":" + padWithZeroes(secs);
-        }
-
-        function updateDivOrSpan(root, name, text) {
-            if(root.getElementById) {
-                root.getElementById(name).innerHTML = text;
-            } else {
-                alert("FIX ME");
-            }
-        }
-
-        function padWithZeroes(val) {
-            var newVal = "00" + val;
-            newVal = newVal.substring(newVal.length - 2, newVal.length);
-            return newVal;
-        }
-
         setTimeout("update()", 1000);
     </script>
   </body>
