@@ -30,7 +30,7 @@
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
-		<td><b>User</b></td>
+		<td><b>User</b></td><td><b>Last Name</b></td><td><b>First Name</b></td><td><b>Middle Name</b></td>
 		</tr>
 <%
   		for (int n = 0; n < userList.length; n++) {
@@ -42,16 +42,20 @@
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
 			out.print(userList[n]._id);
-			out.print("\">"+userList[n]._handle+"</a></td></tr>\n");
-
+			out.print("\">"+userList[n]._handle+"</a></td>\n");
+			
+			out.print("<td>" + userList[n]._last + "</td>");
+			out.print("<td>" + userList[n]._first + "</td>");
+			out.print("<td>" + userList[n]._middle + "</td>");
+			
+			out.print("</tr>\n");
 		}
 	}
 %>
 
 </table>
 
-<jsp:include page="/InternalFooter.jsp" flush="true" />
-
+<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
 </body>
 
 </html>
