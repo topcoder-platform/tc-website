@@ -213,7 +213,6 @@ public final class TaskAuthentication {
                 }
 
                 try {
-                    nav.setUserId(login.getUserId().intValue());
                     nav.setUser(user);
                     document.addTag(new ValueTag("LoggedIn", "true"));
 

@@ -96,6 +96,7 @@ public abstract class BaseServlet extends HttpServlet {
             //set up security objects and session info
             authentication = createAuthentication(request, response);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            //todo perhaps find a better way to do this.  maybe we can beat min one ejb call per request
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             info = createSessionInfo(request, authentication, user.getPrincipals());
             request.setAttribute(SESSION_INFO_KEY, info);

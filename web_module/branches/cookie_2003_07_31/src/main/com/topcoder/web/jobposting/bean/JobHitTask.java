@@ -95,7 +95,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         HttpSession session = request.getSession(true);
 
         Navigation navigation = (Navigation) session.getAttribute("navigation");
-        if (navigation == null || !navigation.getLoggedIn()) {
+        if (navigation == null || !navigation.isIdentified()) {
             log.debug("User not logged in, can not add job hit.");
             throw new Exception("User not logged in, can not add job hit.");
         } else {

@@ -5,12 +5,15 @@ import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.security.Authentication;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.TCSubject;
 
 import javax.naming.Context;
 import javax.servlet.http.*;
@@ -26,12 +29,11 @@ public final class Navigation
 
     private Browser browser;
     private boolean serializable;
-    private int userId;
     private User userSerializable;
     private transient User user;
     private HashMap sessionObjects;
     private static Logger log = Logger.getLogger(Navigation.class);
-    private WebAuthentication authentication;
+    private CoderSessionInfo info;
 
 
     public void valueBound(HttpSessionBindingEvent e) {
@@ -75,7 +77,6 @@ public final class Navigation
     public Navigation() {
         browser = null;
         serializable = false;
-        userId = 0;
         user = new User();
         userSerializable = new User();
         sessionObjects = new HashMap(3);
@@ -85,7 +86,11 @@ public final class Navigation
     public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
         this();
         try {
-            authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
+                    request, response);
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            info = new CoderSessionInfo(request, authentication, user.getPrincipals());
             String appName = StringUtils.checkNull(request.getParameter("AppName"));
             if (browser==null) {
                 browser = new Browser();
@@ -128,15 +133,15 @@ public final class Navigation
     }
 
     public int getUserId() {
-        return this.userId;
+        return (int)info.getUserId();
     }
 
     public boolean isIdentified() {
-        return !authentication.getActiveUser().isAnonymous();
+        return !info.isAnonymous();
     }
 
     public boolean isLoggedIn() {
-        return !authentication.getUser().isAnonymous();
+        return !info.isLoggedIn();
     }
 
     public User getUser() {
@@ -183,10 +188,6 @@ public final class Navigation
         this.browser = browser;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
     public void setUser(User user) {
         if (serializable) {
             this.userSerializable = user;
@@ -223,12 +224,12 @@ public final class Navigation
         return result;
     }
 
-    public WebAuthentication getAuthentication() {
-        return authentication;
+    public CoderSessionInfo getSessionInfo() {
+        return info;
     }
 
-    public void setAuthentication(WebAuthentication authentication) {
-        this.authentication = authentication;
+    public void setCoderSessionInfo(CoderSessionInfo info) {
+        this.info = info;
     }
 
 

@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.error.TCException;
@@ -14,14 +13,8 @@ import com.topcoder.common.web.data.User;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.RequestInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.ApplicationServer;
@@ -224,20 +217,8 @@ public final class MainServlet extends HttpServlet {
             // STATIC PROCESSOR TO USE TO CREATE THE
             // RESPONSE HTML. SOME WILL REQUIRE CHECK
             // FOR SESSION TIMEOUTS TO WARN USER.
-            //************************ authenitcation ************************
-            if (requestTask.equals("authentication")) {
-                HTMLString = TaskAuthentication.process(request, response, htmlMaker, nav, document);
-                if (HTMLString.equals("logout")) {
-                    nav = null;
-                    document = new XMLDocument("TC");
-                    session = request.getSession(true);
-                    nav = new Navigation(request, response);
-                    addURLTags(nav, request, response, document);
-                    HTMLString = "home";
-                }
-            }
             //************************ home ************************
-            else if (requestTask.equals("home")) {
+            if (requestTask.equals("home")) {
                 HTMLString = TaskHome.process(request, response, htmlMaker, nav, document);
             }
             //************************ home ************************
@@ -300,34 +281,6 @@ public final class MainServlet extends HttpServlet {
             }
             //************************ static  ************************
             else {
-                // begin disgusting burrows hoke
-                if (requestTask.equals("statistics") && requestCommand.equals("index")) {
-                    DataAccessInt dai = null;
-                    RequestInt dataRequest = null;
-                    ResultSetContainer rsc = null;
-                    Map resultMap = null;
-
-                    dataRequest = new Request();
-                    dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
-                    dataRequest.setProperty("c", "top_room_winners");
-                    dataRequest.setProperty("dn", "1");
-                    dataRequest.setProperty("sr", "1");
-                    dataRequest.setProperty("er", "3");   // just get the top 3
-                    resultMap = dai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Top_Room_Winners");
-                    document.addTag(rsc.getTag("Div1RoomWinners", "RoomWinner"));
-
-                    dataRequest = new Request();
-                    dataRequest.setProperty("c", "top_room_winners");
-                    dataRequest.setProperty("dn", "2");
-                    dataRequest.setProperty("sr", "1");
-                    dataRequest.setProperty("er", "3");   // just get the top 3
-                    resultMap = dai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Top_Room_Winners");
-                    document.addTag(rsc.getTag("Div2RoomWinners", "RoomWinner"));
-                    // end disgusting burrows hoke
-
-                }
                 HTMLString = TaskStatic.process(request, response, htmlMaker, nav, document);
             }
             // IF ANY OF THE PROCESSORS RETURN A STRING
@@ -497,18 +450,12 @@ public final class MainServlet extends HttpServlet {
             DataCache cache = Cache.get();
             document.addTag(new ValueTag("MemberCount", cache.getMemberCount()));
             if (nav.isIdentified()) {
-                document.addTag(new ValueTag("UserId", nav.getAuthentication().getUser().getId()));
-                document.addTag(new ValueTag("Handle", nav.getAuthentication().getUser().getUserName()));
-                //todo get this stuff from the session info or something
-                HashMap userTypeDetails = nav.getUser().getUserTypeDetails();
-                CoderRegistration reg = null;
-                if (userTypeDetails.containsKey("Coder")) {
-                    reg = (CoderRegistration) userTypeDetails.get("Coder");
-                    document.addTag(new ValueTag("Rating", reg.getRating().getRating()));
-                    document.addTag(new ValueTag("Ranking", reg.getRanking()));
-                    document.addTag(new ValueTag("HasImage", reg.getHasImage()));
-                    document.addTag(new ValueTag("ActivationCode", reg.getActivationCode()));
-                }
+                document.addTag(new ValueTag("UserId", nav.getUserId()));
+                document.addTag(new ValueTag("Handle", nav.getSessionInfo().getHandle()));
+                document.addTag(new ValueTag("Rating", nav.getSessionInfo().getRating()));
+                document.addTag(new ValueTag("Ranking", nav.getSessionInfo().getRank()));
+                document.addTag(new ValueTag("HasImage", nav.getSessionInfo().hasImage()));
+                document.addTag(new ValueTag("ActivationCode", nav.getSessionInfo().getActivationCode()));
             }
         } catch (Exception e) {
             e.printStackTrace();
