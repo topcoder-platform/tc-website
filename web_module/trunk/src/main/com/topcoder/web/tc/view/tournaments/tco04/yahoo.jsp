@@ -22,7 +22,7 @@
 			<table border="0" cellspacing="15" cellpadding="0" width="540">
                 <tr valign="top">
                     <td colspan="2" class="bodyText">
-                     <a href="" target="_blank"><img src="/i/tournament/tco04/yahoo_header.gif" width="510" height="75" border="0" alt="Yahoo!" /></a>
+                     <a href="/?t=sponsor&c=link&link=http://careers.yahoo.com/&refer=tco_minisite" target="_blank"><img src="/i/tournament/tco04/yahoo_header.gif" width="510" height="75" border="0" alt="Yahoo!" /></a>
                     </td>
                 </tr> 
                 
