@@ -22,6 +22,7 @@ public class TCCC05MemberResult implements Serializable {
     private int compID;
     private String payment;
     private Date submitTimestamp;
+    private boolean complete;
     
     SimpleDateFormat dtfmt = new SimpleDateFormat("MM.dd.yyyy hh:mma");
     
@@ -34,9 +35,10 @@ public class TCCC05MemberResult implements Serializable {
         compID = 0;
         payment = "";
         submitTimestamp = null;
+        complete = false;
     }
     
-    public TCCC05MemberResult(String h, int pts, String pl, String sc, int u, String pay, Date sub) {
+    public TCCC05MemberResult(String h, int pts, String pl, String sc, int u, String pay, Date sub, boolean complete) {
         component = h;
         points = pts;
         placed = pl;
@@ -44,6 +46,11 @@ public class TCCC05MemberResult implements Serializable {
         compID = u;
         payment = pay;
         submitTimestamp = sub;
+        this.complete = complete;
+    }
+    
+    public boolean isComplete() {
+        return complete;
     }
     
     public String getSubmitTimestamp() {

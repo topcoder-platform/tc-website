@@ -22,11 +22,11 @@ import java.text.DecimalFormat;
 public class TCCC05MemberResults extends StatBase {
     
      String getCommandName() {
-        return "tccc05_contest_projects";
+        return "tccc05_member_projects";
     }
     
     String getDataSourceName() {
-        return DBMS.TCS_OLTP_DATASOURCE_NAME;
+        return DBMS.DW_DATASOURCE_NAME;
     }
     
     String getPageName() {
