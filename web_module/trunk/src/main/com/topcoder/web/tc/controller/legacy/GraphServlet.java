@@ -982,8 +982,8 @@ public final class GraphServlet extends HttpServlet {
             else if (rs >= 22 && rs < 30)
                 out.setColor(RED);
             
-            out.line(78+ (16*rs),79,78+ (16*rs),348);
-            out.line(77+ (16*rs),79,77+ (16*rs),348);
+            out.line(83+ (16*rs),95,83+ (16*rs),330);
+            out.line(82+ (16*rs),95,82+ (16*rs),330);
             out.render(g);
             return baos.toByteArray();
 
