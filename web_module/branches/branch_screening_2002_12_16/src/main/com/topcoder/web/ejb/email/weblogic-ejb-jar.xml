@@ -12,8 +12,6 @@
                 <res-ref-name>datasource</res-ref-name>
                 <jndi-name>SCREENING_OLTP</jndi-name>
             </resource-description>
-        </reference-descriptor>
-        <reference-descriptor>
             <resource-description>
                 <res-ref-name>jts_datasource</res-ref-name>
                 <jndi-name>JTS_SCREENING_OLTP</jndi-name>
