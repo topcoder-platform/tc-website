@@ -19,7 +19,7 @@ public class DataTypeSelect extends Select {
         TreeMap m = null;
         for (int i=0; i<Constants.DATA_TYPE_IDS.length; i++) {
             m = new TreeMap();
-            m.put(Constants.DATA_TYPE_ID_PARAM, Constants.DATA_TYPE_DESCS[i]);
+            m.put(Constants.DATA_TYPE_IDS[i], Constants.DATA_TYPE_DESCS[i]);
             list.add(m);
         }
     }
