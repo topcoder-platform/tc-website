@@ -41,7 +41,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->	
-        <td class="promoText" width="99%">
+        <td class="promoText" align="center" width="99%">
             <table border="0" cellspacing="10" cellpadding="0" width="510">
                
                 <tr valign="top">
