@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
-<%@ taglib uri="/WEB-INF/tc.tld" prefix="tc" %>
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
@@ -61,7 +61,7 @@
                   <td class=tableHeader>Test Status</td>
                   <td class=tableHeader align=right>Time Available</td>
                </tr>
-               <tc:listIterator id="problem" list="<%=problem_sets%>">
+               <tc-webtag:listIterator id="problem" list="<%=problem_sets%>">
                    <tr>
                       <td class=tableTextOdd><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
                       <td class=tableTextOdd>asdfasdf</td>
@@ -70,7 +70,7 @@
                       <td class=tableTextOdd>Un-Opened</td>
                       <td class=tableTextOdd align=right>N/A</td>
                    </tr>
-               </tc:listIterator>
+               </tc-webtag:listIterator>
             </table>
             </td>
             <td class=bodyR>&#160;</td>
