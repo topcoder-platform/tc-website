@@ -48,15 +48,22 @@
 				<xsl:with-param name="title">&#160;Overview</xsl:with-param>
 			</xsl:call-template>
 
-			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
 					<td class="statText" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
-						<p><strong>&#160;&#160;Thank you for your inquiry</strong></p>
-						<p>Unfortunately you must be a rated member to participate in TopCoder Development projects.
-						Get rated by participating in our Coding Competitions. Please check the current <a class="statText" href="/?t=schedule&amp;c=index">schedule</a> for details regarding upcoming matches.</p>
+						<p><strong>Thank you for your inquiry.</strong></p>
+						
+						<p>Unfortunately you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current <a class="statText" href="/?t=schedule&amp;c=index">schedule</a> for details regarding upcoming matches. Make sure you are also <a class="statText" href="http://www.topcodersoftware.com/pages/c_registration.jsp">registered</a> at TopCoderSoftware.com so you can download the documentation and participate in the online forums for this component.</p>
+						
+						<p>Contact us if you have questions about becoming a <a class="statText" href="mailto:service@topcoder.com">rated TopCoder member.</a></p>
+						
+						<p>Contact us if you have questions about <a class="statText" href="mailto:service@topcodersoftware.com">registering</a> at TopCoderSoftware.com.</p>
+
+						<p><br /></p>
 					</td>
-					<td background="" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
+					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
 				</tr>
 			</table>
 		</td>
