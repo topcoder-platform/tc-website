@@ -1,5 +1,4 @@
-<%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*, 
-com.topcoder.web.stat.ejb.Statistics.*, com.topcoder.web.stat.ejb.*, com.topcoder.web.stat.common.*" %>
+<%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*" %>
 <%@ taglib uri="/email-taglib.tld" prefix="email"%>
 
 <html>
