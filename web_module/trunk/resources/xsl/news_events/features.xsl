@@ -73,14 +73,15 @@
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;June</TD></TR> 
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.26.02</TD><TD VALIGN="middle" CLASS="bodyText">Jamiebb</TD><TD VALIGN="middle" CLASS="bodyText">Web Services</TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.19.02</TD><TD VALIGN="middle" CLASS="bodyText">Staff Writer</TD><TD VALIGN="middle" CLASS="bodyText">Rapid Rise</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.26.02</TD><TD VALIGN="middle" CLASS="bodyText">Jamieb100</TD><TD VALIGN="middle" CLASS="bodyText">Web Services</TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.19.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText">Rapid Rise</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.12.02</TD><TD VALIGN="middle" CLASS="bodyText">Polgara</TD><TD VALIGN="middle" CLASS="bodyText">Outsourcing</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;06.05.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_060502" CLASS="bodyGeneric">Where Has The Time Gone?</A></TD></TR>
 
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;May</TD></TR> 
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.29.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_052902" CLASS="bodyGeneric">The Outsiders</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.22.02</TD><TD VALIGN="middle" CLASS="bodyText">KaiEl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_052202" CLASS="bodyGeneric">Obfu-What?</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.15.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_051502" CLASS="bodyGeneric">First Time Phenomenal</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.08.02</TD><TD VALIGN="middle" CLASS="bodyText">TopCoder Staff</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_050802" CLASS="bodyGeneric">Working Their Way Up</A></TD></TR>
