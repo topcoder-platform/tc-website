@@ -84,6 +84,10 @@ function find(n) {
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
+            <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=nvidia"><img src="/i/tournament/tccc05/nvidia_right.gif" alt="nvidia" border="0" /></a><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
             <jsp:include page="../calendar.jsp" />
 
             <p><br/></p>
@@ -126,7 +130,7 @@ function find(n) {
 
          <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
          
-         <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting"><img src="/i/tournament/tco04/nvidia_jobs.gif" alt="NVIDIA" width="170" height="80" border="0" /></a><br />
+         <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=nvidia"><img src="/i/tournament/tccc05/nvidia_right.gif" alt="NVIDIA" border="0" /></a><br />
          
          <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
