@@ -105,7 +105,8 @@
 
                             <tr>
                                 <td width="50%" class="sidebarText">Round #1</td>
-                                <td width="50%" class="sidebarText" align="right">Friday, October 31, 2003 at 7:00PM</td>
+                                <td width="50%" class="sidebarText" align="right">Friday, October 31, 2003 at 7:00PM<br/>
+                                                                Register: 5:30PM - 6:55PM</td>
                             </tr>
 
                             <tr>

@@ -132,13 +132,13 @@
                            
                         <dd><strong>Java Code Template</strong><br/>
                         
-                        &#9;import &#60;necessary classes&#62;<br/><br/>
-                        &#09;public class &#60;class-name&#62; {<br/>
-                        &#09;&#09;public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
-                        &#09;&#09;&#09;//your source here<br/>
-                        &#09;&#09;&#09;return &#60;results&#62;;<br/>
-                        &#09;&#09;}<br/>
-                        &#09;}</dd><br/>
+                        import &#60;necessary classes&#62;<br/><br/>
+                        public class &#60;class-name&#62; {<br/>
+                        public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
+                        //your source here<br/>
+                        return &#60;results&#62;;<br/>
+                        }<br/>
+                        }</dd><br/>
                           
 
                           <dd><strong>C++ Code Template</strong><br/>
