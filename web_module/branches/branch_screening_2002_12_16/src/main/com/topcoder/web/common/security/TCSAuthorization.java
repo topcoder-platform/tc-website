@@ -69,7 +69,7 @@ public class TCSAuthorization implements Authorization {
             if (user != null)
                 return policy.checkPermission(user, permission);
             else {
-                String msg = "TCSubject is null in hasPermission()";
+                String msg = "TCSubject is null in hasPermission(Resource r)";
                 throw new AuthorizationException(msg);
             }
         }
