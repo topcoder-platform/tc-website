@@ -83,7 +83,6 @@
             <description></description>
         </init-param>
         <init-param>
-        <init-param>
             <param-name>crpf_report</param-name>
             <param-value>/crpf/report.jsp</param-value>
             <description></description>
