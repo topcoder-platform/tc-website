@@ -55,12 +55,13 @@ public class SimpleRegSubmit extends SimpleRegBase {
         try {
             tx = Transaction.get();
             Transaction.begin(tx);
-            newUser = store(regInfo);
+            PrincipalMgrRemote mgr = getPrincipalManager();
+            newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+            store(regInfo, newUser);
             Transaction.commit(tx);
         } catch (Exception e) {
             Exception ex = null;
             try {
-                log.debug("caught exception, attempt to roll back");
                 if (tx != null) {
                     Transaction.rollback(tx);
                 }
@@ -68,7 +69,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 ex = x;
             }
             try {
-                log.debug("attempt to remove the security_user " + newUser + " " + (newUser==null?"":""+newUser.getId()));
                 //since we don't have a transaction spanning the security
                 //stuff, attempt to remove this newly created user manually
                 if (newUser != null && newUser.getId() > 0) {
@@ -83,7 +83,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
     }
 
-    protected UserPrincipal store(SimpleRegInfo regInfo) throws Exception {
+    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
         User user = (User) createEJB(getInitialContext(), User.class, "main:");
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class, "main:");
@@ -93,8 +93,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
         Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
 
         PrincipalMgrRemote mgr = getPrincipalManager();
-
-        UserPrincipal newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
 
         //add user to groups
         Collection groups = mgr.getGroups(CREATE_USER);
@@ -130,7 +128,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
         long addressId = address.createAddress();
         address.setAddress1(addressId, regInfo.getAddress1());
         address.setAddress2(addressId, regInfo.getAddress2());
-        if (1==1) throw new Exception ("blah");
         address.setAddress3(addressId, regInfo.getAddress3());
         address.setAddressTypeId(addressId, ADDRESS_TYPE);
         address.setCity(addressId, regInfo.getCity());

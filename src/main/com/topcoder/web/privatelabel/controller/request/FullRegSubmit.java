@@ -34,8 +34,8 @@ public class FullRegSubmit extends SimpleRegSubmit {
         setIsNextPageInContext(true);
     }
 
-    protected UserPrincipal store(SimpleRegInfo regInfo) throws Exception {
-        UserPrincipal ret = super.store(regInfo);
+    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+        UserPrincipal ret = super.store(regInfo, newUser);
         Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
         Response response = (Response)createEJB(getInitialContext(), Response.class);
 
