@@ -1,0 +1,9 @@
+#!/bin/ksh
+
+processes=$(ps -augxww | grep "testrunner"| cut -c9-14)
+echo $processes
+kill $processes
+
+processes=$(ps -augxww | grep "mpsqas.tester." | cut -c9-14)
+echo $processes
+kill $processes
