@@ -63,6 +63,7 @@ public class TCES extends Task implements Serializable {
 			if (currentNav.getTaskKey().equals("contact")) {
 				
 			}
+			return true;
 		}
 				
     public void process() throws TaskException {
@@ -98,6 +99,7 @@ public class TCES extends Task implements Serializable {
 			//if (currentNav.getTaskKey().equals("skills") && no rating) { return navs.getTCESNav("norating"); }
 			//if (currentNav.getTaskKey().equals("skills") && rating) { return navs.getTCESNav("job"); }
 			if (currentNav.getTaskKey().equals("job")) { return navs.getTCESNav("done"); }
+			return null;
 		}
  
     public void setProcess(String ignore) {

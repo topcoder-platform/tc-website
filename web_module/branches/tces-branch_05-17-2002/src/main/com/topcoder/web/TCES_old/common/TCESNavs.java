@@ -22,7 +22,7 @@ public class TCESNavs {
 		return htNavs;
 	}
 	
-	public TCESNavs[] getTCESNavs() {
-		return (TCESNavs[])alNavs.toArray(new TCESNav[0]);
+	public TCESNav[] getTCESNavs() {
+		return (TCESNav[])alNavs.toArray(new TCESNav[0]);
 	}
 }
