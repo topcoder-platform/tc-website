@@ -111,7 +111,7 @@ public final class Registration extends UserEdit {
      * @see com.topcoder.web.corp.request.UserEdit#verifyFormFieldsValidity(boolean)
      */
     protected boolean verifyFormFieldsValidity() {
-        System.err.println(secTok);
+//        System.err.println(secTok);
         boolean valid = super.verifyFormFieldsValidity();
         valid &= // title name validity
         checkItemValidity(KEY_TITLE, title,
@@ -123,7 +123,7 @@ public final class Registration extends UserEdit {
         if( !isExtFieldsEditable() ) return valid;
         
         // checks below make sense only when registering new primary contact
-        // or modifying existant one    
+        // or modifying existent one    
         valid &= // company name validity (required)
         checkItemValidity(KEY_COMPANY, company,
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 7,

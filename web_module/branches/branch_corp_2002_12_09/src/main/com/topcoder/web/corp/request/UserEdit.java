@@ -73,7 +73,6 @@ public class UserEdit extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     final void businessProcessing() throws Exception {
-//        SecurityInfo secToken = new SecurityInfo(getFormFields());
         secTok = new SecurityInfo(getFormFields());
         log.debug(
             secTok.createNew ?
@@ -784,18 +783,18 @@ public class UserEdit extends BaseProcessor {
                 targetUser = null;
             }
         }
-        public String toString() {
-            return "\ncontactTable="+contactTable+
-            "\nloggedAsPrimary="+loggedAsPrimary+
-            "\nrequestor="+requestor+
-            "\nprimaryUserID="+primaryUserID+
-            "\nloggedUserID="+loggedUserID+
-            "\nprimaryUserCompanyID="+primaryUserCompanyID+
-            "\ntargetUserCompanyID="+targetUserCompanyID+
-            "\nloggedUserCompanyID="+loggedUserCompanyID+
-            "\ntargetUser="+targetUser+
-            "\nman="+man+
-            "\ncreateNew="+createNew;
-        }
+//        public String toString() {
+//            return "\ncontactTable="+contactTable+
+//            "\nloggedAsPrimary="+loggedAsPrimary+
+//            "\nrequestor="+requestor+
+//            "\nprimaryUserID="+primaryUserID+
+//            "\nloggedUserID="+loggedUserID+
+//            "\nprimaryUserCompanyID="+primaryUserCompanyID+
+//            "\ntargetUserCompanyID="+targetUserCompanyID+
+//            "\nloggedUserCompanyID="+loggedUserCompanyID+
+//            "\ntargetUser="+targetUser+
+//            "\nman="+man+
+//            "\ncreateNew="+createNew;
+//        }
     }
 }
