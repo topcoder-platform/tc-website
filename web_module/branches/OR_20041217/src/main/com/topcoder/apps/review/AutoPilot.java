@@ -270,9 +270,11 @@ public class AutoPilot {
 */
             if(data.getProject().getCurrentPhaseInstance().getPhase().getId() != Phase.ID_APPEALS_RESPONSE) return new SuccessResult();
 
+/* by cucu
+            // we don't care if we're before or after the deadline, because appeals can't be created in appeals_response phase.
             if(data.getProject().getCurrentPhaseInstance().getEndDate() != null
                 && data.getProject().getCurrentPhaseInstance().getEndDate().getTime() > System.currentTimeMillis() ) return new SuccessResult();
-
+*/
             //after appeals phase end, check for open appeals
             Appeal[] appeals = docManager.getAppeals(project, -1, -1, user.getTCSubject());
             for(int i = 0; i < appeals.length; i++) {

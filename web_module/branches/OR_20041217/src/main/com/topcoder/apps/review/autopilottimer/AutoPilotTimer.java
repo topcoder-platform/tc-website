@@ -159,12 +159,14 @@ public class AutoPilotTimer
                                 logger.debug("ERROR " + result.toString() );
                             }
                         }
+                    }
 // end by cucu
 
-/* by cucu
+/* commented by cucu
+                    // It doesn't make too much sense to have the timer check for appeals to be finished, because this is already checked
+                    // when an appeal is solved.
+
                     } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
-*/
-                    } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS_RESPONSE) {
                         if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
 
@@ -216,6 +218,7 @@ public class AutoPilotTimer
                             //sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
                         }
                     }
+                    */
                 }
             } catch(Exception e) {
                 if(!(e instanceof NameNotFoundException))
