@@ -27,6 +27,7 @@ public class USDCMemberResults extends StatBase {
     }
     
     void statProcessing() throws com.topcoder.web.common.TCWebException {
+        getRequest().setAttribute("from", getRequest().getParameter("from"));
     }
     
 }

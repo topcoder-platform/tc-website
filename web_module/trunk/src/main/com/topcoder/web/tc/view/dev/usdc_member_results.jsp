@@ -50,12 +50,12 @@
 </jsp:include>
 
 <p>
-<a href="/tc?module=USDCResults">Contest Results</a>
+<a href="/tc?module=USDCResults">Contest Results</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <%
     if(request.getAttribute("from").equals("1"))
     {
 %>
-<a href="/tc?module=USDCContestProjects&type=3ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">Contest Details - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a>
+<a href="/tc?module=USDCContestProjects&type=3&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">Contest Details - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a>
 <%
     }
 %>
