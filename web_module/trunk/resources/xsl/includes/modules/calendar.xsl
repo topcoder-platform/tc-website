@@ -41,12 +41,12 @@
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">16</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">17</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">18</TD>
-                				<TD BGCOLOR="#FFCC33" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="smallText">19</A></TD>
-                				<TD BGCOLOR="#FFCC33" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="smallText">20</A></TD>
+                				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="smallText">19</A></TD>
+                				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="smallText">20</A></TD>
               				</TR>
               				<TR> 
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">21</TD>
-                				<TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4130&amp;t=schedule&amp;c=srm" CLASS="smallText">22</A></TD>
+                				<TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4130&amp;t=schedule&amp;c=srm" CLASS="smallFoot">22</A></TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">23</TD>
                 				<TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?ContestId=4135&amp;t=schedule&amp;c=srm" CLASS="smallText">24</A></TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">25</TD>
