@@ -2,6 +2,7 @@
 
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <% ResultSetContainer openProjects = (ResultSetContainer)request.getAttribute("OpenProjects");%>
 
 <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
@@ -15,7 +16,7 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$design-phase ]/price) * 1.75, $priceFormat)"/></span>
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><tc:format object='<%=request.getAttribute("DesignSum")%>' format='#,###.00'/></span>
                                     in payments. </td>
                             </tr>
                         </table>
@@ -71,63 +72,42 @@
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project[phase_id=$dev-phase ]/price) * 1.75, $priceFormat)"/></span>
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;"><tc:format object='<%=request.getAttribute("DevSum")%>' format='#,###.00'/></span>
                                     in payments. </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
 
-                <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
-                    <xsl:if test="./phase_id=$dev-phase and ./status_id=$status_id">
-
-                        <xsl:variable name="initial_submission">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
-                        </xsl:variable>
-                        <xsl:variable name="posting_date">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting_date"/></xsl:call-template>
-                        </xsl:variable>
-                        <xsl:variable name="winner_announced">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced_date"/></xsl:call-template>
-                        </xsl:variable>
-                        <xsl:variable name="final_submission">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
-                        </xsl:variable>
+                <rsc:iterator list="<%=openProjects%>" id="resultRow">
+                  <% if (resultRow.getIntItem("phase_id")==113&&resultRow.getIntItem("status_id")==301) { %>
 
                 <tr>
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
                                 <td class="devProjectText" colspan="2">
-                                    <A>
-
-                        <xsl:attribute name="href">
-                            <xsl:value-of select="concat('/index/?t=development&c=tcs_inquire-dev&comp=', ./component_id, '&docId=', ./document_id, '&version=', ./version, '&phase=', ./phase_id, '&payment=', ./price, '&compvers=', ./comp_vers_id, '&date=', $initial_submission, '&final_submission=', $final_submission, '&winner_announced=', $winner_announced, '&posting_date=', $posting_date)"/>
-                        </xsl:attribute><xsl:value-of select="./component_name"/>
-
-                        <xsl:if test="number(./version) &gt;  number('1')">
-                            v <xsl:value-of select="./version"/>
-                        </xsl:if>
-
+                                    <A href="/?t=development&c=tcs_inquire-dev&comp=<rsc:item row="<%=resultRow%>" name="component_id"/>&phase=<rsc:item row="<%=resultRow%>" name="phase_id"/>&docId=<rsc:item row="<%=resultRow%>" name="document_id"/>&version=<rsc:item row="<%=resultRow%>" name="version"/>&payment=<rsc:item row="<%=resultRow%>" name="price"/>&compvers=<rsc:item row="<%=resultRow%>" name="comp_vers_id"/>&date=<rsc:item row="<%=resultRow%>" name="initial_submission_date" format="MM'%2e'dd'%2e'yyyy"/>&final_submission=<rsc:item row="<%=resultRow%>" name="final_submission_date" format="MM'%2e'dd'%2e'yyyy"/>&winner_announced=<rsc:item row="<%=resultRow%>" name="winner_announced_date" format="MM'%2e'dd'%2e'yyyy"/>&posting_date=<rsc:item row="<%=resultRow%>" name="posting_date" format="MM'%2e'dd'%2e'yyyy"/>">
+                                      <rsc:item row="<%=resultRow%>" name="component_name"/> <%=resultRow.getIntItem("version")>1?"v " + resultRow.getIntItem("version"):""%>
                                     </A>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td class="devProjectWinner">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney"><xsl:value-of select="format-number(price, $priceFormat)"/></td>
+                                <td class="devProjectWinnerMoney"><rsc:item row="<%=resultRow%>" name="price" format="#,###.00"/></td>
                             </tr>
 
                             <tr>
 				    <td class="devProjectInquire">Submit By:</td>
-                                <td class="devProjectDate"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                                <td class="devProjectDate"><rsc:item row="<%=resultRow%>" name="initial_submission_date" format="MM.dd.yyyy"/></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
 
-                    </xsl:if>
-                </xsl:for-each>
+                    <% } %>
+                </rsc:iterator>
 
             </table>
 
