@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.privatelabel.Constants"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -61,7 +61,7 @@
             <br><br>
 			<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="logoSubmission" enctype="multipart/form-data">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO05LogoSubmit"/>
-            <b>Logo:</b><br><input type="file" name="logoFile">
+            <b>Logo:</b><br><input type="file" name="<%=Constants.LOGO%>">
             </form>
             <A href="javascript:document.logoSubmission.submit();"><img src="/i/submit.gif" alt="Submit" border="0" /></A>
 

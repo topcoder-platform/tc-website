@@ -47,6 +47,7 @@ public class Constants {
     public static String NOTE_TEXT;
     public static String SCHOOL_NAME;
     public static int TCO05_LOGO_TERMS_ID;
+    public static String LOGO;
 
 
     public static String PROJECT_ID;
