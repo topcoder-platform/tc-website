@@ -67,7 +67,7 @@
 <!-- Start Text -->
             
 <bean:define id="theProject" name="projectForm" property="project" type="com.topcoder.apps.review.projecttracker.Project" />
-            <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
+            <table border="0" cellpadding="0" cellspacing="1" width="100%">
 <logic:equal name="projectForm" property="timelineValid" value="false">
                 <tr>
                     <td colspan="<%=theProject.getTimeline().length+1%>" width="100%" class="errorText">
