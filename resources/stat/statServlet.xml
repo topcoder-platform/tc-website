@@ -63,6 +63,9 @@
 <ContentItem contentHandle="member_profile" nextPage="/stat_jsp/memberProfile.jsp" access="0"/>
 <ContentItem contentHandle="round_overview" nextPage="/stat_jsp/roundOverview.jsp" access="0"/>
 <ContentItem contentHandle="school_avg_rating" nextPage="/stat_jsp/topRankedSchools.jsp" access="0"/>
+<ContentItem contentHandle="state_avg_rating" nextPage="/stat_jsp/topRankedStates.jsp" access="0"/>
+<ContentItem contentHandle="country_avg_rating" nextPage="/stat_jsp/topRankedCountries.jsp" access="0"/>
+<ContentItem contentHandle="top_ten_index" nextPage="/stat_jsp/topTenIndex.jsp" access="0"/>
 </ContentList>
 <GlobalError nextPage="/errorPage.jsp"/>
 </StatServlet>
