@@ -154,14 +154,7 @@
                                 </a>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:choose>
-                                    <xsl:when test="./total_inquiries&lt;number(/TC/DEVELOPMENT/MaxInquiries)">
                                         <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        Registration Full
-                                    </xsl:otherwise>
-                                </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
                                 <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template>
@@ -247,14 +240,7 @@
                                 </a>
                             </td>
                             <td class="projectCells" align="center">
-                                <xsl:choose>
-                                    <xsl:when test="./total_inquiries&lt;number(/TC/DEVELOPMENT/MaxInquiries)">
                                         <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>  
-                                        Registration Full
-                                    </xsl:otherwise>
-                                </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
                                 <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template>
