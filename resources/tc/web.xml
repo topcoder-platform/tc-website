@@ -245,6 +245,13 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>srm_survey_question</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+
+
     </servlet>
 
     <servlet>
