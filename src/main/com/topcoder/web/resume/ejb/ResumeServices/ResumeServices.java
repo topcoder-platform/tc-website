@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 public interface ResumeServices extends EJBObject {
 
-    public Resume getResume(int userId)
+    public Resume getResume(long userId)
             throws RemoteException;
-    public void putResume(int userId,int fileType, String fileName, byte[] file)
+    public void putResume(long userId,int fileType, String fileName, byte[] file)
             throws RemoteException;
     public ArrayList getFileTypes()
             throws RemoteException;
-    public boolean hasResume(int userId)
+    public boolean hasResume(long userId)
             throws RemoteException;
 
 

@@ -28,7 +28,7 @@ public class ResumeServicesBean extends BaseEJB {
                " ON ft.file_type_id = r.file_type_id " +
             " WHERE coder_id = ?";
 
-    public Resume getResume(int userId) throws RemoteException{
+    public Resume getResume(long userId) throws RemoteException{
         log.debug("ejb:ResumeServices:getResume("+userId+") called...");
         Connection conn = null;
         PreparedStatement ps = null;
@@ -37,7 +37,7 @@ public class ResumeServicesBean extends BaseEJB {
         try{
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(GET_RESUME_QUERY);
-            ps.setInt(1,userId);
+            ps.setLong(1,userId);
             rs = ps.executeQuery();
             if (rs.next()) {
                 ret = new Resume();
@@ -76,7 +76,7 @@ public class ResumeServicesBean extends BaseEJB {
               " FROM resume " +
              " WHERE coder_id = ? ";
 
-    public void putResume(int userId,int fileType, String fileName, byte[] file)
+    public void putResume(long userId, int fileType, String fileName, byte[] file)
             throws RemoteException{
         log.debug("ejb:ResumeServices:putResume("+userId+","+fileType+","+fileName+","+file.length+") called...");
         Connection conn = null;
@@ -87,7 +87,7 @@ public class ResumeServicesBean extends BaseEJB {
         try{
             conn = DBMS.getConnection();
             psSel = conn.prepareStatement(GET_RESUME_ID);
-            psSel.setInt(1,userId);
+            psSel.setLong(1,userId);
             rs = psSel.executeQuery();
            
             int numUpdated = 0; 
@@ -101,7 +101,7 @@ public class ResumeServicesBean extends BaseEJB {
             } else {
                 psIns = conn.prepareStatement(INSERT_RESUME_QUERY);
                 psIns.setInt(1, DBMS.getSeqId(conn,DBMS.RESUME_SEQ));
-                psIns.setInt(2, userId);
+                psIns.setLong(2, userId);
                 psIns.setString(3, fileName);
                 psIns.setInt(4, fileType);
                 psIns.setBytes(5, file);
@@ -172,7 +172,7 @@ public class ResumeServicesBean extends BaseEJB {
         return ret;
     }
 
-    public boolean hasResume(int userId) throws RemoteException {
+    public boolean hasResume(long userId) throws RemoteException {
         log.debug("ejb:ResumeServices:getFileTypes() called...");
         Connection conn = null;
         PreparedStatement ps = null;
@@ -181,7 +181,7 @@ public class ResumeServicesBean extends BaseEJB {
         try{
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(GET_RESUME_ID);
-            ps.setInt(1,userId);
+            ps.setLong(1,userId);
             rs = ps.executeQuery();
             if (rs.next()) {
                 ret = true;
