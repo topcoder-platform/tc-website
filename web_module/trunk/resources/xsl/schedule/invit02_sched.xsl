@@ -227,7 +227,7 @@
                     </TR>                                                           
                     <TR>
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Wed. Oct. 30th, Start: 9:30 PM EDT</TD>
+                      <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Wed. Oct. 30th, Start: 9:30 PM EST</TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"/></TD>
