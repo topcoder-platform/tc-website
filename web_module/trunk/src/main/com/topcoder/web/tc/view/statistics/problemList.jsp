@@ -51,11 +51,12 @@
                     || me.getKey().equals(Constants.MAX_DIV2_SUCCESS)
                     || me.getKey().equals(Constants.DIV1_LEVEL)
                     || me.getKey().equals(Constants.DIV2_LEVEL)) {
-                buf.append("&");
-                buf.append(me.getKey().toString());
-                buf.append("=");
-                buf.append(me.getValue().toString());
-
+                if (me.getValue()!=null) {
+                    buf.append("&");
+                    buf.append(me.getKey().toString());
+                    buf.append("=");
+                    buf.append(me.getValue().toString());
+                }
             }
         }
         return buf.toString();
