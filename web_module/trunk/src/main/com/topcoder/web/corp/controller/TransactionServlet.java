@@ -627,12 +627,15 @@ public class TransactionServlet extends HttpServlet {
     throws CreateException, NamingException,RemoteException,
             GeneralSecurityException, NoSuchUserException, Exception
     {
+        log.debug("assignPerProductRoles entered");
         PrincipalMgrRemote mgr = Util.getPrincipalManager();
         TCSubject buyerSubject = mgr.getUserSubject(txInfo.getBuyerID());
         UserPrincipal buyerPrincipal = mgr.getUser(txInfo.getBuyerID());
         Collection assignedRoles = mgr.getRoles(buyerSubject);
         TCSubject appSubject = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
         Iterator i = txInfo.getRolesPerProduct().iterator();
+        log.debug("buyer ["+txInfo.getBuyerID()+"] has roles assigned "+assignedRoles);
+        log.debug("roles to added on per product basis "+txInfo.getRolesPerProduct());
         
         HashSet rollbackStore = new HashSet();
         Exception caught = null;
@@ -643,7 +646,7 @@ public class TransactionServlet extends HttpServlet {
             
             // it is really new role - try to assign it
             try {
-                mgr.assignRole(buyerPrincipal, newRole, appSubject);
+                log.debug("trying to assign the role "+newRole);
                 rollbackStore.add(newRole);
             }
             catch(Exception e) {
@@ -668,6 +671,9 @@ public class TransactionServlet extends HttpServlet {
             // rethrow caught exception to provide entire transaction rollback 
             throw caught; 
         }
+        log.debug("leaving assignPerProductRoles. Role(s) succesfully assigned to user ["+
+            txInfo.getBuyerID()+"] "+rollbackStore
+        );
     }
 
 
