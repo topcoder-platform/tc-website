@@ -36,9 +36,13 @@ public class TCCC04TermsAgree extends Base {
                     throw new NavigationException("The registration period for the TCCC has not yet begun.");
                 } else {
                     UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
-                    if (!isRegistered(getUser().getId()) && isEligible(getUser().getId())) {
-                        log.debug("user has not previously aggreed to these terms");
-                        userTerms.createUserTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+                    if (!isRegistered(getUser().getId())) {
+                        if (isEligible(getUser().getId())) {
+                            log.info("registering " + getUser().getId() + " for the tccc04");
+                            userTerms.createUserTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+                        } else {
+                            throw new NavigationException("You are not eligible to register for the TCCC");
+                        }
                     } else {
                         log.debug("user has previously aggreed to these terms");
                     }
