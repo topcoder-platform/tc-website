@@ -103,8 +103,8 @@ function getProblemDetail(id) {
                     pluginspage="http://www.macromedia.com/go/getflashplayer" />
                     </object>
                   </td>
-                  <td class="<%=cssClasses[counter % 2]%>" align=center><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>">view</A></td>
-                  <td class="<%=cssClasses[counter++ % 2]%>" align=center><A href="/corp/testing/?module=TestResults&referrer=SearchResults&sid=<rsc:item row="<%=resultRow%>" name="session_id"/>">view</A></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"><rsc:item row="<%=resultRow%>" name="note_text"/></A></td>
+                  <td class="<%=cssClasses[counter++ % 2]%>" align=center><A href="/corp/testing/?module=TestResults&referrer=SearchResults&sid=<rsc:item row="<%=resultRow%>" name="session_id"/>"><rsc:item row="<%=resultRow%>" name="problem_text"/></A></td>
               </tr>
               </rsc:iterator>
         </table>
