@@ -203,6 +203,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 Map referralItem = new HashMap();
 
                 double pct = (((Long)refRspRow.getItem("resp_count").getResultData())).doubleValue() / ((double) getStudentCoderCount());
+                pct = (int)(pct*10000+0.5)/100.0;
 
                 referralItem.put("title", refRspRow.getItem("response").toString() );
                 referralItem.put("count", refRspRow.getItem("resp_count").toString() );
@@ -223,6 +224,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
                 double pct =
                     (((Long)notifyRow.getItem("resp_count").getResultData())).doubleValue() / ((double) getStudentCoderCount());
+                pct = (int)(pct*10000+0.5)/100.0;
 
                 notifyItem.put("title", notifyRow.getItem("response").toString() );
                 notifyItem.put("count", notifyRow.getItem("resp_count").toString() );
