@@ -20,7 +20,7 @@
    <rtexprvalue>true</rtexprvalue>
   </attribute>
   <attribute>
-   <name>selectedValue</name>
+   <name>selected</name>
    <required>false</required>
    <rtexprvalue>true</rtexprvalue>
   </attribute>
