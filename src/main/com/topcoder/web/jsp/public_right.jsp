@@ -58,9 +58,9 @@ function find(n) {
 			
 			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=intel"><img src="/i/tournament/tco04/intel_right.jpg" alt="Intel Developer Services" width="170" height="80" border="0" /></a><br />
+   <%--    <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=intel"><img src="/i/tournament/tco04/intel_right.jpg" alt="Intel Developer Services" width="170" height="80" border="0" /></a><br />
 			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />--%>
 			
             <a href="mailto:sponsorships@topcoder.com"><img src="/i/tournament/tco04/sponsorship.gif" alt="Sponsorship" width="170" height="101" border="0" /></a><br />
 
@@ -105,6 +105,25 @@ function find(n) {
             <p><br/></p>
 
 <!-- NVIDIA ends -->
+
+<!-- Intel begins -->
+<% } else if (level1.equals("intel")) { %>
+
+			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+			
+			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo.gif" alt="" width="170" height="40" border="0" /></a><br />
+			
+			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <jsp:include page="../calendar.jsp" />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <a href="/?RoundId=5856&t=schedule&c=srm"><img src="/i/tournament/tco04/intel_opportunities.jpg" alt="Intel Opportunities" width="170" height="80" border="0" /></a><br />
+			
+            <p><br/></p>
+
+<!-- Intel ends -->
 
 <!-- About Us begins -->
 <% } else if (level1.equals("about")) { %>
