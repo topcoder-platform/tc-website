@@ -294,7 +294,13 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                 <tr valign="top">
                     <td class="bodyText" width="100%">
                         <p><strong>Sample Completed Components</strong><br/>
-                        Visit our <a href="/TC/SoftwareHost/components/free_components.jsp">Free Components</a> page for samples of completed components. You are encouraged to download and install these components 
+                        Visit our 
+                        <a>
+                           <xsl:attribute name="href"> 
+                           	<xsl:value-of select="concat(/TC/SoftwareHost, '/components/free_components.jsp')"/>
+                           </xsl:attribute>Free Components
+                        </a> 
+                        page for samples of completed components. You are encouraged to download and install these components 
                         for personal, non-commercial use and to incorporate them into future TopCoder Software components.</p>
                     </td>
                 </tr>
