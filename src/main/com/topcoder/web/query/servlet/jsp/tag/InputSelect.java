@@ -20,7 +20,7 @@ public class InputSelect extends Select {
     }
 
     String getOptionValue(Object o) {
-        return Constants.INPUT_ID_PARAM+((ResultSetContainer.ResultSetRow)o).getItem("input_id").toString();
+        return ((ResultSetContainer.ResultSetRow)o).getItem("input_id").toString();
     }
 
     String getOptionText(Object o) {

@@ -9,19 +9,24 @@ import java.util.Iterator;
 public abstract class Select extends TagSupport {
 
     private String name = null;
-    private String value = null;
     private String ccsclass = null;
     private String onChange = null;
     private String selectedValue = null;
     private String selectedText = null;
     private boolean selectedOnly = false;
+    private String size = null;
+    private String multiple = null;
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setMultiple(String multiple) {
+        this.multiple = multiple;
     }
 
     public void setClass(String ccsclass) {
@@ -97,6 +102,12 @@ public abstract class Select extends TagSupport {
         }
         if (onChange != null) {
             s.append(" onChange=\"" + onChange + "\"");
+        }
+        if (size != null) {
+            s.append(" size=\"" + size + "\"");
+        }
+        if (multiple != null) {
+            s.append(" multiple=\"" + multiple + "\"");
         }
         s.append(">\n");
         if (options != null) {
