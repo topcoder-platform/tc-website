@@ -111,7 +111,10 @@ abstract public class PRBase extends Base {
 
 
     protected static ProblemRatingResult avg(List list) {
-        int[] sums = new int[((ProblemRatingResult)list.get(0)).getFrequencies().size()];
+        int[] sums;
+        if (!list.isEmpty())
+            sums =  new int[((ProblemRatingResult)list.get(0)).getFrequencies().size()];
+        else sums = new int[0];
         ProblemRatingResult pr = null;
         //go through each question
         for (int k=list.size(); --k>=0;) {
