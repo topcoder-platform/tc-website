@@ -154,7 +154,7 @@
             <table width="100%" border="0" cellpadding="3" cellspacing="1" align="center" class="forumBkgd">
 				<tr>
 					<td class="forumText" colspan="6">
-					    <p class='scorecardQuestion'>Comments for the final fixes</p></td>
+					    <p class='scorecardQuestion'>Comments for Final Fixes</p></td>
 				</tr>
 				
 				<logic:equal name="finalReviewForm" property="commentsValid" value="false">
