@@ -1190,26 +1190,35 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     }
 
     /**
-     * ResultSetContainer implementation of toString.  
      * This method will output all columns and data, rows separated by \n, columns separated by \t
      *
      * @return	The columns and data, in string form.
      */
     public String toString() {
+        return toString("\n", "\t");
+    }	
+    
+    /**
+     * This method will output all columns and data, rows separated by \n, columns separated by \t
+     *
+     * @return	The columns and data, in string form.
+     */
+    public String toString(String rowDelim, String colDelim) {
+
 	StringBuffer sbReturn = new StringBuffer();
 	Iterator it;
 	for (int i=0;i<this.getColumnCount();i++) {
-	    sbReturn.append(this.getColumnName(i)).append("\t");
+	    sbReturn.append(this.getColumnName(i)).append(colDelim);
 	}
-	sbReturn.setLength(sbReturn.length() - 1);
+	sbReturn.setLength(sbReturn.length() - colDelim.length());
 	sbReturn.append("\n");
 	it = data.iterator();
 	while (it.hasNext()) {
-	    sbReturn.append(it.next().toString()).append("\n");
+	    sbReturn.append(it.next().toString()).append(rowDelim);
 	}
-	sbReturn.setLength(sbReturn.length() - 1);
+	sbReturn.setLength(sbReturn.length() - rowDelim.length());
 	return sbReturn.toString();
-    }	
+    }
 
     /**
      * Returns a RecordTag that will allow us to get XML for 
