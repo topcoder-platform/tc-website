@@ -1,4 +1,4 @@
-
+<%@ page import="com.topcoder.web.email.servlet.*" %>
 
 <h3>Mailing list members</h3>
 

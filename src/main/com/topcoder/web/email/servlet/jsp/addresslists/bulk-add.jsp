@@ -53,7 +53,7 @@
 <p>
 <hr/>
 
-<jsp:include page="member-list.jsp" />
+<%@include file="member-list.jsp" %>
 
 <p>
 
