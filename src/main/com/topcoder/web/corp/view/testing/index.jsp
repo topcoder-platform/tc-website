@@ -42,17 +42,17 @@
                 <tr>
                     <td class="bodyText" width="100%">
                         <h1 class="testHead">Overview</h1>
-                        <p>TopCoder is a company with one major objective&#151;to identify the best programmers in the world. TopCoder has conducted 
-                        hundreds of online and offline contests to objectively and systematically quantify the skills of thousands of programmers. 
-                        Already our clients, including the FBI, NVIDIA and Microsoft, have experienced the difference in the quality of our candidates.</p>
+                        <p><a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&back-to="+request.getAttribute(Constants.KEY_LINK_PREFIX)+"&prod-id=1"%>"><img src="/i/buy_now.gif" alt="Buy Now" width="192" height="52" vspace="10" border="0" align="right"></a>
+                        The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview process, thereby 
+                        reducing the time incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem solving skills 
+                        with scenarios that mirror on-the-job issues. <font color="#CC0000"><strong><em>Instead of only assessing an employee's skills 
+                        months after the hire date, detailed statistics and all submitted code are released to the employers during the interview process as a 
+                        way to measure and compare candidates. This information drastically reduces the time and effort it takes to identify proven  
+                        developers.</em></strong></font></p>
                         
                         <p><br/></p>
                     </td>
                 </tr>
-            </table>
-            
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr><td width="100%" align ="center"><a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&back-to="+request.getAttribute(Constants.KEY_LINK_PREFIX)+"&prod-id=1"%>">buy it</a></td></tr>
             </table>
         </td>
 <!-- Center Column ends -->
