@@ -23,7 +23,7 @@
     <%@ include file="../script.jsp" %>
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-	<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
+	<jsp:usebean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 
   <%@ include file="../top.jsp" %>
   <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
@@ -42,7 +42,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
         <!-- Center Column Begins -->
-      <TD CLASS="statTextBig" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+      <TD CLASS="statTextBig" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
         <jsp:include page="../body_top.jsp" >  
            <jsp:param name="image" value="registration"/>  
            <jsp:param name="image1" value="steelblue"/>  
@@ -56,9 +56,9 @@
 
 <!--trj insert 6/11/2002 1943 -->
 <%
-
-String firstName = "";
-String lastName = "";
+CoderObject objCoder = tces.getCoderObject();
+String firstName = objCoder.first_name;
+String lastName = objCoder.last_name;
 String address1 = "";
 String address2 = "";
 String city = "";
@@ -78,695 +78,695 @@ boolean newsEvents = true;
 String editor = "";
 String language = "";
 boolean student = true;
-
-
 %>
-  <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
-  <tr>
-    <td class="statTextBig" width="150" align="right" valign="middle"><img src="/i/clear.gif" width="150" height="2" 
-border="0"></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle">Required fields are in <b>bold</b></td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
-  </tr>    
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;User
-Information</td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
-  </tr>    
+
+<FORM NAME="frmContactInfo" ACTION="/<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
+  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" ALIGN="center">
+  <TR>
+    <TD CLASS="statTextBig" WIDTH="150" ALIGN="right" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="2" 
+BORDER="0"></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">Required fields are in <B>bold</B></TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statText" VALIGN="middle">&nbsp;</TD>
+  </TR>    
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="16">&nbsp;User
+Information</TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+  </TR>    
   
 
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-    <tr>
-      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>First 
-Name</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="firstName" value ="<%= 
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+    <TR>
+      <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif"><B>First 
+Name</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="firstName" VALUE ="<%= 
 firstName %>" 
-size="30" maxlength="30"></td>
-    </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Last 
-Name</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="lastName" value ="<%= 
+size="30" maxlength="30"></TD>
+    </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif"><B>Last 
+Name</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="lastName" VALUE ="<%= 
 lastName %>" 
-size="30" maxlength="30"></td>
-  </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Address&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="address1" value ="<%= 
+size="30" maxlength="30"></TD>
+  </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Address&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="address1" VALUE ="<%= 
 address1 %>" 
-size="30" maxlength="50"></td>
-  </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="address2" value ="<%= 
+size="30" maxlength="50"></TD>
+  </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="address2" VALUE ="<%= 
 address2 %>"
-size="30" maxlength="50"></td>
-  </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">City&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="city" value ="<%= city %>" 
+size="30" maxlength="50"></TD>
+  </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">City&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="city" VALUE ="<%= city %>" 
 size="30" 
-maxlength="30"></td>
-  </tr>
+maxlength="30"></TD>
+  </TR>
 
 
 
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">State&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" align="left" valign="middle" class="statTextBig">
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">State&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="statTextBig">
         
-    <select name="state" class="dropdown" onChange="changeCountry()">
-<option value=""></option><option value="ZZ">Not In US</option>
-<option value="AL">Alabama</option>
-<option value="AK">Alaska</option>
-<option value="AZ">Arizona</option>
-<option value="AR">Arkansas</option>
-<option value="CA">California</option>
-<option value="CO">Colorado</option>
-<option value="CT">Connecticut</option>
-<option value="DE">Delaware</option>
-<option value="DC">District of Columbia</option>
-<option value="FL">Florida</option>
-<option value="GA">Georgia</option>
-<option value="HI">Hawaii</option>
-<option value="ID">Idaho</option>
-<option value="IL">Illinois</option>
-<option value="IN">Indiana</option>
-<option value="IA">Iowa</option>
-<option value="KS">Kansas</option>
-<option value="KY">Kentucky</option>
-<option value="LA">Louisiana</option>
-<option value="ME">Maine</option>
-<option value="MD">Maryland</option>
-<option value="MA">Massachusetts</option>
-<option value="MI">Michigan</option>
-<option value="MN">Minnesota</option>
-<option value="MS">Mississippi</option>
-<option value="MO">Missouri</option>
-<option value="MT">Montana</option>
-<option value="NE">Nebraska</option>
-<option value="NV">Nevada</option>
-<option value="NH">New Hampshire</option>
-<option value="NJ">New Jersey</option>
-<option value="NM">New Mexico</option>
-<option value="NY">New York</option>
-<option value="NC">North Carolina</option>
-<option value="ND">North Dakota</option>
-<option value="ZZ">Not in US</option>
-<option value="OH">Ohio</option>
-<option value="OK">Oklahoma</option>
-<option value="OR">Oregon</option>
-<option value="PA">Pennsylvania</option>
-<option value="PR">Puerto Rico</option>
-<option value="RI">Rhode Island</option>
-<option value="SC">South Carolina</option>
-<option value="SD">South Dakota</option>
-<option value="TN">Tennessee</option>
-<option value="TX">Texas</option>
-<option value="UT">Utah</option>
-<option value="VT">Vermont</option>
-<option value="VI">Virgin Islands</option>
-<option value="VA">Virginia</option>
-<option value="WA">Washington</option>
-<option value="WV">West Virginia</option>
-<option value="WI">Wisconsin</option>
-<option value="WY">Wyoming</option>
-</select>
-</td>
-  </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Zip&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="zip" value ="<%= zip %>" 
+    <SELECT NAME="state" CLASS="dropdown" ONCHANGE="changeCountry()">
+<OPTION VALUE=""></OPTION><OPTION VALUE="ZZ">Not In US</OPTION>
+<OPTION VALUE="AL">Alabama</OPTION>
+<OPTION VALUE="AK">Alaska</OPTION>
+<OPTION VALUE="AZ">Arizona</OPTION>
+<OPTION VALUE="AR">Arkansas</OPTION>
+<OPTION VALUE="CA">California</OPTION>
+<OPTION VALUE="CO">Colorado</OPTION>
+<OPTION VALUE="CT">Connecticut</OPTION>
+<OPTION VALUE="DE">Delaware</OPTION>
+<OPTION VALUE="DC">District of Columbia</OPTION>
+<OPTION VALUE="FL">Florida</OPTION>
+<OPTION VALUE="GA">Georgia</OPTION>
+<OPTION VALUE="HI">Hawaii</OPTION>
+<OPTION VALUE="ID">Idaho</OPTION>
+<OPTION VALUE="IL">Illinois</OPTION>
+<OPTION VALUE="IN">Indiana</OPTION>
+<OPTION VALUE="IA">Iowa</OPTION>
+<OPTION VALUE="KS">Kansas</OPTION>
+<OPTION VALUE="KY">Kentucky</OPTION>
+<OPTION VALUE="LA">Louisiana</OPTION>
+<OPTION VALUE="ME">Maine</OPTION>
+<OPTION VALUE="MD">Maryland</OPTION>
+<OPTION VALUE="MA">Massachusetts</OPTION>
+<OPTION VALUE="MI">Michigan</OPTION>
+<OPTION VALUE="MN">Minnesota</OPTION>
+<OPTION VALUE="MS">Mississippi</OPTION>
+<OPTION VALUE="MO">Missouri</OPTION>
+<OPTION VALUE="MT">Montana</OPTION>
+<OPTION VALUE="NE">Nebraska</OPTION>
+<OPTION VALUE="NV">Nevada</OPTION>
+<OPTION VALUE="NH">New Hampshire</OPTION>
+<OPTION VALUE="NJ">New Jersey</OPTION>
+<OPTION VALUE="NM">New Mexico</OPTION>
+<OPTION VALUE="NY">New York</OPTION>
+<OPTION VALUE="NC">North Carolina</OPTION>
+<OPTION VALUE="ND">North Dakota</OPTION>
+<OPTION VALUE="ZZ">Not in US</OPTION>
+<OPTION VALUE="OH">Ohio</OPTION>
+<OPTION VALUE="OK">Oklahoma</OPTION>
+<OPTION VALUE="OR">Oregon</OPTION>
+<OPTION VALUE="PA">Pennsylvania</OPTION>
+<OPTION VALUE="PR">Puerto Rico</OPTION>
+<OPTION VALUE="RI">Rhode Island</OPTION>
+<OPTION VALUE="SC">South Carolina</OPTION>
+<OPTION VALUE="SD">South Dakota</OPTION>
+<OPTION VALUE="TN">Tennessee</OPTION>
+<OPTION VALUE="TX">Texas</OPTION>
+<OPTION VALUE="UT">Utah</OPTION>
+<OPTION VALUE="VT">Vermont</OPTION>
+<OPTION VALUE="VI">Virgin Islands</OPTION>
+<OPTION VALUE="VA">Virginia</OPTION>
+<OPTION VALUE="WA">Washington</OPTION>
+<OPTION VALUE="WV">West Virginia</OPTION>
+<OPTION VALUE="WI">Wisconsin</OPTION>
+<OPTION VALUE="WY">Wyoming</OPTION>
+</SELECT>
+</TD>
+  </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Zip&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="zip" VALUE ="<%= zip %>" 
 size="10" 
-maxlength="10"></td>
-  </tr>
+maxlength="10"></TD>
+  </TR>
 
 
-   <tr>
-     <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-  </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Country&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0
-"></td>
-    <td colspan="2" align="left" valign="middle" class="statTextBig">
+   <TR>
+     <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+  </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Country&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0
+"></TD>
+    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="statTextBig">
       
-      <select name="country" class="dropdown">
-<option value=""></option><option value="840">United States</option>
-<option value="036">Australia</option>
-<option value="124">Canada</option>
-<option value=" ">-----------------------</option>
-<option value="004">Afghanistan</option>
-<option value="008">Albania</option>
-<option value="012">Algeria</option>
-<option value="016">American Samoa</option>
-<option value="020">Andorra</option>
-<option value="024">Angola</option>
-<option value="660">Anguilla</option>
-<option value="010">Antarctica</option>
-<option value="028">Antigua and Barbud</option>
-<option value="032">Argentina</option>
-<option value="051">Armenia</option>
-<option value="533">Aruba</option>
-<option value="040">Austria</option>
-<option value="031">Azerbaijan</option>
-<option value="044">Bahamas</option>
-<option value="048">Bahrain</option>
-<option value="050">Bangladesh</option>
-<option value="052">Barbados</option>
-<option value="112">Belarus</option>
-<option value="056">Belgium</option>
-<option value="084">Belize</option>
-<option value="204">Benin</option>
-<option value="060">Bermuda</option>
-<option value="064">Bhutan</option>
-<option value="068">Bolivia</option>
-<option value="070">Bosnia and Herzego</option>
-<option value="072">Botswana</option>
-<option value="074">Bouvet Island</option>
-<option value="076">Brazil</option>
-<option value="086">British Indian Oce</option>
-<option value="096">Brunei Darussalam</option>
-<option value="100">Bulgaria</option>
-<option value="854">Burkina Faso</option>
-<option value="108">Burundi</option>
-<option value="116">Cambodia</option>
-<option value="120">Cameroon</option>
-<option value="132">Cape Verde</option>
-<option value="136">Cayman Islands</option>
-<option value="140">Central African Re</option>
-<option value="148">Chad</option>
-<option value="152">Chile</option>
-<option value="156">China</option>
-<option value="162">Christmas Island</option>
-<option value="166">Cocos (Keeling) Is</option>
-<option value="170">Colombia</option>
-<option value="174">Comoros</option>
-<option value="178">Congo</option>
-<option value="184">Cook Islands</option>
-<option value="188">Costa Rica</option>
-<option value="384">Cote D'Ivoire</option>
-<option value="191">Croatia (Local Nam</option>
-<option value="192">Cuba</option>
-<option value="196">Cyprus</option>
-<option value="203">Czech Republic</option>
-<option value="208">Denmark</option>
-<option value="262">Djibouti</option>
-<option value="212">Dominica</option>
-<option value="214">Dominican Republic</option>
-<option value="626">East Timor</option>
-<option value="218">Ecuador</option>
-<option value="818">Egypt</option>
-<option value="222">El Salvador</option>
-<option value="226">Equatorial Guinea</option>
-<option value="232">Eritrea</option>
-<option value="233">Estonia</option>
-<option value="231">Ethiopia</option>
-<option value="238">Falkland Islands (</option>
-<option value="234">Faroe Islands</option>
-<option value="242">Fiji</option>
-<option value="246">Finland</option>
-<option value="250">France</option>
-<option value="254">French Guiana</option>
-<option value="258">French Polynesia</option>
-<option value="260">French Southern Te</option>
-<option value="266">Gabon</option>
-<option value="270">Gambia</option>
-<option value="268">Georgia</option>
-<option value="276">Germany</option>
-<option value="288">Ghana</option>
-<option value="292">Gibraltar</option>
-<option value="300">Greece</option>
-<option value="304">Greenland</option>
-<option value="308">Grenada</option>
-<option value="312">Guadeloupe</option>
-<option value="316">Guam</option>
-<option value="320">Guatemala</option>
-<option value="324">Guinea</option>
-<option value="624">Guinea-Bissau</option>
-<option value="328">Guyana</option>
-<option value="332">Haiti</option>
-<option value="334">Heard and Mc Donal</option>
-<option value="340">Honduras</option>
-<option value="344">Hong Kong</option>
-<option value="348">Hungary</option>
-<option value="352">Iceland</option>
-<option value="356">India</option>
-<option value="360">Indonesia</option>
-<option value="364">Iran (Islamic Repu</option>
-<option value="368">Iraq</option>
-<option value="372">Ireland</option>
-<option value="376">Israel</option>
-<option value="380">Italy</option>
-<option value="388">Jamaica</option>
-<option value="392">Japan</option>
-<option value="400">Jordan</option>
-<option value="398">Kazakhstan</option>
-<option value="404">Kenya</option>
-<option value="296">Kiribati</option>
-<option value="410">Korea, Democratic </option>
-<option value="408">Korea, Republic of</option>
-<option value="414">Kuwait</option>
-<option value="417">Kyrgyzstan</option>
-<option value="418">Lao People's Democ</option>
-<option value="428">Latvia</option>
-<option value="422">Lebanon</option>
-<option value="426">Lesotho</option>
-<option value="430">Liberia</option>
-<option value="434">Libyan Arab Jamahi</option>
-<option value="438">Liechtenstein</option>
-<option value="440">Lithuania</option>
-<option value="442">Luxembourg</option>
-<option value="446">Macau</option>
-<option value="807">Macedonia, Former </option>
-<option value="450">Madagascar</option>
-<option value="454">Malawi</option>
-<option value="458">Malaysia</option>
-<option value="462">Maldives</option>
-<option value="466">Mali</option>
-<option value="470">Malta</option>
-<option value="584">Marshall Islands</option>
-<option value="474">Martinique</option>
-<option value="478">Mauritania</option>
-<option value="480">Mauritius</option>
-<option value="175">Mayotte</option>
-<option value="484">Mexico</option>
-<option value="583">Micronesia, Federa</option>
-<option value="498">Moldova, Republic </option>
-<option value="492">Monaco</option>
-<option value="496">Mongolia</option>
-<option value="500">Montserrat</option>
-<option value="504">Morocco</option>
-<option value="508">Mozambique</option>
-<option value="104">Myanmar</option>
-<option value="516">Namibia</option>
-<option value="520">Nauru</option>
-<option value="524">Nepal</option>
-<option value="528">Netherlands</option>
-<option value="530">Netherlands Antill</option>
-<option value="540">New Caledonia</option>
-<option value="554">New Zealand</option>
-<option value="558">Nicaragua</option>
-<option value="562">Niger</option>
-<option value="566">Nigeria</option>
-<option value="570">Niue</option>
-<option value="574">Norfolk Island</option>
-<option value="580">Northern Mariana I</option>
-<option value="578">Norway</option>
-<option value="512">Oman</option>
-<option value="586">Pakistan</option>
-<option value="585">Palau</option>
-<option value="591">Panama</option>
-<option value="598">Papua New Guinea</option>
-<option value="600">Paraguay</option>
-<option value="604">Peru</option>
-<option value="608">Philippines</option>
-<option value="612">Pitcairn</option>
-<option value="616">Poland</option>
-<option value="620">Portugal</option>
-<option value="630">Puerto Rico</option>
-<option value="634">Qatar</option>
-<option value="638">Reunion</option>
-<option value="642">Romania</option>
-<option value="643">Russian Federation</option>
-<option value="646">Rwanda</option>
-<option value="659">Saint Kitts and Ne</option>
-<option value="662">Saint Lucia</option>
-<option value="670">Saint Vincent and </option>
-<option value="882">Samoa</option>
-<option value="674">San Marino</option>
-<option value="678">Sao Tome and Princ</option>
-<option value="682">Saudi Arabia</option>
-<option value="686">Senegal</option>
-<option value="690">Seychelles</option>
-<option value="694">Sierra Leone</option>
-<option value="702">Singapore</option>
-<option value="703">Slovakia (Slovak R</option>
-<option value="705">Slovenia</option>
-<option value="090">Solomon Islands</option>
-<option value="706">Somalia</option>
-<option value="710">South Africa</option>
-<option value="239">South Georgia and </option>
-<option value="724">Spain</option>
-<option value="144">Sri Lanka</option>
-<option value="654">St. Helena</option>
-<option value="666">St. Pierre and Miq</option>
-<option value="736">Sudan</option>
-<option value="740">Suriname</option>
-<option value="744">Svalbard and Jan M</option>
-<option value="748">Swaziland</option>
-<option value="752">Sweden</option>
-<option value="756">Switzerland</option>
-<option value="760">Syrian Arab Republ</option>
-<option value="158">Taiwan</option>
-<option value="762">Tajikistan</option>
-<option value="834">Tanzania, United R</option>
-<option value="764">Thailand</option>
-<option value="768">Togo</option>
-<option value="772">Tokelau</option>
-<option value="776">Tonga</option>
-<option value="780">Trinidad and Tobag</option>
-<option value="788">Tunisia</option>
-<option value="792">Turkey</option>
-<option value="795">Turkmenistan</option>
-<option value="796">Turks and Caicos I</option>
-<option value="798">Tuvalu</option>
-<option value="800">Uganda</option>
-<option value="804">Ukraine</option>
-<option value="784">United Arab Emirat</option>
-<option value="826">United Kingdom</option>
-<option value="581">United States Mino</option>
-<option value="858">Uruguay</option>
-<option value="860">Uzbekistan</option>
-<option value="548">Vanuatu</option>
-<option value="336">Vatican City State</option>
-<option value="862">Venezuela</option>
-<option value="704">Viet Nam</option>
-<option value="092">Virgin Islands (Br</option>
-<option value="850">Virgin Islands (U.</option>
-<option value="876">Wallis and Futuna </option>
-<option value="732">Western Sahara</option>
-<option value="887">Yemen</option>
-<option value="891">Yugoslavia</option>
-<option value="180">Zaire</option>
-<option value="894">Zambia</option>
-<option value="716">Zimbabwe</option>
-</select>
+      <SELECT NAME="country" CLASS="dropdown">
+<OPTION VALUE=""></OPTION><OPTION VALUE="840">United States</OPTION>
+<OPTION VALUE="036">Australia</OPTION>
+<OPTION VALUE="124">Canada</OPTION>
+<OPTION VALUE=" ">-----------------------</OPTION>
+<OPTION VALUE="004">Afghanistan</OPTION>
+<OPTION VALUE="008">Albania</OPTION>
+<OPTION VALUE="012">Algeria</OPTION>
+<OPTION VALUE="016">American Samoa</OPTION>
+<OPTION VALUE="020">Andorra</OPTION>
+<OPTION VALUE="024">Angola</OPTION>
+<OPTION VALUE="660">Anguilla</OPTION>
+<OPTION VALUE="010">Antarctica</OPTION>
+<OPTION VALUE="028">Antigua and Barbud</OPTION>
+<OPTION VALUE="032">Argentina</OPTION>
+<OPTION VALUE="051">Armenia</OPTION>
+<OPTION VALUE="533">Aruba</OPTION>
+<OPTION VALUE="040">Austria</OPTION>
+<OPTION VALUE="031">Azerbaijan</OPTION>
+<OPTION VALUE="044">Bahamas</OPTION>
+<OPTION VALUE="048">Bahrain</OPTION>
+<OPTION VALUE="050">Bangladesh</OPTION>
+<OPTION VALUE="052">Barbados</OPTION>
+<OPTION VALUE="112">Belarus</OPTION>
+<OPTION VALUE="056">Belgium</OPTION>
+<OPTION VALUE="084">Belize</OPTION>
+<OPTION VALUE="204">Benin</OPTION>
+<OPTION VALUE="060">Bermuda</OPTION>
+<OPTION VALUE="064">Bhutan</OPTION>
+<OPTION VALUE="068">Bolivia</OPTION>
+<OPTION VALUE="070">Bosnia and Herzego</OPTION>
+<OPTION VALUE="072">Botswana</OPTION>
+<OPTION VALUE="074">Bouvet Island</OPTION>
+<OPTION VALUE="076">Brazil</OPTION>
+<OPTION VALUE="086">British Indian Oce</OPTION>
+<OPTION VALUE="096">Brunei Darussalam</OPTION>
+<OPTION VALUE="100">Bulgaria</OPTION>
+<OPTION VALUE="854">Burkina Faso</OPTION>
+<OPTION VALUE="108">Burundi</OPTION>
+<OPTION VALUE="116">Cambodia</OPTION>
+<OPTION VALUE="120">Cameroon</OPTION>
+<OPTION VALUE="132">Cape Verde</OPTION>
+<OPTION VALUE="136">Cayman Islands</OPTION>
+<OPTION VALUE="140">Central African Re</OPTION>
+<OPTION VALUE="148">Chad</OPTION>
+<OPTION VALUE="152">Chile</OPTION>
+<OPTION VALUE="156">China</OPTION>
+<OPTION VALUE="162">Christmas Island</OPTION>
+<OPTION VALUE="166">Cocos (Keeling) Is</OPTION>
+<OPTION VALUE="170">Colombia</OPTION>
+<OPTION VALUE="174">Comoros</OPTION>
+<OPTION VALUE="178">Congo</OPTION>
+<OPTION VALUE="184">Cook Islands</OPTION>
+<OPTION VALUE="188">Costa Rica</OPTION>
+<OPTION VALUE="384">Cote D'Ivoire</OPTION>
+<OPTION VALUE="191">Croatia (Local Nam</OPTION>
+<OPTION VALUE="192">Cuba</OPTION>
+<OPTION VALUE="196">Cyprus</OPTION>
+<OPTION VALUE="203">Czech Republic</OPTION>
+<OPTION VALUE="208">Denmark</OPTION>
+<OPTION VALUE="262">Djibouti</OPTION>
+<OPTION VALUE="212">Dominica</OPTION>
+<OPTION VALUE="214">Dominican Republic</OPTION>
+<OPTION VALUE="626">East Timor</OPTION>
+<OPTION VALUE="218">Ecuador</OPTION>
+<OPTION VALUE="818">Egypt</OPTION>
+<OPTION VALUE="222">El Salvador</OPTION>
+<OPTION VALUE="226">Equatorial Guinea</OPTION>
+<OPTION VALUE="232">Eritrea</OPTION>
+<OPTION VALUE="233">Estonia</OPTION>
+<OPTION VALUE="231">Ethiopia</OPTION>
+<OPTION VALUE="238">Falkland Islands (</OPTION>
+<OPTION VALUE="234">Faroe Islands</OPTION>
+<OPTION VALUE="242">Fiji</OPTION>
+<OPTION VALUE="246">Finland</OPTION>
+<OPTION VALUE="250">France</OPTION>
+<OPTION VALUE="254">French Guiana</OPTION>
+<OPTION VALUE="258">French Polynesia</OPTION>
+<OPTION VALUE="260">French Southern Te</OPTION>
+<OPTION VALUE="266">Gabon</OPTION>
+<OPTION VALUE="270">Gambia</OPTION>
+<OPTION VALUE="268">Georgia</OPTION>
+<OPTION VALUE="276">Germany</OPTION>
+<OPTION VALUE="288">Ghana</OPTION>
+<OPTION VALUE="292">Gibraltar</OPTION>
+<OPTION VALUE="300">Greece</OPTION>
+<OPTION VALUE="304">Greenland</OPTION>
+<OPTION VALUE="308">Grenada</OPTION>
+<OPTION VALUE="312">Guadeloupe</OPTION>
+<OPTION VALUE="316">Guam</OPTION>
+<OPTION VALUE="320">Guatemala</OPTION>
+<OPTION VALUE="324">Guinea</OPTION>
+<OPTION VALUE="624">Guinea-Bissau</OPTION>
+<OPTION VALUE="328">Guyana</OPTION>
+<OPTION VALUE="332">Haiti</OPTION>
+<OPTION VALUE="334">Heard and Mc Donal</OPTION>
+<OPTION VALUE="340">Honduras</OPTION>
+<OPTION VALUE="344">Hong Kong</OPTION>
+<OPTION VALUE="348">Hungary</OPTION>
+<OPTION VALUE="352">Iceland</OPTION>
+<OPTION VALUE="356">India</OPTION>
+<OPTION VALUE="360">Indonesia</OPTION>
+<OPTION VALUE="364">Iran (Islamic Repu</OPTION>
+<OPTION VALUE="368">Iraq</OPTION>
+<OPTION VALUE="372">Ireland</OPTION>
+<OPTION VALUE="376">Israel</OPTION>
+<OPTION VALUE="380">Italy</OPTION>
+<OPTION VALUE="388">Jamaica</OPTION>
+<OPTION VALUE="392">Japan</OPTION>
+<OPTION VALUE="400">Jordan</OPTION>
+<OPTION VALUE="398">Kazakhstan</OPTION>
+<OPTION VALUE="404">Kenya</OPTION>
+<OPTION VALUE="296">Kiribati</OPTION>
+<OPTION VALUE="410">Korea, Democratic </OPTION>
+<OPTION VALUE="408">Korea, Republic of</OPTION>
+<OPTION VALUE="414">Kuwait</OPTION>
+<OPTION VALUE="417">Kyrgyzstan</OPTION>
+<OPTION VALUE="418">Lao People's Democ</OPTION>
+<OPTION VALUE="428">Latvia</OPTION>
+<OPTION VALUE="422">Lebanon</OPTION>
+<OPTION VALUE="426">Lesotho</OPTION>
+<OPTION VALUE="430">Liberia</OPTION>
+<OPTION VALUE="434">Libyan Arab Jamahi</OPTION>
+<OPTION VALUE="438">Liechtenstein</OPTION>
+<OPTION VALUE="440">Lithuania</OPTION>
+<OPTION VALUE="442">Luxembourg</OPTION>
+<OPTION VALUE="446">Macau</OPTION>
+<OPTION VALUE="807">Macedonia, Former </OPTION>
+<OPTION VALUE="450">Madagascar</OPTION>
+<OPTION VALUE="454">Malawi</OPTION>
+<OPTION VALUE="458">Malaysia</OPTION>
+<OPTION VALUE="462">Maldives</OPTION>
+<OPTION VALUE="466">Mali</OPTION>
+<OPTION VALUE="470">Malta</OPTION>
+<OPTION VALUE="584">Marshall Islands</OPTION>
+<OPTION VALUE="474">Martinique</OPTION>
+<OPTION VALUE="478">Mauritania</OPTION>
+<OPTION VALUE="480">Mauritius</OPTION>
+<OPTION VALUE="175">Mayotte</OPTION>
+<OPTION VALUE="484">Mexico</OPTION>
+<OPTION VALUE="583">Micronesia, Federa</OPTION>
+<OPTION VALUE="498">Moldova, Republic </OPTION>
+<OPTION VALUE="492">Monaco</OPTION>
+<OPTION VALUE="496">Mongolia</OPTION>
+<OPTION VALUE="500">Montserrat</OPTION>
+<OPTION VALUE="504">Morocco</OPTION>
+<OPTION VALUE="508">Mozambique</OPTION>
+<OPTION VALUE="104">Myanmar</OPTION>
+<OPTION VALUE="516">Namibia</OPTION>
+<OPTION VALUE="520">Nauru</OPTION>
+<OPTION VALUE="524">Nepal</OPTION>
+<OPTION VALUE="528">Netherlands</OPTION>
+<OPTION VALUE="530">Netherlands Antill</OPTION>
+<OPTION VALUE="540">New Caledonia</OPTION>
+<OPTION VALUE="554">New Zealand</OPTION>
+<OPTION VALUE="558">Nicaragua</OPTION>
+<OPTION VALUE="562">Niger</OPTION>
+<OPTION VALUE="566">Nigeria</OPTION>
+<OPTION VALUE="570">Niue</OPTION>
+<OPTION VALUE="574">Norfolk Island</OPTION>
+<OPTION VALUE="580">Northern Mariana I</OPTION>
+<OPTION VALUE="578">Norway</OPTION>
+<OPTION VALUE="512">Oman</OPTION>
+<OPTION VALUE="586">Pakistan</OPTION>
+<OPTION VALUE="585">Palau</OPTION>
+<OPTION VALUE="591">Panama</OPTION>
+<OPTION VALUE="598">Papua New Guinea</OPTION>
+<OPTION VALUE="600">Paraguay</OPTION>
+<OPTION VALUE="604">Peru</OPTION>
+<OPTION VALUE="608">Philippines</OPTION>
+<OPTION VALUE="612">Pitcairn</OPTION>
+<OPTION VALUE="616">Poland</OPTION>
+<OPTION VALUE="620">Portugal</OPTION>
+<OPTION VALUE="630">Puerto Rico</OPTION>
+<OPTION VALUE="634">Qatar</OPTION>
+<OPTION VALUE="638">Reunion</OPTION>
+<OPTION VALUE="642">Romania</OPTION>
+<OPTION VALUE="643">Russian Federation</OPTION>
+<OPTION VALUE="646">Rwanda</OPTION>
+<OPTION VALUE="659">Saint Kitts and Ne</OPTION>
+<OPTION VALUE="662">Saint Lucia</OPTION>
+<OPTION VALUE="670">Saint Vincent and </OPTION>
+<OPTION VALUE="882">Samoa</OPTION>
+<OPTION VALUE="674">San Marino</OPTION>
+<OPTION VALUE="678">Sao Tome and Princ</OPTION>
+<OPTION VALUE="682">Saudi Arabia</OPTION>
+<OPTION VALUE="686">Senegal</OPTION>
+<OPTION VALUE="690">Seychelles</OPTION>
+<OPTION VALUE="694">Sierra Leone</OPTION>
+<OPTION VALUE="702">Singapore</OPTION>
+<OPTION VALUE="703">Slovakia (Slovak R</OPTION>
+<OPTION VALUE="705">Slovenia</OPTION>
+<OPTION VALUE="090">Solomon Islands</OPTION>
+<OPTION VALUE="706">Somalia</OPTION>
+<OPTION VALUE="710">South Africa</OPTION>
+<OPTION VALUE="239">South Georgia and </OPTION>
+<OPTION VALUE="724">Spain</OPTION>
+<OPTION VALUE="144">Sri Lanka</OPTION>
+<OPTION VALUE="654">St. Helena</OPTION>
+<OPTION VALUE="666">St. Pierre and Miq</OPTION>
+<OPTION VALUE="736">Sudan</OPTION>
+<OPTION VALUE="740">Suriname</OPTION>
+<OPTION VALUE="744">Svalbard and Jan M</OPTION>
+<OPTION VALUE="748">Swaziland</OPTION>
+<OPTION VALUE="752">Sweden</OPTION>
+<OPTION VALUE="756">Switzerland</OPTION>
+<OPTION VALUE="760">Syrian Arab Republ</OPTION>
+<OPTION VALUE="158">Taiwan</OPTION>
+<OPTION VALUE="762">Tajikistan</OPTION>
+<OPTION VALUE="834">Tanzania, United R</OPTION>
+<OPTION VALUE="764">Thailand</OPTION>
+<OPTION VALUE="768">Togo</OPTION>
+<OPTION VALUE="772">Tokelau</OPTION>
+<OPTION VALUE="776">Tonga</OPTION>
+<OPTION VALUE="780">Trinidad and Tobag</OPTION>
+<OPTION VALUE="788">Tunisia</OPTION>
+<OPTION VALUE="792">Turkey</OPTION>
+<OPTION VALUE="795">Turkmenistan</OPTION>
+<OPTION VALUE="796">Turks and Caicos I</OPTION>
+<OPTION VALUE="798">Tuvalu</OPTION>
+<OPTION VALUE="800">Uganda</OPTION>
+<OPTION VALUE="804">Ukraine</OPTION>
+<OPTION VALUE="784">United Arab Emirat</OPTION>
+<OPTION VALUE="826">United Kingdom</OPTION>
+<OPTION VALUE="581">United States Mino</OPTION>
+<OPTION VALUE="858">Uruguay</OPTION>
+<OPTION VALUE="860">Uzbekistan</OPTION>
+<OPTION VALUE="548">Vanuatu</OPTION>
+<OPTION VALUE="336">Vatican City State</OPTION>
+<OPTION VALUE="862">Venezuela</OPTION>
+<OPTION VALUE="704">Viet Nam</OPTION>
+<OPTION VALUE="092">Virgin Islands (Br</OPTION>
+<OPTION VALUE="850">Virgin Islands (U.</OPTION>
+<OPTION VALUE="876">Wallis and Futuna </OPTION>
+<OPTION VALUE="732">Western Sahara</OPTION>
+<OPTION VALUE="887">Yemen</OPTION>
+<OPTION VALUE="891">Yugoslavia</OPTION>
+<OPTION VALUE="180">Zaire</OPTION>
+<OPTION VALUE="894">Zambia</OPTION>
+<OPTION VALUE="716">Zimbabwe</OPTION>
+</SELECT>
 
-    </td>
-  </tr>
+    </TD>
+  </TR>
 
 
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" 
-background="/i/steel_gray_bg.gif"><b>Phone</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" 
-border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="phone" value ="<%= phone 
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" 
+BACKGROUND="/i/steel_gray_bg.gif"><B>Phone</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" 
+BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="phone" VALUE ="<%= phone 
 %>" size="30" 
-maxlength="20"></td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
-  </tr>  
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Handle 
-&amp; Password</td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
-  </tr>  
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" 
-background="/i/steel_gray_bg.gif"><b>Handle</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" 
-border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="handle" value ="<%= 
+maxlength="20"></TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statText" VALIGN="middle">&nbsp;</TD>
+  </TR>  
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="16">&nbsp;Handle 
+&amp; Password</TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+  </TR>  
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" 
+BACKGROUND="/i/steel_gray_bg.gif"><B>Handle</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" 
+BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="handle" VALUE ="<%= 
 handle %>" 
-size="30" maxlength="15"></td>
-  </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" 
-background="/i/steel_gray_bg.gif"><b>Password</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" 
-border="0"></td>
-    <td class="statTextBig" align="left" valign="middle"><input type="password" name="password" value ="" size="30" 
-maxlength="15"></td>
-    <td class="statText" align="left" valign="top">&nbsp;</td>
-  </tr>
-  <tr>
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statText" align="left" valign="top">Minimum&nbsp;of&nbsp;7&nbsp;characters<br></td>
-  </tr>  
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Re-type 
-Password</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="password" name="confirmPassword" value 
-="" size="30" maxlength="15"></td>
-  </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" 
-background="/i/steel_gray_bg.gif"><b>Email</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" 
-border="0"></td>
-    <td colpsan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="email" value ="<%= email 
+size="30" maxlength="15"></TD>
+  </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" 
+BACKGROUND="/i/steel_gray_bg.gif"><B>Password</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" 
+BORDER="0"></TD>
+    <TD CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="password" VALUE ="" SIZE="30" 
+MAXLENGTH="15"></TD>
+    <TD CLASS="statText" ALIGN="left" VALIGN="top">&nbsp;</TD>
+  </TR>
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statText" ALIGN="left" VALIGN="top">Minimum&nbsp;of&nbsp;7&nbsp;characters<BR></TD>
+  </TR>  
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif"><B>Re-type 
+Password</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="confirmPassword" VALUE 
+="" SIZE="30" MAXLENGTH="15"></TD>
+  </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" 
+BACKGROUND="/i/steel_gray_bg.gif"><B>Email</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" 
+BORDER="0"></TD>
+    <TD COLPSAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="email" VALUE ="<%= email 
 %>" size="30" 
-maxlength="100"></td>
-  </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Re-type 
-Email</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colpsan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="confirmEmail" value ="<%= 
+maxlength="100"></TD>
+  </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR ALIGN="right" VALIGN="middle">
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif"><B>Re-type 
+Email</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLPSAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="confirmEmail" VALUE ="<%= 
 remail %>" 
-size="30" maxlength="100"></td>
-  </tr>
-  <tr>
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statText" align="left" valign="top">An email will be sent to authorize your account 
-activation.<br></td>
-  </tr>
+size="30" maxlength="100"></TD>
+  </TR>
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statText" ALIGN="left" VALIGN="top">An email will be sent to authorize your account 
+activation.<BR></TD>
+  </TR>
 
 
-  <tr>
-    <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-  </tr>
-  <tr>
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Quote&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="quote" value ="<%= remail 
+  <TR>
+    <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+  </TR>
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Quote&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="quote" VALUE ="<%= remail 
 %>" size="30" 
-maxlength="255"></td>
-  </tr>
+maxlength="255"></TD>
+  </TR>
 
 
-  <tr valign="middle">
-    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Email 
-Notification</td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
-  </tr>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statText" VALIGN="middle">&nbsp;</TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="16">&nbsp;Email 
+Notification</TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+  </TR>
 
 
   
-    <tr>
-      <td></td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="errorText" align="left" valign="middle">
-      </td>
-    </tr>
-    <tr>
-      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Next 
-Competition&nbsp;</td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="statTextBig" align="left" valign="middle">
-        <input type="checkbox" name="notify_1" class="statText" checked />
-      </td>
-    </tr>
+    <TR>
+      <TD></TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Next 
+Competition&nbsp;</TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
+        <INPUT TYPE="checkbox" NAME="notify_1" CLASS="statText" CHECKED />
+      </TD>
+    </TR>
   
-    <tr>
-      <td></td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="errorText" align="left" valign="middle">
-      </td>
-    </tr>
-    <tr>
-      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Competition 
-Results&nbsp;</td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="statTextBig" align="left" valign="middle">
-        <input type="checkbox" name="notify_2" class="statText" checked />
-      </td>
-    </tr>
+    <TR>
+      <TD></TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Competition 
+Results&nbsp;</TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
+        <INPUT TYPE="checkbox" NAME="notify_2" CLASS="statText" CHECKED />
+      </TD>
+    </TR>
   
-    <tr>
-      <td></td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="errorText" align="left" valign="middle">
-      </td>
-    </tr>
-    <tr>
-      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Employment 
-Opportunities&nbsp;</td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="statTextBig" align="left" valign="middle">
-        <input type="checkbox" name="notify_3" class="statText" checked />
-      </td>
-    </tr>
+    <TR>
+      <TD></TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Employment 
+Opportunities&nbsp;</TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
+        <INPUT TYPE="checkbox" NAME="notify_3" CLASS="statText" CHECKED />
+      </TD>
+    </TR>
   
-    <tr>
-      <td></td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="errorText" align="left" valign="middle">
-      </td>
-    </tr>
-    <tr>
-      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Member Development 
-Opportunities&nbsp;</td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="statTextBig" align="left" valign="middle">
-        <input type="checkbox" name="notify_4" class="statText" checked />
-      </td>
-    </tr>
+    <TR>
+      <TD></TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Member Development 
+Opportunities&nbsp;</TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
+        <INPUT TYPE="checkbox" NAME="notify_4" CLASS="statText" CHECKED />
+      </TD>
+    </TR>
   
-    <tr>
-      <td></td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="errorText" align="left" valign="middle">
-      </td>
-    </tr>
-    <tr>
-      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">TopCoder News and 
-Events&nbsp;</td>
-      <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="statTextBig" align="left" valign="middle">
-        <input type="checkbox" name="notify_5" class="statText" checked />
-      </td>
-    </tr>
+    <TR>
+      <TD></TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+      </TD>
+    </TR>
+    <TR>
+      <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">TopCoder News and 
+Events&nbsp;</TD>
+      <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+      <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
+        <INPUT TYPE="checkbox" NAME="notify_5" CLASS="statText" CHECKED />
+      </TD>
+    </TR>
   
 
 
-  <tr valign="middle">
-    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
-  </tr>  
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Editor 
-&amp; Language</td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
-  </tr>  
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statText" VALIGN="middle">&nbsp;</TD>
+  </TR>  
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="16">&nbsp;Editor 
+&amp; Language</TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+  </TR>  
 
 
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr>
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Default 
-Editor&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle">
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Default 
+Editor&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
         
-    <select name="editor" class="dropdown">
-<option value=""></option><option value="1">JVI</option>
-<option value="0">Standard</option>
-</select>
-</td>
-  </tr>
-  <tr>
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statText" align="left" valign="top">The competition applet allows for a choice of editor 
+    <SELECT NAME="editor" CLASS="dropdown">
+<OPTION VALUE=""></OPTION><OPTION VALUE="1">JVI</OPTION>
+<OPTION VALUE="0">Standard</OPTION>
+</SELECT>
+</TD>
+  </TR>
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statText" ALIGN="left" VALIGN="top">The competition applet allows for a choice of editor 
 types. UNIX users comfortable with vi may opt for JVI. Those more familiar with the behavior of Windows Notepad should 
-choose Standard.</td>
-  </tr>
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr>
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Default 
-Language&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle">
+choose Standard.</TD>
+  </TR>
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Default 
+Language&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
         
-        <select name="language" class="dropdown">
-<option value=""></option><option value="1">Java</option>
-<option value="3">C ++</option>
-<option value="4">C#</option>
-</select>
-</td>
-  </tr>
-  <tr>
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img 
-src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statText" align="left" valign="top">The competition applet allows for a choice of programming 
-languages. The language you choose will be your default.</td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
-  </tr>  
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Student or 
-Professional (please choose one)</td>
-  </tr>
-  <tr valign="middle">
-    <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
-  </tr>  
+        <SELECT NAME="language" CLASS="dropdown">
+<OPTION VALUE=""></OPTION><OPTION VALUE="1">Java</OPTION>
+<OPTION VALUE="3">C ++</OPTION>
+<OPTION VALUE="4">C#</OPTION>
+</SELECT>
+</TD>
+  </TR>
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">&nbsp;</TD><TD><IMG 
+SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statText" ALIGN="left" VALIGN="top">The competition applet allows for a choice of programming 
+languages. The language you choose will be your default.</TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statText" VALIGN="middle">&nbsp;</TD>
+  </TR>  
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="16">&nbsp;Student or 
+Professional (please choose one)</TD>
+  </TR>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statTextBig" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+  </TR>  
     
-    <tr>
-        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
-align="left" valign="middle"></td>
-    </tr>
-  <tr>
-    <td class="statTextBig" align="right" height="18" valign="middle" 
-background="/i/steel_gray_bg.gif"><b>Student</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" 
-border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="radio" name="coderType" value ="1" 
-></td>
-  </tr>  
+    <TR>
+        <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
+ALIGN="left" VALIGN="middle"></TD>
+    </TR>
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" HEIGHT="18" VALIGN="middle" 
+BACKGROUND="/i/steel_gray_bg.gif"><B>Student</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" 
+BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="radio" NAME="coderType" VALUE ="1" 
+></TD>
+  </TR>  
 <!--
   <tr>
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img 
@@ -775,28 +775,29 @@ src="/i/clear.gif" width="1" height="1" border="0"></td>
 be enrolled full-time at an accredited college or university.</td>
   </tr>
 -->
-  <tr valign="middle">
-    <td colspan="4" class="statText" valign="middle"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-  </tr>      
-  <tr>
-    <td class="statTextBig" align="right" height="18" valign="middle" 
-background="/i/steel_gray_bg.gif"><b>Professional</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" 
-border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="radio" name="coderType" value ="2" 
-></td>
-  </tr>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statText" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+  </TR>      
+  <TR>
+    <TD CLASS="statTextBig" ALIGN="right" HEIGHT="18" VALIGN="middle" 
+BACKGROUND="/i/steel_gray_bg.gif"><B>Professional</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" 
+BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="radio" NAME="coderType" VALUE ="2" 
+></TD>
+  </TR>
 
 
-  <tr valign="middle">
-    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
-  </tr>
-    <tr align="right" valign="middle">
-        <td align="right" valign="middle"></td>
-        <td colspan="2" align="left" valign="middle" class="statText"><input type="button" 
-onClick="if(checkInputs())reg.submit();" name="continueButton" value="[ continue &gt;" /></td>
-    </tr>
-  </table>
+  <TR VALIGN="middle">
+    <TD COLSPAN="4" CLASS="statText" VALIGN="middle">&nbsp;</TD>
+  </TR>
+    <TR ALIGN="right" VALIGN="middle">
+        <TD ALIGN="right" VALIGN="middle"></TD>
+        <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="statText"><INPUT TYPE="button" 
+ONCLICK="if(checkInputs())reg.submit();" NAME="continueButton" VALUE="[ continue &gt;" /></TD>
+    </TR>
+  </TABLE>
 
+</FORM>
 
 <!--trj insert end-->
 

@@ -65,7 +65,7 @@ public class TCES extends Task implements Serializable {
 		}
 				
 		private CoderObject coderObject = new CoderObject();
-		public CoderObject.setCoderObject(CoderObject objIn) { coderObject = objIn; }
+		public void setCoderObject(CoderObject objIn) { coderObject = objIn; }
  		public CoderObject getCoderObject() { return coderObject; }
 
     public void process() throws TaskException {
