@@ -67,6 +67,14 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 </P>
 
 <P>
+Project: <A HREF="/index?t=development&amp;c=grant_process" CLASS="statTextBig">Grant Processing Application</A><BR/>
+Start Date: June 14, 2002<BR/>
+End Date: June 24, 2002<BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: TBD<BR/>
+</P>
+
+<P>
 Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statTextBig">Architect</A><BR/>
 Member Selection: <b>Open</b><BR/>
 Inquiry Deadline: TBD<BR/>
@@ -96,7 +104,7 @@ Member Selection: Closed<BR/>
 <P>
 Project: <A HREF="/index?t=development&amp;c=dde1" CLASS="statTextBig">Design of the TopCoder Distributed Development Environment</A><BR/>
 Start Date: May 21, 2002<BR/>
-End Date: Jun 11, 2002<BR/>
+End Date: June 11, 2002<BR/>
 Member Selection: <b>Open</b><BR/>
 Inquiry Deadline: TBD<BR/>
 </P>
