@@ -203,6 +203,7 @@ public class UserAddressBean implements SessionBean {
         Connection conn = null;
         DataSource ds = null;
         ResultSet rs = null;
+        ResultSetContainer rsc = null;
 
         try {
             ctx = new InitialContext();
@@ -215,8 +216,7 @@ public class UserAddressBean implements SessionBean {
             ps.setLong(1, userId);
 
             rs = ps.executeQuery();
-
-            ResultSetContainer rsc = new ResultSetContainer(rs);
+            rsc = new ResultSetContainer(rs);
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(
