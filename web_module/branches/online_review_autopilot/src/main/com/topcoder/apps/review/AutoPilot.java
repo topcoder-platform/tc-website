@@ -18,6 +18,74 @@ import com.topcoder.message.email.TCSEmailMessage;
  * @author  rfairfax
  */
 public class AutoPilot {
+    
+    public static ResultData aggregationReview(AggregationReviewData data) {
+        try {
+            //setup user info
+            TCSubject subject = new TCSubject(100129);
+            subject.addPrincipal(new RolePrincipal("Administrator", 1));
+
+            UserManagerLocal userManager = EJBHelper.getUserManager();
+            DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
+            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+
+            SecurityEnabledUser user = userManager.getUser(subject);
+
+            Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
+            
+            if(!project.getAutoPilot()) return new SuccessResult();
+            
+            //get all review worksheets
+            AggregationReview[] aggReviews = docManager.getAggregationReview(project, user.getTCSubject());
+            
+            int count = 0;
+            
+            for(int i = 0; i < aggReviews.length;i++) {
+                if(aggReviews[i].isCompleted())
+                    count++;
+                else
+                    return new SuccessResult();
+            }
+            
+            if(count < 2)
+                return new SuccessResult();
+            
+            //move to final fixes
+            ProjectForm form = new ProjectForm();
+                            
+            form.fromProject(project);
+
+            form.setScorecardTemplates(docManager.getScorecardTemplates());
+
+            form.setCurrentPhase("Final Fixes");
+
+            form.setReason("auto pilot advancing to final fixes");
+            
+            UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
+            UserProjectInfo info = null;
+            for(int i = 0; i < projs.length; i++) {
+                if(projs[i].getId() == project.getId()) {
+                    info = projs[i];
+                }
+            }
+            
+            if(info == null) return new FailureResult("Project not found");
+            
+            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
+
+            ProjectData new_data = form.toActionData(orpd);
+            ResultData result = new BusinessDelegate().projectAdmin(new_data); 
+            if(!(result instanceof SuccessResult)) {
+                return result;
+            }
+
+        } catch(Exception e) {
+            return new FailureResult(e.toString());
+        }
+        
+        return new SuccessResult();
+    }
+    
     public static ResultData aggregation(AggregationData data) {
         try {
             //setup user info
@@ -33,6 +101,8 @@ public class AutoPilot {
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
             
             if(!project.getAutoPilot()) return new SuccessResult();
+            
+            if(!data.getAggregationWorksheet().isCompleted()) return new SuccessResult();
             
             //move to aggregation review
             ProjectForm form = new ProjectForm();
