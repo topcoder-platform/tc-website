@@ -56,7 +56,7 @@
 					Date: 00.00.00<BR/>
 					Subject Line: "Match Results"<BR/><BR/>
 					Hello Coders,<BR/><BR/>
-					Here are the winners from last night's match. Congratuluations to all. As always, results and a summary of events from the match are posted on <A HREF="http://www.topcoder.com">www.topcoder.com</A>.<BR/><BR/>
+					Here are the winners from last night's match. Congratuluations to all. As always, results and a summary of events from the match are posted on <A HREF="http://www.topcoder.com" CLASS="bodyText">www.topcoder.com</A>.<BR/><BR/>
 					====================================<BR/>
 					Thanks to the following sponsor(s):<BR/>
 					====================================<BR/>
