@@ -4147,46 +4147,65 @@ public class DocumentManagerBean implements SessionBean {
         }
     }
 
-    private static String SQLGetAppeals =
+    private static String SQLGetAppealsHead =
             "SELECT a.appeal_id" +
-            ", a.appealer_id" +
-            ", a.question_id" +
-            ", a.is_resolved" +
-            ", a.appeal_text" +
-            ", a.appeal_response" +
-            ", a.appeal_v_id" +
-            ", s.author_id" +
-            ", sub.submitter_id" +
-            ", sub.submission_id" +
-            ", sub2.submission_id " +
-            ", rur.r_user_role_id " +
-            "FROM appeal a " +
-            ", scorecard_question sq " +
-            ", scorecard s " +
-            ", submission sub " +
-            ", submission sub2 " +
-            ", r_user_role rur " +
-            "WHERE a.cur_version = 1 " +
-            "AND sq.cur_version = 1 " +
-            "AND s.cur_version = 1 " +
-            "AND sub.cur_version = 1 " +
-            "AND sub2.cur_version = 1 " +
-            "AND a.question_id = sq.question_id " +
-            "AND sq.scorecard_id = s.scorecard_id " +
-            "AND s.submission_id = sub.submission_id " +
-            "AND s.project_id = sub2.project_id " +
-            "AND a.appealer_id = sub2.submitter_id " +
-            "AND rur.r_role_id = 1 " +
-            "AND rur.login_id = sub.submitter_id " +
-            "AND rur.cur_version = 1 " +
-            "AND rur.project_id = s.project_id ";
-    private static String SQLGetAppealsAll = SQLGetAppeals +
-            "AND s.project_id = ? ";
-    private static String SQLGetAppealsQA = SQLGetAppeals +
-            "AND a.appealer_id = ? " +
-            "AND a.question_id = ? ";
-    private static String SQLGetAppealsId = SQLGetAppeals +
-            "AND a.appeal_id = ? ";
+            "     , a.appealer_id" +
+            "     , a.question_id" +
+            "     , a.is_resolved" +
+            "     , a.appeal_text" +
+            "     , a.appeal_response" +
+            "     , a.appeal_v_id" +
+            "     , s.author_id" +
+            "     , sub.submitter_id" +
+            "     , sub.submission_id" +
+            "     , sub2.submission_id " +
+            "     , rur.r_user_role_id " +
+            "  FROM appeal a " +
+            "     , scorecard_question sq " +
+            "     , scorecard s " +
+            "     , submission sub " +
+            "     , submission sub2 " +
+            "     , r_user_role rur " +
+            " WHERE ";
+
+    private static String SQLGetAppealsTail =
+            "   AND a.cur_version = 1 " +
+            "   AND a.question_id = sq.question_id " +
+            "   AND sq.cur_version = 1 " +
+            "   AND sq.scorecard_id = s.scorecard_id " +
+            "   AND s.cur_version = 1 " +
+            "   AND s.submission_id = sub.submission_id " +
+            "   AND sub.cur_version = 1 " +
+            "   AND s.project_id = sub2.project_id " +
+            "   AND a.appealer_id = sub2.submitter_id " +
+            "   AND sub2.cur_version = 1 " +
+            "   AND sub.submitter_id = rur.login_id " +
+            "   AND s.project_id = rur.project_id " +
+            "   AND rur.r_role_id = 1 " +
+            "   AND rur.cur_version = 1 ";
+
+    private static String SQLGetAppealsAll = SQLGetAppealsHead +
+            "       s.project_id = ? " +
+            "   AND s.cur_version = 1 " +
+            "   AND s.submission_id = sub.submission_id " +
+            "   AND sub.cur_version = 1 " +
+            "   AND s.project_id = sub2.project_id " +
+            "   AND sub2.cur_version = 1 " +
+            "   AND sub2.submitter_id = a.appealer_id " +
+            "   AND a.cur_version = 1 " +
+            "   AND s.scorecard_id = sq.scorecard_id " +
+            "   AND sq.cur_version = 1 " +
+            "   AND a.question_id = sq.question_id " +
+            "   AND s.project_id = rur.project_id " +
+            "   AND rur.login_id = sub.submitter_id " +
+            "   AND rur.r_role_id = 1 " +
+            "   AND rur.cur_version = 1";
+    
+    private static String SQLGetAppealsQA =
+            SQLGetAppealsHead + "a.appealer_id = ? AND a.question_id = ?" +
+            SQLGetAppealsTail;
+    private static String SQLGetAppealsId =
+            SQLGetAppealsHead + "a.appeal_id = ?" + SQLGetAppealsTail;
 
     /**
      * Get the Appeals for a project.
