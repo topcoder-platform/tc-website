@@ -1,5 +1,4 @@
 package com.topcoder.web.corp.request;
-import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Enumeration;
 
@@ -18,7 +17,7 @@ import java.util.Enumeration;
 */
 public class Static extends BaseProcessor { 
 
-    private final String PREFIX = "d";  // Prefix for parameters
+    private static final String STATIC_PREFIX = "d";  // Prefix for parameters
 
     /** Constructor sets pageInContext to true since all Static pages are in
      *  the same context 
@@ -33,7 +32,6 @@ public class Static extends BaseProcessor {
      */
     void businessProcessing() throws Exception {
         nextPage = requestProcessor();
-        log.debug("--------- next page set to: "+nextPage);
     }
 
     /**
@@ -46,15 +44,15 @@ public class Static extends BaseProcessor {
      */ 
     private String requestProcessor() throws Exception {
 
-        boolean found = true;
+        boolean found = false;
         String cur = null;
 
         /* start generating the return string containing the URL.    */
-        StringBuffer ret = new StringBuffer("");
-        for (int i=1; !found; ++i) {
-            cur = request.getParameter(PREFIX+i);
+        StringBuffer ret = new StringBuffer();
+        for (int i=1; !found; i++) {
+            cur = request.getParameter(STATIC_PREFIX+i);
             if (cur == null) {
-                found = false;
+                found = true;
             }
             else { 
                 int check = validParameter(cur);  // returns -1 if valid.
