@@ -60,65 +60,47 @@
             <p><strong>Total Hits:</strong> <jsp:getProperty name="CampaignDetailTask" property="TotalHits" /><br>
             <strong>Most Recent Hit:</strong> <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit" /></p>
         
-            <p><a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID" />" class="bodyText">View Overall Campaign Interest</a></p>
+            <p><A href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID" />" class="bodyText">View Overall Campaign Interest</A></p>
 
-            <table border="0" cellspacing="10" cellpadding="0">
-                <tr valign="top">
-                    <td class="bodyText"><img src="/i/clear.gif" alt="" width="400" height="1" border="0">
-                        <h2>Employment Campaign Positions</h2>
-                        <table id="datatable" cellspacing="0" cellpadding="3" border="0">
-                            <tr>
-                                    <td class="testTableTitle">&#160;&#160;</td>
-                                    <td width="49%" class="testTableTitle"><strong>Position Name</strong></TD>
-                                    <td class="testTableTitle">&#160;&#160;</td>
-                                    <td width="24%" class="testTableTitle"><strong>Total Hits</strong></TD>
-                                    <td class="testTableTitle">&#160;&#160;</td>
-                                    <td width="24%" class="testTableTitle"><strong>Most Recent Hit</strong></TD>
-                                    <td class="testTableTitle">&#160;&#160;</td>
-                                </tr>
+            <h2>Employment Campaign Positions</h2>
+            
+            <table id="datatable" cellspacing="0" cellpadding="5" border="0">
+                <tr>
+                    <td class="testTableTitle"><strong>Position Name</strong></TD>
+                    <td class="testTableTitle" align="right"><strong>Total Hits&#160;&#160;</strong></TD>
+                    <td class="testTableTitle"><strong>Most Recent Hit</strong></TD>
+                </tr>
 
-                                <% int i=0; %>
-                                <tces:mapIterator id="position" mapList="<%=(List)CampaignDetailTask.getPositionList()%>">
-                                <% i++; %>
+                <% int i=0; %>
+                    <tces:mapIterator id="position" mapList="<%=(List)CampaignDetailTask.getPositionList()%>">
+                <% i++; %>
                                 
-                                <tr>
-                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="bodyText"><%= (String)position.get("job_desc") %></a></td>
-                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)position.get("hit_count") %></td>
-                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)position.get("most_recent") %></td>
-                                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;&#160;</td>
-                                </tr>
+                <tr>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="bodyText"><%= (String)position.get("job_desc") %></A></td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)position.get("hit_count") %></td>
+                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= (String)position.get("most_recent") %></td>
+                </tr>
                                 
-                                </tces:mapIterator>
+                </tces:mapIterator>
 
-                                <% if(CampaignDetailTask.getPositionList().isEmpty()){ %>
+                <% if(CampaignDetailTask.getPositionList().isEmpty()){ %>
                                 
-                                <tr><td class="bodyText" COLSPAN="20"><br></td></tr>                
+                <tr><td class="bodyText" colspan="3"><br></td></tr>
                                 
-                                <tr><td class="bodyText" align="center" colspan="20">No positions available.</td></tr>
+                <tr><td class="bodyText" align="center" colspan="3">No positions available.</td></tr>
                                 
-                                <% } %>
+                <% } %>
 
-                            </table>
-                            
-                            <p><br></p>
-                            
-                        </td>
-                    </tr>
             </table>
+
+            <p><br></p>
+
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
         <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"><br>
-        </td>
-<!-- Right Column Ends -->
 
 <!-- Gutter -->
         <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
