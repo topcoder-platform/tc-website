@@ -383,7 +383,7 @@
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>                      
                     </TR>
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Mar. 12 @ **9pm EST (raindate: Thurs. Mar. 11 @ 9pm EST)<BR/></TD>
+                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Mar. 12 @ **9pm EST (raindate: Thurs. Mar. 13 @ 9pm EST)<BR/></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">**Time is subject to change.</TD>
