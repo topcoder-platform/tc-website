@@ -133,7 +133,7 @@ li {
 							<tr valign="top">
 								<td class="statText" width="100%">
 									<p><strong>Sample Design Submission</strong><br />
-									This is the <a href="/i/development/downloads/submission-sample.jar" class="statText">winning design submission</a> from <a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow">srowen</a> for the Timer component. It should only be used as a guide for creating a design submission. Contents of this submission include:
+									This is the <a href="/i/development/downloads/submission-sample.jar" class="statText">winning design submission</a> from <a href="/stat?c=member_profile&amp;cr=279551" class="coderTextBlue">scamp</a> for the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3501906&amp;cat=1" class="statText">String Class</a> component. It should only be used as a guide for creating a design submission. Contents of this submission include:
 									<ul>
 										<li>Component Specification</li>
 										<li>Test Cases</li>
