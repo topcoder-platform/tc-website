@@ -963,64 +963,37 @@ public final class ProjectForm extends ReviewForm {
             return errors;
         }
 
-        boolean checkTimeline = false;
-        boolean checkPayments = false;
-        boolean checkProjectData = false;
 
-
+        // if the user stored or refreshed the timeline, verify it
         if (Constants.EDITING_TIMELINE.equals(currentEdition)) {
-            log(Level.INFO, "EDITING_TIMELINE");
             String timelineAction = request.getParameter(Constants.ACTION_KEY);
+            if (Constants.ACTION_STORE.equals(timelineAction) || Constants.ACTION_REFRESH.equals(timelineAction))  {
 
-            if (Constants.ACTION_STORE.equals(timelineAction)) {
-                checkTimeline = true;
-            }
+                for (int i = 0; i < project.getTimeline().length; i++) {
+                    phaseValid[i] = true;
 
-            if (Constants.ACTION_REFRESH.equals(timelineAction)) {
-                checkTimeline = true;
-            }
+                    if (!adjustStartDates[i]) {
+                        Date start = parseDate(forcedStartDates[i]);
 
-            if (Constants.ACTION_LOAD.equals(timelineAction)) {
-                checkPayments = true;
-                log(Level.INFO, "ACTION_LOAD");
-            }
-
-            // if the action is CANCEL, no checking will be done.
-
-        }
-
-        // if the user edited the project, set what is needed to check depending on the action
-        if (Constants.EDITING_PROJECT.equals(currentEdition)) {
-            if (Constants.ACTION_EDIT.equals(action)) {
-                checkProjectData = true;
-            }
-        }
-
-
-        if (checkTimeline)  {
-            for (int i = 0; i < project.getTimeline().length; i++) {
-                phaseValid[i] = true;
-
-                if (!adjustStartDates[i]) {
-                    Date start = parseDate(forcedStartDates[i]);
-
-                    if (start == null) {
+                        if (start == null) {
+                            errors.add("phase[" + i + "]",
+                                    new ActionError("error.format", "Error in the start date"));
+                            phaseValid[i] = false;
+                            setValid(false);
+                        }
+                    }
+                    if  (phaseMinutes[i] < 0) {
                         errors.add("phase[" + i + "]",
-                                new ActionError("error.format", "Error in the start date"));
+                                   new ActionError("error.format", "Error in the phase duration"));
                         phaseValid[i] = false;
                         setValid(false);
                     }
                 }
-                if  (phaseMinutes[i] < 0) {
-                    errors.add("phase[" + i + "]",
-                               new ActionError("error.format", "Error in the phase duration"));
-                    phaseValid[i] = false;
-                    setValid(false);
-                }
             }
         }
 
-        if (checkPayments || checkProjectData) {
+        // if the user edited the project, verify it.
+        if (Constants.EDITING_PROJECT.equals(currentEdition) && Constants.ACTION_EDIT.equals(action)) {
             log(Level.INFO, "checking payments");
             for (int i = 0; i < project.getParticipants().length; i++) {
                 if (!participantsValid[i]) {
@@ -1040,9 +1013,6 @@ public final class ProjectForm extends ReviewForm {
                 }
             }
 
-        }
-
-        if (checkProjectData) {
             if (project.getCurrentPhase().getId() == Phase.ID_SCREENING) {
                 if (project.getScreeningTemplateId() == -1) {
                     setValid(false);
@@ -1070,7 +1040,18 @@ public final class ProjectForm extends ReviewForm {
         return errors;
     }
 
-    // ------------------------------------------------------ Protected Methods
+
+    /**
+     * This method needs to be called when the timeline edition finish and it goes back to project edition.
+     * It makes all participants to be valid, because if the user has written an invalid handle, when going
+     * to edit timeline, this will be marked as an error.
+     */
+    public void backFromTimeline() {
+        for (int i = 0; i < project.getParticipants().length; i++) {
+            participantsValid[i] = true;
+        }
+    }
+
 
     /**
      * Creates the form bean from the project.

@@ -278,6 +278,12 @@ function editTimeline()
 <logic:notEqual name="projectForm" property="submitterRemoval" value="true">
 					<form action="javascript:history.back()">
 					<td><html:submit styleClass="submitButton"><bean:message key="button.back" /></html:submit></td></form>
+
+					<bean:define id="projectId" name="projectForm" property="project.id" />
+					<bean:define id="url" value='<%="/projectDetail.do?id="+projectId%>' />
+					<form action='<html:rewrite page="<%=String.valueOf(url)%>" />' method="post" >
+					<td><html:submit styleClass="submitButton"><bean:message key="button.cancel" /></html:submit></td></form>
+
 </logic:notEqual>
 				</tr>
             </table>
