@@ -82,7 +82,7 @@ else
                                 <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
                                 <td class="sidebarText" align=center><%=result.getScore()%></td>
                                 <td class="sidebarText" align=right><%=result.getPayment()%></td>
-                                <td class="sidebarText" align=center><%=result.getPlace()%></td>
+                                <td class="sidebarText" align=center><%=result.getPlaced()%></td>
                                 <td class="sidebarText" align=center><%=result.getPoints()%></td>
                             </tr>
                             <% } %>
