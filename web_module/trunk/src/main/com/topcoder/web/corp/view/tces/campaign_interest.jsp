@@ -68,7 +68,7 @@
                 </tr>
             </table>
                         
-            <table id="datatable" cellspacing="0" cellpadding="5" border="0">               
+            <table id="datatable" cellspacing="0" cellpadding="5" border="0">
                 <tr>
                     <td class="testTableTitle"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.SORT_PARAM%>=handle&<%=TCESConstants.SORT_ORDER_PARAM%>=<%=TCESConstants.SORT_ORDER_ASC%>" class="tableColLink"><strong>Handle</strong></a></td>
                     <td class="testTableTitle">&#160;</td>
@@ -102,7 +102,7 @@
 <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
 <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("coder_type_desc").toString() %></td>
 <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
-<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= hit.getItem("school_name").toString() %></td>
+<td class="<%=i%2==1?"testTableOddWrapping":"testTableEvenWrapping"%>"><%= hit.getItem("school_name").toString() %></td>
 <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
 <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="CampaignInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignInterestTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<%=hit.getItem("job_id").toString()%>" class="bodyText"><%= hit.getItem("job_desc").toString() %></a></td>
 <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">&#160;</td>
