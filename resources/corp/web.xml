@@ -213,7 +213,7 @@
 
         <init-param>
             <param-name>tces_package</param-name>
-            <param-value>com.topcoder.web.tces.bean</param-value>
+            <param-value>com.topcoder.web.corp.controller.request.tces</param-value>
         </init-param>
 
         <init-param>
