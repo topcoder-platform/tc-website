@@ -125,7 +125,7 @@
 			<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 				<TR>
 					<TD VALIGN="top" WIDTH="11" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-					<TD CLASS="statText" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
+					<TD CLASS="bodyText" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/>
 
 <!-- <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
@@ -143,7 +143,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 <!--   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>-->
 <!--DATE <BR/>-->
     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
-    <SELECT NAME="Contest" onchange="goTo(this)">
+    <SELECT CLASS="dropdown" NAME="Contest" onchange="goTo(this)">
         <OPTION value="#">Select a Round:</OPTION>
         <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
          <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
