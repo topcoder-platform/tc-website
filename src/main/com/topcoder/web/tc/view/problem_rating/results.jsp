@@ -12,7 +12,7 @@
 <body>
     <table>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
-        <% count = result.getIntItem("count") %>
+        <% count = result.getIntItem("count"); %>
         <tr>
             <td>
                 <rsc:item row="<%=result%>" name="question"/>
