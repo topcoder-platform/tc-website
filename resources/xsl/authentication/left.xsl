@@ -1,21 +1,22 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <xsl:template name="BodyLeft">
 
-<xsl:template name="BodyLeft">
+            <img alt="" width="180" height="5" src="/i/spacer.gif" border="0" /><br/>
+            <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0" /><img alt="" width="10" height="11" src="/i/spacer.gif" border="0" /><br/>
 
-<TABLE WIDTH="170" BGCOLOR="#000000" CELLSPACING="0" CELLPADDING="0" BORDER="0">
-    <TR> 
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#000000">Please READ:</TD>
-      <TD VALIGN="top" BGCOLOR="#000000"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-    </TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>          
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;&#160;&#160;<A HREF="/index?t=&amp;c=terms" CLASS="statText">Terms, Revisions</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;&#160;&#160;<A HREF="/index?t=&amp;c=privacy" CLASS="statText">Privacy Policy</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-</TABLE>
-<IMG ALT="" WIDTH="170" HEIGHT="23" SRC="/i/left_nav_btm.gif" BORDER="0"/><BR/><BR/><IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" ALT="[ TopCoder ]" VSPACE="10" BORDER="0"/>
-</xsl:template>
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="leftNavTitle" >Please Read:</td></tr>
+                <tr><td id="leftNav"><A href="/index?t=&amp;c=terms" class="left">Terms, Revisions</A></td></tr>
+                <tr><td id="leftNav"><A href="/index?t=&amp;c=privacy" class="left">Privacy Policy</A></td></tr>
+            </table>
+            
+            <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br/><br/>
+
+            <div align="center">
+                <img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/>
+            </div>
+
+    </xsl:template>
 </xsl:stylesheet>
 
