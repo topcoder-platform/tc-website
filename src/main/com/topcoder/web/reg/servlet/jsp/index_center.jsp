@@ -366,10 +366,12 @@ Founder and Chairman, TopCoder, Inc.
     <td class="statTextBig" align="right" height="18" valign="middle" background="/i/steel_gray_bg.gif"><b>Student</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
     <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="radio" name="<%=Registration.CODER_TYPE%>" value ="<%=Registration.CODER_TYPE_STUDENT%>" <%=(coderType.equalsIgnoreCase(Registration.CODER_TYPE_STUDENT)?"checked":"")%>></td>
   </tr>  
+<!--
   <tr>
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
     <td colspan="2" class="statText" align="left" valign="top">By indicating that you are a "Student" member, you must be enrolled full-time at an accredited college or university.</td>
   </tr>
+-->
   <tr valign="middle">
     <td colspan="4" class="statText" valign="middle"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
   </tr>      
