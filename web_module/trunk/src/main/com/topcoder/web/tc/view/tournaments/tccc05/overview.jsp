@@ -35,7 +35,7 @@
 <table width="550" align="center" border="0" cellpadding="0" cellspacing="10">
 	<tr><td colspan="2" class="bodyText">
 		<div align="center"><img src="/i/tournament/tccc05/monitor_logo.jpg" width="424" height="336" border="0"/></div>
-	
+		
 		<p><strong>The 2005 TopCoder Collegiate Challenge is an international programming tournament that<br/> 
 		will bring together some of the world's best young minds in head-to-head competition. The tournament has two tracks:</strong></p>
 	
@@ -154,10 +154,21 @@
 						*If you're not already a TopCoder member<br/><a href="/reg/index.jsp">click here</a> to register.
 					</td>
                 </tr>
+                
+                
             </table>
         </td>
      </tr>
+     <tr><td colspan="2" class="bodyText">
+	
+		<p><strong>If you're a Student Rep for the TCCC05, <a href="/tc?module=TCCC05StudentReps">click here</a> to view your referral count. </strong></p>
+		
+		
+	
+	</td></tr>
 </table>
+
+
 
             
 
