@@ -77,6 +77,20 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
+<!-- Yahoo! TCO-->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_09_02_04"><img src="/i/pressroom/yahoo_logo.gif" alt="yahoo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_02_04">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open</A></strong></font><br />
+                        "We are thrilled to be a part of this exciting coding competition for the 3rd consecutive year," said Daniel Rohrer, Manager of DirectX Graphics. "The characteristics that allow TopCoder competitors to be successful closely mirror qualities we look for in our engineers at NVIDIA" <span class="prHead">[August 4]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!--  RedHerring -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

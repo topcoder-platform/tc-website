@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
                             
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_02_04">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open</A> [September 2]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_18_04">Intel Corporation Sponsors 2004 TopCoder Open Tournament</A> [August 18]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_10_04">TopCoder Software Wins New Customer Contracts</A> [August 10]<br/></td></tr>
