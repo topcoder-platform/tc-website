@@ -111,8 +111,8 @@
 
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:sales@topcodersoftware.com" class="bodyText">Software Sales</a><br />
-                                    Dave Tanacea<br />
+                                    <p><a href="mailto:sales@topcodersoftware.com" class="bodyText">TopCoder Software</a><br />
+                                    Mike Morris<br />
                                     tel: 866.TOP.CODE<br />
                                     fax: 860.657.4276<br />
                                     &#160;</p>
@@ -127,17 +127,6 @@
                                 </td>
                             </tr>
 
-                            <tr valign="top">
-                                <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:service@topcodersoftware.com" class="bodyText">Software Service</a><br />
-                                    Mike Morris<br />
-                                    tel: 866.TOP.CODE<br />
-                                    fax: 860.657.4276<br />
-                                    &#160;</p>
-                                </td>
-                                    
-                                <td width="50%" align="left" class="bodyText">&#160;</td>
-                            </tr>
                         </table>
                     </div>
                     </td>
