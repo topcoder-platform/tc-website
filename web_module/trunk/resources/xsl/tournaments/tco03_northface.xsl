@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>Northface University is corporate sponsor of the 2003 TopCoder Open coding tournament</title>
+<title>Northface University is a corporate sponsor of the 2003 TopCoder Open coding tournament</title>
 
 <xsl:call-template name="CSS"/>      
 
