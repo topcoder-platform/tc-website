@@ -562,7 +562,6 @@
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/CacheMessageTest.java" target="_blank">Cache Message Test.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/CommitMessage.java" target="_blank">Commit Message.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/CommitMessageTest.java" target="_blank">Commit Message Test.java</a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/DistributedCache.xml" target="_blank">Distributed Cache.xml</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/DistributedCacheComplexTests.java" target="_blank">Distributed Cache Complex Tests.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/DistributedCacheSimpleTests.java" target="_blank">Distributed Cache Simple Tests.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/final/DistributedException.java" target="_blank">Distributed Exception.java</a></td></tr>
