@@ -2,8 +2,8 @@
          contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.corp.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.corp.request.Registration,
-                 com.topcoder.web.corp.request.UserEdit"
+                 com.topcoder.web.corp.controller.request.Registration,
+                 com.topcoder.web.corp.controller.request.UserEdit"
          autoFlush="false"
          buffer="64kb"
 

@@ -25,7 +25,7 @@
 
 <jsp:include page="top.jsp" />
 
-<jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.corp.request.tces.MainTask" />
+<jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.MainTask" />
 
 <table width="100%" border="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">

@@ -9,7 +9,7 @@ public class TrailIteratorTagInfo extends TagExtraInfo {
     public VariableInfo[] getVariableInfo(TagData data) {
         return new VariableInfo[]{
             new VariableInfo(data.getId(),
-                    "com.topcoder.web.corp.request.tces.TrailItem",
+                    "com.topcoder.web.corp.controller.request.tces.TrailItem",
                     true,
                     VariableInfo.NESTED)
         };

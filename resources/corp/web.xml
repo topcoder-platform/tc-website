@@ -48,32 +48,32 @@
         -->
         <init-param>
             <param-name>processor-Static</param-name>
-            <param-value>com.topcoder.web.corp.request.Static</param-value>
+            <param-value>com.topcoder.web.corp.controller.request.Static</param-value>
             <description>handles static pages</description>
         </init-param>
         <init-param>
             <param-name>processor-Registration</param-name>
-            <param-value>com.topcoder.web.corp.request.Registration</param-value>
+            <param-value>com.topcoder.web.corp.controller.request.Registration</param-value>
             <description>handles primary registration page</description>
         </init-param>
         <init-param>
             <param-name>processor-UserList</param-name>
-            <param-value>com.topcoder.web.corp.request.UserList</param-value>
+            <param-value>com.topcoder.web.corp.controller.request.UserList</param-value>
             <description>handles user list page</description>
         </init-param>
         <init-param>
             <param-name>processor-UserEdit</param-name>
-            <param-value>com.topcoder.web.corp.request.UserEdit</param-value>
+            <param-value>com.topcoder.web.corp.controller.request.UserEdit</param-value>
             <description>creates/edit user/permissions</description>
         </init-param>
         <init-param>
             <param-name>processor-Login</param-name>
-            <param-value>com.topcoder.web.corp.request.Login</param-value>
+            <param-value>com.topcoder.web.corp.controller.request.Login</param-value>
             <description>handles user list page</description>
         </init-param>
         <init-param>
             <param-name>processor-Logout</param-name>
-            <param-value>com.topcoder.web.corp.request.Logout</param-value>
+            <param-value>com.topcoder.web.corp.controller.request.Logout</param-value>
             <description>handles user list page</description>
         </init-param>
         <!--

@@ -16,7 +16,7 @@ import com.topcoder.web.corp.Util;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.corp.request.tces.Task;
+import com.topcoder.web.corp.controller.request.tces.Task;
 import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 

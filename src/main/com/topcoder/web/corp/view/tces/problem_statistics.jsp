@@ -25,7 +25,7 @@ function openWnd(pageUrl) {
 // End -->
 </SCRIPT>
 
-<jsp:useBean id="ProblemStatisticsTask" scope="request" class="com.topcoder.web.corp.request.tces.ProblemStatisticsTask" />
+<jsp:useBean id="ProblemStatisticsTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.ProblemStatisticsTask" />
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
