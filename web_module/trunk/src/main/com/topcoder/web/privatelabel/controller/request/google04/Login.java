@@ -129,7 +129,7 @@ public class Login extends FullLogin {
             Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
             if(coder.exists(userId, db)) {
                 info.setCoderType(coder.getCoderTypeId(userId, db));
-            } else if(hasTCAccount) {
+            } else if(coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
                 info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
             }
 
