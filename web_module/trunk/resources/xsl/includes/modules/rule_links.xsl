@@ -6,11 +6,11 @@
         <TD COLSPAN="6" ALIGN="left" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Rules:</TD>
       </TR>                    						
 	  <TR>
-		<TD WIDTH="10%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=schedule&amp;c=tourny_rules_conditions" CLASS="statText">Conditions</A></TD>
-		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=schedule&amp;c=tourny_rules_structure" CLASS="statText">Round&#160;Structure</A></TD>		
-		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=schedule&amp;c=tourny_rules_onsite" CLASS="statText">Onsite&#160;Rounds</A></TD>
-		<TD WIDTH="10%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=schedule&amp;c=tourny_rules_prizes" CLASS="statText">Prizes</A></TD>
-		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=schedule&amp;c=tourny_rules_scoring" CLASS="statText">Scoring&#160;/&#160; Advancing</A></TD>
+		<TD WIDTH="10%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=tourny_rules_conditions" CLASS="statText">Conditions</A></TD>
+		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=tourny_rules_structure" CLASS="statText">Round&#160;Structure</A></TD>		
+		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=tourny_rules_onsite" CLASS="statText">Onsite&#160;Rounds</A></TD>
+		<TD WIDTH="10%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=tourny_rules_prizes" CLASS="statText">Prizes</A></TD>
+		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=tourny_rules_scoring" CLASS="statText">Scoring&#160;/&#160; Advancing</A></TD>
 		<TD WIDTH="12%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statText"><A HREF="/contest/2002sun_tcccrules.pdf" CLASS="statText">Download&#160;Rules</A></TD>	  
 	  </TR>
       <TR>
