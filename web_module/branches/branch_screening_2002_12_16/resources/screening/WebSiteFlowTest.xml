@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-site-flow-test>
+
+<parameters>
+	<common_url_base>http://65.112.118.205/screening/</common_url_base>
+	<logging-mode>System.out.println</logging-mode>
+</parameters>
+<pages>
+    <page name="Login">
+	  <httpurl>screening?rp=Login
+	  </httpurl>
+	  <identification>
+	     <text-pattern>form action.*screening.*screening.*login</text-pattern>
+	  </identification>
+	  <links>
+	     <link>
+	        <with-text>aaaaaaaaaa</with-text>
+	        <url></url>
+	        <target-name>cccccccccc</target-name>
+	     </link>
+	  </links>
+    </page>
+
+    <page name="SessionSetup">
+    </page>
+	
+    <page name="CandidateList">
+    </page>
+</pages>
+
+</web-site-flow-test>
+
+         
+  
