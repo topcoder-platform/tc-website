@@ -32,6 +32,9 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             } else {
                 //back to terms page with error message
                 addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
+                setNextPage(Constants.REVIEWER_TERMS);
+                setIsNextPageInContext(true);
+
             }
 
         } catch (TCWebException e) {
