@@ -39,12 +39,11 @@
      */
     String addParams(String queryString) {
         Hashtable h = HttpUtils.parseQueryString(queryString);
-        System.out.println("size: " + h.size());
         StringBuffer buf = new StringBuffer(100);
         Map.Entry me = null;
         for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
             me = (Map.Entry)it.next();
-            System.out.println("key: " + me.getKey() + " valu: " + me.getValue());
+            System.out.println("key: " + me.getKey() + " valu: " + me.getValue().toString());
             if (me.getKey().equals(Constants.CLASS_NAME)
                     || me.getKey().equals(Constants.MIN_DIV1_SUCCESS)
                     || me.getKey().equals(Constants.MIN_DIV2_SUCCESS)
