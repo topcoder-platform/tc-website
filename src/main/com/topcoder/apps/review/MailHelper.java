@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -261,15 +261,15 @@ class MailHelper {
             message.setToAddress(formatAddress(to), TCSEmailMessage.TO);
             message.setSubject(subject);
             message.setBody(messageText);
-            System.err.println("Sending e-mail to address: " + formatAddress(to));
+            LogHelper.log("Sending e-mail to address: " + formatAddress(to));
             EmailEngine.send(message);
         } else {
-            System.out.println("--mail--");
-            System.out.println("From: " + formatAddress(from));
-            System.out.println("To: " + formatAddress(to));
-            System.out.println("Subject: " + subject);
-            System.out.println(messageText);
-            System.out.println("---end--");
+            LogHelper.log("--mail--");
+            LogHelper.log("From: " + formatAddress(from));
+            LogHelper.log("To: " + formatAddress(to));
+            LogHelper.log("Subject: " + subject);
+            LogHelper.log(messageText);
+            LogHelper.log("---end--");
         }
     }
 
@@ -311,7 +311,7 @@ class MailHelper {
                 throws XSLTransformerWrapperException, FileNotFoundException {
         String xmlData = xmlDocument.createXML();
         if (EJBHelper.isTestMode()) {
-            System.out.println(xmlData);
+            LogHelper.log(xmlData);
         }
         XSLTransformerWrapper xslt = new XSLTransformerWrapper(new FileInputStream(bodyXSL));
         ByteArrayOutputStream out = new ByteArrayOutputStream();
