@@ -130,5 +130,54 @@ public class ResumeServicesBean extends BaseEJB {
             conn = null;
         }
     }
-
+    private static final String GET_FILE_TYPES_QUERY =
+            "SELECT " +
+            "   file_type_id AS file_type_id, " +
+            "   file_type_desc AS file_type_desc " +
+            "FROM " +
+            "   file_type_lu";
+    public ArrayList getFileTypes() throws RemoteException{
+        log.debug("ejb:ResumeServices:getFileTypes() called...");
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList ret = new ArrayList();
+        try{
+            conn = DBMS.getTransConnection();
+            ps = conn.prepareStatement(GET_FILE_TYPES_QUERY);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Integer id = new Integer(rs.getInt("file_type_id"));
+                String desc = rs.getString("file_type_desc");
+                ret.add(id);
+                ret.add(desc);
+            }
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new RemoteException(sqe.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RemoteException(e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception ignore) {
+                log.error("rs   close problem");
+            }
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception ignore) {
+                log.error("ps   close problem");
+            }
+            try {
+                if (conn != null) conn.close();
+            } catch (Exception ignore) {
+                log.error("conn close problem");
+            }
+            rs = null;
+            ps = null;
+            conn = null;
+        }
+        return ret;
+    }
 }

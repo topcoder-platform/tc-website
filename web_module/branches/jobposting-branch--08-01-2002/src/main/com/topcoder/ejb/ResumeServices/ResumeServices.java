@@ -12,5 +12,7 @@ public interface ResumeServices extends EJBObject {
             throws RemoteException;
     public void putResume(int userID,String fileType, String fileName, byte[] file)
             throws RemoteException;
+    public ArrayList getFileTypes()
+            throws RemoteException;
 
 }

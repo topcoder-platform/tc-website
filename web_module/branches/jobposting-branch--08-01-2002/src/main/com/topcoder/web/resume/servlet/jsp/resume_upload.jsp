@@ -1,6 +1,13 @@
 <%@ page language="java"%>
 <%@ page errorPage="error.jsp"%>
-<%@ page import="com.topcoder.web.resume.servlet.*" %>
+<%@ page import="com.topcoder.web.resume.servlet.*,
+                 com.topcoder.shared.util.TCContext,
+                 com.topcoder.ejb.ResumeServices.ResumeServicesHome,
+                 com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.ejb.ResumeServices.ResumeServices,
+                 javax.naming.Context,
+                 com.topcoder.web.resume.bean.ResumeTaskException,
+                 java.util.ArrayList" %>
 
 
 <HTML>
@@ -12,7 +19,21 @@
             <input type="hidden" name="<%=Controller.TASK%>" value="<%=Controller.RESUME_UPLOAD_TASK%>">
             <input type=file name=file1>
             <select name="fileType" class="dropdown">
-            <option value="AL">Alabama</option>
+            <%
+                ArrayList al = null;
+                Context context = null;
+                try{
+                    context = TCContext.getInitial();
+                    ResumeServicesHome resumeServicesHome = (ResumeServicesHome) context.lookup(ApplicationServer.RESUME_SERVICES);
+                    ResumeServices resumeServices = resumeServicesHome.create();
+                    al = resumeServices.getFileTypes();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                for(int i = 0; i<al.size();i++){
+            %>
+            <option value="<%= al.get(i++) %>"><%= al.get(i) %></option>
+            <%}%>
             </select>
             <input type="submit" value="Upload">
             </form>
