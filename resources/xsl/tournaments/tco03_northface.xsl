@@ -41,38 +41,22 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->	
-<td align="center">	
-<table border="0" cellspacing="10" cellpadding="0" width="510">
-        <tr>
-                <td  align="left" width="510" colspan="2"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
+        <td class="bodyText" align="center">
+            <table width="540" border="0" cellpadding="0" cellspacing="15">
+                  <tr align="left">
+                    <td  align="left" width="510" colspan="2"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
                  </td>
              </tr>
             
             <tr>
-                <td align="left">
+                <td align="left" class="bodyText" width="360">
+                        
                         <img src="/i/sponsor/northface/northface_title_1.gif" alt="Northface" width="360" height="42" border="0" />
-                        </td>  
-                        
-                        <td valign="top" rowspan="4">
-                        <img src="/i/sponsor/northface/northface_vertical_graphic.gif" alt="Northface" width="148" height="492" border="0" />
-                        </td>
-                </tr>
-                        
-               <tr valign="top">
-                        <td class="bodyText">
-                            <p>Now there is a university that is dedicated to preparing you for what the U.S. Labor Department says will be the fastest growing field through 
+                        <p>Now there is a university that is dedicated to preparing you for what the U.S. Labor Department says will be the fastest growing field through 
                             2010: software development. A field with an average starting salary of $52,000* (U.S. Dept. of Labor's Bureau of Labor Statistics, 2002-03).</p>
-                        </td>
-                    </tr>
+                        <img src="/i/sponsor/northface/northface_title_2.gif" alt="Northface" width="360" height="42" border="0" />
                         
-                     <tr valign="top"> 
-                        <td align="left"> <img src="/i/sponsor/northface/northface_title_2.gif" alt="Northface" width="360" height="42" border="0" />
-                        </td>
-                    </tr>   
-                        
-            <tr valign="top"> 
-		 <td align="left" class="bodyText">
-                            <p>Located in Salt Lake City, <A href="http://www.northface.edu" target="_blank">Northface University</A> offers B.S. in Computer Science degrees 
+                        <p>Located in Salt Lake City, <A href="http://www.northface.edu" target="_blank">Northface University</A> offers B.S. in Computer Science degrees 
                             and MBA degrees.</p>
                             
                             <blockquote>
@@ -86,33 +70,24 @@
                         <p>Graduates earn degrees, and are equipped with a digital portfolio of project work, and the two most respected certifications in the industry: 
                         jCert Enterprise Developer for IBM and Microsoft Certified Solution Developer (MCSD). </p>
                   </td>
+                  
+                  <td valign="top">
+                        <img src="/i/sponsor/northface/northface_vertical_graphic.gif" alt="Northface" width="148" height="492" border="0" />
+                        </td>
                 </tr>
                 
             <tr valign="top"> 
-                <td align="left" colspan="2">
+                <td class="bodyText" align="left" colspan="2" width="510">
                         <img src="/i/sponsor/northface/northface_title_3.gif" alt="Northface" width="360" height="42" border="0" />
-                 </td>
-            </tr>   
-                        
-            <tr valign="top">
-                    <td colspan="2"  class="bodyText">
                         <p>To prepare the best software developers in the world requires professors of the highest caliber and experience. You will study and learn from some 
                         of the most respected thought leaders of our time. Authors who are recognized and are leaders in software development. They've written the textbooks 
                         in their field, and worked for the best companies: Microsoft, IBM, NASA, Oracle, and others.</p>
                         
                         <p>Over a two-year period, you and your instructors will work in partnership with IBM, Microsoft, and Unisys on a revolutionary project-driven 
                         learning experience. So you will graduate with more than just a diploma, you'll graduate with real-world experience on your resume.</p>
-                    </td>
-            </tr>
-                        
-            <tr valign="top"> 
-                <td align="left" colspan="2">
+                   
                         <img src="/i/sponsor/northface/northface_title_4.gif" alt="Northface" width="360" height="42" border="0" />
-                </td>
-            </tr>  
-                         
-            <tr valign="top">
-                <td class="bodyText" colspan="2">
+              
                     <p>You will not find a more high-tech university anywhere. You'll use the latest equipment and programs and get the most leading-edge education and 
                         experience. We have designed the classrooms tomorrow the kind of working experience you'll encounter. It is a unique and positive place for you to 
                         prepare for a successful career in software development.</p>
@@ -120,7 +95,7 @@
             </tr>
        
                 <tr valign="top">
-                    <td class="bodyText" align="left">
+                    <td class="bodyText" align="left" width="360" >
                     <img src="/i/sponsor/northface/northface_title_5.gif" alt="Northface" width="360" height="42" border="0" />
                           <p>Computer science graduates enjoy favorable job prospects and salaries, particularly if they have practical experience. </p>
                      </td>
@@ -133,11 +108,11 @@
                         <p>SCHOLARSHIPS, FINANCIAL AID, AND TEACHING ASSISTANTSHIPS AVAILABLE - Click <A href="http://www.northface.edu" target="_blank">here</A> for info ASAP</p>
                     </td>
                 </tr>
-                
-    </table>    
-    <p><br/></p>
-</td>
-
+            </table>
+            
+            <p><br/></p>
+            
+        </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
