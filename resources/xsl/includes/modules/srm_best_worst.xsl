@@ -3,7 +3,7 @@
   <xsl:template name="srm_best_worst">
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">SRM 172</font></td>
+                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">SRM 173</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/stat?&amp;c=last_match" class="bodyText"><strong>View Stats</strong></a></td>
                 </tr>
             </table>
