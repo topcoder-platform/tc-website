@@ -61,21 +61,6 @@ function submitEnter(e) {
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE04_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
-            <tr>
-                <td colspan="2" class="errorText" align="center">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-            <tr>
-                <td align="right" width="50%" valign="bottom">
-                    Student/Professional
-                </td>
-                <td align="left" width="50%" valign="bottom">
-                    Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
-                    Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
-                </td>
-            </tr>
-
             <pl:questionIterator id="question" list="<%=questionList%>">
                 <tr>
                     <td colspan="2" class="errorText" align="center">
