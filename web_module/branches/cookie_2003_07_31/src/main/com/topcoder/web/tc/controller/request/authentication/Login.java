@@ -120,7 +120,7 @@ public class Login extends Base {
     private long getUserId(String handle) throws Exception {
         Request r = new Request();
         r.setContentHandle("user_id_using_handle");
-        r.setProperty("hn", handle);
+        r.setProperty("ha", handle);
         ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("user_id");
         return rsc.getLongItem(0, "user_id");
     }
