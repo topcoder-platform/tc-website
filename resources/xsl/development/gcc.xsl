@@ -67,13 +67,13 @@ Currently, the TopCoder C++ engine uses GCC 2.96, which is a Redhat 7.1 default.
                                     <b>Overview</b>
                                     <BR/>
                                     <BR/>
-There will be a total of 1 person assigned to the project with a position available for architect.  The project will undergo 1 phase.  The Phase consists of getting up to speed on the project.  Reading through requirements, documentation and providing any insight as to what the over all project will entail.  The first phase will also be used for the architect to get acclimated to the development servers and source code control environments.  Also, for this project, the architect will document what issues are currently present with the TopCoder C++ engine. 
+The project will consist of one phase. This will cover the ramp up time, requirements review, documentation, and discussion about the project overall. During this time, the architect will need to become familiar with the development servers and the source code control environments. Additionally, the architect will document any issues uncovered with the current TopCoder C++ engine.
                                     <BR/>
                                     <BR/>
                                     <b>Staffing</b>
                                     <BR/>
                                     <BR/>
-One rated TopCoder Member as Architect. 
+One rated TopCoder Member as the Architect. 
 <ul>
 <li>
                                     <b>Architect</b>
