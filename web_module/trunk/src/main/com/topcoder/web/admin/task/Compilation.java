@@ -48,7 +48,7 @@ public final class Compilation {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("admin.task.coder.Compilation: ERROR:\n " + e, XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -68,7 +68,7 @@ public final class Compilation {
                 rounds = contestAdminServicesEJB.getRounds();
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -89,8 +89,7 @@ public final class Compilation {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("admin.task.coder.Compilation.getRounds: ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -110,7 +109,7 @@ public final class Compilation {
                 coders = contestAdminServicesEJB.getCodersByRound(Integer.parseInt(request.getParameter("RoundId")));
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -133,8 +132,7 @@ public final class Compilation {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("admin.task.coder.Compilation.getCoders: ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -155,7 +153,7 @@ public final class Compilation {
                 compilations = contestAdminServicesEJB.getCoderCompilations(Integer.parseInt(request.getParameter("RoundId")), Integer.parseInt(request.getParameter("CoderId")));
             } catch (Exception e) {
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -178,8 +176,7 @@ public final class Compilation {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("admin.task.coder.Compilation.getCompilations : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;

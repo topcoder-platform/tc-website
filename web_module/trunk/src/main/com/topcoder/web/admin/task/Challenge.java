@@ -86,7 +86,7 @@ public final class Challenge {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("Challenge: process method: ERROR:\n " + e, XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -109,7 +109,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Challenge: getRoomList error retrieving room list .");
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -131,8 +131,7 @@ public final class Challenge {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("Challenge: getRoomMenuScreen : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -205,7 +204,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Challenge: getCoderChallengeList error retrieving challenge list .");
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -228,8 +227,7 @@ public final class Challenge {
             throw ne;
         } catch (Exception e) {
             e.printStackTrace(); //TONY
-            throw new NavigationException("Challenge: getCoderChallengeMenueScreen : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -303,7 +301,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Challenge: getProblemChallengeList error retrieving challenge list .");
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -326,8 +324,7 @@ public final class Challenge {
             throw ne;
         } catch (Exception e) {
             e.printStackTrace(); //TONY
-            throw new NavigationException("Challenge: getProblemChallengeMenueScreen : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -403,7 +400,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Challenge: getChallengeList error retrieving challenge list .");
                 e.printStackTrace();
-                throw new NavigationException("", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -426,7 +423,7 @@ public final class Challenge {
             throw ne;
         } catch (Exception e) {
             e.printStackTrace(); //TONY
-            throw new NavigationException("Challenge: getChallengeMenueScreen : ERROR:\n " + e, XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -447,7 +444,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Challenge: removeChallenge error removing challenge .");
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -458,8 +455,7 @@ public final class Challenge {
             }
 
         } catch (Exception e) {
-            throw new NavigationException("Challenge: removeChallenge  : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
     }
@@ -478,7 +474,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Challenge: overturnChallenge error overturning challenge .");
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -489,8 +485,7 @@ public final class Challenge {
             }
 
         } catch (Exception e) {
-            throw new NavigationException("Challenge: overturnChallenge  : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
     }
@@ -530,7 +525,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Servlet Challenge: getProblemMenuScreen error retrieving probelm list .");
                 e.printStackTrace();
-                throw new NavigationException("", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -562,8 +557,7 @@ public final class Challenge {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("Servlet Challenge: getProblemMenuScreen : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -620,7 +614,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Challenge: getCoderMenuScreen error retrieving coder list .");
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -652,8 +646,7 @@ public final class Challenge {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("Challenge: getCoderMenuScreen : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -674,7 +667,7 @@ public final class Challenge {
             } catch (Exception e) {
                 log.error("Challenge: getRoundMenuScreen error retrieving contest list .");
                 e.printStackTrace();
-                throw new NavigationException("DB ERROR", XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -705,8 +698,7 @@ public final class Challenge {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("Challenge: getRoundMenuScreen : ERROR:\n " + e,
-                    XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
