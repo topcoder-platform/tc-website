@@ -135,11 +135,8 @@
                         <p><strong>View the <A target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this component project</strong>
                         </p>
 
-                        <p><strong><A>
-                            <xsl:attribute name="href">
-                                <xsl:value-of select="concat('/?t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Development&amp;date=', /TC/DEVELOPMENT/date)"/>
-                            </xsl:attribute>
-                        Register</A> for this Component Project to get information necessary to submit a solution</strong>
+                        <p><strong><A href="/?t=development&amp;version=<rsc:item set="<%=projectDetail%>" name="version_id"/>&phase=<rsc:item set="<%=projectDetail%>" name="phase_id"/>&comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>&c=tcs_inquire&Project=<%=response.encodeURL(projectDetail.getStringItem(0, "component_name")+" Design")%>&date=<rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>">
+                                    Register</A> for this Component Project to get information necessary to submit a solution</strong>
                         </p>
 
                             <p><br /></p>
