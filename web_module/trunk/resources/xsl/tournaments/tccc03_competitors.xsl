@@ -118,11 +118,35 @@
                             </td>
 
                             <td align="left" class="statText">
-                                List will be announced on Thursday, Feb. 20th at 9pm
+                                <xsl:for-each select="/TC/TOURNAMENTS/W_Competitors/Competitor">
+                                <a>
+                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="CLASS">statText</xsl:attribute>
+                                    <font>
+                                      <xsl:attribute name="color">
+                                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                                      </xsl:attribute>
+                                      <xsl:value-of select="handle"/>
+                                    </font>
+                                  </a>
+                                  <br />
+                                </xsl:for-each>
                             </td>
 
                             <td align="left" class="statText">
-                                List will be announced on Thursday, Feb. 20th at 9pm
+                                <xsl:for-each select="/TC/TOURNAMENTS/MW_Competitors/Competitor">
+                                <a>
+                                    <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="CLASS">statText</xsl:attribute>
+                                    <font>
+                                      <xsl:attribute name="color">
+                                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                                      </xsl:attribute>
+                                      <xsl:value-of select="handle"/>
+                                    </font>
+                                  </a>
+                                  <br />
+                                </xsl:for-each>
                             </td>
 
                             <td align="left" class="statText">
