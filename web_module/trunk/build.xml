@@ -531,6 +531,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
         </jar>
