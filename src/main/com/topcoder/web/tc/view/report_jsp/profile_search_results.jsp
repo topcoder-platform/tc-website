@@ -23,7 +23,7 @@
 <!--
     function sort(i){
         document.revise['module'].value = 'ProfileSearch';
-        if(i == document.revise['order'].value){
+        if(parseInt(i)+1 == parseInt(document.revise['order'].value)){
             document.revise['sort'].sort = ""+(-parseInt(document.revise['order'].sort));
         }else{
             document.revise['sort'].sort = "1";
