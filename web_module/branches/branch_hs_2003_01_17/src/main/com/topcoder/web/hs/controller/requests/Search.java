@@ -25,6 +25,9 @@ public class Search extends Base {
     if (cmd==null||cmd.equals("")) {
       log.debug("Search processing '' command.");
 
+      SearchBean sb=new SearchBean();
+      request.setAttribute("search",sb);
+
       setNextPage(SEARCH_BASE+ADVANCED_SEARCH_PAGE);
       setIsNextPageInContext(true);
     }
