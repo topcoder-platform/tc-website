@@ -17,6 +17,7 @@
 
 <jsp:include page="../script.jsp" />
 
+
 </head>
 	<body>
 		<div align="center">
@@ -72,6 +73,10 @@
                     <td width="70%" class="sidebarText">0.00</td>
                 </tr>
             </table>
+            
+            <p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_mondayphotos">View Photos</a> from the event.</p>
+            
+
 					
 					
 					</td>
