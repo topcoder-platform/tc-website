@@ -151,14 +151,17 @@
                       <TD VALIGN="top" CLASS="statText">International Region:<BR/>Sat. Feb. 22 @ 12pm EST<BR/>(raindate: Sun. Feb. 23 @ 12pm EST)</TD>                    
                     </TR> -->
                     <TR>                   
-                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText" HEIGHT="30"><B>Northeast &amp; Southeast Regions:</B><BR/>Tues. Feb. 18 @ 9pm EST (raindate: Wed. Feb. 19 @ 9pm EST)</TD>
+                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText" HEIGHT="30"><B>Northeast &amp; Southeast Regions:</B><BR/>Tues. Feb. 18 @ **9pm EST (raindate: Wed. Feb. 19 @ 9pm EST)</TD>
                     </TR>                    
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText" HEIGHT="30"><B>West &amp; Midwest Regions:</B><BR/>Thurs. Feb. 20 @ 9pm EST (raindate: Fri. Feb. 21 @ 9pm EST)</TD>
+                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText" HEIGHT="30"><B>West &amp; Midwest Regions:</B><BR/>Thurs. Feb. 20 @ **9pm EST (raindate: Fri. Feb. 21 @ 9pm EST)</TD>
                     </TR>                    
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText" HEIGHT="30"><B>International Region:</B><BR/>Sat. Feb. 22 @ 12pm EST (raindate: Sun. Feb. 23 @ 12pm EST)</TD>                    
-                    </TR>                                                          
+                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText" HEIGHT="30"><B>International Region:</B><BR/>Sat. Feb. 22 @ **12pm EST (raindate: Sun. Feb. 23 @ 12pm EST)</TD>                    
+                    </TR> 
+                    <TR>
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">**Times are subject to change.</TD>
+                    </TR>                                                                             
                     <TR>
                       <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
                     </TR> 
@@ -242,8 +245,11 @@
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>                      
                     </TR>
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Feb. 26 @ 9pm EST (raindate: Thurs. Feb. 27 @ 9pm EST)</TD>                   
+                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Feb. 26 @ **9pm EST (raindate: Thurs. Feb. 27 @ 9pm EST)</TD>                   
                     </TR>
+                    <TR>
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">**Time is subject to change.</TD>
+                    </TR>                    
                                                           
                     <TR>
                       <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
@@ -317,8 +323,11 @@
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>                      
                     </TR>
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Mar. 5 @ 9pm EST (raindate: Thurs. Mar. 6 @ 9pm EST)</TD>
-                    </TR>                    
+                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Mar. 5 @ **9pm EST (raindate: Thurs. Mar. 6 @ 9pm EST)</TD>
+                    </TR>
+                    <TR>
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">**Time is subject to change.</TD>
+                    </TR>                                        
                     <TR>
                       <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
                     </TR>                    
@@ -374,8 +383,11 @@
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>                      
                     </TR>
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Mar. 12 @ 9pm EST (raindate: Thurs. Mar. 11 @ 9pm EST)<BR/></TD>
-                    </TR>                    
+                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Mar. 12 @ **9pm EST (raindate: Thurs. Mar. 11 @ 9pm EST)<BR/></TD>
+                    </TR>
+                    <TR>
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">**Time is subject to change.</TD>
+                    </TR>                                        
                     <TR>
                       <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
                     </TR>                    
@@ -423,14 +435,14 @@
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">All matches occur on Friday, April 4th</TD>
-                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">10:00am (EST)</TD>
-                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">1:00pm (EST)</TD>
-                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">4:00pm (EST)</TD>
-                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">7:00pm (EST)</TD>
+                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">**10:00am (EST)</TD>
+                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">**1:00pm (EST)</TD>
+                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">**4:00pm (EST)</TD>
+                      <TD ALIGN="center" HEIGHT="13" CLASS="statText">**7:00pm (EST)</TD>
                       <TD ALIGN="center" HEIGHT="13" CLASS="statText">&#160;</TD>                      
                     </TR>                    
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">Times are subject to change.</TD>
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">**Times are subject to change.</TD>
                     </TR>                    
                     <!-- <TR>
                       <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Room 1 - 8am EST<BR/>Room 2 - 11am EST</TD>
@@ -467,8 +479,11 @@
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>                      
                     </TR>
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">Saturday, April 5, @ 12pm EST</TD>
-                    </TR> 
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">Saturday, April 5, @ **12pm EST</TD>
+                    </TR>
+                    <TR>
+                      <TD COLSPAN="6" VALIGN="middle" HEIGHT="13" CLASS="statText">**Time is subject to change.</TD>
+                    </TR>                     
                     <TR>
                       <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
                     </TR>                                       
