@@ -7,8 +7,8 @@
 <jsp:include page="../../script.jsp" />
 
 <script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=yes,menubar=no,width="+w+",height="+h);
+function openWin(url, name) {
+    win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=yes,toolbar=no,width=800,height=600");
     win.location.href = url;
     win.focus();
 }
@@ -106,8 +106,8 @@ the Arena applet.
                 </tr>
                <tr>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A target="" class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc1','pops_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A target="" class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_initial_doc1','kyky_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A target="" class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc1','pops',800,600); return false;"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A target="" class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_initial_doc1','kyky',800,600); return false;"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
                
@@ -145,8 +145,8 @@ the Arena applet.
                 </tr>
                <tr>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="aksonov_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_initial_doc1','aksonov_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="rnielsen_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc1','rnielsen_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="aksonov_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_initial_doc1','aksonov',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="rnielsen_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_initial_doc1','rnielsen',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
             
