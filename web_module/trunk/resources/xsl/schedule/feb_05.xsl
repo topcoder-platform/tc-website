@@ -146,6 +146,7 @@
                                     <strong>Match 232</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
+                                    Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=motorola">Motorola</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=6521&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">24</td>
