@@ -2,6 +2,7 @@ package com.topcoder.utilities;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.ejb.user.UserAddress;
@@ -48,7 +49,7 @@ public class UserMover {
                 if(count%100==0) log.info(""+count+" users processed");
             }
             long end = System.currentTimeMillis();
-            log.debug("all done, " + count + " moved in " + (double)(end/1000) + " seconds");
+            log.debug("all done, " + count + " moved in " + (double)((end-begin)/1000) + " seconds");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,7 +105,9 @@ public class UserMover {
             phoneEJB.setPrimaryPhoneId(userId, phoneId);
             phoneEJB.setPhoneTypeId(phoneId, 2);
 
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
             UserPrincipal up = pmr.getUser(userId);
             TCSubject tcs = new TCSubject(132456);
