@@ -48,7 +48,7 @@ public class UploadResume extends Base {
                     }
                 }
             } else {
-                throw new Exception("No files uploaded");
+                addError(Constants.FILE, "Sorry, the file you attempted to upload was empty.");
             }
             if (hasErrors()) {
                 setNextPage(Constants.RESUME_PAGE);

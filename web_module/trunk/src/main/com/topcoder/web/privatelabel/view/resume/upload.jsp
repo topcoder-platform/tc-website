@@ -2,6 +2,7 @@
 <%@ page language="java"%>
 
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="rsc" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="fileTypes" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
 <HTML>
@@ -13,6 +14,7 @@
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="UploadResume">
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<%=request.getParameter(Constants.COMPANY_ID)%>">
+            <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>
             <br/>Resume: <input type="file" name="<%=Constants.FILE%>">
             <br/>File Type: <select name="fileType" class="dropdown">
             <rsc:iterator list="<%=fileTypes%>" id="fileType">
