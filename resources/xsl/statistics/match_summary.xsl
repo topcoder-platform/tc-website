@@ -70,7 +70,7 @@
             </TR>                        
             <TR>
 				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 90</A></TD>						
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Saturday, May 21</A></TD>
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Wednesday, May 21</A></TD>
 				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
             </TR>           
             <TR>
@@ -137,7 +137,7 @@ back with a successful challenge of the Level Two submission of <A HREF="/stat?c
 successful challenge of the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=280185" CLASS="bodyGeneric">ericc</A>.</P>
 
 <P><A HREF="/stat?c=member_profile&amp;cr=284107" CLASS="bodyGeneric">jder</A> finished second to <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">honda89dude</A> 
-in Room 31, but earned 464 rating points, which is the fifth largest gain. <B>jder</B> earned 245 points on the Level One problem, 458.19 on the Level Two problem, and 550.48 on 
+in Room 31, but earned 464 rating points, which is the fifth largest gain. <B>jder</B> earned 245.04 points on the Level One problem, 458.19 on the Level Two problem, and 550.48 on 
 the Level Three problem.</P>
 
 <P><A HREF="/stat?c=member_profile&amp;cr=282715" CLASS="bodyGeneric">The Llama</A> won Room 43 with 1392.99 final points, and earned 450 rating points, which ties 
