@@ -153,11 +153,12 @@ The assignments for the first round of the tournament are now available.  Each p
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" CLASS="bodyText"><BR/>
-<FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The Reception</B></FONT><BR/>
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu 
-feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril 
-delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue 
-nihil imperdiet doming id quod mazim placerat facer possim assum...
+<FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The Reception: A View from the Inside</B></FONT><BR/>
+In a scene reminiscent of Survivor, 16 finalists have gathered onsite to outwit, out-type and 
+out-code each other and, in the process, walk away with $50,000.  With the Melbourne University vs. 
+University of Waterloo rivalry alive on the international scene, and the question of whether Stanford 
+University will continue its dominance on the minds of the Americans, the 2002 TopCoder Invitational 
+is slated to be the most exciting onsite event yet.  Join me as the scene unfolds over the next two days...
 <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_reception</xsl:attribute>read&#160;more</A>
 
 <BR/><BR/>
