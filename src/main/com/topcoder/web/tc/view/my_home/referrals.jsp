@@ -37,6 +37,10 @@
             <jsp:param name="title" value=""/>  
         </jsp:include>
 
+        <p>
+        The following is a list of members who have listed you as a reference when they registered to become a TopCoder member. Should they earn any money as a competitor, the referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration!  To find out more about the TopCoder Referral Program, click <A href="/?&t=support&c=referral">here</a>.
+        </p>
+        
         <br/>
         <table width="300" border="0" cellpadding="5" cellspacing="0" align=center>
             <tr>

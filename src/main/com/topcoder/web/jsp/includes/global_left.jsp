@@ -102,7 +102,7 @@
                 <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=my_home&d2=home" class="<%=level1.equals("my_home")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("my_home")?"bottom":"right"%>.gif" border="0"/>$HOME</a></td></tr>
                 <% if (level1.equals("my_home")) { %>
                     <tr><td id="<%=level2.equals("profile")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/Registration">Update My Profile</A></td></tr>
-                    <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=referral">Referrals</A></td></tr>
+                    <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReferrals">Referrals</A></td></tr>
                     <tr><td id="<%=level2.equals("card")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=card&d2=description">Cards / Badges</A></td></tr>
                 <% } %>
 <%-- Schedule begins --%>
