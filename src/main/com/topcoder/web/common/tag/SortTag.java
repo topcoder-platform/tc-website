@@ -17,6 +17,7 @@ public class SortTag extends TagSupport {
 
     public void setColumn(int column) {
         log.debug("setColumn called: " + column);
+        System.out.println("setColumn called: " + column);
         this.column = column;
     }
 
@@ -26,6 +27,7 @@ public class SortTag extends TagSupport {
         SortInfo defaults = (SortInfo)pageContext.getRequest().getAttribute(SortInfo.REQUEST_KEY);
         String sortDir = defaults.getDefault(column);
         log.debug("sortdir: " + sortDir);
+        System.out.println("sortdir: " + sortDir);
         if (sortDir==null) sortDir = "asc";
 
         if (!(currCol.equals("") || currDir.equals(""))) {

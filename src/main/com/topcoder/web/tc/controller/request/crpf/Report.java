@@ -32,6 +32,7 @@ public class Report extends Base {
             da.setExpireTime(30*60*1000); //30 minutes should be sufficient
             Map m = da.getData(r);
             ResultSetContainer rsc = (ResultSetContainer)m.get("crpf_donation_list");
+            log.debug("putting sortinfo into request");
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("rank"), "asc");
             s.addDefault(rsc.getColumnIndex("handle"), "asc");
