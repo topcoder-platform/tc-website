@@ -480,14 +480,15 @@ SELECT c.coder_id,
        coder_type ct,
        campaign_job_xref cjx,
        country,
-       coder c
-  LEFT OUTER JOIN current_school cs ON cs.coder_id = c.coder_id
+       coder c,
+       OUTER current_school cs
  WHERE cjx.campaign_id = @cid@
    AND j.job_id = cjx.job_id
    AND jh.job_id = cjx.job_id
    AND u.user_id = jh.user_id
    AND r.coder_id = jh.user_id
    AND c.coder_id = jh.user_id
+   AND cs.coder_id = c.coder_id
    AND ct.coder_type_id = c.coder_type_id
    AND country.country_code = c.country_code
  ORDER BY jh.timestamp DESC
@@ -515,12 +516,13 @@ SELECT c.coder_id,
        job_hit jh,
        coder_type ct,
        country,
-       coder c
-  LEFT OUTER JOIN current_school cs ON cs.coder_id = c.coder_id
+       coder c,
+       OUTER current_school cs
  WHERE jh.job_id = @jid@
    AND u.user_id = jh.user_id
    AND r.coder_id = jh.user_id
    AND c.coder_id = jh.user_id
+   AND cs.coder_id = c.coder_id
    AND ct.coder_type_id = c.coder_type_id
    AND country.country_code = c.country_code
  ORDER BY jh.timestamp DESC
@@ -590,6 +592,7 @@ SELECT dq.demographic_question_id
    AND dr.demographic_answer_id = da.demographic_answer_id
    AND dr.demographic_question_id = dq.demographic_question_id
    AND da.demographic_question_id = dq.demographic_question_id
+   AND dr.demographic_question_id = da.demographic_question_id
    AND (cjx.campaign_id = @cid@)
    AND (coder.coder_type_id = @ct@)
  GROUP BY dr.demographic_answer_id
@@ -657,6 +660,7 @@ SELECT dq.demographic_question_id
    AND dr.demographic_answer_id = da.demographic_answer_id
    AND dr.demographic_question_id = dq.demographic_question_id
    AND da.demographic_question_id = dq.demographic_question_id
+   AND dr.demographic_question_id = da.demographic_question_id
    AND (jh.job_id = @jid@)
    AND (coder.coder_type_id = @ct@)
  GROUP BY dr.demographic_answer_id
@@ -725,20 +729,6 @@ SELECT c.coder_id
             AND dr1.demographic_question_id = 18
             AND dr1.demographic_answer_id = da1.demographic_answer_id
             AND dr1.demographic_question_id = da1.demographic_question_id) AS grad_year
-     ,  (SELECT demographic_answer_text
-           FROM demographic_response dr1 
-              , demographic_answer da1
-          WHERE dr1.coder_id = c.coder_id
-            AND dr1.demographic_question_id = 7
-            AND dr1.demographic_answer_id = da1.demographic_answer_id
-            AND dr1.demographic_question_id = da1.demographic_question_id) AS industry
-     ,  (SELECT demographic_answer_text
-           FROM demographic_response dr1 
-              , demographic_answer da1
-          WHERE dr1.coder_id = c.coder_id
-            AND dr1.demographic_question_id = 8
-            AND dr1.demographic_answer_id = da1.demographic_answer_id
-            AND dr1.demographic_question_id = da1.demographic_question_id) AS job_title
   FROM country cy
      , user u
      , coder_type ct
@@ -768,6 +758,7 @@ SELECT dq.demographic_question_id
  WHERE dr.demographic_answer_id = da.demographic_answer_id
    AND dr.demographic_question_id = dq.demographic_question_id
    AND da.demographic_question_id = dq.demographic_question_id
+   AND dr.demographic_question_id = da.demographic_question_id
    AND (dr.coder_id = @mid@)
  ORDER BY dq.demographic_question_id
      , da.sort
