@@ -446,9 +446,9 @@
                                             free we can place the bar in that row.  Otherwise we must allocate a new row.
                                         </p>
                                         <p>&#160;</p>
-                                        <a name="GPS"></a>
+                                        <a name="ChipWire"></a>
                                         <font size="+2">
-                                            <b>GPS</b>
+                                            <b>ChipWire</b>
                                         </font>
                                         <br/>
                                         <font size="-1">
@@ -459,26 +459,26 @@
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Value</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">1050</td>
+                                                        <td style="background: #eee;" class="bodyText">1000</td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Submission Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">17
+                                                        <td style="background: #eee;" class="bodyText">24
                                                             /
-                                                            89
-                                                            (19.1%)
+                                                            136
+                                                            (17.65%)
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Success Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">7
+                                                        <td style="background: #eee;" class="bodyText">8
                                                             /
-                                                            17
-                                                            (41.18%)
+                                                            24
+                                                            (33.33%)
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -486,58 +486,36 @@
                                                             <b>High Score</b>
                                                         </td>
                                                         <td style="background: #eee;" class="bodyText">
-                                                            <b>John Dethridge</b> for
-                                                            751.92 points
+                                                            <b>Yarin</b> for
+                                                            777.13 points
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </blockquote>
                                         </font>
+                                        <P> Reference Solution: brett1479 in the practice room</P>
                                         <h4>Implementation</h4>
                                         <p>
-                                            This problem can be reduced to finding the shortest path between a vertex and a set of vertices
-                                            in a graph.  In this graph, the intersections, the location of the caller, and the locations of
-                                            ambulances are vertices.  Each of these vertices can be represented as the road(s) they are on
-                                            and their location along these roads.  From this information the edges can be derived, as any
-                                            vertices that share a road are directly connected, and the weight of this edge can be determined
-                                            by the difference between their locations on the common road and the speed limit on that road.
-                                        </p>
-                                        <p>
-                                            Once we build this graph, we can approach the shortest path problem in several ways.  This particular
-                                            problem is known as the single source shortest paths (SSSP) problem, because it is solved by finding the
-                                            shortest paths to all vertices from a single source vertex (contrast this with the all pairs
-                                            shortest paths problem, which comes up more often in these contests).  A very well-known algorithm
-                                            for solving the SSSP problem is
-                                            <a href="http://ciips.ee.uwa.edu.au/~morris/Year2/PLDS210/dijkstra.html" class="bodyText" target="_blank">Dijkstra's algorithm</a>,
-                                            explained in the preceding link.
-                                        </p>
-                                        <p>
-                                            Clearly the hardest part to this problem is building the graph from the input.  The rest has been solved
-                                            by most programmers many times before.  To find road intersections, we iterate through all pairs of roads.
-                                            For each pair, we can only have an intersection if one road is horizontal and the other is vertical.  If
-                                            the pair meets this requirement, we look at the horizontal road and see if the
-                                            <i>y</i> component of its
-                                            two endpoints lies between the
-                                            <i>y</i> components of the vertical road's endpoints.  If this is the case,
-                                            we then look at the vertical road and see if the
-                                            <i>x</i> component of its two endpoints lies between the
-                                            <i>x</i> components of the horizontal road's endpoints.  If these conditions are met, then these roads intersect
-                                            at the
-                                            <i>x</i> component of the vertical road and the
-                                            <i>y</i> component of the horizontal road.
-                                        </p>
-                                        <p>
-                                            After we find all intersections, we have to deal with the ambulances.  Some are located at intersections; for these
-                                            we don't have to build a new vertex, but can simply mark an existing intersection vertex as a target.  Ambulances
-                                            not located at intersections require a new vertex to be built using the road the ambulance is on and its location
-                                            along that road.  In either case we have to iterate through all the roads to find the one or two roads that the
-                                            ambulance is on.  This requires math similar to that used to determine if roads intersect (you could think of an ambulance
-                                            as both a horizontal and vertical road of zero length).
+                                            In computer chips, wires usually must travel only horizontally and vertically
+                                            between two points.  When trying to build a chip such that all parts on it are
+                                            connected, many wires must often be used.  These parts and wires are often
+                                            modeled by vertices and edges in a graph.  In order to produce a more efficient
+                                            wiring scheme extra vertices, called Steiner points, may be added allowing for
+                                            cheaper solutions.  To solve this problem, we realize that the only points that
+                                            need be considered share x and y coordinates with the given points.  For example,
+                                            if the points given are (5,5), (0,0) and (10,0) the x-coordinate of added points
+                                            must be 0, 5, or 10, where as the y-coordinate must be 0 or 5.  Since the maximum
+                                            number of input points is 5, the largest number of added points we have to consider
+                                            is 25.  In addition, we will never need more than 5 added points to solve this
+                                            problem, so we can check all subsets of these 25 elements up to 5 elements
+                                            determining which set of added points produces the best answer.  Each time we
+                                            want to check, we can run a minimum spanning tree algorithm such as Prim's
+                                            algorithm.
                                         </p>
                                         <p>&#160;</p>
 
-                                        <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-                                        By&#160;Logan
+                                        <IMG SRC="/i/m/brett1479_mug.jpg" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+                                        By&#160;brett1479
                                         <BR/>
                                         <DIV CLASS="smallText">
                                             <I>TopCoder Member</I>
