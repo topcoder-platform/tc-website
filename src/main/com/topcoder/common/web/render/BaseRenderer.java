@@ -22,6 +22,8 @@ abstract class BaseRenderer implements ElementRenderer {
             {"ul", "ol", "li", "tt", "i", "b", "h1", "h2", "h3", "h4",
              "h5", "a", "img", "br", "sub", "sup", "p", "pre", "hr", "list"};
 
+    protected String tdClass;
+
     public abstract String toHTML(Language language) throws InstantiationException, IllegalAccessException, ClassNotFoundException, Exception;
 
     public abstract String toPlainText(Language language) throws InstantiationException, IllegalAccessException, ClassNotFoundException, Exception;
@@ -109,6 +111,14 @@ abstract class BaseRenderer implements ElementRenderer {
         }
 
         return buf.toString();
+    }
+
+    public String getTdClass() {
+        return tdClass;
+    }
+
+    public void setTdClass(String tdClass) {
+        this.tdClass = tdClass;
     }
 }
 

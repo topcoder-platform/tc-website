@@ -24,7 +24,7 @@ public class DataValueRenderer implements ElementRenderer {
     }
 
     public String toHTML(Language language) {
-        return ProblemRenderer.encodeHTML(toPlainText(language));
+        return BaseRenderer.encodeHTML(toPlainText(language));
     }
 
     public String toPlainText(Language language) {

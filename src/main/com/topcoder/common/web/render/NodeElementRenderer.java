@@ -39,7 +39,7 @@ public class NodeElementRenderer extends BaseRenderer implements ElementRenderer
                 buf.append(' ');
                 buf.append(key);
                 buf.append("=\"");
-                buf.append(ProblemRenderer.encodeHTML((String) nodeElement.getAttributes().get(key)));
+                buf.append(BaseRenderer.encodeHTML((String) nodeElement.getAttributes().get(key)));
                 buf.append('"');
             }
             buf.append('>');

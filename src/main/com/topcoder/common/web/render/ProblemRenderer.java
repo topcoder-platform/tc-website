@@ -9,7 +9,7 @@ import java.awt.*;
  * Handles the display of a <code>com.topcoder.shared.problem.Problem</code>
  * @author Greg Paul
  */
-public class ProblemRenderer implements ElementRenderer {
+public class ProblemRenderer extends BaseRenderer implements ElementRenderer {
 
     private Problem problem;
     private Color backgroundColor = null;
@@ -39,33 +39,23 @@ public class ProblemRenderer implements ElementRenderer {
      * @return the problem statement
      */
     public String toHTML(Language language) throws Exception {
-        StringBuffer html = new StringBuffer("<html>");
-        html.append("<body");
-        if (backgroundColor != null) {
-            html.append(" bgcolor=\"#");
-            html.append(rgbColor(backgroundColor));
-            html.append("\"");
-        }
-        if (foregroundColor != null) {
-            html.append(" text=\"#");
-            html.append(rgbColor(foregroundColor));
-            html.append("\"");
-        }
-        html.append(">");
+        StringBuffer html = new StringBuffer(1000);
 
         if (!problem.getProblemText().equals("")) {
             html.append(problem.getProblemText());
             html.append("<hr>");
         }
         ProblemComponent[] problemComponents = problem.getProblemComponents();
+        ProblemComponentRenderer pcr = null;
         for (int i = 0; i < problemComponents.length; i++) {
-            html.append(new ProblemComponentRenderer(problemComponents[i]).toHTML(language));
+            pcr = new ProblemComponentRenderer(problemComponents[i]);
+            pcr.setTdClass(getTdClass());
+            html.append(pcr.toHTML(language));
             html.append("<hr>");
         }
         html.append("<p>");
         html.append(LEGAL);
         html.append("</p>");
-        html.append("</body></html>");
 
         return html.toString();
     }
@@ -127,6 +117,7 @@ public class ProblemRenderer implements ElementRenderer {
     /**
      * Set the background color to be used when rendering.
      * @param backgroundColor
+     * @deprecated use a css style now
      */
     public void setBackgroundColor(Color backgroundColor) {
         this.backgroundColor = backgroundColor;
@@ -135,39 +126,10 @@ public class ProblemRenderer implements ElementRenderer {
     /**
      * Set the foreground (text) color to be used when rendering.
      * @param foregroundColor
+     * @deprecated use a css style now
      */
     public void setForegroundColor(Color foregroundColor) {
         this.foregroundColor = foregroundColor;
-    }
-
-    /**
-     * Utility function for encoding HTML entities in text.  All occurrences of the &lt;, &gt;,
-     * and &amp; characters are converted to &amp;lt;, &amp;gt;, and &amp;amp;, respectively.
-     * @param text
-     * @return
-     */
-    static public String encodeHTML(String text) {
-        StringBuffer buf = new StringBuffer(text.length());
-
-        for (int i = 0; i < text.length(); i++) {
-            switch (text.charAt(i)) {
-                case '&':
-                    buf.append("&amp;");
-                    break;
-                case '<':
-                    buf.append("&lt;");
-                    break;
-                case '>':
-                    buf.append("&gt;");
-                    break;
-                case '"':
-                    buf.append("&quot;");
-                    break;
-                default:
-                    buf.append(text.charAt(i));
-            }
-        }
-        return buf.toString();
     }
 
 }
