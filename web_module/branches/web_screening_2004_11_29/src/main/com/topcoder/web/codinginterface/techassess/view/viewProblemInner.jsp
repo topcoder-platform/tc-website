@@ -16,7 +16,7 @@
       inputItem.value='';
     }
 </SCRIPT>
-
+<jsp:include page="problemTimer.jsp"/>
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -38,7 +38,7 @@
 
 <%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
-         <jsp:param name="timer" value="remaining"/>
+         <jsp:param name="timer" value="<%=problemInfo.getComponentId()%>"/>
       </jsp:include>
 
       <table cellspacing=0 cellpadding=0 class=bodyTable>

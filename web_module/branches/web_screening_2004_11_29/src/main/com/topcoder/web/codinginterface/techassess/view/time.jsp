@@ -8,6 +8,9 @@
       <%if(probTimer.equals("current")){%>
       <td class=timeCellRight>Current Time<br />
         <span id=currentTime>Initializing</span></td>
-      <%}%>
+      <%} else { %>
+      <td class=timeCellRight>Time<br />
+        <span id="<%=probTimer%>">Initializing</span></td>
+      <% } %>
    </tr>
 </table>
