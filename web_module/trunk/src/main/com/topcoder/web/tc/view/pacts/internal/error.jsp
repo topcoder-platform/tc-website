@@ -4,10 +4,11 @@
 </head>
 <body>
 
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,
+                 com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 
-<% String message = (String) request.getAttribute("message");
+<% String message = (String) request.getAttribute(BaseServlet.MESSAGE_KEY);
    if (message == null) message = "There was an error processing your request.";
 %>
 
@@ -15,6 +16,6 @@
 <% out.print(message); %>
 </font>
 
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
 </html>
