@@ -55,7 +55,7 @@ List industryList = (List)request.getAttribute("industrySkills");
               <tr>
                 <td valign=top align=center colspan=2>
 			<tr>
-				<td class=bodyText>
+				<td class=bodyText colspan=2>
 
  			<%if(request.getAttribute("hasResume") != null && request.getAttribute("hasResume").equals("true")) {%>
                 <a href="/tc?module=DownloadResume&<%=Constants.USER_ID%>=<jsp:getProperty name="contractingInfo" property="userId" />">Download resume</a>
