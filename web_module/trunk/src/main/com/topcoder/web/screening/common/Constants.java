@@ -14,8 +14,9 @@ public class Constants
     public static String ERROR_PAGE;
     public static String PERM_ERROR_PAGE;
     public static String PROCESSORS_PACKAGE;
-    public static String VALID_CHAR_LIST;    
-    public static String CONTROLLER_URL;    
+    public static String VALID_CHAR_LIST;
+    public static String VALID_PASS_CHAR_LIST;
+    public static String CONTROLLER_URL;
     public static String DEFAULT_PAGE;
     public static String REQUEST_INFO;
 
@@ -155,6 +156,7 @@ public class Constants
         PERM_ERROR_PAGE = config.getInitParameter("perm_error_page");
         PROCESSORS_PACKAGE = config.getInitParameter("processors_package");
         VALID_CHAR_LIST = config.getInitParameter("valid_char_list");
+        VALID_PASS_CHAR_LIST = config.getInitParameter("valid_pass_char_list");
         CONTROLLER_URL = config.getInitParameter("controller_url");
         DEFAULT_PAGE = config.getInitParameter("default_page");
         REQUEST_INFO = config.getInitParameter("request_info_attribute");
