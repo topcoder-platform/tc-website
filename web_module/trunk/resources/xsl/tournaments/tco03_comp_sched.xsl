@@ -126,30 +126,7 @@
                         09.17.03 11:59pm
                      </td>
                 </tr>
-                <tr valign="top">
-                    <td class="sidebarText" colspan="3">Review</td>
-                 </tr>
-               <tr>
-                     <td class="sidebarText">
-                        Screening<br/>
-                        Reviews<br/>
-                        Appeals due<br/>
-                        Aggregation<br/>
-                     </td>
-                     <td class="sidebarText">
-                        09.17.03 6:00pm<br/>
-                        09.22.03 6:00pm<br/>
-                        09.23.03 11:00am<br/>
-                        09.25.03 6:00pm<br/>
-                     </td>
-                     <td class="sidebarText">
-                        09.19.03 6:00pm<br/>
-                        09.24.03 6:00pm<br/>
-                        09.25.03 11:00am<br/>
-                        09.29.03 6:00pm<br/>
-                     </td>                     
-                </tr>
-                  <tr>
+                 <tr>
                      <td class="sidebarText">
                         Winners announced
                         </td>
@@ -184,29 +161,6 @@
                      <td class="sidebarText">
                         10.22.03 11:59pm
                      </td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText" colspan="3">Review</td>
-                 </tr>
-               <tr>
-                     <td class="sidebarText">
-                        Screening<br/>
-                        Reviews<br/>
-                        Appeals due<br/>
-                        Aggregation<br/>
-                     </td>
-                     <td class="sidebarText">
-                        10.22.03 6:00pm<br/>
-                        10.27.03 6:00pm<br/>
-                        10.28.03 11:00am<br/>
-                        10.30.03 6:00pm<br/>
-                      </td>
-                     <td class="sidebarText">
-                        10.24.03 6:00pm<br/>
-                        10.29.03 6:00pm<br/>
-                        10.30.03 11:00am<br/>
-                        11.03.03 6:00pm<br/>
-                     </td>                     
                 </tr>
                   <tr>
                      <td class="sidebarText">
@@ -243,29 +197,6 @@
                      <td class="sidebarText">
                         11.17.03 11:59pm
                      </td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText" colspan="3">Review</td>
-                 </tr>
-               <tr>
-                     <td class="sidebarText">
-                        Screening<br/>
-                        Reviews<br/>
-                        Appeals due<br/>
-                        Aggregation<br/>
-                     </td>
-                     <td class="sidebarText">
-                        N/A<br/>
-                        11.21.03 6:00pm<br/>
-                        N/A<br/>
-                        11.25.03 6:00pm<br/>
-                     </td>
-                     <td class="sidebarText">
-                        N/A<br/>
-                        11.21.03 6:00pm<br/>
-                        N/A<br/>
-                        11.25.03 6:00pm<br/>
-                     </td>                     
                 </tr>
                   <tr>
                      <td class="sidebarText">
