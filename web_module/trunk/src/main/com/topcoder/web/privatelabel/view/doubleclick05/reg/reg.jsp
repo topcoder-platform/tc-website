@@ -69,7 +69,7 @@ function changeField() {
 	  	</td>
 		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
-         <p>Registration is open until 6:00 PM on Tuesday, Match 1st, 2005.</p>
+         <p>Registration is open until 6:00 PM on Tuesday, March 1st, 2005.</p>
 
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DC05_REG_CONFIRM%>"/>

@@ -17,7 +17,8 @@
 <jsp:include page="../../script.jsp" />
 <jsp:include page="../../nocache.jsp"/>
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick05.css"/>
 
 </head>
 <body align="center">
@@ -33,7 +34,7 @@
 	      <img src="/i/events/doubleclick/image1.gif" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Registration</p>
+         <p class="bigTitle">Registration</p>
 
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DC05_REG_SUBMIT%>"/>
