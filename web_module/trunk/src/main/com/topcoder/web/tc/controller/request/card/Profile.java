@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.card;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.tc.Constants;
 
 /**
  * @author dok
@@ -20,7 +21,7 @@ public class Profile extends BaseProcessor {
         //pretty much just pass it along.  the data retriever will check
         //to be sure it should be serving up the data
         getRequest().setAttribute("cr", coderId);
-        setNextPage("/card/landing_page.jsp");
+        setNextPage(Constants.LANDING_PAGE);
         setIsNextPageInContext(true);
 
     }
