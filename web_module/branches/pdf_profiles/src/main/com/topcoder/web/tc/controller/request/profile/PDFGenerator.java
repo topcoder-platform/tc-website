@@ -789,9 +789,6 @@ public class PDFGenerator extends BaseProcessor {
             }
             
         }
-        
-        doc.newPage();
-        doc.add(new Phrase("RESUME HERE"));    
     }
     
     final class MyPageEvents extends PdfPageEventHelper {
