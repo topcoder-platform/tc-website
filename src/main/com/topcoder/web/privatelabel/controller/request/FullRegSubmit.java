@@ -26,7 +26,7 @@ import java.util.List;
  *
  * @author gpaul 06.26.2003
  */
-public class FullRegSubmit extends SimpleRegSubmit {
+abstract class FullRegSubmit extends SimpleRegSubmit {
     private static final int HIT_TYPE = 3; //private label reg hit type
 
     protected void registrationProcessing() throws TCWebException {
@@ -37,15 +37,7 @@ public class FullRegSubmit extends SimpleRegSubmit {
           so it should be good
         */
         commit(regInfo);
-
-        //if there reg info suggests they're not eligible, give them the ineligible page
-        if (isEligible()) {
-            setNextPage(Constants.VERIZON_REG_SUCCESS_PAGE);
-        } else {
-            setNextPage(Constants.VERIZON_INELIGIBLE_PAGE);
-        }
-        setIsNextPageInContext(true);
-
+        setNextPage();
         clearRegInfo();
     }
 
@@ -80,7 +72,6 @@ public class FullRegSubmit extends SimpleRegSubmit {
             }
         }
 
-        //todo abstract out the verizon specific stuff
         if (isEligible()) {
             long jobId = getJobId();
             if (jobId > 0) {
@@ -103,6 +94,8 @@ public class FullRegSubmit extends SimpleRegSubmit {
         return ret;
     }
 
+    protected abstract boolean isEligible();
+
     protected SimpleRegInfo makeRegInfo() throws Exception {
         //get all reg info from the session, no changes should have been made at this point
         FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
@@ -114,33 +107,8 @@ public class FullRegSubmit extends SimpleRegSubmit {
         return info;
     }
 
-    /**
-     *
-     * @return
-     */
-    protected boolean isEligible() {
-        boolean ret = true;
-        ret &= regInfo.getCity().toLowerCase().equals("chennai");
-        ret &= regInfo.getCountryCode().equals("356"); //india
-        ret &= hasDegree();
-        return ret;
-    }
 
-    /**
-     * check if they've chosen a demographic answer that suggests they have
-     * not gotten a degree.
-     * @return
-     */
-    private boolean hasDegree() {
-        boolean hasDegree = true;
-        List l = ((FullRegInfo)regInfo).getResponses();
-        DemographicResponse dr = null;
-        for (Iterator it = l.iterator(); hasDegree&&it.hasNext();) {
-            dr = (DemographicResponse)it.next();
-            //we're assuming that no other question has this as a valid answer.
-            hasDegree = dr.getAnswerId()!=Constants.NO_DEGREE_ANSWER;
-        }
-        return hasDegree;
-    }
+
+
 
 }
