@@ -2,15 +2,14 @@ package com.topcoder.utilities.cheaterChecker;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class CPS implements Fraud {
     private static Logger log = Logger.getLogger(CPS.class);
     private StringBuffer report = null;
     private List submissions = null;
     private static final double STD_DEV_THRESHHOLD = 2.0D;
+    private ArrayList potentialViolators = new ArrayList();
 
     public CPS(List submissions) {
         report = new StringBuffer(submissions.size() * 10);
@@ -45,6 +44,7 @@ public class CPS implements Fraud {
                 report.append("  ");
                 report.append(s1.getHandle());
                 report.append("\n");
+                potentialViolators.add(new User(s1.getCoderId(), s1.getHandle()));
             } else {
                 break;
             }
@@ -53,5 +53,9 @@ public class CPS implements Fraud {
 
     public String getReport() {
         return report.toString();
+    }
+
+    public List getPotentialViolators() {
+        return potentialViolators;
     }
 }
