@@ -198,27 +198,20 @@ public final class TaskDevelopment {
             }
             /********************** comp_projects2 *******************/
             else if (command.equals("comp_projects2")) {
-                if (nav.getLoggedIn()) {
-                    java.lang.StringBuffer compProjects = new java.lang.StringBuffer("<tr><td colspan=\"5\" background=\"\"><img src=\"/i/clear.gif\" width=\"1\" height=\"5\" alt=\"\" border=\"0\" /></td></tr>\n");
-                    compProjects.append("\n");
-                    compProjects.append("<tr valign=\"top\">\n");
-                    compProjects.append("    <td background=\"\" width=\"10\" class=\"statText\"><img src=\"/i/clear.gif\" alt=\"\" width=\"10\" height=\"1\" border=\"0\" /></td>\n");
-                    compProjects.append("    <td background=\"\" class=\"statText\"><a class=\"statText\" href=\"/index?t=development&amp;c=tcs_inquire-design&amp;payment=280&amp;date=2&#47;19&#47;2003\">");
-                    compProjects.append("componentName");
-                    compProjects.append("</a></td>\n");
-                    compProjects.append("    <td background=\"\" class=\"statText\" align=\"center\">");
-                    compProjects.append(payment);
-                    compProjects.append("</td>\n");
-                    compProjects.append("    <td background=\"\" class=\"statText\" align=\"center\">");
-                    compProjects.append(date);
-                    compProjects.append("</td>\n");
-                    compProjects.append("    <td background=\"\" width=\"10\" class=\"statText\"><img src=\"/i/clear.gif\" alt=\"\" width=\"10\" height=\"1\" border=\"0\" /></td>");
-                    compProjects.append("</tr>\n");
-                    devTag.addTag(new ValueTag("design_projects", compProjects.toString()));
-                    xsldocURLString = XSL_DIR + command + ".xsl";
-                } else {
-                    requiresLogin = true;
-                }
+
+               RecordTag designProjectsTag = new RecordTag("design_projects");
+               for(int i =0; i <2;i++){
+                    RecordTag designProject = new RecordTag("designproject");
+                    ValueTag projectTag = new ValueTag("payment", "343");
+                    ValueTag nameTag = new ValueTag("componentName", "Component Name" + i);
+
+                    designProject.addTag(projectTag);
+                    designProject.addTag(nameTag);
+                    designProjectsTag.addTag(designProject);
+               }  
+               devTag.addTag(designProjectsTag); 
+               xsldocURLString = XSL_DIR + command + ".xsl";
+
             }
             /********************** tcs_inquire-design *******************/
             else if (command.equals("tcs_inquire-design")) {
