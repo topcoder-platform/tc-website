@@ -17,6 +17,7 @@ import com.topcoder.security.NoSuchUserException;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.Transaction;
 
@@ -36,7 +37,7 @@ import com.topcoder.web.screening.model.SessionInfo;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
 
-/** 
+/**
  * <p>
  * This process will update an existing candidate unless it is a new one.
  * Then it will create a new one.
@@ -55,21 +56,21 @@ public class UpdateCandidate extends BaseProcessor
     private ServletRequest request;
 
     public UpdateCandidate() {
-        createCoderStatusId = 
+        createCoderStatusId =
             Integer.parseInt(Constants.UC_CREATE_CODER_STATUS_ID);
         maxPasswordSize = Integer.parseInt(Constants.MAX_PASSWORD_SIZE);
     }
 
-    /** 
+    /**
      * Processes the inputted information specified for CandidateSetup.
      * Decides if it is a new or old one and updates/creates if applicable.
-     * 
+     *
      * @throws Exception Thrown if there is input error.
      */
     public void process() throws Exception {
         synchronized(UpdateCandidate.class) {
         requireLogin();
-        
+
         request = getRequest();
         CandidateInfo info = new CandidateInfo();
         if(!buildInfo(request, info)) {
@@ -86,11 +87,11 @@ public class UpdateCandidate extends BaseProcessor
             PortableRemoteObject.narrow(
                     context.lookup("screening:"+EmailHome.class.getName()), EmailHome.class);
         Email email = eHome.create();
-            
+
         //check to see if user is logged in...
-        //user.isLoggedIn() or something 
-        
-        TCSubject requestor = 
+        //user.isLoggedIn() or something
+
+        TCSubject requestor =
             principalMgr.getUserSubject(getAuthentication().getUser().getId());
 
         UserTransaction ut = Transaction.get(context);
@@ -117,7 +118,7 @@ public class UpdateCandidate extends BaseProcessor
         }
 
         long userId = userPrincipal.getId();
-        
+
         UserHome uHome = (UserHome)
             PortableRemoteObject.narrow(
                 context.lookup("screening:"+UserHome.class.getName()), UserHome.class);
@@ -137,7 +138,7 @@ public class UpdateCandidate extends BaseProcessor
             email.setPrimaryEmailId(userId, emailId);
         }
 
-        DataAccess access = getDataAccess();
+        DataAccessInt access = getDataAccess();
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND,
                             Constants.CONTACT_INFO_QUERY_KEY);
@@ -149,14 +150,14 @@ public class UpdateCandidate extends BaseProcessor
             throw new ScreeningException(
                     "Contact result set size wrong(" + rsc.size() + ")");
         }
-        ResultSetContainer.ResultSetRow row = 
+        ResultSetContainer.ResultSetRow row =
             (ResultSetContainer.ResultSetRow)rsc.get(0);
-        long companyId = 
+        long companyId =
             Long.parseLong(row.getItem("company_id").toString());
 
         CompanyCandidateHome ccHome = (CompanyCandidateHome)
             PortableRemoteObject.narrow(
-                context.lookup(CompanyCandidateHome.class.getName()), 
+                context.lookup(CompanyCandidateHome.class.getName()),
                                CompanyCandidateHome.class);
         CompanyCandidate candidate = ccHome.create();
         candidate.createCompanyCandidate(companyId, userId);
@@ -168,20 +169,20 @@ public class UpdateCandidate extends BaseProcessor
             throw e;
         }
         ut.commit();
-        
+
         determineNextPage();
         }
     }
 
-    /** 
+    /**
      * Attempt build a CandidateInfo bean from the parameters passed in
      * on the request.
-     * 
+     *
      * @return a new CandidateInfo object populated with the parameter info
      * @throws Exception Thrown if the required properties for the CandidateInfo
      *                   object are not in the request or are invalid.
      */
-    private boolean buildInfo(ServletRequest request, CandidateInfo info) 
+    private boolean buildInfo(ServletRequest request, CandidateInfo info)
         throws Exception {
         String uId = request.getParameter(Constants.CANDIDATE_ID);
         HashMap errorMap = new HashMap(2);
@@ -206,18 +207,18 @@ public class UpdateCandidate extends BaseProcessor
 
         if(success) {
             //now check to see if user already exists in this company
-            DataAccess da = getDataAccess();
+            DataAccessInt da = getDataAccess();
             Request dr = new Request();
             dr.setProperty(DataAccessConstants.COMMAND,
                            Constants.CHECK_COMPANY_USER_QUERY_KEY);
-            dr.setProperty("uid", 
+            dr.setProperty("uid",
                     String.valueOf(getAuthentication().getUser().getId()));
             dr.setProperty("handle", email);
             Map map = da.getData(dr);
             ResultSetContainer rsc = (ResultSetContainer)
                 map.get(Constants.CHECK_COMPANY_USER_QUERY_KEY);
             if(rsc.size() > 0) {
-                errorMap.put(Constants.EMAIL_ADDRESS, 
+                errorMap.put(Constants.EMAIL_ADDRESS,
                     "Email Address already in use as handle for your company.");
                 success = false;
             }
@@ -232,14 +233,14 @@ public class UpdateCandidate extends BaseProcessor
         return success;
     }
 
-    /** 
+    /**
      * Validate an String that is supposed to be an Email Address
-     * 
+     *
      * @param email The string to evaluate
      * @throws Exception Thrown if the string is invalid.  The exception
      *                   holds the information that specifies what was invalid.
      */
-    private boolean validateEmail(HashMap errorMap, String email) 
+    private boolean validateEmail(HashMap errorMap, String email)
         throws Exception {
         StringBuffer errorString = new StringBuffer();
         boolean valid = true;
@@ -278,7 +279,7 @@ public class UpdateCandidate extends BaseProcessor
         return valid;
     }
 
-    /** 
+    /**
      * Validate a string that is supposed to be a password
      *
      * @param password  The string to evaluate
@@ -296,7 +297,7 @@ public class UpdateCandidate extends BaseProcessor
         //check for characters not allowed...
         for(int i = 0; i < password.length(); ++i) {
             if(Constants.VALID_CHAR_LIST.indexOf(password.charAt(i)) == -1) {
-                errorString.append("Character '" + password.charAt(i) + "' is not a valid character to use in a password. Use only '" + 
+                errorString.append("Character '" + password.charAt(i) + "' is not a valid character to use in a password. Use only '" +
                         Constants.VALID_CHAR_LIST + "'");
                 valid = false;
                 break;
@@ -308,7 +309,7 @@ public class UpdateCandidate extends BaseProcessor
         }
     }
 
-    /** 
+    /**
      * Updates the sessionInfo object if there is one with the newly created
      * candidate
      *
@@ -325,7 +326,7 @@ public class UpdateCandidate extends BaseProcessor
 
     }
 
-    /** 
+    /**
      * Determines the next page by the referrer parameter passed in or
      * defaults to the one specified in Constants
      */
@@ -335,7 +336,7 @@ public class UpdateCandidate extends BaseProcessor
             referrer = Constants.UC_DEFAULT_FORWARD_PROCESSOR;
         }
 
-        setNextPage(Constants.CONTROLLER_URL + "?" + 
+        setNextPage(Constants.CONTROLLER_URL + "?" +
                     Constants.REQUEST_PROCESSOR + "=" + referrer);
         //redirect because we are done
         setNextPageInContext(false);
@@ -348,7 +349,7 @@ public class UpdateCandidate extends BaseProcessor
                 Constants.VALID_CHAR_LIST.charAt(
                     rand(Constants.VALID_CHAR_LIST.length())));
         }
-        
+
         return newPass.toString();
     }
 

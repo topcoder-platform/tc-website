@@ -8,6 +8,7 @@ import javax.servlet.ServletRequest;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import com.topcoder.web.screening.common.Constants;
@@ -76,7 +77,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
                 dRequest.setProperty("tpname", info.getProfileName());
                 dRequest.setProperty("uid", 
                    String.valueOf(getAuthentication().getUser().getId()));
-                DataAccess dataAccess = getDataAccess();
+                DataAccessInt dataAccess = getDataAccess();
                 Map map = dataAccess.getData(dRequest);
 
                 ResultSetContainer rsc = (ResultSetContainer)

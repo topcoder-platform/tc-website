@@ -21,6 +21,8 @@ import com.topcoder.web.common.security.*;
 import com.topcoder.web.screening.common.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 
 
 /** Provides some of the basic methods and data common to request processors.
@@ -120,20 +122,22 @@ public abstract class BaseProcessor implements RequestProcessor {
         return HttpUtils.parseQueryString(rq.getQueryString());
     }
     
-    protected DataAccess getDataAccess() throws Exception {
+    protected DataAccessInt getDataAccess() throws Exception {
         return getDataAccess(Constants.DATA_SOURCE, false);
     }
-    protected DataAccess getDataAccess(boolean cached) throws Exception {
+    protected DataAccessInt getDataAccess(boolean cached) throws Exception {
         return getDataAccess(Constants.DATA_SOURCE, cached);
     }
     
-    protected DataAccess getDataAccess(String datasource, boolean cached) throws Exception {
+    protected DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if(datasource == null) return null;
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)
             PortableRemoteObject.narrow(context.lookup(datasource),
                                         DataSource.class);
-        DataAccess dAccess = new DataAccess(ds);
+        DataAccessInt dAccess = null;
+        if (cached) dAccess = new CachedDataAccess(ds);
+        else dAccess = new DataAccess(ds);
         return dAccess;
     }
     

@@ -9,6 +9,7 @@ import javax.servlet.ServletRequest;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 
@@ -48,7 +49,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         //check to see if they are logged in
         User user = getAuthentication().getUser();
 
-        DataAccess dAccess = getDataAccess();
+        DataAccessInt dAccess = getDataAccess();
 
         ProfileInfo info = 
             (ProfileInfo)request.getAttribute(Constants.PROFILE_INFO);
