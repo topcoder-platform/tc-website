@@ -78,22 +78,21 @@ The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A clas
 
                     Mailing address for forms and affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033
 
-<p><a href=PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%
-
-out.print(new String(a.affidavit._header._id + ""));
-
-%>>click here for a printer friendly version of the affidavit</a></p>
-
+<% if (!a.hasNotarizedAffidavit()||a.canAffirmOnline()) { %>
+<p><a href="PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%=a.affidavit._header._id%>">click here for a printer friendly version of the affidavit</a></p>
+<% } %>
+<% }
+	if(!a.canAffirmOnline()) {
+        if (!a.hasNotarizedAffidavit()) { %>
+        <b><p>You cannot affirm this affidavit online, please use the link above to print out a copy of the affidavit, have it notarized and mail it to TopCoder.</p></b>
+      <% } else if (!a.hasTaxForm()) { %>
+        <b><p>You cannot affirm this affidavit online because you do not have a tax form on file, please file out the appropriate form and send it to TopCoder.</p></b>
+      <% } else if (!a.hasAllDemographicAnswers()) { %>
+        <b><p>You cannot affirm this affidavit online because your demographic information is incomplete, please update your profile information.</p></b>
+      <% } else if (a.daysLeft<=0) { %>
+        <b><p>You cannot affirm this affidavit online because it has expired.</p></b>
+      <% } %>
 <%
-	}
-
-	// check the state
-	if(!a.canAffirmOnline) {
-		out.print("<p>" + a.affidavitText + "</p>");
-
-		out.print("<b><p>You cannot affirm this affidavit online, please " +
-			"answer all demographic questions and make sure you have " +
-			"mailed in an affidavit that has been notarized.  Also, make sure you have filled out a tax form and mailed it in (see the links above). </p></b>");
 	} else {
 		if(!a.affidavit._header._affirmed) {
 a.affidavitText = new String("<form action=PactsMemberServlet?t=affidavit&c=affirm_affidavit  method=post>") + a.affidavitText;
