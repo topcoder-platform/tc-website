@@ -71,21 +71,21 @@
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">1</TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>1</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 132</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/>Sponsored by: FBI<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4456&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">2</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">3</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">4</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>5</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 132</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/>Sponsored by: Microsoft &#38; FBI<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4455&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>5</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 133</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/>Sponsored by: Microsoft<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4455&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">6</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">7</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">8</TD>
               </TR>
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">9</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>10</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 133</B></SPAN><BR/>Register: 7:00&#160;PM<BR/>Compete: 10:00&#160;PM<BR/>Sponsored by: Apex, Google &#38; NVIDIA<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4460&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>11</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 134</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><!--Sponsored by: Apex, Google &#38; NVIDIA--><BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4465&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>10</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 134</B></SPAN><BR/>Register: 7:00&#160;PM<BR/>Compete: 10:00&#160;PM<BR/>Sponsored by: Apex, Google &#38; NVIDIA<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4457&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>11</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 135</B></SPAN><BR/>Register: 6:00&#160;PM<BR/>Compete: 9:00&#160;PM<BR/><!--Sponsored by: Apex, Google &#38; NVIDIA--><BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4465&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">12</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">13</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">14</TD>
@@ -94,17 +94,17 @@
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">16</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">17</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>18</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>Northeast &amp; Southeast Regions<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched" CLASS="statText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>18</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>Northeast &amp; Southeast Regions<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4462&amp;t=schedule&amp;c=srm" CLASS="statText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">19</TD>
-            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>20</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>West &amp; Midwest Regions<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched" CLASS="statText">Details</A></TD>
+            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>20</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>West &amp; Midwest Regions<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4464&amp;t=schedule&amp;c=srm" CLASS="statText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">21</TD>
-            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>22</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>International Region<BR/>Compete: 12:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched" CLASS="statText">Details</A></TD>
+            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>22</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>International Region<BR/>Compete: 12:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4466&amp;t=schedule&amp;c=srm" CLASS="statText">Details</A></TD>
               </TR>              
               <TR BGCOLOR="#FFFFFF"> 
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">23</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">24</TD>
-                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>25</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 135</B></SPAN><BR/>Register: 5:00&#160;PM<BR/>Compete: 8:00&#160;PM<BR/>Sponsored by: NVIDIA<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4470&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
-            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>26</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>Regional Quarterfinals<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched" CLASS="statText">Details</A></TD>
+                <TD ALIGN="left" VALIGN="top" CLASS="smallText"><FONT COLOR="#FF0000"><B>25</B></FONT><BR/><SPAN CLASS="bodyTextBold"><B>Match 136</B></SPAN><BR/>Register: 5:00&#160;PM<BR/>Compete: 8:00&#160;PM<BR/>Sponsored by: NVIDIA<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4470&amp;t=schedule&amp;c=srm" CLASS="smallText">Details</A></TD>
+            <TD ALIGN="left" VALIGN="top" CLASS="statText" BGCOLOR="#990000"><FONT COLOR="#FF0000"><B>26</B></FONT><BR/><SPAN CLASS="statText"><B>2003 TopCoder Collegiate Challenge</B></SPAN><BR/>Regional Quarterfinals<BR/>Compete: 9:00&#160;PM<BR/><IMG SRC="/i/clear.gif" WIDTH="50" HEIGHT="1" BORDER="0"/><BR/>..//<A HREF="/?RoundId=4472&amp;t=schedule&amp;c=srm" CLASS="statText">Details</A></TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">27</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BACKGROUND="/i/calendar_bg.gif">28</TD>
                 <TD ALIGN="left" VALIGN="top" CLASS="smallText" BGCOLOR="#CCCCCC">&#160;</TD>
