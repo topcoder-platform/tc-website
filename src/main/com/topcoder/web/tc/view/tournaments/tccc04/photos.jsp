@@ -113,7 +113,7 @@ function changeImage(place, imageIndex) {
                 &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 2);">Room 1</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 3);">Room 2</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 4);">Room 3</a>
-                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 5);">Room 4</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 5);">WildCard</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 6);">Coding Finals</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;<a href="Javascript:void changeImage('slideImg', 7);">Component Finals</a><br/>
 
