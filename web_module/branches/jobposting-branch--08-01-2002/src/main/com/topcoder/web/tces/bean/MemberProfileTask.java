@@ -263,15 +263,15 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
             memStatLvlRow = dwRSC.getRow(rowI);
 
-            avgSubPts += Double.parseDouble(memStatLvlRow.getItem("avg_submission_points")) *
+            avgSubPts += Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) *
                          ((Integer)memStatLvlRow.getItem("submitted").getResultData()).doubleValue() /
                          (double)ttlSubmitted;
 
-            avgPtsOverall += Double.parseDouble(memStatLvlRow.getItem("avg_final_points")) *
+            avgPtsOverall += Double.parseDouble(memStatLvlRow.getItem("avg_final_points").toString()) *
                          ((Integer)memStatLvlRow.getItem("presented").getResultData()).doubleValue() /
                          (double)ttlPresented;
 
-            avgTimeToSubmit += Double.parseDouble(memStatLvlRow.getItem("avg_time_elapsed")) *
+            avgTimeToSubmit += Double.parseDouble(memStatLvlRow.getItem("avg_time_elapsed").toString()) *
                          ((Integer)memStatLvlRow.getItem("submitted").getResultData()).doubleValue() /
                          (double)ttlSubmitted;
         }
