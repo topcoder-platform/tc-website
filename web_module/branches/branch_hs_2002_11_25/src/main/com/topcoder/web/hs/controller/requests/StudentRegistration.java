@@ -144,7 +144,7 @@ public class StudentRegistration extends Base {
       req=new Request(map);
       Map schools=dai.getData(req);
 
-      rsc=(ResultSetContainer)data.get("state_schools");
+      rsc=(ResultSetContainer)schools.get("state_schools");
       for (Iterator i=rsc.iterator();i.hasNext();) {
         rsr=(ResultSetContainer.ResultSetRow)i.next();
         Integer school_id=(Integer)rsr.getItem("school_id").getResultData();
