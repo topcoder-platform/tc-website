@@ -98,7 +98,7 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
-
+<!--
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=GeneChip_Data_Interface_Back_End_Dev">GeneChip Data Interface Development - Back End</a>
@@ -107,16 +107,7 @@
                                     <td class="projectCells" align="right">$600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">08.09.2004</td>
                                 </tr>
-
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=GeneChip_Data_Interface_Front_End_Dev">GeneChip Data Interface Development - Front End</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.09.2004</td>
-                                </tr>
-
+-->
 
 
                             </table>

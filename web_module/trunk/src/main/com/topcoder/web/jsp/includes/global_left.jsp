@@ -79,7 +79,7 @@
                 <tr><td id="<%=level2.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2" class="<%=level2.equals("forums")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("forums")?"bottom":"right"%>.gif" alt="" border="0"/>TCS Developer Forums</a></td></tr>
                 <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=comp_projects" class="<%=level2.equals("components")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" alt="" border="0"/>Components</a></td></tr>
                 <% if (level2.equals("components")) { %>
-                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_projects">Open Projects</A></td></tr>
+                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_projects">Projects</A></td></tr>
                     <tr><td id="<%=level3.equals("reviews")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReviewProjects">Review Opportunities</A></td></tr>
                     <tr><td id="<%=level3.equals("winners")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=components">Recent Project Winners</A></td></tr>
                     <tr><td id="<%=level3.equals("submit")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit & Review</A></td></tr>
@@ -88,7 +88,7 @@
                 <% } %>
                 <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=app_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" alt="" border="0"/>Applications</a></td></tr>
                 <% if (level2.equals("applications")) { %>
-                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_projects">Open Projects</A></td></tr>
+                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_projects">Projects</A></td></tr>
                     <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_meth">Development Methodology</A></td></tr>
                     <tr><td id="<%=level3.equals("documentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_sample_docs">Documentation</A></td></tr>
                 <% } %>
