@@ -19,5 +19,6 @@
           <img src="<%=request.getQueryString()%>" width="<%=request.getParameter("width")%>" height="<%=request.getParameter("height")%>"/>
         </td>
       </tr>
+    </table>
   </body> 
 </html>
