@@ -60,13 +60,18 @@
                 </TR>
     
                 <%
-                int company = -1;
+                 int lastCompany = -1;
+                 int currCompany = -1;
+                 if (MainTask.getCampaignInfoList().size() > 0) {
+                     lastCompany = Integer.parseInt(((ResultSetContainer)MainTask.getCampainInfoList()).getItem(0, "company_id").toString());
+                 }
                  %>
  
+<%--
                 <tces:mapIterator id="campaignInfo" MapList="<%=MainTask.getCampaignInfoList()%>">
-                <% if (company != Integer.parseInt(campaignInfo.get("company_id").toString())) { %> 
-                  <BR/><BR/><%= campaignInfo.get("company_name") %><BR/><BR/>
-                <% } %>
+--%>
+                <tces:rowIterator id="campaignInfo" rowList="<%=MainTask.getCampaignInfoList()%>">
+                <% currCompany = Integer.parseInt((String)campaignInfo.get("company_id")); %>
 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;
@@ -74,19 +79,26 @@
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%=(String)campaignInfo.get("start_date")%>
+                    <%=campaignInfo.get("start_date").toString()%>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%=(String)campaignInfo.get("end_date")%>
+                    <%=campaignInfo.get("end_date").toString()%>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%=(String)campaignInfo.get("status_desc")%>
+                    <%=campaignInfo.get("status_desc").toString()%>
                   </TD>
                 </TR>
 
+                <% if (currCompany != lastCompany) { %> 
+                  <BR/><BR/><%= campaignInfo.get("company_name") %><BR/><BR/>
+                <% lastCompany = currCompany;
+                   } %>
+
+<%--
                 </tces:mapIterator>
+--%>
 
                 <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
                 <TR>
