@@ -178,7 +178,7 @@
                     </td>
                 </tr>
                 <tr>
-                   <td colspan="2" align="center">
+                   <td class="dc_regTableQuestion" colspan="2">
                       <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                    </td>
                 </tr>
