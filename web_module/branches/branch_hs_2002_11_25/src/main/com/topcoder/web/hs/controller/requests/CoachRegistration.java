@@ -255,8 +255,8 @@ public class CoachRegistration extends Base {
       for (Iterator i=rsc.iterator();i.hasNext();) {
         rsr=(ResultSetContainer.ResultSetRow)i.next();
         Long school_id=(Long)rsr.getItem("school_id").getResultData();
-        String short_name=(String)rsr.getItem("short_name").getResultData();
-        school_list.add(new ListPairBean(school_id,short_name));
+        String full_name=(String)rsr.getItem("full_name").getResultData();
+        school_list.add(new ListPairBean(school_id,full_name));
       }
 
     }
