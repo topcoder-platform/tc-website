@@ -199,7 +199,9 @@
   <TR>
     <TD COLSPAN="5" ALIGN="center" CLASS="statText">
 <FORM name="coderRankForm" action="/stat" method="get">
+<%if(!lastMatch){%>
 <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
+<%}%>
 <INPUT TYPE="HIDDEN" NAME="c" VALUE="index">
       Viewing top&#160;&#160;
 <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;
