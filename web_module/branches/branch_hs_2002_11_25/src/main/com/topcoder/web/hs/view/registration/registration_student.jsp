@@ -28,7 +28,7 @@
  schools[<%=i%>]=new Array(<%=state_schools.size()%>)
  codes[<%=i%>]=new Array(<%=school_codes.size()%>)
   <% for (int j=0;j<state_schools.size();j++) { %>
- schools[<%=i%>][<%=j%>]=<%=state_schools.get(j)%>
+ schools[<%=i%>][<%=j%>]="<%=state_schools.get(j)%>"
  codes[<%=i%>][<%=j%>]=<%=school_codes.get(j)%>
   <% }
     } %>
@@ -101,7 +101,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">State&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
-    <SELECT NAME="state" CLASS="dropdown" ONCHANGE="changeState()">
+    <SELECT NAME="state" CLASS="dropdown" ONCHANGE="Javascript:changeState()">
      <OPTION value="-1">Pick a state</OPTION>
      <% for (int i=0;i<states.size();i++) { %>
      <OPTION value="<%=i%>"><%=(String)states.get(i)%></OPTION>
