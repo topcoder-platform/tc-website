@@ -406,8 +406,9 @@ Srm 97 was a wednesday night match. "En Topcoder", it was the night that
   <xsl:call-template name="quick_stats_pulldown"/>
   <!-- Quick Stat Pulldown Ends -->
   <!-- Quick Stat Pulldown Begins --> 
-  <xsl:call-template name="quick_stats_tidbit"/>
-  <!-- Quick Stat Pulldown Ends --></TD>
+  <!-- <xsl:call-template name="quick_stats_tidbit"/> -->
+  <!-- Quick Stat Pulldown Ends -->
+  </TD>
   </TR>               
 </TABLE>    
 </TD>
