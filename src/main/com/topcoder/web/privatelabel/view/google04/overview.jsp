@@ -90,7 +90,7 @@
 			<br/><br/>
 			<div class=indented>
 				<b>Download the Arena</b><br/>
-				The TopCoder® Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to work on sample problems prior to the competition.
+				The TopCoder® Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to practice on sample problems prior to the competition.
 				<br/><br/>
 				<b>Coding Phase</b><br/>
 				At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition.
@@ -104,9 +104,9 @@
 			<br/>
 			<span class=greenSubtitle>Are You Ready?</span>
 			<br/><br/>
-			Registration for the Google Code Jam 2004 opens on October 1st and ends on October 15th, 2004. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam 2004 on October 24th.
+			Registration for the Google Code Jam 2004 opens on September 1st and ends on September 14th, 2004. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the Code Jam 2004 on September 20th.
 			<br/><br/>
-			The competitors with the top 250 scores from Round 1 will advance to Round 2 on October 27th. The top 25 performers in Round 2 will be invited to compete for cash prizes in the Championship Round onsite at the Googleplex (Mountain View, CA) on November 14th.
+			The competitors with the top 250 scores from Round 1 will advance to Round 2 on September 23rd. The top 50 performers in Round 2 will be invited to compete for cash prizes in the Championship Round onsite at the Googleplex (Mountain View, CA) on October 15th.
 			<br/><br/>
 
                         <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
@@ -166,7 +166,7 @@
 			<br/>
 			<span class=greenSubtitle>Prizes</span>
 			<br/><br/>
-			The 500 participants in Round 1 will receive a "Google Code Jam 2004" t-shirt. The top four scorers in the Championship Round will receive the following cash prizes:
+			The 500 participants in Round 1 will receive a "Google Code Jam 2004, Powered by TopCoder" t-shirt. The top four scorers in the Championship Round will receive the following cash prizes:
 			<br/><br/>
 			<div class=indented>
 			      <b>1st Place - $10,000</b><br/>
@@ -185,14 +185,7 @@
 </table>
 
 <p>
-<div class=footerHolder> 
-<small> &copy;2004 Google - 
-<a href="http://www.google.com/">Home</a> - 
-<a href="http://www.google.com/about.html">All About Google</a> - 
-<a href="/?t=about_tc&c=index">About TopCoder</a> -
-<a href="http://www.google.com/jobs/">We're Hiring</a> 
-</small>
-</div>
+<jsp:include page="foot.jsp" />
 </p>
 
 </body>
