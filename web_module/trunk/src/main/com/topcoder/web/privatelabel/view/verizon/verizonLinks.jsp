@@ -37,7 +37,6 @@ function openWin(url, name, w, h) {
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
-                                    
 
 <!-- Register tab -->
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
@@ -52,9 +51,6 @@ function openWin(url, name, w, h) {
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>                                    
-                                    
-
-
                                 </td>
                             </tr>
                         </table>
