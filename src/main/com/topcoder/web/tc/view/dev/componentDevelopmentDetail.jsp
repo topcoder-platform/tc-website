@@ -151,14 +151,21 @@
                         <p>
                         All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-                        <p><%--Component Posting: 1.23.2003<br/>--%>
-                        Posting Date: <rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/><br/>
-                        Initial Submission Due Date: <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/><br/>
-                        Winner Announced: <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/><br/>
-                        Final Submission Due Date: <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/><br/>
-                        </p>
-
-                        <p><br /></p>
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
+                            <tr>
+                                <td class="bodyText">Posting Date:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText">Initial Submission Due Date:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText">Winner Announced:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText">Final Submission Due Date:</td><td class="bodyText" align="right"><rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/></td>
+                            </tr>
+                        </table>
+                        <br/>
 
 <%-- Register at TCS --%>
             <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -182,9 +189,7 @@
                                  Registration is full.
                                <% } %>
                            <% } %>
-
                            </p>
-                            <p><br /></p>
 
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>
