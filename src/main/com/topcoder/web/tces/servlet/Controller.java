@@ -167,7 +167,7 @@ public class Controller extends HttpServlet {
                     boolean forward = l.isNextPageInContext();
                     String destination = l.getNextPage();
                     fetchRegularPage(request, response, destination, forward);
-
+                    return;
                 }
 
                 task.servletPostAction(request, response);
