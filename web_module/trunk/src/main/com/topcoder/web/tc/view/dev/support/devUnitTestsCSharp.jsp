@@ -49,10 +49,11 @@
 		<p>Unit tests test units of code. In TopCoder components, units are generally classes. To this end, you'll need to create a separate test class for each class in your main source tree.</p>
 		<p>Let's walk through an example test case. We'll test the SaveAs function in <a href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial#sectionV">Section V</a>. Let's say the function exists in an arbitrary class, TutorialLayout.</p>
 		<p>First, we'll need to create a&nbsp;C# source file for this unit test, TutorialLayoutTest.cs.</p>
-<pre>/**
+<pre>/*
  * TutorialLayoutTest.cs
  *
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ * Copyright (c) 2004, TopCoder, Inc. All rights reserved  
+ */
  */
 using System;
 // .... required system using directives ....
