@@ -67,8 +67,7 @@ if(username==null) username = "";
     } else return true;
   }
 </script>
-<%--<form name="loginform" action="<%= "https://"+request.getServerName()+request.getAttribute("canonpath") %>" method="POST">--%>
-<form name="loginform" action="<%= "http://"+request.getServerName()+request.getAttribute("canonpath") %>" method="POST">
+<form name="loginform" action="<%= "https://"+request.getServerName()+request.getAttribute("canonpath") %>" method="POST">
 <input type="hidden" name="module" value="Login">
 <input type="hidden" name="nextpage" value="<%= nextpage %>">
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
