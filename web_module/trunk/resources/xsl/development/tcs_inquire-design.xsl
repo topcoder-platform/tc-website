@@ -13,7 +13,8 @@
 <html>
 
 <head>
-
+    <xsl:variable name='docId' select='/TC/DEVELOPMENT/documentId'/>
+    <xsl:variable name='docId' select='/TC/DEVELOPMENT/componentId'/>
 	<xsl:call-template name="Preload"/>      
 
 <title>TopCoder :: Development</title>
@@ -83,7 +84,11 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" target="_new" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=<xsl:value-of select="/TC/DEVELOPMENT/componentId"/>">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" target="_new">
+						        <xsl:attribute  name="href">
+						            <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_component.jsp?comp=', $componentId)"/>
+						        </xsl:attribute>documentation
+						     </a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
