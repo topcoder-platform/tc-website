@@ -47,6 +47,7 @@ public class Constants {
     public static String USEREDIT_PAGE_SUCCESS = null;
     public static String USEREDIT_PAGE_RETRY = null;
     public static String USERLIST_PAGE = null;
+    public static String LOGIN_PAGE = null;
 
     public static String CORP_ADMIN_ROLE = null;
     public static String CORP_GROUP = null;
@@ -57,12 +58,14 @@ public class Constants {
     public static final String KEY_TERMS = "terms";
     public static final String KEY_AGREE_TO_TERMS = "agree-to-terms";
 
+
     public static void init(ServletConfig cfg) {
         REGISTRATION_PAGE_SUCCESS = cfg.getInitParameter("page-Registration-success");
         REGISTRATION_PAGE_RETRY = cfg.getInitParameter("page-Registration-retry");
         USEREDIT_PAGE_SUCCESS = cfg.getInitParameter("page-UserEdit-success");
         USEREDIT_PAGE_RETRY = cfg.getInitParameter("page-UserEdit-retry");
         USERLIST_PAGE = cfg.getInitParameter("page-UserList");
+        LOGIN_PAGE = cfg.getInitParameter("page-login");
     }
 
     static {
