@@ -245,19 +245,19 @@
                 <SELECT NAME="MonthsSinceLastComp" SIZE="1">
                     <OPTION VALUE="">None Specified</OPTION>
                     <OPTION VALUE="1">
-                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/State='1'">
+                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='1'">
                             <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
                         </xsl:if>
                         1 Month
                     </OPTION>
                     <OPTION VALUE="3">
-                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/State='3'">
+                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='3'">
                             <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
                         </xsl:if>
                         3 Months
                     </OPTION>
                     <OPTION VALUE="6">
-                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/State='6'">
+                        <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='6'">
                             <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
                         </xsl:if>
                         6 Months
