@@ -53,7 +53,7 @@
                       <td class="promoText" align="left" width="232.5">
                         <p>We invite you to explore the opportunities available at NVIDIA. Click on the link to see what your future may hold.</p>
                         <ul>
-                        <li><A href="/?&amp;t=tces&amp;c=jobs&amp;a=secure">NVIDIA Jobs</A></li>
+                        <li><A href="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure">NVIDIA Jobs</A></li>
                         </ul>
                        <p><strong>We love what we do because we do what we love. Join us.</strong></p>
                       </td>
