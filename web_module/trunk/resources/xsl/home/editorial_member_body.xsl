@@ -14,8 +14,7 @@
   <xsl:import href="../includes/modules/arena2.xsl"/>  
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/editorials.xsl"/>
-  <xsl:import href="../includes/modules/top_10_wins_div1.xsl"/> 
-  <xsl:import href="../includes/modules/top_10_wins_div2.xsl"/>      
+  <xsl:import href="../includes/modules/top_room_wins.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="MemberBody">
 
@@ -623,19 +622,14 @@ Ipsuma dipiscing elit, sed diam nonummy nibh euismod tincidunt sit amet, consect
 <xsl:call-template name="my_stats"/>
  <xsl:choose>
 
-  <xsl:when test="number(/TC/Rating)&lt;1200">
-
-     <xsl:call-template name="top_10_wins_div2"/>
-
-  </xsl:when>
-
-  <xsl:otherwise>
-
-     <xsl:call-template name="top_10_wins_div1"/>
-
-  </xsl:otherwise>
-
-</xsl:choose>
+     <xsl:choose>
+     <xsl:when test="number(/TC/Rating)&lt;1200"> 
+       <xsl:call-template name="top_room_wins"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
+     </xsl:when>
+     <xsl:otherwise>
+       <xsl:call-template name="top_room_wins"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
+     </xsl:otherwise>
+     </xsl:choose>
 
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
               <TR> 
