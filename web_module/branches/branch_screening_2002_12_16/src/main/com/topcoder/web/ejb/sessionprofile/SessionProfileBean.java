@@ -36,8 +36,8 @@ public class SessionProfileBean extends BaseEJB {
                                      long companyId)
             throws RemoteException {
         // construct debug message
-        StringBuffer debugBuf = new StringBuffer(400);
-        StringBuffer varBuf = new StringBuffer(400);
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
         varBuf.append("desc: ");
         varBuf.append(desc);
@@ -82,17 +82,17 @@ public class SessionProfileBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createSessionProfile. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("NamingException in createSessionProfile. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("Exception in createSessionProfile. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
@@ -113,8 +113,8 @@ public class SessionProfileBean extends BaseEJB {
     public void setSessionProfileDesc(long sessionProfileId, String desc)
             throws RemoteException {
         // construct debug message
-        StringBuffer debugBuf = new StringBuffer(400);
-        StringBuffer varBuf = new StringBuffer(400);
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
         varBuf.append("sessionProfileId: ");
         varBuf.append(sessionProfileId);
@@ -147,17 +147,17 @@ public class SessionProfileBean extends BaseEJB {
 
             pstmt.executeUpdate();
         } catch (SQLException sqe) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setSessioProfileDesc. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("NamingException in setSessioProfileDesc. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("Exception in setSessioProfileDesc. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
@@ -215,8 +215,8 @@ public class SessionProfileBean extends BaseEJB {
     public void setDivisionId(long sessionProfileId, int divisionId)
             throws RemoteException {
         // construct debug message
-        StringBuffer debugBuf = new StringBuffer(400);
-        StringBuffer varBuf = new StringBuffer(400);
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
         varBuf.append("sessionProfileId: ");
         varBuf.append(sessionProfileId);
@@ -249,17 +249,17 @@ public class SessionProfileBean extends BaseEJB {
 
             pstmt.executeUpdate();
         } catch (SQLException sqe) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setDivisionId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("NamingException in setDivisionId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("Exception in setDivisionId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
@@ -273,8 +273,8 @@ public class SessionProfileBean extends BaseEJB {
     public void setCompanyId(long sessionProfileId, long companyId)
             throws RemoteException {
         // construct debug message
-        StringBuffer debugBuf = new StringBuffer(400);
-        StringBuffer varBuf = new StringBuffer(400);
+        StringBuffer debugBuf = new StringBuffer(200);
+        StringBuffer varBuf = new StringBuffer(200);
 
         varBuf.append("sessionProfileId: ");
         varBuf.append(sessionProfileId);
@@ -307,17 +307,17 @@ public class SessionProfileBean extends BaseEJB {
 
             pstmt.executeUpdate();
         } catch (SQLException sqe) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setCompanyId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("NamingException in setCompanyId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            StringBuffer exceptionBuf = new StringBuffer(400);
+            StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("Exception in setCompanyId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
