@@ -6,16 +6,19 @@ import com.topcoder.web.tc.model.Answer;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.PageContext;
 import java.io.IOException;
+import java.util.Iterator;
 
 public class AnswerInput extends BaseTag {
     protected static Logger log = Logger.getLogger(AnswerInput.class);
 
     public static final String PREFIX = "question_";
+    public static final String ANSWER_INPUT = "answerInput";
 
     private String cssclass;
     private Question question;
-    private Answer answer;
+    private Iterator answers;
 
     public AnswerInput() {
         super();
@@ -30,40 +33,53 @@ public class AnswerInput extends BaseTag {
         this.question = question;
     }
 
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
+    public int doStartTag() throws JspException {
+        int ret = SKIP_BODY;
+        if (question.getStyleId()==Question.MULTIPLE_CHOICE || question.getStyleId()==Question.SINGLE_CHOICE) {
+            answers = question.getAnswerInfo().iterator();
+            doAfterBody();
+        } else if (question.getStyleId()==Question.LONG_ANSWER || question.getStyleId()==Question.SHORT_ANSWER) {
+            try {
+                pageContext.getOut().print(buildText());
+            } catch (IOException e) {
+                throw new JspException(e.getMessage());
+            }
+            ret = SKIP_BODY;
+        }
+        //shouldn't get here
+        return ret;
     }
 
-    public int doStartTag() throws JspException {
-        StringBuffer output = new StringBuffer(400);
-        switch (question.getStyleId()) {
-            case Question.MULTIPLE_CHOICE:
-                output.append(buildCheckBox(answer.getId()));
-                break;
-            case Question.SINGLE_CHOICE:
-                output.append(buildRadioButton());
-                break;
-            case Question.LONG_ANSWER:
-                output.append(buildText());
-                break;
-            case Question.SHORT_ANSWER:
-                output.append(buildText());
-                break;
-            default:
-                break;
+    public int doAfterBody() throws JspException {
+
+        Answer answer = null;
+        if (answers.hasNext()) {
+            answer = (Answer)answers.next();
+            String inputText = null;
+            if (question.getStyleId()==Question.MULTIPLE_CHOICE) {
+                inputText = buildCheckBox(answer.getId());
+            } else if (question.getStyleId()==Question.SINGLE_CHOICE) {
+                inputText = buildRadioButton(answer.getId());
+            }
+            pageContext.setAttribute(ANSWER_INPUT, inputText, PageContext.PAGE_SCOPE);
+            return EVAL_BODY_TAG;
+        } else {
+            if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {
+                try {
+                    bodyContent.writeOut(bodyContent.getEnclosingWriter());
+                } catch (Exception e) {
+                    throw new JspException(e.toString());
+                }
+            }
+            return SKIP_BODY;
         }
-        try {
-            pageContext.getOut().print(output.toString());
-        } catch (IOException e) {
-            throw new JspException(e.getMessage());
-        }
-        return SKIP_BODY;
     }
+
 
     /* should this be a text area? */
     private String buildText() {
         setName(PREFIX + question.getId());
-        StringBuffer s = new StringBuffer(500);
+        StringBuffer s = new StringBuffer(200);
         s.append("<input type=\"text\" size=\"40\" maxlength=\"255\"");
         s.append(" name=\"");
         s.append(name);
@@ -99,7 +115,7 @@ public class AnswerInput extends BaseTag {
         return s.toString();
     }
 
-    private String buildRadioButton() {
+    private String buildRadioButton(long answerId) {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(200);
         s.append("<input type=\"radio\" name=\"");
@@ -115,7 +131,7 @@ public class AnswerInput extends BaseTag {
             s.append(getDefaultValue());
             s.append("\"");
         }
-        if (getDefaultValue() != null && getDefaultValue().equals(new Long(answer.getId()))) {
+        if (getDefaultValue() != null && getDefaultValue().equals(new Long(answerId))) {
             s.append(" checked");
         }
         s.append("/>");
