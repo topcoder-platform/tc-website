@@ -8,6 +8,11 @@
           com.topcoder.shared.util.ApplicationServer"
 %>
 
+<%
+    String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
+    String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
+%>
+
             <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
             <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0"><br>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
@@ -15,17 +20,12 @@
 <!-- TCES begins -->
 <% if (request.getServletPath().indexOf("jobposting")>-1) { %>
 
-                <tr><td id="leftNavOn"><a class="leftOn" href="?&amp;t=tces&amp;c=index"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Employment Services</a></td></tr>
+                <tr><td id="leftNavTitle" >Job Listing:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
+                <tr><td id="leftNavOn"><a class="leftOn" href="?&amp;t=tces&amp;c=index"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Jobs for Members</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/?&amp;t=tces&amp;c=hiring">Hiring for Employers</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/tces/?task=MainTask">TCES Reporting</a></td></tr>
 
-                <tr><td id="leftNavTitle" >Competition:</td></tr>
-                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=schedule&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Schedule</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Statistics</a></td><td valign="top" class="statText" ></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
-                <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp">Round Tables</a><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/></td></tr>
 <!-- TCES ends -->
 
 <!-- Statistics begins -->
@@ -277,6 +277,7 @@
 
 <% } %>
 
+<!-- PACTS begins -->
 <%} else if (request.getServletPath().indexOf("pacts")>-1) { %>
 
                 <tr><td id="leftNavTitle">P.A.C.T.s:</td>
@@ -295,11 +296,25 @@
 
 <% } %>     
 
-                <tr><td id="leftNav"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support/FAQs</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support / FAQs</a></td></tr>
 
 <!-- TopCoder Info begins -->
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About TopCoder</a></td></tr>
+
+    <% if ((level1.equals("review_board")) { %> 
+
+                <tr><td id="leftNavOn"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Review Boards</a></td></tr>
+            <% if (level1.equals("review_board")) { %>
+                <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc/?d1=review_board&d2=competition">Competition</a></td></tr>  
+                <tr><td id="<%=level2.equals("development")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc/?d1=review_board&d2=development">Development</a></td></tr>  
+
+    <% } else { %>
+
+                <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Review Boards</a></td></tr>
+
+    <% } %>
+
                 <tr><td id="leftNav"><a class="left" href="/?&t=news_events&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Press Room</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=contacts&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Contacts</a></td></tr>
                 <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>  
