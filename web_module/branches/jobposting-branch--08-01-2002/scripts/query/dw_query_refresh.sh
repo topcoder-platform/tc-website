@@ -1138,6 +1138,10 @@ SELECT cal.date
 java com.topcoder.utilities.QueryLoader "DW" 1005 "TCES_Coder_Comp_Stats" 0 0 "
 SELECT contest.name AS contest_name
      , dlu.division_desc
+     , (SELECT COUNT(*)
+          FROM room_result rr2
+         WHERE rr2.round_id = rr.round_id
+           AND rr2.division_id = rr.division_id) AS num_competitors
      , rd.average_points AS overall_avg_points
      , rd.point_standard_deviation AS overall_std_dev
      , rd.problems_submitted AS overall_problems_submitted
@@ -1149,6 +1153,7 @@ SELECT contest.name AS contest_name
      , rr.problems_submitted
      , rr.problems_correct
      , rd.problems_presented AS overall_problems_presented
+     , rd.problems_correct AS overall_problems_correct
      , (CASE WHEN rd.problems_presented = 0 THEN 0.0
              ELSE rd.problems_submitted / rd.problems_presented * 100
              END) AS overall_submit_percent
@@ -1204,8 +1209,19 @@ SELECT rp.level_id
      , rp.level_desc
      , rp.problems_presented
      , rp.problems_submitted
+     , (CASE WHEN rp.problems_presented = 0 THEN 0.0
+             ELSE rp.problems_submitted / rp.problems_presented * 100
+             END) AS submit_percent
      , rp.problems_correct
-     , rp.submission_points
+     , (CASE WHEN rp.problems_submitted = 0 THEN 0.0
+             ELSE rp.problems_correct / rp.problems_submitted * 100
+             END) AS submission_accuracy
+     , (CASE WHEN rp.problems_presented = 0 THEN 0.0
+             ELSE rp.problems_correct / rp.problems_presented * 100
+             END) AS overall_accuracy
+     , (CASE WHEN rp.problems_submitted = 0 THEN 0.0
+             ELSE rp.submission_points / rp.problems_submitted
+             END) AS avg_submission_points
      , rp.average_points
      , rp.avg_time_elapsed
   FROM round_problem rp
