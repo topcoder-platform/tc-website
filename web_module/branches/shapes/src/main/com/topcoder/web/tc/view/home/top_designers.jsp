@@ -20,7 +20,7 @@
     <rsc:iterator list="<%=coders%>" id="resultRow">
         <tr>
             <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
-            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><tc:ratingImage link='/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>' bg='B' cid='<rsc:item row="<%=resultRow%>" name="coder_id"/>' /></td>
+            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><tc:ratingImage link='/stat?c=member_profile&cr=<%=resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' /></td>
             <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><rsc:item name="rating" row="<%=resultRow%>" format="#"/></td>
         </tr>
         <% even = !even;%>
