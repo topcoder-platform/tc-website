@@ -1282,7 +1282,6 @@ SELECT u.handle
    AND il.round_id in (4324, 4325)
    AND rr.round_id IN (@rds@)
    AND rr.advanced = 'Y'
-   AND rr.coder_id = il.coder_id
    AND rr.round_id = r.round_id
    AND r.contest_id = c.contest_id
    AND u.user_id = ra.coder_id
