@@ -65,9 +65,9 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td class="bodyText" width="25%" align="center"><A href="http://software.topcoder.com/forum/c_active_collab.jsp?ft=2"><img src="/i/development/promo_dev_forums.gif" alt="Developer Forums" width="126" height="126" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                    <td class="bodyText" width="25%" align="center"><A href="/rtables/viewForum.jsp?forum=157655&amp;mc=239"><img src="/i/development/promo_roundtables.gif" alt="Round Tables" width="126" height="126" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td class="bodyText" width="25%" align="center"><A href="/?t=development&amp;c=comp_projects"><img src="/i/development/promo_openprojects.gif" alt="Open Projects" width="126" height="126" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                    <td class="bodyText" width="25%" align="center"><A href="/tc?module=ViewReviewProjects"><img src="/i/development/promo_reviews.gif" alt="Review Opportunities" width="126" height="126" border="0" /></A></td>
                 </tr>
             </table>
 
