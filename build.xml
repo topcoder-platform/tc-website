@@ -619,7 +619,7 @@
     <target name="deploy-query" depends="compile">
         <antcall target="package-EJB-QueryServicesBean"/>
         <antcall target="war-query"/>
-        <unwar src="${public_html}/query.war" dest="${public_html}/query/" overwrite="yes"/>
+        <unwar src="${war.dir}/query.war" dest="${public_html}/query/" overwrite="yes"/>
         <delete dir="${public_html}/query/META-INF"/>
     </target>
 
@@ -643,7 +643,7 @@
     <target name="deploy-email" depends="compile">
         <antcall target="package-EJB-EmailServicesBean"/>
         <antcall target="war-email"/>
-        <unwar src="${public_html}/email.war" dest="${public_html}/email/" overwrite="yes"/>
+        <unwar src="${war.dir}/email.war" dest="${public_html}/email/" overwrite="yes"/>
         <delete dir="${public_html}/email/META-INF"/>
     </target>
 
