@@ -2,6 +2,7 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
@@ -83,7 +84,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
     }
 
     protected void setNextPage() {
-        if (isEligible()) {
+        if (isEligible((FullRegInfo)regInfo)) {
             SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
             StringBuffer buf = new StringBuffer(150);
             buf.append("http://");

@@ -23,12 +23,18 @@ import java.util.Iterator;
 public class VerizonRegSubmit extends FullRegSubmit {
 
     protected void setNextPage() {
-//        if (isEligible()) {
-        setNextPage(Constants.VERIZON_REG_SUCCESS_PAGE);
-//        } else {
-//            setNextPage(Constants.VERIZON_INELIGIBLE_PAGE);
-//        }
-        setIsNextPageInContext(true);
+            SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            StringBuffer buf = new StringBuffer(150);
+            buf.append("http://");
+            buf.append(ApplicationServer.SERVER_NAME);
+            buf.append(info.getServletPath());
+            buf.append("?");
+            buf.append(Constants.MODULE_KEY);
+            buf.append("=");
+            buf.append(Constants.STATIC);
+            buf.append(Constants.VERIZON_REG_SUCCESS_PAGE);
+            setNextPage(buf.toString());
+            setIsNextPageInContext(false);
     }
 
 
