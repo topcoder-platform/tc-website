@@ -1,7 +1,6 @@
 package com.topcoder.web.tces.bean;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.InitialContext;
@@ -10,10 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.StringTokenizer;
 import java.util.List;
 
+import com.topcoder.shared.security.User;
+import com.topcoder.web.common.security.WebAuthentication;
+
+
 /**
  * A basic implementation of Task.
  * @author bigjake <kitz@mit.edu>
- *
+ * @author swif0ne <dancohn1@yahoo.com>
+ * @version $Revision$
  */
 
 public abstract class BaseTask implements Task {
@@ -23,10 +27,17 @@ public abstract class BaseTask implements Task {
     /* Holds the InitialContext of a request being processed by this task */
     private InitialContext ctx;
 
-    /* Holds the next page to which the controller should forward after task processing */
+    /* Holds next page where controller should forward after task processing */
     private String nextPage;
     private List trail;
     private String servletPath;
+
+    /* Holds the ID of the currently logged-in user */
+    protected long uid;
+
+    /* Authentication for getting current user or logging in/out a user */
+    private WebAuthentication authToken = null;
+
 
     /* Makes a new BaseTask */
     public BaseTask() {
@@ -70,16 +81,43 @@ public abstract class BaseTask implements Task {
         this.servletPath = servletPath;
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-         throws Exception {
+    public void servletPreAction(HttpServletRequest request, 
+            HttpServletResponse response) throws Exception {
+
+        User curUser = getAuthenticityToken().getActiveUser();
+        uid = curUser.getId();
+
+        log.debug("TCES Task = "+ this.getClass().getName() + 
+                  " called with user id = "+ uid);
+
     }
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception {
+    public void servletPostAction(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
 
     }
 
     public abstract void setAttributes(String paramName, String paramValues[]);
+
+
+    /**
+     * For request being proccessed returns user's authenticity token. 
+     *
+     * @return WebAuthentication authentication token used in tasks for 
+     *         retrieving the current user's Id
+     */
+    protected WebAuthentication getAuthenticityToken() {
+        return authToken; 
+    }
+    
+    /**
+     * Just stores given authentification object for later use 
+     * @param auth WebAuthentication to store in authToken
+     */
+    public void setAuthToken(WebAuthentication auth) {
+        authToken = auth;
+    }
+
 
     /** Retreives and parses a date from a ResultSetRow
      * @param row Row from which the date should be retreived
@@ -90,7 +128,7 @@ public abstract class BaseTask implements Task {
         String defaultVal = "00/00/0000";
         try {
             StringTokenizer tok1 = new StringTokenizer(
-                    ((TCTimestampResult) row.getItem(key)).toString());
+                    (row.getItem(key)).toString());
             StringTokenizer token = new StringTokenizer(
                     (String) tok1.nextElement(), "-");
 
@@ -113,4 +151,3 @@ public abstract class BaseTask implements Task {
     }
 
 }
-

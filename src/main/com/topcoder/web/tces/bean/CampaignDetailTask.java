@@ -6,6 +6,8 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.SimpleUser;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -43,7 +45,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
     private ArrayList positionList;
 
     /* Holds the ID of the currently logged-in user */
-    private int uid;
+    //private long uid;  // moved to BaseTask
 
     /* Creates a new CampaignDetailTask */
     public CampaignDetailTask() {
@@ -152,18 +154,15 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         this.companyName = companyName;
     }
 
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception
-    {
-        HttpSession session = request.getSession(true);
 
-        if (!Authentication.isLoggedIn(session)) {
-            log.debug("User not authenticated for access to TCES resource.");
-            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
-        }
 
-        uid = Authentication.userLoggedIn(session);
-    }
+//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+//        throws Exception {
+//
+//        User curUser = getAuthenticityToken().getActiveUser();
+//        uid = curUser.getId();
+//    }
+
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
@@ -187,7 +186,8 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_campaign_detail");
 
-        dataRequest.setProperty("uid", Integer.toString(uid) );
+        dataRequest.setProperty("uid", Long.toString(uid) );
+        log.debug("User id set in CampaignDetailTask= "+uid);
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
@@ -215,7 +215,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
         if (rsc.getRowCount() == 0) {
             throw new Exception (" cid="+Integer.toString(getCampaignID())+
-                                 "does not belong to uid="+Integer.toString(uid) );
+                                 "does not belong to uid="+Long.toString(uid) );
         }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_List");

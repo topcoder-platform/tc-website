@@ -33,7 +33,7 @@ public class SimpleUser implements User {
         return password;
     }
 
-    public boolean isGuest() {
+    public boolean isAnonymous() {
         return id == GUEST_ID;
     }
 

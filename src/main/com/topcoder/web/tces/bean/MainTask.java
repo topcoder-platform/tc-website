@@ -7,6 +7,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCData;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.SimpleUser;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -29,7 +31,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
     private List campaignInfoList;
 
     /* Holds the ID currently logged-in user */
-    private int uid;
+    //private long uid;  //moved to BaseTask
 
     /* Holds whether or not there are multiple different companies in the campaign list */
     private boolean hasManyCompanies;
@@ -84,19 +86,14 @@ public class MainTask extends BaseTask implements Task, Serializable {
         return hasManyCompanies;
     }
 
-
-    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
-        throws Exception
-    {
-        HttpSession session = request.getSession(true);
-
-        if (!Authentication.isLoggedIn(session)) {
-            log.debug("User not authenticated for access to TCES resource.");
-            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
-        }
-
-        uid = Authentication.userLoggedIn(session);
-    }
+//    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+//        throws Exception
+//    {
+//
+//        User curUser = getAuthenticityToken().getActiveUser();
+//        uid = curUser.getId();
+//
+//    }
 
     public void processStep(String step)
         throws Exception
@@ -109,13 +106,15 @@ public class MainTask extends BaseTask implements Task, Serializable {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_main");
 
-        dataRequest.setProperty("uid", Integer.toString(uid) );
+        log.debug("Database Source: "+DBMS.OLTP_DATASOURCE_NAME+" User ID:"+uid);
+
+        dataRequest.setProperty("uid", Long.toString(uid) );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
 
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No company name!");
+            throw new Exception ("No company name found for user id #" + uid);
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);

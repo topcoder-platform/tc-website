@@ -3,20 +3,36 @@ package com.topcoder.web.tces.servlet;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.bean.Task;
-import com.topcoder.web.tces.bean.Authentication;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.common.web.util.Data;
+
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.security.NotAuthorizedException;
+import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.web.corp.request.Login;
+import com.topcoder.web.corp.Util;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Enumeration;
+import java.net.URLEncoder;
+
 
 /**
- * The servlet to handle job posting http requests.
+ * The servlet to handle TCES http requests.  This controller also handles
+ * setting up the tasks Authentication token to find userId, and checks to
+ * make sure the user has proper Authorization to access the specified task.
  * @author Greg Paul
+ * @author Dan Cohn
  * @version $Revision$
  *
  */
@@ -38,10 +54,10 @@ public class Controller extends HttpServlet {
     }
 
     /**
-     * This method handles requests.
+     * This method handles Get requests same as Post by calling doPost.
      *
      * @param request the servlet request object
-     * @param  response the servlet response object
+     * @param response the servlet response object
      *
      * @throws ServletException
      * @throws IOException
@@ -51,6 +67,17 @@ public class Controller extends HttpServlet {
         doPost(request, response);
     }
 
+    /**
+     * This method handles http requests, sets up the authorization token in 
+     * each task, and ensures the logged in user has access to task.  If user 
+     * is unauthorized and not logged in they are sent to login page.
+     *
+     * @param request the servlet request object
+     * @param response the servlet response object
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -62,24 +89,56 @@ public class Controller extends HttpServlet {
             ctx = (InitialContext) TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
-                log.info("[**** tces **** " + taskName + " **** " + request.getRemoteHost() + " ****]");    
+                log.info("[**** tces **** " + taskName + " **** " +
+                          request.getRemoteHost() + " ****]");  
+
+                String taskClassName = TCESConstants.TCES_PACKAGE + "." 
+                                           + taskName;
+
+                /* User authorization checking */
+                SessionPersistor persistor = new SessionPersistor(
+                    request.getSession(true)
+                );
+                WebAuthentication authToken
+                    = new BasicAuthentication(persistor, request, response); 
+
+                TCSubject tcUser = Util.retrieveTCSubject(
+                    authToken.getActiveUser().getId()
+                );
+                Authorization authorize = new TCSAuthorization(tcUser);
+                Resource taskResource = new SimpleResource(taskClassName);
+                if (!authorize.hasPermission(taskResource)) {
+                    if (authToken.getActiveUser().isAnonymous()) {
+                        throw new TCESAuthenticationException(
+                            "Anonymous user does not have permision");
+                    }
+                    throw new NotAuthorizedException(
+                        "User not Authorized for access to resource: "
+                            + taskName);
+                }
+
                 // process a task
                 Task task = null;
                 Class taskClass = null;
-                taskClass = Class.forName(TCESConstants.TCES_PACKAGE + "." + taskName);
+                taskClass = Class.forName(taskClassName);
                 task = (Task) taskClass.newInstance();
                 task.setInitialContext(ctx);
 
                 Enumeration parameterNames = request.getParameterNames();
                 while (parameterNames.hasMoreElements()) {
-                    String parameterName = parameterNames.nextElement().toString();
-                    String[] parameterValues = request.getParameterValues(parameterName);
+                    String parameterName = 
+                                parameterNames.nextElement().toString();
+                    String[] parameterValues =
+                                request.getParameterValues(parameterName);
                     if (parameterValues != null) {
                         task.setAttributes(parameterName, parameterValues);
                     }
                 }
 
-                task.setServletPath(request.getContextPath() + request.getServletPath());
+                task.setServletPath(request.getContextPath() 
+                                    + request.getServletPath());
+
+                task.setAuthToken(authToken);
 
                 task.servletPreAction(request, response);
 
@@ -89,46 +148,82 @@ public class Controller extends HttpServlet {
 
                 request.setAttribute( taskName, task );
 
-                getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
-
+                getServletContext().getRequestDispatcher(response.encodeURL(
+                        task.getNextPage())).forward(request, response);
             }
             else {
-                forwardToLoginPage(request, response,
-                        new Exception("missing " + TCESConstants.TASK_PARAM + " parameter in request"));
+                forwardToErrorPage(request, response,
+                        new Exception("missing " + TCESConstants.TASK_PARAM 
+                                      + " parameter in request"), false);
             }
         } catch (TCESAuthenticationException authex) {
-            log.debug("User not authenticated to access TCES resource.\n" + authex.getMessage());
-            Authentication.attemptLogin("","",ctx,request.getSession(true),request.getContextPath()+request.getServletPath()+"?"+request.getQueryString());
-            forwardToLoginPage(request, response, authex);
+            log.error("User authenticated error in TCES resource." 
+                       + authex.getMessage());
+            redirectToLoginPage(request, response);
             return;
+        } catch (NotAuthorizedException ae) {
+            log.debug("TCES Authorization failure! ", ae);
+            forwardToErrorPage(request, response, ae, true);
+            return; 
         } catch (ClassNotFoundException cnfex) {
             log.debug("Unable to dispatch task! "+cnfex.getMessage());
-            forwardToErrorPage(request, response, cnfex);
+            forwardToErrorPage(request, response, cnfex, false);
             return;
         } catch (Exception ex) {
-            forwardToErrorPage(request, response, ex);
+            forwardToErrorPage(request, response, ex, false);
             return;
         }
     }
 
-    private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response,
-                                    Throwable exception) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher(response.encodeURL(TCESConstants.AUTH_FAILED_PAGE)).forward(request, response);
+
+    /**
+     * private method for redirecting user to login page.
+     *
+     * @param request the servlet request object
+     * @param response the servlet response object
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void redirectToLoginPage(HttpServletRequest request,
+                            HttpServletResponse response)
+                            throws ServletException, IOException {
+
+        String originatingPage = request.getRequestURI();
+        if( request.getQueryString() != null ) {
+            originatingPage += "?"+request.getQueryString();
+        }
+        String destParam = Login.KEY_DESTINATION_PAGE;
+        String loginPageDest = TCESConstants.LOGIN_PAGE + "&" + destParam 
+                               + "=" + URLEncoder.encode(originatingPage);
+        response.sendRedirect(loginPageDest);
     }
 
-    private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
-                                    Throwable exception) throws ServletException, IOException {
+    /**
+     * private method for forward user to one of the two error pages.  If a 
+     * general error occured then they are sent to ERROR_PAGE, if an 
+     * authorization error occured they are sent to AUTH_FAILED_PAGE.
+     *
+     * @param request the servlet request object
+     * @param response the servlet response object
+     * @param exception the exception that caused the forwarding to error page
+     * @param authorizeError true = authorization erorr, false = general error
+     *
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void forwardToErrorPage(HttpServletRequest request, 
+                HttpServletResponse response, Throwable exception, 
+                boolean authorizeError) throws ServletException, IOException {
 
-        log.error("Controller error - forwarding to error page", exception);
-        request.setAttribute("Exception", exception);
-        /* get the root context so we can forward to the generic error page, not just
-           one within this web application
-         */
-        getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL(TCESConstants.ERROR_PAGE)).forward(request, response);
+        request.setAttribute("caught-exception", exception);
+        if (!authorizeError) { 
+            log.error("Controller error - going to error page", exception);
+        }
+        String forwardPage = authorizeError ? TCESConstants.AUTH_FAILED_PAGE
+                                            : TCESConstants.ERROR_PAGE;
+
+        getServletContext().getRequestDispatcher(
+                response.encodeURL(forwardPage)).forward(request, response);
     }
 }
-
-
-
-
