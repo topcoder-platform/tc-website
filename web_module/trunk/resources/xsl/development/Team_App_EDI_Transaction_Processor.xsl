@@ -86,15 +86,20 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        CLIENT (CLIENT) has identified the need to create an automated system to test the Electronic Data Interchange (EDI)
-                                                        capabilities of their vendors.  Vendor communication such as purchase orders, inventory and shipping notifications
-                                                        are vital to CLIENT to ensure minimum product shelf life and the ability to provide just-in-time inventory to the
-                                                        stores.  The previous testing and vendor verification system was outsourced by CLIENT to a third party.  The new
-                                                        EDI Testing System (ETS) will replace and improve on the shortcomings of the existing process.
+                                                        The EDI Transaction processor will validate and compare EDI
+                                                        transactions.  This process will load transactions and validate them
+                                                        against the stated EDI specification.  Once the transaction has been
+                                                        validated, it will be compared against the corresponding original
+                                                        transaction.  For instance, a Shipping Notice transaction will be
+                                                        compared against the corresponding Purchase Order transaction.
+                                                        Furthermore, if the transaction fails validation or comparison, an error
+                                                        message will be created.   This error message will contain the actual
+                                                        transaction with detailed error messages and the errored segment will be
+                                                        highlighted.<br/><br/>
 
-                                                        The testing process will be automated by the new ETS system, thereby replacing the existing manual process with
-                                                        more accurate EDI testing rules.  The new system will provide the ability to manage, monitor and report on a
-                                                        vendors EDI testing progress.
+                                                        In addition to validating and comparing transactions, this process will
+                                                        load the transaction's data into a relational database.  The database
+                                                        schema for this process has already been defined.
                                                     </p>
 
                                                     <p>
