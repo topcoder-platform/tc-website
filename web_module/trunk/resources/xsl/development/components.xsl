@@ -80,15 +80,15 @@
 							<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
 							<tr valign="top">
-								<td class="statText" rowspan="5" width="55"><img src="/i/m/ttsuchi_small.jpg" alt="" width="55" height="61" border="0" hspace="5" /></td>
+								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=280167" class="coderTextGreen"><img src="/i/m/ttsuchi_small.jpg" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
 								<td class="statText" width="60%">Developer Level:</td>
-								<td class="statText" align="right" width="20%">II</td>
-								<td class="statText" width="20%"></td>
+								<td class="statText" align="right" width="15%">II</td>
+								<td class="statText" width="25%"></td>
 							</tr>
 
 							<tr valign="top">
-								<td class="statText">Board Score for This Project:</td>
-								<td class="statText" align="right">xxx</td>
+								<td class="statText">Review Board Score for This Project:</td>
+								<td class="statText" align="right">75.85</td>
 								<td class="statText"></td>
 							</tr>
 
@@ -99,13 +99,7 @@
 							</tr>
 
 							<tr valign="top">
-								<td class="statText">Earnings for This Project (before royalties):</td>
-								<td class="statText" align="right">$150.00</td>
-								<td class="statText"></td>
-							</tr>
-
-							<tr valign="top">
-								<td class="statText">Total Earnings for All Component Projects:</td>
+								<td class="statText">Total Earnings for All Component Projects*:</td>
 								<td class="statText" align="right">$150.00</td>
 								<td class="statText"></td>
 							</tr>
@@ -124,9 +118,8 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" colspan="4">
 						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statTextSmall"><span class="statText"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText"><strong>Logging Interface Component</strong></a></span><br />
-									The Logging Interface component provides a standard logging API with a pluggable back-end logging implementation.<br />
-									For more details, check out the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText">Logging Interface Component</a> at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</td></tr>
+							<tr><td class="statText"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText"><strong>Logging Wrapper Component</strong></a><br />
+									The Logging Wrapper component provides a standard logging API with a pluggable back-end logging implementation. For more details, check out the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText">Logging Wrapper Component</a> at <a href="http://www.topcodersoftware.com" class="statText">topcodersoftware.com</a>.</td></tr>
 						</table></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
@@ -143,12 +136,12 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" colspan="4">
 						<table border="0" cellspacing="0" cellpadding="5" width="100%">
-							<tr><td class="statTextSmall">"This is a good design attempt that does not introduce unnecessarily complex overhead to a simple project." <strong>&#151;ilya</strong></td></tr>
+							<tr><td class="statText">"This is a good design attempt that does not introduce unnecessarily complex overhead to a simple project." &#151;<a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271008"><strong>ilya</strong></a></td></tr>
 						</table></td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
-				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="5" colspan="6"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+				<tr><td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="25" colspan="6"><img src="/i/clear.gif" alt="" height="25" border="0" /></td></tr>
 	<!-- Featured Winner Ends -->
 
 	<!-- Weekly Winners Begins -->
@@ -163,24 +156,24 @@
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="15%" height="18">&#160;&#160;Coder</td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="45%" height="18">Project Name</td>
 					<td background="/i/steel_bluebv_bg.gif" class="statText" width="20%" height="18" align="center">Board Score</td>
-					<td background="/i/steel_bluebv_bg.gif" class="statText" width="20%" height="18" align="center">Earnings*</td>
+					<td background="/i/steel_bluebv_bg.gif" class="statText" width="20%" height="18" align="center">Total Earnings*</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td background="/i/steel_darkblue_bg.gif" class="coderTextGreen" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=280167" class="coderTextGreen">ttsuchi</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText">Logging Interface Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">xxx</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015" class="statText">Logging Wrapper Design</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">75.85</td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$150.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="coderTextBlue" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=280167" class="coderTextBlue">seaniswise</a></td>
+					<td background="/i/steel_darkblue_bg.gif" class="coderTextYellow" width="15%" height="18">&#160;&#160;<a href="/stat?c=member_profile&amp;cr=278595" class="coderTextYellow">seaniswise</a></td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="45%" height="18"><a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=600056" class="statText">Email Engine Enhancement Design</a></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">xxx</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">78.33</td>
 					<td background="/i/steel_darkblue_bg.gif" class="statText" width="20%" height="18" align="center">$120.00</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
@@ -189,7 +182,7 @@
 
 				<tr valign="middle">
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="4">&#160;&#160;* Earnings for this Project (before royalties)</td>
+					<td background="/i/steel_darkblue_bg.gif" class="statTextSmall" height="18" colspan="4">&#160;&#160;* Total Earnings for all Component Projects (before royalties)</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 

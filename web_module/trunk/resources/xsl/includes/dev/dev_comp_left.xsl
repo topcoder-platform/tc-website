@@ -20,19 +20,23 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/i/steel_gray_bg2.gif" bgcolor="#43515E"> 
 				<tr><td colspan="2" background="" height="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0"/></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=index" class="subNav">This Week's Component Project Winners</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=components" class="subNav">This Week's Component Project Winners</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
-<!--			<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=open_comp_design" class="subNav">All Open Component Design Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_des_projects" class="subNav">All Open Component Design Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=open_comp_dev" class="subNav">All Open Component Development Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_dev_projects" class="subNav">All Open Component Development Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
-				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr> -->
+				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_meth" class="subNav">Component Project Methodology</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_des_meth" class="subNav">Component Design Methodology</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+
+				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
+
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_dev_meth" class="subNav">Component Development Methodology</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 				<tr><td colspan="2" background="" height="5"><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
