@@ -1,7 +1,5 @@
 <project name="topcoder" default="main" basedir=".">
-
-
-
+<!-- removing those changes -->
    <property name="Name"          value="TopCoder" />
    <property name="version"       value="0.0.1" />
    <property name="build"         value="build" />
