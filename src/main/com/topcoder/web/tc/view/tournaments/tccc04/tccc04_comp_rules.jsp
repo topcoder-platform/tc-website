@@ -68,9 +68,14 @@
             <ul>
             <li>Must be at least 18 years of age (as of January 27, 2004)</li>
             <li>Must be matriculated full-time at an accredited college or university</li>
-            <li>If not a US resident, must be living in, and participating from, your country of residence</li>
             <li>Must not have been permanently suspended from participating in TopCoder Component Development projects</li>
             </ul>
+            
+            <p>
+            The competition is open to all US citizens who meet the above requirements, regardless of where they are living or competing from.  The competition is also open to all individuals currently residing in the US who have valid work authorization, provided they meet the above requirements.  Individuals who are not US citizens and who are not living in the US are eligible to compete if they are living in and participating from their country of citizenship, provided they meet the above requirements.
+            </p>
+
+ 
             
             <p>
             The TopCoder Collegiate Challenge is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
