@@ -17,8 +17,7 @@ import com.topcoder.web.tces.common.TCESAuthenticationException;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /** Processes the problem statistics task.
  * @author George Dean
