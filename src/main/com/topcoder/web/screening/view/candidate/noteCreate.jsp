@@ -44,7 +44,7 @@
                 <tr><td class="bodyText" align="center"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></td></tr>
 
                 <tr>
-                    <td class="errorText">
+                    <td class="errorTextOdd">
                         <% if ((String)request.getAttribute(Constants.MESSAGE_PARAMETER) != null){ %>
                         &nbsp;<br>
                         <%= request.getAttribute(Constants.MESSAGE_PARAMETER).toString() %>
