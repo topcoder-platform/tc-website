@@ -64,22 +64,14 @@ public class TCSProfileLookup extends Base {
         if (!email.equals(""))
             mainRequest.setProperty(Constants.REPORT_EMAIL_KEY, email);
 
-        DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Map mainMap = dai.getData(mainRequest);
         ResultSetContainer profileList = (ResultSetContainer)mainMap.get("main_profile_info");
 
         log.debug("found " + profileList.size() + " people matching search criteria");
         log.debug("request was: " + mainRequest.toString());
-        ArrayList result = new ArrayList(profileList.size());
-
-        Request detailRequest = new Request();
-        detailRequest.setContentHandle("tcs_profile_lookup_detail");
-        for (int i = 0; i < profileList.size() && i < 100; i++) { //let then have 100 records back max.
-            detailRequest.setProperty(Constants.REPORT_CODER_ID_KEY, profileList.getItem(i, "user_id").toString());
-            result.add(dai.getData(detailRequest));
-        }
+        
         request.setAttribute(Constants.REPORT_PROFILE_LIST_KEY, profileList);
-        request.setAttribute(Constants.REPORT_PROFILE_DETAIL_KEY, result);
     }
 
 }
