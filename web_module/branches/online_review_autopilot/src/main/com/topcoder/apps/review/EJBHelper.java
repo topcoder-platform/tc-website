@@ -299,7 +299,7 @@ public class EJBHelper {
      * @throws RemoteException thrown from the EJB lookup code
      * @throws CreateException thrown from the EJB lookup code
      */
-    static synchronized ProjectTrackerLocal getProjectTracker() throws NamingException, RemoteException, CreateException {
+    public static synchronized ProjectTrackerLocal getProjectTracker() throws NamingException, RemoteException, CreateException {
         if (projectTracker == null) {
             if (testMode) {
                 try {

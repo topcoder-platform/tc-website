@@ -6,6 +6,15 @@ import java.util.TimerTask;
 import org.apache.log4j.Logger;
 import org.jboss.system.ServiceMBeanSupport;
 
+import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
+import com.topcoder.security.TCSubject;
+
+import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
+import com.topcoder.apps.review.EJBHelper;
+
+import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+
 
 /********************************************************************
  * This class creates a timer that will perform auto pilot logic.
@@ -60,7 +69,16 @@ public class AutoPilotTimer
         public void run() {
             logger.debug("AUTO PILOT TIMER FIRED");
             
+            //setup user
+            TCSubject user = new TCSubject(100129);
+            
             //get projects that are in submission phase and have submission end time > current
+            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker(); 
+            
+            UserProjectInfo[] projs = projectTracker.getProjectInfo(user);
+            for(int i = 0; i < projs.length;i++) {
+                log.debug("PROJECT: " + projs[i].getProjectName());
+            }
         }
     }
 
