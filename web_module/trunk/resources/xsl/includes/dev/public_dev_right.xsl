@@ -28,6 +28,7 @@
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
 <!-- Application projects begins -->
+<!--
             <A href="/?t=development&amp;c=app_projects"><img src="/i/development/head_app_projects.gif" alt="Application Projects" width="180" height="20" border="0" /></A>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
@@ -39,7 +40,7 @@
                         </table>
                     </td>
                 </tr>
-<!--
+
                 <tr>
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
@@ -58,7 +59,7 @@
                         </table>
                     </td>
                 </tr>
--->
+
             </table>
 
             <table width="180" border="0" cellspacing="0" cellpadding="0">
@@ -79,6 +80,7 @@
                     </td>
                 </tr>
             </table>
+            -->
 <!-- Application projects ends -->            
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
