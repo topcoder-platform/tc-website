@@ -62,6 +62,7 @@
     </target>
 
     <target name="compile" depends="init">
+        <available property="jdk1.4+" classname="java.nio.ByteBuffer" />
         <javac
             srcdir="${java}"
             destdir="${classes}"
@@ -269,16 +270,6 @@
     </target>
 
 
-    <target name="run" depends="package">
-    </target>
-
-    <target name="package" depends="jars">
-    </target>
-
-    <target name="jars" depends="package-Jive">
-    </target>
-
-
     <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
         <javadoc
@@ -295,10 +286,6 @@
         <!-- kill the entire build dir -->
         <delete dir="${build}"/>
         <delete dir="${bin}"/>
-    </target>
-
-    <target name="main">
-        <antcall target="run"/>
     </target>
 
     <target name="package-Jive" depends="compile">
@@ -591,7 +578,7 @@
 
     <!-- begin corp targets -->
 
-    <target name="war_corp" depends="compile,corp-ejb-all,screening-ejbs">
+    <target name="war_corp" depends="compile,corp-ejb-all">
         <war warfile="${war.dir}/corp.war" webxml="${resources}/corp/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/corp/**"/>
@@ -691,6 +678,42 @@
             <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/corp"/>
         </antcall>
 
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ScreeningCoder"/>
+            <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ScreeningEmail"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/screening"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Note"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Session"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="SessionProfile"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ScreeningUser"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/screening"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="QueryServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
+        </antcall>
     </target>
 
     <target name="build-ejb-unit" depends="compile">
@@ -753,50 +776,6 @@
         </junitreport>
     </target>
 
-
-    <!-- screening application specific targets go here -->
-    <target name="screening-ejbs" depends="compile">
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ScreeningCoder"/>
-            <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
-        </antcall>
-
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ScreeningEmail"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/email/screening"/>
-        </antcall>
-
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Note"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
-        </antcall>
-
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Session"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
-        </antcall>
-
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="SessionProfile"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
-        </antcall>
-
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ScreeningUser"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
-            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/screening"/>
-        </antcall>
-
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="QueryServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
-        </antcall>
-    </target>
-
-    <!-- end of screening application specific targets -->
-
-
     <target name="deploy-admin" depends="compile">
         <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
             <fileset dir="${java}/com/topcoder/web/admin/view">
@@ -809,29 +788,13 @@
                 <include name="com/topcoder/web/servlet/admin/" />
                 <include name="com/topcoder/common/web/" />
                 <include name="com/topcoder/web/common/" />
+                <include name="com/topcoder/web/admin/**" />
             </classes>
 
         </war>
         <unwar src="${war.dir}/admin.war" dest="${public_html}/admin/" overwrite="yes"/>
         <delete dir="${public_html}/admin/META-INF"/>
     </target>
-
-
-    <target name="deploy-security" depends="compile">
-        <war warfile="${war.dir}/security.war" webxml="${resources}/security/web.xml">
-            <fileset dir="${java}/com/topcoder/web/security/view">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/common/" />
-                <include name="com/topcoder/web/security/**" />
-            </classes>
-        </war>
-        <unwar src="${war.dir}/security.war" dest="${public_html}/security/" overwrite="yes"/>
-        <delete dir="${public_html}/security/META-INF"/>
-    </target>
-
-
 
     <target name="moveQueries" depends="compile">
         <java classname="com.topcoder.utilities.querymover.QueryMover" fork="true">
