@@ -33,6 +33,8 @@ public class RegistrationHelper {
 
   private final static String USER_ID_INPUT_CODE="ui";
 
+  private final static String SCHOOL_ID_INPUT_CODE="si";
+
   private final static long TERMS_OF_USE_ID=1;
 
   private final static long EMAIL_TYPE_ID_DEFAULT=1;
@@ -48,6 +50,9 @@ public class RegistrationHelper {
 
   private final static String NO_USER_FOUND="Could not find user information "+
                                             "in our systems";
+
+  private final static String BAD_COACH_COUNT="Could not get coach count for "+
+                                              "given school_id";
 
   private final static String FIRST_NAME_NOT_EMPTY="Ensure that the first "+
                                                   "name field is not empty";
@@ -274,6 +279,32 @@ public class RegistrationHelper {
     TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
     TermsOfUse tou=touh.create();
     _srb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
+  }
+
+  public static void populateStudentCoachCount(StudentRegistrationBean _srb)
+                                                              throws Exception {
+
+    Context ctx=TCContext.getInitial();
+    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataAccessInt dai=new DataAccess(ds);
+    Map map=new HashMap();
+
+    map.put(DataAccessConstants.COMMAND,"school_coach_count");
+    map.put(SCHOOL_ID_INPUT_CODE,""+_srb.getSchoolId());
+    Request req=new Request(map);
+    Map data=dai.getData(req);
+
+    ResultSetContainer rsc;
+    ResultSetContainer.ResultSetRow rsr;
+
+    rsc=(ResultSetContainer)data.get("school_coach_count");
+
+    Iterator iterator=rsc.iterator();
+    if (!iterator.hasNext()) {
+      throw(new Exception(BAD_COACH_COUNT));
+    }
+    rsr=(ResultSetContainer.ResultSetRow)iterator.next();
+    _srb.setSchoolCoachCount((Long)rsr.getItem("count").getResultData());
   }
 
   public static boolean isValidStudent(Map _errors,
