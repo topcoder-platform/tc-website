@@ -17,7 +17,7 @@ import java.util.Iterator;
 public class Controller
         extends HttpServlet {
     private static Logger log = Logger.getLogger(Controller.class);
-    static final String MULTIPART_FORM_DATA = "multipart/form-data";
+//    static final String MULTIPART_FORM_DATA = "multipart/form-data";
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
@@ -41,7 +41,7 @@ public class Controller
         HttpSession session = null;
         try {
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
-            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
+//            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 String taskName = request.getParameter(TASK);
                 if (taskName == null || !isWord(taskName)) {
                     log.debug(TASK + " not found in request.");
@@ -69,7 +69,7 @@ public class Controller
                     return;
                 }
                 forward(request, response, task.getNextPage());
-            }
+//            }
         } catch (ServletException se) {
             throw se;
         } catch (Exception e) {
