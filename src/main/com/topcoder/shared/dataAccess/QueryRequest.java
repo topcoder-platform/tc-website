@@ -200,7 +200,7 @@ public class QueryRequest implements RequestInt {
                     me1 = (Map.Entry) qIt.next();
                     sb.append(me1.getKey().toString());
                     sb.append("=");
-                    sb.append(me.getValue().hashCode());  //it's a whole query, so use the hashcode to save space
+                    sb.append(me1.getValue().hashCode());  //it's a whole query, so use the hashcode to save space
                     sb.append("|");
                 }
             } else {
