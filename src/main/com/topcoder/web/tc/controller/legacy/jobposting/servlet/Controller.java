@@ -4,9 +4,11 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.jobposting.common.Constants;
 import com.topcoder.web.tc.controller.legacy.jobposting.bean.TaskInt;
+import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.security.TCSubject;
+import com.topcoder.common.web.data.Navigation;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -132,6 +134,24 @@ public class Controller extends BaseServlet {
             out.println("</body></html>");
             out.flush();
         }
+    }
+
+    protected SessionInfo createSessionInfo(TCRequest request,
+                                            WebAuthentication auth, Set groups) throws Exception {
+        //todo get rid of this junk, we end up doing all the same stuff anyway, when the navigation object
+        //goes, so does this crap
+        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+        CoderSessionInfo ret = null;
+        ret = new CoderSessionInfo(request, auth, groups);
+        if (nav == null) {
+            nav = new Navigation(request, ret);
+            nav.setCoderSessionInfo(ret);
+            request.getSession(true).setAttribute("navigation", nav);
+        } else {
+            nav.setCoderSessionInfo(ret);
+            request.setAttribute("navigation", nav);
+        }
+        return ret;
     }
 
 }
