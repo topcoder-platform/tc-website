@@ -43,6 +43,7 @@ public class Controller
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
 //            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 Enumeration en = request.getParameterNames();
+                log.debug(request.getQueryString());
                 while(en.hasMoreElements())
                     log.debug(en.nextElement());
                 String taskName = request.getParameter(TASK);
