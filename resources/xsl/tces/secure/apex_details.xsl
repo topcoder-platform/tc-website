@@ -88,7 +88,7 @@
 <TR>
 <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">
 &#160;&#160;<A CLASS="bodyText" HREF="/?t=tces&amp;c=apex">Jobs</A>&#160;|&#160;
-<A CLASS="bodyText" HREF="/?t=tces&amp;c=apex_details">Job Requirements</A>&#160;|&#160;
+<A CLASS="bodyText" HREF="/?t=tces&amp;c=apex_details&amp;a=secure">Job Requirements</A>&#160;|&#160;
 </TD>
 </TR>
 </TABLE>
