@@ -356,10 +356,10 @@ public class UserSchoolBean implements SessionBean {
         return (current);
     }
 
-    public boolean existsUserSchoolId(long _user_id, long _school_id)
+    public boolean exists(long _user_id, long _school_id)
             throws EJBException, RemoteException {
 
-        log.debug("existsUserSchoolId called. user_id=" + _user_id + " " +
+        log.debug("exists called. user_id=" + _user_id + " " +
                 "school_id=" + _school_id);
 
         boolean exists = true;
@@ -397,7 +397,7 @@ public class UserSchoolBean implements SessionBean {
                 try {
                     ps.close();
                 } catch (Exception _e) {
-                    log.error("existsUserSchoolId error. " +
+                    log.error("exists error. " +
                             "Failed to close PreparedStatement");
                 }
             }
@@ -405,7 +405,7 @@ public class UserSchoolBean implements SessionBean {
                 try {
                     con.close();
                 } catch (Exception _e) {
-                    log.error("existsUserSchoolId error. " +
+                    log.error("exists error. " +
                             "Failed to close Connection");
                 }
             }
