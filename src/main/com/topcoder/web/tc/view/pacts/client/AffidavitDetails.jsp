@@ -60,23 +60,37 @@ function goTo(selection){
 
 <P class="bodyText"><B>Prize Payment Requirements:</B><P>
 All four requirements must be met for TopCoder to release payment.
-                      <UL><LI><B>Valid member profile information.</B><BR>
-We will mail the check to the address in your TopCoder profile,
-so please make sure that this information is current.
-                        </LI><LI><B>A Completed Affidavit of Eligibility, Liability, and Publicity Release.</B><BR>
-You must fill out, sign, and return an affidavit of eligibility before we can pay out prize money.  The affidavit is a verification of your eligibility to participate in the match,
-as well as a publicity release.  The affidavit must be postmarked no later than 60 days after the competition date - otherwise, you forfeit your prize for this competition.
-                        </LI><LI><B>
-                              One notarized affidavit on file with TopCoder.
-                            </B><BR>
-    TopCoder requires all winners (both direct or through referral commissions) to have one notarized affidavit on file with TopCoder before the prize can be paid.  If you never had
- an affidavit notarized for TopCoder, you must do so for this Single Round Match before you will be paid.  You need only have one affidavit notarized.  <I>All subsequent winnings wi
-ll be paid upon receipt of a signed TopCoder affidavit.</I></LI><LI><B>One completed tax form on file with TopCoder.</B><BR><A class="bodyText" href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></A><BR>
-The <B>W-9 form</B> should be filled out by all U.S. Citizens, including U.S resident aliens.<BR><A class="bodyText" href="/contest/iw9.pdf">Click here for W-9 form instructions >></A><BR><A class="bodyText" href="/contest/fw9.pdf">Click here for the W-9 form >></A><BR>
-The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A class="bodyText" href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></A><BR><A class="bodyText" href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></A><BR></LI></UL>
+<UL>
+  <LI>
+    <B>Valid member profile information.</B><BR>
+    We will mail checks to the address in your TopCoder profile, so please make
+    sure that this information is current.
+  </LI>
+  <LI><B>A Completed Affidavit of Eligibility, Liability, and Publicity Release.</B><BR>
+    You must affirm an Affidavit of Eligibility before we will pay out prize money for any
+    round and/or match in which you have been awarded a cash prize. The affidavit is a
+    verification of your eligibility to participate in the round or match, as well as a publicity release.
+  </LI>
+  <LI><B>One notarized affidavit on file with TopCoder.</B><BR>
+  TopCoder requires all prize winners to have one
+  notarized affidavit on file with TopCoder before a cash prize can be paid. If you never had an
+  affidavit notarized for TopCoder, you must do so before you will be
+  paid. You need only have one affidavit notarized. <i>All subsequent winnings will be paid upon
+  receipt of an affirmed TopCoder affidavit.</i>
+  </LI>
+  <LI><B>One completed tax form on file with TopCoder.</B><BR>
+      <A class="bodyText" href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></A><BR>
+      The <B>W-9 form</B> should be filled out by all U.S. Citizens, including U.S resident aliens.<BR>
+      <A class="bodyText" href="/contest/iw9.pdf">Click here for W-9 form instructions >></A><BR>
+      <A class="bodyText" href="/contest/fw9.pdf">Click here for the W-9 form >></A><BR>
+      The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR>
+      <A class="bodyText" href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></A><BR>
+      <A class="bodyText" href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></A><BR>
+  </LI>
+</UL>
 
 
-                    Mailing address for forms and affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033
+                    Mailing address for forms and affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033, USA
 
 <% if (!a.hasNotarizedAffidavit()||a.canAffirmOnline()) { %>
 <p><a href="PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%=a.affidavit._header._id%>">click here for a printer friendly version of the affidavit</a></p>
