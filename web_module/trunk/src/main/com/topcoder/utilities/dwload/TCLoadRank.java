@@ -754,7 +754,7 @@ public class TCLoadRank extends TCLoad {
             query.append(   " AND c.coder_id = r.coder_id");
             if (activeOnly)
                 query.append(   " AND a.coder_id = c.coder_id");
-            query.append(   " AND c.country_code = ?");
+            query.append(   " AND c.comp_country_code = ?");
             query.append( " ORDER BY r.rating DESC");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setString(1, countryCode);
