@@ -61,6 +61,7 @@ public class FullRegSubmit extends SimpleRegSubmit {
                 CurrentSchool cs = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
                 School s = (School) createEJB(getInitialContext(), School.class);
                 long schoolId = s.createSchool(transDb, db);
+                s.setFullName(schoolId, r.getText(), transDb);
                 cs.createCurrentSchool(ret.getId(), r.getText(), schoolId, transDb);
 
             }
