@@ -61,8 +61,8 @@ public class BasicAuthentication implements WebAuthentication {
             Long persistId = (Long)persistor.getObject(key);
             if(persistId != null){
                 key = request.getSession().getId()+"loggedInStatus";
-                String loggedIn = (String)persistor.getObject(key);
-                if(loggedIn != null && loggedIn.equals("true")){
+                Boolean loggedIn = (Boolean)persistor.getObject(key);
+                if(loggedIn != null && loggedIn.booleanValue()){
                     return persistId.longValue();
                 }
             }
