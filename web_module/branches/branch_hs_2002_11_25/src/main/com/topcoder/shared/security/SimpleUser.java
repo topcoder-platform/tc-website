@@ -5,7 +5,7 @@ package com.topcoder.shared.security;
  *
  * @author Greg Paul, Ambrose Feinstein
  */
-public class com.topcoder.shared.security.SimpleUser implements User {
+public class SimpleUser implements User {
 
     private long id = 0;
     private String username = "";

@@ -9,7 +9,7 @@ import com.topcoder.web.common.security.*;
  *
  * @author Ambrose Feinstein
  */
-public class Logout extends BaseProcessor {
+public class Login extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 

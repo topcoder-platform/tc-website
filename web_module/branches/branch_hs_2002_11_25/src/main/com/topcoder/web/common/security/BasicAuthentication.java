@@ -52,8 +52,8 @@ public class BasicAuthentication implements WebAuthentication {
             TCSubject sub = loginRemote.login(u.getUserName(),u.getPassword());
             Long uid = new Long(sub.getUserId());
 
-            response.addCookie(new Cookie("user_id", uid.toString());
-            response.addCookie(new Cookie("session_verified", "yes"));
+            response.addCookie(new Cookie("user_id", uid.toString()));
+            response.addCookie(new Cookie("session_verified", "yes")));
 
             persistor.setObject(request.getSession().getId()+"user_id", new Long(sub.getUserId()));
             persistor.setObject(request.getSession().getId()+"session_verified", "yes");
