@@ -148,9 +148,11 @@
                             <tc:beanWrite name="reviewer" property="reviewerType"/>
                         </td>
                         <td class="projectCells" align="center" nowrap>
+                        <%--
                             <% if (((TCTimestampResult) projectDetail.getItem(0, "opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
                                 Not open yet***
-                            <% } else if (((ReviewBoardApplication)reviewer).isSpotFilled()) { %>
+                            <% } else 
+--%> <% if (((ReviewBoardApplication)reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
                             <% } else { %>
                                 <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a>**
