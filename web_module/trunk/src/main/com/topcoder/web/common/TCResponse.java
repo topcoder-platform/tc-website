@@ -30,4 +30,5 @@ public interface TCResponse {
 
     void flushBuffer() throws IOException;
 
+    void addHeader(String header, String val);
 }
