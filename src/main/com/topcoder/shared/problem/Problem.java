@@ -179,18 +179,24 @@ public class Problem implements Element, Serializable, CustomSerializable
 
   public String toHTML(Language language, boolean includeHeader)
   {
-    StringBuffer html = new StringBuffer("<html><body bgcolor='black' text='white'>");
-    if(!problemText.equals(""))
-    {
+    if(includeHeader) {
+      StringBuffer html = new StringBuffer("<html><body bgcolor='black' text='white'>");
+    }
+    if(!problemText.equals("")) {
       html.append(ProblemComponent.encodeHTML(problemText));
-      html.append("<hr>");
+      if (includeHeader) {
+        html.append("<hr>");
+      }
     }
-    for(int i = 0; i < problemComponents.length ; i++)
-    {
+    for(int i = 0; i < problemComponents.length ; i++) {
       html.append(problemComponents[i].toHTML(language));
-      html.append("<hr>");
+      if (includeHeader) {
+        html.append("<hr>");
+      }
     }
-    html.append("</body></html>");
+    if(includeHeader) {
+      html.append("</body></html>");
+    }
     return html.toString();
   }
 
