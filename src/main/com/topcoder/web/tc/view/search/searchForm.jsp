@@ -7,13 +7,13 @@
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 
 <br/>
-                <table border="0" cellspacing="0" cellpadding="0" class="formFrame" align="center" width="510">
+                <table border="0" cellspacing="0" cellpadding="0" align="center" width="510">
                     <input type="hidden" name="module" value="AdvancedSearch"/>
                     <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
                     <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
 
                     <tr valign="top">
-                        <td colspan="2">
+                        <td>
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                                 <tr>
                                 <td class="bodyText">
@@ -21,7 +21,14 @@
                                 selections will be returned. Click on a Handle to view information about the Coder.
                                 </td>
                                 </tr>
-                             </table>                                
+                             </table>
+                          </tr>
+                       </td>
+                </table>                                
+
+                <table border="0" cellspacing="0" cellpadding="0" align="center" width="510" class="formFrame">
+                    <tr valign="top">
+                        <td colspan="2">
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                                 <tr><td class="header">Member Search: Search by handle, rating or state.</td></tr>
 
