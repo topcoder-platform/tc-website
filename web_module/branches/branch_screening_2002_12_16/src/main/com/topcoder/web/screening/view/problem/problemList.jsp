@@ -51,7 +51,7 @@ function getProblemDetail(id) {
 	        <TR>
 		       <TD COLSPAN="3" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>
 		       <TD COLSPAN="3" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Submission %</B></TD>		       		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>		       
+		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;</B></TD>		       
 	        </TR>	        
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#999999"><B>&#160;Name</B></TD>
@@ -67,7 +67,7 @@ function getProblemDetail(id) {
         <screen:nestedListIterator id="subSet" list="<%=problemList%>">
             <% ProblemInfo firstProblem = (ProblemInfo)subSet.get(0); %>
             <TR>
-                <TD COLSPAN="7" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B><%=firstProblem.getRoundName()%></B></TD>
+                <TD COLSPAN="8" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B><%=firstProblem.getRoundName()%></B></TD>
             </TR>
             <screen:problemInfoIterator id="problem" list="<%= subSet %>">
 	        <TR>
