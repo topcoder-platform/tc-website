@@ -38,67 +38,41 @@
     <table width="545" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="bodyText">
-                        <strong>It's that time of year again - time to start advertising for the 2004 TopCoder Collegiate Challenge.   We want participation in the 
-                        2004 TCCC to reach record levels, and we need your help in order to make that happen.   We are in need of a Student Representative from 
-                        your school and we'd like to give you the opportunity.</strong><br/>
-                        <img src="/i/clear.gif" alt="" width="10" height="10" border="0" />
+                    <img src="/i/clear.gif" alt="" width="10" height="5" border="0" /><br/>
+
+                            <p> <img src="/i/clear.gif" alt="" width="10" height="10" border="0" align="left"/><img src="/i/about/student_rep_students.jpg" alt="Represent TopCoder on your College Campus." width="131" height="100" border="0" align="left" style="padding-left: 0px; padding-top: 0px; padding-right: 15px; padding-bottom: 7px;"/><strong>It's that time of year again - time to start advertising for the 2004 TopCoder Collegiate Challenge.   We want participation in the 
+                            2004 TCCC to reach record levels, and we need your help in order to make that happen. TopCoder needs Student Representatives from hundreds of colleges and universities world wide!</strong></p>
+
+                        
+                        
                     </td>
                 </tr>
-            </table>
+           </table>
                         
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="360" class="bodyText">
-                        <p>What would your responsibilities be as a Student Rep?</p>
+                    <td width="545" class="bodyText">
+                    <img src="/i/clear.gif" alt="" width="10" height="10" border="0" />
+                        <p><strong>What would your responsibilities be as a Student Rep?</strong></p>
 
-                        <p>Your sole responsibility would be to increase the number of participants in the 2004 TCCC from your school. To help you achieve that goal, 
-                        TopCoder will provide you with posters to hang around campus.</p>
+                        <p><A href="Javascript:openWin('/tc?module=Static&d1=about&d2=student_rep_poster','comp',310,425);"><img src="/i/about/student_rep_poster_sm.gif" alt="View the poster" width="109" height="77" border="0" align="right" /></A>Your sole responsibility would be to help increase the number of participants in the 2004 TopCoder Collegiate Challenge. To help you achieve that goal, 
+                            TopCoder will provide you with posters to hang around your campus. </p>
                         
-                        <p>What do you get for being a Rep? Pretty cool stuff, if you ask us!</p>
+                        <p><strong>What do you get for being a Rep?</strong></p>
                         
-                        <p>We will send a Limited Edition 2004 TopCoder Collegiate Challenge Student Rep t-shirt to each Rep who gets at 
-                        least one person from his/her school to register as a TopCoder member and compete in the Qualifying Round of the 2004 TCCC. 
+                        <p><A href="Javascript:openWin('/tc?module=Static&d1=about&d2=student_rep_tshirt','comp',800,600);"><img src="/i/about/student_rep_tshirt_sm.gif" alt="View the poster" width="100" height="70" border="0" align="left" style="padding-left: 0px; padding-top: 0px; padding-right: 7px; padding-bottom: 0px;"/></A>We will send a Limited Edition 2004 TopCoder Collegiate Challenge Student Rep t-shirt to each Rep who gets at 
+                        least one person from his/her school to register as a TopCoder member <strong><i>and</i></strong> compete in the Qualifying Round of the 2004 TCCC. 
                         That person must state either your handle or "Poster" as the reason for registering at TopCoder.</p>
                         
-                        <p>For the Reps who get over 30 people to register at TopCoder and compete in the Qualifying Round of the 2004 TCCC, we will also 
-                        send a $50 gift certificate to be used at the TopCoder Online Store, which will feature exclusive TopCoder apparel.</p>
-                        
-                        <p><a href="mailto:mluce@topcoder.com?subject=TopCoder Student Reps">Contact us</a> to become a Student Rep for your College now!</p>
-                          
-                    </td>
-                        
 
-                    <td width="175" class="bodyText">
-                        <table border="0" cellpadding="3" cellspacing="0" class="sidebarFrame" width="175">
-                            <tr><td class="sidebarTitle">Upcoming Events</td></tr>
-
-                            <tr valign="top">
-                                <td class="sidebarText">
-                                    <p>The 2004 TopCoder Collegiate Challenge is on the way! We are looking for student reps to help increase 
-                                    the number of participants in the 2004 TCCC from your school. To help you achieve that goal, 
-                                    TopCoder will provide you with posters to hang around campus. </p>
-
-                                    <strong>If you get at least one student to register:</strong>
-                                    <ul>
-                                        <li>You will recieve a Limited Edition 2004 TopCoder Collegiate Challenge Student Rep t-shirt</li>
-                                    </ul>
-                         
-                                    <strong>If you get 30 students to register:</strong>
-                                    <ul>
-                                        <li>You will recieve a $50 gift certificate to be used at the TopCoder Online Store, which will feature exclusive TopCoder apparel</li>
-                                    </ul>
-
-                                    <strong>How to get started:</strong>
-                                    <ul>
+                        <p><strong>How to get started:</strong></p>
+                                    <ol>
                                         <li><a href="mailto:mluce@topcoder.com?subject=TopCoder Student Reps">Contact us</a>  that you're willing to take the position for your campus.</li>
                                         <li>Include your mailing address in the e-mail.  This will be the address where the posters are sent.</li>
-                                        <li>Include how many posters you want - they come in packages of 10.<li>
-                                    </ul>
-
-                                    
-                                </td>
-                            </tr>
-                        </table>
+                                        <li>Include how many posters you want - they come in packages of 10.</li>
+                                    </ol>
+                       <p>There can only be one Rep at each school. Positions will be filled on a first come, first served basis, so act fast!</p>
+                
                         
                         <img src="/i/clear.gif" alt="" width="175" height="1" border="0" />
 
