@@ -291,7 +291,7 @@ public class TCLoadRank extends TCLoad {
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append( " SELECT distinct c.country_code");
+            query.append( " SELECT distinct c.comp_country_code");
             query.append(   " FROM coder c");
             query.append(      " , rating r");
             if (rankType==ACTIVE_RATING_RANK_TYPE_ID)
@@ -309,7 +309,7 @@ public class TCLoadRank extends TCLoad {
             rs = psSel.executeQuery();
             String countryCode = null;
             while (rs.next()) {
-                countryCode =rs.getString("country_code");
+                countryCode =rs.getString("comp_country_code");
                 ratings = getCurrentCoderCountryRatings(countryCode, rankType==ACTIVE_RATING_RANK_TYPE_ID);
                 coderCount = ratings.size();
 
