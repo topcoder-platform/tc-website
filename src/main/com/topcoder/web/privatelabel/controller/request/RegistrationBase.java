@@ -42,6 +42,7 @@ abstract class RegistrationBase extends BaseProcessor {
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             db = getCompanyDb(regInfo.getCompanyId());
+            log.debug("working with db: " + db);
             registrationProcessing();
         } catch (Exception e) {
             throw new TCWebException(e);
@@ -81,16 +82,17 @@ abstract class RegistrationBase extends BaseProcessor {
         }
     }
 
-    public DataAccessInt getDataAccess() throws Exception {
+    protected DataAccessInt getDataAccess() throws Exception {
         return getDataAccess(db, false);
     }
 
-    public DataAccessInt getDataAccess(boolean cached) throws Exception {
+    protected DataAccessInt getDataAccess(boolean cached) throws Exception {
         return getDataAccess(db, cached);
     }
 
-    public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
-        if (datasource == null) return null;
+    protected DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
+        if (datasource == null)
+            throw new IllegalArgumentException("datasource name is null.");
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)
                 PortableRemoteObject.narrow(context.lookup(datasource),
