@@ -25,7 +25,7 @@
 
 </head>
 
-<body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body>
 
 
 
@@ -33,7 +33,7 @@
 	<xsl:call-template name="Top"/>
 <!-- Header Begins -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
 	<tr>
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC" valign="top">
