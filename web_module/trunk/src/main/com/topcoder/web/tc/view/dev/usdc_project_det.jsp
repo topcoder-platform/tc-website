@@ -51,12 +51,7 @@
    <jsp:param name="selectedTab" value="results"/>
 </jsp:include>
 
-<p>
-<a href="/tc?module=USDCResults">Contest Results</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">Contest Projects - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a>
-</p>
-
-<h2>Results</h2>
+<h2>Contest Projects - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></h2>
 
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">

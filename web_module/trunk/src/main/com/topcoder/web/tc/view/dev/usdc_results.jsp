@@ -48,7 +48,7 @@
    <jsp:param name="selectedTab" value="results"/>
 </jsp:include>
 
-<h2>Results</h2>
+<h2>Contest Results</h2>
 
 <%--
                         <p align=right>
@@ -68,8 +68,8 @@
                                 <td class="sidebarTitle" width=10% align=center>Start Date</td>
                                 <td class="sidebarTitle" width=10% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
-                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
-                                <td class="sidebarTitle" width=10% align=right>Projects</td>
+                                <td class="sidebarTitle" width=10% align=right>Contest Prize</td>
+                                <td class="sidebarTitle" width=10% align=center>Projects</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
@@ -98,7 +98,7 @@
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=right><rsc:item format="$#,##0" name="prize_payment" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right><a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">projects</a></td>
+                                <td class="sidebarText" align=center><a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">view</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
@@ -116,7 +116,7 @@
                                 <td class="sidebarTitle" width=10% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
                                 <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
-                                <td class="sidebarTitle" width=10% align=right>Projects</td>
+                                <td class="sidebarTitle" width=10% align=center>Projects</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
@@ -125,7 +125,7 @@
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=right><rsc:item format="$#,##0" name="prize_payment" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right><a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">projects</a></td>
+                                <td class="sidebarText" align=center><a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">view</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
@@ -143,7 +143,7 @@
                                 <td class="sidebarTitle" width=10% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
                                 <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
-                                <td class="sidebarTitle" width=10% align=right>Projects</td>
+                                <td class="sidebarTitle" width=10% align=center>Projects</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
@@ -152,7 +152,7 @@
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=right><rsc:item format="$#,##0" name="prize_payment" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right><a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">projects</a></td>
+                                <td class="sidebarText" align=center><a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">view</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
