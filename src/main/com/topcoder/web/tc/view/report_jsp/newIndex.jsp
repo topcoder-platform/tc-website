@@ -24,6 +24,11 @@
       <br/>
       <a href=<%=Constants.SERVLET_ADDR%>><< back to regular reporting page<a><br/><br/>
       <br/>
+
+      <ul><li><a href="/report_jsp/srm_index.jsp">SRM Report</a></li></ul>
+
+      <br/>
+
       <UL>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=ComponentPricing&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Pricing Report</A></LI>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=component_subscriptions"%>">Subscriptions</A></LI>
