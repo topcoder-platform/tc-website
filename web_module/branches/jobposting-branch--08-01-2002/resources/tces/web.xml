@@ -89,7 +89,23 @@
   </init-param>
 
 
+  <init-param>
+    <param-name>job_hit_type_param</param-name>
+    <param-value>jt</param-value>
+    <description>
+      The key used to get the hit_type_id from a request.
+    </description>
+  </init-param>
 
+  <init-param>
+    <param-name>job_hit_prefix</param-name>
+    <param-value>jobhit_</param-value>
+    <description>
+      We're building jsp's that have checkboxes for job hits
+      so this prefix should be used as the name of the checkbox
+      followed by the jobid we're working with.
+    </description>
+  </init-param>
 
   <init-param>
     <param-name>click_thru_id</param-name>
