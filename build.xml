@@ -540,11 +540,11 @@
 
     <target name="package-EJB-CorpTermsOfUseBean" depends="compile">
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="CorpTermsOfUse"/>
+            <param name="unit-jar-name" value="TermsOfUse"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
             <param name="deploy-desc-path" value="com/topcoder/web/ejb/termsofuse/corp"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/CorpTermsOfUse.jar" update="true">
+        <jar jarfile="${ejb_jars}/TermsOfUse.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
