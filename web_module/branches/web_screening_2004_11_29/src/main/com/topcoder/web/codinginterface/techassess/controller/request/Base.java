@@ -60,7 +60,7 @@ public abstract class Base extends BaseProcessor {
             ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
             compImage.setSrc(rsc.getStringItem(0, "file_path"));
             compImage.setHeight(rsc.getIntItem(0, "height"));
-            compImage.setHeight(rsc.getIntItem(0, "width"));
+            compImage.setWidth(rsc.getIntItem(0, "width"));
             compImage.setLink(rsc.getStringItem(0, "link"));
             getRequest().setAttribute(Constants.SPONSOR_IMAGE, compImage);
 
