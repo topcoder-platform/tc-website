@@ -185,7 +185,7 @@
                                                         <br/>&#160;&#160;&#160;Test Plan
                                                         <br/>&#160;&#160;&#160;Development Scope Document
                                                     </td>
-                                                    <td class="statText" valign="top" align="right">8.11.2003</td>
+                                                    <td class="statText" valign="top" align="right">8.11.203</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Winner Announced:</td>
