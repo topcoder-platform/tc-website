@@ -72,7 +72,7 @@
 </TABLE>
 
 <FORM NAME="frmResults" METHOD="POST">
-<xsl:attribute name="ACTION"><xsl:value-of select="/TC/AdminURL"/></xsl:attribute>
+<xsl:attribute name="ACTION">/admin</xsl:attribute>
 <INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="results" VALUE=""/>

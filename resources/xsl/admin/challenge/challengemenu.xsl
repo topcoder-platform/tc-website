@@ -28,7 +28,7 @@
    <td valign="top" align="center">
 
 <form name="frmResults" method="post">
-<xsl:attribute name="action"><xsl:value-of select="/TC/AdminURL"/></xsl:attribute>
+<xsl:attribute name="action">/admin</xsl:attribute>
 <input type="hidden" name="Task" value=""/>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
