@@ -27,7 +27,7 @@
 <body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -46,12 +46,11 @@
             <xsl:with-param name="image">development</xsl:with-param>
             <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
             </xsl:call-template>
+
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td class="statText">
                         <div align="center"><img src="/i/development/header_des_bonus_contest2.gif" alt="TopCoder Software Component Design Bonus Contest 2" width="554" height="107" border="0" /></div>
-                       
-                    
                     </td>
                 </tr>
             </table>
@@ -110,7 +109,6 @@
                 </tr>
             </table> -->
 
-
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr>
                     <td align="center">
@@ -132,7 +130,7 @@
                 
                 <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">98.75</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -140,7 +138,7 @@
                 
                 <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907"><strong>WishingBone</strong></a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">87.31</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -148,7 +146,7 @@
                 
                 <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546"><strong>TangentZ</strong></a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">87.14</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -156,7 +154,7 @@
                 
                 <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570">Saxophonist</a></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570"><strong>Saxophonist</strong></a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">74.78</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -164,22 +162,20 @@
                 
                    <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824"><strong>MPhk</strong></a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="center">68.70</td>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
                 <tr>
-                    <td colspan="5"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" /></td>
+                    <td colspan="5"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
                 </tr>
                 
                         </table>
                     </td>
                 </tr>
             </table>
-            
-            
 
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
@@ -235,12 +231,6 @@
                         
                         <p><br /></p>
                     </td>
-                </tr>
-            </table>
-                
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
-                <tr valign="top">
-                    <td height="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
                 </tr>
             </table>
         </td>

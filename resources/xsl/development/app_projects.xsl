@@ -27,7 +27,7 @@
 <BODY>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -46,6 +46,7 @@
             <xsl:with-param name="image">development</xsl:with-param>
             <xsl:with-param name="title">&#160;Application Development</xsl:with-param>
             </xsl:call-template>
+
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -57,7 +58,7 @@
             <table border="0" cellspacing="0" cellpadding="3" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-                    <td class="statText" colspan="6">There are also <a class="statText" href="/index?t=development&amp;c=comp_projects">Component Projects</a> available.</td>
+                    <td class="statText" colspan="6">There are also <a class="statText" href="/index?t=development&amp;c=comp_projects">Component Projects</a> available.<br /><br /></td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
 
@@ -87,13 +88,12 @@
                     <td class="statText" align="center"></td>
                     <td class="statText" align="center"></td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
-
                 </tr>
             </table>
                 
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td height="10"><img src="/i/clear.gif" alt="" width="10" height="300" border="0" /></td>
+                    <td height="10"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" /></td>
                 </tr>
             </table>
         </td>
