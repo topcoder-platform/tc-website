@@ -1,6 +1,7 @@
 package com.topcoder.common.web.data;
 
-import com.topcoder.shared.docGen.xml.*;
+
+import com.topcoder.shared.docGen.xml.TagRenderer;
 
 import java.io.Serializable;
 import java.util.ArrayList;
