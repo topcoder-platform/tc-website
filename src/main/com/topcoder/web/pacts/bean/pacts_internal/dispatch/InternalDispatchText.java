@@ -29,7 +29,7 @@ public class InternalDispatchText implements PactsConstants {
 	HttpServletResponse response;
 
 	public static Category log =
-		PactsLog.getInstance(InternalDispatchText.class.getName());
+		Category.getInstance(InternalDispatchText.class.getName());
 
 	public InternalDispatchText (HttpServletRequest request,
 			HttpServletResponse response) {

@@ -23,7 +23,7 @@ import com.topcoder.web.pacts.bean.pacts_internal.dispatch.*;
 public class PactsEntry implements PactsConstants {
 
 	private static Category log =
-		PactsLog.getInstance(PactsEntry.class.getName());
+		Category.getInstance(PactsEntry.class.getName());
 
 	public int _type;
     public long _id1;

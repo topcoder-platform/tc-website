@@ -15,6 +15,8 @@ import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.bean.*;
 import com.topcoder.common.web.xml.*;
 
+
+import org.apache.log4j.Category;
 import java.io.*;
 import java.net.*;
 import javax.xml.transform.*;
@@ -23,7 +25,8 @@ import javax.xml.transform.stream.*;
 
 import org.apache.log4j.*;
 public class AffidavitBean implements PactsConstants {
-    private static Category log = PactsLog.getInstance(AffidavitBean.class.getName());
+    private static Category log = Category.getInstance( AffidavitBean.class.getName() );
+
 
     /**
      * contstuctor
@@ -166,8 +169,13 @@ public class AffidavitBean implements PactsConstants {
      * It just makes calls to other methods to form the object
      */
     public AffidavitWithText getAffidavitWithText(long affidavitId) {
+	return getAffidavitWithText(affidavitId,null);
+    }
+
+    public AffidavitWithText getAffidavitWithText(long affidavitId, String birthday) {
 	log.debug("getAffidavitWithText, affidavitId = " + affidavitId);
 	AffidavitWithText a = new AffidavitWithText();
+
 
 	PaymentBean bean = new PaymentBean();
 	DataInterfaceBean dbean = new DataInterfaceBean();
@@ -175,6 +183,12 @@ public class AffidavitBean implements PactsConstants {
 	a.affidavit = getAffidavit(affidavitId);
 	a.affidavitText = getAffidavitText(affidavitId);
 	a.payment = bean.getPayment(a.affidavit._payment._id);
+
+	// Added by STK 5/28/02 so that entered birthdays can 
+	// be added to the affidavit text.
+	if(birthday != null) {
+	    a.affidavit._birthday = birthday;
+	}
 
 	try {
 	    a.canAffirmOnline = dbean.canAffirmAffidavit(

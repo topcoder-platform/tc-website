@@ -22,7 +22,7 @@ import java.util.*;
 public class NoteHeaderList implements PactsConstants {
 
 	private static Category log =
-		PactsLog.getInstance(NoteHeaderList.class.getName());
+		Category.getInstance(NoteHeaderList.class.getName());
 
 	public NoteHeader headerList[];
 

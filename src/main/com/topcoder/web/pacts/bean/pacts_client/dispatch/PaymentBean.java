@@ -12,11 +12,13 @@ package com.topcoder.web.pacts.bean.pacts_client.dispatch;
 import java.util.*;
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.web.pacts.bean.*;
+import org.apache.log4j.Category;
+
 //import com.topcoder.web.stat.common.*;
 
 import org.apache.log4j.*;
 public class PaymentBean implements PactsConstants {
-    private static Category log = PactsLog.getInstance(PaymentBean.class.getName());
+    private static Category log = Category.getInstance(PaymentBean.class.getName());
     /**
      * contstuctor.  It does nothing because the class is stateless.
      */
