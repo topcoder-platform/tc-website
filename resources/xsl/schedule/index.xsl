@@ -7,7 +7,7 @@
   <xsl:import href="../includes/modules/calendar_view_pulldown.xsl"/>
   <xsl:import href="../includes/global_left.xsl"/>   
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
-  <xsl:template match="/">
+  <xsl:template match="/"> 
 
 <html>
 
@@ -51,7 +51,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">schedule</xsl:with-param>
-                <xsl:with-param name="title">Monthly View - June 2003</xsl:with-param>
+                <xsl:with-param name="title">June 2003</xsl:with-param>
             </xsl:call-template>			
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
@@ -64,13 +64,13 @@
 
                         <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
                             <tr> 
-                                <td id="calendarDays" width="12%">Sun</td>
-                                <td id="calendarDays" width="15%">Mon</td>
-                                <td id="calendarDays" width="15%">Tues</td>
-                                <td id="calendarDays" width="15%">Wed</td>
-                                <td id="calendarDays" width="15%">Thurs</td>
-                                <td id="calendarDays" width="15%">Fri</td>
-                                <td id="calendarDays" width="13%">Sat</td>
+                                <td id="calendarDays" width="14%">Sun</td>
+                                <td id="calendarDays" width="14%">Mon</td>
+                                <td id="calendarDays" width="14%">Tues</td>
+                                <td id="calendarDays" width="14%">Wed</td>
+                                <td id="calendarDays" width="14%">Thurs</td>
+                                <td id="calendarDays" width="14%">Fri</td>
+                                <td id="calendarDays" width="14%">Sat</td>
                             </tr>
                           
                             <tr> 
@@ -80,9 +80,9 @@
                                     <strong>Match 149</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: Solipsys<br/>
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?RoundId=4550&amp;t=schedule&amp;c=srm">Details</a></td>
+                                    Sponsor: <A href="/?t=tces&amp;c=index">Solipsys</A><br/>
+                                    <img src="/i/clear.gif" width="50" height="5" border="0"/><br/>
+                                    <a href="/?RoundId=4550&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">3</td>
                                 <td id="calendar">4</td>
                                 <td id="calendar">5</td>
@@ -99,9 +99,9 @@
                                     <strong>Match 150</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: Appian<br/>
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?RoundId=4555&amp;t=schedule&amp;c=srm">Details</a></td>
+                                    Sponsor: <A href="/?t=tces&amp;c=index">Appian</A><br/>
+                                    <img src="/i/clear.gif" width="50" height="5" border="0"/><br/>
+                                    <a href="/?RoundId=4555&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">12</td>
                                 <td id="calendar">13</td>
                                 <td id="calendar">14</td>
@@ -115,9 +115,9 @@
                                     <strong>Match 151</strong><br/>
                                     Register: 5:00&#160;PM<br/>
                                     Compete: 8:00&#160;PM<br/>
-                                    Sponsored by: Nvidia<br/>
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?RoundId=4560&amp;t=schedule&amp;c=srm">Details</a></td>
+                                    Sponsor: <A href="/?t=tces&amp;c=index">Nvidia</A><br/>
+                                    <img src="/i/clear.gif" width="50" height="5" border="0"/><br/>
+                                    <a href="/?RoundId=4560&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
@@ -133,10 +133,10 @@
                                     <strong>Match 152</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: Intel<br/>
+                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br/>
                                     <!-- Sponsored by: Nvidia<br/> -->
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    ..//<a href="/?RoundId=4565&amp;t=schedule&amp;c=srm">Details</a></td>
+                                    <img src="/i/clear.gif" width="50" height="5" border="0"/><br/>
+                                    <a href="/?RoundId=4565&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">26</td>
                                 <td id="calendar">27</td>
                                 <td id="calendar">28</td>
@@ -150,6 +150,7 @@
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">
+                                    &#160;<br />
                                     &#160;<br />
                                     &#160;<br />
                                     &#160;<br />
