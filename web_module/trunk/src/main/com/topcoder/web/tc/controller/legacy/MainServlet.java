@@ -138,13 +138,15 @@ public final class MainServlet extends HttpServlet {
             }
             StringBuffer trail = new StringBuffer(1000);
             trail.append("[**** ");
+            trail.append(handle);
+            trail.append(" **** ");
+            trail.append(request.getRemoteAddr());
+            trail.append(" **** ");
+            trail.append(request.getMethod());
+            trail.append(" **** ");
             trail.append(requestTask);
             trail.append(" **** ");
             trail.append(requestCommand);
-            trail.append(" **** ");
-            trail.append(handle);
-            trail.append(" **** ");
-            trail.append(request.getRemoteHost());
             trail.append(" ****]");
             log.info(trail.toString());
             User user = nav.getUser();
