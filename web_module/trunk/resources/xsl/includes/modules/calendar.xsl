@@ -39,9 +39,9 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">15</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">16</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">17</TD>
-                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="http://sunnetwork.sun.com/sf2002/topcoder/index.jsp" CLASS="smallFoot" TARGET="_blank">18</A></TD>
-                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="http://sunnetwork.sun.com/sf2002/topcoder/index.jsp" CLASS="smallFoot" TARGET="_blank">19</A></TD>
-                        <TD BGCOLOR="#990000" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="http://sunnetwork.sun.com/sf2002/topcoder/index.jsp" CLASS="smallFoot" TARGET="_blank">20</A></TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="http://sunnetwork.sun.com/sf2002/topcoder/index.jsp" CLASS="smallText" TARGET="_blank">18</A></TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="http://sunnetwork.sun.com/sf2002/topcoder/index.jsp" CLASS="smallText" TARGET="_blank">19</A></TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="http://sunnetwork.sun.com/sf2002/topcoder/index.jsp" CLASS="smallText" TARGET="_blank">20</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">21</TD>
                       </TR>
                       <TR> 
