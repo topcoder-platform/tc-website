@@ -120,7 +120,7 @@ public class UpdateCandidate extends BaseProcessor
      */
     private CandidateInfo buildInfo() throws Exception {
         CandidateInfo info = new CandidateInfo();
-        String uId = request.getParameter(Constants.USER_ID);
+        String uId = request.getParameter(Constants.CANDIDATE_ID);
         if(uId != null) {
             info.setUserId(new Long(uId));
         }

@@ -18,7 +18,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
         }
 
         info.setProfileId(request.getParameter(Constants.PROFILE_ID));
-        info.setCandidateId(request.getParameter(Constants.USER_ID));
+        info.setCandidateId(request.getParameter(Constants.CANDIDATE_ID));
         info.setBeginMonth(request.getParameter(Constants.BEGIN_MONTH));
         info.setBeginDay(request.getParameter(Constants.BEGIN_DAY));
         info.setBeginYear(request.getParameter(Constants.BEGIN_YEAR));

@@ -12,7 +12,7 @@ function showEmail() {
     var size = "top=2,left=2,width=600,height=549,status=0";
     var name="graph";
     var id = document.sessionSetupForm.userId.options[sessionSetupForm.userId.selectedIndex].value;
-    window.open('<%=Constants.CONTROLLER_URL%>?<%=Constants.REQUEST_PROCESSOR%>=PreviewEmail&<%=Constants.USER_ID%>='+id,name,size);
+    window.open('<%=Constants.CONTROLLER_URL%>?<%=Constants.REQUEST_PROCESSOR%>=PreviewEmail&<%=Constants.CANDIDATE_ID%>='+id,name,size);
     return;
   }
 

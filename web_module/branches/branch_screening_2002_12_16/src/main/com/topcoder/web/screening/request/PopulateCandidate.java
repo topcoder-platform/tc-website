@@ -31,7 +31,7 @@ import com.topcoder.web.screening.model.CandidateInfo;
 public class PopulateCandidate extends BaseProcessor {
     public void process() throws Exception {
         ServletRequest request = getRequest();
-        String uId = request.getParameter(Constants.USER_ID);
+        String uId = request.getParameter(Constants.CANDIDATE_ID);
         if(request.getAttribute(Constants.CANDIDATE_INFO) == null 
            && uId != null) {
             CandidateInfo info = new CandidateInfo();
