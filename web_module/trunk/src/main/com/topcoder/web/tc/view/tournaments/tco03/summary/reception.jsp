@@ -57,7 +57,7 @@
             
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/reception/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">ZorbaTHut and Yarin enjoy the calm before the storm<br/><br/></span>
+            <span class="leadPhotoCaption">ZorbaTHut and Yarin enjoy the calm before the storm<br/><br/> </span>
             </div>
             
             <h2>Opening Night Reception</h2>
