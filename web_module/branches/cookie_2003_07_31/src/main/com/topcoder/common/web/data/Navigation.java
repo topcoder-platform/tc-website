@@ -10,6 +10,7 @@ import com.topcoder.common.web.error.TCException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.naming.Context;
 import javax.servlet.http.*;
@@ -30,7 +31,7 @@ public final class Navigation
     private transient User user;
     private HashMap sessionObjects;
     private static Logger log = Logger.getLogger(Navigation.class);
-    private Authentication authentication;
+    private WebAuthentication authentication;
 
 
     public void valueBound(HttpSessionBindingEvent e) {
@@ -130,7 +131,11 @@ public final class Navigation
         return this.userId;
     }
 
-    public boolean getLoggedIn() {
+    public boolean isIdentified() {
+        return !authentication.getActiveUser().isAnonymous();
+    }
+
+    public boolean isLoggedIn() {
         return !authentication.getUser().isAnonymous();
     }
 
@@ -222,7 +227,7 @@ public final class Navigation
         return authentication;
     }
 
-    public void setAuthentication(Authentication authentication) {
+    public void setAuthentication(WebAuthentication authentication) {
         this.authentication = authentication;
     }
 
