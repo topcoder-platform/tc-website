@@ -31,7 +31,7 @@ final class UserDbCoder {
         //ArrayList texts       = null;
         //ArrayList jobPrefs    = null;
         ArrayList demographicResponses = null;
-//        ArrayList coderConfirmations = null;
+        ArrayList coderConfirmations = null;
         StringBuffer query = new StringBuffer(500);
         query.append(" INSERT INTO");
         query.append(" coder (");
@@ -130,9 +130,7 @@ final class UserDbCoder {
             coder.getCurrentSchool().setUserId(coder.getCoderId());
             insertCurrentSchool(conn, coder.getCurrentSchool());
             demographicResponses = coder.getDemographicResponses();
-/*
             coderConfirmations = coder.getCoderConfirmations();
-*/
             HashSet qIdsForCoderType = getDemographicQuestionIds(conn, coder.getCoderType().getCoderTypeId());
             demogError = true;
             //int inserted = 0;
@@ -149,13 +147,11 @@ final class UserDbCoder {
                     }
                 }
             }
-/*
             for (int i = 0; i < coderConfirmations.size(); i++) {
                 CoderConfirmation cc = (CoderConfirmation) coderConfirmations.get(i);
                 cc.setCoderId(coder.getCoderId());
                 insertCoderConfirmation(conn, (CoderConfirmation) coderConfirmations.get(i));
             }
-*/
             //if ( inserted != qIdsForCoderType.size() ) throw new TCException ( "INCORRECT NUMBER OF DEMOG INFO INSERTED!!!" );
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -412,7 +408,6 @@ final class UserDbCoder {
      * Method to add a confirmation codes for this coder.
      * @author Greg Paul
      */
-/*
     private static void insertCoderConfirmation(Connection conn, CoderConfirmation coderConfirmation)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:insertCoderConfirmation() called ...");
@@ -454,7 +449,6 @@ final class UserDbCoder {
             }
         }
     }
-*/
 
 
 
@@ -554,9 +548,7 @@ final class UserDbCoder {
                 updateCurrentSchool(conn, coder.getCurrentSchool());
                 ArrayList demographicResponses = coder.getDemographicResponses();
                 updateDemographicResponses(conn, coder.getCoderType().getCoderTypeId(), demographicResponses);
-/*
                 updateCoderConfirmations(conn, coder.getCoderConfirmations());
-*/
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -851,7 +843,6 @@ final class UserDbCoder {
      * Update coder_confirmation table for this user.
      * @author Greg Paul
      */
-/*
     private static void updateCoderConfirmations(Connection conn, ArrayList coderConfirmations)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:updateCoderConfirmations():called.");
@@ -895,7 +886,6 @@ final class UserDbCoder {
         }
     }
 
-*/
 
 
 
@@ -1041,9 +1031,7 @@ final class UserDbCoder {
                 loadRanking(conn, coder);
                 loadDemographicResponses(conn, coder);
                 loadCurrentSchool(conn, coder);
-/*
                 loadCoderConfirmations(conn, coder);
-*/
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
@@ -1411,7 +1399,6 @@ final class UserDbCoder {
      * Load up information from coder_confirmation for this coder.
      * @author Greg Paul
      */
-/*
     private static void loadCoderConfirmations(Connection conn, CoderRegistration coder)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:loadCoderConfirmations():called.");
@@ -1460,5 +1447,4 @@ final class UserDbCoder {
             }
         }
     }
-*/
 }
