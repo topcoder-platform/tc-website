@@ -1,6 +1,8 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.web.tc.Constants,
                  java.util.HashMap,
+                 com.topcoder.web.tc.model.ContractingResponse,
+                 com.topcoder.web.tc.model.ContractingResponseGroup,
                  java.util.Iterator" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -12,7 +14,7 @@
 <jsp:include page="../../../script.jsp" />
 
 <%
-HashMap skillList = (HashMap)request.getAttribute("prefs");
+List prefList = (List)request.getAttribute("prefs");
 %>
 
 </head>
@@ -82,15 +84,12 @@ HashMap skillList = (HashMap)request.getAttribute("prefs");
 				<td align=right width="65%"><b>Preferences</b></td>
 				<td width="35%"><a href="javascript:goToPage('ContractingPreferences');">edit<a/></td>
             </tr>
-            <% Iterator i = skillList.keySet().iterator();
-            while(i.hasNext()) {
-                String s = (String)i.next();
-            %>
+            <tc:listIterator id="pref" list="<%=prefList%>">
             <tr>
-				<td align=right><b><%=s%></b></td>
+				<td align=right><b><%=((ContractingResponseGroup)pref).getName()%></b></td>
 				<td valign=top>&#160;</td>
             </tr>
-            <% } %>
+            </tc:listIterator>
             <tr>
 				<td align=right><b>Contract Work</b></td>
 				<td valign=top>&#160;</td>
