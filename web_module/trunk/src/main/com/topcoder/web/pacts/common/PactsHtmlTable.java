@@ -12,6 +12,7 @@ package com.topcoder.web.pacts.common;
 
 public class PactsHtmlTable {
     private PactsMemberTableModel tableData;
+
     private String bgcolor = null;
     private String border = null;
     private String cellSpacing = null;
@@ -20,6 +21,11 @@ public class PactsHtmlTable {
     private String[] rowColor;
     private String[][] fontSize;
     private boolean[][] isBold;
+
+    // new attribute for CSS stylesheet classname
+    // added by Steve Burrows during initial PACTS implementation
+    private String[][] className = null;
+
 
     /**
      * the constructor takes a model as the argument.  This model 
@@ -35,6 +41,7 @@ public class PactsHtmlTable {
 
 	rowColor = new String[tableData.getNumRows()];
 	fontSize = new String[tableData.getNumRows()][tableData.getNumCols()];
+	className = new String[tableData.getNumRows()][tableData.getNumCols()];
 	isBold = new boolean[tableData.getNumRows()][tableData.getNumCols()];
 
 	for(int i=0;i<tableData.getNumRows();i++) { 
@@ -72,24 +79,25 @@ public class PactsHtmlTable {
 	buf.append(">");
 	for(int row=0;row<tableData.getNumRows();row++) {
 	    buf.append("<tr ");
-	    
 	    //check row attributes
-	    if(rowColor[row] != null) { buf.append("BGCOLOR=" + rowColor[row] + " "); }
-
+	    if(rowColor[row]!=null) { buf.append("bgcolor=\"" + rowColor[row] + "\" "); }
 	    buf.append(">");
 	    for(int col=0;col<tableData.getNumCols();col++) {
-	        buf.append("<td>");
-
+	        buf.append("<td ");
+		if(className!=null && className[row][col]!=null) { 
+		    buf.append("class=\"" + className[row][col] + "\"");
+		}
+	        buf.append(">");
 		// set anything that applies to this cell
 		if(isBold[row][col]) { buf.append("<b>"); }
-		if(fontSize[row][col]!=null) { 
-		    buf.append("<font size=" + fontSize[row][col] + ">");
+		if(fontSize!=null && fontSize[row][col]!=null) { 
+		    buf.append("<font size=\"" + fontSize[row][col] + "\">");
 		}
 
 		buf.append(tableData.getElement(row,col));
 
 		// finish up any cell attributes
-		if(fontSize[row][col]!=null) { buf.append("</font>"); }
+		if(fontSize!=null && fontSize[row][col]!=null) { buf.append("</font>"); }
 		if(isBold[row][col]) { buf.append("</b>"); }		
 
 		buf.append("</td>");
@@ -170,6 +178,42 @@ public class PactsHtmlTable {
     public void setWidth(String width) {
 	this.width = width;
     }
+
+
+    // BEGIN -- added by Steve Burrows during initial PACTS implementation
+
+    /**
+     * used to specify the CSS class name for the table
+     *
+     * @param CSS stylesheet class name.  
+     * 
+     */
+    public void setClassName(String className) {
+        for(int row=0;row<tableData.getNumRows();row++) {
+            for(int col=0; col<tableData.getNumCols(); col++) {
+                setCellClassName(row,col,className);
+            }
+        }
+    }
+
+    /**
+     * this is used to set the CSS stylesheet classname an individual cell
+     *
+     * @param row the 0 based row of the table
+     * @param col the 0 based col of the table
+     * @param size a string that represents the CSS stylesheet class name of
+     * a given cell.
+     */
+    public void setCellClassName(int row, int col, String className) {
+        if((row <0) || (row >= this.className.length) ||
+            (col <0) || (col >= this.className[0].length)) {return;}
+
+        this.className[row][col] = className;
+    }
+
+    // END -- added by Steve Burrows during initial PACTS implementation
+
+
 
     /**
      * this class is used to set the color of individual rows.
