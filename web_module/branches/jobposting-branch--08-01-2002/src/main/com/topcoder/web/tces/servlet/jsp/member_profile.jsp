@@ -67,7 +67,7 @@
               <%= MemberInfo.get(TCESConstants.MEM_INFO_CONTACT_KEY)%>
               <BR>
               Interested in 
-                <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=(String)MemberProfileTask.getMemberID()%>" class="statText">
+                <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
                     <%=MemberProfileTask.getJobName()%>
                 </A>
               </P>                            

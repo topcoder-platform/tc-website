@@ -33,6 +33,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     private int memberID;
     private Map memberInfo;
     private String jobName;
+    private String companyName;
     private List statsByLevel;
     private boolean isStudent;
 
@@ -46,6 +47,14 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         setJobID(-1);
         setCampaignID(-1);
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public boolean getIsStudent() {
@@ -166,6 +175,10 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         }
 
         // start packaging data for presentation.
+
+        oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Company_Name");
+        ResultSetContainer.ResultSetRow cmpyNameRow = oltpRSC.getRow(0);
+        setCompanyName( cmpyNameRow.getItem("company_name").toString() );
 
         oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Member_Handle");
         ResultSetContainer.ResultSetRow memHdlRow = oltpRSC.getRow(0);
