@@ -158,7 +158,7 @@ public class Constants
                 log.debug(f[i].getType().getName());
                 if (f[i].getType().getName().equals("int")) {
                     f[i].setInt(null, Integer.parseInt(config.getInitParameter(f[i].getName().toLowerCase())));
-                } else if (f[i].getType().getName().equals("int")) {
+                } else if (f[i].getType().getName().equals("java.lang.String")) {
                     f[i].set(null, config.getInitParameter(f[i].getName().toLowerCase()));
                 } else {
                     throw new Exception("Unrecognized type: " + f[i].getType().getName());
