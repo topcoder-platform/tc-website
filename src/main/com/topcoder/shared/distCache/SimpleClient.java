@@ -186,7 +186,6 @@ public class SimpleClient {
                 long tot = 0;
                 for (int i = 0; i < al.size(); i++) {
                     CachedValue cv = (CachedValue) (al.get(i));
-                    System.out.println("key = " + cv.getKey() + ", value = " + cv.getValue() + ", last used = " + new Date(cv.getLastUsed()));
                     baos = new ByteArrayOutputStream();
                     oos = new ObjectOutputStream(baos);
                     oos.writeObject(cv.getValue());
