@@ -37,6 +37,7 @@ function openWin(url, name, w, h) {
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    
 
 <!-- Register tab -->
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
@@ -44,6 +45,15 @@ function openWin(url, name, w, h) {
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
                                     <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
                                     <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    
+<!-- Instructions tab -->
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <a class="leftnav" href="/pl/?&module=Static&d1=verizon&d2=vcc03_instructions" style="margin-left:1px;display:inline;">Competition Instructions</a><br/>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>
+                                    <img src="/i/events/verizon2003/ccc.gif" width="110" height="1" alt="" ><br>
+                                    <img src="/i/clear.gif" width="1" height="6" alt="" ><br>                                    
+                                    
+
 
                                 </td>
                             </tr>
