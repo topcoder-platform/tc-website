@@ -6,14 +6,6 @@
 
 <jsp:include page="../script.jsp" />
 
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
-
 </head>
 
 <body>
@@ -34,7 +26,7 @@ function openWin(url, name, w, h) {
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td> 
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
