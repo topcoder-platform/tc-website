@@ -24,7 +24,8 @@
     String url ="";
     String responseURL = "";
     n = (Navigation) session.getAttribute("navigation");
-    if (n==null || !n.isIdentified() ) {
+    if (n==null) n = new Navigation(request, response);
+    if (!n.isIdentified() ) {
       StringBuffer errorURL = new StringBuffer(100);
       if ("POST".equalsIgnoreCase(request.getMethod())) {
           String[] keys = {"mode", "forum", "thread", "message"};
