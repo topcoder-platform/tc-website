@@ -26,13 +26,13 @@ INSERT INTO command VALUES(46,'profile_list_menu',4);
 INSERT INTO command (command_id, command_desc, command_group_id) VALUES ( 47, 'Top Input Rated', 1 );
 INSERT INTO command VALUES(48,'profile_detail',4);
 INSERT INTO command VALUES(49,'Email all TopCoder members',1);
-INSERT INTO command VALUES(1000,"tces_main",1);
-INSERT INTO command VALUES(1001,"tces_campaign_detail",1);
-INSERT INTO command VALUES(1002,"tces_campaign_interest",1);
-INSERT INTO command VALUES(1003,"tces_position_interest",1);
-INSERT INTO command VALUES(1004,"tces_campaign_demographics",1);
-INSERT INTO command VALUES(1005,"tces_position_demographics",1);
-INSERT INTO command VALUES(1100,"tces_user_and_pw",1);
+INSERT INTO command VALUES(1000,"tces_main",8);
+INSERT INTO command VALUES(1001,"tces_campaign_detail",8);
+INSERT INTO command VALUES(1002,"tces_campaign_interest",8);
+INSERT INTO command VALUES(1003,"tces_position_interest",8);
+INSERT INTO command VALUES(1004,"tces_campaign_demographics",8);
+INSERT INTO command VALUES(1005,"tces_position_demographics",8);
+INSERT INTO command VALUES(1100,"tces_user_and_pw",8);
 
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
