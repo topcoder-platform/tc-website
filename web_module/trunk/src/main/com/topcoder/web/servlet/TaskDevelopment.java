@@ -376,11 +376,9 @@ public final class TaskDevelopment {
                     RolePrincipal[] roles = (RolePrincipal[])rolesSet.toArray(new RolePrincipal[0]);
                     //String formattedProject = project.substring(0, project.lastIndexOf(' ')-1);
 
+                    USER_MANAGER.registerInquiry(userId, componentId, rating,  (new Integer(nav.getUser().getUserId())).longValue(), comment, agreedToTerms, 1L, 1L);
 
 
-             /*** XXX THIS DOESN"T COMPILE **/
-
-                    //USER_MANAGER.registerInquiry(userId, componentId, rating, comment, agreedToTerms, 1, (new Integer(nav.getUser().getUserId())).longValue());
 
                     //log.debug("FormattedProject: " + formattedProject);
 
