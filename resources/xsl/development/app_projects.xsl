@@ -71,11 +71,10 @@
                 <tr valign="middle">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td width="32%" background="/i/steel_bluebv_bg.gif" class="statText" nowrap="nowrap">Project</td>
+                    <td width="47%" background="/i/steel_bluebv_bg.gif" class="statText" nowrap="nowrap">Project</td>
                     <td width="19%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Winning Designer</td>
                     <td width="19%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Second Place</td>
                     <td width="15%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Specification Due</td>
-                    <td width="15%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Design Due</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
                
@@ -89,6 +88,8 @@
                     <td class="statText" align="center"></td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
+
+		<tr><td colspan="5"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
