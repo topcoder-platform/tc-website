@@ -32,7 +32,7 @@ function submitAdd() {
 }
 
 function submitRemove(id) {
-    document.profileSetupForm.testSetBRemove.value = id;
+    document.profileSetupForm.testSetBRemove.value = "" + id;
     document.profileSetupForm.rp.value = "<%=Constants.PROFILE_REMOVE_PROBLEM_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
