@@ -63,7 +63,7 @@
 <table cellpadding="4" cellspacing="0" align="center" border="0" width="100%">
 <tr>
 <td class="rh1" align="left" colspan="4"></td>
-<td class="rh2" align="center" colspan="2">Probability of advancing to:</td>
+<td class="rh2" align="center" colspan="1">Probability of advancing to:</td>
 <td class="rh3" align="center" colspan="4">Probability of finishing as:</td>
 </tr>
 <tr>
@@ -71,7 +71,7 @@
 <td class="rh1" align="right">Rating</td>
 <td class="rh1" align="right">Volatility</td>
 <td class="rh1" align="right">Earnings</td>
-<td class="rh2" align="right">Finals</td>
+<td class="rh2" align="center">Finals</td>
 <td class="rh3" align="right">4th</td>
 <td class="rh3" align="right">3rd</td>
 <td class="rh3" align="right">2nd</td>
@@ -81,7 +81,7 @@
 <td class="rt1o" align="right">3437</td>
 <td class="rt1o" align="right">277</td>
 <td class="rt1o" align="right">$25 260.73</td>
-<td class="rt2o" align="right">87.98</td>
+<td class="rt2o" align="center">87.98</td>
 <td class="rt3o" align="right">4.22</td>
 <td class="rt3o" align="right">14.45</td>
 <td class="rt3o" align="right">30.11</td>
@@ -90,7 +90,7 @@
 <td class="rt1e" align="right">3399</td>
 <td class="rt1e" align="right">371</td>
 <td class="rt1e" align="right">$19 964.14</td>
-<td class="rt2e" align="right">76.38</td>
+<td class="rt2e" align="center">76.38</td>
 <td class="rt3e" align="right">7.56</td>
 <td class="rt3e" align="right">15.49</td>
 <td class="rt3e" align="right">23.19</td>
@@ -99,7 +99,7 @@
 <td class="rt1o" align="right">3169</td>
 <td class="rt1o" align="right">370</td>
 <td class="rt1o" align="right">$8 483.06</td>
-<td class="rt2o" align="right">50.96</td>
+<td class="rt2o" align="center">50.96</td>
 <td class="rt3o" align="right">12.61</td>
 <td class="rt3o" align="right">15.83</td>
 <td class="rt3o" align="right">13.19</td>
@@ -108,7 +108,7 @@
 <td class="rt1e" align="right">2923</td>
 <td class="rt1e" align="right">362</td>
 <td class="rt1e" align="right">$3 015.97</td>
-<td class="rt2e" align="right">23.07</td>
+<td class="rt2e" align="center">23.07</td>
 <td class="rt3e" align="right">10.53</td>
 <td class="rt3e" align="right">7.07</td>
 <td class="rt3e" align="right">3.81</td>
@@ -117,7 +117,7 @@
 <td class="rt1o" align="right">2957</td>
 <td class="rt1o" align="right">329</td>
 <td class="rt1o" align="right">$3 189.26</td>
-<td class="rt2o" align="right">24.85</td>
+<td class="rt2o" align="center">24.85</td>
 <td class="rt3o" align="right">10.60</td>
 <td class="rt3o" align="right">8.09</td>
 <td class="rt3o" align="right">4.41</td>
@@ -126,7 +126,7 @@
 <td class="rt1e" align="right">3061</td>
 <td class="rt1e" align="right">369</td>
 <td class="rt1e" align="right">$5 263.58</td>
-<td class="rt2e" align="right">35.92</td>
+<td class="rt2e" align="center">35.92</td>
 <td class="rt3e" align="right">11.49</td>
 <td class="rt3e" align="right">11.72</td>
 <td class="rt3e" align="right">8.10</td>
@@ -135,7 +135,7 @@
 <td class="rt1o" align="right">2868</td>
 <td class="rt1o" align="right">288</td>
 <td class="rt1o" align="right">$1 847.90</td>
-<td class="rt2o" align="right">9.14</td>
+<td class="rt2o" align="center">9.14</td>
 <td class="rt3o" align="right">3.76</td>
 <td class="rt3o" align="right">3.20</td>
 <td class="rt3o" align="right">1.71</td>
@@ -144,7 +144,7 @@
 <td class="rt1e" align="right">2740</td>
 <td class="rt1e" align="right">261</td>
 <td class="rt1e" align="right">$1 318.04</td>
-<td class="rt2e" align="right">2.49</td>
+<td class="rt2e" align="center">2.49</td>
 <td class="rt3e" align="right">1.27</td>
 <td class="rt3e" align="right">0.81</td>
 <td class="rt3e" align="right">0.33</td>
@@ -153,7 +153,7 @@
 <td class="rt1o" align="right">2802</td>
 <td class="rt1o" align="right">288</td>
 <td class="rt1o" align="right">$1 510.12</td>
-<td class="rt2o" align="right">4.72</td>
+<td class="rt2o" align="center">4.72</td>
 <td class="rt3o" align="right">2.14</td>
 <td class="rt3o" align="right">1.55</td>
 <td class="rt3o" align="right">0.79</td>
@@ -162,7 +162,7 @@
 <td class="rt1e" align="right">2896</td>
 <td class="rt1e" align="right">348</td>
 <td class="rt1e" align="right">$2 342.58</td>
-<td class="rt2e" align="right">13.22</td>
+<td class="rt2e" align="center">13.22</td>
 <td class="rt3e" align="right">5.22</td>
 <td class="rt3e" align="right">4.27</td>
 <td class="rt3e" align="right">2.66</td>
@@ -171,7 +171,7 @@
 <td class="rt1o" align="right">2616</td>
 <td class="rt1o" align="right">314</td>
 <td class="rt1o" align="right">$1 330.93</td>
-<td class="rt2o" align="right">4.09</td>
+<td class="rt2o" align="center">4.09</td>
 <td class="rt3o" align="right">2.74</td>
 <td class="rt3o" align="right">1.04</td>
 <td class="rt3o" align="right">0.27</td>
@@ -180,7 +180,7 @@
 <td class="rt1e" align="right">2599</td>
 <td class="rt1e" align="right">270</td>
 <td class="rt1e" align="right">$1 275.93</td>
-<td class="rt2e" align="right">3.13</td>
+<td class="rt2e" align="center">3.13</td>
 <td class="rt3e" align="right">2.30</td>
 <td class="rt3e" align="right">0.68</td>
 <td class="rt3e" align="right">0.14</td>
@@ -189,7 +189,7 @@
 <td class="rt1o" align="right">3132</td>
 <td class="rt1o" align="right">525</td>
 <td class="rt1o" align="right">$8 689.68</td>
-<td class="rt2o" align="right">48.94</td>
+<td class="rt2o" align="center">48.94</td>
 <td class="rt3o" align="right">16.32</td>
 <td class="rt3o" align="right">11.94</td>
 <td class="rt3o" align="right">9.79</td>
@@ -198,7 +198,7 @@
 <td class="rt1e" align="right">2752</td>
 <td class="rt1e" align="right">325</td>
 <td class="rt1e" align="right">$1 639.94</td>
-<td class="rt2e" align="right">9.03</td>
+<td class="rt2e" align="center">9.03</td>
 <td class="rt3e" align="right">5.06</td>
 <td class="rt3e" align="right">2.74</td>
 <td class="rt3e" align="right">0.99</td>
@@ -207,7 +207,7 @@
 <td class="rt1o" align="right">2455</td>
 <td class="rt1o" align="right">341</td>
 <td class="rt1o" align="right">$1 217.93</td>
-<td class="rt2o" align="right">1.26</td>
+<td class="rt2o" align="center">1.26</td>
 <td class="rt3o" align="right">0.93</td>
 <td class="rt3o" align="right">0.25</td>
 <td class="rt3o" align="right">0.07</td>
@@ -216,7 +216,7 @@
 <td class="rt1e" align="right">2461</td>
 <td class="rt1e" align="right">536</td>
 <td class="rt1e" align="right">$1 450.21</td>
-<td class="rt2e" align="right">4.81</td>
+<td class="rt2e" align="center">4.81</td>
 <td class="rt3e" align="right">3.26</td>
 <td class="rt3e" align="right">0.88</td>
 <td class="rt3e" align="right">0.44</td>
