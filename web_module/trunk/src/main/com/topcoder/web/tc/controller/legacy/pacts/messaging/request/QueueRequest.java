@@ -29,10 +29,9 @@ import javax.naming.InitialContext;
 public class QueueRequest {
 
     private static Logger log = Logger.getLogger(QueueRequest.class);
-    private static final long EXPIRED_TIME = 10000;
+    //private static final long EXPIRED_TIME = 10000;
     //private static final long MAIN_WAIT = 200;
     private String queueType = "";
-    private int queueNumber = 0;
     private boolean active = true;
     private QueueMessageReceiver qmr = null;
     private MessageHandler mh = null;
@@ -42,11 +41,9 @@ public class QueueRequest {
      * of the queue.
      *
      * @param queueType       Name of the queue to listen on.
-     * @param queueNumber     Thread id number
      */
-    QueueRequest(String queueType, int queueNumber) throws Exception {
+    QueueRequest(String queueType) throws Exception {
         this.queueType = queueType;
-        this.queueNumber = queueNumber;
 
         mh = MessageHandlerFactory.getMessageHandler(queueType);
 
@@ -100,9 +97,9 @@ public class QueueRequest {
             while (isActive()) {
                 ObjectMessage msg = null;
 
-                log.debug("QueueReader #" + this.queueNumber + " is waiting for messages...");
+                log.debug("QueueReader is waiting for messages...");
                 try {
-                    msg = (ObjectMessage) qmr.getMessage(1000);
+                    msg = qmr.getMessage(1000);
                 } catch (Exception e) {
                     log.error("ERROR: Error retreiving next message.");
                     init();                               // try reinitializing the queue
@@ -178,7 +175,6 @@ public class QueueRequest {
      * The main function is used launch the queue reader thread.
      *
      * @params args[0]      Queue type to initialize
-     * @params args[1]      Number of threads to start
      */
     public static void main(String args[]) throws Exception {
         if (args.length != 2) {
@@ -188,9 +184,8 @@ public class QueueRequest {
 
         // retrieve parameters
         String queueType = args[0];
-        int queueNumber = new Integer(args[1]).intValue();
 
-        QueueRequest qreader = new QueueRequest(queueType, queueNumber);
+        QueueRequest qreader = new QueueRequest(queueType);
         qreader.listen();       // start processing messages off the queue
         System.exit(1);         // This is to kill any hung threads
     }
