@@ -11,7 +11,7 @@
                       <TR> 
                         <TD CLASS="data" BGCOLOR="#660000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="statText"  BGCOLOR="#660000" VALIGN="top">
-                          <FORM NAME="searchForm" METHOD="post" > 
+                          <FORM NAME="searchForm" METHOD="get" > 
                             <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
                             <INPUT TYPE="hidden" NAME="t" VALUE="search"/>
                             <INPUT TYPE="hidden" NAME="c" VALUE="simple_search"/>
