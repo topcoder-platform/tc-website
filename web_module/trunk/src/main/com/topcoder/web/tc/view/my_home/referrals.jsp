@@ -17,7 +17,7 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
@@ -39,10 +39,10 @@
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
             <tr>
-                <td>
+                <td class="statTextBig">
                     Handle
                 </td>
-                <td>
+                <td class="statTextBig">
                     Member Since
                 </td>
             </tr>
