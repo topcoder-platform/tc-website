@@ -434,6 +434,10 @@ public abstract class Base extends BaseProcessor {
         }
     }
 
+    /*
+     * we might be able to deprecate this since we probably won't run the admin listener
+     * in that case, we don't get about them logging out
+    */
     private final class Logouter implements Serializable, HttpSessionBindingListener {
 
         private long sessionId = -1;
