@@ -58,11 +58,10 @@
         <xsl:call-template name="invit02_links"/>
 	<!-- Coder of the Week Pulldown Ends -->
 	<BR/><BR/>
-<A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4324" CLASS="statText">View Part 1 Advancers</A> | <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4325" CLASS="statText">View Part 2 Advancers</A><BR/><BR/>	
+
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
                     <TR>
-                      <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Online Round #1, Part 1 Seeding (Oct. 8th)</TD>
-                      <TD COLSPAN="2" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"><A HREF="/index?t=schedule&amp;c=invit02_pt2" CLASS="statTextBig">View Part 2 Seeding</A></TD>
+                      <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Breakdown</TD>
                     </TR>
 						<!-- <TR>
 							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">Round #1</TD>
