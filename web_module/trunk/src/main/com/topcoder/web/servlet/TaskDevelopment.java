@@ -290,6 +290,27 @@ public final class TaskDevelopment {
             }
             /********************** tcs_send *******************/
             else if (command.equals("tcs_send")) {
+                   /********** SHOULD BE A FUNCTION ****************/
+                   Request dataRequest = null;
+                   ResultSetContainer rsc = null;
+                   Map resultMap = null;
+                   log.debug("getting dai");
+                   dataRequest = new Request();
+                   dataRequest.setContentHandle("open_projects");
+    
+                   DataAccessInt dai = new DataAccess((javax.sql.DataSource)
+                            TCContext.getInitial().lookup(
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+                   log.debug("got dai");
+    
+                   resultMap = dai.getData(dataRequest);
+                   log.debug("got map");
+                   rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
+    
+                   log.debug("got rsc");
+                   if(rsc == null)
+                      log.debug("rsc is null");
+                   devTag.addTag(rsc.getTag("projects", "project"));
 
                 if (nav.getLoggedIn()) {
                     String version = Conversion.checkNull(request.getParameter("version"));
@@ -305,7 +326,7 @@ public final class TaskDevelopment {
                     String comment = Conversion.clean(request.getParameter("Comment"));
                     String activeForumId = "";
 
-                    TCSEmailMessage mail = new TCSEmailMessage();
+
                     StringBuffer msgText = new StringBuffer(1000);
                     msgText.append(handle);
                     msgText.append(" inquiry for project:  ");
@@ -321,8 +342,6 @@ public final class TaskDevelopment {
                     }
                     msgText.append("\n\nComment:\n");
                     msgText.append(comment);
-                    mail.addToAddress(to, TCSEmailMessage.TO);
-                    mail.setFromAddress(from);
                     boolean permissionAdded = false;
                     User user = nav.getUser();
                     CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
@@ -330,7 +349,7 @@ public final class TaskDevelopment {
                     if(comp.length() > 0)
                     {
 
-  	            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+      	            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
 
                     com.topcoder.security.UserPrincipal selectedPrincipal = null;
@@ -498,16 +517,11 @@ public final class TaskDevelopment {
                                       {
                                          //ignore
                                          log.error("GeneralSecurityException occurred! ", gse);
-                                         msgText.append("GeneralSecurityException occurred! " + gse.getMessage());
                                          notFound = true;
 
                                       }
                                    }
 
-                            }
-                            else
-                            {
-                               msgText.append("\n\nCould not find an active forum ");
                             }
                         }
                         i++;
@@ -516,25 +530,13 @@ public final class TaskDevelopment {
 
                    if(!permissionAdded && rating > 0)
                    {
-                      msgText.append("\n\nCould not find a match for the forum");
+
                       log.error("Could not find a match for the forum");
                    }
-                   else if(rating > 0){
-                      msgText.append("\n\nUser permissions were added");
-                   }
+                   
 
-                   }
-                    mail.setSubject(project + " -- " + handle + " permission successfully added: " + permissionAdded);
-                    msgText.append("\n\nRating: ");
-                    msgText.append(rating);
-                    mail.setBody(msgText.toString());
-                    EmailEngine.send(mail);
 
-                    if(comp.length()  == 0){
-                         
-                        xsldocURLString = XSL_DIR + "inquiry_app.xsl";
-                    }
-                    else if (rating <= 0)
+                    if (rating <= 0)
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
                     else{
 
@@ -544,7 +546,21 @@ public final class TaskDevelopment {
                         xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
                         //return "";
                     }
+                 }
+                 else{
+                        TCSEmailMessage mail = new TCSEmailMessage();                         
+                        mail.addToAddress(to, TCSEmailMessage.TO);
+                        mail.setFromAddress(from);
 
+                        mail.setSubject("APPLICATION: " + project + " -- " + handle);
+                        msgText.append("\n\nRating: ");
+                        msgText.append(rating);
+                        mail.setBody(msgText.toString());
+
+                        xsldocURLString = XSL_DIR + "inquiry_app.xsl";
+                        EmailEngine.send(mail);
+
+                    }
                         //xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
                } else {
                     requiresLogin = true;
@@ -678,5 +694,6 @@ public final class TaskDevelopment {
        }
        return catalog;
     }
+
 
 }
