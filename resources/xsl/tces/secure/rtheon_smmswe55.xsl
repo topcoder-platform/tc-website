@@ -63,7 +63,7 @@
 <A CLASS="bodyText" HREF="http://www.raytheon.com/businesses/" TARGET="_blank">Businesses</A>&#160;|&#160;
 <A CLASS="bodyText" HREF="http://www.raytheon.com/about/hottech.htm" TARGET="_blank">Hot Technologies</A>&#160;|&#160;
 <A CLASS="bodyText" HREF="http://www.rayjobs.com/index.cfm?Option=Benefits" TARGET="_blank">Benefits</A>&#160;|&#160;
-<A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=raytheon">Raytheon Main Page</A>
+<A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=raytheon">Main Page</A>
       </TD>
   </TR>
 </TABLE>
@@ -139,7 +139,7 @@ Current, active SSBI highly desired.
 US Citizenship. 
 </P>
 
-
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=88&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=raytheon_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 <!-- Client Job List Ends -->
           
           <P><BR/></P>
