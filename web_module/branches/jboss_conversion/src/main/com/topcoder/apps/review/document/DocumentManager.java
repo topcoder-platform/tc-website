@@ -317,7 +317,7 @@ public interface DocumentManager extends EJBObject {
      * @param projectId The ProjectId
      * @return true if project is aggregated
      */
-    public boolean isProjectAggregated(long projectId);
+    public boolean isProjectAggregated(long projectId) throws RemoteException;
 
     /**
      * Get testcases-object from the database.
