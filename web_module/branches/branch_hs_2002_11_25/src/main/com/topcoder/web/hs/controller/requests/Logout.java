@@ -14,7 +14,7 @@ public class Logout extends Base {
     protected void businessProcessing() throws Exception {
         auth.logout();
 
-        setNextPage("/home/index.jsp");  //@@@ name this... or perhaps redirect through Static?
-        setIsNextPageInContext(true);
+        setNextPage("");
+        setIsNextPageInContext(false);
     }
 }

@@ -47,12 +47,15 @@ New to TopCoder?
 Click here to register now. After you complete the registration process, we will send your account activation code via email. 
 </P><BR>
 
+<form name="loginform" action="" method="post">
+<input type="hidden" name="module" value="Login">
+<input type="hidden" name="nextpage" value="<%= request.getAttribute("nextpage")==null?"":request.getAttribute("nextpage") %>">
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
-    <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" SIZE="25"></TD>
+    <TD CLASS="bodyText"><B>Handle</B><BR/><INPUT TYPE="text" NAME="username" SIZE="25"></TD>
 </TR>
 <TR>
-    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="text" SIZE="25"><BR/><B><A HREF="?module=Static&d1=home&d2=index_member" CLASS="statTextBig">Login>></A></B></TD>
+    <TD CLASS="bodyText"><B>Password</B><BR/><INPUT TYPE="text" NAME="password" SIZE="25"><BR/><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login>></A></B></TD>
 </TR>
 </TABLE>
 
