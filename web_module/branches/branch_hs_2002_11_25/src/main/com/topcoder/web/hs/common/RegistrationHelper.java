@@ -1,4 +1,299 @@
-createStudent(StudentRegistrationBean _srb)
+package com.topcoder.web.hs.common;
+
+import com.topcoder.security.*;
+import com.topcoder.security.admin.*;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.util.*;
+import com.topcoder.web.ejb.user.*;
+import com.topcoder.web.ejb.email.*;
+import com.topcoder.web.ejb.termsofuse.*;
+import com.topcoder.web.hs.ejb.coder.*;
+import com.topcoder.web.hs.ejb.rating.*;
+import com.topcoder.web.hs.model.*;
+
+import java.rmi.*;
+import java.util.*;
+import javax.ejb.*;
+import javax.naming.*;
+import javax.servlet.*;
+import javax.sql.*;
+import javax.transaction.UserTransaction;
+
+
+/**
+ * This class contains commonly used registration methods
+ *
+ * @author Nathan Egge
+ * @version 1.0 2003/01/15
+ */
+public class RegistrationHelper {
+
+  private final static String STATE_INPUT_CODE="st";
+
+  private final static String USER_ID_INPUT_CODE="ui";
+
+  private final static long TERMS_OF_USE_ID=1;
+
+  private final static long EMAIL_TYPE_ID_PRIMARY=1;
+
+  private final static char NEW_USER_TYPE='A';
+
+  private final static String STUDENT_GROUP_NAME="Student";
+
+  private final static String COACH_GROUP_NAME="Coach";
+
+  private final static String INCORRECT_GROUP="Cannot processes request "+
+                                              "because of wrong group";
+
+  private final static String NO_USER_FOUND="Could not find user information "+
+                                            "in our systems";
+
+  private final static String FIRST_NAME_NOT_EMPTY="Ensure that the first "+
+                                                  "name field is not empty";
+
+  private final static int MAX_FIRST_NAME_LENGTH=64;
+
+  private final static String FIRST_NAME_TOO_LONG="The first name field must "+
+                                                  "be less than 64 characters "+
+                                                  "long";
+
+  private final static String LAST_NAME_NOT_EMPTY="Ensure that the last name "+
+                                                  "field is not empty";
+
+  private final static int MAX_LAST_NAME_LENGTH=64;
+
+  private final static String LAST_NAME_TOO_LONG="The last name field must be "+
+                                                  "less than 64 characters "+
+                                                  "long";
+
+  private final static String INVALID_STATE_CODE="Please select a state";
+
+  private final static String INVALID_SCHOOL_ID="Please select a school";
+
+  private final static String HANDLE_NOT_EMPTY="Ensure that the handle field "+
+                                               "is not empty";
+
+  private final static String HANDLE_ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
+                                              "abcdefghijklmnopqrstuvwxyz"+
+                                              "0123456789"+
+                                              "-_.";
+
+  private final static String INVALID_HANDLE="The handle field must contain "+
+                                             "only alpha numeric symbols";
+
+  private final static String HANDLE_TAKEN="This handle is already in use by "+
+                                           "another user";
+
+  private final static String TECHNICAL_PROBLEMS="Technical problems are "+
+                                                 "preventing further "+
+                                                 "processing, try again later";
+
+  private final static String PASSWORD_NOT_EMPTY="Ensure that the password "+
+                                                 "field is not empty";
+
+  private final static String PASSWORD_WRONG_LENGTH="The password field must "+
+                                                    "be 7 to 15 characters "+
+                                                    "long";
+
+  private final static String PASSWORD_NO_MATCH="The password field does not "+
+                                                "match the re-typed password";
+
+  private final static String EMAIL_NOT_EMPTY="Ensure that the email field "+
+                                              "is not empty";
+
+  private final static String INVALID_EMAIL="The email field must contain a "+
+                                            "valid email address";
+
+  private final static String EMAIL_NO_MATCH="The email field does not match "+
+                                             "the re-typed email";
+
+  private final static String INVALID_EDITOR_ID="Please select an editor";
+
+  private final static String INVALID_LANGUAGE_ID="Please select a language";
+
+  private final static String MUST_AGREE_TERMS="You must agree to the terms "+
+                                               "and conditions to register";
+
+  private RegistrationHelper() {
+    /* do nothing */
+  }
+
+  public static void populateStudentWithDefaults(StudentRegistrationBean _srb) {
+    _srb.setUserId(null);
+    _srb.setFirstName("");
+    _srb.setLastName("");
+    _srb.setStateCode("");
+    _srb.setSchoolId(new Long(-1));
+    _srb.setHandle("");
+    _srb.setChangePassword(false);
+    _srb.setPassword("");
+    _srb.setConfirmPassword("");
+    _srb.setEmail("");
+    _srb.setConfirmEmail("");
+    _srb.setEditorId(new Integer(-1));
+    _srb.setLanguageId(new Integer(-1));
+    _srb.setAgreeTerms(false);
+  }
+
+  public static void populateStudentFromRequest(ServletRequest _request,
+                                                StudentRegistrationBean _srb)
+                                                              throws Exception {
+
+    _srb.setFirstName(getParameter(_request,"first_name",_srb.getFirstName()));
+    _srb.setLastName(getParameter(_request,"last_name",_srb.getLastName()));
+    _srb.setStateCode(getParameter(_request,"state_code",_srb.getStateCode()));
+    _srb.setSchoolId(getParameterLong(_request,"school_id",_srb.getSchoolId()));
+    _srb.setHandle(getParameter(_request,"handle",_srb.getHandle()));
+    _srb.setPassword(getParameter(_request,"password",_srb.getPassword()));
+    _srb.setConfirmPassword(getParameter(_request,"confirm_password",
+                                         _srb.getConfirmPassword()));
+    _srb.setEmail(getParameter(_request,"email",_srb.getEmail()));
+    _srb.setConfirmEmail(getParameter(_request,"confirm_email",
+                                      _srb.getConfirmEmail()));
+    _srb.setEditorId(getParameterInteger(_request,"editor_id",
+                                         _srb.getEditorId()));
+    _srb.setLanguageId(getParameterInteger(_request,"language_id",
+                                           _srb.getLanguageId()));
+    _srb.setAgreeTerms("true".equals(getParameter(_request,"terms","false")));
+
+  }
+
+  public static void populateStudentFromSession(SessionInfoBean _sib,
+                                                StudentRegistrationBean _srb)
+                                                              throws Exception {
+
+    if (!_sib.isStudent()) {
+      throw(new Exception(INCORRECT_GROUP));
+    }
+
+    Context ctx=TCContext.getInitial();
+    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataAccessInt dai=new CachedDataAccess(ds);
+    Map map=new HashMap();
+
+    map.put(DataAccessConstants.COMMAND,"student_data");
+    map.put(USER_ID_INPUT_CODE,new Long(_sib.getUserId()));
+    Request req=new Request(map);
+    Map data=dai.getData(req);
+
+    ResultSetContainer rsc;
+    ResultSetContainer.ResultSetRow rsr;
+
+    rsc=(ResultSetContainer)data.get("student_data");
+    Iterator iterator=rsc.iterator();
+    if (!iterator.hasNext()) {
+      throw(new Exception(NO_USER_FOUND));
+    }
+    rsr=(ResultSetContainer.ResultSetRow)iterator.next();
+
+    _srb.setUserId(new Long(_sib.getUserId()));
+
+    _srb.setFirstName((String)rsr.getItem("first_name").getResultData());
+    _srb.setLastName((String)rsr.getItem("last_name").getResultData());
+    _srb.setStateCode((String)rsr.getItem("state_code").getResultData());
+    _srb.setSchoolId((Long)rsr.getItem("school_id").getResultData());
+    _srb.setEmail((String)rsr.getItem("email").getResultData());
+    _srb.setConfirmEmail((String)rsr.getItem("email").getResultData());
+    _srb.setEditorId((Integer)rsr.getItem("editor_id").getResultData());
+    _srb.setLanguageId((Integer)rsr.getItem("language_id").getResultData());
+  }
+
+  public static void populateStudentStaticContent(StudentRegistrationBean _srb)
+                                                              throws Exception {
+  
+    Context ctx=TCContext.getInitial();
+    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataAccessInt dai=new CachedDataAccess(ds);
+    Map map=new HashMap();
+
+    map.put(DataAccessConstants.COMMAND,"student_form");
+    Request req=new Request(map);
+    Map data=dai.getData(req);
+
+    ResultSetContainer rsc;
+    ResultSetContainer.ResultSetRow rsr;
+
+    rsc=(ResultSetContainer)data.get("state_list");
+    List state_list=new ArrayList();
+    state_list.add(new ListPairBean(null,"Pick a state"));
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      String state_code=(String)rsr.getItem("state_code").getResultData();
+      String state_name=(String)rsr.getItem("state_name").getResultData();
+      state_list.add(new ListPairBean(state_code,state_name));
+    }
+
+    _srb.setStateList(state_list);
+
+    rsc=(ResultSetContainer)data.get("editor_list");
+    List editor_list=new ArrayList();
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      Integer editor_id=(Integer)rsr.getItem("editor_id").getResultData();
+      String editor_desc=(String)rsr.getItem("editor_desc").getResultData();
+      editor_list.add(new ListPairBean(editor_id,editor_desc));
+    }
+
+    _srb.setEditorList(editor_list);
+
+    rsc=(ResultSetContainer)data.get("language_list");
+    List language_list=new ArrayList();
+    for (Iterator i=rsc.iterator();i.hasNext();) {
+      rsr=(ResultSetContainer.ResultSetRow)i.next();
+      Integer language_id=(Integer)rsr.getItem("language_id").getResultData();
+      String language_name=(String)rsr.getItem("language_name").getResultData();
+      language_list.add(new ListPairBean(language_id,language_name));
+    }
+
+    _srb.setLanguageList(language_list);
+
+    List school_list=new ArrayList();
+    school_list.add(new ListPairBean(null,"Pick a school"));
+    if (isValidListValue(_srb.getStateCode(),_srb.getStateList())) {
+      map.put(DataAccessConstants.COMMAND,"state_schools");
+      map.put(STATE_INPUT_CODE,_srb.getStateCode());
+      req=new Request(map);
+      Map schools=dai.getData(req);
+
+      rsc=(ResultSetContainer)schools.get("state_schools");
+      for (Iterator i=rsc.iterator();i.hasNext();) {
+        rsr=(ResultSetContainer.ResultSetRow)i.next();
+        Long school_id=(Long)rsr.getItem("school_id").getResultData();
+        String full_name=(String)rsr.getItem("full_name").getResultData();
+        school_list.add(new ListPairBean(school_id,full_name));
+      }
+
+    }
+    _srb.setSchoolList(school_list);
+
+    TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
+    TermsOfUse tou=touh.create();
+    _srb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
+  }
+
+  public static boolean isValidStudent(Map _errors,
+                                       StudentRegistrationBean _srb)
+                                                              throws Exception {
+    boolean valid=true;
+    valid&=checkValidFirstName(_errors,_srb.getFirstName());
+    valid&=checkValidLastName(_errors,_srb.getLastName());
+    valid&=(checkValidState(_errors,_srb.getStateCode(),_srb.getStateList())&&
+            checkValidSchool(_errors,_srb.getSchoolId(),_srb.getSchoolList()));
+    valid&=(_srb.getUserId()!=null||checkValidHandle(_errors,_srb.getHandle()));
+    valid&=(!_srb.getChangePassword()||
+      checkValidPassword(_errors,_srb.getPassword(),_srb.getConfirmPassword()));
+    valid&=checkValidEmail(_errors,_srb.getEmail(),_srb.getConfirmEmail());
+    valid&=checkValidEditor(_errors,_srb.getEditorId(),
+                            _srb.getEditorList());
+    valid&=checkValidLanguage(_errors,_srb.getLanguageId(),
+                              _srb.getLanguageList());
+    valid&=(_srb.getUserId()!=null||
+            checkAgreeTerms(_errors,_srb.getAgreeTerms()));
+    return(valid);
+  }
+
+  public static void createStudent(StudentRegistrationBean _srb)
                                                               throws Exception {
     /* !!This is a hack!! Because the persisting is done in a web container, or
     * servlet, its not possible to use EJBContext.getUserTransaction(). Instead
