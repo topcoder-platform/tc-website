@@ -6,7 +6,7 @@
                <TD VALIGN="top">
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="0">
               <TR> 
-                      <TD BGCOLOR="#333333" BACKGROUND="" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/module_labels_oct_date.gif" ALT="September Dates" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
+                      <TD BGCOLOR="#333333" BACKGROUND="" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/module_labels_oct_date.gif" ALT="October Dates" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
                    </TR>
                       <TR BGCOLOR="#CC6600"> 
                         <TD BACKGROUND="/i/orangebv_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
