@@ -87,18 +87,6 @@
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- AlphaSimplex ends -->
 
-<!--Amazon.com begins-->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=amazon" target="_top"><img src="/i/es/amazon/amazon_logo.gif" width="139" height="34" alt="AlphaSimplex" border="0" /></a></td>
-                                <td width="99%" class="bodyText">We hire people from vastly diverse backgrounds, and roles at the company vary greatly.  Yet 
-                                ask any Amazonian what he or she loves about working here, and you'll get surprisingly similar answers.  
-                                <A href="/?&amp;t=tces&amp;c=amazon" class="bodyText" target="_top"> Why do we like it here so much?</A><br/><br/></td>
-                            </tr>
-                            
-                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-
-<!--Amazon.com ends-->
-
 <!-- Appian begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=appian" target="_top"><img src="/i/es/appian/appian_logo.gif" width="121" height="38" alt="Appian Corp" border="0" /></a></td>
