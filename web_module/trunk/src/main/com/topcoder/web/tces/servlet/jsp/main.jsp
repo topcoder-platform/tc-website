@@ -61,7 +61,7 @@
                 </TR>
     
                 <%
-                 int lastCompany = -1;
+                 int lastCompany = MainTask.getCampaignInfoList().isEmpty()?-1:Integer.parseInt(MainTask.getCampaignInfoList().getItem(0, "company_id").toString());
                  int currCompany = -1;
                  int i=0;
                  %>
