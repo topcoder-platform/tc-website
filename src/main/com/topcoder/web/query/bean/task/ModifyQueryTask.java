@@ -52,38 +52,36 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
         QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
         Query q = qHome.create();
 
-        q.setDataSource(getDb());
-
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             if (isRanking()) {
                 checkColumnIndex(getColumnIndex());
             } else {
-                setColumnIndex(q.getColumnIndex(getQueryId()));
+                setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
             }
             checkText(getText());
             checkName(getName());
             checkQueryId(getQueryId(), q);
             if (!super.hasErrors()) {
                 if (isNewQuery()) {
-                    setQueryId(q.createQuery(getText(), getName(), isRanking()?1:0));
+                    setQueryId(q.createQuery(getText(), getName(), isRanking()?1:0, getDb()));
                     if (isRanking()) {
-                        q.setColumnIndex(getQueryId(), getColumnIndex());
+                        q.setColumnIndex(getQueryId(), getColumnIndex(), getDb());
                     }
                 } else {
                     if (isRanking()) {
-                        q.setColumnIndex(getQueryId(), getColumnIndex());
+                        q.setColumnIndex(getQueryId(), getColumnIndex(), getDb());
                     }
-                    q.setText(getQueryId(), getText());
-                    q.setName(getQueryId(), getName());
-                    q.setRanking(getQueryId(), isRanking()?1:0);
+                    q.setText(getQueryId(), getText(), getDb());
+                    q.setName(getQueryId(), getName(), getDb());
+                    q.setRanking(getQueryId(), isRanking()?1:0, getDb());
                 }
             }
         } else {
             if (!isNewQuery()) {
-                setColumnIndex(q.getColumnIndex(getQueryId()));
-                setText(q.getText(getQueryId()));
-                setName(q.getName(getQueryId()));
-                setRanking(q.getRanking(getQueryId())==1?true:false);
+                setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
+                setText(q.getText(getQueryId(), getDb()));
+                setName(q.getName(getQueryId(), getDb()));
+                setRanking(q.getRanking(getQueryId(), getDb())==1?true:false);
             }
 
         }
@@ -148,7 +146,7 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
 
     private void checkQueryId(long queryId, Query q) throws Exception {
         if (!isNewQuery()) {
-            if (q.getName(queryId)==null) {
+            if (q.getName(queryId, getDb())==null) {
                 super.addError(Constants.QUERY_ID_PARAM, "Invalid query id");
             }
         }

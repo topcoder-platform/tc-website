@@ -46,21 +46,19 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
         CommandGroupHome cgHome = (CommandGroupHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_GROUP);
         CommandGroup cg = cgHome.create();
 
-        cg.setDataSource(getDb());
-
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkGroupDesc(getGroupDesc());
             checkGroupId(getGroupId(), cg);
             if (!super.hasErrors()) {
                 if (isNewGroup()) {
-                    setGroupId(cg.createCommandGroup(getGroupDesc()));
+                    setGroupId(cg.createCommandGroup(getGroupDesc(), getDb()));
                 } else {
-                    cg.setCommandGroupName(getGroupId(), getGroupDesc());
+                    cg.setCommandGroupName(getGroupId(), getGroupDesc(), getDb());
                 }
             }
         } else {
             if (!isNewGroup()) {
-                setGroupDesc(cg.getCommandGroupName(getGroupId()));
+                setGroupDesc(cg.getCommandGroupName(getGroupId(), getDb()));
             }
         }
         super.setNextPage(Constants.MODIFY_GROUP_PAGE);
@@ -94,7 +92,7 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
         if (!isNewGroup()) {
-            if (cg.getCommandGroupName(groupId)==null) {
+            if (cg.getCommandGroupName(groupId, getDb())==null) {
                 super.addError(Constants.GROUP_ID_PARAM, "Invalid Group Id");
             }
         }

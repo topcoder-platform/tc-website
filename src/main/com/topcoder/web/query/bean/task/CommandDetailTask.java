@@ -56,16 +56,11 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
         QueryInput qi = qiHome.create();
 
-        cq.setDataSource(getDb());
-        c.setDataSource(getDb());
-        cg.setDataSource(getDb());
-        qi.setDataSource(getDb());
-
-        setQueryList(cq.getQueriesForCommand(getCommandId()));
-        setGroupId(c.getCommandGroupId(getCommandId()));
-        setGroupDesc(cg.getCommandGroupName(getGroupId()));
-        setCommandDesc(c.getCommandDesc(getCommandId()));
-        setInputList(qi.getInputsForCommand(getCommandId()));
+        setQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
+        setGroupId(c.getCommandGroupId(getCommandId(), getDb()));
+        setGroupDesc(cg.getCommandGroupName(getGroupId(), getDb()));
+        setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
+        setInputList(qi.getInputsForCommand(getCommandId(), getDb()));
 
         super.setNextPage(Constants.COMMAND_DETAIL_PAGE);
     }

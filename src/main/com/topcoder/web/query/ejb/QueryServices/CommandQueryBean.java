@@ -25,9 +25,8 @@ import java.sql.SQLException;
 public class CommandQueryBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(CommandGroupBean.class);
-    private String dataSourceName;
 
-    public void createCommandQuery(long commandId, long queryId) throws RemoteException, EJBException {
+    public void createCommandQuery(long commandId, long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("createCommandQuery called...command: " + commandId + " query: " + queryId);
 
         PreparedStatement ps = null;
@@ -66,7 +65,7 @@ public class CommandQueryBean extends BaseEJB {
         }
     }
 
-    public void setSortOrder(long commandId, long queryId, int sortOrder) throws RemoteException, EJBException {
+    public void setSortOrder(long commandId, long queryId, int sortOrder, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setSortOrder called...command: " + commandId + " query: " + queryId + " sort: " + sortOrder);
 
         PreparedStatement ps = null;
@@ -106,7 +105,7 @@ public class CommandQueryBean extends BaseEJB {
         }
     }
 
-    public int getSortOrder(long commandId, long queryId) throws RemoteException, EJBException {
+    public int getSortOrder(long commandId, long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getSortOrder called...command: " + commandId + " query: " + queryId);
 
         ResultSet rs = null;
@@ -149,7 +148,7 @@ public class CommandQueryBean extends BaseEJB {
         return ret;
     }
 
-    public void removeCommandQuery(long commandId, long queryId) throws RemoteException, EJBException {
+    public void removeCommandQuery(long commandId, long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("removeCommandQuery called...command: " + commandId + " query: " + queryId);
 
         PreparedStatement ps = null;
@@ -188,7 +187,7 @@ public class CommandQueryBean extends BaseEJB {
         }
     }
 
-    public ResultSetContainer getQueriesForCommand(long commandId) throws RemoteException, EJBException {
+    public ResultSetContainer getQueriesForCommand(long commandId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getQueriesForCommand called...command: " + commandId);
 
         ResultSet rs = null;
@@ -230,11 +229,6 @@ public class CommandQueryBean extends BaseEJB {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
         return ret;
-    }
-
-    public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
-        if (dataSourceName.trim().length()>0)
-            this.dataSourceName = dataSourceName;
     }
 
 

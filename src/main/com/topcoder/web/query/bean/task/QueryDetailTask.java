@@ -52,14 +52,11 @@ public class QueryDetailTask extends BaseTask implements Task, Serializable {
         QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
         Query q = qHome.create();
 
-        qi.setDataSource(getDb());
-        q.setDataSource(getDb());
-
-        setQueryText(q.getText(getQueryId()));
-        setQueryName(q.getName(getQueryId()));
-        setRankingQuery(q.getRanking(getQueryId())==1?true:false);
-        setColumnIndex(q.getColumnIndex(getQueryId()));
-        setInputList(qi.getInputsForQuery(getQueryId()));
+        setQueryText(q.getText(getQueryId(), getDb()));
+        setQueryName(q.getName(getQueryId(), getDb()));
+        setRankingQuery(q.getRanking(getQueryId(), getDb())==1?true:false);
+        setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
+        setInputList(qi.getInputsForQuery(getQueryId(), getDb()));
 
         super.setNextPage(Constants.QUERY_DETAIL_PAGE);
     }

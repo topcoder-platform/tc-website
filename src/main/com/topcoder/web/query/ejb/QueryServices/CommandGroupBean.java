@@ -25,9 +25,8 @@ import java.sql.SQLException;
 public class CommandGroupBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(CommandGroupBean.class);
-    private String dataSourceName;
 
-    public int createCommandGroup(String commandGroupName) throws RemoteException, EJBException {
+    public int createCommandGroup(String commandGroupName, String dataSourceName) throws RemoteException, EJBException {
         log.debug("createCommandGroup called...name: " + commandGroupName);
 
         PreparedStatement ps = null;
@@ -69,7 +68,7 @@ public class CommandGroupBean extends BaseEJB {
 
     }
 
-    public void setCommandGroupName(int commandGroupId, String commandGroupName) throws RemoteException, EJBException {
+    public void setCommandGroupName(int commandGroupId, String commandGroupName, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setCommandGroupName called...group: " + commandGroupId + " name: " + commandGroupName);
 
         PreparedStatement ps = null;
@@ -106,7 +105,7 @@ public class CommandGroupBean extends BaseEJB {
 
     }
 
-    public String getCommandGroupName(int commandGroupId) throws RemoteException, EJBException {
+    public String getCommandGroupName(int commandGroupId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getCommandGroupName called...command: " + commandGroupId);
 
         ResultSet rs = null;
@@ -145,7 +144,7 @@ public class CommandGroupBean extends BaseEJB {
         return ret;
     }
 
-    public ResultSetContainer getAllCommandGroups() throws RemoteException, EJBException {
+    public ResultSetContainer getAllCommandGroups(String dataSourceName) throws RemoteException, EJBException {
         log.debug("getAllCommandGroups called...");
 
         ResultSet rs = null;
@@ -207,7 +206,7 @@ public class CommandGroupBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sequence");
         } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {
@@ -218,12 +217,6 @@ public class CommandGroupBean extends BaseEJB {
         }
         return ret;
     }
-
-    public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
-        if (dataSourceName.trim().length()>0)
-            this.dataSourceName = dataSourceName;
-    }
-
 
 }
 

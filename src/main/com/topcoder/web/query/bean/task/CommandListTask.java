@@ -43,8 +43,7 @@ public class CommandListTask extends BaseTask implements Task, Serializable {
     public void process(String step) throws Exception {
         CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
         Command c = cHome.create();
-        c.setDataSource(getDb());
-        setCommandList(c.getCommandList());
+        setCommandList(c.getCommandList(getDb()));
         super.setNextPage(Constants.COMMAND_LIST_PAGE);
     }
 
