@@ -23,10 +23,6 @@
 <body>
 
 <jsp:include page="top.jsp" />
-<jsp:include page="../menu.jsp">
-    <jsp:param name="level1" value="employment_services"/>
-</jsp:include>
-
 
 <jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.tces.bean.MainTask" />
 
