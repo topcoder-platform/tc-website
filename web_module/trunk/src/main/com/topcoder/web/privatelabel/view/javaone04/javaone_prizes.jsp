@@ -62,17 +62,17 @@
 
                 <tr>
                     <td width="30%" class="sidebarText">1st Runner Up (3)*</td>
-                    <td width="70%" class="sidebarText">$500 gift certificate to redeem in the JavaOne conference Retail Store</td>
+                    <td width="70%" class="sidebarText">$500 gift certificate to redeem in the JavaOne Conference Retail Store</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">2nd Runner Up (3)*</td>
-                    <td width="70%" class="sidebarText">$250 gift certificate to redeem in the JavaOne conference Retail Store</td>
+                    <td width="70%" class="sidebarText">$250 gift certificate to redeem in the JavaOne Conference Retail Store</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">3rd Runner Up (3)*</td>
-                    <td width="70%" class="sidebarText">$125 gift certificate to redeem in the JavaOne conference</td>
+                    <td width="70%" class="sidebarText">$125 gift certificate to redeem in the JavaOne Conference</td>
                 </tr>
 
                 <tr>
