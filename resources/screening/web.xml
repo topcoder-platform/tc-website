@@ -6,736 +6,743 @@
 
 <web-app>
 
-<servlet>
-  <servlet-name>screening</servlet-name>
-  <display-name>screening</display-name>
-  <description>The main controller servlet</description>
-  <servlet-class>com.topcoder.web.screening.controller.MainServlet</servlet-class>
-
-  <!-- Controller parameters -->
-  <init-param>
-    <param-name>processors_package</param-name>
-    <param-value>com.topcoder.web.screening.request</param-value>
-    <description></description>
-  </init-param>
-  
-  <init-param>
-    <param-name>error_page</param-name>
-    <param-value>/errorPage.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>login_page</param-name>
-    <param-value>/login.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>valid_char_list</param-name>
-    <param-value>abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>controller_url</param-name>
-    <param-value>/</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>default_page</param-name>
-    <param-value>/index.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>request_info_attribute</param-name>
-    <param-value>requestInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <!-- URL Parameter constant names -->
-  <init-param>
-    <param-name>user_id_parameter</param-name>
-    <param-value>userId</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>candidate_id_parameter</param-name>
-    <param-value>cid</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>referrer_parameter</param-name>
-    <param-value>referrer</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>email_address_parameter</param-name>
-    <param-value>emailAddress</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>password_parameter</param-name>
-    <param-value>password</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>handle_parameter</param-name>
-    <param-value>handle</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>redirect_parameter</param-name>
-    <param-value>redir</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>message_parameter</param-name>
-    <param-value>msg</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>first_attempt_parameter</param-name>
-    <param-value>firstVisit</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>request_processor_parameter</param-name>
-    <param-value>rp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_id_parameter</param-name>
-    <param-value>profileId</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_name_parameter</param-name>
-    <param-value>profileName</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>test_set_a_parameter</param-name>
-    <param-value>testSetA</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>test_set_b_parameter</param-name>
-    <param-value>testSetB</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>language_parameter</param-name>
-    <param-value>language</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>test_set_b_add_parameter</param-name>
-    <param-value>testSetBAdd</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>test_set_b_remove_parameter</param-name>
-    <param-value>testSetBRemove</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_id_parameter</param-name>
-    <param-value>pid</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_type_id_parameter</param-name>
-    <param-value>ptid</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>round_id_parameter</param-name>
-    <param-value>rid</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>division_id_parameter</param-name>
-    <param-value>div</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>begin_month_parameter</param-name>
-    <param-value>beginMonth</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>begin_day_parameter</param-name>
-    <param-value>beginDay</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>begin_year_parameter</param-name>
-    <param-value>beginYear</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>begin_hour_parameter</param-name>
-    <param-value>beginHour</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>end_month_parameter</param-name>
-    <param-value>endMonth</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>end_day_parameter</param-name>
-    <param-value>endDay</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>end_year_parameter</param-name>
-    <param-value>endYear</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>end_hour_parameter</param-name>
-    <param-value>endHour</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>candidate_email_parameter</param-name>
-    <param-value>candidateEmail</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>rep_email_parameter</param-name>
-    <param-value>repEmail</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>note_text_parameter</param-name>
-    <param-value>noteText</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>round_problem_id_parameter</param-name>
-    <param-value>roundProblemId</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_id_parameter</param-name>
-    <param-value>sid</param-value>
-    <description></description>
-  </init-param>
-
-  <!-- Parameters used by Candidate -->
-  <init-param>
-    <param-name>candidate_info_attribute</param-name>
-    <param-value>candidateInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>candidate_setup_page</param-name>
-    <param-value>/candidate/candidateSetup.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>candidate_list_page</param-name>
-    <param-value>/candidate/candidateList.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>note_list_page</param-name>
-    <param-value>/candidate/noteList.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>note_create_page</param-name>
-    <param-value>/candidate/noteCreate.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>update_candidate_default_forward_processor</param-name>
-    <param-value>BuildCandidateList</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>update_candidate_create_coder_status_id</param-name>
-    <param-value>1</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>max_password_size</param-name>
-    <param-value>8</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>candidate_list_query_key</param-name>
-    <param-value>candidateList</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>create_candidate_processor</param-name>
-    <param-value>CreateCandidate</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>populate_candidate_processor</param-name>
-    <param-value>PopulateCandidate</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>check_company_user_query_key</param-name>
-    <param-value>checkCompanyUser</param-value>
-    <description></description>
-  </init-param>
-
-  <!-- Profile constants -->
-  <init-param>
-    <param-name>profile_info_attribute</param-name>
-    <param-value>profile</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_lookup_command</param-name>
-    <param-value>profileLookup</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_problem_set_query_key</param-name>
-    <param-value>profileProblemSet</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_test_set_a_query_key</param-name>
-    <param-value>profileTestSetA</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_test_set_b_query_key</param-name>
-    <param-value>profileTestSetB</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_company_problem_query_key</param-name>
-    <param-value>profileCompanyProblem</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_language_query_key</param-name>
-    <param-value>profileLanguageList</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_info_query_key</param-name>
-    <param-value>profileInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_problems_query_key</param-name>
-    <param-value>profileProblems</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_languages_query_key</param-name>
-    <param-value>profileLanguages</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>populate_profile_processor</param-name>
-    <param-value>PopulateProfileSetup</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_setup_page</param-name>
-    <param-value>/profile/profileSetup.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_confirm_page</param-name>
-    <param-value>/profile/profileConfirm.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_list_page</param-name>
-    <param-value>/profile/profileList.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_add_problem_processor</param-name>
-    <param-value>AddProfileProblems</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_remove_problem_processor</param-name>
-    <param-value>RemoveProfileProblem</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_confirm_processor</param-name>
-    <param-value>ConfirmProfile</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>update_profile_processor</param-name>
-    <param-value>UpdateProfile</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>create_profile_processor</param-name>
-    <param-value>CreateProfile</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>profile_check_name_query_key</param-name>
-    <param-value>profileCheckName</param-value>
-    <description></description>
-  </init-param>
-
-  <!-- Problem constants -->
-  <init-param>
-    <param-name>problem_list_page</param-name>
-    <param-value>/problem/problemList.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_detail_page</param-name>
-    <param-value>/problem/problemDetail.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>populate_problem_detail_processor</param-name>
-    <param-value>PopulateProblemDetail</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_info_attribute</param-name>
-    <param-value>problemInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_detail_command</param-name>
-    <param-value>problemDetail</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_info_query_key</param-name>
-    <param-value>problemInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_algorithmic_category_query_key</param-name>
-    <param-value>problemAlgorithmicCategory</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_business_category_query_key</param-name>
-    <param-value>problemBusinessCategory</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>example_problem_id</param-name>
-    <param-value>4001,168</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_type_example_id</param-name>
-    <param-value>3</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>problem_type_test_set_b_id</param-name>
-    <param-value>4</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>check_access_query_key</param-name>
-    <param-value>checkAccess</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>accuracy_info_query_key</param-name>
-    <param-value>accuracyInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <!-- Results constants -->
-  <init-param>
-    <param-name>problem_result_page</param-name>
-    <param-value>/results/problemResults.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>tc_problem_result_page</param-name>
-    <param-value>/results/tcProblemResult.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>test_results_page</param-name>
-    <param-value>/results/testResults.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <!-- Session parameters -->
-  <init-param>
-    <param-name>populate_session_processor</param-name>
-    <param-value>PopulateSession</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>update_session_processor</param-name>
-    <param-value>UpdateSession</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>preview_email_page</param-name>
-    <param-value>/session/previewEmail.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_setup_page</param-name>
-    <param-value>/session/sessionSetup.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_info_attribute</param-name>
-    <param-value>sessionInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_lookup_command</param-name>
-    <param-value>sessionLookup</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_candidate_info_query_key</param-name>
-    <param-value>sessionCandidateInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_profile_info_query_key</param-name>
-    <param-value>sessionProfileInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_confirm_page</param-name>
-    <param-value>/session/sessionConfirm.jsp</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>confirm_session_processor</param-name>
-    <param-value>ConfirmSession</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_segment_command</param-name>
-    <param-value>sessionSegment</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_segment_test_set_a_query_key</param-name>
-    <param-value>sessionSegmentTestSetA</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_segment_test_set_a_id</param-name>
-    <param-value>1</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_segment_test_set_b_query_key</param-name>
-    <param-value>sessionSegmentTestSetB</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_segment_test_set_b_id</param-name>
-    <param-value>2</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>test_set_b_segment_interval</param-name>
-    <param-value>3600000</param-value>
-    <description>amount of time allowed for each test set b problem in milliseconds</description>
-  </init-param>
-
-  <init-param>
-    <param-name>session_check_candidate_time_query_key</param-name>
-    <param-value>sessionCheckCandidateTime</param-value>
-    <description></description>
-  </init-param>
-
-  <!-- Preview Email Constants -->
-  <init-param>
-    <param-name>email_lookup_command</param-name>
-    <param-value>emailLookup</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>rep_email_info_query_key</param-name>
-    <param-value>repEmailInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>candidate_email_info_query_key</param-name>
-    <param-value>candidateEmailInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>email_info_attribute</param-name>
-    <param-value>emailInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <!-- Common parameters -->
-  <init-param>
-    <param-name>data_source_name</param-name>
-    <param-value>SCREENING_OLTP</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>tx_data_source_name</param-name>
-    <param-value>JTS_SCREENING_OLTP</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>dw_data_source_name</param-name>
-    <param-value>DW</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>contact_info_query_key</param-name>
-    <param-value>contactInfo</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>errors_attribute</param-name>
-    <param-value>errors</param-value>
-    <description></description>
-  </init-param>
-
-  <init-param>
-    <param-name>debug_flag</param-name>
-    <param-value>false</param-value>
-    <description></description>
-  </init-param>
-
-    <init-param>
-      <param-name>date_time_format</param-name>
-      <param-value>MM/dd/yyyy hh:mm a</param-value>
-      <description></description>
-    </init-param>
-
-
-  <load-on-startup>2</load-on-startup>
-
-</servlet>
-
-<servlet-mapping>
-  <servlet-name>screening</servlet-name>
-  <url-pattern>/</url-pattern>
-</servlet-mapping>
-
-<taglib>
-    <taglib-uri>screening.tld</taglib-uri>
-    <taglib-location>screening.tld</taglib-location>
-</taglib>
+    <servlet>
+        <servlet-name>screening</servlet-name>
+        <display-name>screening</display-name>
+        <description>The main controller servlet</description>
+        <servlet-class>com.topcoder.web.screening.controller.MainServlet</servlet-class>
+
+        <!-- Controller parameters -->
+        <init-param>
+            <param-name>processors_package</param-name>
+            <param-value>com.topcoder.web.screening.request</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>/errorPage.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>/permErrorPage.jsp</param-value>
+            <description></description>
+        </init-param>
+
+
+        <init-param>
+            <param-name>login_page</param-name>
+            <param-value>/login.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>valid_char_list</param-name>
+            <param-value>abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>controller_url</param-name>
+            <param-value>/</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>default_page</param-name>
+            <param-value>/index.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>request_info_attribute</param-name>
+            <param-value>requestInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- URL Parameter constant names -->
+        <init-param>
+            <param-name>user_id_parameter</param-name>
+            <param-value>userId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_id_parameter</param-name>
+            <param-value>cid</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>referrer_parameter</param-name>
+            <param-value>referrer</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>email_address_parameter</param-name>
+            <param-value>emailAddress</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>password_parameter</param-name>
+            <param-value>password</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>handle_parameter</param-name>
+            <param-value>handle</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>redirect_parameter</param-name>
+            <param-value>redir</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>message_parameter</param-name>
+            <param-value>msg</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>first_attempt_parameter</param-name>
+            <param-value>firstVisit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>request_processor_parameter</param-name>
+            <param-value>rp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_id_parameter</param-name>
+            <param-value>profileId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_name_parameter</param-name>
+            <param-value>profileName</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>test_set_a_parameter</param-name>
+            <param-value>testSetA</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>test_set_b_parameter</param-name>
+            <param-value>testSetB</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>language_parameter</param-name>
+            <param-value>language</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>test_set_b_add_parameter</param-name>
+            <param-value>testSetBAdd</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>test_set_b_remove_parameter</param-name>
+            <param-value>testSetBRemove</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_id_parameter</param-name>
+            <param-value>pid</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_type_id_parameter</param-name>
+            <param-value>ptid</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>round_id_parameter</param-name>
+            <param-value>rid</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>division_id_parameter</param-name>
+            <param-value>div</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>begin_month_parameter</param-name>
+            <param-value>beginMonth</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>begin_day_parameter</param-name>
+            <param-value>beginDay</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>begin_year_parameter</param-name>
+            <param-value>beginYear</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>begin_hour_parameter</param-name>
+            <param-value>beginHour</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>end_month_parameter</param-name>
+            <param-value>endMonth</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>end_day_parameter</param-name>
+            <param-value>endDay</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>end_year_parameter</param-name>
+            <param-value>endYear</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>end_hour_parameter</param-name>
+            <param-value>endHour</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_email_parameter</param-name>
+            <param-value>candidateEmail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>rep_email_parameter</param-name>
+            <param-value>repEmail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>note_text_parameter</param-name>
+            <param-value>noteText</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>round_problem_id_parameter</param-name>
+            <param-value>roundProblemId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_id_parameter</param-name>
+            <param-value>sid</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- Parameters used by Candidate -->
+        <init-param>
+            <param-name>candidate_info_attribute</param-name>
+            <param-value>candidateInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_setup_page</param-name>
+            <param-value>/candidate/candidateSetup.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_list_page</param-name>
+            <param-value>/candidate/candidateList.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>note_list_page</param-name>
+            <param-value>/candidate/noteList.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>note_create_page</param-name>
+            <param-value>/candidate/noteCreate.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>update_candidate_default_forward_processor</param-name>
+            <param-value>BuildCandidateList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>update_candidate_create_coder_status_id</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>max_password_size</param-name>
+            <param-value>8</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_list_query_key</param-name>
+            <param-value>candidateList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>create_candidate_processor</param-name>
+            <param-value>CreateCandidate</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>populate_candidate_processor</param-name>
+            <param-value>PopulateCandidate</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>check_company_user_query_key</param-name>
+            <param-value>checkCompanyUser</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- Profile constants -->
+        <init-param>
+            <param-name>profile_info_attribute</param-name>
+            <param-value>profile</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_lookup_command</param-name>
+            <param-value>profileLookup</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_problem_set_query_key</param-name>
+            <param-value>profileProblemSet</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_test_set_a_query_key</param-name>
+            <param-value>profileTestSetA</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_test_set_b_query_key</param-name>
+            <param-value>profileTestSetB</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_company_problem_query_key</param-name>
+            <param-value>profileCompanyProblem</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_language_query_key</param-name>
+            <param-value>profileLanguageList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_info_query_key</param-name>
+            <param-value>profileInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_problems_query_key</param-name>
+            <param-value>profileProblems</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_languages_query_key</param-name>
+            <param-value>profileLanguages</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>populate_profile_processor</param-name>
+            <param-value>PopulateProfileSetup</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_setup_page</param-name>
+            <param-value>/profile/profileSetup.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_confirm_page</param-name>
+            <param-value>/profile/profileConfirm.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_list_page</param-name>
+            <param-value>/profile/profileList.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_add_problem_processor</param-name>
+            <param-value>AddProfileProblems</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_remove_problem_processor</param-name>
+            <param-value>RemoveProfileProblem</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_confirm_processor</param-name>
+            <param-value>ConfirmProfile</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>update_profile_processor</param-name>
+            <param-value>UpdateProfile</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>create_profile_processor</param-name>
+            <param-value>CreateProfile</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>profile_check_name_query_key</param-name>
+            <param-value>profileCheckName</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- Problem constants -->
+        <init-param>
+            <param-name>problem_list_page</param-name>
+            <param-value>/problem/problemList.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_detail_page</param-name>
+            <param-value>/problem/problemDetail.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>populate_problem_detail_processor</param-name>
+            <param-value>PopulateProblemDetail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_info_attribute</param-name>
+            <param-value>problemInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_detail_command</param-name>
+            <param-value>problemDetail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_info_query_key</param-name>
+            <param-value>problemInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_algorithmic_category_query_key</param-name>
+            <param-value>problemAlgorithmicCategory</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_business_category_query_key</param-name>
+            <param-value>problemBusinessCategory</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>example_problem_id</param-name>
+            <param-value>13,900</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_type_example_id</param-name>
+            <param-value>3</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_type_test_set_b_id</param-name>
+            <param-value>4</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>check_access_query_key</param-name>
+            <param-value>checkAccess</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>accuracy_info_query_key</param-name>
+            <param-value>accuracyInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- Results constants -->
+        <init-param>
+            <param-name>problem_result_page</param-name>
+            <param-value>/results/problemResults.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>tc_problem_result_page</param-name>
+            <param-value>/results/tcProblemResult.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>test_results_page</param-name>
+            <param-value>/results/testResults.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- Session parameters -->
+        <init-param>
+            <param-name>populate_session_processor</param-name>
+            <param-value>PopulateSession</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>update_session_processor</param-name>
+            <param-value>UpdateSession</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>preview_email_page</param-name>
+            <param-value>/session/previewEmail.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_setup_page</param-name>
+            <param-value>/session/sessionSetup.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_info_attribute</param-name>
+            <param-value>sessionInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_lookup_command</param-name>
+            <param-value>sessionLookup</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_candidate_info_query_key</param-name>
+            <param-value>sessionCandidateInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_profile_info_query_key</param-name>
+            <param-value>sessionProfileInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_confirm_page</param-name>
+            <param-value>/session/sessionConfirm.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>confirm_session_processor</param-name>
+            <param-value>ConfirmSession</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_segment_command</param-name>
+            <param-value>sessionSegment</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_segment_test_set_a_query_key</param-name>
+            <param-value>sessionSegmentTestSetA</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_segment_test_set_a_id</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_segment_test_set_b_query_key</param-name>
+            <param-value>sessionSegmentTestSetB</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_segment_test_set_b_id</param-name>
+            <param-value>2</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>test_set_b_segment_interval</param-name>
+            <param-value>3600000</param-value>
+            <description>amount of time allowed for each test set b problem in milliseconds</description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_check_candidate_time_query_key</param-name>
+            <param-value>sessionCheckCandidateTime</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- Preview Email Constants -->
+        <init-param>
+            <param-name>email_lookup_command</param-name>
+            <param-value>emailLookup</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>rep_email_info_query_key</param-name>
+            <param-value>repEmailInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>candidate_email_info_query_key</param-name>
+            <param-value>candidateEmailInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>email_info_attribute</param-name>
+            <param-value>emailInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- Common parameters -->
+        <init-param>
+            <param-name>data_source_name</param-name>
+            <param-value>SCREENING_OLTP</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>tx_data_source_name</param-name>
+            <param-value>JTS_SCREENING_OLTP</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>dw_data_source_name</param-name>
+            <param-value>DW</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>contact_info_query_key</param-name>
+            <param-value>contactInfo</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>errors_attribute</param-name>
+            <param-value>errors</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>debug_flag</param-name>
+            <param-value>false</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>date_time_format</param-name>
+            <param-value>MM/dd/yyyy hh:mm a</param-value>
+            <description></description>
+        </init-param>
+
+
+        <load-on-startup>2</load-on-startup>
+
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>screening</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <taglib>
+        <taglib-uri>screening.tld</taglib-uri>
+        <taglib-location>screening.tld</taglib-location>
+    </taglib>
 
 </web-app>
