@@ -59,7 +59,9 @@ public class Controller extends HttpServlet {
                 // process a task
                 Task task = null;
                 Class taskClass = null;
-                taskClass = Class.forName(TCESConstants.TCES_PACKAGE + "." + taskName);                        task = (Task) taskClass.newInstance();
+                taskClass = Class.forName(TCESConstants.TCES_PACKAGE + "." + taskName);
+                task = (Task) taskClass.newInstance();
+                task.setInitialContext(ctx);
                 task.processStep(taskStepName);
                 task.servletAction(this, request, response);
 
