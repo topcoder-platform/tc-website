@@ -22,8 +22,8 @@ public class TCCC04TermsAgree extends Base {
                 } else {
                     log.debug("user has previously aggreed to these terms");
                 }
-                setNextPage(Constants.MEMBER_HOME_PAGE);
-                setIsNextPageInContext(true);
+                //this should go to the default page
+                setIsNextPageInContext(false);
             }
         } catch (TCWebException e) {
             throw e;
