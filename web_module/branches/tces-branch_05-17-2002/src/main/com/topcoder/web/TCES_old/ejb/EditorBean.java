@@ -292,7 +292,7 @@ public class EditorBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( "jdbc/TCES" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

@@ -2,6 +2,7 @@ package	com.topcoder.web.TCES.ejb;
 
 import	java.sql.Connection;
 import	java.sql.PreparedStatement;
+import	java.sql.Statement;
 import	java.sql.SQLException;
 import	java.sql.ResultSet;
 import	java.io.ByteArrayInputStream;
@@ -259,7 +260,7 @@ public class ConcentrationTypeLuBean implements javax.ejb.SessionBean {
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)
-			  context.lookup( "OLTP" );
+			  context.lookup( "jdbc/TCES" );
 			return( ds.getConnection() );
 		}
 		catch( NamingException e ) {

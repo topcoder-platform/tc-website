@@ -18,7 +18,7 @@ import	javax.ejb.*;
 import	javax.naming.*;
 import	javax.sql.DataSource;
 import	com.topcoder.web.TCES.ejb.Contact;
-import	com.topcoder.web.tces.common.Lookup;
+import	com.topcoder.web.TCES.common.Lookup;
 
 /**
  * This is the implementation of the Contact class.

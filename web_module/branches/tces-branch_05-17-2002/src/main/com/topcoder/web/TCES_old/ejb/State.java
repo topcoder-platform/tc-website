@@ -6,8 +6,7 @@ import	java.util.Hashtable;
 import	javax.ejb.EJBObject;
 import	java.rmi.RemoteException;
 import	com.topcoder.web.TCES.ejb.StateObject;
-import	java.sql.Statement;
-import	com.topcoder.web.tces.common.Lookup;
+import	com.topcoder.web.TCES.common.Lookup;
 
 /**
  * This is the remote interface for the State class.
