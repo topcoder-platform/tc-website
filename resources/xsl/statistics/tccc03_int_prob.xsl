@@ -118,8 +118,8 @@
 <td style="background: #eee;"><b>Submission Rate</b></td>
 <td style="background: #eee;">84
     /
-    154
-    (54.55%)
+    102
+    (82.35%)
 </td>
 </tr>
 <tr>
@@ -161,8 +161,8 @@
 <td style="background: #eee;"><b>Submission Rate</b></td>
 <td style="background: #eee;">59
     /
-    154
-    (38.31%)
+    102
+    (57.84%)
 </td>
 </tr>
 <tr>
@@ -217,8 +217,8 @@
 <td style="background: #eee;"><b>Submission Rate</b></td>
 <td style="background: #eee;">14
     /
-    154
-    (9.09%)
+    102
+    (13.72%)
 </td>
 </tr>
 <tr>
