@@ -14,7 +14,7 @@ public class Controller
     extends HttpServlet
 {
     static final String MULTIPART_FORM_DATA = "multipart/form-data";
-    public static final String ALIAS = "/Registration";
+    public static final String ALIAS = "/tces";
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
