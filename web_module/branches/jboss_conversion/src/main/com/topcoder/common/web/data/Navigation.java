@@ -5,6 +5,7 @@ import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
@@ -18,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
 import javax.rmi.PortableRemoteObject;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.io.Serializable;
 import java.util.HashMap;
 
@@ -59,7 +62,16 @@ public final class Navigation
                 setUser(userEJB.getUser());
                 getUser().setLoggedIn("N");
                 getUser().setModified("U");
-                userEJB.setUser(getUser());
+                TransactionManager tm = (TransactionManager) ctx.lookup(ApplicationServer.TRANS_MANAGER);
+                try {
+                    tm.begin();
+                    userEJB.setUser(getUser());
+                    tm.commit();
+                } catch (Exception ee) {
+                    if (tm!=null && tm.getStatus()==Status.STATUS_ACTIVE)
+                        tm.rollback();
+                    throw ee;
+                }
             } catch (Exception exception) {
                 log.debug("common.Navigation:valueUnbound:ERROR:\n" + exception);
             } finally {
