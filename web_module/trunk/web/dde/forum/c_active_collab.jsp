@@ -188,25 +188,25 @@
                                 <img src="/images/flashSm.gif" alt="Flash Catalog" border="0" />
 				<%
 				}
+				else if( Catalog.APPLICATION_CATALOG == forum.getRootCategory( ) )
+				{
+				%>
+                                <img src="/images/appSm.gif" alt="Application Catalog" border="0" />
+				<%
+				}
                 else if( Catalog.JAVA_CUSTOM_CATALOG == forum.getRootCategory( ) )
                 {
 				%>
-								<img src="/images/javaCustomSm.gif" alt="Java Custom Catalog" border="0" />
+				<img src="/images/javaCustomSm.gif" alt="Java Custom Catalog" border="0" />
 				<%
 				}
                 else if( Catalog.NET_CUSTOM_CATALOG == forum.getRootCategory( ) )
                 {
 				%>
-								<img src="/images/dotnetCustomSm.gif" alt=".NET Custom Catalog" border="0" />
+				<img src="/images/dotnetCustomSm.gif" alt=".NET Custom Catalog" border="0" />
 				<%
-				}
-                else if( Catalog. == forum.getRooCategory( ) )
-                {
-				%>
-								<img src="/images/appSm.gif" alt="Application" border="0" />
-				<%
-                                }
-                                %>
+                }
+                %>
 				</td>
                                 <td><img src="/images/clear.gif" alt="" width="5" height="17" border="0" /></td>
                                 <td width="165" class="forumText"><a href="c_forum.jsp?f=<%=forum.getForumId()%>"><strong><%=forum.getName()%></strong><!-- version&nbsp;<%=forum.getVersionText()%> --></a><br />
