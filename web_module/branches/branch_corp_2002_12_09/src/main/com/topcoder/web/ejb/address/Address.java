@@ -129,6 +129,6 @@ public interface Address extends EJBObject {
      *
      * @see com.topcoder.web.ejb.address.AddressBean#getAddressTypeDesc
      */
-    void getAddressTypeDesc(long addressId)
+    String getAddressTypeDesc(long addressId)
                  throws RemoteException, EJBException;
 }
