@@ -24,17 +24,18 @@
 	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">New York's Finest</p>
-         <p>Do you like to solve problems? Do math and science interest you? Do you spend your time online looking for the next challenge?</p>
+         <p class="pageTitle">Are you the best collegiate programmer in New York City?</p>
+         <p>Do you like to solve problems? Do math and science interest you? Do you spend your time online looking for the next challenge? Would you like to win $5,000?</p>
 
-         <p>DoubleClick&#153;, the leading New York high technology company, is conducting this fast-paced and challenging programming tournament in order to identify the most talented technologists at two of New York City's finest universities - Columbia and NYU - and to answer the question, "Who is the best collegiate programmer in New York City?"  The competition will involve problem-solving skills, programming competency and composure in head-to-head competition.</p>
+			<p>DoubleClick&#153;, a leading New York high technology company, is conducting a fast-paced and challenging programming tournament in order to identify the most talented technologists at two of New York City's finest universities - Columbia and NYU - and to answer the question, "Who is the best collegiate programmer in New York City?"  The competition will involve problem-solving skills, programming competency and composure in head-to-head competition.</p>
 
-         <p>For those who make it to the finals, the bounty is great: cash prizes, recognition among peers and the satisfaction of having beaten hundreds of other top collegiate technologists. The finalists will be hosted at DoubleClick headquarters in NYC, recognized on the tournament website and in a press release announcing the winners.</p>
+			<p>For those who make it to the finals, the bounty is great: cash prizes, recognition among peers and the satisfaction of having beaten hundreds of other top collegiate technologists. The finalists will be hosted at DoubleClick headquarters in NYC, recognized on the tournament website and in a press release announcing the winners.</p>
 
-         <p>The DoubleClick 2004 Coding Challenge, Powered by TopCoder&#153;, is your chance to prove you are the best!</p>
-
+			<p>Technology is the lifeblood of DoubleClick. The Internet has only just begun, and DoubleClick will shape the future of technology in the virtual world. DoubleClick's technologies have become the leading tools for campaign management, online advertising , email delivery, direct marketing, marketing analytics, and data management.  DoubleClick believes the future of technology lies in the minds of some of the best and brightest students Columbia and NYU have to offer.  The DoubleClick 2004 Coding Challenge, Powered by TopCoder&#153;, is your chance to prove you are the best!</p>
+			
          <p><span class="dc_subTitle">What language do you speak?</span><br/>
-         Participants will have their choice of using Java, C++, C# or VB - the most relevant of current software development technologies - to solve complex algorithmic problems. </p>
+         Participants will have their choice of using Java, C++, C# or VB - the most relevant of current software development technologies - to solve complex algorithmic problems.</p>
+
 
          <p><span class="dc_subTitle">Here's what you do</span><br/>
          Download the DoubleClick 2004 Coding Challenge Qualification Round <a class="bodyText_link" href="/">Competition Manual</a>.</p>
@@ -43,16 +44,16 @@
 
          <ul>
          <li><span class="dc_subTitle">Download the Arena</span></br>
-         The TopCoder(tm) Competition Arena (a Java Applet) is where the action takes place. Download the applet, read the problem statements, then code solutions, compile and test those solutions and submit your code for points. To get acquainted with the environment, you can download the arena to work on sample problems prior to the competition. </li>
+         The TopCoder&#153; Competition Arena (a Java Applet) is where the action takes place. Download the applet, read the problem statements, then code solutions, compile and test those solutions and submit your code for points. To get acquainted with the environment, you can download the arena to work on sample problems prior to the competition. </li>
 
          <li><span class="dc_subTitle">Coding Phase</span></br>
-         At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. Beat other students from Columbia and NYU by creating an accurate solution in the shortest amount of time. The Leader Board will track the points along the way. </li>
+         At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. Beat other students from Columbia and NYU by creating an accurate solution in the shortest amount of time. A leader board will track the points along the way.</li>
 
          <li><span class="dc_subTitle">Challenge Phase</span></br>
-         In the rounds following the Qualification Round, the Challenge Phase is introduced.  It allows competitors to view each other's code and try to "break'" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, precious points are awarded or taken away based on the success of the challenges. </li>
+         In the rounds following the Qualification Round, the Challenge Phase is introduced.  It allows competitors to view each other's code and try to "break'" that code. You challenge another competitor's code by passing test cases against it, with the hope that you can make it fail. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, precious points are awarded or taken away based on the success of the challenges.</li>
 
          <li><span class="dc_subTitle">System Tests</span></br>
-         Within minutes of the end of the Challenge Phase, TopCoder's automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against this competitive field. </li>
+         Within minutes of the end of the Challenge Phase, TopCoder's automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against this competitive field.</li>
          </ul>
 
          <p><span class="dc_subTitle">Ready to prove you're one of the best in NYC?</span></br>
@@ -79,7 +80,9 @@
 	</tr>
 </table>
    
-<jsp:include page="foot.jsp" />
+<jsp:include page="foot.jsp" >
+   <jsp:param name="contest" value="collegiate"/>
+</jsp:include>
 
 </body>
 </html>

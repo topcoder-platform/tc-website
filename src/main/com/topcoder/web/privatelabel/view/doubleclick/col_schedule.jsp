@@ -1,13 +1,14 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
 
 <title>DoubleClick</title>
 
 <jsp:include page="../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
 
 </head>
 <body align="center">
@@ -17,14 +18,13 @@
    <jsp:param name="tabLev2" value="schedule"/>
 </jsp:include>
 
-<div class="dc_bodyTable">
-
-   <div CLASS="dc_headerPic">
-      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
-   </div>
-
-   <div CLASS="dc_bodyText">
-         <p class="pageTitle">Schedule</p>
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="dc_headerPic">
+	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
+	  	</td>
+		<td class="dc_bodyText">
+			<p class="pageTitle">Schedule</p>
          
          <table class="sidebarBox" width="500" cellpadding="6" cellspacing="2">
             <tr>
@@ -64,10 +64,13 @@
             </tr>
          </table>
 
-   </div>
-</div>
+		</td>
+	</tr>
+</table>
    
-<jsp:include page="foot.jsp" />
+<jsp:include page="foot.jsp" >
+   <jsp:param name="contest" value="collegiate"/>
+</jsp:include>
 
 </body>
 </html>
