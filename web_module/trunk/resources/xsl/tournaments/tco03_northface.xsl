@@ -44,19 +44,19 @@
         <td class="bodyText" align="center">
             <table width="540" border="0" cellpadding="0" cellspacing="15">
                   <tr align="left">
-                    <td colspan="2"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A></td>
+                    <td colspan="2"><A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A></td>
                   </tr>
                             
                 <tr valign="top">
                     <td class="bodyText" width="360">
-                        <p><A href="http://www.northface.edu" target="_blank">Northface University</A> is establishing the finest university in the world 
+                        <p><A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank">Northface University</A> is establishing the finest university in the world
                         for software developers. Our educational programs focus on the latest advancements in modeling, business rules, data management and 
                         systems integration. The courses are  fast-paced, utilize leading edge technologies and reinforce best practice skills for the 
                         implementation of real-world projects.</p>
 
                         <p><img src="/i/sponsor/northface/northface_title_1.gif" alt="Northface" width="360" height="42" border="0" /></p>
 
-                        <p><A href="http://www.northface.edu" target="_blank">Northface University's</A> students are mentored by some of the most 
+                        <p><A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank">Northface University's</A> students are mentored by some of the most
                         well-respected thought leaders in the software industry. The Northface University programs provide:</p>
                         
                         <ul>
@@ -66,7 +66,7 @@
                             <li>World-class mentoring</li>
                         </ul>
                         
-                        <p>The following degree programs are currently offered by <A href="http://www.northface.edu" target="_blank">Northface University</A>:</p>
+                        <p>The following degree programs are currently offered by <A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank">Northface University</A>:</p>
                         
                         <ul>
                             <li><strong>Bachelor of Science in Computer Science</strong> (on-campus program: 28 month duration) enables students to align 
@@ -75,7 +75,7 @@
                             duration) provides students with a fast-paced, educational experience with a 70% real-world, project focus.</li>
                         </ul>
 
-                        <p><A href="http://www.northface.edu" target="_blank">Northface University</A> offers unique  value through the knowledge base 
+                        <p><A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank">Northface University</A> offers unique  value through the knowledge base
                         of its faculty , its Global 1000 corporate partnerships , and its hands-on approach to learning. (The Northface Advantage)</p>
                     </td>
                         
