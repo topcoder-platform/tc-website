@@ -72,6 +72,10 @@ public class FullRegConfirm extends FullRegBase {
             key = DemographicInput.PREFIX + q.getId();
             values = getRequest().getParameterValues(key);
             //loop through all the responses in the request
+            if (q.isRequired() && values.length==0) {
+                //this is cheating, cuz really it should be done in the data checking method.
+                addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a valid answer, this question is required.");
+            }
             for (int i=0; i<values.length; i++) {
                 r = new DemographicResponse();
                 r.setQuestionId(q.getId());
@@ -103,16 +107,14 @@ public class FullRegConfirm extends FullRegBase {
      * @throws TCWebException
      */
     protected void checkRegInfo(FullRegInfo info) throws TCWebException {
-        if (info.getCoderType() != Constants.STUDENT || info.getCoderType() != Constants.PROFESSIONAL) {
+        if (!(info.getCoderType() == Constants.STUDENT || info.getCoderType() == Constants.PROFESSIONAL)) {
             addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
         }
-        //no need to check resume, it's not required
 
         //check demographic answers
         DemographicResponse r = null;
         DemographicQuestion q = null;
         try {
-            //todo must confirm that they answered all required questions
             for (Iterator it = info.getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
                 q = findQuestion(r.getQuestionId());
@@ -136,7 +138,7 @@ public class FullRegConfirm extends FullRegBase {
     }
 
     private boolean validResponse(DemographicResponse response) throws Exception {
-        DataAccessInt dataAccess = getDataAccess(true);
+        DataAccessInt dataAccess = getDataAccess(db, true);
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(response.getQuestionId()));

@@ -84,15 +84,11 @@ abstract class RegistrationBase extends BaseProcessor {
         }
     }
 
-    protected DataAccessInt getDataAccess() throws Exception {
+    protected static DataAccessInt getDataAccess(String db) throws Exception {
         return getDataAccess(db, false);
     }
 
-    protected DataAccessInt getDataAccess(boolean cached) throws Exception {
-        return getDataAccess(db, cached);
-    }
-
-    protected DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
+    protected static DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if (datasource == null)
             throw new IllegalArgumentException("datasource name is null.");
         InitialContext context = new InitialContext();

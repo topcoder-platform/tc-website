@@ -33,7 +33,7 @@ abstract class FullRegBase extends SimpleRegBase {
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
             db = getCompanyDb(companyId);
 
-            questions = getQuestions();
+            questions = getQuestions(db);
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
@@ -87,10 +87,17 @@ abstract class FullRegBase extends SimpleRegBase {
         return new FullRegInfo(super.makeRegInfo());
     }
 
-    private Map getQuestions() throws Exception {
+    /**
+     * get a map of questions.  key is a Long containing the question id.  value is the
+     * DemographicQuestion object.
+     * @param db
+     * @return
+     * @throws Exception
+     */
+    static Map getQuestions(String db) throws Exception {
         Request r = new Request();
         r.setContentHandle("demographic_question_list");
-        Map qMap = getDataAccess(true).getData(r);
+        Map qMap = getDataAccess(db, true).getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list");
         ResultSetContainer.ResultSetRow row = null;
 
@@ -98,13 +105,13 @@ abstract class FullRegBase extends SimpleRegBase {
         DemographicQuestion q = null;
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            q = makeQuestion(row);
+            q = makeQuestion(row, db);
             ret.put(new Long(q.getId()), q);
         }
         return ret;
     }
 
-    private DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
+    private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
         ret.setId(row.getLongItem("demographic_question_id"));
         ret.setDesc(row.getStringItem("demographic_question_desc"));
@@ -113,7 +120,7 @@ abstract class FullRegBase extends SimpleRegBase {
         ret.setRequired(row.getItem("is_required").getResultData() != null && row.getIntItem("is_required") == 1);
         ret.setSort(row.getIntItem("sort"));
 
-        DataAccessInt dataAccess = getDataAccess(true);
+        DataAccessInt dataAccess = getDataAccess(db, true);
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(ret.getId()));
@@ -130,7 +137,7 @@ abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
-    private DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
+    private static DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
         DemographicAnswer ret = new DemographicAnswer();
         ret.setAnswerId(row.getLongItem("demographic_answer_id"));
         ret.setText(row.getStringItem("demographic_answer_text"));
