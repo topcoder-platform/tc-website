@@ -90,9 +90,12 @@ be considered for Santa Clara, unless otherwise specified.
 <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_jr_ogleng&amp;a=secure" CLASS="bodyText">JUNIOR OPENGL ENGINEER (524954)</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_vid_dev&amp;a=secure" CLASS="bodyText">VIDEO DEVELOPER TECHNOLOGY ENGINEER</A></B><BR/><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3d_perftool&amp;a=secure" CLASS="bodyText">3D PERFORMANCE TOOLS SOFTWARE ENGINEER</A></B><BR/><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3d_tool&amp;a=secure" CLASS="bodyText">3D TOOLS SOFTWARE ENGINEER</A></B><BR/><BR/>
+        
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_jr_ogleng&amp;a=secure" CLASS="bodyText">JUNIOR OPENGL ENGINEER (524954)</A></B><BR/><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sr_ogleng&amp;a=secure" CLASS="bodyText">SENIOR OPENGL ENGINEER (524953)</A></B><BR/><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dsseng83&amp;a=secure" CLASS="bodyText">3D SYSTEM SOFTWARE ENGINEER (521183)</A></B><BR/><BR/>
          <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
@@ -108,6 +111,7 @@ be considered for Santa Clara, unless otherwise specified.
       
       </TD>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText"> 
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dsseng83&amp;a=secure" CLASS="bodyText">3D SYSTEM SOFTWARE ENGINEER (521183)</A></B><BR/><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dsseng82&amp;a=secure" CLASS="bodyText">3D SYSTEM SOFTWARE ENGINEER (521182)</A></B><BR/><BR/> 
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgseng&amp;a=secure" CLASS="bodyText">3D GRAPHICS SOFTWARE ENGINEER (520749)</A></B><BR/><BR/> 
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sqaeng&amp;a=secure" CLASS="bodyText">SQA ENGINEER - MOBILE (517399)</A></B><BR/><BR/> 
