@@ -20,7 +20,8 @@ public class SortTag extends TagSupport {
         String currCol = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String currDir = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         SortInfo defaults = (SortInfo)pageContext.getRequest().getAttribute(SortInfo.REQUEST_KEY);
-        String sortDir = defaults.getDefaultDirection(column)==null?"asc":defaults.getDefaultDirection(column);
+        String sortDir = defaults.getDefault(column);
+        if (sortDir==null) sortDir = "asc";
 
         if (!(currCol.equals("") || currDir.equals(""))) {
             if (Integer.parseInt(currCol)==column) {

@@ -14,7 +14,7 @@ public class SortInfo {
         map.put(new Integer(col), dir);
     }
 
-    public String getDefaultDirection(int col) {
+    public String getDefault(int col) {
         return (String)map.get(new Integer(col));
     }
 
