@@ -26,6 +26,7 @@ public class VerizonActivate extends Activate {
         } else {
             setNextPage(Constants.VERIZON_ACTIVATION_INELIGIBLE_PAGE);
         }
+        clearRegInfo();
         setIsNextPageInContext(true);
     }
 
