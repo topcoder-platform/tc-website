@@ -14,7 +14,7 @@
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tco03_overview"><img src="/i/promos/tco03/sponsor_tco03_rcol.gif" alt="Sponsor the TCO03" width="170" height="210" border="0" /></A><br />
+            <A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tourny_index"><img src="/i/promos/tco03/sponsor_tco03_rcol.gif" alt="Sponsor the TCO03" width="170" height="210" border="0" /></A><br />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
     </xsl:when>
