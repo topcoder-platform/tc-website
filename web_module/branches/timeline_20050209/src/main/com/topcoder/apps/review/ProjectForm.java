@@ -11,6 +11,7 @@ import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.PrimitiveFormatter;
 import com.topcoder.util.format.PrimitiveFormatterFactory;
 import com.topcoder.project.phases.TCPhase;
+import com.topcoder.project.phases.PhaseDateComparator;
 import com.topcoder.date.workdays.TCWorkdays;
 
 
@@ -26,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Iterator;
 import java.util.Set;
 
 // qq borrar!!
@@ -1261,24 +1263,25 @@ public void timeLineFromProject(Project project)
     }
 
     public ResultData refreshTimeline() {
-        projectPhases.clearPhases();
-        // start date??
-
         int n = startDates.length;
-        TCPhase[] phases = new TCPhase[n];
+
 
         Date startDate = projectPhases.getStartDate();
-        for (int i = 0; i < n; i++) {
+        Iterator it = projectPhases.getPhases(new PhaseDateComparator()).iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            TCPhase phase = (TCPhase) it.next();
+log (Level.INFO, "adjustStartDates [" + i+"]: " +adjustStartDates[i]);
 
             if (!adjustStartDates[i]) {
                 startDate = parseDate(forcedStartDates[i]);
             }
-            phases[i] = new TCPhase(projectPhases, startDate, phaseLengths[i]);
-        }
+            phase.setStartDate(startDate);
+            phase.setLength(phaseLengths[i]);
 
-        for (int i = 0; i < n; i++) {
-            startDates[i] = dateFormatter.format(phases[i].getStartDate());
-            endDates[i] = dateFormatter.format(phases[i].calcEndDate());
+            startDates[i] = dateFormatter.format(phase.getStartDate());
+            endDates[i] = dateFormatter.format(phase.calcEndDate());
+            i++;
         }
 
         return new SuccessResult();

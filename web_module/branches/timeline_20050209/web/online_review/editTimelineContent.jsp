@@ -5,13 +5,6 @@
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
-<script language="javascript">
-function clearPhaseStart(n)
-{
-    phaseStart[n].value = "";
-}
-
-</script>
 
 <!-- Start Title -->            
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
@@ -110,12 +103,12 @@ function clearPhaseStart(n)
 			    <table border="0" width="100%">
 				    <tr>
 					<td width="50%" align="left">
-		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true" onclick='<%="phaseStart["+pIdx+"]=\"\""%>' />
+		                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="true"  />
 						When previous phase ends
 					</td>
 					<td width="50%">
 			                        <html:radio property='<%="adjustStartDate["+pIdx+"]"%>' value="false" />
-			                        <html:text property='<%="forcedPhaseStart["+pIdx+"]"%>' size="20" onkeydown='<%="adjustStartDate["+pIdx+"][1].checked=true"%>' />
+			                        <html:text property='<%="forcedPhaseStart["+pIdx+"]"%>' size="20" />
 					</td>
 				    </tr>
 			    </table>
