@@ -270,7 +270,7 @@ public final class MainServlet extends BaseServlet {
                         encode != null
                         && encode.indexOf("gzip") != -1
                 ) {
-                    log.debug("zip it and rip it");
+                    //log.debug("zip it and rip it");
                     response.setContentType("text/html");
                     outputStream = response.getOutputStream();
                     gzipStream = new GZIPOutputStream(outputStream);
@@ -278,7 +278,7 @@ public final class MainServlet extends BaseServlet {
                     byte[] HTMLByte = asciiGetBytes(HTMLString);
                     gzipStream.write(HTMLByte);
                 } else {
-                    log.debug("just send it bloated");
+                    //log.debug("just send it bloated");
                     response.setContentType("text/html");
                     outputStream = response.getOutputStream();
                     byte[] HTMLByte = asciiGetBytes(HTMLString);
