@@ -70,7 +70,7 @@
 <!-- Member sites -->
         <td class="topNav" nowrap><a href="http://www.topcoder.com" class="topLink">Competition</a></td>
         <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=development&c=index" class="topLink">Development</a></td>
-        <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=tces&c=index" class="topLink">Job Listings</a></td>
+        <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=tces&c=index" class="topLink">Job Listing</a></td>
 
 <!-- Corporate sites -->
         <td class="topNav" nowrap><a href="http://software.topcoder.com" class="topLink">Software</a></td>
