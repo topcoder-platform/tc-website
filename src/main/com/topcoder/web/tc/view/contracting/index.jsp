@@ -64,8 +64,6 @@ return false;
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=goldengate"><img src="/i/contracting/goldengate_logo.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=contracting&d2=jumptrading"><img src="/i/contracting/jumptrading_logo.gif" border=0/></A>
-               <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=limegroup"><img src="/i/contracting/limegroup_logo.gif" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=oreilly"><img src="/i/contracting/oreilly_logo.gif" border=0/></A>
