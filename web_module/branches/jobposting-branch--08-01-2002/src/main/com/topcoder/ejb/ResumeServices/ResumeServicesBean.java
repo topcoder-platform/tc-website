@@ -75,7 +75,6 @@ public class ResumeServicesBean extends BaseEJB {
             } catch (Exception ignore) {
                 log.error("conn close problem");
             }
-            rs = null;
             ps = null;
             conn = null;
         }
