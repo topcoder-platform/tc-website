@@ -4,7 +4,7 @@
 <jsp:usebean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
 <jsp:setproperty name="NavZone" property="Level0" value="stats" />
 <jsp:setproperty name="NavZone" property="Level1" value="advanced_search" />
-<jsp:usebean id="ratingStyle" type="com.topcoder.web.hs.model.CoderRatingStyleBean" scope="request" />
+<jsp:useBean id="ratingStyle" class="com.topcoder.web.hs.model.CoderRatingStyleBean" scope="request" />
 
 <html>
 <head>
