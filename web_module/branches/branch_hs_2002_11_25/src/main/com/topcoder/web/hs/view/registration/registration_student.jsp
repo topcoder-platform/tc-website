@@ -1,7 +1,30 @@
 <%@ include file="head.inc" %>
 <% Map data=(Map)request.getAttribute("STUDENT_DATA");
    ResultSetContainer rsc;
-   ResultSetContainer.ResultSetRow rsr; %>
+   ResultSetContainer.ResultSetRow rsr;
+   List states=new ArrayList();
+   List schools=new ArrayList();
+   rsc=data.get("state_schools");
+   for (List state_schools=null,Iterator i=rsc.iterator();i.hasNext();) {
+    rsr=(ResultSetContainer.ResultSetRow)i.next();
+    String name=(String)rsr.getItem("state_name").getResultData();
+    if (states.size()==0||!((String)states.get(states.size()-1)).equals(name)) {
+     states.add(name);
+     state_schools=new ArrayList();
+     schools.add(state_schools);
+    }
+    state_schools.add(rsr.getItem("short_name").getResultData();
+   } %>
+<SCRIPT type="text/javascript">
+ var schools=new Array(<%=schools.size()%>)
+ <% for (int i=0;i<schools.size();i++) {
+     List state_schools=(List)schools.get(i); %>
+ schools[<%=i%>]=new Array(<%=state_schools.size()%>)
+  <% for (int j=0;j<state_schools.size();j++) { %>
+ schools[<%=i%>][<%=j%>]=<%=(String)state_schools.get(j)%>
+  <% }
+    } %>
+</SCRIPT>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
 <P>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much demographic information as possible without making the registration process overly burdensome. Furthermore, we require that you verify the accuracy of the information you provide. This does not mean that sponsors have access to your personal information; they do not. It means that we want to give them as accurate aggregate information as possible.</P>
@@ -167,9 +190,9 @@
     <SELECT NAME="editor" CLASS="dropdown">
      <% rsc=(ResultSetContainer)data.get("editor_list");
         for (Iterator i=rsc.iterator();i.hasNext();) {
-          rsr=(ResultSetContainer.ResultSetRow)i.next();
-          Integer id=(Integer)rsr.getItem("editor_id").getResultData();
-          String desc=(String)rsr.getItem("editor_desc").getResultData(); %>
+         rsr=(ResultSetContainer.ResultSetRow)i.next();
+         Integer id=(Integer)rsr.getItem("editor_id").getResultData();
+         String desc=(String)rsr.getItem("editor_desc").getResultData(); %>
      <OPTION VALUE="<%=id%>"><%=desc%></OPTION>
      <% } %>
     </SELECT>
@@ -190,10 +213,13 @@
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
     <SELECT NAME="language" CLASS="dropdown">
-     <OPTION VALUE=""></OPTION>
-     <OPTION VALUE="1">Java</OPTION>
-     <OPTION VALUE="3">C++</OPTION>
-     <OPTION VALUE="4">C#</OPTION>
+     <% rsc=(ResultSetContainer)data.get("language_list");
+        for (Iterator i=rsc.iterator();i.hasNext();) {
+         rsr=(ResultSetContainer.ResultSetRow)i.next();
+         Integer id=(Integer)rsr.getItem("language_id").getResultData();
+         String name=(String)rsr.getItem("language_name").getResultData(); %>
+     <OPTION VALUE="<%=id%>"><%=name%></OPTION>
+     <% } %>
     </SELECT>
    </TD>
   </TR>
