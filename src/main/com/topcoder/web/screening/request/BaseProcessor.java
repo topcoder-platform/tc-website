@@ -189,14 +189,4 @@ public abstract class BaseProcessor implements RequestProcessor {
         return !errors.isEmpty();
     }
 
-    /* some utility methods */
-
-    protected boolean isEmpty(String s) {
-        return !(s != null && s.trim().length() > 0);
-    }
-
-    protected String checkNull(String s) {
-        return s == null ? "" : s;
-    }
-
 }
