@@ -283,7 +283,7 @@
 
           <!-- Global Seconday Nav Begins -->
 
-         <%@ include file="../includes/global_left.jsp" %>
+         <jsp:include page="../includes/global_left.jsp" />
 
           <!-- Global Seconday Nav Ends -->
 
