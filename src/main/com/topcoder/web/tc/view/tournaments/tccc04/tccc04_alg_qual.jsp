@@ -8,6 +8,9 @@
 <title>2004 TopCoder Collegiate Challenge - Computer Programming Tournament - Advancers</title>
 
 <jsp:include page="../../script.jsp" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc04_alg_qual"); %>
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
