@@ -157,8 +157,13 @@ public class ReviewProjectDetail extends Base {
         //figure out if we have default money values for the reviewers
         Request r = new Request();
         r.setContentHandle("review_board_payments");
+/*
         r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
         r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
+*/
+        r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
+        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+
         Map results = getDataAccess().getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");
 
