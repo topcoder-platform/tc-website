@@ -2,10 +2,17 @@ package com.topcoder.utilities;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.util.idgenerator.IdGenerator;
+import com.topcoder.util.idgenerator.sql.SimpleDB;
 
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Connection;
 import java.util.*;
 
 /**
@@ -74,33 +81,105 @@ public class TCCC05Payments {
               " and rr.attended = 'Y' " +
             " order by rr.room_id asc, rr.room_placed asc";
 
+    private final static String ADD_PAYMENT =
+            " INSERT INTO round_payment (round_payment_id, round_id, coder_id, paid, payment_type_id) " +
+            " VALUES (?,?,?,?,?)";
+
 
     private void makePayments() throws Exception {
-        log.debug("makePayments running for round " + roundId + " money " + money[1] + " " + money[2] + " " + money[3]);
+        log.info("makePayments running for round " + roundId + " money " + money[1] + " " + money[2] + " " + money[3]);
         //figure out all the winners
         //figure out what they all won
         //insert all the records
 
         PreparedStatement psSel = null;
-
+        PreparedStatement psIns = null;
         ResultSet rs = null;
+        Connection conn = DBMS.getConnection();
+        InitialContext ctx = TCContext.getInitial();
 
-        psSel = DBMS.getConnection().prepareStatement(GET_COMPETITORS);
-        psSel.setLong(1, roundId);
+        try {
 
-        rs = psSel.executeQuery();
+            psSel = conn.prepareStatement(GET_COMPETITORS);
+            psSel.setLong(1, roundId);
 
-        ArrayList all = new ArrayList();
-        while(rs.next()) {
-            all.add(new Data(rs.getLong("room_id"), rs.getLong("coder_id"),
-                    rs.getLong("round_id"), rs.getInt("room_placed")));
+            rs = psSel.executeQuery();
+
+            ArrayList all = new ArrayList();
+            while(rs.next()) {
+                all.add(new Data(rs.getLong("room_id"), rs.getLong("coder_id"),
+                        rs.getLong("round_id"), rs.getInt("room_placed")));
+            }
+            log.info("found " + all.size() + " competitors");
+
+            ArrayList winners = getWinnerPaymentInfo(all);
+            psIns = conn.prepareStatement(ADD_PAYMENT);
+
+            if (!IdGenerator.isInitialized()) {
+                IdGenerator.init(
+                        new SimpleDB(),
+                        (DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
+                        "sequence_object",
+                        "name",
+                        "current_value",
+                        9999999999L,
+                        1,
+                        false
+                );
+            }
+
+            int count=0;
+            for (int i=0; i<winners.size(); i++) {
+                psIns.clearParameters();
+                psIns.setLong(1,IdGenerator.nextId("PAYMENT_ID_SEQ"));
+                psIns.setLong(2,((Data)winners.get(i)).getRoundId());
+                psIns.setLong(3,((Data)winners.get(i)).getCoderId());
+                psIns.setInt(4, ((Data)winners.get(i)).getPrize());
+                psIns.setInt(5, 1); //Contest Payment	1
+                psIns.executeUpdate();
+                count++;
+            }
+            log.debug("" + count + " total rows added");
+
+        } finally {
+            if (rs!= null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+
+            if (psSel != null) {
+                try {
+                    psSel.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (psIns != null) {
+                try {
+                    psIns.close();
+                } catch (Exception ignore) {
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                }
+            }
+
         }
-        log.debug("found " + all.size() + " competitors");
 
-        ArrayList winners = getWinnerPaymentInfo(all);
-        for (int i=0; i<winners.size(); i++) {
-            log.debug(winners.get(i).toString());
-        }
+
+
+
     }
 
     private ArrayList getWinnerPaymentInfo(ArrayList all) {
@@ -135,19 +214,17 @@ public class TCCC05Payments {
                         done=true;
                     } else {
                         count+=currCoders.size();
-                        log.debug(""+currCoders.size() + " coders for place " +  currPlace + " room " + currRoom);
                         //we'll just round everything down
                         int moneyPile = 0;
                         for (int i=currPlace; i<currPlace+currCoders.size()&&i<money.length; i++) {
                             moneyPile+=money[i];
                         }
-                        log.debug("pile is " + moneyPile);
                         int prize = moneyPile/currCoders.size();
                         for (int i=0; i<currCoders.size(); i++) {
                             ((Data)currCoders.get(i)).setPrize(prize);
                             ret.add(currCoders.get(i));
                         }
-                        currPlace++;
+                        currPlace+=currCoders.size();
                     }
                 }
             }
