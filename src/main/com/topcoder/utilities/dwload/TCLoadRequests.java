@@ -249,9 +249,9 @@ public class TCLoadRequests extends TCLoad {
     private long getUrlId(URL url) throws Exception {
         //log.debug("called getUrlId " + url.getUrl());
         long ret = -1;
-        if (urlMap.containsKey(url)) {
+        if (urlMap.containsKey(url.getUrl())) {
             log.debug("url " + url + " found");
-            ret = ((Long) urlMap.get(url)).longValue();
+            ret = ((Long) urlMap.get(url.getUrl())).longValue();
         } else {
             log.debug("url " + url + " not found");
             PreparedStatement psSel = null;
@@ -265,11 +265,12 @@ public class TCLoadRequests extends TCLoad {
                 while (rs.next()) {
                     if (count < 1) {
                         ret = rs.getLong("url_id");
-                        urlMap.put(url, new Long(ret));
+                        urlMap.put(url.getUrl(), new Long(ret));
                     } else {
                         log.error("There was more than 1 entry for url " + url + " so I chose the first " + ret);
                         break;
                     }
+                    count++;
                 }
 
             } catch (SQLException sqle) {
