@@ -88,7 +88,7 @@
 April 10, 2002</P>
 <P><B>Room 1 Review</B></P>
 <P>Room 1 started out rather normally, with <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> submitting the 300 first,
-taking only seven and a half minute for 281.73 points. Second was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge</A>, 
+taking only seven and a half minutes for 281.73 points. Second was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">John Dethridge</A>, 
 spending eight minutes for 279.73 points, followed by the rest of the room. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> 
 came in last with 252.79 points after sixteen and a half minutes, but due to a three-and-a-half-minute late start, this only adds up
 to thirteen minutes of coding time.</P>
