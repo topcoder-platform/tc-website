@@ -44,10 +44,10 @@
         <TD VALIGN="middle" HEIGHT="15" CLASS="statText"><A HREF="/?&amp;t=tces&amp;c=apex" CLASS="subNav"><B>Apex</B></A></TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
-      <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="5"/></TD></TR>			
+      <!-- <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="5"/></TD></TR>			
 				<TR><TD COLSPAN="3" VALIGN="middle" ALIGN="center" HEIGHT="18" BGCOLOR="#000000" CLASS="statTextBig" WIDTH="100%"><B>About TCES</B></TD></TR>      			
 				<TR><TD BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"/></TD></TR>
-				<TR><TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;</TD><TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="statText" WIDTH="100%"><A HREF="/?&amp;t=tces&amp;c=about_tces" CLASS="subNav">Click Here</A> to learn more about the TCES program.<BR/></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>   
+				<TR><TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;</TD><TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="statText" WIDTH="100%"><A HREF="/?&amp;t=tces&amp;c=about_tces" CLASS="subNav">Click Here</A> to learn more about the TCES program.<BR/></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR> -->  
 
       <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="5"/></TD></TR>			
 				<TR><TD COLSPAN="3" VALIGN="middle" ALIGN="center" HEIGHT="18" BGCOLOR="#000000" CLASS="statTextBig" WIDTH="100%"><B>Hiring?</B></TD></TR>      			
@@ -57,7 +57,7 @@
       <TR><TD COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="5"/></TD></TR>			
 				<TR><TD COLSPAN="3" VALIGN="middle" ALIGN="center" HEIGHT="18" BGCOLOR="#000000" CLASS="statTextBig" WIDTH="100%"><B>TCES Reporting</B></TD></TR>      			
 				<TR><TD BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"/></TD></TR>
-				<TR><TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;</TD><TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="statText" WIDTH="100%">Employers <A HREF="http://172.16.20.23/tces/tces?task=LoginTask" CLASS="statText"><B>login</B></A> to access the TCES reporting application.<BR/></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
+				<TR><TD VALIGN="top" BACKGROUND="" CLASS="subNav" ALIGN="right">&#160;</TD><TD VALIGN="top" HEIGHT="15" BACKGROUND="" CLASS="statText" WIDTH="100%">Employers <A HREF="/tces/tces?task=LoginTask" CLASS="statText"><B>login</B></A> to access the TCES reporting application.<BR/></TD><TD VALIGN="top" CLASS="statText">&#160;</TD></TR>
                 <TR><TD COLSPAN="2" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" VSPACE="2"/></TD><TD WIDTH="1" BACKGROUND=""><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
                 <TR><TD COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" ALIGN="right"><IMG SRC="/i/sub_navbox_btm_right.gif" WIDTH="13" HEIGHT="17" BORDER="0"/></TD></TR>
 			</TABLE>
