@@ -86,12 +86,6 @@
                     <tr><td id="<%=level3.equals("status")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_archive">Project Status</A></td></tr>
                     <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=comp_meth">Development Methodology</A></td></tr>
                 <% } %>
-                <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=app_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" alt="" border="0"/>Applications</a></td></tr>
-                <% if (level2.equals("applications")) { %>
-                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_projects">Projects</A></td></tr>
-                    <tr><td id="<%=level3.equals("method")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=app_meth">Development Methodology</A></td></tr>
-                    <tr><td id="<%=level3.equals("documentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=appDocumentation">Documentation</A></td></tr>
-                <% } %>
                 <tr><td id="<%=level2.equals("contests")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=des_bonus_contest_2" class="<%=level2.equals("contests")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("contests")?"bottom":"right"%>.gif" alt="" border="0"/>Contests</a></td></tr>
                 <% if (level2.equals("contests")) { %>
                 	<tr><td id="<%=level3.equals("ultimate")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=usdc_overview">Ultimate Contest</A></td></tr>
@@ -103,7 +97,6 @@
                 <% if (level2.equals("support")) { %>
                     <tr><td id="<%=level3.equals("gettingStarted")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=getting_started">Getting Started</A></td></tr>
                 	<tr><td id="<%=level3.equals("compDocumentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">Component Documentation</A></td></tr>
-                	<tr><td id="<%=level3.equals("appDocumentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=appDocumentation">Application Documentation</A></td></tr>
                 	<tr><td id="<%=level3.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=ratings">Rating System</A></td></tr>
                 	<tr><td id="<%=level3.equals("reliability")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating</A></td></tr>
                 	<tr><td id="<%=level3.equals("getPaid")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=development&c=dev_payment">How to Get Paid</A></td></tr>
