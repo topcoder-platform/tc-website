@@ -47,39 +47,33 @@
         </init-param>
         <!--
         |
-        |       T E S T I N G   T I M E   P R O C E S S O R S
-        |
-        -->
-
-        <!--
-        |
         |  Controller's pages set
         |  All error pages have the 'caught-exception' attribute set
         |
         -->
         <init-param>
             <param-name>page-welcome</param-name>
-            <param-value>/index.jsp</param-value>
+            <param-value>/corp/index.jsp</param-value>
             <description>all unresolved requests will go here</description>
         </init-param>
         <init-param>
             <param-name>page-login</param-name>
-            <param-value>/LoginPage.jsp</param-value>
+            <param-value>/corp/LoginPage.jsp</param-value>
             <description>unauthorized anonymous users will go here</description>
         </init-param>
         <init-param>
             <param-name>page-error-navigation</param-name>
-            <param-value>/exc/NavigationError.jsp</param-value>
+            <param-value>/corp/exc/NavigationError.jsp</param-value>
             <description>navigation errors like rc404, file not found, etc. will go here</description>
         </init-param>
         <init-param>
             <param-name>page-error-security</param-name>
-            <param-value>/exc/SecurityError.jsp</param-value>
+            <param-value>/corp/exc/SecurityError.jsp</param-value>
             <description>security exceptions (authentification, authorization) will fetch this page</description>
         </init-param>
         <init-param>
             <param-name>page-error-internal</param-name>
-            <param-value>/exc/InternalError.jsp</param-value>
+            <param-value>/corp/exc/InternalError.jsp</param-value>
             <description>unexpected (null pointer and similar) exceptions will fed this page</description>
         </init-param>
 
@@ -92,22 +86,22 @@
         -->
         <init-param>
             <param-name>page-Registration-success</param-name>
-            <param-value>/reg/RegSuccess.jsp</param-value>
+            <param-value>/corp/reg/RegSuccess.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
             <param-name>page-Registration-retry</param-name>
-            <param-value>/reg/Registration.jsp</param-value>
+            <param-value>/corp/reg/Registration.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
             <param-name>page-UserEdit-success</param-name>
-            <param-value>/corp/bfix/?module=UserList</param-value> <!-- redirect -->
+            <param-value>/?module=UserList</param-value> <!-- redirect -->
             <description></description>
         </init-param>
         <init-param>
             <param-name>page-UserEdit-retry</param-name>
-            <param-value>/acc_admin/AddUser.jsp</param-value>
+            <param-value>/corp/acc_admin/AddUser.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -118,7 +112,7 @@
         -->
         <init-param>
             <param-name>page-UserList</param-name>
-            <param-value>/acc_admin/UserListView.jsp</param-value>
+            <param-value>/corp/acc_admin/UserListView.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -133,86 +127,346 @@
 
         <init-param>
             <param-name>page-success</param-name>
-            <param-value>/Tx/Accepted.jsp</param-value>
+            <param-value>/corp/Tx/Accepted.jsp</param-value>
             <description>Default CC transaction success page</description>
         </init-param>
 
         <init-param>
             <param-name>page-failure</param-name>
-            <param-value>/Tx/Rejected.jsp</param-value>
+            <param-value>/corp/Tx/Rejected.jsp</param-value>
             <description>CC transaction failure page</description>
         </init-param>
 
         <init-param>
             <param-name>intermediate-form</param-name>
-            <param-value>/Tx/helper_form.jsp</param-value>
+            <param-value>/corp/Tx/helper_form.jsp</param-value>
             <description>intermediate form used to organize user to VeriSign interaction</description>
         </init-param>
         <init-param>
             <param-name>terms</param-name>
-            <param-value>/Tx/product_terms.jsp</param-value>
+            <param-value>/corp/Tx/product_terms.jsp</param-value>
             <description>user must agree to terms in order to make purchase</description>
         </init-param>
 
         <init-param>
             <param-name>page-login</param-name>
-            <param-value>/LoginPage.jsp</param-value>
+            <param-value>/corp/LoginPage.jsp</param-value>
             <description>unauthorized anonymous users will go here</description>
         </init-param>
 
         <init-param>
             <param-name>page-error-security</param-name>
-            <param-value>/exc/SecurityError.jsp</param-value>
+            <param-value>/corp/exc/SecurityError.jsp</param-value>
             <description>security exceptions (authentification, authorization) will fetch this page</description>
         </init-param>
     </servlet>
 
 
     <servlet>
-      <servlet-name>tces</servlet-name>
-      <display-name>tces</display-name>
-      <description>The job posting servlet</description>
-      <servlet-class>com.topcoder.web.tces.servlet.Controller</servlet-class>
+        <servlet-name>tces</servlet-name>
+        <display-name>tces</display-name>
+        <description>The job posting servlet</description>
+        <servlet-class>com.topcoder.web.tces.servlet.Controller</servlet-class>
 
-      <init-param>
-        <param-name>error_page</param-name>
-        <param-value>/errorPage.jsp</param-value>
-        <description>
-          The error page we'll be using.
-        </description>
-      </init-param>
+        <init-param>
+            <param-name>jsp_root</param-name>
+            <param-value>/tces/</param-value>
+        </init-param>
 
-      <init-param>
-        <param-name>job_id</param-name>
-        <param-value>job_id</param-value>
-        <description>
-          The key for the job_id parameter of a request.
-        </description>
-      </init-param>
+        <init-param>
+            <param-name>tces_package</param-name>
+            <param-value>com.topcoder.web.tces.bean</param-value>
+        </init-param>
 
-      <init-param>
-        <param-name>user_id</param-name>
-        <param-value>user_id</param-value>
-        <description>
-          The key for the user_id parameter of a request.
-        </description>
-      </init-param>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>errorPage.jsp</param-value>
+        </init-param>
 
-      <init-param>
-        <param-name>click_thru</param-name>
-        <param-value>1</param-value>
-        <description>
-          The id from the database of a click_thru (hit_type_lu).
-        </description>
-      </init-param>
+        <init-param>
+            <param-name>auth_failed_page</param-name>
+            <param-value>unauthorized.jsp</param-value>
+        </init-param>
 
-      <init-param>
-        <param-name>job_posting</param-name>
-        <param-value>2</param-value>
-        <description>
-          The id from the database of a job_posting (hit_type_lu).
-        </description>
-      </init-param>
+        <init-param>
+            <param-name>login_page</param-name>
+            <param-value>/?module=Static&d1=LoginPage</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>main_page</param-name>
+            <param-value>main.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_detail_page</param-name>
+            <param-value>campaign_detail.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>position_interest_page</param-name>
+            <param-value>position_interest.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_interest_page</param-name>
+            <param-value>campaign_interest.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>demographic_page</param-name>
+            <param-value>demographic_info.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>member_profile_page</param-name>
+            <param-value>member_profile.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>coder_demographics_page</param-name>
+            <param-value>coder_demographics.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>competition_history_page</param-name>
+            <param-value>competition_history.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>competition_statistics_page</param-name>
+            <param-value>competition_statistics.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_submissions_page</param-name>
+            <param-value>problem_submissions.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_statistics_page</param-name>
+            <param-value>problem_statistics.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_statement_page</param-name>
+            <param-value>problem_statement.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>member_interest_page</param-name>
+            <param-value>member_interest.jsp</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>login_task</param-name>
+            <param-value>LoginTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>login_task_step_view</param-name>
+            <param-value>v</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>login_task_step_auth</param-name>
+            <param-value>a</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>main_task</param-name>
+            <param-value>MainTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_detail_task</param-name>
+            <param-value>CampaignDetailTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_interest_task</param-name>
+            <param-value>CampaignInterestTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>position_interest_task</param-name>
+            <param-value>PositionInterestTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>demographic_task</param-name>
+            <param-value>DemographicTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>member_profile_task</param-name>
+            <param-value>MemberProfileTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>coder_demographics_task</param-name>
+            <param-value>CoderDemographicsTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>competition_history_task</param-name>
+            <param-value>CompetitionHistoryTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>competition_statistics_task</param-name>
+            <param-value>CompetitionStatisticsTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_submissions_task</param-name>
+            <param-value>ProblemSubmissionsTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_statistics_task</param-name>
+            <param-value>ProblemStatisticsTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_statement_task</param-name>
+            <param-value>ProblemStatementTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>member_interest_task</param-name>
+            <param-value>MemberInterestTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>resume_download_task</param-name>
+            <param-value>ResumeDownloadTask</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>sort_order_asc</param-name>
+            <param-value>a</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>sort_order_des</param-name>
+            <param-value>d</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>task_param</param-name>
+            <param-value>task</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>step_param</param-name>
+            <param-value>st</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>sort_param</param-name>
+            <param-value>sort</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>sort_order_param</param-name>
+            <param-value>so</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>back_sort_param</param-name>
+            <param-value>bsort</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>back_sort_order_param</param-name>
+            <param-value>bso</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>user_id_param</param-name>
+            <param-value>user_id</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>handle_param</param-name>
+            <param-value>Handle</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>password_param</param-name>
+            <param-value>Password</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_id_param</param-name>
+            <param-value>cid</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>job_id_param</param-name>
+            <param-value>job_id</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>member_id_param</param-name>
+            <param-value>mid</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>round_id_param</param-name>
+            <param-value>rd</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_id_param</param-name>
+            <param-value>pid</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>pro_coder_type</param-name>
+            <param-value>2</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>student_coder_type</param-name>
+            <param-value>1</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_status_open</param-name>
+            <param-value>120</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>problem_status_compiled</param-name>
+            <param-value>121</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>main_name</param-name>
+            <param-value>Main</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_detail_name</param-name>
+            <param-value>Campaign Detail</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>campaign_interest_name</param-name>
+            <param-value>Campaign Interest</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>position_interest_name</param-name>
+            <param-value>Position Interest</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>member_profile_name</param-name>
+            <param-value>Member Profile</param-value>
+        </init-param>
     </servlet>
 
     <servlet>
@@ -230,20 +484,20 @@
 
         <init-param>
             <param-name>error_page</param-name>
-            <param-value>/errorPage.jsp</param-value>
+            <param-value>/screening/errorPage.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>perm_error_page</param-name>
-            <param-value>/permErrorPage.jsp</param-value>
+            <param-value>/screening/permErrorPage.jsp</param-value>
             <description></description>
         </init-param>
 
 
         <init-param>
             <param-name>login_page</param-name>
-            <param-value>/login.jsp</param-value>
+            <param-value>/screening/login.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -261,7 +515,7 @@
 
         <init-param>
             <param-name>default_page</param-name>
-            <param-value>/index.jsp</param-value>
+            <param-value>/screening/index.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -485,25 +739,25 @@
 
         <init-param>
             <param-name>candidate_setup_page</param-name>
-            <param-value>/candidate/candidateSetup.jsp</param-value>
+            <param-value>/screening/candidate/candidateSetup.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>candidate_list_page</param-name>
-            <param-value>/candidate/candidateList.jsp</param-value>
+            <param-value>/screening/candidate/candidateList.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>note_list_page</param-name>
-            <param-value>/candidate/noteList.jsp</param-value>
+            <param-value>/screening/candidate/noteList.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>note_create_page</param-name>
-            <param-value>/candidate/noteCreate.jsp</param-value>
+            <param-value>/screening/candidate/noteCreate.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -618,19 +872,19 @@
 
         <init-param>
             <param-name>profile_setup_page</param-name>
-            <param-value>/profile/profileSetup.jsp</param-value>
+            <param-value>/screening/profile/profileSetup.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>profile_confirm_page</param-name>
-            <param-value>/profile/profileConfirm.jsp</param-value>
+            <param-value>/screening/profile/profileConfirm.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>profile_list_page</param-name>
-            <param-value>/profile/profileList.jsp</param-value>
+            <param-value>/screening/profile/profileList.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -673,13 +927,13 @@
         <!-- Problem constants -->
         <init-param>
             <param-name>problem_list_page</param-name>
-            <param-value>/problem/problemList.jsp</param-value>
+            <param-value>/screening/problem/problemList.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>problem_detail_page</param-name>
-            <param-value>/problem/problemDetail.jsp</param-value>
+            <param-value>/screening/problem/problemDetail.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -752,19 +1006,19 @@
         <!-- Results constants -->
         <init-param>
             <param-name>problem_result_page</param-name>
-            <param-value>/results/problemResults.jsp</param-value>
+            <param-value>/screening/results/problemResults.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>tc_problem_result_page</param-name>
-            <param-value>/results/tcProblemResult.jsp</param-value>
+            <param-value>/screening/results/tcProblemResult.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>test_results_page</param-name>
-            <param-value>/results/testResults.jsp</param-value>
+            <param-value>/screening/results/testResults.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -783,13 +1037,13 @@
 
         <init-param>
             <param-name>preview_email_page</param-name>
-            <param-value>/session/previewEmail.jsp</param-value>
+            <param-value>/screening/session/previewEmail.jsp</param-value>
             <description></description>
         </init-param>
 
         <init-param>
             <param-name>session_setup_page</param-name>
-            <param-value>/session/sessionSetup.jsp</param-value>
+            <param-value>/screening/session/sessionSetup.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -819,7 +1073,7 @@
 
         <init-param>
             <param-name>session_confirm_page</param-name>
-            <param-value>/session/sessionConfirm.jsp</param-value>
+            <param-value>/screening/session/sessionConfirm.jsp</param-value>
             <description></description>
         </init-param>
 
@@ -974,8 +1228,8 @@
     </servlet-mapping>
 
     <servlet-mapping>
-      <servlet-name>tces</servlet-name>
-      <url-pattern>/tces/</url-pattern>
+        <servlet-name>tces</servlet-name>
+        <url-pattern>/tces/</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
