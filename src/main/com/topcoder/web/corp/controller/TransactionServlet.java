@@ -318,7 +318,8 @@ public class TransactionServlet extends HttpServlet {
                 response.setStatus(HttpServletResponse.SC_OK);
             } catch (Exception e) {
                 try {
-                    getTransaction(request).setTcExc(e);
+                    if (getTransaction(request)==null) e.printStackTrace();
+                    else getTransaction(request).setTcExc(e);
                 } catch (Exception ex) {
 					ex.printStackTrace();
                 }
@@ -540,7 +541,7 @@ public class TransactionServlet extends HttpServlet {
     private String transactionKey(HttpServletRequest req) {
         String key = req.getParameter(FRMKEY_CCTX_UID);
         if (key == null || key.trim().length() == 0) {
-            key = req.getSession(true).toString();
+            key = req.getSession(true).getId();
         }
         return key;
     }
@@ -725,8 +726,8 @@ public class TransactionServlet extends HttpServlet {
         return (TransactionInfo)getTransactions(request).get(transactionKey(request));
     }
 
-    private TransactionInfo addTransaction(HttpServletRequest request, TransactionInfo info) {
-        return (TransactionInfo)getTransactions(request).put(transactionKey(request), info);
+    private void addTransaction(HttpServletRequest request, TransactionInfo info) {
+        getTransactions(request).put(transactionKey(request), info);
     }
 
     private Hashtable getTransactions(HttpServletRequest request) {

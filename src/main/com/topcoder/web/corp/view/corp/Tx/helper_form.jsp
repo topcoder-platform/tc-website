@@ -8,7 +8,7 @@
     <input type="hidden" name="AMOUNT" value="<%=request.getAttribute(Constants.KEY_CCTX_SUM)%>"/>
     <input type="hidden" name="TYPE" value="<%=Constants.CCTX_TYPE%>"/>
     <input type="hidden" name="SHOWCONFIRM" value="<%=Constants.CCTX_CONFIRM%>"/>
-    <input type="hidden" name="USER1" value="<%=request.getSession(true).toString()%>"/>
+    <input type="hidden" name="USER1" value="<%=request.getSession(true).getId()%>"/>
   </form>
   <body onload="document.CcTx.submit();" />
 </html>
