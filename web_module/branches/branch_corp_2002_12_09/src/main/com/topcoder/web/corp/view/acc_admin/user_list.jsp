@@ -1,7 +1,8 @@
 <%@ page
   language="java"
   errorPage="/error.jsp"
-  
+   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          java.util.Map"
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
