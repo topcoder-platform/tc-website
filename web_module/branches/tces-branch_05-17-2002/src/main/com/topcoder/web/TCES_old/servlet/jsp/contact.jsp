@@ -46,7 +46,7 @@
         <jsp:include page="../body_top.jsp" >  
            <jsp:param name="image" value="registration"/>  
            <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Contact Info"/>  
+           <jsp:param name="title" value="<%= tces.getCurrentNav().getPageTitle() %>"/>  
         </jsp:include>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
@@ -80,7 +80,7 @@ String language = "";
 boolean student = true;
 %>
 
-<FORM NAME="frmContactInfo" ACTION="/<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
+<FORM NAME="frm" ACTION="/<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" ALIGN="center">
   <TR>
     <TD CLASS="statTextBig" WIDTH="150" ALIGN="right" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="2" 

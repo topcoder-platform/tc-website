@@ -4,10 +4,28 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
+		<%@ include file="nocache.jsp" %>
+		<%@ page errorPage="error.jsp" %>
+		<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
+		<%@ page import="com.topcoder.web.tces.servlet.*" %>
+		<%@ page import="com.topcoder.web.tces.common.*" %>
+		<%@ page import="com.topcoder.web.tces.bean.*" %>
+		<%@ page import="javax.ejb.*,javax.naming.*,javax.rmi.*,java.rmi.*,java.util.*" %>
+
+		<%@ page import="com.topcoder.web.TCES.ejb.*" %>
+		<%
+			if (session.getAttribute("tces") == null || !(session.getAttribute("tces") instanceof TCES)) {
+				response.sendRedirect(TCESController.ALIAS);
+			}
+			TCES tces = (TCES)session.getAttribute("tces");
+		%>
+
     <TITLE>TCES</TITLE>
     <%@ include file="../script.jsp" %>
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+	<jsp:usebean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
+
   <%@ include file="../top.jsp" %>
   <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
     <TR>
@@ -25,103 +43,85 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
         <!-- Center Column Begins -->
-      <TD CLASS="statTextBig" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+      <TD CLASS="statTextBig" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
         <jsp:include page="../body_top.jsp" >  
            <jsp:param name="image" value="registration"/>  
            <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Employment"/>  
+           <jsp:param name="title" value="<%= tces.getCurrentNav().getPageTitle() %>"/>  
         </jsp:include>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
             <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-							<% //@ include file="nocache.jsp" %>
-							<% //@ page errorPage="error.jsp" %>
-							<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
-							<%@ page import="com.topcoder.web.tces.servlet.*" %>
-							<jsp:useBean id="TCES" scope="session" class="com.topcoder.web.tces.bean.TCES" />
-							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
-							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
-							<BR><BR><BR>
-							User is <%= user %><BR>
-							<%= user.getHandle() %> (<%= user.getUserId() %>)
-							<BR><BR>
-
-<!--trj insert 0613 2250 -->
 
 
-<%@ page import="javax.ejb.*,javax.naming.*,javax.rmi.*,com.topcoder.web.TCES.ejb.*,java.rmi.*,java.util.*" %>
-<%@ page import="com.topcoder.web.tces.common.*" %>
 <%
-
-
-
-Lookup gpas = new Lookup();
-gpas.addPair("0", "4.0");
-gpas.addPair("1", "2.0");
-
-
-Lookup months = new Lookup();
-months.addPair("0", "January");
-months.addPair("1", "February");
-
-Lookup years = new Lookup();
-years.addPair("0", "2002");
-years.addPair("1", "2003");
-
-
-Lookup cities = new Lookup();
-cities.addPair("1", "Katmandu");
-cities.addPair("2", "Kalamazoo");
-
-Lookup states = new Lookup();
-states.addPair("1", "Alabama");
-states.addPair("2", "North Dakota");
-
-
-Lookup countries = new Lookup();
-states.addPair("1", "Lithuania");
-states.addPair("2", "Norway");
-
-Lookup titles = new Lookup();
-titles.addPair("1", "Software Engineer");
-titles.addPair("2", "Janitor");
-
-Lookup roles = new Lookup();
-titles.addPair("1", "QA");
-titles.addPair("2", "Developer");
-
-Lookup managed = new Lookup();
-managed.addPair("1", "Yes");
-managed.addPair("2", "No");
-
-Lookup numberPeople = new Lookup();
-numberPeople.addPair("1", "1-5");
-numberPeople.addPair("2", "2342 - 123123");
-
-Lookup industries = new Lookup();
-industries.addPair("1", "Finance");
-industries.addPair("2", "Adult");
-
-String company = "";
-String city = "";
-String selectedState = "";
-String selectedCountry = "";
-String selectedIndustry = "";
-String url = "";
-String selectedTitle = "";
-String selectedRole = "";
-String selectedManagement = "";
-String selectedNumberPeople = "";
-
-String startMonth = "";
-String startYear = "";
-String endMonth = "";
-String endYear = "";
-
-
+	// load fields from bean
+	Lookup gpas = new Lookup();
+	gpas.addPair("0", "4.0");
+	gpas.addPair("1", "2.0");
+	
+	
+	Lookup months = new Lookup();
+	months.addPair("0", "January");
+	months.addPair("1", "February");
+	
+	Lookup years = new Lookup();
+	years.addPair("0", "2002");
+	years.addPair("1", "2003");
+	
+	
+	Lookup cities = new Lookup();
+	cities.addPair("1", "Katmandu");
+	cities.addPair("2", "Kalamazoo");
+	
+	Lookup states = new Lookup();
+	states.addPair("1", "Alabama");
+	states.addPair("2", "North Dakota");
+	
+	
+	Lookup countries = new Lookup();
+	states.addPair("1", "Lithuania");
+	states.addPair("2", "Norway");
+	
+	Lookup titles = new Lookup();
+	titles.addPair("1", "Software Engineer");
+	titles.addPair("2", "Janitor");
+	
+	Lookup roles = new Lookup();
+	titles.addPair("1", "QA");
+	titles.addPair("2", "Developer");
+	
+	Lookup managed = new Lookup();
+	managed.addPair("1", "Yes");
+	managed.addPair("2", "No");
+	
+	Lookup numberPeople = new Lookup();
+	numberPeople.addPair("1", "1-5");
+	numberPeople.addPair("2", "2342 - 123123");
+	
+	Lookup industries = new Lookup();
+	industries.addPair("1", "Finance");
+	industries.addPair("2", "Adult");
+	
+	String company = "";
+	String city = "";
+	String selectedState = "";
+	String selectedCountry = "";
+	String selectedIndustry = "";
+	String url = "";
+	String selectedTitle = "";
+	String selectedRole = "";
+	String selectedManagement = "";
+	String selectedNumberPeople = "";
+	
+	String startMonth = "";
+	String startYear = "";
+	String endMonth = "";
+	String endYear = "";
 %>
 
+<FORM NAME="frm" ACTION="/<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
 <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
 
 <tr>
@@ -434,17 +434,7 @@ String endYear = "";
 
 </table>
 
-
-<!--end trj insert -->
-
-
-
-
-
-
-
-
-
+</FORM>
 
 
 		    		</TD>
