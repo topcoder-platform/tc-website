@@ -89,7 +89,7 @@
                     <td class="tourney_subnav" >
                         <rsc:item row="<%=info%>" name="rating"/>
                     </td>
-                    <td class="tourney_subnav" align="center">
+                    <td class="tourney_subnav" align="right">
                         $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
                     </td>
                 </tr>
