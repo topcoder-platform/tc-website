@@ -17,8 +17,8 @@
         <TD>
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%=Controller.ALIAS%>">
             <input type="hidden" name="<%=Controller.TASK%>" value="<%=Controller.RESUME_UPLOAD_TASK%>">
-            Resume: <input type=file name=file1>
-            File Type: <select name="fileType" class="dropdown">
+            <br/>Resume: <input type=file name=file1>
+            <br/>File Type: <select name="fileType" class="dropdown">
             <%
                 ArrayList al = null;
                 Context context = null;
@@ -35,7 +35,7 @@
             <option value="<%= al.get(i++) %>"><%= al.get(i) %></option>
             <%}%>
             </select>
-            <input type="submit" value="Upload">
+            <br/><input type="submit" value="Upload">
             </form>
         </TD>
       </TR>
