@@ -1,8 +1,4 @@
 <!--Small Calendar Starts-->
-      <!--  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR VALIGN="baseline"><TD><A HREF="?module=Static&d1=schedule&d2=schedule" CLASS="sidenav"><IMG SRC="/i/hs/small_calendar.gif" WIDTH="170" HEIGHT="114" ALT="" BORDER="0"/></A>
-        </TD></TR>
-        </TABLE>-->
         
      <TABLE BGCOLOR="#333333" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
         <TR> 
@@ -20,7 +16,7 @@
                         <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">F</FONT></TD>
                         <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
                       </TR>
-                      <TR> <!-- <A HREF="@@@/stat?c=round_stats&amp;rd=4400" CLASS="smallFoot"> -->
+                      <TR>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>

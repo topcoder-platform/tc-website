@@ -43,7 +43,7 @@ System.out.println("getMethod() = "+request.getMethod());
 System.out.println("getProtocol() = "+request.getProtocol());
 
 System.out.println("getRequestURI() = "+request.getRequestURI());
-System.out.println("getRequestURL() = "+request.getRequestURL());
+System.out.println("getRequestURL() = "+HttpUtils.getRequestURL(request));
 
 System.out.println("getContextPath() = "+request.getContextPath());
 System.out.println("getServletPath() = "+request.getServletPath());

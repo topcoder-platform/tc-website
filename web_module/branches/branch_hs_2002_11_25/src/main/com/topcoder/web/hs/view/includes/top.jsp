@@ -1,4 +1,11 @@
 <!-- Top Include Begins -->
+<SCRIPT>
+function openWin(url, name, w, h) {
+    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+</SCRIPT>
 <A NAME="top"/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#6C6D71" WIDTH="100%">
 <TR><TD>
