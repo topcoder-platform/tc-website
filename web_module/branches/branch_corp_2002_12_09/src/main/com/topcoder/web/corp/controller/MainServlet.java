@@ -35,7 +35,7 @@ import java.net.URLEncoder;
  * server errors.
  * 
  * @author Greg Paul , modified by djFD
- * @version 1.1.2.35
+ * @version 1.1.2.41
  *
  */
 public class MainServlet extends HttpServlet {
@@ -258,7 +258,7 @@ public class MainServlet extends HttpServlet {
         String loginPage = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
         String loginPageDest = loginPage + "&" + destParam + "="
                                + URLEncoder.encode(originatingPage);
-        fetchRegularPage(req, resp, loginPageDest, true);
+        fetchRegularPage(request, response, loginPageDest, true);
     }
 
 
