@@ -85,7 +85,7 @@
                     <td class="statText" align="center">$1,500.00</td>
                     <td class="statText" align="center">$225.00</td>
                     <td class="statText" align="center">03.05.2003</td>
-                    <td class="statText" align="center">03.10.2003</td>
+                    <td class="statText" align="center">03.17.2003</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
             </table>
