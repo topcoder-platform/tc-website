@@ -210,7 +210,8 @@ Start going through the string char by char and do the following:<BR/>
 		if '{' found, start_loop = current postion<BR/>
 		if '}' found, count += last_loop * call to myself(new string(start_loop , current position) )<BR/>
 	Return &quot;count&quot; when entire string is parsed. <BR/>
-To solve this problem correctly one should realize that a number inside a &quot;for&quot; structure is a 64 bit integer. For C++ coders I have seen 3 approaches on how to read this number:<BR/>
+To solve this problem correctly one should realize that a number inside a &quot;for&quot; structure is a 64 bit integer.<BR/>
+For C++ coders I have seen 3 approaches on how to read this number:<BR/>
 	1. sscanf( str.c_str(), &quot;%lld&quot;, &amp;y ); (by SnapDragon)<BR/>
 	2. atoll(str.c_str())<BR/>
 	3. Create a for loop to build a 64 bit number digit by digit.
