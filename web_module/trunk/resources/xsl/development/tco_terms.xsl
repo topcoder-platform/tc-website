@@ -56,7 +56,7 @@
                         <p>You're not currently registered for the 2004 Top Coder Open.</p>
 
                         <p>You must register for the TCO for this component to count towards your point total. <a href="/tc?module=TCO04ComponentTerms">Click here to register</a></p>
-                        <p>If you don't want to participate in the TCO, <a href="">click here</a>.
+                        <p>If you don't want to participate in the TCO, <a href="">click here</a>.</p>
 
                         <p><br /></p>
 
