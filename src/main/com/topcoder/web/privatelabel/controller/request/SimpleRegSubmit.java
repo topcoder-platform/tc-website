@@ -123,8 +123,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
         //create user
         user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus());
-        user.setFirstName(newUser.getId(), regInfo.getMiddleName());
-        user.setMiddleName(newUser.getId(), regInfo.getFirstName());
+        user.setFirstName(newUser.getId(), regInfo.getFirstName());
+        user.setMiddleName(newUser.getId(), regInfo.getMiddleName());
         user.setLastName(newUser.getId(), regInfo.getLastName());
 
 
