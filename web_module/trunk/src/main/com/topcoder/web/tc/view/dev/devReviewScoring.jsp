@@ -53,46 +53,46 @@
 
 <p class="bodyText">For 3-based questions, the reviewer must include comments when giving a question a score of 1, 2 and 4.  1 and 2 should be obvious, the comments should indicate what is wrong.  For a score of 4 the comment should explain what the competitor did to exceed the requirements.  For a score of 3, the reviewer is not required to make significant comments other than "yes" or "ok", but an appropriate comment would be to indicate what the competitor could have done to achieve a 4.</p>
 
-<hr width="100%" size="1px" color="666666" />
 <p class="bodyText"><span class="bodySubtitle">Component Development</span><br/>
- 
-"The implementation has not modified the public API as defined in the design.
-<br/><br/>
-This includes no additional public classes, methods or variables."
 
-<hr width="100%" size="1px" color="666666" />
+<ul>
+<li>"The implementation has not modified the public API as defined in the design.</li>
+<li>This includes no additional public classes, methods or variables."</li>
+</ul>
+
 <p class="bodyText"><span class="bodySubtitle">Class Definition</span><br/>
 
-All classes are implemented as defined in the design documents. This not only includes technical details such as modifiers and types, but also naming conventions.
-<br/><br/>
-"Defined classes are implemented.
-<br/><br/>
-If not, list additional or missing classes. Points should be deducted for adding classes that affect the public API."
+<ul>
+<li>All classes are implemented as defined in the design documents. This not only includes technical details such as modifiers and types, but also naming conventions.</li>
+<li>"Defined classes are implemented.</li>
+<li>If not, list additional or missing classes. Points should be deducted for adding classes that affect the public API."</li>
+</ul>
 
-<hr width="100%" size="1px" color="666666" />
 <p class="bodyText"><span class="bodySubtitle">Variable Definition</span><br/>
 
-All variables are implemented as defined in the design documents. This not only includes technical details such as modifiers and types, but also naming conventions.
+<ul>
+<li>All variables are implemented as defined in the design documents. This not only includes technical details such as modifiers and types, but also naming conventions.</li>
+</ul>
 
-<hr width="100%" size="1px" color="666666" />
 <p class="bodyText"><span class="bodySubtitle">Method Definition</span><br/>
 
-All methods are implemented as defined in the design documents. This not only includes technical details such as modifiers, types, arguments and exceptions, but also naming conventions.
+<ul>
+<li>All methods are implemented as defined in the design documents. This not only includes technical details such as modifiers, types, arguments and exceptions, but also naming conventions.</li>
+</ul>
 
-<hr width="100%" size="1px" color="666666" />
 <p class="bodyText"><span class="bodySubtitle">Code Review</span><br/>
 
-The object types defined in the implementation are the best choice for the intended usage. For example, using a Vector vs. an array.
+<ul>
+<li>The object types defined in the implementation are the best choice for the intended usage. For example, using a Vector vs. an array.</li>
+</ul>
 
-<hr width="100%" size="1px" color="666666" />
 <p class="bodyText"><span class="bodySubtitle">Test Cases</span><br/>
 
-Where applicable, Unit Test Cases properly make use of setup and teardown methods to configure the test environment.
-<br/><br/>
-Where applicable, files used in Unit Test Cases exist in the /test_files directory.
-<br/><br/>
-Where applicable, Unit Test cases do not leave temporary files on the file system after testing is complete.
-<hr width="100%" size="1px" color="666666" />
+<ul>
+<li>Where applicable, Unit Test Cases properly make use of setup and teardown methods to configure the test environment.</li>
+<li>Where applicable, files used in Unit Test Cases exist in the /test_files directory.</li>
+<li>Where applicable, Unit Test cases do not leave temporary files on the file system after testing is complete.</li>
+</ul>
 
          <p class="bodyText"><br/></p>
          </td>
