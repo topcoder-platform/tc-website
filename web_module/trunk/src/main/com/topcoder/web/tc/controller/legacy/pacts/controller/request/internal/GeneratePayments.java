@@ -17,6 +17,8 @@ public class GeneratePayments extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
         try {
+            setNextPage(INTERNAL_GENERATE_PAYMENTS);
+            setIsNextPageInContext(true);
             if (getRequest().getParameter(ROUND_ID)!=null) {
                 GenerateRoundPayments gpr = new GenerateRoundPayments();
                 gpr.generatePayments(Long.parseLong(getRequest().getParameter(ROUND_ID)), true);
@@ -24,8 +26,8 @@ public class GeneratePayments extends BaseProcessor implements PactsConstants {
             } else {
                 addError(ROUND_ID, "Missing round id");
             }
-            setNextPage(INTERNAL_GENERATE_PAYMENTS);
-            setIsNextPageInContext(true);
+        } catch (NumberFormatException e) {
+            addError(ROUND_ID, "Please enter a value round id");
         } catch (IllegalUpdateException e) {
             throw new NavigationException(e.getMessage());
         } catch (TCWebException e) {
