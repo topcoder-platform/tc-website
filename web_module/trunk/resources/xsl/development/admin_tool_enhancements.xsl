@@ -209,7 +209,8 @@
                                         </p>
                                         <p>
                                             <strong>
-                                                <a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt;
+                                                <!--<a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt; -->
+                                                Inquiry is closed.&gt;&gt;
                                             </strong>
                                         </p>
                                         <p>
