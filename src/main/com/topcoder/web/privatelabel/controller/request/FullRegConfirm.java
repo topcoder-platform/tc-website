@@ -71,7 +71,7 @@ public class FullRegConfirm extends FullRegBase {
         //loop through all the questions
         for (Iterator it = questionList.iterator(); it.hasNext();) {
             q = (DemographicQuestion) it.next();
-            key = DemographicInput.PREFIX + q.getId();
+            key = Constants.DEMOG_PREFIX + q.getId();
             values = getRequest().getParameterValues(key);
             //loop through all the responses in the request
             if (q.isRequired() && (values == null || values.length == 0)) {
@@ -115,8 +115,8 @@ public class FullRegConfirm extends FullRegBase {
      * @param info
      * @throws TCWebException
      */
-    protected void checkRegInfo(FullRegInfo info) throws TCWebException {
-        if (!(info.getCoderType() == Constants.STUDENT || info.getCoderType() == Constants.PROFESSIONAL)) {
+    protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
+        if (!(((FullRegInfo)info).getCoderType() == Constants.STUDENT || ((FullRegInfo)info).getCoderType() == Constants.PROFESSIONAL)) {
             addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
         }
 
@@ -124,19 +124,19 @@ public class FullRegConfirm extends FullRegBase {
         DemographicResponse r = null;
         DemographicQuestion q = null;
         try {
-            for (Iterator it = info.getResponses().iterator(); it.hasNext();) {
+            for (Iterator it = ((FullRegInfo)info).getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
                 q = findQuestion(r.getQuestionId());
                 if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
                         q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                     if (!validResponse(r)) {
-                        addError(DemographicInput.PREFIX + r.getQuestionId(), "Please choose an answer from the list.");
+                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), "Please choose an answer from the list.");
                     }
                 } else if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
                     if (r.getText().length() > 255) {
-                        addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a shorter answer.");
+                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), "Please enter a shorter answer.");
                     } else if (q.isRequired() && r.getText().length() < 1) {
-                        addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a valid answer.");
+                        addError(Constants.DEMOG_PREFIX + r.getQuestionId(), "Please enter a valid answer.");
                     }
                 }
             }

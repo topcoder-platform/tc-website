@@ -187,18 +187,13 @@
             <description></description>
         </init-param>
         <init-param>
-            <param-name>file_type</param-name>
-            <param-value>ft</param-value>
-            <description></description>
-        </init-param>
-        <init-param>
             <param-name>coder_type</param-name>
             <param-value>ct</param-value>
             <description></description>
         </init-param>
         <init-param>
-            <param-name>resume</param-name>
-            <param-value>resume</param-value>
+            <param-name>demog_prefix</param-name>
+            <param-value>demog_</param-value>
             <description></description>
         </init-param>
 
