@@ -136,7 +136,7 @@ public class TCESConstants {
                                                            "Submitted",
                                                            "Submit %",
                                                            "Correct",
-                                                           "Submission Accuarcy",
+                                                           "Submission Accuracy",
                                                            "Avg Points for Submissions",
                                                            "Avg Time to Submit" };
 
