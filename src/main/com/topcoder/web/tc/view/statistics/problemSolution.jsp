@@ -67,11 +67,12 @@ String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").
 <%!
   private String addSpace(String text) {
       int i=-1;
+      text = JSPUtils.htmlEncode(text);
       while((i = text.indexOf("\n\n"))>=0){
         text = text.substring(0,i+1) + "&#160;" + text.substring(i+1);
 
       }
-      text = JSPUtils.htmlEncode(text);
+
     StringTokenizer strtok = new StringTokenizer(text,"\n");
     StringBuffer stBuffer = new StringBuffer(text.length());
     String sTemp = "";
