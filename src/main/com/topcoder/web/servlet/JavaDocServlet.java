@@ -26,8 +26,8 @@ public final class JavaDocServlet extends HttpServlet {
 
     private static Logger log = Logger.getLogger(ResponseServlet.class);
     private static final String ERROR_PAGE = "/errorPage.jsp";
-    private static final String WEB_SERVICE_NAME = "/errorPage.jsp";
-    private static final String PATH = "/errorPage.jsp";
+    private static final String WEB_SERVICE_NAME = "webServiceName";
+    private static final String PATH = "path";
 
     public synchronized void init(ServletConfig config) throws ServletException {
         log.debug("SERVLET INIT CALLED");
