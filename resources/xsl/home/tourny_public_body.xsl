@@ -380,7 +380,8 @@ and a pair of challenges...
         Upcoming/Past Features
       </A>
     </TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" ALIGN="center"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Feature ideas?</A></TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" ALIGN="center"> <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_topics</xsl:attribute>Want to write?</A></TD>
   </TR>
 </TABLE>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">   
@@ -389,7 +390,8 @@ and a pair of challenges...
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
 <IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
-By&#160;Penwiper<BR/><I>[TC] Member</I><BR/></TD>
+By&#160;Penwiper<BR/><I>[TC] Member</I><BR/><BR/>
+<A HREF="/?&amp;t=news_events&amp;c=feat_topics"><IMG SRC="/i/writers_wanted.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="15"/></A></TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><BR/>
 <A CLASS="bodyGeneric">
@@ -456,14 +458,14 @@ If you have ever played a video game, gone to a movie, or just watched a bit of 
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
 
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=apex</xsl:attribute></A>  
-<IMG USEMAP="#apex_home" SRC="/i/es/apex/apex_home.gif" alt="" width="244" height="160" border="0"/>  
+<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=fbi</xsl:attribute></A>  
+<IMG USEMAP="#fbi_home" SRC="/i/es/fbi/fbi_home.gif" alt="" width="244" height="160" border="0"/>  
   <BR/>
-<map name="apex_home">
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4350"/>
-<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4350&amp;t=schedule&amp;c=srm"/> -->
-<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=apex"/>
+<map name="fbi_home">
+<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4350"/>
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> -->
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4360&amp;t=schedule&amp;c=srm"/>
+<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=fbi"/>
 </map>
 <A HREF="/?&amp;t=development&amp;c=index">
 <IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
@@ -594,8 +596,8 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
 </TABLE><BR/>
 <!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
 <IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->
-<A HREF="/stat?c=member_profile&amp;cr=296745">
-<IMG SRC="/i/codermonth_sept.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
+<A HREF="/stat?c=member_profile&amp;cr=294543">
+<IMG SRC="/i/codermonth_oct.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
 </TD>
 <!-- <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
 <!-- Body Area Ends -->
