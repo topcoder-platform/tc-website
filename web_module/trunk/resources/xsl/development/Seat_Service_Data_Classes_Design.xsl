@@ -309,22 +309,6 @@
                                                             <td class="bodyText" nowrap="nowrap">Design Complete:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">09.08.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Integration Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.09.2004 &#160;&#160;5:00 PM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Integration End:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.10.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Certification Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.11.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Certification End:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.11.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
                                                     </table>
 
                                                     <!-- Register at TCS -->
