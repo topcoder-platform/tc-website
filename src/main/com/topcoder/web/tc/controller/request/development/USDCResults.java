@@ -26,4 +26,7 @@ public class USDCResults extends StatBase {
         return "/dev/usdc_results.jsp";
     }
     
+    void statProcessing() throws com.topcoder.web.common.TCWebException {
+    }
+    
 }
