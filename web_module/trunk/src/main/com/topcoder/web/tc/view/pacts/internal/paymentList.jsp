@@ -29,8 +29,12 @@
 <script type="text/javascript">
 <!--
   function checkAll(check) {
-    var table = document.getElementById("datatable");
-    alert(table.CheckBoxes);
+    var elements = document.thislist.elements;
+    for (i=0; i<document.thislist.elements.length; i++) {
+      if (document.thislist.elements[i].type=="checkbox") {
+        document.thislist.elements[i].checked = (check==true);
+      }
+    }
   }
 -->
 </script>
