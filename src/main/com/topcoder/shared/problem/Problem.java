@@ -164,7 +164,7 @@ public class Problem implements Element, Serializable, CustomSerializable
 
   public String toHTML(Language language)
   {
-    StringBuffer html = new StringBuffer("<html><body bgcolor='black' text='white'>");
+    StringBuffer html = new StringBuffer("<html><body bgcolor=\"#000000\" text=\"#ffffff\">");
     if(!problemText.equals(""))
     {
       html.append(problemText);
