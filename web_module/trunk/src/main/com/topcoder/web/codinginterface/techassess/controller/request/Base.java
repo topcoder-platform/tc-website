@@ -158,7 +158,7 @@ public abstract class Base extends BaseProcessor {
 
 
     public void setCompanyId(long companyId) {
-        //log.debug("company id set to " + companyId);
+        log.debug("company id set to " + companyId);
         this.companyId = companyId;
         getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
     }
