@@ -196,7 +196,7 @@
                                         their submission for the design project.
                                         <br/>
                                         <br/>
-                                        The Application Development Scopeis to be completed by the Developers as part of
+                                        The Application Development Scope Document is to be completed by the Developers as part of
                                         their submission for the design project.
                                     </td>
                                     <td></td>
