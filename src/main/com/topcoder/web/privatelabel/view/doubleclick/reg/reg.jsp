@@ -185,8 +185,8 @@
                     </td>
                 </tr>
                 <tr>
-                   <td class="dc_regTableQuestion" colspan="2">
-                      <p align="center"><a class="bodyText_link" href="javascript: document.regForm.submit();">Submit</a></p>
+                   <td class="dc_regTableQuestion"></td>
+                   <td class="dc_regTableAnswer"><a class="bodyText_link" href="javascript: document.regForm.submit();">Submit</a>
                    </td>
                 </tr>
 
