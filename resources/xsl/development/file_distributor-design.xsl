@@ -61,7 +61,7 @@
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Distributor: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The File Distributor component enables users to distribute files to multipe, disparate file systems. While similar to ftp, this component provides the additional benefits of loading files to multiple locations with transaction control.
+							The File Distributor component enables users to distribute files to multiple, disparate file systems. While similar to ftp, this component provides the additional benefits of loading files to multiple locations with transaction control.
 							</p><p>
                             This component can be used to automate and facilitate "production pushes" in which multiple files are typically transferred from a staging environment to a production environment running numerous redundant servers.
 							</p>
