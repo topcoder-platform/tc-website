@@ -54,7 +54,7 @@
                     <td width="70%" class="sidebarText">
                     <ul>
                     <li>One complimentary full Conference pass to the 2005 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
-                    <li>A collection of 23 Java Series publications, valued at $x,xxx</li>
+                    <li>A collection of 23 Java Series publications, valued at over $950** </li>
                     <li>One Zodiac Mobile Entertainment console and package from TapWave, valued at $625</li>
                     </ul>
                     </td>
@@ -76,11 +76,14 @@
                 </tr>
 
                 <tr>
-                    <td width="30%" class="sidebarText">1st 1,000 Participants*</td>
+                    <td width="30%" class="sidebarText">First 1,000 Participants</td>
                     <td width="70%" class="sidebarText">One JavaOne Coding Challenge T-Shirt and Messenger Bag</td>
                 </tr>
                 <tr>
-                    <td width="100%" class="sidebarText" colspan="2">*Note: One Grand Prize and one 1st, 2nd, and 3rd Runner-Up prize awarded daily</td>
+                    <td width="100%" class="sidebarText" colspan="2">
+                    *One Grand Prize and one 1st, 2nd, and 3rd Runner-Up prize awarded daily<br/>
+                    **Titles subject to change based on availability
+                    </td>
                     
                 </tr>
             </table>

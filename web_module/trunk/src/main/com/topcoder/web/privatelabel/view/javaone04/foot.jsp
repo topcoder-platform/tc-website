@@ -5,8 +5,6 @@
 		<a class="footer" href="http://developers.sun.com/"><b>sun.com/developers</b></a>
 		&nbsp; &nbsp; | &nbsp; &nbsp; 
       <a class="footer" href="/tc?module=Static&d1=about&d2=index"><b>About TopCoder</b></a>
-      &nbsp; &nbsp; | &nbsp; &nbsp; 
-      <a class="footer" href="/tc?module=Static&d1=about&d2=index"><b>Rules & Regulations</b></a>
       </td>
    </tr>
 </table>
