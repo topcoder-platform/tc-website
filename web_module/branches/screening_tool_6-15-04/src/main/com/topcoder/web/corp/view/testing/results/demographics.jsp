@@ -7,7 +7,7 @@
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:useBean id="demographicInfo" scope="request" class="com.topcoder.web.corp.controller.model.DemographicModel" />
+<jsp:useBean id="demographicInfo" scope="request" class="com.topcoder.web.corp.model.DemographicModel" />
 
 <jsp:include page="../includes/script.jsp"/>
 </HEAD>
