@@ -29,7 +29,9 @@ public class TransactionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
     throws ServletException, IOException
     {
-        super.doGet(req, resp);
+        resp.getWriter().print("<html><body>"+req.getParameter("status")+
+                "</body></html>");
+        return;
     }
     
     /**
