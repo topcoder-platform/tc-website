@@ -72,7 +72,7 @@
                  --%>
                 <% i++;
                    currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
-                   if (currCompany != lastCompany || (hasMany && i==1)) { %> 
+                   if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %> 
                   <TR><TD colspan="5" class="statTextBig"><BR/><BR/></TD></TR>
                   <TR><TD colspan="5" class="statTextBig"><%= campaignInfo.getItem("company_name").toString() %></TD></TR><BR/><BR/>
                 <% lastCompany = currCompany;
