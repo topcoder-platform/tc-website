@@ -62,13 +62,18 @@
 						</TR>
 						<TR><TD COLSPAN="2"><BR/></TD></TR>
 						<TR>
-							<TD ALIGN="left" CLASS="statText" VALIGN="top">Date: June, 2001<BR/>Location: San Francisco Hilton and Towers<BR/>San Francisco, CA<BR/>Total Purse: $250,000<BR/><A HREF="/index?t=tournaments&amp;c=tourny_tccc_01" CLASS="statTextBig">Go to Summary</A></TD>
-							<TD ALIGN="left" CLASS="statText" VALIGN="top">Date: November, 2001<BR/>Location: Foxwoods Resort Casino<BR/>Mashantucket, CT<BR/>Total Purse: $250,000<BR/><A HREF="/index?t=tournaments&amp;c=tourny_tci_01" CLASS="statTextBig">Go to Summary</A></TD>
-						</TR>
+							<TD ALIGN="left" CLASS="statText" VALIGN="top"><A HREF="/index?t=tournaments&amp;c=tccc03_sched" CLASS="statTextBig">Date: April, 2003<BR/>Location: University Park Hotel @ MIT<BR/>Cambridge, MA<BR/>Total Purse: $100,000<BR/></A></TD>
+							<TD ALIGN="left" CLASS="statText" VALIGN="top">Date: November, 2003<BR/>Location: TBD<BR/><!-- Sponsor: TBD<BR/> -->Total Purse: TBD<BR/><!-- <A HREF="/index?t=tournaments&amp;c=invit02_sched" CLASS="statTextBig">Go to Summary</A> --></TD>
+						</TR>						
 						<TR><TD COLSPAN="2"><BR/></TD></TR>
 						<TR>
 							<TD ALIGN="left" CLASS="statText" VALIGN="top">Date: April, 2002<BR/>Location: University Park Hotel @ MIT<BR/>Cambridge, MA<BR/>Sponsor: Sun Microsystems<BR/>Total Purse: $150,000<BR/><A HREF="/index?t=tournaments&amp;c=tourny_sched" CLASS="statTextBig">Go to Summary</A></TD>
-							<TD ALIGN="left" CLASS="statText" VALIGN="top"><A HREF="/index?t=tournaments&amp;c=invit02_sched" CLASS="statTextBig">Date: November, 2002<BR/>Location: Mohegan Sun Casino<BR/>Uncasville, CT<BR/><!-- Sponsor: TBD<BR/> -->Total Purse: $150,000</A></TD>
+							<TD ALIGN="left" CLASS="statText" VALIGN="top">Date: November, 2002<BR/>Location: Mohegan Sun Casino<BR/>Uncasville, CT<BR/><!-- Sponsor: TBD<BR/> -->Total Purse: $150,000<BR/><A HREF="/index?t=tournaments&amp;c=invit02_sched" CLASS="statTextBig">Go to Summary</A></TD>
+						</TR>						
+						<TR><TD COLSPAN="2"><BR/></TD></TR>
+						<TR>
+							<TD ALIGN="left" CLASS="statText" VALIGN="top">Date: June, 2001<BR/>Location: San Francisco Hilton and Towers<BR/>San Francisco, CA<BR/>Total Purse: $250,000<BR/><A HREF="/index?t=tournaments&amp;c=tourny_tccc_01" CLASS="statTextBig">Go to Summary</A></TD>
+							<TD ALIGN="left" CLASS="statText" VALIGN="top">Date: November, 2001<BR/>Location: Foxwoods Resort Casino<BR/>Mashantucket, CT<BR/>Total Purse: $250,000<BR/><A HREF="/index?t=tournaments&amp;c=tourny_tci_01" CLASS="statTextBig">Go to Summary</A></TD>
 						</TR>
 						<TR><TD COLSPAN="2" ALIGN="left"><BR/><A HREF="mailto:sponsorships@topcoder.com" CLASS="statText">Interested in sponsoring a TopCoder tournament?</A><BR/></TD></TR>
 					</TABLE>
