@@ -100,7 +100,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
                             </tr>
                         </tc:listIterator>
-                        <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td>
+                        <tr><td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td></tr>
 
             			<tr><td>&#160;</td></tr>
 
@@ -114,7 +114,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <td valign=top><%=((ContractingResponse)db).getVal()%></td>
                             </tr>
                         </tc:listIterator>
-                        <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td>
+                        <tr><td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("dbNote"))%></td></tr>
 		            </table>
 		        </td>
 		<td valign=top width="50%">
@@ -129,7 +129,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)lang).getVal()%></td>
             </tr>
             </tc:listIterator>
-            <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td>
+            <tr><td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("langNote"))%></td></tr>
 
 			<tr><td>&#160;</td></tr>
 
@@ -143,7 +143,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <td valign=top><%=((ContractingResponse)os).getVal()%></td>
             </tr>
             </tc:listIterator>
-            <td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td>
+            <tr><td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("osNote"))%></td></tr>
             <tr><td>&#160;</td></tr>
 
             <tr>
