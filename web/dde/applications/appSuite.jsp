@@ -64,14 +64,14 @@ height="450"
 id="appSuite"
 align="top"
 <param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="/images/flash/appSuiteDetails.swf?appSuiteXML=as_Ecommerce.xml"/>
+<param name="movie" value="/images/flash/appSuiteDetails.swf?appSuiteXML=<%=request.getParameter("appSuiteID")%>.xml"/>
 <param name="menu" value="false" />
 <param name="align" value="t" />
 <param name="salign" value="t" />
 <param name="menu" value="false" />
 <param name="bgcolor" value="#FFFFFF" />
 <embed
-src="/images/flash/appSuiteDetails.swf?appSuiteXML=as_Ecommerce.xml"
+src="/images/flash/appSuiteDetails.swf?appSuiteXML=<%=request.getParameter("appSuiteID")%>.xml"
 menu="false"
 quality="high"
 bgcolor="#FFFFFF"
@@ -84,7 +84,7 @@ type="application/x-shockwave-flash"
 pluginspage="http://www.macromedia.com/go/getflashplayer" />
 </object>
 
-			<p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
+			<p><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></p>
 		</div>
         </td>
 <!-- Middle Column ends -->
