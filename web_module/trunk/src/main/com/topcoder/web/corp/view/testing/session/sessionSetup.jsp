@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp" />
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
@@ -70,15 +70,15 @@ function submitSession() {
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session</h1>
-                        <p>Each candidate is assigned to a Test Profile. Each Test Profile is assigned two sets of problems&#151;Test Set A, which is used to screen for 
+                        <p>Each candidate is assigned to a Test Profile. Each Test Profile is assigned two sets of problems&#151;Test Set A, which is used to screen for
                         accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</p>
-                        
+
                         <p>Here you will create a session by selecting a Test Profile and assigning a candidate to it by following these steps:</p>
                         <ol>
                             <li>Select a Test Profile. If you wish to create a new Test Profile, click <strong>Create a New Test Profile</strong>.</li>
                             <li>Select a candidate to assign to the Test Profile.  If you wish to add a new candidate, click <strong>Add a Candidate</strong>.</li>
                             <li>Set the timeframe for when the candidate can access the Testing Application. Be sure to allow at least a 24-hour window during which the candidate can participate.</li>
-                            <li>Candidates must receive an email in order to access the Testing Application. You can choose to receive emails reminding you when the candidate is scheduled to participate, 
+                            <li>Candidates must receive an email in order to access the Testing Application. You can choose to receive emails reminding you when the candidate is scheduled to participate,
                             as well as when the results are ready.</li>
                         </ol>
                     </td>
@@ -86,7 +86,7 @@ function submitSession() {
             </table>
 
             <jsp:useBean id="testSessionInfo" type="com.topcoder.web.corp.model.TestSessionInfo" scope="session" />
-            
+
             <screen:form name="sessionSetupForm" action="<%=sessionInfo.getServletPath()%>" method="GET">
             <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
 
@@ -114,7 +114,7 @@ function submitSession() {
                 </tr>
 
                 <tr><td class="testTableTitle" colspan="3">Candidate</td></tr>
-                
+
                 <tr>
                     <td class="testTableOdd">&#160;</td>
                     <td class="testTableOdd">
@@ -142,19 +142,19 @@ function submitSession() {
                     <td class="testTableTitle" colspan="2">Begin Time</td>
                     <td class="testTableTimezone">All times are Eastern Time</td>
                 </tr>
-                    
+
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
                     <td class="testTableOdd"><screen:month name="beginMonth" selected="<%=testSessionInfo.getBeginMonth()%>" /></td>
                     <td class="errorTextOdd"><screen:errors id="err" name="beginMonth" ><%=err%></screen:errors></TD>
                 </tr>
-                
+
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
                     <td class="testTableEven"><screen:day name="beginDay" selected="<%=testSessionInfo.getBeginDay()%>" /></td>
                     <td class="errorTextEven"><screen:errors id="err" name="beginDay" ><%=err%></screen:errors></td>
                 </tr>
-                
+
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
                     <td class="testTableOdd"><screen:year name="beginYear" selected="<%=testSessionInfo.getBeginYear()%>" /></td>
@@ -176,19 +176,19 @@ function submitSession() {
                     <td class="testTableTitle" colspan="2">End Time</td>
                     <td class="testTableTimezone">All times are Eastern Time</td>
                 </tr>
-                    
+
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
                     <td class="testTableOdd"><screen:month name="endMonth" selected="<%=testSessionInfo.getEndMonth()%>" /></td>
                     <td class="errorTextOdd"><screen:errors id="err" name="endMonth" ><%=err%></screen:errors></td>
                 </tr>
-                
+
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
                     <td class="testTableEven"><screen:day name="endDay" selected="<%=testSessionInfo.getEndDay()%>" /></td>
                     <td class="errorTextEven"><screen:errors id="err" name="endDay" ><%=err%></screen:errors></td>
                 </tr>
-                
+
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
                     <td class="testTableOdd"><screen:year name="endYear" selected="<%=testSessionInfo.getEndYear()%>" /></td>
@@ -209,15 +209,15 @@ function submitSession() {
                 <tr>
                     <td class="testTableTitle" colspan="3">Email</td>
                 </tr>
-                    
+
                 <tr valign="middle">
                     <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="<%=Constants.CANDIDATE_EMAIL%>" value="YES" checked="<%=testSessionInfo.getCandidateEmail()%>" /><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="<%=Constants.REP_EMAIL%>" value="YES" checked="<%=testSessionInfo.getRepEmail()%>" /><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
-                
+
                 <tr valign="middle">
                     <td class="testTableOdd" colspan="3"><a href="JavaScript:showEmail()">Preview</a> the email template<img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>

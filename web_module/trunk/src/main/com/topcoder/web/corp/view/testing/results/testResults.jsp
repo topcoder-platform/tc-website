@@ -3,7 +3,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:include page="../includes/script.jsp" />
@@ -92,7 +92,7 @@ if ( plugin ) {
                 <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 	        <tr>
                     <td class="bodyText">
-                        <strong>Preference Level:</strong> 
+                        <strong>Preference Level:</strong>
                         <SCRIPT language="JavaScript">
                         <!--
                         if ( MM_FlashCanPlay ) {
@@ -128,7 +128,7 @@ if ( plugin ) {
                         </SCRIPT>
                     </td>
 	        </tr>
-	        <% } %>	        
+	        <% } %>
 	        <tr>
                     <td class="bodyText">
                         <strong>Test Profile:</strong> <jsp:getProperty name='profileInfo' property='profileName'/>
@@ -169,7 +169,7 @@ if ( plugin ) {
 	        <tr>
 		       <td colspan="9" class="screeningTitle">Test Set A Results:</td>
 	        </tr>
-	        
+
 	        <tr>
 		       <td width="11%" align="left" class="screeningHeader">Problem</td>
 		       <td width="11%" align="center" class="screeningHeader">Language</td>
@@ -181,7 +181,7 @@ if ( plugin ) {
 		       <td width="11%" align="center" class="screeningHeader">Time</td>
 		       <td width="11%" align="center" class="screeningHeader">&#160;</td>
                 </tr>
-	        
+
                 <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
                     <%
                      String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
@@ -192,7 +192,7 @@ if ( plugin ) {
                      boolean isCompiled = row.getItem("is_compiled").toString().equals("1");
                      boolean isSystemTested = row.getItem("is_system_tested").toString().equals("1");
                      %>
-                     
+
                 <tr>
 		       <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">&#160;<a href="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" class="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></a></td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
@@ -332,7 +332,7 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
 		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%</td>
-		       <% } %>		       
+		       <% } %>
                <% if (isSystemTested && (isSubmitted || isCompiled)) { %>
 		         <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
                <% } %>
