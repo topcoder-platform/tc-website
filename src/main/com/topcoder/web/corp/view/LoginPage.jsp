@@ -160,13 +160,13 @@
 
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <%
-    String nextpage = (String)request.getAttribute("nextpage");
-    if(nextpage==null) nextpage = request.getParameter("nextpage");
+    String nextpage = (String)request.getAttribute(Login.KEY_DESTINATION_PAGE);
+    if(nextpage==null) nextpage = request.getParameter(Login.KEY_DESTINATION_PAGE);
     if(nextpage==null) nextpage = request.getHeader("Referer");
     if(nextpage==null) nextpage = "http://"+request.getServerName()+request.getAttribute("canonpath");
     String message = (String)request.getAttribute("message");
     if(message==null) message = "";
-    String username = request.getParameter("username");
+    String username = request.getParameter(Login.KEY_USER_HANDLE);
     if(username==null) username = SessionInfo.getHandle();
     if(username==null) username = "";
 %>
