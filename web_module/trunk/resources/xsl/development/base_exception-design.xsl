@@ -135,7 +135,7 @@ TopCoder components throw custom exceptions inherited from the same base class t
 
 <!-- Register at TCS -->
 						   <p>
-        						<strong>View the <a class="statText" target="_new"  href= "http://www.topcodersoftware.com/catalog/document?id=5802127">Requirement Specification</a> for this component project &gt;&gt;</strong>
+        						<strong>View the <a class="statText" target="_new"  href= "http://www.topcodersoftware.com/catalog/document?id=5804508">Requirement Specification</a> for this component project &gt;&gt;</strong>
                             </p>
 						
 
