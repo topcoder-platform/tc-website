@@ -362,14 +362,14 @@
 <!-- Summary/Best/Worst Begins  -->
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 144</font></td>
+                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 145</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><A HREF="/stat?&amp;c=last_match" class="bodyText"><strong>View Summary</strong></A></td>
                 </tr>
             </table>
 
                 <table border="0" cellspacing="0" cellpadding="3" width="100%">
                     <tr>
-                        <td valign="top" colspan="3" class="bodyText">Wednesday, April 30, 2003</td>
+                        <td valign="top" colspan="3" class="bodyText">Tuesday, May 6, 2003</td>
                     </tr>
 
                     <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
@@ -444,20 +444,24 @@
                     </td>
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="4"><strong>Single Round Match 144</strong></font><br />
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm144_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
+                        <p><font size="4"><strong>Single Round Match 145</strong></font><br />
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm145_prob</xsl:attribute><font size="4"><strong>Problem Set Analysis &amp; Opinion</strong></font></a></p>
 
-                        <p><b>ZorbaTHut</b> was dominant in SRM 144, outscoring second place <b>SnapDragon</b> by almost 150 points - without the aid of any challenges. His strong performance gave him 
-                        116 points, and moved him up to 6th overall. <b>SnapDragon</b> came in second as the only other coder with 3 correct submissions. Overall, the problems were a little more 
-                        difficult than usual, and were scored as such. In division 2, <b>bladerunner</b>, a new comer, led the pack by an equally large margin, beating second place jorend by 
-                        almost 200 points. Congrats to <b>ZorbaTHut</b> and <b>bladerunner</b>. 
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm144_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
+                        <p>
+                        Last night's problems were a good mix, with some dynamic programming, some simulation, and a couple relatively straightforward 
+                        number problems. The set seemed to be pretty well-balanced also. Despite a rather wordy div 1 medium /div 2 hard problem, 
+                        the submission percentages were all pretty well in line with the averages.</p>
+                        <p>
+						<b>SnapDragon</b> and <b>Yarin</b> were neck and neck during the challenge phase, and <b>Yarin</b> could have won the round 
+						if he had gotten one more challenge. But, in the end <b>SnapDragon</b> was able to hold on for the win, thanks to <b>Yarin's</b> 
+						resubmission of the 600 point problem. In division 2, <b>shadowless</b> was able to narrowly edge out first timer <b>andlehay</b> for the win. 
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm145_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
             </table>
  <!-- End of Point of View -->
-
+ 
 <!-- Java Web Start Include -->
             <xsl:call-template name="arena"/>
 
@@ -477,7 +481,7 @@
             <map name="srmanimation_home">
             <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" />  -->
             <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" />
-            <area shape="poly" alt="SRM Match 145" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4530&amp;t=schedule&amp;c=srm" />
+            <area shape="poly" alt="SRM Match 145" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4535&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
 
