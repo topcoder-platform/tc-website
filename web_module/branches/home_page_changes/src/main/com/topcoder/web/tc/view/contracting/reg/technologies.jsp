@@ -120,7 +120,6 @@ return false;
 		</FORM>
 
         </div>
-		<p align=center class=bodyText><b>Please check to make sure that your information is up-to-date.</b></p>
         <p><br/></p>
         </td>
 <!-- Center Column Ends -->
