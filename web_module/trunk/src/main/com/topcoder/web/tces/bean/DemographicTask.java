@@ -262,7 +262,9 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
             ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-            setCompanyName(cmpyNameRow.getItem("company_name").toString());
+            if (super.getSessionInfo().isAdmin())
+			    setCompanyName(TCESConstants.ADMIN_COMPANY);
+	     	else setCompanyName(cmpyNameRow.getItem("company_name").toString());
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
             ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
@@ -375,7 +377,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             // Position Demographics
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
-            if (rsc.getRowCount() == 0) {
+            if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
                 throw new TCESAuthenticationException(" cid=" + Integer.toString(getCampaignID()) +
                         " pid=" + Integer.toString(getJobID()) +
                         " does not belong to uid=" + Long.toString(uid));
@@ -384,7 +386,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             // Campaign Demographics
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
-            if (rsc.getRowCount() == 0) {
+            if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
                 throw new TCESAuthenticationException(" cid=" + Integer.toString(getCampaignID()) +
                         "does not belong to uid=" + Long.toString(uid));
             }

@@ -87,7 +87,7 @@ public class ProblemStatementTask extends BaseTask implements Task, Serializable
         Map resultMap = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
-        if (rsc.getRowCount() == 0) {
+        if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
             throw new TCESAuthenticationException("mid=" + Integer.toString(getMemberID()) +
                     " jid=" + Integer.toString(getJobID()) +
                     " cid=" + Integer.toString(getCampaignID()) +

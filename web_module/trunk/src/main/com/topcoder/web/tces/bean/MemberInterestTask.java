@@ -119,7 +119,7 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         setHandle(handleRow.getItem("handle").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
-        if (rsc.getRowCount() == 0) {
+        if (rsc.getRowCount() == 0 && !super.getSessionInfo().isAdmin()) {
             throw new Exception("mid=" + Integer.toString(getMemberID()) +
                     " jid=" + Integer.toString(getJobID()) +
                     " cid=" + Integer.toString(getCampaignID()) +
@@ -131,7 +131,9 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
             throw new Exception("No company name!");
         }
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-        setCompanyName(cmpyNameRow.getItem("company_name").toString());
+        if (super.getSessionInfo().isAdmin())
+			setCompanyName(TCESConstants.ADMIN_COMPANY);
+		else setCompanyName(cmpyNameRow.getItem("company_name").toString());
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {

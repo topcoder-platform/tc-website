@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.corp.model.SessionInfo;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,7 @@ public abstract class BaseTask implements Task {
     private String nextPage;
     private List trail;
     private String servletPath;
+    private SessionInfo info;
 
     /* Holds the ID of the currently logged-in user */
     protected long uid;
@@ -44,6 +46,7 @@ public abstract class BaseTask implements Task {
         setNextPage(null);
         setTrail(null);
         setServletPath(null);
+        setSessionInfo(null);
     }
 
     public abstract void processStep(String step) throws Exception;
@@ -148,5 +151,14 @@ public abstract class BaseTask implements Task {
                 return defaultVal;
         }
     }
+
+    public SessionInfo getSessionInfo() {
+        return info;
+    }
+
+    public void setSessionInfo(SessionInfo info) {
+        this.info = info;
+    }
+
 
 }
