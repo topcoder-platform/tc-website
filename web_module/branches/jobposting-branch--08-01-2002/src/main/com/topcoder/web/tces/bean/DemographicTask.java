@@ -143,7 +143,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     private void viewDemographics() throws Exception
     {
         Request dataRequest = new Request();
-        ResultSetConainter rsc = null;
+        ResultSetContainer rsc = null;
         Map resultMap = null;
         DataAccessInt dai = null;
 
