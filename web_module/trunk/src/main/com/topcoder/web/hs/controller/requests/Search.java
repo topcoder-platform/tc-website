@@ -129,7 +129,7 @@ public class Search extends Base {
         rsc = (ResultSetContainer) data.get("state_list");
         sb.setStateList(rsc);
 
-        if (isValidListValue(sb.getStateCode(), sb.getStateList())) {
+        if (isValidListValue(sb.getStateCode(), sb.getStateList(), "state_code")) {
             map.put(DataAccessConstants.COMMAND, "state_schools");
             map.put(STATE_INPUT_CODE, sb.getStateCode());
             req = new Request(map);
@@ -167,13 +167,13 @@ public class Search extends Base {
     }
 
 
-    private boolean isValidListValue(Object value, List list) {
+    private boolean isValidListValue(Object value, ResultSetContainer list, String col) {
         if (value == null) {
             return (false);
         }
         for (Iterator iterator = list.iterator(); iterator.hasNext();) {
-            ListPairBean lpb = (ListPairBean) iterator.next();
-            if (value.equals(lpb.getValue())) {
+            ResultSetContainer.ResultSetRow rsr= (ResultSetContainer.ResultSetRow) iterator.next();
+            if (value.equals(rsr.getItem(col).getResultData())) {
                 return (true);
             }
         }
@@ -230,8 +230,8 @@ public class Search extends Base {
     /**
      * Check for valid state code
      */
-    private boolean checkValidState(Map errors, String stateCode, List list) {
-        if (!isValidListValue(stateCode, list)) {
+    private boolean checkValidState(Map errors, String stateCode, ResultSetContainer list) {
+        if (!isValidListValue(stateCode, list, "state_code")) {
             addErrorMessage(errors, "StateCode", INVALID_STATE_CODE);
             return (false);
         }
@@ -242,8 +242,8 @@ public class Search extends Base {
     /**
      * Check for valid school
      */
-    private boolean checkValidSchool(Map errors, Long schoolId,List list) {
-        if (!isValidListValue(schoolId, list)) {
+    private boolean checkValidSchool(Map errors, Long schoolId, ResultSetContainer list) {
+        if (!isValidListValue(schoolId, list, "school_id")) {
             addErrorMessage(errors, "SchoolId", INVALID_SCHOOL_ID);
             return (false);
         }
