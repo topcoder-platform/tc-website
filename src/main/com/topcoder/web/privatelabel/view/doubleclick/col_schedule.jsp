@@ -30,7 +30,7 @@
             <tr>
                <td class="sidebarTitle" size="33%">Event</td>
                <td class="sidebarTitle" size="33%">Date</td>
-               <td class="sidebarTitle" size="33%">Time</td>
+               <td class="sidebarTitle" size="33%">Time - ET</td>
             </tr>
             <tr>
                <td class="sidebarText">Registration Opens</td>
@@ -61,6 +61,9 @@
                <td class="sidebarText">Final Round - 10 finalists</td>
                <td class="sidebarText">Friday, February 27</td>
                <td class="sidebarText">1:00PM</td>
+            </tr>
+			   <tr>
+            	<td class="sidebarText" colspan="3">*NOTE:  In the event a Round must be cancelled for any reason, all reasonable attempts will be made to run the Round the following business day at the same time.</td>
             </tr>
          </table>
 
