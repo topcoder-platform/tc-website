@@ -51,7 +51,7 @@
                         <TD CLASS="statText" BGCOLOR="#43515E" HEIGHT="18" VALIGN="middle">&#160;&#160;<B>Great Jobs at TopCoder</B></TD>
                      </TR>
                   </TABLE>
-<IMG SRC="/i/es/topcoder/topcoder_logo.gif" WIDTH="160" HEIGHT="31" VSPACE="10" BORDER="0"/><BR/>
+
 
             <table border="0" cellspacing="0" cellpadding="0"  width="100%">
                 <tr valign="top">
