@@ -66,7 +66,7 @@
                             		<tr>
                             			<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
                             			<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino mobile-technology-based notebook! View Specs.
-                            			<br/>Register Now! Use promotion code TCO2003. </p></td>
+                            			<br/><br/>Register Now! Use promotion code TCO2003. </p></td>
                             		</tr>
                             		<tr><td></td></tr>
                             	</table>
@@ -76,8 +76,8 @@
                         <tr>
                         	<td colspan="2">
                     <p class="promoCallout">Check out a sample of what Intel Developer Services offers you.  Then join Intel Developer Services today and get FREE technical resources designed to help you 
-                    capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. </p>  
-                    <br/> <p>Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
+                    capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands. <br/>
+                    <br/>Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
                         
                         <p><br /></p>
 
