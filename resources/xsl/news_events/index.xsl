@@ -63,6 +63,22 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!-- Fortune  -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.fortune.com/fortune/print/0,15935,594536,00.html" target="_blank"><img src="/i/pressroom/fortune.gif" alt="Computer World" width="135" height="35" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.fortune.com/fortune/print/0,15935,594536,00.html" target="_blank">Geek Gods</A></strong></font><br />
+                        Eleven years of practice and training have brought "Tomek" to this final match. He's spent the past hour in seclusion, meditating to achieve mental focus, then 
+                        stretching and hopping to warm up. As the judges call his name, Tomek smiles, flashes peace signs to the spectators, and sits at a computer keyboard. "You may begin," 
+                        says an announcer.<span class="prHead"> [March 5]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+ 
 <!-- DoubleClick Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
