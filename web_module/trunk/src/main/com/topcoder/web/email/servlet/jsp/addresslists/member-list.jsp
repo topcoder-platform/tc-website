@@ -3,12 +3,12 @@
 
 <% // alternate colors every row...
 	int curr = 0;
-	String[] colors = { "#EEEEEE", "#FFFFFF" };
+	String[] colorArr = { "#EEEEEE", "#FFFFFF" };
 %>
 
 <table border=0 cellpadding=2 cellspacing=0>
 <email:memberIDIterator id="memberID" addressListID="<%=AddressList.getId()%>">
-	<tr bgcolor="<%=colors[(curr++)%colors.length]%>">
+	<tr bgcolor="<%=colorArr[(curr++)%colorArr.length]%>">
 
 	<td valign="top" class="bodyText">
 	<%=curr%>.
