@@ -106,7 +106,7 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
 
         }
 
-        super.setNextPage(Constants.MODIFY_COMMAND_PAGE);
+        super.setNextPage(Constants.MODIFY_QUERY_PAGE);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
