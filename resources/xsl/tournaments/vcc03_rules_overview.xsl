@@ -60,13 +60,9 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-    <div align="center"><object 
-         type="application/x-shockwave-flash"
-         data="/i/tournament/vcc03/vcc03.swf"
-         width="500"
-         height="120">
-    <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
-    </object></div>
+   <p><br /></p>
+   <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
+   <p><br /></p>
 
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
@@ -84,12 +80,12 @@
             
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
-            <p>The 2003 Verizon Coding Challenge ("VCC") will take place between August 20th and 29th, 2003.  
-            It will consist of two (2) online qualification rounds and one (1) onsite championship round.  The prize 
-            purse for this tournament is $XXX,XXX in cash.  Up to 500 competitors will receive a prize just for competing 
-            in Online Round #1, and up to 200 eligible competitors will receive cash prizes.  The top 25 finishers in the 
-            online rounds will advance to the onsite Semifinal and Championship rounds, being held onsite in India on 
-            August 29th, 2003.</p>
+            <p>The 2003 Verizon Coding Challenge is being offered by Verizon Communications ("Verizon") and TopCoder, Inc. ("TopCoder").  Verizon is 
+            using the results of the Coding Challenge to identify possible employees for their Chennai VDSI center.  The Coding Challenge will take place between 
+            Monday, August 4 and Friday, August 29, 2003.  It begins with a 2-week online registration, after which up to 500 eligible individuals will be 
+            invited to compete in the programming tournament.  The tournament consists of two (2) online elimination rounds and one (1) onsite final round.  
+            All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, Verizon will award US$1,900 in cash prizes 
+            to the top 4 finalists in the tournament.</p>
             </blockquote>
 
             <p><br/></p>

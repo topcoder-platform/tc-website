@@ -60,13 +60,9 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-    <div align="center"><object 
-         type="application/x-shockwave-flash"
-         data="/i/tournament/vcc03/vcc03.swf"
-         width="500"
-         height="120">
-    <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
-    </object></div>
+   <p><br /></p>
+   <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
+   <p><br /></p>
 
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
@@ -88,70 +84,72 @@
             <h3><font color="#CC0000">Contestants must not cheat. All ideas for any code and/or challenge submitted must be 
             the contestant's alone.</font></h3>
 
-            <p>Winners in each round of competition will be those competitors who win the most points in their respective 
-            rooms. All decisions relating to the viability of submissions, the ranking of submissions and all other matters 
-            pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and 
-            binding in all respects.</p>
+            <p>Winners in each round of competition will be those competitors who win the most points in their respective rooms. 
+            All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to 
+            the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all 
+            respects.</p>
 
-            <p>Prizewinners will be notified via e-mail within 10 days of the completion of the Online Round #4 that 
-            they have won a prize.  Any prizewinner claiming a cash prize must complete and return the following 
-            documents to TopCoder by Tuesday, October 28th:</p>
+            <p>Prizewinners will be announced upon completion of the Championship Round.  Any prizewinner claiming a cash 
+            prize must complete the following documents onsite before claiming the prize (Verizon will provide the prizewinners 
+            with these documents upon conclusion of the Championship Round):</p>
                 
             <ul>
-                <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless you already have a 
-                notarized affidavit on file with TopCoder)</li>
-                <li>Competitor questionnaire&#151;the questions and responses will be published in the 2003 TopCoder Open 
-                Program</li>
-                <li>Travel form&#151;provides TopCoder with the appropriate travel information in the event you advance to 
-                the onsite tournament rounds</li>
-                <li>Applicable tax form (unless your tax form is already on file with TopCoder)</li>
+                <li>Affidavit of Eligibility and Liability and Publicity Release </li>
+                <li>Applicable tax form</li>
             </ul>
 
-            <p>Prizes will be presented within 60 days of making an eligibility determination. Unclaimed or undeliverable 
-            prizes will not be awarded.  Competitors who do not submit the required information listed above by Tuesday, October 
-            28th will forfeit their prizes.</p>
+            <p>Prizes will be presented onsite upon receipt of the documents identified above.  All t-shirts will be sent to 
+            competitors.  Unclaimed or undeliverable prizes will not be awarded.</p>
 
-            <p>As a condition of participation in the tournament, all information provided by you in your TopCoder member 
-            profile must be comprehensive, accurate and up-to-date. TopCoder may require you to complete an additional 
+            <p>As a condition of participation in the tournament, all information provided by you in the registration must be 
+            comprehensive, accurate and up-to-date. Verizon and/or TopCoder may require you to complete an additional 
             registration form to register for the tournament. In order to be eligible to participate in the tournament, you must 
-            have completed any and all registration forms required by TopCoder.</p>
+            have completed any and all registration forms required by Verizon and TopCoder.</p>
 
-            <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Tuesday, October 28th a
-            completed (i) notarized Affidavit of Eligibility and Liability and Publicity Release, (ii) competitor questionnaire, 
-            (iii) travel form, and (iv) IRS Form W-9 or W-8BEN, as appropriate, if one is not already on file with TopCoder. 
-            In completing the Affidavit of Eligibility and Liability and Publicity Release, a winner (i) confirms his/her 
-            eligibility, (ii) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge 
-            submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted to, and contained
-            in, the TopCoder member database, (iv) authorizes
-            TopCoder to publicize the tournament's results, (v) agrees to sign any applicable forms required by tax authorities, 
-            (vi) licenses to TopCoder rights to all information submitted during the tournament (including rights to source code 
-            and other executables), and (vii) releases TopCoder from liability arising out of any prize won. TopCoder requires 
-            contestants to complete the Form W-9 or W-8BEN for tax reporting purposes. If prize notification is returned as 
-            undeliverable, or if the winner fails to return the Affidavit, or the W-9 or W-8BEN, as specified, the winner will 
-            be disqualified and the prize money won by the disqualified winner will be forfeited. Providing false information in 
-            the registration process or in the required forms described in this paragraph will disqualify a winner.</p>
+            <p>As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to Verizon 
+            a completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9
+             or W-8BEN, as appropriate.  In completing the Affidavit, a winner (i) confirms his/her eligibility, (ii) represents 
+             and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, 
+             (iii) verifies the accuracy of the information submitted in the Verizon Coding Challenge registration process, (iv) 
+             authorizes TopCoder and Verizon to publicize the tournament's results, (v) agrees to sign any applicable forms 
+             required by tax authorities, (vi) licenses to TopCoder and Verizon rights to all information submitted during the 
+             tournament (including rights to source code and other executables), and (vii) releases TopCoder and Verizon from 
+             liability arising out of any prize won. Verizon requires contestants to complete Form W-9 or W-8BEN, as 
+             applicable, for tax reporting purposes. </p>
+             
+             <p>If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable 
+             tax form, the winner will be disqualified and the prize money won by the disqualified winner will be forfeited. 
+             Providing false information in the registration process or in the required forms described in this paragraph will 
+             disqualify a winner.</p>
 
-            <p>By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless TopCoder, 
-            its affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, and all of their 
-            respective directors, officers, employees, representatives and agents, from and against any and all liability for any 
-            loss, property damage or damage to person, including without limitation, death and injury, due in whole or in part, 
-            directly or indirectly, from or arising out of participation in this tournament, or participation in any 
-            tournament-related activity, or the receipt, use or misuse of a prize. TopCoder specifically disclaims all liability 
-            associated with, and makes no warranties with regard to, any prize given.</p>
+            <p>By participating in a tournament and redeeming a prize, a winner releases and agrees to hold harmless Verizon 
+            and TopCoder, their affiliates, subsidiaries, advertising and promotion agencies, sponsors, and prize suppliers, 
+            and all of their respective directors, officers, employees, representatives and agents, from and against any and all 
+            liability for any loss, property damage or damage to person, including without limitation, death and injury, due in 
+            whole or in part, directly or indirectly, from or arising out of participation in this tournament, or participation 
+            in any tournament-related activity, or the receipt, use or misuse of a prize. Verizon and TopCoder specifically 
+            disclaims all liability associated with, and makes no warranties with regard to, any prize given.</p>
 
-            <p>In addition, all prizewinners agree to cooperate with TopCoder's publicity efforts, without further compensation. 
-            This includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, 
-            where legal, for this or similar future tournaments, and to use the statements made by, or attributed to, the winners 
-            relating to TopCoder and any and all rights to said use, without further compensation.  Furthermore, all prizewinners 
-            agree to promptly notify TopCoder if a third-party contacts the prizewinner regarding employment opportunities 
-            and/or media interest as a result of the prizewinner's participation in the tournament.</p>
+            <p>In addition, all prizewinners agree to cooperate with Verizon and TopCoder's publicity efforts, without further 
+            compensation. This includes the agreement to use their name, handle, address (city and state) and likeness for 
+            publicity purposes, where legal, for this or similar future tournaments, and to use the statements made by, or 
+            attributed to, the winners relating to Verizon and TopCoder and any and all rights to said use, without further 
+            compensation.</p>
 
-            <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing 
-            in this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, 
-            including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation of the 
-            Web site, or the tournament process, or otherwise being in violation of the rules. TopCoder reserves the right to 
-            cancel, terminate or modify the tournament if it is not capable of completion as planned for any reason, including 
-            infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.</p>
+            <p>Verizon and TopCoder reserve the right, in their sole discretion, to revoke any and all privileges associated 
+            with competing in this tournament, and to take any other action it deems appropriate, for no reason or any reason 
+            whatsoever, including if TopCoder suspects competitors of cheating, tampering with the entry process, the operation 
+            of the Web site, or the tournament process, or otherwise being in violation of the rules. Verizon and TopCoder 
+            reserve the right to cancel, terminate or modify the tournament if it is not capable of completion as planned for any 
+            reason, including infection by computer virus, bugs, tampering, unauthorized intervention or technical failures of 
+            any sort.</p>
+            
+            <p> The tournament is void in whole or in part where prohibited by law.</p>
+            
+            <p>This tournament is brought to you by <A class="bodyText"><xsl:attribute name="HREF">/</xsl:attribute>TopCoder, Inc. (http://www.topcoder.com/)</A> 
+            703 Hebron Avenue, Glastonbury, CT 06033 and <A class="bodyText"><xsl:attribute name="HREF">http://www.verizon.com</xsl:attribute>Verizon Communications Inc. (http://www.verizon.com)</A> 1095 Avenue of the Americas, New York, 
+            New York 10036.</p>
+         
             </blockquote>
 
             <p><br/></p>

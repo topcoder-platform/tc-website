@@ -60,13 +60,9 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-    <div align="center"><object 
-         type="application/x-shockwave-flash"
-         data="/i/tournament/vcc03/vcc03.swf"
-         width="500"
-         height="120">
-    <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
-    </object></div>
+   <p><br /></p>
+   <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
+   <p><br /></p>
 
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
@@ -84,70 +80,52 @@
             
 <!-- The Competition Field -->
             <p><span class="bodySubtitle">The Competition Field</span><br />
-            A total of 500 TopCoder members will compete in Online Round #1 of the TCO.  The field will be comprised of 100 automatic 
-            berths and 400 qualification spots.</p>
-
-            <p>Click <a href="/?&amp;t=tournaments&amp;c=tco03_sched#berths">here</a> for more details regarding the automatic berths
-            and qualification spots.</p><br />
+            A total of 500 individuals will be invited to compete in Round #1.  The top 250 scorers will advance to Round 2.  The top 25 
+            scorers from Round 2 will advance to Round #3 (the Championship Round), which will be held onsite at Verizon's Chennai VDSI 
+            facility.</p>
             
 <!-- Online Elimination Rounds -->
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br />
-            Everyone who competes in an online round must log on to the TopCoder Competition Arena no later than ten minutes prior to 
-            the start of the online round. (Click <a href="/?&amp;t=tournaments&amp;c=tco03_sched#sched">here</a> for competition dates and times.)
-            TopCoder members from around the world may be
-            participating in these rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones 
-            must adjust accordingly. If a coder does not participate, for any reason, in an online round they have advanced to, it will be 
-            treated as an automatic loss in that round of competition.</p>
+            Everyone who competes in Round #1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the 
+            start of the online round.  <strong><em>All start times will be communicated as Chennai Time</em></strong>.  If a coder 
+            does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in 
+            that round of competition. </p>
 
-            <p>All competitors who have qualified for an online round will be assigned to a specific room. TopCoder will determine all 
-            room assignments prior to the start of each online round in a manner such that the average competitor rating (as of October
-            7th) for each room will be similar.</p><br />
-            
-<!-- Scoring and Advancing During Online Rounds -->
+            <p>All competitors who have been invited to compete will be randomly assigned to specific rooms, with up to 10 people in 
+            each room.  TopCoder will determine all room assignments prior to the start of each online round. </p>
+
             <p><span class="bodySubtitle">Scoring and Advancing During Online Rounds</span><br />
-            After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next 
-            online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the 
-            round (see Round Structure below) for each coder. In order to advance, a coder must finish each round with a
-            greater-than-zero point total. The structure of the online rounds is as follows:</p>
-
-            <ul>
-                <li><strong>Online Round #1</strong><br />
-                A total of 500 coders will compete in Round #1 and a total of 200 will advance.  The winner of each of the 50 rooms will 
-                automatically advance to Online Round #2.  The remaining 150 spots will be wildcards, and will be awarded based on total 
-                points across all rooms.  (In the event there are less than 50 room winners in Round #1, the total number of wildcard spots 
-                will be equal to 200 minus the actual number of room winners.)</li>
-
-                <li><strong>Online Round #2</strong><br />
-                200 coders will compete and 100 will advance.  The winner of each of the 20 rooms will automatically advance to Online Round 
-                #3.  The remaining 80 spots will be wildcards and will be awarded based on total points across all rooms.  (In the event there 
-                are less than 20 room winners in Round #2, the total number of wildcard spots will be equal to 100 minus the actual number 
-                of room winners.)</li>
-
-                <li><strong>Online Round #3</strong><br />
-                100 coders will compete and 50 will advance.  The winner of each of the 10 rooms will automatically advance to Online Round 
-                #4.  The remaining 40 spots will be wildcards and will be awarded based on total points across all rooms.  (In the event there 
-                are less than 10 room winners in Round #3, the total number of wildcard spots will be equal to 50 minus the actual number of
-                room winners.)</li>
-    
-                <li><strong>Online Round #4</strong><br />
-                50 coders will compete and 16 will advance.  The winner of each of the 5 rooms will automatically advance to the field of 
-                Semifinalists.  The remaining 11 spots will be wildcards and will be awarded based on total points across all rooms.  (In the 
-                event there are less than 5 room winners in Round #4, the total number of wildcard spots will be equal to 16 minus the actual
-                number of room winners.)</li>
-            </ul>
-
-            <p><strong>NOTE:</strong>  In the event of a tie for any advancing position (i.e. room winner or 
-            wildcard spot), the tie will be resolved in the following manner:</p>
-
-            <ul>
-                <li>Total points acquired (higher is better) during the rounds of the tournament in which all of the tied participants were 
-                presented with the same set of problems</li>
-                <li>If a tie still remains, then by rating (higher is better) as of October 6, 2003</li>
-                <li>If a tie still remains, all tied coders will advance to the next round</li>
-            </ul><br />
+            After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in 
+            all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) 
+            for each coder. In order to advance, a coder must finish each round with a greater-than-zero point total. The structure of the 
+            online rounds is as follows:</p>
             
+            <ul>
+               <li><span class="bodySubtitle">Round #1</span><br />
+               Up to 500 coders will compete in Round #1 and up to 250 will advance.  The 250 highest scoring competitors will advance to 
+               Round #2.  Each coder must have positive points to advance, so if there are less than 250 competitors who score positive 
+               points, only those competitors with a positive point total will advance.</li>
+               
+               <li><span class="bodySubtitle">Round #2</span><br />
+               Up to 250 coders will compete and up to 25 will advance.  The 25 highest scoring competitors will advance to Round #3.  
+               Each coder must have positive points to advance, so if there are less than 25 competitors who score positive points, only those 
+               competitors with a  positive point total will advance.</li>
+               
+               <li><span class="bodySubtitle">Round #3 Championship Round</span><br />
+               Up to 25 coders will compete in the Championship Round being held onsite at Verizon's Chennai facility.  Each finalist is 
+               responsible for arriving at Verizon's facility to compete.</li>
+            </ul>
+            
+            <p><strong>NOTE:</strong>  In the event of a tie for any advancing position, the tie will be resolved in the following manner:<br/>
+            <ul>
+               <li>Total points acquired (higher is better) during the previous rounds of the tournament</li>
+               <li>If a tie still remains, all tied coders will advance to the next round</li>
+            </ul>
+            </p>
+
 <!-- Round Structure -->
-            <p><span class="bodySubtitle">Round Structure</span><br />
+            
+            <p><span class="bodySubtitle">Competition Round Structure</span><br />
             Each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. 
             (Note: the format of these competition rounds is similar to the format of the Single Round Matches.)</p>
             
@@ -171,18 +149,29 @@
                 Phase.</li>
             </ul><br />
 
-<!-- Other -->
-            <p><span class="bodySubtitle">Other</span><br />
-            The tournament is void in whole or in part where prohibited by law.</p>
+<!-- Championship Round -->
+            <p><span class="bodySubtitle">Onsite Championship Round</span><br />
+            The 25 advancers from Round #2 must travel to Verizon's Chennai VDSI facility to compete in the Championship round of the 
+            tournament.  All finalists must arrive at Verizon's Chennai VDSI no later than 10:00 AM on Friday, August 29th.  If a contestant 
+            is unable to attend the onsite rounds, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be 
+            given to the next highest scorer from Round #2.</p>
 
-            <p>A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/, and will be 
-            displayed for at least 3 months after the end of the tournament.</p>
+            <p>Verizon and TopCoder will NOT provide travel arrangements for each finalist.  All expenses to attend the onsite finals are the 
+            responsibility of the finalist.</p>
 
-            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
-            </blockquote>
+            <p>TopCoder will determine the room assignments for the Championship Round prior to the start of the Championship round. </p>
 
-            <p><br/></p>
+            <p>The Championship Round will be a single round of 25 coders. First, second, third and fourth place in the Championship round 
+            are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship 
+            Round will be the coder with the highest point total for the round. In the event of a tie in the Championship rounds, the tie will be 
+            resolved in the following manner (in order):</p>
             
+            <ul>
+            <li>Total points acquired (higher is better) during Rounds #1 and #2</li>
+            <li>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</li>
+            </ul><br />
+            
+        </blockquote>
         </td>
 <!-- Center Column Ends -->
 
