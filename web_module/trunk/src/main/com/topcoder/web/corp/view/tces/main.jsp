@@ -23,8 +23,9 @@
 
 <body>
 
-<jsp:include page="top.jsp" />
-
+<jsp:include page="top.jsp" >
+    <jsp:param name="level1" value="employment_services"/>
+</jsp:include>
 <jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.MainTask" />
 
 <table width="100%" border="0" CELLPADDING="0" CELLSPACING="0">
