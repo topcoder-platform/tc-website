@@ -82,7 +82,7 @@
                             <tr valign="top">
                                 <td class="bodyText">06.16.2004</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/topcoder_global.properties" class="bodyText">topcoder_env.jar</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/topcoder_global.properties" class="bodyText">topcoder_global.properties</a></td>
                             </tr>
                         </table>
                     </td>
