@@ -51,8 +51,8 @@ public class BuildCandidateList extends BaseScreeningProcessor {
                 endVal = startVal + (Constants.SEARCH_SCROLL_SIZE-1);
             }
             
-            dataRequest.setProperty("candidateList"+DataAccessConstants.START_RANK, String.valueOf(startVal));
-            dataRequest.setProperty("candidateList"+DataAccessConstants.END_RANK, String.valueOf(endVal));
+            dataRequest.setProperty(DataAccessConstants.START_RANK, String.valueOf(startVal));
+            dataRequest.setProperty(DataAccessConstants.END_RANK, String.valueOf(endVal));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             if(sortCol.equals(""))
             {
