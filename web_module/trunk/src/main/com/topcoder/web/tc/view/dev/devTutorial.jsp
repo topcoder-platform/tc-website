@@ -1,9 +1,13 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map,
+                 com.topcoder.shared.dataAccess.DataAccessConstants, 
+                 com.topcoder.shared.util.ApplicationServer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
 <head>
-<title>Development FAQ</title>
+<title>Development Tutorial</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -36,6 +40,7 @@
 			
 			<h2>Development Tutuorial</h2>
 
+			<a name="intro"></a>
 			<h2>I. Introduction</h2>
 			<span class=bodySubtitle>Developing at TopCoder</span>
 			<p>TopCoder develops components in C# and Java.  Though the languages may 
@@ -54,7 +59,7 @@
 				component undergoes a Final Review, and you're done!</p>
 			<p>TopCoder provides considerable documentation about its design and development 
 				processes; if you have not already done so, you should peruse the TopCoder 
-				Software development document archive (available <a href="http://www.topcoder.com/tc?module=Static&amp;d1=dev&amp;d2=documentation" target="_blank">here</a>).  
+				Software development document archive (available <a href="/tc?module=Static&amp;d1=dev&amp;d2=documentation" target="_blank">here</a>).  
 				The TopCoder Member Guide, Development Design and Review Scorecard, and Jalopy 
 				Configuration File documents should all be of interest to you. The documents 
 				will show you what is expected of your submissions, and the Jalopy 
@@ -169,7 +174,7 @@
 						<td class=projectCells valign=top nowrap=nowrap>Jalopy</td>
 						<td class=projectCells valign=top nowrap=nowrap><a href="http://jalopy.sourceforge.net/" target="_blank">Homepage</a></td>
 						<td class=projectCells valign=top>Jalopy will format your source appropriately, when used with TopCoder's 
-							configuration file (available <a href="http://www.topcoder.com/i/development/downloads/topcoder_code_convention.xml" target="_blank">
+							configuration file (available <a href="/i/development/downloads/topcoder_code_convention.xml" target="_blank">
 								here</a>). This can save you quite a bit of time.</td>
 					</tr>
 					<tr>
@@ -188,10 +193,10 @@
 				Software. Registration not only allows you to submit design and 
 				development solutions, but also allows you to compete in TopCoder competitions 
 				and get in touch with employers via the TopCoder Employment Service.  To 
-				register, follow this <a href="http://www.topcoder.com/reg/index.jsp" target="_blank">link</a>.</p>
+				register, follow this <a href="/reg/index.jsp" target="_blank">link</a>.</p>
 			<h2><a name="#i">II. Picking A Project</a></h2>
 			<p>Picking a project is the first step to a winning development submission.  
-				You can quickly find open development projects at <a href="http://www.topcoder.com/?t=development&amp;c=comp_projects" target="_blank">
+				You can quickly find open development projects at <a href="/?t=development&amp;c=comp_projects" target="_blank">
 					this page</a>.  From that page, you can see which projects are open, 
 				when registration ends and when submissions are due.  These dates are 
 				very important.  You must indicate your interest to develop a solution by 
@@ -225,7 +230,7 @@
 				you are familiar with the technologies employed. 
 			</p>
 			<p>If you are having a problem deciding on a project, and want to see some 
-				real, fully detailed design material, check out the <a href="http://software.topcoder.com/components/free_components.jsp" target="_blank">
+				real, fully detailed design material, check out the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/free_components.jsp" target="_blank">
 					Free Components</a> TopCoder Software offers.  Those distributions 
 				will contain all the documents and code referenced throughout this tutorial.</p>
 			<span class=bodySubtitle>Project Registration</span>
@@ -239,7 +244,7 @@
 			<p>Project Submit and Review is the central hub for all development and design 
 				contests you participate in.  You will upload your submission via 
 				this application, and you receive your review scores here as well.  To 
-				begin, go to <a href="http://software.topcoder.com/review/" target="_blank">http://software.topcoder.com/review/</a>, 
+				begin, go <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/" target="_blank">here</a>, 
 				and log in.  Once logged in, you will see a list of all your open 
 				projects, as well as your status.</p>
 			<p>Click on the name of the project to view the timeline for the project, or to see 
@@ -337,7 +342,7 @@
 				change to the following:</p>
 			<p><font face="Courier New"><font size="2"><span class="b"> </span> <span class="m">&lt;</span><span class="t">property</span>
 						<span class="t">name</span><span class="m">="</span>java_1_3_bootclasspath<span class="m">"</span><span class="t">
-							value</span><span class="m">="<strong>C:\Program Files\JavaSoft\JRE\1.3.1_10\lib</strong></span><strong>\rt.jar</strong><span class="m">"</span><span class="m">
+							value</span><span class="m">="<strong>C:\Program&#160;Files\JavaSoft\JRE\1.3.1_10\lib</strong></span><strong>\rt.jar</strong><span class="m">"</span><span class="m">
 							/&gt;</span></font></font>
 			</p>
 			<p>In many cases, this will be all the configuration you will need to do.  If 
@@ -454,7 +459,7 @@
 						and can be disregarded.  All information here will be more easily 
 						accessible in the UML document.</font></font></p>
 			<span class=bodySubtitle>Development Process</span>
-			<p>As explained in <a href="http://www.desult.com/tcs/tcs-tutorial.html#intro">Section I</a>, your part in the development process is to implement the 
+			<p>As explained in <a href="#intro">Section I</a>, your part in the development process is to implement the 
 				a design which has already been created and reviewed.  To this end, <strong>you 
 					should consider the public API in the design document as canon</strong>.  
 				You are not allowed to deviate from the public API without approval from the 
@@ -913,7 +918,7 @@
 			<p>On the other hand, if you have problems writing your code, or if you don&#8217;t 
 				understand a required technology, or bugs in that regard, you should probably 
 				go to TopCoder's Round Tables, and not the development forums.  The 
-				TopCoder Round Tables are available at this URL: <a href="http://www.topcoder.com/rtables/index.jsp" target="_blank">
+				TopCoder Round Tables are available at this URL: <a href="/rtables/index.jsp" target="_blank">
 					http://www.topcoder.com/rtables/index.jsp</a>.  The General, 
 				or Component Competition Forums are appropriate places to start looking 
 				for help.  The Round Tables are frequented by many of the highly 
@@ -993,7 +998,7 @@
 			<h2><a name="#review">IX. Review</a></h2>
 			<p>The submission is out of your hands, and the Review Board will judge it on the 
 				following criteria.  You can find a very detailed summary of the scorecard 
-				here: <a href="http://www.topcoder.com/tc?module=Static&amp;d1=dev&amp;d2=devScoreSheet" target="_blank">
+				here: <a href="/tc?module=Static&amp;d1=dev&amp;d2=devScoreSheet" target="_blank">
 					http://www.topcoder.com/tc?module=Static&amp;d1=dev&amp;d2=devScoreSheet</a></p>
 			<p><strong>The implementation addresses the functionality as detailed in the component 
 					design documents.  - </strong>Does your component function as the 
