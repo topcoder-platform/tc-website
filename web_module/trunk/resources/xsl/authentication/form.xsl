@@ -3,18 +3,18 @@
 
 <xsl:template name="Form">
 
-              <FORM NAME="frmLogin" METHOD="post" onSubmit="return doCheckLogin()">
+              <form name="frmLogin" method="post" onsubmit="return doCheckLogin()">
                 <xsl:attribute name="action">https://<xsl:value-of select="/TC/Host"/></xsl:attribute>
-                <INPUT TYPE="hidden" NAME="t" VALUE="authentication"/>
-                <INPUT TYPE="hidden" NAME="c" VALUE="submit_login"/>
+                <input type="hidden" name="t" value="authentication"/>
+                <input type="hidden" name="c" value="submit_login"/>
                 <xsl:if test="not(/TC/ErrorURL='')">
-                  <INPUT TYPE="hidden" NAME="errorURL">
+                  <input type="hidden" name="errorURL">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/ErrorURL"/></xsl:attribute>
-                  </INPUT>
+                  </input>
                 </xsl:if>
 
 
-<SCRIPT type="text/javascript"><![CDATA[
+<script type="text/javascript"><![CDATA[
   var login;
   var focusSet=false;
   login=document.frmLogin
@@ -44,28 +44,28 @@
      return false;
     } else return true;
   }
-]]></SCRIPT>
+]]></script>
 
 
-                <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
-                  <TR>
-                  <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Handle:&#160;&#160;</TD>
-                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2">
-                      <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="Handle" TYPE="TEXT" VALUE="" onKeyPress="submitEnter(event)"/>
-                    </TD>
-                  </TR>
-                  <TR>
-                  <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
-                    <TD HEIGHT="20" VALIGN="TOP">
-                      <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="Password" TYPE="Password" VALUE="" onKeyPress="submitEnter(event)"/>
-                    </TD>
-                    <TD CLASS="statTextBig" VALIGN="top">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+                  <tr>
+                  <td class="statTextBig" valign="middle" height="14" align="right">Handle:&#160;&#160;</td>
+                    <td height="20" valign="TOP" colspan="2">
+                      <input class="dropdown" maxlength="15" size="12" name="Handle" type="TEXT" value="" onkeypress="submitEnter(event)"/>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td class="statTextBig" valign="middle" height="14" align="right">Password:&#160;&#160;</td>
+                    <td height="20" valign="TOP">
+                      <input class="dropdown" maxlength="15" size="12" name="Password" type="Password" value="" onkeypress="submitEnter(event)"/>
+                    </td>
+                    <td class="statTextBig" valign="top">
                       <!--<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="45" BORDER="0"/>-->
-                      &#160;&#160;<A HREF="Javascript:login.submit()" CLASS="statTextBig">Login &gt;</A>
-                    </TD>                    
-                  </TR>
-                </TABLE>
-              </FORM>
+                      &#160;&#160;<a href="Javascript:login.submit()" class="statTextBig">Login&#160;&gt;</a>
+                    </td>                    
+                  </tr>
+                </table>
+              </form>
 
 </xsl:template>
 
