@@ -345,7 +345,7 @@ public class QueryMover {
             qib.setSortOrder(((Integer) row.getItem("sort_order").getResultData()).intValue());
             qib.setOptional((row.getItem("optional").getResultData()).equals("Y"));
             if (qib.isOptional()) {
-                qib.setDefaultValue((String) row.getItem("defalt_value").getResultData());
+                qib.setDefaultValue((String) row.getItem("default_value").getResultData());
             }
             ret.add(qib);
         }
