@@ -12,8 +12,9 @@ import com.topcoder.web.common.security.WebAuthentication;
 
 import java.util.Map;
 import java.util.Set;
+import java.io.Serializable;
 
-public class CoderSessionInfo extends SessionInfo {
+public class CoderSessionInfo extends SessionInfo implements Serializable {
     private int rating;
     private int devRating;
     private int designRating;
