@@ -111,7 +111,6 @@ public final class TaskDevelopment {
             {
                 NumberFormat format = NumberFormat.getCurrencyInstance();
                 
-                devTag.addTag(new ValueTag("date", date));
                 double paymentAmt = Double.parseDouble(payment);
                 devTag.addTag(new ValueTag("payment", format.format(paymentAmt)));
                 log.debug(format.format(paymentAmt*.75));
