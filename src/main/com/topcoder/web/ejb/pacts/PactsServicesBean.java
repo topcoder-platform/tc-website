@@ -1169,6 +1169,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("AND dr.demographic_question_id = dq.demographic_question_id ");
         sb.append("AND dans.demographic_question_id = dr.demographic_question_id ");
         sb.append("AND dans.demographic_answer_id = dr.demographic_answer_id ");
+        sb.append("AND da.status = 'A'");
         sb.append("ORDER BY da.sort");
 
         ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
