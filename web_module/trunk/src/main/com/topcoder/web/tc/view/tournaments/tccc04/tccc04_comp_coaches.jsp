@@ -51,11 +51,11 @@ support during the contest.  The details below explain the coaching position in 
 detail.  If you are interested in becoming a coach, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a>
 with "Coach" in the subject line.
 
-<p><span class="bodySubtitle">Eligibility</span><br/>
+<p><span class="bodySubtitle">Eligibility to be a Coach</span><br/>
 <ul>
 <li>Must be a rated TopCoder or TopCoder Software member</li>
 <li>Must be available to provide design guidance or technical explanations to the competitors for the duration of the Design Contest</li>
-<li>Coaches that are Component Architect Review Board members cannot participate as reviewers for the Component Competition</li>
+<li>Coaches who are Component Architect Review Board members cannot participate as reviewers for the Design Competition</li>
 </ul>
 
 <p><span class="bodySubtitle">Selection</span><br/>
@@ -70,12 +70,12 @@ with "Coach" in the subject line.
 
 <p><span class="bodySubtitle">Compensation</span><br/>
 <ul>
-<li>Coaches will receive 10% of the competitor's winnings for all submissions made during the Component Competition and submitted after the coaching agreement was signed.  This includes both component earnings and contest prizes.</li>
-<li>Future royalties received by the winning competitor are not subject to the coach's percentage.</li>
+<li>Coaches will receive 10% of the competitor's winnings for all CDDC submissions after the coaching agreement was signed.  This includes both component earnings and contest prizes.</li>
+<li>Future royalties due to the winning competitor are not subject to the coach's percentage.</li>
 </ul>
 
 <p><span class="bodySubtitle">Coaching Responsibilities</span></p>
-<p>NOTE: Coaches will not be available or permitted to provide assistance to any competitor during any portion of Round #3 - Championship Round.</p>
+<p>NOTE: Coaches will not be available or permitted to provide assistance to any competitor during any portion of the Championship Round #3.</p>
 <ul>
 <li>Expected behavior:</li>
 <ul>
@@ -89,7 +89,7 @@ with "Coach" in the subject line.
 <li>It is unacceptable to guide a member to create your own design.</li>
 <li>It is unacceptable, at any time, to modify the design directly.</li>
 <li>When managing multiple competitors, it is unacceptable to share the ideas of one competitor with the others you are managing.</li>
-<li>When managing multiple competitors, it is unacceptable to guide all competitors to a similar design.  Again, initial design ideas and overall structure should be that of the members.</li>
+<li>When managing multiple competitors, it is unacceptable to guide all competitors to a similar design.  Again, initial design ideas and overall structure should be those of the competitors.</li>
 </ul>
 </ul>
 
