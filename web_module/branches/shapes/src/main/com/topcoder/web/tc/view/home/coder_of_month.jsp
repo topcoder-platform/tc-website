@@ -1,3 +1,5 @@
+<%@ taglib uri="tc.tld" prefix="tc" %>
+
 <table width="180" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td><img src="/i/coder_month_top.gif" alt="" width="180" height="11" border="0"></td>
@@ -9,8 +11,9 @@
 </table>
 
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
+    <% String sLink = "/stat?c=member_profile&cr=";%>
     <tr>
-        <td class="statTextBig" bgcolor="#333333">August: <a href="/stat?c=member_profile&cr=286907" class="coderTextRed">WishingBone</a></td>
+		<td class="statTextBig" bgcolor="#333333">August: <tc:ratingImage link='<%=sLink + resultRow.getIntItem(286907)%>' bg='B' cid='<%=resultRow.getIntItem(286907)%>' /></td>
     </tr>
 </table>
 
