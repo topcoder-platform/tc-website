@@ -251,7 +251,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                             responses);
 
         statuses = businessDelegate.getFinalFixStatuses();
-        isApproved= finalReview.getApproved();
+        isApproved = finalReview.isApproved();
     }
 
     /**
