@@ -7,10 +7,10 @@
 		  com.topcoder.shared.dataAccess.*,
 		  com.topcoder.shared.dataAccess.resultSet.*,
 		  com.topcoder.shared.util.TCContext,
+		  java.text.NumberFormat,
 		  java.text.DecimalFormat,
-		  java.math.BigInteger
-
-          ,
+		  java.math.BigInteger,
+		  
           com.topcoder.web.common.TCRequest,
           com.topcoder.web.common.HttpObjectFactory,
           com.topcoder.web.common.TCResponse,
@@ -54,15 +54,41 @@
 					
                     
 <%! 
-private String getPercentage (ResultSetContainer total, ResultSetContainer.ResultSetRow val, String col){
-   long tot = Long.parseLong(total.getItem(0,"cnt").toString());
+private String getPercentage (ResultSetContainer total, ResultSetContainer.ResultSetRow val, String col, Long tot){
+
    long valu = Long.parseLong(val.getItem(col).toString());
    double ret = (double)valu / tot*100;
    DecimalFormat df = new DecimalFormat("0.00");
    return df.format(ret);
    
 }
+
+private String getPercent (long subs, long succ)
+{
+	double ret2 = 0;
+	if (succ == 0)
+   {
+   	ret2 = (double)succ;
+   	}
+   else
+    {
+	ret2 = (double)succ / subs;
+	}
+	NumberFormat df = NumberFormat.getPercentInstance();	
+   	df.setMinimumFractionDigits(2);
+   	df.setMaximumFractionDigits(2);
+   	return df.format(ret2);
+}
 %>
+
+<rsc:iterator list="<%=rsc2%>" id="Row">
+<%
+long StudentTotal =  Long.parseLong(rsc2.getItem(0,"cnt").toString());
+long ProTotal = Long.parseLong(rsc2.getItem(1,"cnt").toString());
+%>
+</rsc:iterator>
+
+
 
  <table width="100%" class="srmFrame">
  
@@ -86,9 +112,9 @@ private String getPercentage (ResultSetContainer total, ResultSetContainer.Resul
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="all"%>' row="<%=Row%>"/></td>
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc3,Row,"all")%>%</td>
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="stud"%>' row="<%=Row%>"/></td>
-  <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc3,Row,"stud")%>%</td>
+  <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc3,Row,"Stud",StudentTotal)%>%</td>
   <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="prof"%>' row="<%=Row%>"/></td>
-  <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=getPercentage(rsc3,Row,"prof")%>%</td>
+  <td width="40" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><%=rsc2.getItem(0,"cnt")%>%</td>
   
   </tr><%even=!even;%>
   </rsc:iterator>
