@@ -51,89 +51,43 @@
                         
                         <h2 class="corpHead">Tournaments - Public Relations</h2>
 
-                        <p>Public relations is a key component of all tournament marketing. Outreach for every tournament 
-                        begins immediately following the signing of a sponsor.</p>
+                        <p>Public relations is a key component of all tournament marketing. TopCoder has received a significant amount 
+                        of media coverage surrounding each of the tournaments held to date.  In addition to numerous press releases, media 
+                        from around the country, including television stations, have run editorials on TopCoder, the membership, 
+                        semifinalists and champions, and the business model in general.
+
+                        <p>See our complete list of press releases and articles to date. 
+
+                        <p>The success of a tournament affects not only sponsors, but also TopCoder. Media coverage of a tournament is a 
+                        critical component and one that continues to be built upon and revisited for every tournament to ensure awareness, 
+                        understanding, impact, and entertainment.</p>
+
+                        <p>However, given the obvious desire for success on the sponsors' part, it is as much a responsibility of the 
+                        sponsors to promote a tournament as it is TopCoder's. Promoting sponsorship of a tournament through established 
+                        communications such as internal email newsletters and company websites demonstrate both support for the 
+                        developer community and an interest in the success of the tournament.</p>
+
+                        <p>TopCoder's growth and marketing is largely based on word of mouth. This is based on the fact that every week 
+                        20% of Students and 15% of Professional members indicate "Member Referral" as how they learned of TopCoder.</p>
+
+                        <p>The following media programs are conducted with all tournament marketing:</p>
+
+                        <p><span class="bodySubtitle">Campus Posters</span><br>
+                        TopCoder maintains a presence at over 400 schools nationwide. Posters are displayed in multiple places on campus 
+                        and are placed by either a postering company or by a Student Representative</p>
                         
-                        <p>TopCoder has received a significant amount of media coverage surrounding each of the two tournaments 
-                        held to date. In addition to the releases sent out, media from around the country, including television 
-                        stations, have run editorials on TopCoder, the membership, semifinalists and champions, and the 
-                        business model in general.</p>
+                        <p><span class="bodySubtitle">Video News Release</span><br>
+                        In past tournaments, footage from the tournament semifinals and finals was run in 6 different markets, TopCoder 
+                        continues with this in an effort to build recognition for members and sponsors</p>
                         
-                        <p>See our complete list of <a href="http://www.topcoder.com/index?t=news_events&amp;c=index" class="bodyText">press releases</a> 
-                        and <a href="http://www.topcoder.com/index?t=news_events&amp;c=articles" class="bodyText">articles</a> to date.</p>
-                    
-                        <p>Following is a sample from the 2002 Collegiate Challenge.</p>
+                        <p><span class="bodySubtitle">Campus Newspaper</span><br>
+                        In the weeks before tournament elimination rounds begin, ads are run at 50 schools across the country</p>
                         
-                        <div align="center">
-                        <table width="75%" border="0" cellpadding="4" cellspacing="1" bgcolor="#CCCCCC">
-                            <tr>
-                                <td width="50%" class="bodyText" bgcolor="#CCCCCC"><strong>Focus:</strong></td>
-                                <td width="50%" class="bodyText" bgcolor="#CCCCCC"><strong>Distribution:</strong></td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Announce sponsoring company</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
-                                    CollegeWire</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Top 10 Schools</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
-                                    CollegeWire</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Kickoff</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
-                                    CollegeWire</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Regional Championship Results</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
-                                    CollegeWire<br/>
-                                    Individual Campuses</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Semfinal/Championship Announcement</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
-                                    CollegeWire</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Semifinal Results</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
-                                    CollegeWire<br/>
-                                    Individual Campuses</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Semifinal Results "Final Four"</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
-                                    CollegeWire<br/>
-                                    Individual Campuses</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Championship Results</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">Photo/Caption for AP1000</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Championship Results</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">Broadcast VNR</td>
-                            </tr>
-                    
-                            <tr valign="top">
-                                <td class="bodyText" bgcolor="#FFFFFF">Tournament Wrapup</td>
-                                <td class="bodyText" bgcolor="#FFFFFF">Broadcast VNR<br/>
-                                    Campus Promotion<br/>
-                                    TopCoder.com<br/></td>
-                            </tr>
-                        </table>
-                        </div>
+                        <p><span class="bodySubtitle">Local Efforts</span><br>
+                        We research the geographic for the most relevant venues to promote the tournament</p>
+                        
+                        <p><span class="bodySubtitle">Public Relations</span><br>
+                        Outreach for every tournament begins immediately following the signing of sponsors.</p>
                                                 
                         <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is the SRM Program?</a></p>
 
