@@ -100,7 +100,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     public final void process() throws Exception {
         try {
             baseProcessing();
-            log.debug("calling businessProcessing");
+            //log.debug("calling businessProcessing");
             try {
                 businessProcessing();
             } catch (TCException e) {

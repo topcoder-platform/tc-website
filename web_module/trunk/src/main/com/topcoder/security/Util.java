@@ -69,7 +69,7 @@ public class Util implements ConfigManagerInterface {
             e.fillInStackTrace();
             throw e;
         }
-        logger.debug("getConfigManager - got cm");
+        //logger.debug("getConfigManager - got cm");
         return cm;
     }
 
@@ -82,7 +82,7 @@ public class Util implements ConfigManagerInterface {
     public static String getProperty(String property)
             throws GeneralSecurityException {
 
-        logger.debug("Util - getProperty");
+        //logger.debug("Util - getProperty");
         try {
             ConfigManager cm = getConfigManager();
             String prop = (String) cm.getProperty(PROPERTIES_NAMESPACE, property);
@@ -129,7 +129,7 @@ public class Util implements ConfigManagerInterface {
 
         KeyStore ks;
         Key key;
-        logger.debug("Util - loadKey");
+        //logger.debug("Util - loadKey");
         ConfigManager cm = getConfigManager();
         //logger.debug("got ConfigManager from getConfigManager");
         String keyStoreFileName = getProperty("keystore");
@@ -170,7 +170,7 @@ public class Util implements ConfigManagerInterface {
     private static Key storeKeyStore(KeyStore ks, String alias)
             throws ConfigManagerException, GeneralSecurityException {
 
-        logger.debug("in storeKeyStore");
+        //logger.debug("in storeKeyStore");
         ConfigManager cm = getConfigManager();
         String keyStoreFileName = getProperty("keystore");
         String cryptPswd = getProperty("kspassword");
@@ -208,7 +208,7 @@ public class Util implements ConfigManagerInterface {
     private static byte[] encdec(byte[] passwd, String alias, int cipherMode)
             throws ConfigManagerException, GeneralSecurityException {
 
-        logger.debug("in encdec");
+        //logger.debug("in encdec");
         Key key = loadKey(alias);
         //logger.debug("encdec - got key");
         byte[] encPasswd = new byte[0];
@@ -243,7 +243,7 @@ public class Util implements ConfigManagerInterface {
      */
     public static String encodePassword(String password, String alias)
             throws GeneralSecurityException {
-        logger.debug("in encodePassword");
+        //logger.debug("in encodePassword");
 
         byte[] passwd = password.getBytes();
         try {

@@ -97,7 +97,7 @@ public class LoginBean extends BaseEJB {
             //build list of RolePrincipals
             RolePrincipal rp = null;
             while (rs2.next()) {
-                logger.debug(rs2.getRow() + " adding principal: " + rs2.getLong(1));
+                //logger.debug(rs2.getRow() + " adding principal: " + rs2.getLong(1));
                 rp = new RolePrincipal(rs2.getString(2), rs2.getLong(1));
                 pl.add(rp);
             }
