@@ -1723,7 +1723,7 @@ public class Registration
             coder.setAllModifiedStable();
         } catch (Exception e) {
             try {
-                if (transaction.getStatus() == Status.STATUS_ACTIVE && !Transaction.rollback(transaction)) {
+                if (!Transaction.rollback(transaction)) {
                     throw new TaskException("Unable to commit or rollback transaction");
                 }
             } catch (Exception ee) {
