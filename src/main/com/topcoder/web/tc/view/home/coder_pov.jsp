@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Wernie_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=307638"><strong>Wernie</strong></a><br/>
+                        <img src="/i/m/the_one_smiley_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=156485"><strong>the_one_smiley</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,13 +19,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm209_prob">SRM 209 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, August 28, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm210_prob">SRM 210 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, September 1, 2004</p>
 
                         <p>
-						In division 1, many coders were quick to submit the first two problems, but took their time on the hard problem. System tests then saw 13 coders solve all three problems correctly, one of them being Vigothebest, who gains 275 rating points and no longer feels blue.
+						The problems of this match contained a variety of traditional programming contest topics, but they shared a common theme of relevance to "real world" concerns in software development. Besides enhancing the validity of TopCoder competitions as an indicator of on-the-job performance, real world problems also net the problem writer a handsome bonus payment.
 
-                        <a href="/?t=statistics&amp;c=srm209_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                        <a href="/?t=statistics&amp;c=srm210_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
