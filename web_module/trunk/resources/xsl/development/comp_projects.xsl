@@ -152,7 +152,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>The first round of the 2004 TCCC Component Design Competition begins on 2/17/2004</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>The second round of the 2004 TCCC Component Design Competition begins on 2/17/2004</strong></td>
                         </tr>
                 </xsl:if>
 <!--
