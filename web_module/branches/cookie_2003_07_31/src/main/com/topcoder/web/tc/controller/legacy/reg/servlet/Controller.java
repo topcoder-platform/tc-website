@@ -39,7 +39,12 @@ public class Controller
             throws ServletException {
         log.debug("service called...");
         HttpSession session = null;
+        Navigation nav = null;
         try {
+            nav = (Navigation)session.getAttribute("navigation");
+            if (nav == null) nav = new Navigation(request, response);
+            if (!nav.isLoggedIn())
+                throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 String taskName = request.getParameter(TASK);
                 if (taskName == null) {
@@ -50,10 +55,6 @@ public class Controller
                     return;
                 }
                 session = request.getSession(true); // for now create a new session, later this'll be done in the front page
-                Navigation nav = (Navigation)session.getAttribute("navigation");
-                if (nav == null) nav = new Navigation(request, response);
-                if (!nav.isLoggedIn())
-                    throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
                 Object taskObject = session.getAttribute(taskName);
                 Task task = null;
                 Class taskClass = null;
@@ -109,8 +110,9 @@ public class Controller
         } catch (PermissionException pe) {
             log.debug("caught PermissionException");
             try {
-                Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-                if (nav!=null && !nav.isLoggedIn()) {
+                if (nav==null)
+                    nav = new Navigation(request, response);
+                if (!nav.isLoggedIn()) {
                     CoderSessionInfo info = nav.getSessionInfo();
                     /* forward to the login page, with a message and a way back */
                     request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
