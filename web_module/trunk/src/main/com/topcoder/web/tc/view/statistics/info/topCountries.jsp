@@ -38,7 +38,7 @@
             of active coders from a country.
             </p>
 
-            <p class="bodyText"><img src="/i/rank_formula.gif"/></p>
+            <table width="100%"><tr><td align="center"><img src="/i/rank_formula.gif"/></td></tr></table>
 
             <p class="bodyText">Where:</p>
 
@@ -61,7 +61,7 @@
 
             <p class="bodyText"></p>
 
-            <p class="bodyText"><img src="/i/rank_weight_equation.gif"/></p>
+            <table width="100%"><tr><td align="center"><img src="/i/rank_weight_equation.gif"/></td></tr></table>
 
             <p class="bodyText"></p>
 
