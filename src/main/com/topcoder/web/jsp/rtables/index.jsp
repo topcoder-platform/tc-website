@@ -8,10 +8,11 @@
           com.coolservlets.forum.util.*,
           weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
+          com.topcoder.ejb.AuthenticationServices.*,
           com.topcoder.common.*" %>
 <%
   Authorization authToken = null;
-  com.topcoder.common.web.data.User user = null;
+  com.topcoder.ejb.AuthenticationServices.User user = null;
   String rtUser = "";
   String rtPassword = "";
   String Redirect_URL = "http://" + request.getServerName();
