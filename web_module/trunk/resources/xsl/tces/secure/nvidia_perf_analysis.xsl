@@ -67,7 +67,7 @@ Performance Analysis Software Engineers are responsible for performance analysis
 <BR/><BR/>
 Minimum GPA: 3.5
 <BR/><BR/>
-Must have BS in Computer Science or equivalent.  Experience with graphics application development experience and familiarity with PC development environments.  Ideal candidates will have an understanding of PC hardware architectures and their impact on application performance.  Experience with 3D graphics programming interfaces (Direct 3D and OpenGL) is desired.</p>
+Must have BS in Computer Science or equivalent.  Experience with graphics application development experience and familiarity with PC development environments.  Ideal candidates will have an understanding of PC hardware architectures and their impact on application performance.  Experience with 3D graphics programming interfaces (Direct 3D and OpenGL) is desired.</P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=196&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
