@@ -45,7 +45,7 @@ public class TestWindow extends Base {
 
             send(request);
 
-            showProcessingPage();
+            showProcessingPage(SHORT_CONTENT);
 
             ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse) receive(5000);
 
@@ -56,7 +56,7 @@ public class TestWindow extends Base {
 
             setDefault(Constants.PROBLEM, problem);
 
-            closeProcessingPage(buildProcessorRequestString(Constants.RP_TEST_RESPONSE,
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_TEST_WINDOW_RESPONSE,
                     new String[]{Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
                     new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
 
@@ -108,12 +108,6 @@ public class TestWindow extends Base {
         "</table>" +
         "</body>" +
         "</html>";
-
-
-    protected String getProcessingPageContent() {
-        return SHORT_CONTENT;
-    }
-
 
 }
 
