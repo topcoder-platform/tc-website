@@ -21,6 +21,10 @@
             <xsl:value-of select="substring($DATE, 6,2)"/>%2e<xsl:value-of select="substring($DATE, 9,2)"/>%2e<xsl:value-of select="substring($DATE, 1,4)"/>
         </xsl:if>
     </xsl:template>
+    <xsl:variable name="priceFormat" select="'$###,###.00'" />
+    <xsl:variable name="design-phase" select="'112'" />
+    <xsl:variable name="dev-phase" select="'113'" />
+
 
     <xsl:template match="/">
 
@@ -114,15 +118,17 @@
 
 
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
-    				<tr>
-    					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-    					<td background="" class="statText"><xsl:value-of select="./component_name"/></td>
-    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="REVIEW_COMPLETE_DATE"/></xsl:call-template></td>
-    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="FINAL_SUBMISSION_DATE"/></xsl:call-template></td>
-    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="PHASE_COMPLETE_DATE"/></xsl:call-template></td>
-    					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-    				</tr>                 
+                    <xsl:if test="./phase_id=$design-phase">
+        				<tr>
+        					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+        					<td background="" class="statText"><xsl:value-of select="./component_name"/></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="REVIEW_COMPLETE_DATE"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="FINAL_SUBMISSION_DATE"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="PHASE_COMPLETE_DATE"/></xsl:call-template></td>
+        					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+        				</tr>                 
+        		    </xsl:if>
                 </xsl:for-each> 
                
 
@@ -153,15 +159,17 @@
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
-    				<tr>
-    					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-    					<td background="" class="statText"><xsl:value-of select="./component_name"/></td>
-    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="REVIEW_COMPLETE_DATE"/></xsl:call-template></td>
-    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="FINAL_SUBMISSION_DATE"/></xsl:call-template></td>
-    					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="PHASE_COMPLETE_DATE"/></xsl:call-template></td>
-    					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-    				</tr>                 
+                    <xsl:if test="./phase_id=$dev-phase">
+        				<tr>
+        					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+        					<td background="" class="statText"><xsl:value-of select="./component_name"/></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="REVIEW_COMPLETE_DATE"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="FINAL_SUBMISSION_DATE"/></xsl:call-template></td>
+        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="PHASE_COMPLETE_DATE"/></xsl:call-template></td>
+        					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+        				</tr>                 
+        		    </xsl:if>
                 </xsl:for-each> 
 
                 <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
