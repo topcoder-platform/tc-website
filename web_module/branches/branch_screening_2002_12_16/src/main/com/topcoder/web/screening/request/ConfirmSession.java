@@ -41,12 +41,19 @@ public class ConfirmSession extends BaseSessionProcessor {
                          info.getEndDay(), 
                          info.getEndYear());
 
-        if(!(beginSuccess && endSuccess)) {
-            getRequest().setAttribute(Constants.ERRORS, errorMap);
-            return false;
+        boolean success = (beginSuccess && endSuccess);
+
+        if(info.getBeginDate().compareTo(info.getEndDate()) > 0) {
+            errorMap.put("dateCompare", 
+                    "Begin Time must be earlier than End Time");
+            success = false;
         }
 
-        return true;
+        if(!success) {
+            getRequest().setAttribute(Constants.ERRORS, errorMap);
+        }
+
+        return success;
     }
 
     private boolean validateDate(int type, 

@@ -319,6 +319,9 @@ function submitSession() {
               </TD>
               <TD CLASS="errorText" ALIGN="left" VALIGN="middle"><screen:errors name="endHour" /></TD>
            </TR>
+           <TR>
+              <TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"><screen:errors name="dateCompare" /></TD>
+           </TR>
          </TABLE>
 
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="90%">
