@@ -35,7 +35,6 @@ function goTo(selection){
 <!-- Center Column Begins -->
          <td class="cardCell" width="100%" align="center">
 
-         <div class="myTCBody">
         <jsp:include page="../../page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
             <jsp:param name="title" value="Affidavits"/>
