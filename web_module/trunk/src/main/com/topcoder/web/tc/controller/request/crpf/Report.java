@@ -20,10 +20,8 @@ public class Report extends Base {
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
         if (!(sortCol.equals("") || sortDir.equals(""))) {
-            r.setProperty(DataAccessConstants.SORT_DIRECTION,
-                    StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION)));
-            r.setProperty(DataAccessConstants.SORT_COLUMN,
-                    StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)));
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
+            r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             r.setProperty(DataAccessConstants.SORT_QUERY, "crpf_donation_list");
         }
 
@@ -38,7 +36,7 @@ public class Report extends Base {
             s.addDefault(rsc.getColumnIndex("rating"), "desc");
             s.addDefault(rsc.getColumnIndex("amount"), "desc");
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-            getRequest().setAttribute("donationInfo", m.get("crpf_donation_list"));
+            getRequest().setAttribute("donationInfo", rsc);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
