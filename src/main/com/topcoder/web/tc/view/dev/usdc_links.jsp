@@ -67,8 +67,8 @@
     <tr>
         <td class="usdcSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
             <% if (selectedTab.equals("results")) {%>
-                 <td class="<%=selectedTab2.equals("design")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=usdc&d3=usdc_alg_description" class="topLink">Design</a></td>
-                 <td class="<%=selectedTab2.equals("development")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=usdc&d3=usdc_alg_description" class="topLink">Development</a></td>
+                 <td class="<%=selectedTab2.equals("design")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=USDCResults" class="topLink">Design</a></td>
+                 <td class="<%=selectedTab2.equals("development")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=USDCResults" class="topLink">Development</a></td>
             <% } else { %>
                 <td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
             <% } %>
