@@ -66,6 +66,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">February 9</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=8357090">misof</A></td>
+                                <td valign="middle" class="bodyText"><A href="/tc?module=Static&amp;d1=tutorials&amp;d2=complexity1" class="bodyText">Computational Complexity: Section 1</A></td>
+                            </tr>
+
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">January 5</td>
                                 <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=276230">dimkadimon</A></td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_010505" class="bodyText">Mathematics for TopCoders</A></td>

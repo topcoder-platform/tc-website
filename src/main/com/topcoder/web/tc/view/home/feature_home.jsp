@@ -9,8 +9,8 @@
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/dimkadimon_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br/>
+                        <img src="/i/m/misof_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=8357090"><strong>misof</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -18,13 +18,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td> 
 
                     <td  width="100%" class="bodyText"  valign="top">
-                        <p><a href="/index?t=features&c=feat_010505" class="bodyText"><font size="4"><strong>Mathematics for TopCoders</strong></font></a><br />
-                        Wednesday, January 5, 2005</p>
+                        <p><a href="/tc?module=Static&d1=tutorials&d2=complexity1" class="bodyText"><font size="4"><strong>Computational Complexity: Section 1</strong></font></a><br />
+                        Tuesday, February 9, 2005</p>
 
                         <p>
-						I have seen a number of competitors complain that they are unfairly disadvantaged because many TopCoder problems are too mathematical. Personally, I love mathematics and thus I am biased in this issue. Nevertheless, I strongly believe that problems should contain at least some math, because mathematics and computer science often go hand in hand.
+						In this article I'll try to introduce you to the area of computation complexity. The article will be a bit long before we get to the actual formal definitions because I feel that the rationale behind these definitions needs to be explained as well - and that understanding the rationale is even more important than the definitions alone.
 
-                        <a href="/index?t=features&c=feat_010505" class="bodyText"><strong>full&#160;story</strong></a></p>
+                        <a href="/tc?module=Static&d1=tutorials&d2=complexity1" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
