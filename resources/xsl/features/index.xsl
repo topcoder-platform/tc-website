@@ -65,6 +65,12 @@
 	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3">XML-based UI description language that allows dynamic building and switching of UI screens at runtime</TD></TR>
 	    <TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3"><A HREF="/index?t=features&amp;c=feat_topics" CLASS="bodyGeneric">Want to write?</A></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>		
+		<TR><TD VALIGN="middle" BGCOLOR="#666666" COLSPAN="3" HEIGHT="18" CLASS="statText">&#160;&#160;<B>2003 Features</B></TD></TR>		
+		<TR><TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="18" WIDTH="12%" CLASS="bodyText">&#160;&#160;<B>Date</B></TD><TD WIDTH="25%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Author</B></TD><TD WIDTH="63%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Feature</B></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;December</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;01.08.03</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;radeye</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_010803" CLASS="bodyGeneric">Functional Programming</A></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
 		
 		<TR><TD VALIGN="middle" BGCOLOR="#666666" COLSPAN="3" HEIGHT="18" CLASS="statText">&#160;&#160;<B>2002 Features</B></TD></TR>		
 		<TR><TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="18" WIDTH="12%" CLASS="bodyText">&#160;&#160;<B>Date</B></TD><TD WIDTH="25%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Author</B></TD><TD WIDTH="63%" VALIGN="middle" BGCOLOR="#CCCCCC" CLASS="bodyText">&#160;&#160;<B>Feature</B></TD></TR>
