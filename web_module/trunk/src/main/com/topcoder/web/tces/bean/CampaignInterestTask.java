@@ -35,7 +35,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     private String campaignStatus;
 
     /* Holds a list of mappings representing hits on this campaign */
-    private ArrayList hitList;
+    private ResultSetContainer hitList;
 
     /* Holds the ID of the currently logged-in user */
     private int uid;
@@ -45,6 +45,12 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
 
     /* Holds the order that the hit list should be sorted in */
     private String sortOrder;
+
+    /* Holds the field that the hit list should be sorted by after sortBy */
+    private String backSortBy;
+
+    /* Holds the secondary order that the hit list should be sorted in */
+    private String backSortOrder;
 
     /* Makes a new CampaignInterestTask */
     public CampaignInterestTask() {
@@ -88,14 +94,14 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     /** Setter for property hitList.
      * @param hitList New value of property hitList.
      */
-    public void setHitList( ArrayList hitList ) {
+    public void setHitList(ResultSetContainer hitList) {
         this.hitList=hitList;
     }
 
     /** Getter for property hitList
      * @return Value of property hitList
      */
-    public List getHitList() {
+    public ResultSetContainer getHitList() {
         return hitList;
     }
 
@@ -190,74 +196,29 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
                                  "does not belong to uid="+Integer.toString(uid) );
         }
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_List");
-        ArrayList hitList = new ArrayList();
-        ResultSetContainer.ResultSetRow hitListRow = null;
-        for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-            hitListRow = rsc.getRow(rowI);
-            HashMap hit = new HashMap();
-
-            hit.put("coder_id", ((Long)hitListRow.getItem("coder_id").getResultData()).toString() );
-            hit.put("job_id", ((Long)hitListRow.getItem("job_id").getResultData()).toString() );
-            hit.put("handle", hitListRow.getItem("handle").toString() );
-            hit.put("ha",
-                    hitListRow.getItem("handle").toString().trim().toLowerCase() );
-
-            if (((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
-                hit.put("rating",
-                        ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
-                hit.put("ra",((Integer)hitListRow.getItem("rating").getResultData()));
-            }
-            else {
-                // member is unrated.
-                hit.put("rating", "Not rated");
-                hit.put("ra",new Integer(0));
-            }
-
-            hit.put("state",
-                    hitListRow.getItem("state_code").toString().trim() );
-
-            hit.put("position", hitListRow.getItem("job_desc").toString() );
-            hit.put("p", hitListRow.getItem("job_desc").toString().toLowerCase().trim() );
-
-            if ( ((String)hit.get("state")).trim().length()>0)
-                hit.put("st",((String)hit.get("state")).trim().toUpperCase());
-            else
-                hit.put("st","ZZZ");
-
-            hit.put("country",
-                    hitListRow.getItem("country_code").toString().trim() );
-            hit.put("type",
-                    hitListRow.getItem("coder_type_desc").toString().trim() );
-            hit.put("school",
-                    hitListRow.getItem("school_name").toString().trim() );
-
-            if (((String)hit.get("school")).trim().length() > 0 &&
-                ((String)hit.get("school")).indexOf("N/A") < 0) {
-                hit.put("sc",
-                        hitListRow.getItem("school_name").toString().trim().toLowerCase() );
-            }
-            else
-                hit.put("sc", "zzz"); // to ensure last in sortlist.
-
-            hit.put("hit_date",
-                    getDate(hitListRow, "timestamp"));
-            hit.put("hd",
-                    hitListRow.getItem("timestamp").toString() );
-
-            hitList.add(hit);
-        }
+        setHitList((ResultSetContainer) resultMap.get("TCES_Campaign_Hit_List"));
 
         if (sortBy!=null&&sortBy.length()>0) {
             if (sortOrder.length()>0) {
-                hitList=JSPUtils.sortMapList(hitList,sortBy,sortOrder.equals(TCESConstants.SORT_ORDER_ASC)?true:false);
+                if (backSortBy!=null&&backSortBy.length()>0) {
+                    if (backSortOrder.length()>0) {
+                        getHitList().sortByColumn(sortBy, backSortBy,
+                            sortOrder.equals(TCESConstants.SORT_ORDER_ASC),
+                            backSortOrder.equals(TCESConstants.SORT_ORDER_ASC));
+                    } else {
+                        getHitList().sortByColumn(sortBy, backSortBy,
+                            sortOrder.equals(TCESConstants.SORT_ORDER_ASC),
+                            true);
+                    }
+                } else {
+                    getHitList().sortByColumn(sortBy,sortOrder.equals(TCESConstants.SORT_ORDER_ASC));
+                }
             }
             else {
-                hitList=JSPUtils.sortMapList(hitList,sortBy,true);
+                getHitList().sortByColumn(sortBy,true);
             }
         }
 
-        setHitList( hitList );
 
         setNextPage( TCESConstants.CAMPAIGN_INTEREST_PAGE );
     }
