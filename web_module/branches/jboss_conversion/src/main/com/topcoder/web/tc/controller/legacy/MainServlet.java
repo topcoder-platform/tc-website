@@ -276,6 +276,7 @@ public final class MainServlet extends BaseServlet {
                     byte[] HTMLByte = asciiGetBytes(HTMLString);
                     gzipStream.write(HTMLByte);
                 } else {
+                    response.setContentType("text/html");
                     outputStream = response.getOutputStream();
                     byte[] HTMLByte = asciiGetBytes(HTMLString);
                     outputStream.write(HTMLByte);
