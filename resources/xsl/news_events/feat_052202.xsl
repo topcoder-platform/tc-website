@@ -93,8 +93,7 @@ true behavior or nature of the code."
 According to <B>dok</B>, a TopCoder administrator, the obfuscation rule was created 
 in response to the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=112438" CLASS="bodyGeneric">stevevai</A>
  in the Semifinals of the 2001 Invitational 
-(<A HREF="/stat?c=problem_solution&amp;rm=56&amp;rd=56&amp;pm=205&amp;cr=11
-2438" CLASS="bodyGeneric">members click here to view problem statement</A>). 
+(<A HREF="/stat?c=problem_solution&amp;rm=56&amp;rd=56&amp;pm=205&amp;cr=112438" CLASS="bodyGeneric">members click here to view problem statement</A>). 
 <B>dok</B> explains the obfuscation of <B>stevevai</B>: 
 "If you'll notice, there is a variable declared at the bottom, 'int l=0', 
 and at the top there is a comparison, 'if (s.length() == l)'. Well that 
