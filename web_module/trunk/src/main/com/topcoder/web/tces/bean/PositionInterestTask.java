@@ -212,14 +212,18 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         DataAccessInt dai = new DataAccess((javax.sql.DataSource) getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
-        if (rsc.getRowCount() == 0) {
-            throw new Exception("No company name!");
-        }
-        ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
-     	if (super.getSessionInfo().isAdmin())
+        ResultSetContainer rsc = null;
+		if (super.getSessionInfo().isAdmin())
 			setCompanyName(TCESConstants.ADMIN_COMPANY);
-		else setCompanyName(cmpyNameRow.getItem("company_name").toString());
+		else {
+			rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
+            if (rsc.getRowCount() == 0) {
+                throw new Exception("No company name!");
+            }
+            ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
+
+			setCompanyName(cmpyNameRow.getItem("company_name").toString());
+		}
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
         if (rsc.getRowCount() == 0) {
