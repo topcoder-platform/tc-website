@@ -89,7 +89,7 @@
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
-      <TD BACKGROUND="/i/p/graybv_lite_bg.gif" BGCOLOR="#666666"><A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration"><IMG SRC="/i/p/menu_<%=activeUser.isAnonymous()?"reg":"upd"%>.gif" WIDTH="170" HEIGHT="21" BORDER="0"/></A></TD>
+      <TD BACKGROUND="/i/p/graybv_lite_bg.gif" BGCOLOR="#666666"><A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration"><IMG SRC="/i/p/menu_<%=activeUser.isAnonymous()?"reg":"update"%>.gif" WIDTH="170" HEIGHT="21" BORDER="0"/></A></TD>
       <TD BACKGROUND="/i/p/graybv_lite_bg.gif" BGCOLOR="#666666"><A HREF="#"><IMG SRC="/i/p/menu_screen.gif" WIDTH="247" HEIGHT="21" BORDER="0"/></A></TD> 
       <TD WIDTH="100%" BACKGROUND="/i/p/graybv_lite_bg.gif" BGCOLOR="#666666"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="21" BORDER="0"/></TD>  
    </TR>
