@@ -46,16 +46,12 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%">
 
-            <div align="center">
-                <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-                <img src="/i/promos/tco03/tco_home_comp_start_a.gif" alt="Component Competition starts Sept 2" width="540" height="165" border="0"/><br/>
-                <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
-            </div>
+<jsp:include page="tco03Head.jsp" />
 
 <!-- Tab bar links-->
 <jsp:include page="tco03Links.jsp" >
    <jsp:param name="selectedContest" value="coding"/>
-   <jsp:param name="selectedTab" value="coding_overview"/>
+   <jsp:param name="selectedTab" value="coding_advancers"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
@@ -65,7 +61,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </jsp:include>
 
             <h2>Advancers</h2>
-
+            
             <p>The following TopCoder members have received byes in the qualification round of the 2003 TopCoder Open:</p>
             
             <table width="300" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
@@ -77,12 +73,17 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                    <td class="testTableTitle" width="50%" align="right">Rating</td>
                 </tr>
                 <tr>
-                  <td class="advancers_list" width="50%"></td>
-                  <td class="advancers_list" align="right" width="50%"></td>
-                </tr>
-             </table>
+                  <td class="advancers_list">
+                  </td>
+                  <td class="advancers_list" align="right">
+                  </td>
+               </tr>
+            </table>
+            <br/><br/>
+            
+            <p> Click <A href="/tc?module=Static&d1=tco03&d2=tco03_top100">here</A> to see the full TCO advancers table.</p>
 
-         <p><br/></p>
+        <p><br/></p>
          </td>
 <!-- Center Column Ends -->
 
