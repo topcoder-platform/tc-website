@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.web.common.StringUtils"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <html>
@@ -95,13 +96,13 @@
                           <td align=left><span class=bodySmallTitle>Class Name: </span></td>
                           <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="className"/></span></td>
                           <td align=left><span class=bodySmallTitle>Return Type: </span></td>
-                          <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="returnType"/></span></td>
+                          <td align=left><span class=bodySmallTitle><%=StringUtils.htmlEncode(problemInfo.getReturnType())%></span></td>
                        </tr>
                        <tr>
                           <td align=left><span class=bodySmallTitle>Method Name: </span></td>
                           <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="methodName"/></span></td>
                           <td align=left><span class=bodySmallTitle>Arg Types: </span></td>
-                          <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="arguments"/></span></td>
+                          <td align=left><span class=bodySmallTitle><%=StringUtils.htmlEncode(problemInfo.getArguments())%></span></td>
                        </tr>
                     </table>
 
