@@ -331,7 +331,7 @@ Wednesday, October 16, 2002<BR/><BR/>
 Second round of the 2002 Invitational. An uncommonly easy Level One problem,
 coupled with an extremely long and bug-prone Level Two problem, led to a
 large number of people passing or failing based solely on their Level One
-solution. Luckily, only 499 competitors were eligable, and only 435 showed
+solution. Luckily, only 499 competitors were eligible, and only 435 showed
 up, but competition was deadly.
 </P>
 
