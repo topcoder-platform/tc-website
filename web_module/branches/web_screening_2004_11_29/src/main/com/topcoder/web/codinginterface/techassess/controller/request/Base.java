@@ -144,7 +144,7 @@ public abstract class Base extends BaseProcessor {
 
     protected Message receive(int waitTime) throws TimeOutException {
 
-        if (messageId==null) throw new RuntimeException("You must call send before receive dummy");
+        if (messageId==null) throw new RuntimeException("You must call send before receive.");
 
         log.debug("setting up session errors");
         getRequest().getSession().setAttribute(ERRORS_KEY+messageId, errors);
@@ -152,6 +152,8 @@ public abstract class Base extends BaseProcessor {
         log.debug("setting up session defaults");
         getRequest().getSession().setAttribute(DEFAULTS_KEY+messageId, defaults);
         getRequest().removeAttribute(DEFAULTS_KEY);
+        log.debug("defaults: " + getRequest().getSession().getAttribute(DEFAULTS_KEY+messageId));
+        log.debug("errors: " + getRequest().getSession().getAttribute(ERRORS_KEY+messageId));
 
         return (Message)receiver.receive(waitTime, messageId, getResponse());
     }
