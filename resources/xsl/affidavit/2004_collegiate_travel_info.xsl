@@ -69,7 +69,7 @@
           64 Arlington Street<BR/>
           Boston, MA 02116<BR/>
           Phone: (617) 426-2000<BR/>
-          <a href="http://www.bostonparkplaza.com">www.bostonparkplaza.com</a><BR/>
+          <a target="_blank" href="http://www.bostonparkplaza.com">www.bostonparkplaza.com</a><BR/>
         <BR/>
          A room will be confirmed for your arrival on April 14th and departure on April 17th.   The check-in time is
             3:00pm and check out time is 12:00noon.  If you have any special requests, please indicate them on the
