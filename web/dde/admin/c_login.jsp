@@ -1,4 +1,5 @@
-<%@ page import="javax.naming.*"
+<%@ page import="javax.naming.*,
+                 com.topcoder.dde.util.Cookies"
  %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
@@ -32,7 +33,7 @@
             session.removeValue("TCUSER");
             session.removeAttribute("LOGIN_FLAG");
             session.removeValue("nav_redirect");
-            clearLoginCookies(response);
+            Cookies.clearLoginCookies(response);
 			tcUser = null;
 			tcSubject = null;
 		}

@@ -6,17 +6,16 @@
 <%@ page import="com.topcoder.security.policy.*" %>
 
 <%@ page import="com.topcoder.dde.user.*" %>
-<%@ include file="cookies.jsp" %>
 <%
 	////////////////////////////////////////////
-	// Load context 
+	// Load context
 	////////////////////////////////////////////
 
 	/*
 	Hashtable environment = new Hashtable();
 	environment.put(Context.PROVIDER_URL, "localhost:1099");
 	environment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-	Context CONTEXT = new InitialContext(environment);	
+	Context CONTEXT = new InitialContext(environment);
 	*/
 	Context CONTEXT = new InitialContext();
 
@@ -25,26 +24,26 @@
 	// Load Stateless EJB's
 	////////////////////////////////////////////
 
-	Object objUserManager = CONTEXT.lookup("dde/UserManager");        
-	UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class); 
+	Object objUserManager = CONTEXT.lookup("dde/UserManager");
+	UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
   	UserManagerRemote USER_MANAGER = userManagerHome.create();
 
 	Object objPrincipalManager = CONTEXT.lookup("security/PrincipalMgr");
 	PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
 	PrincipalMgrRemote PRINCIPAL_MANAGER = principalManagerHome.create();
-	
+
 	Object objPolicyManager = CONTEXT.lookup("security/PolicyMgr");
 	PolicyMgrRemoteHome policyManagerHome = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(objPolicyManager, PolicyMgrRemoteHome.class);
 	PolicyMgrRemote POLICY_MANAGER = policyManagerHome.create();
-			            
+
 	Object objLogin = CONTEXT.lookup("security/Login");
 	LoginRemoteHome loginHome = (LoginRemoteHome) PortableRemoteObject.narrow(objLogin, LoginRemoteHome.class);
 	LoginRemote LOGIN = loginHome.create();
-			            
+
 	Object objPolicy = CONTEXT.lookup("security/Policy");
 	PolicyRemoteHome policyHome = (PolicyRemoteHome) PortableRemoteObject.narrow(objPolicy, PolicyRemoteHome.class);
 	PolicyRemote POLICY = policyHome.create();
-	
+
 %>
 
 <%
@@ -104,7 +103,7 @@ if (pagesRequiringLogin.indexOf(requestURI) > -1 && requestURI == null) {
 }
 
 //////////////////////////////////////////////
-// Set current page information so that any 
+// Set current page information so that any
 // attempts to login know where to go back to
 //////////////////////////////////////////////
 

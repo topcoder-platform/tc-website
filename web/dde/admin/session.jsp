@@ -5,7 +5,6 @@
 
 <%@ page import="com.topcoder.dde.admin.*" %>
 <%@ page import="com.topcoder.dde.user.*" %>
-<%@ include file="/includes/cookies.jsp" %>
 <%
 	////////////////////////////////////////////
 	// Load context
