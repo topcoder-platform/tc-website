@@ -174,7 +174,7 @@ public class SoftwareComponent {
      */
     private float getCoreDesignReviewCost() {
         float reviewCost = (float)level * (float)submissionsPassedScreening*DESIGN_REVIEW_RATE;
-        float startupCost = (1f/2f) * DESIGN_REVIEW_RATE; //30 minutes to "start up"
+        float startupCost = DESIGN_REVIEW_RATE; //60 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
         return Math.round(reviewCost + startupCost);
