@@ -1,10 +1,7 @@
 <%@  page
   language="java"
   errorPage="/errorPage.jsp"
-  import="java.util.*,
-          com.topcoder.web.query.common.*,
-          com.topcoder.web.query.bean.*" %>
-<jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.query.bean.LoginTask" />
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -12,7 +9,7 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
   </HEAD>
-  <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0" onLoad="self.focus();document.login.handle.focus()">
+  <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0"">
   <jsp:include page="top.jsp" />
 
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
