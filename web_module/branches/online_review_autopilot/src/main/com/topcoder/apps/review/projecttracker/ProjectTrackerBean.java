@@ -29,6 +29,7 @@ import com.topcoder.apps.review.security.ScreenPermission;
 import com.topcoder.apps.review.security.SubmitFinalFixPermission;
 import com.topcoder.apps.review.security.SubmitPermission;
 import com.topcoder.apps.review.security.ViewProjectPermission;
+import com.topcoder.apps.review.document.ScorecardTemplate;
 
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
@@ -1762,6 +1763,33 @@ public class ProjectTrackerBean implements SessionBean {
 
             // Clean up this variable for reuse - bblais
             Common.close(ps);
+            ps = null;
+            
+            //insert default scorecards
+            long templateId = documentManager.getDefaultScorecardTemplate(projectTypeId, ScreeningScorecard.SCORECARD_TYPE).getId();
+            ps = conn.prepareStatement(
+                                    "INSERT INTO project_template " +
+                                    "(project_id, scorecard_type, template_id) " +
+                                    "VALUES (?,?,?)");
+            ps.setLong(1,projectId);
+            ps.setInt(2, ScreeningScorecard.SCORECARD_TYPE);
+            ps.setLong(3, templateId);
+            
+            ps.executeUpdate();
+            ps.close();
+            
+            templateId = documentManager.getDefaultScorecardTemplate(projectTypeId, ReviewScorecard.SCORECARD_TYPE).getId();
+            ps = conn.prepareStatement(
+                                    "INSERT INTO project_template " +
+                                    "(project_id, scorecard_type, template_id) " +
+                                    "VALUES (?,?,?)");
+            ps.setLong(1,projectId);
+            ps.setInt(2, ReviewScorecard.SCORECARD_TYPE);
+            ps.setLong(3, templateId);
+            
+            ps.executeUpdate();
+            ps.close();
+            
             ps = null;
 
             // Create security manager roles for project

@@ -11,6 +11,7 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.RolePrincipal;
 
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.EJBHelper;
 import com.topcoder.apps.review.OnlineReviewProjectData;
 import com.topcoder.apps.review.ProjectForm;
@@ -81,6 +82,7 @@ public class AutoPilotTimer
                 subject.addPrincipal(new RolePrincipal("Administrator", 1));
                 
                 UserManagerLocal userManager = EJBHelper.getUserManager();
+                DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
                 
                 SecurityEnabledUser user = userManager.getUser(subject);
                 
@@ -102,6 +104,12 @@ public class AutoPilotTimer
                             form.setCurrentPhase("Screening");
                             
                             form.setReason("auto pilot advancing to screening");
+                            
+                            //check for screening scorecard template
+                            if(form.getScreeningTemplateId() == -1 ) {
+                                String template = docManager.getDefaultScorecardTemplate(p.getProjectType().getId(), ScreeningScorecard.SCORECARD_TYPE).getName();
+                                form.setScreeningTemplate(template);
+                            }
                             
                             ProjectData data = form.toActionData(orpd);
                             ResultData result = new BusinessDelegate().projectAdmin(data); 

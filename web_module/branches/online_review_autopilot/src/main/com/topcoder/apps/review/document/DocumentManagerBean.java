@@ -4562,6 +4562,41 @@ public class DocumentManagerBean implements SessionBean {
             Common.close(conn, ps, rs);
         }
     }
+    
+    public ScorecardTemplate getDefaultScorecardTemplate(long projectTypeId, long scorecardTypeId) {
+        ScorecardTemplate st = null;
+        
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try { 
+            conn = dataSource.getConnection();
+
+            ps = conn.prepareStatement(
+                    "SELECT st.template_id " +
+                    "FROM scorecard_template st " +
+                    "WHERE st.default_ind = 1 AND" +
+                    "st.scorecard_type = ? AND" +
+                    "st.project_type = ? ");
+            ps.setLong(1, scorecardTypeId);
+            ps.setLong(2, projectTypeId);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                long templateId = rs.getLong(1);
+                
+                st = getScorecardTemplate(templateId);
+            } else {
+                throw new RuntimeException("No default found");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            Common.close(conn, ps, rs);
+        }
+        return st;
+    }
 
     public ScorecardTemplate getScorecardTemplate(long reqTemplateId) {
         ScorecardTemplate st = null;
