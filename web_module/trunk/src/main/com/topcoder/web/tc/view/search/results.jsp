@@ -1,4 +1,6 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.web.tc.Constants"%>
 <%@ page language="java"  %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
@@ -6,16 +8,26 @@
 
 <% ResultSetContainer results = memberSearch.getResults();%>
 
+<script language="JavaScript"><!--
+  function next() {
+    document.simpleSearch.<%=DataAccessConstants.START_RANK%>=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
+    document.simpleSearch.<%=DataAccessConstants.END_RANK%>=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
+    document.simpleSearch.submit();
+  }
+  function previous() {
+    document.simpleSearch.<%=DataAccessConstants.START_RANK%>=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
+    document.simpleSearch.<%=DataAccessConstants.END_RANK%>=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
+    document.simpleSearch.submit();
+  }
+  //--></script>
 
 <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
   <tr valign="top">
       <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
           <form name="simpleSearch" method="get">
-
-
-          <input type="hidden" name="t" value="search"/>
-          <input type="hidden" name="c" value="simple_search"/>
-          <input type="hidden" name="next" value=""/>
+          <input type="hidden" name="module" value="SimpleSearch"/>
+          <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
+          <input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
 
 
 
@@ -30,8 +42,8 @@
 
               <tr valign="middle">
                   <td class="statText" height="16" colspan="7" align="center">
-                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:document.simpleSearch.next.value='false';Javascript:document.simpleSearch.submit()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:document.simpleSearch.next.value='true';Javascript:document.simpleSearch.submit()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
+                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
                   </td>
               </tr>
 
@@ -63,8 +75,8 @@
 
               <tr valign="middle">
                   <td class="statText" height="16" colspan="7" align="center">
-                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:document.simpleSearch.next.value='false';Javascript:document.simpleSearch.submit()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
-                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:document.simpleSearch.next.value='true';Javascript:document.simpleSearch.submit()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
+                    <%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"&gt;&gt; next")%>
                   </td>
               </tr>
 
