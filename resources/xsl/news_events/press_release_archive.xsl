@@ -59,6 +59,10 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 
 <!-- 2003 -->
+                            <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
+
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_02_04">TopCoder Announces DoubleClick 2004 Coding Challenge</A> [February 2]<br/><br/></td></tr>
+
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2003</font></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_12_08_03">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174;</A> [December 8]</td></tr>
