@@ -45,20 +45,6 @@
 
             <tr>
                 <td colspan="2">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.MIDDLE_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    Middle Initial
-                </td>
-                <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.MIDDLE_NAME%>"  size="1" maxlength="1"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -152,20 +138,6 @@
                 </td>
                 <td align="left">
                     <tc-webtag:textInput name="<%=Constants.ADDRESS2%>"  size="15" maxlength="50"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    Address3
-                </td>
-                <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.ADDRESS3%>"  size="15" maxlength="50"/>
                 </td>
             </tr>
 
