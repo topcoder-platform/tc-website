@@ -116,6 +116,8 @@
                         <TR><TD><A HREF="#c2" CLASS="bodyText">What hardware does TopCoder use?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#c3" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>                       
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#c4" CLASS="bodyText">What do I need to import to use standard VB.NET functions?</A></TD></TR>                       
                         
                                                 
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
@@ -295,6 +297,12 @@
                         <TR><TD CLASS="bodyText"><A NAME="c3"><B>What software does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>Microsoft Windows 2000 5.00.2195 SP2, .NET Framework version 1.0.3705</P>
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="c4"><B>What do I need to import to use standard VB.NET functions?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>You need to import "Imports Microsoft.VisualBasic"</P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
                         
