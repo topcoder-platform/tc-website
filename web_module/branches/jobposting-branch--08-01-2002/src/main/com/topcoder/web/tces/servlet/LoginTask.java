@@ -124,6 +124,10 @@ log.debug("getting handleinput "+handleInput);
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
+ResultColumn[] cols = rsc.getColums();
+for (int rci=0;rci<cols.length;rci++) {
+	log.debug("COL"+Integer.toString(rci)+" = "+cols[rci].getName());
+}
 log.debug("ROW = "+rRow.toString());
         String actualPassword = TCData.getTCString(rRow, "password");
         if (actualPassword == null) {
