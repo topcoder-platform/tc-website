@@ -69,38 +69,27 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-              <TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4090&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 72<!-- 2002 TCCC Regional Championships --></A></TD>            
-              <TD VALIGN="middle" CLASS="statText">Wednesday, March 20</TD>
+              <TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4110&amp;t=schedule&amp;c=srm" CLASS="statText">Single Round Match 77<!-- 2002 TCCC Regional Championships --></A></TD>            
+              <TD VALIGN="middle" CLASS="statText">Wednesday, April 3</TD>
               <TD VALIGN="middle" CLASS="statText">9:00pm EST</TD>
             </TR>            
-            <!-- <TR>
+            <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
-            </TR> --> 
+            </TR>
                     <!-- <TR>
                       <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/i/mot_redir.html" target="_blank"><IMG SRC="/i/moto_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR> -->          
-                    <TR>
+                    <!-- <TR>
                       <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
-                    </TR>           
+                    </TR> -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: <!-- Single Round Match 71 - March 11, 2002 -->2002 TCCC Regional Championships - March 13</TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 76 - April 1, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-            </TR> 
+            </TR>                                               
             <TR>
-              <TD VALIGN="top" COLSPAN="3" CLASS="statText">
-This was it.  The final online elimination round of the 2002 Collegiate Challenge.  
-The remaining 32 became the final 16.  The coders of the West were definitely ready, earning 
-seven spots for the April 19 semifinals at MIT.
-
-                 </TD>
-            </TR> 
-            <TR>
-              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
-            </TR>                                              
-            <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;<!-- Division-I --> Northeast Region</TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Division-I<!-- Northeast Region --> </TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
@@ -108,35 +97,39 @@ seven spots for the April 19 semifinals at MIT.
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <!-- <A HREF="/index?t=statistics&amp;c=consec_wins_div1" CLASS="statText">View the list of Division-I Consecutive Wins</A>
-<A HREF="/index?t=statistics&amp;c=srm_wins_div1" CLASS="statText">View the list of Division-I Wins</A>
+<A HREF="/stat?c=all_time_wins_by_div&amp;dn=1" CLASS="statText">View the list of Division-I Wins</A>
 <A HREF="/index?t=statistics&amp;c=rate_gain_div1" CLASS="statText">View the list of Division-I Rating Point Gain</A>
-<A HREF="/index?t=statistics&amp;c=rate_gain_div2" CLASS="statText">View the list of Division-II Rating Point Gain</A>
+<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>
 <A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="statText">View the list of Winning Debuts</A> 
-<A HREF="/index?t=statistics&amp;c=srm_wins" CLASS="statText">View the list of Overall Wins</A>
+<A HREF="/stat?c=all_time_wins" CLASS="statText">View the list of Overall Wins</A>
 <A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="statText">View the list of Winning Debuts</A>
-<A HREF="/index?t=statistics&amp;c=high_total_div2" CLASS="statText">View the list of Division-II Point Totals</A>
+<A HREF="/stat?&amp;c=highest_totals&amp;dn=2" CLASS="statText">View the list of Division-II Point Totals</A>
+<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>
 -->
 <P>
-2001 Invitational finalist <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="coderTextRed">ZorbaTHut</A>, the number two seed, was the Northeast region Champion after earning 
-the second highest point total of the Regional Championships - 1035.12.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="coderTextRed">ZorbaTHut</A> coded all three problems 
-for 985.12 points in the "Coding Phase", and added 50 additional points to that total with a successful challenge 
-of the 1000-point submission of 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=260835" CLASS="coderTextRed">reid</A> in the "Challenge Phase".  The other two coders to make the semifinals from 
-the Northeast were the sixth seed, 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=154089" CLASS="coderTextRed">milhouse</A>
-, and 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112902" CLASS="coderTextYellow">Logan</A>
-, the ninth seed.  Like <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="coderTextRed">ZorbaTHut</A>, 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=154089" CLASS="coderTextRed">milhouse</A>
- and 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112902" CLASS="coderTextYellow">Logan</A>
- were 
-both 2001 Invitational semifinalists.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="coderTextRed">ZorbaTHut</A> was "both excited and nervous" about heading to Cambridge, while 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112902" CLASS="coderTextYellow">Logan</A>
- was "very proud to make it, especially with the stiff competition in the region."
+An extremely close battle took place in Room 4, as <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> outscored <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+ by .84 points (1416.95 to 1416.11) to win the room.  <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+ actually coded the Level One and Three problems quicker than <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A>, but the difference in the match was the scoring differential of the Level Two submissions.  <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> earned 238.04 on the Level One problem, 291.45 on the Level Two problem and 887.46 on the Level Three problem, while <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+ gained 241.31 on the Level One problem, 347.32 on the Level Two problem and 827.48 on the Level Three problem.
 </P>
 
+<P>
+Although it wasn't as close as Room 4, <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
+ was the winner in Room 1 by just 20.17 points (1570.58 to 1550.41) over <A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="coderTextRed">reid</A>
+.   <A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="coderTextRed">reid</A>
+ was actually winning the room after the "Coding Phase", earning all 1550.41 points in that phase.  <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
+ earned 246.89 points on the Level One problem, 430.57 on the Level Two problem and 843.12 on the Level Three problem for a total of 1520.58 points in the "Coding Phase".  <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
+ won the room by successfully challenging the Level Two submission of malpt for 50 points.  <A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="coderTextRed">reid</A>
+ gained 245.14 points on the Level One problem, 417.87 on the Level Two problem and 887.40 on the Level Three problem.
+</P>
 
+<P>
+Four coders who were seeded 10th of 10 coders in their respective rooms pulled off tremendous upset wins.  <A HREF="/stat?c=member_profile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A>
+ won Room 9 with 1025.31 points, <A HREF="/stat?c=member_profile&amp;cr=268580" CLASS="coderTextBlue">Wasyuu</A>
+ was the winner in Room 18 with 532.11, <A HREF="/stat?c=member_profile&amp;cr=154619" CLASS="coderTextBlue">hilfiger</A>
+ was victorious in Room 23 with 1100.65, while <A HREF="/stat?c=member_profile&amp;cr=129815" CLASS="coderTextBlue">dmh2000</A>
+ triumphed right next door in Room 24 with 470.01.
+</P>
                  </TD>
             </TR>
         <!-- <TR>
@@ -146,7 +139,7 @@ both 2001 Invitational semifinalists.  <A HREF="/?t=statistics&amp;c=member_prof
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>        
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;<!-- Division-II --> Southeast Region</TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Division-II<!-- Southeast Region --> </TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
@@ -154,110 +147,35 @@ both 2001 Invitational semifinalists.  <A HREF="/?t=statistics&amp;c=member_prof
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">            
 <P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=111202" CLASS="coderTextYellow">ColinMacLeod</A>
-, the eighth seed, was the Regional Champion of the Southeast after earning 497.16 final points 
-to win Room 3.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=111202" CLASS="coderTextYellow">ColinMacLeod</A>
- coded the 250 and 500-point problems in the "Coding Phase" for 447.16 points, 
-and earned an additional 50 in the "Challenge Phase" by successfully challenging the 500-point submission of 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262936" CLASS="coderTextRed">dgarthur</A>
-.  Top-seeded <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=153505" CLASS="coderTextRed">ambrose</A>
- finished second in the room with 426.83 points, and was the only other coder 
-in the region to advance.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=111202" CLASS="coderTextYellow">ColinMacLeod</A>
- and <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=153505" CLASS="coderTextRed">ambrose</A>
- were both semifinalists in the 2001 Invitational.
+The top scorer in the division was <A HREF="/stat?c=member_profile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
+, who won Room 29 with 1210.52 points.  <A HREF="/stat?c=member_profile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
+ earned 1160.52 points in the "Coding Phase" after answering all three problems, and then added 50 points to that total in the "Challenge Phase" with a successful challenge of the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=156822" CLASS="coderTextGreen">m_chen</A>
+.  Virtual tried to challenge the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
+, but to no avail.
 </P>
 
+<P>
+<A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ pulled off the biggest upset in the division, winning Room 48 with 633.70 final points as the 10th seed in the room.  <A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ just edged <A HREF="/stat?c=member_profile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
+, who finished with 629.44 points.  <A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ earned 175.63 points on the Level One problem and 408.07 on the Level Two problem for a total of 583.70 points in the "Coding Phase".  During the "Challenge Phase", <A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ gained an additional 50 points with a successful challenge of the Level One submission of <A HREF="/stat?c=member_profile&amp;cr=107160" CLASS="coderTextGray">uler3161</A>
+.  <A HREF="/stat?c=member_profile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
+ also had one successful challenge for 50 points, and actually earned more points on the Level Two problem, 411.17.  <A HREF="/stat?c=member_profile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
+ fell just short, however, by earning 168.27 points on the Level One problem.
+</P>
 
+<P>
+<A HREF="/stat?c=member_profile&amp;cr=274537" CLASS="coderTextYellow">mpb</A>
+ won Room 65 with 1092.11 final points, the most of all the first-time coders.  <A HREF="/stat?c=member_profile&amp;cr=274537" CLASS="coderTextYellow">mpb</A>
+ earned 192.04 points on the Level One problem, 488.68 on the Level Two problem and 411.39 on the Level Three problem.
+</P>
 
 <!-- <P>
 View the Top-10 Winners:<BR/>
 <A HREF="/index?t=statistics&amp;c=top_10_wins_ne" CLASS="statText">Northeast Top-10</A> | <A HREF="/index?t=statistics&amp;c=top_10_wins_se" CLASS="statText">Southeast Top-10</A><BR/>
 <A HREF="/index?t=statistics&amp;c=top_10_wins_w" CLASS="statText">West Top-10</A> | <A HREF="/index?t=statistics&amp;c=top_10_wins_mw" CLASS="statText">Midwest Top-10</A><BR/>
-</P> -->
-          </TD>
-            </TR>
-            <TR>
-              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
-            </TR>             
-            <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;<!-- Division-I --> West Region</TD>
-            </TR>
-            <TR>
-              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-            </TR>            
-            <TR>
-              <TD VALIGN="top" COLSPAN="3" CLASS="statText">
-<!-- <A HREF="/index?t=statistics&amp;c=consec_wins_div1" CLASS="statText">View the list of Division-I Consecutive Wins</A>
-<A HREF="/index?t=statistics&amp;c=srm_wins_div1" CLASS="statText">View the list of Division-I Wins</A>
-<A HREF="/index?t=statistics&amp;c=rate_gain_div1" CLASS="statText">View the list of Division-I Rating Point Gain</A>
-<A HREF="/index?t=statistics&amp;c=rate_gain_div2" CLASS="statText">View the list of Division-II Rating Point Gain</A>
-<A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="statText">View the list of Winning Debuts</A> 
-<A HREF="/index?t=statistics&amp;c=srm_wins" CLASS="statText">View the list of Overall Wins</A>
-<A HREF="/index?t=statistics&amp;c=winning_debut" CLASS="statText">View the list of Winning Debuts</A>
-<A HREF="/index?t=statistics&amp;c=high_total_div2" CLASS="statText">View the list of Division-II Point Totals</A>
--->
-<P>
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=120816" CLASS="coderTextRed">malpt</A>
- was the champion of the West Region after earning a Regional Championship-high 1068.24 
-points by coding all three problems, and winning Room 4.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=120816" CLASS="coderTextRed">malpt</A>
- is the number four seed.  
-Sixth-seeded 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=157974" CLASS="coderTextRed">bigg_nate</A>
- also coded all three problems and finished second in the room.  Other 
-semifinalists from the West are: 2001 Collegiate Challenge finalist and 2001 Invitational runner-up 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114853" CLASS="coderTextRed">dmwright</A>
- (2nd seed), 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=153902" CLASS="coderTextRed">evd</A>
- (5), 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=113178" CLASS="coderTextRed">po</A>
- (8), <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=262935" CLASS="coderTextRed">derkuci</A>
- (13), and <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=264869" CLASS="coderTextYellow">ante</A>
- (16).  Surprisingly, the only coder from 
-the West not to make the semifinals was top-seeded <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=114443" CLASS="coderTextRed">jonmac</A>
-, who was the runner-up in the 2001 Collegiate 
-Challenge, and was the 2001 Invitational Champion.
-</P>
-
-
-                 </TD>
-            </TR>
-        <!-- <TR>
-          <TD COLSPAN="3" CLASS="statTextBig" WIDTH="1">There were no Division-I coders in this round.</TD>    
-        </TR> -->             
-            <TR>
-              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
-            </TR>        
-            <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;<!-- Division-II --> Midwest Region</TD>
-            </TR>
-            <TR>
-              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-            </TR>            
-            <TR>
-              <TD VALIGN="top" COLSPAN="3" CLASS="statText">            
-<P>
-The only top-seed to win a Regional Championship was <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A>
- in the MidWest.  
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A>
- won Room 3 with 1032.29 final points.  <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A>
- earned 982.29 points in the 
-"Coding Phase" by coding all three problems, and added 50 more in the "Challenge Phase" 
-with a successful challenge of the 250-pointer of 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=109965" CLASS="coderTextYellow">vulture</A>
-.  The MidWest was the only region 
-to have their top-four seeds advance to the semifinals, as 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=142795" CLASS="coderTextRed">Joe</A>
- (2nd seed), <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=112939" CLASS="coderTextYellow">zoidal</A>
- (3), and 
-<A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A>
- (4), are all headed to Cambridge.
-</P>
-
-<!-- <P>
-View the Top-10 room winners:<BR/>
-<A HREF="/index?t=statistics&amp;c=top_10_wins_regions" CLASS="statText">All Regions</A> 
-| <A HREF="/index?t=statistics&amp;c=top_4_wins_se" CLASS="statText">Southeast</A><BR/>
-<A HREF="/index?t=statistics&amp;c=top_4_wins_w" CLASS="statText">West</A> | <A HREF="/index?t=statistics&amp;c=top_4_wins_mw" CLASS="statText">Midwest</A><BR/>
 </P> -->
           </TD>
             </TR>            
