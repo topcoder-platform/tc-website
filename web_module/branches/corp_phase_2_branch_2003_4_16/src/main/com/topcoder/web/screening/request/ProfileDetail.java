@@ -45,6 +45,8 @@ public class ProfileDetail extends BaseProfileProcessor {
             info.addLanguage(((ResultSetContainer.ResultSetRow)it.next()).getItem("language_id").toString());
         }
 
+        info.setLanguageList(getLanguageList());
+
         getRequest().setAttribute(Constants.PROFILE_INFO, info);
         setNextPage(Constants.PROFILE_DETAIL_PAGE);
         setNextPageInContext(true);
