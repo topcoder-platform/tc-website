@@ -127,6 +127,7 @@
         <antcall target="package-EJB-MainUserBean"/>
         <antcall target="package-EJB-MainAddressBean"/>
         <antcall target="package-EJB-MainPhoneBean"/>
+        <antcall target="package-EJB-CoderBean"/>
     </target>
 
     <target name="package-EJB-QueryServicesBean" depends="compile">
