@@ -106,7 +106,7 @@
                             <BR/>All times are Eastern Time unless otherwise noted<BR/><BR/>
 
                             <xsl:choose>
-                            <xsl:when test="$roundId=4660">
+                            <xsl:when test="$roundId=4710">
                                 <b>Win an Intel&#174; Centrino&#153; mobile technology-based notebook computer</b><br/><br/>
                            </xsl:when>
                                 </xsl:choose>
