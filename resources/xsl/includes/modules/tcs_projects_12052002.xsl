@@ -18,13 +18,13 @@
 								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
 								<td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
 							</tr>
-
+							
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=serial_num">Serial Number Generator:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.18.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=http_tunnel-design">HTTP Tunneling:&#160;Design</a></td>
+								<td background="" class="statText" align="center">12.11.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 							
@@ -32,17 +32,8 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_pool">Object Pool:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.18.2002</td>
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
-							
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-							<tr valign="top">
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=spell_check">Spell Check:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.18.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector:&#160;Design</a></td>
+								<td background="" class="statText" align="center">12.11.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 
@@ -50,37 +41,19 @@
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.18.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=db_abstract-design">Database Abstraction:&#160;Design</a></td>
+								<td background="" class="statText" align="center">12.11.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>
 
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+							<!-- <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=exec_wrapper">Executable Wrapper:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.18.2002</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=encrypt-design">Encryption:&#160;Design</a></td>
+								<td background="" class="statText" align="center">12.11.2002</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
-
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-							<tr valign="top">
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=service_mgr">Service Manager:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.18.2002</td>
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
-
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-							<tr valign="top">
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=currency">Currency:&#160;Design</a></td>
-								<td background="" class="statText" align="center">12.18.2002</td>
-								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr>
+							</tr> -->
 
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
@@ -145,7 +118,7 @@
 				<tr valign="top">
 					<td width="100%" bgcolor="#000000"> 
 						<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#003366">                
-							<tr valign="top"><td width="100%" background="/i/steel_blue_bg.gif" bgcolor="#003366" class="statTextSmall">Please read the Component Development <a class="statTextSmall" href="/index?t=development&amp;c=comp_meth">Methodology</a> before submitting a Component Design or Development solution.</td></tr>
+							<tr valign="top"><td width="100%" background="/i/steel_blue_bg.gif" bgcolor="#003366" class="statTextSmall">The <a class="statTextSmall" href="/index?t=development&amp;c=comp_meth">methodology</a> for Component Projects has changed. Please read it before submitting a Component Design or Component Development solution.</td></tr>
 						</table>
 					</td>
 				</tr>
