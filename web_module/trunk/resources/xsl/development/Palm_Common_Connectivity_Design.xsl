@@ -204,8 +204,8 @@ architecture.
                                                     </p>
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$235.00</td>
+                                                            <td class="bodyText" nowrap="nowrap">Primary Design Reviewer -</td>
+                                                            <td class="bodyText" align="right">$260.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer -</td>
