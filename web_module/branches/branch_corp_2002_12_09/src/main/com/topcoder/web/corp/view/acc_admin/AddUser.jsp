@@ -12,7 +12,7 @@ function getPermissions(url,wd,ht) {
     var daHt = parseInt(ht) + parseInt('49');
     var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
     var name="graph";
-    window.open('permissions.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
+    window.open(url,name,size);
     return;
   }
 </SCRIPT>
