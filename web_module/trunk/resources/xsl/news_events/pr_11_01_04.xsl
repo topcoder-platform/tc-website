@@ -70,11 +70,11 @@ The 24 finalists in the Algorithm competition are:
 
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
 <tr>
-<td class="sidebarTitle" width="50%" align="center" colspan="2">Algorithm Competitors</td>
+<td class="sidebarTitle" align="center" colspan="2">Algorithm Competitors</td>
 </tr>
 <tr>
-<td class="sidebarText">*Tomasz Czajka, West Lafayette, IN</td>
-<td class="sidebarText">*Reid Barton, Arlington, MA</td>
+<td class="sidebarText" width="50%">*Tomasz Czajka, West Lafayette, IN</td>
+<td class="sidebarText" width="50%">*Reid Barton, Arlington, MA</td>
 </tr>
 <tr>
 <td class="sidebarText">*Adrian Kuegel, Ulm, Germany</td>
