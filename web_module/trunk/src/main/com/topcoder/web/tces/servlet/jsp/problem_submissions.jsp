@@ -70,15 +70,15 @@
             <table id="linksTable" cellspacing="0" cellpadding="0" border="0">
                 <tr valign="middle">
                     <td class="bodyText" align="center" width="33%">
-                        <p class="button"><A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="button">Coder Demographic Info</A></p>
+                        <A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
                     </td>
                     
                     <td class="bodyText" align="center" width="33%">
-                        <p class="button"><A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="button">Coder Competition History</A></p>
+                        <A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="bodyText">Coder Competition History</A>
                     </td>
                     
                     <td class="bodyText" align="center" width="33%">
-                        <p><font size="3">Coder Problem Submissions</font></p>
+                        Coder Problem Submissions
                     </td>
                 </tr>
             </table>             
@@ -97,37 +97,19 @@
                 </tr>
                 
                 <% int i=0; %>
-                <tces:rowIterator id="submission" rowList="<%=(List)ProblemSubmissionsTask.getSubmissionList()%>">
-                <% i++; %>
-                            
-                <tr>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                        <%= TCESConstants.DATE_FORMAT.format((java.sql.Timestamp)submission.getItem("date").getResultData()) %>
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                      <A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= submission.getItem("round_id").toString() %>" class="bodyText">
-                        <%= submission.getItem("name").toString() %>
-                      </A>
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                        <%= submission.getItem("division_desc").toString() %>
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                      <A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%= submission.getItem("problem_id").toString() %>" class="bodyText">
-                        <%= submission.getItem("level_desc").toString() %>
-                      </A>
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right">
-                        <%= submission.getItem("final_points").toString() %>&#160;&#160;
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                        <%= submission.getItem("language_name").toString() %>
-                    </td>
-                    <td class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
-                        <%= submission.getItem("end_status_text").toString() %>
-                    </td>
-                  </TR>
-                </tces:rowIterator>
+                <%--not indenting to save some space on the download cuz this can be a big loop
+                    and the spaces significantly impact the size of the html source
+                --%>
+                <tces:rowIterator id="submission" rowList="<%=(List)ProblemSubmissionsTask.getSubmissionList()%>"><% i++; %><tr>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= TCESConstants.DATE_FORMAT.format((java.sql.Timestamp)submission.getItem("date").getResultData()) %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= submission.getItem("round_id").toString() %>" class="bodyText"><%= submission.getItem("name").toString() %></A></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= submission.getItem("division_desc").toString() %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%= submission.getItem("problem_id").toString() %>" class="bodyText"><%= submission.getItem("level_desc").toString() %></A></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>" align="right"><%= submission.getItem("final_points").toString() %>&#160;&#160;</td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= submission.getItem("language_name").toString() %></td>
+<td class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><%= submission.getItem("end_status_text").toString() %></td>
+</TR>
+</tces:rowIterator>
 
             </table>
                         
