@@ -14,6 +14,18 @@
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.REGISTRATION_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="registrationInfo" property="CompanyId"/>"/>
+            <input type="hidden" name="<%=Constants.HANDLE%>" value="<jsp:getProperty name="registrationInfo" property="Handle"/>"/>
+            <input type="hidden" name="<%=Constants.LAST_NAME%>" value="<jsp:getProperty name="registrationInfo" property="FirstName"/>"/>
+            <input type="hidden" name="<%=Constants.FIRST_NAME%>" value="<jsp:getProperty name="registrationInfo" property="LastName"/>"/>
+            <input type="hidden" name="<%=Constants.PASSWORD%>" value="<jsp:getProperty name="registrationInfo" property="Password"/>"/>
+            <input type="hidden" name="<%=Constants.PASSWORD_CONFIRM%>" value="<jsp:getProperty name="registrationInfo" property="PasswordConfirm"/>"/>
+            <input type="hidden" name="<%=Constants.EMAIL%>" value="<jsp:getProperty name="registrationInfo" property="Email"/>"/>
+            <input type="hidden" name="<%=Constants.EMAIL_CONFIRM%>" value="<jsp:getProperty name="registrationInfo" property="EmailConfirm"/>"/>
+            <input type="hidden" name="<%=Constants.ADDRESS1%>" value="<jsp:getProperty name="registrationInfo" property="Address1"/>"/>
+            <input type="hidden" name="<%=Constants.ADDRESS2%>" value="<jsp:getProperty name="registrationInfo" property="Address2"/>"/>
+            <input type="hidden" name="<%=Constants.CITY%>" value="<jsp:getProperty name="registrationInfo" property="City"/>"/>
+            <input type="hidden" name="<%=Constants.ZIP%>" value="<jsp:getProperty name="registrationInfo" property="Zip"/>"/>
+
             <tr>
                 <td align="right">
                     Handle
