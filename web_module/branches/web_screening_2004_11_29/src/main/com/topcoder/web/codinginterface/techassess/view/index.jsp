@@ -7,8 +7,11 @@
 </head>
 
 <body>
-
-Word
+    <table>
+        <tr>
+            <td>Word</td>
+        </tr>
+    </table>
 
 </body>
 </html>
