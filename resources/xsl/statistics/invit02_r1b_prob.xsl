@@ -204,13 +204,17 @@ Start going through the string char by char and do the following:<BR/>
 		Set initial scope to 0<BR/>
 		if '{' found, increment scope state<BR/>
 		if '}' found, decrement scope state<BR/>
-	if scope==0 (it means you are NOT inside the nested loop) do the following:<BR/>
+	if scope==0 (it means you are NOT inside the nested loop)<BR/>
+     do the following:<BR/>
 		if 'B' found count++;<BR/>
-		if '(' found, read number of iterations inside the loop into a temp variable &quot;last_loop&quot;<BR/>
+		if '(' found, read number of iterations inside the<BR/>
+        loop into a temp variable &quot;last_loop&quot;<BR/>
 		if '{' found, start_loop = current postion<BR/>
-		if '}' found, count += last_loop * call to myself(new string(start_loop , current position) )<BR/>
+		if '}' found, count += last_loop * call to<BR/>
+         myself(new string(start_loop , current position) )<BR/>
 	Return &quot;count&quot; when entire string is parsed. <BR/>
-To solve this problem correctly one should realize that a number inside a &quot;for&quot; structure is a 64 bit integer.<BR/>
+To solve this problem correctly one should realize<BR/>
+that a number inside a &quot;for&quot; structure is a 64 bit integer.<BR/>
 For C++ coders I have seen 3 approaches on how to read this number:<BR/>
 	1. sscanf( str.c_str(), &quot;%lld&quot;, &amp;y ); (by SnapDragon)<BR/>
 	2. atoll(str.c_str())<BR/>
