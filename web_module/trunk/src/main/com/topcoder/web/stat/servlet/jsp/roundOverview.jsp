@@ -61,6 +61,7 @@
     ArrayList divisionIDs = new ArrayList(5);
     String last = "";
     int divisions = 0;
+    //first we go through and extract all the division info
     for(int i = 0; i<percents.size();i++){
         currentRow = percents.getRow(i);
         String current = currentRow.getItem("division_desc").toString();
@@ -77,6 +78,7 @@
     String rooms[][] = new String[divisions][topN];
     String ratings[][] = new String[divisions][topN];
     String coderIDs[][] = new String[divisions][topN];
+    //now go through and put all the coder's data in the arrays
     int lastDivisionID = -1;
     int divisionPtr = -1;
     for(int i = 0; i<leaders.size();i++){
@@ -134,10 +136,13 @@
   </TR>
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
-  <%for(int i = 0; i<topN;i++){%>
+  <%
+      //this part creates the top scorers for the round in each division
+      for(int i = 0; i<topN;i++){%>
       <TR>
         <%for(int j = 0; j<divisions;j++){
-        if(coderIDs[j][i]==null){%>
+        if(coderIDs[j][i]==null){//puts in blank rows if the coder doesn't exist - happens when you view more coders than there are participants
+        %>
             <TD></TD><TD></TD><TD></TD>
         <%}else{%>
             <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="statText">
