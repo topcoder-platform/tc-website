@@ -450,7 +450,7 @@ public class PLLoadCoders extends TCLoad {
                     psIns.setInt(17, rs.getInt(17));  // coder_type_id
                     psIns.setString(18, rs.getString(18));  // handle
                     psIns.setString(19, rs.getString(19));  // status
-                    psIns.setString(22, rs.getString(20));  // email
+                    psIns.setString(20, rs.getString(20));  // email
                     psIns.setTimestamp(21, rs.getTimestamp(21));  // last_login
                     psIns.setString(22, rs.getString(22));  // coder_region_code
 
