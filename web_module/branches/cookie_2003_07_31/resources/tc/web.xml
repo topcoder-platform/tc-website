@@ -109,7 +109,7 @@
         </init-param>
         <init-param>
             <param-name>unactive</param-name>
-            <param-value>/authentication/unactive.jsp</param-value>
+            <param-value>/authentication/unactived.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
