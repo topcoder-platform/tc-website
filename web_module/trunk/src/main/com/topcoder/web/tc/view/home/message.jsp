@@ -8,9 +8,9 @@
     <tr><td><img src="/i/top_10_lists_top.gif" width="180" height="11" border="0"></td></tr>
     <tr><td><img src="/i/important_message.gif" width="180" height="20" border="0"></td></tr>
 </table>
-<table border="0" cellspacing="0" cellpadding="5" width="180" class="surveyFrame">
+<table border="0" cellspacing="0" cellpadding="5" width="180" class="messageBoxFrame">
     <tr>
-        <td class="bodyText" bgcolor="#006666">
+        <td class="messageBoxText">
             <% if (!isEligible) { %>
                 you're not eligible
             <% } else if (isRegistered) { %>
