@@ -36,9 +36,9 @@ public class Testing {
             log.debug("got submissions");
             if (submissions != null && submissions.size() > 0) {
                 Submission temp = (Submission) submissions.get(0);
-                log.info("running contest fraud detect for component: " +
-                        temp.getClassName() + "(" + componentId + ")" + (companyId>0?" company: " + companyId:""));
-
+                log.info("running testing fraud detect for component: " +
+                        temp.getClassName() + "(" + componentId + ")" + (companyId>0?" company: " + companyId:"") +
+                        " for " + submissions.size() + " submissions");
                 List normalizedSource = new ArrayList(submissions.size());
                 for (int i = 0; i < submissions.size(); i++) {
                     normalizedSource.add(new NormalizedJavaSource(((Submission) submissions.get(i)).getSource()));
