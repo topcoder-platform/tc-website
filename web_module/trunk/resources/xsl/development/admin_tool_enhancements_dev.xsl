@@ -196,15 +196,15 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Member Selection:</td>
-                                                    <td class="bodyText" align="right">9.25.2003</td>
+                                                    <td class="bodyText" align="right">9.30.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Member Acceptance:</td>
-                                                    <td class="bodyText" align="right">9.29.2003</td>
+                                                    <td class="bodyText" align="right">10.2.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Development Start:</td>
-                                                    <td class="bodyText" align="right">10.01.2003</td>
+                                                    <td class="bodyText" align="right">10.06.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 1 Due:
@@ -212,33 +212,42 @@
                                                         <br/>&#160;&#160;&#160;Class Diagrams
                                                         <br/>&#160;&#160;&#160;Sequence Diagrams
                                                     </td>
-                                                    <td class="bodyText" valign="top" align="right">7.28.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">10.10.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 2 Due:
                                                         <br/> &#160;&#160;&#160;Design Specification
                                                     </td>
-                                                    <td class="bodyText" valign="top" align="right">8.04.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">10.21.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 3 Due:
                                                         <br/>&#160;&#160;&#160;Test Plan
                                                         <br/>&#160;&#160;&#160;Development Scope Document
                                                     </td>
-                                                    <td class="bodyText" valign="top" align="right">8.11.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">10.29.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Winner Announced:</td>
-                                                    <td class="bodyText" align="right">8.13.2003</td>
+                                                    <td class="bodyText" align="right">11.3.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Updated Submission Due Date:</td>
-                                                    <td class="bodyText" align="right">8.15.2003</td>
+                                                    <td class="bodyText" align="right">11.7.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="bodyText">Estimated Development End Date:</td>
-                                                    <td class="bodyText" align="right">10.06.2003</td>
+                                                    <td class="bodyText">Integration Start:</td>
+                                                    <td class="bodyText" align="right">11.12.2003</td>
                                                 </tr>
+                                                <tr>
+                                                    <td class="bodyText">QA Start:</td>
+                                                    <td class="bodyText" align="right">11.24.2003</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText">Acceptance:</td>
+                                                    <td class="bodyText" align="right">12.3.2003</td>
+                                                </tr>
+
                                             </table>
                                         </p>
                                         <!-- Register at TCS -->
