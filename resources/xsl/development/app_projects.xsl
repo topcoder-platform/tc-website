@@ -134,8 +134,8 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=XML Import_Dev">XML Import</a>
                                     </td>
-                                    <td class="projectCells" align="right">$2000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
                                 </tr>
 
