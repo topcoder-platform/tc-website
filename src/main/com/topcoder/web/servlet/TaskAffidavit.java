@@ -98,7 +98,7 @@ public final class TaskAffidavit {
                         mail.setSubject("Info Response - " + nav.getUser().getHandle());
                     }
                     mail.setBody(buf.toString());
-                    mail.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
+                    mail.addToAddress("tlongo@topcoder.com", TCSEmailMessage.TO);
                     mail.setFromAddress(nav.getUser().getEmail());
                     EmailEngine.send(mail);
 
