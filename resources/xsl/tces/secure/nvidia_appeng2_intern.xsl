@@ -64,13 +64,13 @@
 
 <P><B>APPLICATIONS ENGINEER </B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>This is an opportunity to work on the hottest GPU Platform processors before they’ve been shown to the world!  The Applications Engineer is involved in all aspects of New 
-Product Introduction such as PCB (printed circuit board) design, silicon and PCB characterization, stress testing, hardware failure analysis, tuning high performance memory 
+<P>This is an opportunity to work on the hottest GPU Platform processors before they've been shown to the world!  The Applications Engineer is involved in all aspects of New 
+Product Introduction such as PCB &#40;printed circuit board&#41; design, silicon and PCB characterization, stress testing, hardware failure analysis, tuning high performance memory 
 subsystems, solving complex system problems, and consulting on customer designs.  Issues such as noise, power, thermals, AC timing, EMI, display output quality, and transmission 
 line effects, are explored.</P>
 
 <P>As an Applications Engineer, you will be interfacing with hardware designers, software engineers, sales, and the operations team to ensure the timely rollout of new products. 
- At your disposal are the highest bandwidth DSO (digital storage oscilloscopes) and logic analyzers available.  Powerful in-house tools empower Applications Engineers with the 
+ At your disposal are the highest bandwidth DSO &#40;digital storage oscilloscopes&#41; and logic analyzers available.  Powerful in-house tools empower Applications Engineers with the 
  ability to develop custom routines, which are compiled on the fly during run-time, to fully exercise any and all functions of the GPU.  You will be learning and helping to develop 
  the best systems engineering practices in the industry.</P>
  

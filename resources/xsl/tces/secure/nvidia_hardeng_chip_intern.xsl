@@ -64,10 +64,13 @@
 
 <P><B>HARDWARE ENGINEER Ð ASIC &#40;CHIPSETS&#41;</B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>Specification, architecture, micro-architecture, implementation (using Verilog and Module Compiler), verification and synthesis of complex ASICs. In this position, you'll focus on building Northbridge functions (such as clocking, bus interfaces, memory architecture and protocols) or Southbridge functions (such as Audio, 802.11 a/b/g, GigE, etc). Specific duties include: Microarchitecture, Verilog entry, Logic simulations, Synthesis (Synopsys) and Timing (Primetime). </P>
+<P>Specification, architecture, micro-architecture, implementation &#40;using Verilog and Module Compiler&#41;, verification and synthesis of complex ASICs. In this position, 
+you'll focus on building Northbridge functions &#40;such as clocking, bus interfaces, memory architecture and protocols&#41; or Southbridge functions &#40;such as Audio, 802.11 a/b/g, 
+GigE, etc&#41;. Specific duties include: Microarchitecture, Verilog entry, Logic simulations, Synthesis &#40;Synopsys&#41; and Timing &#40;Primetime&#41;. </P>
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>BS/MSEE, PhD preferred.  Requires fluency in Verilog and C or Perl. Should be familiar with Standard Design/Synthesis and Timing Tools.  Must have good communication skills and the ability and desire to work as a team.  Previous internship experience in ASIC or systems design a plus.</P>
+<P>BS/MSEE, PhD preferred.  Requires fluency in Verilog and C or Perl. Should be familiar with Standard Design/Synthesis and Timing Tools.  
+Must have good communication skills and the ability and desire to work as a team.  Previous internship experience in ASIC or systems design a plus.</P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 
