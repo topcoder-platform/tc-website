@@ -61,9 +61,10 @@ public abstract class SurveyData extends Base {
         Map qMap = dataAccess.getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("question_list");
 
+        log.debug("got " + questions.size() + " questions");
+
         ResultSetContainer.ResultSetRow question = null;
         List questionList = new ArrayList(questions.size());
-        log.debug("got " + questionList.size() + " questions");
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
             questionList.add(makeQuestion(question));
