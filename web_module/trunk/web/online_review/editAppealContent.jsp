@@ -52,7 +52,7 @@ The following items can be appealed:
 <li>Technically inaccurate comments by a reviewer.</li>
 <li>Factually inaccurate statements regarding the Requirements Specification.</li>
 <li>Modifications to the requirements or design that were clarified in the forum.</li>
-<li>General comments or opinions expressed by the reviewer.</li>
+<li>Scores in which you feel you've exceeded the requirements but did not receive a 4.</li>
 </ul>
 The following items can NOT be appealed:
 <ul>
