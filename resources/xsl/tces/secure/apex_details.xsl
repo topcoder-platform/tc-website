@@ -110,8 +110,8 @@
 </UL>
 
 
-<P>Do you fit the bill?  If so, please apply.  Your resume must be posted when you apply.  Applicants who apply without a resume will not be contacted regardless of their TopCoder ratings.</P>
-<P><A HREF="/jobposting?&amp;t=JobHitTask&amp;jobhit_25=true">Click here to apply</A></P>
+<P>Do you fit the bill?  If so, please apply.  Your resume must be posted when you apply.  Applicants who apply without a resume will not be contacted regardless of their TopCoder rating.</P>
+<P><A HREF="/jobposting?&t=JobHitTask&jid=117&jt=2">Click here to apply</A></P>
 <!--end contextual links-->
           <P><BR/></P>
 					</TD>
