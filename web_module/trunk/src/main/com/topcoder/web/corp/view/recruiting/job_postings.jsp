@@ -27,7 +27,7 @@
         <td width="170" valign="top" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="recruiting"/>
-                <jsp:param name="level2" value="overview"/>
+                <jsp:param name="level2" value="jobPostings"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -41,10 +41,9 @@
             <table border="0" width="100%">
                 <tr>
                     <td class="bodyText" width="100%">
-                        <h1 class="testHead">Overview</h1>
-                        <p>TopCoder is a company with one major objective&#151;to identify the best programmers in the world. TopCoder has conducted 
-                        hundreds of online and offline contests to objectively and systematically quantify the skills of thousands of programmers. 
-                        Already our clients, including the FBI, NVIDIA and Microsoft, have experienced the difference in the quality of our candidates.</p>
+                        <h1 class="testHead">Employment Advertisement and Job Postings</h1>
+                        <p>We launch a page on the TopCoder website allowing employers to introduce their company, the benefits of working in their 
+                        organization and display a list of job openings.  We include a link for a member to indicate interest in the position advertised.</p>
                         
                         <p><br/></p>
                     </td>

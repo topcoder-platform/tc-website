@@ -27,7 +27,7 @@
         <td width="170" valign="top" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="recruiting"/>
-                <jsp:param name="level2" value="overview"/>
+                <jsp:param name="level2" value="emailCampaign"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -41,10 +41,11 @@
             <table border="0" width="100%">
                 <tr>
                     <td class="bodyText" width="100%">
-                        <h1 class="testHead">Overview</h1>
-                        <p>TopCoder is a company with one major objective&#151;to identify the best programmers in the world. TopCoder has conducted 
-                        hundreds of online and offline contests to objectively and systematically quantify the skills of thousands of programmers. 
-                        Already our clients, including the FBI, NVIDIA and Microsoft, have experienced the difference in the quality of our candidates.</p>
+                        <h1 class="testHead">Targeted Email Campaign</h1>
+                        <p>We broadcast an email to those members opting to receive employment announcements, notifying them of the 
+                        employer's page.  Additionally, the employer has the opportunity to send one targeted email per month during the 
+                        contract.  The employer can focus on one or multiple criteria, such as rating, state, professional/student status, 
+                        school, and competition language.</p>
                         
                         <p><br/></p>
                     </td>
