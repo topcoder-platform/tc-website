@@ -44,6 +44,7 @@
         <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
+
   <!-- Center Column Begins -->  
 		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
 <xsl:call-template name="BodyTop">
@@ -61,26 +62,37 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Cryptic Studios Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Cryptic Studios Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back toJobs</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic" CLASS="bodyText">Cryptic Studios Main Page</A>
       </TD>
   </TR>
 </TABLE>
 <IMG SRC="/i/es/cryptic/cryptic_logo.gif" WIDTH="120" HEIGHT="63" ALT="" BORDER="0" VSPACE="10"/><BR/>
-<P>Below is a listing of current open positions within Cryptic Studios.  All jobs Positions are located in San Jose, CA unless otherwise noted.  Click on the job title for the position description and requirements.
-</P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_qa_eng&amp;a=secure" CLASS="bodyText">Quality Assurance Engineer</A></B><BR/>        
-       </P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P><BR/>
-      </P>
-    </TD>
-  </TR>
-</TABLE> 
+
+
+
+<P><B>QA Engineer</B></P>
+
+<P>We are currently looking for a full time QA Engineer.</P>
+
+<P>Cryptic Studios is hard at work on City of Heroes <a href="http://www.cityofheroes.com">(www.cityofheroes.com)</a>, the 
+massively multiplayer online superhero role playing game.</P>
+
+<P><B>Requirements:</B></P>
+<UL>
+<LI>Manage and maintain game build system</LI>
+<LI>New feature and regression testing</LI>
+<LI>Patch approval and deployment to off-site QA</LI>
+<LI>Write test code for game</LI>
+<LI>Optional IT responsibility</LI>
+</UL>
+	
+<P>We're looking for someone who is extremely talented and hardcore about gaming.</P>
+<P>This entry level position does require a CS degree.  1+  years experience of MMORPG experience as either a player or developer highly preferred.  Candidate must be an excellent programmer and IT (Windows/Linux) experience would be a plus.</P>
+<P>We offer a competitive salary, equity, and full benefits including health, dental, vision, and 401(k) - as well as a fun, flexible, informal workplace.</P>
+<P>We are currently only interviewing candidates who can legally work in the United States, and who are willing to relocate to San Jose, CA.</P>
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=131&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
 <!--end contextual links-->
           
           <P><BR/></P>
