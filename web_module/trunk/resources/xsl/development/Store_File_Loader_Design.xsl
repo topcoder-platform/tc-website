@@ -298,7 +298,6 @@
                                                         <br/>
                                                         View the <a target="_new" class="bodyText" href="/?t=development&amp;c=app_sample_docs">Documents and Templates</a> for the Application Development Methodology
 
-
                                                     </p>
 
                                                     <p>
