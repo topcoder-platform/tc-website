@@ -103,7 +103,10 @@
   <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText" VALIGN="top" WIDTH="100%" BGCOLOR="#FFFF99">
-    <B>On Friday, Oct. 4th</B>, contestants will receive a final e-mail invitation &amp; will be notified of which part of online round #1 they are assigned to.
+<B>Update:</B><BR/>
+The assignements for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/>
+<B>View Online Round #1</B>: <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_pt1</xsl:attribute>Part 1 Seeding</A> |    
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_pt2</xsl:attribute>Part 2 Seeding</A><BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>    
