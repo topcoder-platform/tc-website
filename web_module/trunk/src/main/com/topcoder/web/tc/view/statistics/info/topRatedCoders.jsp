@@ -24,7 +24,7 @@
       <tr>
          <td>
             <p class="bodyText">
-                This list represents the top rated coders that have competed within the last 6 monthes.
+                This list represents the top rated coders that have competed within the last 6 months.
             </p>
          </td>
       </tr>
