@@ -497,6 +497,7 @@ public class ProjectAdministration implements Model {
                 return new SubmitterRemovalResult(problemSet);
             }
 
+/*
             if ((changeType & MailHelper.PHASE_CHANGE) != MailHelper.NO_CHANGE) {
                 LogHelper.log("PHASE CHANGE DETECTED");
             }
@@ -507,7 +508,8 @@ public class ProjectAdministration implements Model {
                 LogHelper.log("ROLE CHANGE DETECTED");
             }
             LogHelper.log("CHANGE TYPE = " + changeType);
-            
+ */
+
             // if all old roles are unassigned then set the weekly notification flag to false
             // (in case it isn't set that way by default for a new project)
             boolean allNulls = true;
