@@ -23,18 +23,18 @@
       <TD WIDTH="4" BGCOLOR="#001935" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
         <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD class="statText">Command List</TD></TR>
+          <TR><TD class="statText" COLSPAN="2">Command List</TD></TR>
           <query:resultSetRowIterator id="command" rowList="<%=CommandListTask.getCommandList()%>">
-<%--            <query:resultSetItem id="commandId" row="<%=command%>" name="command_id"/>
---%>
-            <query:resultSetItem row="<%=command%>" name="command_desc"/>
-
-            <TR><TD>
-             <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>" class="statText">
-                blah
-<%--                <%=commandDesc%>  --%>
-              </A>
-            </TD></TR>
+            <TR>
+              <TD>
+                <query:resultSetItem row="<%=command%>" name="command_group_desc"/>
+              </TD>
+              <TD>
+                <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<query:resultSetItem row="<%=command%>" name="command_id"/>" class="statText">
+                  <query:resultSetItem row="<%=command%>" name="command_desc"/>
+                </A>
+              </TD>
+            </TR>
           </query:resultSetRowIterator>
         </TABLE>
       </TD>
