@@ -9,10 +9,7 @@ import com.topcoder.web.common.*;
 import com.topcoder.web.tc.controller.request.Base;
 
 import javax.servlet.http.HttpUtils;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * User: lars
@@ -51,17 +48,17 @@ public class ProfileSearch extends Base {
             String param = (String) e.nextElement();
             String[] values = request.getParameterValues(param);
             if (param.startsWith("skillset") && values != null && values.length > 0) {
-                skills.addAll(values);
+                skills.addAll(Arrays.asList(values));
             }
         }
-        Arrays.sort(skills,new Comparator(){
+        Collections.sort(skills,new Comparator(){
             public int compare(Object o1, Object o2){
                 String s1 = (String)o1;
                 String s2 = (String)o2;
                 int skill1 = Integer.parseInt(s1.substring(s1.indexOf("_")+1));
                 int skill2 = Integer.parseInt(s2.substring(s2.indexOf("_")+1));
                 return skill1-skill2;
-            });
+            }});
         StringBuffer query = new StringBuffer(500);
         for(int i = 0; i<skills.size(); i++){
             String s = (String)skills.get(i);

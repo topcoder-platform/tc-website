@@ -17,7 +17,7 @@
   <body>
   <table>
 <%
-    String s = (String)request.getAttribute("XYZ");
+    String s = (String)request.getAttribute("QUERY");
     out.print(s);
 %>
 </table>
