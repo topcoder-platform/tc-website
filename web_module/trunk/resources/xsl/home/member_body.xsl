@@ -562,12 +562,13 @@ is both happy since he did so well, and sad since he is a mutant
 <AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/stat?&amp;c=last_match"/>
 </MAP> -->
 
-                    <img usemap="#srmaminmation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br/>
-                    <map name="srmaminmation_home">
-                        <area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=index"/>
-                        <!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4430&amp;t=schedule&amp;c=srm"/> -->
-                        <area alt="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/>
-                    </map>
+					<img usemap="#artifact_home" src="/i/es/artifact/artifact_home.gif" alt="" width="244" height="160" border="0"/><br/>
+					<map name="artifact_home">
+						<area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=schedule&amp;c=srm_spon_artifact"/>					
+						<!-- <area alt="TCES" shape="poly" coords="17,33,17,60,141,60,141,92,228,92,228,25,17,25" href="/?&amp;t=tces&amp;c=artifact"/> -->
+						<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?RoundId=4440&amp;t=schedule&amp;c=srm"/>
+						<!-- <area alt="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> --> 
+					</map>
 <!--SRM Sponsor Ends-->
 
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
