@@ -99,14 +99,19 @@
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">03.17.2003</td>
+                                <td class="bodyText">08.28.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/App_Design_Screening_Scorecard.dot" class="bodyText">Design Screening Scorecard.dot</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/App_Design_Screening_Scorecard.rtf" class="bodyText">Design Screening Scorecard.rtf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">03.14.2003</td>
+                                <td class="bodyText">08.28.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/App_Design_Review_Scorecard.dot" class="bodyText">Design Review Scorecard.dot</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/App_Design_Review_Scorecard.rtf" class="bodyText">Design Review Scorecard.rtf</a></td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="bodyText">08.28.2003</td>
+                                <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/App_Design_Review_Overall.rtf" class="bodyText">Design Review Overall Scorecard.rtf</a></td>
                             </tr>
                             <tr valign="top">
                                 <td class="bodyText">08.26.2003</td>
