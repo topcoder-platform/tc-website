@@ -11,6 +11,7 @@ import com.topcoder.security.login.LoginRemoteHome;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Performs authentication using the TCS security component. Uses cookies and
@@ -19,14 +20,15 @@ import com.topcoder.shared.security.*;
  */
 public class BasicAuthentication implements WebAuthentication {
     
+    private static Logger log = Logger.getLogger(BasicAuthentication.class);
+
     Persistor persistor;
     HttpServletRequest request;
     HttpServletResponse response;
     
-    /** Creates a new instance of BasicAuthentication */
-    private BasicAuthentication() {
-    }
+    private BasicAuthentication() {}
     
+    /** Creates a new instance of BasicAuthentication */
     public BasicAuthentication(Persistor userPersistor,
     HttpServletRequest request, HttpServletResponse response) {
         this.persistor = userPersistor;
@@ -97,7 +99,8 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws AuthenticationException Thrown if the login does not succeed.
      */
     public void login(User u) throws AuthenticationException {
-       try {
+        try {
+            log.debug("Getting Login EJB");
             Hashtable env = new Hashtable();
             env.put(Context.INITIAL_CONTEXT_FACTORY,
                 "org.jnp.interfaces.NamingContextFactory");
@@ -108,6 +111,7 @@ public class BasicAuthentication implements WebAuthentication {
                 context.lookup(LoginRemoteHome.EJB_REF_NAME);
             LoginRemote loginRemote = loginHome.create();
             
+            log.debug("Logging in");
             TCSubject sub = loginRemote.login(u.getUserName(),u.getPassword());
             
             response.addCookie(new Cookie("user_id",
@@ -119,6 +123,7 @@ public class BasicAuthentication implements WebAuthentication {
             persistor.setObject(request.getSession().getId()+"loggedInStatus",
                                 new Boolean(true));
         } catch (Exception e) {
+            log.error("Authentication failed",e);
             throw new AuthenticationException(e.getMessage());
         }
     }
