@@ -79,7 +79,7 @@ The Notification Component is responsible for the following:
 <li>Deleting messages in the database.</li>
 <li>Navigating and searching messages based on attributes.</li>
 <li>Web based administration tool to manage the message repository.</li>
-<li>Provide a data access interface to perform standard SQL and DDL.</li>
+<li>Provide a data access interface to perform standard SQL.</li>
 </ol>
                                             <b>Staffing</b>
                                             <BR/>
@@ -111,6 +111,8 @@ The QA Developer is responsible for testing the completed component.  Tests shou
                                               <li>Java 1.3</li>
                                               <li>XML</li>
                                               <li>JDBC</li>
+                                              <li>HTML</li>
+                                              <li>JSP</li>
                                             </ul>
                                     <b>Payment</b>
                                     <BR/>
@@ -167,7 +169,7 @@ Members will also collect royalties on the revenue generated from the sale of th
   <TR>
     <TD class="statTextBig" colspan="2">&#160;&#160;&#160;&#160;&#160;</TD>
     <TD class="statTextBig">Total Payment</TD>
-    <TD class="statTextBig" align="right">$1500.00</TD>
+    <TD class="statTextBig" align="right">$1,500.00</TD>
   </TR>
   <TR>
     <TD class="statTextBig" colspan="2">&#160;&#160;&#160;&#160;&#160;</TD>
