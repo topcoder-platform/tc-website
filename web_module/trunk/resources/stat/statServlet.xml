@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE StatServlet [
   <!ELEMENT StatServlet	(RankList?, QuickStatList?, ContentList*)>
-  
+
   <!ELEMENT RankList (RankItem+) >
   <!ELEMENT RankItem (CDATA)>
   <!ATTLIST RankItem minVal CDATA #REQUIRED>
   <!ATTLIST RankItem maxVal CDATA #IMPLIED>
 
   <!ELEMENT QuickStatList (QuickStatItem+)>
-  
+
   <!ELEMENT QuickStatItem (PCDATA)>
   <!ATTLIST QuickStatItem url CDATA #REQUIRED>
 
@@ -23,7 +23,7 @@
 ]>
 <StatServlet>
     <RankList>
-        <RankItem minVal="0" maxVal="0">coderTextGray</RankItem>
+        <RankItem minVal="0" maxVal="0">coderTextWhite</RankItem>
         <RankItem minVal="1" maxVal="899">coderTextGray</RankItem>
         <RankItem minVal="900" maxVal="1199">coderTextGreen</RankItem>
         <RankItem minVal="1200" maxVal="1499">coderTextBlue</RankItem>
