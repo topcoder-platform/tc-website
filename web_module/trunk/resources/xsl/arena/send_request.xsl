@@ -50,18 +50,15 @@
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
           
-<P CLASS="statText">
-  <b>Source code for the arena applet is available up on request. <br/><br/>
-  To request the source, you must agree to the terms below:</b><br/><br/><br/>
-
-</P>
+<br/><br/><br/><br/><br/>
 
 <form action="/index" method="post" name="frmAgree" >
   <input type="hidden" name="t" value="arena"/>
   <input type="hidden" name="c" value="send_request"/>
   <input type="hidden" name="req"><xsl:attribute name="value"><xsl:value-of select="/TC/Code"/></xsl:attribute></input>
   <center>
-  Would you like to send an arena source request to TopCoder?
+  <b>Would you like to send an arena source request to TopCoder?</b>
+  &#160;&#160;
   <A CLASS="statText">
     <xsl:attribute name="HREF">Javascript:document.frmAgree.submit()</xsl:attribute>
     <b>Yes</b>
