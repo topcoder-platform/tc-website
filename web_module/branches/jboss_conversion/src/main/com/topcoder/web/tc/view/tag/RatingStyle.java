@@ -39,6 +39,7 @@ public class RatingStyle extends TagSupport {
             throw new JspException(e.getMessage());
         }
 
+        rating = 0;
         return EVAL_PAGE;
     }
 

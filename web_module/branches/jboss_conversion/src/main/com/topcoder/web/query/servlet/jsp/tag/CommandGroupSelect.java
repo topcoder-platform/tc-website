@@ -29,5 +29,10 @@ public class CommandGroupSelect extends SelectTag {
     protected List getSelectOptions() throws JspException {
         return list;
     }
+
+    protected void init() {
+        list=null;
+        super.init();
+    }
 }
 

@@ -118,4 +118,19 @@ public class SponsorImage extends TagSupport {
 
         return EVAL_PAGE;
     }
+
+    protected void init() {
+        src=null;
+        height=null;
+        width=null;
+        vspace=null;
+        border=null;
+        alt=null;
+        hspace=null;
+        href=null;
+        styleClass=null;
+        align=null;
+    }
+
+
 }

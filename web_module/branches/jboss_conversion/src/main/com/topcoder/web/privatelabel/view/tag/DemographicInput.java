@@ -28,11 +28,11 @@ public class DemographicInput extends BaseTag {
     public void setOnchange(String s) {
         onchange = s;
     }
-    
+
     public String getOnchange() {
         return onchange;
     }
-    
+
     public void setShowMulti(boolean b) {
         showMulti = b;
     }
@@ -151,6 +151,7 @@ public class DemographicInput extends BaseTag {
         this.cssclass = null;
         this.question = null;
         this.showMulti = true;
+        this.onChange=null;
 
     }
 
