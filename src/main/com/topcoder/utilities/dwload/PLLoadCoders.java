@@ -346,7 +346,7 @@ public class PLLoadCoders extends TCLoad {
             query.append(" VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
-            query.append("?,?)");  // 22
+            query.append("?,?,?)");  // 23
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
