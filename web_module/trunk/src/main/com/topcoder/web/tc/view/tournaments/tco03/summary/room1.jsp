@@ -52,7 +52,7 @@
             
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/room1/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-            <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
+            <span class="leadPhotoCaption">bstanescu enjoying the momemt<br/><br/></span>
             </div>
             
             <h2>Room 1</h2>
