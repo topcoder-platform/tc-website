@@ -1,7 +1,8 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
-  import="com.topcoder.web.stat.common.JSPUtils"
+  import="JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
@@ -37,8 +38,8 @@
          </TABLE>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <% 
-com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Problem_Statement");
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
+ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
 String sClassName = resultRow_0!=null?resultRow_0.getItem("class_name").toString():"";
 String sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toString():"";
 //here is where we make the problem-text readable

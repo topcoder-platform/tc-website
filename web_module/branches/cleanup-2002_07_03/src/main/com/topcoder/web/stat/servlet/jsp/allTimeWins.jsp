@@ -1,13 +1,14 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
 <% //common code that pulls out the request bean.
-com.topcoder.web.stat.bean.StatRequestBean srb = (com.topcoder.web.stat.bean.StatRequestBean) request.getAttribute("REQUEST_BEAN");
+Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 %>
 
 <HTML>
@@ -99,8 +100,8 @@ function goTo(selection){
 <logic:iterate name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map.Entry" scope="request">
   <logic:equal name="queryEntries" property="key" value="All_Time_Wins">
   <logic:present name="queryEntries" property="value">
-    <bean:define id="resultSet" name="queryEntries" property="value" type="com.topcoder.web.stat.common.ResultSetContainer" />
-    <logic:iterate name="resultSet" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow"> 
+    <bean:define id="resultSet" name="queryEntries" property="value" type="ResultSetContainer" />
+    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow"> 
     <tr valign="middle">
             <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 2 /*"coder_score"*/ + "]" %>'/>
           <td CLASS="smallFoot" align="right" height="13"><bean:write name="resultRow" property='<%= "item[" + 6 /*"rank"*/ + "]" %>'/>&nbsp;</td>

@@ -1,6 +1,8 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
@@ -55,12 +57,12 @@ function goTo(selection){
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <% 
 //common code that pulls out the request bean.
-com.topcoder.web.stat.bean.StatRequestBean srb = (com.topcoder.web.stat.bean.StatRequestBean) request.getAttribute("REQUEST_BEAN");
+Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 String sContentHandle = srb.getContentHandle();
 
-com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Rounds_By_Date");
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
-com.topcoder.web.stat.common.ResultSetContainer rscRoomList = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Rooms_For_Round");
+ResultSetContainer rscRoomList = (ResultSetContainer) queryEntries.get("Rooms_For_Round");
 pageContext.setAttribute("resultSetRooms", rscRoomList);
 pageContext.setAttribute("rd", srb.getProperty("rd", ""));
 pageContext.setAttribute("rm", srb.getProperty("rm", ""));
@@ -70,7 +72,7 @@ pageContext.setAttribute("cr", srb.getProperty("cr", ""));
                   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
                     <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
                     <SELECT NAME="Contest" onchange="goTo(this)"><OPTION value="#">Select a Round:</OPTION>
-                      <logic:iterate name="resultSetDates" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+                      <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
                         <% if (resultRow.getItem(0).toString().equals(pageContext.getAttribute("rd"))) { %>
                           <OPTION value="/stat?c=room_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>&rm=<bean:write name="resultRow" property='<%= "item[" + 5 /* first room */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round */ + "]" %>'/></OPTION>
                         <% } else { %>           
@@ -84,7 +86,7 @@ pageContext.setAttribute("cr", srb.getProperty("cr", ""));
                   <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
                      <SPAN CLASS="statTextBig"><B>Please select a room:</B><BR/></SPAN>
                      <SELECT NAME="Round" onchange="goTo(this)"><OPTION value="#">Select a Room:</OPTION>
-                       <logic:iterate name="resultSetRooms" id="resultRowRoom" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+                       <logic:iterate name="resultSetRooms" id="resultRowRoom" type="ResultSetContainer.ResultSetRow">
                          <% if (resultRowRoom.getItem(0).toString().equals(pageContext.getAttribute("rm"))) { %>
                            <OPTION value="/stat?c=room_stats&rd=<%= pageContext.getAttribute("rd") %>&rm=<bean:write name="resultRowRoom" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRowRoom" property='<%= "item[" + 1 /* name */ + "]" %>'/> - <bean:write name="resultRowRoom" property='<%= "item[" + 2 /* division */ + "]" %>'/></OPTION>
                          <% } else { %>
@@ -98,9 +100,9 @@ pageContext.setAttribute("cr", srb.getProperty("cr", ""));
                    <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                  </TR>      
                </TABLE>
-<% com.topcoder.web.stat.common.ResultSetContainer rsc2 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Room_Summary_Data");
+<% ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Room_Summary_Data");
 pageContext.setAttribute("resultSet", rsc2);
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
+ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
 
 if (resultRow_0 == null) {
 %>
@@ -202,7 +204,7 @@ else {
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
-    <logic:iterate name="resultSet" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
        <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 17 /*"coder_score"*/ + "]" %>'/>       
                  <TR VALIGN="middle">
          <% if (sContentHandle.equals("coder_room_stats") && pageContext.getAttribute("cr").toString().equals(resultRow.getItem(1).toString())) { 
@@ -251,7 +253,7 @@ else {
 
 <% 
 if (pageContext.getAttribute("cr").toString().length()>0){ 
-  com.topcoder.web.stat.common.ResultSetContainer rscProblems = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Coder_Problems");
+  ResultSetContainer rscProblems = (ResultSetContainer) queryEntries.get("Coder_Problems");
 if (rscProblems != null && rscProblems.size() > 0) {   
   pageContext.setAttribute("resultSet", rscProblems);
   java.text.SimpleDateFormat sdfTime = new java.text.SimpleDateFormat("H:mm:ss.S");
@@ -284,7 +286,7 @@ if (rscProblems != null && rscProblems.size() > 0) {
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>  
 
-           <logic:iterate name="resultSet" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+           <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
                  <TR  VALIGN="middle">
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>  
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13">
@@ -309,7 +311,7 @@ if (rscProblems != null && rscProblems.size() > 0) {
                  </TR>    
                </TABLE>
 <% } %>             
-<% com.topcoder.web.stat.common.ResultSetContainer rscChallenge = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Coder_Challenges");
+<% ResultSetContainer rscChallenge = (ResultSetContainer) queryEntries.get("Coder_Challenges");
 if (rscChallenge != null && rscChallenge.size() > 0){
 pageContext.setAttribute("resultSet", rscChallenge);
 %>          
@@ -332,7 +334,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>
-           <logic:iterate name="resultSet" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+           <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
               <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"defendent Rank"*/ + "]" %>'/>         
                  <TR VALIGN="middle">
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif"  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>  
@@ -358,7 +360,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
                  </TR>    
                </TABLE>
 <% } %>      
-<% com.topcoder.web.stat.common.ResultSetContainer rscDefense = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Coder_Defenses");
+<% ResultSetContainer rscDefense = (ResultSetContainer) queryEntries.get("Coder_Defenses");
 if (rscDefense != null && rscDefense.size() > 0) {  
 pageContext.setAttribute("resultSet", rscDefense);
 %>    
@@ -382,7 +384,7 @@ pageContext.setAttribute("resultSet", rscDefense);
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
                  </TR>  
        
-           <logic:iterate name="resultSet" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+           <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
               <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"challenger Rank"*/ + "]" %>'/>         
 
                  <TR VALIGN="middle">

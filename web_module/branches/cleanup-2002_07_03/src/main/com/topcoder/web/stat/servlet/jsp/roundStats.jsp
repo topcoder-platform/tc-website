@@ -1,7 +1,8 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
-  import="java.net.URLEncoder"
+  import="java.net.URLEncoder,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
@@ -9,7 +10,7 @@
 
 <%
 //common code that pulls out the request bean.
-com.topcoder.web.stat.bean.StatRequestBean srb = (com.topcoder.web.stat.bean.StatRequestBean) request.getAttribute("REQUEST_BEAN");
+Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 
 String sDivision = srb.getProperty("dn","1");
 
@@ -22,11 +23,11 @@ boolean bRequireLogin = sContentHandle.startsWith("round_stats");
 %>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
-com.topcoder.web.stat.common.ResultSetContainer rsc2 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Round_Statistics_Data");
-com.topcoder.web.stat.common.ResultSetContainer rsc3 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
+ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Round_Statistics_Data");
+ResultSetContainer rsc3 = (ResultSetContainer) queryEntries.get("Round_Sponsor_Image");
 pageContext.setAttribute("resultSet", rsc2);
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow sir = rsc3.isValidRow(0)? rsc3.getRow(0):null;
+ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
+ResultSetContainer.ResultSetRow sir = rsc3.isValidRow(0)? rsc3.getRow(0):null;
 boolean hasSponsorImage = (sir!=null);
 if (hasSponsorImage) pageContext.setAttribute("sponsorImageRow", sir);
 
@@ -55,7 +56,7 @@ boolean bHasNextScroll = true;
 int iMaxRoom = Integer.MAX_VALUE;
 //TCB 3.9.02 added next 5 lines
 if (!(bSorted)){
-  com.topcoder.web.stat.common.ResultSetContainer rscRoomCount = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Division_Room_Count");
+  ResultSetContainer rscRoomCount = (ResultSetContainer) queryEntries.get("Division_Room_Count");
   iMaxRoom = Integer.parseInt(rscRoomCount.getItem(0,0).toString());
   bHasNextScroll = (iMaxRoom >= iTemp);
 }
@@ -127,7 +128,7 @@ function goTo(selection){
 <%
 String currRound = resultRow_0.getItem("round_id").toString();
 if (bRequireLogin){
-com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Rounds_By_Date");
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
 %>           
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
@@ -139,7 +140,7 @@ pageContext.setAttribute("resultSetDates", rsc);
                      <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
                      <SELECT NAME="Contest" onchange="goTo(this)">
            <OPTION value="#">Select a Round:</OPTION>
-         <logic:iterate name="resultSetDates" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+         <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
          <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
            <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
                <% } else { %>
@@ -264,7 +265,7 @@ pageContext.setAttribute("resultSetDates", rsc);
            
             
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
-    <logic:iterate name="resultSet" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
        <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 14 /*"coder_score"*/ + "]" %>'/>
         <% if ((!bSorted) && !(pageContext.getAttribute("roomName").toString().equals(resultRow.getItem(5).toString()))){ 
              pageContext.setAttribute("roomName",resultRow.getItem(5));

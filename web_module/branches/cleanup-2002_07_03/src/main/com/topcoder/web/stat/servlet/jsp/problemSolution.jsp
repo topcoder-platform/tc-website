@@ -1,7 +1,8 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
-  import="com.topcoder.web.stat.common.JSPUtils"
+  import="JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+
 %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
@@ -30,7 +31,7 @@
 
 <% 
 //common code that pulls out the request bean.
-com.topcoder.web.stat.bean.StatRequestBean srb = (com.topcoder.web.stat.bean.StatRequestBean) request.getAttribute("REQUEST_BEAN");
+Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 String sCoderId = srb.getProperty("cr","");
 String sRoomId = srb.getProperty("rm","");
 String sRoundId = srb.getProperty("rd","");
@@ -38,9 +39,9 @@ pageContext.setAttribute("pm", srb.getProperty("pm",""));
 
 //get the Header info 
 
-com.topcoder.web.stat.common.ResultSetContainer rscHdr = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Room_Header_Information");
+ResultSetContainer rscHdr = (ResultSetContainer) queryEntries.get("Room_Header_Information");
 
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRowHdr = rscHdr.isValidRow(0)? rscHdr.getRow(0) : null;
+ResultSetContainer.ResultSetRow resultRowHdr = rscHdr.isValidRow(0)? rscHdr.getRow(0) : null;
 
 String sHeader = "";
 
@@ -49,13 +50,13 @@ if (resultRowHdr != null) {
 }
 
 //get the Problem Name info
-com.topcoder.web.stat.common.ResultSetContainer rscInfo = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Problem_Data");
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRow_Info = rscInfo.isValidRow(0)? rscInfo.getRow(0):null;
+ResultSetContainer rscInfo = (ResultSetContainer) queryEntries.get("Problem_Data");
+ResultSetContainer.ResultSetRow resultRow_Info = rscInfo.isValidRow(0)? rscInfo.getRow(0):null;
 String sClassName = resultRow_Info!=null?resultRow_Info.getItem(0).toString():"";
 
 //get the solution text
-com.topcoder.web.stat.common.ResultSetContainer rsc = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Problem_Submission");
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
+ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Submission");
+ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
 String sSolutionText = resultRow_0!=null?resultRow_0.getItem("submission_text").toString():"";
 //here is where we make the solution-text readable
 int i=-1;
@@ -130,10 +131,10 @@ while (strtok.hasMoreTokens()){
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-<% com.topcoder.web.stat.common.ResultSetContainer rscSubmissions = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Coder_Problems");
+<% ResultSetContainer rscSubmissions = (ResultSetContainer) queryEntries.get("Coder_Problems");
 pageContext.setAttribute("resultSetSubmissions", rscSubmissions);
 if (rscSubmissions.size() > 0) {  %>                 
-   <logic:iterate name="resultSetSubmissions" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">         
+   <logic:iterate name="resultSetSubmissions" id="resultRow" type="ResultSetContainer.ResultSetRow">         
                    <TR>
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
        <% if (pageContext.getAttribute("pm").toString().equals(resultRow.getItem(2).toString())) { %>
@@ -179,7 +180,7 @@ if (rscSubmissions.size() > 0) {  %>
                  </TR>
                </TABLE>
 <!-- Defenses -->    
-<% com.topcoder.web.stat.common.ResultSetContainer rscDefense = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Problem_Defenses");
+<% ResultSetContainer rscDefense = (ResultSetContainer) queryEntries.get("Problem_Defenses");
 pageContext.setAttribute("resultSetDefense", rscDefense);
 if (rscDefense.size() > 0) { 
   int row = 0;
@@ -203,7 +204,7 @@ if (rscDefense.size() > 0) {
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Succeeded</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-  <logic:iterate name="resultSetDefense" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">         
+  <logic:iterate name="resultSetDefense" id="resultRow" type="ResultSetContainer.ResultSetRow">         
     <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"challenger Rating"*/ + "]" %>'/>         
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -259,7 +260,7 @@ if (rscDefense.size() > 0) {
 
 <!-- End Defense -->         
 <!-- System Testing -->    
-<% com.topcoder.web.stat.common.ResultSetContainer rscSysTest = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("System_Tests");
+<% ResultSetContainer rscSysTest = (ResultSetContainer) queryEntries.get("System_Tests");
 pageContext.setAttribute("resultSetSysTest", rscSysTest);
 if (rscSysTest.size() > 0) {
   int row = 0;
@@ -283,7 +284,7 @@ if (rscSysTest.size() > 0) {
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Result</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-    <logic:iterate name="resultSetSysTest" id="resultRow" type="com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow">
+    <logic:iterate name="resultSetSysTest" id="resultRow" type="ResultSetContainer.ResultSetRow">
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
