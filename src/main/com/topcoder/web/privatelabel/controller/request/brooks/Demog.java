@@ -24,7 +24,7 @@ public class Demog extends FullRegDemog {
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
         
-        log.info("CODER TYPE: " + ((FullRegInfo)info).getCoderType() );
+        log.debug("CODER TYPE: " + ((FullRegInfo)info).getCoderType() );
         
         if(((FullRegInfo)info).getCoderType() == 0)
         {
@@ -79,7 +79,7 @@ public class Demog extends FullRegDemog {
             throw new TCWebException(e);
         }        
         
-        log.info("CHOSEN HANDLE IS " + handle);
+        log.debug("CHOSEN HANDLE IS " + handle);
         
         info.setHandle(handle);
         setDefault(Constants.HANDLE, info.getHandle());
@@ -91,7 +91,7 @@ public class Demog extends FullRegDemog {
         info.setPassword(generatePassword());
         info.setPasswordConfirm(info.getPassword());
         
-        log.info("CHOSEN PASSWORD IS " + info.getPassword());
+        log.debug("CHOSEN PASSWORD IS " + info.getPassword());
         
         if(info.getPhoneNumber().trim().length()==0)
         {

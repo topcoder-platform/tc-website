@@ -147,7 +147,7 @@ public abstract class BaseServlet extends HttpServlet {
                         handleLogin(request, response, info);
                         return;
                     } else {
-                        log.info("already logged in, rethrowing");
+                        log.debug("already logged in, rethrowing");
                         throw pe;
                     }
                 }

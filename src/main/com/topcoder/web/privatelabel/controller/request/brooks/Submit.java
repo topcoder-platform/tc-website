@@ -94,12 +94,12 @@ public class Submit extends FullRegSubmit {
                 Map types = getFileTypes(transDb);
                 if(types.containsKey(info.getUploadedFile().getContentType()) )
                 {
-                    log.info("FOUND TYPE");
+                    log.debug("FOUND TYPE");
                     fileType = ((Long) types.get(info.getUploadedFile().getContentType())).intValue();
                 }
                 else
                 {
-                    log.info("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
+                    log.debug("DID NOT FIND TYPE " + info.getUploadedFile().getContentType());
                 }
                 fileName = info.getUploadedFile().getRemoteFileName();
                 ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
@@ -342,7 +342,8 @@ public class Submit extends FullRegSubmit {
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
                 mail.setFromAddress("brooks@topcoder.com", "Brooks Automation Private Limited, Chennai");
                 EmailEngine.send(mail);
-                
+                log.info("sent registration email to " + info.getEmail());
+
                 //ut.commit();
             }
             catch(Exception e)
@@ -409,14 +410,14 @@ public class Submit extends FullRegSubmit {
     
     private Date translateDate(Date d)
     {
-        log.info("TIME1: " + d);
-        log.info("TIME1: " + d.getTime());
+        log.debug("TIME1: " + d);
+        log.debug("TIME1: " + d.getTime());
         Date ret = new Date(d.getTime());
         
         //bring to GMT
-        log.info("TIME: " + ret);
-        log.info("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
-        log.info("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
+        log.debug("TIME: " + ret);
+        log.debug("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
+        log.debug("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
         ret = new Date( ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
         ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
         

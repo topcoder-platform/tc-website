@@ -44,7 +44,7 @@ public class Confirm extends FullRegConfirm {
         UploadedFile file = req.getUploadedFile(Constants.RESUME);
         
         if (file != null && file.getContentType() != null) {
-                log.info("FOUND RESUME");
+                log.debug("FOUND RESUME");
                 ((ResumeRegInfo)info).setUploadedFile(file);
             }
         
@@ -71,7 +71,7 @@ public class Confirm extends FullRegConfirm {
                     Map types = getFileTypes(transDb);
                     if(!types.containsKey(rinfo.getUploadedFile().getContentType()) )
                     {
-                        log.info("DID NOT FIND TYPE " + rinfo.getUploadedFile().getContentType());
+                        log.debug("DID NOT FIND TYPE " + rinfo.getUploadedFile().getContentType());
                         addError(Constants.FILE, "Unsupported file type (" + rinfo.getUploadedFile().getContentType() + ")");
                     }
                 }

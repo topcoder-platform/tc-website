@@ -248,7 +248,7 @@ public class BasicAuthentication implements WebAuthentication {
                     return makeUser(uid);
 
                 } catch(Exception e) {
-                    log.info("exception parsing cookie", e);
+                    log.error("exception parsing cookie", e);
                     /* junk in the cookie, ignore it */
                 }
             }
