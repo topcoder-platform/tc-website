@@ -75,6 +75,7 @@
                             <tr>
                             <%
                                 String sURL;
+                                
                                 if(resultRow.getIntItem("prize_type_id") == 1)
                                 {
                                     sURL = "/tc?module=USDCContestDetails&type=1";
@@ -93,8 +94,8 @@
                                 }
                             %>
                                 <td class="sidebarText"><A href="<%=sURL%>&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
-                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_start_timestamp" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="contest_end_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="start_date" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=right>$<rsc:item format="#,##0" name="prize_payment" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=right><a href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">projects</a></td>
