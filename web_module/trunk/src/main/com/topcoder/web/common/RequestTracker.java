@@ -35,6 +35,7 @@ public class RequestTracker {
     public static void trackRequest(TCRequest request) {
         log.debug("add request");
         q.add(new UserRequest(GUEST, request));
+        log.debug("added request");
     }
 
     public static void trackRequest(User u, TCRequest request) {
