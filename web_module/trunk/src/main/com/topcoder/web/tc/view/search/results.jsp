@@ -20,7 +20,7 @@
           <table  border="0" cellspacing="0" cellpadding="5" width="510" align="center" class="formFrame">
               <tr>
                   <td class="searchHeaders" valign="middle" width="20%">Handle</td>
-                  <td class="searchHeaders" valign="middle" align="right" width="15%">Rating</td>
+                  <td class="searchHeaders" valign="middle" align="right" width="15%">Algorithm Rating</td>
                   <td class="searchHeaders" valign="middle" align="center" width="15%">State</td>
                   <td class="searchHeaders" valign="middle" align="left" width="25%">Country</td>
                   <td class="searchHeaders" valign="middle" align="center" width="12%">Rated<br/>Events</td>
