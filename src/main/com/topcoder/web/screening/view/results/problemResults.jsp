@@ -120,13 +120,15 @@ function getTCProblemResults(coderId, roundId, problemId) {
 		       <TD ALIGN="center" CLASS="testFormHeader">Received</TD>
 		       <TD ALIGN="center" CLASS="testFormHeader">Status</TD>
 	        </TR>
+            <% boolean even = false; %>
            <screen:resultSetRowIterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
 	        <TR>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=testResult%>" name="args" /></TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=testResult%>" name="expected_result" /></TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=testResult%>" name="received" /></TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
-	        </TR>	        
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="args" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="expected_result" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="received" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
+	        </TR>
+            <% even = !even; %>
            </screen:resultSetRowIterator>
            <% if(submissionInfo.getTestResults().isEmpty()){ %>
 	        <TR>
