@@ -101,7 +101,7 @@
             who qualify for the tournament during Qualification Round #1 will not be allowed to compete in Qualification Round #2.</p>
             
             <a name="sched"></a>
-            <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
                     <td class="sidebarTitle" width="35%">Date and Time*</td>
@@ -144,7 +144,7 @@
             A total of 500 TopCoder members will compete in Online Round #1 of the TCO.  The field will be comprised of 100 automatic 
             berths and 400 qualification spots. Each room winner and the next highest scorers in each round will advance.</p>
             
-            <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
                     <td class="sidebarTitle" width="35%">Date and Time*</td>
@@ -210,7 +210,7 @@
             The 16 advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete in the Semifinal round 
             of the tournament being held on Thursday, December 4th.</p>
             
-            <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
                     <td class="sidebarTitle" width="35%">Date and Time*</td>

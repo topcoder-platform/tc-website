@@ -93,7 +93,7 @@
             Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole 
             responsibility of the prizewinner. Prizes will be distributed as follows:</p>
             
-            <table width="100%" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="50%" class="sidebarTitle">Competitor(s)</td>
                     <td width="50%" class="sidebarTitle" align="right">Prize</td>

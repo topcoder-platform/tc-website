@@ -95,7 +95,7 @@
             The top two scorers from Round 2 will compete in the Championship Round at Mohegan Sun on December 5th.</p>
 
             <a name="sched"></a>
-            <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
                     <td class="sidebarTitle" width="35%">Development</td>
