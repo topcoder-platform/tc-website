@@ -69,6 +69,7 @@ public class Submit extends FullRegSubmit {
                 buf.append("PRACTICING FOR THE EVENT\n");
                 buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Coding Challenge.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM ET on February 9 through 1:00PM ET on February 27, 2004.\n\n");
                 buf.append("You can access the practice rooms by navigating to ");
+                buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/pl/?&module=Static&d1=doubleclick&d2=col_arena");
                 buf.append(" and clicking on the Practice Arena tab.\n\n");
@@ -76,12 +77,14 @@ public class Submit extends FullRegSubmit {
                 buf.append("You may participate in the Qualification Round during one of two sessions.  You can only attempt to qualify one time.  Session #1 will be open from 9:00AM through 9:00PM on Monday, February 16.  Session #2 will be open from 9:00AM through 9:00PM on Wednesday, February 18.  You will have up to one hour to solve one problem.  It is recommended that you utilize the practice area prior to participating in the Qualification Round.\n\n");
                 buf.append("LAUNCHING THE ARENA\n");
                 buf.append("You can launch and login to the competition arena at the appropriate time by navigating to ");
+                buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/pl/?&module=Static&d1=doubleclick&d2=col_arena");
                 buf.append(" and clicking on the Compete Now tab.\n\n");
                 buf.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
                 buf.append("Mac OS X users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.\n\n");
                 buf.append("We also suggest that you read up on the competition process by navigating to ");
+                buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/pl/?&module=Static&d1=doubleclick&d2=col_overview");
                 buf.append(" and downloading the competition manual.\n\n");
