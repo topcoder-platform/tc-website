@@ -80,11 +80,10 @@ public class UpdateCandidate extends BaseProcessor {
                     return;
                 }
 
-                InitialContext context = new InitialContext();
                 PrincipalMgr principalMgr = new PrincipalMgr();
                 EmailHome eHome = (EmailHome)
                         PortableRemoteObject.narrow(
-                                context.lookup(EmailHome.class.getName()), EmailHome.class);
+                                getInitialContext().lookup(EmailHome.class.getName()), EmailHome.class);
                 Email email = eHome.create();
 
                 //check to see if user is logged in...
@@ -93,7 +92,7 @@ public class UpdateCandidate extends BaseProcessor {
                 TCSubject requestor =
                         principalMgr.getUserSubject(getAuthentication().getUser().getId());
 
-                UserTransaction ut = Transaction.get(context);
+                UserTransaction ut = Transaction.get(getInitialContext());
                 ut.begin();
 
                 try {
