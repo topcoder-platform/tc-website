@@ -69,7 +69,7 @@ function submitSession() {
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Test Profile</b>&#160;</TD>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-              <select value ="profileId">
+              <select name ="profileId">
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
                 <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
               	<option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
