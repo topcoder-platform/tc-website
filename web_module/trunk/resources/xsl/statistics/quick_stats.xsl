@@ -62,7 +62,7 @@
                         <table border="0" cellspacing="0" cellpadding="5" bgcolor="#001B35" width="100%">        
                             <tr valign="top">
                                 <td class="statText" width="50%">
-                                    <a href="/stat?&amp;c=consecutive_rating_increases" class="statText"><img src="/i/stat_labels_consec_ratings.gif" alt="Consecutive Rating Increases" width="158" height="17" border="0"/></a><br />
+                                    <a href="/stat?&amp;c=consecutive_rating_increases" class="statText"><img src="/i/stat_labels_consec_rating.gif" alt="Consecutive Rating Increases" width="158" height="17" border="0"/></a><br />
                                     This chart represents the longest consecutive rating increase streaks.<br/>
                                     <a href="/stat?&amp;c=consecutive_rating_increases&amp;wst=3" class="statText">Single Round Matches</a> :
                                     <a href="/stat?&amp;c=consecutive_rating_increases&amp;wst=4" class="statText">Single Round Matches and Tournaments</a><br/></td>
