@@ -60,7 +60,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">steelgray</xsl:with-param>
                 <xsl:with-param name="image">tournaments_gray</xsl:with-param>
-                <xsl:with-param name="title">Championship Summary &amp; Photos</xsl:with-param>
+                <xsl:with-param name="title">Championship: Summary &amp; Photos</xsl:with-param>
             </xsl:call-template>
 
             <xsl:call-template name="tccc03_links">
@@ -74,49 +74,88 @@
                 <tr><td class="tourney_subnav"><strong>Championship Summary</strong></td></tr>
                 <tr valign="top">
                     <td width="99%" class="bodyText">
-                        <table border="0" cellspacing="5" cellpadding="0" align="left">
-                            <tr valign="top"><td align="left"><img src="/i/tournament/invit02/tourney_photo_SFR1.jpg" alt="" width="200" height="435" class="photoFrameBig" /></td></tr>
-                            <tr valign="top"><td align="left" class="smallText">SnapDragon takes Round One with ease.</td></tr>
+                        <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
+                            <tr valign="top"><td align="left"><img src="/i/tournament/tccc03/champ_main.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
+                            <tr valign="top"><td align="left" class="smallText">dgarthur contemplates a question during the Semi-final Round.</td></tr>
                         </table>
                                 
-                        <h2>As expected, SnapDragon struts his stuff</h2>
+                        <h2>dgarthur takes home the crown</h2>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
-                        Friday, April 4, 2003<br />
-                        <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current brackets</a></p>
+                        Saturday, April 5, 2003<br />
+                        <a href="/index?t=tournaments&amp;c=tccc03_brackets" class="bodyText">View current bracket</a></p>
 
-                        <p>In front of a sparse crowd, the morning competitors dealt with some minor system issues and tough 
-                        problem statements as the first round of competition started at 8:00am. </p>
+                        <p>In a final round that saw 11 out of a possible 12 submissions, it was <strong>dgarthur</strong> who posted the highest 
+                        score and walked away $50,000 richer as the Champion.</p>
 
-                        <p>All four competitors started the round by opening the 300-point problem.  Ten minutes later, 
-                        <b>SnapDragon</b> was the first to weigh in with a submission for 268.59 points.  Within the next 
-                        minute, both <b>malpt</b> and <b>ambrose</b> submitted their solutions for 260.51 points and 257.85 points, 
-                        respectively.  <b>kyky</b> worked on his solution for 7 more minutes before submitting for 219.80 points.</p>
+                        <p>The contest started off with <strong>Yarin, </strong><strong>dgarthur</strong> and <strong>sjelkjd</strong> all opening the 250-point problem and 
+                        <strong>dmwright</strong> opting to go with the 450.  <strong>Yarin</strong> took the early lead with a quick submission of the 250-pointer 
+                        for 237.49 points.  He then moved on to the 450.  <strong>sjelkjd</strong> was in next with his submission to the 250, 
+                        getting 213.97 points.  <strong>dgarthur</strong> brought in the lowest score on the 250 with his submission for 
+                        202.96 points.  He and <strong>sjelkjd</strong> both moved on to the 450.  Even before <strong>dmwright</strong> could log his first 
+                        submission, <strong>Yarin</strong> sent in his second, adding 385.26 points from his 450.  <strong>dmwright</strong> finally sent in 
+                        his first submission for 303.43 points on the 450.  He moved on to the 950, leaving the 250 for last.  
+                        <strong>dgarthur</strong> made up some ground by receiving 381.34 points for his 450-point submission, and moved 
+                        to the 950.</p>
 
-                        <p>Surprisingly, <b>malpt</b> submitted his solution to the 500-point problem after only working on it 
-                        for 7 minutes, receiving just over 370 points.  Upon further inspection of the problem statement, 
-                        however, he quickly realized that he had misread it, and began working on his resubmission.  
-                        <b>ambrose</b> was next to submit a solution 35 minutes into the contest, and received 326.37 points 
-                        for the 500-point problem.  Two minutes later, <b>SnapDragon</b> submitted his 500-point solution for 
-                        300.55 points.  <b>kyky</b>, after reading the 1050-point problem, decided to work on the 500 instead.  
-                        Unfortunately, he would not submit a solution to either problem.</p>
+                        <p><strong>Yarin</strong> sent in the 7th submission of the round and added 760.04 points to his total.  In an impressive 
+                        move, <strong>dgarthur</strong> submitted his 950-point solution for 863.41 points and pulled ahead of <strong>Yarin</strong> by 65 
+                        points.  <strong>dmwright</strong> logged his 2nd submission for 709.86 points on the 950, then went to work on the 
+                        250.  <strong>sjelkjd</strong> sent in his only other submission, getting 232.11 points on the 450.  <strong>dmwright</strong> sent in 
+                        the 2nd highest 250-point submission for 231.85 points.  At the end of the Coding Phase, the point 
+                        totals stood as follows:</p>
 
-                        <p>For the next 36 minutes, all was quiet on the submission front.  Then, with seven minutes left in 
-                        the coding phase, <b>malpt</b> resubmitted his solution to the 500-point problem for 150.00 points, 
-                        losing over half of his original points and decreasing his point total to 410.51.  <b>SnapDragon</b> 
-                        had the last say, submitting his solution to the 1050-point problem with five minutes left in 
-                        the round for 521.09 points.  At the end of the coding phase, the point totals stood at 
-                        1090.23 (<b>SnapDragon</b>), 584.22 (<b>ambrose</b>), 410.51 (<b>malpt</b>), and 219.80 (<b>kyky</b>).</p>
+                         <table border="0" cellspacing="10" cellpadding="0">
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">dgarthur</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1447.71</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">Yarin</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1382.79</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">dmwright</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1245.14</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">sjelkjd</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">446.08</td>
+                             </tr>
+                        </table>		
 
-                        <p>The challenge phase was quiet for nearly 14 minutes.  Then, after lots of thought, testing, 
-                        and agonizing, <b>SnapDragon</b> successfully challenged <b>ambrose</b>'s 500-point solution, further 
-                        increasing his lead by 50 points.  The system test phase was kind to everyone but <b>kyky</b>, 
-                        who lost his 219.80 points, causing him to finish with 0 points.</p>
+                        <p><strong>sjelkjd</strong> offered the only action of the Challenge Phase by unsuccessfully challenging all 3 950-point 
+                        submissions and <strong>Yarin's</strong> 450-point submission.  System tests proved that challenging any of the other 
+                        competitor's submissions was in vain, as all submissions passed.  The final scores looked quite similar 
+                        to those at the end of the Coding Phase:</p>
 
-                        <p>In the end, <b>SnapDragon</b> showed why he is the current Top Coder, being the only competitor 
-                        of the round to finish all three problems and submit a successful challenge.  Perhaps 
-                        <b>malpt</b>'s simple statement summed it up best: "It's tough to beat <b>SnapDragon</b> when he 
-                        correctly solves all three problems."  Luckily for <b>malpt</b>, the casino floor is just 
-                        a short walk away _ he can always place his winnings on double zero, spin the roulette wheel, and hope for the best...</p>
+                         <table border="0" cellspacing="10" cellpadding="0">
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">dgarthur</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1447.71</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">Yarin</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1382.79</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">dmwright</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1245.14</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">sjelkjd</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">246.08</td>
+                             </tr>
+                        </table>		
+
+                        <p><strong>dgarthur</strong> was all smiles during the media hour, and rightfully so.  He performed perfectly through 
+                        two onsite rounds and beat six very worthy competitors in two days.  Congratulations to dgarthur and 
+                        the 15 other semi-finalists for a great weekend of coding!</p>
                     </td>
                 </tr>
             </table>
@@ -128,27 +167,46 @@
 
                 <tr>
                     <td class="bodyText" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR102.jpg');"><img src="/i/tournament/invit02//SFR102_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR102.jpg');"><img src="/i/tournament/invit02//SFR102_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR103.jpg');"><img src="/i/tournament/invit02//SFR103_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR104.jpg');"><img src="/i/tournament/invit02//SFR104_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR105.jpg');"><img src="/i/tournament/invit02//SFR105_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_01.jpg');"><img src="/i/tournament/tccc03/champ_01_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_02.jpg');"><img src="/i/tournament/tccc03/champ_02_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_03.jpg');"><img src="/i/tournament/tccc03/champ_03_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_04.jpg');"><img src="/i/tournament/tccc03/champ_04_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_05.jpg');"><img src="/i/tournament/tccc03/champ_05_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" align="center"><img src="/i/tournament/invit02//SFR102.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig"/></td>
+                    <td class="bodyText" align="center">
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_06.jpg');"><img src="/i/tournament/tccc03/champ_06_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_07.jpg');"><img src="/i/tournament/tccc03/champ_07_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_08.jpg');"><img src="/i/tournament/tccc03/champ_08_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_09.jpg');"><img src="/i/tournament/tccc03/champ_09_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_10.jpg');"><img src="/i/tournament/tccc03/champ_10_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" align="center"><img src="/i/tournament/tccc03/champ_01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
                 </tr>            
                 
                 <tr>
                     <td class="bodyText" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR106.jpg');"><img src="/i/tournament/invit02//SFR106_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR107.jpg');"><img src="/i/tournament/invit02//SFR107_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR108.jpg');"><img src="/i/tournament/invit02//SFR108_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR109.jpg');"><img src="/i/tournament/invit02//SFR109_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/invit02//SFR1010.jpg');"><img src="/i/tournament/invit02//SFR1010_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>              
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_11.jpg');"><img src="/i/tournament/tccc03/champ_11_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_12.jpg');"><img src="/i/tournament/tccc03/champ_12_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_13.jpg');"><img src="/i/tournament/tccc03/champ_13_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_14.jpg');"><img src="/i/tournament/tccc03/champ_14_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_15.jpg');"><img src="/i/tournament/tccc03/champ_15_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>            
+
+                <tr>
+                    <td class="bodyText" align="center">
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_16.jpg');"><img src="/i/tournament/tccc03/champ_16_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_17.jpg');"><img src="/i/tournament/tccc03/champ_17_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_18.jpg');"><img src="/i/tournament/tccc03/champ_18_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tccc03/champ_19.jpg');"><img src="/i/tournament/tccc03/champ_19_tn.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                    </td>
+                </tr>
             </table>
 
             <p><br/></p>
@@ -178,6 +236,7 @@
 <!-- Foot ends -->
 
 </body>
+
 </html>
 
   </xsl:template>
