@@ -251,7 +251,9 @@ public class DbSearchIndexer extends Thread implements SearchIndexer{
     public void run() {
         while (true){
             //If auto indexing is on
-            if (autoIndex) {
+System.out.println("XXXXXX  " + PropertyManager.getProperty("DbSearchIndexer.indexingOn"));
+            if (autoIndex && PropertyManager.getProperty("DbSearchIndexer.indexingOn").equals("true")) {
+System.out.println("XXXXXX  Yep: " + PropertyManager.getProperty("DbSearchIndexer.indexingOn"));
                 long now = System.currentTimeMillis();
                 //If we want to re-index everything.
                 if (lastIndexed == 0) {
