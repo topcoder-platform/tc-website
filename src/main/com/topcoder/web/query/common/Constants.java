@@ -1,5 +1,7 @@
 package com.topcoder.web.query.common;
 
+import com.topcoder.web.query.bean.DatabaseBean;
+
 import javax.servlet.ServletConfig;
 import java.util.ArrayList;
 

@@ -5,7 +5,7 @@
            com.topcoder.web.query.bean.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="ModifyGroupTask" scope="request" class="com.topcoder.web.query.bean.ModifyGroupTask" />
+<jsp:useBean id="ModifyGroupTask" scope="request" class="com.topcoder.web.query.bean.task.ModifyGroupTask" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>

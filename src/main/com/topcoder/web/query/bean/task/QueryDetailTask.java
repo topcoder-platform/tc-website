@@ -1,4 +1,4 @@
-package com.topcoder.web.query.bean;
+package com.topcoder.web.query.bean.task;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
@@ -9,6 +9,7 @@ import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.query.ejb.QueryServices.QueryHome;
 import com.topcoder.web.query.ejb.QueryServices.QueryInput;
 import com.topcoder.web.query.ejb.QueryServices.QueryInputHome;
+import com.topcoder.web.query.bean.task.BaseTask;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

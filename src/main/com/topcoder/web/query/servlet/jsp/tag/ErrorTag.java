@@ -1,6 +1,6 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.web.query.bean.Task;
+import com.topcoder.web.query.bean.task.Task;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;

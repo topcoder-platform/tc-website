@@ -1,4 +1,4 @@
-package com.topcoder.web.query.bean;
+package com.topcoder.web.query.bean.task;
 
 import com.topcoder.web.query.common.Authentication;
 

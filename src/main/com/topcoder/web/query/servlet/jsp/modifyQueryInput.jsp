@@ -5,7 +5,7 @@
            com.topcoder.web.query.bean.*"
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
-<jsp:useBean id="ModifyQueryInputTask" scope="request" class="com.topcoder.web.query.bean.ModifyQueryInputTask" />
+<jsp:useBean id="ModifyQueryInputTask" scope="request" class="com.topcoder.web.query.bean.task.ModifyQueryInputTask" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
