@@ -88,6 +88,8 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
                     qib = (QueryInputBean)getCurrentInputList().get(j);
                     if (qib.isOptional()) {
                         qi.setDefaultValue(qib.getQueryId(), qib.getInputId(), qib.getDefaultValue());
+                    } else {
+                        qib.setDefaultValue(qi.getDefaultValue(qib.getQueryId(), qib.getInputId()));
                     }
                     qi.setOptional(qib.getQueryId(), qib.getInputId(), qib.isOptional()?'Y':'N');
                     qi.setSortOrder(qib.getQueryId(), qib.getInputId(), qib.getSortOrder());

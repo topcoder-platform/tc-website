@@ -60,6 +60,8 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             if (isRanking()) {
                 checkColumnIndex(getColumnIndex());
+            } else {
+                setColumnIndex(q.getColumnIndex(getQueryId()));
             }
             checkText(getText());
             checkName(getName());
