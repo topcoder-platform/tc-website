@@ -910,6 +910,7 @@
      </target>
 
      <target name="expand-techassess" depends="">
+         <copy file="${resources}/TechAssess.properties" todir="${jboss_home}/server/default/conf" overwrite="true"/>
          <copy file="${shared.jar}" todir="${jboss_home}/server/default/lib" overwrite="true"/>
          <delete file="${jboss_home}/server/default/deploy/techassess.war"/>
          <unwar src="${war.dir}/techassess.war" dest="${jboss_home}/server/default/deploy/techassess.war/" overwrite="yes"/>
