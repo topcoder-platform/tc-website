@@ -448,7 +448,13 @@ public class ProjectAdministration implements Model {
                                                 if((!scorecards[z].getSubmission().equals(itm.getSubmission())) && scorecards[z].isCompleted() 
                                                     && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS)
                                                 {
-                                                    good = false;
+                                                    for(int a = 0; a < alTies.size(); a++)
+                                                    {
+                                                        if(((Item)alTies.get(a)).getSubmission().getSubmitter().getId() == scorecards[z].getSubmission().getSubmitter().getId())
+                                                        {
+                                                            good = false;
+                                                        }
+                                                    }
                                                 }
                                             }
                                             if(good)

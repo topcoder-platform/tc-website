@@ -1545,6 +1545,49 @@ public class DocumentManagerBean implements SessionBean {
                         //Arrays.sort(items);
                         Arrays.sort(submissions, new Comparator() {
                             public int compare(Object obj1, Object obj2) {
+                                if(Double.compare(((InitialSubmission) obj2).getFinalScore(),
+                                        ((InitialSubmission) obj1).getFinalScore()) == 0)
+                                {
+                                    //break ties
+                                    int[] vals = new int[2];
+                                    for(int y = 0; y < scorecards.length; y++)
+                                    {
+                                            if(scorecards[y].getSubmission().equals((InitialSubmission)obj1) && scorecards[y].isCompleted())
+                                            {
+                                                    double scr = scorecards[y].getScore();
+                                                    boolean good = true;
+                                                    for(int z = 0; z < scorecards.length; z++)
+                                                    {
+                                                        if((!scorecards[z].getSubmission().equals(obj1)) && scorecards[z].isCompleted() 
+                                                            && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
+                                                            && scorecards[z].getSubmission().getSubmitter().getId() == ((InitialSubmission)obj2).getSubmitter().getId())
+                                                        {
+                                                            good = false;
+                                                        }
+                                                    }
+                                                    if(good)
+                                                        vals[0]++;
+                                            }
+                                            
+                                            if(scorecards[y].getSubmission().equals((InitialSubmission)obj2) && scorecards[y].isCompleted())
+                                            {
+                                                    double scr = scorecards[y].getScore();
+                                                    boolean good = true;
+                                                    for(int z = 0; z < scorecards.length; z++)
+                                                    {
+                                                        if((!scorecards[z].getSubmission().equals(obj2)) && scorecards[z].isCompleted() 
+                                                            && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
+                                                            && scorecards[z].getSubmission().getSubmitter().getId() == ((InitialSubmission)obj1).getSubmitter().getId())
+                                                        {
+                                                            good = false;
+                                                        }
+                                                    }
+                                                    if(good)
+                                                        vals[1]++;
+                                            }
+                                    }
+                                    return vals[0] - vals[1];
+                                }
                                 return Double.compare(((InitialSubmission) obj2).getFinalScore(),
                                         ((InitialSubmission) obj1).getFinalScore());
                             }});
