@@ -5,7 +5,7 @@
                 <tr>
                     <td class="bodyText" align="center">
                         <strong>Below the fold:</strong> 
-                        <a href="#matchDates">Match Dates</a> | 
+                        <a href="#matchDates">Schedule</a> | 
                         <a href="#memberSurveys">Surveys</a> | 
                         <a href="#algoArena">Algorithm Arena</a> | 
                         <a href="#codersPOV">Coders POV</a> | 
