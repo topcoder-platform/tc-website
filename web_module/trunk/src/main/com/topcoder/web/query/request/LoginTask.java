@@ -1,4 +1,4 @@
-package com.topcoder.web.query.bean.task;
+package com.topcoder.web.query.request;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.SimpleUser;
