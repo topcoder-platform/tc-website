@@ -1,6 +1,5 @@
 <%@  page
   language="java"
-  errorPage="/errorPage.jsp"
   import="java.util.*,
           com.topcoder.common.web.data.report.*,
           com.topcoder.shared.dataAccess.resultSet.*"
@@ -131,8 +130,8 @@
     <input type="hidden" name="order" value="1"/>
     <input type="hidden" name="sort" value="1"/>
 <table class="search"><tr><td align="center" colspan="3">
-  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> | 
-  <a href="/tc?module=LegacyReport&t=profile_search">Start over</a> | 
+  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> |
+  <a href="/tc?module=LegacyReport&t=profile_search">Start over</a> |
   <a href="JavaScript:submitForm()">Submit</a>
 </td></tr><tr><td valign="top" class="lefttop">
     <table class="search">
@@ -151,7 +150,7 @@
       <tr><td class="left"> Student: </td><td class="right"><tc-webtag:chkBox name="stud"/></td></tr>
       <tr><td class="left">Languages: </td><td class="right">
         <rsc:iterator list="<%=languages%>" id="resultRow">
-          <rsc:item name="language_name" row="<%=resultRow%>"/>: 
+          <rsc:item name="language_name" row="<%=resultRow%>"/>:
           <tc-webtag:chkBox name='<%="lang_"+resultRow.getIntItem("language_id")%>'/>
           <br/>
         </rsc:iterator>
@@ -204,8 +203,8 @@
       <tr><td></td></tr>
     </table>
 </td><tr><td align="center" colspan="3">
-  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> | 
-  <a href="/tc?module=LegacyReport&t=profile_search">Start over</a> | 
+  <A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A> |
+  <a href="/tc?module=LegacyReport&t=profile_search">Start over</a> |
   <a href="JavaScript:submitForm()">Submit</a>
 </td></tr></table>
   </FORM>
