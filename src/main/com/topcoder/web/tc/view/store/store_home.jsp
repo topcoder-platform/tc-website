@@ -32,9 +32,9 @@
 <td class="bodyText" align="center">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td align="center"><img src="/i/store/store_home_a.gif" alt="TopCoder Gear Store" width="540" height="58" border="0" /><br/>
-                <img src="/i/store/store_home_b.jpg" alt="TopCoder Gear Store" width="540" height="201" border="0" /><br/>
-                <img src="/i/store/store_home_c.jpg" alt="TopCoder Gear Store" width="540" height="240" border="0" />
+                <tr><td align="center"><a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_a.gif" alt="TopCoder Gear Store" width="540" height="58" border="0" /></a><br/>
+                <a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_b.jpg" alt="TopCoder Gear Store" width="540" height="201" border="0" /></a><br/>
+                <a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_c.jpg" alt="TopCoder Gear Store" width="540" height="240" border="0" /></a>
                 
                 </td></tr>
     </table>
