@@ -59,6 +59,8 @@ public class Constants {
     public static String RP_VIEW_PROBLEM_SET_RESPONSE;
     public static String RP_VIEW_PROBLEM_SET_INNER;
     public static String RP_PROBLEM_STATEMENT;
+    public static String RP_SAVE;
+    public static String RP_SAVE_RESPONSE;
 
     //session keys
     public static String TEST_SET_A;
