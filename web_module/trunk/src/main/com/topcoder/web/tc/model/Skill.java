@@ -13,7 +13,7 @@ import java.io.Serializable;
  *
  * @author  rfairfax
  */
-public class Skill implements Serializable {
+public class Skill implements Serializable, Comparable {
 
     private String text;
     private int id;
@@ -46,5 +46,10 @@ public class Skill implements Serializable {
         
         Skill s = (Skill)o;
         return s.getID() == getID();
+    }
+    
+    public int compareTo(Object o) {
+        Skill s = (Skill)o;
+        return this.getText().compareToIgnoreCase(s.getText());
     }
 }
