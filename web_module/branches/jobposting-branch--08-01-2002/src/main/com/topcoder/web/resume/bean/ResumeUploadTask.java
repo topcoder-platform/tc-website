@@ -16,12 +16,10 @@ public class ResumeUploadTask extends ResumeTask{
     private byte file[] = null;
     private String contentType = null;
     private String fileName = null;
-    public ResumeUploadTask(HttpServletRequest request) throws ResumeTaskException{
-        FileUpload fu = null;
+    public ResumeUploadTask(FileUpload fu) throws ResumeTaskException{
         UploadedFile uf = null;
         byte[] fileBytes = null;
         try {
-            fu = new FileUpload(request, false);
             Iterator it = fu.getAllUploadedFiles();
             //only need to worry about a single resume
             if (it.hasNext()) {

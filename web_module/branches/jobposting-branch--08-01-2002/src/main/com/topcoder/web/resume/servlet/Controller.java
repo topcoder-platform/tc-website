@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class Controller
         extends HttpServlet {
     private static Logger log = Logger.getLogger(Controller.class);
-//    static final String MULTIPART_FORM_DATA = "multipart/form-data";
+    static final String MULTIPART_FORM_DATA = "multipart/form-data";
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
@@ -40,14 +40,9 @@ public class Controller
         HttpSession session = null;
         try {
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
-//            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
-                Enumeration en = request.getParameterNames();
-                log.debug(request.getQueryString());
-                while(en.hasMoreElements()){
-                    String param = (String)en.nextElement();
-                    log.debug(param+" = "+request.getParameter(param));
-                }
-                String taskName = request.getParameter(TASK);
+            if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
+                FileUpload fu = new FileUpload(request, false);
+                String taskName = fu.getParameter(TASK);
                 if (taskName == null || !isWord(taskName)) {
                     log.debug(TASK + " not found in request. - "+taskName);
                     forwardToError(request, response, new Exception(TASK + " not found in request."));
@@ -65,7 +60,7 @@ public class Controller
                 }
                 log.debug("about to make task: "+taskName);
                 try {
-                    task = (ResumeTask) taskClass.getConstructor(new Class[]{HttpServletRequest.class}).newInstance(new Object[]{request});
+                    task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class}).newInstance(new Object[]{fu});
                     log.debug("about to process task: "+taskName);
                     task.process();
                 } catch (Exception e) {
@@ -74,7 +69,7 @@ public class Controller
                     return;
                 }
                 forward(request, response, task.getNextPage());
-//            }
+            }
         } catch (ServletException se) {
             throw se;
         } catch (Exception e) {
