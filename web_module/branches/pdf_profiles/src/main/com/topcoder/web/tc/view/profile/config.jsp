@@ -56,7 +56,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td valign=top>
                     <b>Skills</b>
                 </td>
                 <td>
@@ -67,6 +67,16 @@
                                 <b><%=skillGroup%></b>
                             </td>
                         </tr>
+                            <tc:skillIterator id="skill" list="<%=configInfo.getSkills(skillGroup)%>">
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="skills" checked="checked" value="<%=skill.getID()%>" id="skill<%=skill.getID()%>" />
+                            </td>
+                            <td>
+                                <label for="skill<%=skill.getID()%>"><%=skill.getText()%> - <%=configInfo.getSkillRating(skill)%></label>
+                            </td>
+                        </tr>
+                            </tc:skillIterator>
                     </table>
                     </tc:listIterator>
                 </td>

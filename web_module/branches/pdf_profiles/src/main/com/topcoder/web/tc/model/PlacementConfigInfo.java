@@ -37,6 +37,32 @@ public class PlacementConfigInfo implements Serializable {
         return al;
     }
     
+    public List getSkills(String group) {
+        ArrayList al = new ArrayList();
+        
+        Map groupMap = (Map)skillGroups.get(group);
+        
+        Iterator i = groupMap.keySet().iterator();
+        while(i.hasNext()) {
+            Skill s = (Skill)i.next();
+            al.add(s);
+        }
+        
+        return al;
+    }
+    
+    public int getSkillRating(Skill s) {
+        Iterator i = skillGroups.values().iterator();
+        while(i.hasNext()) {
+            Map m = (Map)i.next();
+            if(m.containsKey(s)) {
+                return ((Integer)m.get(s)).intValue();
+            }
+        }
+        
+        return -1;
+    }
+    
     public void createSkillGroup(String group) {
         if(!hasSkillGroup(group)) {
             skillGroups.put(group, new HashMap());
