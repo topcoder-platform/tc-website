@@ -39,7 +39,7 @@
                             <tr>
                                 <td class="brBodyTitle" align=left>Application Information
                                 </td>
-                                <td class="brBodyTitle" align=right nowrap=nowrap><A href="/pl/?&module=Static&d1=brooks&d2=overview" class="brBodyTitle">Back to Overview</A>
+                                <td class="brBodyTitle" align=right nowrap=nowrap>
                                 </td>
                            </tr>
                         <tr>

@@ -36,9 +36,14 @@
                             <tr>
                                 <td class="brBodyTitle" align=left>Application Information
                                 </td>
-                                <td class="brBodyTitle" align=right nowrap=nowrap><A href="/pl/?&module=Static&d1=brooks&d2=overview" class="brBodyTitle">Back to Overview</A>
+                                <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="http://www.brooks.com/pages/2730_software.cfm" class="brBodyTitle">Learn about Brooks Software</A>
                                 </td>
                            </tr>
+                        <tr>
+                            <td class="brBody" colspan="2" align=center>
+                            If you encounter any technical problems while using the <br/>Technical Assessment Tool, please contact us at <A href="mailto:brooks@topcoder.com">brooks@topcoder.com</A><br/>.
+                            </td>
+                        </tr>
                         <tr>
                             <td class="brErrorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
