@@ -57,32 +57,10 @@
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <div align="center">
             
-<object
-classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-width="800"
-height="450"
-id="appSuite"
-align="top"
-<param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="http://172.16.20.20/i/development/appSuiteDetails.swf"/>
-<param name="menu" value="false" />
-<param name="align" value="t" />
-<param name="salign" value="t" />
-<param name="menu" value="false" />
-<param name="bgcolor" value="#ffffff" />
-<embed
-src="http://172.16.20.20/i/development/appSuiteDetails.swf"
-menu="false"
-quality="high"
-bgcolor="#ffffff"
-width="800"
-height="450"
-name="appSuite"
-align="top"
-allowScriptAccess="sameDomain"
-type="application/x-shockwave-flash"
-pluginspage="http://www.macromedia.com/go/getflashplayer" />
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=4,0,0,0" width="80" height="80">
+<param name="movie" value="http://172.16.20.20/i/flash/flash_detection.swf?flashContentURL=http://172.16.210.55:8080/applications/appSuiteContent.jsp&altContentURL=http://172.16.210.55:8080/applications/appSuiteAlt.jsp&contentVersion=7&contentMajorRevision=0&contentMinorRevision=0&allowFlashAutoInstall=false" />
+<param name="quality" value="low" />
+<embed src="http://172.16.20.20/i/flash/flash_detection.swf?flashContentURL=http://172.16.210.55:8080/applications/appSuiteContent.jsp&altContentURL=http://172.16.210.55:8080/applications/appSuiteAlt.jsp&contentVersion=7&contentMajorRevision=0&contentMinorRevision=0&allowFlashAutoInstall=false" quality="low" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="80" height="80" />
 </object>
 
             <p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
