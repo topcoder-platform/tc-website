@@ -391,10 +391,11 @@
   <TR>
     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" HSPACE="6" BORDER="0"/></TD>
     <TD CLASS="bodyText" VALIGN="top" NOWRAP="0"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A><BR/>
-<B>When:</B> October 8th - November 23rd<BR/>
+<B>When:</B> November 22nd and 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
-<B>Total Prize:</B> $150,000<BR/><BR/>
-
+<B>Total Prize:</B> $150,000<BR/>
+<A HREF="http://www.mohegansun.com/directions/index.jsp" TARGET="_blank">
+<IMG SRC="/i/spectator.gif" ALT="Invitational" WIDTH="200" HEIGHT="43" VSPACE="3" BORDER="0"/></A>
 <!--
 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>-->
@@ -605,8 +606,8 @@ problem (arguably the easiest Division-I problem of the match)...
 </map>-->
 <A HREF="/?&amp;t=development&amp;c=index">
 <IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
-<A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
-<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A>
+<!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
+<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A> -->
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/> -->
  
