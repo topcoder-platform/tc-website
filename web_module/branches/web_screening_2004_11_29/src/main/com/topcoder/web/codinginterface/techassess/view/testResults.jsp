@@ -15,7 +15,7 @@
           </tr>
           <tr>
               <td>
-                  <a href=""><img src="/i/corp/screening/buttonOK.gif" alt="OK"/></a>
+                  <a href="Javascript:window.close();"><img src="/i/corp/screening/buttonOK.gif" alt="OK"/></a>
               <td>
           </tr>
       </table>

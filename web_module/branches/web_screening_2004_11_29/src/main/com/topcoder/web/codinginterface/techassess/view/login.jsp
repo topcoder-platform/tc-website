@@ -22,7 +22,7 @@ function submitEnter(e) {
 </script>
 
 </head>
-<body>
+<body onLoad="Javascript:document.loginForm.<%=Constants.HANDLE%>.focus();">
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 
