@@ -25,9 +25,12 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
         setDefault(Constants.COMPANY_ID, StringUtils.checkNull(getRequest().getParameter(Constants.COMPANY_ID)));
 
         StringTokenizer st = new StringTokenizer(email, "@.");
-        if (!email.equals("")&&(st.countTokens() < 3
+        setIsNextPageInContext(true);
+        if (email.equals("")) {
+            setNextPage(getStartPage());
+        } else if (st.countTokens() < 3
                 || !StringUtils.contains(email, '@')
-                || !StringUtils.contains(email, '.'))) {
+                || !StringUtils.contains(email, '.')) {
             addError(Constants.EMAIL, "Please enter a valid email address.");
             setDefault(Constants.EMAIL, email);
             setNextPage(getStartPage());
