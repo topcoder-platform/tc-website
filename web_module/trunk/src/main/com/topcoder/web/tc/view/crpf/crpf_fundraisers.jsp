@@ -46,7 +46,7 @@
                
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
-   <jsp:param name="selectedTab" value="overview"/>
+   <jsp:param name="selectedTab" value="fundraisers"/>
 </jsp:include>
 
 <!-- Tab bar sublinks-->
