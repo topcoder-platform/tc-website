@@ -2,9 +2,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.web.tc.model.SoftwareComponent,
-                 com.topcoder.web.tc.model.ReviewBoardApplication"%>
+                 com.topcoder.web.tc.model.ReviewBoardApplication,
+                 java.sql.Timestamp"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
@@ -159,15 +161,11 @@
  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
-<%--
  <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
  <% } else { %>
---%>
  <td class="projectCells" align="center">Open</td>
-<%--
  <% } %>
---%>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
@@ -179,7 +177,7 @@
 </rsc:iterator>
 
                     <tr>
-                        <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
+                        <td class="projectHeaders" align="left" nowrap="nowrap" colspan="10"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
                     </tr>
            </table>
 
@@ -235,15 +233,11 @@
   <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
   <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
   <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-<%--
  <% if (((TCTimestampResult) resultRow.getItem("opens_on")).compareTo(new TCTimestampResult(new Timestamp(System.currentTimeMillis()))) == 1) { %>
   <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="opens_on" format="MM.dd.yyyy"/></td>
  <% } else { %>
---%>
   <td class="projectCells" align="center">Open</td>
-<%--
  <% } %>
---%>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
@@ -255,7 +249,7 @@
 </rsc:iterator>
 
                     <tr>
-                        <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
+                        <td class="projectHeaders" align="left" nowrap="nowrap" colspan="10"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
                     </tr>
            </table>
 

@@ -2,9 +2,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
-                 java.util.List,
-                 com.topcoder.web.tc.Constants"%>
+                 com.topcoder.web.tc.Constants,
+                 java.sql.Timestamp,
+                 java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
