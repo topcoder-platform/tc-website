@@ -80,27 +80,27 @@
    <target name="servlets" depends="compile">
       <move todir="${servlets}/${statservlets}">
          <fileset dir="${classes}/${statservlets}" >
-                 <include name="*.class" />
+                 <include name="**/*.class" />
          </fileset>
       </move>
       <move todir="${servlets}/${webservlets}">
          <fileset dir="${classes}/${webservlets}" >
-                 <include name="*.class" />
+                 <include name="**/*.class" />
          </fileset>
       </move>
       <move todir="${servlets}/${pactsservlets}">
          <fileset dir="${classes}/${pactsservlets}" >
-                 <include name="*.class" />
+                 <include name="**/*.class" />
          </fileset>
       </move>
    </target>
 
    <target name="moveStruts" depends="check_java_version">
-      <move todir="${public_html}/WEB-INF">
-         <fileset dir="resources" >
-                 <include name="*.tld" />
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="resources/stat" >
+                 <include name="**/*.tld" />
          </fileset>
-      </move>
+      </copy>
    </target>
 
    <target name="jsp" depends="check_java_version">
@@ -126,32 +126,32 @@
 
       <copy todir="${stat.trgt}">
          <fileset dir="${stat.src}" >
-                 <include name="*.jsp" />
+                 <include name="**/*.jsp" />
          </fileset>
       </copy>
       <copy todir="${root.trgt}">
          <fileset dir="${root.src}" >
-                 <include name="*.jsp" />
+                 <include name="**/*.jsp" />
          </fileset>
       </copy>
       <copy todir="${pacts.trgt}">
          <fileset dir="${pacts.src}" >
-                 <include name="*.jsp" />
+                 <include name="**/*.jsp" />
          </fileset>
       </copy>
       <copy todir="${project.trgt}">
          <fileset dir="${project.src}" >
-                 <include name="*.jsp" />
+                 <include name="**/*.jsp" />
          </fileset>
       </copy>
       <copy todir="${reg.trgt}">
          <fileset dir="${reg.src}" >
-                 <include name="*.jsp" />
+                 <include name="**/*.jsp" />
          </fileset>
       </copy>
       <copy todir="${render.trgt}">
          <fileset dir="${render.src}" >
-                 <include name="*.jsp" />
+                 <include name="**/*.jsp" />
          </fileset>
       </copy>
    </target>
