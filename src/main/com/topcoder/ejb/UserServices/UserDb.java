@@ -94,6 +94,7 @@ final class UserDb {
                 password = "encrypt failed";
             }
 
+            log.debug("adding " + user.getHandle() + "(" + user.getUserId() + ")");
             query = new StringBuffer(100);
             query.append(" INSERT INTO security_user");
             query.append(       " (login_id, user_id, password)");
@@ -104,7 +105,7 @@ final class UserDb {
             ps1.setString(3, password);
             regVal = ps1.executeUpdate();
             if (regVal != 1) {
-                log.error("insertUser():did not update security user record");
+                log.error("insertUser():did not insert  security user record");
             }
 
             Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
