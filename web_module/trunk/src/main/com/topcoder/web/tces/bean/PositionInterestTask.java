@@ -4,9 +4,7 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.tces.common.JSPUtils;
-import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.web.tces.common.*;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -274,6 +272,15 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
                     hitListRow.getItem("coder_type_desc").toString().trim() );
             hit.put("school",
                     hitListRow.getItem("school_name").toString().trim() );
+
+            hit.put("gpa",
+                    hitListRow.getItem("gpa").toString().trim() );
+            hit.put("has_resume",
+                    hitListRow.getItem("has_resume").toString().trim() );
+            hit.put("grad_year",
+                    hitListRow.getItem("grad_year").toString().trim() );
+            hit.put("grad_month",
+                    hitListRow.getItem("grad_month").toString().trim() );
 
             if (((String)hit.get("school")).trim().length() > 0 &&
                 ((String)hit.get("school")).indexOf("N/A") < 0) {
