@@ -22,7 +22,7 @@
 %>
 <html>
 <head>
-<TITLE>TopCoder Statistics - Consecutive Wins</TITLE>
+<TITLE>TopCoder Statistics - Consecutive Rating Increases</TITLE>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="../script.jsp" />
@@ -110,9 +110,9 @@ View consecutive rating increase streaks for <A CLASS="statText" HREF="/stat?c=c
                     <td CLASS="smallFoot" align="right" height="13"><rsc:item row="<%=resultRow%>" name="rank"/>&nbsp;</td>
                     <td><a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></td>
                     <TD CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="length"/></TD>
-                    <TD CLASS="statText" ALIGN="right" width="18%"><rsc:item row="<%=resultRow%>" name="start_contest_name"/></td>
+                    <TD CLASS="statText" ALIGN="right" width="18%" nowrap="on"><rsc:item row="<%=resultRow%>" name="start_contest_name"/></td>
                     <TD CLASS="statText" ALIGN="center" width="4%">&nbsp;-&nbsp;</td>
-                    <TD CLASS="statText" ALIGN="left" width="18%"><rsc:item row="<%=resultRow%>" name="end_contest_name"/></TD>
+                    <TD CLASS="statText" ALIGN="left" width="18%" nowrap="on"><rsc:item row="<%=resultRow%>" name="end_contest_name"/></TD>
                     <TD CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="start_date" format="MM.dd.yy"/>&nbsp;-&nbsp;<rsc:item row="<%=resultRow%>" name="end_date" format="MM.dd.yy"/></TD>
                 </tr>
             </rsc:iterator>
