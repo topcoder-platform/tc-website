@@ -28,7 +28,7 @@
          <!-- BEGIN BODY -->
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
-%>		 
+%>     
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
            <TR>
              <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
@@ -73,11 +73,11 @@ pageContext.setAttribute("resultSet", rsc);
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Rank</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="48%">
-				   <A HREF="/stat?c=school_avg_rating&sq=School_Avg_Rating&sr=<%=srb.getProperty("sr","1")%>&er=<%=srb.getProperty("er","50")%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">Name</a>
-				   </TD>
+<%--           <A HREF="/stat?c=school_avg_rating&sq=School_Avg_Rating&sr=<%=srb.getProperty("sr","1")%>&er=<%=srb.getProperty("er","50")%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">--%>Name<%--</a>--%>
+           </TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="20%">
-				   <A HREF="/stat?c=school_avg_rating&sq=School_Avg_Rating&sr=<%=srb.getProperty("sr","1")%>&er=<%=srb.getProperty("er","50")%>&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Avg. Rating</a>
-				   </TD>
+<%--           <A HREF="/stat?c=school_avg_rating&sq=School_Avg_Rating&sr=<%=srb.getProperty("sr","1")%>&er=<%=srb.getProperty("er","50")%>&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">--%>Avg. Rating<%--</a>--%>
+           </TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
@@ -91,7 +91,7 @@ pageContext.setAttribute("resultSet", rsc);
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" HEIGHT="13" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 1 /* avg. rating */ + "]" %>'/></TD>
                      <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>
-		 </logic:iterate>
+     </logic:iterate>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
