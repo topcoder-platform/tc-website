@@ -211,7 +211,7 @@
               %>
                 <option value="<rsc:item name="skill_id" row="<%=skill%>"/>"><rsc:item name="skill_desc" row="<%=skill%>"/></option>
               <%
-              skillNames.put(new Integer(resultRow.getIntItem("skill_id")),resultRow.getStringItem("skill_desc"));
+              skillNames.put(new Integer(skill.getIntItem("skill_id")),skill.getStringItem("skill_desc"));
               idx++;
             }else{
                 break;
