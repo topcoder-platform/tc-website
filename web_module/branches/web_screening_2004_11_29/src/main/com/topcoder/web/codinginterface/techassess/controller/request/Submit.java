@@ -53,6 +53,7 @@ public class Submit extends Base {
                 code = getRequest().getParameter(Constants.CODE);
 
             resubmit = (String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.SUBMIT_FLAG)));
+            log.debug("resubmit is " + resubmit);
 
             ScreeningSubmitRequest request = new ScreeningSubmitRequest(componentId, problemTypeId, resubmit);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
