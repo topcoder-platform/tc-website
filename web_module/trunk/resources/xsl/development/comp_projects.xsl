@@ -257,6 +257,10 @@
                                         Version&#160;<xsl:value-of select="./version_text"/>
                                     </xsl:if>
                                 </a>
+                                <xsl:if test="./max_unrated_registrants = 0">
+                                        **
+                                </xsl:if>
+
                             </td>
                             <td class="projectCells" align="center">
                                         <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
