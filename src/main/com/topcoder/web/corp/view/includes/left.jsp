@@ -51,14 +51,14 @@
 <% } %>
 <!-- Sponsorship ends -->
 
-<!-- Private Label Events begins -->
+<!-- Private Label Events begins
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("privateLabel")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=index" class="corpLeft">Private Label Events</a></td></tr>
 <% if (level1.equals("privateLabel")) { %>
                 <tr><td id="<%=level2.equals("overview")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=index" target="_parent" class="corpLeft">Overview</a></td></tr>
                 <tr><td id="<%=level2.equals("online")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=online" target="_parent" class="corpLeft">Online Services</a></td></tr>
                 <tr><td id="<%=level2.equals("onsite")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=private_label&d3=onsite" target="_parent" class="corpLeft">Onsite Services</a></td></tr>
 <% } %>
-<!-- Private Label Events ends -->
+ Private Label Events ends -->
 
 <!-- Account Admin begins -->
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("myAccount")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=acc_admin&d3=index" class="corpLeft">Account Administration</a></td></tr>
