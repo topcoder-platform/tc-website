@@ -345,8 +345,9 @@
         <action 
                 path="/editTimeline"
                 type="com.topcoder.apps.review.EditTimelineAction"
-                name="projectForm"
+                name="projectForm"                
                 validate="true"
+                input="/editTimeline.jsp"
                 scope="session">
             <forward name="success" path="/editTimeline.jsp"/>
             <forward name="refresh" path="/editTimeline.jsp"/>
