@@ -10,7 +10,7 @@
         </tr>
 
         <tr valign="middle">
-            <td align="center"><a href="/stat?c=member_profile&cr=<rsc:item set="<%=coderInfo%>" name="coder_id"/>"><img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" width="126" height="140" border="0" class="memberPhoto" /></a></td>
+            <td align="center"><a href="<%=coderInfo.getIntItem(0, "has_image")==0?"https://"+request.getServerName()+"/Registration":"/stat?c=member_profile&cr="+coderInfo.getIntItem(0, "coder_id")%>"><img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" width="126" height="140" border="0" class="memberPhoto" /></a></td>
         </tr>
     </table>
 
