@@ -63,8 +63,6 @@ public class WriterReport {
       while(rs.next()) {
         div2Counts.add(new CoderCount(rs.getInt(1), rs.getInt(2), rs.getDate(3)));
       }
-System.out.println("1count: " + div1Counts.size());
-System.out.println("2count: " + div2Counts.size());
       if (div1Counts.size() == 0) {
         System.out.println("0 records found for div1");
         return;
