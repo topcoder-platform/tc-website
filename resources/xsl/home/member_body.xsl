@@ -401,44 +401,14 @@ for more information.<BR/><BR/>
 
 <!--
   <tr>
-    <td VALIGN="top" WIDTH="1" COLSPAN="4">
-      <xsl:choose>
-      <xsl:when test="/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/is_eligible='T'">
-        <xsl:choose>
-        <xsl:when test="/TC/HOME/CollegiateInfo/IsRegistered='1'">
-          bully for you, you're registered.
-        </xsl:when>
-        <xsl:otherwise>
-          doh, you are eligible but not yet registered       
-          <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462">register</A>
-        </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:choose>
-        <xsl:when test="/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/has_enough_ratings='F'">
-          you don't have enough ratings, compete
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:choose>
-          <xsl:when test="/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/has_recent_competition='F'">
-            you haven't competed recently, compete
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:choose>
-            <xsl:when test="/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/is_student='F'or/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/in_school='F'">
-              you are not a student, you can not compete
-            </xsl:when>
-            <xsl:otherwise>
-              something is wrong
-            </xsl:otherwise>
-            </xsl:choose>
-          </xsl:otherwise>
-          </xsl:choose>
-        </xsl:otherwise>
-        </xsl:choose>
-      </xsl:otherwise>
-      </xsl:choose>
+    <td VALIGN="top" COLSPAN="4">
+      <xsl:for-each select="/TC/HOME/CollegiateInfo/reasons/reason">
+        <xsl:value-of select="reason_text"/><BR/>  
+      </xsl:for-each>
+      <xsl:if test="/TC/HOME/CollegiateInfo/showLink='true'">
+        <BR/>
+        Click <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462">here</A> to register.
+      </xsl:if>
     </td>
   </tr>
 -->
