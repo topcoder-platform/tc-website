@@ -51,6 +51,8 @@ public class Controller extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        log.debug("request: " + request.getQueryString());
+
         String taskName = request.getParameter(Constants.TASK_PARAM);
         String stepName = request.getParameter(Constants.STEP_PARAM);
         if (taskName!=null && !isLegal(taskName)) {
