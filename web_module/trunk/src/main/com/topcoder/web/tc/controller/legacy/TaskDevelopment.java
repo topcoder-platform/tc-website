@@ -579,7 +579,7 @@ public final class TaskDevelopment {
 
                         }
                     } else {
-                        devTag.addTag(new ValueTag("projectFull", "true"));
+                        xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
                     }
                 } else {
                     requiresLogin = true;

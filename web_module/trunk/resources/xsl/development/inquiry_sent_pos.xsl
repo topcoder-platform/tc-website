@@ -70,11 +70,6 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%">
 
-                        <xsl:choose>
-                            <xsl:when test="/TC/DEVELOPMENT/projectFull='true'">
-                                <p><strong>Sorry, the project you applied for is full.</strong></p>
-                            </xsl:when>
-                            <xsl:otherwise>
                                 <p><strong>Your inquiry has been sent. Thank You!</strong></p>
 
                                     Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
@@ -99,8 +94,6 @@
                                 <p>If you have any questions please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 
                                 <p><br /></p>
-                            </xsl:otherwise>
-                        </xsl:choose>
 
                     </td>
                  </tr>

@@ -55,7 +55,7 @@
                     <td class="bodyText" width="100%">
                         <p><strong>Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your inquiry.</strong></p>
                         
-                        <p>Unfortunately, you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current schedule for details regarding upcoming matches. To view other components and discuss component ideas with other members, visit <a href="http://software.topcoder.com">TopCoder Software</a>. Your TopCoder handle and password will give you access to post questions or comments on the <a href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums</a>.</p>
+                        <p>Unfortunately, the project you applied for is full.</p>
                         
                         <p>If you have any problems please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 
