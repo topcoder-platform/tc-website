@@ -34,6 +34,13 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandTask" property="Db"/>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_NAME%></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+            <TR>
+              <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
+              <TD CLASS="statText" ALIGN="left">
+                  <jsp:getProperty name="ModifyCommandTask" property="Db"/>
+              </TD>
+            </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandTask%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandTask%>" key="<%=Constants.COMMAND_DESC_PARAM%>"/></TD></TR>
             <TR>
@@ -48,13 +55,6 @@
               <TD CLASS="statText" ALIGN="right">Group: </TD>
               <TD CLASS="statText" ALIGN="left">
                 <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.getGroups()%>" selectedValue='<%=""+ModifyCommandTask.getGroupId()%>'/>
-              </TD>
-            </TR>
-            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR>
-              <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
-              <TD CLASS="statText" ALIGN="left">
-                  <jsp:getProperty name="ModifyCommandTask" property="Db"/>
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>

@@ -34,6 +34,13 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyInputTask" property="Db"/>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_INPUT_NAME%></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+            <TR>
+              <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
+              <TD CLASS="statText" ALIGN="left">
+                  <jsp:getProperty name="ModifyInputTask" property="Db"/>
+              </TD>
+            </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.INPUT_ID_PARAM%>"/></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.INPUT_DESC_PARAM%>"/></TD></TR>
             <TR>
@@ -56,13 +63,6 @@
               <TD CLASS="statText" ALIGN="right">Data Type: </TD>
               <TD CLASS="statText" ALIGN="left">
                 <query:dataTypeSelect name="<%=Constants.DATA_TYPE_ID_PARAM%>" class="dropdown" selectedValue='<%=""+ModifyInputTask.getDataTypeId()%>'/>
-              </TD>
-            </TR>
-            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR>
-              <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
-              <TD CLASS="statText" ALIGN="left">
-                  <jsp:getProperty name="ModifyInputTask" property="Db"/>
               </TD>
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>

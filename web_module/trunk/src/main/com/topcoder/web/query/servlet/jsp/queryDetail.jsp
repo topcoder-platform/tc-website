@@ -29,6 +29,13 @@
         <TABLE WIDTH="80%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.QUERY_DETAIL_NAME%></TD></TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+          <TR>
+            <TD CLASS="statText" ALIGN="right" WIDTH="50%">DB:&#160;</TD>
+            <TD CLASS="statText" ALIGN="left" WIDTH="50%">
+              <jsp:getProperty name="QueryDetailTask" property="Db"/>
+            </TD>
+          </TR>
+          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
             Query: <jsp:getProperty name="QueryDetailTask" property="QueryName"/>
           </TD></TR>
@@ -42,25 +49,18 @@
             </A>
           </TD></TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-          <TR>
-            <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
-            <TD CLASS="statText" ALIGN="left">
-              <jsp:getProperty name="QueryDetailTask" property="Db"/>
-            </TD>
+          <TR BGCOLOR="#333333">
+            <TD CLASS="statTextBig" COLSPAN="2">Query Text</TD>
           </TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-          <TR BGCOLOR="#333333" COLSPAN="2">
-            <TD CLASS="statTextBig">Query Text</TD>
-          </TR>
-          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
-            <TD VALIGN="top" WIDTH="100%" CLASS="statText">
+            <TD VALIGN="top" WIDTH="100%" CLASS="statText" COLSPAN="2">
               <pre><jsp:getProperty name="QueryDetailTask" property="QueryText"/></pre>
             </TD>
           </TR>
-          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
-            <TD VALIGN="top" WIDTH="50%">
+            <TD VALIGN="top" WIDTH="50%" COLSPAN="2">
               <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                 <TR BGCOLOR="#333333">
                   <TD></TD>
