@@ -3,6 +3,8 @@ package com.topcoder.web.privatelabel.controller.request;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.school.CurrentSchool;
@@ -91,7 +93,8 @@ public class FullRegSubmit extends SimpleRegSubmit {
         //get all reg info from the session, no changes should have been made at this point
         FullRegInfo info = (FullRegInfo)getRegInfoFromPersistor();
         if (info==null) {
-            throw new NavigationException("Sorry, your session has expired.");
+            SessionInfo sessInfo = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+            throw new NavigationException("Sorry, your session has expired.", sessInfo.getServletPath());
         }
 
         return info;
