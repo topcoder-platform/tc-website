@@ -11,14 +11,14 @@ public class ApplicationServer {
   public static final int QA       = bundle.getIntProperty("QA", 2);
   public static final int DEV      = bundle.getIntProperty("DEV", 3);
 
-  public static int      ENVIRONMENT           = bundle.getIntProperty("SELECTED_ENVIRONMENT", DEV);
-  public static int      WEBLOGIC_PORT         = bundle.getIntProperty("SELECTED_WEBLOGIC_PORT", 7030);
-  public static String   SERVER_NAME           = bundle.getProperty("SELECTED_SERVER_NAME", "172.16.20.20");
-  public static String   HOST_URL              = bundle.getProperty("SELECTED_HOST_URL", "t3://172.16.20.41:7030");
-  public static String   CONTEST_HOST_URL      = bundle.getProperty("SELECTED_CONTEST_HOST_URL", "t3://172.16.20.41:7010");
-  public static String   MPSQAS_HOST_URL       = bundle.getProperty("SELECTED_MPSQAS_HOST_URL", "t3://172.16.20.41:7030");
-  public static String[] WEBLOGIC_CLUSTER_IP   = getClusterArray(bundle.getProperty("SELECTED_WEBLOGIC_CLUSTER_IP", "172.16.20.41"));
-  public static String   BASE_DIR              = bundle.getProperty("SELECTED_BASE_DIR", "/usr/web/build/classes");
+  public static int      ENVIRONMENT           = bundle.getIntProperty("ENVIRONMENT", DEV);
+  public static int      WEBLOGIC_PORT         = bundle.getIntProperty("WEBLOGIC_PORT", 7030);
+  public static String   SERVER_NAME           = bundle.getProperty("SERVER_NAME", "172.16.20.20");
+  public static String   HOST_URL              = bundle.getProperty("HOST_URL", "t3://172.16.20.41:7030");
+  public static String   CONTEST_HOST_URL      = bundle.getProperty("CONTEST_HOST_URL", "t3://172.16.20.41:7010");
+  public static String   MPSQAS_HOST_URL       = bundle.getProperty("MPSQAS_HOST_URL", "t3://172.16.20.41:7030");
+  public static String[] WEBLOGIC_CLUSTER_IP   = getClusterArray(bundle.getProperty("WEBLOGIC_CLUSTER_IP", "172.16.20.41"));
+  public static String   BASE_DIR              = bundle.getProperty("BASE_DIR", "/usr/web/build/classes");
 
   public       static String IAGREE          = bundle.getProperty("IAGREE", BASE_DIR + "/com/topcoder/common/terms.txt");
   public final static String JNDI_FACTORY    = bundle.getProperty("JNDI_FACTORY", "weblogic.jndi.WLInitialContextFactory");
