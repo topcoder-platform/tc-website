@@ -227,7 +227,12 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
                     Resume resume = resumeServices.getResume(Long.parseLong(cid), Constants.DATA_SOURCE); 
                     
-                    request.setAttribute("resume", StringUtils.checkNull(resume.getFileName()));
+                    if(resume == null) {
+                        request.setAttribute("resume", "");
+                    }
+                    else
+                        request.setAttribute("resume", StringUtils.checkNull(resume.getFileName()));
+                    
                     
                     log.info("The problems info list contains : " + result.size() + " records");
 
