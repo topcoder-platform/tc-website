@@ -309,7 +309,7 @@ if ( plugin ) {
 		<% } %>
                        <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">&#160;</TD>
 	        </TR>
-                <% { even = false; %>
+                <% even = false; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
                      <%
                         String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
@@ -330,16 +330,17 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
 		       <% } %>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
+               <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
 		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%</td>
+		       <%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%
 		       <% } %>
+               </td>
                <% if (isSystemTested && (isSubmitted || isCompiled)) { %>
 		         <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
                <% } %>
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
-                <% } %>
 	        </table>
     <% } // getProblemSetBCount() > 0 %>
 <% } else { //isSessionComplete %>
