@@ -52,7 +52,13 @@
 
 		<table id="datatable" border="0" cellpadding="5" cellspacing="0">
         <tr>
-            <td colspan="8">
+            <td>
+                <a href="Javascript:checkAll(true)">check</a>
+            </td>
+            <td>
+                <a href="Javascript:checkAll(true)">checked</a>
+            </td>
+            <td colspan="6">
                 <a href="Javascript:checkAll(true)">check</a>
             </td>
         </tr>
