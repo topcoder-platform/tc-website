@@ -82,7 +82,7 @@ Help shape the way Google looks and works! As a software engineer with a UI focu
 <li>Proven track record for being detail-oriented with a demonstrated ability to self-motivate and follow-through on projects </li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=144&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=144&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 <br/><br/>
                            
 
