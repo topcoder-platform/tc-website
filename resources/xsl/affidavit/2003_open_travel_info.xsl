@@ -101,8 +101,6 @@
         <BR/>
         <CENTER>
           <H1>Travel Form</H1>
-          <BR/>
-          <BR/>
         </CENTER>
         </p>
 
