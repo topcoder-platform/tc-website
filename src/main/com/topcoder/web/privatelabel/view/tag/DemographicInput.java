@@ -32,11 +32,6 @@ public class DemographicInput extends BaseTag {
 
     public int doStartTag()
             throws JspException {
-        return doAfterBody();
-    }
-
-    public int doAfterBody()
-            throws JspException {
         if (question != null) {
             StringBuffer output = new StringBuffer(400);
             setName(PREFIX+question.getDemographicQuestionId());
@@ -56,22 +51,8 @@ public class DemographicInput extends BaseTag {
             } catch (IOException e) {
                 throw new JspException(e.getMessage());
             }
-            return EVAL_BODY_TAG;
-        } else {
-            if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {
-                try {
-                    bodyContent.writeOut(bodyContent.getEnclosingWriter());
-                } catch (Exception e) {
-                    throw new JspException(e.toString());
-                }
-            }
-            return SKIP_BODY;
         }
-    }
-
-    public int doEndTag()
-            throws JspException {
-        return EVAL_PAGE;
+        return SKIP_BODY;
     }
 
 
