@@ -1,7 +1,7 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
-  import="JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="com.topcoder.web.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
