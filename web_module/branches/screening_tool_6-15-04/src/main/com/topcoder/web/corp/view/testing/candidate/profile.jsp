@@ -1,6 +1,5 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,java.util.List,
-                 com.topcoder.web.corp.common.JSPUtils,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+                 com.topcoder.web.corp.common.JSPUtils"%>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -167,16 +166,6 @@ function getProblemDetail(id) {
                         </tr>
                         </screen:resultSetRowIterator>
 
-                        <%
-                            int pref;
-                            if(((List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)).get(0) == null)
-                            {
-                                pref = 0;
-                            }
-                            else
-                                pref = ((ResultSetContainer.ResultSetRow)((List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)).get(0)).getIntItem("level");
-                        %>
-                        <%=pref%>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)%>">
                         <tr>
