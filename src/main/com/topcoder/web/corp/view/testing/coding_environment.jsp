@@ -28,7 +28,7 @@
         <td width="170" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="testing"/>
-                <jsp:param name="level2" value="overview"/>
+                <jsp:param name="level2" value="codingEnvironment"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,19 +42,19 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyText" width="100%" colspan="3">
-                        <h1 class="testHead">Candidate Evaluation Application</h1>
+                        <h1 class="testHead">Candidate Testing Environment</h1>
                     </td>
                 <tr>
                 
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <p>The testing environment is a web-based application that allows candidates to solve complex algorithms as a measure of 
-                        their programming ability in conjunction with the client’s overall interview process.  In the testing environment, the 
+                        their programming ability in conjunction with the client's overall interview process.  In the testing environment, the 
                         candidate is required and instructed to choose the language in which they will write, compile, test and submit their code. 
-                        Currently, the languages available in TopCoder’s testing environment are Java, C++ and C#.  Employers can mandate 
+                        Currently, the languages available in TopCoder's testing environment are Java, C++ and C#.  Employers can mandate 
                         that one of those languages is used, or leave the choice of language to the candidate.  The candidate is presented with a set 
                         of problems as selected by the client.  The candidate will be required to read and understand each problem statement, then 
-                        code and submit a solution to that problem statement.  Once the code is submitted, TopCoder’s system tests the code for 
+                        code and submit a solution to that problem statement.  Once the code is submitted, TopCoder's system tests the code for 
                         accuracy and a basic level of efficiency.  The results of the system test are provided to the client through the reporting 
                         application.</p>
                     </td>
