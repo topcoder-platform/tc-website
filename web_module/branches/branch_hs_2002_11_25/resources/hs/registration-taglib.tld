@@ -5,7 +5,7 @@
  <shortname>TopCoder Registration Tags</shortname>
  <info>Tags used in Registration</info>
  <tag>
-  <name>regSelect</name>
+  <name>listSelect</name>
   <info>Generates a select box from a List of value/text pairs</info>
   <tagclass>com.topcoder.web.hs.view.tag.RegistrationSelect</tagclass>
   <bodycontent>empty</bodycontent>
