@@ -239,8 +239,8 @@ Round Updates/Schedule
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>2002 TopCoder Invitational Round 1 - Part 2</B></A><BR/>
-Thursday, October 10, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 116</B></A><BR/>
+Tuesday, October 15, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
@@ -438,8 +438,8 @@ If you have ever played a video game, gone to a movie, or just watched a bit of 
 <IMG USEMAP="#ge_home" SRC="/i/es/ge/ge_home.gif" alt="" width="244" height="160" border="0"/>  
   <BR/>
 <map name="ge_home">
-<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> -->
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4330&amp;t=schedule&amp;c=srm"/>
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
+<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4330&amp;t=schedule&amp;c=srm"/> -->
 <area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=ge"/>
 </map>
 
