@@ -12,21 +12,21 @@
 <!-- Corporate Home begins-->
 <% if (level1.equals("tces_home")) { %>
                        
-                        <div class="corpRight"><A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><IMG src="/i/es/animated_emp_promo.gif" alt="" width="170" height="119" border="0" /></A></div>
+                        <div class="corpRight"><A href="/i/tournament/tco04/onsite_movies/Nvidia.mov"><IMG src="/i/corp/promos/nvidiaMovie.gif" alt="" border="0" /></A></div>
                         <div class="corpRight"><a href="/i/corp/downloads/tc_demo_tces.pdf"><img src="/i/corp/promos/tc_demo_tces.gif" alt="Download TCES Demographics" width="170" height="218" border="0"></a></div>
 <% } %>
 <!-- Corporate Home ends -->
 
 <!-- Candidate Testing begins-->
 <% if (level1.equals("testing")) { %>
-                        <div class="corpRight"><A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><IMG src="/i/es/animated_emp_promo.gif" alt="" width="170" height="119" border="0" /></A></div>
+                        <div class="corpRight"><A href="/i/tournament/tco04/onsite_movies/Nvidia.mov"><IMG src="/i/corp/promos/nvidiaMovie.gif" alt="" width="170" height="119" border="0" /></A></div>
                         <div class="corpRight"><a href="/i/corp/downloads/tc_demo_tces.pdf"><img src="/i/corp/promos/tc_demo_tces.gif" alt="Download TCES Demographics" width="170" height="218" border="0"></a></div>
 <% } %>
 <!-- Candidate Testing ends -->
 
 <!-- Recruiting begins-->
 <% if (level1.equals("recruiting")) { %>
-                        <div class="corpRight"><A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><IMG src="/i/es/animated_emp_promo.gif" alt="" width="170" height="119" border="0" /></A></div>
+                        <div class="corpRight"><A href="/i/tournament/tco04/onsite_movies/Nvidia.mov"><IMG src="/i/corp/promos/nvidiaMovie.gif" alt="" width="170" height="119" border="0" /></A></div>
                         <div class="corpRight"><a href="/i/corp/downloads/tc_demo_tces.pdf"><img src="/i/corp/promos/tc_demo_tces.gif" alt="Download TCES Demographics" width="170" height="218" border="0"></a></div>
     <% if ((level2.equals("overview")) || (level2.equals("reporting"))) { %>
                         
