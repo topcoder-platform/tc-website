@@ -296,6 +296,57 @@ public class UserBean extends BaseEJB {
         return (first_name);
     }
 
+    public String getMiddleName(long userId)
+            throws EJBException {
+
+        log.debug("getMiddleName called. user_id=" + userId);
+
+        String middleName = null;
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        InitialContext ctx = null;
+
+        try {
+
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            conn = ds.getConnection();
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT middle_name ");
+            query.append("FROM user ");
+            query.append("WHERE user_id=?");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                middleName = rs.getString(1);
+            } else {
+                throw(new EJBException("No rows found when selecting from 'user' with " +
+                        "user_id=" + userId + "."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (NamingException _ne) {
+            _ne.printStackTrace();
+            throw(new EJBException(_ne.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+        return (middleName);
+    }
+
+
+
     public String getLastName(long userId)
             throws EJBException {
 
