@@ -69,7 +69,7 @@
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_10_01_03"><img src="/i/pressroom/northface_artifact.gif" alt="intel" width="135" height="60" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_10_01_03">Artifact and Northface to sponsor TopCoder Open</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_10_01_03">Artifact and Northface University to sponsor TopCoder Open</A></strong></font><br />
                         Artifact Software and Northface University have signed on as corporate sponsors of the upcoming 2003 TopCoder Open.  Artifact will leverage this international 
                         programming tournament to introduce its suite of products to some of the world's best programmers. Northface University will gain exposure to further their efforts 
                         to establish the finest university in the world for software developers. <span class="prHead">[October 1]</span></p>
