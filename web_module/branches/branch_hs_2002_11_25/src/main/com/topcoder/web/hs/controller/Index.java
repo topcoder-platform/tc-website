@@ -19,8 +19,7 @@ public final class Index extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(response.encodeURL("/hs/"));
-            dispatcher.forward(request, response);
+            response.sendRedirect(response.encodeRedirectURL("/hs/"));
         } catch (Exception e) {
             e.printStackTrace();
         }
