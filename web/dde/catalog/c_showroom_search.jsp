@@ -244,9 +244,9 @@
                         } else if (refCatalog == 2) {
                             %><img src="/images/flashSm.gif" alt="" width="33" height="17" border="0" /><%
                         } else if (refCatalog == 3) {
-                            %><img src="/images/javaCustomSm.gif" alt="" width="33" height="17" border="0" /><%
+                            %><img src="/images/javaCustomSm.gif" alt="" border="0" /><%
                         } else if (refCatalog == 4) {
-                            %><img src="/images/netCustomSm.gif" alt="" width="33" height="17" border="0" /><%
+                            %><img src="/images/netCustomSm.gif" alt="" border="0" /><%
                         }
                             %></td>
                                 <td width="5" class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>
