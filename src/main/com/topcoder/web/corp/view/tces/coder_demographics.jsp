@@ -39,11 +39,7 @@
 					<br/>
 					<span class=testHead>Coder Demographic Info: <%= CoderDemographicsTask.getMemberInfo().getItem(0, "handle").toString()%></span>
 					<br/><br/>
-					</td>
-				</tr>
 
-                <tr>
-                    <td class="bodyText" align="left">
                         <strong>Name:</strong> <%= CoderDemographicsTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= CoderDemographicsTask.getMemberInfo().getItem(0, "middle_name").toString()%> <%= CoderDemographicsTask.getMemberInfo().getItem(0, "last_name").toString()%><br/>
                         <strong>Address:</strong><br/>
                         <%= CoderDemographicsTask.getMemberInfo().getItem(0, "address1").toString()%><br/>
