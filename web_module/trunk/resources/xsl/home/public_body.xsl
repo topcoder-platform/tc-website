@@ -88,17 +88,17 @@
   </TR>
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute><IMG SRC="/i/tournament/invit02/home_invt02champ2.jpg" BORDER="0" WIDTH="250" HEIGHT="122" ALT=""/></A><BR/>
-<P><A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute><B>The Land Down Under comes out On Top!</B></A><BR/>
+    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><IMG SRC="/i/tournament/invit02/home_invt02champ2.jpg" BORDER="0" WIDTH="250" HEIGHT="122" ALT=""/></A><BR/>
+<P><A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><B>The Land Down Under comes out On Top!</B></A><BR/>
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 Saturday, November 23, 2002</P>
 
 Due to an inaccuracy in one of the problem specifications, the four finalists were asked to 
 compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> 
 became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> 
-in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
+in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
 
-<B>Championship updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ#photo</xsl:attribute>Photos</A>
+<B>Championship updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ#photo</xsl:attribute>Photos</A>
 <BR/><BR/>
 <!--<B>When:</B> November 22nd and 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
@@ -160,7 +160,7 @@ out-code each other and, in the process, walk away with $50,000.  With the Melbo
 University of Waterloo rivalry alive on the international scene, and the question of whether Stanford 
 University will continue its dominance on the minds of the Americans, the 2002 TopCoder Invitational 
 is slated to be the most exciting onsite event yet.  Join me as the scene unfolds over the next two days...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_reception</xsl:attribute>read&#160;more</A>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_reception</xsl:attribute>read&#160;more</A>
 
 <BR/><BR/>
 <B>Room 1</B>: 8AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
@@ -262,12 +262,12 @@ Wednesday, December 4, 2002<BR/><BR/>
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_champ</xsl:attribute><B>G'day Mate!</B></A><BR/>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=invit02_champ</xsl:attribute><B>G'day Mate!</B></A><BR/>
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 
 <P>
 ...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>read&#160;more</A>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>read&#160;more</A>
 </P>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
@@ -447,7 +447,7 @@ type of challenge designed to make your code run longer than 8 seconds. Immediat
 <!-- <A HREF="/?&amp;t=schedule&amp;c=oraclesurv_rules">
 <IMG SRC="/i/oraclesurv_promo.gif" ALT="Oracle Code Survivor" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->
 
-<!-- <A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/2002sunnetwork_button.gif" alt="" width="244" height="79" border="0"/></A><BR/>
+<!-- <A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournaments/2002sunnetwork_button.gif" alt="" width="244" height="79" border="0"/></A><BR/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
   <TR> 
     <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>

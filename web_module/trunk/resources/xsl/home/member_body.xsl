@@ -390,17 +390,17 @@
   </TR>
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute><IMG SRC="/i/tournament/invit02/home_invt02champ2.jpg" BORDER="0" WIDTH="250" HEIGHT="122" ALT=""/></A><BR/>
-<P><A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute><B>The Land Down Under comes out On Top!</B></A><BR/>
+    <TD CLASS="bodyText" VALIGN="top" ><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><IMG SRC="/i/tournament/invit02/home_invt02champ2.jpg" BORDER="0" WIDTH="250" HEIGHT="122" ALT=""/></A><BR/>
+<P><A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute><B>The Land Down Under comes out On Top!</B></A><BR/>
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 Saturday, November 23, 2002</P>
 
 Due to an inaccuracy in one of the problem specifications, the four finalists were asked to 
 compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> 
 became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> 
-in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
+in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
 
-<B>Championship updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ#photo</xsl:attribute>Photos</A>
+<B>Championship updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournaments&amp;c=invit02_champ#photo</xsl:attribute>Photos</A>
 <BR/><BR/>
 <!--<B>When:</B> November 22nd and 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
