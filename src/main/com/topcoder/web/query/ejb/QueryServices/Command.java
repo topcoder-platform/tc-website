@@ -22,6 +22,7 @@ public interface Command extends EJBObject {
     int getCommandGroupId(long commandId, String dataSourceName) throws RemoteException, EJBException;
 
     ResultSetContainer getCommandList(String dataSourceName) throws RemoteException, EJBException;
+    ResultSetContainer getCommandList(String dataSourceName, int commandGroupId) throws RemoteException, EJBException;
 
 }
 
