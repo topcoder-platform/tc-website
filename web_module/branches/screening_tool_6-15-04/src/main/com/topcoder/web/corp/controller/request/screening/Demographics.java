@@ -11,6 +11,14 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.controller.request.screening.BaseSessionProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.corp.common.Util;
+import com.topcoder.web.corp.model.DemographicModel;
+
+import java.util.*;
 /**
  *
  * @author  rfairfax
@@ -23,6 +31,77 @@ public class Demographics extends BaseScreeningProcessor {
             // notify the user about the error
             log.error("Campaign ID is not specified.");
             throw new ScreeningException("No campaign ID had been specified.");
+        }
+        
+        Request dataRequest = new Request();
+        ResultSetContainer rsc = null;
+        Map resultMap = null;
+
+        DemographicModel m = new DemographicModel();
+        
+        // Campaign Demographics
+        dataRequest.setContentHandle("campaign_demographics");
+      
+        int types[] = {com.topcoder.web.privatelabel.Constants.PROFESSIONAL,
+                       com.topcoder.web.privatelabel.Constants.STUDENT};
+
+        for (int typeI = 0; typeI < types.length; typeI++) {
+
+            dataRequest.setProperty("uid", String.valueOf(getUser().getId()));
+            dataRequest.setProperty("cgn", campaignId);
+            dataRequest.setProperty("ct", Integer.toString(types[typeI]));
+            resultMap = Util.getDataAccess().getData(dataRequest);
+
+            rsc = (ResultSetContainer) resultMap.get("campaign_info");
+            ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
+            m.setCampaignName(cpgnInfRow.getItem("campaign_name").toString());
+
+            rsc = (ResultSetContainer) resultMap.get("campaign_coders_by_type");
+            
+            ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
+            if (types[typeI] == com.topcoder.web.privatelabel.Constants.STUDENT)
+                m.setStudentCount(Integer.parseInt(coderCountRow.getItem("coder_type_count").toString()));
+            else if (types[typeI] == com.topcoder.web.privatelabel.Constants.PROFESSIONAL)
+                m.setProCount(Integer.parseInt(coderCountRow.getItem("coder_type_count").toString()));
+
+            rsc = (ResultSetContainer) resultMap.get("campaign_demographic_responses");
+            ResultSetContainer.ResultSetRow demoInfoRow = null;
+            HashMap demoOtherMap = new HashMap();
+
+            for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
+                demoInfoRow = rsc.getRow(rowI);
+
+                if (demoOtherMap.get(demoInfoRow.getItem("demographic_question_text").toString()) == null) {
+                    demoOtherMap.put(demoInfoRow.getItem("demographic_question_text").toString(),
+                            new ArrayList());
+                }
+                ArrayList respList = (ArrayList) demoOtherMap.get(demoInfoRow.getItem("demographic_question_text").toString());
+
+                double pct =
+                        (((Long) demoInfoRow.getItem("resp_count").getResultData())).doubleValue()
+                        / ((types[typeI] == com.topcoder.web.privatelabel.Constants.STUDENT) ?
+                        ((double) m.getStudentCount()) : ((double) m.getProCount()));
+                pct = (int) (pct * 10000 + 0.5) / 100.0;
+
+                HashMap respItem = new HashMap();
+
+                respItem.put("title", demoInfoRow.getItem("response").toString());
+                respItem.put("count", demoInfoRow.getItem("resp_count").toString());
+                respItem.put("percent", Double.toString(pct) + "%");
+
+                respList.add(respItem);
+            }
+
+            if (types[typeI] == com.topcoder.web.privatelabel.Constants.STUDENT)
+                m.setStudentDemoInfo(demoOtherMap);
+            else if (types[typeI] == com.topcoder.web.privatelabel.Constants.PROFESSIONAL)
+                m.setProDemoInfo(demoOtherMap);
+        }
+
+        rsc = (ResultSetContainer) resultMap.get("verify_campaign_access");
+        if (rsc.getRowCount() == 0) {
+            throw new ScreeningException(" cid=" + campaignId +
+                    "does not belong to uid=" + getUser().getId());
         }
         
         setNextPage(Constants.DEMOGRAPHICS_PAGE);
