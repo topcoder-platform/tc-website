@@ -4,6 +4,7 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.VerizonRegInfo;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.address.Address;
@@ -39,7 +40,7 @@ public class VerizonRegSubmit extends FullRegSubmit {
                 String code = user.getActivationCode(newUser.getId(), db);
 
                 TCSEmailMessage mail = new TCSEmailMessage();
-                if (info.isRegFull()) {
+                if (((VerizonRegInfo)info).isRegFull()) {
                     mail.setSubject("Verizon Activation Email");
 
                     buf.append("Thank you for providing your information in order to be notified of future Verizon coding events. Unfortunately, registration for the Verizon Coding Challenge is full.  However, you may activate your account and spend time practicing in the Arena to hone your skills for future Verizon coding events.\n\n");
@@ -168,7 +169,7 @@ public class VerizonRegSubmit extends FullRegSubmit {
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        SimpleRegInfo ret = super.makeRegInfo();
+        VerizonRegInfo ret = (VerizonRegInfo)super.makeRegInfo();
         ret.setRegFull(VerizonReg.getActiveCount(db)>500);
         return ret;
     }

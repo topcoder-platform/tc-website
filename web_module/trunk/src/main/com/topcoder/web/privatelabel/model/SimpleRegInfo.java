@@ -25,7 +25,7 @@ public class SimpleRegInfo extends Base {
     private String province;
     private String city;
     private String zip;
-    private boolean isRegFull;
+
     private long companyId;
     private long eventId;
 
@@ -54,7 +54,6 @@ public class SimpleRegInfo extends Base {
         setZip(info.getZip());
         setCompanyId(info.getCompanyId());
         setEventId(info.getEventId());
-        setRegFull(info.isRegFull());
     }
 
     public long getUserId() {
@@ -225,12 +224,5 @@ public class SimpleRegInfo extends Base {
         this.eventId = eventId;
     }
 
-    public boolean isRegFull() {
-        return isRegFull;
-    }
-
-    public void setRegFull(boolean regFull) {
-        isRegFull = regFull;
-    }
 }
 
