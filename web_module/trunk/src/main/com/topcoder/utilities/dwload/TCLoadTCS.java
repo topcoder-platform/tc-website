@@ -363,6 +363,7 @@ public class TCLoadTCS extends TCLoad {
                             "(select category_name from categories where category_id = cc.root_category_id) as category_desc, " +
                             "(select start_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as posting_date, " +
                             "(select end_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as submitby_date, " +
+							"(select max(level_id) from comp_version_dates where comp_vers_id = p.comp_vers_id and phase_id = p.project_type_id + 111) as level_id, " +
                             "p.complete_date, " +
                             "rp.review_phase_id, " +
                             "rp.review_phase_name," +
@@ -391,7 +392,7 @@ public class TCLoadTCS extends TCLoad {
             {
                 //update record, if 0 rows affected, insert record
                 sSQL = "update project set component_name = ?,  num_registrations = ?, num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, phase_id = ?, " +
-                        "phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date = ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, status_id = ?, status_desc = ? where project_id = ? ";
+                        "phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date = ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, status_id = ?, status_desc = ?, level_id = ? where project_id = ? ";
 
                 ps2 = prepareStatement(sSQL, TARGET_DB);
                 ps2.setString(1, rs.getString("component_name"));
@@ -412,7 +413,8 @@ public class TCLoadTCS extends TCLoad {
                 ps2.setString(16, rs.getString("review_phase_name"));
                 ps2.setLong(17, rs.getLong("project_stat_id"));
                 ps2.setString(18, rs.getString("project_stat_name"));
-                ps2.setLong(19, rs.getLong("project_id"));
+				ps2.setLong(19, rs.getLong("level_id"));
+                ps2.setLong(20, rs.getLong("project_id"));
 
                 int retVal = ps2.executeUpdate();
 
@@ -423,7 +425,7 @@ public class TCLoadTCS extends TCLoad {
                 {
                     //need to insert
                     sSQL = "insert into project (project_id, component_name, num_registrations, num_submissions, num_valid_submissions, avg_raw_score, avg_final_score, phase_id, phase_desc, " +
-                           "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, review_phase_id, review_phase_name, status_id, status_desc) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                           "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, review_phase_id, review_phase_name, status_id, status_desc, level_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("project_id"));
@@ -445,6 +447,7 @@ public class TCLoadTCS extends TCLoad {
                     ps2.setString(17, rs.getString("review_phase_name"));
                     ps2.setLong(18, rs.getLong("project_stat_id"));
                     ps2.setString(19, rs.getString("project_stat_name"));
+					ps2.setLong(20, rs.getLong("level_id"));
 
                     ps2.execute();
 
