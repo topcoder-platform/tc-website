@@ -177,15 +177,15 @@ public class Search extends Base {
     }
 
 
-    private Object getListTextFromValue(Object value, List list) {
+    private Object getListTextFromValue(Object value, ResultSetContainer list, String valCol, String textCol) {
         if (value == null) {
             return (null);
         }
 
         for (Iterator iterator = list.iterator(); iterator.hasNext();) {
-            ListPairBean lpb = (ListPairBean) iterator.next();
-            if (value.equals(lpb.getValue())) {
-                return (lpb.getText());
+            ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) iterator.next();
+            if (value.equals(rsr.getItem(valCol).getResultData())) {
+                return (rsr.getItem(textCol).getResultData());
             }
         }
         return (null);
@@ -346,7 +346,7 @@ public class Search extends Base {
 
             if (-1 != sb.getSchoolId().longValue()) {
                 schoolNamePattern = getListTextFromValue(sb.getSchoolId(),
-                        sb.getSchoolList()).toString();
+                        sb.getSchoolList(), "school_id", "full_name").toString();
             }
         } catch (NumberFormatException nfe) {
             /* this should never happen */
