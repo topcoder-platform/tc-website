@@ -186,7 +186,7 @@
                             <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                             <td background="" class="statText">
                                 <a class="statText">
-                                    <xsl:attribute name="href"> <!--2&#47;19&#47;2003-->
+                                    <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', $comp, '&amp;payment=', $price, '&amp;date=2&#47;19&#47;2003')"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                 </a>
@@ -199,9 +199,6 @@
                     </xsl:if>
                 </xsl:for-each>
 -->
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=spell_check-development&amp;payment=168&amp;date=2&#47;20&#47;2003">Spell Check</a></td>
 
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
