@@ -7,7 +7,6 @@ import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.util.DateTime;
-import com.topcoder.common.web.xml.ExcludeRange;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.common.web.data.User;
 import com.topcoder.ejb.DataCache.DataCache;
@@ -40,7 +39,6 @@ public final class MainServlet extends HttpServlet {
 
     private HTMLRenderer htmlMaker;
     private static final String SESSION_TIMEOUT_PAGE = TCServlet.XSL_ROOT + "error/session_timeout.xsl";
-    private static final int MAX_REPLACEMENTS = 100;
     private static Logger log = Logger.getLogger(MainServlet.class);
 
     private static TCResourceBundle bundle = null;
@@ -258,12 +256,6 @@ public final class MainServlet extends HttpServlet {
                         log.debug("redirecting to " + temp + " after login");
                         response.sendRedirect(temp);
                     }
-                } else {
-                    if (!nav.cookiesEnabled(request, response)) {
-                        if (!requestTask.equals("arena")) {
-                            HTMLString = appendSessionIdToURL(HTMLString, request, response);
-                        }
-                    }
                 }
                 String encode = request.getHeader("Accept-Encoding");
                 if (
@@ -327,9 +319,6 @@ public final class MainServlet extends HttpServlet {
                 document.addTag(new ValueTag("ErrorMsg", ne.getMessage()));
                 document.addTag(new ValueTag("ErrorURL", Conversion.checkNull(ne.getErrorURL())));
                 HTMLString = htmlMaker.render(document, ne.getUrl());
-                if (!nav.cookiesEnabled(request, response)) {
-                    HTMLString = appendSessionIdToURL(HTMLString, request, response);
-                }
                 out.print(HTMLString);
                 log.debug("MainServlet:NAVIGATION ERROR:\n" + ne.getMessage());
             } catch (Exception neFail) {
@@ -431,9 +420,6 @@ public final class MainServlet extends HttpServlet {
             document = new XMLDocument("TC");
             addURLTags(nav, request, response, document);
             HTMLString = htmlMaker.render(document, TCServlet.INTERNAL_ERROR_PAGE);
-            if (!nav.cookiesEnabled(request, response)) {
-                HTMLString = appendSessionIdToURL(HTMLString, request, response);
-            }
             out.print(HTMLString);
         } catch (Exception e) {
             throw new TCException("MainServlet.showInternalError:" + e.getMessage());
@@ -473,157 +459,6 @@ public final class MainServlet extends HttpServlet {
             throw new TCException("MainServlet:addURLTags:ERROR:\n" + e);
         }
     }
-
-
-    /*********************************************************************************
-     COOKIES DISABLED METHODS (FOR REQUESTS WITH COOKIES TURNED OFF...)
-     *********************************************************************************/
-
-
-    private String appendSessionIdToURL(String HTMLString, HttpServletRequest request,
-                                        HttpServletResponse response) throws TCException {
-        log.debug("***MainServlet.appendSessionIdToURL:replaceURL:***");
-        StringBuffer msg = null;
-        msg = new StringBuffer(350);
-        msg.append("  :Task=");
-        msg.append(Conversion.checkNull(request.getParameter("t")));
-        msg.append("\n  :Command=");
-        msg.append(Conversion.checkNull(request.getParameter("c")));
-        log.debug(msg.toString());
-        // ONLY CALL THIS METHOD IF
-        // COOKIES ARE TURNED OFF
-        // ON A CACHED PAGE.  NEED TO ADD
-        // SESSION ID TO ALL LINKS TO KEEP SESSION.
-        // CREATE A SORTED TREESET THAT CONTAINS
-        // RANGES TO EXCLUDE FROM REPEAT
-        // REPLACEMENT CALLS
-        TreeSet excludes = new TreeSet();
-        // REPLACE URLs WITH URL+SESSION IDs
-        String[] cookieURL = {
-            "://" + request.getServerName() + "/stat"
-            , "://" + request.getServerName() + "/reg"
-            , "://" + request.getServerName() + "/rtables/index.jsp"
-            , "://" + request.getServerName() + "/corporate"
-            , "://" + request.getServerName() + "/rtables/viewForum.jsp"
-            , "://" + request.getServerName() + "/contest/arena/launch.html"
-            , "://" + request.getServerName() + "/contest/time.html"
-        };
-        String[] noCookieURL = {
-            response.encodeURL("://" + request.getServerName() + "/stat")
-            , response.encodeURL("://" + request.getServerName() + "/reg")
-            , response.encodeURL("://" + request.getServerName() + "/rtables/index.jsp")
-            , response.encodeURL("://" + request.getServerName() + "/corporate")
-            , response.encodeURL("://" + request.getServerName() + "/rtables/viewForum.jsp")
-            , response.encodeURL("://" + request.getServerName() + "/contest/arena/launch.html")
-            , response.encodeURL("://" + request.getServerName() + "/contest/time.html")
-        };
-
-        try {
-            for (int i = 0; i < cookieURL.length; i++) {
-                // REPLACE URLS
-                if (msg != null) {
-                    msg.delete(0, 350);
-                    msg.append("  :cookieURL=");
-                    msg.append(cookieURL[i]);
-                    msg.append(" [ len = ");
-                    msg.append(cookieURL[i].length());
-                    msg.append(" ]\n  :noCookieURL=");
-                    msg.append(noCookieURL[i]);
-                    msg.append(" [ len = ");
-                    msg.append(noCookieURL[i].length());
-                    msg.append(" ]");
-                    log.debug(msg.toString());
-                }
-                //
-                HTMLString = replaceURL(HTMLString, cookieURL[i], noCookieURL[i], excludes);
-                for (Iterator j = excludes.iterator(); j.hasNext();) {
-                    ExcludeRange range = (ExcludeRange) j.next();
-                    log.debug("[" + range.getStart() + "," + range.getEnd() + "]");
-                }
-            }
-        } catch (Exception e) {
-            throw new TCException("MainServlet:appendSessionIdToURL:ERROR:\n" + e);
-        }
-        return HTMLString;
-    }
-
-
-    private boolean excluded(TreeSet excludes, int pos) {
-        // RETURN TRUE IF THE URL LOCATION HAS
-        // ALREADY BEEN REPLACED IN THE DOCUMENT.
-        boolean result = false;
-        for (Iterator i = excludes.iterator(); i.hasNext();) {
-            ExcludeRange range = (ExcludeRange) i.next();
-            if (pos < range.getEnd()) {
-                log.debug(" pos is less than " + range.getEnd());
-                if (pos > (range.getStart() - 1)) {
-                    result = true;
-                    break;
-                }
-            }
-        }
-        return result;
-    }
-
-
-    private void shiftExcludeRanges(TreeSet excludes, int startPos, int num) {
-        // NEED TO SHIFT REMAINING LOCATIONS
-        // AFTER A REPLACE.
-        for (Iterator i = excludes.iterator(); i.hasNext();) {
-            ExcludeRange range = (ExcludeRange) i.next();
-            if (range.getStart() > startPos) {
-                range.shift(num);
-            }
-        }
-    }
-
-
-    private String replaceURL(String HTMLString, String cookieOnURL, String cookieOffURL, TreeSet excludes)
-            throws TCException {
-        // REPLACE URLs WITH URL+SESSION IDs
-        // FOR USERS WITH COOKIES TURNED OFF.
-        String result = HTMLString;
-        try {
-            int cookieOnURLPos = HTMLString.indexOf(cookieOnURL);
-            // if the URL is found ,start process to replace it with URL+SessionId (cookieOffURL)
-            if (cookieOnURLPos > -1) {
-                int cookieOnURLLen = cookieOnURL.length();
-                int cookieOffURLLen = cookieOffURL.length();
-                // replace first instance of URL with URL+SessionId
-                StringBuffer buf = new StringBuffer(HTMLString);
-                if (!excluded(excludes, cookieOnURLPos)) {
-                    buf = buf.replace(cookieOnURLPos, cookieOnURLPos + cookieOnURLLen, cookieOffURL);
-                    excludes.add(new ExcludeRange(cookieOnURLPos, cookieOnURLPos + cookieOffURLLen));
-                    shiftExcludeRanges(excludes, cookieOnURLPos + cookieOnURLLen, cookieOffURLLen - cookieOnURLLen);
-                }
-                int loopCount = 0;
-                // look for 2nd URL
-                cookieOnURLPos = buf.toString().indexOf(cookieOnURL, cookieOnURLPos + cookieOffURLLen);
-                // if more URLs exists, loop to replace them all with URL+SessionId...
-                for (; cookieOnURLPos > -1; cookieOnURLPos = buf.toString().indexOf(cookieOnURL, cookieOnURLPos + cookieOffURLLen)) {
-                    if (!excluded(excludes, cookieOnURLPos)) {
-                        buf = buf.replace(cookieOnURLPos, cookieOnURLPos + cookieOnURLLen, cookieOffURL);
-                        excludes.add(new ExcludeRange(cookieOnURLPos, cookieOnURLPos + cookieOffURLLen));
-                        shiftExcludeRanges(excludes, cookieOnURLPos + cookieOnURLLen, cookieOffURLLen - cookieOnURLLen);
-                    }
-                    // keep count of loop to avoid possibility of infinite loop...
-                    loopCount++;
-                    if (loopCount > MAX_REPLACEMENTS) {
-                        StringBuffer msg = new StringBuffer(100);
-                        msg.append("MainServlet:replaceURL:ERROR:");
-                        msg.append(Integer.toString(MAX_REPLACEMENTS));
-                        msg.append(" max replacements exceeded.");
-                        throw new TCException(msg.toString());
-                    }
-                }
-                result = buf.toString();
-            }
-        } catch (Exception e) {
-            throw new TCException("MainServlet:replaceURL:ERROR:\n" + e);
-        }
-        return result;
-    }
-
 
     // CUSTOM GET_BYTES BECAUSE THE PERFORMANCE OF String.getBytes() ROTS!!!
     public static byte[] asciiGetBytes(String s) {
