@@ -532,7 +532,7 @@ public class TransactionServlet extends HttpServlet {
     }
 
     private boolean userCountryEligible(long userId, long productId) throws Exception {
-        boolean ret = true;
+        boolean eligible = true;
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)
                 PortableRemoteObject.narrow(
@@ -549,7 +549,7 @@ public class TransactionServlet extends HttpServlet {
         ResultSetContainer rsc = userAddress.getUserAddresses(userId);
 
         //if they have no address, deny them
-        ret &= rsc.isEmpty();
+        eligible &= !rsc.isEmpty();
 
         DataAccessInt dataAccess = new DataAccess(ds);
         Request dr = new Request();
@@ -563,9 +563,10 @@ public class TransactionServlet extends HttpServlet {
             dr.setProperty("countryID", address.getCountryCode(addressId));
             result = dataAccess.getData(dr);
             /* the query returns a row only if the country is eligible to purchase the product */
-            ret &= !((ResultSetContainer) result.get("eligible_country_for_product")).isEmpty();
+            eligible &= !((ResultSetContainer) result.get("eligible_country_for_product")).isEmpty();
         }
-        return ret;
+        log.debug("user_id: " + userId + " product_id: " + productId + " eligible: " + eligible);
+        return eligible;
     }
 
 
