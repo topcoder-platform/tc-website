@@ -11,7 +11,8 @@
           com.coolservlets.forum.*,
           com.coolservlets.forum.util.*,
           com.topcoder.common.web.data.Navigation,
-          com.topcoder.common.*" %>
+          com.topcoder.common.*"
+ errorPage="../errorPage.jsp"%>
 
 <%  ////////////////
   //

@@ -8,7 +8,9 @@
           com.coolservlets.forum.util.*,
           weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
-          com.topcoder.common.*" %>
+          com.topcoder.common.*"
+ errorPage="../errorPage.jsp"
+ %>
 <%
   Authorization authToken = null;
   String rtUser = "";
