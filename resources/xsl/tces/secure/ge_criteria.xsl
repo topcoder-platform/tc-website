@@ -395,7 +395,7 @@
 
 
 
-<P><A HREF="#">Click here to apply</A></P>
+<P><A HREF="/jobposting?&amp;t=JobHitTask&amp;jobhit_26=true">Click here to apply</A></P>
 
 
 
