@@ -11,19 +11,18 @@ import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 * Test Only- not complete- still working on this.  Final file name will be
 * UserList.java when testing is complete. 
 * ---------------------------------------------------------------------------
-* Processor for user list page, contains logic for querying databse for a 
+* Processor for user list page, contains logic for setting up a
 * list of users associated with a company and putting them into a 
-* ResultSetContainer.  This will then be stored in the request object for
-* retreival by the IteratorTag in the userlist jsp page.
+* ResultSetContainer which is then stored in the request object for
+* use by the ListIteratorTag in the userlist jsp page.
 * 
 * @author   Daniel Cohn
-* @version  0.5
+* @version  0.8
 *
 */
 
 public class UserListTest extends BaseProcessor {
     private static Logger log = Logger.getLogger(UserListTest.class);
-    private static final String dataSourceName = "CORP_OLTP";
 
     /** Constructor sets pageInContext to true since all Static pages are in
      * the same context 
@@ -45,14 +44,15 @@ public class UserListTest extends BaseProcessor {
     }
 
     /**
-     *  method for querying the database for user information related to 
-     *  current company, user information columns retrieved are: 
+     *  method for calling GetUserList class for retrieving user information 
+     *  from the database related to current company, user information columns 
+     *  retrieved are: 
      *  <p> user_id: decimal(18)  ,  handle: varchar(50)  ,   
      *  first_name: varchar(64)   ,  last_name: varchar(64)
-     *  <p> Then a ResultSetContainer is created to hold the information about
+     *  <p> A ResultSetContainer is created to hold the information about
      *  the companies users and is put into the request attribute named: 
      *  "companyUsers" for use in the userlist jsp page.
-     *  @throws Exception to send error back to process() method
+     *  @throws Exception 
      *                   
      */
     private void setupUsersList() throws Exception {

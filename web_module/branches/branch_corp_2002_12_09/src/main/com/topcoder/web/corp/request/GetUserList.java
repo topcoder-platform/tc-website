@@ -19,7 +19,7 @@ import java.sql.SQLException;
 
 
 /**
- * Small database query select file to access the database and return a list
+ * Database query select file to access the database and return a list
  * of users associated with a specific companyID, Used by UserList.java 
  * processor to take all the database access code out of the processor.
  * 
@@ -27,10 +27,9 @@ import java.sql.SQLException;
  * @version  1.0
  *
  */
-
 public class GetUserList {
 
-    private static Logger log = Logger.getLogger(UserListTest.class);
+    private static Logger log = Logger.getLogger(GetUserList.class);
     private static final String dataSourceName = "CORP_OLTP";
 
 /**
@@ -73,7 +72,7 @@ public class GetUserList {
         } catch (NamingException e) {
             throw new Exception("NamingException getting users");
         } catch (Exception e) {
-            throw new Exception("Exception getting user's information." + e.getMessage());
+            throw new Exception("Exception getting user's information.");
         } finally {
             if (rs != null) { try { rs.close(); } catch (Exception ignore) {
                 log.error("FAILED to close ResultSet in getFirstName");
