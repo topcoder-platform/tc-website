@@ -58,10 +58,10 @@
 Plugin Name: CodeProcessor<BR/>
 Description: Plugin that will allow you to write pre/post processing source code scripts for use with other editor plugins<BR/>
 Author: Pops<BR/>
-Date: 5/14/2002<BR/>
+Date: 5/23/2002<BR/>
 Instructions: <A HREF="/contest/classes/CodeProcessor.htm" CLASS="statText">Documentation >></A><BR/>
-Upgrade Release Notes: <A HREF="/contest/classes/CodeProcessor_Upgrade_1_1.htm" CLASS="statText">Release Notes >></A><BR/>
-Version: 1.1<BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/CodeProcessor_Upgrade_1_1_5.htm" CLASS="statText">Release Notes >></A><BR/>
+Version: 1.1.5<BR/>
 EntryPoint: codeprocessor.EntryPoint (case sensitive)<BR/>
 ClassPath: CodeProcessor.jar<BR/>
 <A HREF="/contest/classes/CodeProcessor.jar" CLASS="statText">CodeProcessor.jar Plugin >></A><BR/>
