@@ -45,7 +45,7 @@
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
 
-             <table width="100%" cellpadding="0" cellspacing="3">
+             <table width="100%" cellpadding="0" cellspacing="3" border="0">
                 <tr>
                    <td class="dc_errorText" colspan="2">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -108,9 +108,11 @@
                 <tr>
                    <td class="dc_regTableQuestion">Email</td>
                    <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
+                   <div class="bodyText">
                       <% if (regInfo.getCoderType()==Constants.STUDENT) { %>
-                          You must provide either a columbia.edu or nyu.edu email address.
+                          (You must provide either a columbia.edu or nyu.edu email address)
                       <% }%>
+                   </div>
                    </td>
                 </tr>
                 <tr>
