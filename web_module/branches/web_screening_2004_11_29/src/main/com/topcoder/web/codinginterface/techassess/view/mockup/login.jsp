@@ -18,9 +18,9 @@
 	<tr><td colspan=3>&#160;</td></tr>
 
 	<tr>
-		<td><img src="/i/corp/screening/bodyTL.gif" /></td>
+		<td><img src="/i/corp/screening/bodyTL.gif" alt=""/></td>
 		<td class=bodyT width="100%">&#160;</td>
-		<td><img src="/i/corp/screening/bodyTR.gif" /></td>
+		<td><img src="/i/corp/screening/bodyTR.gif" alt=""/></td>
 	</tr>
 	<tr>
 		<td class=bodyL>&#160;</td>
@@ -49,10 +49,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class=tableText align=right>
-				&#160;
-				</td>
-				<td class=tableText><A href="/mockup/directions.jsp"><img src="/i/corp/screening/buttonGo.gif" border=0 /></A></td>
+				<td class=tableText align=right>&#160;</td>
+				<td class=tableText><A href="/mockup/directions.jsp"><img src="/i/corp/screening/buttonGo.gif" alt=""/></A></td>
 			</tr>
 			<tr><td class=tableText colspan=2>&#160;</td></tr>
 		</table>
@@ -63,9 +61,9 @@
 		<td class=bodyR>&#160;</td>
 	</tr>
 	<tr>
-		<td><img src="/i/corp/screening/bodyBL.gif" /></td>
+		<td><img src="/i/corp/screening/bodyBL.gif" alt=""/></td>
 		<td class=bodyB>&#160;</td>
-		<td><img src="/i/corp/screening/bodyBR.gif" /></td>
+		<td><img src="/i/corp/screening/bodyBR.gif" alt=""/></td>
 	</tr>
 </table>
 
