@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          autoFlush="false"
          buffer="64kb"
-         import="com.topcoder.web.corp.Constants"
+         import="com.topcoder.web.corp.Constants,
+                 com.topcoder.web.corp.controller.TransactionServlet"
          errorPage="../exc/InternalError.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -58,13 +59,9 @@ olor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tinci
 <P><BR/></P>
 </td></tr>
 <tr><td>
-     <form method="POST" action="<%=request.getContextPath()%>/Tx/?op=begin">
-       <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
-       <input type="hidden" name="prod-id" value="1"/> <!-- product id -->
        <table>
-         <tr><td width="100%" align ="center"><input type="submit" value=" buy it "/></td></tr>
+         <tr><td width="100%" align ="center"><a href="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS+"&back-to="+request.getAttribute(Constants.KEY_LINK_PREFIX)+"&prod-id=1"%>">buy it</a></td></tr>
        </table>
-     </form>
 </td></tr>
     
      </TD>
