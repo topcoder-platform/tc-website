@@ -12,7 +12,7 @@
              <strong>Hello, <jsp:getproperty name="requestInfo" property="Handle" />.</strong>
             &#160;&#160;|&#160;&#160;<a href="/?module=Logout" class="loginLinks" target="_parent">Logout</a>
 <%} %>
-            <screen:servletLink target="_top" styleclass="globalNavSmall">Home</screen:servletLink><img src="/i/clear.gif" width="20" height="1" border="0"/>
+            &#160;&#160;|&#160;&#160;<a href="/" class="loginLinks">Corporate Services Home</a>
         </td>
         <td class="login" width="10">&nbsp;</td>
     </tr>
