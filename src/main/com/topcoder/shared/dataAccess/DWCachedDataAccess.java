@@ -4,8 +4,9 @@ import java.util.*;
 import java.rmi.RemoteException;
 import javax.naming.*;
 import java.sql.Connection;
+import javax.sql.DataSource;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 
@@ -18,6 +19,9 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/07/12 17:15:46  gpaul
+ *           merged baby
+ *
  *           Revision 1.1.2.3  2002/07/11 17:07:18  gpaul
  *           isClose should be isClosed
  *
@@ -103,7 +107,9 @@ public class DWCachedDataAccess implements DataAccessInt {
             }
             /* if it was not found in the cache */
             if (map == null) {
-              conn = DBMS.getDWConnection();
+              Context ctx = TCContext.getInitial();
+              DataSource ds = (DataSource)ctx.lookup("DW");
+              conn = ds.getConnection();
               dr = new DataRetriever(conn);
               map = dr.executeCommand(request.getProperties());
               if (conn != null && !conn.isClosed()) {
