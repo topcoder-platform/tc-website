@@ -567,16 +567,16 @@
     <target name="dev_war_query" depends="compile">
       <delete dir="${tc_cluster}/${query.war.name}"/>
       <mkdir dir="${tc_cluster}/${query.war.name}"/>
-      <copy todir="${tc_cluster}/${query.war.name}"/>
+      <copy todir="${tc_cluster}/${query.war.name}">
         <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
           <include name="**/*.jsp"/>
         </fileset>
       </copy>
-      <copy todir="${tc_cluster}/${query.war.name}/WEB-INF"/>
+      <copy todir="${tc_cluster}/${query.war.name}/WEB-INF">
           <include name="${resources}/${query.war_name}/*.tld"/>
           <include name="${resources}/${query.war_name}/*.xml"/>
       </copy>
-      <copy todir="${tc_cluster}/${query.war.name}/classes"/>
+      <copy todir="${tc_cluster}/${query.war.name}/classes">
           <include name="com/topcoder/web/query/**"/>
       </copy>
     </target>
