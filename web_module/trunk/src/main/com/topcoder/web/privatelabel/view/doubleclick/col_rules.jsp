@@ -1,51 +1,30 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 
 <title>DoubleClick</title>
 <jsp:include page="../script.jsp" />
-<link rel="stylesheet" href="http://www.doubleclick.com/includes/home.css" type="text/css">
 <link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
 
 </head>
 <body bgcolor="ffffff" leftmargin="5" topmargin="5" bottommargin="5" marginheight="0" marginwidth="5">
 
 <table width="750" cellpadding="0" cellspacing="7" border="0" align="center">
-   <tr><td align="left" valign="top"><a href="http://www.doubleclick.com/us/"><img src="http://www.doubleclick.com/images/dc_home.gif" width="179" height="38" alt="DoubleClick" border="0"></a></td></tr>
+   <tr><td align="left" valign="top"><a href="http://www.doubleclick.com/us/"><img src="http://www.doubleclick.com/images/dc_home.gif" width="179" height="38" alt="DoubleClick" border="0"/></a></td></tr>
 </table>
 
 <jsp:include page="links.jsp" >
-   <jsp:param name="tabLev1" value="rules"/>
+   <jsp:param name="tabLev1" value="collegiate"/>
+   <jsp:param name="tabLev2" value="rules"/>
 </jsp:include>
 
-
-<table width="750" cellpadding="3" cellspacing="3" border="0" align="center">
-   <tr><td><spacer type="block" width="1" height="3"></td></tr>
-</table>
-
-<table width="750" cellpadding="0" cellspacing="0" border="0" align="center">
+<table width="750" border="1" align="center" class="dc_bodyText">
    <tr>
-      <td  valign="top" align="left" class="dc_bodytable" width="200">
+      <td  valign="top" align="left"><img src="http://www.doubleclick.com/images/random/11.jpg" border="0" width="163" height="180"></td>
 
-         <table border="0" cellpadding="0" cellspacing="0" width="160">
-            <tr>
-		<img src="http://www.doubleclick.com/images/random/11.jpg">
-            </tr>
-         </table>
-
-      </td>
-      <td valign="top" align="left" class="dc_bodytable" width="550">
-
-
-<div class="dc_bodyText">
-
-            <p align="left" CLASS="pageName">Rules</p>
+      <td valign="top" align="left">
+            <p align="left" class="pageName">Rules</p>
 
             <p>
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -63,7 +42,7 @@
             
 <!-- eligibility -->
             <a name="eligibility"></a>
-            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="1" align="right">
             </a>Eligibility</h2>
 
             <p>
@@ -100,7 +79,7 @@
             
  <!-- Competition Structure -->
             <a name="structure"></a>
-            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="1" align="right">
             </a>Competition Structure</h2>
             
             <p><span class="bodySubtitle">Scoring</span><br/>
@@ -138,12 +117,12 @@
 
 <!-- About the Prizes -->
             <a name="prizes"></a>
-            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="1" align="right">
             </a>About the Prizes</h2>
             
             <p>All contestants who submit components that pass screening in Online Round #1 will receive a prize.  The tournament will award $60,000 in cash prizes, with $40,000 being awarded for the design competition and $20,000 for the development competition.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:</p>
 
-            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+            <table width="500" align="center" border="1" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="30%" class="sidebarTitle">Design</td>
                     <td width="20%" class="sidebarTitle" align="right">Prize</td>
@@ -194,7 +173,7 @@
 
 <!-- Conditions of Participation -->
             <a name="conditions"></a>
-            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            <h2><a href="#top"><img src="/i/tournament/tccc04/back_to_top.gif" alt="back to top" width="83" height="23" border="1" align="right">
             </a>Conditions of Participation</h2>
             
          <p>
