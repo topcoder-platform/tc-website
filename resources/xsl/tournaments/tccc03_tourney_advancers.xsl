@@ -67,35 +67,35 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
 
-                        <P class="statText">
+                        <p class="statText">
                         The following competitors have advanced from <xsl:value-of select="/TC/TOURNAMENTS/Advancers/Advancer/round_name"/> to the next round.
-                        </P>
+                        </p>
 
-                        <TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="1" ALIGN="center">
-                          <TR>
-                            <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" HEIGHT="18" >Handle</TD>
-                            <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" >Points</TD>
-                            <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" >Tourney Seed</TD>
-                          </TR>
+                        <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                          <tr>
+                            <td align="left" class="testFormHeader" width="34%">Handle</td>
+                            <td align="right" class="testFormHeader" width="33%">Points</td>
+                            <td align="right" class="testFormHeader" width="33%">Tourney Seed</td>
+                          </tr>
                           <xsl:for-each select="/TC/TOURNAMENTS/Advancers/Advancer">
-                            <TR>
-                              <TD CLASS="statText">
-                                  <A>
+                            <tr>
+                              <td class="statText">
+                                  <a>
                                     <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">statText</xsl:attribute>
-                                    <FONT>
+                                    <font>
                                       <xsl:attribute name="color">
                                         <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                                       </xsl:attribute>
                                       <xsl:value-of select="handle"/>
-                                    </FONT>
-                                  </A>
-                                </TD>
-                              <TD CLASS="statText" ALIGN="right"><xsl:value-of select="point_total"/></TD>
-                              <TD CLASS="statText" ALIGN="right"><xsl:value-of select="seed"/></TD>
-                            </TR>
+                                    </font>
+                                  </a>
+                                </td>
+                              <td class="statText" align="right"><xsl:value-of select="point_total"/></td>
+                              <td class="statText" align="right"><xsl:value-of select="seed"/></td>
+                            </tr>
                           </xsl:for-each>
-                        </TABLE><BR/>
+                        </table><br/>
 
 
                         <p><br/></p>
