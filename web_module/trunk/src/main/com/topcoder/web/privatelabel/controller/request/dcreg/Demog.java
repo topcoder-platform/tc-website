@@ -26,7 +26,8 @@ public class Demog extends FullRegDemog {
         if (((FullRegInfo)info).getCoderType()==Constants.STUDENT &&
                 !(info.getEmail().toLowerCase().endsWith("columbia.edu") ||
                 info.getEmail().toLowerCase().endsWith("nyu.edu") ||
-                info.getEmail().equals("gpaul@topcoder.com"))) {
+                info.getEmail().equals("gpaul@topcoder.com") ||
+                info.getEmail().equals("mluce@topcoder.com"))) {
             addError(Constants.EMAIL, "Please provide a valid email address ending in either columbia.edu or nyu.edu");
         }
         //we're not bothering with an email confirmation field, so don't require it

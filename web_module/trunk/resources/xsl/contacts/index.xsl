@@ -83,10 +83,10 @@
                                 </td>
                                     
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:jmorris@fitzgerald.com" class="bodyText">Public Relations</a><br />
-                                    Jessica Morris<br />
-                                    FitzGerald Communications<br />
-                                    tel: 617.585.2227<br />
+                                    <p><a href="mailto:thorgan@topcoder.com" class="bodyText">Public Relations</a><br />
+                                    Tanya Horgan<br />
+                                    tel: 860.633.5540<br />
+                                    fax: 860.657.4276<br />
                                     &#160;</p>
                                 </td>
                             </tr>

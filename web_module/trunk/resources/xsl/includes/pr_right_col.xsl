@@ -15,10 +15,10 @@
                 <tr><td class="sidebarTitle" width="100%"><strong>PR Contact</strong></td></tr>
                 <tr valign="top">
                     <td class="sidebarText" width="100%">
-                        <p>Jessica Ann Morris<br />
-                        FitzGerald Communications<br />
-                        617.585.2227<br />
-                        <A href="mailto:jmorris@fitzgerald.com">jmorris@fitzgerald.com</A></p>
+                        <p>Tanya Horgan<br />
+                            tel: 860.633.5540<br />
+                            fax: 860.657.4276<br />
+                        <A href="mailto:thorgan@topcoder.com">thorgan@topcoder.com</A></p>
                     </td>
                 </tr>
             </table>
