@@ -46,7 +46,7 @@
 </jsp:include>-->
 
             <p class="terciary">
-                <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview_comp">Algorithm Competition</a>&nbsp;&nbsp;|&nbsp;&nbsp;Component Competition
+                <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview">Algorithm Competition</a>&nbsp;&nbsp;|&nbsp;&nbsp;Component Competition
             </p>
 
             <h2>Overview of the Component Competition</h2>
