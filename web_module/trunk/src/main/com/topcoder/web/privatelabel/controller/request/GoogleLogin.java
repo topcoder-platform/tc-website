@@ -195,8 +195,8 @@ public class GoogleLogin extends FullLogin {
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
         info.setHandle(getAuthentication().getActiveUser().getUserName());
-        info.setPassword("");
-        info.setPasswordConfirm("");
+        info.setPassword(getAuthentication().getActiveUser().getPassword());;
+        info.setPasswordConfirm(getAuthentication().getActiveUser().getPassword());
         info.setEmail(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setEmailConfirm(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setFirstName(user.getFirstName(userId, db));
