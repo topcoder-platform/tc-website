@@ -9,12 +9,12 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tourney_subnav">
                 <tr>
                     <td class="tourney_subnav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_champ" class="statTextBig">Championship</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_semiroom4" class="statTextBig">Room 4</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_semiroom3" class="statTextBig">Room 3</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_semiroom2" class="statTextBig">Room 2</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_semiroom1" class="statTextBig">Room 1</a></td>
-                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_reception" class="statTextBig">Reception</a></td>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_champ" class="statTextBig">Championship</a></td>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_semiroom4" class="statTextBig">Room 4</a></td>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_semiroom3" class="statTextBig">Room 3</a></td>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_semiroom2" class="statTextBig">Room 2</a></td>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_semiroom1" class="statTextBig">Room 1</a></td>
+                    <td class="tourney_subnav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_reception" class="statTextBig">Reception</a></td>
                     <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>

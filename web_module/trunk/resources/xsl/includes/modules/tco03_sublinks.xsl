@@ -11,46 +11,46 @@
                     <td class="tcoSubNav" width="49%"></td>
                 <xsl:choose>
                      <xsl:when test="$selectedTab='overview'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_overview" class="topLink">Overview</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_overview" class="topLink">Overview</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_overview" class="topLink">Overview</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_overview" class="topLink">Overview</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
                 <xsl:choose>
                 <xsl:when test="$selectedTab='eligibility'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_eligibility" class="topLink">Eligibility</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_eligibility" class="topLink">Eligibility</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_eligibility" class="topLink">Eligibility</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_eligibility" class="topLink">Eligibility</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
                 <xsl:choose>
                 <xsl:when test="$selectedTab='conditions'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_conditions" class="topLink">Conditions of Participation</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_conditions" class="topLink">Conditions of Participation</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_conditions" class="topLink">Conditions of Participation</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_conditions" class="topLink">Conditions of Participation</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
                 <xsl:choose>
                 <xsl:when test="$selectedTab='structure'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_structure" class="topLink">Structure</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_structure" class="topLink">Structure</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_structure" class="topLink">Structure</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_structure" class="topLink">Structure</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
                 <xsl:choose>
                 <xsl:when test="$selectedTab='prizes'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_prizes" class="topLink">Prizes</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_prizes" class="topLink">Prizes</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_rules_prizes" class="topLink">Prizes</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_prizes" class="topLink">Prizes</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
@@ -68,46 +68,46 @@
                     <td class="tcoSubNav" width="49%"></td>
                 <xsl:choose>
                 <xsl:when test="$selectedTab='overview'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_overview" class="topLink">Overview</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_overview" class="topLink">Overview</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_overview" class="topLink">Overview</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_overview" class="topLink">Overview</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
                 <xsl:choose>
                 <xsl:when test="$selectedTab='eligibility'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_eligibility" class="topLink">Eligibility</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_eligibility" class="topLink">Eligibility</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_eligibility" class="topLink">Eligibility</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_eligibility" class="topLink">Eligibility</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
                 <xsl:choose>
                 <xsl:when test="$selectedTab='conditions'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_conditions" class="topLink">Conditions of Participation</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_conditions" class="topLink">Conditions of Participation</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_conditions" class="topLink">Conditions of Participation</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_conditions" class="topLink">Conditions of Participation</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
                 <xsl:choose>
                 <xsl:when test="$selectedTab='structure'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_structure" class="topLink">Structure</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_structure" class="topLink">Structure</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_structure" class="topLink">Structure</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_structure" class="topLink">Structure</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
                 <xsl:choose>
                 <xsl:when test="$selectedTab='prizes'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_prizes" class="topLink">Prizes</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_prizes" class="topLink">Prizes</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_comp_rules_prizes" class="topLink">Prizes</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_prizes" class="topLink">Prizes</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 

@@ -9,18 +9,18 @@
 <xsl:choose>
    <xsl:when test="$selectedContest='coding'">
                     <td width="50%" align="center">
-                        <A href="/index?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
                     </td>
                     <td width="50%" align="center">
-                        <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
                     </td>
     </xsl:when>
     <xsl:when test="$selectedContest='component'">
                     <td width="50%" align="center">
-                        <A href="/index?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
                     </td>
                     <td width="50%" align="center">
-                        <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
                     </td>
     </xsl:when>
 </xsl:choose>
@@ -45,40 +45,40 @@
 <!-- Coding Summary tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='coding_overview'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_off.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_off.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
 
 <!-- Coding Schedule tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='coding_schedule'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_sched" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_sched" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
 
 <!-- Coding Rules tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='coding_rules'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_on.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_on.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
 
 <!-- Coding Advancers tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='coding_advancers'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_highlights" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&amp;c=tco03_bracket&amp;trans=true" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_highlights" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&amp;c=tco03_bracket&amp;trans=true" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
 
@@ -91,40 +91,40 @@
 <!-- Component Summary tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='component_overview'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_off.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_off.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
 
 <!-- Component Schedule tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='component_schedule'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_sched" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_sched" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_sched" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_sched" class="statTextBig"><img src="/i/tournament/tco03/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
 
 <!-- Component Rules tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='component_rules'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_on.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_on.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
                                 
 <!-- Component Advancers tab -->
             <xsl:choose>
                 <xsl:when test="$selectedTab='advancers'">
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_des_rd1" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_des_rd1" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_on.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="statTextBig" width="88"><A href="/index?t=tournaments&amp;c=tco03_comp_des_rd1" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
+                    <td class="statTextBig" width="88"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_des_rd1" class="statTextBig"><img src="/i/tournament/tco03/tab_advancers_off.gif" alt="Advancers" width="88" height="22" border="0" /></A></td>
                 </xsl:otherwise>
             </xsl:choose>
 

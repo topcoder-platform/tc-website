@@ -64,7 +64,7 @@
                         TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced Intel 
                         Corporation as the title sponsor for the 2003 TopCoder Open.  The 2003 TopCoder Open will bring many of the world's best programmers together 
                         in competition for international ranking, notoriety and the $100,000 prize purse, of which $50,000 will be awarded to the tournament champion.  
-                        Details are provided at: <A href="/index?t=tournaments&amp;c=tco03_overview">http://www.topcoder.com/tco</A>.</p>
+                        Details are provided at: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview">http://www.topcoder.com/tco</A>.</p>
 
                         <p>Beginning in October, programmers from all around the world will compete in qualifying rounds of the 2003 TopCoder Open.  Through a series 
                         of online rounds, the field will be narrowed to 16 semifinalists.  These semifinalists will then compete head-to-head over two days at the Mohegan 

@@ -82,8 +82,8 @@
                   <td width = "20%" align = "right" class="advancers_header">Wildcards</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Top 100</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/index?t=tournaments&amp;c=tco03_top100">100</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_top100" class="topLink">Top 100</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_top100">100</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
@@ -115,21 +115,21 @@
                   <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">200</A></td>
                   <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">47</A></td>
                   <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">153</A></td>
-                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd1','radeye1',900,600);">view</A></td>
+                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_radeye_rd1','radeye1',900,600);">view</A></td>
                </tr>
                <tr>
                   <td align = "left" class="advancers_roundid"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703" class="topLink">Online Round 2</A></td> 
                   <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">100</A></td>
                   <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">20</A></td>
                   <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">80</A></td>
-                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd2','radeye2',900,600);">view</A></td>
+                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_radeye_rd2','radeye2',900,600);">view</A></td>
                </tr>
                <tr>
                   <td align = "left" class="advancers_roundid">Online Round 3</td>
                   <td align = "right" class="advancers_faded">TBD</td>
                   <td align = "right" class="advancers_faded">TBD</td>
                   <td align = "right" class="advancers_faded">TBD</td>
-                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd3','radeye3',900,600);">view</A></td>
+                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_radeye_rd3','radeye3',900,600);">view</A></td>
                </tr>
             </table>
 

@@ -81,7 +81,7 @@
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="bodyText" colspan="6">
                         <p><strong>Only the projects below designated as TCO Component Projects qualify for the 2003 TCO Component Competition.</strong> 
-                        You must submit at least two projects, with at least one being a Level 2 project, to qualify. <A href="/index?t=tournaments&amp;c=tco03_comp_overview">Click here</A> 
+                        You must submit at least two projects, with at least one being a Level 2 project, to qualify. <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview">Click here</A>
                         for more information about the 2003 TCO Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCO.</p>
                     </td>
                 </tr>
