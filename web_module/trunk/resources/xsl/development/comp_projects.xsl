@@ -171,7 +171,7 @@
                             <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
 
                     <td class="projectCells" align="center">
-                             <A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A>
+                             <xsl:if test="number(./total_inquiries)&gt;0"><A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A></xsl:if>
                     </td>
                         </tr>
                     </xsl:if>
@@ -269,7 +269,7 @@
                             <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
 
                     <td class="projectCells" align="center">
-                             <A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A>
+                             <xsl:if test="number(./total_inquiries)&gt;0"><A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A></xsl:if>
                     </td>
                         </tr>
                     </xsl:if>
@@ -369,7 +369,7 @@
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
                             <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                     <td class="projectCells" align="center">
-                             <A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A>
+                             <xsl:if test="number(./total_inquiries)&gt;0"><A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A></xsl:if>
                     </td>
                         </tr>
                     </xsl:if>
@@ -461,7 +461,7 @@
                             <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
 
                     <td class="projectCells" align="center">
-                             <A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A>
+                             <xsl:if test="number(./total_inquiries)&gt;0"><A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A></xsl:if>
                     </td>
                         </tr>
                     </xsl:if>
