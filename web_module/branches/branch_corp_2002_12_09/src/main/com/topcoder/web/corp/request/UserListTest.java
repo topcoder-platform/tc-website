@@ -69,7 +69,7 @@ class UserListTest extends BaseProcessor {
     private void setupUsersList() throws Exception {
 
         log.debug("UserList getting users");
-//        String companyId = request.getAttribute("companyId");
+//        String companyId = (String)request.getAttribute("companyId");
 //        if (companyId == null || companyId.length() == 0) { 
 //            throw new Exception("Error getting company attribute");
 //        }
