@@ -76,13 +76,13 @@
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/><BR/>
 <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
-<B>Single Round Match 113</B><BR/>
-Tuesday, September 10, 2002
+<B>Single Round Match 114</B><BR/>
+Tuesday, September 24, 2002
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
 
 
 <font size="+2">
-  <b>GameCipher</b>
+  <b>Snail</b>
 </font>
 <BR/>
 
@@ -93,93 +93,155 @@ Tuesday, September 10, 2002
         <td style="background: #eee;" class="bodyText">
           <b>Value</b>
         </td>
-        <td style="background: #eee;" class="bodyText">250</td>
+        <td style="background: #eee;" class="bodyText">250 points</td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Submission Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">219 / 250 (87.60%) 
+        <td style="background: #eee;" class="bodyText">235 / 256 (91.80%) 
 </td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Success Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">148 / 219 (67.58%) 
+        <td style="background: #eee;" class="bodyText">195 / 235 (82.98%) 
 </td>
+      </tr>
+	  <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Average Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">225.28 points
+        </td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
-          <b>fiddlybit</b> for 239.89  points
+          <b>slowjoe</b> for 248 points
                 </td>
       </tr>
     </table>
   </blockquote>
   
 <P>
-93 out of 241 coders who opened GameCipher, received 0 points. 
-</P>
- 
- 
-<P>
-Reference implementation:
-</P>
-
-
-<h4>Implementation</h4>
-<P>
-The problem is very straightforward and as easy as it has to be for Div-II Level 1 250 problem. Al
+Most people got this one pretty easily. You just had to set up a simple loop to count the number of days, and update the position of the snail within the well for each day. Once the position on any given day is outside of the well, it 's time for the function to return:
 </P>
 
 <P>
-To solve the problem check every pair for the following:<BR/>
-if a==b return index<BR/>
-if a is vowel and b is not vowel return index<BR/>
-if b is vowel and a is not vowel return index <BR/>
-if a is mapped return index<BR/>
-if b has mapping to return index<BR/>
+<PRE>
+int days=0;
+while (depth>0) {
+	days++;
+	depth-=dayUp;
+	if (depth<=0) return days;
+	depth+=nightDown;	
+}
+</PRE>
+</P>
+
+<P>
+The areas where most people made mistakes on this one were starting with the wrong day (i.e. starting at 1 instead of 0) and using the wrong exit condition (i.e. depth==0 instead of depth&lt;=0).
+</P>
+
+<P>
+Reference Implementation: <B>Penwiper</B>, practice room
 </P>
 
 <p>&#160;</p>
 
 <font size="+2">
-  <b>Nash</b>
+  <b>DirSort</b>
 </font>
 <BR/>
 
-    Used as: Division-II, Level 2
-            :<blockquote>
+    Used as: Division II - Level 2 &amp; Division I - Level 1 
+	:<blockquote>
     <table cellspacing="2">
+	<tr>
+        <td style="background: #eee;" class="bodyText" colspan="2">
+          <b>Div II stats</b>
+        </td>
+      </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Value</b>
         </td>
-        <td style="background: #eee;" class="bodyText">550</td>
+        <td style="background: #eee;" class="bodyText">600 points</td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Submission Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">88 / 250 (35.20%) 
+        <td style="background: #eee;" class="bodyText">172 / 256 (67.19%) 
 </td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Success Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">48 / 88 (54.55%) 
+        <td style="background: #eee;" class="bodyText">118 / 172 (68.60%) 
 </td>
+      </tr>
+	   <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Average Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">372.12 points
+                </td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
-          <b>uglyfool</b> for 474.60  points
+          <b>Wombat80</b> for 569.90  points
+                </td>
+      </tr>
+    </table>
+	<BR/>
+	 <table cellspacing="2">
+	<tr>
+        <td style="background: #eee;" class="bodyText" colspan="2">
+          <b>Div I stats</b>
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Value</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">350 points</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Submission Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">141 / 146 (96.58%) 
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Success Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">128 / 141 (90.78%) 
+</td>
+      </tr>
+	   <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Average Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">273.11 points
+                </td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>High Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">
+          <b>ZorbaTHut</b> for 344.15   points
                 </td>
       </tr>
     </table>
