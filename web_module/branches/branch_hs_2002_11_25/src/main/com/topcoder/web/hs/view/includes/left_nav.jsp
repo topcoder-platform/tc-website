@@ -80,8 +80,10 @@ sub = NavZone.getLevel1();
         <%=subsep%>
         <%=subitem("?module=Statistics&c=ratings_history&cr="+SessionInfo.getUserId(), "Rating History", "ratings_history")%>
         <%=subsep%>
+<%--@@@
         <%=subitem("?module=Static&d1=stats&d2=m_edi", "Match Editorials", "m_edi")%>
         <%=subsep%>
+--%>
         <%=subitem("?module=Statistics&c=school_round_stats&hs="+SessionInfo.getSchoolId(), "High School Round Stats", "school_round_stats")%>
         <%=subsep%>
         <%=subitem("?module=Statistics&c=round_overview", "Round Overview", "round_overview")%>
