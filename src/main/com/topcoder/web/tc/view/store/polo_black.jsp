@@ -61,7 +61,7 @@
                                     <tr><td colspan="3" class="bodyText"> The 7oz. short sleeve 100% Ultra cotton pique sportshirt is black with a red pin stripe. TopCoder logo is embroidered on the left chest and on the upper back.</td></tr>
                                     <tr>
                                         <form name="sizeSelect">
-                                        <td valign="middle" nowrap>$34.95 ($36.95 for XXL)</td>
+                                        <td valign="middle" nowrap><strike>$34.95 ($36.95 for XXL)</strike><br/><font color="#CC0000">$28.95 ($30.95 for XXL)</font></td>
                                         <td valign="middle" class="bodyText">
                                           <select name="menu" size="1" class="dropdown">
                                              <option SELECTED VALUE="#">Select a Size:</option>

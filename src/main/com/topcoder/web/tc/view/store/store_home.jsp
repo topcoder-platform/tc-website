@@ -31,12 +31,10 @@
 <!-- Center Column Begins -->
 <td class="bodyText" align="center">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr><td height="15"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td align="center"><a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_a.gif" alt="TopCoder Gear Store" width="540" height="58" border="0" /></a><br/>
-                <a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_b.jpg" alt="TopCoder Gear Store" width="540" height="441" border="0" /></a>
-                
-                
-                </td></tr>
+          		<tr><td height="15"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+<!--            <tr><td align="center"><a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_a.gif" alt="TopCoder Gear Store" width="540" height="58" border="0" /></a><br/>
+                <a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_b.jpg" alt="TopCoder Gear Store" width="540" height="441" border="0" /></a></td></tr>-->
+    			<tr><td align="center"><a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_sale.jpg" alt="TopCoder Gear Store" width="540" height="499" border="0" /></a>
     </table>
 
             <p><br></p>
