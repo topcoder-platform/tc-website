@@ -110,8 +110,8 @@
 <td  class="<%=even?"formTextEven":"formTextOdd"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } %>
 </tr>
-                   <%even=!even;%>
-                </rsc:iterator>
+<%even=!even;%>
+</rsc:iterator>
             </table>
          <p><br/></p>
          </td>
