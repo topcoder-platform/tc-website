@@ -1,4 +1,5 @@
 <%@ include file="head.inc" %>
+<%@ page import="java.awt.Color"%>
 
 <%@ include file="body.inc" %>
 
@@ -51,10 +52,11 @@ if (rsc!=null && !rsc.isEmpty()) {
                  </TR>
                  <TR>
                    <TD  CLASS="statText" VALIGN="middle" ALIGN="left">
-                      <% if (problem!=null) { %>
-<font color="#ffffff">
-              		<%= new ProblemRenderer(problem).toHTML(JavaLanguage.JAVA_LANGUAGE) %>
-</font>
+                      <% if (problem!=null) { 
+                           ProblemRenderer pr = new ProblemRenderer(problem);
+                           pr.setForegroundColor(Color.white);
+                      %>
+              		<%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
                       <% } else { %>
                         Problem Statement not available.
                       <% } %>
