@@ -294,7 +294,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void closeProcessingPage(String nextPage) throws IOException {
-        StringBuffer buf = new StringBuffer("500");
+        StringBuffer buf = new StringBuffer(500);
         buf.append("<script language=\"javascript\">");
         buf.append("top.location.replace(\'").append(nextPage).append("\');");
         buf.append("</script>");
