@@ -86,7 +86,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
             try {
                 //since we don't have a transaction spanning the security
                 //stuff, attempt to remove this newly created user manually
-                if (newUser != null && newUser.getId() > 0) {
+                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
                     PrincipalMgrRemote mgr = getPrincipalManager();
                     mgr.removeUser(newUser, CREATE_USER);
                 }
