@@ -23,6 +23,7 @@ public class Constants {
     //pages
     public static String PAGE_INDEX;
     public static String PAGE_LOGIN;
+    public static String PAGE_CURRENT_TIME;
 
     //parameters
     public static String HANDLE;

@@ -4,7 +4,7 @@
     <title>Technical Assessment</title>
   </head>
   <frameset cols="0,*">
-    <frame name="clockFrame" src="clockFrame.jsp" frameborder=0 noresize>
+    <frame name="clockFrame" src="?module=CurrentTime" frameborder=0 noresize>
     <frame name="mainFrame" src="indexInner.jsp" frameborder=0 noresize>
   </frameset>
 </html>

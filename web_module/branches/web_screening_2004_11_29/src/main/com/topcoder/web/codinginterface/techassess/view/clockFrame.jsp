@@ -7,7 +7,7 @@
   <body>
     <script language="javascript">
         //perform clock sync, time below is in milliseconds after epoch
-        var serverTime = new Date(1103053905000);
+        var serverTime = new Date(<%=request.getAttribute("currentTime")%>);
         var localTime = new Date();
         
         var serverOffset = -5; //hours from GMT
