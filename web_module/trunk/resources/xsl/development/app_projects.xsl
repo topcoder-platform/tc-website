@@ -69,8 +69,8 @@
 					</td>
 				</tr> -->
 							
-				<tr valign="top">
-					<td class="statText" width="50%">
+				<tr>
+					<td valign="top" class="statText" width="50%">
 						<p>
 						Project: <a class="statText" href="/index?t=development&amp;c=tchs">TopCoder High School</a><br/>
 						Posted: 11.18.2002<br/>
@@ -79,12 +79,12 @@
                         <P><BR/></P>
 					</td>
 
-					<td class="statText" width="50%">&#160;
-						<!-- <p>
-						Project: <a class="statText" href="/index?t=development&amp;c=simple_cache">Simple Cache</a><br/>
-						Posted: 11.14.2002<br/>
-						Submission Deadline: 11.27.2002<br/>
-						</p> -->     
+					<td valign="top" class="statText" width="50%">
+						<p>
+						Project: <a class="statText" href="/index?t=development&amp;c=portal">Portal</a><br/>
+						Posted: 12.2.2002<br/>
+						Submission Deadline: 12.8.2002<br/>
+						</p>    
 					</td>
 				</tr>										
 			</table>
