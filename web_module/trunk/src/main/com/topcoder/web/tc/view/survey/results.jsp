@@ -23,6 +23,9 @@
                 <td>
                     <rsc:item row="<%=answer%>" name="count"/>
                 </td>
+                <td>
+                    <rsc:item row="<%=answer%>" name="percentage" format="#.##"/>%
+                </td>
             </tr>
             </rsc:iterator>
         </table>
