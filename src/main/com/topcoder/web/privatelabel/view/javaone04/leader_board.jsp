@@ -148,7 +148,7 @@ H3 { font-size: 125%; }
                                 <td class="leaderCell" align="right"><span class="winners">1234</span></td>
                             </tr>
                             <tr>
-                                <td class="leaderCell">friekinwickedlong, mystupidnameis</td>
+                                <td class="leaderCell">FreakinWickedLong, mystupidnameis</td>
                                 <td class="leaderCell" align="right">1234</td>
                             </tr>
                         </table>
@@ -163,7 +163,7 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader" align="right">Status</td>
                             </tr>
                             <tr>
-                                <td class="leaderCell">friekinwickedlong, mystupidnameis</td>
+                                <td class="leaderCell">FreakinWickedLong, mystupidnameis</td>
                                 <td class="leaderCell" align="right">passed<br/>(1234)</td>
                             </tr>
                             <tr>
@@ -187,8 +187,8 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
                             <tr>
-                                <td class="leaderCell">friekinwickedlong, mystupidnameis</td>
-                                <td class="leaderCell" align="right">1234</td>
+                                <td class="leaderCell"><span class="winners">FreakinWickedLong, mystupidnameis</span></td>
+                                <td class="leaderCell" align="right"><span class="winners">1234</span></td>
                             </tr>
                         </table>
                     </td>
@@ -202,7 +202,7 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader" align="right">Status</td>
                             </tr>
                             <tr>
-                                <td class="leaderCell">friekinwickedlong, mystupidnameis</td>
+                                <td class="leaderCell">FreakinWickedLong, mystupidnameis</td>
                                 <td class="leaderCell" align="right">1234</td>
                             </tr>
                         </table>
