@@ -77,10 +77,6 @@ List industryList = (List)request.getAttribute("industrySkills");
                             <tr><td>&#160;</td></tr>
                         </tc:listIterator>
                         <tr>
-                                <td valign=top>&#160;</td>
-                        </tr>
-
-                        <tr>
                                 <td align=right><b>Resume</b></td>
                                 <td valign=top>&#160;</td>
                         </tr>
@@ -105,7 +101,7 @@ List industryList = (List)request.getAttribute("industrySkills");
                                 <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
                             </tr>
                         </tc:listIterator>
-                        <tr><td align=left colspan=2><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td></tr>
+                        <tr><td align=left colspan=2><table width="70%"><tr><td><%=StringUtils.htmlEncode((String)request.getAttribute("techNote"))%></td></tr></table></td></tr>
 
             			<tr><td>&#160;</td></tr>
 
