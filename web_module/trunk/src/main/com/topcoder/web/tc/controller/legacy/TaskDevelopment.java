@@ -35,7 +35,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.SoftwareComponent;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.project.Project;
+import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.http.HttpServletRequest;
@@ -462,22 +462,22 @@ else if (command.equals("send")) {
                         //get fancy new ejb
                         InitialContext ctx = TCContext.getInitial();
                         
-                        Project projBean = (Project)BaseProcessor.createEJB(ctx, Project.class);
+                        ComponentRegistrationServices cregBean = (ComponentRegistrationServices)BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
-                             if(!projBean.isRegClosed(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-                                if (!projBean.isUserRegistered(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-                                    if (!projBean.hasUserReviewedProject(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-                                        if (!projBean.isUserWinningDesigner(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                             if(!cregBean.isRegClosed(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                if (!cregBean.isUserRegistered(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                    if (!cregBean.hasUserReviewedProject(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                        if (!cregBean.isUserWinningDesigner(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                             //check max rated / unrated
                                             log.debug("RYAN RATING IS:" + rating);
-                                            if(rating == 0 && projBean.getUnratedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= projBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) ) {
+                                            if(rating == 0 && cregBean.getUnratedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= cregBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) ) {
                                                 //reg full - unrated
-                                                devTag.addTag(new ValueTag("max_reg", projBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
+                                                devTag.addTag(new ValueTag("max_reg", cregBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
                                                 xsldocURLString = XSL_DIR + "reg_full_unrated.xsl";
-                                            } else if (rating != 0 && projBean.getRatedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= projBean.getMaxRatedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                                            } else if (rating != 0 && cregBean.getRatedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= cregBean.getMaxRatedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                                 //reg full - rated
-                                                devTag.addTag(new ValueTag("max_reg", projBean.getMaxRatedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
+                                                devTag.addTag(new ValueTag("max_reg", cregBean.getMaxRatedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
                                                 xsldocURLString = XSL_DIR + "reg_full_rated.xsl";
                                             } else {
 

@@ -599,14 +599,14 @@
         </jar>
     </target>
 
-    <target name="package-EJB-ProjectBean" depends="compile">
+    <target name="package-EJB-ComponentRegistrationServicesBean" depends="compile">
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="Project"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb/project"/>
+            <param name="unit-jar-name" value="ComponentRegistrationServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/ComponentRegistrationServices"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/Project.jar" update="true">
+        <jar jarfile="${ejb_jars}/ComponentRegistrationServices.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/project/*"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/ComponentRegistrationServices/*"/>
         </jar>
     </target>
 
@@ -1037,7 +1037,7 @@
         <antcall target="package-EJB-UserEvent"/>
         <!-- Since Screening Tool 1.1 -->
         <antcall target="package-EJB-PreferenceLevelBean"/>
-        <antcall target="package-EJB-ProjectBean"/>
+        <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
         <antcall target="war-tc"/>
     </target>
 
