@@ -46,4 +46,19 @@
     </tag>
 
 
+    <tag>
+        <name>demographicInput</name>
+        <tagclass>com.topcoder.web.privatelabel.view.tag.DemographicInput</tagclass>
+        <attribute>
+            <name>class</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>question</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 </taglib>

@@ -46,7 +46,7 @@ public class DemographicInput extends BaseTag {
                 case DemographicQuestion.SINGLE_SELECT:
                     out.append(buildSelect());
                     break;
-                default break;
+                default: break;
             }
             try {
                 pageContext.getOut().print(out);
