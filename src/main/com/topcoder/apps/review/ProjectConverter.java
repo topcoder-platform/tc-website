@@ -1,7 +1,7 @@
-/*
+194/*
  * ProjectConverter.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review;
@@ -116,7 +116,8 @@ public class ProjectConverter {
                 "cvd.review_complete_date, " +
                 "cvd.aggregation_complete_date, " +
                 "cvd.phase_complete_date, " +
-                "cvd.production_date " +
+                "cvd.production_date," +
+                "cvd.level_id  " +
                 "FROM comp_catalog cc, comp_versions cv, " +
                 "comp_version_dates cvd " +
                 "WHERE " +
@@ -147,6 +148,7 @@ public class ProjectConverter {
             Date aggregationCompleteDate = rs.getDate(15);
             Date phaseCompleteDate = rs.getDate(16);
             Date productionDate = rs.getDate(17);
+            long levelId = rs.getLong("level_id");
 
             System.out.println("name: " + projectName +
                     " ,version: " + version +
