@@ -61,24 +61,32 @@
 
 				<tr><td class="statText" colspan="2"><strong>Open Application Projects</strong></td></tr>
 				
-				<tr valign="top">
+				<!-- <tr valign="top">
 					<td class="statText" colspan="2">
 						<p>
 						Check here next week for an exciting new project!<br/>
 						</p>   
 					</td>
-				</tr>
+				</tr> -->
 							
-<!--				<tr  valign="top">
+				<tr valign="top">
 					<td class="statText" width="50%">
 						<p>
-						Project: <a href="/index?t=development&amp;c=api_compare" class="statText">API Comparator Component Design</a><br/>
-						Component Posting: 11/8/2002<br/>
-						Component Submission Due Date: 11/19/2002<br/>
+						Project: <a class="statText" href="/index?t=development&amp;c=tchs">TopCoder High School</a><br/>
+						Posted: 11.18.2002<br/>
+						Submission Deadline: 11.24.2002<br/>
 						</p>   
+                        <P><BR/></P>
 					</td>
-				</tr>  -->
-							
+
+					<td class="statText" width="50%">&#160;
+						<!-- <p>
+						Project: <a class="statText" href="/index?t=development&amp;c=simple_cache">Simple Cache</a><br/>
+						Posted: 11.14.2002<br/>
+						Submission Deadline: 11.27.2002<br/>
+						</p> -->     
+					</td>
+				</tr>										
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
