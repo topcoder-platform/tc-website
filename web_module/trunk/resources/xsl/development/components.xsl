@@ -54,6 +54,13 @@
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
             
 <!-- Featured Winner Begins -->
+
+            <div align="center">
+            
+            <img src="/i/development/title_thisweekswinners.gif" alt="This Week's Component Project Winners" width="510" height="55" border="0" />
+            
+            </div>
+
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999"><font size="3">Featured Winner</font></td>
@@ -63,53 +70,53 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr><td class="formHandleEven" colspan="4"><strong>Coder: </strong><A class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><font size="3"><strong>zimmy</strong></font></A></td></tr>
 
-                <tr valign="top"><td class="formTextOdd" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
+                <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
 
                 <tr valign="top">
-<!--            <td class="formTextOdd" rowspan="7" width="55"><a href="/stat?c=member_profile&amp;cr=264803" class="coderTextRed"><img src="/i/m/mishagam_big.jpg" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a></td>-->
-                    <td class="formTextOdd" rowspan="7" width="1"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
-                    <td class="formTextOdd" width="50%">Developer Level:</td>
-                    <td class="formTextOdd" align="right" width="40%"><strong>II</strong></td>
-                    <td class="formTextOdd" width="1"></td>
+<!--            <td class="bodyText" rowspan="7" width="55"><a href="/stat?c=member_profile&amp;cr=264803" class="coderTextRed"><img src="/i/m/mishagam_big.jpg" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a></td>-->
+                    <td class="bodyText" rowspan="7" width="1"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
+                    <td class="bodyText" width="50%">Developer Level:</td>
+                    <td class="bodyText" align="right" width="40%"><strong>II</strong></td>
+                    <td class="bodyText" width="1"></td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextOdd">Rating:</td>
-                    <td class="formTextOdd" align="right"><A href="/stat?c=ratings_history&amp;cr=264803"><strong>1373</strong></A></td>
-                    <td class="formTextOdd"></td>
+                    <td class="bodyText">Rating:</td>
+                    <td class="bodyText" align="right"><A href="/stat?c=ratings_history&amp;cr=264803"><strong>1373</strong></A></td>
+                    <td class="bodyText"></td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextOdd">Total Earnings for All Component Projects*:</td>
-                    <td class="formTextOdd" align="right"><strong>$72.00</strong></td>
-                    <td class="formTextOdd"></td>
+                    <td class="bodyText">Total Earnings for All Component Projects*:</td>
+                    <td class="bodyText" align="right"><strong>$72.00</strong></td>
+                    <td class="bodyText"></td>
                 </tr>
 
                  <tr valign="top">
-                    <td class="formTextOdd">Project Name:</td>
-                    <td class="formTextOdd" align="right"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220290"><strong>Data Validation</strong></A></td>
-                    <td class="formTextOdd"></td>
+                    <td class="bodyText">Project Name:</td>
+                    <td class="bodyText" align="right"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220290"><strong>Data Validation</strong></A></td>
+                    <td class="bodyText"></td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="bodyText">Total Submissions for this Project:</td>
+                    <td class="bodyText" align="right"><strong>2</strong></td>
+                    <td class="bodyText"></td>
                 </tr>
 
                <tr valign="top">
-                    <td class="formTextOdd">Review Board Score for this Project:</td>
-                    <td class="formTextOdd" align="right"><strong>95.22</strong></td>
-                    <td class="formTextOdd"></td>
+                    <td class="bodyText">Review Board Score for this Project:</td>
+                    <td class="bodyText" align="right"><strong>95.22</strong></td>
+                    <td class="bodyText"></td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextOdd">Total Submissions for this Project:</td>
-                    <td class="formTextOdd" align="right"><strong>2</strong></td>
-                    <td class="formTextOdd"></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="formTextOdd" colspan="3">
-                        <p><strong>Review Board Comments</strong><br />
+                    <td class="bodyText" colspan="3">
+                        <p><strong>Review Board Comment:</strong><br />
                         "All classes are implemented properly. Good implementation ..."&#151;<A href="/stat?c=member_profile&amp;cr=278342">adic</A></p></td>
                 </tr>
                 
-                <tr valign="top"><td class="formTextOdd" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
+                <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
             </table>
     <!-- Featured Winner Ends -->
     
@@ -133,48 +140,48 @@
                 </tr>
                 
                 <tr valign="middle">
-                    <td class="formTextOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7338647" class="bodyText" target="parent">Bar Graph</a></td>
-                    <td class="formTextOdd" align="center">1</td>
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7338647" class="statText">Bar Graph</a></td>
+                    <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261390"><strong>Sharakan</strong></a></td>
-                    <td class="formTextOdd" align="center">89.25</td>
-                    <td class="formTextOdd" align="right">$0.00&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center">89.25</td>
+                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5711016" class="bodyText" target="parent">SQL Parser</a></td>
-                    <td class="formTextEven" align="center">2</td>
+                    <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5711016" class="statText">SQL Parser</a></td>
+                    <td class="formHandleEven" align="center">2</td>
                     <td class="formHandleEven" align="center">1</td>
                     <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342"><strong>kyky</strong></a></td>
-                    <td class="formTextEven" align="center">83.70</td>
-                    <td class="formTextEven" align="right">$634.00&#160;&#160;</td>
+                    <td class="formHandleEven" align="center">83.70</td>
+                    <td class="formHandleEven" align="right">$634.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextEven"></td>
-                    <td class="formTextEven" align="center">&#160;</td>
+                    <td class="formHandleEven"></td>
+                    <td class="formHandleEven" align="center">&#160;</td>
                     <td class="formHandleEven" align="center">2</td>
                     <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=287614"><strong>argolite</strong></a></td>
-                    <td class="formTextEven" align="center">83.64</td>
-                    <td class="formTextEven" align="right">$1,209.00&#160;&#160;</td>
+                    <td class="formHandleEven" align="center">83.64</td>
+                    <td class="formHandleEven" align="right">$1,209.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7361823" class="bodyText" target="parent">Type Safe Enum</a></td>
-                    <td class="formTextOdd" align="center">2</td>
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7361823" class="statText">Type Safe Enum</a></td>
+                    <td class="formHandleOdd" align="center">2</td>
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
-                    <td class="formTextOdd" align="center">88.80</td>
-                    <td class="formTextOdd" align="right">$4,601.60&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center">88.80</td>
+                    <td class="formHandleOdd" align="right">$4,601.60&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextOdd"></td>
-                    <td class="formTextOdd" align="center">&#160;</td>
+                    <td class="formHandleOdd"></td>
+                    <td class="formHandleOdd" align="center">&#160;</td>
                     <td class="formHandleOdd" align="center">2</td>
                     <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261390"><strong>Sharakan</strong></a></td>
-                    <td class="formTextOdd" align="center">81.35</td>
-                    <td class="formTextOdd" align="right">$0.00&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center">81.35</td>
+                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
             </table>
             
@@ -197,66 +204,66 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220290" class="bodyText" target="parent">Data Validation</a></td>
-                    <td class="formTextOdd" align="center">3</td>
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7220290" class="statText">Data Validation</a></td>
+                    <td class="formHandleOdd" align="center">3</td>
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><strong>zimmy</strong></a></td>
-                    <td class="formTextOdd" align="center">95.22</td>
-                    <td class="formTextOdd" align="right">$0.00&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center">95.22</td>
+                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextOdd"></td>
-                    <td class="formTextOdd" align="center"></td>
+                    <td class="formHandleOdd"></td>
+                    <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd" align="center">2</td>
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=288429"><strong>jfjiang</strong></a></td>
-                    <td class="formTextOdd" align="center">90.44</td>
-                    <td class="formTextOdd" align="right">$0.00&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center">90.44</td>
+                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextOdd"></td>
-                    <td class="formTextOdd" align="center"></td>
+                    <td class="formHandleOdd"></td>
+                    <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd" align="center">3</td>
                     <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=343613"><strong>phark4evr</strong></a></td>
-                    <td class="formTextOdd" align="center">80.70</td>
-                    <td class="formTextOdd" align="right">$0.00&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center">80.70</td>
+                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=2810520" class="bodyText" target="parent">Encryption</a></td>
-                    <td class="formTextEven" align="center">2</td>
+                    <td class="formHandleEven"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=2810520" class="statText">Encryption</a></td>
+                    <td class="formHandleEven" align="center">2</td>
                     <td class="formHandleEven" align="center">1</td>
                     <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=153089"><strong>preben</strong></a></td>
-                    <td class="formTextEven" align="center">90.74</td>
-                    <td class="formTextEven" align="right">$0.00&#160;&#160;</td>
+                    <td class="formHandleEven" align="center">90.74</td>
+                    <td class="formHandleEven" align="right">$0.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextEven"></td>
-                    <td class="formTextEven" align="center"></td>
+                    <td class="formHandleEven"></td>
+                    <td class="formHandleEven" align="center"></td>
                     <td class="formHandleEven" align="center">2</td>
                     <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786"><strong>Yi_Zhang</strong></a></td>
-                    <td class="formTextEven" align="center">86.69</td>
-                    <td class="formTextEven" align="right">$0.00&#160;&#160;</td>
+                    <td class="formHandleEven" align="center">86.69</td>
+                    <td class="formHandleEven" align="right">$0.00&#160;&#160;</td>
                 </tr>
                 
                 <tr valign="middle">
-                    <td class="formTextOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7297246" class="bodyText" target="parent">Phonetic Spell Check</a></td>
-                    <td class="formTextOdd" align="center">2</td>
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7297246" class="statText">Phonetic Spell Check</a></td>
+                    <td class="formHandleOdd" align="center">2</td>
                     <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=301504"><strong>opi</strong></a></td>
-                    <td class="formTextOdd" align="center">98.96</td>
-                    <td class="formTextOdd" align="right">$144.00&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center">98.96</td>
+                    <td class="formHandleOdd" align="right">$144.00&#160;&#160;</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formTextOdd"></td>
-                    <td class="formTextOdd" align="center"></td>
+                    <td class="formHandleOdd"></td>
+                    <td class="formHandleOdd" align="center"></td>
                     <td class="formHandleOdd" align="center">2</td>
                     <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=264803"><strong>zimmy</strong></a></td>
-                    <td class="formTextOdd" align="center">92.53</td>
-                    <td class="formTextOdd" align="right">$72.00&#160;&#160;</td>
+                    <td class="formHandleOdd" align="center">92.53</td>
+                    <td class="formHandleOdd" align="right">$72.00&#160;&#160;</td>
                 </tr>
             </table>
 <!-- Development Winners Ends -->
