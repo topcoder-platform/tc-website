@@ -89,22 +89,11 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                         Compete: 9:00 PM<br />
                     </td>
                     <td class="sidebarText" align="center">Open</td>
-                    <td class="sidebarText" align="center">100</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Online Round 2</td>
-                    <td class="sidebarText">
-                        Thursday, November 13th<br />
-                        Login by: 8:50 PM<br />
-                        Compete: 9:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">100</td>
                     <td class="sidebarText" align="center">50</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="sidebarText">Online Round 3</td>
+                    <td class="sidebarText">Online Round 2</td>
                     <td class="sidebarText">
                         Monday, November 17th<br />
                         Login by: 8:50 PM<br />
