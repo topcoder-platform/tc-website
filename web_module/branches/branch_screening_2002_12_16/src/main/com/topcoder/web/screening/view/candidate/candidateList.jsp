@@ -42,7 +42,7 @@
               <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>           	        
 	        <TR>
-		       <TD VALIGN="middle" COLSPAN="2" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#999999"><B>&#160;Email Address</B></TD>		       
+		       <TD VALIGN="middle" COLSPAN="2" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#999999"><B>&#160;Handle</B></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Profile</B></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Begin</B></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;End</B></TD>
@@ -54,14 +54,15 @@
            </TR>	        
             <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
             <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
+            <% String params = "userId=" + row.getItem("user_id"); %>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
-		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="handle" /></TD>		       
+		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>		       
 		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="TestResults" styleClass="bodyText">See Results</screen:servletLink></TD>       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="status" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%= "userId=" + row.getItem("user_id") %>" styleClass="bodyText">View</screen:servletLink></TD>		       		       	        
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText">View</screen:servletLink></TD>		       		       	        
 	        </TR>
             </screen:resultSetRowIterator>
            <TR>

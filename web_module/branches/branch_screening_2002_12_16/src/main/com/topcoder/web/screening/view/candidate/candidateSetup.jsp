@@ -79,9 +79,10 @@
          </TABLE>
 <%
     if(!candidateInfo.isNew())
-    {
+    { 
+        String params = "userId=" + candidateInfo.getUserId(); 
 %>
-<P>To add a note <screen:servletLink processor="NoteList" param="<%= "userId=" + candidateInfo.getUserId() %>" styleClass="bodyText">click here</screen:servletLink></P>
+<P>To add a note <screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText">click here</screen:servletLink></P>
 <%
     }
 %>
