@@ -135,6 +135,7 @@ public class Task implements Serializable {
     }
 
     public boolean isStep(String s) {
+        log.debug("s: " + s + " step : " + step);
         return s != null && step != null && step.equalsIgnoreCase(s);
     }
 
