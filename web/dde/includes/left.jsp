@@ -22,7 +22,6 @@
             <% if (level1.equals("applications")) { %>
                 <tr><td id="<%=level2.equals("overview")?"leftSubnavOn":"leftSubnav"%>"><a href="/applications/index.jsp" class="leftOn">Overview</a></td></tr>
                 <tr><td id="<%=level2.equals("methodology")?"leftSubnavOn":"leftSubnav"%>"><a href="/applications/methodology.jsp" class="leftOn">Methodology</a></td></tr>
-                <tr><td id="<%=level2.equals("appSuites")?"leftSubnavOn":"leftSubnav"%>"><a href="/applications/appSuiteIndex.jsp" class="leftOn">Application Suites</a></td></tr>
 			<% } %>
 <!-- Applications ends -->
 
