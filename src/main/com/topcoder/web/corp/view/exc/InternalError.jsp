@@ -42,18 +42,6 @@
    </td></tr>
    <tr><td class="bodyText"><a href="Javascript:history.back()">&lt; back</a></td></tr>
    </table>
-<%--
-   <!-- web-app debug time stack trace  BEGIN -->
-   <br><hr><b><i>Trace information is provided for web application debug time only</i></b><br>
-   <pre>
-   <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
-      if( excCaught != null ) {
-         excCaught.printStackTrace(new java.io.PrintWriter(out));
-      }
-   %>
-   </pre><hr>
-   <!-- web-app debug time stack trace END -->
---%>
  </TD>
 
 <!-- Body Area Ends -->

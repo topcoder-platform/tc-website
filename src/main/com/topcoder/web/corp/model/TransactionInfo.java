@@ -9,6 +9,8 @@ import com.topcoder.web.ejb.user.ContactHome;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.TransactionServlet;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.security.User;
+import com.topcoder.security.NotAuthorizedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -58,7 +60,7 @@ public class TransactionInfo {
      * information
      */
     public TransactionInfo(HttpServletRequest req, HttpServletResponse resp)
-            throws NamingException, RemoteException, CreateException, Exception {
+            throws NamingException, RemoteException, CreateException, NotAuthorizedException, Exception {
         productID = Long.parseLong(req.getParameter(TransactionServlet.KEY_PRODUCT_ID));
         userBackPage = req.getParameter(TransactionServlet.KEY_RETPAGE);
         if (userBackPage != null && userBackPage.trim().length() == 0) {
@@ -69,8 +71,12 @@ public class TransactionInfo {
         SessionPersistor store = new SessionPersistor(
                 req.getSession(true)
         );
-        contactID = (new BasicAuthentication(store, req, resp))
-                .getUser().getId();
+        User user = new BasicAuthentication(store, req, resp).getUser();
+        if (user.isAnonymous()) {
+            throw new NotAuthorizedException("User not logged in: " + user.getId());
+        } else {
+            contactID = user.getId();
+        }
 
         InitialContext icEJB = null;
         try {
