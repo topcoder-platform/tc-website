@@ -27,7 +27,7 @@ public class Confirm  extends ContractingBase {
     protected void contractingProcessing() throws TCWebException {
         try {
             //load preference groups
-            Hashtable groups = new Hashtable();
+            HashMap groups = new HashMap();
 
             Request r = new Request();
             r.setContentHandle("preference_groups");
@@ -42,7 +42,7 @@ public class Confirm  extends ContractingBase {
                 rpref.setContentHandle("preferences_by_group");
                 rpref.setProperty("prid", String.valueOf(rsc.getIntItem(i, "preference_group_id")));
 
-                Hashtable vals = new Hashtable();
+                HashMap vals = new HashMap();
                 
                 ResultSetContainer rscPref = (ResultSetContainer)getDataAccess().getData(rpref).get("preferences_by_group");
                 for(int j = 0; j < rscPref.size(); j++) {                   
