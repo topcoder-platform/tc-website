@@ -282,7 +282,7 @@ function submitEnter(e) {
                 </td>
                 <td align="left">
                     <% ResultSetContainer countryRsc = (ResultSetContainer)request.getAttribute("countryList"); %>
-                    <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
+                    <tc-webtag:rscSelect topValue="840" topText="United States" name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
                 </td>
             </tr>
             <tr>
