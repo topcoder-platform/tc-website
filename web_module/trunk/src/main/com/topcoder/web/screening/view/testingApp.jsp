@@ -46,16 +46,16 @@
 
         <%
             String host = request.getParameter("host");
-            if ((host=="") || host.equals("")) host="corporate.topcoder.com";
+            if ((host==null) || host.equals("")) host="corporate.topcoder.com";
 
             String port = request.getParameter("port");
-            if ((port=="") || port.equals("")) port="8001";
+            if ((port==null) || port.equals("")) port="8001";
 
             String tunnel = request.getParameter("tunnel");
-            if ((tunnel=="") || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening+port=8001";
+            if ((tunnel==null) || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening+port=8001";
 
             String companyID = request.getParameter("company");
-            if ((companyID=="") || companyID.equals("")) companyID="1";
+            if ((companyID==null) || companyID.equals("")) companyID="1";
 
         %>
 
