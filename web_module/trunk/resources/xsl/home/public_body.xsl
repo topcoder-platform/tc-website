@@ -79,8 +79,8 @@
 					<tr>
 						<td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
 						<td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-							<xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 131</strong></a><br />
-							Thursday, January 30, 2003<br /><br />
+							<xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 132</strong></a><br />
+							Saturday, February 1, 2003<br /><br />
 						</td>
 						<td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
 					</tr>
