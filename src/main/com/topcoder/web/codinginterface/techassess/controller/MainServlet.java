@@ -107,7 +107,7 @@ public class MainServlet extends BaseServlet {
 
     protected WebAuthentication createAuthentication(TCRequest request,
                                                      TCResponse response) throws Exception {
-        return new LightAuthentication(new SessionPersistor(request.getSession()), request, response,
+        return new LightAuthentication(new SessionPersistor(request.getSession(true)), request, response,
                 LightAuthentication.TECH_ASSESS_SITE);
     }
 
