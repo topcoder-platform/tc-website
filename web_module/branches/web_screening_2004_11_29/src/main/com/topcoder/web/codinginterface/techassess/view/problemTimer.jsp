@@ -40,7 +40,7 @@ if (o!=null) {
             var d = new Date();
             var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
 
-            for (i=0; i<times.length;i++) {
+            for (i=0; i<startTimes.length;i++) {
                 var time=0;
                 if (startTimes[i]==0) {
                   time = 0;
