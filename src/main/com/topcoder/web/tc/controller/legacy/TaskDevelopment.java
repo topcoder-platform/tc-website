@@ -289,6 +289,26 @@ public final class TaskDevelopment {
                 } else {
                     requiresLogin = true;
                 }
+            } else if (command.equals("multiplier_status")) {
+                Request dataRequest = null;
+                ResultSetContainer rsc = null;
+                Map resultMap = null;
+                log.debug("getting dai");
+                dataRequest = new Request();
+                dataRequest.setContentHandle("Multiplier_Status");
+
+                DataAccessInt dai = new DataAccess(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
+                log.debug("got dai");
+
+                resultMap = dai.getData(dataRequest);
+                log.debug("got map");
+                rsc = (ResultSetContainer) resultMap.get("submission_status");
+
+
+                devTag.addTag(rsc.getTag("projects", "project"));
+                xsldocURLString = XSL_DIR + command + ".xsl";
+
             } else if (command.equals("comp_archive")) {
                 Request dataRequest = null;
                 ResultSetContainer rsc = null;
