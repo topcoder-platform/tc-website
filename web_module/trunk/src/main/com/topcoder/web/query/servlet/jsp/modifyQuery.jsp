@@ -33,12 +33,14 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryTask" property="Db"/>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_NAME%></TD></TR>
-            <TR><TD COLSPAN="2" ALIGN="center">
-              <A HREF="<jsp:getProperty name="ModifyQueryTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyQueryTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="ModifyQueryTask" property="QueryId"/>" class="statText">
-                [edit query input]
-              </A>
-            </TD</TR>
-            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+            <% if (!ModifyQueryTask.isNewQuery()) { %>
+              <TR><TD COLSPAN="2" ALIGN="center">
+                <A HREF="<jsp:getProperty name="ModifyQueryTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyQueryTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="ModifyQueryTask" property="QueryId"/>" class="statText">
+                  [edit query input]
+                </A>
+              </TD</TR>
+              <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+            <% } %>
             <TR>
               <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
               <TD CLASS="statText" ALIGN="left">
