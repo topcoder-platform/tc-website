@@ -79,7 +79,7 @@ public class Home extends Base {
             dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
             getRequest().setAttribute("member_info", dwDai.getData(dataRequest).get("Coder_Data"));
 
-            TCO04ComponentTerms compTerms = new TCO04ComponentTerms();
+/*            TCO04ComponentTerms compTerms = new TCO04ComponentTerms();
             compTerms.setRequest(getRequest());
             compTerms.setResponse(getResponse());
             compTerms.setAuthentication(getAuthentication());
@@ -90,7 +90,7 @@ public class Home extends Base {
             algoTerms.setAuthentication(getAuthentication());
 
             getRequest().setAttribute("compTerms", compTerms);
-            getRequest().setAttribute("algoTerms", algoTerms);
+            getRequest().setAttribute("algoTerms", algoTerms);*/
 
 
 
