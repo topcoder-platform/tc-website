@@ -103,8 +103,6 @@ public class AggregateProject implements Model {
 
                 // save the AggregationWorksheet
                 documentManager.saveAggregation(aggregationData.getAggregationWorksheet(), user.getTCSubject());
-
-                AutoPilot.aggregation(aggregationData);
                 
                 return new SuccessResult();
             }

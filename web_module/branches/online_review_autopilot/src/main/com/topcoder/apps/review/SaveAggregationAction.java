@@ -71,6 +71,8 @@ public final class SaveAggregationAction extends ReviewAction {
                 resetToken(request);
             }
         
+            AutoPilot.aggregation(aggregationData);
+
             return result;
         }
     }
