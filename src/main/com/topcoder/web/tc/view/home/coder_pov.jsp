@@ -30,7 +30,7 @@ fastest on the first two problems and <b>WishingBone</b> on the last, but still 
 <b>ZorbaTHut</b> despite no challenges. Notably for a problem set that I write was that
 5 people managed to solve the hard problem!
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm173_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText" href="/?t=statistics&amp;c=srm173_prob"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
