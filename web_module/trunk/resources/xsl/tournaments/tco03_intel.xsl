@@ -77,7 +77,8 @@ function openWin(url, name, w, h) {
                            <td valign="top" width="1%"><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /> </td>
                              <td valign="top" width="34%">
                                     <p>Intel&#174; Centrino&#153; mobile technology-based notebook! <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_specs','comp',545,655);">View Specs.</A></p>
-                                    <p><font color="#0033CC">Register Now! Use promotion code TCO2003.</font></p></td>
+                                    <p><font color="#0033CC">Register Now! Use promotion code TCO2003.</font></p>
+                                    </td>
           
                              <td valign="top" width="65%">
                              
@@ -88,10 +89,12 @@ function openWin(url, name, w, h) {
                                 <p><font color="#0033CC">Register Now! Use promotion code TCO2003.</font></p>
                              </td>
                             </tr>
-                     </table>
+                        </table>
                              
 
-       
+                        <p><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_rules','comp',545,655);">Official Drawing Rules</A> for Intel&#174; 
+                        Centrino&#8482; mobile technology-based notebook.</p>
+                        
                         <p><strong>Check the TopCoder site for SRM dates and times. Remember to use promotion code <font color="#CC0000"><strong>TCO2003</strong></font> and 
                         compete in any Intel-sponsored Single Round Match for a chance to win!</strong></p>
                     
