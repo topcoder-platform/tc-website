@@ -166,6 +166,7 @@ public abstract class Base extends BaseProcessor {
                 setDefault((String) me.getKey(), me.getValue());
             }
         }
+        clearSessionDefaults(messageId);
     }
 
     protected String buildProcessorRequestString(String processor, String[] keys, String[] values) {
