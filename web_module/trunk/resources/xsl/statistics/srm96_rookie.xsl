@@ -111,82 +111,82 @@ June 11, 2002</P>
             Room 63:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288231&amp;rd=4200&amp;rm=5914">skelter</a>
+      <B>skelter</B>
                     - 1433.92</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288584&amp;rd=4200&amp;rm=5914">LunaticFringe</a>
+      <B>LunaticFringe</B>
                     - 1382.06</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288819&amp;rd=4200&amp;rm=5914">Number3</a>
+      <B>Number3</B>
                     - 1227.96</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288849&amp;rd=4200&amp;rm=5914">johnnyoh</a>
+      <B>johnnyoh</B>
                     - 1037.69</li>
   </ol>
             Room 64:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287269&amp;rd=4200&amp;rm=5915">legakis</a>
+      <B>legakis</B>
                     - 1515.66</li>
   </ol>
             Room 65:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154090&amp;rd=4200&amp;rm=5916">merolish</a>
+      <B>merolish</B>
                     - 1141.55</li>
   </ol>
             Room 66:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287979&amp;rd=4200&amp;rm=5917">Oblok</a>
+      <B>Oblok</B>
                     - 1440.51</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287568&amp;rd=4200&amp;rm=5917">tjq</a>
+      <B>tjq</B>
                     - 1268.16</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=155482&amp;rd=4200&amp;rm=5917">whobot</a>
+      <B>whobot</B>
                     - 1184.75</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156946&amp;rd=4200&amp;rm=5917">lopman</a>
+      <B>lopman</B>
                     - 1136.72</li>
   </ol>
             Room 67:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=286951&amp;rd=4200&amp;rm=5918">RobertLu</a>
+      <B>RobertLu</B>
                     - 1455.16</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288788&amp;rd=4200&amp;rm=5918">Wronkyn</a>
+      <B>Wronkyn</B>
                     - 1416.29</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270980&amp;rd=4200&amp;rm=5918">tidus</a>
+      <B>tidus</B>
                     - 1296.25</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288003&amp;rd=4200&amp;rm=5918">reyes</a>
+      <B>reyes</B>
                     - 1286.05</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287149&amp;rd=4200&amp;rm=5918">dr_dad</a>
+      <B>dr_dad</B>
                     - 1258.94</li>
   </ol>
 </ul>
 <b>Challenge Phase</b>
 <p>
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288584&amp;rd=4200&amp;rm=5914">LunaticFringe</a> knocked <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288231&amp;rd=4200&amp;rm=5914">skelter</a> out of the running with a challenge
-            against <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288231&amp;rd=4200&amp;rm=5914">skelter</a>'s Level 3 submission, with a test case straight out of the examples section
-            of the problem description.  <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288584&amp;rd=4200&amp;rm=5914">LunaticFringe</a> squandered this 50 point bonus, however, by fruitlessly
-            challenging <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288849&amp;rd=4200&amp;rm=5914">johnnyoh</a>'s Level 3 submission with the same test case.
+            <B>LunaticFringe</B> knocked <B>skelter</B> out of the running with a challenge
+            against <B>skelter</B>'s Level 3 submission, with a test case straight out of the examples section
+            of the problem description.  <B>LunaticFringe</B> squandered this 50 point bonus, however, by fruitlessly
+            challenging <B>johnnyoh</B>'s Level 3 submission with the same test case.
         </p>
 <p>
-            In Room 66, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287979&amp;rd=4200&amp;rm=5917">Oblok</a> lost 50 points by unsuccessfully challenging <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287568&amp;rd=4200&amp;rm=5917">tjq</a>'s Level 3 submission.
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287979&amp;rd=4200&amp;rm=5917">Oblok</a> then regained these 50 points by successfully challenging <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156434&amp;rd=4200&amp;rm=5917">JadeMonkey</a>'s Level 1 submission,
+            In Room 66, <B>Oblok</B> lost 50 points by unsuccessfully challenging <B>tjq</B>'s Level 3 submission.
+            <B>Oblok</B> then regained these 50 points by successfully challenging <B>JadeMonkey</B>'s Level 1 submission,
             which failed to place an upper bound on the number of times the reverse-addition process is repeated.
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287568&amp;rd=4200&amp;rm=5917">tjq</a> lost 50 points with an unsuccessful challenge of <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287997&amp;rd=4200&amp;rm=5917">vfaller</a>'s Level 1 submission.
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156946&amp;rd=4200&amp;rm=5917">lopman</a> also lost 50 points, unsuccessfully challenging <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=155482&amp;rd=4200&amp;rm=5917">whobot</a>'s Level 1 submission.
+            <B>tjq</B> lost 50 points with an unsuccessful challenge of <B>vfaller</B>'s Level 1 submission.
+            <B>lopman</B> also lost 50 points, unsuccessfully challenging <B>whobot</B>'s Level 1 submission.
         </p>
 <p>
-            In Room 67, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=286951&amp;rd=4200&amp;rm=5918">RobertLu</a> lost 50 points by unsuccessfully challenging <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288003&amp;rd=4200&amp;rm=5918">reyes</a>'s Level 2 submission.
-            He then earned those points back by successfully challenging <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287149&amp;rd=4200&amp;rm=5918">dr_dad</a>'s Level 2 submission, effectively knocking
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287149&amp;rd=4200&amp;rm=5918">dr_dad</a> out of the running.
+            In Room 67, <B>RobertLu</B> lost 50 points by unsuccessfully challenging <B>reyes</B>'s Level 2 submission.
+            He then earned those points back by successfully challenging <B>dr_dad</B>'s Level 2 submission, effectively knocking
+            <B>dr_dad</B> out of the running.
         </p>
 <p>
             In the end, the Challenge Result did not shake things up very much.  A couple of coders dropped out of the running, and one lost
@@ -199,118 +199,118 @@ June 11, 2002</P>
             Room 63:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288584&amp;rd=4200&amp;rm=5914">LunaticFringe</a>
+      <B>LunaticFringe</B>
                     - 1382.06</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288819&amp;rd=4200&amp;rm=5914">Number3</a>
+      <B>Number3</B>
                     - 1227.96</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288849&amp;rd=4200&amp;rm=5914">johnnyoh</a>
+      <B>johnnyoh</B>
                     - 1037.69</li>
   </ol>
             Room 64:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287269&amp;rd=4200&amp;rm=5915">legakis</a>
+      <B>legakis</B>
                     - 1515.66</li>
   </ol>
             Room 65:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154090&amp;rd=4200&amp;rm=5916">merolish</a>
+      <B>merolish</B>
                     - 1141.55</li>
   </ol>
             Room 66:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287979&amp;rd=4200&amp;rm=5917">Oblok</a>
+      <B>Oblok</B>
                     - 1440.51</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287568&amp;rd=4200&amp;rm=5917">tjq</a>
+      <B>tjq</B>
                     - 1218.16</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=155482&amp;rd=4200&amp;rm=5917">whobot</a>
+      <B>whobot</B>
                     - 1184.75</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156946&amp;rd=4200&amp;rm=5917">lopman</a>
+      <B>lopman</B>
                     - 1086.72</li>
   </ol>
             Room 67:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=286951&amp;rd=4200&amp;rm=5918">RobertLu</a>
+      <B>RobertLu</B>
                     - 1455.16</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288788&amp;rd=4200&amp;rm=5918">Wronkyn</a>
+      <B>Wronkyn</B>
                     - 1416.29</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270980&amp;rd=4200&amp;rm=5918">tidus</a>
+      <B>tidus</B>
                     - 1296.25</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288003&amp;rd=4200&amp;rm=5918">reyes</a>
+      <B>reyes</B>
                     - 1286.05</li>
   </ol>
 </ul>
 <b>System Test Phase</b>
 <p>
-            In Room 63, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288849&amp;rd=4200&amp;rm=5914">johnnyoh</a> suffered most from the system tests, losing his Level 2 and Level 3 submissions.
+            In Room 63, <B>johnnyoh</B> suffered most from the system tests, losing his Level 2 and Level 3 submissions.
             The other leaders in Room 63 were untouched.
         </p>
 <p>
-            In Room 65, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154090&amp;rd=4200&amp;rm=5916">merolish</a> lost his Level 3 submission.  His points earned from the Level 1 and Level 2 problems
+            In Room 65, <B>merolish</B> lost his Level 3 submission.  His points earned from the Level 1 and Level 2 problems
             were sufficient to hold on to the lead in Room 65, but gave him no hope of winning across all the rookie rooms.
         </p>
 <p>
-            In Room 66, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156946&amp;rd=4200&amp;rm=5917">lopman</a> and <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=155482&amp;rd=4200&amp;rm=5917">whobot</a> were victims.  <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156946&amp;rd=4200&amp;rm=5917">lopman</a> lost Level 2 and Level 3
-            submissions, while <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=155482&amp;rd=4200&amp;rm=5917">whobot</a> only lost his Level 2 submission.
+            In Room 66, <B>lopman</B> and <B>whobot</B> were victims.  <B>lopman</B> lost Level 2 and Level 3
+            submissions, while <B>whobot</B> only lost his Level 2 submission.
         </p>
 <p>
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=286951&amp;rd=4200&amp;rm=5918">RobertLu</a> lost his lead of Room 67 by failing on his Level 2 submission.
-            Also to lose points was <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270980&amp;rd=4200&amp;rm=5918">tidus</a>, whose Level 3 submission failed to pass the tests.
+            <B>RobertLu</B> lost his lead of Room 67 by failing on his Level 2 submission.
+            Also to lose points was <B>tidus</B>, whose Level 3 submission failed to pass the tests.
         </p>
 <b>Final Results</b>
 <ul>
             Room 63:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288584&amp;rd=4200&amp;rm=5914">LunaticFringe</a>
+      <B>LunaticFringe</B>
                     - 1382.06</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288819&amp;rd=4200&amp;rm=5914">Number3</a>
+      <B>Number3</B>
                     - 1227.96</li>
   </ol>
             Room 64:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287269&amp;rd=4200&amp;rm=5915">legakis</a>
+      <B>legakis</B>
                     - 1515.66</li>
   </ol>
             Room 66:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287979&amp;rd=4200&amp;rm=5917">Oblok</a>
+      <B>Oblok</B>
                     - 1440.51</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287568&amp;rd=4200&amp;rm=5917">tjq</a>
+      <B>tjq</B>
                     - 1218.16</li>
   </ol>
             Room 67:
             <ol>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288788&amp;rd=4200&amp;rm=5918">Wronkyn</a>
+      <B>Wronkyn</B>
                     - 1416.29</li>
     <li>
-      <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288003&amp;rd=4200&amp;rm=5918">reyes</a>
+      <B>reyes</B>
                     - 1286.05</li>
   </ol>
 </ul>
 <p>
                     The leaders shown above each turned in very impressive performances in SRM 98.
                     Such a high number of high scores are rarely seen, as not many rookies can complete
-                    the entire problem set.  None could match <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287269&amp;rd=4200&amp;rm=5915">legakis</a>'s excellent performance,
+                    the entire problem set.  None could match <B>legakis</B>'s excellent performance,
                     finishing with 1515.66 points, all earned during the Coding Phase.  This was the third highest
-                    score in all of Division 2.  Congratulations to <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287269&amp;rd=4200&amp;rm=5915">legakis</a>, as well as
-                    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288584&amp;rd=4200&amp;rm=5914">LunaticFringe</a>, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=287979&amp;rd=4200&amp;rm=5917">Oblok</a>, and <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=288788&amp;rd=4200&amp;rm=5918">Wronkyn</a>, who each
+                    score in all of Division 2.  Congratulations to <B>legakis</B>, as well as
+                    <B>LunaticFringe</B>, <B>Oblok</B>, and <B>Wronkyn</B>, who each
                     obtained yellow ratings after their first night of competition.
                 </p>
 

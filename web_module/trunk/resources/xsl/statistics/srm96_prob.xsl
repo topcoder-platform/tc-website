@@ -134,7 +134,7 @@ June 11, 2002</P>
           <b>High Score</b>
         </td>
         <td style="background: #eee;">
-          <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=286639&amp;rd=4200&amp;rm=5890">sql</a> for
+          <B>sql</B> for
             298.58 points
         </td>
       </tr>
@@ -142,11 +142,11 @@ June 11, 2002</P>
   </blockquote>
 </font>
 <font size="2">Reference implementation:
-    <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=277492&amp;rd=4200&amp;rm=5887">InsaneParadox</a>
+    <B>InsaneParadox</B>
 </font>
 <BR/>
 <font size="2">Reference implementation:
-    <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=266705&amp;rd=4200&amp;rm=5891">Sleeve</a>
+    <B>Sleeve</B>
 </font>
 <BR/>
 <b>Implementation</b>
@@ -166,7 +166,7 @@ June 11, 2002</P>
                 (by dividing by 10 using integral division).  A digit is appended to the output
                 number by shifting the output number to the left in base 10 (by multiplying by 10)
                 and adding the digit.  A good example of this approach is
-                <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=277492&amp;rd=4200&amp;rm=5887">InsaneParadox</a>'s implementation.
+                <B>InsaneParadox</B>'s implementation.
             </p>
 <p>
                 For the second approach, simply convert the integer to a decimal string representation using whatever facility
@@ -174,7 +174,7 @@ June 11, 2002</P>
                 C++, this would be <tt>char buf[16]; sprintf(buf, "%d", x);</tt>.  Then perform a reverse
                 operation on the string (provided by the string representation in each language) and convert
                 it back to an integer.  In Java this is <tt>Integer.parseInt(buf.toString())</tt> and in C++
-                this is <tt>atoi(buf)</tt>.  A good example of this approach is <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=266705&amp;rd=4200&amp;rm=5891">Sleeve</a>'s implementation.
+                this is <tt>atoi(buf)</tt>.  A good example of this approach is <B>Sleeve</B>'s implementation.
             </p>
 <p>&#160;</p>
 <a name="Whiners"></a>
@@ -221,7 +221,7 @@ June 11, 2002</P>
           <b>High Score</b>
         </td>
         <td style="background: #eee;">
-          <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154754&amp;rd=4200&amp;rm=5852">kv</a> for
+          <B>kv</B> for
             270.43 points
         </td>
       </tr>
@@ -263,7 +263,7 @@ June 11, 2002</P>
           <b>High Score</b>
         </td>
         <td style="background: #eee;">
-          <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=268591&amp;rd=4200&amp;rm=5884">theoddone33</a> for
+          <B>theoddone33</B> for
             597.83 points
         </td>
       </tr>
@@ -271,7 +271,7 @@ June 11, 2002</P>
   </blockquote>
 </font>
 <font size="2">Reference implementation:
-    <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154754&amp;rd=4200&amp;rm=5852">kv</a>
+    <B>kv</B>
 </font>
 <BR/>
 <B>Implementation</B>
@@ -333,7 +333,7 @@ June 11, 2002</P>
           <b>High Score</b>
         </td>
         <td style="background: #eee;">
-          <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=251661&amp;rd=4200&amp;rm=5883">Ishi</a> for
+          <B>Ishi</B> for
             759.37 points
         </td>
       </tr>
@@ -341,7 +341,7 @@ June 11, 2002</P>
   </blockquote>
 </font>
 <font size="2">Reference implementation:
-    <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=282574&amp;rd=4200&amp;rm=5877">maikuru</a>
+    <B>maikuru</B>
 </font>
 <BR/>
 <B>Summary</B>
@@ -425,7 +425,7 @@ June 11, 2002</P>
 <div style="clear: both">&#160;</div>
 <p>
                 We know <i>z</i> and <i>n</i>, and we can now see that finding <i>y</i> is absolutely trivial.  It is now just a matter
-                of using a <a href="http://planetmath.org/encyclopedia/StableSortingAlgorithm.html">stable sorting algorithm</a>
+                of using a <a href="http://planetmath.org/encyclopedia/StableSortingAlgorithm.html" class="bodyGeneric" target="_blank">stable sorting algorithm</a>
                 to sort the coders and return the handles of the first <i>y</i>.  If <i>y</i>
   <tt> = 0</tt>, we return the fact that no
                 byes are needed.
@@ -475,7 +475,7 @@ June 11, 2002</P>
           <b>High Score</b>
         </td>
         <td style="background: #eee;">
-          <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a> for
+          <B>ZorbaTHut</B> for
             396.86 points
         </td>
       </tr>
@@ -483,11 +483,11 @@ June 11, 2002</P>
   </blockquote>
 </font>
 <font size="2">Reference implementation:
-    <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a>
+    <B>ZorbaTHut</B>
 </font>
 <BR/>
 <font size="2">Reference implementation:
-    <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=272072&amp;rd=4200&amp;rm=5852">SnapDragon</a>
+    <B>SnapDragon</B>
 </font>
 <BR/>
 <B>Algorithm</B>
@@ -504,7 +504,7 @@ June 11, 2002</P>
             </p>
 <p>
                 There are multiple ways we can solve this problem.  The first is by
-                <a href="http://planetmath.org/encyclopedia/GaussianElimination.html">Gaussian elimination</a>.
+                <a href="http://planetmath.org/encyclopedia/GaussianElimination.html" class="bodyGeneric" target="_blank">Gaussian elimination</a>.
                 The problem is equivalent to solving for
             </p>
 <a name="eq5"></a>
@@ -570,7 +570,7 @@ June 11, 2002</P>
 </table>
 <div style="clear: both">&#160;</div>
 <p>
-                A good example of a solution using Gaussian elimination is <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a>'s solution in Room 1.
+                A good example of a solution using Gaussian elimination is <B>ZorbaTHut</B>'s solution in Room 1.
                 However, this method is tricky to implement correctly (unless one has the code already lying around).
             </p>
 <p>
@@ -652,7 +652,7 @@ June 11, 2002</P>
           <b>High Score</b>
         </td>
         <td style="background: #eee;">
-          <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270505&amp;rd=4200&amp;rm=5852">John Dethridge</a> for
+          <B>John Dethridge</B> for
             583.53 points
         </td>
       </tr>
@@ -660,7 +660,7 @@ June 11, 2002</P>
   </blockquote>
 </font>
 <font size="2">Reference implementation:
-    <a href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=264961&amp;rd=4200&amp;rm=5855">henchq</a>
+    <B>henchq</B>
 </font>
 <BR/>
 <B>Summary</B>
