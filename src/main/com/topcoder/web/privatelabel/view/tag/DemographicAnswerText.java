@@ -2,13 +2,11 @@ package com.topcoder.web.privatelabel.view.tag;
 
 import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
-import com.topcoder.web.privatelabel.model.DemographicAnswer;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
 import java.util.Map;
-import java.util.Iterator;
 import java.io.IOException;
 
 public class DemographicAnswerText  extends TagSupport {

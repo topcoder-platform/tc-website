@@ -91,7 +91,7 @@ public class DemographicInput extends BaseTag {
         s.append(">\n");
         List answers = question.getAnswers();
         if (answers != null) {
-            s.append("<option value=\"\"></option>");
+            if (!multiple) s.append("<option value=\"\"></option>");
             DemographicAnswer answer = null;
             for (int i = 0; i < answers.size(); i++) {
                 answer = (DemographicAnswer)answers.get(i);
