@@ -27,9 +27,10 @@
   <TR>
     <!-- Left Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+<IMG SRC="/i/spacer.gif" HEIGHT="1" WIDTH="170"/>
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->  
-        <xsl:call-template name="public_news_left"/>
+<!--        <xsl:call-template name="public_news_left"/>-->
   <!-- Global Seconday Nav Ends -->  
 <!-- Left Column Include Ends -->        
       </TD>
