@@ -40,7 +40,7 @@ public interface Contact extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.ContactBean#getTitle
      */
-    String getTitle(long companyId, long contactId)
+    String getTitle(long contactId)
              throws RemoteException, EJBException;
 
     /**
@@ -48,6 +48,6 @@ public interface Contact extends EJBObject {
      *
      * @see com.topcoder.web.ejb.user.ContactBean#setTitle
      */
-    void setTitle(long companyId, long contactId, String title)
+    void setTitle(long contactId, String title)
            throws RemoteException, EJBException;
 }
