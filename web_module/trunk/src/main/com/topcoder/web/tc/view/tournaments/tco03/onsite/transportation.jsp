@@ -49,13 +49,20 @@
             <h2>Transportation to Mohegan Sun</h2>
             
             <p><strong>By Car</strong><br/>
-            View the <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=directions">driving directions</a></p>
+            Mohegan Sun is conveniently located only minutes off Interstates 95, 90 and 91 in Uncasville, Connecticut. View  
+            <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=directions">driving directions</a></p>
             
             <p><strong>By Plane</strong><br/>
-            Go to the <a href="http://www.bradleyairport.com/" target="_blank">Bradley International Airport</a> in Windsor Locks (Hartford), CT</p>
+            Mohegan Sun is just a short drive from Hartford's Bradley International Airport and Providence's T.F. Green International Airport. Each 
+            offers direct, non-stop flights from more than 35 major cities, via several national and regional airlines, including American, Continental, 
+            Delta, MetroJet, Northwest, Southwest, United Airlines, US Airways and others. 
+            Visit <a href="http://www.bradleyairport.com/" target="_blank">www.bradleyairport.com</a> or 
+            <a href="http://www.pvdairport.com/" target="_blank">www.pvdairport.com</a> for specific information.</p>
             
             <p><strong>By Bus</strong><br/>
-            View the Mohegan Sun <a href="http://www.mohegansun.com/common_content/transit_schedule.jsp" target="_blank">Bus Schedule</a></p>
+            Line Run buses operate on a regular schedule, through different markets. Tickets for Line Run buses are sold at bus depots and various 
+            convenience stores in towns throughout New England and Long Island. Learn more about 
+            <a href="http://www.mohegansun.com/plan_visit/bus_pkgs.jsp#bus" target="_blank">bus packages.</a></p>
 
             <p><strong>By Rail</strong><br/>
             Go to the <a href="http://www.amtrak.com/" target="_blank">Amtrak</a> web site (to get to Mystic, CT)<br/>
