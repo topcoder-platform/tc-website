@@ -129,8 +129,8 @@
 			<br/>
 			<span class=greenSubtitle>Prizes</span>
 			<br/><br/>
-			The top five scorers in the Championship Round will receive the following cash prizes:
-			<br/><br/>
+         The 50 finalists in the Championship Round will receive cash prizes totaling Rs. 1,600,000.  As required by Indian law, Google India will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess.  Prizes will be distributed as follows:
+         <br><br>
          <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
          <tr valign="top">
          <td class="sidebarTitle">Competitor(s)</td>
