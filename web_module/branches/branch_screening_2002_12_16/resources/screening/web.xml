@@ -76,6 +76,30 @@
   </init-param>
 
   <init-param>
+    <param-name>handle_parameter</param-name>
+    <param-value>handle</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>redirect_parameter</param-name>
+    <param-value>redir</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>message_parameter</param-name>
+    <param-value>msg</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>first_attempt_parameter</param-name>
+    <param-value>firstVisit</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
     <param-name>request_processor_parameter</param-name>
     <param-value>rp</param-value>
     <description></description>
