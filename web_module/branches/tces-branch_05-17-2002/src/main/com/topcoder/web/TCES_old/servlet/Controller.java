@@ -170,13 +170,13 @@ public class Controller
     }
    
     void forwardToError(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException
+        throws ServletException, IOException
     {
        forward(request,response,CONTROLLER_ERROR_URL);
     } 
    
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
-        throws ServletException
+        throws ServletException, IOException
     {
         if (request != null) {
             request.setAttribute(EXCEPTION,exception);
