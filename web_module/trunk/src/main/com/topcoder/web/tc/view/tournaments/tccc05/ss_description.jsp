@@ -42,8 +42,7 @@
 		competition open to members of the event audience who want to join in the competitive spirit and battle for prizes.  
 		It's is an exciting way to see how your algorithmic skills match up against others' skills on TopCoder problems. </p> 
 
-		<p><span class="bodySubtitle">TEST YOUR SKILLS!</span><br/>There will be a separate competition room at the Santa Clara Marriott that is open two different days and times - from 5:00 to 8:00PM PT on Thursday, March 10 and from Noon to 3:00PM PT on Friday, March 11. The room will be home to eight competition machines, which are being provided by Intel&#174;. Spectators 
-		at the TCCC can stop in on either day to test their skills on the problem sets.</p>
+		<p><span class="bodySubtitle">TEST YOUR SKILLS!</span><br/>There will be a separate competition room at the Santa Clara Marriott that is open two different days and times - from 5:00 to 8:00PM PT on Thursday, March 10 and from Noon to 3:00PM PT on Friday, March 11. The room will be home to eight competition machines. Spectators at the TCCC can stop in on either day to test their skills on the problem sets.</p>
 
 		<p><span class="bodySubtitle">PRIZES!</span><br/>Two grand prizes - one for the high scorers each day - will be given away right before the Championship announcements are made for the Algorithm and 
 		Component Competitions on Friday, March 12. Each grand prize includes a Yahoo!&#174; gift pack, a Motorola&#174; cell phone, an NVIDIA&#174; gift pack and a TopCoder&#174; gift pack.  <a href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_rules','comp',545,655);">Click here</a> for the complete <a href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_rules','comp',545,655);">rules</A>.</p>
