@@ -73,9 +73,9 @@
                 
 		<tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=ossj_tck_test_proxy_v10_des">Sun OSSJ TCK Test Proxy</a></td>
-                    <td class="formTextOdd" align="center">$1,050</td>
-                    <td class="formTextOdd" align="center">$300</td>
-                    <td class="formTextOdd" align="center">01/19/2004</td>
+                    <td class="formTextOdd" align="center">$1,260</td>
+                    <td class="formTextOdd" align="center">$360</td>
+                    <td class="formTextOdd" align="center">01/22/2004</td>
                 </tr>                
                 
 		<tr valign="top">
