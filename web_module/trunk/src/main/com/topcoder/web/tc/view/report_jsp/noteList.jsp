@@ -17,7 +17,7 @@
     <br/>
     <br/>
 
-    <table width="100%" border="1" cellpadding="3" cellspacing="0">
+    <table width="100%" border="0" cellpadding="3" cellspacing="0">
 
         <tr><td colspan=3>Notes for <%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></td></tr>
 
@@ -32,8 +32,8 @@
 
             <tr>
                 <td <%=even?"bgcolor=\"#ccffcc\"":""%>><%=StringUtils.htmlEncode(resultRow.getStringItem("text"))%></td>
-                <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><rsc:item row="<%=resultRow%>" name="submitted_by"/><td>
-                <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><rsc:item row="<%=resultRow%>" name="date" format="MM.dd.yyyy hh:mma"/><td>
+                <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><rsc:item row="<%=resultRow%>" name="submitted_by"/></td>
+                <td <%=even?"bgcolor=\"#ccffcc\"":""%> valign=top><rsc:item row="<%=resultRow%>" name="date" format="MM.dd.yyyy hh:mma"/></td>
             </tr>
             <%even=!even;%>
 
