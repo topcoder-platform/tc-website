@@ -73,9 +73,11 @@ public class UserListTest extends BaseProcessor {
 
         String companyId = (String)request.getParameter("companyId");
         log.debug("UserList getting users for companyId: "+companyId);
+        /*
         if (companyId == null || companyId.length() == 0) { 
             throw new Exception("Error getting company attribute");
-        }
+        }*/
+
         Context ctx = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
