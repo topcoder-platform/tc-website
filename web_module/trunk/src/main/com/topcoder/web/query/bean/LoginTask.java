@@ -37,7 +37,6 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         customRedir=false;
         setHandleInput("");
         setPasswordInput("");
-        super.setNextPage(Constants.LOGIN_PAGE);
     }
 
 	public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
@@ -49,29 +48,18 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     }
 
     public void process(String step) throws Exception {
-        if (Authentication.isLoggedIn(session)) {
-            if (Authentication.getRequestedURL(session).trim().length()>0) {
-                setNextPage(Authentication.getRequestedURL(session).trim());
-                customRedir=true;
-                Authentication.resetRequestedURL(session);
-            } else {
-                setNextPage(Constants.DB_SELECTION_PAGE );
-            }
+        if (Authentication.getRequestedURL(session).trim().length()>0) {
+            setNextPage(Authentication.getRequestedURL(session).trim());
+            customRedir=true;
+            Authentication.resetRequestedURL(session);
         } else {
-            if (Authentication.getRequestedURL(session).trim().length()>0) {
-                setNextPage(Authentication.getRequestedURL(session).trim());
-                customRedir=true;
-                Authentication.resetRequestedURL(session);
-            }
-            try {
-                Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "");
-            } catch (AuthenticationException e) {
-                setMessage(Authentication.getErrorMessage(session));
-                setNextPage(Constants.LOGIN_PAGE );
-            }
-            if (!customRedir) {
-                setNextPage(Constants.DB_SELECTION_PAGE );
-            }
+            setNextPage(Constants.DB_SELECTION_PAGE );
+        }
+        try {
+            Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "");
+        } catch (AuthenticationException e) {
+            setMessage(Authentication.getErrorMessage(session));
+            setNextPage(Constants.LOGIN_PAGE );
         }
     }
 
