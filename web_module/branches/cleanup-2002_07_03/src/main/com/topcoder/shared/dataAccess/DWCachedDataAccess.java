@@ -18,6 +18,9 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
+ *           switched to use com.topcoder.shared.util.logging.Logger
+ *
  *           Revision 1.1  2002/07/03 00:30:22  gpaul
  *           moving over here
  *
@@ -97,7 +100,7 @@ public class DWCachedDataAccess implements DataAccessInt {
               conn = DBMS.getDWConnection();
               dr = new DataRetriever(conn);
               map = dr.executeCommand(request.getProperties());
-              if (conn != null) {
+              if (conn != null && !conn.isClose()) {
                 try {
                   conn.close();
                 } catch (Exception ce) { 

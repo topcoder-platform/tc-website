@@ -13,6 +13,9 @@ import com.topcoder.shared.util.DBMS;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:22  gpaul
+ *           moving over here
+ *
  *           Revision 1.2  2002/06/27 18:25:52  gpaul
  *           adjustments for a correct ApplicationSever.properties file and DBMS.properties file
  *
@@ -69,7 +72,7 @@ public class OLTPDataAccess implements DataAccessInt {
             Connection conn = DBMS.getConnection();
             DataRetriever dr = new DataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
-            if (conn != null) {
+            if (conn != null && !conn.isClosed()) {
               try {
                 conn.close();
               } catch (Exception ce) { 
