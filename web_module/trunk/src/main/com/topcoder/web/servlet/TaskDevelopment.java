@@ -44,6 +44,15 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("To", to));
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 }
+                /********************** tcs_inquire *******************/
+                else if (command.equals("tcs_inquire")) {
+                    String project = Conversion.checkNull(request.getParameter("Project"));
+                    String to = Conversion.checkNull(request.getParameter("To"));
+                    devTag.addTag(new ValueTag("ProjectName", project));
+                    devTag.addTag(new ValueTag("Project", project));
+                    devTag.addTag(new ValueTag("To", to));
+                    xsldocURLString = XSL_DIR + command + ".xsl";
+                }
                 /********************** send *******************/
                 else if (command.equals("send")) {
                     String handle = nav.getUser().getHandle();
@@ -71,8 +80,9 @@ public final class TaskDevelopment {
                     mail.setFromAddress(from);
                     EmailEngine.send(mail);
                     xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
+                }
                 /********************** tcs_send *******************/
-                } else if (command.equals("tcs_send")) {
+                else if (command.equals("tcs_send")) {
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
                     String project = Conversion.checkNull(request.getParameter("Project"));
