@@ -12,9 +12,9 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  *
  \******************************************************************************/
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
@@ -24,8 +24,10 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -56,6 +58,27 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     private static final int NULL_DOUBLE_TYPE = DOUBLE_TYPE * NULL_MULT;
 
     private static Logger log = Logger.getLogger(PactsInternalServlet.class);
+
+
+    public synchronized void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        //start up a thread to read off the queue and process async requests
+        Thread t = new Thread() {
+            public void run() {
+                try {
+                    QueueRequest qr = new QueueRequest(DBMS.PACTS_QUEUE);
+                    qr.listen();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        t.start();
+    }
+
+
+
 
     /*
     Handles all GET requests.
