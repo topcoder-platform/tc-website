@@ -1,3 +1,6 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
+<%@ page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
                 <table border="0" cellspacing="0" cellpadding="0" align="center" width="600">
                     <tr valign="top">
                         <td>
@@ -36,7 +39,7 @@
                                     <td class="screeningCellEven" width="25%" align=right>First Name:</td>
                                     <td class="screeningCellEven" width="75%">
                                         <%-- FIRST NAME TEXT BOX--%>
-                                        <input type="text" name="firstName" size="30" maxlength="50" value="">
+                                        <tc-webtag:textInput type="text" name="firstName" size="30" maxlength="50" />
                                     </td>
                                 </tr>
 
