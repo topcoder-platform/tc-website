@@ -130,7 +130,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
             }
 
             if (!info.hasTestSetA()) {
-                if (info.getTestSetBList().isEmpty()) {
+                if (info.getTestSetBList()==null || info.getTestSetBList().isEmpty()) {
                     success = false;
                     addError(Constants.TEST_SET_B,
                             "If you do not select a Test Set A, you must select at least one problem for Test Set B.");

@@ -86,27 +86,27 @@ function submitUpdate() {
 
                 <tr>
                     <td class="testTableSubtitleEven"><strong>Problem Set:</strong></td>
-                <%    boolean found = false; %>
+                <% if (profile.hasTestSetA()) { %>
                 <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
                 if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
-                    found = true;
                     %><INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
                     <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td><%
                 } %>
                 </screen:resultSetRowIterator>
-                <% if (!found) { %>
+                <% } else { %>
                   <INPUT type="HIDDEN" name="testSetA" value="<%=Constants.NO_TEST_SET_A%>" >
                   <td class="testTableEven">No Test Set A</td>
                 <% } %>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
             </table>
-            
+
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>
- 
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+              <% if (profile.hasTestSetA()) {%>
                 <tr><td class="testTableTitle" colspan="6">Test Set A</td></tr>
 
                 <tr>
@@ -132,7 +132,8 @@ function submitUpdate() {
                 </screen:listIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-            
+              <% } %>
+
                 <tr><td class="testTableTitle" colspan="6">Test Set B</td></tr>
 
                 <tr>

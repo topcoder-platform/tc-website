@@ -127,6 +127,7 @@ function submitConfirm() {
             </table>
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+              <% if (profile.hasTestSetA()) { %>
                 <tr><td class="testTableTitle" colspan="7">Test Set A</td></tr>
 
                 <tr>
@@ -149,9 +150,10 @@ function submitConfirm() {
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:listIterator>
-           
+
                 <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-            
+
+              <% } %>
                 <tr><td class="testTableTitle" colspan="7">Test Set B</td></tr>
 
                 <tr>
