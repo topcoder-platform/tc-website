@@ -174,8 +174,7 @@
 
 </TABLE>
 
-
-<IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="39" HEIGHT="41" ALT="" BORDER="0"/>
+<IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/>
 
 <P><B>IMLP<BR/>
  (Information Management Leadership Program)</B></P>
