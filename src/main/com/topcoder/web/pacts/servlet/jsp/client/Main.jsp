@@ -73,7 +73,7 @@ function goTo(selection){
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" CLASS="statText">
 
-TopCoder would like to introduce the Payment Affidavit Contract Tracking System (P.A.C.T.s).  P.A.C.T.s, developed by TopCoder members depecora, milo and veredox.  
+TopCoder would like to introduce the Payment Affidavit Contract Tracking System (P.A.C.T.s).  P.A.C.T.s was developed by TopCoder members depecora, milo and veredox.  
 The system is for:
 <ul>
 <li><b>Member online affidavit affirmation.</b></li>
@@ -140,7 +140,7 @@ The payment for the affidavit is then marked with a status of "owed" and payment
 <br/>
 <br/>
 
-If you have any questions, comments or concerns about the P.A.C.T.s system, please email <A CLASS="bodyText" HREF="mailto:service@topcoder.com">service@topcoder.com</A>.
+If you have any questions, comments or concerns about the P.A.C.T.s system, please email <A CLASS="statText" HREF="mailto:service@topcoder.com">service@topcoder.com</A>.
 
 
 
