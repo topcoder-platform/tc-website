@@ -10,6 +10,7 @@ import java.util.Vector;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletInputStream;
 import javax.servlet.ServletRequest;
+import java.io.*;
 
 /** 
  * <p>
@@ -23,6 +24,7 @@ import javax.servlet.ServletRequest;
 public class ServletRequestHelper implements ServletRequest {
     private HashMap attributeMap;
     private HashMap parameterMap;
+    public PrintWriter log = null;
 
     public ServletRequestHelper() {
         attributeMap = new HashMap();
@@ -119,6 +121,10 @@ public class ServletRequestHelper implements ServletRequest {
 
     public void setAttribute(String name, Object o) {
         attributeMap.put(name, o);
+        if (log != null) {
+            log.println("ServletRequestHelper.setAttribute name, o = " 
+                        + name + " " + o);
+        }
     }
 
     public void setParameter(String name, Object o) {
