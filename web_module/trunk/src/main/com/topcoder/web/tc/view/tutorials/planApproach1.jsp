@@ -8,7 +8,7 @@
 <style type="text/css">
     .code
 {
-	width: 500;
+	width: 100%;
 	padding: 10px;
 	margin: 20px;
 	color: #333;
