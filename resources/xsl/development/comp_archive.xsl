@@ -153,7 +153,7 @@
 
  				<tr>
                     <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
-                    <td class="statText" colspan="55"><a name="design"></a><h1 class="devSubhead">Component Development Project Status</h1></td>
+                    <td class="statText" colspan="5"><a name="design"></a><h1 class="devSubhead">Component Development Project Status</h1></td>
                     <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                 </tr>
 
