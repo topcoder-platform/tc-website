@@ -52,29 +52,47 @@
               </tr>
           </table>
 
-    <div align="center">
-        <div class="searchRow">
-            <div class="searchCell">1</div>            
-            <div class="searchCell">2</div>            
-            <div class="searchCell">3</div>            
-            <div class="searchCell">4</div>            
+<div align="center">
+    <div class="searchTable">
+        <div class="searchHeadRow">
+            <div class="searchHeadCell">Handle</div>            
+            <div class="searchHeadCell">Rating</div>            
+            <div class="searchHeadCell">State</div>            
+            <div class="searchHeadCell">Country</div>            
+            <div class="searchHeadCell">Rated<br/>Events</div>            
+            <div class="searchHeadCell">Last<br/>Event</div>            
         </div>
-        <div class="searchRow">
-            <div class="searchCell">11</div>            
-            <div class="searchCell">22</div>            
-            <div class="searchCell">33</div>            
-            <div class="searchCell">44</div>            
+        <div class="searchBodyRow">
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
         </div>
-        <div class="searchRow">
-            <div class="searchCell">111</div>            
-            <div class="searchCell">222</div>            
-            <div class="searchCell">333</div>            
-            <div class="searchCell">444</div>            
+        <div class="searchBodyRow">
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
         </div>
-        <div class="searchRow">
-            <div class="searchCell">1111</div>            
-            <div class="searchCell">2222</div>            
-            <div class="searchCell">3333</div>            
-            <div class="searchCell">4444</div>            
+        <div class="searchBodyRow">
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+        </div>
+        <div class="searchBodyRow">
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
+            <div class="searchBodyCell">body</div>            
         </div>
     </div>
+</div>
