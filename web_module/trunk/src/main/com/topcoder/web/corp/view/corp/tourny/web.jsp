@@ -55,13 +55,13 @@
                             
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
+                                    <a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
                                     <strong>Web site coverage</strong><br />
-                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
-                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
-                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
-                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_onsite">On-site arena</a><br />
-                                    <a href="/?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public relations</a><br />
+                                    <a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
+                                    <a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
+                                    <a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
+                                    <a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=tourny_onsite">On-site arena</a><br />
+                                    <a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public relations</a><br />
                                     <a href="/i/srm_3pgr.pdf">Download Overview (PDF)</a><br />
                                 </td>
                             </tr>
@@ -116,7 +116,7 @@
                         <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop all 
                         graphics necessary for the web site at no additional cost to sponsors.</p>
                         
-                        <p><a href="/?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is in an SRM Package?</a></p>
+                        <p><a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is in an SRM Package?</a></p>
 
                         <p><br/></p>
                     </td>

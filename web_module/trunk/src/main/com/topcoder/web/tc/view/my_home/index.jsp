@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Member Card</title>
+<title>TopCoder $HOME</title>
 
 <jsp:include page="../../script.jsp" />
 
@@ -46,7 +46,7 @@
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
                 <tr>
                     <td class="bodyText" valign=top width=150><A href="/tc?module=ViewReferrals"><img src="/i/my_home/referrals.gif" border=0/></A></td>
-                    <td class="bodyText" valign=top>The TopCoder Referral Program is designed to increase the number of  top-performing coders who participate in TopCoder competitions, and to reward those TopCoder members who spread the word. The referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration. Click <A href="/tc?module=ViewReferrals">here</A> to find out more.</td>
+                    <td class="bodyText" valign=top>The TopCoder Referral Program increases the number of skilled coders who participate in TopCoder competitions, and rewards those members who spread the word. The referring member (you) will receive a referral commission equal to 10% of any amounts earned or won by the referred member during the 12 months following registration. Click <A href="/tc?module=ViewReferrals">here</A> to find out more.</td>
                 </tr>
             </table>
 
@@ -56,6 +56,15 @@
                 <tr>
                     <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=card&d2=description"><img src="/i/my_home/c_and_b.gif" border=0/></A></td>
                     <td class="bodyText" valign=top>Ever wanted to show off your TopCoder skills? Want that ace in the hole at your next job interview? The TopCoder <A href="/tc?module=Static&d1=card&d2=description">Member Badges and Cards</A> are the answer!  Choose a badge from our selection and put it on your website, resume, or even make a giant poster!  Our member cards are an exciting way to post your stats on your own website and offer a great tool for recruiters to look at.</td>
+                </tr>
+            </table>
+
+            <br/>
+
+            <table border=0 cellpadding=5 cellspacing=0 width="100%">
+                <tr>
+                    <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/my_home/employmentOpps.gif" border=0/></A></td>
+                    <td class="bodyText" valign=top>Register <A href="/tc?module=Static&d1=contracting&d2=index">here</A> to enroll TopCoder Employment Opportunities.  Whether you're looking for just a couple days of work or a full-time permanent position, TopCoder can help set you up with work that matches both your skills and availability.</td>
                 </tr>
             </table>
 
