@@ -240,13 +240,13 @@ public final class TC extends HttpServlet {
             document.addTag(
                     new ValueTag(
                             "AdminURL"
-                            , nav.getAdminURL(request, response)
+                            ,"/admin" 
                     )
             );
             document.addTag(
                     new ValueTag(
                             "Host"
-                            , request.getServerName()
+                            ,request.getServerName()
                     )
             );
         } catch (Exception e) {
