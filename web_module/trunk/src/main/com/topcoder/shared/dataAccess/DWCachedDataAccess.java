@@ -19,6 +19,9 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.3  2002/07/23 23:37:21  gpaul
+ *           use DataSources rather than DBMS to get connections
+ *
  *           Revision 1.2  2002/07/12 17:15:46  gpaul
  *           merged baby
  *
@@ -73,7 +76,7 @@ public class DWCachedDataAccess implements DataAccessInt {
     private long expireTime;
     public DWCachedDataAccess()
     {
-        this(86400000);                 //one day in ms
+        this(1000 * 60 * 60 * 24 * 7);                 //one week in ms
     }
     public DWCachedDataAccess(long expireTime)
     {
