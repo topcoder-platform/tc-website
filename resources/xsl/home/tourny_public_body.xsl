@@ -88,10 +88,10 @@
 <!-- Invitational block -->    
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
   <TR>
-    <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR> 
+    <TD COLSPAN="3" CLASS="bodyText" VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="50"><FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The 2002 TopCoder Invitational is currently underway!</B></FONT></TD>
+  </TR>
   <TR>
-    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" HSPACE="6" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText" VALIGN="top" NOWRAP="0"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A><BR/>
 <B>When:</B> November 22nd and 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
@@ -105,8 +105,7 @@
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>
   <TR>  
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%">
+    <TD COLSPAN="3" CLASS="bodyText" VALIGN="top" WIDTH="100%">
 <!-- tourney links -->    
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
       <TR>
@@ -147,17 +146,26 @@
 <!-- tourney links end -->     
 <!-- <B>Update:</B><BR/>
 The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
-<P>
-Get the updates: <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_rooms</xsl:attribute>Brackets</A> | <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_final_16</xsl:attribute>Semifinal Snap Shot</A>  
-</P>
 
-<P>
-<B>Semifinals</B>: Nov. 22nd (<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
-</P>
 
     </TD>    
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR>    
+  </TR>
+  <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" CLASS="bodyText"><BR/>
+<FONT SIZE="3" FACE="verdana, arial, tahoma"><B>The Reception</B></FONT><BR/>
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu 
+feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril 
+delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue 
+nihil imperdiet doming id quod mazim placerat facer possim assum...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_reception</xsl:attribute>read&#160;more</A>
+
+<BR/><BR/>
+<B>Room 1</B>: 8AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+<BR/><BR/>
+    </TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR>     
   <TR>
     <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
   </TR>  
@@ -165,75 +173,9 @@ Get the updates: <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:valu
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR>    
+  </TR>   
 </TABLE>
 
-
-<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-  <TR>
-    <TD VALIGN="top" WIDTH="8" BGCOLOR="#666666"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="middle" COLSPAN="2" WIDTH="100%" BGCOLOR="#666666" CLASS="bodyText" ALIGN="center" HEIGHT="21"><FONT SIZE="3" COLOR="#FFFFFF" FACE="arial, verdana, tahoma"><B>2002 SunNetwork Coding Challenge Winner is...</B></FONT>
-    </TD>  
-    <TD VALIGN="top" WIDTH="8" BGCOLOR="#666666"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
-  </TR>
-</TABLE>
-
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">   
-  <TR>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>      
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/jonmac_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="5"/></TD>
-    <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText"><BR/>
-    Handle: <B>jonmac</B><BR/>
-    Member Since: <B>03.04.01</B><BR/>
-      <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=114443</xsl:attribute>
-View Profile
-      </A><BR/>
-    </TD>
-    <TD VALIGN="middle" WIDTH="60%" CLASS="bodyText" ALIGN="center" HEIGHT="21" NOWRAP="0"><IMG SRC="/i/2002sn_chall.gif" ALT="" WIDTH="154" HEIGHT="56" BORDER="0"/><BR/>      <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sun_sched</xsl:attribute>
-Round Updates/Schedule
-      </A> | <A HREF="http://sunnetwork.sun.com/sf2002/info/features/winners.jsp" CLASS="bodyGeneric" TARGET="_blank">Full Story</A><BR/><BR/></TD> 
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>         
-  </TR>
-  <TR>  
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" COLSPAN="3" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR>    
-</TABLE>
- 
-<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
-  <TR> 
-    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="50%" NOWRAP="0" HEIGHT="15">
-<A HREF="http://sunnetwork.sun.com/" TARGET="_blank" CLASS="bodyGeneric">Learn more</A>
-    </TD>
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="50%" NOWRAP="0">
-      <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sun_sched</xsl:attribute>
-Round Updates/Schedule
-      </A>
-    </TD> 
-    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR>  
-</TABLE> 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
-  <TR>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="middle" WIDTH="50%" CLASS="bodyText" ALIGN="center" HEIGHT="21"><IMG SRC="/i/2002sn_sm.gif" ALT="" WIDTH="200" HEIGHT="41" BORDER="0"/></TD>
-    <TD VALIGN="middle" WIDTH="50%" CLASS="bodyText" ALIGN="center" HEIGHT="21"><IMG SRC="/i/2002sn_chall.gif" ALT="" WIDTH="154" HEIGHT="56" BORDER="0"/></TD>      
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
-  </TR> 
-  
-  <TR><TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
-  <TR>  
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" COLSPAN="2" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  </TR> 
-  <TR><TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
-</TABLE> -->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 
 <!-- Summary/Best/Worst Begins -->         
@@ -248,10 +190,24 @@ Round Updates/Schedule
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
         <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 120</B></A><BR/>
-Wednesday, Novmeber 13, 2002<BR/><BR/> 
+Wednesday, November 13, 2002<BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR>
+  </TR>  
+  
+<!-- Use for Invit..delete row above -->  
+
+  <!-- <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>The 2002 TopCoder Invitational: Room 1</B></A><BR/>
+Friday, November 22, 2002<BR/><BR/>
+
+<B>Room 1 updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom1</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom1#photo</xsl:attribute>Photos</A>
+<BR/><BR/>
+    </TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR> -->
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="33%" NOWRAP="0" HEIGHT="15">
@@ -308,9 +264,33 @@ Wednesday, Novmeber 13, 2002<BR/><BR/>
           <TR><TD COLSPAN="5" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
        </TABLE>
     </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
   </TR>
+  
+<!-- Uncomment for invit02 -->
+ 
+  <!-- <TR> 
+    <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu 
+feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril 
+delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue 
+nihil imperdiet doming id quod mazim placerat facer possim assum...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom1</xsl:attribute>read&#160;more</A>
+
+<BR/><BR/>
+<B>Room 2</B>: 11AM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+<BR/><BR/>
+    </TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
+  </TR> 
+  
   <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR> -->   
 </TABLE>
 <!-- Summary/Best/Worst Ends -->
 
@@ -379,30 +359,31 @@ Otherwise, there were no major issues. The Division-I Level 1 and Level 2 proble
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<IMG SRC="/i/m/RevenantChaos_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
-By&#160;RevenantChaos<BR/><I>[TC] Member</I><BR/><BR/>
+<IMG SRC="/i/m/leadhyena_inran_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
+By&#160;leadhyena_inran<BR/><I>[TC] Member</I><BR/><BR/>
 <A HREF="/?&amp;t=news_events&amp;c=feat_topics"><IMG SRC="/i/writers_wanted.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="15"/></A></TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><BR/>
 <A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_111302</xsl:attribute>
-  <B>King of the Silicon Hill:<BR/>Today's High-End Microprocessors</B></A><BR/>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_112002</xsl:attribute>
+  <B>The eight seconds of death: <BR/>tips on preventing timeout</B></A><BR/>
 <!-- <I>"If you take it slow you'll move up."</I><BR/> -->
-November 13, 2002<BR/>
+November 20, 2002<BR/>
 
 <P>
-All of the optimizations in the world are nothing compared to one simple truth: your code is only as good as the microprocessor 
-that's chewing on it.  In the CPU game, there are two (well, maybe three) major players: 
-AMD, Intel, and (if you're feeling generous) Cyrix
+I remember Round 3 of the 2002 Invitational vividly: I was doing rather well going into challenges, 
+having submitted all three problems, and I felt confident about my solutions. Then <B>NDBronson</B> 
+challenged my 900 (having one of the best challenge percentages in TopCoder, he easily caught my bug), and 
+I failed a challenge, so I was slightly bummed coming out of the challenge phase, but I still had some 
+hope. That's when <B>NDBronson</B> told me to check out Room 5.
 </P>
 
 <P>
-AMD is best known for its high-end "Athlon" line (which utilizes the Thoroughbred core), which currently is topped by the 
-XP 2600+ at 2.133 gigahertz.  The XP 2800+ is currently being launched.</P>
-
-<P>
-Intel, which is AMD's major competition largely because of their advertising budget and deals with prefab system makers, 
-produces the Pentium line, which is currently in its fourth generation...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_111302</xsl:attribute>full&#160;story</A></P>
+There, <B>ZorbaThut</B> had challenged four people in his room successfully by using a timeout case, a 
+type of challenge designed to make your code run longer than 8 seconds. Immediately my heart sank
+ because I KNEW my code wouldn't survive it... not only had I lost all hope of making it into the 
+ final online round, but I lost 101 rating points. It was then that I fully realized the power 
+ of a timeout case and the perils of programming code that must run in an 8 second window...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_112002</xsl:attribute>full&#160;story</A></P>
 <!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
   </TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -469,7 +450,7 @@ produces the Pentium line, which is currently in its fourth generation...<A CLAS
 </MAP>
 <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A>
-<A HREF="/?&amp;t=development&amp;c=index">
+<A HREF="/?&amp;t=development&amp;c=components">
 <IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="1" BORDER="0"/></A>
 <!-- <A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
 <IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" BORDER="0"/></A> -->
