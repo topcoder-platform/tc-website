@@ -239,9 +239,6 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -281,9 +278,6 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);

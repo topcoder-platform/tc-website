@@ -570,7 +570,7 @@ public final class TaskDevelopment {
                     log.debug("rsc is null");
                 devTag.addTag(rsc.getTag("projects", "project"));
 
-                DataAccessInt tcsDai = new CachedDataAccess(Query.TCS_CATALOG));
+                DataAccessInt tcsDai = new CachedDataAccess(Query.TCS_CATALOG);
                 dataRequest = new Request();
                 dataRequest.setContentHandle("project_totals");
                 resultMap = tcsDai.getData(dataRequest);

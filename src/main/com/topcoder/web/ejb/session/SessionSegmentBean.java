@@ -343,8 +343,6 @@ public class SessionSegmentBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getSegmentLength sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getSegmentLength sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } catch (Exception e) {
             throw new EJBException("Exception in getSegmentLength sessionId: " + sessionId + " sessionSegmentId: " + sessionSegmentId);
         } finally {
