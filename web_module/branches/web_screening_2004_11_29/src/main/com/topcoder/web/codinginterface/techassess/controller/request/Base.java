@@ -5,6 +5,7 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
+import com.topcoder.web.codinginterface.techassess.model.ImageInfo;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
@@ -12,14 +13,21 @@ import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.language.*;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.servlet.http.HttpSessionBindingListener;
 import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpUtils;
 import java.util.*;
 import java.io.IOException;
 import java.io.Serializable;
+import java.io.FileInputStream;
 
 /**
  * @author  dok
@@ -36,10 +44,23 @@ public abstract class Base extends BaseProcessor {
     private long companyId = -1;
     private List languages = null;
 
-
     protected void businessProcessing() throws Exception {
         //log.debug("session timeout is " + getRequest().getSession().getMaxInactiveInterval());
         getRequest().setAttribute(Constants.CURRENT_TIME, String.valueOf(System.currentTimeMillis()));
+        //figure out the sponsor image
+        ImageInfo compImage = new ImageInfo();
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("sponsor_image");
+        dataRequest.setProperty(Constants.COMPANY_ID, String.valueOf(getCompanyId()));
+        dataRequest.setProperty(Constants.IMAGE_TYPE, String.valueOf(Constants.TEST_IMAGE_TYPE));
+        DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        Map resultMap = dai.getData(dataRequest);
+        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
+        compImage.setSrc(rsc.getStringItem(0, "file_path"));
+        compImage.setHeight(rsc.getIntItem(0, "height"));
+        compImage.setHeight(rsc.getIntItem(0, "width"));
+        compImage.setLink(rsc.getStringItem(0, "link"));
+        getRequest().setAttribute(Constants.SPONSOR_IMAGE, compImage);
         try {
             techAssessProcessing();
         } catch (TimeOutException e) {
