@@ -8,6 +8,14 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
+
+<script>
+function openWin(url, name) {
+    win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=yes,toolbar=no,width=800,height=600");
+    win.location.href = url;
+    win.focus();
+}
+</script>
     
 </head>
 
@@ -59,21 +67,21 @@
                </tr>
                <tr>
                   <td class="advCell" align="left">Member since:</td>
-                  <td class="advCell" align="right">04.17.01&#160;&#160;</td>
-                  <td class="advCell" align="right">08.02.01&#160;&#160;</td>
-                  <td class="advCell" align="right">04.17.01&#160;&#160;</td>
+                  <td class="advCell" align="right">04.23.02&#160;&#160;</td>
+                  <td class="advCell" align="right">03.25.02&#160;&#160;</td>
+                  <td class="advCell" align="right">06.19.02&#160;&#160;</td>
                 </tr>
                 <tr>
-                  <td class="advCell" align="left">Total earnings:</td>
-                  <td class="advCell" align="right">$15,966.62&#160;&#160;</td>
-                  <td class="advCell" align="right">$4,670.75&#160;&#160;</td>
-                  <td class="advCell" align="right">$15,966.62&#160;&#160;</td>
+                  <td class="advCell" align="left">Design rating:</td>
+                  <td class="advCell" align="right">1690&#160;&#160;</td>
+                  <td class="advCell" align="right">1384&#160;&#160;</td>
+                  <td class="advCell" align="right">1353&#160;&#160;</td>
                 </tr>
                 <tr>
-                  <td class="advCell" align="left">TC rating:</td>
-                  <td class="advCell" align="right">1703&#160;&#160;</td>
-                  <td class="advCell" align="right">2138&#160;&#160;</td>
-                  <td class="advCell" align="right">1703&#160;&#160;</td>
+                  <td class="advCell" align="left">Algorithm rating:</td>
+                  <td class="advCell" align="right">2294&#160;&#160;</td>
+                  <td class="advCell" align="right">1636&#160;&#160;</td>
+                  <td class="advCell" align="right">1158&#160;&#160;</td>
                 </tr>
                 <tr>  
                   <td class="advCell" align="left">Initial score:</td>
@@ -89,9 +97,9 @@
                 </tr>
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc1','pops',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_final_doc1','kyky',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc1','pops',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=adic_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_init_doc1','kyky',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=MPhk_init_doc1','pops',800,600);"><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
          <p><br/></p>
