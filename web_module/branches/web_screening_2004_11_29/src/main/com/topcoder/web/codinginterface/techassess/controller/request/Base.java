@@ -253,7 +253,7 @@ public abstract class Base extends BaseProcessor {
         buf.append("</body>");
         buf.append("</html>");
 
-        log.debug(buf.toString());
+        //log.debug(buf.toString());
 
         getResponse().getWriter().print(buf.toString());
     }
