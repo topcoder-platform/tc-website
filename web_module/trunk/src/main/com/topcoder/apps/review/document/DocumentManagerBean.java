@@ -4183,7 +4183,7 @@ public class DocumentManagerBean implements SessionBean {
             "   AND sub.submitter_id = rur.login_id " +
             "   AND s.project_id = rur.project_id " +
             "   AND rur.r_role_id = 1 " +
-            "   AND rur.cur_version = 1 ";
+            "   AND rur.cur_version = 1";
 
     private static String SQLGetAppealsAll = SQLGetAppealsHead +
             "       s.project_id = ? " +
@@ -4203,10 +4203,10 @@ public class DocumentManagerBean implements SessionBean {
             "   AND rur.cur_version = 1";
     
     private static String SQLGetAppealsQA =
-            SQLGetAppealsHead + "a.appealer_id = ? AND a.question_id = ?" +
+            SQLGetAppealsHead + " a.appealer_id = ? AND a.question_id = ? " +
             SQLGetAppealsTail;
     private static String SQLGetAppealsId =
-            SQLGetAppealsHead + "a.appeal_id = ?" + SQLGetAppealsTail;
+            SQLGetAppealsHead + " a.appeal_id = ? " + SQLGetAppealsTail;
 
     /**
      * Get the Appeals for a project.
