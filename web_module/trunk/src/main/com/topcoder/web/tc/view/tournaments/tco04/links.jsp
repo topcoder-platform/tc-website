@@ -12,7 +12,7 @@
 		<td valign=top rowspan=2><img src="/i/clear.gif" width="10" height="9" border="0"/><br/>
 		<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="152" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo2.gif" width="179" height="35" border="0"></a><br/>
+			<a href="/"><img src="/i/tournament/tco04/topcoder_logo2.gif" width="179" height="35" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/on_tournament.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_description"><img src="/i/tournament/tco04/off_component.gif" width="179" height="24" border="0"></a><br/>
@@ -24,7 +24,7 @@
 		<td valign=top rowspan=2><img src="/i/clear.gif" width="10" height="9" border="0"/><br/>
 		<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="152" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo2.gif" width="179" height="35" border="0"></a><br/>
+			<a href="/"><img src="/i/tournament/tco04/topcoder_logo2.gif" width="179" height="35" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/off_tournament.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description"><img src="/i/tournament/tco04/on_algorithm.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_description"><img src="/i/tournament/tco04/off_component.gif" width="179" height="24" border="0"></a><br/>
@@ -36,7 +36,7 @@
 		<td valign=top rowspan=2><img src="/i/clear.gif" width="10" height="9" border="0"/><br/>
 		<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="152" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo2.gif" width="179" height="35" border="0"></a><br/>
+			<a href="/"><img src="/i/tournament/tco04/topcoder_logo2.gif" width="179" height="35" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/off_tournament.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_description"><img src="/i/tournament/tco04/on_component.gif" width="179" height="24" border="0"></a><br/>
@@ -48,7 +48,7 @@
 		<td valign=top rowspan=2><img src="/i/clear.gif" width="10" height="9" border="0"/><br/>
 		<A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="152" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo2.gif" width="179" height="35" border="0"></a><br/>
+			<a href="/"><img src="/i/tournament/tco04/topcoder_logo2.gif" width="179" height="35" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/off_tournament.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_description"><img src="/i/tournament/tco04/off_component.gif" width="179" height="24" border="0"></a><br/>
@@ -117,11 +117,11 @@
 	<% } else { %>
                 <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft" class="statTextBig"><img src="/i/tournament/tco04/tab_sponsors_off.gif" alt="Jobs, etc." width="88" height="22" border="0" /></A></td>
 	<% } %>
-<%--	
+<%--
 	<% if (tabLev2.equals("onsite_events")) {%>
-                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=reception" class="statTextBig"><img src="/i/tournament/tco04/tab_onsiteevents_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
+                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" class="statTextBig"><img src="/i/tournament/tco04/tab_onsiteevents_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
-                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=reception" class="statTextBig"><img src="/i/tournament/tco04/tab_onsiteevents_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
+                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" class="statTextBig"><img src="/i/tournament/tco04/tab_onsiteevents_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } %>
 --%>
 <% } %>
@@ -151,8 +151,8 @@
 		<td class="<%=tabLev3.equals("radeye")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=radeye_semi" target="_blank" class="subNavLink">radeye's Odds</a></td>
 	<% } else if (tabLev2.equals("summary")) {%>
 		<td class="<%=tabLev3.equals("online")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_sum_onlinerounds" class="subNavLink">Online Rounds</a></td>
-		<%--
 		<td class="<%=tabLev3.equals("room1")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room1_analysis" class="subNavLink">Room 1</a></td>
+		<%--
 		<td class="<%=tabLev3.equals("room2")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room2_analysis" class="subNavLink">Room 2</a></td>
 		<td class="<%=tabLev3.equals("room3")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_room3_analysis" class="subNavLink">Room 3</a></td>
 		<td class="<%=tabLev3.equals("wildcard")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_wildcard_analysis" class="subNavLink">Wildcard</a></td>
@@ -192,9 +192,10 @@
 		<td class="<%=tabLev3.equals("transportation")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=transportation" class="subNavLink">Transportation</a></td>
 		<td class="<%=tabLev3.equals("hotels")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=hotels" class="subNavLink">Hotels</a></td>
 	<% } else if (tabLev2.equals("onsite_events")) {%>
-		<td class="<%=tabLev3.equals("reception")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=reception" class="subNavLink">Reception</a></td>
 		<td class="<%=tabLev3.equals("photos")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos" class="subNavLink">Photos</a></td>
+		<%--
 		<td class="<%=tabLev3.equals("movies")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=movies" class="subNavLink">Movies</a></td>
+		--%>
 		<% } else if (tabLev2.equals("sponsors")) {%>
 		<td class="<%=tabLev3.equals("microsoft")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft" class="subNavLink">Microsoft</a></td>
 		<td class="<%=tabLev3.equals("nvidia")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia" class="subNavLink">NVIDIA</a></td>
