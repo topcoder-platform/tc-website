@@ -58,55 +58,37 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank" CLASS="bodyText">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
       </TD>
   </TR>
 </TABLE>
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
-<P>Below is a listing of current open positions within NVIDIA.  All jobs are located in Santa Clara, CA unless otherwise noted.  Click on the job title for the position description and requirements.
+<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>    
+
+
+
+<P><B>PACKAGE DESIGNER:</B></P>
+<P>
+<UL>
+<LI>Develop and design NVIDIA's BGA/MPM/MCM packages based products using Cadence's Advance Package Designer software, within design guidelines provided by packaging vendors.</LI>
+<LI>Drive and track design technology issues for new system in a package solutions</LI>
+<LI>Develop substrate design methodology, libraries and release procedures</LI>
+<LI>Drive pinout/fanout routing feasibility studies within target platform to optimize BGA package routability and electrical performance.</LI>
+<LI>Develop tools and workflow to implement die pad to pinout mapping, with forward and backward annotation to Cadence Concept symbols</LI>
+</UL>
 </P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgrapharch&amp;a=secure" CLASS="bodyText">3D GRAPHIC ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platverarch&amp;a=secure" CLASS="bodyText">PLATFORM VERIFICATION ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sqaeng_mobil&amp;a=secure" CLASS="bodyText">SQA ENGINEER - MOBILE</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_kernelsofteng&amp;a=secure" CLASS="bodyText">KERNEL SOFTWARE ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_mobbioseng&amp;a=secure" CLASS="bodyText">MOBILE BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng1&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srsyseng&amp;a=secure" CLASS="bodyText">SR. SYSTEM ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysbioseng&amp;a=secure" CLASS="bodyText">SYSTEM BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_oemtechprogmang&amp;a=secure" CLASS="bodyText">OEM TECHNICAL PROGRAM MANAGER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_fieldappeng&amp;a=secure" CLASS="bodyText">FIELD APPLICATION ENGINEER (Seoul, Korea)</A></B><BR/>
-       </P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dpertooleng&amp;a=secure" CLASS="bodyText">3D PERFORMANCE TOOLS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dappsweng&amp;a=secure" CLASS="bodyText">3D APPLICATION SW ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cusqeng&amp;a=secure" CLASS="bodyText">CUSTOMER QUALITY ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_packdesigner&amp;a=secure" CLASS="bodyText">PACKAGE DESIGNER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srdesigneng&amp;a=secure" CLASS="bodyText">SENIOR DESIGN ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_prodtesteng&amp;a=secure" CLASS="bodyText">PRODUCT/TEST ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_whqleng&amp;a=secure" CLASS="bodyText">WHQL ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysdesigneng&amp;a=secure" CLASS="bodyText">SYSTEM DESIGN ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platnetwarch&amp;a=secure" CLASS="bodyText">PLATFORM NETWORKING ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_dfteng&amp;a=secure" CLASS="bodyText">DFT ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysdesignlead&amp;a=secure" CLASS="bodyText">SYSTEMS DESIGN LEAD</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srsignalinteng&amp;a=secure" CLASS="bodyText">SR. SIGNAL INTEGRITY ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_appeng_intern&amp;a=secure" CLASS="bodyText">APPLICATIONS ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_memarch&amp;a=secure" CLASS="bodyText">MEMORY ARCHITECT</A></B><BR/>
-      </P>
-    </TD>
-  </TR>
-</TABLE> 
+
+<P><B>Requirements: </B> 
+<UL>                                                                                                          
+<LI>5 years of direct experience with package layout using Cadence's APD or Avant!'s Encore products.</LI>
+<LI>B.S. Electrical Engineering or equivalent industry experience.</LI>                                              
+<LI>Familiarity with high speed package techniques and constraints</LI>
+</UL>
+</P>  
+  
+
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=49&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
 <!--end contextual links-->
           
           <P><BR/></P>

@@ -58,55 +58,37 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" TARGET="_blank" CLASS="bodyText">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
       </TD>
   </TR>
 </TABLE>
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
-<P>Below is a listing of current open positions within NVIDIA.  All jobs are located in Santa Clara, CA unless otherwise noted.  Click on the job title for the position description and requirements.
-</P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgrapharch&amp;a=secure" CLASS="bodyText">3D GRAPHIC ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platverarch&amp;a=secure" CLASS="bodyText">PLATFORM VERIFICATION ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sqaeng_mobil&amp;a=secure" CLASS="bodyText">SQA ENGINEER - MOBILE</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_kernelsofteng&amp;a=secure" CLASS="bodyText">KERNEL SOFTWARE ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_mobbioseng&amp;a=secure" CLASS="bodyText">MOBILE BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng1&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srsyseng&amp;a=secure" CLASS="bodyText">SR. SYSTEM ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysbioseng&amp;a=secure" CLASS="bodyText">SYSTEM BIOS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_oemtechprogmang&amp;a=secure" CLASS="bodyText">OEM TECHNICAL PROGRAM MANAGER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_fieldappeng&amp;a=secure" CLASS="bodyText">FIELD APPLICATION ENGINEER (Seoul, Korea)</A></B><BR/>
-       </P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dpertooleng&amp;a=secure" CLASS="bodyText">3D PERFORMANCE TOOLS ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dappsweng&amp;a=secure" CLASS="bodyText">3D APPLICATION SW ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cusqeng&amp;a=secure" CLASS="bodyText">CUSTOMER QUALITY ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_packdesigner&amp;a=secure" CLASS="bodyText">PACKAGE DESIGNER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srdesigneng&amp;a=secure" CLASS="bodyText">SENIOR DESIGN ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_prodtesteng&amp;a=secure" CLASS="bodyText">PRODUCT/TEST ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_whqleng&amp;a=secure" CLASS="bodyText">WHQL ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysdesigneng&amp;a=secure" CLASS="bodyText">SYSTEM DESIGN ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platnetwarch&amp;a=secure" CLASS="bodyText">PLATFORM NETWORKING ARCHITECT</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_dfteng&amp;a=secure" CLASS="bodyText">DFT ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sysdesignlead&amp;a=secure" CLASS="bodyText">SYSTEMS DESIGN LEAD</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srsignalinteng&amp;a=secure" CLASS="bodyText">SR. SIGNAL INTEGRITY ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_appeng_intern&amp;a=secure" CLASS="bodyText">APPLICATIONS ENGINEER INTERN/CO-OP</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_memarch&amp;a=secure" CLASS="bodyText">MEMORY ARCHITECT</A></B><BR/>
-      </P>
-    </TD>
-  </TR>
-</TABLE> 
+<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/>    
+
+
+
+<P><B>APPLICATIONS ENGINEER INTERN/CO-OP:</B></P>
+<P>
+This is an opportunity to work on the hottest GPUs (Graphics Processing Units) before they've been shown to the world!  The Applications Engineer is involved in all aspects of New Product Introduction such as PCB (printed circuit board) design, silicon and PCB characterization, stress testing, hardware failure analysis, tuning high performance memory subsystems, solving complex system problems, and consulting on customer designs.  Issues such as noise, power, thermals, AC timing, EMI, display output quality, and transmission line effects, are explored.</P>
+                                                                                                   
+<P>As an Applications Engineer, you will be interfacing with hardware designers, software engineers, sales, and the operations team to ensure the timely rollout of new products.  At your disposal are the highest bandwidth DSO (digital storage oscilloscopes) and logic analyzers available.  Powerful in-house tools empower Applications Engineers with the ability to develop custom routines, which are
+compiled on the fly during run-time, to fully exercise any and all functions of the GPU.  You will be learning and helping to develop the best systems engineering practices in the industry.</P>
+                                                                                                                                 
+<P><B>GPA 3.5</B></P>
+                                                                                                                           
+<P><B>Senior and junior level positions available.  </B></P>
+                                                                                    
+<P>The ideal candidate will be working towards a degree in EE, CE, CS, Systems Engineering or Engineering Science/Physics, with an emphasis in computer architecture, digital design, circuit analysis, and device physics.
+<UL>
+<LI>Knowledge of PC architecture and high-speed digital design concepts a must.</LI>
+<LI>Knowledge of graphics system preferred.</LI>
+<LI>Experience in hardware development or testing is highly desirable.</LI>
+<LI>Programming skills and strong written/verbal ability are required.</LI>
+<LI>Recently graduated candidates should have a 3.5+ GPA in relevant coursework and project work.</LI>
+</UL></P>
+
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=58&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
 <!--end contextual links-->
           
           <P><BR/></P>
