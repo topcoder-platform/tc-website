@@ -278,6 +278,21 @@
 				</tr>
 			</table>
 
+			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+				<tr valign="top">
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
+						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+							<tr valign="top">
+								<td class="statText" width="100%">
+									<p><strong>Completed Component</strong><br/>
+									This is the completed <a href="/i/development/downloads/component-sample.jar" class="statText">Logging Wrapper</a> component that has gone through the Component Development Methodology.
+									You are encouraged to download and install this component for personal, non-commercial use and to incorporate it into future components.
+							    </p></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table>
+			
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr><td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
 
