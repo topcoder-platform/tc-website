@@ -154,7 +154,7 @@ function openWin(url, name, w, h) {
 
                            <tr valign="top">
                               <td class="sidebarText">Friday, November 14</td>
-                              <td class="sidebarText">3:00 PM</td>
+                              <td class="sidebarText">4:00 PM</td>
                               <td class="sidebarText">Championship Round - 25 participants</td>
                            </tr>
                 

@@ -146,7 +146,7 @@ START:          9:00 PM
                     <td class="sidebarText">Championship Round</td>
 
                     <td class="sidebarText">Friday, November 14, 2003<br>
-START:          3:00 PM
+START:          4:00 PM
 </td>
                     </tr>
                 
