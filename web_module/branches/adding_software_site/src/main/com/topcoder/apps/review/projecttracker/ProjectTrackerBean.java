@@ -2709,7 +2709,7 @@ public class ProjectTrackerBean implements SessionBean {
                                     "             and project_id = ?";
         
         final String setCompleteDate = "update project set complete_date = CURRENT where project_id = ? and cur_version = 1";
-        final String setRatingInd = "update project_result set rating_ind = 1 where project_id = ?";
+        final String setRatingInd = "update project_result set rating_ind = 1 where project_id = ? and valid_submission_ind = 1";
         
         PreparedStatement psRetrieveScores = null;
         PreparedStatement psInsertScores = null;
