@@ -194,8 +194,8 @@ public class UpdateCandidate extends BaseProcessor
         if(email == null) {
             success = false;
             errorMap.put(Constants.EMAIL_ADDRESS, "Email is not set.");
-        }
-        else {
+        } else {
+            email = email.trim();
             success = validateEmail(errorMap, email);
             info.setUserName(email);
         }
