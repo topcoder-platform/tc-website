@@ -102,9 +102,6 @@
             </table>
             <br/><br/>
             
-            <p> Click <A href="/?&amp;t=tournaments&amp;c=tco03_bracket">here</A> to see the full TCO advancers table.</p>
-
-<!--
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
                <tr>
                   <td width = "40%" align = "left" class="advancers_header">Round</td>
@@ -114,21 +111,28 @@
                   <td width = "15%" align = "right" class="advancers_header">radeye's Odds</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702" class="topLink">Online Round 1</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">200</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">47</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">153</a></td>
+                  <td align = "left" class="advancers_roundid"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702" class="topLink">Online Round 1</A></td>
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">200</A></td>
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">47</A></td>
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">153</A></td>
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd1','radeye1',900,600);">view</A></td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid">Online Round 2</td> 
-                  <td align = "right" class="advancers_faded">TBD</td>
-                  <td align = "right" class="advancers_faded">TBD</td>
-                  <td align = "right" class="advancers_faded">TBD</td>
+                  <td align = "left" class="advancers_roundid"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703" class="topLink">Online Round 2</A></td> 
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">TBD</A></td>
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">TBD</A></td>
+                  <td align = "right" class="advancers_faded"><A href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4703">TBD</A></td>
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd2','radeye2',900,600);">view</A></td>
                </tr>
+               <tr>
+                  <td align = "left" class="advancers_roundid">Online Round 3</td> 
+                  <td align = "right" class="advancers_faded">TBD</td>
+                  <td align = "right" class="advancers_faded">TBD</td>
+                  <td align = "right" class="advancers_faded">TBD</td>
+                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd3','radeye3',900,600);">view</A></td>
+               </tr>
             </table>
--->            
+
            </blockquote>
             <p><br/></p>
 
