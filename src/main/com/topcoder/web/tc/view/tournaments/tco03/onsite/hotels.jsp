@@ -43,7 +43,7 @@
 <!-- Tab bar sublinks-->
 <jsp:include page="../tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="onsite"/>
-   <jsp:param name="selectedTab" value="joinus"/>
+   <jsp:param name="selectedTab" value="hotels"/>
 </jsp:include>
 
             <h2>Hotels Near Mohegan Sun</h2>
