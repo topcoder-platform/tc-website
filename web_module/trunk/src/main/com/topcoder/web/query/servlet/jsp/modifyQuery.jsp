@@ -46,7 +46,7 @@
             <TR>
               <TD CLASS="statText" ALIGN="right">Ranking: </TD>
               <TD CLASS="statText" ALIGN="left">
-                <input type="checkbox" name="<%=Constants.RANKING_PARAM%>" class="bodyText" <%=ModifyQueryTask.isRanking()?"checked":""%>/>
+                <query:booleanSelect name="<%=Constants.RANKING_PARAM%>" class="bodyText" selectedValue='<%=ModifyQueryTask.isRanking()?"true":"false"%>'/>
               </TD>
             </TR>
             <TR>
