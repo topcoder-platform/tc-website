@@ -92,12 +92,12 @@ When you join the FBI, you join a united effort against crime. It's a rewarding 
 <P>Please note: applications for Special Agent employment are only accepted during the first 7 days of the month.</P>
 
 <P>
-<B>Professional Support</B>
+<!--<B>Professional Support</B>
 </P>
 
 <P>
 You may join us in a Professional Support role in any number of positions when available (Computer Specialist, Crime Scene Specialist, Linguist, Fingerprint Expert, Intelligence Research Specialist, Laboratory Tech, Accounting Professional, Laborer, Secretary, etc.).</P>
-<P><A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=fbi_support&amp;a=secure">Click here</A> for job details.</P>
+<P><A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=fbi_support&amp;a=secure">Click here</A> for job details.</P>-->
 
 <!--end contextual links-->
 
