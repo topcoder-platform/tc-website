@@ -71,6 +71,12 @@ public class Constants {
 
     public static String TCCC04_TERMS;
 
+    //dev pages
+    public static String REVIEW_PROJECT_DETAIL;
+    public static String REVIEW_PROJECTS;
+    public static String DESIGN_DETAIL;
+
+
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
     public static int TOURNAMENT_SURVEY_QUESTION;
