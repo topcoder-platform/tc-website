@@ -1,6 +1,7 @@
 package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 
@@ -9,6 +10,8 @@ import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
 public class SortTag extends TagSupport {
+
+    private static Logger log = Logger.getLogger(SortTag.class);
 
     private int column;
 
@@ -21,6 +24,7 @@ public class SortTag extends TagSupport {
         String currDir = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         SortInfo defaults = (SortInfo)pageContext.getRequest().getAttribute(SortInfo.REQUEST_KEY);
         String sortDir = defaults.getDefault(column);
+        log.debug("sortdir: " + sortDir);
         if (sortDir==null) sortDir = "asc";
 
         if (!(currCol.equals("") || currDir.equals(""))) {
