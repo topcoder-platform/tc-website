@@ -7,7 +7,7 @@
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
-<jsp:usebean id="CampaignDetailTask" scope="request" class="com.topcoder.web.tces.bean.CampaignDetailTask" />
+<jsp:useBean id="CampaignDetailTask" scope="request" class="com.topcoder.web.tces.bean.CampaignDetailTask" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -81,7 +81,7 @@
                                 
                             <tr>
                                 <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
-                                <td class="statText" height="18">&#160;<a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="statText"><%= (String)position.get("job_desc") %></a></td>
+                                <td class="statText" height="18">&#160;<a href="<jsp:getProperty name="CampaignDetailTask" property="ServletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignDetailTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="statText"><%= (String)position.get("job_desc") %></a></td>
                                 <td><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                                 <td class="statText"><%= (String)position.get("hit_count") %></td>
                                 <td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"></td>
