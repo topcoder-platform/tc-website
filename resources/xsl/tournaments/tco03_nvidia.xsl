@@ -69,7 +69,7 @@
                       </td>
         </tr>
         <tr>
-            <td align="center">
+            <td class="bodyText" align="center">
                 <p>Experienced professionals <br/>
                       New &#38; Recent College Graduates <br/>
                       Interns &#38; Co-ops<br/>
