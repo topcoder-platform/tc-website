@@ -87,7 +87,7 @@ public class TCLoadRequests extends TCLoad {
             " where log_type_id = ?)";
 
     private Timestamp getLastUpdateTime(int type) throws Exception {
-        log.debug("getLastUpdateTime called");
+        //log.debug("getLastUpdateTime called");
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
@@ -130,7 +130,7 @@ public class TCLoadRequests extends TCLoad {
 
 
     private void loadWebRequests() throws Exception {
-        log.debug("called loadWebRequests()");
+        //log.debug("called loadWebRequests()");
         PreparedStatement psSel = null;
         PreparedStatement psIns = null;
 
@@ -198,7 +198,7 @@ public class TCLoadRequests extends TCLoad {
      * @param url
      */
     private void createUrl(URL url) throws Exception {
-        log.debug("called createUrl " + url.getUrl());
+        //log.debug("called createUrl " + url.getUrl());
         PreparedStatement ps = null;
 
         try {
@@ -247,7 +247,7 @@ public class TCLoadRequests extends TCLoad {
      * @return
      */
     private long getUrlId(URL url) throws Exception {
-        log.debug("called getUrlId " + url.getUrl());
+        //log.debug("called getUrlId " + url.getUrl());
         long ret = -1;
         if (urlMap.containsKey(url)) {
             ret = ((Long) urlMap.get(url)).longValue();
@@ -284,7 +284,7 @@ public class TCLoadRequests extends TCLoad {
 
 
     private long getCalendarId(Timestamp time) throws Exception {
-        log.debug("called getCalendarId " + time);
+        //log.debug("called getCalendarId " + time);
         long ret = -1;
         Date d = new Date(time.getTime());
         if (calendarMap.containsKey(d)) {
@@ -297,7 +297,7 @@ public class TCLoadRequests extends TCLoad {
     }
 
     private long getSessionId(String sessionId) throws Exception {
-        log.debug("called getSessionId() " + sessionId);
+        //log.debug("called getSessionId() " + sessionId);
         long ret = 0;
         if (sessionMap.containsKey(sessionId)) {
             ret = ((Long)sessionMap.get(sessionId)).longValue();
@@ -332,7 +332,7 @@ public class TCLoadRequests extends TCLoad {
             " VALUES (0, ?, ?, ?)";
 
     private void setLastUpdateTime(int type) throws Exception {
-        log.debug("called setLastUpdateTime " + type);
+        //log.debug("called setLastUpdateTime " + type);
         PreparedStatement psUpd = null;
 
         try {
@@ -389,12 +389,12 @@ public class TCLoadRequests extends TCLoad {
                 this.baseUrl = trimedUrl;
             else baseUrl = trimedUrl.substring(0, trimedUrl.indexOf('?'));
 
-            log.debug("url " + baseUrl);
+            //log.debug("url " + baseUrl);
 
             //we only want the query string for the parameter extraction
             if (trimedUrl.indexOf('?') > 0) {
                 trimedUrl = trimedUrl.substring(trimedUrl.indexOf('?'));
-                log.debug("trimedurl " + trimedUrl);
+                //log.debug("trimedurl " + trimedUrl);
                 StringTokenizer st = new StringTokenizer(trimedUrl, "?&");
                 String s;
                 for (; st.hasMoreTokens();) {
@@ -404,8 +404,10 @@ public class TCLoadRequests extends TCLoad {
                         //like &=blah, but we'll throw a case in anyway
                         paramMap.put("", s);
                     } else if (s.indexOf('=') > 0) {
+/*
                         log.debug("adding " + s.substring(0, s.indexOf('=')) +
                                 " " + s.substring(s.indexOf('=')+1, s.length()));
+*/
                         paramMap.put(s.substring(0, s.indexOf('=')),
                                 s.substring(s.indexOf('=')+1, s.length()));
                     } else {
