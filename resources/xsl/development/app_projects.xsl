@@ -65,10 +65,10 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Inquire By</td>
                 </tr>
                
-                <!--tr valign="top">
+                <tr valign="top">
                     <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
-                </tr-->
-                <!--
+                </tr>
+
                 <tr valign="top">
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$1,860</td>
