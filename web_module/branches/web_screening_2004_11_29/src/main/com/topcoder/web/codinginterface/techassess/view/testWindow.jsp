@@ -138,9 +138,9 @@
                     }
                 }
 
-                window.close();
-                window.opener.focus();
-                window.opener.doSubmit('<%=Constants.RP_TEST%>');
+                //window.close();
+                //window.opener.focus();
+                window.document.frmTesting.submit();
             }
             function cancel() {
                 window.close();
