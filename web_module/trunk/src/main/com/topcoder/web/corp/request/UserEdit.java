@@ -188,8 +188,10 @@ public class UserEdit extends BaseProcessor {
                 String pValue = request.getParameter("perm-" + permID);
                 boolean set = "on".equalsIgnoreCase(pValue);
                 RolePrincipal role = mgr.getRole(permID);
-                if (set && !hasRole(mgr.getUserSubject(targetUserID), role)) {
-                    mgr.assignRole(secTok.targetUser, role, secTok.requestor);
+                if (set) {
+                    if (!hasRole(mgr.getUserSubject(targetUserID), role)) {
+                        mgr.assignRole(secTok.targetUser, role, secTok.requestor);
+                    }
                 } else {
                     mgr.unAssignRole(secTok.targetUser, role, secTok.requestor);
                 }
