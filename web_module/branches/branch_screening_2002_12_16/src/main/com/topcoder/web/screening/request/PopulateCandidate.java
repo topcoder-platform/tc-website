@@ -7,6 +7,8 @@ import javax.servlet.ServletRequest;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
 
+import com.topcoder.web.common.security.PrincipalMgr;
+
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.CandidateInfo;
 
@@ -38,6 +40,7 @@ public class PopulateCandidate extends BaseProcessor {
 
             //do some kind of db lookup
             InitialContext context = new InitialContext();
+            PrincipalMgr principalMgr = new PrincipalMgr();
             EmailHome eHome = (EmailHome)PortableRemoteObject.narrow(
                     context.lookup(EmailHome.class.getName()),
                     EmailHome.class);
@@ -48,7 +51,7 @@ public class PopulateCandidate extends BaseProcessor {
 
             long emailId = email.getPrimaryForUser(userId);
             info.setEmailAddress(email.getAddress(emailId, userId));
-            //info.setPassword(coder.getPassword(candidateId));
+            info.setPassword(principalMgr.getPassword(userId));
 
             request.setAttribute(Constants.CANDIDATE_INFO, info);
         }

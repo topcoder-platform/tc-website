@@ -43,20 +43,15 @@
         <INPUT type="hidden" name="referrer" value="<%=referrer%>" />
 <%
     }
-    
-    //only want it there if we are not new
-    if(!candidateInfo.isNew()) {
 %>
-        <INPUT type="hidden" name="userId" value="<jsp:getProperty name="candidateInfo" property="userId" " />
-<%    
-    }
-%>
-
-
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><strong>Email Address</strong>&#160;&#160;</TD>
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="emailAddress" value="<jsp:getProperty name="candidateInfo" property="emailAddress" />" size="30" maxlength="30"></TD>
+              <% if (candidateInfo.isNew()) { %>
+              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="emailAddress" size="30" maxlength="30"></TD>
+              <% } else { %>
+              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="candidateInfo" property="emailAddress" /></TD>
+              <% } %>
               <TD CLASS="bodyText" VALIGN="middle">&#160;</TD>
            </TR>
            <TR>
@@ -73,9 +68,15 @@
             <TR>
               <TD COLSPAN="2"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR> 
+<% if(candidateInfo.isNew()) { %>
            <TR>
               <TD COLSPAN="2" ALIGN="center"><INPUT type="SUBMIT" /></TD>
            </TR>                                
+<%    } else {%>
+           <TR>
+              <TD COLSPAN="2" ALIGN="center"><screen:servletLink processor="<%=referrer%>" styleClass="bodyText">Go Back</screen:servletLink></TD>
+           </TR>                                
+<%    } %>
          </TABLE>
 <%
     if(!candidateInfo.isNew())
