@@ -23,6 +23,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.naming.Context;
 import javax.transaction.Status;
 import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
 import javax.rmi.PortableRemoteObject;
 import java.util.*;
 
@@ -52,8 +53,8 @@ public final class Data {
 
 
     public static void saveUser(Navigation nav) throws TCException {
-        UserTransaction uTx = null;
         Context ctx = null;
+        TransactionManager tm = null;
         try {
             ctx = TCContext.getInitial();
             UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
@@ -62,16 +63,17 @@ public final class Data {
 
             Long key = new Long(nav.getUser().getUserId());
             UserServices userEJB = userHome.findByPrimaryKey(key);
-            uTx = Transaction.get();
-            uTx.begin();
+
+            tm = (TransactionManager)ctx.lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
             userEJB.setUser(nav.getUser());
-            uTx.commit();
+            tm.commit();
             nav.setUser(userEJB.getUser());
         } catch (Exception e) {
             e.printStackTrace();
             try {
-                if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                    uTx.rollback();
+                if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                    tm.rollback();
                 }
             } catch (Exception te) {
                 StringBuffer msg = new StringBuffer(300);
