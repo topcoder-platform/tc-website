@@ -433,13 +433,10 @@ public final class Registration extends UserEdit {
         // address item for user
         UserAddress xrefUserAddr = ((UserAddressHome) ic.lookup("corp:"+UserAddressHome.EJB_REF_NAME)).create();
         long addrID = -1;
-        // single address per company so address is to be fetched for primary
         ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID);
-        try {
+        if (!rsc.isEmpty()) {
             String tmp = rsc.getItem(0, "address_id").getResultData().toString();
             addrID = Long.parseLong(tmp);
-        } catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
         }
 
         if (addrID < 0) { // user has not an address yet
@@ -450,9 +447,7 @@ public final class Registration extends UserEdit {
             zip = "";
             country = "";
         } else {
-            Address addrTable = (
-                    (AddressHome) ic.lookup(AddressHome.EJB_REF_NAME)
-                    ).create();
+            Address addrTable = ((AddressHome) ic.lookup(AddressHome.EJB_REF_NAME)).create();
             compAddress = addrTable.getAddress1(addrID);
             compAddress2 = addrTable.getAddress2(addrID);
             city = addrTable.getCity(addrID);
