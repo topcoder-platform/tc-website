@@ -19,7 +19,7 @@ import com.topcoder.web.common.security.TCESAuthorization;
  * A basic implementation of Task.
  * @author bigjake <kitz@mit.edu>
  * @author swif0ne <dancohn1@yahoo.com>
- * @version 1.2.8.5
+ * @version 1.2.8.6
  */
 
 public abstract class BaseTask implements Task {
@@ -130,7 +130,7 @@ public abstract class BaseTask implements Task {
      * Just stores given authorization object for later use 
      * @param authorize TCESAuthorization to store in authorizeToken
      */
-    public void setAuthorizeToken(WebAuthentication authorize) {
+    public void setAuthorizeToken(TCESAuthentication authorize) {
         authorizeToken = authorize;
     }
 
