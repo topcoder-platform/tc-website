@@ -115,10 +115,10 @@ Challenge powered by TopCoder. This is <B>NOT</B> a rated event. </P>
 <B>TopCoder members</B><BR/>
 <xsl:choose>
   <xsl:when test="/TC/LoggedIn='true'">
-Please <A HREF="/reg/index.jsp" CLASS="statText">update</A> your member profile to sign-up.
+Please <A HREF="/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">update</FONT></A> your member profile to sign-up.
   </xsl:when>
   <xsl:otherwise>  
-Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" CLASS="statText">login</A> to update your member profile to sign-up.
+Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">login</FONT></A> to update your member profile to sign-up.
   </xsl:otherwise>
 </xsl:choose>
 </P>
@@ -126,7 +126,7 @@ Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20lo
 <xsl:if test="not(/TC/LoggedIn='true')">
 <P CLASS="statText">
 <B>New to TopCoder?</B><BR/>
-Click here to <A HREF="/reg/index.jsp" CLASS="statText">register</A> as a TopCoder member and sign-up. 
+Click here to <A HREF="/reg/index.jsp" CLASS="statText"><FONT COLOR="#FFCC00">register</FONT></A> as a TopCoder member and sign-up. 
 After you complete the registration process, we will send your account activation code via email.
 </P>        
 </xsl:if>
