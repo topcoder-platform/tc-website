@@ -10,7 +10,7 @@
 
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">January: <a href="/stat?c=member_profile&cr=8355516" class="coderTextRed">eryx</a></td>
+        <td class="statTextBig" bgcolor="#333333">January: <a href="/stat?c=member_profile&cr=8355516" class="coderTextRed">Eryx</a></td>
     </tr>
 
 <%-- No photo available
