@@ -268,9 +268,9 @@ public class PrincipalMgrBean extends BaseEJB {
             ps1.setLong(1, userId);
             ps2.setLong(1, userId);
             ps3.setLong(1, userId);
-            ps1.executeUpdate();
-            ps2.executeUpdate();
             ps3.executeUpdate();
+            ps2.executeUpdate();
+            ps1.executeUpdate();
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
