@@ -5,6 +5,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.util.TCException;
 import com.topcoder.shared.netCommon.screening.request.ScreeningSubmitRequest;
 import com.topcoder.shared.netCommon.messages.Message;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
 import javax.jms.ObjectMessage;
 
@@ -35,7 +36,7 @@ public class Submit extends Base {
         }
 
         ScreeningSubmitRequest request = new ScreeningSubmitRequest(componentId, problemTypeId);
-        request.setServerID(Constants.SERVER_ID);
+        request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
         String messageId = send(request);
 

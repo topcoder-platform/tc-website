@@ -5,6 +5,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningCompileRequest;
 import com.topcoder.shared.netCommon.messages.Message;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
 import javax.jms.ObjectMessage;
 
@@ -43,7 +44,7 @@ public class Compile extends Base {
 
         ScreeningCompileRequest request = new ScreeningCompileRequest(componentId, problemTypeId,
                 languageId, code);
-        request.setServerID(Constants.SERVER_ID);
+        request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
         String messageId = send(request);
 

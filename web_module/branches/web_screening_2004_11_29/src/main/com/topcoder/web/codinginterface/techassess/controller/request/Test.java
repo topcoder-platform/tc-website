@@ -8,6 +8,7 @@ import com.topcoder.shared.netCommon.screening.request.ScreeningSubmitRequest;
 import com.topcoder.shared.netCommon.screening.request.ScreeningTestRequest;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.util.TCException;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
 import javax.jms.ObjectMessage;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class Test extends Base {
 
 
         ScreeningTestRequest request = new ScreeningTestRequest(args, componentId, problemTypeId);
-        request.setServerID(Constants.SERVER_ID);
+        request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
         String messageId = send(request);
 

@@ -11,6 +11,7 @@ import com.topcoder.shared.language.JavaLanguage;
 import com.topcoder.shared.language.CPPLanguage;
 import com.topcoder.shared.language.CSharpLanguage;
 import com.topcoder.shared.language.VBLanguage;
+import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -53,7 +54,7 @@ public class Login extends Base {
             } else {
 
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
-                request.setServerID(Constants.SERVER_ID);
+                request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
                 String messageId = send(request);
                 response = (ScreeningLoginResponse)receive(5000, messageId);
 
