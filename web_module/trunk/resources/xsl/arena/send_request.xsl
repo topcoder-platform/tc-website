@@ -57,7 +57,9 @@
   <input type="hidden" name="c" value="send_request"/>
   <input type="hidden" name="req"><xsl:attribute name="value"><xsl:value-of select="/TC/Code"/></xsl:attribute></input>
   <center>
-  <b>Would you like to send an arena source request to TopCoder?</b>
+  Clicking &quot;Yes&quot; below will send an email to TopCoder.<br/>
+  <i>Please allow 24 hours for your request to be processed.</i><br/><br/>
+  <b>Would you like to send an arena source request to TopCoder?</b><br/><br/>
   &#160;&#160;
   <A CLASS="statText">
     <xsl:attribute name="HREF">Javascript:document.frmAgree.submit()</xsl:attribute>
