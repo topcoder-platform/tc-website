@@ -139,7 +139,7 @@
 <!-- Register at TCS -->
 						   <p>
         						<strong>View the 
-        						    <a class="statText" target="_new"
+        						    <a class="statText" target="_new">
         						        <xsl:attribute name="href">
         						            <xsl:value-of select="concat('http://www.topcodersoftware.com/catalog/document?id=', $docId)"/>
         						        </xsl:attribute>
