@@ -93,8 +93,9 @@ will include a link for a member to indicate interest in the position advertised
 
 <P>
 <B>Targeted Email Campaign</B><BR/>
-[TCES] will broadcast an email to the entire member base notifying them of the employer's page in the Jobs 
-section. Additionally, the employer will have the opportunity to send one targeted email per month during 
+[TCES] will broadcast an email to those members who have opted to receive employment 
+notifications to alert them of the employer's page in the Jobs section. 
+Additionally, the employer will have the opportunity to send one targeted email per month during 
 the contract. The employer can focus on one or multiple criteria, including rating status, rating level, 
 state, professional/student status, school, and competition language. 
 </P>
