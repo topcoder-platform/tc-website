@@ -17,7 +17,7 @@
 
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body>
 
 <!-- Header begins -->
 <jsp:include page="includes/top.jsp"/>
