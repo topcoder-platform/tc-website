@@ -62,6 +62,9 @@ public class Constants {
     public static String ADVANCED_SEARCH_RESULTS;
     public static String ADVANCED_SEARCH;
 
+    public static String PUBLIC_HOME_PAGE;
+    public static String MEMBER_HOME_PAGE;
+
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
     public static int TOURNAMENT_SURVEY_QUESTION;
