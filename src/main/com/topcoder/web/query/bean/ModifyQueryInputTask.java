@@ -48,7 +48,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             throws AuthenticationException, Exception {
         super.servletPreAction(request, response);
         if (!super.getAuthentication().isLoggedIn()) {
-            log.debug("User not authenticated for access to query tool resource.");
+            super.getAuthentication().setErrorMessage("User not authenticated for access to query tool resource.");
             throw new AuthenticationException("User not authenticated for access to query tool resource.");
         }
 	}
