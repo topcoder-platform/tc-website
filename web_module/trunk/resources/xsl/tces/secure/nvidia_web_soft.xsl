@@ -62,7 +62,7 @@
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B>
+<P><B>WEB SOFTWARE ENGINEER</B></P>
 <p>Role/Responsibilities:</p>
 <UL><li>Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine workflow automation, complex user interfaces, database design, and reporting.</li></UL>
 
