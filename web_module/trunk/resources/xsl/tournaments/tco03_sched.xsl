@@ -74,7 +74,7 @@
             <h2>Schedule</h2>
 
 <!-- Qualification Rounds begins -->
-           <p><span class="bodySubtitle">Qualification Rounds</span></p>
+           <p><a name="sched"><span class="bodySubtitle">Qualification Rounds</span></a></p>
 
             <p><a name="berths"></a><strong>Automatic Berths</strong> - The 100 highest rated TopCoder members as of October 7th (who are 18 years of age or older) will receive an automatic berth into
             <A href="#online">Online Round #1.</A> The 100 highest rated members must have competed in at least three TopCoder rated events (i.e.,
@@ -86,7 +86,6 @@
             that the top 100 rated members with an automatic berth will not be allowed to compete in the Qualification Rounds.  Also, those members
             who qualify for the tournament during Qualification Round #1 will not be allowed to compete in Qualification Round #2.</p>
 
-            <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
@@ -126,7 +125,7 @@
 <!-- Qualification Rounds ends -->
 
 <!-- Online Elimination Rounds begins -->
-            <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
+            <p><A name="online"><span class="bodySubtitle">Online Elimination Rounds</span></A><br />
             Up to 500 TopCoder members will compete in Online Round #1 of the Coding Tournament.  The field will be comprised of 100 automatic
             berths and 400 qualification spots. Each room winner and the next highest scorers in each round will advance.</p>
 
@@ -188,11 +187,11 @@
                         will be the following day at the same time.
                     </td>
                 </tr>
-            </table>
+            </table><br />
 <!-- Online Elimination Rounds ends -->
 
 <!-- Onsite Semifinal and Championship Rounds begins -->
-            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br />
+            <p><A name="onsite"><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span></A><br />
             The 16 advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete in the Semifinal round
             of the tournament being held on Thursday, December 4th.</p>
 
