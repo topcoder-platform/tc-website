@@ -245,6 +245,9 @@
 		            <td class="bodyText"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
                   </tr>
                   <tr><td><br/></td></tr>
+                  </table>
+
+                  <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="bodyText">
                      <h3>Solution</h3><br/>
@@ -267,6 +270,9 @@
 		            <td class="bodyText"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
                   </tr>
                   <tr><td><br/></td></tr>
+                  </table>
+
+                  <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="bodyText">
                      <h3>Solution</h3><br/>
