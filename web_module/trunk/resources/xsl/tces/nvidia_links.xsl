@@ -8,7 +8,7 @@
   </tr>
   
   <tr>
-      <td valign="middle" height="18" class="bodyText"><a href="/?&amp;t=tces&amp;c=nvidia_openings_intern_soft&amp;a=secure" class="bodyText">Software&#160;&#38;&#160;Graphics</a> |&#160;<a href="/?&amp;t=tces&amp;c=nvidia_openings_intern_hard&amp;a=secure" class="bodyText">Hardware&#160;&#38; Systems&#160;Engineering</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=products" class="bodyText" target="_blank">Products</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=benefits" class="bodyText" target="_blank">Benefits</a></td>
+      <td valign="middle" height="18" class="bodyText"><a href="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" class="bodyText">Jobs</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=products" class="bodyText" target="_blank">Products</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=benefits" class="bodyText" target="_blank">Benefits</a></td>
   </tr>
 </table> 
 
