@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>NVIDIA Sponsors 2004 TopCoder Collegiate Challenge</title>
+<title>Microsoft to Sponsor 2004 TCO</title>
 
 <xsl:call-template name="CSS"/>      
 
