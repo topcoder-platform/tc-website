@@ -2,8 +2,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.model.ReviewBoardApplication,
-                 java.util.List,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -52,9 +50,9 @@
                         <h2 class="devSubhead"><strong><rsc:item set="<%=projectDetail%>" name="component_name"/>: Design</strong></h2>
                     </td>
                     <td align="right">
-                        <xsl:if test="/TC/DEVELOPMENT/tccc='t'">
+                        <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
                             <img src="/i/development/tccc04_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
-                        </xsl:if>
+                        <% } %>
                     </td>
                 </tr>
             </table>
