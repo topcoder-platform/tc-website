@@ -129,7 +129,7 @@
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
                         <TR><TD><A HREF="#184" CLASS="bodyText">What compiler options are used?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR> 
-                        <TR><TD><A HREF="#188" CLASS="bodyText">Why doesn't my code compile anymore under gcc 3.1?</A></TD></TR>
+                        <TR><TD><A HREF="#188" CLASS="bodyText">Why doesn't my code compile anymore under gcc 3.x?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                                                                       
                         <TR><TD><A HREF="#185" CLASS="bodyText">What libraries are available?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
@@ -360,9 +360,9 @@ Additional info on gcc 3.1<BR/>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR> 
                         
-                        <TR><TD CLASS="bodyText"><A NAME="188"><B>Why doesn't my code compile anymore under gcc 3.1?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText"><A NAME="188"><B>Why doesn't my code compile anymore under gcc 3.x?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
-The upgrade to GCC 3.1 may require some changes to C++ submissions to
+The upgrade to GCC 3.x may require some changes to C++ submissions to
 make them conform to standards that weren't implemented prior to 3.x,
 but are now enforced:
 <UL>
