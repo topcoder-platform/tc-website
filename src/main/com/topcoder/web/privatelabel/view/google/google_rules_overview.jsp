@@ -190,9 +190,9 @@ Each online and onsite round of competition (excluding the Qualification Round) 
 </ul>
 
 <strong>Onsite Championship Round</strong><br>
-The 25 advancers from Round 2 will travel to Google’s headquarters to compete in the Championship Round of the tournament being held on Friday, November 14, 2003.  Each finalist must confirm his/her attendance in the Championship Round by [INSERT DATE HERE].  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
+The 25 advancers from Round 2 will travel to Google’s headquarters to compete in the Championship Round of the tournament being held on Friday, November 14, 2003.  Each finalist must confirm his/her attendance in the Championship Round by October 30, 2003.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
 <br><br>
-Google will provide travel accommodations for each finalist to attend the Championship Round, up to a cost of $1,000 per person.  (That is, if a contestant’s airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from Google’s headquarters.  All other expenses are the responsibility of the contestant.   
+Google will provide travel accommodations for each finalist to attend the Championship Round.  In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from Google’s headquarters.  All other expenses are the responsibility of the contestant.   
 <br><br>
 TopCoder will determine the room assignments for the Championship Round prior to the start of the Championship Round. 
 <br><br>
