@@ -108,7 +108,7 @@
         <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
         <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
         <attribute>
-            <name>refName</name>
+            <name>name</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
