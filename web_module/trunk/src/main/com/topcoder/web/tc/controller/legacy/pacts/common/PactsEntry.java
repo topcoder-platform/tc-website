@@ -25,9 +25,9 @@ public class PactsEntry implements PactsConstants {
 
     private static Logger log = Logger.getLogger(PactsEntry.class);
 
-    public int _type;
-    public long _id1;
-    public long _id2;
+    private int type;
+    private long id1;
+    private long id2;
 
     public PactsEntry(Map data, int row) {
         ResultSetContainer rsc = (ResultSetContainer) data.get(ENTRY_HEADER_LIST);
@@ -43,14 +43,14 @@ public class PactsEntry implements PactsConstants {
             return;
         }
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
-        _type = TCData.getTCInt(rsr, OBJECT_TYPE, 0, true);
-        _id1 = TCData.getTCLong(rsr, "first_id", 0, true);
-        _id2 = TCData.getTCLong(rsr, "second_id", 0, true);
+        type = TCData.getTCInt(rsr, OBJECT_TYPE, 0, true);
+        id1 = TCData.getTCLong(rsr, "first_id", 0, true);
+        id2 = TCData.getTCLong(rsr, "second_id", 0, true);
     }
 
     public Object get() {
         try {
-            switch (_type) {
+            switch (type) {
                 case PAYMENT_OBJ:
                     return getPayment();
                 case AFFIDAVIT_OBJ:
@@ -73,40 +73,66 @@ public class PactsEntry implements PactsConstants {
         InternalDispatchPayment bean =
                 new InternalDispatchPayment(null, null);
 
-        return bean.get(_id1);
+        return bean.get(id1);
     }
 
     public Affidavit getAffidavit() throws Exception {
         InternalDispatchAffidavit bean =
                 new InternalDispatchAffidavit(null, null);
 
-        return bean.get(_id1);
+        return bean.get(id1);
     }
 
     public Contract getContract() throws Exception {
         InternalDispatchContract bean =
                 new InternalDispatchContract(null, null);
 
-        return bean.get(_id1);
+        return bean.get(id1);
     }
 
     public TaxForm getUserTaxForm() throws Exception {
         InternalDispatchUserTaxForm bean =
                 new InternalDispatchUserTaxForm(null, null);
 
-        return bean.get(_id1, _id2);
+        return bean.get(id1, id2);
     }
 
     public UserProfile getUserProfile() throws Exception {
         InternalDispatchUserProfile bean =
                 new InternalDispatchUserProfile(null, null);
 
-        return bean.get(_id1);
+        return bean.get(id1);
     }
 
     private void setDefaults() {
-        _type = 0;
-        _id1 = 0;
-        _id2 = 0;
+        type = 0;
+        id1 = 0;
+        id2 = 0;
     }
+
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public long getId1() {
+        return id1;
+    }
+
+    public void setId1(long id1) {
+        this.id1 = id1;
+    }
+
+    public long getId2() {
+        return id2;
+    }
+
+    public void setId2(long id2) {
+        this.id2 = id2;
+    }
+
 }

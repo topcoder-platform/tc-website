@@ -11,9 +11,9 @@ import java.util.Map;
 public class UserDemographics implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(UserDemographics.class);
 
-    public String[] answers;
-    public String[] questions;
-    public String _schoolName;
+    private String[] answers;
+    private String[] questions;
+    private String schoolName;
 
     public UserDemographics() {
         setDefaults();
@@ -22,7 +22,7 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
     private void setDefaults() {
         answers = new String[0];
         questions = new String[0];
-        _schoolName = "";
+        schoolName = "";
     }
 
 
@@ -71,14 +71,40 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
         rsc = (ResultSetContainer) results.get(USER_CURRENT_SCHOOL);
         if (rsc == null) {
             log.error("The result map did not contain " + USER_CURRENT_SCHOOL);
-            _schoolName = "";
+            schoolName = "";
             //fix - 6/16/2002  Matt Murphy
         } else if (rsc.getRowCount() <= 0) {
             log.error("The result set '" + USER_CURRENT_SCHOOL + "' was empty!");
-            _schoolName = "";
+            schoolName = "";
         } else {
             ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
-            _schoolName = TCData.getTCString(rRow, "school_name");
+            schoolName = TCData.getTCString(rRow, "school_name");
         }
     }
+
+    public String[] getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(String[] answers) {
+        this.answers = answers;
+    }
+
+    public String[] getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(String[] questions) {
+        this.questions = questions;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
+
 }

@@ -45,8 +45,8 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(contractList[n]._user._id);
-			out.print("\">"+contractList[n]._user._handle+"</a></td>\n");
+			out.print(contractList[n].getUser().getId());
+			out.print("\">"+contractList[n].getUser().getHandle()+"</a></td>\n");
 
 			out.print("<td><a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
@@ -55,12 +55,12 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.CONTRACT_CMD+"&");
 			out.print(PactsConstants.CONTRACT_ID+"=");
-			out.print(contractList[n]._id);
-			out.print("\">"+contractList[n]._name+"</a></td>\n");
+			out.print(contractList[n].getId());
+			out.print("\">"+contractList[n].getName()+"</a></td>\n");
 
-			out.print("<td>"+contractList[n]._creationDate+"</td>");
-			out.print("<td>"+contractList[n]._type+"</td>\n");
-			out.print("<td>"+contractList[n]._statusDesc+"</td>\n");
+			out.print("<td>"+contractList[n].getCreationDate()+"</td>");
+			out.print("<td>"+contractList[n].getTypeDesc()+"</td>\n");
+			out.print("<td>"+contractList[n].getStatusDesc()+"</td>\n");
 
 			out.print("</tr>\n");
 		}

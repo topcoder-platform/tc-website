@@ -33,16 +33,16 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
 *  _withholdingPercentage - percentage to hold from each payment
 *  _withholdingAmount     - aggregate amount withheld
 */
-    public TaxFormHeader _header;
-    public String _description;
-    public float _withholdingPercentage;
-    public double _withholdingAmount;
-    public double _defaultWithholdingAmount;
-    public float _defaultWithholdingPercentage;
-    public String _genericFormStatus;
-    public int _genericFormStatusID;
-    public boolean _usePercentage;
-    public boolean _defaultUsePercentage;
+    protected TaxFormHeader header;
+    protected String description;
+    protected float withholdingPercentage;
+    protected double withholdingAmount;
+    protected double defaultWithholdingAmount;
+    protected float defaultWithholdingPercentage;
+    protected String genericFormStatus;
+    protected int genericFormStatusID;
+    protected boolean usePercentage;
+    protected boolean defaultUsePercentage;
 
     /**************\
      *              *
@@ -55,16 +55,16 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
 *  @ARGS none
 */
     public TaxForm() {
-        _header = new TaxFormHeader();
-        _description = "Default Description";
-        _withholdingPercentage = 0;
-        _withholdingAmount = 0;
-        _defaultWithholdingAmount = 0;
-        _defaultWithholdingPercentage = 0;
-        _genericFormStatus = "default status";
-        _genericFormStatusID = 0;
-        _usePercentage = false;
-        _defaultUsePercentage = false;
+        header = new TaxFormHeader();
+        description = "Default Description";
+        withholdingPercentage = 0;
+        withholdingAmount = 0;
+        defaultWithholdingAmount = 0;
+        defaultWithholdingPercentage = 0;
+        genericFormStatus = "default status";
+        genericFormStatusID = 0;
+        usePercentage = false;
+        defaultUsePercentage = false;
     }
 
 
@@ -76,13 +76,13 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
     public TaxForm(String name, String desc, float percentage,
                    double amount, int status, boolean usePercentage) {
 
-        _header = new TaxFormHeader();
-        _header._name = name;
-        _genericFormStatusID = status;
-        _description = desc;
-        _defaultWithholdingAmount = amount;
-        _defaultWithholdingPercentage = percentage;
-        _defaultUsePercentage = usePercentage;
+        header = new TaxFormHeader();
+        header.setName(name);
+        genericFormStatusID = status;
+        description = desc;
+        defaultWithholdingAmount = amount;
+        defaultWithholdingPercentage = percentage;
+        defaultUsePercentage = usePercentage;
     }
 
 /*  Constructs the TaxForm that will be passed down to the
@@ -92,13 +92,13 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
 */
     public TaxForm(long user, long id, String dateFiled, int status) {
 
-        _header = new TaxFormHeader();
-        _header._user._id = user;
-        _header._statusID = status;
-        _header._id = id;
-        _withholdingAmount = 0;
-        _withholdingPercentage = 0;
-        _header._dateFiled = dateFiled;
+        header = new TaxFormHeader();
+        header.getUser().setId(user);
+        header.setStatusId(status);
+        header.setId(id);
+        withholdingAmount = 0;
+        withholdingPercentage = 0;
+        header.setDateFiled(dateFiled);
     }
 
 /*  Constructs the TaxForm that will be passed down to the
@@ -109,14 +109,14 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
     public TaxForm(String name, String desc, float percentage,
                    double amount, int status, long tax_form_id, boolean usePercentage) {
 
-        _header = new TaxFormHeader();
-        _header._name = name;
-        _genericFormStatusID = status;
-        _description = desc;
-        _defaultWithholdingAmount = amount;
-        _defaultWithholdingPercentage = percentage;
-        _header._id = tax_form_id;
-        _defaultUsePercentage = usePercentage;
+        header = new TaxFormHeader();
+        header.setName(name);
+        genericFormStatusID = status;
+        description = desc;
+        defaultWithholdingAmount = amount;
+        defaultWithholdingPercentage = percentage;
+        header.setId(tax_form_id);
+        defaultUsePercentage = usePercentage;
     }
 
 /*  Constructs the TaxForm that will be passed down to the
@@ -127,14 +127,14 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
     public TaxForm(long user, long id, float percentage,
                    double amount, int status, String date_filed, boolean usePercentage) {
 
-        _header = new TaxFormHeader();
-        _header._user._id = user;
-        _header._statusID = status;
-        _header._id = id;
-        _withholdingAmount = amount;
-        _withholdingPercentage = percentage;
-        _usePercentage = usePercentage;
-        _header._dateFiled = date_filed;
+        header = new TaxFormHeader();
+        header.getUser().setId(user);
+        header.setStatusId(status);
+        header.setId(id);
+        withholdingAmount = amount;
+        withholdingPercentage = percentage;
+        this.usePercentage = usePercentage;
+        header.setDateFiled(date_filed);
     }
 
 
@@ -148,73 +148,156 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
             rsc = (ResultSetContainer) results.get(TAX_FORM_LIST);
             if (rsc == null) {
                 log.error("There was no " + USER_TAX_FORM_DETAIL + " or " + TAX_FORM_LIST + " result set.");
-                _header = new TaxFormHeader();
-                _description = "Default Description";
-                _withholdingPercentage = 0;
-                _withholdingAmount = 0;
-                _defaultWithholdingAmount = 0;
-                _defaultWithholdingPercentage = 0;
-                _genericFormStatus = "default status";
-                _genericFormStatusID = 0;
-                _usePercentage = false;
-                _defaultUsePercentage = false;
+                header = new TaxFormHeader();
+                description = "Default Description";
+                withholdingPercentage = 0;
+                withholdingAmount = 0;
+                defaultWithholdingAmount = 0;
+                defaultWithholdingPercentage = 0;
+                genericFormStatus = "default status";
+                genericFormStatusID = 0;
+                usePercentage = false;
+                defaultUsePercentage = false;
                 return;
             }
             int rowCount = rsc.getRowCount();
             if (rowCount < 1) {
                 log.error("result set " + TAX_FORM_LIST + " was empty!");
-                _header = new TaxFormHeader();
-                _description = "Default Description";
-                _withholdingPercentage = 0;
-                _withholdingAmount = 0;
-                _defaultWithholdingAmount = 0;
-                _defaultWithholdingPercentage = 0;
-                _genericFormStatus = "default status";
-                _genericFormStatusID = 0;
-                _usePercentage = false;
-                _defaultUsePercentage = false;
+                header = new TaxFormHeader();
+                description = "Default Description";
+                withholdingPercentage = 0;
+                withholdingAmount = 0;
+                defaultWithholdingAmount = 0;
+                defaultWithholdingPercentage = 0;
+                genericFormStatus = "default status";
+                genericFormStatusID = 0;
+                usePercentage = false;
+                defaultUsePercentage = false;
                 return;
             }
             ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
-            _header = new TaxFormHeader();
-            _header._name = TCData.getTCString(rsr, "name", "default tax form", true);
-            _header._id = TCData.getTCLong(rsr, "tax_form_id", 0, true);
-            _description = TCData.getTCString(rsr, "tax_form_desc", "default tax form desc", true);
-            _defaultWithholdingAmount = TCData.getTCDouble(rsr, "default_withholding_amount", 0, true);
-            _defaultWithholdingPercentage = TCData.getTCFloat(rsr, "default_withholding_percentage", 0, true);
-            _genericFormStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
-            _genericFormStatusID = TCData.getTCInt(rsr, "status_id", 0, true);
-            _defaultUsePercentage = (TCData.getTCInt(rsr, "default_use_percentage", 0, true) == 1);
+            header = new TaxFormHeader();
+            header.setName(TCData.getTCString(rsr, "name", "default tax form", true));
+            header.setId(TCData.getTCLong(rsr, "tax_form_id", 0, true));
+            description = TCData.getTCString(rsr, "tax_form_desc", "default tax form desc", true);
+            defaultWithholdingAmount = TCData.getTCDouble(rsr, "default_withholding_amount", 0, true);
+            defaultWithholdingPercentage = TCData.getTCFloat(rsr, "default_withholding_percentage", 0, true);
+            genericFormStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
+            genericFormStatusID = TCData.getTCInt(rsr, "status_id", 0, true);
+            defaultUsePercentage = (TCData.getTCInt(rsr, "default_use_percentage", 0, true) == 1);
             return;
         }
 
         int rowCount = rsc.getRowCount();
         if (rowCount < 1) {
             log.error("result set container " + USER_TAX_FORM_DETAIL + " was empty!");
-            _header = new TaxFormHeader();
-            _description = "Default Description";
-            _withholdingPercentage = 0;
-            _withholdingAmount = 0;
-            _defaultWithholdingAmount = 0;
-            _defaultWithholdingPercentage = 0;
-            _genericFormStatus = "default status";
-            _genericFormStatusID = 0;
-            _usePercentage = false;
-            _defaultUsePercentage = false;
+            header = new TaxFormHeader();
+            description = "Default Description";
+            withholdingPercentage = 0;
+            withholdingAmount = 0;
+            defaultWithholdingAmount = 0;
+            defaultWithholdingPercentage = 0;
+            genericFormStatus = "default status";
+            genericFormStatusID = 0;
+            usePercentage = false;
+            defaultUsePercentage = false;
             return;
         }
 
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 
-        _header = new TaxFormHeader(results);
-        _description = TCData.getTCString(rsr, "tax_form_desc", "default tax form", true);
-        _withholdingPercentage = TCData.getTCFloat(rsr, "withholding_percentage", 0, true);
-        _withholdingAmount = TCData.getTCDouble(rsr, "withholding_amount", 0, true);
-        _defaultWithholdingAmount = TCData.getTCDouble(rsr, "default_withholding_amount", 0, true);
-        _defaultWithholdingPercentage = TCData.getTCFloat(rsr, "default_withholding_percentage", 0, true);
-        _genericFormStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
-        _genericFormStatusID = TCData.getTCInt(rsr, "status_id", 0, true);
-        _usePercentage = (TCData.getTCInt(rsr, "use_percentage", 0, true) == 1);
-        _defaultUsePercentage = (TCData.getTCInt(rsr, "default_use_percentage", 0, true) == 1);
+        header = new TaxFormHeader(results);
+        description = TCData.getTCString(rsr, "tax_form_desc", "default tax form", true);
+        withholdingPercentage = TCData.getTCFloat(rsr, "withholding_percentage", 0, true);
+        withholdingAmount = TCData.getTCDouble(rsr, "withholding_amount", 0, true);
+        defaultWithholdingAmount = TCData.getTCDouble(rsr, "default_withholding_amount", 0, true);
+        defaultWithholdingPercentage = TCData.getTCFloat(rsr, "default_withholding_percentage", 0, true);
+        genericFormStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
+        genericFormStatusID = TCData.getTCInt(rsr, "status_id", 0, true);
+        usePercentage = (TCData.getTCInt(rsr, "use_percentage", 0, true) == 1);
+        defaultUsePercentage = (TCData.getTCInt(rsr, "default_use_percentage", 0, true) == 1);
     }
+
+
+    public TaxFormHeader getHeader() {
+        return header;
+    }
+
+    public void setHeader(TaxFormHeader header) {
+        this.header = header;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public float getWithholdingPercentage() {
+        return withholdingPercentage;
+    }
+
+    public void setWithholdingPercentage(float withholdingPercentage) {
+        this.withholdingPercentage = withholdingPercentage;
+    }
+
+    public double getWithholdingAmount() {
+        return withholdingAmount;
+    }
+
+    public void setWithholdingAmount(double withholdingAmount) {
+        this.withholdingAmount = withholdingAmount;
+    }
+
+    public double getDefaultWithholdingAmount() {
+        return defaultWithholdingAmount;
+    }
+
+    public void setDefaultWithholdingAmount(double defaultWithholdingAmount) {
+        this.defaultWithholdingAmount = defaultWithholdingAmount;
+    }
+
+    public float getDefaultWithholdingPercentage() {
+        return defaultWithholdingPercentage;
+    }
+
+    public void setDefaultWithholdingPercentage(float defaultWithholdingPercentage) {
+        this.defaultWithholdingPercentage = defaultWithholdingPercentage;
+    }
+
+    public String getGenericFormStatus() {
+        return genericFormStatus;
+    }
+
+    public void setGenericFormStatus(String genericFormStatus) {
+        this.genericFormStatus = genericFormStatus;
+    }
+
+    public int getGenericFormStatusID() {
+        return genericFormStatusID;
+    }
+
+    public void setGenericFormStatusID(int genericFormStatusID) {
+        this.genericFormStatusID = genericFormStatusID;
+    }
+
+    public boolean isUsePercentage() {
+        return usePercentage;
+    }
+
+    public void setUsePercentage(boolean usePercentage) {
+        this.usePercentage = usePercentage;
+    }
+
+    public boolean isDefaultUsePercentage() {
+        return defaultUsePercentage;
+    }
+
+    public void setDefaultUsePercentage(boolean defaultUsePercentage) {
+        this.defaultUsePercentage = defaultUsePercentage;
+    }
+
+
 }

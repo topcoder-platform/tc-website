@@ -8,7 +8,7 @@ import java.util.Map;
 public class ResultText implements PactsConstants {
     private static Logger log = Logger.getLogger(ResultText.class);
 
-    public String text;
+    protected String text;
 
     public ResultText(Map results) {
         ResultSetContainer rsc = (ResultSetContainer) results.get(TEXT);
@@ -23,5 +23,14 @@ public class ResultText implements PactsConstants {
 
         text = TCData.getTCString(rRow, "text");
     }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
 }
 

@@ -65,24 +65,24 @@ function goTo(selection){
 	//set up the table title row
 	tableData.setElement(0,0,"Tax Form");
 	tableData.setElement(0,1,"Date Filed");
-	if(taxForm.taxForm._usePercentage) {
+	if(taxForm.getTaxForm().isUsePercentage()) {
 	    tableData.setElement(0,2,"Witholding %");
-	    tableData.setElement(1,2,taxForm.taxForm._withholdingPercentage + "");
+	    tableData.setElement(1,2,taxForm.getTaxForm().getWithholdingPercentage() + "");
 	} else {
 	    tableData.setElement(0,2,"Witholding Amt");
-            tableData.setElement(1,2,taxForm.taxForm._withholdingAmount + "");
+            tableData.setElement(1,2,taxForm.getTaxForm().getWithholdingAmount() + "");
 	}
 
 	// name
-	tableData.setElement(1,0,taxForm.taxForm._header._name);
+	tableData.setElement(1,0,taxForm.getTaxForm().getHeader().getName());
 
 	// date filed
-	tableData.setElement(1,1,taxForm.taxForm._header._dateFiled);
+	tableData.setElement(1,1,taxForm.getTaxForm().getHeader().getDateFiled());
 
 
-	out.print("<p><b>Text:</b></p><p>" + taxForm.text + "</p>");
+	out.print("<p><b>Text:</b></p><p>" + taxForm.getText() + "</p>");
 	out.print("<p></p><p><b>Description:</b></p><p>" +
-		taxForm.taxForm._description + "</p>");
+		taxForm.getTaxForm().getDescription() + "</p>");
 
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);

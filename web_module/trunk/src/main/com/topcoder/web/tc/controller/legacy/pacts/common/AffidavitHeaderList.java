@@ -17,7 +17,7 @@ import java.util.Map;
 public class AffidavitHeaderList implements PactsConstants {
     private static Logger log = Logger.getLogger(AffidavitHeaderList.class);
 
-    public AffidavitHeader[] headerList = null;
+    private AffidavitHeader[] headerList = null;
 
     /**
      * will parse the result set container looking for several
@@ -53,6 +53,12 @@ public class AffidavitHeaderList implements PactsConstants {
             headerList[n] = new AffidavitHeader(results, n);
         }
     }
+
+
+    public AffidavitHeader[] getHeaderList() {
+        return headerList;
+    }
+
+
 }
 
-;

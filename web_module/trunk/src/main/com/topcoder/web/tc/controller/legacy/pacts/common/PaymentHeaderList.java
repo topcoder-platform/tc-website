@@ -18,7 +18,7 @@ import java.util.Map;
 public class PaymentHeaderList implements PactsConstants {
     private static Logger log = Logger.getLogger(PaymentHeaderList.class);
 
-    public PaymentHeader[] headerList = null;
+    private PaymentHeader[] headerList = null;
 
     /**
      * will parse the result set container looking for several
@@ -54,5 +54,11 @@ public class PaymentHeaderList implements PactsConstants {
             headerList[idx] = new PaymentHeader(results, idx);
         }
     }
+
+
+    public PaymentHeader[] getHeaderList() {
+        return headerList;
+    }
+
 }
 

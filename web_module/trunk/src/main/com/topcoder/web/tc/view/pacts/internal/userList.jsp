@@ -41,12 +41,12 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(userList[n]._id);
-			out.print("\">"+userList[n]._handle+"</a></td>\n");
+			out.print(userList[n].getId());
+			out.print("\">"+userList[n].getHandle()+"</a></td>\n");
 
-			out.print("<td>" + userList[n]._last + "</td>");
-			out.print("<td>" + userList[n]._first + "</td>");
-			out.print("<td>" + userList[n]._middle + "</td>");
+			out.print("<td>" + userList[n].getLast() + "</td>");
+			out.print("<td>" + userList[n].getFirst() + "</td>");
+			out.print("<td>" + userList[n].getMiddle() + "</td>");
 
 			out.print("</tr>\n");
 		}

@@ -75,14 +75,14 @@ function goTo(selection){
 	java.util.Vector vec = new java.util.Vector();
 	for(int i=1;i<=payments.length;i++) {
 	    // the payment desc
-	    tableData.setElement(i,0,payments[i-1]._description);
+	    tableData.setElement(i,0,payments[i-1].getDescription());
 
 	    // the net payment amount
 	    vec.clear();
 	    DecimalFormat decf = new DecimalFormat("0.00");
-	    str = "$" + decf.format(payments[i-1]._recentNetAmount);
+	    str = "$" + decf.format(payments[i-1].getRecentNetAmount());
 	    vec.add(new String(PactsConstants.PAYMENT_ID + "=" +
-	            payments[i-1]._id));
+	            payments[i-1].getId()));
 
 	    // you can send it to the generic payment details, it will forward
             // if there is a special case
@@ -93,10 +93,10 @@ function goTo(selection){
 	    tableData.setElement(i,1,href);
 
 	    // the type of payment
-	    tableData.setElement(i,2,payments[i-1]._type);
+	    tableData.setElement(i,2,payments[i-1].getType());
 
 	    // payment status
-	    tableData.setElement(i,3,payments[i-1]._recentStatus);
+	    tableData.setElement(i,3,payments[i-1].getRecentStatus());
 	}
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);

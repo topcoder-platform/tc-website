@@ -65,7 +65,7 @@ public class ContractBean implements PactsConstants {
         int numAct = 0;
         int idx;
         for (idx = 0; idx < full.length; idx++) {
-            if (full[idx]._statusId == CONTRACT_ACTIVE_STATUS) {
+            if (full[idx].getStatusId() == CONTRACT_ACTIVE_STATUS) {
                 numAct++;
             }
         }
@@ -73,7 +73,7 @@ public class ContractBean implements PactsConstants {
         active = new ContractHeader[numAct];
         int aIdx = 0;
         for (idx = 0; idx < full.length; idx++) {
-            if (full[idx]._statusId == CONTRACT_ACTIVE_STATUS) {
+            if (full[idx].getStatusId() == CONTRACT_ACTIVE_STATUS) {
                 active[aIdx++] = full[idx];
             }
         }
@@ -103,7 +103,7 @@ public class ContractBean implements PactsConstants {
 
         ContractHeaderList clist = new ContractHeaderList(reply);
 
-        return clist.headerList;
+        return clist.getHeaderList();
     }
 
     public PaymentHeader[] getContractPaymentList(long contractId) {
@@ -120,7 +120,7 @@ public class ContractBean implements PactsConstants {
 
         PaymentHeaderList plist = new PaymentHeaderList(reply);
 
-        return plist.headerList;
+        return plist.getHeaderList();
     }
 
     /**
@@ -134,8 +134,8 @@ public class ContractBean implements PactsConstants {
         log.debug("getContractWithText, contractId = " + contractId);
         ContractWithText c = new ContractWithText();
 
-        c.contract = getContract(contractId);
-        c.text = getContractText(contractId);
+        c.setContract(getContract(contractId));
+        c.setText(getContractText(contractId));
 
         return c;
     }
@@ -151,7 +151,7 @@ public class ContractBean implements PactsConstants {
         try {
             Map results = bean.getText(contractId, CONTRACT_OBJ);
             ResultText t = new ResultText(results);
-            text = t.text;
+            text = t.getText();
         } catch (Exception e) {
             log.error("we got excepted trying to get the contract text" +
                     "for contract " + contractId);

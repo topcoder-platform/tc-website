@@ -76,7 +76,7 @@ public class AffidavitBean implements PactsConstants {
         int numPend = 0;
         int idx;
         for (idx = 0; idx < full.length; idx++) {
-            if (full[idx]._header._statusID == AFFIDAVIT_PENDING_STATUS) {
+            if (full[idx].getHeader().getStatusId() == AFFIDAVIT_PENDING_STATUS) {
                 numPend++;
             }
         }
@@ -84,7 +84,7 @@ public class AffidavitBean implements PactsConstants {
         pend = new Affidavit[numPend];
         int aIdx = 0;
         for (idx = 0; idx < full.length; idx++) {
-            if (full[idx]._header._statusID == AFFIDAVIT_PENDING_STATUS) {
+            if (full[idx].getHeader().getStatusId() == AFFIDAVIT_PENDING_STATUS) {
                 pend[aIdx++] = full[idx];
             }
         }
@@ -118,16 +118,16 @@ public class AffidavitBean implements PactsConstants {
         AffidavitHeaderList aList = new AffidavitHeaderList(reply);
 
         //now scan through the results and see if we got anything
-        if (aList.headerList.length <= 0) {
+        if (aList.getHeaderList().length <= 0) {
             log.debug("There were not affidavit headers returned");
             return null;
         }
 
-        Affidavit[] a = new Affidavit[aList.headerList.length];
+        Affidavit[] a = new Affidavit[aList.getHeaderList().length];
 
         for (int i = 0; i < a.length; i++) {
             try {
-                log.debug("getting the affidavit " + aList.headerList[i]._id +
+                log.debug("getting the affidavit " + aList.getHeaderList()[i].getId() +
                         " for member " + memberId);
                 reply = bean.getUserAffidavitList(memberId);
             } catch (Exception e1) {
@@ -136,7 +136,7 @@ public class AffidavitBean implements PactsConstants {
                 return null;
             }
 
-            a[i] = getAffidavit(aList.headerList[i]._id);
+            a[i] = getAffidavit(aList.getHeaderList()[i].getId());
         }
 
         return a;
@@ -154,7 +154,7 @@ public class AffidavitBean implements PactsConstants {
         try {
             Map results = bean.getText(affidavitId, AFFIDAVIT_OBJ);
             ResultText t = new ResultText(results);
-            text = t.text;
+            text = t.getText();
         } catch (Exception e) {
             log.error("we got excepted trying to get the affidavit text" +
                     "for affidavit " + affidavitId);
@@ -180,26 +180,26 @@ public class AffidavitBean implements PactsConstants {
         PaymentBean bean = new PaymentBean();
         DataInterfaceBean dbean = new DataInterfaceBean();
 
-        a.affidavit = getAffidavit(affidavitId);
-        a.affidavitText = getAffidavitText(affidavitId);
-        a.payment = bean.getPayment(a.affidavit._payment._id);
+        a.setAffidavit(getAffidavit(affidavitId));
+        a.setAffidavitText(getAffidavitText(affidavitId));
+        a.setPayment(bean.getPayment(a.getAffidavit().getPayment().getId()));
 
         // Added by STK 5/28/02 so that entered birthdays can
         // be added to the affidavit text.
         if (birthday != null) {
-            a.affidavit._birthday = birthday;
+            a.getAffidavit().setBirthday(birthday);
         }
 
         try {
-            a.setHasAllDemographicAnswers(dbean.hasAllDemographicAnswers(a.affidavit._header._user._id));
-            a.setHasNotarizedAffidavit(dbean.hasNotarizedAffidavit(a.affidavit._header._user._id, a.affidavit._header._typeID));
-            a.setHasTaxForm(dbean.hasTaxForm(a.affidavit._header._user._id));
+            a.setHasAllDemographicAnswers(dbean.hasAllDemographicAnswers(a.getAffidavit().getHeader().getUser().getId()));
+            a.setHasNotarizedAffidavit(dbean.hasNotarizedAffidavit(a.getAffidavit().getHeader().getUser().getId(), a.getAffidavit().getHeader().getTypeId()));
+            a.setHasTaxForm(dbean.hasTaxForm(a.getAffidavit().getHeader().getUser().getId()));
 
-            if (!a.affidavit._header._affirmed) {
+            if (!a.getAffidavit().getHeader().isAffirmed()) {
                 // replace the xml tags with proper values
-                a.affidavitText = parseAffidavitXml(a.affidavitText, a.affidavit,
-                        a.payment);
-                if (a.affidavitText == null) {
+                a.setAffidavitText(parseAffidavitXml(a.getAffidavitText(), a.getAffidavit(),
+                        a.getPayment()));
+                if (a.getAffidavitText() == null) {
                     return null;
                 }
             }
@@ -231,52 +231,52 @@ public class AffidavitBean implements PactsConstants {
      *
      * @param text the affidavit template text
      * @param affidavit the affidavit in question
-     * @param Payment the payment associated with the affidavit, used to get
+     * @param payment the payment associated with the affidavit, used to get
      * some of the contact info.
      */
     private String parseAffidavitXml(String text, Affidavit affidavit, Payment payment) {
         try {
             UserProfileBean upb = new UserProfileBean();
-            UserProfile profile = upb.getUserProfile(affidavit._header._user._id);
-            UserDemographics demog = upb.getUserDemographics(affidavit._header._user._id);
+            UserProfile profile = upb.getUserProfile(affidavit.getHeader().getUser().getId());
+            UserDemographics demog = upb.getUserDemographics(affidavit.getHeader().getUser().getId());
             //first we must form the xml from the info
             RecordTag tc = new RecordTag("TC");
             RecordTag a = new RecordTag("Affidavit");
             //get most of the info from the payment
-            a.addTag(new ValueTag("first_name", payment._firstName));
-            a.addTag(new ValueTag("last_name", payment._lastName));
-            a.addTag(new ValueTag("address1", payment._address1));
-            a.addTag(new ValueTag("address2", payment._address2));
-            a.addTag(new ValueTag("city", payment._city));
-            a.addTag(new ValueTag("state_name", payment._state));
-            a.addTag(new ValueTag("zip", payment._zip));
-            a.addTag(new ValueTag("country_name", payment._country));
-            a.addTag(new ValueTag("round", affidavit._round));
+            a.addTag(new ValueTag("first_name", payment.getFirstName()));
+            a.addTag(new ValueTag("last_name", payment.getLastName()));
+            a.addTag(new ValueTag("address1", payment.getAddress1()));
+            a.addTag(new ValueTag("address2", payment.getAddress2()));
+            a.addTag(new ValueTag("city", payment.getCity()));
+            a.addTag(new ValueTag("state_name", payment.getState()));
+            a.addTag(new ValueTag("zip", payment.getZip()));
+            a.addTag(new ValueTag("country_name", payment.getCountry()));
+            a.addTag(new ValueTag("round", affidavit.getRound()));
             // dpecora - fix compile error due to affidavit field change
             //a.addTag(new ValueTag("round_id",affidavit._roundID));
-            long roundId = (affidavit._roundID == null ? 0 : affidavit._roundID.longValue());
+            long roundId = (affidavit.getRoundId() == null ? 0 : affidavit.getRoundId().longValue());
             a.addTag(new ValueTag("round_id", roundId));
-            a.addTag(new ValueTag("date_of_birth", affidavit._birthday));
+            a.addTag(new ValueTag("date_of_birth", affidavit.getBirthday()));
 
             // now fill in the holes with the user profile
-            a.addTag(new ValueTag("email", profile._email));
-            a.addTag(new ValueTag("home_phone", profile._homePhone));
-            a.addTag(new ValueTag("work_phone", profile._workPhone));
-            a.addTag(new ValueTag("handle", profile._header._handle));
-            a.addTag(new ValueTag("coder_type_desc", profile._coderTypeDesc));
+            a.addTag(new ValueTag("email", profile.getEmail()));
+            a.addTag(new ValueTag("home_phone", profile.getHomePhone()));
+            a.addTag(new ValueTag("work_phone", profile.getWorkPhone()));
+            a.addTag(new ValueTag("handle", profile.getHeader().getHandle()));
+            a.addTag(new ValueTag("coder_type_desc", profile.getCoderTypeDesc()));
             a.addTag(new ValueTag("has_notarized_affidavit",
                     new DataInterfaceBean().hasNotarizedAffidavit(
-                            affidavit._header._user._id, affidavit._header._typeID)));
+                            affidavit.getHeader().getUser().getId(), affidavit.getHeader().getTypeId())));
 
             // now the demographic data
-            for (int idx = 0; idx < demog.questions.length; idx++) {
+            for (int idx = 0; idx < demog.getQuestions().length; idx++) {
                 RecordTag dm = new RecordTag("demographic_assignment");
-                dm.addTag(new ValueTag("demographic_question", demog.questions[idx]));
-                dm.addTag(new ValueTag("demographic_answer", demog.answers[idx]));
+                dm.addTag(new ValueTag("demographic_question", demog.getQuestions()[idx]));
+                dm.addTag(new ValueTag("demographic_answer", demog.getAnswers()[idx]));
                 a.addTag(dm);
             }
-            if (demog._schoolName.trim().length() > 0)
-                a.addTag(new ValueTag("current_school", demog._schoolName));
+            if (demog.getSchoolName().trim().length() > 0)
+                a.addTag(new ValueTag("current_school", demog.getSchoolName()));
             tc.addTag(a);
 
             log.debug(tc.getXML());

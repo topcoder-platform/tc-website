@@ -323,7 +323,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             } else {
 
                 // make sure the contract user id is the same as for the nav ob
-                if (nav.getUserId() != c.contract._header._user._id) {
+                if (nav.getUserId() != c.getContract().getHeader().getUser().getId()) {
                     log.error("the contract user id != the nav user id");
                     return;
                 }
@@ -366,7 +366,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 
         //check one of the payment and see if it has the correct user id
         if (payments.length > 0) {
-            if (payments[0]._user._id != nav.getUserId()) {
+            if (payments[0].getUser().getId()!= nav.getUserId()) {
                 log.error("bad bad bad, this user id does not equal the nav uid");
                 return;
             }
@@ -413,7 +413,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 
             // check and make sure that the user id is the same for the
             // affiavid and member that is logged in
-            if (nav.getUserId() != a.affidavit._header._user._id) {
+            if (nav.getUserId() != a.getAffidavit().getHeader().getUser().getId()) {
                 log.error("the user id in the affidavit does not match the nav id");
                 return;
             }
@@ -449,14 +449,14 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 
             // check and make sure that the user id is the same for the
             // affiavid and member that is logged in
-            if (nav.getUserId() != a.affidavit._header._user._id) {
+            if (nav.getUserId() != a.getAffidavit().getHeader().getUser().getId()) {
                 log.error("the user id in the affidavit does not match the nav id");
                 return;
             }
         }
 
         //if we got here, everything must by ok, pass the request to the jsp
-        request.setAttribute(PACTS_MEMBER_RESULT, a.affidavitText);
+        request.setAttribute(PACTS_MEMBER_RESULT, a.getAffidavitText());
 
         forward(AFFIDAVIT_RENDER_JSP, request, response);
     }
@@ -515,7 +515,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             }
 
             // make sure the payment user id matches the nav user id
-            if (payment._header._user._id != nav.getUserId()) {
+            if (payment.getHeader().getUser().getId()!= nav.getUserId()) {
                 log.error("Shame on you trying to get payments that are not for you");
                 return;
             }
@@ -661,7 +661,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
         // check for birthday parameter, if it is not there get it from the affidavit
         if (birthday == null) {
             log.debug("did not get the birthday in affidavit affirmation");
-            birthday = a.affidavit._birthday;
+            birthday = a.getAffidavit().getBirthday();
         } else {
             // the birthday was there, get a new affidavit with it in there
             // STK 5/28/2002
@@ -672,7 +672,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 
         // check and make sure that the user id is the same for the
         // affiavid and member that is logged in
-        if (nav.getUserId() != a.affidavit._header._user._id) {
+        if (nav.getUserId() != a.getAffidavit().getHeader().getUser().getId()) {
             log.error("the user id in the affidavit does not match the nav id");
             // changed error page jevans 5/29/02 5:39 pm  forward("/pacts/client/MemberError.jsp",request,response);
             forward("/errorPage.jsp", request, response);
@@ -697,7 +697,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
         }
 
         // if it is for india, replace the form text with what they enterd
-        if (a.payment._country.equals("India")) {
+        if (a.getPayment().getCountry().equals("India")) {
             if ((aged == null) || (family == null) || (aged.length() == 0) || (family.length() == 0)) {
                 log.debug("did not get the aged or family text");
                 // changed error page jevans 5/29/02 5:39 pm  forward("/pacts/client/MemberError.jsp?errorMsg=\"error affirming the affidavit, make sure you fill in the aged and family edit boxes\"",request, response);
@@ -711,20 +711,20 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 
             //todo i don't think this is relevant anymore
             //first replace the aged
-            int aIdx = a.affidavitText.indexOf("FILL IN AGED");
+            int aIdx = a.getAffidavitText().indexOf("FILL IN AGED");
             int bIdx = aIdx + (new String("FILL IN AGED")).length();
-            a.affidavitText = a.affidavitText.substring(0, aIdx) +
-                    " " + aged + " " + a.affidavitText.substring(bIdx);
+            a.setAffidavitText(a.getAffidavitText().substring(0, aIdx) +
+                    " " + aged + " " + a.getAffidavitText().substring(bIdx));
 
             //now the family name
-            aIdx = a.affidavitText.indexOf("FILL IN BELOW");
+            aIdx = a.getAffidavitText().indexOf("FILL IN BELOW");
             bIdx = aIdx + (new String("FILL IN BELOW")).length();
-            a.affidavitText = a.affidavitText.substring(0, aIdx) +
-                    " " + family + " " + a.affidavitText.substring(bIdx);
+            a.setAffidavitText(a.getAffidavitText().substring(0, aIdx) +
+                    " " + family + " " + a.getAffidavitText().substring(bIdx));
         }
 
         // if we got here everything is good, we should affirm the affidavit
-        bean.affirmAffidavit(a.affidavit._header._id, a.affidavitText, dfmt.format(d));
+        bean.affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(d));
 
 
         // send it back to the affidavit history page

@@ -42,8 +42,7 @@ public class InternalDispatchAffidavitList implements PactsConstants {
      * The criteria are found in the cgi variables of request.
      * Method assumes at least one search parameter exists.
      *
-     * @Args    - none
-     * @Returns - AffidavitHeader[]
+     * @return - AffidavitHeader[]
      *
      */
     public AffidavitHeader[] get() throws Exception {
@@ -85,8 +84,7 @@ public class InternalDispatchAffidavitList implements PactsConstants {
 
         AffidavitHeaderList ahl = new AffidavitHeaderList(results);
 
-        return ahl.headerList;
+        return ahl.getHeaderList();
     }
 }
 
-;

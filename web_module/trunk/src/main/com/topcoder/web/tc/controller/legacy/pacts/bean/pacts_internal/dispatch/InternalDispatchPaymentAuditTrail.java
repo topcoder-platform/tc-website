@@ -39,8 +39,7 @@ public class InternalDispatchPaymentAuditTrail implements PactsConstants {
      *
      * This method returns an array of Payments that share the same paymentID
      *
-     * @Args    - none
-     * @Returns - Payment[]
+     * @return - Payment[]
      *
      */
     public Payment[] get() throws Exception {
@@ -54,7 +53,7 @@ public class InternalDispatchPaymentAuditTrail implements PactsConstants {
 
         PaymentList pl = new PaymentList(results);
 
-        return pl.headerList;
+        return pl.getHeaderList();
     }
 }
 

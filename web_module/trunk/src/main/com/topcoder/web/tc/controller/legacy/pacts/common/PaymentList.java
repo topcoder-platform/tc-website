@@ -17,7 +17,7 @@ import java.util.Map;
 public class PaymentList implements PactsConstants {
     private static Logger log = Logger.getLogger(PaymentList.class);
 
-    public Payment[] headerList = null;
+    protected Payment[] headerList = null;
 
     /**
      * PaymentList.java
@@ -54,5 +54,15 @@ public class PaymentList implements PactsConstants {
             headerList[idx] = new Payment(results, idx);
         }
     }
+
+
+    public Payment[] getHeaderList() {
+        return headerList;
+    }
+
+    public void setHeaderList(Payment[] headerList) {
+        this.headerList = headerList;
+    }
+
 }
 

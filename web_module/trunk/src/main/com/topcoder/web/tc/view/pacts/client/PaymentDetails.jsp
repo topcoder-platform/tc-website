@@ -63,28 +63,28 @@ function goTo(selection){
 	// fill in the data
 	// row 0
 	tableData.setElement(0,0,"handle");
-	tableData.setElement(0,1,payment._header._user._handle);
+	tableData.setElement(0,1,payment.getHeader().getUser().getHandle());
 
 	// row 1
 	tableData.setElement(1,0,"Description");
-	tableData.setElement(1,1,payment._header._description);
+	tableData.setElement(1,1,payment.getHeader().getDescription());
 
 	// row 2
 	tableData.setElement(2,0,"Status");
-	tableData.setElement(2,1,payment._statusDesc);
+	tableData.setElement(2,1,payment.getStatusDesc());
 
 	// row 3
 	tableData.setElement(3,0,"Net Amount");
 	DecimalFormat decf = new DecimalFormat("0.00");
-	tableData.setElement(3,1,"$" + decf.format(payment._netAmount));
+	tableData.setElement(3,1,"$" + decf.format(payment.getNetAmount()));
 
 	// row 4
 	tableData.setElement(4,0,"Gross Amount");
-	tableData.setElement(4,1,"$" + decf.format(payment._grossAmount));
+	tableData.setElement(4,1,"$" + decf.format(payment.getGrossAmount()));
 
 	// row 5
 	tableData.setElement(5,0,"Date");
-	tableData.setElement(5,1,payment._payDate);
+	tableData.setElement(5,1,payment.getPayDate());
 
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);

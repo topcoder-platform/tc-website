@@ -18,7 +18,7 @@ import java.util.Map;
 public class UserProfileHeaderList implements PactsConstants {
     private static Logger log = Logger.getLogger(UserProfileHeaderList.class);
 
-    public UserProfileHeader[] headerList = null;
+    protected UserProfileHeader[] headerList = null;
 
     /**
      * will parse the result set container looking for several
@@ -54,6 +54,10 @@ public class UserProfileHeaderList implements PactsConstants {
             headerList[n] = new UserProfileHeader(results, n);
         }
     }
+
+    public UserProfileHeader[] getHeaderList() {
+        return headerList;
+    }
+
 }
 
-;

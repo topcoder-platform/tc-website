@@ -91,9 +91,9 @@ function goTo(selection){
 	    // the project name
 
 	    vec.clear();
-	    str = contracts[i-1]._name;
+	    str = contracts[i-1].name;
 	    vec.add(new String(PactsConstants.CONTRACT_ID + "=" +
-	            contracts[i-1]._id));
+	            contracts[i-1].id));
 
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
@@ -102,18 +102,18 @@ function goTo(selection){
 	    tableData.setElement(i,0,href);
 
 	    // creation date
-	    tableData.setElement(i,1,contracts[i-1]._creationDate);
+	    tableData.setElement(i,1,contracts[i-1].creationDate);
 	    //tableData.setElement(i,1,"fix me creation date");
 
 	    // status
-	    tableData.setElement(i,2,contracts[i-1]._statusDesc);
+	    tableData.setElement(i,2,contracts[i-1].getStatusDesc());
 	    //tableData.setElement(i,2,"fix me status desc");
 
 	    // payment
             vec.clear();
 	    str = new String("details");
 	    vec.add(new String(PactsConstants.CONTRACT_ID + "=" +
-	            contracts[i-1]._id));
+	            contracts[i-1].id));
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.CONTRACT_TASK,

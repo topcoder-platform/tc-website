@@ -37,11 +37,11 @@ public class NoteHeader implements PactsConstants, java.io.Serializable {
 *  _type        - type or subject of the note
 *  _submittedBy - handle of the user who submitted the note
 */
-    public long _id;
-    public String _creationDate;
-    public String _type;
-    public int _typeId;
-    public UserProfileHeader _user;
+    private long id;
+    private String creationDate;
+    private String type;
+    private int typeId;
+    private UserProfileHeader user;
 
     /**************\
      *              *
@@ -58,11 +58,11 @@ public class NoteHeader implements PactsConstants, java.io.Serializable {
     }
 
     public void setDefaults() {
-        _id = 0;
-        _creationDate = "00/00/00";
-        _type = "Default Note Type";
-        _typeId = 0;
-        _user = new UserProfileHeader();
+        id = 0;
+        creationDate = "00/00/00";
+        type = "Default Note Type";
+        typeId = 0;
+        user = new UserProfileHeader();
     }
 /* This constructor makes the object out of raw data.
 *
@@ -77,11 +77,11 @@ public class NoteHeader implements PactsConstants, java.io.Serializable {
 */
     public NoteHeader(long id, String date, String type, int typeId, long userId, String handle) {
 
-        _id = id;
-        _creationDate = date;
-        _type = type;
-        _typeId = typeId;
-        _user = new UserProfileHeader(userId, handle);
+        this.id = id;
+        creationDate = date;
+        this.type = type;
+        this.typeId = typeId;
+        user = new UserProfileHeader(userId, handle);
 
     }
 
@@ -99,16 +99,58 @@ public class NoteHeader implements PactsConstants, java.io.Serializable {
             return;
         }
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
-        _id = TCData.getTCLong(rsr, "note_id", 0, true);
-        _creationDate = TCData.getTCDate(rsr, "create_date", "00/00/00", true);
-        _type = TCData.getTCString(rsr, "note_type_desc", "default note type", true);
-        _typeId = TCData.getTCInt(rsr, "note_type_id", 0, true);
-        _user = new UserProfileHeader();
-        _user._handle = TCData.getTCString(rsr, "handle", "submitting staff member", true);
-        _user._id = TCData.getTCLong(rsr, "submitted_by", 0, false);
+        id = TCData.getTCLong(rsr, "note_id", 0, true);
+        creationDate = TCData.getTCDate(rsr, "create_date", "00/00/00", true);
+        type = TCData.getTCString(rsr, "note_type_desc", "default note type", true);
+        typeId = TCData.getTCInt(rsr, "note_type_id", 0, true);
+        user = new UserProfileHeader();
+        user.setHandle(TCData.getTCString(rsr, "handle", "submitting staff member", true));
+        user.setId(TCData.getTCLong(rsr, "submitted_by", 0, false));
     }
 
     public NoteHeader(Map results) {
         this(results, 0);
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public UserProfileHeader getUser() {
+        return user;
+    }
+
+    public void setUser(UserProfileHeader user) {
+        this.user = user;
+    }
+
+
 }

@@ -77,7 +77,7 @@ public class InternalDispatchTaxFormList implements PactsConstants {
 
         TaxFormHeaderList tfhl = new TaxFormHeaderList(results);
 
-        return tfhl.headerList;
+        return tfhl.getHeaderList();
     }
 }
 

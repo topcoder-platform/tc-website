@@ -35,16 +35,16 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
 *  _notarized    - if the affidavit is notarized or not
 *  _creationDate - date the affidavit was entered
 */
-    public long _id;
-    public String _status;
-    public UserProfileHeader _user;
-    public boolean _notarized;
-    public boolean _affirmed;
-    public String _creationDate;
-    public int _statusID;
-    public String _type;
-    public int _typeID;
-    public String _description;
+    private long id;
+    private String statusDesc;
+    private UserProfileHeader user;
+    private boolean notarized;
+    private boolean affirmed;
+    private String creationDate;
+    private int statusId;
+    private String typeDesc;
+    private int typeId;
+    private String description;
 
     /**************\
      *              *
@@ -61,16 +61,16 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
     }
 
     public void setDefaultFields() {
-        _id = 0;
-        _status = "Default Status";
-        _user = new UserProfileHeader();
-        _notarized = false;
-        _affirmed = false;
-        _creationDate = "00/00/00";
-        _statusID = 0;
-        _type = "default type";
-        _typeID = 0;
-        _description = "default description";
+        id = 0;
+        statusDesc = "Default Status";
+        user = new UserProfileHeader();
+        notarized = false;
+        affirmed = false;
+        creationDate = "00/00/00";
+        statusId = 0;
+        typeDesc = "default type";
+        typeId = 0;
+        description = "default description";
     }
 
 /* This constructor makes the object out of the Map containing
@@ -99,18 +99,18 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
 
         log.debug("Making the AffidavitHeader");
-        _id = TCData.getTCLong(rsr, "affidavit_id", 0, true);
-        _status = TCData.getTCString(rsr, "status_desc", "default status", true);
-        _statusID = TCData.getTCInt(rsr, "status_id", 0, true);
-        _user = new UserProfileHeader(
+        id = TCData.getTCLong(rsr, "affidavit_id", 0, true);
+        statusDesc = TCData.getTCString(rsr, "status_desc", "default status", true);
+        statusId = TCData.getTCInt(rsr, "status_id", 0, true);
+        user = new UserProfileHeader(
                 TCData.getTCLong(rsr, "user_id", 0, true),
                 TCData.getTCString(rsr, "handle", "default handle", true));
-        _notarized = (0 != TCData.getTCInt(rsr, "notarized", 0, true));
-        _affirmed = (0 != TCData.getTCInt(rsr, "affirmed", 0, true));
-        _creationDate = TCData.getTCDate(rsr, "date_created", "00/00/00", true);
-        _type = TCData.getTCString(rsr, "affidavit_type_desc", "default affidavit type", true);
-        _typeID = TCData.getTCInt(rsr, "affidavit_type_id", 0, true);
-        _description = TCData.getTCString(rsr, "affidavit_desc", "default description", true);
+        notarized = (0 != TCData.getTCInt(rsr, "notarized", 0, true));
+        affirmed = (0 != TCData.getTCInt(rsr, "affirmed", 0, true));
+        creationDate = TCData.getTCDate(rsr, "date_created", "00/00/00", true);
+        typeDesc = TCData.getTCString(rsr, "affidavit_type_desc", "default affidavit type", true);
+        typeId = TCData.getTCInt(rsr, "affidavit_type_id", 0, true);
+        description = TCData.getTCString(rsr, "affidavit_desc", "default description", true);
     }
 
 /* This constructor makes the object out of the Map containing
@@ -124,5 +124,86 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
     public AffidavitHeader(Map results) {
         this(results, 0);
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getStatusDesc() {
+        return statusDesc;
+    }
+
+    public void setStatusDesc(String statusDesc) {
+        this.statusDesc = statusDesc;
+    }
+
+    public UserProfileHeader getUser() {
+        return user;
+    }
+
+    public void setUser(UserProfileHeader user) {
+        this.user = user;
+    }
+
+    public boolean isNotarized() {
+        return notarized;
+    }
+
+    public void setNotarized(boolean notarized) {
+        this.notarized = notarized;
+    }
+
+    public boolean isAffirmed() {
+        return affirmed;
+    }
+
+    public void setAffirmed(boolean affirmed) {
+        this.affirmed = affirmed;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
+
+    public String getTypeDesc() {
+        return typeDesc;
+    }
+
+    public void setTypeDesc(String typeDesc) {
+        this.typeDesc = typeDesc;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
 }

@@ -44,7 +44,8 @@ function goTo(selection){
 		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <BR/>
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,
+                 java.util.Vector" %>
 
 <%
 
@@ -64,27 +65,27 @@ function goTo(selection){
 
 	//row 0
 	tableData.setElement(0,0,"Contract Name");
-	tableData.setElement(0,1, c.contract._header._name);
+	tableData.setElement(0,1, c.getContract().getHeader().getName());
 
 	//row 1
 	tableData.setElement(1,0,"Description");
-	tableData.setElement(1,1, c.contract._description);
+	tableData.setElement(1,1, c.getContract().getDescription());
 
 	//row 2
 	tableData.setElement(2,0,"Inception Date");
-	tableData.setElement(2,1, c.contract._header._creationDate);
+	tableData.setElement(2,1, c.getContract().getHeader().getCreationDate());
 
 	//row 3
 	tableData.setElement(3,0,"Start Date");
-	tableData.setElement(3,1, c.contract._startDate);
+	tableData.setElement(3,1, c.getContract().getStartDate());
 
 	//row 4
 	tableData.setElement(4,0,"End Date");
-	tableData.setElement(4,1, c.contract._endDate);
+	tableData.setElement(4,1, c.getContract().getEndDate());
 
 	//row 5
 	tableData.setElement(5,0,"Status");
-	tableData.setElement(5,1, c.contract._header._statusDesc);
+	tableData.setElement(5,1, c.getContract().getHeader().getStatusDesc());
 
 	// row 6
 	// payment
@@ -93,7 +94,7 @@ function goTo(selection){
         vec.clear();
 	String str = new String("details");
 	vec.add(new String(PactsConstants.CONTRACT_ID + "=" +
-	            c.contract._header._id));
+	            c.getContract().getHeader().getId()));
 	String href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.CONTRACT_TASK,
@@ -117,7 +118,7 @@ function goTo(selection){
 	out.print(table.getHtml());
 
 
-	out.print("<p><b>Contract Text:</b></p><p>" + c.text + "</p>");
+	out.print("<p><b>Contract Text:</b></p><p>" + c.getText()+ "</p>");
 
     }
 %>

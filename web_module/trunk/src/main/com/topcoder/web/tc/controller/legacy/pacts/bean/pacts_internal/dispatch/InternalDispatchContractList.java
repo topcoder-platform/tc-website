@@ -98,7 +98,7 @@ public class InternalDispatchContractList implements PactsConstants {
 
         ContractHeaderList chl = new ContractHeaderList(results);
 
-        return chl.headerList;
+        return chl.getHeaderList();
     }
 }
 

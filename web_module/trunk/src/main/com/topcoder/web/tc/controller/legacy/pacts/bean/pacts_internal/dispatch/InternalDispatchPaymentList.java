@@ -42,8 +42,7 @@ public class InternalDispatchPaymentList implements PactsConstants {
      * The criteria are found in the cgi variables of request.
      * Method assumes at least one search parameter exists.
      *
-     * @Args    - none
-     * @Returns - PaymentHeader[]
+     * @return - PaymentHeader[]
      *
      */
     public PaymentHeader[] get() throws Exception {
@@ -97,7 +96,7 @@ public class InternalDispatchPaymentList implements PactsConstants {
 
         PaymentHeaderList phl = new PaymentHeaderList(results);
 
-        return phl.headerList;
+        return phl.getHeaderList();
     }
 }
 

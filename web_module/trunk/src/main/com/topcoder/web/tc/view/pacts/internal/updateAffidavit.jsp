@@ -28,16 +28,15 @@
 	} else if (affidavit != null) {
 		String param;
 		param = request.getParameter(PactsConstants.IS_NOTARIZED);
-		if (param != null && param.equals("true")) affidavit._header._notarized = true;
-		if (param != null && param.equals("false")) affidavit._header._notarized = false;
+        affidavit.getHeader().setNotarized("true".equals(param));
 		param = request.getParameter("affidavit_status_id");
-		try { if (param != null) affidavit._header._statusID = Integer.parseInt(param); } catch (Exception e) {}
+		try { if (param != null) affidavit.getHeader().setStatusId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("affidavit_type_id");
-		try { if (param != null) affidavit._header._typeID = Integer.parseInt(param); } catch (Exception e) {}
+		try { if (param != null) affidavit.getHeader().setTypeId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("round_id");
-		try { if (param != null) affidavit._roundID = new Long(Long.parseLong(param)); } catch (Exception e) {}
+		try { if (param != null) affidavit.setRoundId(new Long(Long.parseLong(param))); } catch (Exception e) {}
 		param = request.getParameter("affidavit_desc");
-		if (param != null) affidavit._header._description = param;
+		if (param != null) affidavit.getHeader().setDescription(param);
 	}
 	if (affidavit == null) {
 		out.println("no affidavit!!!<br>");
@@ -54,8 +53,8 @@
 
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.UPDATE_TASK+"\">");
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.AFFIDAVIT_CMD+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.AFFIDAVIT_ID+"\" value=\""+affidavit._header._id+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+affidavit._payment._id+"\">");
+		out.print("<input type=\"hidden\" name=\""+PactsConstants.AFFIDAVIT_ID+"\" value=\""+affidavit.getHeader().getId()+"\">");
+		out.print("<input type=\"hidden\" name=\""+PactsConstants.PAYMENT_ID+"\" value=\""+affidavit.getPayment().getId()+"\">");
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
@@ -67,17 +66,17 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(affidavit._header._user._id);
-			out.print("\">"+affidavit._header._user._handle+"</a></td>\n");
+			out.print(affidavit.getHeader().getUser().getId());
+			out.print("\">"+affidavit.getHeader().getUser().getHandle()+"</a></td>\n");
 %>
 		</tr>
 		<tr>
 		<td><b>Notarized:</b></td><td>
 <%		out.print("<input type=\"radio\" name=\""+PactsConstants.IS_NOTARIZED+"\" value=\"true\"");
-		if (affidavit._header._notarized) out.print(" checked");
+		if (affidavit.getHeader().isNotarized()) out.print(" checked");
 		out.print(">Yes<br>");
 		out.print("<input type=\"radio\" name=\""+PactsConstants.IS_NOTARIZED+"\" value=\"false\"");
-		if (!affidavit._header._notarized) out.print(" checked");
+		if (!affidavit.getHeader().isNotarized()) out.print(" checked");
 		out.print(">No");
 %>
 		</td></tr>
@@ -97,7 +96,7 @@
 				code = TCData.getTCInt(rsr,"status_id",0,true);
 				out.print(""+code);
 				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (code == affidavit._header._statusID) {
+				if (code == affidavit.getHeader().getStatusId()) {
 					out.print(" selected");
 				}
 				out.print(">" + s + "</option>\n");
@@ -109,7 +108,7 @@
 		</tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-<% out.print("<input type=text width=25 name=\"affidavit_desc\" value=\""+affidavit._header._description+"\">"); %>
+<% out.print("<input type=text width=25 name=\"affidavit_desc\" value=\""+affidavit.getHeader().getDescription()+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
@@ -122,7 +121,7 @@
 				code = TCData.getTCInt(rsr,"affidavit_type_id",0,true);
 				out.print(""+code);
 				s = TCData.getTCString(rsr,"affidavit_type_desc","default affidavit type",true);
-				if (code == affidavit._header._typeID) {
+				if (code == affidavit.getHeader().getTypeId()) {
 					out.print(" selected");
 				}
 				out.print(">" + s + "</option>\n");
@@ -142,7 +141,7 @@
 				code = TCData.getTCLong(rsr,"round_id",0,true);
 				out.print(""+code);
 				s = TCData.getTCString(rsr,"name","default round name",true);
-				if (code == affidavit._roundID.longValue()) {
+				if (code == affidavit.getRoundId().longValue()) {
 					out.print(" selected");
 				}
 				out.print(">" + s + "</option>\n");

@@ -50,7 +50,7 @@
 <%		out.print("<font color=\"#FF0000\">" + message + "</font>");
 		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
 		out.print("\" method=\"post\"><input type=\"hidden\" name=\"");
-		out.print(PactsConstants.USER_ID+"\" value=\""+user._id+"\">");
+		out.print(PactsConstants.USER_ID+"\" value=\""+user.getId()+"\">");
 
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.ADD_TASK+"\">");
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.CONTRACT_CMD+"\">");
@@ -65,8 +65,8 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(user._id);
-			out.print("\">"+user._handle+"</a></td>\n");
+			out.print(user.getId());
+			out.print("\">"+user.getHandle()+"</a></td>\n");
 %>
 		</tr>
 		<tr>

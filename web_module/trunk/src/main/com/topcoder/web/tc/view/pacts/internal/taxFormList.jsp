@@ -41,8 +41,8 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.TAX_FORM_CMD+"&");
 			out.print(PactsConstants.TAX_FORM_ID+"=");
-			out.print(taxFormList[n]._id);
-			out.print("\">"+taxFormList[n]._name+"</a></td><tr>\n");
+			out.print(taxFormList[n].getId());
+			out.print("\">"+taxFormList[n].getName()+"</a></td><tr>\n");
 		}
 	}
 %>

@@ -44,14 +44,14 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
 *  _description     - the description of the affidavit
 *  _affirmationDate - date that the affidavit was affirmed ("00/00/00" if not)
 */
-    public AffidavitHeader _header;
-    public PaymentHeader _payment;
+    private AffidavitHeader header;
+    private PaymentHeader payment;
     //public String _description;
-    public String _affirmationDate;
-    public Long _roundID;
-    public String _round;
-    public String _birthday;
-    public long _daysLeftToAffirm;
+    private String affirmationDate;
+    private Long roundId;
+    private String round;
+    private String birthday;
+    private long daysLeftToAffirm;
 
     // DBP 6/6 - use the PactsConstants value
     public static final long DAYS_TO_AFFIRM = AFFIDAVIT_EXPIRE_TIME;
@@ -71,13 +71,13 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
     }
 
     private void setDefaults() {
-        _payment = new PaymentHeader();
+        payment = new PaymentHeader();
         //_description = "Default Description";
-        _header = new AffidavitHeader();
-        _affirmationDate = "00/00/00";
-        _roundID = new Long(0);
-        _round = "default round";
-        _birthday = "";
+        header = new AffidavitHeader();
+        affirmationDate = "00/00/00";
+        roundId = new Long(0);
+        round = "default round";
+        birthday = "";
     }
 
 /* This contructs a new Affidavit that will be sent down to the database
@@ -88,16 +88,16 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
     public Affidavit(Long round, long user, int status,
                      String desc, int type, boolean affirmed, boolean notarized) {
 
-        _payment = null;
-        _header = new AffidavitHeader();
-        _roundID = round;
+        payment = null;
+        header = new AffidavitHeader();
+        roundId = round;
         //_description = desc;
-        _header._description = desc;
-        _header._typeID = type;
-        _header._user._id = user;
-        _header._statusID = status;
-        _header._affirmed = affirmed;
-        _header._notarized = notarized;
+        header.setDescription(desc);
+        header.setTypeId(type);
+        header.getUser().setId(user);
+        header.setStatusId(status);
+        header.setAffirmed(affirmed);
+        header.setNotarized(notarized);
 
     }
 
@@ -127,26 +127,84 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 
         log.debug("Making the Affidavit");
-        _payment = new PaymentHeader(results);
-        _header = new AffidavitHeader(results);
+        payment = new PaymentHeader(results);
+        header = new AffidavitHeader(results);
         //_description = TCData.getTCString(rsr,"affidavit_desc","default description",true);
-        _affirmationDate = TCData.getTCDate(rsr, "date_affirmed", "Not Affirmed", false);
-        _round = TCData.getTCString(rsr, "name", "No Round", false);
-        _roundID = new Long(TCData.getTCLong(rsr, "round_id", 0, false));
-        _birthday = TCData.getTCDate(rsr, "date_of_birth", "", false);
-        log.debug("the birthday for the affidavit from the db is " + _birthday);
+        affirmationDate = TCData.getTCDate(rsr, "date_affirmed", "Not Affirmed", false);
+        round = TCData.getTCString(rsr, "name", "No Round", false);
+        roundId = new Long(TCData.getTCLong(rsr, "round_id", 0, false));
+        birthday = TCData.getTCDate(rsr, "date_of_birth", "", false);
+        log.debug("the birthday for the affidavit from the db is " + birthday);
         log.debug("here is ths rsr " + rsr);
         SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
         try {
-            Date d = dfmt.parse(_header._creationDate);
+            Date d = dfmt.parse(header.getCreationDate());
             long diff = System.currentTimeMillis() - d.getTime();
-            _daysLeftToAffirm = DAYS_TO_AFFIRM - (diff / ((long) 1000 * 60 * 60 * 24));
+            daysLeftToAffirm = DAYS_TO_AFFIRM - (diff / ((long) 1000 * 60 * 60 * 24));
         } catch (Exception e3) {
             log.error("exception parsing the creation date");
-            _daysLeftToAffirm = -1;
+            daysLeftToAffirm = -1;
         }
 
 
     }
+
+
+    public AffidavitHeader getHeader() {
+        return header;
+    }
+
+    public void setHeader(AffidavitHeader header) {
+        this.header = header;
+    }
+
+    public PaymentHeader getPayment() {
+        return payment;
+    }
+
+    public void setPayment(PaymentHeader payment) {
+        this.payment = payment;
+    }
+
+    public String getAffirmationDate() {
+        return affirmationDate;
+    }
+
+    public void setAffirmationDate(String affirmationDate) {
+        this.affirmationDate = affirmationDate;
+    }
+
+    public Long getRoundId() {
+        return roundId;
+    }
+
+    public void setRoundId(Long roundId) {
+        this.roundId = roundId;
+    }
+
+    public String getRound() {
+        return round;
+    }
+
+    public void setRound(String round) {
+        this.round = round;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public long getDaysLeftToAffirm() {
+        return daysLeftToAffirm;
+    }
+
+    public void setDaysLeftToAffirm(long daysLeftToAffirm) {
+        this.daysLeftToAffirm = daysLeftToAffirm;
+    }
+
 
 }

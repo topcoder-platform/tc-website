@@ -38,7 +38,7 @@
 <%		out.print("<font color=\"#FF0000\">" + message + "</font>");
 		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
 		out.print("\" method=\"post\"><input type=\"hidden\" name=\"");
-		out.print(PactsConstants.USER_ID+"\" value=\""+user._id+"\">");
+		out.print(PactsConstants.USER_ID+"\" value=\""+user.getId()+"\">");
 
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.ADD_TASK+"\">");
 		out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.USER_TAX_FORM_CMD+"\">");
@@ -53,8 +53,8 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.USER_CMD+"&");
 			out.print(PactsConstants.USER_ID+"=");
-			out.print(user._id);
-			out.print("\">"+user._handle+"</a></td>\n");
+			out.print(user.getId());
+			out.print("\">"+user.getHandle()+"</a></td>\n");
 %>
 		</tr>
 		<tr>
@@ -89,11 +89,11 @@
 		<select name="tax_form_id">
 <%			for (int n = 0; n < taxforms.length; n++) {
 				out.print("<option value=");
-				out.print("" + taxforms[n]._id);
-				s = taxforms[n]._name;
+				out.print("" + taxforms[n].getId());
+				s = taxforms[n].getName();
 				if (tf < 0 && s.equals(PactsConstants.DEFAULT_USER_TAX_FORM)) {
 					out.print(" selected");
-				} else if (tf == taxforms[n]._id) out.print(" selected");
+				} else if (tf == taxforms[n].getId()) out.print(" selected");
 				out.print(">" + s + "</option>\n");
 			}
 %>

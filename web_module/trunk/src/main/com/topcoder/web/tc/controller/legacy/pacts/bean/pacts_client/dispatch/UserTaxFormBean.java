@@ -70,7 +70,7 @@ public class UserTaxFormBean implements PactsConstants {
 
         TaxFormHeaderList tflist = new TaxFormHeaderList(reply);
 
-        return tflist.headerList;
+        return tflist.getHeaderList();
     }
 
     /**
@@ -87,7 +87,7 @@ public class UserTaxFormBean implements PactsConstants {
         try {
             Map results = bean.getText(taxFormId, TAX_FORM_OBJ);
             ResultText t = new ResultText(results);
-            text = t.text;
+            text = t.getText();
         } catch (Exception e) {
             log.error("we got excepted trying to get the tax form text" +
                     "for tax form " + taxFormId);
@@ -108,8 +108,8 @@ public class UserTaxFormBean implements PactsConstants {
         log.debug("getTaxFormWithText, taxFormId = " + taxFormId);
         TaxFormWithText tf = new TaxFormWithText();
 
-        tf.taxForm = getUserTaxForm(taxFormId, memberId);
-        tf.text = getTaxFormText(taxFormId);
+        tf.setTaxForm(getUserTaxForm(taxFormId, memberId));
+        tf.setText(getTaxFormText(taxFormId));
 
         return tf;
     }

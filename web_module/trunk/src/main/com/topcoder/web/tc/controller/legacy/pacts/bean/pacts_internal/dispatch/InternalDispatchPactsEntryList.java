@@ -57,7 +57,7 @@ public class InternalDispatchPactsEntryList implements PactsConstants {
         DataInterfaceBean dib = new DataInterfaceBean();
         Map results = dib.findNoteObjects(Long.parseLong(param));
 
-        return new PactsEntryList(results).headerList;
+        return new PactsEntryList(results).getHeaderList();
     }
 }
 

@@ -32,12 +32,12 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 *   _handle  - handle of the TC member
 *   _groupID[] - group numbers of the TC member
 */
-    public long _id;
-    public String _handle;
-    public long _groupID[];
-    public String _last;
-    public String _middle;
-    public String _first;
+    private long id;
+    private String handle;
+    private long groupId[];
+    private String last;
+    private String middle;
+    private String first;
 
     /**************\
      *              *
@@ -50,9 +50,9 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 *  @ARGS none
 */
     public UserProfileHeader() {
-        _id = 0;
-        _handle = "Default TC Member";
-        _groupID = new long[0];
+        id = 0;
+        handle = "Default TC Member";
+        groupId = new long[0];
     }
 
 /* This constructor makes the object out of raw data.
@@ -63,12 +63,12 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 *
 */
     public UserProfileHeader(long id, String handle) {
-        _id = id;
-        _handle = handle;
-        _last = "";
-        _middle = "";
-        _first = "";
-        _groupID = new long[0];
+        this.id = id;
+        this.handle = handle;
+        last = "";
+        middle = "";
+        first = "";
+        groupId = new long[0];
     }
 
 
@@ -80,43 +80,43 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 */
     public UserProfileHeader(Navigation nav) throws Exception {
         if (nav.isIdentified()) {
-            _id = nav.getUserId();
+            id = nav.getUserId();
             log.debug("UPH - Have nav object.");
             DataInterfaceBean bean = new DataInterfaceBean();
-            Map results = bean.getUserProfileHeader(_id);
+            Map results = bean.getUserProfileHeader(id);
             ResultSetContainer rsc = (ResultSetContainer) (results.get(USER_PROFILE_HEADER_LIST));
             int rowCount = rsc.getRowCount();
             if (rowCount < 1) {
                 log.debug("UPH - Couldn't find user by that user_id");
-                _id = 0;
-                _handle = "Default TC Member";
-                _last = "";
-                _middle = "";
-                _first = "";
-                _groupID = new long[0];
+                id = 0;
+                handle = "Default TC Member";
+                last = "";
+                middle = "";
+                first = "";
+                groupId = new long[0];
                 return;
             }
             ResultSetContainer.ResultSetRow row = rsc.getRow(0);
-            _id = TCData.getTCLong(row, "user_id", 0, true);
-            _handle = TCData.getTCString(row, "handle", "default handle", true);
-            _last = TCData.getTCString(row, "last_name", "", false);
-            _middle = TCData.getTCString(row, "middle_name", "", false);
-            _first = TCData.getTCString(row, "first_name", "", false);
+            id = TCData.getTCLong(row, "user_id", 0, true);
+            handle = TCData.getTCString(row, "handle", "default handle", true);
+            last = TCData.getTCString(row, "last_name", "", false);
+            middle = TCData.getTCString(row, "middle_name", "", false);
+            first = TCData.getTCString(row, "first_name", "", false);
             rsc = (ResultSetContainer) (results.get(USER_GROUP_LIST));
             rowCount = rsc.getRowCount();
-            _groupID = new long[rowCount];
+            groupId = new long[rowCount];
             for (int n = 0; n < rowCount; n++) {
                 log.debug("UPH - Adding group");
                 row = rsc.getRow(n);
-                _groupID[n] = TCData.getTCLong(row, "group_id", 0, true);
+                groupId[n] = TCData.getTCLong(row, "group_id", 0, true);
             }
         } else {
-            _id = 0;
-            _handle = "Default TC Member";
-            _last = "";
-            _middle = "";
-            _first = "";
-            _groupID = new long[0];
+            id = 0;
+            handle = "Default TC Member";
+            last = "";
+            middle = "";
+            first = "";
+            groupId = new long[0];
         }
 
     }
@@ -133,21 +133,21 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         ResultSetContainer rsc = (ResultSetContainer) map.get(USER_PROFILE_HEADER_LIST);
         int rowCount = rsc.getRowCount();
         if (rowCount <= row || row < 0) {
-            _id = 0;
-            _handle = "Default TC Member";
-            _last = "";
-            _middle = "";
-            _first = "";
-            _groupID = new long[0];
+            id = 0;
+            handle = "Default TC Member";
+            last = "";
+            middle = "";
+            first = "";
+            groupId = new long[0];
             return;
         }
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
-        _id = TCData.getTCLong(rsr, "user_id", 0, true);
-        _handle = TCData.getTCString(rsr, "handle", "default handle", true);
-        _last = TCData.getTCString(rsr, "last_name", "", false);
-        _middle = TCData.getTCString(rsr, "middle_name", "", false);
-        _first = TCData.getTCString(rsr, "first_name", "", false);
-        _groupID = new long[0];
+        id = TCData.getTCLong(rsr, "user_id", 0, true);
+        handle = TCData.getTCString(rsr, "handle", "default handle", true);
+        last = TCData.getTCString(rsr, "last_name", "", false);
+        middle = TCData.getTCString(rsr, "middle_name", "", false);
+        first = TCData.getTCString(rsr, "first_name", "", false);
+        groupId = new long[0];
     }
 
 /* This constructor expects USER_PROFILE_HEADER_LIST as above
@@ -162,36 +162,36 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         ResultSetContainer rsc = (ResultSetContainer) map.get(USER_PROFILE_HEADER_LIST);
         int rowCount = rsc.getRowCount();
         if (rowCount < 1) {
-            _id = 0;
-            _handle = "Default TC Member";
-            _last = "";
-            _middle = "";
-            _first = "";
-            _groupID = new long[0];
+            id = 0;
+            handle = "Default TC Member";
+            last = "";
+            middle = "";
+            first = "";
+            groupId = new long[0];
             return;
         }
 
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
-        _id = TCData.getTCLong(rsr, "user_id", 0, true);
-        _handle = TCData.getTCString(rsr, "handle", "default handle", true);
-        _last = TCData.getTCString(rsr, "last_name", "", false);
-        _middle = TCData.getTCString(rsr, "middle_name", "", false);
-        _first = TCData.getTCString(rsr, "first_name", "", false);
-        _groupID = new long[0];
+        id = TCData.getTCLong(rsr, "user_id", 0, true);
+        handle = TCData.getTCString(rsr, "handle", "default handle", true);
+        last = TCData.getTCString(rsr, "last_name", "", false);
+        middle = TCData.getTCString(rsr, "middle_name", "", false);
+        first = TCData.getTCString(rsr, "first_name", "", false);
+        groupId = new long[0];
 
         ResultSetContainer.ResultSetRow row;
 
         rsc = (ResultSetContainer) (map.get(USER_GROUP_LIST));
         if (rsc != null) {
             rowCount = rsc.getRowCount();
-            _groupID = new long[rowCount];
+            groupId = new long[rowCount];
             for (int n = 0; n < rowCount; n++) {
                 log.debug("UPH - Adding group");
                 row = rsc.getRow(n);
-                _groupID[n] = TCData.getTCLong(row, "group_id", 0, true);
+                groupId[n] = TCData.getTCLong(row, "group_id", 0, true);
             }
         } else
-            _groupID = new long[0];
+            groupId = new long[0];
     }
 
     /******************\
@@ -206,8 +206,8 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 *
 */
     public boolean isTCStaff() {
-        for (int n = 0; n < _groupID.length; n++) {
-            if (_groupID[n] == TC_STAFF) return true;
+        for (int n = 0; n < groupId.length; n++) {
+            if (groupId[n] == TC_STAFF) return true;
         }
         return false;
     }
@@ -219,10 +219,60 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 *
 */
     public boolean isTCMember() {
-        for (int n = 0; n < _groupID.length; n++) {
-            if (_groupID[n] == TC_MEMBER) return true;
+        for (int n = 0; n < groupId.length; n++) {
+            if (groupId[n] == TC_MEMBER) return true;
         }
         return false;
     }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getHandle() {
+        return handle;
+    }
+
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
+
+    public long[] getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(long[] groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getLast() {
+        return last;
+    }
+
+    public void setLast(String last) {
+        this.last = last;
+    }
+
+    public String getMiddle() {
+        return middle;
+    }
+
+    public void setMiddle(String middle) {
+        this.middle = middle;
+    }
+
+    public String getFirst() {
+        return first;
+    }
+
+    public void setFirst(String first) {
+        this.first = first;
+    }
+
 
 }

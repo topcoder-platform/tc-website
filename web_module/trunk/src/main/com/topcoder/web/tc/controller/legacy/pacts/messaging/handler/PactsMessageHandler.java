@@ -171,7 +171,7 @@ public class PactsMessageHandler implements MessageHandler, PactsConstants {
 
             try {
                 user = upb.get(userId);
-                email = user._email;
+                email = user.getEmail();
             } catch (Exception e) {
                 retVal = false;
                 log.error("ERROR: Exception Caught while trying to lookup email address:");

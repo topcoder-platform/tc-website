@@ -36,7 +36,7 @@
 		</tr>
 <%
   		for (int n = 0; n < noteList.length; n++) {
-			out.print("<tr>\n<td>"+noteList[n]._user._handle+"</td><td>\n");
+			out.print("<tr>\n<td>"+noteList[n].getUser().getHandle()+"</td><td>\n");
 			out.print("<a href=\"");
 			out.print(PactsConstants.INTERNAL_SERVLET_URL);
 			out.print("?"+PactsConstants.TASK_STRING+"=");
@@ -44,9 +44,9 @@
 			out.print(PactsConstants.CMD_STRING+"=");
 			out.print(PactsConstants.NOTE_CMD+"&");
 			out.print(PactsConstants.NOTE_ID+"=");
-			out.print(noteList[n]._id);
-			out.print("\">"+noteList[n]._creationDate+"</a></td>\n");
-			out.print("<td>"+noteList[n]._type+"</td></tr>\n");
+			out.print(noteList[n].getId());
+			out.print("\">"+noteList[n].getCreationDate()+"</a></td>\n");
+			out.print("<td>"+noteList[n].getType()+"</td></tr>\n");
 		}
 	}
 %>

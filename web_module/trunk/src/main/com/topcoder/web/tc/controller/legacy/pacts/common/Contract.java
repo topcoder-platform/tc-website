@@ -38,11 +38,11 @@ import java.util.Map;
 public class Contract implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(Contract.class);
 
-    public PaymentHeader _payments[];
-    public ContractHeader _header;
-    public String _description;
-    public String _startDate;
-    public String _endDate;
+    private PaymentHeader payments[];
+    private ContractHeader header;
+    private String description;
+    private String startDate;
+    private String endDate;
 
 
     /**
@@ -52,7 +52,7 @@ public class Contract implements PactsConstants, java.io.Serializable {
      * one contract and one contract header in this result set.  There
      * can be multiple payments.
      *
-     * @param resutls the result set map from the db query
+     * @param results the result set map from the db query
      */
     public Contract(Map results) {
         ResultSetContainer rsc = (ResultSetContainer) results.get(CONTRACT_DETAIL);
@@ -80,11 +80,11 @@ public class Contract implements PactsConstants, java.io.Serializable {
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
 
         try {
-            _description = TCData.getTCString(rRow, "contract_desc");
-            _startDate = TCData.getTCDate(rRow, "start_date");
-            _endDate = TCData.getTCDate(rRow, "end_date");
-            _header = new ContractHeader(results);
-            _payments = (new PaymentHeaderList(results)).headerList;
+            description = TCData.getTCString(rRow, "contract_desc");
+            startDate = TCData.getTCDate(rRow, "start_date");
+            endDate = TCData.getTCDate(rRow, "end_date");
+            header = new ContractHeader(results);
+            payments = (new PaymentHeaderList(results)).getHeaderList();
         } catch (Exception e) {
             log.error("there was an exception in the Contract contructor");
             setDefaults();
@@ -103,11 +103,11 @@ public class Contract implements PactsConstants, java.io.Serializable {
      * used to set data to default values
      */
     private void setDefaults() {
-        _payments = new PaymentHeader[0];
-        _description = "Default Description";
-        _header = new ContractHeader();
-        _startDate = "00/00/00";
-        _endDate = "00/00/00";
+        payments = new PaymentHeader[0];
+        description = "Default Description";
+        header = new ContractHeader();
+        startDate = "00/00/00";
+        endDate = "00/00/00";
     }
 
     /*  This constructs the Contract that will be added via the
@@ -118,15 +118,15 @@ public class Contract implements PactsConstants, java.io.Serializable {
     public Contract(String name, long user, String start, String end,
                     String desc, int status, int type) {
 
-        _header = new ContractHeader();
-        _payments = new PaymentHeader[0];
-        _startDate = start;
-        _endDate = end;
-        _header._statusId = status;
-        _description = desc;
-        _header._name = name;
-        _header._typeID = type;
-        _header._user._id = user;
+        header = new ContractHeader();
+        payments = new PaymentHeader[0];
+        startDate = start;
+        endDate = end;
+        header.setStatusId(status);
+        description = desc;
+        header.setName(name);
+        header.setTypeId(type);
+        header.getUser().setId(user);
     }
 
     /*  This constructs the Contract that will be updated via the
@@ -137,14 +137,56 @@ public class Contract implements PactsConstants, java.io.Serializable {
     public Contract(String name, String start, String end,
                     String desc, int status, int type, long contract_id) {
 
-        _header = new ContractHeader();
-        _payments = new PaymentHeader[0];
-        _startDate = start;
-        _endDate = end;
-        _header._statusId = status;
-        _description = desc;
-        _header._name = name;
-        _header._typeID = type;
-        _header._id = contract_id;
+        header = new ContractHeader();
+        payments = new PaymentHeader[0];
+        startDate = start;
+        endDate = end;
+        header.setStatusId(status);
+        description = desc;
+        header.setName(name);
+        header.setTypeId(type);
+        header.setId(contract_id);
     }
+
+
+    public PaymentHeader[] getPayments() {
+        return payments;
+    }
+
+    public void setPayments(PaymentHeader[] payments) {
+        this.payments = payments;
+    }
+
+    public ContractHeader getHeader() {
+        return header;
+    }
+
+    public void setHeader(ContractHeader header) {
+        this.header = header;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
 }

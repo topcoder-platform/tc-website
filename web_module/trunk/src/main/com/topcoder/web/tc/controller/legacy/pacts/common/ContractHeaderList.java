@@ -18,7 +18,7 @@ import java.util.Map;
 public class ContractHeaderList implements PactsConstants {
     private static Logger log = Logger.getLogger(ContractHeaderList.class);
 
-    public ContractHeader[] headerList = null;
+    private ContractHeader[] headerList = null;
 
     /**
      * will parse the result set container looking for several
@@ -54,5 +54,11 @@ public class ContractHeaderList implements PactsConstants {
             headerList[idx] = new ContractHeader(results, idx);
         }
     }
+
+    public ContractHeader[] getHeaderList() {
+        return headerList;
+    }
+
+
 }
 
