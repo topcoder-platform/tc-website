@@ -16,6 +16,9 @@ import com.topcoder.server.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.5  2002/06/13 18:54:45  lbackstrom
+ *           distributed cache
+ *
  *           Revision 1.4  2002/06/13 18:53:51  lbackstrom
  *           distributed cache
  *
@@ -75,6 +78,7 @@ public class CachedDataRetrievalBean implements StatDataAccessInt {
      */
     static CacheClient client;
     private long expireTime;
+    private static final boolean VERBOSE = true;
     public CachedDataRetrievalBean()
     {
         this(86400000);                 //one day in ms
@@ -99,7 +103,6 @@ public class CachedDataRetrievalBean implements StatDataAccessInt {
         try {
             boolean cached = true;
             String key = request.toString();
-            System.out.println(key);
             Map map = null;
             try
             {
@@ -112,10 +115,10 @@ public class CachedDataRetrievalBean implements StatDataAccessInt {
             }
             if(map!=null)
             {
-                System.out.println(request.getContentHandle()+" IS in the CACHE");
+                if (VERBOSE) System.out.println(request.getContentHandle()+" IS in the CACHE");
                 return map;
             }
-            else System.out.println(request.getContentHandle()+" IS NOT in the CACHE");
+            else if (VERBOSE) System.out.println(request.getContentHandle()+" IS NOT in the CACHE");
             Context c = TCContext.getInitial();
             StatisticsHome sh = (StatisticsHome)
                 c.lookup("com.topcoder.web.stat.ejb.Statistics.StatisticsHome");
