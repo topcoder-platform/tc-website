@@ -6,6 +6,7 @@ import com.topcoder.common.web.util.Conversion;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.common.web.xml.HTMLRenderer;
 
 import java.net.InetAddress;
 
@@ -14,7 +15,7 @@ public class DataCacheRefresh {
 
     private static Logger log = Logger.getLogger(DataCacheRefresh.class);
 
-    private static final String[] validArg = {"data"};
+    private static final String[] validArg = {"data", "xsl"};
 
 
     private static boolean byteArraysEqual(byte[] array1, byte[] array2) {
@@ -88,6 +89,10 @@ public class DataCacheRefresh {
                         byte[] cacheIp = null;
                         if (inArray(args, "data")) {
                             cacheIp = cache.resetAll();
+                        }
+                        if (inArray(args, "xsl")) {
+                            HTMLRenderer h = new HTMLRenderer();
+                            cacheIp = h.refresh();
                         }
                         for (int j = 0; j < host.length; j++) {
                             if (byteArraysEqual(cacheIp, host[j].getAddress())) {

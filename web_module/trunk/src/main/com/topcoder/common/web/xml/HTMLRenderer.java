@@ -44,15 +44,19 @@ public class HTMLRenderer {
     /**
      * Clears the cache.
      */
-    public void refresh() throws TCException {
+    public byte[] refresh() throws TCException {
         log.info("HTMLRenderer.refresh()");
         XSLTransformerCache cache = null;
+        byte[] result = null;
         try {
             cache = XSLTransformerCache.getInstance();
             cache.clear();
+            java.net.InetAddress localHost = java.net.InetAddress.getLocalHost();
+            result = localHost.getAddress();
         } catch (Exception e) {
             e.printStackTrace();
             log.error("Error in HTMLRendererBean.refresh()");
         }
+        return result;
     }
 }
