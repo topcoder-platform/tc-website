@@ -1,6 +1,6 @@
 <%@ page language="java"%>
 <%@ page errorPage="error.jsp"%>
-<%@ page import="com.topcoder.web.resume.servlet.Controller" %>
+
 
 <HTML>
   <BODY BGCOLOR="#CCCCCC">

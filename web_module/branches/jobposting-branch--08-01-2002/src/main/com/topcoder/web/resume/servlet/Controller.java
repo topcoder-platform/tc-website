@@ -20,7 +20,7 @@ public class Controller
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
     public static final String TASK = "task";
-    static final String CONTROLLER_ERROR_URL = "error.jsp";
+    static final String CONTROLLER_ERROR_URL = "/error.jsp";
     static final String TASK_PACKAGE = "com.topcoder.web.resume.bean";
 
     public void init(Servlet servletConfig)
