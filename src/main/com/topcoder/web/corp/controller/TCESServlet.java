@@ -166,8 +166,9 @@ public class TCESServlet extends HttpServlet {
 
                     task.processStep(taskStepName);
                 } catch (TCESAuthenticationException authex) {
+                    authex.printStackTrace();
                     request.setAttribute("message", "In order to continue, you must provide your user name " +
-                            "and password, even if you�ve logged in already.");
+                            "and password, even if you've logged in already.");
                     request.setAttribute(BaseServlet.NEXT_PAGE_KEY,
                             HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
                     request.setAttribute(com.topcoder.web.corp.Constants.KEY_MODULE, "Login");
