@@ -701,14 +701,7 @@ public class UserEdit extends BaseProcessor {
                 Company companyTable = ((CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
 
-                if (Util.retrieveTCSubject(loggedUserID)==null)
-                    log.debug("subject returned was null id was: " + loggedUserID);
-                if (secTok.man==null)
-                    log.debug("principal manager was null");
-                if (secTok.man.getRoles(Util.retrieveTCSubject(loggedUserID))==null)
-                    log.debug("roles were null");
-
-                if (secTok.man.getRoles(Util.retrieveTCSubject(loggedUserID)).contains(Constants.CORP_ADMIN_ROLE)) {
+                if (man.getRoles(Util.retrieveTCSubject(loggedUserID)).contains(Constants.CORP_ADMIN_ROLE)) {
                     isAccountAdmin = true;
                     primaryUserCompanyID = loggedUserCompanyID;
                 } else {
@@ -718,9 +711,7 @@ public class UserEdit extends BaseProcessor {
                 renewTargetUser();
             } catch (Exception ex) {
                 ex.printStackTrace();
-                throw new Exception(
-                        "Error accessing DB company tables [" + ex.getMessage() + "]"
-                );
+                throw new Exception("Error accessing DB company tables [" + ex.getMessage() + "]");
             } finally {
                 Util.closeIC(icEJB);
             }
