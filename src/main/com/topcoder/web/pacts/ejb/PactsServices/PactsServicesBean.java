@@ -746,6 +746,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectAffidavitHeaders.append("AND a.affidavit_type_id = atl.affidavit_type_id ");
         selectAffidavitHeaders.append("AND a.status_id = s.status_id ");
         selectAffidavitHeaders.append("AND a.round_id = rs.round_id ");
+        selectAffidavitHeaders.append("AND rs.segment_id = ");
+        selectAffidavitHeaders.append("  (SELECT MIN(segment_id) FROM round_segment ");
+        selectAffidavitHeaders.append("   WHERE round_id=a.round_id)");
         selectAffidavitHeaders.append("ORDER BY origin_date DESC");
 
         ResultSetContainer rsc = runSelectQuery(selectAffidavitHeaders.toString(), true);
@@ -1156,6 +1159,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("AND a.status_id = s.status_id ");
         selectHeaders.append("AND u.user_id = a.user_id ");
         selectHeaders.append("AND a.round_id = rs.round_id ");
+        selectHeaders.append("AND rs.segment_id = ");
+        selectHeaders.append("  (SELECT MIN(segment_id) FROM round_segment ");
+        selectHeaders.append("   WHERE round_id=a.round_id)");
 
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();
