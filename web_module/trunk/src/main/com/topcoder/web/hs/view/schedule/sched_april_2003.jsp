@@ -1,13 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
 
+<html>
 <head>
 
-    <title>TopCoder | High School</title>
+<title>TopCoder | High School</title>
 
-<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities.">
-<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++">
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
 <jsp:include page="../includes/css.jsp" />
 
@@ -17,37 +17,21 @@
 
 <jsp:include page="../includes/top.jsp" />
 
-<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr valign="top">
         <td width="170" bgcolor="#001934">
-
-<!-- Left Column begins -->
-<jsp:include page="../includes/left_nav.jsp" />
-<jsp:include page="../includes/left_calendar.jsp" />
-<!-- Left Column ends -->
-
+        <jsp:include page="../includes/left_nav.jsp" />
+        <jsp:include page="../includes/left_calendar.jsp" />
         </td>
         
-<!-- Center Column begins -->
-        
-        
-        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF">
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr>
-                    <td align="left" height="44" width="348"><img src="/i/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0"></td>
-                    <td background="/i/headinginside_1pix_bg.gif" align="left" width="99%" height="44">&nbsp;</td>
-                </tr>
+        <td width="99%">
+            <table cellspacing="0" cellpadding="10" border="0"  width="100%">
+                
+                <tr valign="top">
+                    <td align="left" width="99%" class="statText">
+                        <img src="/i/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0">
 
-                <tr>
-                    <td colspan="2" height="10"><img src="/i/clear_10_pix_width.gif" width="10" height="10" alt="" border="0"></td>
-                </tr>
-            </table>
-
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr>
-                    <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
-                    <td height="100%" class="bodyText">
-                        <p><strong>April 2003</strong></p>
+                        <h2>April 2003</strong></h2>
                         <div align="right"><form name="selectform">
                         <select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
                             <option value="SELECTED">&nbsp;Choose Monthly View</option>
@@ -55,8 +39,8 @@
                             <option value="sched_may_2003">&nbsp;May</option>
                             <option value="sched_april_2003" selected>&nbsp;April</option>
                             <option value="sched_march_2003">&nbsp;March</option>
-                        </select>
-                        </form></div>
+                        </select></form>
+                        </div>
 
                         <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
                             <tr> 
@@ -143,7 +127,6 @@
                         <p><br></p>
                         
                     </td>
-                    <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             </table>
         </td>
