@@ -57,14 +57,14 @@ public abstract class FullRegBase extends SimpleRegBase {
             response = (DemographicResponse) it.next();
             if(questions == null)
             {
-                log.info("GETTING QUESTIONS");
+                log.debug("GETTING QUESTIONS");
                 try
                 {
                     questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType());
                 }
                 catch(Exception e)
                 {
-                    log.error("COULD NOT GET QUESTIONS");
+                    log.error("COULD NOT GET QUESTIONS", e);
                 }
             }
             question = findQuestion(response.getQuestionId(), questions);

@@ -169,7 +169,7 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                 dr.setProperty("uid", String.valueOf(getUser().getId()));
                 dr.setProperty("cid", cid);
 
-                log.info("Got the request to load profile details for candidate:" + cid + ", user : "
+                log.debug("Got the request to load profile details for candidate:" + cid + ", user : "
                         + getUser().getId());
 
                 Map map = Util.getDataAccess().getData(dr);
@@ -234,7 +234,7 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                         request.setAttribute("resume", StringUtils.checkNull(resume.getFileName()));
                     
                     
-                    log.info("The problems info list contains : " + result.size() + " records");
+                    log.debug("The problems info list contains : " + result.size() + " records");
 
                 } else {
                     // if Query Tool returned null (in fact this should never happen) - notify the user that something

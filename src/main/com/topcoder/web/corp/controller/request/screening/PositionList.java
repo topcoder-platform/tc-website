@@ -58,11 +58,11 @@ public class PositionList extends BaseScreeningProcessor {
         String campaignId = request.getParameter(Constants.CAMPAIGN_ID);
         if (campaignId == null) {
             // notify the user about the error
-            log.info("Campaign ID is not specified.");
+            log.debug("Campaign ID is not specified.");
             throw new ScreeningException("No campaign ID had been specified.");
         }
 
-        log.info("Got the request to display the positions for campaign : " + campaignId + ", user : " + userId);
+        log.debug("Got the request to display the positions for campaign : " + campaignId + ", user : " + userId);
 
         // Construct a request for company details
         Request dr = new Request();
@@ -71,12 +71,12 @@ public class PositionList extends BaseScreeningProcessor {
 
         try {
             // Execute the request for company details
-            log.info("Getting the company details for user : " + userId);
+            log.debug("Getting the company details for user : " + userId);
             Map map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.info("The company details retrieval failed for user : " + userId);
+                log.debug("The company details retrieval failed for user : " + userId);
                 throw new ScreeningException("Company info data retrieval error for user : " + userId);
             }
 
@@ -86,11 +86,11 @@ public class PositionList extends BaseScreeningProcessor {
 
             // Notify the user if there is more than 1 company
             if (result.size() != 1) {
-                log.info("The user " + userId + " has more than 1 company associated with him.");
-                log.info("The following companies had been found:");
+                log.debug("The user " + userId + " has more than 1 company associated with him.");
+                log.debug("The following companies had been found:");
                 for (int i = 0; i < result.size(); i++) {
                     ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(i);
-                    log.info(row.getStringItem("company_name"));
+                    log.debug(row.getStringItem("company_name"));
                 }
                 throw new ScreeningException("The user should be associated only with 1 company at once.");
             }
@@ -106,13 +106,13 @@ public class PositionList extends BaseScreeningProcessor {
             dr.setProperty("cm", companyId);
 
             // Execute the request for campaign details
-            log.info("Getting the details for campaign : " + campaignId + ", company : " + companyId + ", user : "
+            log.debug("Getting the details for campaign : " + campaignId + ", company : " + companyId + ", user : "
                 + userId);
             map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.info("The campaign details retrieval failed for user : " + userId + ", campaign : " + campaignId
+                log.debug("The campaign details retrieval failed for user : " + userId + ", campaign : " + campaignId
                         + ", company : " + companyId);
                 throw new ScreeningException("Company campaign details retrieval error for campaign : " + campaignId
                         + ", company : " + companyId + ", user : " + userId);
@@ -130,26 +130,26 @@ public class PositionList extends BaseScreeningProcessor {
             dr.setProperty("cm", companyId);
 
             // Execute the request for campaign positions list
-            log.info("Getting the positions for campaign : " + campaignId + ", company : " + companyId + ", user : "
+            log.debug("Getting the positions for campaign : " + campaignId + ", company : " + companyId + ", user : "
                     + userId);
             map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null) {
-                log.info("The campaign positions retrieval failed for user : " + userId + ", campaign : " + campaignId
+                log.debug("The campaign positions retrieval failed for user : " + userId + ", campaign : " + campaignId
                         + ", company : " + companyId);
                 throw new ScreeningException("Company campaign positions retrieval error for campaign : " + campaignId
                         + ", company : " + companyId + ", user : " + userId);
             }
 
             result = (ResultSetContainer) map.get(Constants.CAMPAIGN_POSITIONS_LIST);
-            log.info("The number of positions found for campaign " + campaignId + " is : " + result.size());
+            log.debug("The number of positions found for campaign " + campaignId + " is : " + result.size());
 
             // Check if there is a single position for the campaign
             if (result.size() == 1) {
                 // if so redirect the user to position results list
                 row = (ResultSetContainer.ResultSetRow) result.get(0);
-                log.info("There is a single position for campaign. Redirecting the request to "
+                log.debug("There is a single position for campaign. Redirecting the request to "
                         + buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null) + "&"
                         + Constants.JOB_POSITION_ID + "=" + row.getStringItem("job_id"));
                 setNextPage(buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null) + "&"
@@ -157,7 +157,7 @@ public class PositionList extends BaseScreeningProcessor {
                 setIsNextPageInContext(false);
             } else {
                 // Otherwise redirect the user to campaign positions list
-                log.info("Forwarding the request to " + Constants.CAMPAIGN_POSITIONS_PAGE);
+                log.debug("Forwarding the request to " + Constants.CAMPAIGN_POSITIONS_PAGE);
                 request.setAttribute(Constants.CAMPAIGN_POSITIONS_LIST, result);
                 setNextPage(Constants.CAMPAIGN_POSITIONS_PAGE);
                 setIsNextPageInContext(true);
