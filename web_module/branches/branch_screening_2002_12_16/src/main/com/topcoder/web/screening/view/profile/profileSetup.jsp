@@ -84,13 +84,14 @@ function submitConfirm() {
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Problem Set</b>&#160;</TD><TD><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
               <select name="testSetA" onChange="submitReload()">
-                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>">
-                <% if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { %>
-              	<option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
-                <% } else { %>
-              	<option value="<screen:resultSetItem row="<%=row%>" name="round_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
-                <% } %>
-                </screen:resultSetRowIterator>
+                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><% 
+                if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { 
+                %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option><% 
+                } 
+                else { 
+                %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option><% 
+                }
+              %></screen:resultSetRowIterator>
               </select>
               </TD>
            </TR>

@@ -61,6 +61,7 @@ function submitUpdate() {
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><b>Name:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <INPUT TYPE="HIDDEN" name="profileName" value="<jsp:getProperty name="profile" property="profileName" />" >
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="profile" property="profileName" /></TD>
            </TR>
            <TR>
@@ -68,12 +69,12 @@ function submitUpdate() {
            </TR>
            <TR align="right" valign="middle">
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><b>Problem Set:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>">
-                <% if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { %>
-                  <INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
-                  <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:resultSetItem row="<%=row%>" name="name" /></TD>
-                <% } %>
-                </screen:resultSetRowIterator>
+                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><% 
+                if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { 
+                 %><INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
+                  <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:resultSetItem row="<%=row%>" name="name" /></TD><% 
+                } 
+              %></screen:resultSetRowIterator>
            </TR>
            <TR>
               <TD></TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
