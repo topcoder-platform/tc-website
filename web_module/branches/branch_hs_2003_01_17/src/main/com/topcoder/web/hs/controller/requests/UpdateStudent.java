@@ -1,6 +1,7 @@
 package com.topcoder.web.hs.controller.requests;
 
 import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
@@ -35,6 +36,8 @@ public class UpdateStudent extends Base {
   private final static String MISSING_SESSION="Cannot update information "+
                                               "without logging in";
 
+  private final static Logger log=Logger.getLogger(UpdateStudent.class);
+
   protected User getAuthUser() {
     return(auth.getUser());
   }
@@ -43,10 +46,14 @@ public class UpdateStudent extends Base {
 
     String cmd=request.getParameter("cmd");
 
+    log.info("UpdateStudent: cmd="+cmd);
+
     /* If there is no command, then we are trying to display the main update
      * student page 
      */
     if (cmd==null||cmd.equals("")) {
+      log.debug("UpdateStudent processing '' command.");
+
       StudentRegistrationBean srb=new StudentRegistrationBean();
 
       SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
@@ -70,6 +77,8 @@ public class UpdateStudent extends Base {
      * confirmation page
      */
     else if (cmd.equals(REGISTER_CMD)) {
+      log.debug("UpdateStudent processing 'register' command.");
+
       StudentRegistrationBean srb=new StudentRegistrationBean();
 
       SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
@@ -101,6 +110,8 @@ public class UpdateStudent extends Base {
      * validation again, and persist it to the database
      */
     else if (cmd.equals(CONFIRM_CMD)) {
+      log.debug("UpdateStudent processing 'confirm' command.");
+
       StudentRegistrationBean srb=new StudentRegistrationBean();
 
       SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
@@ -133,6 +144,8 @@ public class UpdateStudent extends Base {
      * meaningful message
      */
     else {
+      log.debug("UpdateStudent illegal command.");
+
       throw(new IllegalArgumentException(INVALID_COMMAND+cmd));
     }
   }

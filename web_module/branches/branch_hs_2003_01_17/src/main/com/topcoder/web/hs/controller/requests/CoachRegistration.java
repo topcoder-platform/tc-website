@@ -1,5 +1,6 @@
 package com.topcoder.web.hs.controller.requests;
 
+import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
@@ -33,14 +34,20 @@ public class CoachRegistration extends Base {
   private final static String INVALID_COMMAND="Invalid command passed to "+
                                               "registration module: ";
 
+  private final static Logger log=Logger.getLogger(CoachRegistration.class);
+
   protected void businessProcessing() throws Exception {
 
     String cmd=request.getParameter("cmd");
+
+    log.info("CoachRegistration: cmd="+cmd);
 
     /* If there is no command, then we are trying to display the main coach 
      * registration page 
      */
     if (cmd==null||cmd.equals("")) {
+      log.debug("CoachRegistration processing '' command.");
+
       CoachRegistrationBean crb=new CoachRegistrationBean();
 
       RegistrationHelper.populateCoachWithDefaults(crb);
@@ -58,6 +65,8 @@ public class CoachRegistration extends Base {
      * confirmation page
      */
     else if (cmd.equals(REGISTER_CMD)) {
+      log.debug("CoachRegistration processing 'register' command.");
+
       CoachRegistrationBean crb=new CoachRegistrationBean();
 
       RegistrationHelper.populateCoachWithDefaults(crb);
@@ -83,6 +92,8 @@ public class CoachRegistration extends Base {
      * validation again, and persist it to the database
      */
     else if (cmd.equals(CONFIRM_CMD)) {
+      log.debug("CoachRegistration processing 'confirm' command.");
+
       CoachRegistrationBean crb=new CoachRegistrationBean();
 
       RegistrationHelper.populateCoachWithDefaults(crb);
@@ -109,6 +120,8 @@ public class CoachRegistration extends Base {
      * meaningful message
      */
     else {
+      log.debug("CoachRegistration illegal command.");
+
       throw(new IllegalArgumentException(INVALID_COMMAND+cmd));
     }
   }

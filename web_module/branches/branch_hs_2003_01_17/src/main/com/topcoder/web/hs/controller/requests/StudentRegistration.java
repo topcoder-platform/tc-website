@@ -1,5 +1,6 @@
 package com.topcoder.web.hs.controller.requests;
 
+import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
@@ -31,14 +32,20 @@ public class StudentRegistration extends Base {
   private final static String INVALID_COMMAND="Invalid command passed to "+
                                               "registration module: ";
 
+  private final static Logger log=Logger.getLogger(StudentRegistration.class);
+
   protected void businessProcessing() throws Exception {
 
     String cmd=request.getParameter("cmd");
+
+    log.info("StudentRegistration: cmd="+cmd);
 
     /* If there is no command, then we are trying to display the main student
      * registration page 
      */
     if (cmd==null||cmd.equals("")) {
+      log.debug("StudentRegistration processing '' command.");
+
       StudentRegistrationBean srb=new StudentRegistrationBean();
 
       RegistrationHelper.populateStudentWithDefaults(srb);
@@ -56,6 +63,8 @@ public class StudentRegistration extends Base {
      * confirmation page
      */
     else if (cmd.equals(REGISTER_CMD)) {
+      log.debug("StudentRegistration processing 'register' command.");
+
       StudentRegistrationBean srb=new StudentRegistrationBean();
 
       RegistrationHelper.populateStudentWithDefaults(srb);
@@ -81,6 +90,8 @@ public class StudentRegistration extends Base {
      * validation again, and persist it to the database
      */
     else if (cmd.equals(CONFIRM_CMD)) {
+      log.debug("StudentRegistration processing 'confirm' command.");
+
       StudentRegistrationBean srb=new StudentRegistrationBean();
 
       RegistrationHelper.populateStudentWithDefaults(srb);
@@ -108,6 +119,8 @@ public class StudentRegistration extends Base {
      * meaningful message
      */
     else {
+      log.debug("StudentRegistration illegal command.");
+
       throw(new IllegalArgumentException(INVALID_COMMAND+cmd));
     }
   }

@@ -46,6 +46,8 @@ public class UpdateCoach extends Base {
 
     String cmd=request.getParameter("cmd");
 
+    log.info("UpdateCoach: cmd="+cmd);
+
     /* If there is no command, then we are trying to display the main update
      * coach page 
      */
