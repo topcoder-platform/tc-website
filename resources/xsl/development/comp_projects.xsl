@@ -375,8 +375,8 @@
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Project</td>
-                    <td class="projectHeaders" align="center">Registrants</td>
-                    <td class="projectHeaders" align="center">Max Registrants</td>
+                    <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
+                    <td class="projectHeaders" align="center">Max Registrants<br/>Rated/Unrated</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
