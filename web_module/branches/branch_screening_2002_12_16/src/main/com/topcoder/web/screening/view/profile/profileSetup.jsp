@@ -118,7 +118,6 @@ function submitConfirm() {
               <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>
             <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
-            <jsp:useBean id="testA" type="com.topcoder.web.screening.model.ProblemInfo" />
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<jsp:getProperty name="testA" property="roundId" />,<jsp:getProperty name="testA" property="problemId"/>')" class="bodyText"><jsp:getProperty name="testA" property="problemName"/></a></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testA" property="divisionDesc" /></TD>
@@ -152,7 +151,6 @@ function submitConfirm() {
            </TR>
             <INPUT TYPE="HIDDEN" name="testSetBRemove" value="" >
             <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
-            <jsp:useBean id="testB" type="com.topcoder.web.screening.model.ProblemInfo" />
             <INPUT TYPE="HIDDEN" name="testSetB" value="<jsp:getProperty name="testB" property="roundId" />,<jsp:getProperty name="testB" property="problemId"/>" >
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<jsp:getProperty name="testB" property="roundId" />,<jsp:getProperty name="testB" property="problemId"/>')" class="bodyText"><jsp:getProperty name="testB" property="problemName"/></a></TD>
