@@ -18,6 +18,7 @@ public class ContractingInfo implements Serializable {
     private long userID;
     private Hashtable preferences;
     private Hashtable skills;
+    private Hashtable notes;
     private UploadedFile resume;
     private boolean edit;
     
@@ -26,8 +27,25 @@ public class ContractingInfo implements Serializable {
         userID = 0;
         preferences = new Hashtable();
         skills = new Hashtable();
+        notes = new Hashtable();
         resume = null;
         edit = false;
+    }
+    
+    public void setNote(String note, String val) {
+        notes.put(note, val);
+    }
+    
+    public String getNote(String note) {
+        return (String)notes.get(note);
+    }
+    
+    public void removeNote(String note) {
+        notes.remove(note);
+    }
+    
+    public Iterator getNoteNames() {
+        return notes.keySet().iterator();
     }
     
     public void clearSkills() {
@@ -40,6 +58,10 @@ public class ContractingInfo implements Serializable {
     
     public String getSkill(String skill) {
         return (String)skills.get(skill);
+    }
+    
+    public void removeSkill(String skill) {
+        skills.remove(skill);
     }
     
     public Iterator getSkillNames() {
