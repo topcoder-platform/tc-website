@@ -140,13 +140,10 @@
                         submit application designs to TopCoder Software.</p>
 
                         <ol>
-                            <li>All eligible TopCoder members inquire to be accepted on the design phase for the application.</li>
-                            <li>TopCoder members selected for the design phase submit completed designs for the application.</li>
-                            <li>Application Managers will provide functional feedback to designers via the TopCoder Software NewsGroups.</li>
-                            <!--<li>Designers must submit a completed Application Design Specification on the Specification Submission Due
+                            <li>Eligible TopCoder members inquire to be selected for the design phase of the application.</li>
+                                        <!--<li>Designers must submit a completed Application Design Specification on the Specification Submission Due
                             Date as stated in the Application Project Posting page.</li>
                             -->
-
                             <li>Designers must submit the following documents by the Due Date as stated in the Application Project Posting page:
                             <ul>
                                 <li>Updated Application Specification Document if required</li>
@@ -157,7 +154,8 @@
                                 <li>Test Plan</li>
                                 <li>Development Plan</li>
                             </ul></li>
-
+                            <li>TopCoder members selected for the design phase submit completed designs for the application.</li>
+                            <li>Application Managers will provide functional feedback to designers via the TopCoder Software NewsGroups.</li>
                             <li>The Design Specification Document is expected to specify both generic components that can be mapped
                                 to the <a class="statText" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>,
                                 new components and component extensions necessary to implement functionality specific to the application.</li>
