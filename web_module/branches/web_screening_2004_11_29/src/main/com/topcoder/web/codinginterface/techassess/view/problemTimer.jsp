@@ -50,6 +50,11 @@ if (o!=null) {
 
         var problemSyncedOffset = problemLocalTime.getTime() - problemServerTime.getTime();
 
+        for (i=0;i<endTimes.length; i++) {
+          endTimes[i]=endTimes[i] - ((problemServerOffset - problemOffset) * 60 * 60 * 1000);
+        }
+
+
         function problemUpdate() {
             var d = new Date();
             var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
