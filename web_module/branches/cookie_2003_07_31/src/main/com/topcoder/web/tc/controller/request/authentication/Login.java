@@ -52,6 +52,7 @@ public class Login extends Base {
                             doLegacyCrap(getRequest());
                             return;
                         } else {
+                            getAuthentication().logout();
                             if (hasDisabledAccount(status)) {
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
@@ -124,19 +125,16 @@ public class Login extends Base {
     }
 
     private void doLegacyCrap(HttpServletRequest request) throws Exception {
-        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-        CoderSessionInfo ret = null;
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+log.debug("XXX activeuserid: " + getAuthentication().getActiveUser().getId());
         TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
-        ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
-        nav = new Navigation(request, ret);
-        if (nav == null) {
-            nav = new Navigation(request, ret);
-            request.getSession(true).setAttribute("navigation", nav);
-        } else {
-            nav.setCoderSessionInfo(ret);
-        }
+log.debug("XXX subject id: " + user.getUserId());
+        CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
+log.debug("XXX sessioninfo id: " + ret.getUserId());
+        Navigation nav = new Navigation(request, ret);
+log.debug("XXX nav id: " + nav.getUserId());
+        request.getSession(true).setAttribute("navigation", nav);
     }
 
 }
