@@ -50,6 +50,7 @@
 
                             <tr>
                                 <td class="devProjectWinner">Group 1</td>
+                                <td class="devProjectWinnerMoney">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="devProjectWinner">Winning Developer:</td>
@@ -57,15 +58,16 @@
                             </tr>
 
                             <tr>
-                                <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$313.00</td>
+                                <td class="devProjectWinner">Second Place:</td>
+                                <td class="devProjectWinnerMoney">$313.00</td>
                             </tr>
                             <tr>
-                                <td class="devProjectWinner">Group 2</td>
+                                <td class="devProjectSecond">Group 2</td>
+                                <td class="devProjectSecondMoney">&nbsp;</td>
                             </tr>                            
                             <tr>
-                                <td class="devProjectWinner">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney">$333.00</td>
+                                <td class="devProjectSecond">Winning Developer:</td>
+                                <td class="devProjectSecondMoney">$333.00</td>
                             </tr>
 
                             <tr>
