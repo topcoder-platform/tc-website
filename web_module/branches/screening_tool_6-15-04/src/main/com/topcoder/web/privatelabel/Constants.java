@@ -84,6 +84,9 @@ public class Constants {
     //secondary reg parameters
     public static String CODER_TYPE;
     public static String DEMOG_PREFIX;
+    
+    //resume parameters
+    public static String RESUME;
 
     //other parameters
     public static String MODULE_KEY;

@@ -1,7 +1,11 @@
 package com.topcoder.web.privatelabel.controller.request.brooks;
 
 import com.topcoder.web.privatelabel.controller.request.FullRegConfirm;
+import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.privatelabel.Constants;
+
+import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.servlet.request.*;
 
 /**
  * @author dok
@@ -18,6 +22,23 @@ public class Confirm extends FullRegConfirm {
         setIsNextPageInContext(true);
     }
 
-
+    protected SimpleRegInfo makeRegInfo() throws Exception {
+        FullRegInfo info;
+        info = (FullRegInfo)super.makeRegInfo();
+        
+        if(!(info instanceof ResumeRegInfo))
+        {
+            info = new ResumeRegInfo(info);
+        }
+        
+        MultipartRequest req = (MultipartRequest)getRequest();
+        UploadedFile file = req.getUploadedFile(Constants.RESUME);
+        
+        if (file != null) {
+                ((ResumeRegInfo)info).setUploadedFile(file);
+            }
+        
+        return info;
+    }
 
 }
