@@ -95,7 +95,7 @@ public class Controller extends HttpServlet {
             }
         } catch (AuthenticationException authex) {
             request.setAttribute("Authentication", task.getAuthentication());
-            sendToLoginPage(request, response, false);
+            sendToLoginPage(request, response, true);
         } catch (ClassNotFoundException cnfex) {
             sendToErrorPage(request, response, cnfex);
         } catch (NamingException ex) {
