@@ -7,6 +7,9 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.JSPUtils;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.shared.util.ApplicationServer;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -58,6 +61,8 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /* Indicates whether the coder is ranked in competition */
     private boolean isRanked;
 
+    private boolean hasResume;
+
     private int uid;
 
     /** Creates new MemberProfileTask */
@@ -69,6 +74,21 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         setJobID(-1);
         setCampaignID(-1);
+    }
+
+    
+    /** Getter for property hasResume.
+     * @return Value of property hasResum
+     */
+    public boolean hasResume() {
+        return hasResume;
+    }
+
+    /** Setter for property hasResume.
+     * @param hasResume New value of property hasResume.
+     */
+    public void setHasResume(boolean hasResume) {
+        this.hasResume=hasResume;
     }
 
     /** Getter for property isRanked.
@@ -244,6 +264,17 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         throws Exception
     {
         viewMemberProfile();
+
+        ResumeServicesHome rHome = null;
+        ResumeServices rServices = null;
+        try {
+            rHome = (ResumeServicesHome) getInitialContext().lookup(ApplicationServer.RESUME_SERVICES);
+            rServices = rHome.create();
+            hasResume = rServices.hasResume(memberID);
+        } catch (Exception e) {
+            log.error("could not determine if user has a resume or not");
+        }
+        
     }
 
     private void viewMemberProfile() throws Exception

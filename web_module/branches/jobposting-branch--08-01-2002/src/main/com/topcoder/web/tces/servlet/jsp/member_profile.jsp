@@ -98,7 +98,7 @@
 
               <% if (MemberProfileTask.hasResume()) { %>
                 <a href="/Resume?&t=DownloadTask" class="statText">Click here to download resume.</a>
-              <% } 
+              <% } %>
 
               </P>
               
