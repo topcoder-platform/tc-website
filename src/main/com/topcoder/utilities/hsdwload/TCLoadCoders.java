@@ -417,7 +417,7 @@ public class TCLoadCoders extends TCLoad {
                     psIns.setString(11, rs.getString(11));       // status
                     psIns.setString(12, rs.getString(12));       // email
                     psIns.setTimestamp(13, rs.getTimestamp(13)); // last_login
-                    psUpd.setInt(14, rs.getInt(14));             // school_id
+                    psIns.setInt(14, rs.getInt(14));             // school_id
 
                     // Now, execute the insert of the new row
                     retVal = psIns.executeUpdate();
