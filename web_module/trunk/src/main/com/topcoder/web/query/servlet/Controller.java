@@ -58,7 +58,7 @@ public class Controller extends HttpServlet {
             ctx = (InitialContext) TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
-                log.info("[**** query **** " + taskName + " **** " + request.getRemoteHost() + " ****]");    
+                log.info("[**** query **** " + taskName + " **** " + request.getRemoteHost() + " ****]");
                 // process a task
                 Task task = null;
                 Class taskClass = null;
@@ -122,10 +122,7 @@ public class Controller extends HttpServlet {
 
         log.error("Controller error - forwarding to error page", exception);
         request.setAttribute("Exception", exception);
-        /* get the root context so we can forward to the generic error page, not just
-           one within this web application
-         */
-        getServletContext().getContext("/").getRequestDispatcher(
+        getServletContext().getRequestDispatcher(
                 response.encodeURL("/"+Constants.ERROR_PAGE)).forward(request, response);
     }
 }
