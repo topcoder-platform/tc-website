@@ -61,6 +61,8 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_10_04">TopCoder Software Wins Three New Customer Contracts</A> [August 10]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_04_04">NVIDIA Named Premier Level Sponsor of 2004 TopCoder Open Tournament</A> [August 4]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_28_04">TopCoder Announces Microsoft as Title Sponsor for 2004 TopCoder Open Tournament</A> [July 28]<br/></td></tr>
