@@ -69,7 +69,7 @@
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
-                            Congratulations on your performance in the 2004 TopCoder Open, Sponsored by Microsoft&#174;
+                            Congratulations on your performance in the 2004 TopCoder Open, Sponsored by Microsoft
                         </p>
 
                         <p><strong>A.  To be completed by everyone by 9:00 PM ET Wednesday, September 29:</strong></p>
@@ -108,6 +108,7 @@
 
 
                                 <li>
+                                    <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before 9:00 PM ET on Wednesday, September 29.</p>
@@ -127,11 +128,13 @@
                                         We already have your tax form on file.  You do NOT need to complete and return another form.
                                     </xsl:otherwise>
                                 </xsl:choose>
+                                </p>
                                 </li>
 
 
                                 <li>
                                 <p><strong>HEAD SHOT</strong> - must be emailed by 9:00 PM ET on Wednesday, September 29.</p>
+                                    <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -141,8 +144,10 @@
                                         We have a head shot on file. If you'd like to change it click <a><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/>%20|%20[%20<xsl:value-of select="/TC/Handle"/>%20]%20|%20<xsl:value-of select="/TC/UserId"/>%20RE-SUBMIT%20IMAGE:%20PLEASE%20DO%20NOT%20CHANGE%20SUBJECT</xsl:attribute>here</a>
                                     </xsl:otherwise>
                                 </xsl:choose>
+                                    </p>
                                 </li>
 
+                                <p>
                                 <div align="center">
                                     Address to send affidavits &amp; tax forms to:<br/>
                                     TopCoder, Inc. <br/>
@@ -150,6 +155,7 @@
                                     703 Hebron Avenue<br/>
                                     Glastonbury, CT 06033
                                 </div>
+                                    </p>
 
                                 <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM ET on Wednesday, September 29.  Any
                                 items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
@@ -158,7 +164,7 @@
                             <p><strong>B. To be completed only by those who will be traveling to the onsite semifinal rounds on November 11 &amp; 12 in Santa Clara, CA, USA.</strong></p>
                             <ol>
                                 <li>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 9:00 AM ET on Wednesday, October 18.</p>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 9:00 AM ET on Monday, October 18.</p>
 
                                 <p>View the <a href="/?&amp;t=affidavit&amp;c=2004_open_comp_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                                 </li>
