@@ -1045,11 +1045,11 @@ public final class ReportServlet extends HttpServlet {
        " from" +
        "   coder c," +
         "  calendar cal" +
-        "where" +
+        " where" +
         "  date(c.member_since) = cal.date and" +
         "  cal.date >= today - 730" +
-        "group by 1,2" +
-        "order by 1 desc, 2 desc";
+        " group by 1,2" +
+        " order by 1 desc, 2 desc";
 
 
     private static final Integer REGISTRATION_BY_SCHOOL_ID = new Integer(8);
