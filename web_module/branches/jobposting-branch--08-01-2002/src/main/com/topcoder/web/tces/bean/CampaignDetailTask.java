@@ -112,11 +112,11 @@ log.debug("setting most recent hit = "+mostRecentHit);
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
 
-        TrailItem main = new TrailItem(request.getContextPath() + request.getServletPath() + "?" +
-             TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + TCESConstants.CAMPAIGN_ID_PARAM +
-             getCampaignID(), "Main");
+        //TODO add constants for names
         ArrayList a = new ArrayList();
-        a.add(main);
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), "Main"));
         setTrail(a);
 
     }
