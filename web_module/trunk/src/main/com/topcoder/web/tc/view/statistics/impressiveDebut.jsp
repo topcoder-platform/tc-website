@@ -62,7 +62,7 @@ function goTo(selection){
                     Top-25 Overall 
                   </P>
                   <P CLASS="statText">
-	            This chart represents the members who have made the most impressive debuts in a Single Round Match. 
+	            This chart represents the members who have made the most impressive debuts.
                   </P>
                   <!-- Stats Intro Begins -->
                   <jsp:include page="qsIntro.jsp" />

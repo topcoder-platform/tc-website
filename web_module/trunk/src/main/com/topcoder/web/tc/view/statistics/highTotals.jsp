@@ -66,12 +66,12 @@ function goTo(selection){
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
 <% if (sDivision.equals("2")){ %>  
-                    This chart represents the Top-10 highest point totals earned in a Division II Single Round Match.
+                    This chart represents the Top-10 highest point totals earned in a Division II.
                   </P>
                   <P CLASS="statText">
                     See Highest Totals for <A CLASS="statText" HREF="/stat?c=highest_totals&dn=1">Division I</A>
 <% } else { %>
-                    This chart represents the Top-10 highest point totals earned in a Division I Single Round Match.
+                    This chart represents the Top-10 highest point totals earned in a Division I.
                   </P>
                   <P CLASS="statText">
                     See Highest Totals for <A CLASS="statText" HREF="/stat?c=highest_totals&dn=2">Division II</A>
