@@ -104,6 +104,8 @@ public final class Data {
                 UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
                 UserServices userEJB = userHome.findByPrimaryKey(new Integer(nav.getUserId()));
                 user = userEJB.getUser();
+Coder c= (Coder)user.getUserTypeDetails().get("Coder");
+log.debug("coder activation code: " + c.getActivationCode());
                 nav.setUser(user);
                 log.debug("tc: user loaded from entity bean");
             } catch (Exception e) {
