@@ -70,6 +70,7 @@
     <!-- Left Column Begins -->
 
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
+<xsl:call-template name="module_login"/>
 <xsl:call-template name="intro"/>
 <xsl:call-template name="srm_dates"/>
 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/>
@@ -279,7 +280,7 @@ TopCoder works with companies to connect them with top-rated developers. Read mo
 
     </TD>
   <!-- Center Column Ends -->    
-    <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="220"><IMG SRC="/i/clear.gif" ALT="" WIDTH="220" HEIGHT="1" BORDER="0"/><BR/>
+    <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
 <A HREF="/i/sun_redir.html" target="_blank"><IMG SRC="/i/sun_promo2.gif" ALT="" WIDTH="244" HEIGHT="161" BORDER="0"/></A><BR/><BR/>
 <xsl:call-template name="top_10_coders"/>
 <!-- <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams"><IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/></A><BR/>
