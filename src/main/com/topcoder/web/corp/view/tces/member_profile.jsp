@@ -54,7 +54,7 @@
 				<%= MemberInfo.getItem(0, "province").toString()%>
 				<%= MemberInfo.getItem(0, "city").toString()%>,
 				<%= MemberInfo.getItem(0, "state_code").toString()%>
-				<%= MemberInfo.getItem(0, "zip").toString()%> 
+				<%= MemberInfo.getItem(0, "zip").toString()%>
 				<%= MemberInfo.getItem(0, "country_name").toString()%>
 				<br/>
 				<strong>Email:</strong> <A HREF="mailto:<%=MemberInfo.getStringItem(0, "email")%>" class="bodyText"><%= MemberInfo.getStringItem(0, "email")%></A><br/>
@@ -143,7 +143,7 @@
 int i=0;
 %>
 <tces:rowIterator id="level" rowList="<%=MemberProfileTask.getDivIStatsByLevel()%>">
-<% 
+<%
 i++;
 %>
 			<TR>
@@ -159,9 +159,9 @@ i++;
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=right><%= JSPUtils.timeFormat(level.getItem("avg_time_elapsed")) %></TD>
 			</TR>
 </tces:rowIterator>
-<% 
+<%
 i++;
-%> 
+%>
 			<TR>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" HEIGHT="18">&#160;<b>All</b></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("total_presented") %></TD>
@@ -192,9 +192,9 @@ i++;
 i=0;
 %>
 <tces:rowIterator id="language" rowList="<%=MemberProfileTask.getDivIStatsByLang()%>">
-<% 
+<%
 i++;
-%> 
+%>
 
 			<TR>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;<b><%= language.getItem("language_name").toString() %></b></TD>
@@ -207,9 +207,9 @@ i++;
 			</TR>
 </tces:rowIterator>
 <% if (MemberProfileTask.hasMultipleDivILanguage()) { %>
-<% 
+<%
 i++;
-%> 
+%>
 			<TR>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;<b>All</b></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("total_submitted") %></TD>
@@ -250,10 +250,10 @@ i++;
 int i=0;
 %>
 <tces:rowIterator id="level" rowList="<%=MemberProfileTask.getDivIIStatsByLevel()%>">
-<% 
+<%
 i++;
-%> 
-			<TR>                      
+%>
+			<TR>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;<b><%= level.getItem("level_desc").toString() %></b></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= level.getItem("presented").toString() %></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= level.getItem("submitted").toString() %></TD>
@@ -267,9 +267,9 @@ i++;
 			</TR>
 </tces:rowIterator>
 
-<% 
+<%
 i++;
-%> 
+%>
 			<TR>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;<b>All</b></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIIStatistic("total_presented") %></TD>
@@ -300,9 +300,9 @@ i++;
 i=0;
 %>
 <tces:rowIterator id="language" rowList="<%=MemberProfileTask.getDivIIStatsByLang()%>">
-<% 
+<%
 i++;
-%> 
+%>
 			<TR>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">&#160;<b><%= language.getItem("language_name").toString() %></b></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= language.getItem("submitted").toString() %></TD>
@@ -315,9 +315,9 @@ i++;
 </tces:rowIterator>
 
 <% if (MemberProfileTask.hasMultipleDivIILanguage()) { %>
-<% 
+<%
 i++;
-%> 
+%>
 			<TR>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" HEIGHT="18">&#160;<b>All</b></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIIStatistic("total_submitted") %></TD>
@@ -334,9 +334,6 @@ i++;
 <% } else { %>
 
 		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
-			<TR>
-				<TD class="screeningCellOdd" ALIGN="left" WIDTH="100%"><A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="screeningCellOdd">Coder Demographic Info</A></TD>
-			</TR>
 			<TR>
 				<TD class="screeningCellOdd" ALIGN="center" WIDTH="100%"><%= MemberInfo.getItem(0, "handle").toString()%> is not rated in competition.</TD>
 			</TR>
