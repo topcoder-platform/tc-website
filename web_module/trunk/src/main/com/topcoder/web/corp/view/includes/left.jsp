@@ -22,6 +22,6 @@
             </table>
 <!-- Company Information ends -->
 
-            <img src="/i/left_nav_btm.gif" width="170" height="69" border="0" alt="" /><br><br>
+            <img src="/i/left_nav_btm.gif" width="170" height="69" border="0" alt="" /><br /><br />
             <img src="/i/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10" />
 

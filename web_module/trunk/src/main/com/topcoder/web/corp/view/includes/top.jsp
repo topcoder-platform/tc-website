@@ -16,19 +16,19 @@
     </tr>                
 
     <tr valign="middle">
-        <td width="100%" align="right" class="globalNavSmall" nowrap="0"> 
-            <a href="http://www.topcodersoftware.com" target="_parent" class="globalNavSmall">topcodersoftware.com</a>
+        <td width="100%" align="right" class="globalNav" nowrap="0"> 
+            <a href="http://www.topcodersoftware.com" target="_parent" class="globalNav">topcodersoftware.com</a>
 <% if (isHomePage) { %>
             &#160;
 <% } else { %>
 
     <% if( activeUser.isAnonymous() ) {  // no logged user %>
-            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=LoginPage" class="globalNavSmall" target="_parent">Login</a>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=LoginPage" class="globalNav" target="_parent">Login</a>
     <% } else { %>
-            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="globalNavSmall" target="_parent">Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="globalNav" target="_parent">Logout</a>
     <% } %>
 
-            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="globalNavSmall">Home</a>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=index" target="_parent" class="globalNav">Home</a>
 <%  } %>
         </td>
         <td width="15" bgcolor="#333333"><img src="/i/clear.gif" width="30" height="1" border="0" /></td>
@@ -52,14 +52,14 @@
 <% if( activeUser.isAnonymous() ) { %>
            <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="middle"><form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
-                    <td nowrap="nowrap" class="statText" align="right">User Name:&#160;&#160;</td>
+                    <td nowrap="nowrap" class="loginText" align="right">User Name:&#160;&#160;</td>
                     <td colspan="2" align="left"><input maxlength="15" size="12" name="<%=Login.KEY_USER_HANDLE%>" type="TEXT" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
                 </tr>
 
                 <tr valign="middle">
-                    <td nowrap="nowrap" class="statTextBig" align="right">Password:&#160;&#160;</td>
+                    <td nowrap="nowrap" class="loginTextBig" align="right">Password:&#160;&#160;</td>
                     <td align="left"><input maxlength="15" size="12" name="<%=Login.KEY_USER_PASS%>" type="Password" onkeypress="submitEnter(event, document.frmMiniLogin)" /></td>
-                    <td nowrap="nowrap" class="statText">&#160;&#160;<a href="javascript:document.frmMiniLogin.submit();" class="statText">Login&#160;&gt;</a>
+                    <td nowrap="nowrap" class="loginText">&#160;&#160;<a href="javascript:document.frmMiniLogin.submit();" class="loginText">Login&#160;&gt;</a>
                         <input name="<%=Login.KEY_LOGINMODE%>" type="hidden" value="1" /></td></form>
                 </tr>
             </table>
