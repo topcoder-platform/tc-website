@@ -598,7 +598,7 @@ public final class TaskDevelopment {
             }
             document.addTag(devTag);
 
-            ////log.debug("XML: " + document);
+            log.debug("XML: " + document);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             log.error("TaskDevelopment:ERROR:\n" + ne);

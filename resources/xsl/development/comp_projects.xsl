@@ -98,6 +98,7 @@
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants</td>
+                    <td class="projectHeaders" align="center">Max Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
@@ -160,6 +161,9 @@
                                </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
+                                <xsl:value-of select="/TC/DEVELOPMENT/MaxInquiries"/>
+                            </td>
+                            <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
@@ -194,6 +198,7 @@
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants</td>
+                    <td class="projectHeaders" align="center">Max Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
@@ -254,6 +259,9 @@
                                 </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
+                                <xsl:value-of select="/TC/DEVELOPMENT/MaxInquiries"/>
+                            </td>
+                            <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
@@ -288,6 +296,7 @@
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants</td>
+                    <td class="projectHeaders" align="center">Max Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
@@ -351,6 +360,9 @@
                                 </xsl:choose>
                             </td>
                             <td class="projectCells" align="center">
+                                <xsl:value-of select="/TC/DEVELOPMENT/MaxInquiries"/>
+                            </td>
+                            <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
@@ -378,6 +390,7 @@
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="15%" class="projectHeaders">Project</td>
                     <td class="projectHeaders" align="center">Registrants</td>
+                    <td class="projectHeaders" align="center">Max Registrants</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
                     <td class="projectHeaders" align="center">Complexity</td>
@@ -436,6 +449,9 @@
                                         Registration Full
                                     </xsl:otherwise>
                                 </xsl:choose>
+                            </td>
+                            <td class="projectCells" align="center">
+                                <xsl:value-of select="/TC/DEVELOPMENT/MaxInquiries"/>
                             </td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_submissions"/>
