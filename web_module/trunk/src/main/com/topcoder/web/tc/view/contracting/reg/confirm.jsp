@@ -79,8 +79,14 @@ Hashtable skillList = (Hashtable)request.getAttribute("prefs");
 		<table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
             <tr>
 				<td align=right width="65%"><b>Preferences</b></td>
-				<td width="35%"><a href="">edit<a/></td>
+				<td width="35%"><a href="javascript:goToPage('ContractingPreferences');">edit<a/></td>
             </tr>
+            <tc:listIterator id="groupName" list="<%=skillList.keySet()%>">
+            <tr>
+				<td align=right><b><%=skillList.get(groupName)%></b></td>
+				<td valign=top>&#160;</td>
+            </tr>
+            </tc:listIterator>
             <tr>
 				<td align=right><b>Contract Work</b></td>
 				<td valign=top>&#160;</td>
