@@ -17,6 +17,9 @@ public class TestResultsInfo implements java.io.Serializable {
     /** Holds value of property problemSetATCStats. */
     private ResultSetContainer problemSetATCStats;
     
+    /** Holds value of property sessionId. */
+    private long sessionId;
+    
     /** Getter for property problemSetAResults.
      * @return Value of property problemSetAResults.
      */
@@ -57,6 +60,20 @@ public class TestResultsInfo implements java.io.Serializable {
      */
     public void setProblemSetATCStats(ResultSetContainer problemSetATCStats) {
         this.problemSetATCStats = problemSetATCStats;
+    }
+    
+    /** Getter for property sessionId.
+     * @return Value of property sessionId.
+     */
+    public long getSessionId() {
+        return this.sessionId;
+    }
+    
+    /** Setter for property sessionId.
+     * @param sessionId New value of property sessionId.
+     */
+    public void setSessionId(long sessionId) {
+        this.sessionId = sessionId;
     }
     
 }

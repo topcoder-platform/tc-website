@@ -54,6 +54,7 @@ public class TestResults extends BaseProcessor {
             getRequest().setAttribute("profileInfo",pinfo);
             
             TestResultsInfo tinfo = new TestResultsInfo();
+            tinfo.setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
             tinfo.setProblemSetAResults((ResultSetContainer)map.get("testSetAResults"));
             tinfo.setProblemSetBResults((ResultSetContainer)map.get("testSetBResults"));
             getRequest().setAttribute("testResultsInfo",tinfo);
