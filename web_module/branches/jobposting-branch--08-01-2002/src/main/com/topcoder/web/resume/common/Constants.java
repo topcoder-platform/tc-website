@@ -26,8 +26,8 @@ public class Constants {
         TASK_KEY = bundle.getProperty("task_key", "t");
         STEP_KEY = bundle.getProperty("step_key", "st");
         ERROR_PAGE = bundle.getProperty("error_page", "/errorPage.jsp");
-        SUCCESS_PAGE = bundle.getProperty("success_page", "upload_success.jsp");
-        UPLOAD_PAGE = bundle.getProperty("upload_page", "resume_upload.jsp");
+        SUCCESS_PAGE = bundle.getProperty("success_page", "/resume/upload_success.jsp");
+        UPLOAD_PAGE = bundle.getProperty("upload_page", "/resume/resume_upload.jsp");
         TASK_PACKAGE = bundle.getProperty("task_package", "com.topcoder.web.resume.bean");
 
     }
