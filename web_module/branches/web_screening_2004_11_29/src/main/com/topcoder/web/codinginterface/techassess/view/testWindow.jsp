@@ -1,4 +1,11 @@
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.web.common.StringUtils"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
+<tc-webtag:useBean id="prob" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" toScope="page" property="problem"/>
+<tc-webtag:useBean id="problemInfo" name="<%=Constants.PROBLEM%>" type="com.topcoder.web.codinginterface.techassess.model.ProblemInfo" toScope="page" />
+<tc-webtag:useBean id="language" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" toScope="page" property="language"/>
+
 
 <html>
   <head>
@@ -12,30 +19,17 @@
         <input type=hidden name=arrayDisplayArgType value="" />
         <!-- this will be dynamically written out by the backend for this page -->
         <table border=0 width="100%">
-            <tr>
-                <td>
-                    (1) vector&lt;string&gt;
-                </td>
-                <td>
-                    <input type="button" name="arg0input" value="create" onclick="launchArray(0);" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    (2) int
-                </td>
-                <td>
-                    <input type="text" name="arg1input" value="" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;
-                </td>
-                <td>
-                    &nbsp;
-                </td>
-            </tr>
+            <ci:argumentIterator problem="prob" language="language">
+                <tr>
+                    <td>
+                        <%=StringUtils.htmlEncode(argument)%>
+                    </td>
+                    <td>
+                        <%=inputElement%>
+                    </td>
+                </tr>
+            </ci:argumentIterator>
+            <tr><td colspan="2"></td></tr>
             <tr>
                 <td colspan="2" align=center>
                     <input type=button value="OK" onclick="ok();" />

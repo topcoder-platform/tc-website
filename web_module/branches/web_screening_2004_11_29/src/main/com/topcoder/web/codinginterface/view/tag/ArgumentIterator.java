@@ -20,9 +20,9 @@ import java.util.HashMap;
  */
 public class ArgumentIterator extends BodyTagSupport {
 
-    public static final String INDEX = "idx";
-    public static final String ARGUMENT = "arg";
-    public static final String INPUT = "ipt";
+    public static final String INDEX = "argumentIndex";
+    public static final String ARGUMENT = "argument";
+    public static final String INPUT = "inputElement";
 
     private Problem problem = null;
     private Language language = null;
