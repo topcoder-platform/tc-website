@@ -85,7 +85,7 @@ else
                                 <td class="sidebarTitle">Handle</td>
                                 <td class="sidebarTitle" align=center>Position Points</td>
                                 <td class="sidebarTitle" align=center>Complete Projects</td>
-                                <td class="sidebarTitle" align=center>Incomplete Projects</td>
+                                <td class="sidebarTitle" align=center>Projects In Progess</td>
                                 <td class="sidebarTitle" align=right>Contest Prize</td>
                                 <td class="sidebarTitle" align=center>Results</td>
                             </tr>
