@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/brett1479_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251317"><strong>brett1479</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,16 +22,18 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_qual_rd_1">TCO - Qualification Round 1 Summary</a></font></strong><br />
-                        Tuesday, October 7, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_qual_rd_2">TCO - Qualification Round 2 Summary</a></font></strong><br />
+                        Thursday, October 9, 2003</p>
 
 <p>
-The first competition of the 2003 TopCoder Open sponsored by Intel<sup>&#174;</sup> came off pretty smoothly, with 3 relatively 
-easy problems and 621 competitors.  In fact, 140 out of the 621 people solved all 3 successfully.  
-In order to advance to the next round of the TCO, you needed to get at least 590 points tonight, which 
-amounted to solving the easy and medium problems pretty quickly (in around 25 minutes). 
+With another day of fierce competition in the books, the 2003 TopCoder Open sponsored by Intel&#174; sponsored by Intel&#174; heads 
+into its opening round.  600+ coders battled furiously for the 200 advancing 
+spots.  Many competitors, who hadn't qualified on Tuesday, came back to try 
+and change their fate.  The new unrated coders, covered in a veil of mystery, 
+sparked much attention.  Each could potentially be the next SnapDragon or 
+Tomek.  At 10:00 the round began, and submissions started flying in.
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=tco03_qual_rd_1</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=tco03_qual_rd_2</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
