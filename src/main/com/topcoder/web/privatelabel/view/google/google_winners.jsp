@@ -80,7 +80,7 @@ body,td,font,p,a
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
                         <td valign="top">
-                        <b><font size="+1">Winners</font></b>
+                        <b><font size="+1">Onsite Championship Round</font></b>
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
 
                         <p><font size="-1">
@@ -88,7 +88,7 @@ body,td,font,p,a
 
                       <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="400">
                         <tr>
-                           <td class="advancersTitle" align="left" colspan="2">Onsite Championship Round</td>
+                           <td class="advancersTitle" align="left" colspan="2">Winners</td>
                         </tr>
                         <tr>
                            <td class="google_round_id" width="30%">Handle</td>
@@ -101,6 +101,43 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >tomek</td><td class="sidebarText" align="right">331.87</td></tr>
 
                      </table>
+
+                     <br/>
+
+                      <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="400">
+                        <tr>
+                           <td class="advancersTitle" align="left" colspan="2">Eliminated</td>
+                        </tr>
+                        <tr>
+                           <td class="google_round_id" width="30%">Handle</td>
+                           <td class="google_round_id" width="30%" align="right">Score</td>
+                        </tr>
+
+<tr><td class="sidebarText" align="left" >snewman</td><td class="sidebarText" align="right">281.11</td></tr>
+<tr><td class="sidebarText" align="left" >SnapDragon</td><td class="sidebarText" align="right">259.18</td></tr>
+<tr><td class="sidebarText" align="left" >jcd1</td><td class="sidebarText" align="right">258.18</td></tr>
+<tr><td class="sidebarText" align="left" >dgarthur</td><td class="sidebarText" align="right">216.44</td></tr>
+<tr><td class="sidebarText" align="left" >bladerunner</td><td class="sidebarText" align="right">209.68</td></tr>
+<tr><td class="sidebarText" align="left" >DjinnKahn</td><td class="sidebarText" align="right">206.08</td></tr>
+<tr><td class="sidebarText" align="left" >bstanescu</td><td class="sidebarText" align="right">205.37</td></tr>
+<tr><td class="sidebarText" align="left" >dvickrey</td><td class="sidebarText" align="right">202.92</td></tr>
+<tr><td class="sidebarText" align="left" >mathijs</td><td class="sidebarText" align="right">200.00</td></tr>
+<tr><td class="sidebarText" align="left" >Ruberik</td><td class="sidebarText" align="right">190.66</td></tr>
+<tr><td class="sidebarText" align="left" >Wasteland</td><td class="sidebarText" align="right">189.49</td></tr>
+<tr><td class="sidebarText" align="left" >doeth</td><td class="sidebarText" align="right">175.73</td></tr>
+<tr><td class="sidebarText" align="left" >radeye</td><td class="sidebarText" align="right">168.49</td></tr>
+<tr><td class="sidebarText" align="left" >ante</td><td class="sidebarText" align="right">150.65</td></tr>
+<tr><td class="sidebarText" align="left" >antimatter</td><td class="sidebarText" align="right">134.76</td></tr>
+<tr><td class="sidebarText" align="left" >gepa</td><td class="sidebarText" align="right">0.00</td></tr>
+<tr><td class="sidebarText" align="left" >ValD</td><td class="sidebarText" align="right">0.00</td></tr>
+<tr><td class="sidebarText" align="left" >lars</td><td class="sidebarText" align="right">0.00</td></tr>
+<tr><td class="sidebarText" align="left" >ssancho2</td><td class="sidebarText" align="right">0.00</td></tr>
+<tr><td class="sidebarText" align="left" >ZorbaTHut</td><td class="sidebarText" align="right">0.00</td></tr>
+<tr><td class="sidebarText" align="left" >po</td><td class="sidebarText" align="right">-50.00</td></tr>
+
+
+                     </table>
+
 
                         </font></p>
 
