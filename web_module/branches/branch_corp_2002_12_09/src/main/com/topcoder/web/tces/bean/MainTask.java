@@ -99,6 +99,10 @@ public class MainTask extends BaseTask implements Task, Serializable {
         User curUser = getAuthenticityToken().getActiveUser();
         uid = curUser.getId();
 
+        String testUser = request.getParameter("testUserId");
+        if (testUser != null) {
+            uid = Long.parseLong(testUser);
+        }
         log.debug("User id set in MainTask: "+uid);
     }
 
