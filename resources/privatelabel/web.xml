@@ -81,7 +81,7 @@
 -->
         <init-param>
             <param-name>processor_path</param-name>
-            <param-value>com.topcoder.web.privatelabel.controller.request.</param-value>
+            <param-value>com.topcoder.web.privatelabel.controller.request.resume.</param-value>
             <description>the path to the processors for this app</description>
         </init-param>
         <init-param>
