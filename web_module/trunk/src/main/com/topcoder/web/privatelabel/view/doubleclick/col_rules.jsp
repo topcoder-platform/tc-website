@@ -24,13 +24,20 @@
 	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Rules</p>
+            <p>
+                        <a class="bodyText_link" href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a class="bodyText_link" href="#about">About the Tournament</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a class="bodyText_link" href="#prizes">About the Prizes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a class="bodyText_link" href="#conditions">Conditions of Participation</a></p>
+
+	         <p class="pageTitle">Rules</p>
          
             <h3>No purchase necessary to enter or win. The tournament is void where prohibited.</h3>
 
             <p><span class="dc_subTitle">Summary of the Tournament</span><br/>
             The DoubleClick&#153; 2004 Coding Challenge ("DCCC") is being offered by DoubleClick Inc. ("DoubleClick") and TopCoder, Inc. ("TopCoder").  The DCCC will take place between Monday, February 9 and Friday, February 27, 2004.  It begins with a one-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the subsequent two rounds of the programming tournament.  The entire tournament consists of a Qualification Round, the (1) main competition round, and one (1) onsite final round.  All participants who compete in the main competition round will receive a DoubleClick 2004 Coding Challenge T-shirt.  In addition, DoubleClick will award $10,000 in cash prizes to the 10 finalists in the tournament.</p>
 
+            <a name="eligibility"></a>
             <p><span class="dc_subTitle">Eligibility</span><br/>
             Students meeting the following criteria are eligible to compete in the DoubleClick 2004 Coding Challenge:</p>
 
@@ -56,6 +63,7 @@
 
             <p>Upon logging in to the Competition Arena during the Qualification Round, each competitor who has registered for the DCCC will receive a message indicating which problem he/she has been assigned.  All participants who score positive points on the problem during the Qualification Round will be eligible to compete in Round 2 (Main Competition) of the DCCC.</p>
 
+            <a name="about"></a>
             <p><span class="dc_subTitle">About the Tournament</span><br/>
             <span class="dc_subTitle">Use of Plugins in the Competition Arena</span><br/>
             The use of external TopCoder Arena plugins or any modifications to the Competition Arena functionality is strictly prohibited.</p>
@@ -92,6 +100,7 @@
             <li>If a tie still remains in the Championship Round, then the prize money will be distributed equally among the tied participants.</li>
             </ul>
 
+            <a name="prizes"></a>
             <p><span class="dc_subTitle">About the Prizes</span><br/>
             All participants who compete in Round 2 will receive a DoubleClick 2004 Coding Challenge T-shirt.  In addition, the 10 finalists in Round 3 will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:</p>
 
@@ -141,6 +150,7 @@
                 </tr>
             </table>
 
+            <a name="conditions"></a>
             <p><span class="dc_subTitle">Conditions of Participation</span><br/>
             By participating in the tournament, you agree to be bound by these rules and to all decisions of DoubleClick and TopCoder, which are final, binding and conclusive in all matters.</p>
 
