@@ -130,16 +130,20 @@ public final class TaskDevelopment {
                 Date initialDate = df.parse(date);
                 devTag.addTag(new ValueTag("date", df.format(initialDate)));
                 cal.setTime(initialDate);
-                cal.add(Calendar.DATE, 4);
                 
                 
+                cal.add(Calendar.DATE, 8);
                 devTag.addTag(new ValueTag("DesWinner", df.format(cal.getTime())));    
+                cal.add(Calendar.DATE, 4);
                 devTag.addTag(new ValueTag("DesFinal", df.format(cal.getTime())));    
+                cal.add(Calendar.DATE, 37);
                 devTag.addTag(new ValueTag("DesDevFinal", df.format(cal.getTime())));    
 
 
                 cal.setTime(initialDate);
+                cal.add(Calendar.DATE, 13);
                 devTag.addTag(new ValueTag("DevWinner", df.format(cal.getTime())));    
+                cal.add(Calendar.DATE, 5);
                 devTag.addTag(new ValueTag("DevFinal", df.format(cal.getTime())));    
 
 
