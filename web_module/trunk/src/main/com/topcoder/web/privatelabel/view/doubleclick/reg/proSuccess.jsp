@@ -24,8 +24,7 @@
 	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Registration</p>
-         <p>Registration Successful!</p>
+         <p class="pageTitle">Registration Successful!</p>
          <p>Be sure to spend time in the Practice Room by clicking the Practice Arena link above.<br/><br/>
 
             Good luck to you in the Arena!</p>
