@@ -59,10 +59,15 @@ public class Controller extends HttpServlet {
 
         InitialContext ctx = null;
         try {
+            HttpSession session = request.getSession(true);
             ctx = (InitialContext) TCContext.getInitial();
-
             if (taskName != null && taskName.trim().length() > 0) {
                 log.info("[**** query **** " + taskName + " **** " + request.getRemoteHost() + " ****]");
+                if (!Authentication.isLoggedIn(session)) {
+                    log.debug("User not authenticated for access to TCES resource.");
+                    forwardToLoginPage(request, response);
+                    log.debug("still executing");
+                }
                 // process a task
                 Task task = null;
                 Class taskClass = null;
