@@ -228,7 +228,7 @@ public class ProjectAdministration implements Model {
                             message += submissions[i].getSubmitter().getHandle() + "'s";
                         }
                     }
-                    if (submissions[i].isRemoved() || !submissions[i].isPassedScreening()) {
+                    if (!submissions[i].isAdvancedToReview()) {
                         mailQueue.add(new ResultsMail(user, submissions[i].getSubmitter(), 0, MailHelper.PLACE_SCREENING_FAIL, newProject));
                     }
                 }
