@@ -21,24 +21,31 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
     private final static Logger log = Logger.getLogger(TestResults.class);
 
     protected long getUsageType() throws TCWebException {
-        HttpSession session = getRequest().getSession();
-        Long usageType = (Long)
-            session.getAttribute(Constants.SESSION_INFO);
-        if(usageType == null) {
-            DataAccessInt dAccess = Util.getDataAccess(true);
-            Request dr = new Request();
-            dr.setContentHandle("usage_type");
-            dr.setProperty("uid", String.valueOf(getUser().getId()));
-            Map map = dAccess.getData(dr);
-            
-            ResultSetContainer access = (ResultSetContainer) map.get("usage_type");
-            
-            usageType = new Long(access.getLongItem(0, "usage_type_id"));
-            session.setAttribute(Constants.USAGE_TYPE, usageType);
-        }
+        try
+        {
+            HttpSession session = getRequest().getSession();
+            Long usageType = (Long)
+                session.getAttribute(Constants.SESSION_INFO);
+            if(usageType == null) {
+                DataAccessInt dAccess = Util.getDataAccess(true);
+                Request dr = new Request();
+                dr.setContentHandle("usage_type");
+                dr.setProperty("uid", String.valueOf(getUser().getId()));
+                Map map = dAccess.getData(dr);
 
-        log.info("USAGE TYPE:" + usageType.longValue());
-        return usageType.longValue();
+                ResultSetContainer access = (ResultSetContainer) map.get("usage_type");
+
+                usageType = new Long(access.getLongItem(0, "usage_type_id"));
+                session.setAttribute(Constants.USAGE_TYPE, usageType);
+            }
+
+            log.info("USAGE TYPE:" + usageType.longValue());
+            return usageType.longValue();
+        }
+        catch(Exception e)
+        {
+            throw new TCWebException(e);
+        }
     }
 
 
