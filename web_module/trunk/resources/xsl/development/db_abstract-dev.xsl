@@ -59,7 +59,7 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>Database Abstraction: Development</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Database Abstraction: Development&amp;comp=2809552&amp;date=2&#47;13" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Database%20Abstraction:%20Development&amp;comp=2809552&amp;date=2&#47;13" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -125,7 +125,7 @@
 <!-- Register at TCS -->
 						
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Database Abstraction: Development&amp;comp=2809552&amp;date=2&#47;13" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Database%20Abstraction:%20Development&amp;comp=2809552&amp;date=2&#47;13" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

@@ -59,7 +59,7 @@
 <!-- Title -->
 							<h1 class="devSubhead"><strong>File Conversion Enhancement: EJB Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Conversion Enhancement: EJB Design&amp;comp=600107&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File%20Conversion%20Enhancement:%20EJB%20Design&amp;comp=600107&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 							<p><strong>Component Overview</strong><br />
@@ -136,7 +136,7 @@
 <!-- Register at TCS -->
 							
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Conversion Enhancement: EJB Design&amp;comp=600107&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File%20Conversion%20Enhancement:%20EJB%20Design&amp;comp=600107&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

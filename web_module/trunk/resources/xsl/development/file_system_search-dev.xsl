@@ -59,7 +59,7 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>File System Search: Development</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File System Search: Development&amp;comp=3304435&amp;date=2&#47;6" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File%20System%20Search:%20Development&amp;comp=3304435&amp;date=2&#47;6" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -125,7 +125,7 @@
 <!-- Register at TCS -->
 						
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File System Search: Development&amp;comp=3304435&amp;date=2&#47;6" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File%20System%20Search:%20Development&amp;comp=3304435&amp;date=2&#47;6" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

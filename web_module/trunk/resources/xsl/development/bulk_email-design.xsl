@@ -59,7 +59,7 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>Bulk Email: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Bulk Email: Design&amp;comp=3312447&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Bulk%20Email:%20Design&amp;comp=3312447&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
@@ -131,7 +131,7 @@
 <!-- Register at TCS -->
 						
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Bulk Email: Design&amp;comp=3312447&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Bulk%20Email:%20Design&amp;comp=3312447&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

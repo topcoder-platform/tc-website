@@ -58,7 +58,7 @@
 							
 							<h1 class="devSubhead"><strong>File Diff: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Diff: Design&amp;comp=4202855&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File%20Diff:%20Design&amp;comp=4202855&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
 							Compare the contents of two text files, outputting the differences. The File Diff component compares the contents of File A with File B, outputting the changes necessary to convert File A to File B. There are a series of options to ignore changes in white spaces, blank lines, case as well as an option to output only the differences between the two files.
@@ -125,7 +125,7 @@
 
 
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File Diff: Design&amp;comp=4202855&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=File%20Diff:%20Design&amp;comp=4202855&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

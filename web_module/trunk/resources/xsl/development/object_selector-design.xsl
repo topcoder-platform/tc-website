@@ -59,7 +59,7 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>Object Selector: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Selector Component Design&amp;comp=4228093" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object%20Selector%20Component%20Design&amp;comp=4228093" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 					
 <!-- Overview -->
 						<p><strong>Overview</strong><br/>
@@ -131,7 +131,7 @@
 <!-- Register at TCS -->
 						
 
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Selector Component Design&amp;comp=4228093" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object%20Selector%20Component%20Design&amp;comp=4228093" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 						<p><br/></p>
 					</td>

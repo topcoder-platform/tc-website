@@ -59,7 +59,7 @@
 <!-- Title -->
 							<h1 class="devSubhead"><strong>Configuration Manager Enhancement: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Configuration Manager Enhancement: Design&amp;comp=500004&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Configuration%20Manager%20Enhancement:%20Design&amp;comp=500004&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 							<p><strong>Overview</strong><br />
@@ -143,7 +143,7 @@
 <!-- Register at TCS -->
 							
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Configuration Manager Enhancement: Design&amp;comp=500004&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Configuration%20Manager%20Enhancement:%20Design&amp;comp=500004&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

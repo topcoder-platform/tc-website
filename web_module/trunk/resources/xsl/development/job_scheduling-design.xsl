@@ -58,7 +58,7 @@
 							
 							<h1 class="devSubhead"><strong>Job Scheduling: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Job Scheduling: Design&amp;comp=3300911&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Job%20Scheduling:%20Design&amp;comp=3300911&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
 							The Job Scheduling Component is the java version of cron, the unix scheduling utility. Cron enables users to schedule the automated execution of recurring tasks and processes. However, while cron is widely available on unix system, each operating system has its own version of the scheduling utility making it difficult to easily port applications between operating systems. By providing a Java version of this useful utility, java applications are another step closer to being completely platform independent.
@@ -122,7 +122,7 @@
 
 							
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Job Scheduling: Design&amp;comp=3300911&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Job%20Scheduling:%20Design&amp;comp=3300911&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

@@ -59,7 +59,7 @@
 <!-- Title -->
 							<h1 class="devSubhead"><strong>.NET Email Engine: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=.NET Email Engine: Design&amp;comp=4208949" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=.NET%20Email%20Engine:%20Design&amp;comp=4208949" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 							<p><strong>Component Overview</strong><br />
@@ -139,7 +139,7 @@
 <!-- Register at TCS -->
 
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=.NET Email Engine: Design&amp;comp=4208949&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=.NET%20Email%20Engine:%20Design&amp;comp=4208949&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 

@@ -58,7 +58,7 @@
 							
 							<h1 class="devSubhead"><strong>Unique Key Generator: Development</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Unique Key Generator: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Unique%20Key%20Generator:%20Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
 							The Unique Key Generator provides the ability to create pseudo-randomly generated, unique keys. This component is used to generate keys as text, text/numeric, or a combination of any ASCI characters. The main benefit behind the Unique Key Generator is in the ability to generate unique keys without relying on a persistent store or central, clustered solution.
@@ -113,7 +113,7 @@
 
 							
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Unique Key Generator: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Unique%20Key%20Generator:%20Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br/></p>
 					</td>
 

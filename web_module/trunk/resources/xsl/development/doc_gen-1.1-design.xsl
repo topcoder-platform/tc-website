@@ -59,7 +59,7 @@
 <!-- Title -->
 							<h1 class="devSubhead"><strong>Document Generator Enhancement: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Document Generator Enhancement: Design&amp;comp=600038" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Document%20Generator%20Enhancement:%20Design&amp;comp=600038" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 							<p><strong>Component Overview</strong><br />
@@ -135,7 +135,7 @@
 <!-- Register at TCS -->
 							
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Document Generator Enhancement: Design&amp;comp=600038" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Document%20Generator%20Enhancement:%20Design&amp;comp=600038" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
