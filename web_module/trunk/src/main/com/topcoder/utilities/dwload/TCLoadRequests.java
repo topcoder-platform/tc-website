@@ -77,7 +77,6 @@ public class TCLoadRequests extends TCLoad {
             log.info("SUCCESS: Requests load ran successfully.");
             return true;
         } catch (Exception ex) {
-            ex.printStackTrace();
             setReasonFailed(ex.getMessage());
             return false;
         }
@@ -98,7 +97,6 @@ public class TCLoadRequests extends TCLoad {
             stmt.setInt(1, type);
             rs = stmt.executeQuery();
             if (rs.next()) {
-                log.info("Last log time was  " + fLastLogTime.toString());
                 return rs.getTimestamp(1);
             } else {
                 // A little misleading here as we really didn't hit a SQL
