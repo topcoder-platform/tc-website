@@ -1114,7 +1114,7 @@ SELECT cal.date
 
 java com.topcoder.utilities.QueryLoader "DW" 1004 "TCES_Competition_History" 0 0 "
 SELECT cal.date
-     , r.name
+     , contest.name
      , dlu.division_desc
      , rr.final_points
      , rd.average_points
@@ -1126,11 +1126,13 @@ SELECT cal.date
      , calendar cal
      , division_lu dlu
      , round_division rd
+     , contest
  WHERE rr.round_id = r.round_id
    AND r.calendar_id = cal.calendar_id
    AND rr.division_id = dlu.division_id
    AND rr.round_id = rd.round_id
    AND rr.division_id = rd.division_id
+   AND r.contest_id = contest.contest_id
    AND (rr.coder_id = @mid@)
  ORDER BY cal.date
 "

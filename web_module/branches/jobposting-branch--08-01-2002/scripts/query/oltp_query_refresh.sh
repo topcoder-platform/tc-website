@@ -772,6 +772,20 @@ SELECT dq.demographic_question_id
      , da.sort
 "
 
+java com.topcoder.utilities.QueryLoader "OLTP" 1053 "TCES_Member_Hit_List" 0 0 "
+SELECT jh.job_id
+     , j.job_desc
+     , jh.timestamp
+  FROM job j
+     , job_hit jh
+     , campaign_job_xref cjx
+ WHERE cjx.campaign_id = @cid@
+   AND j.job_id = cjx.job_id
+   AND jh.job_id = cjx.job_id
+   AND jh.user_id = @mid@
+ ORDER BY jh.timestamp DESC
+"
+
 java com.topcoder.utilities.QueryLoader "OLTP" 1097 "TCES_Verify_Member_Access" 0 0 "
 SELECT jh.user_id
      , cjx.job_id
