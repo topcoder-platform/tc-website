@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="/errorPage.jsp" %>
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page errorPage="/errorPage.jsp"
+         import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -43,29 +44,16 @@ function getProblemDetail(id) {
 
 <jsp:useBean id="profileList" type="java.util.List" scope="request" />
 
-<% String curProfile = "NONE"; boolean first = true; boolean even = true; %>
+    <screen:nestedListIterator id="profile" list="<%= profileList %>">
 
-    <screen:resultSetRowIterator id="row" list="<%= profileList %>">
-
-      <% if(!curProfile.equals(row.getItem("session_profile_id").toString())){ %>
-
-        <% if(!first){ %>
-          <%-- End previous table --%>
-            <TR>
-               <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-            </TR>         
-          </TABLE>                
-        <% } %>
-
-        <%-- Start a fresh table --%>
         <%
-            even = true;
-            curProfile = row.getItem("session_profile_id").toString();
-            first = false;
+            boolean even = true;
+            ResultSetContainer.ResultSetRow first = (ResultSetContainer.ResultSetRow)profile.get(0);
         %>
+
         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
             <TR>
-               <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></B></FONT></TD>                                         
+               <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B><screen:resultSetItem row="<%=first%>" name="session_profile_desc" /></B></FONT></TD>                                         
             </TR>            
             <TR>
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666">&#160;</TD>               
@@ -77,9 +65,9 @@ function getProblemDetail(id) {
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Complete</B></TD>                              
             </TR>
             <TR>
-               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="round_name" /></TD>               
-               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></TD>    
-               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_complete" /></TD>                                             
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=first%>" name="round_name" /></TD>               
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=first%>" name="num_sessions" /></TD>    
+               <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=first%>" name="num_complete" /></TD>                                             
             </TR>                                    
         </TABLE>         
         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">       
@@ -101,14 +89,13 @@ function getProblemDetail(id) {
                <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Passed</B></TD>               
                <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>&#160;</B></TD>               
             </TR>
-      <% } %>
-
-      <%-- Do a main body row --%>
+     <screen:resultSetRowIterator id='row' list='<%= profile %>'>
+      <%-- Do a table body row --%>
       <% if(row.getItem("num_sessions").toString().equals("0")){ %>
             <TR>
                <TD COLSPAN="6" VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">
-                            No sessions scheduled for this profile.
-                       </TD>               
+                    No sessions scheduled for this profile.
+               </TD>               
             </TR>
       <% }else{ %>
           <%
@@ -127,16 +114,14 @@ function getProblemDetail(id) {
             </TR>
       <% } %>
       <% even = !even; %>
-    </screen:resultSetRowIterator>
-
-    <% if(!first){ %>
-         <%-- End the final table --%>
+     </screen:resultSetRowIterator>
             <TR>
                <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
             </TR>         
-         </TABLE>                
-    <% }else{ %>
-         <%-- No tables means no profiles --%>
+          </TABLE>                
+    </screen:nestedListIterator>
+
+    <% if(profileList.isEmpty()){ %>
               No test profiles found.
     <% } %>
 
