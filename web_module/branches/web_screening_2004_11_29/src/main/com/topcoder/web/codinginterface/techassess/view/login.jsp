@@ -8,7 +8,7 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css"/>
 </head>
 <body>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <table width=800 align=center cellspacing=0 cellpadding=0 class=bodyTable>
 	<tr>
 		<td colspan=3>
