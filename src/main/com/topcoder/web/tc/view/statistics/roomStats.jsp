@@ -141,24 +141,24 @@ else {
      pageContext.setAttribute("roundName",resultRow_0.getItem(4));
      pageContext.setAttribute("roomName",resultRow_0.getItem(3));
 %>      
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">  
+               <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
-                   <TD COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
+                   <TD COLSPAN="21"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD CLASS="statText" COLSPAN="20"><%@include file="coderLegend.html" %><BR><BR>    
+                   <TD CLASS="statText" COLSPAN="21"><%@include file="coderLegend.html" %><BR><BR>
       Click the <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"> icon to view problem information.</TD>    
                  </TR>    
                  <TR>
-                   <TD COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>    
+                   <TD COLSPAN="21"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>  
               <TR>
-                   <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="20" HEIGHT="18">&#160;Statistics for
+                   <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="21" HEIGHT="18">&#160;Statistics for
                      <%= pageContext.getAttribute("contestName").toString() %>&nbsp;>&nbsp;<%= pageContext.getAttribute("roundName").toString() %>&nbsp;>&nbsp;<%= pageContext.getAttribute("roomName").toString() %>
                    </TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="20"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
+                   <TD COLSPAN="21"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>  
                  <TR VALIGN="middle">
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
