@@ -213,7 +213,9 @@
         <xsl:choose>
         <xsl:when test="/TC/HOME/InvitationalInfo/IsEligible='0'">
           You are not eligible to compete in the TopCoder Invitational Tournament.  There are 3 possible reasons for this.<BR/>
-          1) You are not from an eligible country.  2) You have not competed in at least 3 rated events.  3) You have not competed since March 30, 2002.
+          1) You are not from an eligible country.<BR/>  
+          2) You have not competed in at least 3 rated events.<BR/> 
+          3) You have not competed since March 30, 2002.
         </xsl:when>
         <xsl:otherwise>
           Click <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="statText">here</A> to register for the TopCoder Invitational.
@@ -225,6 +227,9 @@
       </xsl:otherwise>
       </xsl:choose>
     </TD>
+  </TR>
+  <TR>
+    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
   </TR>
 </TABLE> 
 
