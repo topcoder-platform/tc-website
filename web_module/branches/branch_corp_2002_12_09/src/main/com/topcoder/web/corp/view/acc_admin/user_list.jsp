@@ -49,15 +49,15 @@
 
 
 
-	<tc-webtagiterator list="<%=rsc%>" id="resultRow">
+	<tc-webtag:iterator list="<%=rsc%>" id="resultRow">
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			&#160;<tc-webtagitem name="user_id" row="<%=resultRow%>"/></TD>
+			&#160;<tc-webtag:item name="user_id" row="<%=resultRow%>"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<tc-webtagitem name="first_name" row="<%=resultRow%>"/></TD>
+			<tc-webtag:item name="first_name" row="<%=resultRow%>"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<tc-webtagitem name="last_name" row="<%=resultRow%>"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtagitem name="user_id" row="<%=resultRow%>"/>" CLASS="bodyText">Edit</A></TD>		
+			<tc-webtag:item name="last_name" row="<%=resultRow%>"/></TD>
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtag:item name="user_id" row="<%=resultRow%>"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
 	</tc-webtagiterator>
 
