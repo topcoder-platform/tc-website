@@ -49,7 +49,7 @@
 
 			<br/><br/>
 
-			<table class=tableFrame cellpadding=5 cellspacing=2 border=0 width="350">
+			<table class=tableFrame cellpadding=5 cellspacing=2 border=0 width="400">
 			<tr>
 			<td class="advancersTitle">Round</td>
 			<td class="advancersTitle" align="right" width="100%">Advancers</td>
