@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.sessionprofile;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.naming.Context;
@@ -79,6 +80,7 @@ public class SessionProfileBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createSessionProfile. ");
             exceptionBuf.append(varBuf.toString());
@@ -144,6 +146,7 @@ public class SessionProfileBean extends BaseEJB {
 
             pstmt.executeUpdate();
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setSessionProfileDesc. ");
             exceptionBuf.append(varBuf.toString());
@@ -208,6 +211,7 @@ public class SessionProfileBean extends BaseEJB {
 
             pstmt.executeUpdate();
          } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
@@ -272,6 +276,7 @@ public class SessionProfileBean extends BaseEJB {
 
             pstmt.executeUpdate();
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setCompanyId. ");
             exceptionBuf.append(varBuf.toString());
@@ -342,6 +347,7 @@ public class SessionProfileBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(100);
             exceptionBuf.append("SQLException in getSessionProfileDesc. ");
             exceptionBuf.append(varBuf.toString());
@@ -415,6 +421,7 @@ public class SessionProfileBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
             StringBuffer exceptionBuf = new StringBuffer(100);
             exceptionBuf.append("SQLException in getSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
@@ -487,6 +494,7 @@ public class SessionProfileBean extends BaseEJB {
           }
 
       } catch (SQLException sqe) {
+          DBMS.printSqlException(true,sqe);
           StringBuffer exceptionBuf = new StringBuffer(100);
           exceptionBuf.append("SQLException in getCompanyId. ");
           exceptionBuf.append(varBuf.toString());
