@@ -15,6 +15,9 @@ import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.UserPrincipal;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -1725,6 +1728,32 @@ public class Registration
             if (!Transaction.commit(transaction)) {
                 throw new TaskException("Unable to commit transaction");
             }
+
+            Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            TCSubject tcs = new TCSubject(132456);
+            Collection groups = pmr.getGroups(tcs);
+            GroupPrincipal anonGroup = null;
+            GroupPrincipal userGroup = null;
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                anonGroup = (GroupPrincipal) iterator.next();
+                if (anonGroup.getName().equals("Anonymous")) {
+                    break;
+                }
+            }
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                userGroup = (GroupPrincipal) iterator.next();
+                if (anonGroup.getName().equals("Users")) {
+                    break;
+                }
+            }
+
+            //we're in a transaction on the security user table, so we can't select out the user principal object.
+            UserPrincipal up = new UserPrincipal("", user.getUserId());
+            pmr.addUserToGroup(anonGroup, up, tcs);
+            pmr.addUserToGroup(userGroup, up, tcs);
+
             user.setModified("S");
             coder.setAllModifiedStable();
         } catch (Exception e) {
