@@ -385,8 +385,8 @@ public class Search extends Base {
     
     map.put(DataAccessConstants.COMMAND,"member_search");
     map.put(HANDLE_INPUT_CODE,handle_pattern);
-    map.put(MIN_RATING_INPUT_CODE,min_rating);
-    map.put(MAX_RATING_INPUT_CODE,max_rating);
+    map.put(MIN_RATING_INPUT_CODE,min_rating.toString());
+    map.put(MAX_RATING_INPUT_CODE,max_rating.toString());
     map.put(STATE_INPUT_CODE,state_code_pattern);
     map.put(SCHOOL_NAME_INPUT_CODE,school_name_pattern);
     Request req=new Request(map);
