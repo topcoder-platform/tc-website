@@ -111,7 +111,8 @@
                             <li>Design and produce internal promotions for our web sites. </li>
                             <li>Design and produce marketing / sales collateral materials. </li>
                         </ul>
-                        This position is at our Glastonbury, CT offices. No telecommuting options are available. <a class="bodyText" href="mailto:tces@topcoder.com?subject=TopCoder Graphic Designer">Apply for this job</a> by email.
+                        This position is at our Glastonbury, CT offices. No telecommuting options are available. <a class="bodyText" href="mailto:tces@topcoder.com?subject=TopCoder Graphic Designer">Apply for this job</a> by email. 
+                        Please provide a link to your portfolio in your inquiry.
                         
                         <hr width="100%" noshade="noshade" />
                     </td>
