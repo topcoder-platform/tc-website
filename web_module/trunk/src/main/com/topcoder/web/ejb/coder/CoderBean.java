@@ -473,7 +473,7 @@ public class CoderBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException in getCoderTypeId coderId: " + coderId);
         } catch (Exception e) {
-            throw new EJBException("Exception in getCoderTypeId coderId: " + coderId);
+            throw new EJBException("Exception in getCoderTypeId coderId: " + coderId + " " + e.getMessage());
         } finally {
             close(rs);
             close(stmt);
