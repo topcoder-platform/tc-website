@@ -72,8 +72,8 @@
                         <p>We invite you to explore the opportunities available at NVIDIA. Click on the link to see what your future may hold.</p>
                         <p><blockquote>Experienced professionals <br/>
                         New &#38; Recent College Graduates <br/>
-                        Interns &#38; Co-ops</blockquote><br/>
-                       <strong>We love what we do because we do what we love.  Join us.</strong></p>
+                        Interns &#38; Co-ops</blockquote><br/></p>
+                       <p><strong>We love what we do because we do what we love. Join us.</strong></p>
                       </td>
                   </tr>
         
