@@ -43,6 +43,8 @@ public final class StringUtils {
 
     public static final String ALPHABET_HEX_UPPER = "0123456789ABCDEF";
     public static final String ALPHABET_PHONE_NUMBER = "-0123456789()+";
+    public static final String ALPHABET_USERNAME_EN =
+        ALPHABET_ALPHA_EN+"-.";     
     
     /**
      * Checks if string has all its charachters in alphabet given.

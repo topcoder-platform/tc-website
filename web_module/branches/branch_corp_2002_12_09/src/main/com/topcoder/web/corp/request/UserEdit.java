@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.request;
 
 import java.rmi.RemoteException;
+import java.util.Enumeration;
 import java.util.Iterator;
 
 import javax.ejb.CreateException;
@@ -10,6 +11,7 @@ import javax.transaction.Transaction;
 
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -46,27 +48,12 @@ public class UserEdit extends BaseRegistration {
     
     public UserEdit() {
         pageInContext = true;
-        // For this processor next page is always in the context. It is either
-        // same form page (if any errors were encountered) or next workflow page
-        // (presumably same page from where he started the process)
     }
 
     /**
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     void businessProcessing() throws Exception {
-//        //check if user is logged in - *must be*
-//        if( authToken.getUser().isAnonymous() ) {
-//            throw new AuthenticationException(
-//                "You must be logged in to perform this action"
-//            );
-//        }
-        
-        // well, user is logged in
-        // now we will define what action requested
-        // if ID of user is omitted, is negative or absent (also if page is to
-        // be fetched by non POST method) then will suppose that it
-        // is 'user create' request
         long targetUserID = -1;
         try {
             targetUserID = Integer.parseInt(
@@ -87,12 +74,18 @@ public class UserEdit extends BaseRegistration {
         firstName      = (String) request.getParameter(KEY_FIRSTNAME);
         lastName       = (String) request.getParameter(KEY_LASTNAME);
         phone          = (String) request.getParameter(KEY_PHONE);
-        userName       = (String) request.getParameter(KEY_LOGIN);
         password       = (String) request.getParameter(KEY_PASSWORD);
         password2      = (String) request.getParameter(KEY_PASSWORD2);
         email          = (String) request.getParameter(KEY_EMAIL);
 
         boolean forUpdate = targetUserID >= 0;
+        
+        if( forUpdate ) {
+            userName = Util.getPrincipalManager().getUser(targetUserID).getName();
+        }
+        else {
+            userName   = (String) request.getParameter(KEY_LOGIN);
+        }
         boolean formDataValid = isValid(forUpdate);
         if( formDataValid ) {
             log.debug("data entered seem to be valid");
@@ -116,25 +109,25 @@ public class UserEdit extends BaseRegistration {
         log.debug("forUpdate="+forUpdate);
         boolean ret = true;
 
+        setFormFieldDefault(KEY_FIRSTNAME, firstName);
         ret &=  // first name validity check
-        checkItemValidity(KEY_FIRSTNAME, firstName,
-            StringUtils.ALPHABET_ALPHA_EN, true, 2,
-            "Ensure first name is not empty, consists of letters and has not "+
-            "spaces inside"
+        simpleValidityCheck(KEY_FIRSTNAME, firstName, 1, 50,
+            "Please enter a first name."
         );
 
+        setFormFieldDefault(KEY_LASTNAME, lastName);
         ret &= // last name validity check
-        checkItemValidity(KEY_LASTNAME, lastName,
-            StringUtils.ALPHABET_ALPHA_EN, true, 2,
-            "Ensure last name is not empty, consists of letters and has not "+
-            "spaces inside"
+        simpleValidityCheck(KEY_LASTNAME, lastName, 1, 50,
+            "Please enter a last name."
         );
 
         ret &= // phone validity
+        simpleValidityCheck(KEY_PHONE, phone, 1, 30,
+            "Please enter a phone number"
+        );
+        ret &=
         checkItemValidity(KEY_PHONE, phone, StringUtils.ALPHABET_PHONE_NUMBER,
-            true, 1,
-            "Ensure phone is not empty and, consists of digits only "+
-            "(minus sign is allowed too)"
+            true, 1, "Please enter a valid phone number"
         );
 
         if( !forUpdate ) {
@@ -142,11 +135,10 @@ public class UserEdit extends BaseRegistration {
             checkUsernameValidity(KEY_LOGIN);
         }
 
+        setFormFieldDefault(KEY_PASSWORD, password);
         ret &= // password validity
-        checkItemValidity(KEY_PASSWORD, password,
-            StringUtils.ALPHABET_ALPHA_NUM_EN, true, 1,
-            "Ensure password is not empty and, consists of letters and "+
-            "digits only"
+        simpleValidityCheck(KEY_PASSWORD, password, 7, 15,
+            "Please enter a password between 7 and 15 characters in length."
         );
         // password2 validity
         if( password2 == null ) password2 = "";
@@ -160,9 +152,13 @@ public class UserEdit extends BaseRegistration {
         }
 
         ret &= // email validity
+        simpleValidityCheck(KEY_EMAIL, email, 1, 50,
+            "Please enter an email address."
+        );
+        ret &=
         checkItemValidity(KEY_EMAIL, email,
             StringUtils.ALPHABET_ALPHA_NUM_PUNCT_EN, true, 1,
-            "Ensure email address is not empty and, has written correct"
+            "Please enter a valid email address."
         );
         return ret;
     }
@@ -197,9 +193,9 @@ public class UserEdit extends BaseRegistration {
         try {
             mgr = Util.getPrincipalManager();
             if( createNewUser ) { // new user creation
+                GroupPrincipal group = null;
                 securityUser = mgr.createUser(userName, password, primaryContact);
                 Iterator groups = mgr.getGroups(primaryContact).iterator();
-                GroupPrincipal group = null;
                 while(groups.hasNext()) {
                     group = (GroupPrincipal)groups.next();
                     if( group.getName().equalsIgnoreCase("Corp User")) {
@@ -214,7 +210,6 @@ public class UserEdit extends BaseRegistration {
             }
             else { // modification of existent user
                 securityUser = mgr.getUser(userID);
-                userName = securityUser.getName();
                 log.debug("edit password");
                 mgr.editPassword(securityUser, password, primaryContact);
             }
@@ -271,6 +266,32 @@ public class UserEdit extends BaseRegistration {
             }
             phoneTable.setNumber(userID, phoneID, phone);
 
+            // set up additional permissions            
+            if( userID != primContactID ) {
+                Enumeration e = request.getParameterNames();
+                while( e.hasMoreElements() ) {
+                    String pName = (String)e.nextElement();
+                    if( ! pName.startsWith("permid-")) continue;
+                    long permID = -1;
+                    try {
+                        permID = Long.parseLong(
+                            pName.substring("permid-".length())
+                        );
+                    }
+                    catch(Exception ignore) {
+                        continue;
+                    }
+                    String pValue = (String) request.getParameter("perm-"+permID);
+                    boolean set = "on".equalsIgnoreCase(pValue);
+                    RolePrincipal role = mgr.getRole(permID);
+                    if( set ) {
+                        mgr.assignRole(securityUser, role, primaryContact);
+                    }
+                    else {
+                        mgr.unAssignRole(securityUser, role, primaryContact);
+                    }
+                }
+            }
             // int t = 0;
             // System.err.println(1/t);
             tx.commit();
@@ -327,9 +348,6 @@ public class UserEdit extends BaseRegistration {
             long phoneID = phoneTable.getPhoneId(userID);
             phone = phoneTable.getNumber(userID, phoneID);
             setFormFieldDefault(KEY_PHONE, phone);
-
-            // int t = 0;
-            // System.err.println(1/t);
         }
         finally {
             Util.closeIC(icEJB);

@@ -1,6 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@page import="com.topcoder.web.corp.request.Registration" %>
+<%@page import="com.topcoder.web.corp.request.Registration,
+                com.topcoder.web.common.security.SessionPersistor,
+                com.topcoder.web.common.security.BasicAuthentication "
+%>
 <% String appContext = request.getContextPath(); %>
 <HTML>
 <HEAD>
@@ -124,10 +127,6 @@ function getPermissions(url,wd,ht) {
   </TR>
 
 <!-- PHONE -->
-  <TR>
-    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Phone</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="phone" size="30" maxlength="100"/></TD>
-  </TR>
    <TR>
      <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
      <TD colspan="2" class="errorText" align="left" valign="middle">
@@ -135,23 +134,41 @@ function getPermissions(url,wd,ht) {
      </TD>
   </TR>
   <TR>
+    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Phone</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="phone" size="30" maxlength="100"/></TD>
+  </TR>
+  <TR>
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&#160;</TD>
   </TR>  
+  <%
+    long uid = -1;
+    try {
+      uid = Long.parseLong(id);
+    }
+    catch(Exception ignore) {}
+
+    BasicAuthentication auth = new BasicAuthentication(SessionPersistor.getInstance(request.getSession(true)), request, response);
+    long puid = auth.getActiveUser().getId();
+
+    String qryParam = "puid:" + puid + ", uid:" + uid;
+    if( puid != uid ) { %>
   <TR>
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Additional Permissions</B></FONT></TD>
   </TR>
   <TR>
     <TD COLSPAN="4"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
   </TR>
-  <TR>
-    <TD COLSPAN="4" CLASS="bodyText" HEIGHT="15" VALIGN="middle">&#160;Permission 1</TD>
-  </TR>
-  <TR>
-    <TD COLSPAN="4" CLASS="bodyText" HEIGHT="15" VALIGN="middle">&#160;Permission 2</TD>
-  </TR>
-  <TR>
-     <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="bodyText"><a HREF="JavaScript:getPermissions('<%=appContext%>/?module=Static&d1=acc_admin&d2=permissions','300','400')" class="bodyText">Add/Remove Permissions</A></td>
-  </TR>
+  <tc-webtag:queryIterator command="cmd-TCSubject-permissions" id="row" param='<%=qryParam%>'>
+    <TR><% String checked = row.getItem("has_permission").compareTo("1")==0 ? " checked=\"1\"" : " "; %>
+      <TD COLSPAN="4" CLASS="bodyText" HEIGHT="15" VALIGN="middle">
+      <input type="checkbox" name="perm-<%=row.getItem("role_id")%>"<%=checked%>>&#160;<%=row.getItem("description")%></input>
+      </TD>
+      <input type="hidden" name="permid-<%=row.getItem("role_id")%>"/>
+    </TR>
+  </tc-webtag:queryIterator>
+  <%
+  }
+  %>
     <TR>
         <TD COLSPAN="4"><HR NOSHADE="0"></TD>
     </TR>   

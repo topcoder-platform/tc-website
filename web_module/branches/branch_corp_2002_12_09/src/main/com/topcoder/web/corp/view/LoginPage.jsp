@@ -32,13 +32,13 @@
                   <TR>
                   <TD VALIGN="middle" HEIGHT="14" ALIGN="right"><FONT SIZE="2" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">User Name:</FONT>&#160;&#160;</TD>
                     <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2">
-                      <tc-webtag:textInput name="handle" maxlength="15" size="12" class="dropdown"/>
+                      <tc-webtag:textInput name="handle" maxlength="15" size="12" class="dropdown" onKeyPress="submitEnter(event, document.frmLogin)"/>
                     </TD>
                   </TR>
                   <TR>
                   <TD VALIGN="middle" HEIGHT="14" ALIGN="right"><FONT SIZE="2" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Password:</FONT>&#160;&#160;</TD>
                     <TD HEIGHT="20" VALIGN="TOP">
-                      <tc-webtag:textInput name="passw" passw="true" maxlength="15" size="12" class="dropdown"/>
+                      <tc-webtag:textInput name="passw" passw="true" maxlength="15" size="12" class="dropdown" onKeyPress="submitEnter(event, document.frmLogin)"/>
                     </TD>
                     <TD CLASS="statTextBig" VALIGN="top">
                       <!--<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="45" BORDER="0"/>-->

@@ -56,12 +56,12 @@
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">User Name:&#160;&#160;</TD>
                                     <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2">
-                                    <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Login.KEY_USER_HANDLE%>" TYPE="TEXT" VALUE="" /></TD>
+                                    <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Login.KEY_USER_HANDLE%>" TYPE="TEXT" onKeyPress="submitEnter(event, document.frmMiniLogin)" /></TD>
                                  </TR>
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
                                     <TD HEIGHT="20" VALIGN="TOP">
-                                    <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Login.KEY_USER_PASS%>" TYPE="Password" VALUE="" /></TD>
+                                    <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Login.KEY_USER_PASS%>" TYPE="Password" onKeyPress="submitEnter(event, document.frmMiniLogin)" /></TD>
                                     <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="javascript:document.frmMiniLogin.submit();" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login &gt;</FONT></A></TD>
                                  </TR>
                               </TABLE>

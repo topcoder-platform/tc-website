@@ -253,7 +253,35 @@ abstract class BaseRegistration extends BaseProcessor {
 //        return ret;
 //    }
 //    
-//    
+//
+
+    /**
+     * simplified validity check - does not use alphabets
+     * 
+     */
+    protected boolean simpleValidityCheck(
+        String itemKey,
+        String itemValue,
+        int minLen, int maxLen,
+        String errMsg
+    )
+    {
+        if( itemValue==null || 
+            itemValue.length()<minLen ||
+            itemValue.length()>maxLen
+        )
+        {
+            markFormFieldAsInvalid(itemKey, errMsg);
+            return false;
+        }
+        
+        return true;
+    }
+    
+
+    /**
+     * Item validity check. Returns if item is valid 
+     */
     protected boolean checkItemValidity(
         String itemKey, 
         String itemValue, 
@@ -481,10 +509,15 @@ abstract class BaseRegistration extends BaseProcessor {
      */
     protected boolean checkUsernameValidity(String keyLogin) {
         boolean success;
+        // check for length
+        success = simpleValidityCheck(keyLogin, userName, 7, 15, 
+            "Please enter a user name between 7 and 15 characters in length."
+        );
         //as usually check against alphabet 
         success = checkItemValidity(keyLogin, userName, 
-            StringUtils.ALPHABET_ALPHA_EN, true, 1,
-            "Handle entered must consist of alpha numeric symbols"
+            StringUtils.ALPHABET_USERNAME_EN, true, 1,
+            "Please include only letters, numbers, dashes, underscores and" +
+            " periods."
         );
         if( !success ) {
             return false;
@@ -498,8 +531,7 @@ abstract class BaseRegistration extends BaseProcessor {
                 success = false;
                 UserPrincipal user = mgr.getUser(userName);
                 markFormFieldAsInvalid(
-                    keyLogin,
-                    "There is the user with given handle in the database"
+                    keyLogin, "Please enter another user name."
                 );
             }
             catch(NoSuchUserException nsue) {
@@ -509,22 +541,22 @@ abstract class BaseRegistration extends BaseProcessor {
         }
         catch(RemoteException re) {
             techProblems = true;
-            log.error("RemoteException - primary registration process");
+            log.error("RemoteException - user registration process");
             re.printStackTrace();
         }
         catch(CreateException ce) {
             techProblems = true;
-            log.error("CreateException - primary registration process");
+            log.error("CreateException - user registration process");
             ce.printStackTrace();
         }
         catch(NamingException ne) {
             techProblems = true;
-            log.error("NamingException - primary registration process");
+            log.error("NamingException - user registration process");
             ne.printStackTrace();
         }
         catch(GeneralSecurityException gse) {
             techProblems = true;
-            log.error("GeneralSecurityException - primary registration process");
+            log.error("GeneralSecurityException - user registration process");
             gse.printStackTrace();
         }
         finally {
@@ -539,5 +571,4 @@ abstract class BaseRegistration extends BaseProcessor {
         }
         return success;
     }
-
 }
