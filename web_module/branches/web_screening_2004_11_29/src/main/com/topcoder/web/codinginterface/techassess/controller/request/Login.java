@@ -1,6 +1,8 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningLoginResponse;
@@ -89,8 +91,10 @@ public class Login extends Base {
             getRequest().getSession().setAttribute(Constants.TEST_SET_B, testSetB);
             getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
 
-            setNextPage(Constants.PAGE_INDEX);
-            setIsNextPageInContext(true);
+            SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+
+            //go to the default after login
+            setNextPage(info.getServletPath());
 
         } else {
             addError(Constants.HANDLE, response.getMessage());
