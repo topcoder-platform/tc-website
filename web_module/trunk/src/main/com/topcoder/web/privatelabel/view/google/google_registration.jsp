@@ -25,33 +25,60 @@
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-        <td align="center"><img src="/i/events/google2003/Logo_50wht.gif" width="163" height="74" border="0"/></td>
-
-         <td width="100%" align="center" colspan="3">
-            <object 
-            type="application/x-shockwave-flash"
-            data="/i/events/google2003/google3.swf"
-            width="100%"
-            height="125"
-            border="0">           
-            <param name="movie" value="/i/events/google2003/google3.swf" />
-            <param name="quality" value="high" />
-            <param name="salign" value="t">
-            </object>
-      </td>
-   </tr>    
-   <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
 <!-- Left Column Begins-->
-         <td valign="top">
-         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
-         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
-         <img src="/i/clear.gif" width="180" height="40" border="0"/>
-         </p>
+         <td valign="top" width="150">
+            <img src="/i/clear.gif" width="150" height="10" border="0"/><br />
+
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+               <tr><td bgcolor="#AA1002" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
+               <tr>
+                  <td bgcolor="#AA1002">
+                  <td class="bodyText" valign="top" align="center">
+                  <img src="/i/events/google2003/pbtc_white.gif" width="150" height="50" border="0"/>
+                  </td>
+                  <td bgcolor="#AA1002">
+               </tr>
+               <tr><td bgcolor="#AA1002" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
+            </table><br />
+
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+               <tr><td bgcolor="#3366CC" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
+               <tr>
+                  <td bgcolor="#3366CC">
+                  <td class="bodyText" valign="top" align="center">
+                  <p><br /></p>
+                  <p><font color="#3366CC"><b>Important Dates</b></font></p>
+                  <p><b>Registration Starts</b><br />
+                  Wednesday, October 1st</p>
+                  <p><b>Online Round 1</b><br />
+                  Friday, October 24th</p>
+                  <p><b>Onsite Championship Round</b><br />
+                  Friday, November 14th</p>
+                  <p><br /></p>
+                  </td>
+                  <td bgcolor="#3366CC">
+               </tr>
+               <tr><td bgcolor="#3366CC" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
+            </table><br />
+
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+               <tr><td bgcolor="#339966" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
+               <tr>
+               <td bgcolor="#339966">
+               <td class="bodyText" align="center" valign="top">
+               <p><br /></p>
+               <p><font color="#339966"><b>Cash Prizes</b></font></p>
+               <p>1st Place - $10,000<br />
+               2nd Place - $5,000<br />
+               3rd Place - $3,500<br />
+               4th Place - $1,250</p>
+               <p><br /></p>
+               </td>
+               <td bgcolor="#339966">
+               </tr>
+               <tr><td bgcolor="#339966" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
+            </table><br />
+     
          </td>         
 <!-- Left Column Ends -->
 
@@ -60,25 +87,31 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins-->
-         <td class="bodyText" valign="top">
-         <table  align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td colpsn="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
+         <td width="100%" valign="top" class="bodyText">
+       
+         <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
+            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
+            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
+            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
+            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
+            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="20"></td></tr>
+
             <tr>
-               <td width=15>&nbsp;</td>
+               <td width="50%">&nbsp;</td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_overview"><font size=-1>Overview</font></a></td>
-               <td width=15>&nbsp;</td>
+               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_sched"><font size=-1>Schedule</font></a></td>
-               <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Rules</font></a></td>
-               <td width=15>&nbsp;</td>
+               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
+               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1><img src="/i/events/google2003/rules_arrow_blue.gif" width="15" height="10" border="0"/>Rules</font></a></td>
+               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
                <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Register Now</b></font></td>
-               <td width=15>&nbsp;</td>
+               <td width="50%">&nbsp;</td>
             </tr>
             <tr>
                <td colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
             </tr>
-         </table>
-       
+         </table><br />
+
             <h2>Registration</h2>
             
             <p>Registration will open on Wednesday, October 1 at 8:00AM and will close on Wednesday, October 15 at 5:00PM.  Registration is unlimited.</p>
@@ -91,6 +124,7 @@
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
+
     </tr>
 </table>
 
