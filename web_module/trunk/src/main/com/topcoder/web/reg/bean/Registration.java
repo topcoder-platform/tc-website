@@ -817,6 +817,7 @@ public class Registration
     public void setSunConfirm(String value) {
         log.debug("setSunConfirm to " + value);
         this.sunConfirm = checkNull(sunConfirm);
+        log.debug("setSunConfirm set to " + this.sunConfirm);
     }
 
     public void setTerms(String value)
