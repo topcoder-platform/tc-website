@@ -132,8 +132,9 @@ public abstract class BaseServlet extends HttpServlet {
                         throw new NavigationException(e);
                     }
                 } catch (PermissionException pe) {
+                    log.debug("caught PermissionException");
                     if (pe.getUser() != null && !pe.getUser().isAnonymous()) {
-                        log.info("already logged in, rethrowing");
+                        log.info("already identified, rethrowing");
                         throw pe;
                     } else {
                         /* forward to the login page, with a message and a way back */
