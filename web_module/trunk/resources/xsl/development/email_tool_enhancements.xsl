@@ -160,11 +160,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Member Acceptance:</td>
-                                                    <td class="bodyText" align="right">10.22.2003</td>
+                                                    <td class="bodyText" align="right">10.29.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Design Start:</td>
-                                                    <td class="bodyText" align="right">10.23.2003</td>
+                                                    <td class="bodyText" align="right">10.29.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 1 Due:
@@ -172,32 +172,32 @@
                                                         <br/>&#160;&#160;&#160;Class Diagrams
                                                         <br/>&#160;&#160;&#160;Sequence Diagrams
                                                     </td>
-                                                    <td class="bodyText" valign="top" align="right">10.28.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">11.05.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 2 Due:
                                                         <br/> &#160;&#160;&#160;Design Specification
                                                     </td>
-                                                    <td class="bodyText" valign="top" align="right">10.31.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">11.06.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 3 Due:
                                                         <br/>&#160;&#160;&#160;Test Plan
                                                         <br/>&#160;&#160;&#160;Development Scope Document
                                                     </td>
-                                                    <td class="bodyText" valign="top" align="right">11.02.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">11.09.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Winner Announced:</td>
-                                                    <td class="bodyText" align="right">11.04.2003</td>
+                                                    <td class="bodyText" align="right">11.11.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Updated Submission Due Date:</td>
-                                                    <td class="bodyText" align="right">11.08.2003</td>
+                                                    <td class="bodyText" align="right">11.15.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Estimated Development End Date:</td>
-                                                    <td class="bodyText" align="right">01.08.2003</td>
+                                                    <td class="bodyText" align="right">01.15.2003</td>
                                                 </tr>
                                             </table>
                                         </p>
