@@ -71,6 +71,30 @@ public final class TaskDevelopment {
                     mail.setFromAddress(from);
                     EmailEngine.send(mail);
                     xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
+                /********************** tcs_send *******************/
+                else if (command.equals("tcs_send")) {
+                    String handle = nav.getUser().getHandle();
+                    String from = nav.getUser().getEmail();
+                    String project = Conversion.checkNull(request.getParameter("Project"));
+                    String to = Conversion.checkNull(request.getParameter("To"));
+                    String tcsHandle = Conversion.clean(request.getParameter("TCSHandle"));
+                    String comment = Conversion.clean(request.getParameter("Comment"));
+                    TCSEmailMessage mail = new TCSEmailMessage();
+                    mail.setSubject(project + " -- " + handle);
+                    StringBuffer msgText = new StringBuffer(1000);
+                    msgText.append(handle);
+                    msgText.append(" inquiry for project:  ");
+                    msgText.append(project);
+                    msgText.append("\n\n");
+                    msgText.append("\n\nTCS Handle:\n");
+                    msgText.append(tcsHandle);
+                    msgText.append("\n\nComment:\n");
+                    msgText.append(comment);
+                    mail.setBody(msgText.toString());
+                    mail.addToAddress(to, TCSEmailMessage.TO);
+                    mail.setFromAddress(from);
+                    EmailEngine.send(mail);
+                    xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
                 } else {
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 }
