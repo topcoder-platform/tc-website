@@ -939,7 +939,7 @@ log.debug("qq before if");
                 Project project = pt.getProjectById(
                     pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DEVELOPMENT), requestor);
 
-                log.debug("WinnerId=" + project.getWinner().getId())
+                log.debug("WinnerId=" + project.getWinner().getId());
                 notification.createNotification("forum post " + project.getForumId(),
                         project.getWinner().getId(),
                         notification.FORUM_POST_TYPE_ID);
