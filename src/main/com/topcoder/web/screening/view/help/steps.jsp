@@ -115,17 +115,12 @@
                                     and what you'll be asked to do during the two testing phases.</li>
                                 </ul>
                             </li>
-                            <li>Once you are comfortable with the system functionality, click the <strong>Continue</strong> button at the bottom of the screen.
-                                <ul>
-                                    <li>Clicking <strong>Continue</strong> will be move you to the first portion of the test Ð Test Set A.  Clicking the <strong>Main</strong> button on the 
-                                    menu, then Test Set A from the Main page will also bring you to Test Set A.</li>
-                                </ul>
-                            </li>
+                            <li>Once you are comfortable with the system functionality, click the <strong>Continue</strong> button at the bottom of the screen, which 
+                            will move you to the live portion of the test.</li>
                         </ul>
                         
-                        <p class="bodySubtitle"><strong>Step 6 - Test Set A</strong></p>
+                        <p class="bodySubtitle"><strong>Step 6 - Test Set A (if presented)</strong></p>
                         <ul>
-                            <li>Test Set A marks the start of your test.</li>
                             <li>The problems in this test will be similar in nature to the example problem.</li>
                             <li>Test Set A is made up of 3 algorithmic problems for you to solve in 75 minutes. 
                                 <ul>
@@ -133,7 +128,7 @@
                                 </ul>
                             </li>
                             <li>Once you open one of the problems the <a href="timer.jsp">Timer</a> will start counting down.</li>
-                            <li>Proceed to Test Set B by clicking the <strong>Continue</strong> button when one of the following is true:
+                            <li>Proceed to Test Set B (if presented) by clicking the <strong>Continue</strong> button when one of the following is true:
                                 <ul>
                                     <li>You have submitted solutions to all 3 problems in Test Set A.</li>
                                     <li>You feel as though you have solved as many problems as possible.</li>
@@ -144,10 +139,10 @@
                         
                         <p class="bodySubtitle"><strong>Step 7 - Test Set B (if presented)</strong></p>
                         <ul>
-                            <li>Test Set B is an optional Test that the Employer may or may not have assigned for you to take.  If you do not see Test Set B 
-                            on the Main page, then proceed to Step 8.</li>
                             <li>Test Set B contains at least one algorithmic problem that you are asked to solve.</li>
-                            <li>You have 60 minutes to solve each problem presented in Test Set B. 
+                            <li>You are given 60 minutes times the number of problems assigned to complete this set. For example, if there are 3 problems
+                             assigned, you have a total of 180 minutes to solve all 3 problems. You may take more than 60 minutes to solve an individual 
+                             problem; however, all problems must be completed within the total allotted time.
                                 <ul>
                                     <li>The object of this test is to submit accurate solutions while focusing on code readability and style.</li>
                                 </ul>
