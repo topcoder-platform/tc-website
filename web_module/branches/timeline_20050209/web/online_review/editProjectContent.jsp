@@ -34,6 +34,7 @@ function editTimeline()
 </logic:equal>
     <html:form action="/saveProject">    
     <html:hidden property="id" />
+    <html:hidden property="currentEdition" value="project"/>
     <tr>
         <td class="whiteBkgnd">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
