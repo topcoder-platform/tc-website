@@ -68,14 +68,6 @@
                     <TR>
                       <TD HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #1<BR/>
-<!--
-                        &#160;&#160;&#160;Northeast &amp; Southeast Regions<BR/>
-                        &#160;&#160;&#160;&#160;Tuesday, Feb. 19 @ 8pm EST<BR/>
-                        &#160;&#160;&#160;&#160;(raindate: Tuesday, Feb. 26 @ 8pm EST)<BR/>
-                        &#160;&#160;&#160;West &amp; Midwest Regions<BR/>
-                        &#160;&#160;&#160;&#160;Thursday, Feb. 21 @ 10pm EST<BR/>
-                        &#160;&#160;&#160;&#160;(raindate: Thursday, Feb. 28 @ 10pm EST)<BR/>
--->
                       </TD>
                       <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                       <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
@@ -85,8 +77,8 @@
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig"></A>Part 1</TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se" CLASS="statTextBig"></A>Part 2</TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_pt1" CLASS="statTextBig">Part 1</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_pt2" CLASS="statTextBig">Part 2</A></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">1,024</TD>
