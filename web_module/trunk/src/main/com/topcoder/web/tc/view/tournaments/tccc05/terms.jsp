@@ -1,13 +1,11 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.web.tc.Constants"%>
-<%--
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <% int termsId = ((Integer)request.getAttribute(Constants.TERMS_OF_USE_ID)).intValue();%>
 <% String agreeProcessor = null;
     if (termsId == Constants.TCCC05_ALGORITHM_TERMS_OF_USE_ID) agreeProcessor="TCCC05AlgorithmTermsAgree";
     else if (termsId == Constants.TCCC05_COMPONENT_TERMS_OF_USE_ID) agreeProcessor="TCCC05ComponentTermsAgree";
     %>
---%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -32,11 +30,11 @@
             
         <p class=bigTitle>Registration</p>
 
-			<p align="left">To complete your registration for the 2004 TopCoder Open you must <b>read and agree to</b> the terms listed below.</p>
+			<p align="left">To complete your registration for the 2005 TopCoder Collegiate Challenge you must <b>read and agree to</b> the terms listed below.</p>
 
-			<p align="center"><textarea name="terms" rows="20" cols="60" readonly ><%--<%=request.getAttribute("terms")%>--%></textarea></p>
+			<p align="center"><textarea name="terms" rows="20" cols="60" readonly ><%=request.getAttribute("terms")%></textarea></p>
 
-			<p align="center"><a href="<%--<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=<%=agreeProcessor%>--%>">I agree</a> to these terms and wish to participate in the 2004 TopCoder Open.
+			<p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=<%=agreeProcessor%>">I agree</a> to these terms and wish to participate in the 2004 TopCoder Open.
 
 			</div>
 		</td>
