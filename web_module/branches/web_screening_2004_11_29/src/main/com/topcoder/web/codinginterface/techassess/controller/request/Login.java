@@ -4,8 +4,16 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningLoginResponse;
+import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.language.JavaLanguage;
+import com.topcoder.shared.language.CPPLanguage;
+import com.topcoder.shared.language.CSharpLanguage;
+import com.topcoder.shared.language.VBLanguage;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * User: dok
@@ -46,18 +54,32 @@ public class Login extends Base {
 
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
                 request.setServerID(Constants.SERVER_ID);
-
-                log.debug("send message");
                 String messageId = send(request);
-                log.debug("sent message " + messageId);
-
-                log.debug(Thread.currentThread().toString());
                 response = (ScreeningLoginResponse)receive(5000, messageId);
-                log.debug("response " + response);
 
                 if (response.isSuccess()) {
-                    log.debug("logged in " + response.getUserID() + " successfully");
                     getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
+                    ScreeningProblemSet[] problemSets = response.getProblemSets();
+
+                    ArrayList examples = new ArrayList();
+                    ArrayList testSetA = new ArrayList();
+                    ArrayList testSetB = new ArrayList();
+
+                    for (int i=0; i<problemSets.length; i++) {
+                        if (problemSets[i].getType().intValue()==Constants.TEST_SET_A_ID) {
+                            testSetA.add(problemSets[i]);
+                        } else if (problemSets[i].getType().intValue()==Constants.TEST_SET_B_ID) {
+                            testSetB.add(problemSets[i]);
+                        } else if (problemSets[i].getType().intValue()==Constants.EXAMPLE_ID) {
+                            examples.add(problemSets[i]);
+                        }
+                    }
+
+                    getRequest().getSession().setAttribute(Constants.EXAMPLES, examples);
+                    getRequest().getSession().setAttribute(Constants.TEST_SET_A, testSetA);
+                    getRequest().getSession().setAttribute(Constants.TEST_SET_B, testSetB);
+                    getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
+
                     setNextPage(Constants.PAGE_INDEX);
                     setIsNextPageInContext(true);
 
@@ -72,6 +94,35 @@ public class Login extends Base {
             setIsNextPageInContext(true);
         }
 
+    }
+
+    private ArrayList getLanguages(ScreeningLoginResponse response) {
+        ArrayList languageIds= response.getAllowedLanguages();
+        ArrayList languages = new ArrayList(languageIds.size());
+        for (Iterator it = languageIds.iterator(); it.hasNext();) {
+            switch (((Integer)it.next()).intValue()) {
+                case JavaLanguage.ID : {
+                    languages.add(JavaLanguage.JAVA_LANGUAGE);
+                    break;
+                }
+
+                case CPPLanguage.ID : {
+                    languages.add(CPPLanguage.CPP_LANGUAGE);
+                    break;
+                }
+
+                case CSharpLanguage.ID : {
+                    languages.add(CSharpLanguage.CSHARP_LANGUAGE);
+                    break;
+                }
+
+                case VBLanguage.ID : {
+                    languages.add(VBLanguage.VB_LANGUAGE);
+                    break;
+                }
+            }
+        }
+        return languages;
     }
 
 }
