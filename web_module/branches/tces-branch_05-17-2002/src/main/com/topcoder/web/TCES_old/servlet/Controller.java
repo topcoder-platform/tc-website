@@ -153,14 +153,18 @@ public class Controller
         if (url == null || url.length() == 0) url = "error";
         RequestDispatcher rd = null;
         synchronized(this) {
-            rd = (RequestDispatcher) dispatcherMap.get(target);
+            rd = (RequestDispatcher) dispatcherMap.get(url);
             if (rd == null) {
                 rd = getServletContext().getRequestDispatcher(Registration.PATH + url + ".jsp");
-                if (rd == null) throw new ServletException("cannot obtain request dispatcher");
+                if (rd == null) {
+									throw new ServletException("cannot obtain request dispatcher");
+								} else {
+                	dispatcherMap.put(target, rd);								
+								}
             }
         }
-        req.setAttribute("dispatched", "true");
-        rd.forward(req, resp);
+        request.setAttribute("dispatched", "true");
+        rd.forward(request, response);
     }
    
     void forwardToError(HttpServletRequest request, HttpServletResponse response)
