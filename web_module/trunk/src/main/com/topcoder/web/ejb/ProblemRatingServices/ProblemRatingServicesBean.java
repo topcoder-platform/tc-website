@@ -52,7 +52,7 @@ public class ProblemRatingServicesBean implements SessionBean {
                 ps.setInt(2,ratings[i]);
                 ps.executeUpdate();
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             throw new NavigationException("You may only rate a problem once,");
         } finally {
