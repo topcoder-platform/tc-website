@@ -1,6 +1,7 @@
 package com.topcoder.web.screening.request;
 
 import com.topcoder.web.screening.model.*;
+import com.topcoder.web.screening.common.Constants;
 
 /**
  * Processing for the Test Results page.
@@ -21,7 +22,7 @@ public class TestResults extends BaseProcessor {
         pinfo.setTestSetAName("Sample Problem Set");
         getRequest().setAttribute("profileInfo",cinfo);
         
-        setNextPage("/test_results.jsp");
+        setNextPage(Constants.TEST_RESULTS_PAGE);
         setNextPageInContext(true);
     }
     

@@ -1,6 +1,7 @@
 package com.topcoder.web.screening.request;
 
 import com.topcoder.web.screening.model.SubmissionInfo;
+import com.topcoder.web.screening.common.Constants;
 
 /**
  * Processing for the TopCoder Problem Result page.
@@ -15,7 +16,7 @@ public class TCProblemResult extends BaseProcessor {
         SubmissionInfo info = new SubmissionInfo();
         info.setCode("Blah blah blah");
         getRequest().setAttribute("submissionInfo",info);
-        setNextPage("/tc_prob_results.jsp");
+        setNextPage(Constants.TC_PROBLEM_RESULT_PAGE);
         setNextPageInContext(true);
     }
     
