@@ -203,7 +203,7 @@ To make this vision a reality, Google is looking for exceptional people who like
 </p>
 
 <P>
-<A HREF="/?t=jobs&amp;c=google_openings" CLASS="bodyText">View positions available at Google</A> (login required)
+<A HREF="/?t=tces&amp;c=google_openings" CLASS="bodyText">View positions available at Google</A> (login required)
 </P>
 <p>Google's mission is intentionally broad and we actively explore interesting 
         ideas, even when those ideas are risky and not assured of
@@ -242,7 +242,7 @@ We often hear myths and  misconceptions about Google that we would like to dispe
       to work on fascinating things.
 </P>
 <P>
-<A HREF="/?t=jobs&amp;c=google_openings" CLASS="bodyText">View positions available at Google</A> (login required)
+<A HREF="/?t=tces&amp;c=google_openings" CLASS="bodyText">View positions available at Google</A> (login required)
 </P> 
 
 <P>
