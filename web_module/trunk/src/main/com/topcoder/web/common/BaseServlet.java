@@ -117,7 +117,7 @@ public abstract class BaseServlet extends HttpServlet {
                     if (!isLegalCommand(cmd))
                         throw new NavigationException();
 
-                    String processorName = PATH + (PATH.endsWith(".")?"":".") + getProcessor(cmd);
+                    String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
                     log.debug("creating request processor for " + processorName);
                     try {
@@ -133,13 +133,7 @@ public abstract class BaseServlet extends HttpServlet {
                 } catch (PermissionException pe) {
                     log.debug("caught PermissionException");
                     if (authentication.getUser().isAnonymous()) {
-                        /* forward to the login page, with a message and a way back */
-                        request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
-                                "and password.");
-                        request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
-
-                        request.setAttribute(MODULE, LOGIN_PROCESSOR);
-                        fetchRegularPage(request, response, LOGIN_SERVLET==null?info.getServletPath():LOGIN_SERVLET, true);
+                        handleLogin(request, response, info);
                         return;
                     } else {
                         log.info("already logged in, rethrowing");
@@ -170,7 +164,7 @@ public abstract class BaseServlet extends HttpServlet {
         }
     }
 
-    private void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
+    protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
                                   boolean forward) throws Exception {
 
         String contextPrefix = request.getContextPath();
@@ -181,7 +175,7 @@ public abstract class BaseServlet extends HttpServlet {
                 dest = dest.substring(contextPrefix.length());
             }
             if (!dest.startsWith("/")) {
-                dest = "/"+dest;
+                dest = "/" + dest;
             }
             log.debug("forwarding to " + dest);
             getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
@@ -228,7 +222,7 @@ public abstract class BaseServlet extends HttpServlet {
         if (s.equals("")) return false;
         char[] c = s.toCharArray();
         for (int i = 0; i < c.length; i++)
-            //TODO make an init param?
+                //TODO make an init param?
             if (0 > "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_".indexOf(c[i]))
                 return false;
         return true;
@@ -256,7 +250,7 @@ public abstract class BaseServlet extends HttpServlet {
         return createAuthorization(auth.getActiveUser()).hasPermission(r);
     }
 
-    protected String getProcessor(String key ) {
+    protected String getProcessor(String key) {
         String ret = null;
         if (ret == null) {
             ret = getServletConfig().getInitParameter(key);
@@ -265,5 +259,15 @@ public abstract class BaseServlet extends HttpServlet {
             ret = key;
         }
         return ret;
+    }
+
+    protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
+        /* forward to the login page, with a message and a way back */
+        request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
+                "and password.");
+        request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
+
+        request.setAttribute(MODULE, LOGIN_PROCESSOR);
+        fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
     }
 }
