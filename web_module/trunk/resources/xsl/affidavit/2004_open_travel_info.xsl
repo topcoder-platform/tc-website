@@ -76,12 +76,12 @@
           <a target="_blank" href="http://www.santaclaramarriott.com">www.santaclaramarriott.com</a><BR/>
         <BR/>
          A room will be confirmed for your arrival on November 10th and departure on November 13th.   The check-in time is
-            3:00pm and check out time is 11:00 AM .  If you have any special requests, please indicate them on the
+            3:00 PM and check out time is 11:00 AM .  If you have any special requests, please indicate them on the
             travel form. The cost of your sleeping room and applicable taxes will be charged to the TopCoder master
             account.  You will be required, however, to provide a credit card upon check-in for any incidental expenses.
             <BR/><BR/>
             <b>At the TCO04, you will be sharing a hotel room with another competitor.</b>  Please fill in the
-            appropriate space with your roommate preference if you have one<BR/>
+            appropriate space with your roommate preference if you have one.  We will do our best to accommodate your request.<BR/>
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
@@ -228,7 +228,8 @@
             </TR>
 
         <TR>
-          <TD align="center" colspan="2">*Departure time will be based on arrival by 4:00 PM, November 10, 2004 in San Jose, CA</TD>
+            <td></td>
+          <TD>*Departure time will be based on arrival by 4:00 PM, November 10, 2004 in San Jose, CA</TD>
         </TR>
 
             <TR>
@@ -261,8 +262,10 @@
 
             <TR>
               <TD COLSPAN="2">
+                  <p>
                   *For extended stays in San Jose/USA, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.  Any extra expenses will be the
                   responsibility of the competitor (extra hotel nights, meals, higher air fares, etc.).
+                  </p>
               </TD>
             </TR>
             <tr>
