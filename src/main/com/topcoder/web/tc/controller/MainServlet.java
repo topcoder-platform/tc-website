@@ -38,6 +38,9 @@ public class MainServlet extends BaseServlet {
 
     protected void process(HttpServletRequest request, HttpServletResponse response )
             throws IOException  {
+        //just trying to protect against invalid requests getting to the
+        //app server.  currently, we don't have a way to stop this ad the web
+        //server layer.
         if (request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
             super.process(request, response);
         else {

@@ -115,7 +115,7 @@ public final class MainServlet extends HttpServlet {
             //app server.  currently, we don't have a way to stop this ad the web
             //server layer.
             if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
-                throw new NavigationException("Invalid Request", TCServlet.NAVIGATION_ERROR_PAGE);
+                throw new NavigationException("Invalid Request - Wrong Server Name", TCServlet.NAVIGATION_ERROR_PAGE);
 
             // CHECK FOR SESSION TIMEOUT
             if (request.isRequestedSessionIdValid() == false && request.getRequestedSessionId() != null) {
