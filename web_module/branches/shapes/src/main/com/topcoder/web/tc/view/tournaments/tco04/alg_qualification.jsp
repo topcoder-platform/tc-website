@@ -32,33 +32,33 @@
 
             <p>Click a column name to sort the list of advancers by that column.</p>
 
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
+            <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="header" width="100%" colspan="5">Qualification Round</td>
                </tr>
                 <tr>
-                   <td class="testTableTitle_off" width="10%" align="center">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                   <td class="brac_head" width="10%" align="center">
+                       <a class="topLink" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Seed
                        </a>
                    </td>
-                   <td class="testTableTitle_off" width="30%" align="left">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                   <td class="brac_head" width="30%" align="left">
+                       <a class="topLink" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Handle
                        </a>
                    </td>
-                   <td class="testTableTitle_off" width="30%" align="center">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                   <td class="brac_head" width="30%" align="center">
+                       <a class="topLink" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Problem Set
                        </a>
                    </td>
-                   <td class="testTableTitle_off" width="15%" align="right">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                   <td class="brac_head" width="15%" align="right">
+                       <a class="topLink" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
                    </td>
-                   <td class="testTableTitle_off" width="15%" align="right">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                   <td class="brac_head" width="15%" align="right">
+                       <a class="topLink" href="/tc?module=SimpleStats&d1=tournaments&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Points
                        </a>
                    </td>
@@ -66,12 +66,13 @@
 
 
                 <%boolean even = false;%>
-                <rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="formHandleOdd">
-<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
-<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="center" nowrap="0"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
-<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
-<td class="<%=even?"formHandleEven":"formHandleOdd"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
+				<% String sLink = "/stat?c=member_profile&cr=";%>
+                <rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="advLT">
+<td class="<%=even?"advDK":"advLT"%>" align="center"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td class="<%=even?"advDK":"advLT"%>" align="left"><tc:ratingImage link='<%=sLink + resultRow.getIntItem("user_id")%>' bg='W' cid='<%=resultRow.getIntItem("user_id")%>' /></td>
+<td class="<%=even?"advDK":"advLT"%>" align="center" nowrap="0"><rsc:item name="round_name" row="<%=resultRow%>"/></td>
+<td class="<%=even?"advDK":"advLT"%>" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+<td class="<%=even?"advDK":"advLT"%>" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
 </tr>
                    <%even=!even;%>
                 </rsc:iterator>

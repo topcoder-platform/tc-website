@@ -55,7 +55,7 @@
 
             <p>Click a column name to sort the list of advancers by that column.</p>
 
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
+            <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="header" width="100%" colspan="5">Qualification Round</td>
                </tr>
