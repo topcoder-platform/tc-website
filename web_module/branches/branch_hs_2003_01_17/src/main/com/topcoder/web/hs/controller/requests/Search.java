@@ -85,7 +85,7 @@ public class Search extends Base {
       HashMap errors=new HashMap();
       request.setAttribute("form_errors",errors);
 
-      List member_list=null;
+      List member_list=new ArrayList();
 
       if (isValidSearch(errors,sb)) {
         int count=findMembers(member_list,sb);
