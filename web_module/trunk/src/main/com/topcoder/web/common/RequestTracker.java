@@ -70,39 +70,44 @@ public class RequestTracker {
                 }
             }
         }
-    }
 
-    /**
-     *
-     */
-    private static void loadRequests() {
-        ArrayList a = new ArrayList(q.size());
-        synchronized (q) {
-            while (!q.isEmpty())
-                a.add(q.pop());
-        }
-        InitialContext ctx = null;
-        try {
-            ctx = TCContext.getInitial();
-            RequestServices rs = (RequestServices) BaseProcessor.createEJB(ctx, RequestServices.class);
-            log.debug("begin request batch load");
-            for (Iterator it = a.iterator(); it.hasNext();) {
-                UserRequest r = (UserRequest) it.next();
-                if (r.userId == GUEST.getId()) {
-                    rs.createRequest(r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                } else {
-                    rs.createRequest(r.userId, r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                }
+        /**
+         * Method to iterate through all the requests in the queue
+         * and add them to the database.  First we pull them out
+         * of the queue and put them in a temporary location so that
+         * we only lock up the queue for a short period of time, then
+         * it can continue to be loaded with more requests.
+         */
+        private static void loadRequests() {
+            ArrayList a = new ArrayList(q.size());
+            synchronized (q) {
+                while (!q.isEmpty())
+                    a.add(q.pop());
             }
-            log.debug("end request batch load");
+            InitialContext ctx = null;
+            try {
+                ctx = TCContext.getInitial();
+                RequestServices rs = (RequestServices) BaseProcessor.createEJB(ctx, RequestServices.class);
+                log.debug("begin request batch load");
+                for (Iterator it = a.iterator(); it.hasNext();) {
+                    UserRequest r = (UserRequest) it.next();
+                    if (r.userId == GUEST.getId()) {
+                        rs.createRequest(r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    } else {
+                        rs.createRequest(r.userId, r.url, new Timestamp(r.time), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    }
+                }
+                log.debug("end request batch load");
 
-        } catch (Exception e) {
-            log.error("Problem inserting request" + e);
-        } finally {
-            BaseProcessor.close(ctx);
+            } catch (Exception e) {
+                log.error("Problem inserting request" + e);
+            } finally {
+                BaseProcessor.close(ctx);
+            }
+
         }
-
     }
+
 
 
     /**
@@ -137,16 +142,16 @@ public class RequestTracker {
 
     private static class Queue {
         private final LinkedList q = new LinkedList();
-        private synchronized boolean add(Object o) {
+        public synchronized boolean add(Object o) {
             return q.add(o);
         }
-        private synchronized int size() {
+        public synchronized int size() {
             return q.size();
         }
-        private synchronized boolean isEmpty() {
+        public synchronized boolean isEmpty() {
             return q.isEmpty();
         }
-        private synchronized Object pop() {
+        public synchronized Object pop() {
             return q.removeLast();
         }
 

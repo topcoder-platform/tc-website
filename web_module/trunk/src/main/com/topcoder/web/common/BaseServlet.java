@@ -104,6 +104,7 @@ public abstract class BaseServlet extends HttpServlet {
             TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
             tcRequest.setAttribute(SESSION_INFO_KEY, info);
+            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
             StringBuffer loginfo = new StringBuffer(100);
             loginfo.append("[**** ");
