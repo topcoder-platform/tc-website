@@ -59,60 +59,56 @@
 
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=310233">Standlove</a></td>
-                    <td class="advCell" align="right">84.80</td>
+                    <td class="advCell" align="right">84.79</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
-                    <td class="advCell" align="right">83.80</td>
+                    <td class="advCell" align="right">83.84</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=151920">Khristopher</a></td>
-                    <td class="advCell" align="right">81.60</td>
-                </tr>
-                <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=304979">sinaddcos</a></td>
-                    <td class="advCell" align="right">81.50</td>
+                    <td class="advCell" align="right">81.56</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=309786">Yi_Zhang</a></td>
-                    <td class="advCell" align="right">81.50</td>
+                    <td class="advCell" align="right">81.54</td>
+                </tr>
+                <tr valign="middle">
+                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=304979">sinaddcos</a></td>
+                    <td class="advCell" align="right">81.45</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=7389864">roma</a></td>
-                    <td class="advCell" align="right">79.80</td>
+                    <td class="advCell" align="right">79.75</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=7496435">loveislife</a></td>
-                    <td class="advCell" align="right">78.10</td>
+                    <td class="advCell" align="right">78.09</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=290448">BryanChen</a></td>
-                    <td class="advCell" align="right">76.40</td>
+                    <td class="advCell" align="right">76.39</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=284038">aussie</a></td>
-                    <td class="advCell" align="right">76.00</td>
+                    <td class="advCell" align="right">75.95</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=344462">RRLevering</a></td>
-                    <td class="advCell" align="right">74.40</td>
+                    <td class="advCell" align="right">74.36</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=268851">gladius</a></td>
-                    <td class="advCell" align="right">73.20</td>
+                    <td class="advCell" align="right">73.22</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=7512490">petko</a></td>
-                    <td class="advCell" align="right">66.90</td>
+                    <td class="advCell" align="right">66.91</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=153089">preben</a></td>
-                    <td class="advCell" align="right">63.80</td>
+                    <td class="advCell" align="right">63.83</td>
                 </tr>
-
-<%--
-					<tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="4">*the average of the two highest scores, including at least one level II score</td></tr>
---%>
             </table>
 
            <br/><br/>
