@@ -53,13 +53,13 @@
 <!-- Center Column Begins -->
         <td class="bodyText">
 
-<!-- TCO Head Begins -->
+<!-- TCCC Head Begins -->
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="10" height="15" border="0" /><br/>
                 <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about" target="_top"><img src="/i/tournament/tccc04/tccc04_home_banner2.gif" alt="2004 TopCoder Collegiate Challenge" width="540" height="99" border="0"/></A><br/>
                 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br/>
             </div>
-<!-- TCO Head Ends -->
+<!-- TCCC Head Ends -->
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">

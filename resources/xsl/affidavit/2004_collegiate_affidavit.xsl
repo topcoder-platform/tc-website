@@ -7,7 +7,7 @@
         <TITLE>AFFIDAVIT OF ELIGIBILITY/LIABILITY &amp; PUBLICITY RELEASE</TITLE>
  </HEAD>
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<div STYLE="width: 700px; margin: 15px 15px 15px 15px">
+<div STYLE="width: 700px; margin: 15px 15px 15px 15px"> 
 <xsl:choose>
 <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='United States'">
   <P>
