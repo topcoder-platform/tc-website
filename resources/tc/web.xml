@@ -80,7 +80,7 @@
         </init-param>
         <init-param>
             <param-name>problem_rating_results</param-name>
-            <param-value>/problemRating/results.jsp</param-value>
+            <param-value>/problem_rating/results.jsp</param-value>
             <description></description>
         </init-param>
 
