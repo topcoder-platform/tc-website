@@ -65,13 +65,13 @@ public class VerizonRegSubmit extends FullRegSubmit {
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class);
 
-        ResultSetContainer addresses = userAddress.getUserAddresses(ret.getId(), db);
+        ResultSetContainer addresses = userAddress.getUserAddresses(ret.getId(), transDb);
         if (addresses.size()!=1) {
             throw new RuntimeException("found " + addresses.size() + " addresses for " + ret.getId() + " dunno what to do");
         }
 
         long addressId = addresses.getLongItem(0, "address_id");
-        address.setProvince(addressId, regInfo.getProvince(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        address.setProvince(addressId, regInfo.getProvince(), transDb);
         return newUser;
 
     }

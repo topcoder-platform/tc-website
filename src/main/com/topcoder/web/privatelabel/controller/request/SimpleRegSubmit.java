@@ -4,7 +4,6 @@ import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.util.Transaction;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
@@ -128,34 +127,34 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
 
         //create user
-        user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus(), db);
-        user.setFirstName(newUser.getId(), regInfo.getFirstName(), db);
-        user.setMiddleName(newUser.getId(), regInfo.getMiddleName(), db);
-        user.setLastName(newUser.getId(), regInfo.getLastName(), db);
+        user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus(), transDb);
+        user.setFirstName(newUser.getId(), regInfo.getFirstName(), transDb);
+        user.setMiddleName(newUser.getId(), regInfo.getMiddleName(), transDb);
+        user.setLastName(newUser.getId(), regInfo.getLastName(), transDb);
 
 
         //create address
-        long addressId = address.createAddress(DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        address.setAddress1(addressId, regInfo.getAddress1(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        address.setAddress2(addressId, regInfo.getAddress2(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        address.setAddress3(addressId, regInfo.getAddress3(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        address.setAddressTypeId(addressId, ADDRESS_TYPE, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        address.setCity(addressId, regInfo.getCity(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        address.setCountryCode(addressId, regInfo.getCountryCode(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        address.setProvince(addressId, regInfo.getProvince(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        long addressId = address.createAddress(transDb, db);
+        address.setAddress1(addressId, regInfo.getAddress1(), transDb);
+        address.setAddress2(addressId, regInfo.getAddress2(), transDb);
+        address.setAddress3(addressId, regInfo.getAddress3(), transDb);
+        address.setAddressTypeId(addressId, ADDRESS_TYPE, transDb);
+        address.setCity(addressId, regInfo.getCity(), transDb);
+        address.setCountryCode(addressId, regInfo.getCountryCode(), transDb);
+        address.setProvince(addressId, regInfo.getProvince(), transDb);
         if (regInfo.getCountryCode().equals(US)) {
-            address.setStateCode(addressId, regInfo.getStateCode(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+            address.setStateCode(addressId, regInfo.getStateCode(), transDb);
         }
-        address.setZip(addressId, regInfo.getZip(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        address.setZip(addressId, regInfo.getZip(), transDb);
 
         //associate address with user
-        userAddress.createUserAddress(newUser.getId(), addressId, db);
+        userAddress.createUserAddress(newUser.getId(), addressId, transDb);
 
         //create email
-        long emailId = email.createEmail(newUser.getId(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        email.setAddress(emailId, regInfo.getEmail(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        email.setEmailTypeId(emailId, EMAIL_TYPE, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
-        email.setPrimaryEmailId(newUser.getId(), emailId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
+        long emailId = email.createEmail(newUser.getId(), transDb, db);
+        email.setAddress(emailId, regInfo.getEmail(), transDb);
+        email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
+        email.setPrimaryEmailId(newUser.getId(), emailId, transDb);
 
         //create coder
         coder.createCoder(newUser.getId(), transDb);

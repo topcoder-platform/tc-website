@@ -88,7 +88,7 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
         } else {
             User user = (User) createEJB(getInitialContext(), User.class);
             //they're not eligible so override whatever we had set their status to be private label ineligible
-            user.setStatus(ret.getId(), '3', db);
+            user.setStatus(ret.getId(), '3', transDb);
         }
 
         return ret;
