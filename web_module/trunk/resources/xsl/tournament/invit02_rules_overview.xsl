@@ -85,7 +85,7 @@
 						</UL>
 						<P><B>Invitations and Registration</B></P>
 						<P>The top 1,024 rated TopCoder members as of October 1st who meet the eligibility criteria defined above will be invited via email to compete in the tournament. 
-						Invitations will be emailed no later than 6:00PM Eastern Time on October 1st. Once invited, members must register on TopCoder's website to compete in the tournament. 
+						Invitations will be emailed on October 4th. Once invited, members must register on TopCoder's website to compete in the tournament. 
 						Registration details and deadlines will be provided in the invitations.</P>
 						<P>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising 
 						or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the 
