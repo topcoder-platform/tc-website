@@ -977,6 +977,19 @@
                                     <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=tcs_sample_docs</xsl:attribute>Documentation and Sample Submissions</A>
                                 </td>
                             </tr>
+            <!-- Project Submission -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='getStarted'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=getting_started</xsl:attribute>Gettng Started</A>
+                                </td>
+                            </tr>
+
         </xsl:if>
     </xsl:template>
 
