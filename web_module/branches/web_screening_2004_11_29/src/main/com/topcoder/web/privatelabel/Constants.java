@@ -7,10 +7,6 @@ import java.lang.reflect.Field;
 
 /**
  * Contains constants for the private label web application.
- * Classes outside this web application should not use constants
- * in this class that are initialized in the initialize
- * method becuase one can not be sure it has already been
- * initialized.
  * @author gpaul 06.26.2003
  */
 public class Constants {
@@ -45,7 +41,7 @@ public class Constants {
     public static String GOOGLE_ACTIVATION_PAGE;
     public static String GOOGLE_LOGIN_PAGE;
     public static String GOOGLE_REG_CLOSED_PAGE;
-    
+
     public static String GOOGLE04_REG_PAGE;
     public static String GOOGLE04_REG_DEMOG_PAGE;
     public static String GOOGLE04_REG_CONFIRM_PAGE;
@@ -64,24 +60,24 @@ public class Constants {
     public static String DC_REG_STUDENT_SUCCESS_PAGE;
     public static String DC_REG_PRO_SUCCESS_PAGE;
     public static String DC_ACTIVATION_PAGE;
-    
+
     public static String BROOKS_REG_PAGE;
     public static String BROOKS_REG_DEMOG_PAGE;
     public static String BROOKS_REG_CONFIRM_PAGE;
     public static String BROOKS_REG_SUCCESS_PAGE;
     public static String BROOKS_ACTIVATION_PAGE;
-    
+
     public static String DEMO_REG_PAGE;
     public static String DEMO_REG_DEMOG_PAGE;
     public static String DEMO_REG_CONFIRM_PAGE;
     public static String DEMO_REG_SUCCESS_PAGE;
     public static String DEMO_ACTIVATION_PAGE;
-    
+
     public static String AMAZON_REG_PAGE;
     public static String AMAZON_REG_DEMOG_PAGE;
     public static String AMAZON_REG_CONFIRM_PAGE;
     public static String AMAZON_REG_SUCCESS_PAGE;
-    
+
     public static int QUESTION_AREAS_OF_INTEREST;
 
     //main reg parameters
@@ -106,7 +102,7 @@ public class Constants {
     //secondary reg parameters
     public static String CODER_TYPE;
     public static String DEMOG_PREFIX;
-    
+
     //resume parameters
     public static String RESUME;
 
@@ -169,7 +165,7 @@ public class Constants {
     public static String AMAZON_REG_DEMOG;
     public static String AMAZON_REG_CONFIRM;
     public static String AMAZON_REG_SUBMIT;
-    
+
     public static String BROOKS_REFERRAL_QUESTION_ID;
 
     //various constants
@@ -189,7 +185,7 @@ public class Constants {
     static {
         initialize();
     }
-    
+
     private Constants() {
     }
 
