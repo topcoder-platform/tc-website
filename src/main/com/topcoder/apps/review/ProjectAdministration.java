@@ -382,11 +382,13 @@ public class ProjectAdministration implements Model {
                         }
 
                         // we cannot set the winner if there is a tie
+                        //ties are now being handled below
+                        /*
                         if (Math.abs(sum / count - max) < EPS) {
                             handleRollback(shouldRollback, ut);
                             return new FailureResult("Cannot establish winner because there is a tie between "
                                     + winner.getHandle() + " and " + submissions[i].getSubmitter().getHandle());
-                        }
+                        }*/
 
                         // update winner
                         if (sum / count > max) {
@@ -402,7 +404,7 @@ public class ProjectAdministration implements Model {
                         documentManager.saveInitialSubmission(submissions[i], user.getTCSubject());
                     }
                 }
-                Item[] items = (Item[])itemList.toArray(new Item[itemList.size()]);
+                Item[] itemsTemp = (Item[])itemList.toArray(new Item[itemList.size()]);
 
                 // the winner must have at least MINSCORE (75.0 currently)
                 if (minscore < 0) {
@@ -413,6 +415,78 @@ public class ProjectAdministration implements Model {
                     return new FailureResult("Cannot establish winner because the maximum score is below " + minscore);
                 }
 
+                Arrays.sort(itemsTemp);
+                
+                Item[] items = new Item[itemsTemp.length];
+                //load data, breaking ties where applicable
+                for(int i = 0; i < itemsTemp.length;i++)
+                {
+                    if( (i+1) < itemsTemp.length && (itemsTemp[i+1].getScore() - itemsTemp[i].getScore()) < EPS)
+                    {
+                        ArrayList alTies = new ArrayList();
+                        alTies.add(itemsTemp[i]);
+                        int j = 1;
+                        while((i+j) < itemsTemp.length && (itemsTemp[i+j].getScore() - itemsTemp[i].getScore()) < EPS )
+                        {
+                            alTies.add(itemsTemp[i+j]);
+                            j++;
+                        }
+                        //generate tiebreaker values
+                        int[] vals = new int[alTies.size()];
+                        for(int y = 0; y < scorecards.length; y++)
+                        {
+                            for(int x = 0; x < alTies.size(); x++)
+                            {
+                                Item itm = (Item)alTies.get(x);
+
+                                    if(scorecards[y].getSubmission().equals(itm.getSubmission()) && scorecards[y].isCompleted())
+                                    {
+                                            double scr = scorecards[y].getScore();
+                                            boolean good = true;
+                                            for(int z = 0; z < scorecards.length; z++)
+                                            {
+                                                if((!scorecards[z].getSubmission().equals(itm.getSubmission())) && scorecards[z].isCompleted() 
+                                                    && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS)
+                                                {
+                                                    good = false;
+                                                }
+                                            }
+                                            if(good)
+                                                vals[x]++;
+                                    }
+                            }
+                        }
+                        
+                        for(int y = 0; y < j; y++)
+                        {
+                            LogHelper.log(y + "=" + vals[y]);
+                        }
+                        
+                        for(int y = 0; y < j; y++)
+                        {
+                            int ceil = Integer.MAX_VALUE;
+                            int mx = 0;
+                            int v = 0;
+                            for(int x = 0; x < vals.length; x++)
+                            {
+                                if(vals[x] < ceil && vals[x] > mx)
+                                {
+                                    v = x;
+                                    mx = vals[x];
+                                }
+                            }
+                            ceil = mx;
+                            
+                            items[i++] = (Item)alTies.get(v);
+                        }
+                    
+                    }
+                    else
+                    {
+                        items[i] = itemsTemp[i];
+                    }
+                }
+                
                 // set winner and assign permission to submit final fix for winner
                 newProject.setWinner(winner);
 
@@ -422,8 +496,7 @@ public class ProjectAdministration implements Model {
                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());
                 principalMgr.assignRole(userPrincipal, rolePrincipal, user.getTCSubject());
 
-                // send mails to submitters and set score/placement of submission
-                Arrays.sort(items);
+                
                 for (int i = 0; i < items.length; i++) {
                     InitialSubmission sub = items[i].getSubmission();
                     sub.setPlacement(i+1);
