@@ -13,7 +13,7 @@
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder | Support/FAQs</TITLE>
+        <TITLE>Software Requirements to compete in TopCoder computer programming contests</TITLE>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -23,10 +23,10 @@
       <BODY>
         <xsl:call-template name="Top"/>
 <!-- Body Begins -->
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR VALIGN="top">
     <!-- Left Column Begins -->
-        <TD WIDTH="170" BGCOLOR="#CCCCCC">
+        <TD WIDTH="180">
 <!-- Left Column Include Begins -->    
     <!-- Global Seconday Nav Begins -->    
         <xsl:call-template name="global_left"/>
