@@ -11,7 +11,6 @@ import com.topcoder.web.reg.bean.Registration;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import java.util.ArrayList;
 
 
 public final class ProcessAuthentication {
@@ -71,31 +70,6 @@ public final class ProcessAuthentication {
         return result;
     }
 
-
-    static Permission getSectorPermission(Sector sector, PermissionAssignee assignee) throws Exception {
-        Permission result = new Permission();
-        result.setSector(sector);
-        result.setSId(assignee.getSId());
-        try {
-            ArrayList permissions = assignee.getPermissions();
-            for (int i = 0; i < permissions.size(); i++) {
-                Permission listPermission = (Permission) permissions.get(i);
-                if (listPermission.getSector().getSectorId() == sector.getSectorId()) {
-                    int listLevel = listPermission.getAccessLevel().getAccessLevelId();
-                    int currentLevel = result.getAccessLevel().getAccessLevelId();
-                    if (listLevel > currentLevel) {
-                        result.setAccessLevel(listPermission.getAccessLevel());
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception(e.getMessage());
-        }
-        return result;
-    }
-
-
     static int validateActivationCode(String activationCode) throws Exception {
         int result = INVALID;
         Context ctx = null;
@@ -111,7 +85,7 @@ public final class ProcessAuthentication {
                 if (authentication.getActivationCode().equals(activationCode)) {
                     if (authentication.getStatus().equals("U")) {
                         UserServicesHome userServicesHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-                        UserServices userEJB = (UserServices) userServicesHome.findByPrimaryKey(authentication.getUserId());
+                        UserServices userEJB = userServicesHome.findByPrimaryKey(authentication.getUserId());
                         User user = userEJB.getUser();
                         user.setStatus("A");
                         user.setModified("U");
@@ -179,6 +153,9 @@ public final class ProcessAuthentication {
             throws Exception {
         boolean result = false;
         if (user == null) return result;
+        //we dont' really have security set up right now, so lets not pretend and waste cycles
+        else return true;
+        /*
         javax.naming.Context ctx = null;
         try {
             ctx = new InitialContext();
@@ -196,6 +173,7 @@ public final class ProcessAuthentication {
             );
         }
         return result;
+        */
     }
 
 
