@@ -45,6 +45,12 @@ function sponsorLinkWindow(spons,nam,top,lef,wid,hei) {
   return;
 }
 
+function openWin(url, name, w, h) {
+    win = window.open(url, name, "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+
 function infoWindow(url) {
   var width = 300
   var height = 250
