@@ -66,7 +66,7 @@
 
 
 
-<P><B>Programmer:</B></P>
+<P><B>Gameplay Programmer:</B></P>
 <P>
 Cryptic Studios is hard at work on City of Heroes, the super powered massively multiplayer RPG. You will be working with a tightly knit team of programmers going into the final stages of production on an ambitious project. We need someone who can problem solve well and who works well with others' code - someone who doesn't need to re-architect whole systems in order to become productive.</P>
 

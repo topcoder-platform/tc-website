@@ -69,7 +69,7 @@
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_programmer_1&amp;a=secure" CLASS="bodyText">Programmer</A></B><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=cryptic_programmer_1&amp;a=secure" CLASS="bodyText">Gameplay Programmer</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=cryptic_lev1designer&amp;a=secure" CLASS="bodyText">Level Designer</A></B><BR/>        
        </P>
       </TD>
