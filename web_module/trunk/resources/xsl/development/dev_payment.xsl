@@ -73,7 +73,7 @@
 						<li>SWIFT Code (if available)</li>
 						</ul>
 					<li>There is a US $20 charge for each wire transfer, which will be deducted from the amount owed to you.</li>
-					<li>To sign up for wire transfer payments, email us at payments@topcoder.com.</li>
+					<li>To sign up for wire transfer payments, email us at <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</li>
 					</ul>
 
 				<li><A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank">PayPal&#174;</A>
@@ -84,7 +84,7 @@
 					<li>Provide TopCoder with the email address you used to establish your PayPal account.</li>
 					<li>If you do not have an account, click here to sign up.</li>
 					<li>Funds are transferred via e-check and are generally available within a few business days.</li>
-					<li>To receive your payments via PayPal, email us at payments@topcoder.com.</li>
+					<li>To receive your payments via PayPal, email us at <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</li>
 					</ul>
 				</ol>
 
