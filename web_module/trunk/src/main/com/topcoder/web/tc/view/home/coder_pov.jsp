@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Kawigi_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=8416646"><strong>Kawigi</strong></a><br/>
+                        <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=10407399"><strong>timmac</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,14 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm225_prob">SRM 225 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, December 28, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm226_prob">SRM 226 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, January 5, 2005</p>
 
                         <p>
 
-In Division 1, the three coders who finished all three problems, <b>Eryx</b>, <b>Snapdragon</b> and <b>kalinov</b>, took the top three spots.  They finished the coding phase just about a challenge away from each other, and <b>Eryx</b>'s 3 challenges secured his lead while <b>SnapDragon</b>'s two moved him into second place.
+In Division 2, <b>Oleksiy</b> took top honors with a commanding lead, while <b>bluequark</b>
+and <b>wickedman</b> took second and third.  A special mention goes to <b>wickedman</b> for being
+the highest scoring newbie.
 
-						<a href="/index?t=statistics&c=srm225_prob" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=srm226_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
