@@ -1,6 +1,6 @@
 <%@ include file="head.inc" %>
-<bean:define name="STUDENT_DATA" id="data" type="java.util.Map" scope="request"/>
-<% ResultSetContainer rsc;
+<% Map data=(Map)request.getAttribute("STUDENT_DATA");
+   ResultSetContainer rsc;
    ResultSetContainer.ResultSetRow rsr; %>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
