@@ -17,7 +17,7 @@
   <jsp:include page="top.jsp" />
 
   <TABLE BGCOLOR="#000000" WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR>
+    <TR><TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>    <TR>
       <TD WIDTH="170" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <query:linkIterator id="link" list="<%=ModifyQueryInputTask.getNavLinks()%>">
@@ -26,6 +26,7 @@
                   <A HREF="<jsp:getProperty name="link" property="href"/>" class="statText"><jsp:getProperty name="link" property="name"/></A>
               </TD>
             </TR>
+            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
           </query:linkIterator>
         </TABLE>
       </TD>
@@ -45,9 +46,10 @@
             <TR>
               <TD CLASS="statText" ALIGN="center" COLSPAN="2">DB: <jsp:getProperty name="ModifyQueryInputTask" property="Db"/></TD>
             </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD COLSPAN="2">
-                <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                <TABLE WIDTH="100%" BGCOLOR="#333333" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                   <TR>
                     <TD CLASS="statTextBig"></TD>
                     <TD CLASS="statTextBig">Input Code</TD>
@@ -57,6 +59,7 @@
                     <TD CLASS="statTextBig">Default Value</TD>
                     <TD CLASS="statTextBig"></TD>
                   </TR>
+                  <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
                   <query:queryInputIterator id="queryInput" list="<%=ModifyQueryInputTask.getCurrentInputList()%>">
                     <TR><TD CLASS="errorText" COLSPAN="7"><query:error task="<%=ModifyQueryInputTask%>" key="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>"/></TD></TR>
                     <TR><TD CLASS="errorText" COLSPAN="7"><query:error task="<%=ModifyQueryInputTask%>" key="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>"/></TD></TR>
@@ -83,6 +86,7 @@
                         </A>
                       </TD>
                     </TR>
+                    <TR><TD COLSPAN="7"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
                   </query:queryInputIterator>
                   <TR>
                     <TD CLASS="statTextBig" COLSPAN="7" ALIGN="center">
@@ -91,14 +95,16 @@
                         </A>
                     </TD>
                   </TR>
+                  <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
                 </TABLE>
               </TD>
-            </TR>
+           </TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
                <query:inputSelect name="<%=Constants.INPUT_ID_PARAM%>" class="dropdown" list="<%=ModifyQueryInputTask.getOtherInputList()%>" size="10" multiple="false"/>
              </TD>
            </TR>
+           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
                <A HREF="javascript: document.ModQueryInputForm.<%=Constants.STEP_PARAM%>.value='<%=Constants.NEW_STEP%>';void document.ModQueryInputForm.submit();" class="statText">
