@@ -39,11 +39,11 @@
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
-   <jsp:param name="tabLev2" value="overview"/>
-   <jsp:param name="tabLev3" value=""/>
+   <jsp:param name="tabLev2" value="about"/>
+   <jsp:param name="tabLev3" value="description"/>
 </jsp:include>
 
-            <h2>Overview of the Algorithm Competition</h2>
+            <h2>Description of the Algorithm Competition</h2>
 
             <ul>
                 <li><strong>Dates: </strong><br />

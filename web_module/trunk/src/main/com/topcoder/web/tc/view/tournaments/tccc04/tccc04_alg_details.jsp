@@ -6,8 +6,8 @@
 
 <jsp:include page="../../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>');
-
+<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
+    
 </head>
 
 <body>
@@ -38,12 +38,12 @@
 
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
-   <jsp:param name="tabLev1" value="component"/>
-   <jsp:param name="tabLev2" value="overview"/>
-   <jsp:param name="tabLev3" value=""/>
+   <jsp:param name="tabLev1" value="algorithm"/>
+   <jsp:param name="tabLev2" value="details"/>
+   <jsp:param name="tabLev3" value="online"/>
 </jsp:include>
 
-            <h2>Overview of the Component Competition</h2>
+            <h2>Overview of the Algorithm Competition</h2>
 
             <ul>
                 <li><strong>Dates: </strong><br />

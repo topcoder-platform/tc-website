@@ -40,7 +40,7 @@
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
    <jsp:param name="tabLev2" value="advancers"/>
-   <jsp:param name="tabLev3" value=""/>
+   <jsp:param name="tabLev3" value="qualification"/>
 </jsp:include>
 
             <h2>Overview of the Algorithm Competition</h2>
