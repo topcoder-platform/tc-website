@@ -129,14 +129,6 @@ public final class TaskHome {
                 homeTag.addTag(rsc.getTag("TopDiv1RankedCoders", "Coder"));
 
                 dataRequest = new Request();
-                dataRequest.setContentHandle("top_ranked_div_2");
-                dataRequest.setProperty("sr", "1");
-                dataRequest.setProperty("er", "10");   // just get the top 10
-                resultMap = dai.getData(dataRequest);
-                rsc = (ResultSetContainer) resultMap.get("Top_Ranked_Div_2");
-                homeTag.addTag(rsc.getTag("TopDiv2RankedCoders", "Coder"));
-
-                dataRequest = new Request();
                 dataRequest.setContentHandle("school_avg_rating");
                 dataRequest.setProperty("sr", "1");
                 dataRequest.setProperty("er", "10");   // just get the top 10
