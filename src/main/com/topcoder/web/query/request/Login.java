@@ -51,7 +51,7 @@ public class Login extends BaseProcessor {
             /* whatever was wrong with the submission, make sure they are logged out */
             auth.logout();
         }
-
+        request.setAttribute(this.getClass().getName(), this);
         setNextPage(Constants.LOGIN_PAGE);
         setIsNextPageInContext(true);
     }

@@ -88,6 +88,7 @@ public class ModifyQuery extends BaseProcessor {
 
         }
 
+        request.setAttribute(this.getClass().getName(), this);
         setNextPage(Constants.MODIFY_QUERY_PAGE);
         setIsNextPageInContext(true);
     }

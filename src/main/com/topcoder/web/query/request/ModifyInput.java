@@ -75,6 +75,7 @@ public class ModifyInput extends BaseProcessor {
 
         }
 
+        request.setAttribute(this.getClass().getName(), this);
         setNextPage(Constants.MODIFY_INPUT_PAGE);
         setIsNextPageInContext(true);
     }

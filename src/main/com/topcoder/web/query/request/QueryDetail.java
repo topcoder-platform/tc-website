@@ -60,6 +60,7 @@ public class QueryDetail extends BaseProcessor {
         setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
         setInputList(qi.getInputsForQuery(getQueryId(), getDb()));
 
+        request.setAttribute(this.getClass().getName(), this);
         setNextPage(Constants.QUERY_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }
