@@ -216,7 +216,7 @@ public class Profile implements Serializable {
     }
 
     public String getSchoolName() {
-        if (generalInfo == null) return "";
+        if (generalInfo == null || generalInfo[22] == null) return "";
         return generalInfo[22].toString();
     }
 
