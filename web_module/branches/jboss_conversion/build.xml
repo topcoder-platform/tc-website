@@ -111,7 +111,7 @@
          <echo message="java.vm.version=${java.vm.version}"/>
          <javac srcdir="${java}"
              destdir="${classes}"
-             classpathref="buildlibs"
+             classpathref="class.path"
              debug="${debug}"
              deprecation="true">
              <include name="com/topcoder/dde/**"/>
