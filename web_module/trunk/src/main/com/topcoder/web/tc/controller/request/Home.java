@@ -39,6 +39,10 @@ public class Home extends Base {
                     dwDai.getData(dataRequest).get("School_Avg_Rating"));
             getRequest().setAttribute("Country_Avg_Rating",
                     dwDai.getData(dataRequest).get("Country_Avg_Rating"));
+            getRequest().setAttribute("top_developers",
+                    dwDai.getData(dataRequest).get("top_developers"));
+            getRequest().setAttribute("top_designers",
+                    dwDai.getData(dataRequest).get("top_designers"));
 
             CachedDataAccess surveyDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request surveyRequest = new Request();
