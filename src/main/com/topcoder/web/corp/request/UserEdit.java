@@ -109,6 +109,8 @@ public class UserEdit extends BaseProcessor {
             secCtx = (InitialContext) TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                     ApplicationServer.SECURITY_PROVIDER_URL);
             secTx = (UserTransaction) secCtx.lookup("UserTransaction");
+Object o = secCtx.lookup("UserTransactionSessionFactory");
+log.debug(o.toString());
             secTx.begin();
 
             if (secTok.createNew) {
