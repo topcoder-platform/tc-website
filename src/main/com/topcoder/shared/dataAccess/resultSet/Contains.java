@@ -37,7 +37,9 @@ public class Contains implements ResultFilter {
         } else {
             item = rsr.getItem(colName);
         }
+
         String other = item.getResultData().toString();
+        if (other==null) return false;
         //log.debug(" other: " + other + " s: " + s);
 
         return other.toLowerCase().indexOf(s.toLowerCase())>-1;

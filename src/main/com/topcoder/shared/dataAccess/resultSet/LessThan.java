@@ -35,6 +35,7 @@ public class LessThan implements ResultFilter {
             item = rsr.getItem(colName);
         }
         Number other = (Number) item.getResultData();
+        if (other==null) return false;
 
         return ((Comparable) other).compareTo(n) < 0;
 
