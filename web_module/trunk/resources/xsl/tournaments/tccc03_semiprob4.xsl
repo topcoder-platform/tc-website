@@ -102,7 +102,7 @@
 						</tr>
 						<tr>
 						<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
-						<td style="background: #eee;" class="bodyText">4 / 4  (75.00%)</td>
+						<td style="background: #eee;" class="bodyText">4 / 4  (100.00%)</td>
 						</tr>
 						<tr>
 						<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
@@ -137,7 +137,7 @@
 						</tr>
 						<tr>
 						<td style="background: #eee;" class="bodyText"><b>Success Rate</b></td>
-						<td style="background: #eee;" class="bodyText">1 / 1  (75.00%)</td>
+						<td style="background: #eee;" class="bodyText">1 / 1  (100.00%)</td>
 						</tr>
 						<tr>
 						<td style="background: #eee;" class="bodyText"><b>High Score</b></td>
