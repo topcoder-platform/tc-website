@@ -188,7 +188,7 @@
                                             students to compete in at least 3 competitions per semester.  Their final
                                             grade will fall a single letter if they compete in less than 3 competitions.
                                             To solve this problem one must add up the given scores and then account for
-                                            the number of competitions:
+                                            the number of competitions.
                                         </p>
 
                                         <p>&#160;</p>
@@ -250,12 +250,12 @@
                                             "eeie".  There is still an I before an E so we must apply the rule again
                                             producing "eiee".  Applying the rule a final time produces the string "ieee"
                                             and we are done.  Code to solve this problem basically consisted of swapping i's
-                                            and e's until no more swaps could be made:
+                                            and e's until no more swaps could be made, is in the practice room under brett1479.
                                         </p>
                                         <p>&#160;</p>
-                                        <a name="GoldConj"></a>
+                                        <a name=" FloorTile"></a>
                                         <font size="+2">
-                                            <b>GoldConj</b>
+                                            <b> FloorTile</b>
                                         </font>
                                         <br/>
                                         <font size="-1">
@@ -266,26 +266,26 @@
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Value</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">900</td>
+                                                        <td style="background: #eee;" class="bodyText">1000</td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Submission Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">83
+                                                        <td style="background: #eee;" class="bodyText">119
                                                             /
-                                                            150
-                                                            (55.33%)
+                                                            264
+                                                            (45.08%)
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Success Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">62
+                                                        <td style="background: #eee;" class="bodyText">103
                                                             /
-                                                            83
-                                                            (74.7%)
+                                                            119
+                                                            (86.58%)
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -293,13 +293,50 @@
                                                             <b>High Score</b>
                                                         </td>
                                                         <td style="background: #eee;" class="bodyText">
-                                                            <b>Doomhammer</b> for
-                                                            877.56 points
+                                                            <b>vipernky</b> for
+                                                            996.22 points
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </blockquote>
                                         </font>
+                                        <P> Reference Solution: brett1479 in the practice room</P>
+                                        <h4>Implementation</h4>
+                                        <p>
+                                            Given a 2^k by 2^k square floor, you have been asked to lay down tiling
+                                            covering the entire area incurring the smallest cost.  The two types of
+                                            tiles at your disposal are: a 1 by 1 square tile, and a 2 by 2 tile with a
+                                            1 by 1 square removed from one of its corners (an L-shaped tile).  The
+                                            L-shaped tile may be flipped or rotated in any fashion.  In addition, both
+                                            the small square shaped tiles, and the L-shaped tiles cost $1 to lay down.
+                                            To solve this problem, one could theoretically try to brute-force every
+                                            possible arrangement of tiles, but a simpler method is possible.  Consider
+                                            the solution to the 2 by 2 square floor below.  Using a single L-shaped piece
+                                            with a square piece costs a total of $2.  The key insight here is to realize
+                                            that the 4x4 case can be produced by placing four of the 2x2 cases next to
+                                            each other.  We can align the single squares in each of the four 2x2 components
+                                            so that they lie in the middle of the resulting 4x4 block thus giving us the
+                                            opportunity to use another L-shaped block.  In other words, when four of the
+                                            2x2 diagrams are used to produce the 4x4 diagram 1, we aligned the B's to all
+                                            occur in the middle.  In 4x4 diagram 2, three of these B's are replaced by the
+                                            L-shaped E block.  Different letters have been used to illustrate the different
+                                            blocks.  Furthermore, we can align four 4x4 blocks to produce a 16x16 block.
+                                            4x4 diagram 3 shows how I have slightly changed the organization of diagram 2
+                                            to place the single leftover square 'F' in the lower righthand corner allowing
+                                            four diagram 3 blocks to be connected to form a 16x16 block analogously to how
+                                            we generated the 4x4 block.
+                                               2x2      4x4 (diagram 1)   4x4 (diagram 2)     4x4 (diagram 3)
+                                                --        ----               ----                ----
+                                               |AB|      |AAAA|             |AABB|              |AABB|
+                                               |AA|      |ABBA|             |AEEB|              |AEEB|
+                                                --       |ABBA|             |DEFC|              |DECC|
+                                                         |AAAA|             |DDCC|              |DDCF|
+                                                          ----               ----                ----
+                                            The moral of this story is, you never need to use more than a single square in
+                                            any of the problem sizes.  Thus the answer can be calculated by finding the
+                                            total area, dividing by 3, and then adding 1 for the remaining square block.
+                                        </p>
+                                        <p>&#160;</p>
                                         <font size="-1">
                                             Used as: Division-I, Level 1:
                                             <blockquote>
