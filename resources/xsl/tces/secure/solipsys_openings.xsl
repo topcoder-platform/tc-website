@@ -70,16 +70,16 @@
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>
        <B><A HREF="/?&amp;t=tces&amp;c=solipsys_seniorcjprog&amp;a=secure" CLASS="bodyText">Senior C++/Java Programmer - Kauai, Hawaii</A></B><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_softengscr&amp;a=secure" CLASS="bodyText">Software Engineer - Security Clearance Required (00071)</A></B><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_defsyseng&amp;a=secure" CLASS="bodyText">Defense Systems Engineer (00072)</A></B><BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_seniorsyseng1&amp;a=secure" CLASS="bodyText">Senior Systems Engineer (00081)</A></B><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_softengscr&amp;a=secure" CLASS="bodyText">Software Engineer - Security Clearance Required (00071)</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_defsyseng&amp;a=secure" CLASS="bodyText">Defense Systems Engineer (00072)</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_seniorsyseng1&amp;a=secure" CLASS="bodyText">Senior Systems Engineer (00081)</A></B><BR/><BR/>
        <B><A HREF="/?&amp;t=tces&amp;c=solipsys_progman&amp;a=secure" CLASS="bodyText">Program Manager (00082)</A></B><BR/></P>
       </TD>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P> 
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_softeng1&amp;a=secure" CLASS="bodyText">Software Engineer (00084)</A></B><BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_assoana&amp;a=secure" CLASS="bodyText">Associate Analyst (00085)</A></B><BR/>             
-       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_seniorsofteng1&amp;a=secure" CLASS="bodyText">Senior Software Engineer - Seattle, Washington (00088)</A></B><BR/>  
+       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_softeng1&amp;a=secure" CLASS="bodyText">Software Engineer (00084)</A></B><BR/><BR/>  
+       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_assoana&amp;a=secure" CLASS="bodyText">Associate Analyst (00085)</A></B><BR/><BR/>             
+       <B><A HREF="/?&amp;t=tces&amp;c=solipsys_seniorsofteng1&amp;a=secure" CLASS="bodyText">Senior Software Engineer - Seattle, Washington (00088)</A></B><BR/><BR/>  
        <B><A HREF="/?&amp;t=tces&amp;c=solipsys_softeng2&amp;a=secure" CLASS="bodyText">Software Engineer - Seattle, Washington (00090)</A></B><BR/></P> 
     </TD>
   </TR>
