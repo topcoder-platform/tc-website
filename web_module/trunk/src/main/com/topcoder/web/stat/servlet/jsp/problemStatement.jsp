@@ -7,7 +7,8 @@
          ,com.topcoder.shared.problem.*
          ,com.topcoder.shared.language.*
          ,com.topcoder.shared.problemParser.*
-         ,com.topcoder.common.web.render.ProblemRenderer"
+         ,com.topcoder.common.web.render.ProblemRenderer,
+          java.awt.*"
 
 %>
 
@@ -88,8 +89,10 @@ if (rsc!=null && !rsc.isEmpty()) {
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" VALIGN="middle" ALIGN="left">
-                      <% if (problem!=null) { %>
-              		<%= new ProblemRenderer(problem).toHTML(JavaLanguage.JAVA_LANGUAGE) %>
+                      <% if (problem!=null) {
+                        ProblemRenderer pr = new ProblemRenderer(problem);
+                        pr.setForegroundColor(Color.white);%>
+              		<%= pr.toHTML(JavaLanguage.JAVA_LANGUAGE) %>
                       <% } else { %>
                         Problem Statement not available.
                       <% } %>
