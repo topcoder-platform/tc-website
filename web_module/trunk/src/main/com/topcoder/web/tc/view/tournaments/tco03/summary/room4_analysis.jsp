@@ -52,11 +52,11 @@
             
             <h2>Problem Set Analysis &amp; Opinion</h2>
 
-            <p>by <a href="#">brett1479</a>, <em>TopCoder Member</em><br />
+            <a href="/stat?c=member_profile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left"></a>
+            <p>by <a href="/stat?c=member_profile&cr=159052">lbackstrom</a>, <br/>
+            <em>TopCoder Member</em><br />
             Thursday, December 4, 2003</p>
 
-            <p>Text <strong>handle</strong> text, text, text.</p>
-                        
             <h3>AvoidRoads<br/>
             <span class="bodyText">Used as: Division 1 - Level 1:</span></h3>
                         
