@@ -73,10 +73,6 @@ abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
-    protected void checkFullRegInfo(FullRegInfo info) throws TCWebException {
-        super.checkRegInfo(info);
-    }
-
     protected String getRequestParameter(String name) throws Exception {
         String ret = null;
         ret = getRequest().getParameter(name);

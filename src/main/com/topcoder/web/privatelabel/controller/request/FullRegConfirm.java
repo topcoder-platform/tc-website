@@ -3,6 +3,7 @@ package com.topcoder.web.privatelabel.controller.request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
@@ -19,6 +20,7 @@ import java.util.Map;
  * @author gpaul 07.07.2003
  */
 public class FullRegConfirm extends FullRegBase {
+    protected static Logger log = Logger.getLogger(FullRegConfirm.class);
 
     protected void registrationProcessing() throws TCWebException {
 
@@ -54,6 +56,7 @@ public class FullRegConfirm extends FullRegBase {
      * @throws TCWebException
      */
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
+        log.debug("called checkRegInfo");
         if (!(((FullRegInfo)info).getCoderType() == Constants.STUDENT || ((FullRegInfo)info).getCoderType() == Constants.PROFESSIONAL)) {
             addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
         }

@@ -5,6 +5,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.StringTokenizer;
 
@@ -14,6 +15,7 @@ import java.util.StringTokenizer;
  * @author gpaul 06.26.2003
  */
 abstract class SimpleRegBase extends RegistrationBase {
+    protected static Logger log = Logger.getLogger(SimpleRegBase.class);
 
     protected abstract void registrationProcessing() throws TCWebException;
 
@@ -79,6 +81,7 @@ abstract class SimpleRegBase extends RegistrationBase {
     }
 
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
+        log.debug("called checkRegInfo");
         //check handle
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                 info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
