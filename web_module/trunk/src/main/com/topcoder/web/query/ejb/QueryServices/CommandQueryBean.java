@@ -190,6 +190,8 @@ public class CommandQueryBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
             query.append(" SELECT q.query_id");
             query.append(     " , q.name");
+            query.append(     " , cqx.command_id");
+            query.append(     " , cqx.sort_order");
             query.append(  " FROM command_query_xref cqx");
             query.append(     " , query q");
             query.append( " WHERE cqx.command_id = ?");

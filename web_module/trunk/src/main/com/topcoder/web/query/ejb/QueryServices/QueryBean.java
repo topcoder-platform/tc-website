@@ -370,7 +370,6 @@ public class QueryBean extends BaseEJB {
              query.append(     " , ranking");
              query.append(     " , column_index");
              query.append(  " FROM query");
-             query.append( " WHERE query_id = ?");
              ctx = new InitialContext();
              if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
              ds = (DataSource)ctx.lookup(dataSourceName);
