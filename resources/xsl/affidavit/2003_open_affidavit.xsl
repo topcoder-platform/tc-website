@@ -205,26 +205,42 @@
 
 <P>
 
-<CENTER>
-STATUTORY DECLARATION<BR/>
-<BR/>
-<BR/>
-  2003 TopCoder Open<BR/>
-  Coding Tournament<BR/>
-<BR/>
-<BR/>
-</CENTER>
-<BR/>
-<BR/>
-I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/>, residing at
-    <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address1"/>&#160;
-    <xsl:if test="/TC/AFFIDAVIT/Affidavit/Info/address2!=''">
-      <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address2"/>&#160;
-    </xsl:if>
-    <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/city"/>,
-    <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
-    <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>
-, do solemnly and sincerely declare as follows
+<xsl:choose>
+    <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='United States'">'
+        <center>
+            [TO BE EXECUTED ON A STAMP PAPER OF TWENTY FIVE RUPEES]<br/><br/>
+            AFFIDAVIT OF ELIGIBILITY AND LIABILITY AND PUBLICITY RELEASE<br/><br/>
+            2003 TopCoder Open<BR/>
+            Coding Tournament<BR/>
+            I, _______________ [insert full name], aged ___ [insert age],
+            son/daughter of ___________ [insert father’s name], residing
+            at _____________ [insert address] do hereby solemnly affirm and state
+            as follows:
+        </center>
+    </xsl:when>
+    <xsl:otherwise>
+        <CENTER>
+        STATUTORY DECLARATION<BR/>
+        <BR/>
+        <BR/>
+          2003 TopCoder Open<BR/>
+          Coding Tournament<BR/>
+        <BR/>
+        <BR/>
+        </CENTER>
+        <BR/>
+        <BR/>
+        I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/>, residing at
+            <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address1"/>&#160;
+            <xsl:if test="/TC/AFFIDAVIT/Affidavit/Info/address2!=''">
+              <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address2"/>&#160;
+            </xsl:if>
+            <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/city"/>,
+            <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
+            <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>
+        , do solemnly and sincerely declare as follows
+    </xsl:otherwise>
+</xsl:choose>
 <BR/>
 <BR/>
 <BR/>
@@ -392,6 +408,30 @@ I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:va
   </xsl:otherwise>
   </xsl:choose>
 </xsl:when>
+    <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='New Zealand'">
+      And I make this solemn declaration conscientiously believing the same to be true and by virtue of the Oaths and Declarations Act 1957.
+      <BR/>
+      <BR/>
+      <xsl:choose>
+      <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
+        <TABLE WIDTH="500" BORDER="0">
+          <TR>
+            <TD>Declared before me at the _______________  this ___________ day of _____________ 20__    before me:</TD>
+            <TD>)<BR/>)<BR/>)<BR/></TD>
+            <TD></TD>
+          </TR>
+          <TR>
+            <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: Solicitor/Justice of the Peace <BR/><BR/>__________________________________<BR/>Print Name</TD>
+            <TD></TD>
+            <TD VALIGN="top"><BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/></TD>
+          </TR>
+        </TABLE>
+      </xsl:when>
+      <xsl:otherwise>
+        <BR/>__________________________________<BR/>Signature: <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/><BR/>
+      </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
 <xsl:otherwise>
   And I make this solemn declaration conscientiously believing the statements contained in this declaration to be true.
   <BR/>
