@@ -54,7 +54,7 @@
          At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. Beat other students from Columbia and NYU by creating an accurate solution in the shortest amount of time. A leader board will track the points along the way.</li>
 
          <li><span class="dc_subTitle">Challenge Phase</span></br>
-         In the rounds following the Qualification Round, the Challenge Phase is introduced.  It allows competitors to view each other's code and try to "break'" that code. You challenge another competitor's code by passing test cases against it, with the hope that you can make it fail. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, precious points are awarded or taken away based on the success of the challenges.</li>
+         The Challenge Phase is introduced during the Main Competition Round.  It allows competitors to view each other's code and try to "break'" that code. You challenge another competitor's code by passing test cases against it, with the hope that you can make it fail. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, precious points are awarded or taken away based on the success of the challenges.</li>
 
          <li><span class="dc_subTitle">System Tests</span></br>
          Within minutes of the end of the Challenge Phase, TopCoder's automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against this competitive field.</li>
@@ -66,17 +66,43 @@
          <p>The top 10 scorers from the Main Competition Round will be invited to compete for cash prizes in the Final Round being held at DoubleClick's headquarters on February 27th.</p>
 
          <p><span class="dc_subTitle">Prizes</span></br>
-         All participants in the Main Competition Round will receive a "DoubleClick 2004 Coding Challenge" T-shirt.  The top five scorers in the Final Round will receive the following cash prizes:</p>
+         All participants in the Main Competition Round will receive a "DoubleClick 2004 Coding Challenge" T-shirt.  The cash prizes will be distributed as follows:</p>
 
-         <p>
-         1st place - $5,000</br>
-         2nd place - $1,750</br>
-         3rd place - $1,000</br>
-         4th place - $750</br>
-         5th place - $500
-         </p>
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="50%" class="sidebarTitle">Participant(s)</td>
+                    <td width="50%" class="sidebarTitle" align="right">Prize</td>
+                </tr>
 
-         <p>The five finalists not finishing as one of the top five scorers in the Final Round will each receive $200.</p>
+                <tr>
+                    <td width="50%" class="sidebarText">1st place finisher - Tournament Champion</td>
+                    <td width="50%" class="sidebarText" align="right">$5,000</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">2nd place finisher in the Final Round</td>
+                    <td width="50%" class="sidebarText" align="right">$1,750</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">3rd place finisher in the Final Round</td>
+                    <td width="50%" class="sidebarText" align="right">$1,000</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">4th place finisher in the Final Round</td>
+                    <td width="50%" class="sidebarText" align="right">$750</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">5th place finisher in the Final Round</td>
+                    <td width="50%" class="sidebarText" align="right">$500</td>
+                </tr>
+                <tr>
+                    <td width="50%" class="sidebarText">Remaining 5 finalists not finishing with one of the top 5 scores in the Final Round</td>
+                    <td width="50%" class="sidebarText" align="right">$200 each</td>
+                </tr>
+            </table>
 
          <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Official Rules and Regulations</a>.</p>
 
