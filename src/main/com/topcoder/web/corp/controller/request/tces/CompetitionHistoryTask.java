@@ -143,9 +143,21 @@ public class CompetitionHistoryTask extends BaseTask implements Task, Serializab
         setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
                 getItem(0, "job_desc").toString());
 
-        resultMap = getDataAccess(getDw()).getData(dataRequest);
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Competition_History");
+        Request dwRequest = new Request();
+        if (isRestrictedCampaign(getCampaignID())) {
+            dwRequest.setContentHandle("restricted_tces_competition_history");
+            dwRequest.setProperty("mid", Integer.toString(getMemberID()));
+            dwRequest.setProperty("rds", getRoundList(getCampaignID()));
+            resultMap = getDataAccess(getDw()).getData(dwRequest);
+            rsc = (ResultSetContainer) resultMap.get("restricted_TCES_Competition_History");
+        } else {
+            dwRequest.setContentHandle("tces_competition_history");
+            dwRequest.setProperty("mid", Integer.toString(getMemberID()));
+            resultMap = getDataAccess(getDw()).getData(dwRequest);
+            rsc = (ResultSetContainer) resultMap.get("TCES_Competition_History");
+        }
+
         ArrayList compList = new ArrayList();
         ResultSetContainer.ResultSetRow compListRow = null;
         for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
