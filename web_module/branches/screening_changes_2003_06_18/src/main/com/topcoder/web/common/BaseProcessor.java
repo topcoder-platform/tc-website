@@ -16,8 +16,8 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     protected static Logger log = Logger.getLogger(BaseProcessor.class);
     /* set by the creator */
-    protected ServletRequest request;
-    protected WebAuthentication auth;
+    private HttpServletRequest request;
+    private WebAuthentication auth;
 
     private InitialContext ctx;
     private HashMap errors;
@@ -31,7 +31,7 @@ public abstract class BaseProcessor implements RequestProcessor {
         errors = new HashMap();
     }
 
-    public void setRequest(ServletRequest request) {
+    public void setRequest(HttpServletRequest request) {
         this.request = request;
     }
 
@@ -182,5 +182,12 @@ public abstract class BaseProcessor implements RequestProcessor {
         return s == null ? "" : s;
     }
 
+    public WebAuthentication getAuthentication() {
+        return auth;
+    }
+
+    public HttpServletRequest getRequest() {
+        return request;
+    }
 }
 
