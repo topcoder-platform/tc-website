@@ -103,46 +103,46 @@ The Problems
 </font>
 <A href="Javascript:openProblemRating(3507)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>Value</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     250
-   </td>
- </tr>
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>Submission Rate</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     145 / 172 (84.30%)
-   </td>
- </tr>
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>Success Rate</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     80 / 145 (55.17%)
-   </td>
- </tr>
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>High Score</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     <b>robymus</b> for 239.51 points (4 mins 48 secs)
-   </td>
- </tr>
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>Average Score</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     172.90 (for 80 correct submissions)
-   </td>
- </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      250
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      141 / 168 (83.93%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      78 / 141 (55.32%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>robymus</b> for 239.51 points (4 mins 48 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      173.75 (for 78 correct submissions)
+    </td>
+  </tr>
 </table></blockquote>
 
 <p>
@@ -161,46 +161,46 @@ be calculated from the clock time mm:ss as mm*60 + ss.
 </font>
 <A href="Javascript:openProblemRating(3510)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>Value</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     1000
-   </td>
- </tr>
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>Submission Rate</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     104 / 172 (60.47%)
-   </td>
- </tr>
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>Success Rate</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     64 / 104 (61.54%)
-   </td>
- </tr>
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>High Score</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     <b>Im2Good</b> for 954.91 points (4 mins 59 secs)
-   </td>
- </tr>
- <tr>
-   <td class="bodyText" style="background: #eee;">
-     <b>Average Score</b>
-   </td>
-   <td class="bodyText" style="background: #eee;">
-     711.40 (for 64 correct submissions)
-   </td>
- </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      1000
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      101 / 168 (60.12%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      63 / 101 (62.38%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>Im2Good</b> for 954.91 points (4 mins 59 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      710.61 (for 63 correct submissions)
+    </td>
+  </tr>
 </table></blockquote>
 
 <p>

@@ -97,46 +97,46 @@ advanced.  lingo took top honors, with a narrow victory over Jan_Kupiers.
 </font> 
 <A href="Javascript:openProblemRating(3505)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br /> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Value</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      250 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Submission Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      127 / 167 (76.05%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Success Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      96 / 127 (75.59%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>High Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-    <b>lingo</b> for 232.04 points (6 mins 24 secs) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Average Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      163.40 (for 96 correct submissions) 
-    </td> 
-  </tr> 
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      250
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      123 / 162 (75.93%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      89 / 123 (72.36%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>Per</b> for 234.32 points (5 mins 57 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      159.84 (for 89 correct submissions)
+    </td>
+  </tr>
 </table></blockquote> 
 
 <p>
@@ -184,46 +184,46 @@ return words;
 </font> 
 <A href="Javascript:openProblemRating(3502)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br /> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Value</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      1000 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Submission Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      47 / 167 (28.14%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Success Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      32 / 47 (68.09%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>High Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>dgarthur</b> for 668.55 points (17 mins 59 secs) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Average Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      515.85 (for 32 correct submissions) 
-    </td> 
-  </tr> 
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      1000
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      44 / 162 (27.16%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      27 / 44 (61.36%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>dgarthur</b> for 668.55 points (18 mins 0 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      488.23 (for 27 correct submissions)
+    </td>
+  </tr>
 </table></blockquote> 
 
 <p>

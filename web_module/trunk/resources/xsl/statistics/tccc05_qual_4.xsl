@@ -91,46 +91,46 @@ The Problems
 </font> 
 <A href="Javascript:openProblemRating(3506)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br /> 
 Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Value</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      250 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Submission Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      139 / 161 (86.34%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Success Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      124 / 139 (89.21%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>High Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Ruberik</b> for 248.21 points (1 mins 56 secs) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Average Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      204.59 (for 124 correct submissions) 
-    </td> 
-  </tr> 
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      250
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      138 / 160 (86.25%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      123 / 138 (89.13%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>Ruberik</b> for 248.21 points (1 mins 56 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      204.27 (for 123 correct submissions)
+    </td>
+  </tr>
 </table></blockquote> 
 
 <p>
@@ -154,46 +154,46 @@ for (int i = 0; i &lt; input.length*factor; i++)
 </font> 
 <A href="Javascript:openProblemRating(3504)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br /> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Value</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      1000 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Submission Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      52 / 161 (32.30%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Success Rate</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      12 / 52 (23.08%) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>High Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>John Dethridge</b> for 741.01 points (14 mins 32 secs) 
-    </td> 
-  </tr> 
-  <tr> 
-    <td class="bodyText" style="background: #eee;"> 
-      <b>Average Score</b> 
-    </td> 
-    <td class="bodyText" style="background: #eee;"> 
-      500.87 (for 12 correct submissions) 
-    </td> 
-  </tr> 
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      1000
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      51 / 160 (31.87%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      11 / 51 (21.57%)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      <b>John Dethridge</b> for 741.01 points (14 mins 32 secs)
+    </td>
+  </tr>
+  <tr>
+    <td class="bodyText" style="background: #eee;">
+      <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+      511.02 (for 11 correct submissions)
+    </td>
+  </tr>
 </table></blockquote> 
 
 <p>
