@@ -21,7 +21,7 @@ import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.Status;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
 import javax.rmi.PortableRemoteObject;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -63,7 +63,7 @@ public class Submit extends FullRegSubmit {
             }
 
             if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
-                UserTransaction uTx = null;
+                TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
                     UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
                                     UserServicesHome.class.getName()),
@@ -93,14 +93,13 @@ public class Submit extends FullRegSubmit {
 
                     u.setModified("U");
 
-                    uTx = Transaction.get();
-                    uTx.begin();
+                    tm.begin();
                     userEJB.setUser(u);
-                    uTx.commit();
+                    tm.commit();
                 } catch (Exception e) {
                     try {
-                        if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                            uTx.rollback();
+                        if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                            tm.rollback();
                         }
                     } catch (Exception te) {
                         throw new TCWebException(e);
