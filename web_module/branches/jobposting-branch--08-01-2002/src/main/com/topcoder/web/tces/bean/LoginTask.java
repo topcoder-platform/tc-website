@@ -68,7 +68,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
             setNextPage(TCESConstants.LOGIN_OK_PAGE );
         }
         else {
-            setMessage(Authentication.getErrorMessage);
+            setMessage(Authentication.getErrorMessage());
             setNextPage(TCESConstants.LOGIN_OK_PAGE );
         }
     }

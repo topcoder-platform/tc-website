@@ -15,7 +15,7 @@ public class Authentication implements Serializable {
     private String errorMessage;
 
 
-    public static boolean attemptLogin(String handle, String password, HttpSession session) {
+    public static boolean attemptLogin(String handle, String password, InitialContext ctx, HttpSession session) {
         Authentication auth = new Authentication();
 
         auth.setUserId(USER_NOT_LOGGED_IN);
@@ -23,7 +23,7 @@ public class Authentication implements Serializable {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_user_and_pw");
         dataRequest.setProperty("hn", handle );
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
 
@@ -75,8 +75,10 @@ public class Authentication implements Serializable {
         this.errorMessage = errorMessage;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public static String getErrorMessage(HttpSession session) {
+        Authentication auth = (Authentication)session.getAttribute("tces_auth");
+
+        return auth.errorMessage;
     }
 
     private int setUserId(int userId) {
