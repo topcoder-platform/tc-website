@@ -80,6 +80,9 @@ next Single Round Match date.
 	<TR>
 		<TD COLSPAN="3" VALIGN="middle" HEIGHT="17" BGCOLOR="#43515E" CLASS="statText">&#160;<B>Employers</B></TD>
 	</TR>
+  	<TR>
+		<TD COLSPAN="3" BGCOLOR="#ffffff" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
+	</TR>  
    <TR>
 		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=solipsys"><IMG SRC="/i/es/solipsys/solipsys_logo.gif" WIDTH="135" HEIGHT="60" BORDER="0"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
