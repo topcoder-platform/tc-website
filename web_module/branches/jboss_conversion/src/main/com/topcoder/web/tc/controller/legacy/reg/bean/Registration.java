@@ -27,6 +27,7 @@ import com.topcoder.web.tc.view.reg.tag.StateSelect;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
+import javax.rmi.PortableRemoteObject;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
@@ -1764,7 +1765,10 @@ public class Registration
         try {
             context = TCContext.getInitial();
 
-            UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
+            UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(context.lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
+
             transaction = Transaction.get();
             if (Transaction.begin(transaction)) {
                 UserServices userServices;

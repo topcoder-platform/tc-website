@@ -23,6 +23,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.naming.Context;
 import javax.transaction.Status;
 import javax.transaction.UserTransaction;
+import javax.rmi.PortableRemoteObject;
 import java.util.*;
 
 public final class Data {
@@ -55,7 +56,10 @@ public final class Data {
         Context ctx = null;
         try {
             ctx = TCContext.getInitial();
-            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
+            UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
+
             Long key = new Long(nav.getUser().getUserId());
             UserServices userEJB = userHome.findByPrimaryKey(key);
             uTx = Transaction.get();
@@ -102,7 +106,9 @@ public final class Data {
             Context ctx = null;
             try {
                 ctx = TCContext.getInitial();
-                UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
+                UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                                UserServicesHome.class.getName()),
+                                UserServicesHome.class);
                 UserServices userEJB = userHome.findByPrimaryKey(new Long(nav.getUserId()));
                 user = userEJB.getUser();
                 nav.setUser(user);

@@ -5,6 +5,7 @@ import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
+import javax.rmi.PortableRemoteObject;
 import java.io.Serializable;
 import java.util.HashMap;
 
@@ -57,7 +59,9 @@ public final class Navigation
             Context ctx = null;
             try {
                 ctx = TCContext.getInitial();
-                UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
+                UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                                UserServicesHome.class.getName()),
+                                UserServicesHome.class);
                 UserServices userEJB = userHome.findByPrimaryKey(new Long(getUser().getUserId()));
                 setUser(userEJB.getUser());
                 getUser().setLoggedIn("N");

@@ -16,6 +16,7 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.Status;
 import javax.transaction.UserTransaction;
+import javax.rmi.PortableRemoteObject;
 
 public class GoogleRegSubmit extends FullRegSubmit {
 
@@ -30,7 +31,9 @@ public class GoogleRegSubmit extends FullRegSubmit {
             if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(useId, DBMS.OLTP_DATASOURCE_NAME)) {
                 UserTransaction uTx = null;
                 try {
-                    UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
+                    UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(getInitialContext().lookup(
+                                    UserServicesHome.class.getName()),
+                                    UserServicesHome.class);
                     UserServices userEJB = userHome.findByPrimaryKey(new Long(useId));
                     com.topcoder.common.web.data.User u = userEJB.getUser();
 
