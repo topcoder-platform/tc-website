@@ -169,6 +169,7 @@ public class QueryMover {
                     sourceCommandGroup.getCommandGroupDesc(), targetDSN);
             CommandBean targetCommand = findCommand(targetC, sourceCommand.getCommandDesc(), targetDSN);
 
+
             int newCommandGroupId = 0;
 
             /* it's a new command. */
@@ -177,6 +178,9 @@ public class QueryMover {
                 if (targetCommandGroup == null) {
                     log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " not found, creating...");
                     newCommandGroupId = targetCG.createCommandGroup(sourceCommandGroup.getCommandGroupDesc(), targetDSN);
+                } else {
+                    log.debug("target command group : " + targetCommandGroup.toString());
+                    newCommandGroupId = targetCommandGroup.getCommandGroupId();
                 }
 
                 log.info("command " + sourceCommand.getCommandDesc() + " not found, creating...");
@@ -188,6 +192,14 @@ public class QueryMover {
                 moveCommandQueries(newCommandId);
             } else {
                 log.info("command " + sourceCommand.getCommandDesc() + " found, updating...");
+                if (targetCommandGroup == null) {
+                    log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " not found, creating...");
+                    newCommandGroupId = targetCG.createCommandGroup(sourceCommandGroup.getCommandGroupDesc(), targetDSN);
+                } else {
+                    log.debug("target command group : " + targetCommandGroup.toString());
+                    newCommandGroupId = targetCommandGroup.getCommandGroupId();
+                }
+                targetC.setCommandGroupId(targetCommand.getCommandId(), newCommandGroupId, targetDSN);
                 commandMap.put(new Long(targetCommand.getCommandId()), new Long(sourceCommandId));
                 moveQueries(sourceCommandId);
                 moveCommandQueries(targetCommand.getCommandId());
@@ -273,13 +285,13 @@ public class QueryMover {
         //remove all the command query entries for this command
         QueryBean qb = null;
         for (Iterator it = getQueriesForCommand(targetCQ, targetQ, targetCommandId, targetDSN).iterator(); it.hasNext();) {
-            log.info("deleting command query record command id: " + targetCommandId + " query id: " + qb.getQueryId());
             qb = (QueryBean) it.next();
+            log.info("deleting command query record command id: " + targetCommandId + " query id: " + qb.getQueryId());
             targetCQ.removeCommandQuery(targetCommandId, qb.getQueryId(), targetDSN);
         }
 
         long sourceCommandId = ((Long) commandMap.get(new Long(targetCommandId))).longValue();
-        for (Iterator it = getQueriesForCommand(sourceCQ, sourceQ, sourceCommandId, targetDSN).iterator(); it.hasNext();) {
+        for (Iterator it = getQueriesForCommand(sourceCQ, sourceQ, sourceCommandId, sourceDSN).iterator(); it.hasNext();) {
             qb = (QueryBean) it.next();
             long sourceQueryId = qb.getQueryId();
             long targetQueryId = ((Long) getKey(queryMap, new Long(sourceQueryId))).longValue();
@@ -375,8 +387,8 @@ log.debug("inputMap: " + inputMap.toString());
         QueryBean query = null;
         ResultSetContainer queryList = cq.getQueriesForCommand(commandId, dsn);
         ResultSetContainer.ResultSetRow row = null;
+        ret = new ArrayList(queryList.size());
         for (Iterator it = queryList.iterator(); it.hasNext();) {
-            ret = new ArrayList(queryList.size());
             row = (ResultSetContainer.ResultSetRow) it.next();
             query = new QueryBean();
             query.setQueryId(((Long) row.getItem("query_id").getResultData()).longValue());
