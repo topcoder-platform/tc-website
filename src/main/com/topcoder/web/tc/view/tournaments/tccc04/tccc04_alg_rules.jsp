@@ -39,7 +39,7 @@
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
-   <jsp:param name="tabLev2" value="about"/>
+   <jsp:param name="tabLev2" value="details"/>
    <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
 
@@ -162,6 +162,16 @@
          not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized 
          intervention or technical failures of any sort.</p>
 
+            <p><span class="bodySubtitle">Other</span><br />
+            The tournament is void in whole or in part where prohibited by law.</p>
+
+            <p>A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/, and will be
+            displayed for at least 3 months after the end of the tournament.</p>
+
+            <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 AM Eastern Time on the date following the round for which the appeal is being addressed.</p>
+
+            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+
          <h2>Competition Structure</h2>
          
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
@@ -194,8 +204,7 @@
             <li>If a tie still remains, all tied coders will advance to the next round</li>
             </ul>
 
-            <p><span class="bodySubtitle">Competition Round Structure</span><br/>
-            With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: the format of these competition rounds is similar to the format of the Single Round Matches.)</p>
+            <p>With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: the format of these competition rounds is similar to the format of the Single Round Matches.)</p>
 
             <p>The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time the problem was opened until the time it was submitted.</p>
 
@@ -220,16 +229,6 @@
             <li>If a tie still remains in the Semifinal round, then all tied coders will advance to the Championship Round</li>
             <li>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</li>
             </ul>
-
-            <p><span class="bodySubtitle">Other</span><br />
-            The tournament is void in whole or in part where prohibited by law.</p>
-
-            <p>A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/, and will be
-            displayed for at least 3 months after the end of the tournament.</p>
-
-            <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 AM Eastern Time on the date following the round for which the appeal is being addressed.</p>
-
-            <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
             <h2>About the Prizes</h2>
 
