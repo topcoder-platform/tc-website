@@ -47,10 +47,10 @@ public class Submit extends View {
                     resp = (SurveyResponse) it.next();
                     hasAllFreeForm &= resp.isFreeForm();
                     if (resp.isFreeForm()) {
-                        response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
-                    } else {
                         response.createResponse(resp.getUserId(), resp.getQuestionId());
                         response.setResponseText(resp.getUserId(), resp.getQuestionId(), resp.getText());
+                    } else {
+                        response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
                     }
                 }
                 Transaction.commit(tx);
@@ -81,11 +81,11 @@ public class Submit extends View {
     private List validateAnswer(String paramName, List questions) {
 
         Question question = null;
-        String[] answers = getRequest().getParameterValues(paramName);
+        String[] values = getRequest().getParameterValues(paramName);
         List ret = null;
-        if (answers != null) ret = new ArrayList(answers.length);
-        for (int i = 0; i < answers.length; i++) {
-            log.debug("param: " + paramName + " value: " + answers[i]);
+        if (values != null) ret = new ArrayList(values.length);
+        for (int i = 0; i < values.length; i++) {
+            log.debug("param: " + paramName + " value: " + values[i]);
             long questionId = -1;
             long answerId = -1;
             StringTokenizer st = new StringTokenizer(paramName.substring(AnswerInput.PREFIX.length()), ",");
@@ -111,13 +111,13 @@ public class Submit extends View {
                 }
             } else {
                 //only when it's a multiple choice question should there be multiple answers
-                if (answers.length > 1) {
+                if (values.length > 1) {
                     log.debug("not multiple choice, but there are multiple answers");
                     addError(paramName, "Invalid answer.");
                 }
                 if (question.getStyleId() == Question.SINGLE_CHOICE) {
                     try {
-                        answerId = Long.parseLong(answers[i]);
+                        answerId = Long.parseLong(values[i]);
                     } catch (NumberFormatException e) {
                         log.debug("numberformat trying to get answer for single choice");
                         addError(paramName, "Invalid answer.");
@@ -136,7 +136,7 @@ public class Submit extends View {
                     response.setAnswerId(answerId);
                     response.setFreeForm(false);
                 } else {
-                    response.setText(StringUtils.checkNull(answers[i]));
+                    response.setText(StringUtils.checkNull(values[i]));
                     response.setFreeForm(true);
                 }
                 ret.add(response);
