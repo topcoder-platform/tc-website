@@ -57,9 +57,9 @@ if ( plugin ) {
 <!-- Center Column Begins -->
          <td class="cardCell" WIDTH="100%" align="center">
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="cards"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Preview"/>  
+           <jsp:param name="image" value="cards"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Preview"/>
         </jsp:include>
 
          <div class="cardBody">
@@ -97,7 +97,7 @@ document.write(' allowScriptAccess="sameDomain" ');
 document.write(' type="application/x-shockwave-flash" ');
 document.write(' pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
 document.write(' </object> ');
-<% if (cardUnlocked) { %>
+<% if (!cardUnlocked) { %>
 document.write(' <p align="center"><a href="/card?module=Unlock"><img src="/i/card/unlock.gif" border="0"/></a></p> ');
 <% } %>
 
