@@ -73,7 +73,7 @@ public class Profile implements Serializable {
 
 
 
-    private static final int[] NOTIFY_QUERY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
+    private static final int[] NOTIFY_QUERY_TYPES = {ResultItem.STRING, ResultItem.INT};
     private static final String NOTIFY_QUERY =
       " SELECT name" +
            " , sort" +
