@@ -12,6 +12,7 @@
  <INPUT TYPE="hidden" NAME="state_code" VALUE="<jsp:getProperty name="student" property="StateCode"/>">
  <INPUT TYPE="hidden" NAME="school_id" VALUE="<jsp:getProperty name="student" property="SchoolId"/>">
  <INPUT TYPE="hidden" NAME="handle" VALUE="<jsp:getProperty name="student" property="Handle"/>">
+ <INPUT TYPE="hidden" NAME="change_password" VALUE="<jsp:getProperty name="student" property="ChangePassword"/>">
  <INPUT TYPE="hidden" NAME="password" VALUE="<jsp:getProperty name="student" property="Password"/>">
  <INPUT TYPE="hidden" NAME="confirm_password" VALUE="<jsp:getProperty name="student" property="ConfirmPassword"/>">
  <INPUT TYPE="hidden" NAME="email" VALUE="<jsp:getProperty name="student" property="Email"/>">
