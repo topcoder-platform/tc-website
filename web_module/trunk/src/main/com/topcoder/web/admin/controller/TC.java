@@ -8,11 +8,13 @@ import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.admin.task.Home;
-import com.topcoder.web.admin.task.Challenge;
-import com.topcoder.web.admin.task.Compilation;
-import com.topcoder.web.admin.task.SystemTestCaseReport;
+import com.topcoder.web.admin.task.*;
 import com.topcoder.web.admin.Constants;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.security.TCSubject;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -27,7 +29,6 @@ public final class TC extends HttpServlet {
 
 
     private HTMLRenderer renderer = null;
-    private static final int MAX_REPLACEMENTS = 100;
     private static Logger log = Logger.getLogger(TC.class);
 
 
@@ -68,64 +69,65 @@ public final class TC extends HttpServlet {
         Navigation nav = null;
         HttpSession session = null;
         XMLDocument document = null;
-        boolean timedOut = false;
         try {
-            // CHECK FOR SESSION TIMEOUT
-            if (request.isRequestedSessionIdValid() == false && request.getRequestedSessionId() != null) {
-                timedOut = true;
-            }
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
             document = new XMLDocument("TC");
-            nav = setupSession(request, response, session);
-            addURLTags(nav, request, response, document);
+            nav = setupSession(response, session);
+            addURLTags(request, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
             String requestTask = Conversion.checkNull(request.getParameter("Task"));
             String requestCommand = Conversion.checkNull(request.getParameter("Command"));
             log.info("ADMIN ***** " + requestTask + " ***** " + requestCommand);
             //************************ no task ************************
-            if (requestTask.equals("")) {
-                if (requestCommand.equals("")) {
-                    html = Home.process(request, response, renderer, nav, document);
+            if (isAdmin(request, response)) {
+                if (requestTask.equals("")) {
+                    if (requestCommand.equals("")) {
+                        html = Home.process(request, response, renderer, nav, document);
+                    } else {
+                        html = renderer.render(document, Constants.DIR + requestCommand);
+                    }
+                }
+                //************************ challenge ************************
+                else if (requestTask.equals("challenge")) {
+                    html = Challenge.process(request, response, renderer, nav, document);
+                }
+                //************************ compilation ************************
+                else if (requestTask.equals("compilation")) {
+                    html = Compilation.process(request, response, renderer, nav, document);
                 } else {
-                    html = renderer.render(document, Constants.DIR + requestCommand);
+                        StringBuffer msg = new StringBuffer(150);
+                        msg.append("com.topcoder.web.admin.controller.TC:processCommands:ERROR:invalid task:");
+                        msg.append(requestTask);
+                        msg.append(":\n");
+                        throw new NavigationException(
+                                msg.toString()
+                                , Constants.NAVIGATION_ERROR_URL
+                        );
+                    }
+                out = response.getWriter();
+                out.print(html);
+                out.flush();
+            } else {
+                Login processor = new Login();
+                processor.process(request, response);
+                 if(processor.isPageInContext()) {
+                    getServletContext().getRequestDispatcher(response.encodeURL(processor.getNextPage())).forward(request, response);
+                } else {
+                    response.sendRedirect(response.encodeRedirectURL(processor.getNextPage()));
                 }
             }
-            //************************ challenge ************************
-            else if (requestTask.equals("challenge")) {
-                html = Challenge.process(request, response, renderer, nav, document);
-            }
-            //************************ compilation ************************
-            else if (requestTask.equals("compilation")) {
-                html = Compilation.process(request, response, renderer, nav, document);
-            } if (requestTask.equals("login")) {
-
-            }
-            //************************ invalid ************************
-            else {
-                StringBuffer msg = new StringBuffer(150);
-                msg.append("com.topcoder.web.admin.controller.TC:processCommands:ERROR:invalid task:");
-                msg.append(requestTask);
-                msg.append(":\n");
-                throw new NavigationException(
-                        msg.toString()
-                        , Constants.NAVIGATION_ERROR_URL
-                );
-            }
-            out = response.getWriter();
-            out.print(html);
-            out.flush();
         } catch (NavigationException ne) {
             try {
                 out = response.getWriter();
                 ne.printStackTrace();
                 if (nav == null) {
                     session = request.getSession(true);
-                    nav = setupSession(request, response, session);
+                    nav = setupSession(response, session);
                 }
                 if (document == null) {
                     document = new XMLDocument("TC");
-                    addURLTags(nav, request, response, document);
+                    addURLTags(request, document);
                 }
                 html = renderer.render(document, ne.getUrl());
                 out.print(html);
@@ -144,11 +146,11 @@ public final class TC extends HttpServlet {
                 e.printStackTrace();
                 if (nav == null) {
                     session = request.getSession(true);
-                    nav = setupSession(request, response, session);
+                    nav = setupSession(response, session);
                 }
                 if (document == null) {
                     document = new XMLDocument("TC");
-                    addURLTags(nav, request, response, document);
+                    addURLTags(request, document);
                 }
                 html = renderer.render(document, Constants.INTERNAL_ERROR_URL);
                 out.print(html);
@@ -185,8 +187,7 @@ public final class TC extends HttpServlet {
     }
 
 
-    private Navigation setupSession(HttpServletRequest request, HttpServletResponse response,
-                                    HttpSession session) throws Exception {
+    private Navigation setupSession(HttpServletResponse response,HttpSession session) throws Exception {
         Navigation result = null;
         try {
             response.setContentType("text/html");
@@ -202,25 +203,20 @@ public final class TC extends HttpServlet {
     }
 
 
-    private void addURLTags(Navigation nav, HttpServletRequest request,
-                            HttpServletResponse response, XMLDocument document) throws Exception {
-        // ADD ALL XML TAGS BASIC TO ALL REQUESTS
+    private void addURLTags(HttpServletRequest request, XMLDocument document) throws Exception {
         try {
-            document.addTag(
-                    new ValueTag(
-                            "AdminURL"
-                            , "/admin"
-                    )
-            );
-            document.addTag(
-                    new ValueTag(
-                            "Host"
-                            , request.getServerName()
-                    )
-            );
+            document.addTag(new ValueTag("AdminURL", "/admin"));
+            document.addTag(new ValueTag("Host", request.getServerName()));
         } catch (Exception e) {
             throw new Exception("com.topcoder.web.admin.controller.TC:addURLTags:ERROR:\n" + e);
         }
+    }
+
+
+    private boolean isAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
+        TCSAuthorization authorization = new TCSAuthorization(new TCSubject(authToken.getUser().getId()));
+        return authorization.getGroups().contains("Admin");
     }
 
 
