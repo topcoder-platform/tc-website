@@ -16,10 +16,10 @@
 
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr valign="bottom">
-    <td valign="top" width="11"><img width="11" height="26" border="0" src="/i/spacer.gif"/></td>
-    <td valign="top" width="75" align="left"><img width="180" height="26" border="0" src="/i/header_<%=image%>.gif" alt="<%=image%>"/></td>
-    <td class="bodyTextBold" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><span class="bodySubhead"><%=Conversion.checkNull(request.getParameter("title"))%></span></td>
-    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"/></td>
+    <td valign="top" width="11"><img width="11" height="26" border="0" src="/i/clear.gif"></td>
+    <td valign="top" width="180"><img width="180" height="26" border="0" src="/i/header_<%=image%>.gif" alt="<%=image%>"></td>
+    <td class="bodyTextBold" width="1%" align="left" nowrap><span class="bodySubhead"><%=Conversion.checkNull(request.getParameter("title"))%></span></td>
+    <td valign="top" width="99%"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
   </tr>
 
 </table>
