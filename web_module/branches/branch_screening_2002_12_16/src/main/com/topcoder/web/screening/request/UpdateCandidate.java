@@ -1,5 +1,6 @@
 package com.topcoder.web.screening.request;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.naming.InitialContext;
@@ -62,7 +63,14 @@ public class UpdateCandidate extends BaseProcessor
      */
     public void process() throws Exception {
         request = getRequest();
-        CandidateInfo info = buildInfo();
+        CandidateInfo info = new CandidateInfo();
+        if(!buildInfo(request, info)) {
+            //we must have failed validation
+            request.setAttribute(Constants.CANDIDATE_INFO, info);
+            setNextPage(Constants.CANDIDATE_SETUP_PAGE);
+            setNextPageInContext(true);
+            return;
+        }
 
         InitialContext context = new InitialContext();
         PrincipalMgr principalMgr = new PrincipalMgr();
@@ -149,27 +157,35 @@ public class UpdateCandidate extends BaseProcessor
      * @throws Exception Thrown if the required properties for the CandidateInfo
      *                   object are not in the request or are invalid.
      */
-    private CandidateInfo buildInfo() throws Exception {
-        CandidateInfo info = new CandidateInfo();
+    private boolean buildInfo(ServletRequest request, CandidateInfo info) 
+        throws Exception {
         String uId = request.getParameter(Constants.CANDIDATE_ID);
+        HashMap errorMap = new HashMap(2);
+        boolean success = true;
         if(uId != null) {
-            info.setUserId(new Long(uId));
+            //we're not doing updates so this is an error
+            //info.setUserId(new Long(uId));
+            success = false;
+            errorMap.put(Constants.CANDIDATE_ID, "Cannot update candidates");
         }
 
         String email = request.getParameter(Constants.EMAIL_ADDRESS);
         if(email == null) {
-            throw new Exception("Email is not set.");
+            success = false;
+            errorMap.put(Constants.EMAIL_ADDRESS, "Email is not set.");
         }
-        validateEmail(email);
-        info.setEmailAddress(email);
-        String password = request.getParameter(Constants.PASSWORD);
-        if(password == null) {
-            password = generatePassword();
+        else {
+            success = validateEmail(errorMap, email);
+            info.setEmailAddress(email);
         }
-        //validatePassword(password);  don't need anymore cuz we always
-        //make the password
-        info.setPassword(password);
-        return info;
+
+        if(!success) {
+            request.setAttribute(Constants.ERRORS, errorMap);
+        }
+        else {
+            info.setPassword(generatePassword());
+        }
+        return success;
     }
 
     /** 
@@ -179,7 +195,8 @@ public class UpdateCandidate extends BaseProcessor
      * @throws Exception Thrown if the string is invalid.  The exception
      *                   holds the information that specifies what was invalid.
      */
-    private void validateEmail(String email) throws Exception {
+    private boolean validateEmail(HashMap errorMap, String email) 
+        throws Exception {
         StringBuffer errorString = new StringBuffer();
         boolean valid = true;
         if(email.length() < 5) {
@@ -210,8 +227,11 @@ public class UpdateCandidate extends BaseProcessor
 
         if(!valid) {
             errorString.append("Use 'joe@topcoder.com' format");
-            throw new Exception(errorString.toString());
+
+            errorMap.put(Constants.EMAIL_ADDRESS, errorString.toString());
         }
+
+        return valid;
     }
 
     /** 

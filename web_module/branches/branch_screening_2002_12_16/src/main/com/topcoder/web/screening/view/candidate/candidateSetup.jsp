@@ -56,7 +56,7 @@
               <TD CLASS="bodyText" VALIGN="middle">&#160;</TD>
            </TR>
            <TR>
-              <TD></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+              <TD></TD><TD colspan="2" class="errorText" align="left" valign="middle"><screen:errors name="emailAddress" /></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><strong>Password</strong>&#160;&#160;</TD>

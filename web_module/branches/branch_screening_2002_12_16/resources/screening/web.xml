@@ -632,6 +632,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>errors_attribute</param-name>
+    <param-value>errors</param-value>
+    <description></description>
+  </init-param>
+
   <load-on-startup>2</load-on-startup>
 
 </servlet>

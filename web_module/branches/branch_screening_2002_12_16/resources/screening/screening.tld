@@ -195,6 +195,21 @@
   </tag>
 
   <tag>
+    <name>errors</name>
+    <tagclass>com.topcoder.web.screening.view.tag.ErrorsTag</tagclass>
+    <bodycontent>Empty</bodycontent>
+    <info>
+      Tag to write out error messages for a give key or all if no key is
+      specified.  Does nothing if there is no map of errors.
+    </info>
+    <attribute>
+      <name>name</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
     <name>listIterator</name>
     <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
     <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
