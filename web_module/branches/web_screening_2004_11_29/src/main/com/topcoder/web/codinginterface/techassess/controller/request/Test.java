@@ -46,8 +46,8 @@ public class Test extends Base {
             String arg = null;
             String dim = null;
             for (int i=0; (arg=getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT+i))!=null; i++) {
-                log.debug("arg " + i + " is " + arg);
                 dim = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_DIMENSION);
+                log.debug("arg " + i + " dimension is " + dim + " content is " + arg);
                 if (dim!=null&&dim.trim().length()>0&&Integer.parseInt(dim)>0) {
                     arguments.add(parseArrayInput(arg));
                 } else {
