@@ -253,7 +253,7 @@ was not necessary, and even a very unoptimized solution can run in time.</p>
 <b><a href="/stat?c=problem_statement&amp;pm=3971&amp;rd=6521" name="3971">StockHistory</a></b>
 </font>
 <A href="Javascript:openProblemRating(3971)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
-Used as: Division Two - Level Two: <blockquote><table cellspacing="2" ID="Table4">
+Used as: Division Two - Level Three: <blockquote><table cellspacing="2" ID="Table4">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
