@@ -19,6 +19,9 @@ public class ViewProblemInner extends Base {
 
             if (hasParameter(Constants.MESSAGE_ID)) {
                 String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
+                /* leave the defaults (the problem) in the session because the problem
+                 * statement processor will need it
+                 */
                 loadSessionDefaultsIntoRequest(messageId, false);
                 loadSessionErrorsIntoRequest(messageId);
                 if (hasDefault(Constants.PROBLEM)) {
