@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.jobposting;
+package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.JobHitData;
