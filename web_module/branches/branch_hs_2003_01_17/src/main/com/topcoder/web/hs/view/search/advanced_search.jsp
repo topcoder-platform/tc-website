@@ -19,7 +19,7 @@
    <TD COLSPAN="4" CLASS="statText" BACKGROUND="/i/hs/blue_heading_bg_deux.gif"><IMG BORDER="0" HEIGHT="1" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD>
   </TR>
   <TR>
-   <TD COLSPAN="4" VALIGN="middle" CLASS="statText" BACKGROUND="/i/hs/steel_bluebv_bg.gif">
+   <TD COLSPAN="4" HEIGHT="30" VALIGN="middle" CLASS="statText">
     &nbsp;An underscore ( _ ) = one character space<BR>
     &nbsp;A percent sign ( % ) = any number of character spaces
    </TD>
