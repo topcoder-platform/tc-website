@@ -71,6 +71,10 @@
                     <%=MemberProfileTask.getJobName()%>
                 </A>
               </B>
+              <BR>
+              <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+                  View all position interest
+              </A>
               </P>                            
               
               <P>
