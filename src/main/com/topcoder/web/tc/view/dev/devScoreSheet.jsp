@@ -354,10 +354,10 @@ The unit test methods should not contain configuration details that are system s
 </table>
 
 <br/><p class=guideQuestion>
-5.5. Where applicable, files used in Unit Test Cases exist in the /test_files directory.
+5.5. Where applicable, files used in Unit Test Cases exist in the /test_files directory. (5%) (Yes/No Question)
 </p>
 <p class=guideDesc>
-The reviewer should verify that all test files and configuration files used in Unit Testing exist and are located in the /test_files directory. (5%) (Yes/No Question)
+The reviewer should verify that all test files and configuration files used in Unit Testing exist and are located in the /test_files directory. 
 </p>
 <table class=guideTable cellspacing=0>
 <tr><td class=guideHead><b>Score 1</b> -</td><td class=guideCell> No - The developer either provided invalid files or did not store them in the appropriate /test_files directory.</td></tr>
