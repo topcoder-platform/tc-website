@@ -40,9 +40,11 @@ public class Constants {
     public static String EMAIL;
     public static String EMAIL_CONFIRM;
     public static String FIRST_NAME;
+    public static String MIDDLE_NAME;
     public static String LAST_NAME;
     public static String ADDRESS1;
     public static String ADDRESS2;
+    public static String ADDRESS3;
     public static String COUNTRY_CODE;
     public static String STATE_CODE;
     public static String CITY;

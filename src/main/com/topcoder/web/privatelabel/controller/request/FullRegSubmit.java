@@ -27,7 +27,7 @@ public class FullRegSubmit extends SimpleRegSubmit {
 
     protected UserPrincipal store(SimpleRegInfo regInfo) throws Exception {
         UserPrincipal ret = super.store(regInfo);
-        //TODO do the rest of the db stuff, demog etc.
+        //TODO do the rest of the db stuff, resume, coder type, demographics
 
 
 

@@ -34,13 +34,14 @@ public class DemographicInput extends BaseTag {
             throws JspException {
         if (question != null) {
             StringBuffer output = new StringBuffer(400);
-            setName(PREFIX+question.getQuestionId());
+            setName(PREFIX+question.getId());
             switch (question.getAnswerType()) {
                 case DemographicQuestion.FREE_FORM:
                     output.append(buildText());
                     break;
                 case DemographicQuestion.MULTIPLE_SELECT:
                     output.append("multiselect");
+                    break;
                 case DemographicQuestion.SINGLE_SELECT:
                     output.append(buildSelect());
                     break;

@@ -7,6 +7,9 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.company.Company;
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.rating.Rating;
 import com.topcoder.shared.util.Transaction;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.UserPrincipal;
@@ -85,6 +88,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
             Address address = (Address)createEJB(ctx, Address.class);
             Email email = (Email)createEJB(ctx, Email.class, "main:");
             UserAddress userAddress = (UserAddress)createEJB(ctx, UserAddress.class, "main:");
+            Company company = (Company)createEJB(ctx, Company.class);
+            Coder coder = (Coder)createEJB(ctx, Coder.class);
+            Rating rating = (Rating)createEJB(ctx, Rating.class);
 
             PrincipalMgrRemote mgr = getPrincipalManager();
 
@@ -114,15 +120,17 @@ public class SimpleRegSubmit extends SimpleRegBase {
             }
 
             //create user
-            //TODO determine create status based on company
-            user.createUser(newUser.getId(), regInfo.getHandle(), 'U');
-            user.setFirstName(newUser.getId(), regInfo.getFirstName());
+            user.createUser(newUser.getId(), regInfo.getHandle(),
+                    company.getNewUserStatus(regInfo.getCompanyId()).charAt(0));
+            user.setFirstName(newUser.getId(), regInfo.getMiddleName());
+            user.setMiddleName(newUser.getId(), regInfo.getFirstName());
             user.setLastName(newUser.getId(), regInfo.getLastName());
 
             //create address
             long addressId = address.createAddress();
             address.setAddress1(addressId, regInfo.getAddress1());
             address.setAddress2(addressId, regInfo.getAddress2());
+            address.setAddress3(addressId, regInfo.getAddress3());
             address.setAddressTypeId(addressId, ADDRESS_TYPE);
             address.setCity(addressId, regInfo.getCity());
             address.setCountryCode(addressId, regInfo.getCountryCode());
@@ -141,7 +149,10 @@ public class SimpleRegSubmit extends SimpleRegBase {
             email.setPrimaryEmailId(newUser.getId(), emailId);
 
             //create coder
-            //TODO
+            coder.createCoder(newUser.getId(), db);
+
+            //create rating
+            rating.createRating(newUser.getId(), db);
 
             return newUser;
         } finally {

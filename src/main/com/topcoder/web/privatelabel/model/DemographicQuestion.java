@@ -12,20 +12,22 @@ public class DemographicQuestion extends Base {
     public static final int SINGLE_SELECT = 2;
     public static final int FREE_FORM = 3;
 
-    private long questionId;
+    private long id;
     private String text;
     private String desc;
     private String selectable;
+    private boolean required;
     private List answers;
 
     public DemographicQuestion() {}
 
     public Object clone() throws OutOfMemoryError {
         DemographicQuestion ret = new DemographicQuestion();
-        ret.setQuestionId(questionId);
+        ret.setId(id);
         ret.setText(text);
         ret.setDesc(desc);
         ret.setSelectable(selectable);
+        ret.setRequired(required);
         List list = new ArrayList(answers.size());
         for (int i=0; i<answers.size(); i++) {
             list.set(i, ((DemographicAnswer)answers.get(i)).clone());
@@ -34,12 +36,12 @@ public class DemographicQuestion extends Base {
         return ret;
     }
 
-    public long getQuestionId() {
-        return questionId;
+    public long getId() {
+        return id;
     }
 
-    public void setQuestionId(long questionId) {
-        this.questionId = questionId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getText() {
@@ -82,5 +84,13 @@ public class DemographicQuestion extends Base {
 
     public void setSelectable(String selectable) {
         this.selectable = selectable;
+    }
+
+    public boolean isRequired() {
+        return required;
+    }
+
+    public void setRequired(boolean required) {
+        this.required = required;
     }
 }

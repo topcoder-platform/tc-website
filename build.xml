@@ -523,12 +523,12 @@
             <param name="unit-class-path" value="com/topcoder/web/ejb/school"/>
         </antcall>
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="HSRating"/>
-            <param name="unit-class-path" value="com/topcoder/web/hs/ejb/rating"/>
+            <param name="unit-jar-name" value="Rating"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/rating"/>
         </antcall>
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="HSCoder"/>
-            <param name="unit-class-path" value="com/topcoder/web/hs/ejb/coder"/>
+            <param name="unit-jar-name" value="Coder"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/coder"/>
         </antcall>
     </target>
 
@@ -809,6 +809,14 @@
     </target>
 
     <target name="deploy-privatelabel" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Rating"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/rating"/>
+        </antcall>
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Coder"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/coder"/>
+        </antcall>
         <war warfile="${war.dir}/privatelabel.war" webxml="${resources}/privatelabel/web.xml">
             <fileset dir="${java}/com/topcoder/web/privatelabel/view">
                 <include name="**/*.jsp"/>

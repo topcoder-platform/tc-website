@@ -41,9 +41,11 @@ abstract class SimpleRegBase extends RegistrationBase {
         info.setEmail(StringUtils.checkNull(getRequestParameter(Constants.EMAIL)));
         info.setEmailConfirm(StringUtils.checkNull(getRequestParameter(Constants.EMAIL_CONFIRM)));
         info.setFirstName(StringUtils.checkNull(getRequestParameter(Constants.FIRST_NAME)));
+        info.setMiddleName(StringUtils.checkNull(getRequestParameter(Constants.MIDDLE_NAME)));
         info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.LAST_NAME)));
         info.setAddress1(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS1)));
         info.setAddress2(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS2)));
+        info.setAddress3(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS3)));
         info.setCountryCode(StringUtils.checkNull(getRequestParameter(Constants.COUNTRY_CODE)));
         info.setStateCode(StringUtils.checkNull(getRequestParameter(Constants.STATE_CODE)));
         info.setCity(StringUtils.checkNull(getRequestParameter(Constants.CITY)));
@@ -102,6 +104,8 @@ abstract class SimpleRegBase extends RegistrationBase {
             addError(Constants.FIRST_NAME, "Please enter your first name.");
         }
 
+        //nothing for middle name
+
         //check last name
         if (info.getLastName().length()<1) {
             addError(Constants.LAST_NAME, "Please enter your last name.");
@@ -113,6 +117,8 @@ abstract class SimpleRegBase extends RegistrationBase {
         }
 
         //nothing to check for address2
+
+        //nothing to check for address3
 
         //check country code
         if (info.getCountryCode().trim().length()==0 || findCountry(info.getCountryCode())==null) {

@@ -13,7 +13,7 @@ public interface User extends EJBObject {
     public void setFirstName(long userId, String firstName)
             throws EJBException, RemoteException;
 
-    public void setMiddletName(long userId, String middleName)
+    public void setMiddleName(long userId, String middleName)
             throws EJBException, RemoteException;
 
     public void setLastName(long userId, String lastName)

@@ -9,8 +9,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.user.*;
 import com.topcoder.web.ejb.email.*;
 import com.topcoder.web.ejb.termsofuse.*;
-import com.topcoder.web.hs.ejb.coder.*;
-import com.topcoder.web.hs.ejb.rating.*;
+import com.topcoder.web.ejb.coder.*;
+import com.topcoder.web.ejb.rating.*;
 import com.topcoder.web.hs.model.*;
 
 import java.rmi.*;
@@ -403,10 +403,10 @@ public class RegistrationHelper {
 
             CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
             Coder coder = ch.create();
-            coder.createCoder(user_id);
-            coder.setMemberSince(user_id, new java.sql.Date(new Date().getTime()));
-            coder.setEditorId(user_id, srb.getEditorId().intValue());
-            coder.setLanguageId(user_id, srb.getLanguageId().intValue());
+            coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            coder.setMemberSince(user_id, new java.sql.Date(new Date().getTime()), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            coder.setEditorId(user_id, srb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            coder.setLanguageId(user_id, srb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             UserTermsOfUseHome utouh = (UserTermsOfUseHome)
                     ctx.lookup("hs:" + UserTermsOfUseHome.EJB_REF_NAME);
@@ -415,7 +415,7 @@ public class RegistrationHelper {
 
             RatingHome rh = (RatingHome) ctx.lookup(RatingHome.EJB_REF_NAME);
             Rating rating = rh.create();
-            rating.createRating(user_id);
+            rating.createRating(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             utx.commit();
         } catch (Exception _e) {
@@ -493,8 +493,8 @@ public class RegistrationHelper {
 
             CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
             Coder coder = ch.create();
-            coder.setEditorId(userId, srb.getEditorId().intValue());
-            coder.setLanguageId(userId, srb.getLanguageId().intValue());
+            coder.setEditorId(userId, srb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            coder.setLanguageId(userId, srb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             utx.commit();
         } catch (Exception _e) {
@@ -767,10 +767,10 @@ public class RegistrationHelper {
 
             CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
             Coder coder = ch.create();
-            coder.createCoder(user_id);
-            coder.setMemberSince(user_id, new java.sql.Date(new Date().getTime()));
-            coder.setEditorId(user_id, crb.getEditorId().intValue());
-            coder.setLanguageId(user_id, crb.getLanguageId().intValue());
+            coder.createCoder(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            coder.setMemberSince(user_id, new java.sql.Date(new Date().getTime()), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            coder.setEditorId(user_id, crb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            coder.setLanguageId(user_id, crb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             UserTermsOfUseHome utouh = (UserTermsOfUseHome)
                     ctx.lookup("hs:" + UserTermsOfUseHome.EJB_REF_NAME);
@@ -779,7 +779,7 @@ public class RegistrationHelper {
 
             RatingHome rh = (RatingHome) ctx.lookup(RatingHome.EJB_REF_NAME);
             Rating rating = rh.create();
-            rating.createRating(user_id);
+            rating.createRating(user_id, DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             /*utx.commit();*/
 
@@ -860,8 +860,8 @@ public class RegistrationHelper {
 
             CoderHome ch = (CoderHome) ctx.lookup(CoderHome.EJB_REF_NAME);
             Coder coder = ch.create();
-            coder.setEditorId(userId, crb.getEditorId().intValue());
-            coder.setLanguageId(userId, crb.getLanguageId().intValue());
+            coder.setEditorId(userId, crb.getEditorId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
+            coder.setLanguageId(userId, crb.getLanguageId().intValue(), DBMS.HS_JTS_OLTP_DATASOURCE_NAME);
 
             utx.commit();
         } catch (Exception _e) {

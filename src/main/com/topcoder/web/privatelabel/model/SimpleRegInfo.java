@@ -12,9 +12,11 @@ public class SimpleRegInfo extends Base {
     private String email;
     private String emailConfirm;
     private String firstName;
+    private String middleName;
     private String lastName;
     private String address1;
     private String address2;
+    private String address3;
     private String countryCode;
     private String countryName;
     private String stateCode;
@@ -33,9 +35,11 @@ public class SimpleRegInfo extends Base {
         setEmail(info.getEmail());
         setEmailConfirm(info.getEmailConfirm());
         setFirstName(info.getFirstName());
+        setMiddleName(info.getMiddleName());
         setLastName(info.getLastName());
         setAddress1(info.getAddress1());
         setAddress2(info.getAddress2());
+        setAddress3(info.getAddress3());
         setCountryCode(info.getCountryCode());
         setCountryName(info.getCountryName());
         setStateCode(info.getStateCode());
@@ -93,6 +97,14 @@ public class SimpleRegInfo extends Base {
         this.firstName = firstName;
     }
 
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
     public String getLastName() {
         return lastName;
     }
@@ -115,6 +127,14 @@ public class SimpleRegInfo extends Base {
 
     public void setAddress2(String address2) {
         this.address2 = address2;
+    }
+
+    public String getAddress3() {
+        return address3;
+    }
+
+    public void setAddress3(String address3) {
+        this.address3 = address3;
     }
 
     public String getCountryCode() {
