@@ -24,7 +24,8 @@
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:variable name="status_id" select="'301'" />
 <!-- Declaration ends -->
-
+<!-- Application projects begins -->
+<!--
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
             <A href="/?t=development&amp;c=app_projects"><img src="/i/development/head_app_projects.gif" alt="Application Projects" width="180" height="20" border="0" /></A>
@@ -81,7 +82,8 @@
             </table>
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
-
+-->
+<!-- Application projects ends -->
   
 <!-- Component Design Projects begins -->
             <A href="/?t=development&amp;c=comp_projects#comp_des"><img src="/i/development/head_comp_des_projects.gif" alt="Component Design Projects" width="180" height="20" border="0" /></A>
