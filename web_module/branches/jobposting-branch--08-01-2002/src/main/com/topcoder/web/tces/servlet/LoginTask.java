@@ -48,6 +48,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     }
 
     public void setHandleInput(String handleInput) {
+log.debug("Setting HandleInput to "+handleInput);
         this.handleInput=handleInput;
     }
 
@@ -152,6 +153,8 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
+
+log.debug("setting param "+paramName+" = "+value);
 
         if (paramName.equalsIgnoreCase(TCESConstants.HANDLE_PARAM))
             setHandleInput(value);

@@ -74,7 +74,7 @@
 
   <init-param>
     <param-name>handle_param</param-name>
-    <param-value>handle</param-value>
+    <param-value>Handle</param-value>
     <description>
       The key for the handle parameter of a request.
     </description>
@@ -82,7 +82,7 @@
 
   <init-param>
     <param-name>password_param</param-name>
-    <param-value>password</param-value>
+    <param-value>Password</param-value>
     <description>
       The key for the password parameter of a request.
     </description>
