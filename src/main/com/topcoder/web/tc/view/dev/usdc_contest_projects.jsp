@@ -70,7 +70,7 @@ else
                         <br/>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class="usdcTitle" nowrap=nowrap><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> - Components</td>
+                                <td class="usdcTitle" nowrap=nowrap><a href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /></a> - Components</td>
                             </tr>
                          </table>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
