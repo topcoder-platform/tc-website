@@ -58,9 +58,19 @@ public interface RequestProcessor {
 	public void process() throws Exception; 
 	
 	/**
-	 * Returns new destination page (it differs from requested by user) if
-	 * somethihg is wrong with user request. Implementor must prepare that page
-	 * vhen processing request in process() method.
+	 * Returns new destination page to be returned as a result of request
+	 * processing. The controller does not know what is right workflow
+	 * (processor may to be or not tobe successful when processing given
+	 * request, in which cases destination pages will be different). So given
+	 * method will be called by controller to decide where go to after request
+	 * processing. Implementor must prepare that page vhen processing request in
+	 * process() method.<br>
+	 * 
+	 * <b>PLEASE NOTE</b>. Description above was changed from very first
+	 * revision of interface.<br>
+	 * 
+	 * Also it is supposed, that for every user request received there will be
+	 * an unique instance of processor (ensured by controller).
 	 * 
 	 * In theory, there are able situations when user will be required to walk
 	 * through a tree of pages to fulfill the requirements set, so it is
