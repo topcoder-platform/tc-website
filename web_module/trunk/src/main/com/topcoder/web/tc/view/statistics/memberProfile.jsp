@@ -176,7 +176,7 @@ if (!rsc.isEmpty()) {
 
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Rating:</TD>
-                                <TD CLASS="statText" ALIGN="right"><% if (rsc.getIntItem("rating")==0) { %>Not Rated<% } else { %><rsc:item set="<%=rsc%>" name="rating" ifNull="Not Rated"/><%}%></TD>
+                                <TD CLASS="statText" ALIGN="right"><% if (rsc.getIntItem(0, "rating")==0) { %>Not Rated<% } else { %><rsc:item set="<%=rsc%>" name="rating" ifNull="Not Rated"/><%}%></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
