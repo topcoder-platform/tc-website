@@ -12,11 +12,19 @@
   <servlet-class>com.topcoder.web.corp.controller.MainServlet</servlet-class>
 
   <init-param>
+    <param-name>static</param-name>
+    <param-value>com.topcoder.web.corp.request.Static</param-value>
+    <description>handles primary registration page</description>
+  </init-param>
+
+  <init-param>
     <param-name>prim-reg</param-name>
     <param-value>com.topcoder.web.corp.request.Registration</param-value>
     <description>handles primary registration page</description>
   </init-param>
 </servlet>
+
+
 
 <servlet-mapping>
   <servlet-name>MainServlet</servlet-name>
