@@ -46,7 +46,9 @@ public class BasicAuthentication implements WebAuthentication {
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
             Long uid = new Long(sub.getUserId());
 
-            response.addCookie(new Cookie("user_id", uid.toString()));
+            Cookie c = new Cookie("user_id", uid.toString());
+            c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
+            response.addCookie(c);
             persistor.setObject(request.getSession().getId()+"user_id", uid);
 
         } catch (Exception e) {
@@ -63,9 +65,9 @@ public class BasicAuthentication implements WebAuthentication {
     public void logout() {
 
         persistor.removeObject(request.getSession().getId()+"user_id");
-        Cookie r = new Cookie("user_id", "");
-        r.setMaxAge(0);
-        response.addCookie(r);
+        Cookie c = new Cookie("user_id", "");
+        c.setMaxAge(0);
+        response.addCookie(c);
     }
 
     /**
