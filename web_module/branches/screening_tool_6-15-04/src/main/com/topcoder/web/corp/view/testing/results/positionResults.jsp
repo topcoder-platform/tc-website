@@ -47,7 +47,7 @@ function getProblemDetail(id) {
     window.open('<%=url%>&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
--->
+//-->
 </script>
 
 </HEAD>
