@@ -32,7 +32,7 @@ function openWnd(pageUrl) {
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <jsp:include page="../script.jsp"/>
   </HEAD>
-  <BODY BGCOLOR="#001935" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+  <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
   <jsp:include page="../top_tces.jsp" />             
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
