@@ -74,6 +74,15 @@
                                 </tr>
                                 <tr valign="middle">
                                     <td class="projectCells">
+                                        <a href="?t=development&amp;c=EDI_Certification_Website_Design">EDI Certification Website Application Design</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$3,500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">09.24.2004</td>
+
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Seat_Service_Scheduling_Design">Seat Service Scheduling Design</a>
                                     </td>
                                     <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
@@ -127,14 +136,6 @@
                                     </tr>
                                 </tr>
 
-                                <tr valign="middle">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=EDI_Certification_Website_Design">EDI Certification Website Application Design</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$3,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-
-                                </tr>
 
                                 <tr valign="middle">
                                     <td class="projectCells">
