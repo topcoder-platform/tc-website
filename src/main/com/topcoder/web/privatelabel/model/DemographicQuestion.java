@@ -1,9 +1,13 @@
 package com.topcoder.web.privatelabel.model;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import java.util.List;
 import java.util.ArrayList;
 
 public class DemographicQuestion extends Base {
+    protected static Logger log = Logger.getLogger(DemographicQuestion.class);
+
     public static final int MULTIPLE_SELECT = 1;
     public static final int SINGLE_SELECT = 2;
     public static final int FREE_FORM = 3;
@@ -57,10 +61,12 @@ public class DemographicQuestion extends Base {
     public List getDemographicAnswers() {
         List list = null;
         if (demographicAnswers!=null) {
+            log.debug(demographicAnswers.size() + " answers found");
             list = new ArrayList(demographicAnswers.size());
             for (int i=0; i<demographicAnswers.size(); i++) {
                 list.set(i, ((DemographicAnswer)demographicAnswers.get(i)).clone());
             }
+            log.debug(list.size() + " answers generated");
         }
         return list;
     }
