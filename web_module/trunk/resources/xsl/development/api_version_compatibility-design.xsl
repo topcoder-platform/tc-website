@@ -63,7 +63,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The API Version Compatibility component insures that new versions of the code will always support previously created API specifications.  If a function previously defined in an API is modified, a report is generated to identify the problem.  Utilizing this component will guarantee existing clients utilizing public functions published as part of the API will not break.
+						The API Version Compatibility component insures that new software releases are backwards compatible with existing versions.  Analysis of two versions of an API will yield the modifications made to existing method signatures.  
 						</p>
 
 <!-- Project Type -->

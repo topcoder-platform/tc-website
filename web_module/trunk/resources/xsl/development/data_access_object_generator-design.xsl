@@ -63,7 +63,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Data Access Object (DAO) Generator component generates DAO objects which can be used to access the database.   Utilizing a generic DAO object generator allows the user to concentrate on complex business logic using standard, lightweight DAOs rather than writing a simple, mundane, tedious and error-prone java classes to access the database. Lastly, the J2EE Value Object pattern defines other uses for value objects.
+						The Data Access Object (DAO) Generator component creates DAO classes which can be used to access a persistent datastore.   Utilizing a generic DAO object generator allows the developers to concentrate on complex business logic using standard, lightweight DAOs rather than expending effort to write java classes that can be easily generated for them.
 						</p>
 
 <!-- Project Type -->

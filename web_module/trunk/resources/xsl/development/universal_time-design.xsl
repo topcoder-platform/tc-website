@@ -63,7 +63,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Universal Time component abstracts time retrieval for components from time data sources.  This component queries the configurable time data source and calculates the approximate latency in retrieving the timestamp in order to return an accurate time stamp.  Supported date time sources include; NTP (Network Time Protocol) service, unix time service, windows time service, a database, local file system or others.
+						The Universal Time component abstracts the details of date/time retrieval from time data sources.  The component queries a configurable time data source to obtain the current date/time.  It then calculates the approximate latency involved in retrieving the timestamp in order to return an accurate time stamp.  Supported date/time sources include; NTP (Network Time Protocol) service, UNIX time service, windows time service, a database, local file system or others.
 						</p>
 
 <!-- Project Type -->
