@@ -38,7 +38,7 @@
                             <a href="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
                         </tces:trailIterator>
 						<br/><br/>
-                        <strong>Campaign:</strong> <jsp:getProperty name="PositionInterestTask" property="CampaignName"/><br>
+                        <strong>Campaign:</strong> <jsp:getProperty name="PositionInterestTask" property="CampaignName"/><br/>
                         <strong>Position:</strong> <jsp:getProperty name="PositionInterestTask" property="PositionName"/><br>
                         <a href="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>" class="bodyText">View collective demographic info</a><br>
                         </p>
