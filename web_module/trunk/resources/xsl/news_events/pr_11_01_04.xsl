@@ -132,7 +132,7 @@ The 7 finalists in the Component Design and Development Tournaments are:
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
 <tr>
 <td class="sidebarTitle" width="50%" align="center">Design Competitors</td>
-<td class="sidebarTitle" width="50%" align="center">Design Competitors</td>
+<td class="sidebarTitle" width="50%" align="center">Development Competitors</td>
 </tr>
 <tr>
 <td class="sidebarText">*Adrian Carcu, Bistrita, Romania</td>
