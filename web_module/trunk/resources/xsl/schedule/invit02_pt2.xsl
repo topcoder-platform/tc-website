@@ -45,40 +45,40 @@
             <!-- Gutter Ends -->
             <!-- Body Area -->
             <!-- Center Column Begins -->  
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top">
+    <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">steelblue</xsl:with-param>
   <xsl:with-param name="image">tournaments_blue</xsl:with-param>
   <xsl:with-param name="title">&#160;</xsl:with-param>
 </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-	<TR>
-		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-		<TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-    <!-- Coder of the Week Pulldown Begins -->		
+  <TR>
+    <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+    <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+    <!-- Coder of the Week Pulldown Begins -->    
     <xsl:call-template name="tournament_invit02_links"/>
-    <BR/>			
+    <BR/>      
         <xsl:call-template name="invit02_rule_links"/>
         
-	<!-- Coder of the Week Pulldown Ends -->
-	<BR/><BR/>
-					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
+  <!-- Coder of the Week Pulldown Ends -->
+  <BR/><BR/>
+          <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
                     <TR>
                       <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Online Round #1, Part 2 Seeding (Oct. 10th)</TD>
                       <TD COLSPAN="2" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"><A HREF="/index?t=schedule&amp;c=invit02_pt1" CLASS="statTextBig">View Part 1 Seeding</A></TD>
                     </TR>
-						<TR>
-							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">Round #1</TD>
-							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd2" CLASS="statTextBig"></A>Round #2</TD>
-							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd3" CLASS="statTextBig"></A>Round #3</TD>
-							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd4" CLASS="statTextBig"></A>Round #4</TD>
-							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_semi" CLASS="statTextBig"></A>Semi</TD>	
-							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_champ" CLASS="statTextBig"></A>Champ</TD>												
-						</TR>
+            <TR>
+              <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">Round #1</TD>
+              <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd2" CLASS="statTextBig"></A>Round #2</TD>
+              <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd3" CLASS="statTextBig"></A>Round #3</TD>
+              <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd4" CLASS="statTextBig"></A>Round #4</TD>
+              <TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_semi" CLASS="statTextBig"></A>Semi</TD>  
+              <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_champ" CLASS="statTextBig"></A>Champ</TD>                        
+            </TR>
                     </TABLE><BR/>
-					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="0" ALIGN="center">
-						<TR>
-							<TD ALIGN="left" VALIGN="top" CLASS="statText">
+          <TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="0" ALIGN="center">
+            <TR>
+              <TD ALIGN="left" VALIGN="top" CLASS="statText">
 [guga]<BR/>
 [UoM]!False<BR/>
 abaptist<BR/>
@@ -232,9 +232,9 @@ girir<BR/>
 Gladiator<BR/>
 gllew<BR/>
 gmud<BR/>
-gnepp<BR/>							
-							</TD>
-							<TD ALIGN="left" VALIGN="top" CLASS="statText">
+gnepp<BR/>              
+              </TD>
+              <TD ALIGN="left" VALIGN="top" CLASS="statText">
 Gojira<BR/>
 goongas<BR/>
 gopras_ram<BR/>
@@ -388,9 +388,9 @@ pieffe<BR/>
 pistol<BR/>
 pkidman<BR/>
 plit<BR/>
-pochmann<BR/>							
-							</TD>
-							<TD ALIGN="left" VALIGN="top" CLASS="statText">
+pochmann<BR/>              
+              </TD>
+              <TD ALIGN="left" VALIGN="top" CLASS="statText">
 polgara<BR/>
 PongsriBunny<BR/>
 Porgery<BR/>
@@ -546,11 +546,11 @@ zhaozhong<BR/>
 zhliu<BR/>
 zobo<BR/>
 ZorbaTHut<BR/>
-zorg<BR/>							
-							</TD>
-						</TR>
-						</TABLE><BR/>
-				    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
+zorg<BR/>              
+              </TD>
+            </TR>
+            </TABLE><BR/>
+            <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
                         <TR><TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<A HREF="#top" CLASS="statText">Back to top</A></TD></TR>
                     </TABLE>
                     
