@@ -151,10 +151,10 @@ public class Contest {
             query.append(" AND rr.round_id = cc.round_id ");
             query.append(" AND u.user_id = cc.coder_id ");
             query.append(" AND u.user_id = rr.coder_id ");
-            query.append(" AND cc.submission_number = s.submission_number ");
+//            query.append(" AND cc.submission_number = s.submission_number ");
             query.append(" AND scf.submission_number = s.submission_number ");
             query.append(" AND scf.component_state_id = s.component_state_id ");
-            query.append(" AND scf.submission_number = cc.submission_number ");
+//            query.append(" AND scf.submission_number = cc.submission_number ");
             query.append(" AND scf.component_state_id = cc.component_state_id ");
             query.append(" AND scf.sort_order = 1");    //hoke it to be the first if there are multiple classes
             query.append(" AND cc.component_id = c.component_id");
