@@ -40,6 +40,8 @@ public abstract class FullRegBase extends SimpleRegBase {
 
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
+        } catch (TCWebException we) {
+            throw we;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
