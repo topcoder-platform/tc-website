@@ -177,6 +177,13 @@
                  <include name="*.class" />
          </fileset>
       </move>
+      <property name="hsservlets"value="com/topcoder/web/hs/controller" />
+      <mkdir dir="${servlets}/${hsservlets}" />
+      <move todir="${servlets}/${hsservlets}">
+         <fileset dir="${classes}/${hsservlets}" >
+                 <include name="Index.class" />
+         </fileset>
+      </move>
    </target>
 
 
