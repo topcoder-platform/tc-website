@@ -84,7 +84,7 @@ public class BasicAuthentication implements WebAuthentication {
      * If login fails, throw a LoginException.
      */
     public void login(Resource r, User u) throws LoginException {
-        log.info("attempting login as " + u.getUserName());
+        log.info("attempting login as " + u.getUserName() + " path: " + r.getName());
         try {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
