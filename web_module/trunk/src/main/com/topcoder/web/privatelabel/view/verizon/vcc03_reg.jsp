@@ -62,7 +62,7 @@
                 <tr valign="top">
                     <td width="427" class="bodyCopy">
 
-                        <p>Registration for the Verizon Coding Challenge opens at 7:00AM IST on Monday, October 27th.</p>
+                        <p>Registration for the Verizon Coding Challenge is officially closed.</p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
