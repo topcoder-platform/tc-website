@@ -26,71 +26,9 @@
 <!-- Gutter Ends -->
 
 <!-- Left Column Begins-->
-         <td valign="top" width="150">
-            <img src="/i/clear.gif" width="150" height="10" border="0"/><br />
-
-            <table border="0" width="100%" cellspacing="0" cellpadding="0">
-               <tr><td bgcolor="#AA1002" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
-               <tr>
-                  <td bgcolor="#AA1002">
-                  <td class="bodyText" valign="top" align="center">
-                  <a href="/"><img src="/i/events/google2003/pbtc_white.gif" width="150" height="50" border="0"/></a>
-                  </td>
-                  <td bgcolor="#AA1002">
-               </tr>
-               <tr><td bgcolor="#AA1002" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
-            </table><br />
-
-            <table border="0" width="100%" cellspacing="0" cellpadding="0">
-               <tr><td bgcolor="#3366CC" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
-               <tr>
-                  <td bgcolor="#3366CC">
-                  <td class="bodyText" valign="top" align="center">
-                  <p><br /></p>
-                  <p><font color="#3366CC"><b>Important Dates</b></font></p>
-                  <p><b>Registration Starts</b><br />
-                  Wednesday, October 1st</p>
-                  <p><b>Online Round 1</b><br />
-                  Friday, October 24th</p>
-                  <p><b>Onsite Championship Round</b><br />
-                  Friday, November 14th</p>
-                  <p><br /></p>
-                  </td>
-                  <td bgcolor="#3366CC">
-               </tr>
-               <tr><td bgcolor="#3366CC" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
-            </table><br />
-
-            <table border="0" width="100%" cellspacing="0" cellpadding="0">
-               <tr><td bgcolor="#339966" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
-               <tr>
-               <td bgcolor="#339966">
-               <td class="bodyText" align="center" valign="top">
-               <p><br /></p>
-               <p><font color="#339966"><b>Cash Prizes</b></font></p>
-               <p>1st Place - $10,000<br />
-               2nd Place - $5,000<br />
-               3rd Place - $3,500<br />
-               4th Place - $1,250</p>
-               <p><br /></p>
-               </td>
-               <td bgcolor="#339966">
-               </tr>
-               <tr><td bgcolor="#339966" class="statText" width="100%" colspan="3"><img src="/i/clear.gif" width="150" height="1" border="0"/></td></tr>        
-            </table><br />
-     
-         </td>         
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Center Column Begins-->
-         <td width="100%" valign="top" class="bodyText">
+         <td width="100%" valign="top" class="bodyText" colspan="3">
        
          <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
             <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
             <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
             <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
@@ -110,8 +48,35 @@
             <tr>
                <td colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
             </tr>
-         </table><br />
-            
+         </table>
+         </td>
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+      </tr>
+      <tr>
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Left Column Begins -->
+        <td width="150" valign="top">      
+            <img src="/i/clear.gif" width="150" height="10" border="0"/><br />
+            <img src="/i/events/google2003/left.gif" width="150" height="450" border="0" usemap="#tchome"/>
+            <map name="tchome"><area shape="rect" alt="TC" coords="1,1,149,49" href="/" /></map>
+         </td>         
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins-->
+         <td width="100%" class="bodyText" valign="top">
+            <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
             <h2>At Google, being the best is just the starting point.</h2>
 
             <p>Are you exceptional at what you do?  Do you have world class programming skills?  Can you make computers do amazing things?  Show us!</p>
@@ -148,7 +113,7 @@
              <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
                 <tr>
                     <td class="sidebarTitle" width="30%">Date</td>
-                    <td class="sidebarTitle" width="20%">Time</td>
+                    <td class="sidebarTitle" width="20%">Time*</td>
                     <td class="sidebarTitle" width="50%">Status</td>
                 </tr>
                 <tr valign="top">
