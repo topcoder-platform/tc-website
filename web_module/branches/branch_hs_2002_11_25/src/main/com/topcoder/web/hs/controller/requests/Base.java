@@ -47,7 +47,7 @@ public abstract class Base implements RequestProcessor {
     }
 
     protected void addBeans() {
-        SessionInfoBean info = new SessionInfoBean();
+        info = new SessionInfoBean();
         info.setUserId((int)user.getId());
         info.setHandle(isUserGuest() ? "" : user.getUserName());
         info.setGroup(isUserGuest() ? 'G' : 'S');  //@@@
