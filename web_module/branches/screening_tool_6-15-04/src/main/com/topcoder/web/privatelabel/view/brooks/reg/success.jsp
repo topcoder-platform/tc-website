@@ -25,13 +25,22 @@
 					<td width="100%" valign="top">
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                             <tr>
-                                <td class="brBodyTitle" align=right width="50%">Registration
+                                <td class="brBodyTitle" align=left>Application Received
                                 </td>
                                 <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="/pl/?&module=Static&d1=brooks&d2=overview" class="brBodyTitle">Back to Overview</A>
                                 </td>
                            </tr>
                            <tr>
-                                <td class="brBody" colspan=2 align=center>Thank you for registering!</td>
+                                <td class="brBody" colspan=2 align=center>
+                                
+                                <p>
+                                Thank you for applying to Brooks Automation and for registering for the Technical Assessment Tool, which you must complete within the next four (4) days.
+                                <br/><br/>
+                                You will receive an email at the address with which you registered that outlines the specifics of the Technical Assessment Tool.  Please read it carefully and in its entirety before beginning.
+                                <br/><br/>
+                                If you have any questions while using the Technical Assessment Tool, please email them to <a href="mailto:brooks@topcoder.com">brooks@topcoder.com</a>.
+                                </p>
+                                </td>
                             </tr>
                         </table>
 

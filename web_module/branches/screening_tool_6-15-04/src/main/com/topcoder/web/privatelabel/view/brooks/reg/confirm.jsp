@@ -37,7 +37,7 @@
 					<td width="100%" valign="top">
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                             <tr>
-                                <td class="brBodyTitle" align=right>Registration
+                                <td class="brBodyTitle" align=left>Application Information
                                 </td>
                                 <td class="brBodyTitle" align=right nowrap=nowrap><A href="/pl/?&module=Static&d1=brooks&d2=overview" class="brBodyTitle">Back to Overview</A>
                                 </td>
