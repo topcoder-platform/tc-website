@@ -37,21 +37,18 @@
             
 			<table width="100%" border="0" cellspacing="0" cellpadding="3">
 				<tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
-				<tr valign=top><td class="bodyText" align=center>
-					<div><img src="/i/m/lbackstrom_mug.gif" alt="" border="0" class="myStatsPhoto"/></div>
-					<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a>
-					</td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_100404b">The Importance of Algorithms</a></td></tr>
-				<tr valign=top><td class="bodyText" align=center>
-					<div><img src="/i/m/antimatter_mug.gif" alt="" border="0" class="myStatsPhoto"/></div>
-					<a class="bodyText" href="/stat?c=member_profile&amp;cr=275071"><strong>antimatter</strong></a>
-					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=dissectProblem">How To Dissect a TopCoder Problem Statement</a></td></tr>
-				<tr valign=top><td class="bodyText" align=center>
-					<div><img src="/i/m/gladius_mug.gif" alt="" border="0" class="myStatsPhoto"/></div>
-					<a class="bodyText" href="/stat?c=member_profile&amp;cr=268851"><strong>gladius</strong></a>
-					</td><td class="bodyText" nowrap=nowrap>Introduction to Graphs and Their Data Structures:<br/>
-					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs1">Section 1: Recognizing and Representing a Graph</a><br/>
-					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2">Section 2: Searching a Graph</a><br/>
-					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3">Section 3: Finding the Best Path through a Graph</a></td></tr>
+				<tr valign=top><td class="bodyText">
+					<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052">lbackstrom</a>
+					</td><td class="bodyText" nowrap=nowrap><a href="/index?t=features&c=feat_100404b"><strong>The Importance of Algorithms</strong></a></td></tr>
+				<tr valign=top><td class="bodyText">
+					<a class="bodyText" href="/stat?c=member_profile&amp;cr=275071">antimatter</a>
+					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=dissectProblem"><strong>How To Dissect a TopCoder Problem Statement</strong></a></td></tr>
+				<tr valign=top><td class="bodyText">
+					<a class="bodyText" href="/stat?c=member_profile&amp;cr=268851">gladius</a>
+					</td><td class="bodyText" nowrap=nowrap><strong>Introduction to Graphs and Their Data Structures:</strong><br/>
+					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs1"><strong>Section 1: Recognizing and Representing a Graph</strong></a><br/>
+					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2"><strong>Section 2: Searching a Graph</strong></a><br/>
+					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3"><strong>Section 3: Finding the Best Path through a Graph</strong></a></td></tr>
 			</table>
 
         </div>
