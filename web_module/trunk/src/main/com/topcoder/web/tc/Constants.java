@@ -59,6 +59,7 @@ public class Constants {
     public static String PROBLEM_RATING_QUESTION_INFO;
 
     public static String HIGHEST_RATING;
+    public static String PROBLEM_ARCHIVE;
 
     public static String LOGIN;
     public static String ACTIVATE;
