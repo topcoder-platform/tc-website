@@ -9,6 +9,12 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.TCSubject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -186,6 +192,15 @@ public final class ReportServlet extends HttpServlet {
                 }
                 goTo(Constants.JSP_ADDR + response_addr, request, response);
             } else {
+                //have to do all this to be sure that this request is in the info object
+                WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
+                    request, response);
+                PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
+                        com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                TCSubject user = pmgr.getUserSubject(nav.getUserId());
+                CoderSessionInfo ret = new CoderSessionInfo(request, authentication, user.getPrincipals());
+                nav.setCoderSessionInfo(ret);
+
                 request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
                         "and password.");
                 request.setAttribute(BaseServlet.NEXT_PAGE_KEY, nav.getSessionInfo().getRequestString());
@@ -209,6 +224,7 @@ public final class ReportServlet extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(addr);
         dispatcher.forward(request, response);
     }
+
 
     /**
      * Forwards to the navigation error page.
