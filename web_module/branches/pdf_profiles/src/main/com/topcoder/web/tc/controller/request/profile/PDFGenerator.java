@@ -288,7 +288,9 @@ public class PDFGenerator extends BaseProcessor {
             byte[] b = new byte[(int)info.getCompanyLogo().getSize()];
             info.getCompanyLogo().getInputStream().read(b);
             Image companyLogo = Image.getInstance(b);
-            companyLogo.scaleAbsoluteWidth(100);
+            double scale = 150 / companyLogo.plainWidth();
+            companyLogo.scaleAbsoluteWidth(150);
+            companyLogo.scaleAbsoluteHeight(companyLogo.plainHeight() * scale);
 
             PdfPCell cell = new PdfPCell(companyLogo, false);
             cell.setBorder(0);
