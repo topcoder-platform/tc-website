@@ -42,7 +42,7 @@
 
 <!-- Tab bar sublinks-->
 <jsp:include page="../tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value="component_summary"/>
+   <jsp:param name="selectedList" value="comp_summary"/>
    <jsp:param name="selectedTab" value="comp_final"/>
 </jsp:include>
 
