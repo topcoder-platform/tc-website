@@ -23,7 +23,7 @@ function find(n) {
 }
 // END HIDING --> 
 </script>
-<% if ((level1.equals("profile")) | (level1.equals("privatelabel"))) { %>
+<% if ((level1.equals("profile")) | (level1.equals("search")) | (level1.equals("privatelabel"))) { %>
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
@@ -39,10 +39,8 @@ function find(n) {
 <% } else if (request.getServletPath().indexOf("review_board")>-1) { %>
 
             <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
+
             <jsp:include page="calendar.jsp"/>
-            <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_sched#online"><img src="/i/promos/tco_promo_third.gif" alt="2003 TopCoder Open" width="170" height="120" border="0"></a><br/>
-            <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
 <!-- Review Board ends -->
 
     <% } else { %>
