@@ -1,81 +1,91 @@
 package com.topcoder.web.resume.servlet;
 
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.resume.bean.ResumeTask;
-import com.topcoder.servlet.request.FileUpload;
-import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.web.resume.common.Constants;
+import com.topcoder.servlet.request.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
+import javax.naming.InitialContext;
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.lang.reflect.InvocationTargetException;
 
 public class Controller
         extends HttpServlet {
     private static Logger log = Logger.getLogger(Controller.class);
-    static final String MULTIPART_FORM_DATA = "multipart/form-data";
-    public static final String MESSAGE = "message";
-    public static final String NAVIGATION = "navigation";
-    public static final String TASK = "task";
-    public static final String ALIAS = "/Resume";
-    public static final String RESUME_UPLOAD_TASK = "ResumeUploadTask";
-    public static final String RESUME_DOWNLOAD_TASK = "ResumeDownloadTask";
-    public static final String CONTROLLER_ERROR_URL = "/errorPage.jsp";
-    static final String TASK_PACKAGE = "com.topcoder.web.resume.bean";
 
-    public void init(Servlet servletConfig)
-            throws ServletException {
+    public void init() throws ServletException {
+        Constants.init(getServletConfig());
     }
+
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         HttpSession session = null;
+        InitialContext ctx = null;
+        FileUpload fu = null;
+        String taskName = null;
+        String taskStepName = null;
         try {
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
-            FileUpload fu = null;
-            String taskName = null;
-            if (request.getContentType() != null && request.getContentType().indexOf(MULTIPART_FORM_DATA) >= 0) {
+            try {
                 fu = new FileUpload(request, false);
-                taskName = fu.getParameter(TASK);
-            }else{
-                taskName = request.getParameter(TASK);
+            } catch (InvalidContentTypeException ignore) {
+                //that's ok, we'll just procede with out
+            }
+            if (fu == null) {
+                taskName = request.getParameter(Constants.TASK_KEY);
+                taskStepName = request.getParameter(Constants.STEP_KEY);
+            } else {
+                taskName = fu.getParameter(Constants.TASK_KEY);
+                taskStepName = fu.getParameter(Constants.STEP_KEY);
             }
             log.debug(taskName);
             if (taskName == null || !isWord(taskName)) {
-                log.debug(TASK + " not found in request. - "+taskName);
-                forwardToError(request, response, new Exception(TASK + " not found in request."));
+                log.debug(Constants.TASK_KEY + " not found in request. - "+taskName);
+                forwardToError(request, response, new Exception(Constants.TASK_KEY + " not found in request."));
                 return;
             }
-            session = request.getSession();
+            ctx = (InitialContext) TCContext.getInitial();
+            session = request.getSession(true);
             ResumeTask task = null;
             Class taskClass = null;
-            try {
-                taskClass = Class.forName(TASK_PACKAGE + "." + taskName);
-            } catch (ClassNotFoundException e) {
-                log.error(e.getMessage());
-                forwardToError(request, response, e);
-                return;
-            }
             log.debug("about to make task: "+taskName);
-            try {
-                User user = getUser(request.getSession());
-                if(user == null)throw new Exception("You must log in to use this area.");
-                task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class,ServletContext.class}).newInstance(new Object[]{fu,getServletContext()});
-                task.setUser(user);
-                task.process();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-                forwardToError(request, response, e.getTargetException());
-                return;
-            } catch (Exception e) {
-                e.printStackTrace();
-                forwardToError(request, response, e);
-                return;
+            if (taskName != null && taskName.trim().length() > 0) {
+                // process a task
+                taskClass = Class.forName(Constants.TASK_PACKAGE + "." + taskName);
+                task = (ResumeTask)taskClass.newInstance();
+
+                task.setInitialContext(ctx);
+
+                task.setFileUpload(fu);
+
+                task.servletPreAction(request, response);
+
+                task.processStep(taskStepName);
+
+                task.servletPostAction(request, response);
+
+                request.setAttribute(taskName, task);
+
+                log.debug(task.getNextPage());
+
+                getServletContext().getRequestDispatcher(
+                            response.encodeURL(task.getNextPage())).forward(request, response);
             }
-            task.getNextPage(request,response);
+            else {
+                forwardToError(request, response,
+                        new Exception("missing " + Constants.TASK_KEY + " parameter in request"));
+            }
+
+        } catch (ClassNotFoundException cnfex) {
+            log.debug("Unable to dispatch task! " + cnfex.getMessage());
+            try{
+                forwardToError(request, response, cnfex);
+                return;
+            } catch(Exception e){
+                throw new ServletException(e.getMessage());
+            }
         } catch (ServletException se) {
             throw se;
         } catch (Exception e) {
@@ -86,10 +96,6 @@ public class Controller
             }
             catch(Exception e2){
                 throw new ServletException(e2.getMessage());
-            }
-        } finally {
-            if (session != null) {
-                setNavigation(session);
             }
         }
     }
@@ -106,45 +112,16 @@ public class Controller
             throws ServletException, IOException {
         ServletContext sc = getServletContext();
         sc = sc.getContext("/");
-        RequestDispatcher requestDispatcher = sc.getRequestDispatcher(response.encodeURL(CONTROLLER_ERROR_URL));
+        RequestDispatcher requestDispatcher = sc.getRequestDispatcher(response.encodeURL(Constants.ERROR_PAGE));
         requestDispatcher.forward(request, response);
     }
 
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
             throws ServletException, IOException {
         if (request != null) {
-            request.setAttribute(MESSAGE, exception.getMessage());
+            request.setAttribute(Constants.MESSAGE_KEY, exception.getMessage());
         }
         forwardToError(request, response);
     }
 
-    User getUser(HttpSession session) {
-        if (session != null) {
-            Object navigation = session.getAttribute(NAVIGATION);
-            if (navigation instanceof Navigation) {
-                User user = ((Navigation) navigation).getUser();
-                if (user.getUserId() == 0) {
-                    return null;
-                }
-                return user;
-            }
-        }
-        return null;
-    }
-
-
-    // this method may seem insane, but weblogic requires a setAttribute at the
-    // end of the request processing... SB
-
-    void setNavigation(HttpSession session) {
-        if (session != null) {
-            Object navigation = session.getAttribute(NAVIGATION);
-            if (navigation instanceof Navigation) {
-                session.setAttribute(NAVIGATION, ((Navigation) navigation));
-            }
-        }
-    }
-
-    public void destroy() {
-    }
 }

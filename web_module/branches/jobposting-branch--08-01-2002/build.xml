@@ -298,6 +298,7 @@
         <antcall target="package-EJB-ProjectServicesBean"/>
         <antcall target="package-EJB-MPSQASServicesBean"/>
         <antcall target="package-EJB-JobPostingServicesBean"/>
+        <antcall target="package-EJB-ResumeServicesBean"/>
    </target>
 
 <target name="package-EJB-JobPostingServicesBean" depends="compile,init-JobPostingServicesBean-properties,package-EJB-GenericBean"/>
@@ -306,6 +307,17 @@
        <property name="bean.dir"          value="JobPostingServices" />
         <property name="bean.jar.name"     value="JobPostingServices.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/web/jobposting/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+<target name="package-EJB-ResumeServicesBean" depends="compile,init-ResumeServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-ResumeServicesBean-properties" >
+       <property name="bean.dir"          value="ResumeServices" />
+        <property name="bean.jar.name"     value="ResumeServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/resume/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />

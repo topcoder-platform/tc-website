@@ -1,38 +1,22 @@
 <%@ page language="java"%>
 <%@ page errorPage="/errorPage.jsp"%>
-<%@ page import="com.topcoder.web.resume.servlet.*,
-                 com.topcoder.shared.util.TCContext,
-                 com.topcoder.ejb.ResumeServices.ResumeServicesHome,
-                 com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.ejb.ResumeServices.ResumeServices,
-                 javax.naming.Context,
-                 com.topcoder.web.resume.bean.ResumeTaskException,
-                 java.util.ArrayList" %>
+<%@ page import="com.topcoder.web.resume.common.Constants"%>
+<%@ page import="java.util.ArrayList" %>
 
+<jsp:useBean id="ViewUploadTask" scope="request" class="com.topcoder.web.resume.bean.ViewUploadTask" />
 
 <HTML>
-<HEAD><TITLE>Resume Upload</TITLE>
-    <%@ include file="../script.jsp" %>
-    </HEAD>
+<HEAD><TITLE>Resume Upload</TITLE></HEAD>
   <BODY BGCOLOR="#CCCCCC">
     <TABLE WIDTH="100%" HEIGHT="100%" BACKGROUND="/i/steel_darkblue_bg.gif">
       <TR>
         <TD class="statText">
-          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%=Controller.ALIAS%>">
+          <form name="upload_form" enctype="multipart/form-data" method="POST" action="<%="/"+request.getServletPath()%>">
             <input type="hidden" name="<%=Controller.TASK%>" value="<%=Controller.RESUME_UPLOAD_TASK%>">
             <br/>Resume: <input type=file name=file1>
             <br/>File Type: <select name="fileType" class="dropdown">
             <%
-                ArrayList al = null;
-                Context context = null;
-                try{
-                    context = TCContext.getInitial();
-                    ResumeServicesHome resumeServicesHome = (ResumeServicesHome) context.lookup(ApplicationServer.RESUME_SERVICES);
-                    ResumeServices resumeServices = resumeServicesHome.create();
-                    al = resumeServices.getFileTypes();
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
+                ArrayList al = ViewUploadTask.getFileTypes();
                 for(int i = 0; i<al.size();i++){
             %>
             <option value="<%= al.get(i++) %>"><%= al.get(i) %></option>
