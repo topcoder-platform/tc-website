@@ -66,10 +66,9 @@ public class Request implements RequestInt {
             if (me.getValue() instanceof String) {
                 sKey = me.getKey().toString(); //maps can't have null-key
                 sValue = (String) me.getValue();
-                sValue = sValue == null?"":sValue; //nulls not allowed in Properties
                 if (sKey.equals(DataAccessConstants.COMMAND))
                     setContentHandle(sValue);
-                else
+                else if (sValue!=null)
                     mProp.put(sKey, sValue);
             } else if (me.getValue().getClass().isArray()) {
                 arrayType = me.getValue().getClass().getComponentType().toString();
@@ -80,11 +79,12 @@ public class Request implements RequestInt {
                     if (sArray.length > 0) {
                         if (sKey.equals(DataAccessConstants.COMMAND))
                             setContentHandle(sArray[0]);
-                        else
+                        else if (sArray[0]!=null)
                             mProp.put(sKey, sArray[0]);
                     }
                     for (int i = 1; i < sArray.length; i++) {
-                        mProp.put(sKey + i, sArray[i]);
+                        if (sArray[i]!=null)
+                            mProp.put(sKey + i, sArray[i]);
                     }
                 }
             } else {
