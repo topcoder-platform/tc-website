@@ -581,6 +581,7 @@
       <copy todir="${tc_cluster}/${query.war.name}/classes">
         <fileset dir="${classes}">
           <include name="com/topcoder/web/query/**"/>
+        </fileset>
       </copy>
     </target>
     
