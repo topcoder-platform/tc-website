@@ -14,7 +14,7 @@
                             </tr>
 
                             <tr>
-                                <td>
+                                <td class=helpSubtitle>
                                     Step 1 - Loading the Application<br>
                                     Step 2 - Launching the Application<br>
                                     Step 3 - Login<br>
@@ -48,7 +48,7 @@
                             </tr>
 
                             <tr>
-                                <td>
+                                <td class=helpSubtitle>
                                     The Problem Statement<br>
                                     Choosing a Language<br>
                                     Creating a Solution<br>
