@@ -343,6 +343,18 @@
         <antcall target="package-EJB-ResumeServicesBean"/>
    </target>
 
+<target name="package-EJB-QueryServicesBean" depends="compile,init-QueryServicesBean-properties,package-EJB-GenericBean"/>
+
+<target name="init-QueryServicesBean-properties" >
+       <property name="bean.dir"          value="QueryServices" />
+        <property name="bean.jar.name"     value="QueryServices.jar" />
+        <property name="bean.pkg.dir"      value="com/topcoder/web/query/ejb/${bean.dir}" />
+        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
+        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
+        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+   </target>
+
+
 <target name="package-EJB-JobPostingServicesBean" depends="compile,init-JobPostingServicesBean-properties,package-EJB-GenericBean"/>
 
 <target name="init-JobPostingServicesBean-properties" >
