@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.shared.security.*;
 
 /**
  * All requests to the HS website pass through this servlet.
@@ -45,11 +46,11 @@ public final class Controller extends HttpServlet {
                 rp.setResponse(response);
                 rp.process();
 
-            } catch(PermissionException e) {
+            } catch(PermissionException e) {  //@@@ any way i can put this elsewhere?  in Error?
 
                 /* forward to the login page, with a message and a way back */
                 request.setAttribute("message", e.getMessage());
-                String nextpage = request.getRequestURL();
+                String nextpage = request.getContextPath()+request.getServletPath();
                 if(request.getQueryString() != null)
                     nextpage += "?"+request.getQueryString();
                 request.setAttribute("nextpage", nextpage);

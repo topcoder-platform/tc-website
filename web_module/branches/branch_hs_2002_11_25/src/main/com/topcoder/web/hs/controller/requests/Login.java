@@ -22,14 +22,14 @@ public class Login extends Base {
             /* if the login failed, give them another try */
             request.setAttribute("message", e.getMessage());
             setNextPage("/login/login.jsp");
-            setNextPageInContext(true);
+            setIsNextPageInContext(true);
         }
 
         /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
 
         String dest = request.getParameter("nextpage");
         if(dest == null || dest.equals(""))
-            dest = request.getContextPath()+request.getServletPath()+"?module=Static&d1=home&d2=index_member";
+            dest = (HttpServletRequest)request.getContextPath()+(HttpServletRequest)request.getServletPath()+"?module=Static&d1=home&d2=index_member";
 
         setNextPage(dest);
         setIsNextPageInContext(false);
