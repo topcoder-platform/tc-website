@@ -75,7 +75,7 @@
                         <p>"Quality of programming ability, not country of residence, is what matters to TopCoder," said David Tanacea, President of 
                         TopCoder Software.  "TopCoder Software manages the most elite developers via a competition-based development methodology to 
                         create commercial software applications quickly and at a low cost to the customer.  We offer an alternative to CIOs that can't be 
-                        matched anywhere.</p>
+                        matched anywhere."</p>
 
                         <p><span class="bodySubTitle">Service Offering</span><br />
                         TopCoder Software Project Managers work on-site with TopCoder customers to understand their needs and create functional 
