@@ -93,21 +93,19 @@
     <TD CLASS="bodyText" VALIGN="top" NOWRAP="0"><A HREF="/index?t=schedule&amp;c=invit02_sched"><IMG SRC="/i/invit02_logow.gif" ALT="" WIDTH="155" HEIGHT="105" HSPACE="6" ALIGN="left" BORDER="0"/></A><BR/>
 <B>When:</B> October 8th - November 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
-<B>Total Prize:</B> $150,000<BR/><BR/>		
-        <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0">
-			<TR>
-                <TD WIDTH="150" CLASS="bodyText" VALIGN="top">
-                <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
-                <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>
-                </TD>
-                <TD CLASS="bodyText" VALIGN="top" WIDTH="300">
-                <P><IMG SRC="/i/invit02_mail_icon.gif" ALT="" WIDTH="75" HEIGHT="57" HSPACE="6" ALIGN="left" BORDER="0"/> <B>On Friday, Oct. 4th</B>, contestants will receive a final invitation &amp; will be notified of which part of online round #1 they are assigned to.</P>
-                </TD>
-            </TR>
-        </TABLE>
+<B>Total Prize:</B> $150,000<BR/><BR/>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>
+  <TR>  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%" BGCOLOR="#FFFF99">
+    <B>On Friday, Oct. 4th</B>, contestants will receive a final e-mail invitation &amp; will be notified of which part of online round #1 they are assigned to.
+    </TD>    
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  </TR>    
   <TR>
     <TD VALIGN="top" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
   </TR>  
@@ -265,35 +263,51 @@ Monday, September 30, 2002<BR/><BR/>
 <!-- Summary/Best/Worst Ends -->
 
 <!-- Coder Point of View Begins -->
-<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR><TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="7"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>    
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Penwiper<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 114</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 115</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm114_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm115_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
+<P>
+Last match before the invitational! Curiously enough, the match wasn't
+bigger than usual - if anything, it was smaller. I'm guessing a lot of
+people were holding on to their ratings, worried that they'd drop too far.
+Well, by now you've heard the news, whether it's good or bad for you, so
+I'll stop speculating and get down to the problems.
+</P>
+
+<P>
+SRM 115 had a nice selection of problems, none spectacularly hard or
+spectacularly easy. The Division-I Level Two problem proved extremely quick
+for many people if they knew the solution from past Topcoder rounds. The
+Level Three problems in both divisions were extremely difficult, with a
+total of nine people from both divisions getting their Level Three.
+</P>
+
 	  <P>
-	  <B>radeye</B> was the top Division-I coder by a good margin in this match. He had the highest score on both the level 2 and level 3 problems and was able to successfully challenge <B>mpa's</B> level 2 problem for an additional 50 points. His performance moved him up to 4<SUP>th</SUP> place in the overall TopCoder rankings.
-	  </P>
-	  <P>
-Someone to watch for in upcoming matches will be <B>vorthys.</B> In his debut match, he was able to beat all other Division-II coders, and was one of only three people to solve the Division-II, level 3 problem. He also successfully challenged two problems for a total of 1404.82 points, giving him an initial ranking of 1861. That ranks him 11th on the Impressive Rating Debuts list.
-	  </P>
-	  <P>
-This problem set was probably a little bit easy for most of the Division-I coders, as was evidenced by the high success percentages on the first and second problems. Even I was actually able to solve the first two Division-I problems this time. I can't remember the last time I did that! Oh well, nothing like a little confidence booster before the big Invitational next month... 
+The only oddity problem-wise was a surprisingly low success rate on the
+Division-II Level One problem, due to some tricky calculations and rather
+odd rules. As for solutions, I find it worth pointing out that despite the
+fastest successful submissions on the Level One and Level Two problems, I
+still ended up in third place due to some ghastly bugs on my Level Three
+problem, <B>Yarin</B> and <B>NDBronson</B> both beating me - though in <B>NDBronson</B>'s case,
+this was augmented by a successful challenge.... 
 	  <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm114_prob</xsl:attribute>get&#160;analysis
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm115_prob</xsl:attribute>get&#160;analysis
       </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
@@ -305,7 +319,7 @@ This problem set was probably a little bit easy for most of the Division-I coder
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR> 
   <TR><TD VALIGN="top" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
-</TABLE> -->
+</TABLE>
 <!-- End of Point of View -->
 
 <!-- Feature -->  
@@ -331,19 +345,18 @@ This problem set was probably a little bit easy for most of the Division-I coder
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
-By&#160;KaiEl<BR/><I>[TC] Member</I><BR/></TD>
+<IMG SRC="/i/m/pearl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
+By&#160;pearl<BR/><I>[TC] Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText"><BR/>
 <A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_091102</xsl:attribute>
-  <B>...A Problem is Born</B></A><BR/>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_100202</xsl:attribute>
+  <B>"Finding a Job is a Job"</B></A><BR/>
 <!-- <I>"If you take it slow you'll move up."</I><BR/> -->
-September 11, 2002<BR/>
+October 2, 2002<BR/>
 
 <P>
-You probably haven't put much thought into the problem creation process before, have you? You probably just take it for granted that every week there will be new and well-written problems waiting for you in the TopCoder Arena, don't you? Well, someone has to write those problems before you can code them. Someone has to test the solutions to those problems before you can challenge them. These often-neglected members code feverishly just so that you can have the privilege of competing in TopCoder every week! I went into the administrator's lobby during one match to de-mystify the process of how a problem gets from the writer's imagination on to your screen
-...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_091102</xsl:attribute>full&#160;story</A></P>
+Back in the ancient days, there were few avenues open to job-seekers:  we had newspaper ads, professional recruiters, college recruitment centers, and word of mouth.  That has all changed with the information age, of course.  Out of curiosity, I decided to look into the modern world of job-hunting...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_100202</xsl:attribute>full&#160;story</A></P>
 <!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
   </TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -405,7 +418,9 @@ You probably haven't put much thought into the problem creation process before, 
 <map name="apex_home">
 <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
 <area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=apex"/>
-</map>    
+</map>
+<A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
+<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>   
  <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/> -->
 
@@ -490,8 +505,8 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
   </TD>
   </TR>               
 </TABLE><BR/>
-<A HREF="/stat?c=member_profile&amp;cr=108262" CLASS="coderTextRed">
-<IMG SRC="/i/codermonth_aug.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>   
+<!-- <A HREF="/stat?c=member_profile&amp;cr=108262">
+<IMG SRC="/i/codermonth_aug.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A> -->
 </TD>
 <!-- <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
 <!-- Body Area Ends -->
