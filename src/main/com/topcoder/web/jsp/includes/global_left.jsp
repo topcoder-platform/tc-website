@@ -148,7 +148,7 @@
 <%-- Events ends --%>
 
 <%-- Round Tables begins --%>
-                <tr><td id="<%=level1.equals("rtables")?"leftNavOn":"leftNav"%>"><a href="/rtables/index.jsp" class="<%=level1.equals("rtables")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("rtables")?"bottom":"right"%>.gif" border="0"/>Forums / Round Tables / Discussion Center/ Forums</a></td></tr>
+                <tr><td id="<%=level1.equals("rtables")?"leftNavOn":"leftNav"%>"><a href="/rtables/index.jsp" class="<%=level1.equals("rtables")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("rtables")?"bottom":"right"%>.gif" border="0"/>Forums / Round Tables</a></td></tr>
 
                 <% if (level1.equals("rtables")) {
                     String temp = request.getParameter("forum");
