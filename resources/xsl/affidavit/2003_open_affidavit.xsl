@@ -219,9 +219,9 @@
         </center>
         <BR/>
         <BR/>
-            I, _______________ [insert full name], aged ___ [insert age],
-            son/daughter of ___________ [insert father's name], residing
-            at _____________ [insert address] do hereby solemnly affirm and state
+            I, ______________________ [insert full name], aged ___ [insert age],
+            son/daughter of _____________ [insert father's name], residing
+            at _____________________________ [insert address] do hereby solemnly affirm and state
             as follows:
     </xsl:when>
     <xsl:otherwise>
