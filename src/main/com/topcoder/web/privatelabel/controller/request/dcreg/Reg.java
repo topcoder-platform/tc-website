@@ -14,8 +14,16 @@ import com.topcoder.web.common.TCWebException;
 public class Reg extends FullReg {
 
     protected void setNextPage() {
+        if (regInfo.getEventId()==1) {
+            setNextPage("/doubleclick/col_reg.jsp");
+        } else {
+            setNextPage("/doubleclick/int_reg.jsp");
+        }
+        setIsNextPageInContext(true);
+/*
         setNextPage(Constants.DC_REG_PAGE);
         setIsNextPageInContext(true);
+*/
     }
 
     /**
