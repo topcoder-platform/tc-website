@@ -116,7 +116,7 @@ public final class TaskDevelopment {
                 devTag.addTag(new ValueTag("second_payment", format.format(paymentAmt*.25)));
                 
             }
-            if(date.equals(""))
+            if(!date.equals(""))
             {
                 
             }
