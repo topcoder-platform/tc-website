@@ -24,7 +24,6 @@ import java.util.ArrayList;
 public class FullRegConfirm extends FullRegBase {
 
     protected void registrationProcessing() throws TCWebException {
-        super.registrationProcessing();
 
         /*
           check the 2nd page input, no reason to do the first page again

@@ -33,13 +33,13 @@ abstract class RegistrationBase extends BaseProcessor {
 
     protected String db;
     protected SimpleRegInfo regInfo;
-    private Persistor p;
+    protected Persistor p;
     protected static final TCSubject CREATE_USER = new TCSubject(100000);
 
-    protected final void businessProcessing() throws TCWebException {
+    protected void businessProcessing() throws TCWebException {
         try {
             p = new SessionPersistor(getRequest().getSession(true));
-            //gotta do this here just in case makeRegInfo() needs the database
+            //gotta do first just in case makeRegInfo() needs the database
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
             db = getCompanyDb(companyId);
 
@@ -70,7 +70,7 @@ abstract class RegistrationBase extends BaseProcessor {
      */
     protected abstract void registrationProcessing() throws TCWebException;
 
-    private String getCompanyDb(long companyId) throws Exception {
+    protected String getCompanyDb(long companyId) throws Exception {
         Request r = new Request();
         r.setContentHandle("company_datasource");
         r.setProperty("cm", String.valueOf(companyId));
