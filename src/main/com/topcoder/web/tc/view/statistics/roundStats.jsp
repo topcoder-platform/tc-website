@@ -106,11 +106,11 @@ function goTo(selection){
             <% if (srb.getContentHandle().startsWith("last_match")) { %>
                 <jsp:include page="../includes/global_left.jsp">
                     <jsp:param name="level1" value="statistics"/>
+                    <jsp:param name="level2" value="last_match"/>
                 </jsp:include>
             <% } else { %>
                 <jsp:include page="../includes/global_left.jsp">
                     <jsp:param name="level1" value="statistics"/>
-                    <jsp:param name="level2" value="last_match"/>
                 </jsp:include>
             <% } %>
        </TD>
