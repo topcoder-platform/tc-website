@@ -105,9 +105,9 @@
 							<p><strong>Designer</strong><br />
 							Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - $210.00<br/>
-							First Deliverable - $157.50<br/>
-							Project Completion - $52.50</p>
+							<p>Total Payment - 210.00 -$<xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
+							First Deliverable - 157.50 $<xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
+							Project Completion - 52.50 $<xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
 <!-- Definition of Completion -->
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
