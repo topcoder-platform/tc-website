@@ -13,8 +13,8 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
 <%-- bring in some data used by most of the stats pages --%>
+<jsp:useBean id="nameColor" class="com.topcoder.web.hs.model.CoderRatingStyleBean" scope="application" />
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
-<bean:define id="nameColor" name="CODER_COLORS" scope="request" />
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request" />
 <% Request srb = (Request)request.getAttribute("REQUEST_BEAN"); %>
 

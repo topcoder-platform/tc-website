@@ -24,7 +24,6 @@ public class Statistics extends Base {
         nav.setAll("stats", cmd);
 
         Data.initializeDataTypes();
-        request.setAttribute("CODER_COLORS", new CoderRatingStyleBean());
 
         Map map = getParameterMap(request);
         Request dataRequest = new Request(map);

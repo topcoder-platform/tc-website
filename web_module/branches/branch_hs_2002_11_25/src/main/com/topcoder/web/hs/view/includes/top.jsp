@@ -14,8 +14,8 @@ function openWin(url, name, w, h) {
 		<TD WIDTH="100%" BGCOLOR="#6C6D71" ALIGN="right" BACKGROUND="/i/hs/top_gray_1pix_bg">
 <SPAN CLASS="smallFoot">        
 
-<jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <jsp:useBean id="CoderRatingStyle" class="com.topcoder.web.hs.model.CoderRatingStyleBean" scope="application" />
+<jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <% String style = CoderRatingStyle.getStyle(SessionInfo.getRating()); %>
 <% if(SessionInfo.isLoggedIn()) { %>
         <font color=orange>Hello, <span class="<%=style%>"><jsp:getProperty name="SessionInfo" property="Handle" /></span>!</font>

@@ -19,9 +19,10 @@ String openind = "<IMG SRC=\"/i/hs/nav_arrow_bottom.gif\" WIDTH=\"9\" HEIGHT=\"9
 String subind = "<IMG SRC=\"/i/hs/11x9.gif\" WIDTH=\"11\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
 
 // spacer between items on the root menu
-String trsep_root = "<TR><TD HEIGHT=\"1\" BGCOLOR=\"#C5C5C9\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
+String rootsep = "<TR><TD HEIGHT=\"1\" BGCOLOR=\"#C5C5C9\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
 // spacer between items on open submenus
-String trsep_sub = "";//@@@"<TR><TD HEIGHT=\"1\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
+//String subsep = "";
+String subsep = "<TR><TD HEIGHT=\"1\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
 
 // set below in the service method, as they vary depending on the request
 String root, sub;
@@ -62,62 +63,77 @@ sub = NavZone.getLevel1();
 
 <TABLE WIDTH="170" CELLSPACING="0" CELLPADDING="0" BORDER="0" BGCOLOR="#000000">
 
-    <%=trsep_root%>
+    <%=rootsep%>
     <%=rootheader("What's inside")%>
-    <%=trsep_root%>
+    <%=rootsep%>
     <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How Schools Compete", "how_hs_compete", false)%>
-    <%=trsep_root%>
+    <%=rootsep%>
     <%=rootitem("?module=Static&d1=schedule&d2=schedule", "Schedule", "schedule", false)%>
-    <%=trsep_root%>
+    <%=rootsep%>
 
     <%=rootitem("?module=Statistics&c=round_overview", "Statistics", "stats", true)%>
     <% if(subopen("stats")) { %>
-        <%=trsep_root%>
+        <%=rootsep%>
         <%=subitem("?module=Statistics&c=coder_ratings", "Coder Rankings", "coder_ratings")%>
+        <%=subsep%>
         <%=subitem("?module=Statistics&c=school_round_rank", "High School Rankings", "school_round_rank")%>
+        <%=subsep%>
         <%=subitem("?module=Statistics&c=ratings_history&cr="+SessionInfo.getUserId(), "Rating History", "ratings_history")%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=stats&d2=m_edi", "Match Editorials", "m_edi")%>
+        <%=subsep%>
         <%=subitem("?module=Statistics&c=school_round_stats&hs="+SessionInfo.getSchoolId(), "High School Round Stats", "school_round_stats")%>
+        <%=subsep%>
         <%=subitem("?module=Statistics&c=round_overview", "Round Overview", "round_overview")%>
+        <%=subsep%>
         <%=subitem("?module=Statistics&c=round_stats", "Round Stats", "round_stats")%>
+        <%=subsep%>
         <%=subitem("?module=Statistics&c=room_stats", "Room Stats", "room_stats")%>
+        <%=subsep%>
         <%=subitem("?module=Statistics&c=member_profile&cr="+SessionInfo.getUserId(), "Member Profile", "member_profile")%>
     <% } %>
 
-    <%=trsep_root%>
+    <%=rootsep%>
     <%=rootitem("?module=Static&d1=tournaments&d2=tournaments", "Tournaments", "tournaments", false)%>
-    <%=trsep_root%>
+    <%=rootsep%>
 
     <%=rootitem("?module=Static&d1=faq&d2=faq", "Support/FAQs", "faq", true)%>
     <% if(subopen("faq")) { %>
-        <%=trsep_root%>
+        <%=rootsep%>
         <%=subitem("?module=Static&d1=faq&d2=faq", "General FAQ ", "faq")%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=compet_faq", "Competition FAQ ", "compet_faq")%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=compet_proc", "Competition Process", "compet_proc")%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=ratings_ovrev", "Ratings Overview", "ratings_ovrev")%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=editor_info", "Editor Information", "editor_info")%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=soft_req", "Software Requirements", "soft_req")%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=rules_quali", "Rules & Qualification ", "rules_quali")%>
     <% } %>
 
-    <%=trsep_root%>
+    <%=rootsep%>
     <%=rootitem("?module=Static&d1=resources&d2=resources", "Resources", "resources", false)%>
-    <%=trsep_root%>
+    <%=rootsep%>
     <%=rootheader("[TCHS] Corporate")%>
-    <%=trsep_root%>
+    <%=rootsep%>
 
     <%=rootitem("?module=Static&d1=about&d2=about", "About Us", "about", true)%>
     <% if(subopen("about")) { %>
-        <%=trsep_root%>
+        <%=rootsep%>
         <%=subitem("?module=Static&d1=about&d2=about_member", "For Members", "about_member")%>
+        <%=subsep%>
         <%=subitem("?module=Static&d1=about&d2=about_sponsor", "For Sponsors", "about_sponsor")%>
     <% } %>
 
-    <%=trsep_root%>
+    <%=rootsep%>
     <%=rootitem("?module=Static&d1=press&d2=press_main", "Press Room", "press", false)%>
-    <%=trsep_root%>
+    <%=rootsep%>
     <%=rootitem("?module=Static&d1=contacts&d2=contacts", "Contacts", "contacts", false)%>
-    <%=trsep_root%>
+    <%=rootsep%>
 
 </TABLE>
 <!--Left Navigation Include Ends-->
