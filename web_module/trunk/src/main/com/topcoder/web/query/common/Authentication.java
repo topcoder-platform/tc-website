@@ -55,8 +55,6 @@ public class Authentication implements Serializable {
                                     HttpSession session) throws Exception {
         log.debug("handle: " + handle + " pass: " + password);
 
-        setRequestedURL(requestedURL);
-
         QueryAuthenticationHome qaHome = (QueryAuthenticationHome) ctx.lookup(ApplicationServer.Q_QUERY_AUTHENTICATION);
         QueryAuthentication qa = qaHome.create();
         ResultSetContainer rsc = qa.getLoginInfo(handle);

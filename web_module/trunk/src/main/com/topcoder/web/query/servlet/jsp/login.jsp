@@ -7,7 +7,11 @@
 <jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.query.bean.LoginTask" />
 <jsp:useBean id="Authentication" scope="request" class="com.topcoder.web.query.common.Authentication" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%System.out.println("XXX: " + Authentication.getErrorMessage());
+<%
+    if (session.isNew()) System.out.println("XXX new session");
+    else System.out.println("XXX old session");
+
+    System.out.println("XXX: " + Authentication.getErrorMessage());
   System.out.println("XXX: " + Authentication.getRequestedURL());
 %>
 <HTML>

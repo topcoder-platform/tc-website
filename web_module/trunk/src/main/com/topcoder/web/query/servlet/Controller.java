@@ -89,6 +89,8 @@ public class Controller extends HttpServlet {
 
                 request.setAttribute(taskName, task);
 
+                request.setAttribute("Authentication", task.getAuthentication());
+
                 sendToPage(request, response, task.getNextPage(), task.isInternalResource());
             }
             else {
@@ -99,7 +101,6 @@ public class Controller extends HttpServlet {
                     " redirurl: " + task.getAuthentication().getRequestedURL());
             sendToLoginPage(request, response, false);
         } catch (LoginFailedException authex) {
-            request.setAttribute("Authentication", task.getAuthentication());
             sendToLoginPage(request, response, true);
         } catch (ClassNotFoundException cnfex) {
             sendToErrorPage(request, response, cnfex);
