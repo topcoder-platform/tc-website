@@ -240,14 +240,6 @@ if (!rsc.isEmpty()) {
 
                   <% } else { %><% } %>
 
-                <% if (hasCharity) {%>
-
-                            <TR>
-                                <TD COLSPAN="4" CLASS="statText">* Some or all of these earnings have been donated to charity.</TD>
-                            </TR>
-
-                <% } %>
-
                             <TR>
                                 <TD COLSPAN="4" HEIGHT="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                             </TR>
@@ -340,6 +332,13 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
 
+                <% if (hasCharity) {%>
+
+                            <TR>
+                                <TD COLSPAN="4" CLASS="statText">* Some or all of these earnings have been donated to charity.</TD>
+                            </TR>
+
+                <% } %>
 
 
                         </TABLE>
