@@ -66,7 +66,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
             <h2>Advancers</h2>
             
-            <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
+             <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
                <tr>
                   <td width = "40%" align = "left" class="advancers_header">Round</td>
                   <td width = "20%" align = "right" class="advancers_header">Advancers</td>
@@ -80,14 +80,23 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers&rd=4700" class="topLink">Qualification Round 1</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_advancers&rd=4700">200</a></td>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100" class="topLink">Qualification Round 1</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
+               <tr>
+                  <td align = "left" class="advancers_roundid"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100" class="topLink">Qualification Round 2</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/tc?module=Static&d1=tco03&d2=tco03_top100">200</a></td>
+                  <td align = "right" class="advancers_faded">n/a</td>
+                  <td align = "right" class="advancers_faded">n/a</td> 
+               </tr>
             </table>
+            <br/><br/>
+            
+            <p> Click <A href="/tc?module=Static&d1=tco03&d2=tco03_top100">here</A> to see the full TCO advancers table.</p>
 
-         <p><br/></p>
+        <p><br/></p>
          </td>
 <!-- Center Column Ends -->
 
