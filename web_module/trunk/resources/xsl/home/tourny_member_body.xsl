@@ -127,7 +127,7 @@
         </xsl:when>
         <xsl:otherwise>
 Based on your profile information and your rated event participation, you are eligible to sign up for the 2002 TopCoder Invitational tournament.  Even if your rating is below the current cut-off, signing up for the event now will ensure that you are on the stand-by list in the event that not all of the invited members accept their invitations.<BR/><BR/>
-          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText"><B>&#62;&#62; There are 122 open spots, Sign up Now!</B></A><BR/>
+          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText"><B>&#62;&#62; There are 89 open spots, Sign up Now!</B></A><BR/>
           <BR/>
         </xsl:otherwise>
         </xsl:choose>
