@@ -539,7 +539,7 @@ public class StudentRegistration extends Base {
 
       ctx=TCContext.getInitial();
 
-      utx_tchs=(UserTransaction)ctx.lookup("java:comp/UserTransaction");
+      utx_tchs=(UserTransaction)ctx.lookup("javax.transaction.UserTransaction");
       utx_tchs.begin();
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
