@@ -350,6 +350,8 @@ public class Registration
             schoolStateChanged = false;
             school = Integer.toString(coder.getCurrentSchool().getSchoolId());
             schoolName = coder.getCurrentSchool().getName();
+            gpa = ""+coder.getCurrentSchool().getGpa();
+            gpaScale = ""+coder.getCurrentSchool().getGpaScale();
         } else {
             schoolState = "";
             schoolStateChanged = false;
@@ -493,7 +495,7 @@ public class Registration
                 if (!isEmpty(this.gpa) && isNumber(this.gpa, true) && 
                     !isEmpty(this.gpaScale) && isNumber(this.gpaScale, true) &&
                     Float.parseFloat(this.gpa) > Float.parseFloat(this.gpaScale)) {
-                    addError(GPA, "GPA must be lese than or equal to the GPA scale.");
+                    addError(GPA, "GPA must be less than or equal to the GPA scale.");
                 }
             }
 
@@ -1647,6 +1649,8 @@ public class Registration
             currentSchool.setUserId(coder.getCoderId());
             currentSchool.setSchoolId(schoolId);
             currentSchool.setName(getSchoolName(schoolId));
+            currentSchool.setGpa(Float.parseFloat(this.gpa));
+            currentSchool.setGpaScale(Float.parseFloat(this.gpaScale));
         }
 
 /*
