@@ -25,9 +25,8 @@ public class DataType
     private HashMap typeMapping = new HashMap();
     private int id = -1;
     private String description = "";
-
-    transient String baseName;
-    transient int dim;
+    private String baseName;
+    private int dim;
 
     /**
      * This is the default constructor, available for serialization.
@@ -196,6 +195,7 @@ public class DataType
             buf.delete(i, i + 2);
         else
             throw new InvalidTypeException("Attempt to reduce dimension of type " + description);
+
         return DataTypeFactory.getDataType(buf.toString());
     }
 
@@ -207,6 +207,16 @@ public class DataType
             return "null";
         return ProblemComponent.encodeHTML(desc);
     }
+
+    public String toPlainText(Language language)
+    {
+        String desc = getDescriptor(language);
+
+        if(desc == null)
+            return "null";
+        return desc;
+    }
+
 
     public String toXML()
     {

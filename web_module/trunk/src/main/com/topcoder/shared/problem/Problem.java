@@ -25,6 +25,8 @@ import com.topcoder.shared.language.Language;
  */
 public class Problem implements Element, Serializable, CustomSerializable 
 {
+  private static final String LEGAL = "This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2002, TopCoder, Inc.  All rights reserved.  ";
+
   private ProblemComponent[] problemComponents = new ProblemComponent[0];
   private int problemId = -1;
   private String name = "";
@@ -165,6 +167,31 @@ public class Problem implements Element, Serializable, CustomSerializable
     StringBuffer html = new StringBuffer("<html><body bgcolor='black' text='white'>");
     if(!problemText.equals(""))
     {
+      html.append(problemText);
+      html.append("<hr>");
+    }
+    for(int i = 0; i < problemComponents.length ; i++)
+    {
+      html.append(problemComponents[i].toHTML(language));
+      html.append("<hr>");
+    }
+
+    html.append("<p>");
+    html.append(LEGAL);
+
+    html.append("</body></html>");
+    return html.toString();
+  }
+
+  public String toHTML(Language language, boolean includeHeader)
+  {
+    StringBuffer html = new StringBuffer();
+    if(includeHeader)
+    {
+      html.append("<html><body bgcolor='black' text='white'>");
+    }
+    if(!problemText.equals(""))
+    {
       html.append(ProblemComponent.encodeHTML(problemText));
       html.append("<hr>");
     }
@@ -173,24 +200,12 @@ public class Problem implements Element, Serializable, CustomSerializable
       html.append(problemComponents[i].toHTML(language));
       html.append("<hr>");
     }
-    html.append("</body></html>");
-    return html.toString();
-  }
 
-  public String toHTML(Language language, boolean includeHeader) {
-    StringBuffer html = new StringBuffer();
-    if(includeHeader) {
-      html.append("<html><body bgcolor='black' text='white'>");
-    }
-    if(!problemText.equals("")) {
-      html.append(ProblemComponent.encodeHTML(problemText));
-        html.append("<hr>");
-    }
-    for(int i = 0; i < problemComponents.length ; i++) {
-      html.append(problemComponents[i].toHTML(language));
-        html.append("<hr>");
-    }
-    if(includeHeader) {
+    html.append("<p>");
+    html.append(LEGAL);
+
+    if(includeHeader)
+    {
       html.append("</body></html>");
     }
     return html.toString();
@@ -201,6 +216,12 @@ public class Problem implements Element, Serializable, CustomSerializable
     StringBuffer xml = new StringBuffer();
     return xml.toString();
   }
+
+    public String toPlainText(Language lang){
+        //the client does its own thing
+        return toHTML(lang);
+    }
+
 
   /** Problem statement is valid if all the components are.*/
   public boolean isValid()

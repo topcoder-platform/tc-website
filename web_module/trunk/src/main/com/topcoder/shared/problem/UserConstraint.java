@@ -96,6 +96,25 @@ public class UserConstraint
         }
     }
 
+    public String toPlainText(Language language)
+    {
+        if(elem instanceof NodeElement) {
+            ArrayList elems = ((NodeElement)elem).getChildren();
+            StringBuffer buf = new StringBuffer(64 * elems.size());
+
+            for(int i = 0; i < elems.size(); i++)
+                buf.append(((Element)elems.get(i)).toPlainText(language));
+            return buf.toString();
+        } else {
+            StringBuffer buf = new StringBuffer(text.length() + 1);
+
+            buf.append(text);
+            buf.append("\n");
+            return buf.toString();
+        }
+    }
+
+
     public String toXML()
     {
         StringBuffer buf = new StringBuffer(text.length() + 33);

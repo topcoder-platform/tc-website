@@ -49,4 +49,9 @@ public class Value implements Element
     sb.append("'></value>");
     return sb.toString();
   }
+
+  public String toPlainText(com.topcoder.shared.language.Language language){
+      return value;
+  }
+
 }

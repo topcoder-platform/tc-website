@@ -56,6 +56,16 @@ public class Range implements Element
     return sb.toString();
   }
 
+  public String toPlainText(com.topcoder.shared.language.Language language){
+      StringBuffer sb = new StringBuffer();
+      sb.append(min.toString());
+      sb.append(" - ");
+      sb.append(max.toString());
+      sb.append(" (inclusive)");
+      return sb.toString();
+  }
+
+
   public String toXML()
   {
     StringBuffer sb = new StringBuffer();

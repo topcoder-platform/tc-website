@@ -65,6 +65,12 @@ public class MinSizeConstraint
       //left to logan to fill in to match the dtd...
       return "";
     }
+
+    public String toPlainText(Language lang){
+        //todo this isn't currently used, and there's no time to add it right now
+        return toHTML(lang);
+    }
+
 }
 
 

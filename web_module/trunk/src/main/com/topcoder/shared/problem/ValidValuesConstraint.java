@@ -119,6 +119,12 @@ public class ValidValuesConstraint
         sb.append("</valid-values>");
         return sb.toString();
     }
+
+    public String toPlainText(Language lang){
+        //todo this isn't currently used, and there's no time to add it right now
+        return toHTML(lang);
+    }
+
 }
 
 

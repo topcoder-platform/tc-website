@@ -51,5 +51,7 @@ public interface Element
      * @return A fragment of XML
      */
     public String toXML();
+
+    public String toPlainText(Language language);
 }
 

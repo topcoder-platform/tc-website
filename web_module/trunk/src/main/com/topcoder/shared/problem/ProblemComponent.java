@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * This class fully represents a problem statement.  This consists of the following elements:
@@ -111,6 +112,60 @@ public class ProblemComponent
                     buf.append(text.charAt(i));
             }
         return buf.toString();
+    }
+
+    /**
+     * Utility function for encoding "special" xml characters, or characters
+     * not allowing xml to properly parse.
+     * Replaces bad characters with /ASCIIXXX/ where XXX is the ascii value
+     * of the character.
+     */
+    static public String encodeXML(String text)
+    {
+      StringBuffer buf = new StringBuffer(text.length());
+      ArrayList bad = new ArrayList();
+      for(int i = 0; i < ProblemConstants.BAD_XML_CHARS.length; i++)
+      {
+        bad.add(new Character(ProblemConstants.BAD_XML_CHARS[i]));
+      }
+
+      for(int i = 0; i < text.length(); i++)
+      {
+        if(bad.indexOf(new Character(text.charAt(i))) == -1)
+          buf.append(text.charAt(i));
+        else
+          buf.append("/ASCII" + (int)text.charAt(i) + "/");
+      }
+      return buf.toString();
+    }
+
+    /**
+     * Undoes the encoding scheme in encodeXML.
+     */
+    static public String decodeXML(String text)
+    {
+      StringBuffer buf = new StringBuffer(text.length());
+      while(text.length() > 0)
+      {
+        boolean appendChar = true;
+        if(text.startsWith("/ASCII") && text.indexOf("/", 2) != -1)
+        {
+          try
+          {
+            buf.append((char)Integer.parseInt(text.substring(6, 
+                    text.indexOf("/", 2))));
+            appendChar = false;
+            text = text.substring(text.indexOf("/", 2) + 1);
+          }
+          catch(NumberFormatException e) { }
+        }
+        if(appendChar)
+        {
+          buf.append(text.charAt(0));
+          text = text.substring(1);
+        }
+      }
+      return buf.toString();
     }
 
     public void customWriteObject(CSWriter writer)
@@ -498,7 +553,7 @@ public class ProblemComponent
         buf.append("</td></tr><tr><td>Returns:</td><td>");
         buf.append(returnType.toHTML(language));
 
-        buf.append("</td></tr><tr><td>Method signature:</td><td>");
+        buf.append("</td></tr><tr><td>Method signature<br>(be sure your method is public):</td><td>");
         buf.append(encodeHTML(language.getMethodSignature(methodName, returnType, paramTypes, paramNames)));
         buf.append("</td></tr></table>");
 
@@ -539,7 +594,7 @@ public class ProblemComponent
           buf.append("</ul>");
         }
 
-        return buf.toString();
+      return buf.toString();
     }
 
     public static String handleTextElement(String name, Element elem)
@@ -548,6 +603,12 @@ public class ProblemComponent
             return "<" + name + ">" + elem.toString() + "</" + name + ">";
         return elem.toXML();
     }
+
+    public String toPlainText(Language lang){
+        //the client does its own thing
+        return toHTML(lang);
+    }
+
 
     public String toXML()
     {
@@ -690,5 +751,14 @@ public class ProblemComponent
       ret.add(paramTypes[i].getDescriptor(ProblemConstants.JAVA));
     }
     return ret;
+  }
+
+  public static void main(String[] args)
+  {
+    System.out.println("Before: |" + args[0] + "|");
+    String encoded = encodeXML(args[0]);
+    System.out.println("Encoded: |" + encoded + "|");
+    System.out.println("After: |" + decodeXML(encoded) + "|");
+    
   }
 }

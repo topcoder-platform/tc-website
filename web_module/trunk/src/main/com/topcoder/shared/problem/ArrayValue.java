@@ -17,6 +17,11 @@ public class ArrayValue
     {
     }
 
+    public ArrayValue(ArrayList values)
+    {
+      this.values = values;
+    }
+
     public ArrayValue(DataValueReader reader, DataType type)
         throws IOException, DataValueParseException
     {
