@@ -1,6 +1,6 @@
 <%@page contentType="text/html"%>
 <%@ page import="com.topcoder.web.tc.Constants,
-                 com.topcoder.web.tc.model.PlacementProfileSearchResults,
+                 com.topcoder.web.tc.model.PlacementProfileSearchResult,
                  java.util.List" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
