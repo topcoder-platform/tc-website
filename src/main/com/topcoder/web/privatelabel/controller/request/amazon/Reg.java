@@ -36,6 +36,8 @@ public class Reg extends FullReg {
             }
 
             super.registrationProcessing();
+        } catch (PermissionException pe) {
+            throw pe;
         } catch (TCWebException we) {
             throw we;
         } catch(Exception e) {
