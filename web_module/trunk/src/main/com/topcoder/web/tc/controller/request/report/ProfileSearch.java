@@ -27,7 +27,7 @@ public class ProfileSearch extends Base {
                 time = System.currentTimeMillis() - time;
                 log.debug("query constructed in "+time);
                 getRequest().setAttribute("QUERY",query);
-                if(!"on".equals(getRequest.getParameter("queryOnly"))){
+                if(!"on".equals(getRequest().getParameter("queryOnly"))){
                     time = System.currentTimeMillis();
                     QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                     QueryRequest qr = new QueryRequest();
