@@ -150,6 +150,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
     }
 
     public ResultSetContainer getGroups() {
+        log.debug("getGroups called, " + groups.size() + " items returned");
         return groups;
     }
 
