@@ -540,6 +540,12 @@
         </init-param>
         
         <init-param>
+            <param-name>degree_id</param-name>
+            <param-value>4</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
             <param-name>last_name</param-name>
             <param-value>lastName</param-value>
             <description></description>
