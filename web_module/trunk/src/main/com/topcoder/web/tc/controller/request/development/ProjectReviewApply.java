@@ -66,6 +66,10 @@ public class ProjectReviewApply extends Base {
                     throw new TCWebException("unknown catalog found " + catalog);
                 }
 
+                //put the terms text in the request
+                TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
+                setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
@@ -81,12 +85,10 @@ public class ProjectReviewApply extends Base {
     protected void applicationProcessing() throws TCWebException {
         try {
             UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
-            TermsOfUse terms = ((TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class));
 
             boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
                     Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
-            setDefault(Constants.TERMS, terms.getText(Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
             setNextPage(Constants.REVIEWER_TERMS);

@@ -57,7 +57,7 @@
                     </td>
                 </tr>
                 <tr valign="middle">
-                    <td class="errorForm">
+                    <td class="errorText">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%></tc-webtag:errorIterator>
                     </td>
                 </tr>
