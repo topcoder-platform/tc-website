@@ -89,7 +89,7 @@ public class AnswerInput extends BaseTag {
             s.append(cssclass);
             s.append("\"");
         }
-        if (getDefaultValue().equals("true")) {
+        if (getDefaultValue()!=null && getDefaultValue().equals("true")) {
             s.append(" checked");
         }
         s.append("/>");
@@ -107,9 +107,11 @@ public class AnswerInput extends BaseTag {
             s.append(cssclass);
             s.append("\"");
         }
-        s.append(" value=\"");
-        s.append(getDefaultValue());
-        s.append("\"");
+        if (getDefaultValue()!=null) {
+            s.append(" value=\"");
+            s.append(getDefaultValue());
+            s.append("\"");
+        }
         if (getDefaultValue() != null && getDefaultValue().equals(new Long(answer.getId()))) {
             s.append(" checked");
         }
