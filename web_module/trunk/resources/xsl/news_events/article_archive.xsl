@@ -61,6 +61,8 @@
 <!-- 2005  -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+                            <tr><td class="newsText"><A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank">Do you have what it takes?</A> [April - ComputerUser]</td></tr>
+
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_02_13_05">Program for life</A> [February 13 - NewsWeek Poland]</td></tr>
 
                             <tr><td class="newsText"><A href="http://www.wired.com/news/medtech/0,1286,66458,00.html?tw=wn_tophead_1" target="_blank">Software Taming Gene Data Pool</A> [February 2 - Wired]</td></tr>
