@@ -154,12 +154,11 @@ public class RatingImageTag extends TagSupport {
     }
 
     private int maxRating(int a, int b, int c) {
-        if(a > b && a > c) {
-            return a;
-        } else if(b > a && b > c) {
-            return b;
-        } else {
-            return c;
-        }
+        return max(max(a,b),c);
+    }
+
+    private int max(int a, int b) {
+        if (a>=b) return a;
+        return b;
     }
 }
