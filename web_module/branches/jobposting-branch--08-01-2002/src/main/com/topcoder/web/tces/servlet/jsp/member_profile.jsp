@@ -108,7 +108,7 @@
 
               </P>
               
-              <% if (MemberProfileTask.getIsRanked()) { %>
+<% if (MemberProfileTask.getIsRanked()) { %>
               
                   <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
                     <TR>
@@ -137,62 +137,214 @@
                   <B>Rating Percentile:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_PCTILE_KEY)%><BR>
                   <B>Number of Ratings:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_NUMEVENTS_KEY)%><BR>
                   <B>Most Recent Rated Event:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%><BR>
-                  <B>Average Points per Contest:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_AVGPOINTS_KEY)%><BR>
                   </P>    
 
-                  <B>Statistics by Problem Level:<br></B>
-                  <TABLE ID="dataByLevelTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
-                    <TR>
-                        <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES.length;i++) { %>
-                            <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
-                                <B><%= TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES[i] %></B>
-                            </b></TD>
-                            <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
-                        <% } %>
-                    </TR>                    
-                    <tces:mapIterator id="level" MapList="<%=MemberProfileTask.getStatsByLevel()%>">
+    <% if (MemberProfileTask.getHasDivisionI()) { %>
+                  <P>
+                  <B>Division I Performance</B>
+                  </P>    
 
-                    <TR> 
-                      <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS.length;i++) { %>
-                          <TD class="statText" HEIGHT="18" NOWRAP>
-                            <%= level.get(TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[i]) %>
-                          </TD>
-                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
-                        <% } %>
+                  <B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIStatistic("avg_contest_points") %><BR>
+
+                  <B>Statistics by Problem Level:<br></B>
+                  <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
+                    <TR>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b></b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Presented</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Submitted</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Submit %</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Correct</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Submission Accuracy</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Overall Accuracy</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Avg Points for Submissions</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Avg Points Overall</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Avg Time to Submit</b></TD>
                     </TR>
 
-                    </tces:mapIterator>
+                
 
+                  <tces:rowIterator id="level" rowList="<%=(List)MemberProfileTask.getDivIStatsByLevel()%>">
+                    <TR>
+                      <TD class="statText" HEIGHT="18">
+                        <nobr>&#160;<b><%= level.getItem("level_desc").toString() %></b></nobr>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= level.getItem("presented").toString() %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= level.getItem("submitted").toString() %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.autoFormat(level.getItem("submit_percent")) %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= level.getItem("correct").toString() %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.autoFormat(level.getItem("submission_accuracy")) %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.autoFormat(level.getItem("overall_accuracy")) %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.autoFormat(level.getItem("avg_submission_points")) %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= level.getItem("avg_final_points").toString() %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.timeFormat(level.getItem("avg_time_elapsed")) %>
+                      </TD>
+                    </TR>
+                  </tces:rowIterator>
+
+                    <TR>
+                      <TD class="statText" HEIGHT="18">
+                        &#160;<b>All</b>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("total_presented") %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("total_submitted") %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("total_submit_percent") %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("correct") %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("total_submission_accuracy") %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("total_overall_accuracy") %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("avg_submission_points") %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("avg_overall_points") %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.timeFormat(MemberProfileTask.getDivIStats().getItem("avg_time_elapsed")) %>
+                      </TD>
+                    </TR>
                   </TABLE>
                   <P><BR></P>
 
                   <B>Statistics by Language:<br></B>
-                  <TABLE ID="dataByLangTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
+                  <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
-                        <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_TITLES.length;i++) { %>
-                            <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
-                                <B><%= TCESConstants.MEM_RATING_STATSBYLANG_TITLES[i] %></B>
-                            </b></TD>
-                            <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
-                        <% } %>
-                    </TR>                    
-                    <tces:mapIterator id="language" MapList="<%=MemberProfileTask.getStatsByLang()%>">
-
-                    <TR> 
-                      <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_KEYS.length;i++) { %>
-                          <TD class="statText" HEIGHT="18" NOWRAP>
-                            <%= language.get(TCESConstants.MEM_RATING_STATSBYLANG_KEYS[i]) %>
-                          </TD>
-                          <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
-                        <% } %>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18">&#160;<b></b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Submitted</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Submit %</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Correct</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Submission Accuracy</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Avg Points for Submissions</b></TD>
+                      <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Avg Time to Submit</b></TD>
                     </TR>
 
-                    </tces:mapIterator>
+                
 
+                  <tces:rowIterator id="language" rowList="<%=(List)MemberProfileTask.getDivIStatsByLang()%>">
+                    <TR>
+                      <TD class="statText" HEIGHT="18">
+                        <nobr>&#160;<b><%= level.getItem("language_name").toString() %></b></nobr>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= language.getItem("submitted").toString() %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.autoFormat(language.getItem("submit_percent")) %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= language.getItem("num_correct").toString() %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.autoFormat(language.getItem("submission_accuracy")) %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.autoFormat(language.getItem("avg_submission_points")) %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.timeFormat(language.getItem("avg_submit_time")) %>
+                      </TD>
+                    </TR>
+                  </tces:rowIterator>
+
+                    <TR>
+                      <TD class="statText" HEIGHT="18">
+                        &#160;<b>All</b>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("total_submitted") %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("total_submit_percent") %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("correct") %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("total_submission_accuracy") %>%
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= MemberProfileTask.getDivIStatistic("avg_submission_points") %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                      <TD class="statText">
+                        <%= JSPUtils.timeFormat(MemberProfileTask.getDivIStats().getItem("avg_time_elapsed")) %>
+                      </TD>
+                    </TR>
                   </TABLE>
-              
-            <% } 
-               else { %>
+    <% } %>
+
+<% } else { %>
             
                 <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
                   <TR>
@@ -209,7 +361,7 @@
                   </TR>
                 </TABLE>
             
-            <% } %>
+<% } %>
               
               
     </TD>

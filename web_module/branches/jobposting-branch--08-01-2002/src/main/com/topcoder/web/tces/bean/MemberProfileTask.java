@@ -60,7 +60,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     private int uid;
 
     /** Holds data about the coder's Division I performance. */
-    private ResultSet.ResultSetRow divIStats;
+    private ResultSetContainer.ResultSetRow divIStats;
     
     /** Holds flag indicating whether coder has participated in Division I. */
     private boolean hasDivisionI;
@@ -69,7 +69,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     private boolean hasDivisionII;
     
     /** Holds data about the coder's Division II performance. */
-    private ResultSet.ResultSetRow divIIStats;
+    private ResultSetContainer.ResultSetRow divIIStats;
     
     /** Holds list of Division I performance stats aggregated by problem level. */
     private List divIStatsByLevel;
@@ -470,14 +470,14 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /** Getter for property divIStats.
      * @return Value of property divIStats.
      */
-    public ResultSet.ResultSetRow getDivIStats() {
+    public ResultSetContainer.ResultSetRow getDivIStats() {
         return this.divIStats;
     }
     
     /** Setter for property divIStats.
      * @param divIStats New value of property divIStats.
      */
-    public void setDivIStats(ResultSet.ResultSetRow divIStats) {
+    public void setDivIStats(ResultSetContainer.ResultSetRow divIStats) {
         this.divIStats = divIStats;
     }
     
@@ -512,14 +512,14 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /** Getter for property divIIStats.
      * @return Value of property divIIStats.
      */
-    public ResultSet.ResultSetRow getDivIIStats() {
+    public ResultSetContainer.ResultSetRow getDivIIStats() {
         return this.divIIStats;
     }
     
     /** Setter for property divIIStats.
      * @param divIIStats New value of property divIIStats.
      */
-    public void setDivIIStats(ResultSet.ResultSetRow divIIStats) {
+    public void setDivIIStats(ResultSetContainer.ResultSetRow divIIStats) {
         this.divIIStats = divIIStats;
     }
     
