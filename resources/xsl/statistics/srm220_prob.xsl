@@ -46,17 +46,17 @@ function openWin(url, name, w, h) {
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
  <tr valign="top">
 
-<!-- Left Column Begins -->
+<!-- Left Column Begins  -->
 	 <td width="170" bgcolor="#FFFFFF">
 		 <xsl:call-template name="global_left"/>
 	 </td>
-<!-- Left Column Ends -->
+<!-- Left Column Ends  -->
 
-<!-- Gutter Begins -->
+<!-- Gutter Begins  -->
 	 <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" alt="" border="0" /></td>
-<!-- Gutter Ends -->
+<!-- Gutter Ends  -->
 
-<!-- Center Column Begins -->
+<!-- Center Column Begins  -->
 	 <td class="bodyText" width="100%">
 		 <xsl:call-template name="BodyTop">
 			 <xsl:with-param name="image1">white</xsl:with-param>
@@ -68,7 +68,7 @@ function openWin(url, name, w, h) {
 		 <tr valign="top">
 				 <td class="bodyText" width="100%">
 
-<!--body contextual links-->
+<!--body contextual links -->
 					 <table width="100%" border="0" cellspacing="0" cellpadding="3">
 						 <tr valign="middle">
 							 <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 220</font></td>
@@ -80,7 +80,7 @@ function openWin(url, name, w, h) {
 							 <td class="bodyText" align="right"><a href="mailto:editorial@topcoder.com">Comments / Ideas?</a></td>
 						 </tr>
 					 </table>
-<!--end contextual links-->
+<!--end contextual links -->
 
 
 <h2>Match summary</h2>
@@ -429,7 +429,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 
 <p>The key to figuring out this problem was to recognize that you needed to resolve cycles in the data - if you follow an item to the item that's in its spot, and then the one that's in the next one's spot, until you reach the original item again, you'll have a cycle of elements that should be in each others' spots.  If an item is already in its spot, it forms a cycle of one element.  The minimum cost of resolving a cycle is <tt>(sum of the weights in the cycle)+(number of elements in the cycle-2)*(minimum weight in cycle)</tt>.  This cost is zero for one-element cycles and the sum of the elements for two-element cycles.  For larger cycles, it is the cost of swapping the smallest element in the cycle with each element until all of them are in the right spot.</p>
 
-<p>The tricky part of this problem is figuring out that simply resolving all the cycles doesn't always give you the best answer.  Sometimes the optimal answer comes by swapping the smallest element of the whole set into the cycle and then resolving the new cycle.  The cost of swapping in the smallest element is the sum of that weight and the smallest weight in the cycle.  The cost of resolving the new cycle is <tt>(sum of the weights in the cycle + minimum of all weights) + (number of elements in the cycle - 1) * (minimum of all weights)</tt>.  Sometimes this creates a smaller final value and sometimes it makes it bigger.  The key to this problem was figuring out which cycles should merge with the smallest element and which should just be resolved.</p>
+<p>The tricky part of this problem is figuring out that simply resolving all the cycles doesn't always give you the best answer.  Sometimes the optimal answer comes by swapping the smallest element of the whole set into the cycle and then resolving the new cycle.  The cost of swapping in the smallest element is the sum of that weight and the smallest weight in the cycle.  The cost of resolving the new cycle is <tt>(sum of the weights in the cycle + minimum of all weights) + (number of elements in the cycle + 1) * (minimum of all weights)</tt>.  Sometimes this creates a smaller final value and sometimes it makes it bigger.  The key to this problem was figuring out which cycles should merge with the smallest element and which should just be resolved.</p>
 
 <p>Here's a fairly simple implementation:</p>
 <pre>
@@ -475,22 +475,22 @@ return total;
 		 <p><br /></p>
 
 	 </td>
-<!-- Center Column Ends -->
+<!-- Center Column Ends  -->
 
-<!-- Gutter -->
+<!-- Gutter  -->
 	 <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
-<!-- Gutter Ends -->
+<!-- Gutter Ends  -->
 
-<!-- Right Column Begins -->
+<!-- Right Column Begins  -->
 	 <td width="170">
 		 <img src="/i/clear.gif" width="170" height="1" border="0"/><br />
 		 <xsl:call-template name="public_right_col"/>
 	 </td>
-<!-- Right Column Ends -->
+<!-- Right Column Ends  -->
 
-<!-- Gutter -->
+<!-- Gutter  -->
 	 <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
+<!-- Gutter Ends  -->
 
  </tr>
 </table>
