@@ -764,7 +764,7 @@ public class PDFGenerator extends BaseProcessor {
         ResumeServices resumebean = (ResumeServices)createEJB(ctx, ResumeServices.class);
         
         if(resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
-            String ext = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().substring(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().lastIndexOf('.'));
+            String ext = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().substring(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().lastIndexOf('.')+1);
             log.debug(ext);
             
             doc.resetFooter();
