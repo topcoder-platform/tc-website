@@ -427,6 +427,95 @@ SELECT c.campaign_id,
    AND slu.status_id = c.status_id
 "
 
+java com.topcoder.utilities.QueryLoader "OLTP" 1002 "TCES_Campaign_Info" 0 0 "
+SELECT c.campaign_name,
+       slu.status_desc
+  FROM campaign c,
+       status_lu slu
+ WHERE c.campaign_id = @cid@
+   AND slu.status_id = c.status_id
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1003 "TCES_Campaign_Hit_Info" 0 0 "
+SELECT COUNT(*) AS total_hits,
+       MAX(jh.timestamp) AS most_recent
+  FROM job_hit jh,
+       campaign_job_xref cjx
+ WHERE cjx.campaign_id = @cid@
+   AND jh.job_id = cjx.job_id
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1004 "TCES_Position_List" 0 0 "
+SELECT j.job_id,
+       j.job_desc,
+       COUNT(*) AS hit_count,
+       MAX(jh.timestamp) AS most_recent
+  FROM job j,
+       job_hit jh,
+       campaign_job_xref cjx
+ WHERE cjx.campaign_id = @cid@
+   AND j.job_id = cjx.job_id
+   AND jh.job_id = j.job_id
+ GROUP BY j.job_id, j.job_desc
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1005 "TCES_Campaign_Hit_List" 0 0 "
+SELECT c.coder_id,
+       u.handle,
+       r.rating,
+       c.state_code,
+       c.country_code,
+       ct.coder_type_desc,
+       cs.school_name,
+       j.job_desc,
+       jh.timestamp
+  FROM user u,
+       rating r,
+       coder c,
+       job j,
+       job_hit jh,
+       coder_type ct,
+       campaign_job_xref cjx,
+       current_school cs
+ WHERE cjx.campaign_id = @cid@
+   AND j.job_id = cjx.job_id
+   AND jh.job_id = cjx.job_id
+   AND u.user_id = jh.user_id
+   AND r.coder_id = jh.user_id
+   AND c.coder_id = jh.user_id
+   AND cs.coder_id = jh.user_id
+   AND ct.coder_type_id = c.coder_type_id
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1006 "TCES_Position_Name" 0 0 "
+SELECT j.job_desc
+  FROM job j
+ WHERE j.job_id = @jid@
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 1007 "TCES_Position_Hit_List" 0 0 "
+SELECT c.coder_id,
+       u.handle,
+       r.rating,
+       c.state_code,
+       c.country_code,
+       ct.coder_type_desc,
+       cs.school_name,
+       jh.timestamp
+  FROM user u,
+       rating r,
+       coder c,
+       job_hit jh,
+       coder_type ct,
+       current_school cs
+ WHERE jh.job_id = @jid@
+   AND u.user_id = jh.user_id
+   AND r.coder_id = jh.user_id
+   AND c.coder_id = jh.user_id
+   AND cs.coder_id = jh.user_id
+   AND ct.coder_type_id = c.coder_type_id
+"
+
 java com.topcoder.utilities.QueryLoader "OLTP" 1100 "TCES_User_And_Password" 0 0 "
 SELECT u.user_id, u.password
   FROM user u
