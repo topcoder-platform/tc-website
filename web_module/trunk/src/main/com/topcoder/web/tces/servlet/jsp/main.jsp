@@ -57,11 +57,11 @@
                         <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                             <TR>
                                 <TD WIDTH="5" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="49%" colspan="2" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Campaign Name</strong></TD>
+                                <TD colspan="2" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Campaign Name</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Start Date</strong></TD>
+                                <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Start Date</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>End Date</strong></TD>
+                                <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>End Date</strong></TD>
                                 <TD WIDTH="5" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                             </TR>
     
@@ -95,11 +95,11 @@
                             <TR>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="statText"><%=campaignInfo.getItem("campaign_name").toString()%></A></TD>
+                                <TD WIDTH="98%" class="statText"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="statText"><%=campaignInfo.getItem("campaign_name").toString()%></A></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText"><%=campaignInfo.getItem("start_date").toString()%></TD>
+                                <TD WIDTH="1%" class="statText"><%=campaignInfo.getItem("start_date").toString()%></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText"><%=campaignInfo.getItem("end_date").toString()%></TD>
+                                <TD WIDTH="1%" class="statText"><%=campaignInfo.getItem("end_date").toString()%></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                             </TR>
 
