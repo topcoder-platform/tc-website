@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>Technical Assessment</title>
@@ -6,7 +6,7 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
 </head>
 <body>
-
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
       <td align=center>
@@ -76,7 +76,7 @@
                             <li>Read through the introductory text on the screen.</li>
                             <li>Next, click the <strong>Open</strong> button next to the Problem Name.
                                 <ul>
-                                    <li>Once you click the <strong>Open</strong> button, a <a href="codingWindow.jsp">coding window</a> will pop up on your screen.</li>
+                                    <li>Once you click the <strong>Open</strong> button, a <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=codingWindow">coding window</a> will pop up on your screen.</li>
                                     <li>Solving the example problem will provide you with an opportunity to acclimate yourself with how the Application works
                                     and what you'll be asked to do during the two testing phases.</li>
                                 </ul>
@@ -93,7 +93,7 @@
                                     <li>The objective of this test is to submit accurate solutions as quickly as possible.</li>
                                 </ul>
                             </li>
-                            <li>Once you open one of the problems the <a href="timer.jsp">Timer</a> will start counting down.</li>
+                            <li>Once you open one of the problems the <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=timer">Timer</a> will start counting down.</li>
                             <li>Proceed to Test Set B (if presented) by clicking the <strong>Continue</strong> button when one of the following is true:
                                 <ul>
                                     <li>You have submitted solutions to all 3 problems in Test Set A.</li>

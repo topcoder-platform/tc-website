@@ -1,4 +1,6 @@
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
 <%@  page language="java"%>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <% String selected = request.getParameter("selected")==null?"":request.getParameter("selected"); %>
 
                         <table border=0 cellpadding=5 cellspacing=0 width="100%">
@@ -9,7 +11,7 @@
                             <% if (selected.equals("steps")) { %>
                                 <td class=helpTitleOn>Perform the Following Steps</td>
                             <% } else { %>
-                                <td><a href="steps.jsp">Perform the Following Steps</a></td>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=step">Perform the Following Steps</a></td>
                             <% } %>
                             </tr>
 
@@ -43,7 +45,7 @@
                             <% if (selected.equals("codingWindow")) { %>
                                 <td class=helpTitleOn>The Coding Window</td>
                             <% } else { %>
-                                <td><a href="codingWindow.jsp">The Coding Window</a></td>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=codingWindow">The Coding Window</a></td>
                             <% } %>
                             </tr>
 
@@ -70,7 +72,7 @@
                             <% if (selected.equals("saving")) { %>
                                 <td class=helpTitleOn>Saving</td>
                             <% } else { %>
-                                <td><a href="saving.jsp">Saving</a></td>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=saving">Saving</a></td>
                             <% } %>
                             </tr>
 <!-- Saving ends -->
@@ -80,7 +82,7 @@
                             <% if (selected.equals("clearingCode")) { %>
                                  <td class=helpTitleOn>Clearing the Code</td>
                            <% } else { %>
-                                <td><a href="clearingCode.jsp">Clearing the Code</a></td>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=clearingCode">Clearing the Code</a></td>
                             <% } %>
                             </tr>
 <!-- Clearing the Code ends -->
@@ -90,7 +92,7 @@
                             <% if (selected.equals("timer")) { %>
                                 <td class=helpTitleOn>The Timer</td>
                             <% } else { %>
-                                <td><a href="timer.jsp">The Timer</a></td>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=timer">The Timer</a></td>
                             <% } %>
                             </tr>
  <!-- The Timer ends -->
