@@ -65,7 +65,7 @@
 <B>What:</B> Code Survivor: the Java Developer Challenge, Powered by TopCoder<BR/>
 <B>When:</B> November 11th - 13th<BR/>
 <B>Where:</B> OracleWorld - Moscone Center, San Francisco, CA<BR/>
-<B>Prizes:</B> Prizes valued at over $40,000<BR/>
+<B>Prizes:</B> Prizes valued at $25,000<BR/>
 
 <P>
 Note:  You must be an OTN member and a
@@ -177,6 +177,15 @@ Monday, Nov. 11<sup>th</sup> (9:30 PM - 10:30 PM)
 </tr>
 <tr>
 <td class="statText" valign="top">
+Code-Off (if required)
+</td>
+<td class="statText" valign="top">
+Monday, Nov. 11<sup>th</sup> (11:00 PM - 11:30 PM)
+</td>
+</tr>
+
+<tr>
+<td class="statText" valign="top">
 Elimination Round #1
 </td>
 <td class="statText" valign="top">
@@ -201,7 +210,7 @@ Tuesday, Nov. 12<sup>th</sup> (9:00 PM - 10:00 PM)
 </tr>
 <tr>
 <td class="statText" valign="top">
-Semifinal Rounds
+Semifinal Round
 </td>
 <td class="statText" valign="top">
 Wednesday, Nov. 13<sup>th</sup> (11:00 AM - 12:00 PM)
@@ -246,7 +255,7 @@ TopCoder competition Arena:
 OTN Match (log-in at <A HREF="http://otn.oracle.com/" TARGET="_blank" CLASS="statText">http://otn.oracle.com</A>)
 </td>
 <td class="statText" valign="top">
-Tuesday, Oct. 22<sup>nd</sup> (9:30PM EDT)
+Thursday, Oct. 24<sup>th</sup> (9:30PM EDT)
 </td>
 </tr>
 <tr>
