@@ -40,12 +40,12 @@
         <PARAM value="LaunchApplet" name="name">
         <PARAM value="com.topcoder.client.contestApplet.LaunchApplet.class" name="code">
         <PARAM name="codebase" value="http://www.topcoder.com/contest/classes">
-        <PARAM value="GoogleContestApplet.jar" name="archive">
+        <PARAM value="GoogleIndiaContestApplet.jar" name="archive">
         <PARAM value="application/x-java-applet;version=1.3" name="type">
         <PARAM value="false" name="scriptable">
         <PARAM name="host" value="www.topcoder.com">
-        <PARAM name="port" value="5051">
-        <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5051">
+        <PARAM name="port" value="7001">
+        <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=7001">
         <PARAM name="companyName" value="Google">
         <PARAM name="poweredbyview" value="true">
         <PARAM name="com.topcoder.client.contestApplet.editors.NoPluginManager" value="true">
@@ -54,10 +54,10 @@
             code="com.topcoder.client.contestApplet.LaunchApplet.class"
             codebase="http://www.topcoder.com/contest/classes"
             name="LaunchApplet"
-            archive="GoogleContestApplet.jar"
+            archive="GoogleIndiaContestApplet.jar"
             host="www.topcoder.com"
-            port="5051"
-            tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=7001"
+            port="7001"
+            tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=newlistener+port=7001"
             companyName="Google"
             poweredbyview="true"
             com.topcoder.client.contestApplet.editors.NoPluginManager="true"
