@@ -31,7 +31,7 @@ final class UserDbCoder {
         //ArrayList texts       = null;
         //ArrayList jobPrefs    = null;
         ArrayList demographicResponses = null;
-        ArrayList coderConfirmations = null;
+//        ArrayList coderConfirmations = null;
         StringBuffer query = new StringBuffer(500);
         query.append(" INSERT INTO");
         query.append(" coder (");
