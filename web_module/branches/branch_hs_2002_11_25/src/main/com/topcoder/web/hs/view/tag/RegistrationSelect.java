@@ -17,11 +17,13 @@ public class RegistrationSelect extends Select {
   }
 
   public String getOptionValue(Object _option) {
-    return(((ListPairBean)_option).getValue());
+    Object value=((ListPairBean)_option).getValue();
+    return(value!=null?value.toString():"");
   }
 
   public String getOptionText(Object _option) {
-    return(((ListPairBean)_option).getText());
+    Object text=((ListPairBean)_option).getText();
+    return(text!=null?text.toString():"");
   }
 
   public List getOptionsList() {
