@@ -51,11 +51,11 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     public long getReviewRespId(String dataSource, long userId, long projectId, int phaseId) {
-        return selectLong("rboard_application",
+        return selectInt("rboard_application",
                 "review_resp_id",
                 new String[] {"user_id", "project_id", "phase_id"},
                 new String[] {String.valueOf(userId), String.valueOf(projectId), String.valueOf(phaseId)},
-                dataSource).longValue();
+                dataSource).intValue();
     }
 
     public boolean isPrimary(String dataSource, long userId, long projectId, int phaseId) {
