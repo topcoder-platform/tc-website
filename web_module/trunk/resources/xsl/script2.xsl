@@ -257,9 +257,9 @@ function goTo(selection)
   {
     window.location = "/index?t=schedule&c=tourny_sched";
   }   
-  else if (sel == "tourny_overview")
+  else if (sel == "tourney_overview")
   {
-    window.location = "/index?t=schedule&c=tourny_overview";
+    window.location = "/index?t=schedule&c=tourney_overview";
   }    
   else if (sel == "tourny_rules_about")
   {
