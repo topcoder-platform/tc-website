@@ -74,9 +74,7 @@
 
                     <br/><br/>
                     <p class=pL><span class=bodySmallTitle>Input Area</span></p>
-                    <textarea class=codingArea name="<%=Constants.CODE%>" rows="20" cols="40" wrap="off">
-                        <jsp:getProperty name="problemInfo" property="code"/>
-                    </textarea>
+                    <textarea class=codingArea name="<%=Constants.CODE%>" rows="20" cols="40" wrap="off"><jsp:getProperty name="problemInfo" property="code"/></textarea>
 
                     <br /><br />
 
