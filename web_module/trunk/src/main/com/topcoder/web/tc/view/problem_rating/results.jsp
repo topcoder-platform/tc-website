@@ -13,7 +13,7 @@
     int div1Count = 0;
     int div2Count = 0;
 %>
-<html>
+<html> 
 <head>
 <title>TopCoder Problem Rating Results - <%=request.getAttribute("problemName")%></title>
 <jsp:include page="../script.jsp"/>
@@ -87,12 +87,14 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="500" height="1" vspace="5" border="0"><br>
+<td class="bodyText" WIDTH="100%">
+   <img src="/i/clear.gif" width="500" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="problem_rating"/>
            <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="Results"/>
-        </jsp:include>
+        </jsp:include><br/>
+    <img src="/i/clear.gif" width="500" height="1" vspace="5" border="0"><br/>
 
     <table  WIDTH="500" BORDER="0" CELLSPACING="0" CELLPADDING="6"align="center" class="sidebarBox">
         <tr><td class="testTableTitleSmall" valign="top" align="center" colspan="4">Problem:&nbsp;<%= request.getAttribute("problemName") %></td></tr>
