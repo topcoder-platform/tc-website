@@ -35,15 +35,46 @@ public class BasicAuthentication implements WebAuthentication {
     private HttpServletRequest request;
     private HttpServletResponse response;
     private User guest = SimpleUser.createGuest();
+    private Resource defaultCookiePath;
+
+    public static final PathResource CORP_SITE = new PathResource("/corp");
+    public static final PathResource MAIN_SITE = new PathResource("/main");
+    public static final PathResource HS_SITE = new PathResource("/hs");
+
+    private BasicAuthentication() {
+        this.defaultCookiePath = MAIN_SITE;
+    }
 
     /**
      * Construct an authentication instance backed by the given persistor
      * and HTTP request and response.
      */
     public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response) throws Exception {
+        this();
         this.persistor = userPersistor;
         this.request = (HttpServletRequest) request;
         this.response = (HttpServletResponse) response;
+    }
+
+    /**
+     * Construct an authentication instance backed by the given persistor
+     * and HTTP request, response and resource.
+     */
+    public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response, Resource r) throws Exception {
+        this.persistor = userPersistor;
+        this.request = (HttpServletRequest) request;
+        this.response = (HttpServletResponse) response;
+        this.defaultCookiePath = r;
+    }
+
+
+    /**
+     * login to the default site, current the main tc site
+     * @param u
+     * @throws LoginException
+     */
+    public void login(User u) throws LoginException {
+        login(defaultCookiePath, u);
     }
 
     /**
@@ -51,13 +82,13 @@ public class BasicAuthentication implements WebAuthentication {
      * If login succeeds, set a cookie and record status in the persistor.
      * If login fails, throw a LoginException.
      */
-    public void login(User u) throws LoginException {
+    public void login(Resource r, User u) throws LoginException {
         log.info("attempting login as " + u.getUserName());
         try {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
             long uid = sub.getUserId();
-            setCookie(uid);
+            setCookie(r, uid);
             setUserInPersistor(makeUser(uid));
             log.info("login succeeded");
 
@@ -68,15 +99,30 @@ public class BasicAuthentication implements WebAuthentication {
         }
     }
 
+    public void logout() {
+        log.info("logging out");
+        clearCookie(defaultCookiePath);
+        setUserInPersistor(guest);
+    }
+
     /**
      * Figure out who the current user is using either a cookie if it's available, or the persistor.
      * 1.  remove their information from the persistor.
      * 2.  clear their identifying cookies
      */
-    public void logout() {
+    public void logout(Resource r) {
         log.info("logging out");
-        clearCookie();
+        clearCookie(r);
         setUserInPersistor(guest);
+    }
+
+
+    /**
+     * use the default
+     * @return
+     */
+    public User getActiveUser() {
+        return getActiveUser(defaultCookiePath);
     }
 
     /**
@@ -84,10 +130,10 @@ public class BasicAuthentication implements WebAuthentication {
      * cookie from a prior session.  If no login has occurred and no cookie
      * is present, returns an anonymous user.
      */
-    public User getActiveUser() {
+    public User getActiveUser(Resource r) {
         User u = getUserFromPersistor();
         if (u == null) {
-            u = checkCookie();
+            u = checkCookie(r);
             if (u==null) {
                 u = guest;
             }
@@ -165,24 +211,24 @@ public class BasicAuthentication implements WebAuthentication {
      *
      * public so com.topcoder.web.hs.controller.requests.Base can reach it, a bit of a kludge
      */
-    public void setCookie(long uid) throws Exception {
+    public void setCookie(Resource r, long uid) throws Exception {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
-        c.setPath("/");  //force everyone to have the same path regardless of servlet used in call
+        c.setPath(r.getName());
         c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
         response.addCookie(c);
     }
 
     /** Remove any cookie previously set on the client by the method above. */
-    private void clearCookie() {
+    private void clearCookie(Resource r) {
         Cookie c = new Cookie(USER_COOKIE_NAME, "");
         c.setMaxAge(0);
-        c.setPath("/");  //force everyone to have the same path regardless of servlet used in call
+        c.setPath(r.getName());
         response.addCookie(c);
     }
 
     /** Check each cookie in the request header for a cookie set above. */
-    private User checkCookie() {
+    private User checkCookie(Resource r) {
         Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
             if(ca[i].getName().equals(USER_COOKIE_NAME)) {
@@ -195,7 +241,7 @@ public class BasicAuthentication implements WebAuthentication {
                         log.info("replacing cookie in old format");
                         Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
                         c.setMaxAge(Integer.MAX_VALUE);
-                        c.setPath("/");  //force everyone to have the same path regardless of servlet used in call
+                        c.setPath(r.getName());
                         response.addCookie(c);
                     } else {
                         if(!hash.equals(st.nextToken())) continue;
@@ -225,4 +271,5 @@ public class BasicAuthentication implements WebAuthentication {
     private void setUserInPersistor(User user) {
         persistor.setObject(request.getSession().getId()+USER_PERSISTOR_KEY, user);
     }
+
 }
