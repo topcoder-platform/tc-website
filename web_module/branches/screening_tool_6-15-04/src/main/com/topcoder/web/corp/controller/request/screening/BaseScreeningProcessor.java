@@ -20,6 +20,12 @@ import javax.servlet.http.HttpSession;
 public abstract class BaseScreeningProcessor extends BaseProcessor {
     private final static Logger log = Logger.getLogger(TestResults.class);
 
+    private long usage;
+    public long getUsageType()
+    {
+        return usage;
+    }
+    
     protected void businessProcessing() throws TCWebException {
         try
         {
@@ -40,6 +46,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
             }
 
             log.info("USAGE TYPE:" + usageType.longValue());
+            usage = usageType.longValue();
             
             //maybe set attribute here?
             
