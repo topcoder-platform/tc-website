@@ -34,7 +34,7 @@ public class TCESConstants {
     public static String HANDLE_PARAM = null;
     public static String PASSWORD_PARAM = null;
     public static String CAMPAIGN_ID_PARAM = "campid";
-    public static String JOB_ID_PARAM = "jid";
+    public static String POSITION_ID_PARAM = "jid";
 
     public static String MSG_ATTR_KEY = null;
     public static String COMPANY_NAME_ATTR_KEY = "CompanyName";

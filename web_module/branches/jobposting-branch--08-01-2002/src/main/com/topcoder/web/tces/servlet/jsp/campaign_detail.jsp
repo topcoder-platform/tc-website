@@ -87,7 +87,7 @@
 
                 <tces:mapIterator id="position" mapList="<%=(List)CampaignDetailTask.getPositionList()%>">
                   <TR>
-                    <TD class="statText" HEIGHT="18">&#160;<A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_DETAIL_TASK%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="statText">
+                    <TD class="statText" HEIGHT="18">&#160;<A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_DETAIL_TASK%>&<%=TCESConstants.POSITION_ID_PARAM%>=<%=(String)position.get("job_id")%>" class="statText">
                         <%= (String)position.get("job_desc") %>
                     </A></TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
