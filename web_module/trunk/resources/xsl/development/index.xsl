@@ -67,11 +67,10 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=gcc" CLASS="statTextBig">GCC Upgrade Analysis</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=gcc" CLASS="statText">GCC Upgrade Analysis</A><BR/>
 Start Date: June 19, 2002<BR/>
 End Date: June 25, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline:  June 17, 2002<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>

@@ -12,14 +12,11 @@
   WishingBone
 </A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 97</SPAN><BR/>
-Wednesday, June 12, 2002<BR/>
-By Adam Loss, <I>TopCoder Staff Writer</I><BR/><BR/>
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>reid</A>
- won Room One with 1510.98 final points, and added 89 points to his rating.  
-That increased his rating to 3064, which made him the third member to eclipse the 
-3000 rating point mark. <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>shelby</A>
- won Room 35 with a Division-II high 1441.31 final points
+<SPAN CLASS="bodyTextBold">Single Round Match 98</SPAN><BR/>
+Wednesday, June 19, 2002<BR/><BR/>
+
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>SnapDragon</A>, 
+participating from room one, once again broke the 3000 rating point mark with a final score of 1269.13. Nine first-time competitiors bypassed Division-II, jumping straight into Division-I
 ...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=match_summary</xsl:attribute>full&#160;story</A> 
 </P>
 				
