@@ -49,5 +49,25 @@
     </attribute>
   </tag>
 
+  <tag>
+    <name>trailIterator</name>
+    <tagclass>com.topcoder.web.tces.servlet.jsp.tag.TrailIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.tces.servlet.jsp.tag.TrailIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a List of TrailItems
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>trailList</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
 
-</taglib>  
+
+</taglib>

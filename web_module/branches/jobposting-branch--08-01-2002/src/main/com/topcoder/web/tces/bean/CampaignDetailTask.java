@@ -112,15 +112,12 @@ log.debug("setting most recent hit = "+mostRecentHit);
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
 
-        log.debug(request.getContextPath());
-        log.debug(request.getQueryString());
-        log.debug(request.getPathInfo());
-        log.debug(request.getServletPath());
-
-        TrailItem main = new TrailItem(request.getServletPath() + "?" +
+        TrailItem main = new TrailItem(request.getContextPath() + request.getServletPath() + "?" +
              TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + TCESConstants.CAMPAIGN_ID_PARAM +
              getCampaignID(), "Main");
-        setTrail(new TrailItem[] {main});
+        ArrayList a = new ArrayList();
+        a.add(main);
+        setTrail(a);
 
     }
 

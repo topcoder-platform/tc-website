@@ -8,6 +8,7 @@ import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.StringTokenizer;
+import java.util.List;
 
 /**
  * A basic implementation of Task.
@@ -21,7 +22,7 @@ public abstract class BaseTask implements Task {
 
     private InitialContext ctx;
     private String nextPage;
-    private TrailItem[] trail;
+    private List trail;
 
     public BaseTask() {
         setInitialContext(null);
@@ -48,11 +49,11 @@ log.debug("next page -> "+nextPage);
         return nextPage;
     }
 
-    public TrailItem[] getTrail() {
+    public List getTrail() {
         return trail;
     }
 
-    public void setTrail(TrailItem[] trail) {
+    public void setTrail(List trail) {
         this.trail = trail;
     }
 

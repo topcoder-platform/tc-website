@@ -3,6 +3,7 @@ package com.topcoder.web.tces.bean;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * A base interface for task processors called by the TCES controller.
@@ -31,8 +32,8 @@ public interface Task {
 
     void setAttributes(String paramName, String paramValues[]);
 
-    void setTrail(TrailItem[] trailItems);
+    void setTrail(List trail);
 
-    TrailItem[] getTrail();
+    List getTrail();
 }
 
