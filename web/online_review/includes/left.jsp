@@ -1,3 +1,13 @@
+<%@ page import="com.topcoder.apps.review.ApplicationServer"%>
+<script type="text/javascript">
+<!--
+function arena() {
+  w=window.open("<%=ApplicationServer.TC_SERVER%>/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
+  return;
+}
+-->
+</script>
+
 
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
