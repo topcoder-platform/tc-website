@@ -28,18 +28,21 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td class="cardCell" WIDTH="100%">
+         <td class="cardCell" width="100%" align="center">
 
-         <div class="bodyText">
+        <table width="540" cellpadding="0" cellspacing="0" border="0" class="bodyText" align="center">
+            <tr>
+                <td class="bodyText">
 
             <div align="center"><img src="/i/card/banner.gif" border="0"/></div>
             
             <h2>Show your skills</h2>
             
-            <p>Ever wanted to show off your TopCoder skills on your personal site? Want that ace in the hole at your next job interview? The TopCoder Member Badges and Cards are the answer, and they're <strong>free</strong>!.
+            <p>Ever wanted to show off your TopCoder skills on your personal site? Want that ace in the hole at your next job interview? The TopCoder Member Badges and Cards are the answer, and they're <strong>free</strong>!</p>
             
             <p><span class="bodySubtitle">Member Badges</span><br/>
-            A TopCoder Badge is the perfect seal of approval for anyone trying to make their experience stand out.  Just place one of the TopCoder Badge images on your resume or website and you're sure to grab some attention.  Each graphic signifies that you are a TopCoder rated member, signifying your skill as one of the best programmers around.  On our downloads page we have several sizes and variations for you to choose from.  So go pick your favorite and start showing off.</p>
+            <img src="/i/card/badge1_150x50.gif" border="0" align="right" hspace="5" vspace="5"/>
+            A TopCoder Badge is the perfect seal of approval for anyone trying to make their experience stand out.  Just place one of the TopCoder Badge images on your resume or website and you're sure to grab some attention.  Each graphic shows that you are a TopCoder rated member, signifying your skill as one of the best programmers around.  On our downloads page we have several sizes and variations for you to choose from.  So go pick your favorite and start showing off.</p>
 
             <p>Go to the TopCoder Badges <a href="/tc?module=Static&d1=card&d2=downloads">downloads page</a></p>
             
@@ -48,11 +51,15 @@
             
             That is exactly what the TopCoder Member Card is.  It is a digital tool that lets you show off your skills at coding and software development anywhere on your personal website, and it does it in a stylish way.  Covered with member statistics and always accurate, the TopCoder Member Card is truly something no TopCoder should be without. Click below to see a preview of what your card will look like!<br/><br/>
             
-            Know any other TopCoder Members? Why not build a TopCoder Member Card collection? You could have a site to represent you college where anyone can go to see every member's card on your campus.  You could build a site where you and all your coworkers can compare stats, see who else they work with, and find out who is the best in the company. It's all possible with the TopCoder Member Cards.</p>
+            Know any other TopCoder Members? Why not build a TopCoder Member Card collection. You could have a site to represent you college where anyone can go to see every member's card on your campus.  You could build a site where you and all your coworkers can compare stats, see who else they work with, and find out who is the best in the company. It's all possible with the TopCoder Member Cards.</p>
 
-            <p>See a <a href="/tc?module=Static&d1=card&d2=preview">preview of your TopCoder Card</a></p>
+            <p>See a <a href="/tc?module=Static&d1=card&d2=preview">your TopCoder Card preview</a></p>
 
-         </div>
+                </td>
+            </tr>
+        </table>
+
+
          <p><br/></p>
          </td>
 <!-- Center Column Ends -->
