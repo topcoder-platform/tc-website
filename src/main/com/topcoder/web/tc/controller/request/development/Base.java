@@ -26,7 +26,9 @@ public abstract class Base extends BaseProcessor {
 
             log.debug("ENTERING businessProcessing");
             
-            ResultSetContainer openProjects = getOpenProjects();
+            //no longer using, removed - rfairfax 6-9-2004
+            /*
+             ResultSetContainer openProjects = getOpenProjects();
 
             double devSum = 0.0d;
             double designSum = 0.0d;
@@ -46,6 +48,7 @@ public abstract class Base extends BaseProcessor {
             getRequest().setAttribute("DesignSum", new Double(designSum));
             getRequest().setAttribute("OpenProjects", openProjects);
 
+             */
             log.debug("LEAVING businessProcessing");
 
         } catch (TCWebException e) {
