@@ -103,7 +103,7 @@ public abstract class Base extends BaseProcessor {
 
     protected void send(ScreeningBaseRequest m) throws TCWebException, ServerBusyException {
         if (m.isSynchronous()) {
-            log.debug("lock it up, it's a syncronous request");
+            //log.debug("lock it up, it's a syncronous request");
             lock();
         }
         this.messageId = sender.sendMessageGetID(new HashMap(), m);
@@ -160,7 +160,7 @@ public abstract class Base extends BaseProcessor {
 
 
     public void setCompanyId(long companyId) {
-        log.debug("company id set to " + companyId);
+        //log.debug("company id set to " + companyId);
         this.companyId = companyId;
         getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
     }
@@ -208,7 +208,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void loadUserMessageIntoRequest(String messageId) {
-        log.debug("load message into request");
+        //log.debug("load message into request");
         //we're overwritting the request user message here, so you better hope that
         //there is no use in it.
         getRequest().setAttribute(Constants.MESSAGE,
