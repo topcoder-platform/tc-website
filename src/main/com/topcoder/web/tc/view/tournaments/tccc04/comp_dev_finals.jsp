@@ -91,9 +91,9 @@ function openWin(url, name) {
                 </tr>
                 <tr>  
                   <td class="advCell" align="left" bgcolor="#FFCC00"><b>Final score:</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
-                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>pending&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>63.23&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>64.83&#160;&#160;</b></td>
+                  <td class="advCell" align="right" bgcolor="#FFCC00"><b>79.40&#160;&#160;</b></td>
                 </tr>
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>
