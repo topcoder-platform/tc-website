@@ -33,7 +33,11 @@
                Exciting career opportunities present themselves to ambitious, driven individuals eager to revolutionize technology with an industry leader.  Our Global Software Group will provide the challenges that keep will keep you an elite TopCoder. 
                <br><br>
                Motorola is looking to hire 
-               <a href="JavaScript:void window.open('/tc?module=Static&d1=member_photos&d2=index','Photo_Info','top=2,left=2,width=300,height=400,status=0');" >Software Engineers</A>, Software Design Engineers, Sr. Staff Software Engineers, and Engineering Interns.  If would like to be considered for a job at Motorola, <A href="/">apply now</A>.
+               <a href="JavaScript:void window.open('/','Photo_Info','top=2,left=2,width=300,height=400,status=0');" >Software Engineers</A>, 
+               <a href="JavaScript:void window.open('/','Photo_Info','top=2,left=2,width=300,height=400,status=0');" >Software Design Engineers</A>, 
+               <a href="JavaScript:void window.open('/','Photo_Info','top=2,left=2,width=300,height=400,status=0');" >Sr. Staff Software Engineers</A>, and 
+               <a href="JavaScript:void window.open('/','Photo_Info','top=2,left=2,width=300,height=400,status=0');" >Engineering Interns</A>.  
+               If would like to be considered for a job at Motorola, <A href="/">apply now</A>.
                </p>
 
         </div>
