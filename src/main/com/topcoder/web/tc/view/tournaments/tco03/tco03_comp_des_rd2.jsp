@@ -47,7 +47,7 @@
 </jsp:include>
 
             <h2>Advancers</h2>
-            <div align="right" class="bodyText">Round 1&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_des_rd2">Round 2</A></div>
+            <div align="right" class="bodyText"><A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_des_rd1">Round 1</A>&#160;&#160;|&#160;&#160;Round 2</div>
             <br/>
 
 <!-- Design Winners Begins -->
