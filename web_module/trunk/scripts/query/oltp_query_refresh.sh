@@ -1085,3 +1085,50 @@ WHERE
 ORDER BY
   1
 "
+
+
+java com.topcoder.utilities.QueryLoader "OLTP" 84 "Invitational_Eligibility" 0 0 "
+SELECT count(*) AS is_eligible
+  FROM coder c
+     , rating r
+ WHERE c.country_code in ('036','124','372','356','826','840','156','554')
+   AND c.coder_id = @cr@
+   AND r.num_ratings > 2
+   AND c.coder_id = r.coder_id
+   AND r.last_rated_event > '2002-03-30 00:00:00.000'
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 86 "Is_Registered" 0 0 "
+SELECT count(*) AS is_registered
+  FROM invite_list
+ WHERE coder_id = @cr@
+"
+
+java com.topcoder.utilities.QueryLoader "OLTP" 87 "IMLP Targeted School List" 0 0 "
+select
+  LOWER(u.email) AS email_address,
+  u.handle
+from
+  current_school cs,
+  school s,
+  user u,
+  coder c,
+  coder_notify cn
+where
+  cn.notify_id = 3 and
+  c.coder_id = u.user_id and
+  cn.coder_id = c.coder_id and
+  cs.coder_id = c.coder_id and
+  s.school_id = cs.school_id and
+  u.status = 'A' and
+  coder_type_id = 1 and
+  s.school_id in
+  (1386,513,1038,
+  959,1475,1002,
+  147,475,1433,
+  1401,606,1054,
+  1082,1592,1373,
+  481,1378,1422,
+  986,219,1246 )
+order by 1
+" 
