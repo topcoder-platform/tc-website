@@ -16,58 +16,59 @@
 </head>
 
 <body>
+<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
 
-<!-- TCO Header -->
-<a name="top_page"></a>
-<!--
-            <object
-            type="application/x-shockwave-flash"
-            data="/i/tournament/vcc03/vcc03_still.swf"
-            width="100%"
-            height="125"
-            border="0">
-            <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
-            <param name="quality" value="high" />
-            <param name="salign" value="t">
-            </object>
--->
-        <img src="/i/tournament/vcc03/vcc03.jpg" width="750" height="120" border="0"/>
+   <tr>
 
+<!-- Verizon logo-->
+      <td width="147" bgcolor="#000000" rowspan="2" colspan="3" valign="top"><img src="/i/events/verizon2003/logo_black_147.gif" width="147" height="141" border="0"/></td>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
+<!-- Top Nav-->
+      <td width="100%" bgcolor="#000000" colspan="2"><img src="/i/clear.gif" width="100%" height="40" border="0"/></td>
+   </tr>
 
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
-<!-- Gutter Ends -->
-
-<!-- Left Column Begins-->
-         <td>
-         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
-         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
-         <img src="/i/clear.gif" width="180" height="40" border="0"/>
-         </p>
-         </td>
-<!-- Left Column Ends -->
-
+   <tr>
+<!-- Top Ad -->
+      <td width="100%" bgcolor="#CC0001" colspan="2" align="left">
+         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
+            <tr>
+               <td width="100%"><img src="/i/events/verizon2003/vcc03_logo.gif" width="550" height="101" border="0"/></td>
+               <td align="right" valign="middle"><img src="/i/events/verizon2003/pbtc.gif" width="146" height="34" border="0"/></td>
+            </tr>
+          </table>
+      </td>
+   </tr>
+   
+   <tr>
+<!-- Top Bar -->
+      <td width="147" bgcolor="#000000" colspan="3"><img src="/i/clear.gif" width="147" height="20" border="0"/></td>
+      <td width="100%" bgcolor="#000000" colspan="2"><img src="/i/clear.gif" width="100%" height="20" border="0"/></td>
+   </tr>
+   
+   <tr>
+<!-- Left Column-->
+      <td width="10" bgcolor="#666666"><img src="/i/clear.gif" width="10" height="1"/></td>
+      <td valign="top" bgcolor="#666666">
+         <table  border="0" cellspacing="0" cellpadding="0" class="bodyText">
+            <tr><td bgcolor="#666666" valign="top"><img src="/i/clear.gif" width="127" height="10" border="0"/></td></tr>
+            <tr><td>      
+                     <jsp:include page="../verizon/verizonLinks.jsp" >
+                        <jsp:param name="selectedTab" value="register_now"/>
+                        <jsp:param name="selectedSubtab" value=""/>
+                     </jsp:include>
+            </tr>
+            <tr><td class="bodyText" bgcolor="#ffffff"><img src="/i/events/verizon2003/vcc03_right.gif" width="127" height="300" border="0"/></td></tr>
+         </table><br />
+       </td>
+      <td width="10" bgcolor="#666666"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+       
 <!-- Gutter Begins -->
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->
-        <td class="bodyText" width="100%">
-
-<!-- Tab bar links-->
-<jsp:include page="../verizon/verizonLinks.jsp" >
-   <jsp:param name="selectedTab" value="register_now"/>
-</jsp:include>
-<!-- Tab bar sub links-->
-<jsp:include page="../verizon/verizonSublinks.jsp" >
-   <jsp:param name="selectedList" value="register_now"/>
-   <jsp:param name="selectedTab" value=""/>
-</jsp:include>
-
-      <blockquote>
+<!-- Center Column -->
+      <td class="bodyText"valign="top">
+            <img src="/i/clear.gif" width="100%" height="10" border="0"/><br />
       <h2>Registration</h2><br />
       <p class="bodyText">In order to be eligible to compete in the Verizon Coding Challenge, you must be 18 years of age or older,
       have completed an undergraduate degree, and be a current resident of Chennai, India.<br /></p>
@@ -298,27 +299,14 @@
             </tr>
             </form>
          </table>
-         </blockquote>
+            <p><br /></p>
       </td>
-<!-- Center Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" alt="" border="0" /></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-<!-- Right Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/>
-        </td>
-<!-- Gutter Ends -->
-
    </tr>
 </table>
 
+<!-- Footer Begins -->
 <jsp:include page="../verizon/verizon_foot.jsp" />
+<!-- Footer Ends -->
 
 </body>
-
 </html>
