@@ -167,6 +167,16 @@
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
 
+				<tr valign="middle">
+					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+					<td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3300851" class="statText">Image Resizing</a></td>
+					<td class="statText" height="15" align="center">2</td>
+					<td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextGreen"><strong>srowen</strong></a></td>
+					<td class="statText" height="15" align="center">90.35</td>
+					<td class="statText" height="15" align="right">$1,461.00&#160;&#160;&#160;&#160;</td>
+					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+				</tr>
+
 
 				<tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
@@ -193,6 +203,16 @@
 
 				<tr valign="middle">
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+					<td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2600179" class="statText">Object Formatter</a></td>
+					<td class="statText" height="15" align="center">2</td>
+					<td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=281876" class="coderTextYellow"><strong>garyk</strong></a></td>
+					<td class="statText" height="15" align="center">89.38</td>
+					<td class="statText" height="15" align="right">$240.00&#160;&#160;&#160;&#160;</td>
+					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+				</tr>
+
+				<tr valign="middle">
+					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 					<td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2100060" class="statText">Timer</a></td>
 					<td class="statText" height="15" align="center">2</td>
 					<td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=266149" class="coderTextYellow"><strong>akhil_bansal</strong></a></td>
@@ -212,7 +232,6 @@
 				<tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 			</table>
 	<!-- Development Winners Ends -->
-				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
 				<tr valign="top">
 					<td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
