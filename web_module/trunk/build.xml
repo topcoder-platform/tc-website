@@ -3,6 +3,7 @@
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
    <property name="hs.war.name"      value="hs"/>
+   <property name="tces.war.name"      value="tces"/>
    <property name="email.war.name"      value="email"/>
    <property name="query.war.name"      value="query"/>
    <property name="corp.war.name" value="corp"/>
@@ -801,6 +802,14 @@
     </target>
 
 
+    <target name="dev_war_tces" depends="war_tces">
+        <copy todir="${public_html}" file="${war.dir}/${tces.war.name}.war"/>
+        <unwar src="${public_html}/${tces.war.name}.war" dest="${public_html}/${tces.war.name}/" overwrite="yes"/>
+        <delete file="${public_html}/${tces.war.name}.war"/>
+        <delete dir="${public_html}/${tces.war.name}/META-INF"/>
+    </target>
+
+
     <target name="war_hs" depends="compile">
         <war warfile="${war.dir}/${hs.war.name}.war" webxml="${resources}/hs/web.xml">
             <fileset dir="${java}/com/topcoder/web/hs/view">
@@ -823,6 +832,21 @@
         </war>
     </target>
 
+
+
+    <target name="war_tces" depends="compile">
+        <war warfile="${war.dir}/${tces.war.name}.war" webxml="${resources}/tces/web.xml">
+            <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/tces/**"/>
+            </classes>
+            <webinf dir="${resources}/tces">
+                <include name="tces-taglib.tld"/>
+            </webinf>
+        </war>
+    </target>
 
 
 
