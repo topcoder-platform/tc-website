@@ -50,8 +50,8 @@
 					<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
 				</xsl:call-template>
 				<xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
-		        <xsl:variable name='month' select='/TC/DEVELOPMENT/day'/>
-		        <xsl:variable name='month' select='/TC/DEVELOPMENT/year'/>
+		        <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
+		        <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>
 				<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 					<tr>
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
