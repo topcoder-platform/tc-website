@@ -5,7 +5,7 @@
 <P><BR></P>   
 <P>Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle to view information about the Coder.</P>
 <FORM METHOD="get" name="advForm">
- <INPUT TYPE="hidden" NAME="cmd" VALUE="search">
+ <INPUT TYPE="hidden" NAME="cmd" VALUE="adv">
  <INPUT TYPE="hidden" NAME="next" VALUE="">
  <INPUT TYPE="hidden" NAME="prev" VALUE="">
  <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
@@ -68,79 +68,64 @@
   </TR>
  </TABLE>
  <SCRIPT type="text/javascript">
-            var search=document.searchForm;
-            function submitEnter(e) {
-              var keycode;
-              if (window.event) keycode = window.event.keyCode;
-              else if (e) keycode = e.which;
-              else return true;
-              if (keycode == 13) {
-               submitSearch();
-               return false;
-              } else return true;
-            }
-            function submitSearch() {
-              if (checkInput()) {
-                search.submit();
-              }
-            }
-            function checkInput() {
-              if (isNaN(search.MinRating.value)) {
-                alert("Please enter a valid number.");
-                search.MinRating.focus();
-                return false;
-              }
-              if (search.MinRating.value < 0) {
-                alert("Please enter a non-negative number.");
-                search.MinRating.focus();
-                return false;
-              }
-              if (isNaN(search.MaxRating.value)) {
-                alert("Please enter a valid number.");
-                search.MaxRating.focus();
-                return false;
-              }
-              if (search.MaxRating.value < 0) {
-                alert("Please enter a non-negative number.");
-                search.MaxRating.focus();
-                return false;
-              }
-              tempMax = parseInt(search.MaxRating.value);
-              tempMin = parseInt(search.MinRating.value);
-              if (tempMax < tempMin) {
-                alert("The the Max Rating must be greater than the Min Rating.");
-                search.MaxRating.focus();
-                return false;
-              }
-              if (isNaN(search.MinNumRatings.value)) {
-                alert("Please enter a valid number.");
-                search.MinNumRatings.focus();
-                return false;
-              }
-              if (search.MinNumRatings.value < 0) {
-                alert("Please enter a non-negative number.");
-                search.MinNumRatings.focus();
-                return false;
-              }
-              if (isNaN(search.MaxNumRatings.value)) {
-                alert("Please enter a valid number.");
-                search.MaxNumRatings.focus();
-                return false;
-              }
-              if (search.MaxNumRatings.value < 0) {
-                alert("Please enter a non-negative number.");
-                search.MaxNumRatings.focus();
-                return false;
-              }
-              tempMaxNum = parseInt(search.MaxNumRatings.value);
-              tempMinNum = parseInt(search.MinNumRatings.value);
-              if (tempMaxNum < tempMinNum) {
-                alert("The the Max number of competions must be greater than the Min.");
-                search.MaxRating.focus();
-                return false;
-              }
-              return true;
-            }
+  function changeState() {
+   document.advForm.cmd.value="";
+   document.advForm.submit();
+  }
+  function submitEnter(e) {
+   var keycode;
+   if (window.event) {
+    keycode=window.event.keyCode;
+   }
+   else if (e) {
+    keycode=e.which;
+   }
+   else {
+    return(true);
+   }
+   if (keycode==13) {
+    submitSearch();
+    return(false);
+   }
+   else {
+    return(true);
+   }
+  }
+  function submitSearch() {
+   if (checkInput()) {
+    document.advForm.submit();
+   }
+  }
+  function checkInput() {
+   if (isNaN(document.advForm.min_rating.value)) {
+    alert("Please enter a valid number.");
+    document.advForm.min_rating.focus();
+    return(false);
+   }
+   if (document.advForm.min_rating.value<0) {
+    alert("Please enter a non-negative number.");
+    document.advForm.min_rating.focus();
+    return(false);
+   }
+   if (isNaN(document.advForm.max_rating.value)) {
+    alert("Please enter a valid number.");
+    document.advForm.max_rating.focus();
+    return(false);
+   }
+   if (document.advForm.max_rating.value<0) {
+    alert("Please enter a non-negative number.");
+    document.advForm.max_rating.focus();
+    return(false);
+   }
+   tempMax = parseInt(document.advForm.max_rating.value);
+   tempMin = parseInt(document.advForm.min_rating.value);
+   if (tempMax<tempMin) {
+    alert("The the Max Rating must be greater than the Min Rating.");
+    document.advForm.max_rating.focus();
+    return(false);
+   }
+   return true;
+  }
  </SCRIPT>
 </FORM>
 <%@ include file="tail.inc" %>
