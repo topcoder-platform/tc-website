@@ -9,8 +9,8 @@ import com.topcoder.security.UserPrincipal;
 
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
-//import com.topcoder.web.screening.ejb.Coder;
-//import com.topcoder.web.screening.ejb.CoderHome;
+import com.topcoder.web.screening.ejb.coder.Coder;
+import com.topcoder.web.screening.ejb.coder.CoderHome;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserHome;
 
@@ -77,13 +77,12 @@ public class UpdateCandidate extends BaseProcessor
             User user = uHome.create();
             user.createUser(userId);
 
-            /*
             CoderHome cHome = (CoderHome)
                 PortableRemoteObject.narrow(
                     context.lookup(CoderHome.class.getName()), CoderHome.class);
             Coder coder = cHome.create();
             coder.createCoder(userId, createCoderStatusId);
-            */
+
             long emailId = email.createEmail(userId);
             email.setAddress(emailId, userId, info.getEmailAddress());
             email.setPrimary(emailId, userId, true);
