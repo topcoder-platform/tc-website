@@ -118,7 +118,7 @@ The component team will consist of three rated TopCoder Members.
 
 <P>
 <B>Architect</B><BR/>
-The architect will be responsible for the delivery of a component that meets all specifications as defined in the requirements documentation and as described by the product manager.  The architect will design the solution and manage the deliverables of the developer and the QA developer.  The architect will design the solution such that component reuse is maximized.  The architect will be responsible for testing the functionality of the component, reviewing the managing deliverables (source code, documentation, schema, etc.) and giving final approval to the product manager that the component satisfies the requirements and is implemented correctly.
+The architect will be responsible for the delivery of a component that meets all specifications as defined in the requirements documentation and as described by the product manager.  The architect will design the solution and manage the deliverables of the developer and the QA developer.  The architect will design the solution such that component reuse is maximized.  The architect will be responsible for testing the functionality of the component, reviewing and managing deliverables (source code, documentation, schema, etc.) and giving final approval to the product manager that the component satisfies the requirements and is implemented correctly.
 </P>
 
 <P>
@@ -127,7 +127,7 @@ A design project for the PDF Conversion component has already taken place.  The 
 
 <P>
 <B>Developer</B><BR/>
-The developer will be responsible for developing a solution that meets all requirements detailed in this specification and as specified by the product manager.  The developer’s responsibility will begin on the project start date and extend through to Production Deployment.  The majority of the workload will occur between the project Start Date and completion of Beta Testing.  Continued support and component modifications may be required through deployment.
+The developer will be responsible for developing a solution that meets all requirements detailed in this specification and as specified by the product manager.  The developer's responsibility will begin on the project start date and extend through to Production Deployment.  The majority of the workload will occur between the project Start Date and completion of Beta Testing.  Continued support and component modifications may be required through deployment.
 </P>
 
 <P>
@@ -143,7 +143,7 @@ Responsibilities:
 
 <P>
 <B>QA Developer</B><BR/>
-The QA Developer is responsible for designing and implementing a test plan from the component design documentation.  The QA developer is also responsible for testing the completed component.  Tests should involve both normal and extreme scenarios to simulate production usage.  The developer’s responsibility will begin on the project Start Date and extend through to Production Deployment.  In addition to implementing component testing, it is also the QA Developer’s responsibility to stay abreast of and contribute to the component design and the progress of the development.  In the event the lead Developer cannot complete the project, TopCoder Software fully expects the QA developer to have sufficient knowledge of the component so as to continue and complete development.
+The QA Developer is responsible for designing and implementing a test plan from the component design documentation.  The QA developer is also responsible for testing the completed component.  Tests should involve both normal and extreme scenarios to simulate production usage.  The QA developer's responsibility will begin on the project Start Date and extend through to Production Deployment.  In addition to implementing component testing, it is also the QA Developer's responsibility to stay abreast of and contribute to the component design and the progress of the development.  In the event the lead Developer cannot complete the project, TopCoder Software fully expects the QA developer to have sufficient knowledge of the component so as to continue and complete development.
 </P>
 
 <P>
@@ -177,7 +177,7 @@ TopCoder will compensate all team members for their work on the project.  Compen
 </P>
 
 <P>
-Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 5% of the component’s revenue, and the percentage of the developer’s contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. 
+Members will also collect royalties on the revenue generated from the sale of the component.  This amount is determined using the company royalty pool percentage, currently set as 5% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. 
 </P>
 
 <P>
