@@ -130,7 +130,7 @@
                                     <strong>Match 194</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    Sponsor: Yahoo!<br />
+                                    Sponsor: <A href="http://java.sun.com/javaone" target="_blank">JavaOne</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5069&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
@@ -143,7 +143,7 @@
                                     <strong>Match 195</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    Sponsor: <A href="http://java.sun.com/javaone" target="_blank">JavaOne</A><br />
+                                    Sponsor: Yahoo!<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5070&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">19</td>
