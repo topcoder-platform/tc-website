@@ -30,8 +30,12 @@ public class Logout extends Base {
 
         getRequest().getSession().invalidate();
 
-        setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
-                new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
+        String nextPage = buildProcessorRequestString(Constants.RP_LOGIN,
+                new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())});
+
+        log.debug("i'm hoping we'll go to " + nextPage);
+
+        setNextPage(nextPage);
         setIsNextPageInContext(false);
 
 

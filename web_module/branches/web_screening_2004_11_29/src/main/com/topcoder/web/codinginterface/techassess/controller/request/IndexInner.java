@@ -18,7 +18,7 @@ public class IndexInner extends Base {
         if (getUser().isAnonymous()) {
             setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
                     new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
-            setIsNextPageInContext(true);
+            setIsNextPageInContext(false);
         } else {
             setNextPage(Constants.PAGE_INDEX_INNER);
             setIsNextPageInContext(true);
