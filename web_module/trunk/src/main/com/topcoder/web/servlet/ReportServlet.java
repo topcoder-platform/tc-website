@@ -1211,7 +1211,7 @@ public final class ReportServlet extends HttpServlet {
              " AND u.user_id NOT IN (SELECT g.user_id "+
              " FROM group_user g "+
              " WHERE g.group_id = 13) "+
-            " ORDER BY 6 DESC";
+            " ORDER BY 11 DESC";
 
 
     private static final Integer STUDENT_REG_INFO_ID = new Integer(17);
