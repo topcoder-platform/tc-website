@@ -1,56 +1,63 @@
 package com.topcoder.shared.docGen.xml;
 
-import java.io.*;
-import java.util.*;
 
-public final class XMLDocument extends RecordTag
-{
+/**
+ * @author Steve Burrows
+ * @version  $Revision$
+ */
+public final class XMLDocument extends RecordTag {
 
-  private String styleSheet;
-  private static final String prependText = "<?xml version=\"1.0\" ?>\n<?cocoon-process type=\"xslt\"?>\n";
+    private String styleSheet;
+    private static final String prependText = "<?xml version=\"1.0\" ?>\n<?cocoon-process type=\"xslt\"?>\n";
 
-  //////////////////////////////////////////////////////////////////////////////// 
-  public XMLDocument (String name) 
-  //////////////////////////////////////////////////////////////////////////////// 
-  {
-    super(name);
-    this.styleSheet = "";
-  }
+    /**
+     *
+     * @param name
+     */
+    public XMLDocument(String name) {
+        super(name);
+        this.styleSheet = "";
+    }
 
-  //////////////////////////////////////////////////////////////////////////////// 
-  public void setStyleSheet(String styleSheet)
-  //////////////////////////////////////////////////////////////////////////////// 
-  {
-    this.styleSheet = styleSheet;
-  }
+    /**
+     *
+     * @param styleSheet
+     */
+    public void setStyleSheet(String styleSheet) {
+        this.styleSheet = styleSheet;
+    }
 
-  //////////////////////////////////////////////////////////////////////////////// 
-  protected String createXML(int offSet)
-  //////////////////////////////////////////////////////////////////////////////// 
-  {
-    StringBuffer preText = new StringBuffer(96);
-    preText.append(prependText);
+    /**
+     *
+     * @param offSet
+     * @return
+     */
+    protected String createXML(int offSet) {
+        StringBuffer preText = new StringBuffer(96);
+        preText.append(prependText);
 
-    if (offSet > 0)
-      {preText.append(super.createXML(offSet));}
-    else
-      {preText.append(super.createXML());}
+        if (offSet > 0) {
+            preText.append(super.createXML(offSet));
+        } else {
+            preText.append(super.createXML());
+        }
 
-    return preText.toString();
+        return preText.toString();
 
-  }
+    }
 
-  ////////////////////////////////////////////////////////////////////////////////
-  public String createXML()
-  ////////////////////////////////////////////////////////////////////////////////
-  {
-    StringBuffer preText = new StringBuffer(96);
-    preText.append(prependText);
+    /**
+     *
+     * @return
+     */
+    public String createXML() {
+        StringBuffer preText = new StringBuffer(96);
+        preText.append(prependText);
 
-    preText.append(super.createXML());
+        preText.append(super.createXML());
 
-    return preText.toString();
+        return preText.toString();
 
-  }
+    }
 
 }

@@ -1,13 +1,17 @@
 package com.topcoder.shared.ejb.EmailServices;
 
-import javax.ejb.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 /**
  * @author   Eric Ellingson
  * @version  $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.3  2002/07/16 21:37:45  gpaul
+ *           merging in sord email changes
+ *
  *           Revision 1.2.2.1  2002/04/11 18:20:28  apps
  *           SB -- readded EmailServices
  *
@@ -23,5 +27,11 @@ import java.rmi.RemoteException;
  *
  */
 public interface EmailListGroupHome extends EJBHome {
+    /**
+     *
+     * @return
+     * @throws CreateException
+     * @throws RemoteException
+     */
     public EmailListGroup create() throws CreateException, RemoteException;
 }

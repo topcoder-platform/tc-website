@@ -14,26 +14,27 @@ package com.topcoder.web.render.bean;
 import com.topcoder.web.render.ejb.WebStatusObject;
 
 class StatusObject extends WebStatusObject {
-    StatusObject () { }
-
-    StatusObject(WebStatusObject wso) {
-	  status_id = wso.status_id;
-	  status_desc = wso.status_desc;
+    StatusObject() {
     }
 
-    Integer getId () {
+    StatusObject(WebStatusObject wso) {
+        status_id = wso.status_id;
+        status_desc = wso.status_desc;
+    }
+
+    Integer getId() {
         return status_id;
     }
 
-    public String toString () {
+    public String toString() {
         return status_desc;
     }
 
-    public int hashCode () {
+    public int hashCode() {
         return status_id.intValue();
     }
 
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
         return status_id.equals(o);
     }
 }

@@ -1,30 +1,31 @@
 package com.topcoder.common.web.data;
 
 
-import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
+import java.io.Serializable;
 
-public class Renderer 
-  implements 
-    Serializable
-    ,TagRenderer
-    //,Comparable
-    //,Cloneable
-    //,Modifiable 
+
+public class Renderer
+        implements
+        Serializable
+        , TagRenderer
+        //,Comparable
+        //,Cloneable
+        //,Modifiable
 {
 
-  private int rendererId;
-  private String rendererDesc;
-  private String status;
-  private String modified;
+    private int rendererId;
+    private String rendererDesc;
+    private String status;
+    private String modified;
 
-  public Renderer() {
-    rendererDesc = "";
-    modified = "";
-    status = "";
-    rendererId = 0;
-  }
+    public Renderer() {
+        rendererDesc = "";
+        modified = "";
+        status = "";
+        rendererId = 0;
+    }
 
 /*
   public boolean equals ( Object other ) {
@@ -61,7 +62,7 @@ public class Renderer
       result.setCountry( (Country)getCountry().clone() );
       result.setModified( getModified() );
     } catch (Exception e) {
-      e.printStackTrace();  
+      e.printStackTrace();
     }
     return result;
   }
@@ -69,7 +70,7 @@ public class Renderer
 
 /*
   public int compareTo(Object other) {
-    Renderer otherRenderer = (Renderer) other; 
+    Renderer otherRenderer = (Renderer) other;
     StringBuffer temp = new StringBuffer(132);
     char[] beginRendererDesc = new char[4];
     temp.append(this.getSortLetter());
@@ -96,9 +97,7 @@ public class Renderer
 */
 
 /*
-  //////////////////////////////////////////////////////////////////////////
   public void setAllModifiedStable() throws Exception {
-  //////////////////////////////////////////////////////////////////////////
     setModified("S");
   }
 */
@@ -106,53 +105,53 @@ public class Renderer
 
 // set
 
-  public void setRendererDesc(String rendererDesc) {
-    this.rendererDesc = rendererDesc;
-  }
+    public void setRendererDesc(String rendererDesc) {
+        this.rendererDesc = rendererDesc;
+    }
 
-  public void setModified(String modified) {
-    this.modified = modified;
-  }
+    public void setModified(String modified) {
+        this.modified = modified;
+    }
 
-  public void setStatus ( String status ) {
-    this.status = status;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-  public void setRendererId(int rendererId) {
-    this.rendererId = rendererId;
-  }
+    public void setRendererId(int rendererId) {
+        this.rendererId = rendererId;
+    }
 
 // get
 
-  public String getRendererDesc() {
-    return rendererDesc;
-  }
-
-  public String getStatus() {
-    return status;
-  }
-
-  public String getModified() {
-    return modified;
-  }
-
-  public int getRendererId() {
-    return rendererId;
-  }
-
-
-  public RecordTag getXML() throws Exception {
-    RecordTag result = null;
-    try {
-      result = new RecordTag("Renderer");
-      result.addTag( new ValueTag("RendererId", rendererId) );
-      result.addTag( new ValueTag("RendererDesc", rendererDesc) );
-      result.addTag( new ValueTag("Status", status) );
-      result.addTag( new ValueTag("Modified", modified) );
-    } catch ( Exception e ) {
-      throw new Exception ( "common.web.data.Renderer getXML ERROR: " + e );
+    public String getRendererDesc() {
+        return rendererDesc;
     }
-    return result;
-  }
-  
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getModified() {
+        return modified;
+    }
+
+    public int getRendererId() {
+        return rendererId;
+    }
+
+
+    public RecordTag getXML() throws Exception {
+        RecordTag result = null;
+        try {
+            result = new RecordTag("Renderer");
+            result.addTag(new ValueTag("RendererId", rendererId));
+            result.addTag(new ValueTag("RendererDesc", rendererDesc));
+            result.addTag(new ValueTag("Status", status));
+            result.addTag(new ValueTag("Modified", modified));
+        } catch (Exception e) {
+            throw new Exception("common.web.data.Renderer getXML ERROR: " + e);
+        }
+        return result;
+    }
+
 }

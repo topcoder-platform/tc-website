@@ -1,15 +1,16 @@
 package com.topcoder.web.email.bean;
 
-import com.topcoder.web.email.servlet.*;
-
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.naming.*;
-
 import com.topcoder.shared.ejb.EmailServices.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.email.servlet.EmailConstants;
+import com.topcoder.web.email.servlet.TaskRouter;
+
+import javax.naming.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * TemplateTask.java
@@ -22,14 +23,13 @@ import com.topcoder.shared.util.logging.Logger;
  */
 
 public class TemplateTask
-    implements Task, Serializable
-{
+        implements Task, Serializable {
     private static Logger log = Logger.getLogger(TemplateTask.class);
+
     public TaskRouter perform(HttpServlet servlet,
-                HttpServletRequest request,
-                HttpServletResponse response)
-        throws IOException, ServletException
-    {
+                              HttpServletRequest request,
+                              HttpServletResponse response)
+            throws IOException, ServletException {
         String step = request.getParameter(EmailConstants.STEP);
         String nextPage = "";
 
@@ -68,8 +68,7 @@ public class TemplateTask
      */
 
     private String list(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException
-    {
+            throws ServletException {
         String group = request.getParameter(EmailConstants.GROUP);
         if (group == null) {
             log.debug("No group specified - choosing first group");
@@ -93,8 +92,7 @@ public class TemplateTask
      */
 
     private String create(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException
-    {
+            throws ServletException {
         // create a new template form bean
         EmailTemplateForm template = new EmailTemplateForm();
         request.getSession().setAttribute("EmailTemplate", template);
@@ -118,9 +116,8 @@ public class TemplateTask
      */
 
     private String add(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException
-    {
-        // retrieve the template to be added 
+            throws ServletException {
+        // retrieve the template to be added
         EmailTemplateForm template = (EmailTemplateForm) request.getSession().getAttribute("EmailTemplate");
 
         if (!template.isAdded()) {
@@ -168,13 +165,12 @@ public class TemplateTask
      */
 
     private String edit(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException
-    {
+            throws ServletException {
         int templateId;
         try {
             templateId = Integer.parseInt(request.getParameter(EmailConstants.ID));
         } catch (Exception e) {
-            throw new ServletException(e.toString());    
+            throw new ServletException(e.toString());
         }
 
         // retrieve template information
@@ -200,8 +196,7 @@ public class TemplateTask
      */
 
     private String save(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException
-    {
+            throws ServletException {
         // retrieve the edited template
         EmailTemplateForm template = (EmailTemplateForm) request.getSession().getAttribute("EmailTemplate");
 
@@ -209,7 +204,7 @@ public class TemplateTask
         try {
             templateId = Integer.parseInt(template.getId());
         } catch (Exception e) {
-            throw new ServletException(e.toString());    
+            throw new ServletException(e.toString());
         }
 
         template.setName(request.getParameter("name"));
@@ -247,17 +242,16 @@ public class TemplateTask
      */
 
     private String delete(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException
-    {
+            throws ServletException {
         int templateId;
         try {
             templateId = Integer.parseInt(request.getParameter(EmailConstants.ID));
         } catch (Exception e) {
-            throw new ServletException(e.toString());    
+            throw new ServletException(e.toString());
         }
 
         log.debug("Deleting template:\n" + templateId);
-        
+
         deleteTemplate(templateId);
 
         // forward to the template list page
@@ -266,7 +260,6 @@ public class TemplateTask
 
 
     // Utilities
-    ///////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Creates a new template using properties from an EmailTemplateForm object.
@@ -278,8 +271,7 @@ public class TemplateTask
      */
 
     private static int createTemplate(EmailTemplateForm template)
-        throws ServletException
-    {
+            throws ServletException {
         int id = -1;
 
         Context context = null;
@@ -288,8 +280,8 @@ public class TemplateTask
             EmailTemplateHome emailTemplateHome = (EmailTemplateHome) context.lookup(EmailConstants.EMAILTEMPLATE_EJB);
             EmailTemplate emailTemplate = emailTemplateHome.create();
             id = emailTemplate.createTemplate(Integer.parseInt(template.getGroup()),
-                            template.getName(),
-                            template.getTemplate());
+                    template.getName(),
+                    template.getTemplate());
         } catch (Exception e) {
             log.debug("Error adding template:\n" + template, e);
             throw new ServletException(e.toString());
@@ -304,8 +296,8 @@ public class TemplateTask
 
         return id;
     }
-    
-    
+
+
     /**
      * Retrieves information about a template and returns
      * the EmailTemplateForm object representing the template.
@@ -316,8 +308,7 @@ public class TemplateTask
      */
 
     private static EmailTemplateForm retrieveTemplate(int templateId)
-        throws ServletException
-    {
+            throws ServletException {
         EmailTemplateForm template = new EmailTemplateForm();
         template.setId(String.valueOf(templateId));
 
@@ -347,8 +338,7 @@ public class TemplateTask
 
 
     }
-    
-    
+
 
     /**
      * Updates a template using properties from an EmailTemplateForm object.
@@ -357,8 +347,7 @@ public class TemplateTask
      */
 
     private static void saveTemplate(int templateId, EmailTemplateForm template)
-        throws ServletException
-    {
+            throws ServletException {
 
         Context context = null;
         try {
@@ -367,11 +356,11 @@ public class TemplateTask
             EmailTemplate emailTemplate = emailTemplateHome.create();
 
             emailTemplate.setGroupId(templateId,
-                        Integer.parseInt(template.getGroup()));
+                    Integer.parseInt(template.getGroup()));
             emailTemplate.setName(templateId,
-                        template.getName());
+                    template.getName());
             emailTemplate.setData(templateId,
-                        template.getTemplate());
+                    template.getTemplate());
         } catch (Exception e) {
             log.debug("Error saving template", e);
             throw new ServletException(e.toString());
@@ -394,8 +383,7 @@ public class TemplateTask
      */
 
     private static void deleteTemplate(int templateId)
-        throws ServletException
-    {
+            throws ServletException {
 
         Context context = null;
         try {
@@ -404,7 +392,7 @@ public class TemplateTask
             EmailTemplate emailTemplate = emailTemplateHome.create();
 
             emailTemplate.setGroupId(templateId,
-                        EmailConstants.DELETED_GROUP_ID);
+                    EmailConstants.DELETED_GROUP_ID);
         } catch (Exception e) {
             log.debug("Error deleting template", e);
             throw new ServletException(e.toString());
@@ -416,7 +404,7 @@ public class TemplateTask
                 }
             }
         }
-    
+
     }
 
     /**
@@ -428,8 +416,7 @@ public class TemplateTask
      */
 
     public static Map getTemplateMap(int group)
-        throws ServletException
-    {
+            throws ServletException {
         Map templateMap;
 
         log.debug("Retrieving templates of group: " + group);
@@ -458,7 +445,6 @@ public class TemplateTask
     }
 
 
-
     /**
      * Returns all template groups mapped by id.
      *
@@ -466,8 +452,7 @@ public class TemplateTask
      */
 
     public static Map getTemplateGroupMap()
-        throws ServletException
-    {
+            throws ServletException {
         Map groupMap = new HashMap();
 
 
@@ -500,16 +485,14 @@ public class TemplateTask
      */
 
     public static int getFirstTemplateGroupId()
-        throws ServletException
-    {
+            throws ServletException {
         // get all groups
         final Map templateGroupMap = getTemplateGroupMap();
         // get all group id's
         List groupIdList = new ArrayList(templateGroupMap.keySet());
         // sort id's by name
         Collections.sort(groupIdList, new Comparator() {
-            public int compare(Object o1, Object o2)
-            {
+            public int compare(Object o1, Object o2) {
                 Comparable c1 = (Comparable) templateGroupMap.get(o1);
                 Comparable c2 = (Comparable) templateGroupMap.get(o2);
                 return c1.compareTo(c2);
@@ -524,8 +507,7 @@ public class TemplateTask
     }
 
     public static String getTemplateName(int templateId)
-        throws ServletException
-    {
+            throws ServletException {
         String name = "";
 
         Context context = null;

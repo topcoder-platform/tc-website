@@ -1,17 +1,21 @@
 package com.topcoder.shared.ejb.EmailServices;
 
-import java.util.*;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
+
 import java.rmi.RemoteException;
+import java.util.*;
 
 /**
  * @see    EmailJob
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.3  2002/07/16 21:37:45  gpaul
+ *           merging in sord email changes
+ *
  *           Revision 1.5.2.25  2002/07/08 08:48:30  sord
  *           Fixed report creation job type.
  *
@@ -117,46 +121,116 @@ import java.rmi.RemoteException;
  */
 public class EmailJobBean extends BaseEJB {
 
-    // XXX the following need to come from the config file, not hardcoded!
+    // TODO the following need to come from the config file, not hardcoded!
+    /**
+     *
+     */
     public static final int JOB_TYPE_EMAIL_PRE = 1;
+    /**
+     *
+     */
     public static final int JOB_TYPE_EMAIL_POST = 2;
+    /**
+     *
+     */
     public static final int JOB_TYPE_EMAIL_REPORT = 3;
+    /**
+     *
+     */
     public static final int JOB_STATUS_CREATING = 0;
+    /**
+     *
+     */
     public static final int JOB_STATUS_READY = 1;
+    /**
+     *
+     */
     public static final int JOB_STATUS_ACTIVE = 2;
+    /**
+     *
+     */
     public static final int JOB_STATUS_COMPLETE = 3;
+    /**
+     *
+     */
     public static final int JOB_STATUS_INCOMPLETE = 4;
+    /**
+     *
+     */
     public static final int JOB_STATUS_CANCELED = 5;
+    /**
+     *
+     */
     public static final int JOB_SEQUENCE_ID = 70;
+    /**
+     *
+     */
     public static final int JOB_DETAIL_SEQUENCE_ID = 71;
+    /**
+     *
+     */
     public static final int EMAIL_TEMPLATE_SEQUENCE_ID = 72;
+    /**
+     *
+     */
     public static final int EMAIL_LIST_SEQUENCE_ID = 73;
 
-    public void ejbCreate () { }
-    
+    /**
+     *
+     */
+    public void ejbCreate() {
+    }
+
     private static Logger log = Logger.getLogger(EmailJobBean.class);
 
-    
-    public int createEmailJob(  int templateId, 
-                                int listId, 
-                                int commandId, 
-                                Date startAfter, 
-                                Date stopBefore, 
-                                String fromAddress,
-                                String fromPersonal,
-                                String subject ) throws RemoteException {
+
+    /**
+     *
+     * @param templateId
+     * @param listId
+     * @param commandId
+     * @param startAfter
+     * @param stopBefore
+     * @param fromAddress
+     * @param fromPersonal
+     * @param subject
+     * @return
+     * @throws RemoteException
+     */
+    public int createEmailJob(int templateId,
+                              int listId,
+                              int commandId,
+                              Date startAfter,
+                              Date stopBefore,
+                              String fromAddress,
+                              String fromPersonal,
+                              String subject) throws RemoteException {
         return createJob(templateId, listId, commandId, startAfter, stopBefore, fromAddress, fromPersonal, subject, JOB_TYPE_EMAIL_PRE);
     }
 
-    public int createJob(  int templateId, 
-                           int listId, 
-                           int commandId, 
-                           Date startAfter, 
-                           Date stopBefore, 
-                           String fromAddress,
-                           String fromPersonal,
-                           String subject,
-                           int jobType ) throws RemoteException {
+    /**
+     *
+     * @param templateId
+     * @param listId
+     * @param commandId
+     * @param startAfter
+     * @param stopBefore
+     * @param fromAddress
+     * @param fromPersonal
+     * @param subject
+     * @param jobType
+     * @return
+     * @throws RemoteException
+     */
+    public int createJob(int templateId,
+                         int listId,
+                         int commandId,
+                         Date startAfter,
+                         Date stopBefore,
+                         String fromAddress,
+                         String fromPersonal,
+                         String subject,
+                         int jobType) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
@@ -164,18 +238,18 @@ public class EmailJobBean extends BaseEJB {
         java.sql.PreparedStatement ps2 = null;
         java.sql.PreparedStatement ps3 = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int jobId = 0;
         int rowsAdded;
         int rowsUpdated;
 
         log.debug("New email job requested (template_id " + templateId
-                + ", list_id " + listId + ", command_id " + commandId 
+                + ", list_id " + listId + ", command_id " + commandId
                 + ", start " + startAfter + ", stop " + stopBefore
                 + ", from " + fromAddress + " (" + fromPersonal + ")"
                 + ", subject " + subject + ")");
 
-        /* 
+        /*
          * open a connection to the database
          * prepare the 3 sql statements
          * ps1 is the statement to find the next jobId to use
@@ -183,17 +257,17 @@ public class EmailJobBean extends BaseEJB {
          * ps3 is the statement to insert a record into sched_email_job table
          * after the statements are prepared, execute them in order
          * first find the next jobId
-         * second fill in the blanks (including the jobId) and insert 
+         * second fill in the blanks (including the jobId) and insert
          * the sched_job record
          * third fill in the balnks and insert the sched_email_job record
-         * any problems with the process result in an exception that is 
+         * any problems with the process result in an exception that is
          * caught and a RemoteException is prepared
          * the database connection is always closed and then any errors
          * are rethrown (repackaged in a RemoteException)
          *
          * There is an issue with timing of the ps1 and ps2 statements
          * If multiple processes attempt to insert records and both
-         * processes calculate their jobId before either inserts the 
+         * processes calculate their jobId before either inserts the
          * new job record, they will both attempt to insert the same
          * jobId. The database will cause one of the two inserts to fail.
          * For the email project, this is not going to be a problem as
@@ -209,13 +283,13 @@ public class EmailJobBean extends BaseEJB {
             conn.setAutoCommit(false);
 
             // create ps1
-            sqlStmt.setLength(0);            
+            sqlStmt.setLength(0);
             sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
             ps1 = conn.prepareStatement(sqlStmt.toString());
             ps1.setInt(1, JOB_SEQUENCE_ID);
 
             // create ps2
-            sqlStmt.setLength(0);            
+            sqlStmt.setLength(0);
             sqlStmt.append(" INSERT INTO");
             sqlStmt.append(" sched_job (");
             sqlStmt.append(" sched_job_id");
@@ -229,9 +303,9 @@ public class EmailJobBean extends BaseEJB {
             sqlStmt.append(" end_before_date");
             sqlStmt.append(") VALUES (?,?,?,?,?)");
             ps2 = conn.prepareStatement(sqlStmt.toString());
-            
+
             // create ps3
-            sqlStmt.setLength(0);            
+            sqlStmt.setLength(0);
             sqlStmt.append(" INSERT INTO");
             sqlStmt.append(" sched_email_job (");
             sqlStmt.append(" sched_email_job_id");
@@ -249,14 +323,14 @@ public class EmailJobBean extends BaseEJB {
             sqlStmt.append(" subject");
             sqlStmt.append(") VALUES (?,?,?,?,?,?,?)");
             ps3 = conn.prepareStatement(sqlStmt.toString());
-            
+
             // run ps1
             rs = ps1.executeQuery();
             rs.next();
             jobId = rs.getInt(1);
             rs.close();
             conn.commit();
-            
+
             // run ps2
             ps2.setInt(1, jobId);
             ps2.setInt(2, jobType);
@@ -284,7 +358,7 @@ public class EmailJobBean extends BaseEJB {
                 throw new Exception("insert sched_email_job record failed ("
                         + rowsAdded + " rows added)");
             }
-            
+
             // create ps2 (reuse ps2)
             sqlStmt.setLength(0);
             sqlStmt.append(" UPDATE");
@@ -303,52 +377,74 @@ public class EmailJobBean extends BaseEJB {
                         + rowsUpdated + " rows updated)");
             }
             conn.commit();
-        } catch ( Exception dberr ) {
+        } catch (Exception dberr) {
             log.error("Failed to create email job", dberr);
             throw new RemoteException("Failed to create email job", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
         return jobId;
     }
 
-    public int createEmailReportJob(    
-                                int sourceJobId, 
-                                int templateId, 
-                                int listId, 
-                                int commandId, 
-                                Date startAfter, 
-                                Date stopBefore, 
-                                String fromAddress,
-                                String fromPersonal,
-                                String subject ) throws RemoteException {
+    /**
+     *
+     * @param sourceJobId
+     * @param templateId
+     * @param listId
+     * @param commandId
+     * @param startAfter
+     * @param stopBefore
+     * @param fromAddress
+     * @param fromPersonal
+     * @param subject
+     * @return
+     * @throws RemoteException
+     */
+    public int createEmailReportJob(
+            int sourceJobId,
+            int templateId,
+            int listId,
+            int commandId,
+            Date startAfter,
+            Date stopBefore,
+            String fromAddress,
+            String fromPersonal,
+            String subject) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int id = 0;
 
-        log.debug("createEmailReportJob("+sourceJobId+", ...)");
-           
+        log.debug("createEmailReportJob(" + sourceJobId + ", ...)");
+
         int jobId = createJob(templateId, listId, commandId,
-                                   startAfter, stopBefore, fromAddress,
-                                   fromPersonal, subject, JOB_TYPE_EMAIL_REPORT);
+                startAfter, stopBefore, fromAddress,
+                fromPersonal, subject, JOB_TYPE_EMAIL_REPORT);
 
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
             conn = ds.getConnection();
 
-            sqlStmt.setLength(0);            
+            sqlStmt.setLength(0);
             sqlStmt.append(" EXECUTE PROCEDURE nextval(?)");
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, EmailJobBean.JOB_DETAIL_SEQUENCE_ID);
@@ -356,7 +452,7 @@ public class EmailJobBean extends BaseEJB {
             rs.next();
             id = rs.getInt(1);
             rs.close();
-            String data = ""+sourceJobId;
+            String data = "" + sourceJobId;
 
             sqlStmt.setLength(0);
             sqlStmt.append(" INSERT INTO");
@@ -378,36 +474,49 @@ public class EmailJobBean extends BaseEJB {
             if (rows != 1) {
                 throw new Exception("insert command affected " + rows + " rows.");
             }
-        } catch ( Exception dberr ) {
+        } catch (Exception dberr) {
             String err = "Failed to add job detail record";
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return jobId;
     }
-    
-    public void cancelEmailJob(    int jobId ) throws RemoteException {
+
+    /**
+     *
+     * @param jobId
+     * @throws RemoteException
+     */
+    public void cancelEmailJob(int jobId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rowsUpdated;
 
         log.debug("Cancel email job requested (job_id " + jobId + ")");
-           
-        /* 
-         * Change the job's status to canceled if the current status 
+
+        /*
+         * Change the job's status to canceled if the current status
          * is ACTIVE or READY.
          */
         try {
@@ -434,7 +543,7 @@ public class EmailJobBean extends BaseEJB {
             ps.setInt(4, JOB_STATUS_ACTIVE);
             rowsUpdated = ps.executeUpdate();
             if (rowsUpdated == 0) {
-                log.debug("Cancel request for job_id " + jobId 
+                log.debug("Cancel request for job_id " + jobId
                         + " had no effect."
                         + " Either the job is not ready or active,"
                         + " or the job does not exist.");
@@ -445,33 +554,46 @@ public class EmailJobBean extends BaseEJB {
                             + " records updated).");
                 }
             }
-        } catch ( Exception dberr ) {
+        } catch (Exception dberr) {
             log.error("Failed to cancel email job", dberr);
             throw new RemoteException("Failed to cancel email job", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
     }
 
-    public void resumeEmailJob(    int jobId ) throws RemoteException {
+    /**
+     *
+     * @param jobId
+     * @throws RemoteException
+     */
+    public void resumeEmailJob(int jobId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rowsUpdated;
 
         log.debug("Resume email job requested (job_id " + jobId + ")");
-           
-        /* 
-         * Change the job's status to READY if the current status 
+
+        /*
+         * Change the job's status to READY if the current status
          * is CANCELED.
          */
         try {
@@ -495,7 +617,7 @@ public class EmailJobBean extends BaseEJB {
             ps.setInt(3, JOB_STATUS_CANCELED);
             rowsUpdated = ps.executeUpdate();
             if (rowsUpdated == 0) {
-                log.debug("Resume request for job_id " + jobId 
+                log.debug("Resume request for job_id " + jobId
                         + " had no effect."
                         + " Either the job has not been canceled,"
                         + " or the job does not exist.");
@@ -506,40 +628,66 @@ public class EmailJobBean extends BaseEJB {
                             + " records updated).");
                 }
             }
-        } catch ( Exception dberr ) {
+        } catch (Exception dberr) {
             log.error("Failed to resume email job", dberr);
             throw new RemoteException("Failed to resume email job", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public int getJobTypeId(int jobId) throws RemoteException {
         return getIntField(jobId, "sched_job_type_id");
     }
 
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public String getJobTypeText(int jobId) throws RemoteException {
         return getJobTypeIdText(getJobTypeId(jobId));
     }
 
+    /**
+     *
+     * @param typeId
+     * @return
+     * @throws RemoteException
+     */
     public String getJobTypeIdText(int typeId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = null;
 
         log.debug("getJobTypeIdText requested for typeId " + typeId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -560,43 +708,69 @@ public class EmailJobBean extends BaseEJB {
             }
             ret = rs.getString(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get name for typeId " + typeId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get name for typeId " + typeId;
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public int getStatusId(int jobId) throws RemoteException {
         return getIntField(jobId, "sched_job_status_id");
     }
 
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public String getStatusText(int jobId) throws RemoteException {
         return getStatusIdText(getStatusId(jobId));
     }
 
+    /**
+     *
+     * @param statusId
+     * @return
+     * @throws RemoteException
+     */
     public String getStatusIdText(int statusId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = null;
 
         log.debug("getStatusIdText requested for statusId " + statusId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -617,35 +791,49 @@ public class EmailJobBean extends BaseEJB {
             }
             ret = rs.getString(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for statusId " + statusId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for statusId " + statusId;
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public Map getJobDetailResults(int jobId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Map ret = new HashMap();
 
         log.debug("getJobDetailResults requested for jobId " + jobId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -663,11 +851,11 @@ public class EmailJobBean extends BaseEJB {
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, jobId);
             rs = ps.executeQuery();
-            for ( ; rs.next(); ) {
+            for (; rs.next();) {
                 ret.put(new Integer(rs.getInt(1)), new Integer(rs.getInt(2)));
             }
             rs.close();
-            
+
             if (ret.size() == 0) {
                 // maybe the job has been archived, check there...
                 sqlStmt.setLength(0);
@@ -682,45 +870,61 @@ public class EmailJobBean extends BaseEJB {
                 ps = conn.prepareStatement(sqlStmt.toString());
                 ps.setInt(1, jobId);
                 rs = ps.executeQuery();
-                for ( ; rs.next(); ) {
+                for (; rs.next();) {
                     ret.put(new Integer(rs.getInt(1)), new Integer(rs.getInt(2)));
                 }
                 rs.close();
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to getJobDetailResults for jobId " + jobId; 
+        } catch (Exception dberr) {
+            String err = "Failed to getJobDetailResults for jobId " + jobId;
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
 
-    public Object [] getJobDetailResults(int jobId, int firstRecordOffset, int lastRecordOffset) throws RemoteException {
+    /**
+     *
+     * @param jobId
+     * @param firstRecordOffset
+     * @param lastRecordOffset
+     * @return
+     * @throws RemoteException
+     */
+    public Object[] getJobDetailResults(int jobId, int firstRecordOffset, int lastRecordOffset) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
-        Object [] arrRet = new Object [3];
+        Object[] arrRet = new Object[3];
         Map ret = new HashMap();
         arrRet[0] = ret;
         arrRet[1] = new Integer(0);
         arrRet[2] = new Integer(0);
 
-        log.debug("getJobDetailResults requested for jobId " + jobId 
-            + " range (" + firstRecordOffset + "," + lastRecordOffset + ")");
-           
+        log.debug("getJobDetailResults requested for jobId " + jobId
+                + " range (" + firstRecordOffset + "," + lastRecordOffset + ")");
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -753,7 +957,7 @@ public class EmailJobBean extends BaseEJB {
                 }
             }
             rs.close();
-            
+
             if (count == 0) {
                 // maybe the job has been archived, check there...
                 sqlStmt.setLength(0);
@@ -783,36 +987,51 @@ public class EmailJobBean extends BaseEJB {
                 }
                 rs.close();
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to getJobDetailResults for jobId " + jobId 
-                + " range (" + firstRecordOffset + "," + lastRecordOffset + ")";
+        } catch (Exception dberr) {
+            String err = "Failed to getJobDetailResults for jobId " + jobId
+                    + " range (" + firstRecordOffset + "," + lastRecordOffset + ")";
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return arrRet;
     }
 
+    /**
+     *
+     * @param jobId
+     * @param jobDetailId
+     * @return
+     * @throws RemoteException
+     */
     public String getJobDetailReason(int jobId, int jobDetailId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = null;
 
         log.debug("getJobDetailReason requested for jobId " + jobId + ", jobDetailId " + jobDetailId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -851,39 +1070,54 @@ public class EmailJobBean extends BaseEJB {
                     throw new Exception("No records returned");
                 }
             }
-            byte [] bytes = rs.getBytes(1);
+            byte[] bytes = rs.getBytes(1);
             if (bytes != null)
                 ret = new String(bytes);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for job " + jobId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for job " + jobId;
             log.error(err, dberr);
             throw  new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
 
+    /**
+     *
+     * @param jobId
+     * @param jobDetailId
+     * @return
+     * @throws RemoteException
+     */
     public String getJobDetailData(int jobId, int jobDetailId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = null;
 
         log.debug("getJobDetailData requested for jobId " + jobId + ", jobDetailId " + jobDetailId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -922,39 +1156,53 @@ public class EmailJobBean extends BaseEJB {
                     throw new Exception("No records returned");
                 }
             }
-            byte [] bytes = rs.getBytes(1);
+            byte[] bytes = rs.getBytes(1);
             if (bytes != null)
                 ret = new String(bytes);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for job " + jobId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for job " + jobId;
             log.error(err, dberr);
             throw  new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public boolean isJobDetailArchived(int jobId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         boolean ret = false;
 
         log.debug("isJobDetailArchived requested for jobId " + jobId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -974,36 +1222,50 @@ public class EmailJobBean extends BaseEJB {
             int count = rs.getInt(1);
             rs.close();
             if (count > 0) ret = true;
-        } catch ( Exception dberr ) {
-            String err = "Failed to get archive count for job " + jobId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get archive count for job " + jobId;
             log.error(err, dberr);
             throw  new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param jobDetailStatusId
+     * @return
+     * @throws RemoteException
+     */
     public String getDetailStatusIdText(int jobDetailStatusId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = null;
 
-        log.debug("getDetailStatusIdText requested for jobDetailStatusId " 
+        log.debug("getDetailStatusIdText requested for jobDetailStatusId "
                 + jobDetailStatusId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -1024,49 +1286,81 @@ public class EmailJobBean extends BaseEJB {
             }
             ret = rs.getString(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for jobDetailStatusId " + jobDetailStatusId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for jobDetailStatusId " + jobDetailStatusId;
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
 
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public int getTemplateId(int jobId) throws RemoteException {
         return getIntField(jobId, "email_template_id");
     }
 
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public int getListId(int jobId) throws RemoteException {
         return getIntField(jobId, "email_list_id");
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public int getCommandId(int jobId) throws RemoteException {
         return getIntField(jobId, "command_id");
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public String getCommandName(int jobId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = null;
 
         log.debug("getCommandName requested for jobId " + jobId);
-           
+
         int commandId = getCommandId(jobId);
-        
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -1087,50 +1381,95 @@ public class EmailJobBean extends BaseEJB {
             }
             ret = rs.getString(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for jobId " + jobId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for jobId " + jobId;
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
 
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public Date getStartAfterDate(int jobId) throws RemoteException {
         return getDateField(jobId, "start_after_date");
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public Date getStopBeforeDate(int jobId) throws RemoteException {
         return getDateField(jobId, "end_before_date");
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public String getFromAddress(int jobId) throws RemoteException {
         return getStringField(jobId, "from_address");
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public String getFromPersonal(int jobId) throws RemoteException {
         return getStringField(jobId, "from_personal");
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public String getSubject(int jobId) throws RemoteException {
         return getStringField(jobId, "subject");
     }
 
+    /**
+     *
+     * @param jobId
+     * @param fieldName
+     * @return
+     * @throws RemoteException
+     */
     private int getIntField(int jobId, String fieldName) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int ret = 0;
 
@@ -1159,35 +1498,50 @@ public class EmailJobBean extends BaseEJB {
             }
             ret = rs.getInt(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for job " + jobId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for job " + jobId;
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @param fieldName
+     * @return
+     * @throws RemoteException
+     */
     private Date getDateField(int jobId, String fieldName) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Date ret = null;
 
         log.debug("getDateField requested for jobId " + jobId + ", field=" + fieldName);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -1211,35 +1565,50 @@ public class EmailJobBean extends BaseEJB {
             }
             ret = rs.getDate(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for job " + jobId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for job " + jobId;
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
 
+    /**
+     *
+     * @param jobId
+     * @param fieldName
+     * @return
+     * @throws RemoteException
+     */
     private String getStringField(int jobId, String fieldName) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = null;
 
         log.debug("getStringField requested for jobId " + jobId + ", field=" + fieldName);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -1263,105 +1632,174 @@ public class EmailJobBean extends BaseEJB {
             }
             ret = rs.getString(1);
             rs.close();
-        } catch ( Exception dberr ) {
-            String err = "Failed to get data for job " + jobId; 
+        } catch (Exception dberr) {
+            String err = "Failed to get data for job " + jobId;
             log.error(err, dberr);
             throw  new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @throws RemoteException
+     */
     private void validateJobIsUpdatable(int jobId) throws RemoteException {
         try {
             int status = getStatusId(jobId);
-            
+
             if (status != JOB_STATUS_CREATING
-             && status != JOB_STATUS_READY
-             && status != JOB_STATUS_CANCELED) {
+                    && status != JOB_STATUS_READY
+                    && status != JOB_STATUS_CANCELED) {
                 throw new Exception("The job must be in the CREATING, READY, or CANCELLED state");
             }
         } catch (Exception e) {
             throw new RemoteException("Unable to update job " + jobId, e);
         }
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @param templateId
+     * @throws RemoteException
+     */
     public void setTemplateId(int jobId, int templateId) throws RemoteException {
         validateJobIsUpdatable(jobId);
         setField("sched_email_job", "sched_email_job_id", jobId,
                 "email_template_id", templateId, null, null);
     }
 
+    /**
+     *
+     * @param jobId
+     * @param listId
+     * @throws RemoteException
+     */
     public void setListId(int jobId, int listId) throws RemoteException {
-        if (listId != 0) 
+        if (listId != 0)
             validateJobIsUpdatable(jobId);
         setField("sched_email_job", "sched_email_job_id", jobId,
                 "email_list_id", listId, null, null);
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @param commandId
+     * @throws RemoteException
+     */
     public void setCommandId(int jobId, int commandId) throws RemoteException {
-        if (commandId != 0) 
+        if (commandId != 0)
             validateJobIsUpdatable(jobId);
         setField("sched_email_job", "sched_email_job_id", jobId,
                 "command_id", commandId, null, null);
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @param startAfterDate
+     * @throws RemoteException
+     */
     public void setStartAfterDate(int jobId, Date startAfterDate) throws RemoteException {
         validateJobIsUpdatable(jobId);
         setField("sched_job", "sched_job_id", jobId,
                 "start_after_date", 0, null, startAfterDate);
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @param stopBeforeDate
+     * @throws RemoteException
+     */
     public void setStopBeforeDate(int jobId, Date stopBeforeDate) throws RemoteException {
         validateJobIsUpdatable(jobId);
         setField("sched_job", "sched_job_id", jobId,
                 "end_before_date", 0, null, stopBeforeDate);
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @param fromAddress
+     * @throws RemoteException
+     */
     public void setFromAddress(int jobId, String fromAddress) throws RemoteException {
         validateJobIsUpdatable(jobId);
         setField("sched_email_job", "sched_email_job_id", jobId,
                 "from_address", 0, fromAddress, null);
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @param fromPersonal
+     * @throws RemoteException
+     */
     public void setFromPersonal(int jobId, String fromPersonal) throws RemoteException {
         validateJobIsUpdatable(jobId);
         setField("sched_email_job", "sched_email_job_id", jobId,
                 "from_personal", 0, fromPersonal, null);
     }
-    
+
+    /**
+     *
+     * @param jobId
+     * @param subject
+     * @throws RemoteException
+     */
     public void setSubject(int jobId, String subject) throws RemoteException {
         validateJobIsUpdatable(jobId);
         setField("sched_email_job", "sched_email_job_id", jobId,
                 "subject", 0, subject, null);
     }
 
- /**
-  * Updates a single field on a table with a primary key.
-  */
+    /**
+     * Updates a single field on a table with a primary key.
+     * @param tableName
+     * @param idName
+     * @param id
+     * @param fieldName
+     * @param valueI
+     * @param valueS
+     * @param valueD
+     * @throws RemoteException
+     */
     private void setField(String tableName, String idName, int id,
-            String fieldName, int valueI, String valueS,
-            Date valueD) throws RemoteException {
+                          String fieldName, int valueI, String valueS,
+                          Date valueD) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
-        log.debug("setField requested for table " + tableName + ", " 
+        log.debug("setField requested for table " + tableName + ", "
                 + idName + " " + id + ", " + fieldName + " (" + valueI
                 + ", " + valueS + ", " + valueD + ")");
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -1388,7 +1826,7 @@ public class EmailJobBean extends BaseEJB {
             if (rows == 0) {
                 log.debug("The update had no effect."
                         + " Most likely the job does not exist.");
-                throw new Exception("The update command affected " 
+                throw new Exception("The update command affected "
                         + rows + " rows.");
             } else {
                 if (rows != 1) {
@@ -1397,33 +1835,48 @@ public class EmailJobBean extends BaseEJB {
                             " " + id + ", " + rows + " records updated).");
                 }
             }
-        } catch ( Exception dberr ) {
-            String err = "Failed to update table " + tableName + ", " 
-                + idName + " " + id + ")";
+        } catch (Exception dberr) {
+            String err = "Failed to update table " + tableName + ", "
+                    + idName + " " + id + ")";
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
     }
 
+    /**
+     *
+     * @param jobId
+     * @param inputId
+     * @param param
+     * @throws RemoteException
+     */
     public void setCommandParam(int jobId, int inputId, String param) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
         log.debug("setCommandParam requested for jobId " + jobId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -1445,9 +1898,9 @@ public class EmailJobBean extends BaseEJB {
             if (!rs.next()) {
                 // parameter doesn't exist, need to add it
                 rs.close();
-                
+
                 int paramId = 0;
-                
+
                 sqlStmt.setLength(0);
                 sqlStmt.append(" SELECT");
                 sqlStmt.append(" MAX(command_param_id)");
@@ -1462,7 +1915,7 @@ public class EmailJobBean extends BaseEJB {
                             + " using default value of 1.");
                 rs.close();
 
-                sqlStmt.setLength(0);            
+                sqlStmt.setLength(0);
                 sqlStmt.append(" INSERT INTO");
                 sqlStmt.append(" command_param (");
                 sqlStmt.append(" command_param_id");
@@ -1486,7 +1939,7 @@ public class EmailJobBean extends BaseEJB {
                 // parameter exists, update it
                 int paramId = rs.getInt(1);
                 rs.close();
-                
+
                 sqlStmt.setLength(0);
                 sqlStmt.append(" UPDATE");
                 sqlStmt.append(" command_param");
@@ -1508,33 +1961,47 @@ public class EmailJobBean extends BaseEJB {
                     }
                 }
             }
-        } catch ( Exception dberr ) {
+        } catch (Exception dberr) {
             String err = "Failed to add/update commandParam";
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
     }
 
+    /**
+     *
+     * @param jobId
+     * @return
+     * @throws RemoteException
+     */
     public Map getCommandParams(int jobId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Map ret = new HashMap();
 
         log.debug("getCommandParams requested for jobId " + jobId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -1552,38 +2019,52 @@ public class EmailJobBean extends BaseEJB {
             ps = conn.prepareStatement(sqlStmt.toString());
             ps.setInt(1, jobId);
             rs = ps.executeQuery();
-            for ( ; rs.next(); ) {
+            for (; rs.next();) {
                 ret.put(new Integer(rs.getInt(1)), rs.getString(2));
             }
-        } catch ( Exception dberr ) {
+        } catch (Exception dberr) {
             String err = "Failed to add/update commandParam";
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
 
+    /**
+     *
+     * @param inputId
+     * @return
+     * @throws RemoteException
+     */
     public String getCommandParamName(int inputId) throws RemoteException {
         javax.naming.Context ctx = null;
         javax.sql.DataSource ds = null;
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        StringBuffer sqlStmt = new StringBuffer( 500 );
+        StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = null;
 
         log.debug("getCommandParamName requested for inputId " + inputId);
-           
+
         try {
             ctx = new javax.naming.InitialContext();
             ds = (javax.sql.DataSource) ctx.lookup("TC_EMAIL");
@@ -1602,20 +2083,28 @@ public class EmailJobBean extends BaseEJB {
             if (!rs.next())
                 throw new Exception("inputId not found in input_lu table");
             ret = rs.getString(1);
-        } catch ( Exception dberr ) {
+        } catch (Exception dberr) {
             String err = "Failed to lookup inputId " + inputId;
             log.error(err, dberr);
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if ( ctx != null ) { try { ctx.close(); } catch (Exception ctxerr) {
-                log.error("Failed to close database context", ctxerr); } 
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ctxerr) {
+                    log.error("Failed to close database context", ctxerr);
+                }
             }
-            if ( conn != null ) { try { conn.close(); } catch (Exception connerr) {
-                log.error("Failed to close database connection", connerr); }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception connerr) {
+                    log.error("Failed to close database connection", connerr);
+                }
             }
         }
-        
+
         return ret;
     }
 }

@@ -1,15 +1,11 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.email.bean.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.email.bean.TemplateTask;
+
+import javax.servlet.ServletException;
+import javax.servlet.jsp.JspException;
+import java.util.Map;
 
 /**
  * Custom tag to iterate through all id's/name's of email
@@ -21,15 +17,13 @@ import com.topcoder.shared.util.logging.Logger;
  */
 
 public class TemplateIDNameIteratorTag
-    extends IDNameIteratorTag
-{
+        extends IDNameIteratorTag {
     private static Logger log = Logger.getLogger(TemplateIDNameIteratorTag.class);
-    
+
     // the template group
     protected int group;
 
-    public void setGroup(String group)
-    {
+    public void setGroup(String group) {
         try {
             this.group = Integer.parseInt(group);
         } catch (NumberFormatException e) {
@@ -38,8 +32,7 @@ public class TemplateIDNameIteratorTag
     }
 
     Map getIdToNameMap()
-        throws JspException
-    {
+            throws JspException {
         try {
             return TemplateTask.getTemplateMap(group);
         } catch (ServletException e) {

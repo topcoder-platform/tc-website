@@ -1,12 +1,13 @@
 package com.topcoder.web.common;
 
-import java.sql.*;
-import java.io.*;
-import java.util.*;
-import java.math.*;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.*;
+import java.util.*;
 
 
 /**
@@ -15,7 +16,7 @@ import com.topcoder.shared.util.logging.Logger;
  * Unless specified otherwise, row and column indices are 0-based
  * for all methods in this class. <p>
  *
- * This class has only been tested with Informix, and if other databases 
+ * This class has only been tested with Informix, and if other databases
  * are subsequently used, will need to be revisited. <p>
  *
  * The complete list of Informix data types and the java.sql.Types constant
@@ -63,7 +64,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     private ResultColumn columns[];
     private HashMap columnNameMap;
 
-    // Variables indicating whether there is other relevant data which 
+    // Variables indicating whether there is other relevant data which
     // was not placed in this ResultSetContainer because the row numbers
     // were out of range
     boolean dataBefore, dataAfter;
@@ -72,19 +73,19 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     // Constructor section
     /*******************************************************************/
 
-     private ResultSetContainer() {
+    private ResultSetContainer() {
         data = new ArrayList();
         columnNameMap = new HashMap();
         dataBefore = false;
         dataAfter = false;
     }
-    
-    /** 
+
+    /**
      * ResultSetContainers may only be used in conjunction with a ResultSet,
      * to store database query results.  This version of the constructor
      * adds all rows of the ResultSet into the container, replacing any
      * nulls retrieved from the database with a default value.  This default
-     * value is "" for strings, 0 for numbers, false for booleans, and the 
+     * value is "" for strings, 0 for numbers, false for booleans, and the
      * current date/time for date and time fields.
      *
      * @param   rs  A ResultSet containing data to be added to the container
@@ -106,7 +107,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param   rs  A ResultSet containing data to be added to the container
      * @param   replaceNulls A boolean parameter specifying whether or not to
      * replace nulls with default values
-     * @throws  Exception If there is some problem retrieving the data     
+     * @throws  Exception If there is some problem retrieving the data
      */
     public ResultSetContainer(ResultSet rs, boolean replaceNulls) throws Exception {
         this();
@@ -122,12 +123,12 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
 
     /**
      * Start and end row control.  The row number arguments to this
-     * constructor are 1-based for convenience.  If later on it 
+     * constructor are 1-based for convenience.  If later on it
      * is desired to have finer-grained control over which rows
-     * are added into the result, another constructor could be added 
-     * to take in a tester object.  This object would have a function 
-     * specifying whether or not to include a row in the container.  
-     * The constructor would then call this function on each row of 
+     * are added into the result, another constructor could be added
+     * to take in a tester object.  This object would have a function
+     * specifying whether or not to include a row in the container.
+     * The constructor would then call this function on each row of
      * data. <p>
      *
      * This constructor version replaces nulls retrieved from the
@@ -144,11 +145,11 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @throws  Exception If there is some problem retrieving the data
      */
     public ResultSetContainer(ResultSet rs, int start, int end) throws Exception {
-        this();        
+        this();
         if (start > end)
-            throw new IllegalArgumentException("Start row cannot exceed end row");        
+            throw new IllegalArgumentException("Start row cannot exceed end row");
         initializeMetaData(rs);
-        int row=0;
+        int row = 0;
         while (rs.next()) {
             row++;
             if (row < start) {
@@ -183,30 +184,30 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      *                      suitable ORDER BY clause.
      * @throws  Exception If there is some problem retrieving the data
      */
-    public ResultSetContainer(ResultSet rs, int start, int end, 
+    public ResultSetContainer(ResultSet rs, int start, int end,
                               int ranklistCol) throws Exception {
         this();
         if (start > end)
-            throw new IllegalArgumentException("Start row cannot exceed end row");        
+            throw new IllegalArgumentException("Start row cannot exceed end row");
         initializeMetaData(rs);
         ranklistCol--;
         if (!isValidColumn(ranklistCol))
             throw new IllegalArgumentException("Ranklist column index " + ranklistCol + " out of range");
-        
+
         // Build the extra ranklist column
         ResultColumn tempColumns[] = new ResultColumn[columns.length + 1];
         System.arraycopy(columns, 0, tempColumns, 0, columns.length);
         tempColumns[columns.length] = new ResultColumn(Types.INTEGER, "rank", 9, 0, "");
-        columns = tempColumns;        
-        
+        columns = tempColumns;
+
         if (start > end)
             return;
-        
-        int row=0, rank=1;
+
+        int row = 0, rank = 1;
         TCResultItem lastItem = null;
         while (rs.next()) {
             row++;
-            if (row==1) {
+            if (row == 1) {
                 lastItem = getItem(rs, ranklistCol);
             } else {
                 TCResultItem thisItem = getItem(rs, ranklistCol);
@@ -233,126 +234,126 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
 
         switch (columns[i].getType()) {
 
-        case Types.CHAR:
-        case Types.VARCHAR:
-            s = rs.getString(i+1);
-            if (s == null) {
-                return new TCStringResult("");
-            }
-            return new TCStringResult(s);
-
-        // Both TEXT and LVARCHAR fields in the DB map to LONGVARCHAR.
-        // Text fields are serialized and must be read using getBytes(),
-        // while lvarchar fields must be read with getString().
-        case Types.LONGVARCHAR:
-            if (columns[i].getSourceType().equals("text"))
-                return new TCStringResult(DBMS.getTextString(rs, i+1));
-            else {
-                s = rs.getString(i+1);
-                if (s == null)
+            case Types.CHAR:
+            case Types.VARCHAR:
+                s = rs.getString(i + 1);
+                if (s == null) {
                     return new TCStringResult("");
+                }
                 return new TCStringResult(s);
-            }
 
-        case Types.TINYINT:
-        case Types.SMALLINT:
-        case Types.INTEGER:
-            return new TCIntResult(rs.getInt(i+1));
-
-        case Types.BIGINT:
-            return new TCLongResult(rs.getLong(i+1));
-
-        // Booleans in the DB map to OTHER, but this is left in here
-        // for completeness.
-        case Types.BIT:
-            return new TCBooleanResult(rs.getBoolean(i+1));
-
-        case Types.FLOAT:
-        case Types.DOUBLE:
-            return new TCDoubleResult(rs.getDouble(i+1));
-
-        case Types.DATE:
-            java.sql.Date dt = rs.getDate(i+1);
-            if (dt == null)
-                return new TCDateResult(new java.sql.Date(System.currentTimeMillis()));
-            return new TCDateResult(dt);
-
-        case Types.TIME:
-            Time tm = rs.getTime(i+1);
-            if (tm == null)
-                return new TCTimeResult(new Time(System.currentTimeMillis()));
-            return new TCTimeResult(tm);
-
-        case Types.TIMESTAMP:
-            Timestamp ts = rs.getTimestamp(i+1);
-            if (ts == null)
-                return new TCTimestampResult(new Timestamp(System.currentTimeMillis()));
-            return new TCTimestampResult(ts);
-
-        case Types.DECIMAL:
-        case Types.NUMERIC:
-            // Requires some special handling as large numbers might
-            // not fit in a regular int or float value, but it is desirable
-            // to use the int or float types when possible for performance
-            // reasons.
-            int pr = columns[i].getPrecision();
-            if (columns[i].getScale() == 0) {
-                // Integer.  log_10(2^31) = 9.33 while log_10(2^63) = 18.96
-                // Thus, we are guaranteed that 9 digits or less fit into 
-                // a regular int while 18 digits or less fit into a regular long.
-                if (pr <= 9) {
-                    return new TCIntResult(rs.getInt(i+1));
-                } else if (pr <= 18) {
-                    return new TCLongResult(rs.getLong(i+1));
-                } else {
-                    // getBigDecimal is broken when called from the EJB.  Possible
-                    // driver issue.  Use getObject() instead
-                    // return new TCBigIntegerResult(rs.getBigDecimal(i+1).toBigInteger());
-                    BigDecimal bd = (BigDecimal) rs.getObject(i+1);
-                    if (bd == null)
-                        return new TCBigIntegerResult(new BigInteger("0"));
-                    return new TCBigIntegerResult(bd.toBigInteger());
+                // Both TEXT and LVARCHAR fields in the DB map to LONGVARCHAR.
+                // Text fields are serialized and must be read using getBytes(),
+                // while lvarchar fields must be read with getString().
+            case Types.LONGVARCHAR:
+                if (columns[i].getSourceType().equals("text"))
+                    return new TCStringResult(DBMS.getTextString(rs, i + 1));
+                else {
+                    s = rs.getString(i + 1);
+                    if (s == null)
+                        return new TCStringResult("");
+                    return new TCStringResult(s);
                 }
-            } else {
-                // Decimal.  Single-precision floats have 24 apparent bits of 
-                // precision while double-precision doubles have 53 apparent
-                // bits of precision.  log_10(2^24) = 7.22 while 
-                // log_10(2^53) = 15.95, and thus:
-                if (pr <= 7) {
-                    return new TCFloatResult(rs.getFloat(i+1));
-                } else if (pr <= 15) {
-                    return new TCDoubleResult(rs.getDouble(i+1));
+
+            case Types.TINYINT:
+            case Types.SMALLINT:
+            case Types.INTEGER:
+                return new TCIntResult(rs.getInt(i + 1));
+
+            case Types.BIGINT:
+                return new TCLongResult(rs.getLong(i + 1));
+
+                // Booleans in the DB map to OTHER, but this is left in here
+                // for completeness.
+            case Types.BIT:
+                return new TCBooleanResult(rs.getBoolean(i + 1));
+
+            case Types.FLOAT:
+            case Types.DOUBLE:
+                return new TCDoubleResult(rs.getDouble(i + 1));
+
+            case Types.DATE:
+                java.sql.Date dt = rs.getDate(i + 1);
+                if (dt == null)
+                    return new TCDateResult(new java.sql.Date(System.currentTimeMillis()));
+                return new TCDateResult(dt);
+
+            case Types.TIME:
+                Time tm = rs.getTime(i + 1);
+                if (tm == null)
+                    return new TCTimeResult(new Time(System.currentTimeMillis()));
+                return new TCTimeResult(tm);
+
+            case Types.TIMESTAMP:
+                Timestamp ts = rs.getTimestamp(i + 1);
+                if (ts == null)
+                    return new TCTimestampResult(new Timestamp(System.currentTimeMillis()));
+                return new TCTimestampResult(ts);
+
+            case Types.DECIMAL:
+            case Types.NUMERIC:
+                // Requires some special handling as large numbers might
+                // not fit in a regular int or float value, but it is desirable
+                // to use the int or float types when possible for performance
+                // reasons.
+                int pr = columns[i].getPrecision();
+                if (columns[i].getScale() == 0) {
+                    // Integer.  log_10(2^31) = 9.33 while log_10(2^63) = 18.96
+                    // Thus, we are guaranteed that 9 digits or less fit into
+                    // a regular int while 18 digits or less fit into a regular long.
+                    if (pr <= 9) {
+                        return new TCIntResult(rs.getInt(i + 1));
+                    } else if (pr <= 18) {
+                        return new TCLongResult(rs.getLong(i + 1));
+                    } else {
+                        // getBigDecimal is broken when called from the EJB.  Possible
+                        // driver issue.  Use getObject() instead
+                        // return new TCBigIntegerResult(rs.getBigDecimal(i+1).toBigInteger());
+                        BigDecimal bd = (BigDecimal) rs.getObject(i + 1);
+                        if (bd == null)
+                            return new TCBigIntegerResult(new BigInteger("0"));
+                        return new TCBigIntegerResult(bd.toBigInteger());
+                    }
                 } else {
-                    // Avoid broken getBigDecimal method call, as per above
-                    // return new TCBigDecimalResult(rs.getBigDecimal(i+1));
-                    BigDecimal bd = (BigDecimal) rs.getObject(i+1);
-                    if (bd == null)
-                        return new TCBigDecimalResult(new BigDecimal(0.0));
-                    return new TCBigDecimalResult(bd);
+                    // Decimal.  Single-precision floats have 24 apparent bits of
+                    // precision while double-precision doubles have 53 apparent
+                    // bits of precision.  log_10(2^24) = 7.22 while
+                    // log_10(2^53) = 15.95, and thus:
+                    if (pr <= 7) {
+                        return new TCFloatResult(rs.getFloat(i + 1));
+                    } else if (pr <= 15) {
+                        return new TCDoubleResult(rs.getDouble(i + 1));
+                    } else {
+                        // Avoid broken getBigDecimal method call, as per above
+                        // return new TCBigDecimalResult(rs.getBigDecimal(i+1));
+                        BigDecimal bd = (BigDecimal) rs.getObject(i + 1);
+                        if (bd == null)
+                            return new TCBigDecimalResult(new BigDecimal(0.0));
+                        return new TCBigDecimalResult(bd);
+                    }
                 }
-            }
 
-        // BYTE fields in the database map to LONGVARBINARY
-        case Types.LONGVARBINARY:
-            s = "";
-            try {
-                Object o = DBMS.getBlobObject(rs, i+1);
-                if (o != null)
-                    s = StringUtilities.makePretty(o);
-            } catch (Exception e) {
-                log.error("Exception while retrieving blob object into result set");
-                log.error(e.getMessage());
-            }
-            return new TCStringResult(s);
+                // BYTE fields in the database map to LONGVARBINARY
+            case Types.LONGVARBINARY:
+                s = "";
+                try {
+                    Object o = DBMS.getBlobObject(rs, i + 1);
+                    if (o != null)
+                        s = StringUtilities.makePretty(o);
+                } catch (Exception e) {
+                    log.error("Exception while retrieving blob object into result set");
+                    log.error(e.getMessage());
+                }
+                return new TCStringResult(s);
 
-        // Booleans map to OTHER
-        case Types.OTHER:
-            if (columns[i].getSourceType().equals("boolean"))
-                return new TCBooleanResult(rs.getBoolean(i+1));
-            throw new SQLException("Unsupported data type in ResultSetContainer.getItem()");
+                // Booleans map to OTHER
+            case Types.OTHER:
+                if (columns[i].getSourceType().equals("boolean"))
+                    return new TCBooleanResult(rs.getBoolean(i + 1));
+                throw new SQLException("Unsupported data type in ResultSetContainer.getItem()");
 
-        default:
-            throw new SQLException("Unsupported data type in ResultSetContainer.getItem()");
+            default:
+                throw new SQLException("Unsupported data type in ResultSetContainer.getItem()");
 
         } // end switch statement
     }
@@ -367,135 +368,135 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
 
         switch (columns[i].getType()) {
 
-        case Types.CHAR:
-        case Types.VARCHAR:
-            return new TCStringResult(rs.getString(i+1));
+            case Types.CHAR:
+            case Types.VARCHAR:
+                return new TCStringResult(rs.getString(i + 1));
 
-        // Both TEXT and LVARCHAR fields in the DB map to LONGVARCHAR.
-        // Text fields are serialized and must be read using getBytes(),
-        // while lvarchar fields must be read with getString().
-        case Types.LONGVARCHAR:
-            if (columns[i].getSourceType().equals("text"))
-                return new TCStringResult(DBMS.getTextStringWithNulls(rs, i+1));
-            else
-                return new TCStringResult(rs.getString(i+1));
+                // Both TEXT and LVARCHAR fields in the DB map to LONGVARCHAR.
+                // Text fields are serialized and must be read using getBytes(),
+                // while lvarchar fields must be read with getString().
+            case Types.LONGVARCHAR:
+                if (columns[i].getSourceType().equals("text"))
+                    return new TCStringResult(DBMS.getTextStringWithNulls(rs, i + 1));
+                else
+                    return new TCStringResult(rs.getString(i + 1));
 
-        case Types.TINYINT:
-        case Types.SMALLINT:
-        case Types.INTEGER:
-            irv = rs.getInt(i+1);
-            if (rs.wasNull())
-                return new TCIntResult(null);
-            return new TCIntResult(irv);
+            case Types.TINYINT:
+            case Types.SMALLINT:
+            case Types.INTEGER:
+                irv = rs.getInt(i + 1);
+                if (rs.wasNull())
+                    return new TCIntResult(null);
+                return new TCIntResult(irv);
 
-        case Types.BIGINT:
-            lrv = rs.getLong(i+1);
-            if (rs.wasNull())
-                return new TCLongResult(null);
-            return new TCLongResult(lrv);
+            case Types.BIGINT:
+                lrv = rs.getLong(i + 1);
+                if (rs.wasNull())
+                    return new TCLongResult(null);
+                return new TCLongResult(lrv);
 
-        // Booleans in the DB map to OTHER, but this is left in here
-        // for completeness.
-        case Types.BIT:
-            brv = rs.getBoolean(i+1);
-            if (rs.wasNull())
-                return new TCBooleanResult(null);
-            return new TCBooleanResult(brv);
-
-        case Types.FLOAT:
-        case Types.DOUBLE:
-            drv = rs.getDouble(i+1);
-            if (rs.wasNull())
-                return new TCDoubleResult(null);
-            return new TCDoubleResult(drv);
-
-        case Types.DATE:
-            return new TCDateResult(rs.getDate(i+1));
-
-        case Types.TIME:
-            return new TCTimeResult(rs.getTime(i+1));
-
-        case Types.TIMESTAMP:
-            return new TCTimestampResult(rs.getTimestamp(i+1));
-
-        case Types.DECIMAL:
-        case Types.NUMERIC:
-            // Requires some special handling as large numbers might
-            // not fit in a regular int or float value, but it is desirable
-            // to use the int or float types when possible for performance
-            // reasons.
-            int pr = columns[i].getPrecision();
-            if (columns[i].getScale() == 0) {
-                // Integer.  log_10(2^31) = 9.33 while log_10(2^63) = 18.96
-                // Thus, we are guaranteed that 9 digits or less fit into 
-                // a regular int while 18 digits or less fit into a regular long.
-                if (pr <= 9) {
-                    irv = rs.getInt(i+1);
-                    if (rs.wasNull())
-                        return new TCIntResult(null);
-                    return new TCIntResult(irv);
-                } else if (pr <= 18) {
-                    lrv = rs.getLong(i+1);
-                    if (rs.wasNull())
-                        return new TCLongResult(null);
-                    return new TCLongResult(lrv);
-                } else {
-                    // getBigDecimal is broken when called from the EJB.  Possible
-                    // driver issue.  Use getObject() instead
-                    // return new TCBigIntegerResult(rs.getBigDecimal(i+1).toBigInteger());
-                    BigDecimal bd = (BigDecimal) rs.getObject(i+1);
-                    if (bd == null)
-                        return new TCBigIntegerResult(null);
-                    return new TCBigIntegerResult(bd.toBigInteger());
-                }
-            } else {
-                // Decimal.  Single-precision floats have 24 apparent bits of 
-                // precision while double-precision doubles have 53 apparent
-                // bits of precision.  log_10(2^24) = 7.22 while 
-                // log_10(2^53) = 15.95, and thus:
-                if (pr <= 7) {
-                    frv = rs.getFloat(i+1);
-                    if (rs.wasNull())
-                        return new TCFloatResult(null);
-                    return new TCFloatResult(frv);
-                } else if (pr <= 15) {
-                    drv = rs.getDouble(i+1);
-                    if (rs.wasNull())
-                        return new TCDoubleResult(null);
-                    return new TCDoubleResult(drv);
-                } else {
-                    // Avoid broken getBigDecimal method call, as per above
-                    // return new TCBigDecimalResult(rs.getBigDecimal(i+1));
-                    BigDecimal bd = (BigDecimal) rs.getObject(i+1);
-                    return new TCBigDecimalResult(bd);
-                }
-            }
-
-        // BYTE fields in the database map to LONGVARBINARY
-        case Types.LONGVARBINARY:
-            String s = null;
-            try {
-                Object o = DBMS.getBlobObject(rs, i+1);
-                if (o != null)
-                    s = StringUtilities.makePretty(o);
-            } catch (Exception e) {
-                log.error("Exception while retrieving blob object into result set");
-                log.error(e.getMessage());
-            }
-            return new TCStringResult(s);
-
-        // Booleans map to OTHER
-        case Types.OTHER:
-            if (columns[i].getSourceType().equals("boolean")) {
-                boolean rv = rs.getBoolean(i+1);
+                // Booleans in the DB map to OTHER, but this is left in here
+                // for completeness.
+            case Types.BIT:
+                brv = rs.getBoolean(i + 1);
                 if (rs.wasNull())
                     return new TCBooleanResult(null);
-                return new TCBooleanResult(rv);
-            }
-            throw new SQLException("Unsupported data type in ResultSetContainer.getItem()");
+                return new TCBooleanResult(brv);
 
-        default:
-            throw new SQLException("Unsupported data type in ResultSetContainer.getItem()");
+            case Types.FLOAT:
+            case Types.DOUBLE:
+                drv = rs.getDouble(i + 1);
+                if (rs.wasNull())
+                    return new TCDoubleResult(null);
+                return new TCDoubleResult(drv);
+
+            case Types.DATE:
+                return new TCDateResult(rs.getDate(i + 1));
+
+            case Types.TIME:
+                return new TCTimeResult(rs.getTime(i + 1));
+
+            case Types.TIMESTAMP:
+                return new TCTimestampResult(rs.getTimestamp(i + 1));
+
+            case Types.DECIMAL:
+            case Types.NUMERIC:
+                // Requires some special handling as large numbers might
+                // not fit in a regular int or float value, but it is desirable
+                // to use the int or float types when possible for performance
+                // reasons.
+                int pr = columns[i].getPrecision();
+                if (columns[i].getScale() == 0) {
+                    // Integer.  log_10(2^31) = 9.33 while log_10(2^63) = 18.96
+                    // Thus, we are guaranteed that 9 digits or less fit into
+                    // a regular int while 18 digits or less fit into a regular long.
+                    if (pr <= 9) {
+                        irv = rs.getInt(i + 1);
+                        if (rs.wasNull())
+                            return new TCIntResult(null);
+                        return new TCIntResult(irv);
+                    } else if (pr <= 18) {
+                        lrv = rs.getLong(i + 1);
+                        if (rs.wasNull())
+                            return new TCLongResult(null);
+                        return new TCLongResult(lrv);
+                    } else {
+                        // getBigDecimal is broken when called from the EJB.  Possible
+                        // driver issue.  Use getObject() instead
+                        // return new TCBigIntegerResult(rs.getBigDecimal(i+1).toBigInteger());
+                        BigDecimal bd = (BigDecimal) rs.getObject(i + 1);
+                        if (bd == null)
+                            return new TCBigIntegerResult(null);
+                        return new TCBigIntegerResult(bd.toBigInteger());
+                    }
+                } else {
+                    // Decimal.  Single-precision floats have 24 apparent bits of
+                    // precision while double-precision doubles have 53 apparent
+                    // bits of precision.  log_10(2^24) = 7.22 while
+                    // log_10(2^53) = 15.95, and thus:
+                    if (pr <= 7) {
+                        frv = rs.getFloat(i + 1);
+                        if (rs.wasNull())
+                            return new TCFloatResult(null);
+                        return new TCFloatResult(frv);
+                    } else if (pr <= 15) {
+                        drv = rs.getDouble(i + 1);
+                        if (rs.wasNull())
+                            return new TCDoubleResult(null);
+                        return new TCDoubleResult(drv);
+                    } else {
+                        // Avoid broken getBigDecimal method call, as per above
+                        // return new TCBigDecimalResult(rs.getBigDecimal(i+1));
+                        BigDecimal bd = (BigDecimal) rs.getObject(i + 1);
+                        return new TCBigDecimalResult(bd);
+                    }
+                }
+
+                // BYTE fields in the database map to LONGVARBINARY
+            case Types.LONGVARBINARY:
+                String s = null;
+                try {
+                    Object o = DBMS.getBlobObject(rs, i + 1);
+                    if (o != null)
+                        s = StringUtilities.makePretty(o);
+                } catch (Exception e) {
+                    log.error("Exception while retrieving blob object into result set");
+                    log.error(e.getMessage());
+                }
+                return new TCStringResult(s);
+
+                // Booleans map to OTHER
+            case Types.OTHER:
+                if (columns[i].getSourceType().equals("boolean")) {
+                    boolean rv = rs.getBoolean(i + 1);
+                    if (rs.wasNull())
+                        return new TCBooleanResult(null);
+                    return new TCBooleanResult(rv);
+                }
+                throw new SQLException("Unsupported data type in ResultSetContainer.getItem()");
+
+            default:
+                throw new SQLException("Unsupported data type in ResultSetContainer.getItem()");
 
         } // end switch statement
     }
@@ -503,7 +504,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     // Data addition routine, called from constructor only.
     private void addRow(ResultSet rs) throws Exception {
         TCResultItem ri[] = new TCResultItem[columns.length];
-        for (int i=0; i<columns.length; i++)
+        for (int i = 0; i < columns.length; i++)
             ri[i] = getItem(rs, i);
         data.add(new ResultSetRow(ri));
     }
@@ -511,7 +512,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     // Data addition routine, called from constructor only.
     private void addRowWithNulls(ResultSet rs) throws Exception {
         TCResultItem ri[] = new TCResultItem[columns.length];
-        for (int i=0; i<columns.length; i++)
+        for (int i = 0; i < columns.length; i++)
             ri[i] = getItemWithNulls(rs, i);
         data.add(new ResultSetRow(ri));
     }
@@ -519,38 +520,38 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     // Data addition routine, called from constructor only.
     private void addRanklistRow(ResultSet rs, int rank) throws Exception {
         TCResultItem ri[] = new TCResultItem[columns.length];
-        for (int i=0; i<columns.length-1; i++)
+        for (int i = 0; i < columns.length - 1; i++)
             ri[i] = getItem(rs, i);
-        ri[columns.length-1] = new TCIntResult(rank);
+        ri[columns.length - 1] = new TCIntResult(rank);
         data.add(new ResultSetRow(ri));
     }
-    
+
     // Metadata construction routine, called from constructor only.
     private void initializeMetaData(ResultSet rs) throws SQLException {
         ResultSetMetaData rsmd = rs.getMetaData();
         columns = new ResultColumn[rsmd.getColumnCount()];
-        for (int i=1; i<=columns.length; i++) {
-            int precision=0, scale=0, colType = rsmd.getColumnType(i);
+        for (int i = 1; i <= columns.length; i++) {
+            int precision = 0, scale = 0, colType = rsmd.getColumnType(i);
             String colName = rsmd.getColumnName(i);
             String colSourceType = rsmd.getColumnTypeName(i);
-            
+
             if (colType == Types.DECIMAL || colType == Types.NUMERIC) {
                 precision = rsmd.getPrecision(i);
                 scale = rsmd.getScale(i);
             } else if (colType == Types.FLOAT) {
                 precision = rsmd.getPrecision(i);
             }
-            
-            columns[i-1] = new ResultColumn(colType, colName, precision, scale, colSourceType);
+
+            columns[i - 1] = new ResultColumn(colType, colName, precision, scale, colSourceType);
             // Unlike ResultSets, column indices are zero-based.
-            columnNameMap.put(colName, new Integer(i-1));
+            columnNameMap.put(colName, new Integer(i - 1));
         }
     }
 
     /********************************************************************/
     // Inner class section
     /********************************************************************/
-    
+
     // This class is used for comparison purposes; it is called by the
     // sortByColumn() function
     private class DataRowComparator implements Comparator {
@@ -575,7 +576,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
                 return -ri1.compareTo(ri2);
         }
     }
-        
+
     /**
      * This class implements a read-only list iterator.  This is required
      * as <tt>ResultSetContainer</tt> implements the <tt>List<tt> interface.
@@ -676,9 +677,9 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
          * @return  The index of the previous item in the list.
          */
         public int previousIndex() {
-            return nextIndex-1;
+            return nextIndex - 1;
         }
-    
+
         public void remove() {
             throw new UnsupportedOperationException();
         }
@@ -694,18 +695,18 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      */
     public class ResultSetRow implements Cloneable, Serializable {
         private TCResultItem[] mtcItems;
-                
+
         /**
          * Constructor to initialize the row data container
          *
          * @param tcri Contains an array of data elements which
-         * together comprise the row.  Each element should be an 
+         * together comprise the row.  Each element should be an
          * instance of a subclass of <tt>TCResultItem</tt>.
          */
         public ResultSetRow(TCResultItem tcri[]) {
             mtcItems = tcri;
         }
-                
+
         /**
          * Returns the item at the specified index, or throws an exception
          * if the index is out of range.
@@ -719,8 +720,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
                 throw new IllegalArgumentException("Index " + iIndex + " out of range");
             return mtcItems[iIndex];
         }
-                
-                
+
+
         /**
          * Returns the item at the specified column name, or null if
          * the column name is invalid.
@@ -735,7 +736,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             int iCol = getColumnIndex(sCol);
             return mtcItems[iCol];
         }
-                
+
         /**
          * This method creates a cloned copy of this row.
          *
@@ -747,36 +748,36 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
                 rsr.mtcItems = new TCResultItem[this.mtcItems.length];
                 System.arraycopy(mtcItems, 0, rsr.mtcItems, 0, mtcItems.length);
                 return rsr;
-            } catch(CloneNotSupportedException cnse) {
+            } catch (CloneNotSupportedException cnse) {
                 //Should never get here because we implement Cloneable
                 return null;
             }
         }
-                
+
         /**
-         * ResultSetContainer.ResultSetRow implementation of toString.  
+         * ResultSetContainer.ResultSetRow implementation of toString.
          * This method will output all data, separated by \t
          *
          * @return	The row data in string form.
          */
         public String toString() {
             StringBuffer sbReturn = new StringBuffer();
-            for (int i=0;i<mtcItems.length;i++) {
+            for (int i = 0; i < mtcItems.length; i++) {
                 sbReturn.append(mtcItems[i].toString()).append("\t");
             }
             sbReturn.setLength(sbReturn.length() - 1);
             return sbReturn.toString();
-        }	
+        }
     }
-    
+
     /**********************************************************************/
     // List interface implementation section
     /**********************************************************************/
-    
+
     // These functions mostly just pass along the request to the data object.
     // Note that mutator functions are not supported.  This is deliberate:
     // no modifications should be made after the container is built.
-    
+
     /**
      * Unsupported mutator function - throws an <tt>UnsupportedOperationException</tt>
      */
@@ -818,7 +819,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param   o  Element to be checked for containment in this collection.
      * @return  true iff this collection contains the element specified
      */
-    public boolean contains(Object o){
+    public boolean contains(Object o) {
         return data.contains(o);
     }
 
@@ -828,7 +829,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param   c  Elements to be checked for containment in this collection.
      * @return  true iff this collection contains all of the elements in the specified collection
      */
-    public boolean containsAll(Collection c){
+    public boolean containsAll(Collection c) {
         return data.containsAll(c);
     }
 
@@ -840,9 +841,9 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @throws IndexOutOfBoundsException if the specified index is out of
      *		  range (<tt>index &lt; 0 || index &gt; size()</tt>).
      */
-     public Object get(int index){
-         return data.get(index);
-     }
+    public Object get(int index) {
+        return data.get(index);
+    }
 
     /**
      * Returns the index in this list of the first occurence of the specified
@@ -861,8 +862,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      *
      * @return  Whether or not this collection contains elements.
      */
-    public boolean isEmpty(){
-	return data.isEmpty();
+    public boolean isEmpty() {
+        return data.isEmpty();
     }
 
     /**
@@ -870,10 +871,10 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      *
      * @return  A data iterator starting at the first element in the list.
      */
-    public Iterator iterator(){
+    public Iterator iterator() {
         return data.iterator();
     }
-	 
+
     /**
      * Returns the index in this list of the last occurence of the specified
      * element, or -1 if the list does not contain this element.
@@ -885,16 +886,16 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     public int lastIndexOf(Object o) {
         return data.lastIndexOf(o);
     }
-	
+
     /**
      * Returns a read-only iterator of the elements in this list (in proper sequence).
      *
      * @return A read-only iterator of the elements in this list (in proper sequence).
      */
     public ListIterator listIterator() {
-	return new ReadOnlyListIterator();
-    }     
-	 
+        return new ReadOnlyListIterator();
+    }
+
     /**
      * Returns a list iterator of the elements in this list (in proper
      * sequence), starting at the specified position in the list.
@@ -908,7 +909,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      */
     public ListIterator listIterator(final int index) {
         return new ReadOnlyListIterator(index);
-    } 
+    }
 
     /**
      * Unsupported mutator function - throws an <tt>UnsupportedOperationException</tt>
@@ -951,12 +952,12 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return  The number of items in the list.
      */
     public int size() {
-	return data.size();
+        return data.size();
     }
-	
+
     /**
-     * Returns a view of the portion of this list between the specified fromIndex, inclusive, 
-     * and toIndex, exclusive.  This method behaves much like a shallow clone, in that all 
+     * Returns a view of the portion of this list between the specified fromIndex, inclusive,
+     * and toIndex, exclusive.  This method behaves much like a shallow clone, in that all
      * properties of this instance are backed by this instance.
      *
      * @param   fromIndex Low endpoint (inclusive) of the subList.
@@ -964,18 +965,18 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return  List    a view of the specified range within this list.
      * @throws  IllegalArgumentException If fromIndex > toIndex
      */
-    public List subList(int fromIndex, int toIndex){
-	if (fromIndex < 0){
-	    fromIndex = 0;
-	}		
-	if (toIndex > data.size()){
-	    toIndex = data.size();
-	}
-	ResultSetContainer rsc = new ResultSetContainer();
-	rsc.columns = this.columns;
-	rsc.columnNameMap = this.columnNameMap;
-	rsc.data = new ArrayList(this.data.subList(fromIndex, toIndex));
-	return rsc;
+    public List subList(int fromIndex, int toIndex) {
+        if (fromIndex < 0) {
+            fromIndex = 0;
+        }
+        if (toIndex > data.size()) {
+            toIndex = data.size();
+        }
+        ResultSetContainer rsc = new ResultSetContainer();
+        rsc.columns = this.columns;
+        rsc.columnNameMap = this.columnNameMap;
+        rsc.data = new ArrayList(this.data.subList(fromIndex, toIndex));
+        return rsc;
     }
 
     /**
@@ -983,8 +984,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      *
      * @return  Array of row data
      */
-    public Object[] toArray(){
-	return data.toArray();
+    public Object[] toArray() {
+        return data.toArray();
     }
 
     /**
@@ -993,18 +994,18 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param   a Runtime type of the return array will be that of the specified array
      * @return  Array of row data
      */
-    public Object[] toArray(Object[] a){
-	return data.toArray(a);
+    public Object[] toArray(Object[] a) {
+        return data.toArray(a);
     }
 
     /**************************************************************************/
     // Data access routine section
     /**************************************************************************/
-    
+
     /**
      * Returns true iff this <tt>ResultSetContainer</tt> was built with
      * a end row specification that was less than the number of data rows
-     * in the <tt>ResultSet</tt>, meaning that there existed later rows of 
+     * in the <tt>ResultSet</tt>, meaning that there existed later rows of
      * data which were not placed in the container.
      *
      * @return See above.
@@ -1033,7 +1034,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     public ResultColumn[] getColumns() {
         return columns;
     }
-	
+
     /**
      * Returns the column information for the data in this container.
      *
@@ -1052,8 +1053,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return The corresponding column index
      */
     public int getColumnIndex(String name) {
-	Integer i = ((Integer)columnNameMap.get(name));
-        if (i==null)
+        Integer i = ((Integer) columnNameMap.get(name));
+        if (i == null)
             return -1;
         else
             return i.intValue();
@@ -1081,9 +1082,9 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return  String  The column name
      */
     public String getColumnName(int i) {
-	return columns[i].getName();  
+        return columns[i].getName();
     }
-	
+
     /**
      * Returns the item at the specified location
      *
@@ -1102,9 +1103,9 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param String The column name from which to retrieve the item
      * @return  The specified item
      */
-    public TCResultItem getItem(int iRow, String sCol){
+    public TCResultItem getItem(int iRow, String sCol) {
         int iCol = getColumnIndex(sCol);
-	return this.getItem(iRow,iCol);
+        return this.getItem(iRow, iCol);
     }
 
     /**
@@ -1113,8 +1114,8 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param iRow Row index
      * @return  The <tt>ResultSetContainer.ResultSetRow</tt> instance at this location
      */
-    public ResultSetRow getRow(int iRow){
-	return (ResultSetRow) data.get(iRow);
+    public ResultSetRow getRow(int iRow) {
+        return (ResultSetRow) data.get(iRow);
     }
 
     /**
@@ -1125,7 +1126,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     public int getRowCount() {
         return data.size();
     }
-    
+
     /**************************************************************************/
     // Utility routine section
     /**************************************************************************/
@@ -1134,17 +1135,17 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      *
      * @return	A cloned ResultSetContainer instance.
      */
-    public Object clone() {	
+    public Object clone() {
         ResultSetContainer rsc = new ResultSetContainer();
-	rsc.columns = new ResultColumn[columns.length];
-	System.arraycopy(columns, 0, rsc.columns, 0, columns.length);
-	Iterator it = this.iterator();
-	ResultSetRow rsr;
-	while (it.hasNext()) {
-	    rsr = (ResultSetRow) it.next();
-	    rsc.data.add(rsr.clone());
-	}
-	return rsc;
+        rsc.columns = new ResultColumn[columns.length];
+        System.arraycopy(columns, 0, rsc.columns, 0, columns.length);
+        Iterator it = this.iterator();
+        ResultSetRow rsr;
+        while (it.hasNext()) {
+            rsr = (ResultSetRow) it.next();
+            rsc.data.add(rsr.clone());
+        }
+        return rsc;
     }
 
     /**
@@ -1163,10 +1164,10 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @param name The column name accessed
      * @return True iff the column name is valid.
      */
-    public boolean isValidColumn(String name){
+    public boolean isValidColumn(String name) {
         return columnNameMap.containsKey(name);
     }
-	
+
     /**
      * Validates that the row specified is valid
      *
@@ -1174,7 +1175,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return  True iff the row index is valid.
      */
     public boolean isValidRow(int i) {
-	return (i >= 0 && i < data.size());
+        return (i >= 0 && i < data.size());
     }
 
     /**
@@ -1189,25 +1190,25 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     }
 
     /**
-     * ResultSetContainer implementation of toString.  
+     * ResultSetContainer implementation of toString.
      * This method will output all columns and data, rows separated by \n, columns separated by \t
      *
      * @return	The columns and data, in string form.
      */
     public String toString() {
-	StringBuffer sbReturn = new StringBuffer();
-	Iterator it;
-	for (int i=0;i<this.getColumnCount();i++) {
-	    sbReturn.append(this.getColumnName(i)).append("\t");
-	}
-	sbReturn.setLength(sbReturn.length() - 1);
-	sbReturn.append("\n");
-	it = data.iterator();
-	while (it.hasNext()) {
-	    sbReturn.append(it.next().toString()).append("\n");
-	}
-	sbReturn.setLength(sbReturn.length() - 1);
-	return sbReturn.toString();
-    }	
+        StringBuffer sbReturn = new StringBuffer();
+        Iterator it;
+        for (int i = 0; i < this.getColumnCount(); i++) {
+            sbReturn.append(this.getColumnName(i)).append("\t");
+        }
+        sbReturn.setLength(sbReturn.length() - 1);
+        sbReturn.append("\n");
+        it = data.iterator();
+        while (it.hasNext()) {
+            sbReturn.append(it.next().toString()).append("\n");
+        }
+        sbReturn.setLength(sbReturn.length() - 1);
+        return sbReturn.toString();
+    }
 }
 

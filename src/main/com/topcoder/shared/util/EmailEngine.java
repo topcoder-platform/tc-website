@@ -1,20 +1,21 @@
 package com.topcoder.shared.util;
 
-import java.util.*;
-import java.net.*;
-import java.lang.*;
-import java.io.*;
-import javax.mail.*;
-import javax.mail.internet.*;
 import com.topcoder.shared.util.logging.Logger;
+
+import javax.mail.*;
+import javax.mail.internet.MimeMessage;
+import java.util.*;
 
 /**
  * The EmailEngine is responsible for sending email.
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/07/12 17:15:47  gpaul
+ *           merged baby
+ *
  *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
  *           switched to use com.topcoder.shared.util.logging.Logger
  *
@@ -43,22 +44,32 @@ import com.topcoder.shared.util.logging.Logger;
  */
 public class EmailEngine {
 
+    /**
+     *
+     */
     public static final String SMTP_HOST_TYPE = "smtp";
+    /**
+     *
+     */
     public static final String SMTP_HOST_ADDR = "172.16.20.41";
+    /**
+     *
+     */
     public static final int SMTP_HOST_PORT = 25;
 
     private static Logger log = Logger.getLogger(EmailEngine.class);
-    
- /**
-  * Send an email message.
-  *
-  * The email message must contain at least one primary address.
-  *
-  * @throws     Exception - if the message does not have a primary address.
-  * @throws     Exception - if the a SMTP server can not be contacted.
-  * @throws     Exception - if the SMPT server rejects the message.
-  * @return     none
-  */
+
+    /**
+     * Send an email message.
+     *
+     * The email message must contain at least one primary address.
+     *
+     * @throws     Exception - if the message does not have a primary address.
+     * @throws     Exception - if the a SMTP server can not be contacted.
+     * @throws     Exception - if the SMPT server rejects the message.
+     * @param message
+     * @throws Exception
+     */
     public static void send(TCSEmailMessage message) throws Exception {
         Address from = message.getFromAddress();
         Address to[] = message.getToAddress(TCSEmailMessage.TO);
@@ -68,10 +79,10 @@ public class EmailEngine {
         String data = message.getBody();
         String host = SMTP_HOST_ADDR;
         int port = SMTP_HOST_PORT;
-        
+
         if (to.length < 1)
             throw new Exception("There must be at least one TO: address");
-        
+
         try {
             ResourceBundle resource = ResourceBundle.getBundle("EmailEngineConfig");
             host = resource.getString("smtp_host_addr");
@@ -80,25 +91,33 @@ public class EmailEngine {
             log.warn("Failed to read/parse the 'EmailEngineConfig' resource file: " + e.getMessage());
             // ignore it and use the defaults.
         }
-        
+
         try {
-            send(host, port, 
-                from, to, cc, bcc, subject, data);
+            send(host, port,
+                    from, to, cc, bcc, subject, data);
         } catch (SendFailedException e) {
             throw new Exception("One or more addresses were not accepted.");
         }
     }
-    
- /**
-  * This function actually contacts a SMTP server and transmits the 
-  * message.
-  *
-  * @return     a list of addresses that the SMTP server didn't accept.
-  */
+
+    /**
+     * This function actually contacts a SMTP server and transmits the
+     * message.
+     * @param host
+     * @param port
+     * @param from
+     * @param to
+     * @param cc
+     * @param bcc
+     * @param subject
+     * @param data
+     * @throws SendFailedException
+     * @throws Exception
+     */
     private static void send(String host, int port,
-            Address from, Address [] to, Address [] cc, Address [] bcc,
-            String subject, String data) throws SendFailedException, Exception {
-        Address [] ret = new Address[0];
+                             Address from, Address[] to, Address[] cc, Address[] bcc,
+                             String subject, String data) throws SendFailedException, Exception {
+        Address[] ret = new Address[0];
         javax.mail.Session eMailSession = null;
         Transport eMailTransport = null;
         javax.mail.Message eMailMessage = null;
@@ -132,9 +151,9 @@ public class EmailEngine {
             throw new Exception("Possible configuration error. SMTP server is not responding.");
         } finally {
             if (eMailTransport != null) {
-                try {  
+                try {
                     eMailTransport.close();
-                } catch ( Exception ignore ) {
+                } catch (Exception ignore) {
                 }
             }
         }

@@ -1,15 +1,12 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.email.bean.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.email.bean.StatisticsUtilities;
+
+import javax.servlet.ServletException;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.BodyTagSupport;
+import java.io.IOException;
 
 /**
  * Custom tag to retrieve the name of a stats query, given its id
@@ -20,15 +17,13 @@ import com.topcoder.shared.util.logging.Logger;
  */
 
 public class CommandNameTag
-    extends BodyTagSupport
-{
+        extends BodyTagSupport {
     private static Logger log = Logger.getLogger(CommandNameTag.class);
 
     // the list id
     protected int commandId;
 
-    public void setCommandId(String commandId)
-    {
+    public void setCommandId(String commandId) {
         try {
             this.commandId = Integer.parseInt(commandId);
         } catch (NumberFormatException e) {
@@ -38,14 +33,12 @@ public class CommandNameTag
 
 
     public int doStartTag()
-        throws JspException
-    {
+            throws JspException {
         return EVAL_BODY_TAG;
     }
 
     public void doInitBody()
-        throws JspException
-    {
+            throws JspException {
         try {
             String name = StatisticsUtilities.getCommandName(commandId);
 
@@ -56,8 +49,7 @@ public class CommandNameTag
     }
 
     public int doAfterBody()
-        throws JspException
-    {
+            throws JspException {
         try {
             if (bodyContent != null) {
                 bodyContent.writeOut(getPreviousOut());

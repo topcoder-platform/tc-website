@@ -7,25 +7,31 @@ package com.topcoder.shared.docGen.xml.xsl;
  * xsl file.  With 1.4 this can be fixed, but we'll have to wait.
  *
  * @author    James Lee (jameslee@cs.stanford.edu)
- * @version    1.0
+ * @version  $Revision$
  *
  */
-
 public class XSLTransformerWrapperException
-    extends Exception
-{
-    public XSLTransformerWrapperException()
-    {
+        extends Exception {
+    /**
+     *
+     */
+    public XSLTransformerWrapperException() {
         super();
     }
 
-    public XSLTransformerWrapperException(String message)
-    {
+    /**
+     *
+     * @param message
+     */
+    public XSLTransformerWrapperException(String message) {
         super(message);
     }
 
-    public XSLTransformerWrapperException(Throwable t)
-    {
+    /**
+     *
+     * @param t
+     */
+    public XSLTransformerWrapperException(Throwable t) {
         super(t.getMessage());
     }
 }

@@ -1,15 +1,10 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.email.bean.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.email.bean.AddressListTask;
+
+import javax.servlet.ServletException;
+import javax.servlet.jsp.JspException;
 
 /**
  * Custom tag to iterate through all the member id's
@@ -22,24 +17,21 @@ import com.topcoder.shared.util.logging.Logger;
 
 
 public class MemberIDIteratorTag
-    extends IteratorTag
-{
+        extends IteratorTag {
     private static Logger log = Logger.getLogger(MemberIDIteratorTag.class);
-    
+
     // id of address list
     protected int addressListID;
 
-    public void setAddressListID(String addressListID)
-    {
+    public void setAddressListID(String addressListID) {
         try {
             this.addressListID = Integer.parseInt(addressListID);
         } catch (NumberFormatException e) {
-            this.addressListID = -1;    
+            this.addressListID = -1;
         }
     }
 
-    Object getElementAt(int index)
-    {
+    Object getElementAt(int index) {
         Object element = super.getElementAt(index);
         if (element != null) {
             return String.valueOf(element);
@@ -49,8 +41,7 @@ public class MemberIDIteratorTag
     }
 
     public int doStartTag()
-        throws JspException
-    {
+            throws JspException {
         try {
             setCollection(AddressListTask.getMemberIds(addressListID));
         } catch (ServletException e) {

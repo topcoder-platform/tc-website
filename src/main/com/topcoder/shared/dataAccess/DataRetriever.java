@@ -1,23 +1,66 @@
 package com.topcoder.shared.dataAccess;
 
-import java.util.*;
-import java.math.*;
-import java.rmi.*;
-import java.sql.*;
-import java.text.*;
-import javax.sql.DataSource;
-import javax.naming.Context;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.util.TCResourceBundle;
 
-/** 
- * 
- * The class which handles the retrieving of data.
+import javax.naming.Context;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.*;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+/**
  *
+ * Retrieves data from the database.<p>
+ *
+ * Rerieval involves the following tables:
+ * <ul>
+ * <li><strong>data_type_lu</strong> - holds information about data types, like String, Date, Decimal etc.</li>
+ * <li><strong>command</strong> - a command maps a single request to a number of different queries.</li>
+ * <li><strong>command_query_xref</strong> - the actual mapping between a command and n queries.</li>
+ * <li><strong>input_lu</strong> - holds the inputs for the various queries.</li>
+ * <li><strong>query_input_xref</strong> - the mapping between a query and n inputs.</li>
+ * <li><strong>query</strong> - the actual query.</li><p>
+ * </ul>
+ *
+ * Example:
+ * <pre>SELECT c.handle, r.rating
+ *   FROM coder c, rating r
+ *  WHERE c.coder_id = r.coder_id
+ *    AND r.rating @gt; @ra@</pre><p>
+ *
+ * This query gives us a list of handles and ratings where the rating is greater than
+ * the input "ra".  We would follow the following steps to set this up in the database.
+ * <ul>
+ *   <li>
+ *     Insert the query into the query table. {@link com.topcoder.utilities.QueryLoader} can be
+ *     used for this purpose.
+ *     <pre>com.topcoder.utilities.QueryLoader "DW" 50 "Query_Metadata" 0 0 "
+ *     SELECT c.handle, r.rating
+ *       FROM coder c, rating r
+ *      WHERE c.coder_id = r.coder_id
+ *        AND r.rating @gt; @ra@"</pre>
+ *   </li>
+ *   <li>Insert into the input_lu table.
+ *     <pre>
+ *       INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc)
+ *       VALUES (20, "ra", 1001, "Rating");
+ *     </pre>
+ *   </li>
+ *   <li>Insert into the command table.</li>
+ * </ul>
+ *
+ *
+ * @author  Dave Pecora
+ * @see     ResultSetContainer*
  * @version $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/07/12 17:15:46  gpaul
+ *           merged baby
+ *
  *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
  *           switched to use com.topcoder.shared.util.logging.Logger
  *
@@ -108,8 +151,6 @@ import com.topcoder.shared.util.TCResourceBundle;
  *           Revision 1.3  2002/02/06 04:19:53  tbone
  *           made a change to the interfacing, making implementation a runtime choice
  *
- * @author  Dave Pecora
- * @see     ResultSetContainer
  */
 
 public class DataRetriever implements DataRetrieverInt {
@@ -120,25 +161,30 @@ public class DataRetriever implements DataRetrieverInt {
     private StringBuffer query;
     private TCResourceBundle dataBundle = new TCResourceBundle("DataAccess");
 
+    /**
+     * Constructor that takes a connection object.
+     * @param conn
+     */
     public DataRetriever(Connection conn) {
-      this.conn = conn;
+        this.conn = conn;
     }
 
     private void closeObject(Object o) {
-        if (o == null) 
+        if (o == null)
             return;
         try {
             if (o instanceof ResultSet)
-                ((ResultSet)o).close();
+                ((ResultSet) o).close();
             else if (o instanceof PreparedStatement)
-                ((PreparedStatement)o).close();
+                ((PreparedStatement) o).close();
             else if (o instanceof Connection)
-                ((Connection)o).close();
+                ((Connection) o).close();
         } catch (Exception e) {
             try {
-                System.out.println( "Statistics EJB:  Error closing " + o.getClass());
-                System.out.println( e.getMessage());
-            } catch (Exception ex) {}
+                System.out.println("Statistics EJB:  Error closing " + o.getClass());
+                System.out.println(e.getMessage());
+            } catch (Exception ex) {
+            }
         }
     }
 
@@ -153,30 +199,34 @@ public class DataRetriever implements DataRetrieverInt {
 
     private void handleException(Exception e, String lastQuery, Map inputs) {
         try {
-            System.out.println( "Statistics EJB: Exception caught: " + e.toString());
-            System.out.println( "The last query run was: ");
-            System.out.println( lastQuery);
-            System.out.println( "Function inputs were: ");
+            System.out.println("Statistics EJB: Exception caught: " + e.toString());
+            System.out.println("The last query run was: ");
+            System.out.println(lastQuery);
+            System.out.println("Function inputs were: ");
             Iterator i = inputs.keySet().iterator();
             while (i.hasNext()) {
-                String key = (String)i.next();
-                String value = (String)inputs.get(key);
-                System.out.println( "Input code: " + key + " --- Input value: " + value);
+                String key = (String) i.next();
+                String value = (String) inputs.get(key);
+                System.out.println("Input code: " + key + " --- Input value: " + value);
             }
-            System.out.println( "Exception details:");
+            System.out.println("Exception details:");
             if (e instanceof SQLException)
-                DBMS.printSqlException(true, (SQLException)e);
+                DBMS.printSqlException(true, (SQLException) e);
             else
                 e.printStackTrace();
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+        }
         closeConnections();
     }
 
     /**
      * In addition to checking correctness of the input, we're also preventing
-     * a clever user who knows how this system works from embedding SQL in the 
-     * input.  If we ever need to add string input support at a later time, this
+     * a clever user who knows how this system works from embedding SQL in the
+     * input.  TODO If we ever need to add string input support at a later time, this
      * should be explicitly checked for.
+     * @param input
+     * @param dataType
+     * @return true if the input is valid, false if not
      */
     private boolean validateInput(String input, int dataType) {
         if (dataType == dataBundle.getIntProperty("INTEGER_INPUT", 1001)) {
@@ -214,10 +264,10 @@ public class DataRetriever implements DataRetrieverInt {
         } else if (dataType == dataBundle.getIntProperty("STRING_INPUT", 1005)) {
             try {
                 // Check position of reserved characters
-                int inputDelimiterPos = input.indexOf ( dataBundle.getProperty("INPUT_DELIMITER", "@") );
-                int defaultMarkerPos = input.indexOf ( dataBundle.getProperty("SPECIAL_DEFAULT_MARKER", "$") );
+                int inputDelimiterPos = input.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"));
+                int defaultMarkerPos = input.indexOf(dataBundle.getProperty("SPECIAL_DEFAULT_MARKER", "$"));
                 // Check for the presence of unwanted stuff
-                if ( inputDelimiterPos > -1 || defaultMarkerPos > -1 )
+                if (inputDelimiterPos > -1 || defaultMarkerPos > -1)
                     return false;
 
                 // Passed checks OK
@@ -229,15 +279,15 @@ public class DataRetriever implements DataRetrieverInt {
             String s = input.trim().toUpperCase();
             return (s.equals("ASC") || s.equals("DESC"));
         }
-        
+
         // Unknown input type!
         return false;
     }
 
     private String runDefaultInputQuery(String defaultQueryId, Map inputs) throws Exception {
-        // Before running, check to see if this special query has already been 
+        // Before running, check to see if this special query has already been
         // run this time around.
-        String input = (String)inputs.get(defaultQueryId);
+        String input = (String) inputs.get(defaultQueryId);
         if (input != null)
             return input;
 
@@ -262,16 +312,16 @@ public class DataRetriever implements DataRetrieverInt {
         // It is assumed that inputs have already passed validation in executeCommand(),
         // which should be the case if the input resolution order is specified properly in
         // query_input_xref.
-        while ((i=specialQuery.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"))) >= 0) {
-            j=specialQuery.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"), i+1);
-            if (j<0)
+        while ((i = specialQuery.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"))) >= 0) {
+            j = specialQuery.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"), i + 1);
+            if (j < 0)
                 throw new Exception("Unterminated input in default input query " + defaultQueryId);
-            String inputCode = specialQuery.substring(i+1, j);
-            String inputValue = (String)inputs.get(inputCode);
+            String inputCode = specialQuery.substring(i + 1, j);
+            String inputValue = (String) inputs.get(inputCode);
             if (inputValue == null)
-                throw new Exception("Missing required input " + inputCode + 
-                                          " for default input query " + defaultQueryId);
-            String oldStr = specialQuery.substring(i, j+1);
+                throw new Exception("Missing required input " + inputCode +
+                        " for default input query " + defaultQueryId);
+            String oldStr = specialQuery.substring(i, j + 1);
             specialQuery = StringUtilities.replace(specialQuery, oldStr, inputValue);
         }
 
@@ -280,8 +330,8 @@ public class DataRetriever implements DataRetrieverInt {
         ps = conn.prepareStatement(specialQuery);
         rs = ps.executeQuery();
         if (!rs.next())
-            throw new Exception("Default input query " + defaultQueryId + 
-                                      " did not return a value");
+            throw new Exception("Default input query " + defaultQueryId +
+                    " did not return a value");
         input = rs.getString(1);
         rs.close();
         rs = null;
@@ -292,15 +342,15 @@ public class DataRetriever implements DataRetrieverInt {
         // some problem with the DW data or the default input
         // query.
         if (input == null)
-            throw new Exception("Default input query " + defaultQueryId + 
-                                      " did not return a value");
+            throw new Exception("Default input query " + defaultQueryId +
+                    " did not return a value");
 
         // Save this result to avoid query rerunning
         inputs.put(defaultQueryId, input);
         return input;
     }
 
-    /** 
+    /**
      * The function which does the actual retrieval of statistics data.  Returns a
      * <tt>Map</tt> in which each key is a <tt>String</tt> representing
      * a query name, and each value is a <tt>ResultSetContainer</tt> containing the
@@ -320,7 +370,7 @@ public class DataRetriever implements DataRetrieverInt {
         String commandDesc = (String) inputs.get(dataBundle.getProperty("COMMAND", "c"));
         if (commandDesc == null)
             throw new Exception("Missing command description");
-        
+
         int i, rowcount;
         query = null;
         ArrayList qid;
@@ -365,10 +415,10 @@ public class DataRetriever implements DataRetrieverInt {
             ps.close();
             ps = null;
             queryIdList = new int[rowcount];
-            for (i=0; i<rowcount; i++) {
-                queryIdList[i] = ((Integer)qid.get(i)).intValue();
+            for (i = 0; i < rowcount; i++) {
+                queryIdList[i] = ((Integer) qid.get(i)).intValue();
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             handleException(e, query.toString(), inputs);
             throw new Exception("Invalid command: " + commandDesc);
         }
@@ -376,8 +426,8 @@ public class DataRetriever implements DataRetrieverInt {
         // Now get the inputs of the queries
         try {
             if (queryIdList.length == 0) {
-                throw new Exception("Query information for command " + commandDesc + 
-                                          " missing from DB");
+                throw new Exception("Query information for command " + commandDesc +
+                        " missing from DB");
             }
             queryStartRow = new HashMap();
             queryEndRow = new HashMap();
@@ -402,7 +452,7 @@ public class DataRetriever implements DataRetrieverInt {
 
             // Put these in a result set container to avoid requiring the
             // connection to have two open prepared statements at the same
-            // time.  
+            // time.
             ResultSetContainer rsc = new ResultSetContainer(rs);
 
             rs.close();
@@ -411,13 +461,13 @@ public class DataRetriever implements DataRetrieverInt {
             ps = null;
             rowcount = rsc.getRowCount();
 
-            for (i=0; i<rowcount; i++) {
-                String inputCode = rsc.getItem(i,0).toString();
-                String optional = rsc.getItem(i,1).toString();
-                int dataType = Integer.parseInt(rsc.getItem(i,2).toString());
-                String defaultValue = rsc.getItem(i,3).toString();
-                Integer tempId = new Integer(rsc.getItem(i,4).toString());
-                String input = (String)inputs.get(inputCode);
+            for (i = 0; i < rowcount; i++) {
+                String inputCode = rsc.getItem(i, 0).toString();
+                String optional = rsc.getItem(i, 1).toString();
+                int dataType = Integer.parseInt(rsc.getItem(i, 2).toString());
+                String defaultValue = rsc.getItem(i, 3).toString();
+                Integer tempId = new Integer(rsc.getItem(i, 4).toString());
+                String input = (String) inputs.get(inputCode);
 
                 if (input == null) {
                     if (!optional.equals("Y")) {
@@ -441,24 +491,24 @@ public class DataRetriever implements DataRetrieverInt {
                 input = input.trim();
 
                 if (!validateInput(input, dataType))
-                    throw new Exception("Invalid data for input " + inputCode +": " + input);
-                
+                    throw new Exception("Invalid data for input " + inputCode + ": " + input);
+
                 if (inputCode.equals(dataBundle.getProperty("START_RANK", "sr"))) {
                     queryStartRow.put(tempId, new Integer(input));
                     continue;
                 } else if (inputCode.equals(dataBundle.getProperty("END_RANK", "er")) ||
-                           inputCode.equals(dataBundle.getProperty("NUMBER_RECORDS", "nr"))) {
+                        inputCode.equals(dataBundle.getProperty("NUMBER_RECORDS", "nr"))) {
                     queryEndRow.put(tempId, new Integer(input));
                     continue;
-                } 
-                
+                }
+
                 // Sort columns represent user-requested sorts on a particular
                 // column.  They can be used in two different ways:  to
                 // instruct the database to do a sort on a column via an
                 // ORDER BY @sc@ clause, or to instruct the EJB to do the
                 // sort on the ResultSetContainer after the data has been
                 // retrieved.  Both must be supported because sometimes you
-                // want to do a sort by a column before choosing a part 
+                // want to do a sort by a column before choosing a part
                 // of the data to display (as with earnings history when sorting
                 // by amount of money paid) while other times you want to choose
                 // a part of the data to display before doing a sort (as with
@@ -476,34 +526,34 @@ public class DataRetriever implements DataRetrieverInt {
                     input = new String("" + colValue);
                 }
 
-                String old = dataBundle.getProperty("INPUT_DELIMITER", "@") + inputCode + 
-                    dataBundle.getProperty("INPUT_DELIMITER", "@");
+                String old = dataBundle.getProperty("INPUT_DELIMITER", "@") + inputCode +
+                        dataBundle.getProperty("INPUT_DELIMITER", "@");
                 String queryText = (String) queryTextMap.get(tempId);
                 queryText = StringUtilities.replace(queryText, old, input);
                 queryTextMap.put(tempId, queryText);
             } // end loop over query inputs
 
             // Check we filled in all the inputs.
-            for (i=0; i<queryIdList.length; i++) {
+            for (i = 0; i < queryIdList.length; i++) {
                 String queryText = (String) queryTextMap.get(new Integer(queryIdList[i]));
-                if(queryText.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@"))>=0)
+                if (queryText.indexOf(dataBundle.getProperty("INPUT_DELIMITER", "@")) >= 0)
                     throw new Exception("Query input entries missing from database: " + queryText);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             handleException(e, query.toString(), inputs);
             throw e;
         }
 
-        // At this point we've built all queries to run.  
+        // At this point we've built all queries to run.
         // Execute them and fill the ResultSetContainers.
-        String queryText="", queryName="";
+        String queryText = "", queryName = "";
         String sortQueryName = (String) inputs.get(dataBundle.getProperty("SORT_QUERY", "sq"));
         String sortQueryCol = (String) inputs.get(dataBundle.getProperty("SORT_COLUMN", "sc"));
         String sortDir = (String) inputs.get(dataBundle.getProperty("SORT_DIRECTION", "sd"));
         boolean sortCalled = (sortQueryName != null && sortQueryCol != null);
         try {
             resultMap = new HashMap();
-            for (i=0; i<queryIdList.length; i++) {
+            for (i = 0; i < queryIdList.length; i++) {
                 Integer lookup = new Integer(queryIdList[i]);
                 queryText = (String) queryTextMap.get(lookup);
                 queryName = (String) queryNameMap.get(lookup);
@@ -545,7 +595,7 @@ public class DataRetriever implements DataRetrieverInt {
 
                 resultMap.put(queryName, rsc);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             handleException(e, queryText, inputs);
             throw new Exception("Error while retrieving query data");
         }

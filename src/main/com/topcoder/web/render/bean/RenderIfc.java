@@ -15,7 +15,7 @@ public interface RenderIfc {
        getContent returns, as a String, the content field of the web_content
        entity with the specified content_name.
      */
-    public String getContent( String name ) throws Exception;
+    public String getContent(String name) throws Exception;
 
     /*
        getFileURL returns, as a String, the link field of the sector_file

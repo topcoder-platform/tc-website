@@ -1,17 +1,10 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.naming.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.email.bean.*;
-import com.topcoder.shared.ejb.EmailServices.*;
 import com.topcoder.shared.util.logging.Logger;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.BodyTagSupport;
+import java.io.IOException;
 
 /**
  * ScheduledJobStatusTag.java
@@ -24,15 +17,13 @@ import com.topcoder.shared.util.logging.Logger;
  */
 
 public class ScheduledJobStatusTag
-    extends BodyTagSupport
-{
+        extends BodyTagSupport {
     private static Logger log = Logger.getLogger(ScheduledJobStatusTag.class);
 
     // the job id
     protected int jobId;
 
-    public void setJobId(String jobId)
-    {
+    public void setJobId(String jobId) {
         try {
             this.jobId = Integer.parseInt(jobId);
         } catch (NumberFormatException e) {
@@ -42,14 +33,12 @@ public class ScheduledJobStatusTag
 
 
     public int doStartTag()
-        throws JspException
-    {
+            throws JspException {
         return EVAL_BODY_TAG;
     }
 
     public void doInitBody()
-        throws JspException
-    {
+            throws JspException {
 /*
         Context context = null;
         try {
@@ -77,8 +66,7 @@ public class ScheduledJobStatusTag
     }
 
     public int doAfterBody()
-        throws JspException
-    {
+            throws JspException {
         try {
             if (bodyContent != null) {
                 bodyContent.writeOut(getPreviousOut());

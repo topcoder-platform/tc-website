@@ -1,89 +1,89 @@
 package com.topcoder.common.web.data;
 
 
-import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
-public final class Organization 
-  implements 
-    Serializable
-    ,Cloneable
-    ,TagRenderer
-  {
+import java.io.Serializable;
 
-  private int OrganizationId;
-  private String OrganizationDesc;
-  private String Organization;
+public final class Organization
+        implements
+        Serializable
+        , Cloneable
+        , TagRenderer {
 
-  public Organization() {
-    OrganizationId = 0;
-    OrganizationDesc = "";
-    Organization= "";
-  }
+    private int OrganizationId;
+    private String OrganizationDesc;
+    private String Organization;
 
-  public Object clone()
-    throws CloneNotSupportedException, OutOfMemoryError {
-    Organization result = null;
-    try {
-      result = new Organization();
-      result.setOrganizationId( getOrganizationId() );
-      result.setOrganizationDesc( getOrganizationDesc() );
-      result.setOrganization( getOrganization() );
-    } catch (Exception e) {
-      e.printStackTrace();
+    public Organization() {
+        OrganizationId = 0;
+        OrganizationDesc = "";
+        Organization = "";
     }
-    return result;
-  }
 
-     
-  // set methods
-  public void setOrganizationId(int OrganizationId) {
-    this.OrganizationId = OrganizationId;
-  }
-  
-  public void setOrganizationDesc(String OrganizationDesc) {
-    this.OrganizationDesc = OrganizationDesc;
-  }
-  
-  public void setOrganization(String Organization) {
-    this.Organization = Organization;
-  }
-  
-  // get methods
-  public int getOrganizationId() {
-    return OrganizationId;
-  }
-  
-  public String getOrganizationDesc() {
-    return OrganizationDesc;
-  }
-  
-  public String getOrganization() {
-    return Organization;
-  }
-  
-  public RecordTag getXML() throws Exception {
-    RecordTag result = null;
-    try {
-      result = getXML("Organization");
-    }catch (Exception e)  {
-      throw new Exception("common.Organization getXML ERROR: " + e);
+    public Object clone()
+            throws CloneNotSupportedException, OutOfMemoryError {
+        Organization result = null;
+        try {
+            result = new Organization();
+            result.setOrganizationId(getOrganizationId());
+            result.setOrganizationDesc(getOrganizationDesc());
+            result.setOrganization(getOrganization());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
-    return result;
-  }
 
-  public RecordTag getXML(String name) throws Exception {
-    RecordTag result = null; 
-    try {   
-      result = new RecordTag(name);
-      result.addTag( new ValueTag("OrganizationId", OrganizationId) );
-      result.addTag( new ValueTag("OrganizationDesc", OrganizationDesc) );
-      result.addTag( new ValueTag("Organization", Organization) );
-    }catch (Exception e)  {
-      throw new Exception("common.web.data.Organization getXML ERROR: " + e); 
+
+    // set methods
+    public void setOrganizationId(int OrganizationId) {
+        this.OrganizationId = OrganizationId;
     }
-    return result; 
-  }
- 
+
+    public void setOrganizationDesc(String OrganizationDesc) {
+        this.OrganizationDesc = OrganizationDesc;
+    }
+
+    public void setOrganization(String Organization) {
+        this.Organization = Organization;
+    }
+
+    // get methods
+    public int getOrganizationId() {
+        return OrganizationId;
+    }
+
+    public String getOrganizationDesc() {
+        return OrganizationDesc;
+    }
+
+    public String getOrganization() {
+        return Organization;
+    }
+
+    public RecordTag getXML() throws Exception {
+        RecordTag result = null;
+        try {
+            result = getXML("Organization");
+        } catch (Exception e) {
+            throw new Exception("common.Organization getXML ERROR: " + e);
+        }
+        return result;
+    }
+
+    public RecordTag getXML(String name) throws Exception {
+        RecordTag result = null;
+        try {
+            result = new RecordTag(name);
+            result.addTag(new ValueTag("OrganizationId", OrganizationId));
+            result.addTag(new ValueTag("OrganizationDesc", OrganizationDesc));
+            result.addTag(new ValueTag("Organization", Organization));
+        } catch (Exception e) {
+            throw new Exception("common.web.data.Organization getXML ERROR: " + e);
+        }
+        return result;
+    }
+
 }
 

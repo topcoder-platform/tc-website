@@ -29,7 +29,7 @@ public class PactsHtmlTable {
 
 
     /**
-     * the constructor takes a model as the argument.  This model 
+     * the constructor takes a model as the argument.  This model
      * is how the data is stored, this class adds all astestic qualities.
      * This class assumes that the number of rows and cols does not
      * change in the tableData once it has been passed to this class
@@ -38,22 +38,22 @@ public class PactsHtmlTable {
      *
      */
     public PactsHtmlTable(PactsMemberTableModel tableData) {
-	this.tableData = tableData;
+        this.tableData = tableData;
 
-	rowColor = new String[tableData.getNumRows()];
-	columnWidth = new String[tableData.getNumCols()];
-	fontSize = new String[tableData.getNumRows()][tableData.getNumCols()];
-	className = new String[tableData.getNumRows()][tableData.getNumCols()];
-	isBold = new boolean[tableData.getNumRows()][tableData.getNumCols()];
+        rowColor = new String[tableData.getNumRows()];
+        columnWidth = new String[tableData.getNumCols()];
+        fontSize = new String[tableData.getNumRows()][tableData.getNumCols()];
+        className = new String[tableData.getNumRows()][tableData.getNumCols()];
+        isBold = new boolean[tableData.getNumRows()][tableData.getNumCols()];
 
-	for(int i=0;i<tableData.getNumRows();i++) { 
-	    rowColor[i] = null; 
-	    for(int j=0;j<tableData.getNumCols();j++) {
+        for (int i = 0; i < tableData.getNumRows(); i++) {
+            rowColor[i] = null;
+            for (int j = 0; j < tableData.getNumCols(); j++) {
                 columnWidth[j] = null;
-		fontSize[i][j] = null;
-		isBold[i][j] = false;
-	    }
-	}
+                fontSize[i][j] = null;
+                isBold[i][j] = false;
+            }
+        }
     }
 
     /**
@@ -62,7 +62,7 @@ public class PactsHtmlTable {
      * @return PactsMemberTableModel a reference to the current table model
      */
     public PactsMemberTableModel getTableModel() {
-	return tableData;
+        return tableData;
     }
 
     /**
@@ -72,72 +72,90 @@ public class PactsHtmlTable {
      * @return the html necisarry to generate the table
      */
     public String getHtml() {
-	// build the table
-	StringBuffer buf = new StringBuffer();
-	buf.append("<table ");
-	
-	//check the attributes
-	setTableProperties( buf );
+        // build the table
+        StringBuffer buf = new StringBuffer();
+        buf.append("<table ");
 
-	buf.append(">");
-	for(int row=0;row<tableData.getNumRows();row++) {
-	    buf.append("<tr ");
-	    //check row attributes
-	    if(rowColor[row]!=null) { buf.append("bgcolor=\"" + rowColor[row] + "\" "); }
-	    buf.append(">");
-	    for(int col=0;col<tableData.getNumCols();col++) {
-	        buf.append("<td");
-		if(className!=null && className[row][col]!=null) { 
-		    buf.append(" class=\"" + className[row][col] + "\"");
-		}
-		if(columnWidth!=null && columnWidth[col]!=null) { 
-		    buf.append(" width=\"" + columnWidth[col] + "\"");
-		}
-	        buf.append(">");
-		// set anything that applies to this cell
-		if(isBold[row][col]) { buf.append("<b>"); }
-		if(fontSize!=null && fontSize[row][col]!=null) { 
-		    buf.append("<font size=\"" + fontSize[row][col] + "\">");
-		}
+        //check the attributes
+        setTableProperties(buf);
 
-		buf.append(tableData.getElement(row,col));
+        buf.append(">");
+        for (int row = 0; row < tableData.getNumRows(); row++) {
+            buf.append("<tr ");
+            //check row attributes
+            if (rowColor[row] != null) {
+                buf.append("bgcolor=\"" + rowColor[row] + "\" ");
+            }
+            buf.append(">");
+            for (int col = 0; col < tableData.getNumCols(); col++) {
+                buf.append("<td");
+                if (className != null && className[row][col] != null) {
+                    buf.append(" class=\"" + className[row][col] + "\"");
+                }
+                if (columnWidth != null && columnWidth[col] != null) {
+                    buf.append(" width=\"" + columnWidth[col] + "\"");
+                }
+                buf.append(">");
+                // set anything that applies to this cell
+                if (isBold[row][col]) {
+                    buf.append("<b>");
+                }
+                if (fontSize != null && fontSize[row][col] != null) {
+                    buf.append("<font size=\"" + fontSize[row][col] + "\">");
+                }
 
-		// finish up any cell attributes
-		if(fontSize!=null && fontSize[row][col]!=null) { buf.append("</font>"); }
-		if(isBold[row][col]) { buf.append("</b>"); }		
+                buf.append(tableData.getElement(row, col));
 
-		buf.append("</td>");
-	    }
-	    buf.append("</tr>");
-	}
-	buf.append("</table>");
-	
-	return buf.toString();
+                // finish up any cell attributes
+                if (fontSize != null && fontSize[row][col] != null) {
+                    buf.append("</font>");
+                }
+                if (isBold[row][col]) {
+                    buf.append("</b>");
+                }
+
+                buf.append("</td>");
+            }
+            buf.append("</tr>");
+        }
+        buf.append("</table>");
+
+        return buf.toString();
     }
-    
+
     /**
      * this is a private function meant to be used for setting the
      * table wide properties.  It acts on the String buffer based
      * on the properties set by the user
      */
     private void setTableProperties(StringBuffer buf) {
-	if(bgcolor != null) { buf.append("BGCOLOR=" + bgcolor + " "); }
-	if(cellPadding != null) { buf.append("CELLPADDING=" + cellPadding + " "); }
-	if(cellSpacing != null) { buf.append("CELLSPACING=" + cellSpacing + " "); }
-	if(border != null) { buf.append("BORDER=" + border + " "); }
-	if(width != null) { buf.append("WIDTH=" + width + " "); }
+        if (bgcolor != null) {
+            buf.append("BGCOLOR=" + bgcolor + " ");
+        }
+        if (cellPadding != null) {
+            buf.append("CELLPADDING=" + cellPadding + " ");
+        }
+        if (cellSpacing != null) {
+            buf.append("CELLSPACING=" + cellSpacing + " ");
+        }
+        if (border != null) {
+            buf.append("BORDER=" + border + " ");
+        }
+        if (width != null) {
+            buf.append("WIDTH=" + width + " ");
+        }
     }
 
     /**
      * this method will set the background color of the table.  It does
-     * not know anything about java color vs html, etc, it just 
+     * not know anything about java color vs html, etc, it just
      * puts the string in the correct place for bgcolor.
      *
      * @param color the string that represnets color in html.  For example
      *        the color while is "#FFFFFF" (including the quotes)
      */
     public void setBgcolor(String color) {
-	bgcolor = color;
+        bgcolor = color;
     }
 
     /**
@@ -149,7 +167,7 @@ public class PactsHtmlTable {
      * @param border the number of pixels (string rep) for the border
      */
     public void setBorder(String border) {
-	this.border = border;
+        this.border = border;
     }
 
     /**
@@ -159,17 +177,17 @@ public class PactsHtmlTable {
      * @param cellPadding the number of pixels to pad each cell by
      */
     public void setCellPadding(String cellPadding) {
-	this.cellPadding = cellPadding;
+        this.cellPadding = cellPadding;
     }
 
     /**
-     * this method is used to set the cell spacing.  It should be 
+     * this method is used to set the cell spacing.  It should be
      * a string rep of an int, this method does no type checking
      *
      * @param cellSpacing the number of pixels inbetween cells
      */
     public void setCellSpacing(String cellSpacing) {
-	this.cellSpacing = cellSpacing;
+        this.cellSpacing = cellSpacing;
     }
 
     /**
@@ -182,7 +200,7 @@ public class PactsHtmlTable {
      *
      */
     public void setWidth(String width) {
-	this.width = width;
+        this.width = width;
     }
 
 
@@ -191,13 +209,13 @@ public class PactsHtmlTable {
     /**
      * used to specify the CSS class name for the table
      *
-     * @param CSS stylesheet class name.  
-     * 
+     * @param CSS stylesheet class name.
+     *
      */
     public void setClassName(String className) {
-        for(int row=0;row<tableData.getNumRows();row++) {
-            for(int col=0; col<tableData.getNumCols(); col++) {
-                setCellClassName(row,col,className);
+        for (int row = 0; row < tableData.getNumRows(); row++) {
+            for (int col = 0; col < tableData.getNumCols(); col++) {
+                setCellClassName(row, col, className);
             }
         }
     }
@@ -211,8 +229,10 @@ public class PactsHtmlTable {
      * a given cell.
      */
     public void setCellClassName(int row, int col, String className) {
-        if((row <0) || (row >= this.className.length) ||
-            (col <0) || (col >= this.className[0].length)) {return;}
+        if ((row < 0) || (row >= this.className.length) ||
+                (col < 0) || (col >= this.className[0].length)) {
+            return;
+        }
 
         this.className[row][col] = className;
     }
@@ -230,10 +250,12 @@ public class PactsHtmlTable {
      *        the color while is "#FFFFFF" (including the quotes)
      */
     public void setRowColor(int row, String color) {
-	//first check if it is oob
-	if((row<0) || (row>=rowColor.length)) { return; }
-	
-	rowColor[row] = color;
+        //first check if it is oob
+        if ((row < 0) || (row >= rowColor.length)) {
+            return;
+        }
+
+        rowColor[row] = color;
     }
 
     // added during integration by chuck
@@ -244,9 +266,11 @@ public class PactsHtmlTable {
      *
      * @param width the string that represnets td width attribute in html.
      */
-    public void setColumnWidth (int col, String width) {
+    public void setColumnWidth(int col, String width) {
         //first check if it is oob
-        if((col<0) || (col>=columnWidth.length)) { return; }
+        if ((col < 0) || (col >= columnWidth.length)) {
+            return;
+        }
 
         columnWidth[col] = width;
     }
@@ -260,25 +284,29 @@ public class PactsHtmlTable {
      * a given cell.
      */
     public void setCellFontSize(int row, int col, String size) {
-	if((row <0) || (row >= fontSize.length) ||
-	    (col <0) || (col >= fontSize[0].length)) {return;}
+        if ((row < 0) || (row >= fontSize.length) ||
+                (col < 0) || (col >= fontSize[0].length)) {
+            return;
+        }
 
-	fontSize[row][col] = size;
+        fontSize[row][col] = size;
     }
 
     /**
      * used to set a cell as either bold or not bold.
      *
      * @param row the 0 based row of the table
-     * @param col the 0 based col of the table     
+     * @param col the 0 based col of the table
      * @param bold true if the cell should be bold, false otherwise
      *
      */
     public void setCellBold(int row, int col, boolean bold) {
-	if((row <0) || (row >= fontSize.length) ||
-	   (col <0) || (col >= fontSize[0].length)) {return;}
+        if ((row < 0) || (row >= fontSize.length) ||
+                (col < 0) || (col >= fontSize[0].length)) {
+            return;
+        }
 
-	isBold[row][col] = bold;
+        isBold[row][col] = bold;
     }
 
     /**
@@ -289,9 +317,9 @@ public class PactsHtmlTable {
      *
      */
     public void setRowBold(int row, boolean bold) {
-	for(int col=0;col<tableData.getNumCols();col++) {
-	    setCellBold(row,col,bold);
-	}
+        for (int col = 0; col < tableData.getNumCols(); col++) {
+            setCellBold(row, col, bold);
+        }
     }
 
     /**
@@ -301,13 +329,13 @@ public class PactsHtmlTable {
      *
      */
     public void setFontSize(String size) {
-	for(int row=0;row<tableData.getNumRows();row++) {
-	    for(int col=0; col<tableData.getNumCols(); col++) {
-		setCellFontSize(row,col,size);
-	    }
-	}
+        for (int row = 0; row < tableData.getNumRows(); row++) {
+            for (int col = 0; col < tableData.getNumCols(); col++) {
+                setCellFontSize(row, col, size);
+            }
+        }
     }
-	
+
 }
 
 

@@ -25,5 +25,5 @@ public class NoSuchStatusException extends Exception {
      */
     public NoSuchStatusException(String s) {
         super(s);
-    }    
+    }
 }

@@ -9,14 +9,16 @@
 
 package com.topcoder.web.pacts.common;
 
-import java.util.*;
-import com.topcoder.web.common.*;
 import com.topcoder.shared.util.logging.Logger;
-   
+import com.topcoder.web.common.ResultSetContainer;
+
+import java.util.Map;
+
 public class PaymentList implements PactsConstants {
     private static Logger log = Logger.getLogger(PaymentList.class);
 
-    public Payment[] headerList=null;
+    public Payment[] headerList = null;
+
     /**
      * PaymentList.java
      * ----------------
@@ -27,30 +29,30 @@ public class PaymentList implements PactsConstants {
      * @param results the results of a db query
      */
     public PaymentList(Map results) {
-	ResultSetContainer rsc = (ResultSetContainer) 
-	    results.get(PAYMENT_DETAIL_LIST);
+        ResultSetContainer rsc = (ResultSetContainer)
+                results.get(PAYMENT_DETAIL_LIST);
 
-	//make sure we got the payment headers
-	if(rsc == null) {
-	    log.error("There were no " + PAYMENT_DETAIL_LIST + " entries in the" +
-		      " result set map sent to the PaymentList\n" +
-		      "constructor.");
-	    headerList = new Payment[0];
-	}
+        //make sure we got the payment headers
+        if (rsc == null) {
+            log.error("There were no " + PAYMENT_DETAIL_LIST + " entries in the" +
+                    " result set map sent to the PaymentList\n" +
+                    "constructor.");
+            headerList = new Payment[0];
+        }
 
-	// see if there are any rows of data
-	int numRows = rsc.getRowCount();
-	if(numRows<=0) {
-	    log.debug("there were no rows of data in the result set sent\n" +
-		      "to the PaymentList constructor");
-	    headerList = new Payment[0];
-	}
+        // see if there are any rows of data
+        int numRows = rsc.getRowCount();
+        if (numRows <= 0) {
+            log.debug("there were no rows of data in the result set sent\n" +
+                    "to the PaymentList constructor");
+            headerList = new Payment[0];
+        }
 
-	//now form all of the contract headers
-	headerList = new Payment[numRows];
-	for(int idx=0;idx<numRows;idx++) {
-	    headerList[idx] = new Payment(results, idx);
-	}
+        //now form all of the contract headers
+        headerList = new Payment[numRows];
+        for (int idx = 0; idx < numRows; idx++) {
+            headerList[idx] = new Payment(results, idx);
+        }
     }
 }
-	    
+

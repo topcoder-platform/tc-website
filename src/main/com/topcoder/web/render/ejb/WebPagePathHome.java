@@ -1,10 +1,8 @@
-package	com.topcoder.web.render.ejb;
+package com.topcoder.web.render.ejb;
 
-import	javax.ejb.EJBHome;
-import	javax.ejb.CreateException;
-import	java.rmi.RemoteException;
-import	com.topcoder.web.render.ejb.WebPagePath;
+import javax.ejb.CreateException;
+import java.rmi.RemoteException;
 
 public interface WebPagePathHome extends javax.ejb.EJBHome {
-	public WebPagePath create() throws RemoteException, CreateException;
+    public WebPagePath create() throws RemoteException, CreateException;
 }

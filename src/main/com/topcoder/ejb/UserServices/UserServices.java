@@ -1,24 +1,20 @@
 package com.topcoder.ejb.UserServices;
-   
-import javax.ejb.*;
+
+import com.topcoder.ejb.AuthenticationServices.User;
+
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import com.topcoder.ejb.AuthenticationServices.*;
 
-   
+
 /**
-*  This is the Remote interface for the UserBean.
-*/
-/////////////////////////////////////////////////
+ *  This is the Remote interface for the UserBean.
+ */
+
 public interface UserServices extends EJBObject {
-/////////////////////////////////////////////////
 
-  //////////////////////////////////////////////////////
-  public User getUser() throws RemoteException;
-  //////////////////////////////////////////////////////
+    public User getUser() throws RemoteException;
 
-  //////////////////////////////////////////////////////
-  public void setUser (User user) throws RemoteException;
-  //////////////////////////////////////////////////////
+    public void setUser(User user) throws RemoteException;
 
-     
+
 }

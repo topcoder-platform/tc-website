@@ -10,14 +10,15 @@
 
 package com.topcoder.web.pacts.common;
 
-import java.util.*;
-import com.topcoder.web.common.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.ResultSetContainer;
+
+import java.util.Map;
 
 public class UserProfileHeaderList implements PactsConstants {
     private static Logger log = Logger.getLogger(UserProfileHeaderList.class);
 
-    public UserProfileHeader[] headerList=null;
+    public UserProfileHeader[] headerList = null;
 
     /**
      * will parse the result set container looking for several
@@ -28,29 +29,31 @@ public class UserProfileHeaderList implements PactsConstants {
      * @param results the results of a db query
      */
     public UserProfileHeaderList(Map results) {
-		ResultSetContainer rsc = (ResultSetContainer)
-		    results.get(USER_PROFILE_HEADER_LIST);
+        ResultSetContainer rsc = (ResultSetContainer)
+                results.get(USER_PROFILE_HEADER_LIST);
 
-		//make sure we got the user profile headers
-		if(rsc == null) {
-		    log.error("There were no " + USER_PROFILE_HEADER_LIST + " entries in the" +
-			      " result set map sent to the UserProfileHeaderList\n" +
-			      "constructor.");
-		    headerList = new UserProfileHeader[0];
-		}
+        //make sure we got the user profile headers
+        if (rsc == null) {
+            log.error("There were no " + USER_PROFILE_HEADER_LIST + " entries in the" +
+                    " result set map sent to the UserProfileHeaderList\n" +
+                    "constructor.");
+            headerList = new UserProfileHeader[0];
+        }
 
-		// see if there are any rows of data
-		int numRows = rsc.getRowCount();
-		if(numRows<=0) {
-		    log.debug("there were no rows of data in the result set sent\n" +
-			      "to the UserProfileHeaderList constructor");
-		    headerList = new UserProfileHeader[0];
-		}
+        // see if there are any rows of data
+        int numRows = rsc.getRowCount();
+        if (numRows <= 0) {
+            log.debug("there were no rows of data in the result set sent\n" +
+                    "to the UserProfileHeaderList constructor");
+            headerList = new UserProfileHeader[0];
+        }
 
-		headerList = new UserProfileHeader[numRows];
-		for (int n = 0; n < numRows; n++) {
-			log.debug("adding UserProfileHeader " + n);
-			headerList[n] = new UserProfileHeader(results, n);
-		}
+        headerList = new UserProfileHeader[numRows];
+        for (int n = 0; n < numRows; n++) {
+            log.debug("adding UserProfileHeader " + n);
+            headerList[n] = new UserProfileHeader(results, n);
+        }
     }
-};
+}
+
+;

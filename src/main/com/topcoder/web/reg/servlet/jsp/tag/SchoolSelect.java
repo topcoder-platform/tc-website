@@ -1,90 +1,68 @@
 package com.topcoder.web.reg.servlet.jsp.tag;
 
-import java.util.*;
-import javax.naming.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
+import com.topcoder.common.web.data.School;
+import com.topcoder.common.web.data.State;
+import com.topcoder.common.web.util.Cache;
+import com.topcoder.ejb.DataCache.DataCache;
 
-import com.topcoder.shared.util.*;
-import com.topcoder.common.web.data.*;
-import com.topcoder.common.web.util.*;
-import com.topcoder.ejb.DataCache.*;
+import javax.naming.Context;
+import javax.servlet.jsp.JspException;
+import java.util.ArrayList;
 
-public class SchoolSelect 
-    extends Select  
-{
+public class SchoolSelect
+        extends Select {
     private String state = null;
-    public static School NOT_IN_LIST = new School ( "Not in List" );
-    
-    public SchoolSelect()
-    {
+    public static School NOT_IN_LIST = new School("Not in List");
+
+    public SchoolSelect() {
         super();
         init();
     }
 
-    void init()
-    {
+    void init() {
     }
-    
-    String getOptionValue(Object o)
-    {
-        return ""+((School)o).getSchoolId();
-    } 
 
-    String getOptionText(Object o)
-    {
-        return ((School)o).getName();
+    String getOptionValue(Object o) {
+        return "" + ((School) o).getSchoolId();
     }
-   
-    public void setState(String state)
-    {
+
+    String getOptionText(Object o) {
+        return ((School) o).getName();
+    }
+
+    public void setState(String state) {
         this.state = state;
     }
-    
+
     ArrayList getSelectOptions()
-        throws JspException
-    {
+            throws JspException {
         ArrayList schools = new ArrayList();
         Context context = null;
-        try
-        {
+        try {
             DataCache cache = Cache.get();
             schools.addAll(cache.getSchools());
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new JspException(e.toString());
-        }
-        finally
-        {
-            if (context != null)
-            {
-                try
-                {
+        } finally {
+            if (context != null) {
+                try {
                     context.close();
-                }
-                catch (Exception e)
-                {
+                } catch (Exception e) {
                 }
             }
         }
-        if (state ==  null)
-        {
+        if (state == null) {
             return schools;
-        }
-        else
-        {
+        } else {
             ArrayList schoolsInState = new ArrayList();
-            for (int i=0;i<schools.size();i++)
-            {
+            for (int i = 0; i < schools.size(); i++) {
                 School school = (School) schools.get(i);
                 State schoolState = school.getState();
-                if (schoolState != null && (schoolState.getStateCode().equals(state) || schoolState.getStateName().equals(state)))
-                {
-                    schoolsInState.add ( school );
+                if (schoolState != null && (schoolState.getStateCode().equals(state) || schoolState.getStateName().equals(state))) {
+                    schoolsInState.add(school);
                 }
             }
-            schoolsInState.add ( NOT_IN_LIST );
+            schoolsInState.add(NOT_IN_LIST);
             return schoolsInState;
         }
     }

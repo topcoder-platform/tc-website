@@ -7,7 +7,7 @@ final class LoggerLog4j11 extends Logger {
     private final Category category;
 
     LoggerLog4j11(Class clazz) {
-        category=Category.getInstance(clazz);
+        category = Category.getInstance(clazz);
     }
 
     public void debug(Object message) {

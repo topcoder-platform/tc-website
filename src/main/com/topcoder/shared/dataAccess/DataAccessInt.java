@@ -1,13 +1,18 @@
 package com.topcoder.shared.dataAccess;
 
-import java.util.*;
-/** 
+import java.util.Map;
+
+/**
  * This interface needs to be implemented for any data-retrievers running
  * in the servlet context.
  *
+ * @author tbone
  * @version $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:22  gpaul
+ *           moving over here
+ *
  *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
  *           initial web load into cvs
  *
@@ -20,6 +25,12 @@ import java.util.*;
  */
 
 public interface DataAccessInt {
+    /**
+     * Takes a request and produces a Map filled with the requested data.
+     * @param request
+     * @return the requested data
+     * @throws Exception
+     */
     public Map getData(RequestInt request) throws Exception;
 }
 

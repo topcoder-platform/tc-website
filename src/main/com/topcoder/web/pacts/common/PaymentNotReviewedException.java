@@ -24,5 +24,5 @@ public class PaymentNotReviewedException extends Exception {
      */
     public PaymentNotReviewedException(String s) {
         super(s);
-    }    
+    }
 }

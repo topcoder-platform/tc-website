@@ -1,21 +1,18 @@
 package com.topcoder.web.reg.bean;
 
 public class TaskException
-    extends Exception
+        extends Exception
 //    extends TCException
 {
-    public TaskException()
-    {
+    public TaskException() {
         super();
     }
 
-    public TaskException(String message)
-    {
+    public TaskException(String message) {
         super(message);
     }
 
-    public TaskException(Throwable t)
-    {
+    public TaskException(Throwable t) {
         super(t.getMessage());
     }
 }

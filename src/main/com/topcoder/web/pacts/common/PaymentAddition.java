@@ -18,7 +18,7 @@ public class PaymentAddition implements java.io.Serializable {
     /**
      * This constructor builds a PaymentAddition from the specified data.
      * When adding a new payment using the data from this class, an entry in
-     * both the payment and payment_detail tables is created, with the 
+     * both the payment and payment_detail tables is created, with the
      * following database columns defaulting: <p>
      *
      * - payment.print_count is set to 0 <br>
@@ -43,6 +43,6 @@ public class PaymentAddition implements java.io.Serializable {
         this.net_amount = netAmount;
         this.gross_amount = grossAmount;
         this.status_id = statusId;
-    }    
+    }
 }
 

@@ -1,25 +1,23 @@
 package com.topcoder.shared.dataAccess;
 
-import java.util.*;
-import java.math.*;
-import java.rmi.*;
-import java.sql.*;
-import java.text.*;
-import javax.sql.DataSource;
-import javax.naming.Context;
-import com.topcoder.shared.util.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
-import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 
-/** 
- * 
- * A class which handles the retrieving of data via a provided 
- * query, unlike DataRetriever which pulls query information 
+import java.sql.*;
+import java.util.*;
+
+/**
+ *
+ * A class which handles the retrieving of data via a provided
+ * query, unlike DataRetriever which pulls query information
  * from a database.
  *
  * @version $Revision$
- * @internal Log of Changes:
+ *  Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/07/19 19:29:27  gpaul
+ *           fixed exception handling
+ *
  *           Revision 1.1  2002/07/18 23:57:53  gpaul
  *           added so that one could dynamically create queries on the front end and then get result sets back
  *
@@ -31,27 +29,31 @@ public class QueryRunner implements DataRetrieverInt {
     private Connection conn;
     private PreparedStatement ps;
     private ResultSet rs;
-    /* Keeps track of the most recent query run, for exception handling purposes */
 
+    /**
+     * Constructor that takes a connection object
+     * @param conn
+     */
     public QueryRunner(Connection conn) {
-      this.conn = conn;
+        this.conn = conn;
     }
 
     private void closeObject(Object o) {
-        if (o == null) 
+        if (o == null)
             return;
         try {
             if (o instanceof ResultSet)
-                ((ResultSet)o).close();
+                ((ResultSet) o).close();
             else if (o instanceof PreparedStatement)
-                ((PreparedStatement)o).close();
+                ((PreparedStatement) o).close();
             else if (o instanceof Connection)
-                ((Connection)o).close();
+                ((Connection) o).close();
         } catch (Exception e) {
             try {
-                System.out.println( "Statistics EJB:  Error closing " + o.getClass());
-                System.out.println( e.getMessage());
-            } catch (Exception ex) {}
+                System.out.println("Statistics EJB:  Error closing " + o.getClass());
+                System.out.println(e.getMessage());
+            } catch (Exception ex) {
+            }
         }
     }
 
@@ -66,19 +68,20 @@ public class QueryRunner implements DataRetrieverInt {
 
     private void handleException(Exception e, String lastQuery, Map inputs) {
         try {
-            System.out.println( "Exception caught: " + e.toString());
-            System.out.println( "The last query run was: ");
-            System.out.println( lastQuery);
-            System.out.println( "Exception details:");
+            System.out.println("Exception caught: " + e.toString());
+            System.out.println("The last query run was: ");
+            System.out.println(lastQuery);
+            System.out.println("Exception details:");
             if (e instanceof SQLException)
-                DBMS.printSqlException(true, (SQLException)e);
+                DBMS.printSqlException(true, (SQLException) e);
             else
                 e.printStackTrace();
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+        }
         closeConnections();
     }
 
-    /** 
+    /**
      * The function which does the actual retrieval of data.  Returns a
      * <tt>Map</tt> in which each key is a <tt>String</tt> representing
      * a query name, and each value is a <tt>ResultSetContainer</tt> containing the
@@ -87,10 +90,9 @@ public class QueryRunner implements DataRetrieverInt {
      * information, sorting etc.  But, <tt>QueryRequest</tt> does support
      * that, so it could be added here.
      *
-     * @See QueryRequest
      * @param      inputs  A map of input data.
      * @throws      Exception If some problem is encountered while executing
-     *                              the queries. 
+     *                              the queries.
      * @return      The data requested by the input.
      */
     public Map executeCommand(Map inputs) throws Exception {
@@ -110,12 +112,12 @@ public class QueryRunner implements DataRetrieverInt {
 
         try {
             resultMap = new HashMap();
-            queryMap = (Map)inputs.get(DataAccessConstants.QUERY_KEY);
+            queryMap = (Map) inputs.get(DataAccessConstants.QUERY_KEY);
             queryIterator = queryMap.entrySet().iterator();
-            for ( ; queryIterator.hasNext(); ) {
-                me = (Map.Entry)queryIterator.next();
-                queryText = (String)me.getValue();
-                queryName = (String)me.getKey();
+            for (; queryIterator.hasNext();) {
+                me = (Map.Entry) queryIterator.next();
+                queryText = (String) me.getValue();
+                queryName = (String) me.getKey();
                 ps = conn.prepareStatement(queryText);
                 rs = ps.executeQuery();
                 rsc = new ResultSetContainer(rs);
@@ -125,7 +127,7 @@ public class QueryRunner implements DataRetrieverInt {
                 ps = null;
                 resultMap.put(queryName, rsc);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             handleException(e, queryText, inputs);
             throw new Exception("Error while retrieving query data");
         }

@@ -1,21 +1,21 @@
 package com.topcoder.web.reg.bean;
+
 // package com.topcoder.web.bean;
 
-import java.util.*;
+import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.ejb.AuthenticationServices.*;
 
-public class Task
-{
+import java.util.Hashtable;
+
+public class Task {
     private static Logger log = Logger.getLogger(Task.class);
     protected Hashtable errors;
     protected boolean userChanged;
     protected User user;
     protected String step;
     protected String[] validSteps;
-    
-    public Task()
-    {
+
+    public Task() {
         super();
         errors = new Hashtable();
         userChanged = false;
@@ -24,141 +24,112 @@ public class Task
         validSteps = new String[0];
     }
 
-    void init()
-    {
+    void init() {
     }
-    
-    public boolean addError(String key, Object error)
-    {
-        if (!hasError(key))
-        {
-            errors.put(key,error);
+
+    public boolean addError(String key, Object error) {
+        if (!hasError(key)) {
+            errors.put(key, error);
             return true;
         }
         return false;
     }
-                
-    public String getError(String key)
-    {
-        if (errors.containsKey(key) && errors.get(key) != null)
-        {
+
+    public String getError(String key) {
+        if (errors.containsKey(key) && errors.get(key) != null) {
             return errors.get(key).toString();
         }
         return "";
     }
 
-    public boolean hasError(String key)
-    {
+    public boolean hasError(String key) {
         return errors.containsKey(key);
     }
-    
-    public boolean removeError(String key)
-    {
-        if (hasError(key))
-        {
+
+    public boolean removeError(String key) {
+        if (hasError(key)) {
             errors.remove(key);
             return true;
         }
         return false;
     }
-    
-    public void clearErrors()
-    {
+
+    public void clearErrors() {
         errors.clear();
     }
 
-    public String getClearErrors()
-    {
+    public String getClearErrors() {
         clearErrors();
         return "";
     }
 
-    public boolean isValid()
-    {
+    public boolean isValid() {
         return errors.size() == 0;
     }
-    
-    public boolean isEmpty(String s)
-    {
-        return s==null || s.trim().length() == 0;
+
+    public boolean isEmpty(String s) {
+        return s == null || s.trim().length() == 0;
     }
 
-    public boolean isNumber(String s)
-    {
+    public boolean isNumber(String s) {
         if (isEmpty(s)) return false;
-        for (int i=0;i<s.length();i++)
-        {
-            if (!Character.isDigit(s.charAt(i)))
-            {
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) {
                 return false;
             }
         }
-        return true;        
+        return true;
     }
-    
-    public void setUser(User user)
-    {
+
+    public void setUser(User user) {
         log.debug("Task.setUser()");
-        if (user != null && (this.user == null || this.user.getUserId() != user.getUserId()))
-        {
-            log.debug("...userId="+user.getUserId());
+        if (user != null && (this.user == null || this.user.getUserId() != user.getUserId())) {
+            log.debug("...userId=" + user.getUserId());
             this.userChanged = true;
             this.user = user;
         }
     }
 
-    public void resetUser()
-    {
+    public void resetUser() {
         this.user = null;
     }
-    
-    public User getUser()
-    {
+
+    public User getUser() {
         return this.user;
     }
-    
-    public void setStep(String step)
-    {
-        if (step != null)
-        {
-            for (int i=0;i<validSteps.length;i++)
-            {
-                if (validSteps[i].equalsIgnoreCase(step))
-                {
-                    log.debug("Task.setStep(\""+step+"\")");
+
+    public void setStep(String step) {
+        if (step != null) {
+            for (int i = 0; i < validSteps.length; i++) {
+                if (validSteps[i].equalsIgnoreCase(step)) {
+                    log.debug("Task.setStep(\"" + step + "\")");
                     this.step = step;
                 }
             }
         }
     }
 
-    public String getStep()
-    {
+    public String getStep() {
         return step;
     }
-   
-    public boolean isStep(String s)
-    {
-       return s != null && step != null && step.equalsIgnoreCase(s);
+
+    public boolean isStep(String s) {
+        return s != null && step != null && step.equalsIgnoreCase(s);
     }
 
     public void process()
-        throws TaskException
-    {
+            throws TaskException {
     }
 
-    public String getNextPage()
-    {
+    public String getNextPage() {
         return "";
     }
 
-    public boolean setAttribute(String name, String value)
-    {
+    public boolean setAttribute(String name, String value) {
         return false;
     }
 
-    public boolean setAttributes(String name, String[] value)
-    {
+    public boolean setAttributes(String name, String[] value) {
         return false;
-    } 
+    }
 }

@@ -1,7 +1,7 @@
 package com.topcoder.shared.dataAccess.resultSet;
 
 /**
- * This class records all necessary metadata information for a 
+ * This class records all necessary metadata information for a
  * column inside a <tt>ResultSetContainer</tt>.  The specific
  * items recorded are the type of data stored, column name,
  * precision (if applicable), and scale (if applicable). <p>
@@ -26,7 +26,7 @@ public class ResultColumn implements java.io.Serializable {
      *                  <tt>java.sql.Types</tt>
      * @param   name    The name of the column
      * @param   precision   The precision of the column
-     * @param   scale       The scale of the column   
+     * @param   scale       The scale of the column
      * @param   sourceType  The type of the column as defined in the data source database
      */
     public ResultColumn(int colType, String name, int precision, int scale, String sourceType) {

@@ -1,87 +1,97 @@
 package com.topcoder.web.project.ejb.ProjectServices;
 
-import javax.ejb.*;
-import java.util.*;
-import java.sql.*;
-import java.io.*;
-import java.math.*;
-import javax.naming.*;
-import java.rmi.RemoteException;
-import com.topcoder.web.project.common.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.project.common.*;
 
-public class ProjectServicesBean implements SessionBean  {
+import javax.ejb.*;
+import java.rmi.RemoteException;
+import java.sql.*;
+import java.util.*;
+
+public class ProjectServicesBean implements SessionBean {
     private static Logger log = Logger.getLogger(ProjectServicesBean.class);
-    public static final int ROLE_EXECUTIVE  = 1;
-    public static final int ROLE_MANAGER    = 2;
-    public static final int ROLE_DEVELOPER  = 3;
-    
+    public static final int ROLE_EXECUTIVE = 1;
+    public static final int ROLE_MANAGER = 2;
+    public static final int ROLE_DEVELOPER = 3;
+
     private static final String TAG = "ProjectServicesBean";
-    
+
     protected SessionContext ctx;
-    
+
     /**
      * Returns the tag to append to the default debug statement.
      * This may be overridden for verbose debugging.
      */
-    protected String getTag() { return TAG; }
-    
+    protected String getTag() {
+        return TAG;
+    }
+
     protected static java.sql.Date convertDate(java.util.Date date) {
         if (date == null) return null;
         return new java.sql.Date(date.getTime());
     }
-    
+
     public int validateLogin(String handle, String password) throws Exception {
-        StringBuffer query = new StringBuffer(250             );
+        StringBuffer query = new StringBuffer(250);
         /***********************Informix*******************************/
-        query.append(" SELECT user_id, handle, password" );
-        query.append(" FROM user" );
-        query.append(" WHERE handle=?" );
+        query.append(" SELECT user_id, handle, password");
+        query.append(" FROM user");
+        query.append(" WHERE handle=?");
         /**************************************************************/
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, handle);
             rs = ps.executeQuery();
             if (rs.next()) {
                 if (handle.equals(rs.getString(2)) &&
-                password.equals(rs.getString(3)))
+                        password.equals(rs.getString(3)))
                     return rs.getInt(1);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":isValidLogin():failed:\n"+ex);
+            throw new Exception(getTag() + ":isValidLogin():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
         return -1;
     }
-    
+
     public String getGroups(int user_id) throws Exception {
-        StringBuffer query = new StringBuffer(250             );
+        StringBuffer query = new StringBuffer(250);
         /***********************Informix*******************************/
-        query.append(" SELECT group_id" );
-        query.append(" FROM group_user" );
-        query.append(" WHERE user_id=? AND group_id <= 3" );
+        query.append(" SELECT group_id");
+        query.append(" FROM group_user");
+        query.append(" WHERE user_id=? AND group_id <= 3");
         /**************************************************************/
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
+
         String strGroups = "";
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, user_id);
@@ -90,38 +100,48 @@ public class ProjectServicesBean implements SessionBean  {
                 strGroups += "[" + rs.getInt(1) + "]";
             }
             return strGroups;
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getGroups():failed:\n"+ex);
+            throw new Exception(getTag() + ":getGroups():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
     }
-    
+
     public int[] getIds(StringBuffer query, String params) throws Exception {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
+
         ArrayList ids = new ArrayList();
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             if (params.length() > 0) {
                 StringTokenizer st = new StringTokenizer(params, ",");
                 int numTokens = st.countTokens();
-                for (int i=0; i < numTokens; i++) {
-                    int idx = i+1;
+                for (int i = 0; i < numTokens; i++) {
+                    int idx = i + 1;
                     ps.setInt(idx, Integer.parseInt(st.nextToken()));
                 }
             }
@@ -129,17 +149,27 @@ public class ProjectServicesBean implements SessionBean  {
             while (rs.next()) {
                 ids.add(new Integer(rs.getInt(1)));
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getIds():"+query+"(params:" + params + "):failed:\n"+ex);
+            throw new Exception(getTag() + ":getIds():" + query + "(params:" + params + "):failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
@@ -151,71 +181,91 @@ public class ProjectServicesBean implements SessionBean  {
         }
         return results;
     }
-    
+
     public HashMap getLookup(StringBuffer query) throws Exception {
         HashMap hm = new HashMap();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
             while (rs.next()) {
                 hm.put(new Integer(rs.getInt(1)),
-                rs.getString(2));
+                        rs.getString(2));
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getProjectStatuses():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
         return hm;
     }
-    
+
     public HashMap getReverseLookup(StringBuffer query) throws Exception {
         HashMap hm = new HashMap();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
             while (rs.next()) {
                 hm.put(rs.getString(1),
-                new Integer(rs.getInt(2)));
+                        new Integer(rs.getInt(2)));
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getProjectStatuses():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
         return hm;
     }
-    
+
     //************************************************************************
     //******************** PROJECT *******************************************
     //************************************************************************
@@ -245,46 +295,76 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 project = new Project();
                 project.setProject_id(rs.getInt(1));
-                if (rs.wasNull()) { project.setProject_id(0); }
+                if (rs.wasNull()) {
+                    project.setProject_id(0);
+                }
                 project.setName(rs.getString(2));
-                if (rs.wasNull()) { project.setName(""); }
+                if (rs.wasNull()) {
+                    project.setName("");
+                }
                 project.setProject_desc(rs.getString(3));
-                if (rs.wasNull()) { project.setProject_desc(""); }
+                if (rs.wasNull()) {
+                    project.setProject_desc("");
+                }
                 project.setStart_date(rs.getDate(4));
-                if (rs.wasNull()) { project.setStart_date(null); }
+                if (rs.wasNull()) {
+                    project.setStart_date(null);
+                }
                 project.setDeadline_date(rs.getDate(5));
-                if (rs.wasNull()) { project.setDeadline_date(null); }
+                if (rs.wasNull()) {
+                    project.setDeadline_date(null);
+                }
                 project.setStatus_id(rs.getInt(6));
-                if (rs.wasNull()) { project.setStatus_id(0); }
+                if (rs.wasNull()) {
+                    project.setStatus_id(0);
+                }
                 project.setCreation_date(rs.getDate(7));
-                if (rs.wasNull()) { project.setCreation_date(null); }
+                if (rs.wasNull()) {
+                    project.setCreation_date(null);
+                }
                 project.setModify_date(rs.getDate(8));
-                if (rs.wasNull()) { project.setModify_date(null); }
+                if (rs.wasNull()) {
+                    project.setModify_date(null);
+                }
                 project.setCompletion_date(rs.getDate(9));
-                if (rs.wasNull()) { project.setCompletion_date(null); }
+                if (rs.wasNull()) {
+                    project.setCompletion_date(null);
+                }
                 project.setTech_lead(rs.getInt(10));
-                if (rs.wasNull()) { project.setTech_lead(0); }
+                if (rs.wasNull()) {
+                    project.setTech_lead(0);
+                }
             } else {
                 return null;
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProject():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProject():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
         return project;
     }
-    
+
     public ArrayList getProjects(int role, int userId, int statusId) throws RemoteException, Exception {
         StringBuffer query = new StringBuffer(250);
         String params = "";
@@ -355,27 +435,39 @@ public class ProjectServicesBean implements SessionBean  {
                 params += "" + statusId;
             }
         }
-        if (orderBy.endsWith("_Name")) { query.append(" ORDER BY project.name"); }
-        if (orderBy.endsWith("_StartDate")) { query.append(" ORDER BY project.start_date"); }
-        if (orderBy.endsWith("_DeadlineDate")) { query.append(" ORDER BY project.deadline_date"); }
-        if (orderBy.endsWith("_Status")) { query.append(" ORDER BY status_lu.status_desc"); }
-        if (orderBy.startsWith("A")) { query.append(" ASC"); } else { query.append(" DESC"); }
+        if (orderBy.endsWith("_Name")) {
+            query.append(" ORDER BY project.name");
+        }
+        if (orderBy.endsWith("_StartDate")) {
+            query.append(" ORDER BY project.start_date");
+        }
+        if (orderBy.endsWith("_DeadlineDate")) {
+            query.append(" ORDER BY project.deadline_date");
+        }
+        if (orderBy.endsWith("_Status")) {
+            query.append(" ORDER BY status_lu.status_desc");
+        }
+        if (orderBy.startsWith("A")) {
+            query.append(" ASC");
+        } else {
+            query.append(" DESC");
+        }
         return getProjects(query, params);
     }
-    
+
     private ArrayList getProjects(StringBuffer query, String params) throws RemoteException, Exception {
         ArrayList results = new ArrayList();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             if (params.length() > 0) {
                 StringTokenizer st = new StringTokenizer(params, ",");
                 int numTokens = st.countTokens();
-                for (int i=0; i < numTokens; i++) {
-                    int idx = i+1;
+                for (int i = 0; i < numTokens; i++) {
+                    int idx = i + 1;
                     ps.setInt(idx, Integer.parseInt(st.nextToken()));
                 }
             }
@@ -394,24 +486,34 @@ public class ProjectServicesBean implements SessionBean  {
                 project.setTech_lead(rs.getInt(10));
                 results.add(project);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjects():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjects():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
         return results;
     }
-    
+
     public void setProject(Project project) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -477,25 +579,27 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("setProject():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("setProject():failed:" + ex.getMessage() );
+            throw new Exception("setProject():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
     }
-    
+
     public int addProject(Project project) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -564,27 +668,30 @@ public class ProjectServicesBean implements SessionBean  {
             } else {
                 return projectKey;
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("addProject():failed:" + ex.getMessage() );
+            throw new Exception("addProject():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
     }
-    
-    public void removeProject(int projectId) throws RemoteException, Exception {}
-    
+
+    public void removeProject(int projectId) throws RemoteException, Exception {
+    }
+
     //************************************************************************
     //******************** PROJECT TASK ************************************
     //************************************************************************
@@ -616,48 +723,80 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 project_task = new ProjectTask();
                 project_task.setProject_task_id(rs.getInt(1));
-                if (rs.wasNull()) { project_task.setProject_task_id(0); }
+                if (rs.wasNull()) {
+                    project_task.setProject_task_id(0);
+                }
                 project_task.setProject_id(rs.getInt(2));
-                if (rs.wasNull()) { project_task.setProject_id(0); }
+                if (rs.wasNull()) {
+                    project_task.setProject_id(0);
+                }
                 project_task.setName(rs.getString(3));
-                if (rs.wasNull()) { project_task.setName(""); }
+                if (rs.wasNull()) {
+                    project_task.setName("");
+                }
                 project_task.setProject_task_desc(rs.getString(4));
-                if (rs.wasNull()) { project_task.setProject_task_desc(""); }
+                if (rs.wasNull()) {
+                    project_task.setProject_task_desc("");
+                }
                 project_task.setStart_date(rs.getDate(5));
-                if (rs.wasNull()) { project_task.setStart_date(null); }
+                if (rs.wasNull()) {
+                    project_task.setStart_date(null);
+                }
                 project_task.setEnd_date(rs.getDate(6));
-                if (rs.wasNull()) { project_task.setEnd_date(null); }
+                if (rs.wasNull()) {
+                    project_task.setEnd_date(null);
+                }
                 project_task.setStatus_id(rs.getInt(7));
-                if (rs.wasNull()) { project_task.setStatus_id(0); }
+                if (rs.wasNull()) {
+                    project_task.setStatus_id(0);
+                }
                 project_task.setMilestone(rs.getInt(8));
-                if (rs.wasNull()) { project_task.setMilestone(0); }
+                if (rs.wasNull()) {
+                    project_task.setMilestone(0);
+                }
                 project_task.setCreation_date(rs.getDate(9));
-                if (rs.wasNull()) { project_task.setCreation_date(null); }
+                if (rs.wasNull()) {
+                    project_task.setCreation_date(null);
+                }
                 project_task.setModify_date(rs.getDate(10));
-                if (rs.wasNull()) { project_task.setModify_date(null); }
+                if (rs.wasNull()) {
+                    project_task.setModify_date(null);
+                }
                 project_task.setCompletion_date(rs.getDate(11));
-                if (rs.wasNull()) { project_task.setCompletion_date(null); }
+                if (rs.wasNull()) {
+                    project_task.setCompletion_date(null);
+                }
             } else {
                 return null;
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProject_Task():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProject_Task():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
         return project_task;
     }
-    
+
     public ArrayList getProjectTasks(int projectId, int statusId) throws RemoteException, Exception {
         StringBuffer query = new StringBuffer(250);
         String params = "";
@@ -684,14 +823,14 @@ public class ProjectServicesBean implements SessionBean  {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             if (params.length() > 0) {
                 StringTokenizer st = new StringTokenizer(params, ",");
                 int numTokens = st.countTokens();
-                for (int i=0; i < numTokens; i++) {
-                    int idx = i+1;
+                for (int i = 0; i < numTokens; i++) {
+                    int idx = i + 1;
                     ps.setInt(idx, Integer.parseInt(st.nextToken()));
                 }
             }
@@ -711,21 +850,31 @@ public class ProjectServicesBean implements SessionBean  {
                 projectTask.setCompletion_date(rs.getDate(11));
                 results.add(projectTask);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjectTasks():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjectTasks():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
-        return results;        
+        return results;
     }
 
     public ArrayList getProjectTasks(int projectId, int statusId, String orderBy) throws RemoteException, Exception {
@@ -751,26 +900,42 @@ public class ProjectServicesBean implements SessionBean  {
             query.append(" AND project_task.status_id=?");
             params += "," + statusId;
         }
-        if (orderBy.endsWith("_Name")) { query.append(" ORDER BY name"); }
-        if (orderBy.endsWith("_StartDate")) { query.append(" ORDER BY project_task.start_date"); }
-        if (orderBy.endsWith("_EndDate")) { query.append(" ORDER BY project_task.end_date"); }
-        if (orderBy.endsWith("_ModifyDate")) { query.append(" ORDER BY project_task.modify_date"); }
-        if (orderBy.endsWith("_CompletionDate")) { query.append(" ORDER BY project_task.completion_date"); }
-        if (orderBy.endsWith("_Status")) { query.append(" ORDER BY status_lu.status_desc"); }
-        if (orderBy.startsWith("A")) { query.append(" ASC"); } else { query.append(" DESC"); }
+        if (orderBy.endsWith("_Name")) {
+            query.append(" ORDER BY name");
+        }
+        if (orderBy.endsWith("_StartDate")) {
+            query.append(" ORDER BY project_task.start_date");
+        }
+        if (orderBy.endsWith("_EndDate")) {
+            query.append(" ORDER BY project_task.end_date");
+        }
+        if (orderBy.endsWith("_ModifyDate")) {
+            query.append(" ORDER BY project_task.modify_date");
+        }
+        if (orderBy.endsWith("_CompletionDate")) {
+            query.append(" ORDER BY project_task.completion_date");
+        }
+        if (orderBy.endsWith("_Status")) {
+            query.append(" ORDER BY status_lu.status_desc");
+        }
+        if (orderBy.startsWith("A")) {
+            query.append(" ASC");
+        } else {
+            query.append(" DESC");
+        }
 
         ArrayList results = new ArrayList();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             if (params.length() > 0) {
                 StringTokenizer st = new StringTokenizer(params, ",");
                 int numTokens = st.countTokens();
-                for (int i=0; i < numTokens; i++) {
-                    int idx = i+1;
+                for (int i = 0; i < numTokens; i++) {
+                    int idx = i + 1;
                     ps.setInt(idx, Integer.parseInt(st.nextToken()));
                 }
             }
@@ -790,21 +955,31 @@ public class ProjectServicesBean implements SessionBean  {
                 projectTask.setCompletion_date(rs.getDate(11));
                 results.add(projectTask);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjectTasks():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjectTasks():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
-        return results;        
+        return results;
     }
 
     public void setProjectTask(ProjectTask projectTask) throws RemoteException, Exception {
@@ -855,24 +1030,26 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("setProject_Task():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("setProject_Task():failed:" + ex.getMessage() );
+            throw new Exception("setProject_Task():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
         }
     }
-    
+
     public void addProjectTask(ProjectTask projectTask) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -924,24 +1101,26 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("addProject_Task():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("addProject_Task():failed:" + ex.getMessage() );
+            throw new Exception("addProject_Task():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
         }
     }
-    
+
     //************************************************************************
     //******************** PROJECT ISSUE *************************************
     //************************************************************************
@@ -967,28 +1146,48 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 project_issue = new ProjectIssue();
                 project_issue.setProject_issue_id(rs.getInt(1));
-                if (rs.wasNull()) { project_issue.setProject_issue_id(0); }
+                if (rs.wasNull()) {
+                    project_issue.setProject_issue_id(0);
+                }
                 project_issue.setProject_id(rs.getInt(2));
-                if (rs.wasNull()) { project_issue.setProject_id(0); }
+                if (rs.wasNull()) {
+                    project_issue.setProject_id(0);
+                }
                 project_issue.setIssue_text(rs.getString(3));
-                if (rs.wasNull()) { project_issue.setIssue_text(""); }
+                if (rs.wasNull()) {
+                    project_issue.setIssue_text("");
+                }
                 project_issue.setOpen_date(rs.getDate(4));
-                if (rs.wasNull()) { project_issue.setOpen_date(null); }
+                if (rs.wasNull()) {
+                    project_issue.setOpen_date(null);
+                }
                 project_issue.setClose_date(rs.getDate(5));
-                if (rs.wasNull()) { project_issue.setClose_date(null); }
+                if (rs.wasNull()) {
+                    project_issue.setClose_date(null);
+                }
             } else {
                 return null;
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProject_Issue():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProject_Issue():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
@@ -1011,14 +1210,14 @@ public class ProjectServicesBean implements SessionBean  {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             if (params.length() > 0) {
                 StringTokenizer st = new StringTokenizer(params, ",");
                 int numTokens = st.countTokens();
-                for (int i=0; i < numTokens; i++) {
-                    int idx = i+1;
+                for (int i = 0; i < numTokens; i++) {
+                    int idx = i + 1;
                     ps.setInt(idx, Integer.parseInt(st.nextToken()));
                 }
             }
@@ -1032,21 +1231,31 @@ public class ProjectServicesBean implements SessionBean  {
                 projectIssue.setClose_date(rs.getDate(5));
                 results.add(projectIssue);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjectIssues():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjectIssues():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
-        return results;        
+        return results;
     }
 
     public void setProjectIssue(ProjectIssue projectIssue) throws RemoteException, Exception {
@@ -1063,8 +1272,9 @@ public class ProjectServicesBean implements SessionBean  {
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, projectIssue.getProject_id());
             if (projectIssue.getIssue_text() != null) {
-            ps.setBytes(2, DBMS.serializeTextString(projectIssue.getIssue_text()));
-            } else ps.setNull(2, java.sql.Types.LONGVARCHAR );
+                ps.setBytes(2, DBMS.serializeTextString(projectIssue.getIssue_text()));
+            } else
+                ps.setNull(2, java.sql.Types.LONGVARCHAR);
             if (projectIssue.getClose_date() == null) {
                 ps.setNull(3, java.sql.Types.DATE);
             } else {
@@ -1075,24 +1285,26 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("setProject_Issue():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("setProject_Issue():failed:" + ex.getMessage() );
+            throw new Exception("setProject_Issue():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
         }
     }
-    
+
     public void addProjectIssue(ProjectIssue projectIssue) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1111,8 +1323,9 @@ public class ProjectServicesBean implements SessionBean  {
             ps.setInt(1, DBMS.getSeqId(DBMS.PT_PROJ_ISSUE_SEQ));
             ps.setInt(2, projectIssue.getProject_id());
             if (projectIssue.getIssue_text() != null) {
-            ps.setBytes(3, DBMS.serializeTextString(projectIssue.getIssue_text()));
-            } else ps.setNull(3, java.sql.Types.LONGVARCHAR );
+                ps.setBytes(3, DBMS.serializeTextString(projectIssue.getIssue_text()));
+            } else
+                ps.setNull(3, java.sql.Types.LONGVARCHAR);
 /*
             if (projectIssue.getOpen_date() == null) {
                 ps.setNull(4, java.sql.Types.DATE);
@@ -1129,24 +1342,26 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("addProject_Issue():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("addProject_Issue():failed:" + ex.getMessage() );
+            throw new Exception("addProject_Issue():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
         }
     }
-    
+
     public ProjectUserUpdate getProjectUserUpdateById(int projectUserUpdateId) throws RemoteException, Exception {
         ProjectUserUpdate project_user_update = null;
         Connection conn = null;
@@ -1169,37 +1384,59 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 project_user_update = new ProjectUserUpdate();
                 project_user_update.setProject_user_update_id(rs.getInt(1));
-                if (rs.wasNull()) { project_user_update.setProject_user_update_id(0); }
+                if (rs.wasNull()) {
+                    project_user_update.setProject_user_update_id(0);
+                }
                 project_user_update.setProject_user_id(rs.getInt(2));
-                if (rs.wasNull()) { project_user_update.setProject_user_id(0); }
+                if (rs.wasNull()) {
+                    project_user_update.setProject_user_id(0);
+                }
                 project_user_update.setProject_task_id(rs.getInt(3));
-                if (rs.wasNull()) { project_user_update.setProject_task_id(0); }
+                if (rs.wasNull()) {
+                    project_user_update.setProject_task_id(0);
+                }
                 project_user_update.setUpdate_notes(DBMS.getTextString(rs, 4));
-                if (rs.wasNull()) { project_user_update.setUpdate_notes(""); }
+                if (rs.wasNull()) {
+                    project_user_update.setUpdate_notes("");
+                }
                 project_user_update.setCreation_date(rs.getDate(5));
-                if (rs.wasNull()) { project_user_update.setCreation_date(null); }
+                if (rs.wasNull()) {
+                    project_user_update.setCreation_date(null);
+                }
                 project_user_update.setModify_date(rs.getDate(6));
-                if (rs.wasNull()) { project_user_update.setModify_date(null); }
+                if (rs.wasNull()) {
+                    project_user_update.setModify_date(null);
+                }
             } else {
                 return null;
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProject_User_Update():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProject_User_Update():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
         return project_user_update;
     }
-    
+
     public void setProjectUserUpdate(ProjectUserUpdate projectUserUpdate) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1213,30 +1450,33 @@ public class ProjectServicesBean implements SessionBean  {
             ps = conn.prepareStatement(query.toString());
             if (projectUserUpdate.getUpdate_notes() != null) {
                 ps.setBytes(1, DBMS.serializeTextString(projectUserUpdate.getUpdate_notes()));
-            } else ps.setNull(1, java.sql.Types.LONGVARCHAR );
+            } else
+                ps.setNull(1, java.sql.Types.LONGVARCHAR);
             ps.setInt(2, projectUserUpdate.getProject_user_update_id());
             int regVal = ps.executeUpdate();
             if (regVal != 1) {
                 throw new Exception("setProject_User_Update():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("setProject_User_Update():failed:" + ex.getMessage() );
+            throw new Exception("setProject_User_Update():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
         }
     }
-    
+
     public void addProjectUserUpdate(ProjectUserUpdate projectUserUpdate) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1262,29 +1502,32 @@ public class ProjectServicesBean implements SessionBean  {
             }
             if (projectUserUpdate.getUpdate_notes() != null) {
                 ps.setBytes(4, DBMS.serializeTextString(projectUserUpdate.getUpdate_notes()));
-            } else ps.setNull(4, java.sql.Types.LONGVARCHAR );
+            } else
+                ps.setNull(4, java.sql.Types.LONGVARCHAR);
             int regVal = ps.executeUpdate();
             if (regVal != 1) {
                 throw new Exception("addProject_User_Update():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("addProject_User_Update():failed:" + ex.getMessage() );
+            throw new Exception("addProject_User_Update():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
         }
     }
-    
+
     public ArrayList getProjectUserUpdates(int projectId) throws RemoteException, Exception {
         ArrayList results = new ArrayList();
         Connection conn = null;
@@ -1301,7 +1544,7 @@ public class ProjectServicesBean implements SessionBean  {
         query.append(" project_user_update.modify_date");
         query.append(" FROM project_user_update, project_user");
         query.append(" WHERE project_user_update.project_user_id = project_user.project_user_id AND project_user_update.project_task_id IS NULL AND project_user.project_id=?");
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, projectId);
@@ -1316,23 +1559,33 @@ public class ProjectServicesBean implements SessionBean  {
                 puu.setModify_date(rs.getDate(6));
                 results.add(puu);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjects():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjects():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
         return results;
     }
-    
+
     public ArrayList getProjectUserUpdates(int projectId, int projectTaskId) throws RemoteException, Exception {
         ArrayList results = new ArrayList();
         Connection conn = null;
@@ -1349,7 +1602,7 @@ public class ProjectServicesBean implements SessionBean  {
         query.append(" project_user_update.modify_date");
         query.append(" FROM project_user_update, project_user");
         query.append(" WHERE project_user_update.project_user_id = project_user.project_user_id AND project_user.project_id=? AND project_user_update.project_task_id=?");
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, projectId);
@@ -1365,27 +1618,37 @@ public class ProjectServicesBean implements SessionBean  {
                 puu.setModify_date(rs.getDate(6));
                 results.add(puu);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjects():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjects():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
         return results;
     }
-    
+
     //************************************************************************
     //*************************** PROJECT USER *******************************
     //************************************************************************
-    
+
     public ProjectUser getProjectUserById(int projectUserId) throws RemoteException, Exception {
         ProjectUser project_user = null;
         Connection conn = null;
@@ -1407,39 +1670,59 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 project_user = new ProjectUser();
                 project_user.setProject_user_id(rs.getInt(1));
-                if (rs.wasNull()) { project_user.setProject_user_id(0); }
+                if (rs.wasNull()) {
+                    project_user.setProject_user_id(0);
+                }
                 project_user.setProject_id(rs.getInt(2));
-                if (rs.wasNull()) { project_user.setProject_id(0); }
+                if (rs.wasNull()) {
+                    project_user.setProject_id(0);
+                }
                 project_user.setUser_id(rs.getInt(3));
-                if (rs.wasNull()) { project_user.setUser_id(0); }
+                if (rs.wasNull()) {
+                    project_user.setUser_id(0);
+                }
                 project_user.setRole_id(rs.getInt(4));
-                if (rs.wasNull()) { project_user.setRole_id(0); }
+                if (rs.wasNull()) {
+                    project_user.setRole_id(0);
+                }
                 project_user.setStatus_id(rs.getInt(5));
-                if (rs.wasNull()) { project_user.setStatus_id(0); }
+                if (rs.wasNull()) {
+                    project_user.setStatus_id(0);
+                }
             } else {
                 return null;
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProject_User():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProject_User():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
         return project_user;
     }
-    
+
     public void setProjectUser(ProjectUser projectUser) throws RemoteException, Exception {
         // Not used
     }
-    
+
     public void addProjectUser(ProjectUser projectUser) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1464,18 +1747,20 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("addProject_User():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("addProject_User():failed:" + ex.getMessage() );
+            throw new Exception("addProject_User():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
@@ -1485,7 +1770,7 @@ public class ProjectServicesBean implements SessionBean  {
     //************************************************************************
     //*************************** PROJECT USER TASK **************************
     //************************************************************************
-    
+
     public ProjectUserTask getProjectUserTaskById(int projectUserTaskId) throws RemoteException, Exception {
         ProjectUserTask project_userTask = null;
         Connection conn = null;
@@ -1507,35 +1792,55 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 project_userTask = new ProjectUserTask();
                 project_userTask.setProject_user_task_id(rs.getInt(1));
-                if (rs.wasNull()) { project_userTask.setProject_user_task_id(0); }
+                if (rs.wasNull()) {
+                    project_userTask.setProject_user_task_id(0);
+                }
                 project_userTask.setProject_user_id(rs.getInt(2));
-                if (rs.wasNull()) { project_userTask.setProject_user_id(0); }
+                if (rs.wasNull()) {
+                    project_userTask.setProject_user_id(0);
+                }
                 project_userTask.setProject_task_id(rs.getInt(3));
-                if (rs.wasNull()) { project_userTask.setProject_task_id(0); }
+                if (rs.wasNull()) {
+                    project_userTask.setProject_task_id(0);
+                }
                 project_userTask.setAssign_date(rs.getDate(4));
-                if (rs.wasNull()) { project_userTask.setAssign_date(null); }
+                if (rs.wasNull()) {
+                    project_userTask.setAssign_date(null);
+                }
                 project_userTask.setStatus_id(rs.getInt(5));
-                if (rs.wasNull()) { project_userTask.setStatus_id(0); }
+                if (rs.wasNull()) {
+                    project_userTask.setStatus_id(0);
+                }
             } else {
                 return null;
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProject_User_Task():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProject_User_Task():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
         return project_userTask;
     }
-    
+
     public ArrayList getProjectUserTasks(int projectTaskId) throws RemoteException, Exception {
         ArrayList results = new ArrayList();
         Connection conn = null;
@@ -1551,7 +1856,7 @@ public class ProjectServicesBean implements SessionBean  {
         query.append(" status_id");
         query.append(" FROM project_user_task");
         query.append(" WHERE project_user_task.project_task_id=?");
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, projectTaskId);
@@ -1565,28 +1870,38 @@ public class ProjectServicesBean implements SessionBean  {
                 put.setStatus_id(rs.getInt(5));
                 results.add(put);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjectUserTasks():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjectUserTasks():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
-        return results;        
+        return results;
     }
-    
-    
+
+
     public void setProjectUserTask(ProjectUserTask projectUserTask) throws RemoteException, Exception {
         // Not used
     }
-    
+
     public void addProjectUserTask(ProjectUserTask projectUserTask) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1616,28 +1931,30 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("addProject_User_Task():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("addProject_User_Task():failed:" + ex.getMessage() );
+            throw new Exception("addProject_User_Task():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                     log.error("updateCoder cx NOT closed...");
                 }
             }
         }
     }
-    
+
     //************************************************************************
     //*************************** USER MESSAGE********************************
     //************************************************************************
-    
+
     public UserMessage getUserMessageById(int user_messageId) throws RemoteException, Exception {
         UserMessage user_message = null;
         Connection conn = null;
@@ -1663,43 +1980,69 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 user_message = new UserMessage();
                 user_message.setUser_message_id(rs.getInt(1));
-                if (rs.wasNull()) { user_message.setUser_message_id(0); }
+                if (rs.wasNull()) {
+                    user_message.setUser_message_id(0);
+                }
                 user_message.setSender_id(rs.getInt(2));
-                if (rs.wasNull()) { user_message.setSender_id(0); }
+                if (rs.wasNull()) {
+                    user_message.setSender_id(0);
+                }
                 user_message.setReceiver_id(rs.getInt(3));
-                if (rs.wasNull()) { user_message.setReceiver_id(0); }
+                if (rs.wasNull()) {
+                    user_message.setReceiver_id(0);
+                }
                 user_message.setSender_folder(rs.getInt(4));
-                if (rs.wasNull()) { user_message.setSender_folder(0); }
+                if (rs.wasNull()) {
+                    user_message.setSender_folder(0);
+                }
                 user_message.setReceiver_folder(rs.getInt(5));
-                if (rs.wasNull()) { user_message.setReceiver_folder(0); }
+                if (rs.wasNull()) {
+                    user_message.setReceiver_folder(0);
+                }
                 user_message.setSubject(rs.getString(6));
-                if (rs.wasNull()) { user_message.setSubject(""); }
+                if (rs.wasNull()) {
+                    user_message.setSubject("");
+                }
                 user_message.setMessage(DBMS.getTextString(rs, 7));
                 //if (rs.wasNull()) { user_message.setMessage(""); }
                 user_message.setSent_date(rs.getDate(8));
-                if (rs.wasNull()) { user_message.setSent_date(null); }
+                if (rs.wasNull()) {
+                    user_message.setSent_date(null);
+                }
                 user_message.setRead_date(rs.getDate(9));
-                if (rs.wasNull()) { user_message.setRead_date(null); }
+                if (rs.wasNull()) {
+                    user_message.setRead_date(null);
+                }
             } else {
                 return null;
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getUser_Message():failed:\n"+ex);
+            throw new Exception(getTag() + ":getUser_Message():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
         return user_message;
     }
-    
+
     public ArrayList getUserMessages(int senderId, int receiverId, int senderFolder, int receiverFolder) throws RemoteException, Exception {
         ArrayList results = new ArrayList();
         Connection conn = null;
@@ -1735,18 +2078,18 @@ public class ProjectServicesBean implements SessionBean  {
             strWhere += "receiver_folder=? AND ";
             params += "" + receiverFolder + ",";
         }
-        if (strWhere.endsWith(" AND ")) strWhere = strWhere.substring(0, strWhere.length()-5);
-        if (params.endsWith(",")) params = params.substring(0, params.length()-1);
+        if (strWhere.endsWith(" AND ")) strWhere = strWhere.substring(0, strWhere.length() - 5);
+        if (params.endsWith(",")) params = params.substring(0, params.length() - 1);
         System.out.println("getUserMessages(): query is '" + query.toString() + "' with strWhere '" + strWhere + "' and params '" + params + "'");
         query.append(strWhere);
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             if (params.length() > 0) {
                 StringTokenizer st = new StringTokenizer(params, ",");
                 int numTokens = st.countTokens();
-                for (int i=0; i < numTokens; i++) {
-                    int idx = i+1;
+                for (int i = 0; i < numTokens; i++) {
+                    int idx = i + 1;
                     ps.setInt(idx, Integer.parseInt(st.nextToken()));
                 }
             }
@@ -1764,16 +2107,26 @@ public class ProjectServicesBean implements SessionBean  {
                 um.setRead_date(rs.getDate(9));
                 results.add(um);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjects():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjects():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
@@ -1820,25 +2173,37 @@ public class ProjectServicesBean implements SessionBean  {
             strWhere += "receiver_folder=? AND ";
             params += "" + receiverFolder + ",";
         }
-        if (strWhere.endsWith(" AND ")) strWhere = strWhere.substring(0, strWhere.length()-5);
-        if (params.endsWith(",")) params = params.substring(0, params.length()-1);
+        if (strWhere.endsWith(" AND ")) strWhere = strWhere.substring(0, strWhere.length() - 5);
+        if (params.endsWith(",")) params = params.substring(0, params.length() - 1);
         System.out.println("getUserMessages(): query is '" + query.toString() + "' with strWhere '" + strWhere + "' and params '" + params + "'");
         query.append(strWhere);
-        if (orderBy.endsWith("_SenderHandle")) { query.append(" ORDER BY user1.handle"); }
-        if (orderBy.endsWith("_ReceiverHandle")) { query.append(" ORDER BY user2.handle"); }
-        if (orderBy.endsWith("_SentDate")) { query.append(" ORDER BY user_message.sent_date"); }
-        if (orderBy.endsWith("_ReadDate")) { query.append(" ORDER BY user_message.read_date"); }
-        if (orderBy.startsWith("A")) { query.append(" ASC"); } else { query.append(" DESC"); }
+        if (orderBy.endsWith("_SenderHandle")) {
+            query.append(" ORDER BY user1.handle");
+        }
+        if (orderBy.endsWith("_ReceiverHandle")) {
+            query.append(" ORDER BY user2.handle");
+        }
+        if (orderBy.endsWith("_SentDate")) {
+            query.append(" ORDER BY user_message.sent_date");
+        }
+        if (orderBy.endsWith("_ReadDate")) {
+            query.append(" ORDER BY user_message.read_date");
+        }
+        if (orderBy.startsWith("A")) {
+            query.append(" ASC");
+        } else {
+            query.append(" DESC");
+        }
         System.out.println("getUserMessages(): query is '" + query.toString() + "'");
 
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             if (params.length() > 0) {
                 StringTokenizer st = new StringTokenizer(params, ",");
                 int numTokens = st.countTokens();
-                for (int i=0; i < numTokens; i++) {
-                    int idx = i+1;
+                for (int i = 0; i < numTokens; i++) {
+                    int idx = i + 1;
                     ps.setInt(idx, Integer.parseInt(st.nextToken()));
                 }
             }
@@ -1856,23 +2221,33 @@ public class ProjectServicesBean implements SessionBean  {
                 um.setRead_date(rs.getDate(9));
                 results.add(um);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception(getTag()+":getProjects():failed:\n"+ex);
+            throw new Exception(getTag() + ":getProjects():failed:\n" + ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("loadCoder cx NOT closed...");
                 }
             }
         }
         return results;
     }
-    
+
     public void setUserMessage(UserMessage user_message) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1904,7 +2279,8 @@ public class ProjectServicesBean implements SessionBean  {
             //ps.setString(7, user_message.getMessage());
             if (user_message.getMessage() != null) {
                 ps.setBytes(7, DBMS.serializeTextString(user_message.getMessage()));
-            } else ps.setNull(7, java.sql.Types.LONGVARCHAR );
+            } else
+                ps.setNull(7, java.sql.Types.LONGVARCHAR);
             if (user_message.getSent_date() == null) {
                 ps.setNull(8, java.sql.Types.DATE);
             } else {
@@ -1919,23 +2295,25 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("setUser_Message():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("setUser_Message():failed:" + ex.getMessage() );
+            throw new Exception("setUser_Message():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                 }
             }
         }
     }
-    
+
     public void addUserMessage(UserMessage user_message) throws RemoteException, Exception {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1968,7 +2346,8 @@ public class ProjectServicesBean implements SessionBean  {
             //ps.setString(7, user_message.getMessage());
             if (user_message.getMessage() != null) {
                 ps.setBytes(7, DBMS.serializeTextString(user_message.getMessage()));
-            } else ps.setNull(7, java.sql.Types.LONGVARCHAR );
+            } else
+                ps.setNull(7, java.sql.Types.LONGVARCHAR);
 /*
             if (user_message.getSent_date() == null) {
                 ps.setNull(8, java.sql.Types.DATE);
@@ -1981,38 +2360,40 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("addUser_Message():did not update record:\n");
             }
-        } catch (Exception ex )  {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            throw new Exception("addUser_Message():failed:" + ex.getMessage() );
+            throw new Exception("addUser_Message():failed:" + ex.getMessage());
         } finally {
-            if (ps != null   ) {
-                try { ps.close();   }
-                catch (Exception ignore ) {}
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
             }
-            if (conn != null ) {
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch (Exception ignore ) {
+                } catch (Exception ignore) {
                 }
             }
         }
     }
-    
+
     public void setReceiverUserMessageFolder(int messageId, int folderId) {
         StringBuffer query = new StringBuffer(250);
-        
+
         query.append("UPDATE ");
         query.append(" user_message");
         query.append(" SET");
         query.append(" receiver_folder=?");
         query.append(" WHERE");
         query.append(" user_message_id=?");
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, folderId);
@@ -2021,21 +2402,31 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("setReceiverUserMessageFolder():did not update record:\n");
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                 }
             }
         }
     }
-    
+
     public void setSenderUserMessageFolder(int messageId, int folderId) {
         StringBuffer query = new StringBuffer(250);
         query.append("UPDATE ");
@@ -2047,7 +2438,7 @@ public class ProjectServicesBean implements SessionBean  {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, folderId);
@@ -2056,21 +2447,31 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("setSenderUserMessageFolder():did not update record:\n");
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                 }
             }
         }
     }
-    
+
     public void setMessageReadDate(int messageId, java.util.Date dateIn) throws RemoteException, Exception {
         StringBuffer query = new StringBuffer(250);
         query.append("UPDATE ");
@@ -2082,7 +2483,7 @@ public class ProjectServicesBean implements SessionBean  {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try  {
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             if (dateIn == null) {
@@ -2095,16 +2496,26 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("setMessageReadDate():did not update record:\n");
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                 }
             }
         }
@@ -2112,17 +2523,17 @@ public class ProjectServicesBean implements SessionBean  {
 
     public void loginMember(int loginId, int user_id, String messageIn) {
         StringBuffer query = new StringBuffer(250);
-        
+
         query.append("INSERT INTO login");
         query.append(" (login_id, user_id, login_date, login_message)");
         query.append(" VALUES");
         query.append(" (?, ?, current, ?)");
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, loginId);
@@ -2132,34 +2543,44 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("loginMember():did not insert record:\n");
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                 }
             }
         }
     }
-    
+
     public void logoutMember(int loginId, String messageIn) {
         StringBuffer query = new StringBuffer(250);
-        
+
         query.append("UPDATE login");
         query.append(" SET logout_date=current, logout_message=?");
         query.append(" WHERE");
         query.append(" login_id=?");
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, messageIn);
@@ -2168,39 +2589,49 @@ public class ProjectServicesBean implements SessionBean  {
             if (regVal != 1) {
                 throw new Exception("loginMember():did not update record:\n");
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
                 try {
-                    conn.close();
-                } catch(Exception ignore){
+                    rs.close();
+                } catch (Exception ignore) {
                 }
             }
-        }    
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                }
+            }
+        }
     }
-    
+
     //************************************************************************
     //*************************** LOOKUPS ************************************
     //************************************************************************
     public int getUserId(int projectUserId) throws RemoteException, Exception {
         StringBuffer query = new StringBuffer(250);
-        
+
         query.append("SELECT");
         query.append(" user_id");
         query.append(" FROM");
         query.append(" project_user");
         query.append(" WHERE");
         query.append(" project_user.project_user_id = ?");
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, projectUserId);
@@ -2208,25 +2639,35 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 return rs.getInt(1);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                 }
             }
         }
         return 0;
     }
-    
+
     public int getProjectUserId(int userId, int projectId, int role) throws RemoteException, Exception {
         StringBuffer query = new StringBuffer(250);
-        
+
         query.append("SELECT");
         query.append(" project_user_id");
         query.append(" FROM");
@@ -2236,12 +2677,12 @@ public class ProjectServicesBean implements SessionBean  {
         query.append(" AND project_user.user_id = ?");
         query.append(" AND project_user.project_id = ?");
         query.append(" AND project_user.role_id = ?");
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, userId);
@@ -2251,25 +2692,35 @@ public class ProjectServicesBean implements SessionBean  {
             if (rs.next()) {
                 return rs.getInt(1);
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                 }
             }
         }
         return 0;
     }
-    
+
     public Integer[] getProjectUserIds(int projectId, int role) throws RemoteException, Exception {
         StringBuffer query = new StringBuffer(250);
-        
+
         query.append("SELECT");
         query.append(" project_user_id");
         query.append(" FROM");
@@ -2277,13 +2728,13 @@ public class ProjectServicesBean implements SessionBean  {
         query.append(" WHERE");
         query.append(" project_id = ?");
         query.append(" AND role_id = ?");
-        
+
         ArrayList al = new ArrayList();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, projectId);
@@ -2292,38 +2743,48 @@ public class ProjectServicesBean implements SessionBean  {
             while (rs.next()) {
                 al.add(new Integer(rs.getInt(1)));
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                 }
             }
         }
-        return (Integer[])al.toArray(new Integer[0]);
+        return (Integer[]) al.toArray(new Integer[0]);
     }
 
     public Integer[] getProjectUserIds(int projectTaskId) throws RemoteException, Exception {
         StringBuffer query = new StringBuffer(250);
-        
+
         query.append("SELECT");
         query.append(" project_user_id");
         query.append(" FROM");
         query.append(" project_user_task");
         query.append(" WHERE");
         query.append(" project_task_id = ?");
-        
+
         ArrayList al = new ArrayList();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, projectTaskId);
@@ -2331,25 +2792,35 @@ public class ProjectServicesBean implements SessionBean  {
             while (rs.next()) {
                 al.add(new Integer(rs.getInt(1)));
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                 }
             }
         }
-        return (Integer[])al.toArray(new Integer[0]);
-    }    
-    
+        return (Integer[]) al.toArray(new Integer[0]);
+    }
+
     public HashMap getProjectStatuses() throws RemoteException, Exception {
-        StringBuffer query = new StringBuffer(250             );
-        
+        StringBuffer query = new StringBuffer(250);
+
         /***********************Informix*******************************/
         query.append(" SELECT");
         query.append(" status_id,");
@@ -2357,13 +2828,13 @@ public class ProjectServicesBean implements SessionBean  {
         query.append(" FROM");
         query.append(" status_lu WHERE status_type_id=1 ORDER BY status_id");
         /**************************************************************/
-        
+
         return getLookup(query);
     }
-    
+
     public HashMap getProjectTaskStatuses() throws RemoteException, Exception {
-        StringBuffer query = new StringBuffer(250             );
-        
+        StringBuffer query = new StringBuffer(250);
+
         /***********************Informix*******************************/
         query.append(" SELECT");
         query.append(" status_id,");
@@ -2371,103 +2842,113 @@ public class ProjectServicesBean implements SessionBean  {
         query.append(" FROM");
         query.append(" status_lu WHERE status_type_id=2 ORDER BY status_id");
         /**************************************************************/
-        
+
         return getLookup(query);
     }
-    
+
     public HashMap getUsers() throws RemoteException, Exception {
-        StringBuffer query = new StringBuffer(250             );
-        
+        StringBuffer query = new StringBuffer(250);
+
         /***********************Informix*******************************/
-        query.append(" SELECT"                                );
-        query.append(" user_id"                       );
-        query.append(", handle"                            );
-        query.append(" FROM"                                  );
-        query.append(" user"                       );
+        query.append(" SELECT");
+        query.append(" user_id");
+        query.append(", handle");
+        query.append(" FROM");
+        query.append(" user");
         /**************************************************************/
-        
+
         return getLookup(query);
     }
-    
+
     public HashMap getUserIds() throws RemoteException, Exception {
-        StringBuffer query = new StringBuffer(250             );
-        
+        StringBuffer query = new StringBuffer(250);
+
         /***********************Informix*******************************/
-        query.append(" SELECT"                                );
-        query.append(" handle"                       );
-        query.append(", user_id"                            );
-        query.append(" FROM"                                  );
-        query.append(" user"                       );
+        query.append(" SELECT");
+        query.append(" handle");
+        query.append(", user_id");
+        query.append(" FROM");
+        query.append(" user");
         /**************************************************************/
-        
+
         return getReverseLookup(query);
     }
-    
+
     public HashMap getUsers(int group) throws RemoteException, Exception {
-        StringBuffer query = new StringBuffer(250             );
-        
+        StringBuffer query = new StringBuffer(250);
+
         /***********************Informix*******************************/
-        query.append(" SELECT user.user_id,user.handle" );
-        query.append(" FROM user, group_user" );
-        query.append(" WHERE group_user.group_id=?" );
+        query.append(" SELECT user.user_id,user.handle");
+        query.append(" FROM user, group_user");
+        query.append(" WHERE group_user.group_id=?");
         query.append(" AND user.user_id=group_user.user_id");
         /**************************************************************/
-        
+
         HashMap hm = new HashMap();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try  {
+
+        try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, group);
             rs = ps.executeQuery();
             while (rs.next()) {
                 hm.put(new Integer(rs.getInt(1)),
-                rs.getString(2));
+                        rs.getString(2));
             }
-        } catch (Exception ex)  {
+        } catch (Exception ex) {
             ex.printStackTrace();
             //throw new Exception(getTag()+":getUsers():failed:\n"+ex);
         } finally {
-            if(rs!=null) {try {rs.close();} catch(Exception ignore){} }
-            if(ps!=null) {try {ps.close();} catch(Exception ignore){} }
-            if(conn!=null) {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                }
+            }
+            if (conn != null) {
                 try {
                     conn.close();
                     log.debug("cx closed...");
-                } catch(Exception ignore){
+                } catch (Exception ignore) {
                     log.error("cx NOT closed...");
                 }
             }
         }
         return hm;
     }
-    
+
     //*************************************************************************
     //                                 EJB lifecycle
     //*************************************************************************
-    
+
     public void ejbActivate() {
-        System.out.println(getTag()+":  ejbActivate called");
+        System.out.println(getTag() + ":  ejbActivate called");
     }
-    
+
     public void ejbPassivate() {
-        System.out.println(getTag()+":  ejbPassivate called");
+        System.out.println(getTag() + ":  ejbPassivate called");
     }
-    
+
     public void ejbCreate() throws CreateException {
-        System.out.println(getTag()+":  ejbCreate called");
+        System.out.println(getTag() + ":  ejbCreate called");
     }
-    
+
     public void ejbRemove() throws RemoteException {
-        System.out.println(getTag()+":  ejbRemove called");
+        System.out.println(getTag() + ":  ejbRemove called");
     }
-    
+
     public void setSessionContext(SessionContext ctx) throws RemoteException {
-        System.out.println(getTag()+":  setSessionContext called");
+        System.out.println(getTag() + ":  setSessionContext called");
         this.ctx = ctx;
     }
-    
+
 }

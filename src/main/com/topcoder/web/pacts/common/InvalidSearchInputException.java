@@ -24,5 +24,5 @@ public class InvalidSearchInputException extends Exception {
      */
     public InvalidSearchInputException(String s) {
         super(s);
-    }    
+    }
 }

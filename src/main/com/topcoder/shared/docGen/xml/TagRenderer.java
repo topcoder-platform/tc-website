@@ -1,7 +1,16 @@
 package com.topcoder.shared.docGen.xml;
 
+/**
+ * @author Steve Burrows
+ * @version  $Revision$
+ */
 public interface TagRenderer {
 
-  public RecordTag getXML() throws Exception;
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
+    public RecordTag getXML() throws Exception;
 
 }

@@ -1,48 +1,41 @@
 // Decompiled by Jad v1.5.8e. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.geocities.com/kpdus/jad.html
-// Decompiler options: packimports(3) 
+// Decompiler options: packimports(3)
 // Source File Name:   RestrictedPage.java
 
 package com.topcoder.web.render.bean;
 
-import com.topcoder.web.render.ejb.WebPageObject;
-import java.io.*;
-import java.rmi.RemoteException;
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import javax.naming.NamingException;
+import java.io.*;
+import java.rmi.RemoteException;
 
 // Referenced classes of package com.topcoder.web.render.bean:
 //            Page, ResourceException, Resource, WebPageResource
 
-class RestrictedPage extends Page
-{
+class RestrictedPage extends Page {
 
-    RestrictedPage()
-    {
+    RestrictedPage() {
     }
 
     RestrictedPage(Context context)
-        throws NamingException, RemoteException, CreateException
-    {
+            throws NamingException, RemoteException, CreateException {
         super(context);
     }
 
-    RestrictedPage(WebPageResource webpageresource)
-    {
+    RestrictedPage(WebPageResource webpageresource) {
         super(webpageresource);
     }
 
     synchronized void write(File file)
-        throws IOException, ResourceException
-    {
-        if(super.isnew)
-        {
-            if(file == null)
+            throws IOException, ResourceException {
+        if (super.isnew) {
+            if (file == null)
                 throw new IOException("No file attached");
-            if(!file.exists())
+            if (!file.exists())
                 throw new IOException("File doesn't exist");
-            if(!file.canWrite())
+            if (!file.canWrite())
                 throw new IOException("File not write-accessible");
             PrintWriter printwriter = new PrintWriter(new FileWriter(file));
             printwriter.println("<%@ page session='true' %>");

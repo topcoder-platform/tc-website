@@ -1,21 +1,19 @@
 package com.topcoder.shared.distCache;
 
-import java.util.Properties;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import java.rmi.registry.Registry;
 import com.topcoder.shared.util.TCResourceBundle;
 
-public class CacheConfiguration 
-{
-    static final String BUNDLE_NAME      = "cache";
-    static final String PROP_PRIMARY     = "cache.primary";
-    static final String PROP_SECONDARY   = "cache.secondary";
-    static final String PROP_SIZE        = "cache.size";
-    static final String PROP_SYNC        = "cache.synctime";
+import java.rmi.registry.Registry;
+
+/**
+ * @author orb
+ * @version  $Revision$
+ */
+public class CacheConfiguration {
+    static final String BUNDLE_NAME = "cache";
+    static final String PROP_PRIMARY = "cache.primary";
+    static final String PROP_SECONDARY = "cache.secondary";
+    static final String PROP_SIZE = "cache.size";
+    static final String PROP_SYNC = "cache.synctime";
 
     static final String PROP_EXPIREDELAY = "cache.expirecheck";
 //    static final String PROP_EXPIRETIME  = "cache.expiretime";
@@ -26,64 +24,99 @@ public class CacheConfiguration
 
     /**
      *  maximum cache size, -1 means no limit
+     * @return
      */
-
     public static int getSize() {
         return getBundle().getIntProperty(PROP_SIZE, -1);
     }
 
     /**
      *  time between syncrhonization attempts with peer
+     * @return
      */
-
     public static int getSynchronizationDelay() {
         return getBundle().getIntProperty(PROP_SYNC, 10000);
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getExpirationCheckDelay() {
         return getBundle().getIntProperty(PROP_EXPIREDELAY, 60000);
     }
 
-
+    /**
+     *
+     * @return
+     */
     public static String[] getURLS() {
-        return new String[] {
+        return new String[]{
             getPrimaryClientURL(),
             getSecondaryClientURL()
         };
     }
 
-
+     /**
+     *
+     * @return
+     */
     public static String getPrimaryClientURL() {
         return "rmi://" + getBundle().getProperty(PROP_PRIMARY, "") + "/client/primary";
     }
 
+    /**
+     *
+     * @return
+     */
     public static String getSecondaryClientURL() {
         return "rmi://" + getBundle().getProperty(PROP_SECONDARY, "") + "/client/secondary";
     }
 
-
+    /**
+     *
+     * @return
+     */
     public static String getPrimaryServerURL() {
         return "rmi://" + getBundle().getProperty(PROP_PRIMARY, "") + "/server/primary";
     }
 
+    /**
+     *
+     * @return
+     */
     public static String getSecondaryServerURL() {
         return "rmi://" + getBundle().getProperty(PROP_SECONDARY, "") + "/server/secondary";
     }
 
-
-
+    /**
+     *
+     * @return
+     */
     public static String getPrimaryServerHost() {
         return extractHost(getBundle().getProperty(PROP_PRIMARY, ""));
     }
 
+    /**
+     *
+     * @return
+     */
     public static String getSecondaryServerHost() {
         return extractHost(getBundle().getProperty(PROP_SECONDARY, ""));
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getPrimaryServerPort() {
         return extractPort(getBundle().getProperty(PROP_PRIMARY, ""));
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getSecondaryServerPort() {
         return extractPort(getBundle().getProperty(PROP_SECONDARY, ""));
     }
@@ -96,12 +129,12 @@ public class CacheConfiguration
         }
 
         int pos = hostname.indexOf(':');
-        
+
         if (pos == -1) {
             return Registry.REGISTRY_PORT;
         }
 
-        return Integer.parseInt(hostname.substring(pos+1));
+        return Integer.parseInt(hostname.substring(pos + 1));
     }
 
 
@@ -111,7 +144,7 @@ public class CacheConfiguration
         }
 
         int pos = hostname.indexOf(':');
-        
+
         if (pos == -1) {
             return "";
         }
@@ -121,10 +154,10 @@ public class CacheConfiguration
 
 
     private static TCResourceBundle getBundle() {
-      if (_bundle == null) { 
-        _bundle = new TCResourceBundle(BUNDLE_NAME);
-      }
-      return _bundle;    
+        if (_bundle == null) {
+            _bundle = new TCResourceBundle(BUNDLE_NAME);
+        }
+        return _bundle;
     }
 
 

@@ -1,17 +1,14 @@
 package com.topcoder.web.email.servlet.jsp.tag;
 
-import java.util.*;
-import java.io.*;
-import javax.naming.*;
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
-import com.topcoder.web.email.servlet.*;
-import com.topcoder.web.email.bean.*;
-import com.topcoder.shared.ejb.EmailServices.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.email.bean.AddressListTask;
+import com.topcoder.web.email.bean.MemberData;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.TagSupport;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Custom tag to display member data for a specified
@@ -24,15 +21,13 @@ import com.topcoder.shared.util.logging.Logger;
 
 
 public class MemberDataDisplayTag
-    extends TagSupport
-{
+        extends TagSupport {
     private static Logger log = Logger.getLogger(MemberDataDisplayTag.class);
 
     protected int memberID;
     protected int addressListID;
-    
-    public void setMemberID(String memberID)
-    {
+
+    public void setMemberID(String memberID) {
         try {
             this.memberID = Integer.parseInt(memberID);
         } catch (NumberFormatException e) {
@@ -40,47 +35,41 @@ public class MemberDataDisplayTag
         }
     }
 
-    public String getMemberID()
-    {
+    public String getMemberID() {
         return String.valueOf(memberID);
     }
 
-    public void setAddressListID(String addressListID)
-    {
+    public void setAddressListID(String addressListID) {
         try {
             this.addressListID = Integer.parseInt(addressListID);
         } catch (NumberFormatException e) {
             this.addressListID = -1;
         }
     }
-    
-    public String getAddressListID()
-    {
+
+    public String getAddressListID() {
         return String.valueOf(addressListID);
     }
 
 
     public int doStartTag()
-        throws JspException
-    {
+            throws JspException {
         return SKIP_BODY;
     }
 
     public int doEndTag()
-        throws JspException
-    {
+            throws JspException {
         try {
             JspWriter out = pageContext.getOut();
-                    out.write(buildHTML());
-        } catch(Exception e) {
+            out.write(buildHTML());
+        } catch (Exception e) {
             throw new JspException(e.toString());
         }
         return EVAL_PAGE;
     }
 
     String buildHTML()
-        throws Exception
-    {
+            throws Exception {
         StringBuffer sb = new StringBuffer(2000);
 
         String memberXML = AddressListTask.getMemberDataText(addressListID, memberID);
@@ -88,7 +77,7 @@ public class MemberDataDisplayTag
         MemberData memberData = MemberData.loadFromXML(memberXML);
         Map fieldValueMap = memberData.getFieldValueMap();
 
-        for (Iterator i = fieldValueMap.keySet().iterator(); i.hasNext(); ) {
+        for (Iterator i = fieldValueMap.keySet().iterator(); i.hasNext();) {
             String field = i.next().toString();
             sb.append("<b>");
             sb.append(field);

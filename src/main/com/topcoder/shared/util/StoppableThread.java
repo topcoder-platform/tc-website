@@ -1,35 +1,36 @@
 package com.topcoder.shared.util;
 
 /**
- * This class represents a thread that could be safely stopped. 
- * 
+ * This class represents a thread that could be safely stopped.
+ *
  * @author  Timur Zambalayev
- */ 
+ * @version  $Revision$
+ */
 public final class StoppableThread {
 
     private final Client client;
     private final Thread thread;
 
-    private boolean isStopped=true;
+    private boolean isStopped = true;
 
     /**
      * Creates a new thread with the specified client and name.
-     * 
+     *
      * @param   client      the client
      * @param   name        the name of this thread.
-     */ 
+     */
     public StoppableThread(Client client, String name) {
-        thread=new Thread(new STRunnable(),name);
-        this.client=client;
+        thread = new Thread(new STRunnable(), name);
+        this.client = client;
     }
 
     /**
      * Returns a string representation of this thread.
-     * 
+     *
      * @return  a string representation of this thread.
-     */ 
+     */
     public String toString() {
-        return "StoppableThread "+thread;
+        return "StoppableThread " + thread;
     }
 
     boolean isStopped() {
@@ -38,26 +39,26 @@ public final class StoppableThread {
 
     /**
      * Causes this thread to begin execution.
-     */ 
+     */
     public void start() {
         if (!isStopped) {
-            throw new IllegalStateException("trying to start a started thread: "+thread);
+            throw new IllegalStateException("trying to start a started thread: " + thread);
         }
-        isStopped=false;
+        isStopped = false;
         thread.start();
     }
 
     /**
      * Forces the thread to stop executing gracefully.
-     * 
+     *
      * @throws  InterruptedException    if another thread has interrupted the current thread.
-     */ 
+     */
     public void stopThread() throws InterruptedException {
         if (isStopped) {
             return;
         }
-        isStopped=true;
-        if (Thread.currentThread()!=thread) {
+        isStopped = true;
+        if (Thread.currentThread() != thread) {
             thread.interrupt();
             join();
         }
@@ -73,18 +74,18 @@ public final class StoppableThread {
 
     /**
      * The interface for <code>StoppableThread</code> clients.
-     * 
+     *
      * @author  Timur Zambalayev
-     */ 
+     */
     public interface Client {
-        
+
         /**
          * Does one cycle.
-         * 
+         *
          * @throws  InterruptedException    if another thread has interrupted the current thread.
-         */ 
+         */
         void cycle() throws InterruptedException;
-        
+
     }
 
     private class STRunnable implements Runnable {

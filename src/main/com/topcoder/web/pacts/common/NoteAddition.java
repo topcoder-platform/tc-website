@@ -26,6 +26,6 @@ public class NoteAddition implements java.io.Serializable {
         this.text = text;
         this.note_type_id = typeId;
         this.submitted_by = submittingUserId;
-    }    
+    }
 }
 

@@ -1,12 +1,11 @@
 package com.topcoder.web.email.servlet;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
 import com.topcoder.shared.util.logging.Logger;
-import java.util.*;
 
-public class EmailConstants
-{
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+
+public class EmailConstants {
     private static Logger log = Logger.getLogger(EmailConstants.class);
 
     // default # of fields for an address list
@@ -142,7 +141,6 @@ public class EmailConstants
 
 
     // init-param keys
-    /////////////////////////////////////////////////////////////////////////////////
     private static final String ALIAS_KEY = "servlet_alias";
     private static final String TASK_PACKAGE_KEY = "task_package";
     private static final String ADDRESSLIST_NUM_FIELDS_KEY = "addresslist_num_fields";
@@ -236,7 +234,6 @@ public class EmailConstants
 
     // "constants" - they aren't actually constant, because they need
     // to be initialized from a non-static context
-    /////////////////////////////////////////////////////////////////////////////////
 
     // the alias to this servlet
     public static String ALIAS;
@@ -252,7 +249,7 @@ public class EmailConstants
 
     // xml tag for member data
     public static String MEMBER_TAG;
-    
+
     // xml tag for email address
     public static String EMAIL_ADDRESS_TAG;
 
@@ -280,7 +277,6 @@ public class EmailConstants
 
 
     // Statistics queries
-    /////////////////////////////////////////////////////////////////////////////////
 
     public static String RECENT_JOBS_COMMAND;
     public static String RECENT_JOBS_RESULT;
@@ -301,8 +297,7 @@ public class EmailConstants
     public static String JOB_LOG_RESULT;
 
     // EJB's
-    /////////////////////////////////////////////////////////////////////////////////
-    
+
     // ejb lookup
     public static String EMAILTEMPLATE_EJB;
     public static String EMAILTEMPLATE_GROUP_EJB;
@@ -315,7 +310,6 @@ public class EmailConstants
 
 
     // Status ID's for jobs
-    /////////////////////////////////////////////////////////////////////////////////
 
     public static int JOB_STATUS_CREATING;
     public static int JOB_STATUS_READY;
@@ -329,7 +323,6 @@ public class EmailConstants
 
 
     // Tasks
-    /////////////////////////////////////////////////////////////////////////////////
 
     // do login
     public static String LOGIN_TASK;
@@ -343,7 +336,6 @@ public class EmailConstants
     public static String SCHEDULEDJOB_TASK;
 
     // Pages
-    ////////////////////////////////////////////////////////////////////////////////
 
     // jsp root path
 
@@ -359,13 +351,11 @@ public class EmailConstants
     public static String ERROR_PAGE;
 
     // E-mail Template pages
-    ////////////////////////////////////////////////////////////////////////////////
     public static String EMAILTEMPLATE_LIST_PAGE;
     public static String EMAILTEMPLATE_EDIT_PAGE;
     public static String EMAILTEMPLATE_CREATE_PAGE;
 
     // Address List pages
-    ////////////////////////////////////////////////////////////////////////////////
     public static String ADDRESSLIST_LIST_PAGE;
     public static String ADDRESSLIST_EDIT_PAGE;
     public static String ADDRESSLIST_CREATE_PAGE;
@@ -374,7 +364,6 @@ public class EmailConstants
     public static String ADDRESSLIST_BULK_ADD_PAGE;
 
     // Scheduled Job pages
-    ////////////////////////////////////////////////////////////////////////////////
     public static String SCHEDULEDJOB_LIST_PAGE;
     public static String SCHEDULEDJOB_EDIT_PAGE;
     public static String SCHEDULEDJOB_VIEW_PAGE;
@@ -396,10 +385,8 @@ public class EmailConstants
     public static String SCHEDULEDJOB_SEARCH_RESULTS_PAGE;
 
 
-
     public static void initialize(ServletConfig servletConfig)
-        throws ServletException
-    {
+            throws ServletException {
         ALIAS = servletConfig.getInitParameter(ALIAS_KEY);
         TASK_PACKAGE = servletConfig.getInitParameter(TASK_PACKAGE_KEY);
 

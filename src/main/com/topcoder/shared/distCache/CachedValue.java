@@ -1,17 +1,20 @@
 package com.topcoder.shared.distCache;
 
-import java.util.Comparator;
 import java.io.Serializable;
+import java.util.Comparator;
 
+/**
+ * @author orb
+ * @version  $Revision$
+ */
 public class CachedValue
-    implements Serializable
-{
-    String _key      = null;
-    Object _value    = null;
-    int    _version  = 0;
-    int    _priority = 0;
-    long   _lastused = 0;
-    long   _expire   = 0;
+        implements Serializable {
+    String _key = null;
+    Object _value = null;
+    int _version = 0;
+    int _priority = 0;
+    long _lastused = 0;
+    long _expire = 0;
 
     /**
      *  create a cached value for a key/value pair
@@ -20,7 +23,7 @@ public class CachedValue
      *  @param expire the value to store
      */
     public CachedValue(String key, Object value, long expire) {
-        _key   = key;
+        _key = key;
         _value = value;
         _expire = expire;
     }
@@ -79,7 +82,7 @@ public class CachedValue
         _version = version;
     }
 
-    /** 
+    /**
      *  increment the version number
      */
 
@@ -123,17 +126,27 @@ public class CachedValue
         _lastused = lastused;
     }
 
-    public long getExpireTime()
-    {
-        return _expire+_lastused;
+    /**
+     *
+     * @return
+     */
+    public long getExpireTime() {
+        return _expire + _lastused;
     }
 
+    /**
+     *
+     */
     public static class TimeComparator
-        implements Comparator,
-                   Serializable
-                   
-    {
+            implements Comparator,
+            Serializable {
 
+        /**
+         *
+         * @param o1
+         * @param o2
+         * @return
+         */
         public int compare(Object o1, Object o2) {
             CachedValue cached1 = (CachedValue) o1;
             CachedValue cached2 = (CachedValue) o2;
@@ -155,10 +168,18 @@ public class CachedValue
         }
     }
 
+    /**
+     *
+     */
     public static class PriorityComparator
-        implements Comparator,
-                   Serializable
-    {
+            implements Comparator,
+            Serializable {
+        /**
+         *
+         * @param o1
+         * @param o2
+         * @return
+         */
         public int compare(Object o1, Object o2) {
             CachedValue cached1 = (CachedValue) o1;
             CachedValue cached2 = (CachedValue) o2;
@@ -173,12 +194,12 @@ public class CachedValue
                     if (result == 0) {
                         result = cached1.getKey().compareTo(cached2.getKey());
                     }
-                } 
-                
+                }
+
             }
 
             return result;
         }
-        
+
     }
 }

@@ -1,6 +1,6 @@
 package com.topcoder.web.pacts.common;
 
-import com.topcoder.web.pacts.bean.*;
+import com.topcoder.web.pacts.bean.DataInterfaceBean;
 
 /**
  * Generates all the affidavits and payments for the people who won
@@ -44,10 +44,10 @@ public class GenerateRoundPayments {
     public static void main(String args[]) {
         if (args.length != 2) {
             System.out.println("Usage: GenerateRoundPayments <round ID> <apply changes>\n" +
-                               "- round ID is the ID of the round for which to generate payments\n" +
-                               "- apply changes should be TRUE to modify the database.  Otherwise,\n" +
-                               "the database is not modified and the changes that would have been\n" +
-                               "applied are logged.");
+                    "- round ID is the ID of the round for which to generate payments\n" +
+                    "- apply changes should be TRUE to modify the database.  Otherwise,\n" +
+                    "the database is not modified and the changes that would have been\n" +
+                    "applied are logged.");
             return;
         }
 
