@@ -63,7 +63,6 @@ public class UseBeanTag extends BodyTagSupport {
             } catch (NoSuchMethodException nsme) {
                 methods = o.getClass().getMethods();
                 for (int i = 0; i < methods.length; i++) {
-                    System.out.println("method: " + methods[i].getName());
                     if (methods[i].getName().equalsIgnoreCase("get" + property) &&
                             methods[i].getParameterTypes().length == 0) {
                         getMethod = methods[i];
