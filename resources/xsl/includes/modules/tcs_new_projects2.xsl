@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:template name="tcs_new_projects">
+    <xsl:param name="projects"/>
             <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
                 <tr valign="middle"><td height="46"><img src="/i/development/right_col_head_tcs.gif" alt="TopCoder Software" width="244" height="46" border="0" /></td></tr>
                 
@@ -14,8 +15,8 @@
                         <table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
                             <tr valign="middle">
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Design Projects2 <xsl:value-of select="./component_id"/></td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
+                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Design Projects2 <xsl:value-of select="$projects/component_id"/></td>
+                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by 3</td>
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                             </tr>
 
