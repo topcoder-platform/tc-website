@@ -192,7 +192,7 @@
                         <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=STH">View</a></td>
                         <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=W">View</a></td>
                         <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=MW">View</a></td>
-                        <td align="center" class="tourney_subhead2">***</td>
+                        <td align="center" class="tourney_subhead2"><a class="statText" href="/index?t=tournaments&amp;c=tccc03_tourney_advancers&amp;rds=4474&amp;rc=INT">View</a></td>
                     </tr>
                     
                     <tr valign="middle">
