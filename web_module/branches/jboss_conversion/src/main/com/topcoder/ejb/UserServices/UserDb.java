@@ -307,7 +307,8 @@ final class UserDb {
                 user.setPassword(rs.getString(3));
                 user.setEmail(rs.getString(4));
                 user.setStatus(rs.getString(5));
-                user.setLoggedIn(rs.getString(6));
+                //no one really cares
+                //user.setLoggedIn(rs.getString(6));
                 user.setModified("S");
                 userType.setUserTypeId(rs.getInt(7));
                 userType.setUserTypeDesc(rs.getString(8));

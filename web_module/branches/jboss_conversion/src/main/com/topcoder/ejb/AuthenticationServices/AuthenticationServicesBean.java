@@ -662,7 +662,8 @@ public class AuthenticationServicesBean extends BaseEJB {
                 result.setPassword(rs.getString(3));
                 result.setEmail(rs.getString(4));
                 result.setStatus(rs.getString(5));
-                result.setLoggedIn(rs.getString(6));
+                //no one really cares
+                //result.setLoggedIn(rs.getString(6));
                 result.setModified("S");
                 userType.setUserTypeId(rs.getInt(7));
                 userType.setUserTypeDesc(rs.getString(8));

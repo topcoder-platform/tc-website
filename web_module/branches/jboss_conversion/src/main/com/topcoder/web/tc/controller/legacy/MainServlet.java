@@ -6,7 +6,6 @@ import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.ApplicationServer;
@@ -14,7 +13,6 @@ import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.model.CoderSessionInfo;
@@ -93,19 +91,10 @@ public final class MainServlet extends BaseServlet {
         Navigation nav = null;
         HttpSession session = null;
         XMLDocument document = null;
-        boolean timedOut = false;
         String requestTask = null;
         String requestCommand = null;
         boolean responseWritten = false;
         try {
-            // CHECK FOR SESSION TIMEOUT
-            if (request.isRequestedSessionIdValid() == false && request.getRequestedSessionId() != null) {
-                timedOut = true;
-            }
-            String loggedIn = Conversion.checkNull(request.getParameter("LoggedIn"));
-            if (timedOut && loggedIn.equals("true")) {
-                throw new NavigationException("Your session has been idle for more that 30 minutes.");
-            }
             // INIT SESSION AND XML DOCUMENT
             log.debug("getting session");
             session = request.getSession(true);
@@ -156,18 +145,6 @@ public final class MainServlet extends BaseServlet {
                 //user must have been transient and we got a navigation object that had been serialized at some point
                 user = new User();
                 nav.setUser(user);
-            }
-            if (nav.isLoggedIn()) {
-                user.setLoggedIn("Y");
-            } else {
-                if (loggedIn.equals("true")) {
-                    StringBuffer msg = new StringBuffer(200);
-                    msg.append("MainServlet:processCommands:ERROR:");
-                    msg.append("request indicates user is logged in, ");
-                    msg.append("but the server session indicates otherwise.");
-                    throw new NavigationException(msg.toString());
-                }
-                user.setLoggedIn("N");
             }
             //we should be able to get away with isIdentified here cuz no xsl requires a true login
             document.addTag(new ValueTag("LoggedIn", String.valueOf(nav.isIdentified())));

@@ -1553,7 +1553,7 @@ public class Registration
         } else {
             user = new User();
             user.setModified("A");
-            user.setLoggedIn("N");
+            //user.setLoggedIn("N");
             GroupUser groupUser = new GroupUser();
             groupUser.setModified("A");
             groupUser.setUserId(user.getUserId());

@@ -51,6 +51,8 @@ public final class Navigation
         msg.append("user.getUserId:");
         msg.append(user.getUserId());
         log.debug(msg.toString());
+/*
+        //don't really care to log them out who friggin cares?
         if (getUser().getLoggedIn().equals("Y") && user.getUserId() != 0) {
             Context ctx = null;
             try {
@@ -83,6 +85,7 @@ public final class Navigation
                 }
             }
         }
+*/
     }
 
 
