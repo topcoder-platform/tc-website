@@ -7,6 +7,7 @@ import com.topcoder.common.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.*;
 import java.text.DateFormat;
+import com.topcoder.server.util.TCResourceBundle;
 
 public class Unactive
 {
@@ -40,7 +41,10 @@ public class Unactive
     query.append(  " AND u.user_id > 267940" );
     query.append( " ORDER BY 2" );
     /****************************************************/
-    Connection conn = DBMS.getConnection();
+    Connection conn = null;
+    TCResourceBundle bundle = new TCResourceBundle("DBMS");  
+    Class.forName(DBMS.INFORMIX_DRIVER);
+    conn = DriverManager.getConnection(bundle.getProperty("INFORMIX_CONNECT_STRING", ""));
     PreparedStatement ps = null;
     ResultSet rs = null;
     int coderId = 0;

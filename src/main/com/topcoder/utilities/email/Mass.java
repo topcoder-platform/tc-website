@@ -8,6 +8,7 @@ import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.utilities.email.*;
 import java.text.DateFormat;
+import com.topcoder.server.util.TCResourceBundle;
 
 
 ///////////////////
@@ -213,7 +214,12 @@ public class Mass {
     String actCode = "";
     String msgText = "";
     try {
-      conn = DBMS.getConnection();
+      TCResourceBundle bundle = new TCResourceBundle("DBMS");  
+      
+      Class.forName(DBMS.INFORMIX_DRIVER);
+      conn = DriverManager.getConnection(bundle.getProperty("INFORMIX_CONNECT_STRING", ""));
+
+
       ps = conn.prepareStatement(query.toString());
       ps.executeQuery();
       rs = ps.getResultSet();

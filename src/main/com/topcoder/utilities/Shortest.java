@@ -6,6 +6,7 @@ import java.sql.*;
 import com.topcoder.common.*;
 import java.text.DateFormat;
 import java.text.*;
+import com.topcoder.server.util.TCResourceBundle;
 
 public class Shortest {
 
@@ -39,8 +40,10 @@ public class Shortest {
     ArrayList problems = null;
 
     try {
-      conn = DBMS.getConnection();
-      query = new StringBuffer(300);
+      TCResourceBundle bundle = new TCResourceBundle("DBMS");  
+      
+      Class.forName(DBMS.INFORMIX_DRIVER);
+      conn = DriverManager.getConnection(bundle.getProperty("INFORMIX_CONNECT_STRING", ""));
 
       query = new StringBuffer(300);
       query.append( " SELECT problem_id, difficulty_id FROM round_problem WHERE round_id = ? AND division_id = ? ORDER BY difficulty_id");
