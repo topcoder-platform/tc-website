@@ -136,7 +136,7 @@
              document.write('<PARAM NAME=movie VALUE="/i/problem_rating.swf?'+params+'">');
              document.write('<PARAM NAME=quality VALUE="high">');
              document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
-             document.write('<embed src="/i/problem_rating.swf?'+params+'&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=200 height=15 border="0" salign="Top" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash" swLiveConnect="true" ></embed>');
+             document.write('<embed src="/i/problem_rating.swf?'+params+'&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=500 height=360 border="0" salign="Top" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash" swLiveConnect="true" ></embed>');
              document.write('</object>');
      }
      // -->
