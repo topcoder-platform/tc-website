@@ -39,7 +39,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int id = 1;
@@ -83,25 +82,16 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to create template";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
-
-            if (result != null) throw result;
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
 
         return id;
@@ -118,7 +108,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Map ret = new HashMap();
@@ -146,7 +135,6 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get template names";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if (ctx != null) {
@@ -164,7 +152,6 @@ public class EmailTemplateBean extends BaseEJB {
                 }
             }
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -182,7 +169,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Map ret = new HashMap();
@@ -213,7 +199,6 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get template names for group " + groupId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if (ctx != null) {
@@ -231,7 +216,6 @@ public class EmailTemplateBean extends BaseEJB {
                 }
             }
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -249,7 +233,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = "";
@@ -277,7 +260,6 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get data for " + templateId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if (ctx != null) {
@@ -295,7 +277,6 @@ public class EmailTemplateBean extends BaseEJB {
                 }
             }
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -313,7 +294,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int ret = 0;
@@ -341,7 +321,6 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get data for " + templateId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if (ctx != null) {
@@ -359,7 +338,6 @@ public class EmailTemplateBean extends BaseEJB {
                 }
             }
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -377,7 +355,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = "";
@@ -408,7 +385,6 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get data for template " + templateId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if (ctx != null) {
@@ -426,7 +402,6 @@ public class EmailTemplateBean extends BaseEJB {
                 }
             }
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -444,7 +419,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int ret = 0;
@@ -482,7 +456,6 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get data for template " + templateId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if (ctx != null) {
@@ -500,7 +473,6 @@ public class EmailTemplateBean extends BaseEJB {
                 }
             }
 
-            if (result != null) throw result;
         }
 
         return (ret > 0);
@@ -518,7 +490,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
@@ -555,7 +526,6 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to update template";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if (ctx != null) {
@@ -573,7 +543,6 @@ public class EmailTemplateBean extends BaseEJB {
                 }
             }
 
-            if (result != null) throw result;
         }
     }
 
@@ -589,7 +558,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
@@ -626,7 +594,6 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to update template";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
             if (ctx != null) {
@@ -644,7 +611,6 @@ public class EmailTemplateBean extends BaseEJB {
                 }
             }
 
-            if (result != null) throw result;
         }
     }
 
@@ -660,7 +626,6 @@ public class EmailTemplateBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
@@ -697,25 +662,16 @@ public class EmailTemplateBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to update template";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
-
-            if (result != null) throw result;
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 }
