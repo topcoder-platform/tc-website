@@ -71,7 +71,7 @@
                 <tr>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" colspan="3">
-                        <p>Currently open projects total <span id="totalMoney">$8075.00*</span> in payments to the winning designers and developers. Send us
+                        <p>Currently open projects total <span id="totalMoney">$7013.00*</span> in payments to the winning designers and developers. Send us
                         your solutions today so you can start collecting your share.</p>
 
                         <p>*And that's before royalty payments. The more <a class="statText" href="http://www.topcodersoftware.com/pages/s_subscriptions.jsp">Component Subscriptions</a> we sell, the more royalties we pay out to our winners!</p></td>
@@ -116,6 +116,16 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=currency">Currency</a></td>
+                    <td background="" class="statText" align="center">$210.00</td>
+                    <td background="" class="statText" align="center">1.8.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=doc_gen-1.1-design">Document Generation Enhancement</a></td>
                     <td background="" class="statText" align="center">$315.00</td>
                     <td background="" class="statText" align="center">1.8.2003</td>
@@ -126,7 +136,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion-1.1-web_services-design">File Conversion - Web Services</a></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion-1.1-ejb-design">File Conversion - EJB</a></td>
                     <td background="" class="statText" align="center">$105.00</td>
                     <td background="" class="statText" align="center">1.8.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -136,7 +146,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion-1.1-ejb-design">File Conversion - EJB</a></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_conversion-1.1-web_services-design">File Conversion - Web Services</a></td>
                     <td background="" class="statText" align="center">$105.00</td>
                     <td background="" class="statText" align="center">1.8.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -166,6 +176,26 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=generic_mapping-design">Generic Mapping</a></td>
+                    <td background="" class="statText" align="center">$245.00</td>
+                    <td background="" class="statText" align="center">1.8.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=global_dist_calc-design">Global Distance Calculator</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">1.8.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=heartbeat-design">Heartbeat</a></td>
                     <td background="" class="statText" align="center">$210.00</td>
                     <td background="" class="statText" align="center">1.8.2003</td>
@@ -186,8 +216,58 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler</a></td>
+                    <td background="" class="statText" align="center">$300.00</td>
+                    <td background="" class="statText" align="center">1.8.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=xml_parser-design">Lightweight XML Parser</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">1.8.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector</a></td>
+                    <td background="" class="statText" align="center">$210.00</td>
+                    <td background="" class="statText" align="center">1.8.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                 <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=socket_server_mgr-design">Socket Server Manager</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
+                    <td background="" class="statText" align="center">1.8.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+               <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=stoppable_thread-design">Stoppable Thread Class</a></td>
                     <td background="" class="statText" align="center">$245.00</td>
+                    <td background="" class="statText" align="center">1.8.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=url_loader-design">URL Loader</a></td>
+                    <td background="" class="statText" align="center">$280.00</td>
                     <td background="" class="statText" align="center">1.8.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
@@ -292,126 +372,6 @@
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=currency">Currency</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_distributor-design">File Distributor</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=generic_mapping-design">Generic Mapping</a></td>
-                    <td background="" class="statText" align="center">$245.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=global_dist_calc-design">Global Distance Calculator</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler</a></td>
-                    <td background="" class="statText" align="center">$300.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=job_scheduling-design">Job Scheduling</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=xml_parser-design">Lightweight XML Parser</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_selector-design">Object Selector</a></td>
-                    <td background="" class="statText" align="center">$210.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=random_string-design">Random String Generator</a></td>
-                    <td background="" class="statText" align="center">$140.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=serial_num">Serial Number Generator</a></td>
-                    <td background="" class="statText" align="center">$168.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=socket_server_mgr-design">Socket Server Manager</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=url_loader-design">URL Loader</a></td>
-                    <td background="" class="statText" align="center">$280.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
                 <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
                 <tr>
@@ -450,6 +410,16 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=math_eval-dev">Math Expression Evaluator</a></td>
+                    <td background="" class="statText" align="center">$240.00</td>
+                    <td background="" class="statText" align="center">1.16.2003</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=email_address_validator-dev">Email Address Validator</a></td>
                     <td background="" class="statText" align="center">$192.00</td>
                     <td background="" class="statText" align="center">1.9.2003</td>
@@ -460,7 +430,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=api_comparator-dev">Simple Cache</a></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=simple_cache-dev">Simple Cache</a></td>
                     <td background="" class="statText" align="center">$192.00</td>
                     <td background="" class="statText" align="center">1.9.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -483,36 +453,6 @@
                     <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=unique_key-dev">Unique Key Generator</a></td>
                     <td background="" class="statText" align="center">$192.00</td>
                     <td background="" class="statText" align="center">1.3.2003</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=ip_filter-dev">IP Filter</a></td>
-                    <td background="" class="statText" align="center">$144.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_formatter-dev">Object Formatter</a></td>
-                    <td background="" class="statText" align="center">$240.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=resourcebundle-dev">ResourceBundle</a></td>
-                    <td background="" class="statText" align="center">$120.00</td>
-                    <td background="" class="statText" align="center">12.27.2002</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
