@@ -102,7 +102,7 @@ Founded in Cambridge, MA in 1989, Vertex Pharmaceuticals Incorporated discovers,
 </P>
 
 <P>
-<B>with a Proven Track Record...</B>
+<B><A CLASS="bodyText" HREF="http://www.vpharm.com/PipelineChart.html" TARGET="_blank">with a Proven Track Record...</A></B>
 </P>
 
 <P>
