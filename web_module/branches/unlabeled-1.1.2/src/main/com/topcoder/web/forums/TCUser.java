@@ -103,27 +103,9 @@ public class TCUser extends SimpleUserAdapter {
         } catch (SQLException sqle) {
             Log.error(sqle);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (Exception e) {
-                Log.error(e);
-            }
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-            } catch (Exception e) {
-                Log.error(e);
-            }
-            try {
-                if (con != null) {
-                    con.close();
-                }
-            } catch (Exception e) {
-                Log.error(e);
-            }
+            Common.close(rs);
+            Common.close(pstmt);
+            Common.close(con);
         }
     }
 

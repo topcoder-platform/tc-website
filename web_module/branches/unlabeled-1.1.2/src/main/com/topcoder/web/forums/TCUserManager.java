@@ -38,8 +38,6 @@ public class TCUserManager extends UserManagerAdapter {
     public TCUserManager() {
         Context context = null;
         try {
-            // Lookup the database source at a hard-coded name. You'd probably want
-            // to make this configurable for a real implementation.
             context = new InitialContext();
             dataSource = (DataSource) context.lookup(Common.DATASOURCE);
         } catch (Exception e) {
