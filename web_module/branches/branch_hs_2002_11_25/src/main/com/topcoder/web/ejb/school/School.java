@@ -17,7 +17,8 @@ public interface School extends EJBObject {
   public String getShortName(long _school_id)
                                            throws EJBException, RemoteException;
 
-  public void setSchoolDivisionCode(long _school_id,String _school_division_code)
+  public void setSchoolDivisionCode(long _school_id,
+                                    String _school_division_code)
                                            throws EJBException, RemoteException;
 
   public void setFullName(long _school_id,String _full_name)
