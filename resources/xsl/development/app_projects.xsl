@@ -81,7 +81,7 @@
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td align="center" colspan="5" class="statText">No Projects Available</td>
+                    <td align="center" colspan="5" class="statText">No New Projects Available</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
 
