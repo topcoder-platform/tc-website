@@ -5,12 +5,12 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="3" cellpadding="0" width="530">
+            <table border="0" cellspacing="3" cellpadding="0" width="100%">
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/Modulator_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299709"><strong>Modulator</strong></a><br/>
+                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -18,14 +18,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a class="bodyText" href="/?&amp;t=features&amp;c=feat_102403"><font size="4"><strong>Challenging 101</strong></font></a><br />
-                        Friday, October 24, 2003</p>
+                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_122203</xsl:attribute><font size="4"><strong>Not Round, Not a Table</strong></font></a><br />
+                        Monday, December 22, 2003</p>
 
-                        <p>What do you do during the challenge phase? Do you sit idle, aimlessly opening and closing problems, 
-                        willing on the system tests, and watching with envy as coders of the ilk of Yarin, radeye and bstanescu 
-                        average almost 4 successful challenges in every 5 competitions?
-
-                        <a class="bodyText" href="/?&amp;t=features&amp;c=feat_102403"><strong>full&#160;story</strong></a></p>
+                        <p>I admit it: I'm an addict. The first thing I do upon staggering out of bed, mere seconds after rebooting my consciousness and even before
+                        switching on the kettle for tea, is to jack into the web for my morning fix of information. I scan the international headlines, read up on
+                        Canadian university football if it's in season, and then I hit the Round Tables. 
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_122203</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
