@@ -171,7 +171,6 @@ public class FullRegConfirm extends FullRegBase {
 
             }
         }
-        log.debug("responses: " + info.getResponses());
         return info;
     }
 

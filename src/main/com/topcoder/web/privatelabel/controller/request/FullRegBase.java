@@ -79,8 +79,10 @@ abstract class FullRegBase extends SimpleRegBase {
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        FullRegInfo ret = new FullRegInfo(super.makeRegInfo());
-        log.debug("responses: " + ret.getResponses());
+        SimpleRegInfo ret = super.makeRegInfo();
+        if (!(ret instanceof FullRegInfo)) {
+            ret = new FullRegInfo(ret);
+        }
         return ret;
     }
 
