@@ -102,8 +102,8 @@
                       </xsl:if>
                       
                       <TR>
-                        <TD COLSPAN="3" ALIGN="center" class="bodyText">
-                            <BR/>All times are Eastern Time unless otherwise noted<BR/><BR/>
+                        <TD COLSPAN="3" ALIGN="left" class="bodyText">
+                            <center><BR/>All times are Eastern Time unless otherwise noted<BR/><BR/></center>
 
                             <xsl:choose>
                             <xsl:when test="$roundId=4710">
@@ -124,6 +124,35 @@
                               <br/>
                               <br/>
                            </xsl:if>
+
+                            <xsl:choose>
+                            <xsl:when test="$roundId=5849">
+                                August 10:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                September 14:&#160;Register - 6:00AM ET Compete - 9:00AM ET
+                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                            </xsl:when>
+                            <xsl:when test="$roundId=5853">
+                                September 14:&#160;Register - 6:00AM ET Compete - 9:00AM ET
+                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                            </xsl:when>
+                            <xsl:when test="$roundId=5857">
+                                October 4:&#160;&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                            </xsl:when>
+                            <xsl:when test="$roundId=5860">
+                                November 4:&#160;&#160;&#160;Register - 6:00AM ET Compete - 9:00AM ET
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                            </xsl:when>
+                            <xsl:when test="$roundId=5864">
+                                December 6:&#160;&#160;&#160;Register - 10:00AM ET Compete - 1:00PM ET
+                            </xsl:when>
+                            </xsl:choose>
+
 
                         </TD>
                 </TR>
