@@ -143,16 +143,16 @@
                                         <p>
                                             <strong>Winning Developer</strong>
                                             <br/>
-                                            Total Payment - $1,950.00
+                                            Total Payment - $2,200.00
                                             <br/>
-                                            First Payment - $1,200.00
+                                            First Payment - $1,325.00
                                             <br/>
-                                            Final Payment - $750.00
+                                            Final Payment - $875.00
                                             <br/>
                                         </p>
                                         <strong>Second Place Developer</strong>
                                         <br/>
-                                        Total Payment - $600.00
+                                        Total Payment - 665.00
                                         <!-- Definition of Completion -->
                                         <p/>
                                         <strong>Integration Lead Developer</strong>
@@ -192,15 +192,15 @@
                                             <table border="0" cellspacing="0" cellpadding="0"  width="40%">
                                                 <tr>
                                                     <td class="bodyText" ><b/>Application Project Posting:</td>
-                                                    <td class="bodyText" align="right"><b/>7.15.2003</td>
+                                                    <td class="bodyText" align="right"><b/>9.22.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Member Selection:</td>
-                                                    <td class="bodyText" align="right">7.18.2003</td>
+                                                    <td class="bodyText" align="right">9.25.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Member Acceptance:</td>
-                                                    <td class="bodyText" align="right">7.21.2003</td>
+                                                    <td class="bodyText" align="right">9.29.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Design Start:</td>
