@@ -15,7 +15,7 @@
         <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A>
         <IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
         <TD WIDTH="206" BGCOLOR="#000000">
-          <A TARGET="_parent" HREF="/?t=index">
+          <A TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=home&amp;c=public_home</xsl:attribute>
             <IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="10"/>
           </A>
