@@ -90,8 +90,12 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-         <td width="180">
+         <td width="170">
             <img src="/i/clear.gif" width="170" height="1" border="0"><br/>
+            <jsp:include page="../public_right.jsp">
+               <jsp:param name="level1" value=""/>
+               <jsp:param name="level2" value=""/>
+            </jsp:include>
          </td>
 <!-- Right Column Ends -->
 
