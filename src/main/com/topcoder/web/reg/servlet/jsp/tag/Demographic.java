@@ -93,6 +93,10 @@ public class Demographic
             ArrayList answers = new ArrayList();
             answers.addAll(question.getDemographicAnswers());
             String answer = "";
+            String description = "";
+            if (question.getDemographicQuestionDesc() != null) {
+              description = question.getDemographicQuestionDesc();
+            } 
             if (question.getSelectable().equals("N")) {
                 answer = buildText(questionId);
                 answer += buildDesc(question);
