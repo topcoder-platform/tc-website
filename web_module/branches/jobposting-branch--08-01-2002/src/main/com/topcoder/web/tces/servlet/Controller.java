@@ -1,19 +1,15 @@
 package com.topcoder.web.tces.servlet;
 
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.web.tces.common.*;
-import com.topcoder.web.tces.ejb.TCESServices.TCESServices;
-import com.topcoder.web.tces.ejb.TCESServices.TCESServicesHome;
-import com.topcoder.web.tces.bean.*;
+import com.topcoder.web.tces.bean.Task;
+import com.topcoder.web.tces.common.TCESConstants;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.util.*;
+import java.util.Enumeration;
 
 /**
  * The servlet to handle job posting http requests.
@@ -51,7 +47,6 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
 log.debug("in doPost");
 
-        String command = request.getParameter(DataAccessConstants.COMMAND);
         String taskName = request.getParameter(TCESConstants.TASK_PARAM);
         String taskStepName = request.getParameter(TCESConstants.STEP_PARAM);
 
@@ -97,13 +92,9 @@ log.debug(task.getNextPage());
                 getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
 
             }
-            else if (command != null && command.trim().length() > 0) {
-                // process command (old code)
-                processCommand(command,request,response);
-            }
             else {
                 forwardToErrorPage(request, response,
-                        new Exception("missing " + DataAccessConstants.COMMAND + " or " + TCESConstants.TASK_PARAM + " parameter in request"));
+                        new Exception("missing " + TCESConstants.TASK_PARAM + " parameter in request"));
             }
         } catch (ClassNotFoundException cnfex) {
             log.debug("Unable to dispatch task! "+cnfex.getMessage());
@@ -111,64 +102,6 @@ log.debug(task.getNextPage());
             return;
         } catch (Exception ex) {
             forwardToErrorPage(request, response, ex);
-            return;
-        }
-    }
-
-    public void processCommand(String command, HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException
-    {
-        InitialContext ctx = null;
-
-        if (command.equals("job_posting") || command.equals("click_thru")) {
-            String tempJobId = request.getParameter(TCESConstants.JOB_ID_PARAM);
-            String tempUserId = request.getParameter(TCESConstants.USER_ID_PARAM);
-            int jobId = -1;
-            int userId = -1;
-            int hitTypeId = -1;
-
-            if (command.equals("job_posting")) {
-                hitTypeId = TCESConstants.JOB_POSTING_ID;
-            } else {
-                hitTypeId = TCESConstants.CLICK_THRU_ID;
-            }
-            if (tempJobId == null || tempJobId.trim().equals("")) {
-                forwardToErrorPage(request, response,
-                        new Exception("missing " + TCESConstants.JOB_ID_PARAM + " parameter " +
-                        " in request"));
-                return;
-            } else if (tempUserId == null || tempUserId.trim().equals("")) {
-                forwardToErrorPage(request, response,
-                        new Exception("missing " + TCESConstants.USER_ID_PARAM + " parameter " +
-                        " in request"));
-                return;
-            } else {
-                try {
-                    jobId = Integer.parseInt(tempJobId);
-                } catch (NumberFormatException nfe) {
-                    forwardToErrorPage(request, response, nfe);
-                    return;
-                }
-                try {
-                    userId = Integer.parseInt(tempUserId);
-                } catch (NumberFormatException nfe) {
-                    forwardToErrorPage(request, response, nfe);
-                    return;
-                }
-            }
-
-            try {
-                ctx = (InitialContext) TCContext.getInitial();
-                TCESServicesHome tcesHome = (TCESServicesHome)
-                        ctx.lookup(ApplicationServer.TCES_SERVICES);
-                TCESServices tcesServices = tcesHome.create();
-                tcesServices.addJobHit(userId, jobId, hitTypeId);
-            } catch (Exception ex) {
-                forwardToErrorPage(request, response, ex);
-            }
-        } else {
-            forwardToErrorPage(request, response,
-                    new Exception("Don't recognize command: " + command));
             return;
         }
     }
