@@ -77,15 +77,6 @@ public final class TaskDevelopment {
             log.debug("Initial command is: " + command);
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String date = Conversion.checkNull(request.getParameter("date"));
-            long projectId = Long.parseLong(request.getParameter("projectId"));
-            long componentId = 0;
-            boolean appProject = false;
-            if (Conversion.checkNull(request.getParameter("comp")).equals("")) {
-                appProject = true;
-            } else {
-                componentId = Long.parseLong(request.getParameter("comp"));
-                devTag.addTag(new ValueTag("comp", componentId));
-            }
 
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
@@ -100,7 +91,6 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("winner_announced", request.getParameter("winner_announced")));
             devTag.addTag(new ValueTag("estimated_dev", request.getParameter("estimated_dev")));
             devTag.addTag(new ValueTag("compvers", request.getParameter("compvers")));
-            devTag.addTag(new ValueTag("projectId", projectId));
 
             log.debug("PROJECT IS: " + request.getParameter("projectId"));
 
@@ -264,6 +254,17 @@ public final class TaskDevelopment {
                 int version = Integer.parseInt(request.getParameter("version"));
                 devTag.addTag(new ValueTag("phase", phase));
                 devTag.addTag(new ValueTag("version", version));
+                long projectId = Long.parseLong(request.getParameter("projectId"));
+                long componentId = 0;
+                boolean appProject = false;
+                if (Conversion.checkNull(request.getParameter("comp")).equals("")) {
+                    appProject = true;
+                } else {
+                    componentId = Long.parseLong(request.getParameter("comp"));
+                    devTag.addTag(new ValueTag("comp", componentId));
+                }
+                devTag.addTag(new ValueTag("projectId", projectId));
+
 
 
 
