@@ -1,97 +1,15 @@
-<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.web.tc.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
-<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
-
-
-
-
-<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.web.tc.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@ page language="java"  %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
-<% ResultSetContainer results = memberSearch.getResults();%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<html>
 
-<head>
-
-<title>Member Search Results at TopCoder</title>
-
-<jsp:include page="../script.jsp"/>
-
-<script language="JavaScript"><!--
-  function next() {
-    document.simpleSearch.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.simpleSearch.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.simpleSearch.submit();
-  }
-  function previous() {
-    document.simpleSearch.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.simpleSearch.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.simpleSearch.submit();
-  }
-//--></script>
-
-<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-
-</head>
-
-<body>
-
-<jsp:include page="../top.jsp" />
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-
-<!-- Left Column Begins -->
-        <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="statistics"/>
-            </jsp:include>
-        </td>
-<!-- Left Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-    <!-- Gutter Ends -->
-
-<!-- Center Column Begins -->
-        <td class="bodyText" width="99%">
-            <jsp:include page="../body_top.jsp" >
-                <jsp:param name="image" value="statistics"/>
-                <jsp:param name="image1" value="steelblue"/>
-                <jsp:param name="title" value="Member Search Results"/>
-            </jsp:include>
-
-            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
-                <form name="searchForm" method="get">
+                 <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="AdvancedSearch"/>
                     <input type="hidden" name=<%=DataAccessConstants.START_RANK%> value=""/>
                     <input type="hidden" name=<%=DataAccessConstants.END_RANK%> value=""/>
-
-                    <script language="JavaScript"><!--
-                        var search=document.searchForm;
-                        function submitEnter(e) {
-                            var keycode;
-                            if (window.event) keycode = window.event.keyCode;
-                            else if (e) keycode = e.which;
-                            else return true;
-                            if (keycode == 13) {
-                                submitSearch();
-                                return false;
-                            } else return true;
-                        }
-                        function submitSearch() {
-                            if (checkInput()) {
-                                search.submit();
-                            }
-                        }
-                    //--></script>
 
                     <tr valign="top">
                         <td colspan="2"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
@@ -130,8 +48,17 @@
 
                                 <tr>
                                     <td class="statText">
-                                        <% ResultSetContainer stateRsc = memberSearch.getStateList(); %>
-                                        <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=stateRsc%>" fieldText="state_name" fieldValue="state_code"/>
+                                        <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=memberSearch.getStateList()%>" fieldText="state_name" fieldValue="state_code"/>
+                                    </td>
+                                </tr>
+
+                                <tr><td class="statText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+
+                                <tr><td class="statText" valign="middle" height="15" width="50%">Country</td></tr>
+
+                                <tr>
+                                    <td class="statText">
+                                        <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=memberSearch.getCountryList()%>" fieldText="country_name" fieldValue="country_code"/>
                                     </td>
                                 </tr>
 
@@ -201,34 +128,7 @@
 
                     <tr>
                         <td colspan="2" class="statText" align="center">
-                            <A href="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>[ Submit ]</A><br /><br />
+                            <A href="javascript:document.searchForm.submit()" class="statText">[ Submit ]</A><br /><br />
                         </td>
                     </tr>
-                </form>
-            </table>
-        </td>
-
-
-<!-- Center Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="170">
-            <jsp:include page="../public_right.jsp"/>
-        </td>
-<!-- Right Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-    </tr>
-</table>
-
-<jsp:include page="../foot.jsp"/>
-
-</body>
-
-</html>
+                </table>
