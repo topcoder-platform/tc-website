@@ -417,7 +417,7 @@
                         <A class="leftOn" href="/tc?&amp;module=Static&amp;d1=crpf&amp;d2=index">Charity</A>
                     </td>
                 </tr>
-<!-- Private Label Events -->
+
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -808,6 +808,7 @@
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
 <!-- TCES ends -->
+
 <!-- no task -->
         <xsl:when test="/TC/Task=''">
             <xsl:choose>
