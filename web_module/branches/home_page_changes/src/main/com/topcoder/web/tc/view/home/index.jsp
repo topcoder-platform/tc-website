@@ -30,7 +30,7 @@
 		<td class=homeGutter rowspan=2>&#160;</td>
 		<td class=homeCentBan><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" border=0 /></A></td>
 		<td class=homeGutter rowspan=2>&#160;</td>
-		<td class=homeRightBan><img src="/i/home/tab_newsevents.gif" border=0 /></td>
+		<td class=homeRightBan><A href="/?t=news_events&c=index"><img src="/i/home/tab_newsevents.gif" border=0 /></A></td>
 		<td width="50%" rowspan=2>&#160;</td>
 	</tr>
 <%-- Body --%>
@@ -73,7 +73,7 @@
 <%-- Center Column --%>
 		<td class=homeCentCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/"><img src="/i/promos/techAssessTool.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=testing&d3=index"><img src="/i/promos/techAssessTool.jpg" border=0 /></A></td></tr>
 			<tr><td class=homeSmallPromo><A href="http://software.topcoder.com/components/subscriptions.jsp"><img src="/i/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
@@ -107,7 +107,7 @@
 <%-- Right Column --%>
 		<td class=homeRightCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
-			<tr><td class=homeBigPromo><A href="/"><img src="/i/promos/tco04Finals.gif" border=0 /></A></td></tr>
+			<tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/promos/tco04Finals.gif" border=0 /></A></td></tr>
 			<tr><td class=homeSmallPromo><A href="/"><img src="/i/clear.gif" width=270 height=105 border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
@@ -132,10 +132,12 @@
 			<tr>
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText><br/>
-				TopCoder Developing Application for CRPF Spinal Cord Injury Research Group <A href="/">...more</A><br/>[September 27]<br/><br/>
-				Outsourcing trend touches independents, too <A href="/">...more</A><br/>[September 15 - Search CIO]<br/><br/>
-				Michael Morris to speak at 2004 SD Best Practices Conference <A href="/">...more</A><br/>[September 7]<br/><br/>
-				Yahoo! sings on as Premier Sponsor of the 2004 TopCoder Open <A href="/">...more</A><br/>[September 2]
+				Google announces 50 Google Code Jam Finalists <A href="/?&t=news_events&c=pr_10_05_04">...more</A><br/>[October 5]<br/><br/>
+				Coders win, winners code <A href="http://www.newsforge.com/article.pl?sid=04/09/30/187225" target="_blank">...more</A><br/>[October 5 - NewsForge]<br/><br/>
+				Triple Threat <A href="/?&t=news_events&c=art_10_03_04">...more</A><br/>[October - SD Magazine]<br/><br/>
+				Hometown hero <A href="http://www.brainerddispatch.com/stories/100204/bus_1002040018.shtml" target="_blank">...more</A><br/>[October 2 - Brainerd Dispatch]<br/><br/>
+				TopCoder Developing Application for CRPF Spinal Cord Injury Research Group <A href="/?&t=news_events&c=pr_09_27_04">...more</A><br/>[September 27]<br/><br/>
+				Outsourcing trend touches independents, too <A href="http://searchcio.techtarget.com/originalContent/0,289142,sid19_gci1006375,00.html" target="_blank">...more</A><br/>[September 15 - Search CIO]<br/><br/>
 				</td>
 			</tr>
 		</table>
