@@ -135,7 +135,7 @@
 
       <copy todir="${stat.trgt}">
          <fileset dir="${stat.src}" >
-                 <include name="**/*.jsp" />
+                 <include name="**/*.*" />
          </fileset>
       </copy>
       <copy todir="${root.trgt}">
