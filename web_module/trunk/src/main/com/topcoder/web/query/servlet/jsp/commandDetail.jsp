@@ -51,7 +51,7 @@
           <TR>
             <TD VALIGN="top" WIDTH="50%">
               <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-                <TR>
+                <TR BGCOLOR="#333333">
                   <TD CLASS="statText"></TD>
                   <TD CLASS="statText" ALIGN="left">Query Name</TD>
                 </TR>
@@ -76,7 +76,7 @@
             </TD>
             <TD VALIGN="top" WIDTH="50%">
               <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-                <TR>
+                <TR BGCOLOR="#333333">
                   <TD CLASS="statText"></TD>
                   <TD CLASS="statText" ALIGN="left">Input Code</TD>
                   <TD CLASS="statText" ALIGN="left">Input Description</TD>
