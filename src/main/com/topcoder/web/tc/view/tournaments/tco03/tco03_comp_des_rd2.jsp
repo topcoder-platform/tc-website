@@ -51,7 +51,7 @@
             <br/>
 
                   <p>
-                  The Design competition was a nail-biter.  Pops took the lead early with two superb submissions that gave him a round score of 93.92 which was hard to beat.  However, aksonov scratched and clawed his way through appeals and brought his overall up to 94.82, making him the round leader.  Unfortunately, due to contest rules we will not see Pops and aksonov go head to head since aksonov will be competing in the development contest where he had an even higher average score!  Congratulations to Tomson, who will be taking on Pops in the finals instead.
+                  The Design competition was a nail-biter.  Pops took the lead early with two superb submissions that gave him a round score of 93.92 which was hard to beat.  However, aksonov scratched and clawed his way through appeals and brought his overall up to 94.82, making him the round leader.  Due to contest rules we will not see Pops and aksonov go head to head since aksonov will be competing in the development contest where he had an even higher average score!  Congratulations to Tomson, who will be taking on Pops in the finals instead.
                   </p>
             
             <br/><br/>
