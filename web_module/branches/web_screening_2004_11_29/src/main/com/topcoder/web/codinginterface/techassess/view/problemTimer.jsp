@@ -8,14 +8,15 @@
 
         <%
             Object o = request.getAttribute(Constants.PROBLEM_SETS);
-if (o!=null) {
             List problems = null;
-                if (o instanceof ScreeningProblemSet) {
-                    problems = new ArrayList();
-                    problems.add(o);
-                } else {
-                    problems = (List)o;
-                }
+            if (o==null) {
+                o = request.getAttribute(Constants.PROBLEMS);
+                problems = new ArrayList(1);
+                problems.add(o);
+            } else {
+                problems = (List)o;
+            }
+if (o!=null) {
         %>
                 var times= new Array(<%=problems.size()%>);
                 var ids = new Array(<%=problems.size()%>);

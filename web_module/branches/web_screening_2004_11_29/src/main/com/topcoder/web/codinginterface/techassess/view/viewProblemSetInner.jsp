@@ -12,7 +12,7 @@
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <tc-webtag:useBean id="problemSet" name="<%=Constants.PROBLEMS%>" type="com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet" toScope="page" />
-<% ArrayList problems = Arrays.asList(problemSet.getProblemSets());%>
+<% ArrayList problems = Arrays.asList(problemSet.getProblemLabels());%>
 <tc-webtag:useBean id="problemType" name="<%=Constants.PROBLEM_TYPE_ID%>" type="java.lang.Integer" toScope="page" />
 <tc-webtag:useBean id="continueLink" name="<%=Constants.CONTINUE_LINK%>" type="java.lang.String" toScope="page" />
 <tc-webtag:useBean id="continueDesc" name="<%=Constants.CONTINUE_DESC%>" type="java.lang.String" toScope="page" />
