@@ -1,7 +1,9 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
                  com.topcoder.shared.dataAccess.DataAccessConstants, 
-                 com.topcoder.shared.util.ApplicationServer"%>
+                 com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.tc.model.TCO04OverallResult,
+                 java.util.List"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -13,7 +15,7 @@
 <body>
 <a name="top">
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
-<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco04_contest_results_overall"); %>
+<% List lst = (List)request.getAttribute("results");%>
 
 <%
     boolean isComplete = true;
@@ -71,19 +73,20 @@ else
                                 <td class="sidebarTitle" align=right>Contest Prize</td>
                                 <td class="sidebarTitle" align=center>Results</td>
                             </tr>
-                            <rsc:iterator list="<%=rsc%>" id="resultRow">
+                            <rsc:iterator list="<%=lst%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText" ><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a>
+                                <% TCO04OverallResult result = (TCO04OverallResult)resultRow; %>
+                                <td class="sidebarText" ><a href="/stat?c=member_profile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a>
                                 <% if(false)  { 
                                     isComplete = false;%>
                                     *
                                 <% } %>
                                 </td>
                                 <td class="sidebarText" align=center >FIXME</td>
-                                <td class="sidebarText" align=center ><rsc:item name="complete_count" format="0" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center ><rsc:item name="incomplete_count" format="0" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right><rsc:item name="prize_payment" ifNull="" format="$#,##0" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center><a href="/tc?module=TCO04MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">results</a></td>
+                                <td class="sidebarText" align=center >COMPLETE</td>
+                                <td class="sidebarText" align=center >INCOMPLETE</td>
+                                <td class="sidebarText" align=right>PAYMENT</td>
+                                <td class="sidebarText" align=center><a href="/tc?module=TCO04MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
