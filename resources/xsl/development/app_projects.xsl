@@ -149,13 +149,6 @@
 
                                 <tr valign="middle">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Seat_Service_Scheduling_Design">Seat Service Scheduling Design</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                </tr>
-                                <tr valign="middle">
-                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Seat_Service_Data_Classes_Design">Seat Service Data Classes</a>
                                     </td>
                                     <td class="projectCells" align="right">$1,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
