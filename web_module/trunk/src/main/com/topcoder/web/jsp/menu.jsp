@@ -21,11 +21,7 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-    <% if ((level1.equals("registration")) || (level1.equals("review_board"))) { %>
-        <td class="topNav" nowrap><A href="/" class="topLink">Competition</A></td>
-    <% } else { %>
-        <td class="topNavOn" nowrap><A href="/" class="topLink">Competition</A></td>
-    <% } %>
+        <td class="<%=level1.equals("competition")?"topNavOn":"topNav"%>" nowrap><A href="/" class="topLink">Competition</A></td>
 
         <td class="topNav" nowrap><A href="/?t=development&c=index" class="topLink" target="_parent">Development</A></td>
 
