@@ -148,7 +148,6 @@ public class StatisticsHttpServlet extends HttpServlet {
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
                 session.setAttribute("navigation", nav);
-                ;
 
                 log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " +
                         (nav.isIdentified() ? nav.getSessionInfo().getHandle() : " ") + " **** " +
