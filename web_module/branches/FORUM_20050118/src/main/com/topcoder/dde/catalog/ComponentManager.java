@@ -12,6 +12,10 @@ package com.topcoder.dde.catalog;
 
 import com.topcoder.dde.catalog.*;
 import com.topcoder.security.*;
+
+import com.topcoder.apps.review.projecttracker.Project;
+
+
 import java.rmi.RemoteException;
 import java.util.Collection;
 
@@ -742,7 +746,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
     public long getProjectId(long projectType) throws RemoteException, CatalogException;
 
     // qq
-    public long getWinnerId(TCSubject requestor) throws RemoteException, CatalogException;
+    public Project getProject(TCSubject requestor) throws RemoteException, CatalogException;
 
     /**
      * Determines whether or not the project of the given type for this component version has yielded a

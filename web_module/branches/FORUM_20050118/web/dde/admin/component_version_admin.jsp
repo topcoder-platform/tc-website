@@ -446,9 +446,10 @@ if (action != null) {
 	debug.addMsg("component version admin", "qq phase = "+Long.parseLong(phase) );
 	if (Long.parseLong(phase) == 113) {
 	    try {
-	    	long winnerId = componentManager.getWinnerId(tcSubject);
-		
-		debug.addMsg("component version admin","winnerId = "+winnerId );
+	        Project project =  componentManager.getProject(tcSubject);
+	        
+
+		debug.addMsg("component version admin","winnerId = "+ project.getWinner().getId());
 		
                 NotificationHome notificationHome = (NotificationHome)
                             PortableRemoteObject.narrow(
@@ -457,7 +458,8 @@ if (action != null) {
 
                 Notification notification = notificationHome.create();
 
-                notification.createNotification("forum post " + newProject.getForumId(), winnerId, notification.FORUM_POST_TYPE_ID);
+                notification.createNotification("forum post " + project.getForumId(), 
+                		project.getWinner().getId(), notification.FORUM_POST_TYPE_ID);
 	    	
 	    } catch (Exception e) {
 	        // can't get winner

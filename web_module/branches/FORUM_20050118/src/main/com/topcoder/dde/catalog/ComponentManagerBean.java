@@ -13,6 +13,7 @@ package com.topcoder.dde.catalog;
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.apps.review.projecttracker.ProjectType;
+import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
 import com.topcoder.dde.forum.*;
@@ -2211,12 +2212,11 @@ public class ComponentManagerBean
     /**
      * qq
      */
-     public long getWinnerId(TCSubject requestor) throws CatalogException {
+     public Project getProject(TCSubject requestor) throws CatalogException {
         try {
             ProjectTracker pt = projectTrackerHome.create();
 
-
-            return pt.getProjectById(getProjectId(ProjectType.ID_DESIGN),requestor).getWinner().getId();
+            return pt.getProjectById(getProjectId(ProjectType.ID_DESIGN),requestor);
 
         } catch(RemoteException e) {
             ejbContext.setRollbackOnly();
