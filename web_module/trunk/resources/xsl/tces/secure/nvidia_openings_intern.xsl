@@ -61,7 +61,7 @@
       <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Full Time Positions</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">Intern/Co-op Positions</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A></TD>
   </TR>
 </TABLE>
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
+<IMG SRC="/i/es/nvidia/intern_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" ALIGN="CENTER" /><BR/>       
 
 
 <P>We are reinventing the visual experience beyond the bleeding-edge with the best hardware and software innovation.  The culture promotes 
