@@ -107,10 +107,10 @@
 
                         <xsl:variable name="numericPayment" select="translate(/TC/DEVELOPMENT/payment, '$', '')" />
                         <xsl:variable name="dollarFormat" select="'$###,###.00'" />
-                        <p><strong>Second Place Designer</strong><br />
+                        <p><strong>Second Place Developer</strong><br />
                            Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.5, $dollarFormat)"/><br/>
                         </p>
-                        <p><strong>Third Place Designer</strong><br />
+                        <p><strong>Third Place Developer</strong><br />
                            Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.25, $dollarFormat)"/><br/>
                         </p>
 <!-- Definition of Completion -->
