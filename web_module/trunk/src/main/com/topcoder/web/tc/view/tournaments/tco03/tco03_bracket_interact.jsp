@@ -32,7 +32,7 @@ else if (navigator.userAgent && navigator.userAgent.indexOf("MSIE")>=0
 
 </head>
 
-<body onLoad="timer(1);">
+<body>
 
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>

@@ -10,7 +10,7 @@
 
 </head>
 
-<body onLoad="timer(1);">
+<body>
 
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
