@@ -47,8 +47,8 @@
                 <jsp:param name="title" value="<%=CampaignDetailTask.getCompanyName()%>"/>
             </jsp:include>
             
-            <p align="center"><tces:trailIterator id="trailItem" traillist="<%=CampaignDetailTask.getTrail()%>">
-                <a href="<jsp:getProperty name="trailitem" property="href"/>" class="statText"><jsp:getproperty name="trailItem" property="name"/></a> &gt;
+            <p align="center"><tces:trailIterator id="trailItem" trailList="<%=CampaignDetailTask.getTrail()%>">
+                <a href="<jsp:getProperty name="trailitem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></a> &gt;
                 </tces:trailiterator></p>
 
             <p align="center"><strong><jsp:getproperty name="CampaignDetailTask" property="CompanyName"/></strong><br/>
@@ -57,7 +57,7 @@
             <p align="center"><strong>Total Hits:</strong> <jsp:getproperty name="CampaignDetailTask" property="TotalHits"/><br/>
             <strong>Most Recent Hit:</strong> <jsp:getproperty name="CampaignDetailTask" property="MostRecentHit"/></p>
         
-            <p align="center"><a href="<jsp:getProperty name="campaigndetailtask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getproperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View Overall Campaign Interest</a></p>
+            <p align="center"><a href="<jsp:getProperty name="campaignDetailTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getproperty name="CampaignDetailTask" property="CampaignID"/>" class="statText">View Overall Campaign Interest</a></p>
         
             <img src="/i/clear.gif" alt="" width="1" height="6" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -77,7 +77,7 @@
                                 <td width="10" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                             </tr>
 
-                            <tces:mapIterator id="position" maplist="<%=(List)CampaignDetailTask.getPositionList()%>">
+                            <tces:mapIterator id="position" mapList="<%=(List)CampaignDetailTask.getPositionList()%>">
                                 
                             <tr>
                                 <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
