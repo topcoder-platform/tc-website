@@ -107,7 +107,11 @@
                 </tr>
                 <tr>
                    <td class="dc_regTableQuestion">Email</td>
-                   <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/> if student then put message here about columbia and nyu edu
+                   <td class="dc_regTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
+                      <% if (regInfo.getCoderType()==Constants.STUDENT) { %>
+                          You must provide either a columbia.edu or nyu.edu email address.
+                      <% }%>
+                   </td>
                 </tr>
                 <tr>
                     <td class="dc_errorText" colspan="2">

@@ -22,6 +22,10 @@ public class Demog extends FullRegDemog {
 
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
+        if (!(info.getEmail().toLowerCase().endsWith("columbia.edu") ||
+                info.getEmail().toLowerCase().endsWith("nyu.edu"))) {
+            addError(Constants.EMAIL, "Please provide a valid email address ending in either columbia.edu or nyu.edu");
+        }
         //we're not bothering with an email confirmation field, so don't require it
         removeError(Constants.EMAIL_CONFIRM);
     }
