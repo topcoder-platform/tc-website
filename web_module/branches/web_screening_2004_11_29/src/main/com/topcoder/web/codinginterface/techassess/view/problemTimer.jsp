@@ -72,9 +72,9 @@ if (o!=null) {
                       if (countDown==true)
                         //time = endTimes[i] - correctedLocalTime.getTime();
                         //if (time < 0) time = 0;
-                        time = 666;
+                        time = 666000;
                       else {
-                        time = 777;
+                        time = 777000;
                         //time = correctedLocalTime.getTime()-startTimes[i];
                         //if (time>times[i]) time = times[i];
                       }
