@@ -395,3 +395,11 @@ SELECT demographic_answer_id as answer_id
   FROM demographic_answer 
  WHERE demographic_question_id = 4
 "
+
+java com.topcoder.utilities.QueryLoader "OLTP" 73 "Email All TopCoder Members" 0 0 "
+SELECT LOWER(u.email) AS email_address,u.handle
+FROM user u
+WHERE u.status = 'A'
+AND handle not like '%guest%'
+ORDER BY 1
+"
