@@ -41,16 +41,7 @@ private String getPercentage (ResultSetContainer total, ResultSetContainer.Resul
    
 }
 %>
-<script language="JavaScript">
-<!--
-function goTo(selection){
-  sel = selection.options[selection.selectedIndex].value;
-  if (sel && sel != '#'){
-    window.location=sel;
-  }
-}
-// -->
-</script>  
+
 	
 <table width="100%" class="srmFrame">	
 <tr><td colspan="4" class="srmQuestion">Participation Counts (by country)</td></tr>
