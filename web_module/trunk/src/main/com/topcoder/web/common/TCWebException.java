@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.io.PrintStream;
 
 /**
- * Base exception for TCWeb Tool
+ * BaseProcessor exception for TCWeb Tool
  * 
  * @author Grimicus
  * @version 1.0
