@@ -351,34 +351,12 @@
                     <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
                     <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
                 </xsl:call-template>
+
 <!-- Applications: -->
-                <tr><td id="leftNavSubtitle">Applications:</td></tr>
-
-<!-- Open Projects -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="$level2='app_projects'">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Open Projects</A>
-                    </td>
-                </tr>
-
-<!-- Development Methodology -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="$level2='app_meth'">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_meth</xsl:attribute>Development Methodology</A>
-                    </td>
-                </tr>
+                <xsl:call-template name="applications">
+                    <xsl:with-param name="level2"><xsl:value-of select="$level2"/></xsl:with-param>
+                    <xsl:with-param name="level3"><xsl:value-of select="$level3"/></xsl:with-param>
+                </xsl:call-template>
 
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
@@ -1021,8 +999,7 @@
       </td>
     </tr>
         <xsl:if test="$level2='components'">
-            adflkadlkfjaldfjld
-            <!-- Project Winners -->
+              <!-- Project Winners -->
                             <tr>
                                 <td id="leftSubnav">
                                     <xsl:attribute name="id">
@@ -1118,7 +1095,51 @@
 </xsl:template>
 
 
-<!-- TopCoder Info ends -->
+
+    <xsl:template name="applications">
+        <xsl:param name="level2"></xsl:param>
+        <xsl:param name="level3"></xsl:param>
+        <!-- Applications: -->
+        <tr>
+          <td id="leftSubnav">
+            <xsl:attribute name="id">
+              <xsl:choose>
+                <xsl:when test="$level2='app_projects'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Applications:</A>
+          </td>
+        </tr>
+            <xsl:if test="$level2='components'">
+
+    <!-- Open Projects -->
+                    <tr>
+                        <td id="leftSubnav">
+                            <xsl:attribute name="id">
+                            <xsl:choose>
+                                <xsl:when test="$level3='app_projects'">leftSubnavOn</xsl:when>
+                                <xsl:otherwise>leftSubnav</xsl:otherwise>
+                            </xsl:choose>
+                            </xsl:attribute>
+                            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Open Projects</A>
+                        </td>
+                    </tr>
+
+    <!-- Development Methodology -->
+                    <tr>
+                        <td id="leftSubnav">
+                            <xsl:attribute name="id">
+                            <xsl:choose>
+                                <xsl:when test="$level3='app_meth'">leftSubnavOn</xsl:when>
+                                <xsl:otherwise>leftSubnav</xsl:otherwise>
+                            </xsl:choose>
+                            </xsl:attribute>
+                            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_meth</xsl:attribute>Development Methodology</A>
+                        </td>
+                    </tr>
+        </xsl:if>
+  </xsl:template>
 
 <!-- Nav ends -->
 </xsl:stylesheet>
