@@ -53,14 +53,16 @@ return false;
         </jsp:include>
 
 		<span valign=top>
-		<table align=right border=1 cellpadding=0 cellspacing=0>
+		<table align=right border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td><img src="/i/clear.gif" border=1 width=160 height=90/></td>
 			</tr>
 		</table>
 		</span>
 
-		TopCoder Opportunities offers members the ability to sign up for freelance programming contracts.
+		Welcome to TopCoder Opportunities, your source for programming contract work.  TopCoder Opportunities offers members the ability to sign up for freelance projects that fit their schedule as well as their experience.
+		<br/><br/>
+		Registering <a href="/tc?module=Static&d1=contracting&d2=reg&d3=preferences">here</a> is the first step.  You can give us your availability and rate your experience with a variety of programming languages or database platforms.
 		<br/><br/>
 		<a href="/tc?module=Static&d1=contracting&d2=reg&d3=preferences">Sign up today</a>
 

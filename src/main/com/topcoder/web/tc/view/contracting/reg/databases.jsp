@@ -131,6 +131,12 @@ return false;
 	            <td valign=top align=center class=formTextEven><input type="radio" name=group7 property=""/></td>
             <% } %>
 	        </tr>
+			<tr>
+	            <td class=bodyText valign=middle>Additional Comments:</td>
+				<td class=bodyText colspan=10>
+				<TEXTAREA NAME="comments" ROWS="3" COLS="40"></TEXTAREA>
+				</td>
+			</tr>
 			<tr><td colspan=11 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=success"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
 		</FORM>
