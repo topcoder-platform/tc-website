@@ -25,7 +25,6 @@ public class AuthenticationServicesBean extends BaseEJB {
 
     private static String DS = null;
     private static Integer STAFF_GROUP_ID = null;
-    private static Integer STAFF_ACCESS_LEVEL = null;
 
 
 //****************************************************************************************
