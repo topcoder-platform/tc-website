@@ -43,7 +43,15 @@
    <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
 
-            <h2>Overview of the Tournament</h2>
+            <p class="terciary"><a href="#overview">Overview of the Tournament</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="#structure">Competition Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="#prizes">About the Prizes</a></p>
+                        
+    <!-- overview -->
+            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>Overview of the Tournament</h2>
+
 
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
@@ -55,8 +63,10 @@
             #1.  The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds, 
             being held at the Boston Park Plaza Hotel & Towers in Boston, Massachusetts on April 15th and 16th.
             </p>
-
-            <h2>Eligibility</h2>
+            
+<!-- eligibility -->
+            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>Eligibility</h2>
 
             <p>
             TopCoder members meeting the following eligibility criteria are eligible to compete in the TCCC: 
@@ -161,8 +171,11 @@
          or otherwise being in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the tournament if it is 
          not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized 
          intervention or technical failures of any sort.</p>
-
-         <h2>Competition Structure</h2>
+         
+                     
+<!-- structure -->
+            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>Competition Structure</h2>
          
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
             Everyone who competes in an online round must login to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round. (See below for competition dates and times.) TopCoder members from around the world may be participating in these rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round they have advanced to, it will be treated as an automatic loss in that round of competition.</p>
@@ -219,8 +232,11 @@
             <li>If a tie still remains in the Semifinal round, then all tied coders will advance to the Championship Round</li>
             <li>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</li>
             </ul>
-
-            <h2>About the Prizes</h2>
+                     
+<!-- prizes -->
+            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>About the Prizes</h2>
+            
 
             <p>The tournament will award prizes to up to 500 competitors and $38,000 in cash prizes.  Any and all applicable 
             taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:</p>
