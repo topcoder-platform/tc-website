@@ -177,7 +177,7 @@ function getPermissions(url,wd,ht) {
     </TR>   
     
   <TR>
-     <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="bodyText"><input type="button" onClick="" name="clear" value=" Clear ">&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
+     <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="bodyText"><input type="reset" onClick="" name="clear" value=" Clear ">&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
   </TR>
 </TABLE>
 </FORM>

@@ -265,7 +265,7 @@
         <INPUT type="hidden" name="module" value="Registration"/>
     </TR>  
   <TR ALIGN="right" VALIGN="middle">
-     <TD COLSPAN="3" ALIGN="center" VALIGN="middle" CLASS="statText"><input type="button" onClick="" name="clear" value=" Clear ">&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
+     <TD COLSPAN="3" ALIGN="center" VALIGN="middle" CLASS="statText"><input type="reset" onClick="" name="clear" value=" Clear "/>&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
   </TR>
 </TABLE>
 </FORM>
