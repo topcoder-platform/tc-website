@@ -2,23 +2,23 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tccc03_links.xsl"/>  
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/modules/tccc03_links.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 <html>
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>TopCoder | Tournaments</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -50,16 +50,18 @@
         <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">steelgray</xsl:with-param>
                 <xsl:with-param name="image">tournaments_gray</xsl:with-param>
                 <xsl:with-param name="title">2003 TopCoder Collegiate Challenge</xsl:with-param>
             </xsl:call-template>
-        
-            <xsl:call-template name="tccc03_links"/>
-            
+
+            <xsl:call-template name="tccc03_links">
+                <xsl:with-param name="selectedTab">schedule</xsl:with-param>
+            </xsl:call-template>
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -71,8 +73,8 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            
-                            <tr><td colspan="6" class="statText"><strong>Schedule</strong><br /><br /></td></tr>                                            
+
+                            <tr><td colspan="6" class="statText"><strong>Schedule</strong><br /><br /></td></tr>
 
                     <tr>
                       <td height="18" align="left" class="statTextBig" background="/i/orangebv_bg.gif">
@@ -90,18 +92,18 @@
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_se200" class="statTextBig"></a>Update</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_w200" class="statTextBig"></a>Update</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_mw200" class="statTextBig"></a>Update</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_int200" class="statTextBig"></a>Update</td>                    
+                      <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_int200" class="statTextBig"></a>Update</td>
                     </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" width="26%" height="13" class="tourney_subnav"><b>Total Competitors</b></td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_ne200" class="statTextBig"></a>NE</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_se200" class="statTextBig"></a>SE</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_w200" class="statTextBig"></a>W</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_mw200" class="statTextBig"></a>MW</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_int200" class="statTextBig"></a>International</td>                    
+                      <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_int200" class="statTextBig"></a>International</td>
                     </tr>
                     <tr>
                       <td align="right" height="13" class="statText">1,000</td>
@@ -109,23 +111,23 @@
                       <td align="center" class="statText">200</td>
                       <td align="center" class="statText">200</td>
                       <td align="center" class="statText">200</td>
-                      <td align="center" class="statText">200</td>                      
-                    </tr>                    
+                      <td align="center" class="statText">200</td>
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" height="13" class="tourney_subnav">Advancing&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
-                      <td align="center" valign="middle" class="statText">&#160;</td>                      
-                    </tr>                  
+                      <td align="center" valign="middle" class="statText">&#160;</td>
+                    </tr>
                     <tr>
                       <td align="right" height="13" class="statText">Room Winners<br/>Wildcards</td>
                       <td align="center" class="statText">20<br/>80</td>
                       <td align="center" class="statText">20<br/>80</td>
                       <td align="center" class="statText">20<br/>80</td>
                       <td align="center" class="statText">20<br/>80</td>
-                      <td align="center" class="statText">20<br/>80</td>                      
+                      <td align="center" class="statText">20<br/>80</td>
                     </tr>
                     <!-- <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Top-10 Winners&#160;</TD>
@@ -136,7 +138,7 @@
                     </TR>
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                    </TR>                    
+                    </TR>
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Summary&#160;</TD>
                       <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=tccc02_nese1_summary" CLASS="statTextBig">NE/SE</A></TD>
@@ -144,36 +146,36 @@
                     </TR> -->
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                                         
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" height="13" class="tourney_subnav">Dates&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
-                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>                      
+                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                     </tr>
                     <!-- <TR>
-                      <TD VALIGN="middle" CLASS="statText">&#160;</TD>                    
+                      <TD VALIGN="middle" CLASS="statText">&#160;</TD>
                       <TD COLSPAN="2" VALIGN="top" CLASS="statText">Northeast &amp; Southeast Regions:<BR/>Tues. Feb. 18 @ 9pm EST<BR/>(raindate: Wed. Feb. 19 @ 9pm EST)</TD>
                       <TD COLSPAN="2" VALIGN="top" CLASS="statText">West &amp; Midwest Regions:<BR/>Thurs. Feb. 20 @ 9pm EST<BR/>(raindate: Fri. Feb. 21 @ 9pm EST)</TD>
-                      <TD VALIGN="top" CLASS="statText">International Region:<BR/>Sat. Feb. 22 @ 12pm EST<BR/>(raindate: Sun. Feb. 23 @ 12pm EST)</TD>                    
+                      <TD VALIGN="top" CLASS="statText">International Region:<BR/>Sat. Feb. 22 @ 12pm EST<BR/>(raindate: Sun. Feb. 23 @ 12pm EST)</TD>
                     </TR> -->
-                    <tr>                   
+                    <tr>
                       <td colspan="6" valign="middle" class="statText" height="30"><b>Northeast &amp; Southeast Regions:</b><br/>Tues. Feb. 18 @ **9pm EST (raindate: Wed. Feb. 19 @ 9pm EST)</td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td colspan="6" valign="middle" class="statText" height="30"><b>West &amp; Midwest Regions:</b><br/>Thurs. Feb. 20 @ **9pm EST (raindate: Fri. Feb. 21 @ 9pm EST)</td>
-                    </tr>                    
+                    </tr>
                     <tr>
-                      <td colspan="6" valign="middle" class="statText" height="30"><b>International Region:</b><br/>Sat. Feb. 22 @ **12pm EST (raindate: Sun. Feb. 23 @ 12pm EST)</td>                    
-                    </tr> 
+                      <td colspan="6" valign="middle" class="statText" height="30"><b>International Region:</b><br/>Sat. Feb. 22 @ **12pm EST (raindate: Sun. Feb. 23 @ 12pm EST)</td>
+                    </tr>
                     <tr>
                       <td colspan="6" valign="middle" height="13" class="statText">**Times are subject to change.</td>
-                    </tr>                                                                             
+                    </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td>
-                    </tr> 
+                    </tr>
                     <tr>
                       <td height="18" align="left" class="statTextBig" background="/i/orangebv_bg.gif">
                         &#160;&#160;Regional Quarterfinals<br/>
@@ -190,18 +192,18 @@
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_se100" class="statTextBig"></a>Update</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_w100" class="statTextBig"></a>Update</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_mw100" class="statTextBig"></a>Update</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_int100" class="statTextBig"></a>Update</td>                    
+                      <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_int100" class="statTextBig"></a>Update</td>
                     </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" width="26%" height="13" class="tourney_subnav"><b>Total Competitors</b></td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_ne100" class="statTextBig"></a>NE</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_se100" class="statTextBig"></a>SE</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_w100" class="statTextBig"></a>W</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_mw100" class="statTextBig"></a>MW</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_int100" class="statTextBig"></a>International</td>                    
+                      <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_int100" class="statTextBig"></a>International</td>
                     </tr>
                     <tr>
                       <td align="right" height="13" class="statText">500</td>
@@ -209,23 +211,23 @@
                       <td align="center" class="statText">100</td>
                       <td align="center" class="statText">100</td>
                       <td align="center" class="statText">100</td>
-                      <td align="center" class="statText">100</td>                      
-                    </tr>                    
+                      <td align="center" class="statText">100</td>
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" height="13" class="tourney_subnav">Advancing&#160;<br/>(All advancers win $50 each)</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
-                      <td align="center" valign="middle" class="statText">&#160;</td>                      
-                    </tr>                  
+                      <td align="center" valign="middle" class="statText">&#160;</td>
+                    </tr>
                     <tr>
                       <td align="right" height="13" class="statText">Room Winners<br/>Wildcards</td>
                       <td align="center" height="13" class="statText">10<br/>30</td>
                       <td align="center" height="13" class="statText">10<br/>30</td>
                       <td align="center" height="13" class="statText">10<br/>30</td>
                       <td align="center" height="13" class="statText">10<br/>30</td>
-                      <td align="center" height="13" class="statText">10<br/>30</td>                      
+                      <td align="center" height="13" class="statText">10<br/>30</td>
                     </tr>
                     <!-- <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Top-10 Winners&#160;</TD>
@@ -236,7 +238,7 @@
                     </TR>
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                    </TR>                    
+                    </TR>
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Summary&#160;</TD>
                       <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=tccc02_nese1_summary" CLASS="statTextBig">NE/SE</A></TD>
@@ -244,43 +246,43 @@
                     </TR> -->
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                                         
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" height="13" class="tourney_subnav">Dates&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
-                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>                      
+                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                     </tr>
                     <tr>
-                      <td colspan="6" valign="middle" class="statText">All Regions: Wed. Feb. 26 @ **9pm EST (raindate: Thurs. Feb. 27 @ 9pm EST)</td>                   
+                      <td colspan="6" valign="middle" class="statText">All Regions: Wed. Feb. 26 @ **9pm EST (raindate: Thurs. Feb. 27 @ 9pm EST)</td>
                     </tr>
                     <tr>
                       <td colspan="6" valign="middle" height="13" class="statText">**Time is subject to change.</td>
-                    </tr>                    
-                                                          
+                    </tr>
+
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td height="18" align="left" class="statTextBig" background="/i/orangebv_bg.gif">&#160;&#160;Regional Semifinals</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_ne40" class="statTextBig"></a>Update</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_se40" class="statTextBig"></a>Update</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_w40" class="statTextBig"></a>Update</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_mw40" class="statTextBig"></a>Update</td> 
-                      <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_int40" class="statTextBig"></a>Update</td>                    
-                    </tr>                    
+                      <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_mw40" class="statTextBig"></a>Update</td>
+                      <td align="center" valign="middle" width="11%" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tccc03_regions_int40" class="statTextBig"></a>Update</td>
+                    </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" width="26%" height="13" class="tourney_subnav"><b>Total Competitors</b></td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_ne40" class="statTextBig"></a>NE</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_se40" class="statTextBig"></a>SE</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_w40" class="statTextBig"></a>W</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_mw40" class="statTextBig"></a>MW</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_int40" class="statTextBig"></a>International</td>                    
+                      <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_int40" class="statTextBig"></a>International</td>
                     </tr>
                     <tr>
                       <td align="right" height="13" class="statText">200</td>
@@ -288,23 +290,23 @@
                       <td align="center" class="statText">40</td>
                       <td align="center" class="statText">40</td>
                       <td align="center" class="statText">40</td>
-                      <td align="center" class="statText">40</td>                      
-                    </tr>                    
+                      <td align="center" class="statText">40</td>
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" height="13" class="tourney_subnav">Advancing&#160;<br/>(All advancers win $50 each)</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
-                      <td align="center" valign="middle" class="statText">&#160;</td>                      
-                    </tr>                 
+                      <td align="center" valign="middle" class="statText">&#160;</td>
+                    </tr>
                     <tr>
                       <td align="right" height="13" class="statText">Room Winners<br/>Wildcards</td>
                       <td align="center" height="13" class="statText">4<br/>6</td>
                       <td align="center" height="13" class="statText">4<br/>6</td>
                       <td align="center" height="13" class="statText">4<br/>6</td>
                       <td align="center" height="13" class="statText">4<br/>6</td>
-                      <td align="center" height="13" class="statText">4<br/>6</td>                      
+                      <td align="center" height="13" class="statText">4<br/>6</td>
                     </tr>
                     <!-- <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Room Winners&#160;</TD>
@@ -315,45 +317,45 @@
                     </TR>
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                    </TR>                    
+                    </TR>
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Summary&#160;</TD>
                       <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournaments&amp;c=tccc02_regional_semi" CLASS="statTextBig">All Regions</A></TD>
                     </TR> -->
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" height="13" class="tourney_subnav">Date&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
-                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>                      
+                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                     </tr>
                     <tr>
                       <td colspan="6" valign="middle" class="statText">All Regions: Wed. Mar. 5 @ **9pm EST (raindate: Thurs. Mar. 6 @ 9pm EST)</td>
                     </tr>
                     <tr>
                       <td colspan="6" valign="middle" height="13" class="statText">**Time is subject to change.</td>
-                    </tr>                                        
+                    </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td height="18" align="left" class="statTextBig" background="/i/orangebv_bg.gif">&#160;&#160;Regional Championship</td>
-                      <td colspan="5" class="tourney_subhead1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td> 
-                    </tr>                    
+                      <td colspan="5" class="tourney_subhead1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+                    </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" width="26%" height="13" class="tourney_subnav"><b>Total Competitors</b></td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_ne" class="statTextBig"></a>NE</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_se" class="statTextBig"></a>SE</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_w" class="statTextBig"></a>W</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_mw" class="statTextBig"></a>MW</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_int" class="statTextBig"></a>INT</td>                    
+                      <td align="center" valign="middle" width="11%" class="tourney_subnav"><a href="/index?t=tournaments&amp;c=tccc03_regions_int" class="statTextBig"></a>INT</td>
                     </tr>
                     <tr>
                       <td align="right" height="13" class="statText">50</td>
@@ -361,7 +363,7 @@
                       <td align="center" class="statText">10</td>
                       <td align="center" class="statText">10</td>
                       <td align="center" class="statText">10</td>
-                      <td align="center" class="statText">10</td>                      
+                      <td align="center" class="statText">10</td>
                     </tr>
                     <tr>
                       <td align="right" valign="middle" height="13" class="tourney_subnav">Advancing&#160;<br/>(Each regional champion wins $600 each)</td>
@@ -369,15 +371,15 @@
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
-                      <td align="center" valign="middle" class="statText">&#160;</td>                      
-                    </tr>                  
+                      <td align="center" valign="middle" class="statText">&#160;</td>
+                    </tr>
                     <tr>
                       <td align="right" height="13" class="statText">Room Winners</td>
                       <td align="center" height="13" class="statText">1</td>
                       <td align="center" height="13" class="statText">1</td>
                       <td align="center" height="13" class="statText">1</td>
                       <td align="center" height="13" class="statText">1</td>
-                      <td align="center" height="13" class="statText">1</td>                      
+                      <td align="center" height="13" class="statText">1</td>
                     </tr>
                     <tr>
                       <td height="13" align="right" class="statText">Wildcards</td>
@@ -389,31 +391,31 @@
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
-                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>                      
+                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                     </tr>
                     <tr>
                       <td colspan="6" valign="middle" class="statText">All Regions: Wed. Mar. 12 @ **9pm EST (raindate: Thurs. Mar. 13 @ 9pm EST)<br/></td>
                     </tr>
                     <tr>
                       <td colspan="6" valign="middle" height="13" class="statText">**Time is subject to change.</td>
-                    </tr>                                        
+                    </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td height="18" align="left" class="statTextBig" background="/i/orangebv_bg.gif">&#160;&#160;Semifinals</td>
-                      <td colspan="5" class="tourney_subhead1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td> 
-                    </tr>                    
+                      <td colspan="5" class="tourney_subhead1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+                    </tr>
                     <tr>
                       <td colspan="5"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" width="26%" height="13" class="tourney_subnav"><b>Total Competitors</b></td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>                    
+                      <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
                     </tr>
                     <tr>
                       <td align="right" height="13" class="statText">16</td>
@@ -425,14 +427,14 @@
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
                       <td align="center" valign="middle" class="statText">&#160;</td>
-                    </tr>                  
+                    </tr>
                     <tr>
                       <td align="right" height="13" class="statText">Room Winners</td>
                       <td align="center" height="13" class="statText">1</td>
                       <td align="center" height="13" class="statText">1</td>
                       <td align="center" height="13" class="statText">1</td>
                       <td align="center" height="13" class="statText">1</td>
-                      <td align="center" height="13" class="statText">&#160;</td>                      
+                      <td align="center" height="13" class="statText">&#160;</td>
                     </tr>
                     <tr>
                       <td align="right" valign="middle" height="13" class="tourney_subnav">Date&#160;</td>
@@ -440,7 +442,7 @@
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
-                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>                      
+                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                     </tr>
                     <tr>
                       <td align="right" height="13" class="statText">All matches occur on Friday, April 4th</td>
@@ -448,32 +450,32 @@
                       <td align="center" height="13" class="statText">**1:00pm (EST)</td>
                       <td align="center" height="13" class="statText">**4:00pm (EST)</td>
                       <td align="center" height="13" class="statText">**7:00pm (EST)</td>
-                      <td align="center" height="13" class="statText">&#160;</td>                      
-                    </tr>                    
+                      <td align="center" height="13" class="statText">&#160;</td>
+                    </tr>
                     <tr>
                       <td colspan="6" valign="middle" height="13" class="statText">**Times are subject to change.</td>
-                    </tr>                    
+                    </tr>
                     <!-- <TR>
                       <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Room 1 - 8am EST<BR/>Room 2 - 11am EST</TD>
                       <TD COLSPAN="3" VALIGN="middle" CLASS="statText">Room 3 - 3pm EST<BR/>Room 4 - 6pm EST</TD>
-                    </TR> -->                  
+                    </TR> -->
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td height="18" align="left" class="statTextBig" background="/i/orangebv_bg.gif">&#160;&#160;Championship</td>
-                      <td colspan="5" class="tourney_subhead1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td> 
-                    </tr>                                         
+                      <td colspan="5" class="tourney_subhead1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+                    </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-                    </tr>                    
+                    </tr>
                     <tr>
                       <td align="right" valign="middle" width="26%" height="13" class="tourney_subnav"><b>Total Competitors</b></td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>                      
+                      <td align="center" valign="middle" width="11%" class="tourney_subnav">&#160;</td>
                     </tr>
                     <tr>
                       <td align="right" height="13" class="statText">4</td>
@@ -485,20 +487,20 @@
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                       <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
-                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>                      
+                      <td align="center" valign="middle" class="tourney_subnav">&#160;</td>
                     </tr>
                     <tr>
                       <td colspan="6" valign="middle" height="13" class="statText">Saturday, April 5, @ **12pm EST</td>
                     </tr>
                     <tr>
                       <td colspan="6" valign="middle" height="13" class="statText">**Time is subject to change.</td>
-                    </tr>                     
+                    </tr>
                     <tr>
                       <td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td>
-                    </tr>                                       
+                    </tr>
                     <tr>
                       <td align="right" width="26%" height="18" class="tourney_subhead1">&#160;</td>
-                      <td align="center" valign="middle" width="11%" class="tourney_subhead1">&#160;</td>                      
+                      <td align="center" valign="middle" width="11%" class="tourney_subhead1">&#160;</td>
                       <td colspan="3" align="center" valign="middle" class="statTextBig" background="/i/orangebv_bg.gif"><b>Tournament Champion</b></td>
                       <td align="center" valign="middle" width="11%" class="tourney_subhead1">&#160;</td>
                     </tr>
@@ -518,7 +520,7 @@
   <!-- Right Column Begins -->
         <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
 
-        <xsl:call-template name="public_right_col"/>       
+        <xsl:call-template name="public_right_col"/>
 
         </td>
   <!-- Right Column Ends -->

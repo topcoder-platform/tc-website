@@ -59,7 +59,10 @@
                 <xsl:with-param name="title">2003 TopCoder Collegiate Challenge</xsl:with-param>
             </xsl:call-template>
         
-            <xsl:call-template name="tccc03_links"/>
+            <xsl:call-template name="tccc03_links">
+                <xsl:with-param name="selectedTab">rules</xsl:with-param>
+            </xsl:call-template>
+
             
             <xsl:call-template name="tccc03rule_links"/>
     
