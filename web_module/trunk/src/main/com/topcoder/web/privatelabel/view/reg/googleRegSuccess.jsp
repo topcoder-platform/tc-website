@@ -80,6 +80,10 @@ function openWin(url, name, w, h) {
 <p><font size="-1">
 <br/>
 
+<b>If you converted your TopCoder account:</b><br/>
+Your account is active.<br/><br/>
+
+<b>For new/non-TopCoder members:</b>
 <b>In order to be eligible to compete in the Google Code Jam 2003,
 you must activate your account by following the directions sent to the email
 address provided during registration. You <u>will not</u> be able to compete if you
@@ -87,7 +91,9 @@ do not activate your account.</b>
 
 <br/><br/>
 
-If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
+<b><font color="#FF0000">OPTIONAL:</font></b> If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=350,height=300,status=0');">here</a><br/><br/>
+
+<br/><br/>
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Practice Arena tab above.<br/><br/>
 
@@ -107,12 +113,12 @@ Good luck to you in the Arena!
    </tr>
 </table>
 </div>
-<p><div class=footer> 
-<small> &copy;2003 Google - 
-<a href="http://www.google.com/">Home</a> - 
-<a href="http://www.google.com/about.html">All About Google</a> - 
-<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> - 
-<a href="http://www.google.com/jobs/">We're Hiring</a> 
+<p><div class=footer>
+<small> &copy;2003 Google -
+<a href="http://www.google.com/">Home</a> -
+<a href="http://www.google.com/about.html">All About Google</a> -
+<a href="http://www.topcoder.com/?t=about_tc&c=index">About TopCoder</a> -
+<a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>
 </div>
