@@ -58,16 +58,24 @@
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=6><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Projects</td>
+                                <td class=header colspan=6><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Component Name</td>
-                                <td class="sidebarTitle" align=center nowrap=nowrap>Details</td>
-                                <td class="sidebarTitle" align=center>Start Date</td>
-                                <td class="sidebarTitle" align=center>End Date</td>
-                                <td class="sidebarTitle" align=right>1st Place Prize</td>
-                                <td class="sidebarTitle" align=right>2nd Place Prize</td>
+                                <td class="sidebarTitle" align=center nowrap=nowrap>Handle</td>
+                                <td class="sidebarTitle" align=center>Submit Date</td>
+                                <td class="sidebarTitle" align=center>Points</td>
+                                <td class="sidebarTitle" align=right>Component Prize</td>
                             </tr>
+                            <rsc:iterator list="<%=rsc%>" id="resultRow">
+                            <tr>
+                                <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>"><rsc:item name="component_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" align=center><rsc:item name="handle" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="submit_timestamp" format="MM.dd.yyyy hh:mma" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right><rsc:item name="final_score" format="0.00" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right>$<rsc:item name="payment" format="#,##0" row="<%=resultRow%>"/></td>
+                            </tr>
+                            </rsc:iterator>
                         </table>
                         
                         <br/>
