@@ -97,19 +97,12 @@ public final class Data {
         } else {
             user = nav.getUser();
         }
-        if (user.getUserId() == 0) {
+        if (user.getUserId() == 0 && nav.getUserId() > 0) {
             Context ctx = null;
             try {
-                StringBuffer msg = new StringBuffer(250);
-                msg.append("tc: logged in user found with no user attributes:\n");
-                msg.append("tc: user id = ");
-                msg.append(nav.getUserId());
-                msg.append("\n");
-                msg.append("tc: Loading user attributes from user entity bean...");
-                log.debug(msg.toString());
                 ctx = TCContext.getInitial();
                 UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-                UserServices userEJB = (UserServices) userHome.findByPrimaryKey(new Integer(nav.getUserId()));
+                UserServices userEJB = userHome.findByPrimaryKey(new Integer(nav.getUserId()));
                 user = userEJB.getUser();
                 nav.setUser(user);
                 log.debug("tc: user loaded from entity bean");
