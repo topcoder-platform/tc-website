@@ -248,6 +248,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             qib.setDataTypeId(Integer.parseInt(rsr.getItem("data_type_id").toString()));
             qib.setDefaultValue(rsr.getItem("default_value").toString());
             qib.setSortOrder(Integer.parseInt(rsr.getItem("sort_order").toString()));
+            qib.setOptional(rsr.getItem("optional").toString().equals("1"));
             list.add(qib);
         }
         setCurrentInputList(list);
