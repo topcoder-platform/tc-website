@@ -11,8 +11,8 @@
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="overview"/>
-<jsp:param name="tabLev2" value="details"/>
-<jsp:param name="tabLev3" value=""/>
+<jsp:param name="tabLev2" value="onsite_events"/>
+<jsp:param name="tabLev3" value="movies"/>
 </jsp:include>
 
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
@@ -25,9 +25,9 @@
 
 		<table cellspacing=0 cellpadding=5 class=bodyText width="100%">
 			<tr>
-				<td><img src="/i/clear.gif" width=80 height=60 border=1/></td>
-				<td><img src="/i/clear.gif" width=80 height=60 border=1/></td>
-				<td><img src="/i/clear.gif" width=80 height=60 border=1/></td>
+				<td class=bodyText align=center><img src="/i/clear.gif" width=160 height=120 border=1/><br/><br/>Room 1 intros</td>
+				<td class=bodyText align=center><img src="/i/clear.gif" width=160 height=120 border=1/><br/><br/>Room 2 intros</td>
+				<td class=bodyText align=center><img src="/i/clear.gif" width=160 height=120 border=1/><br/><br/>Room 3 intros</td>
             </tr>
 		</table>
 
