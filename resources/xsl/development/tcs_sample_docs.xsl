@@ -206,7 +206,7 @@
                                     <td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                                     <td class="statText" height="15" valign="top">
                                     <br />
-                                    03.17.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Application_Deliverables.pdf" class="statText">Design Screening Scorecard.dot</a><br />
+                                    05.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Application_Deliverables.pdf" class="statText">Development Deliverables.pdf</a><br />
                                     </td>
                                 </tr>
                                 
