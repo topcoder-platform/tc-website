@@ -13,6 +13,10 @@
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
+            <img src="/i/tournament/tco03/promo_tco_header.gif" alt="2003 TopCoder Open Sponsors" width="170" height="62" border="0" /><br />
+
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+
 
 <%-- Save until Premier Sponsors come online
             <img src="/i/tournament/tco03/header_title_sponsor.gif" alt="Title Sponsor" width="170" height="22" border="0" /><br/>
@@ -21,7 +25,6 @@
             <img src="/i/tournament/tco03/header_premier_sponsors.gif" alt="Premier Sponsors" width="170" height="22" border="0" /><br/>
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />  --%>
 
-            <img src="/i/tournament/tco03/header_corp_sponsors.gif" alt="Corporate Sponsors" width="170" height="22" border="0" /><br/>
             <A href="/?t=tournaments&amp;c=tco03_revelation"><img src="/i/tournament/tco03/promo_sm_revelation.gif" alt="Revelation Software" width="170" height="84" border="0" /></A><br/>
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
