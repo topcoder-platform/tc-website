@@ -5,7 +5,8 @@ public class Constants {
   public static String REPORT_HOME_ADDR = "/index.jsp";
   public static String REPORT_RESULT_ADDR = "/result.jsp";
   public static String REPORT_PARAM_ADDR = "/param.jsp";
-  public static String REPORT_PROFILE_ADDR = "/profile_detail.jsp";
+  public static String REPORT_PROFILE_DETAIL_ADDR = "/profile_detail.jsp";
+  public static String REPORT_PROFILE_ADDR = "/profile.jsp";
   public static String REPORT_PROFILE_LIST_ADDR = "/profile_list.jsp";
   public static String SERVLET_ADDR = "/report";
   public static String JSP_ADDR = "/report_jsp";
