@@ -4,7 +4,7 @@
                  com.topcoder.shared.language.*
                  com.topcoder.shared.problemParser.*
                  com.topcoder.common.web.render.ProblemRenderer,
-                 com.topcoder.web.stat.common.JSPUtils,
+                 com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,
                  java.text.DecimalFormat"
 %>
 
