@@ -38,7 +38,7 @@ public class BasicAuthentication implements WebAuthentication {
     private Resource defaultCookiePath;
 
     public static final Resource CORP_SITE = new SimpleResource("/corp");
-    public static final Resource MAIN_SITE = new SimpleResource("/main");
+    public static final Resource MAIN_SITE = new SimpleResource("/");
     public static final Resource HS_SITE = new SimpleResource("/hs");
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("/pl");
 
