@@ -120,8 +120,10 @@ public class DBMS {
         Connection conn = null;
         InitialContext ctx = null;
         try {
+            log.debug("begin");
             ctx = TCContext.getInitial();
             conn = getConnection(ctx, dataSourceName);
+            log.debug("end");
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
@@ -157,7 +159,10 @@ public class DBMS {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
         }
-        return ds.getConnection();
+        Connection conn = ds.getConnection();
+        PreparedStatement ps = conn.prepareStatement("set lock mode to wait 5");
+        ps.execute();
+        return conn;
     }
 
     /**
