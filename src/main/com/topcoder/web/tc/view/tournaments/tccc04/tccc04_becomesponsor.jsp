@@ -48,7 +48,7 @@
                 2003 TopCoder Open in order to drive a qualified audience of developers to the Intel Developer Services website. By working together with TopCoder, Intel and its developer network, 
                 Intel Developer Services, will continue to educate programmers on current and next-generation computing initiatives and technologies.</p></td></tr>
                 
-                <tr><td class="bodyText" valign="center"><p><img src="/i/tournament/tccc04/sponsor_nvidia.jpg" alt="NVIDIA" width="152" height="153" border="0" align="right" style="margin-left: 0px; margin-top: 0px; margin-right: 7px; margin-bottom: 7px;"/><strong>Recruit</strong></p>
+                <tr><td class="bodyText" valign="center"><p align="right"><img src="/i/tournament/tccc04/sponsor_nvidia.jpg" alt="NVIDIA" width="152" height="153" border="0" align="right" style="margin-left: 12px; margin-top: 0px; margin-right: 7px; margin-bottom: 0px;"/><strong>Recruit</strong></p>
                 <p>NVIDIA has sponsored both the 2003 TopCoder Collegiate Challenge and the 2003 TopCoder Open in order to identify and recruit some of the world's top engineering talent. 
                 TopCoder has built a community of top notch talent where the competitions drive sharp minds to excel. There is a great deal of synergy between the TopCoder community and 
                 the engineering community at NVIDIA.</p></td></tr>
