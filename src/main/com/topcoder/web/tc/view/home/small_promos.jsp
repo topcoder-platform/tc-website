@@ -11,7 +11,7 @@
 --%>	
 
 		<td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-		<td height="150" align="center"><A href="/i/downloads/tco04_program.pdf"><img src="/i/promos/tco04_program.gif" width="170" height="150" border="0" alt="TCO04 Program" /></A></td>
+		<td height="150" align="center"><A href="/?t=sponsor&c=link&link=/i/downloads/tco04_program.pdf&refer=DeveloperHome" target="_blank"><img src="/i/promos/tco04_program.gif" width="170" height="150" border="0" alt="TCO04 Program" /></A></td>
 	
 		
 	</tr>
