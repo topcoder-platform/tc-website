@@ -20,10 +20,13 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
             info.setProfileName(name);
         }
 
-        info.setTestSetA(request.getParameter(Constants.TEST_SET_A));
+        String testSetA = request.getParameter(Constants.TEST_SET_A);
+        if(testSetA != null) {
+            info.setTestSetA(testSetA);
+        }
+
+        //these methods should return if it is null
         info.addTestSetB(request.getParameterValues(Constants.TEST_SET_B));
-//        testSetBRemove
-//        testSetBAdd
         info.addLanguage(request.getParameterValues(Constants.LANGUAGE));
 
         return info;
