@@ -69,27 +69,7 @@ final class UserDb {
             if (user.getGroups().size() > 0) {
                 insertGroupUsers(conn, user);
             }
-            HashMap userTypeDetails = user.getUserTypeDetails();
-            if (userTypeDetails.containsKey("Coder")) {
-                CoderRegistration coder = (CoderRegistration) userTypeDetails.get("Coder");
-                coder.setCoderId(user.getUserId());
 
-                /* make inserts for common db */
-                InitialContext ctx = new InitialContext();
-                com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
-                Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
-                userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0));
-                userEJB.setFirstName(user.getUserId(), coder.getFirstName());
-                userEJB.setLastName(user.getUserId(), coder.getLastName());
-
-                long emailId = emailEJB.createEmail(coder.getCoderId());
-                emailEJB.setAddress(emailId, user.getEmail());
-                emailEJB.setPrimaryEmailId(user.getUserId(), emailId);
-
-                UserDbCoder.insertCoder(conn, coder);
-
-                coder.setAllModifiedStable();
-            }
 
             /* make insert into common database containing this information.  this will
                allow other applications to use our login/password for authentication.
@@ -117,6 +97,30 @@ final class UserDb {
             if (regVal != 1) {
                 log.error("insertUser():did not update security user record");
             }
+
+
+            HashMap userTypeDetails = user.getUserTypeDetails();
+            if (userTypeDetails.containsKey("Coder")) {
+                CoderRegistration coder = (CoderRegistration) userTypeDetails.get("Coder");
+                coder.setCoderId(user.getUserId());
+
+                /* make inserts for common db */
+                InitialContext ctx = new InitialContext();
+                com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup("main:"+UserHome.EJB_REF_NAME)).create();
+                Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
+                userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0));
+                userEJB.setFirstName(user.getUserId(), coder.getFirstName());
+                userEJB.setLastName(user.getUserId(), coder.getLastName());
+
+                long emailId = emailEJB.createEmail(coder.getCoderId());
+                emailEJB.setAddress(emailId, user.getEmail());
+                emailEJB.setPrimaryEmailId(user.getUserId(), emailId);
+
+                UserDbCoder.insertCoder(conn, coder);
+
+                coder.setAllModifiedStable();
+            }
+
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new TCException("ejb.DataCache.DataCacheBean.insertUser: ERROR \n " + sqe.getMessage());
