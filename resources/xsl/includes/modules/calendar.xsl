@@ -30,7 +30,7 @@
                	 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">7</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">8</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4115" CLASS="smallText">9</A></TD>
-                				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="//stat?c=round_stats&amp;rd=4120" CLASS="smallText">10</A></TD>
+                				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4120" CLASS="smallText">10</A></TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">11</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">12</TD>
                 				<TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">13</TD>
