@@ -29,7 +29,7 @@ public class FullRegSubmit extends SimpleRegSubmit {
         */
         commit(regInfo);
         clearRegInfo();
-        setNextPage(Constants.SIMPLE_REG_SUCCESS_PAGE);
+        setNextPage(Constants.VERIZON_REG_SUCCESS_PAGE);
         setIsNextPageInContext(true);
     }
 
