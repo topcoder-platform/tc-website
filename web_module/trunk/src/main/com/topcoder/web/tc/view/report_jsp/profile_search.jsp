@@ -149,10 +149,10 @@
       <%idx=0;%>
       <tr><td><hr/><center><h2>Placement Information</h2></center></td></tr>
       <tr><td>Placement Indicator: <select name="placement">
-      <option name="contract">Contract</option>
-      <option name="full">Full time</option>
-      <option name="either" selected>Either</option>
-      <option name="none">No preference</option>
+      <option value="contract">Contract</option>
+      <option value="full">Full time</option>
+      <option value="either" selected>Either</option>
+      <option value="none">No preference</option>
       </select>
       </td></tr>
       <tr><td>Resume: <INPUT type="checkbox" name="resume"/></td></tr>
