@@ -17,68 +17,29 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Processes the "login" command.
+ * A base interface for
  * @author bigjake <kitz@mit.edu>
  *
  */
 
-public class LoginCommand implements TCESCommand, Serializable {
-
-	boolean isStepAuth;
-	boolean isStepView;
+public class MainCommand implements TCESCommand, Serializable {
 
 	private static Logger log = Logger.getLogger(LoginCommand.class);
 
-	String message;
-
-	public LoginCommand() {
-		isStepView = true;
-
-		setMessage("");
+	public MainCommand() {
 	}
 
-	public LoginCommand(String step) {
-		if (step==null) {
-			isStepView=true;
-			isStepAuth=false;
-		}
-		else if (step.equals("v")) {
-			isStepAuth=false;
-			isStepView=true;
-		}
-		else if (step.equals("a")) {
-			isStepAuth=true;
-			isStepView=false;
-		}
-
-		setMessage("");
-	}
-
-	public void setMessage(String message) {
-		this.message=message;
-	}
-
-	public String getMessage() {
-		return message;
-	}
 
 	public void processCommand(HttpServletRequest request,
 					 	  	   HttpServletResponse response,
 					 	  	   InitialContext ctx,
 					 	  	   ServletContext servCtx)  throws Exception
 	{
-		if (isStepView) {
-			viewLogin(request,response,ctx,servCtx);
-			return;
-		}
-
-		if (isStepAuth) {
-			viewAuth(request,response,ctx,servCtx);
-			return;
-		}
+		servCtx.getContext("/").getRequestDispatcher(
+			response.encodeURL("/es/main.jsp")).forward(request, response);
 	}
 
-
+/*  //erase this stuff...
 	private void goLoginPage(HttpServletRequest request, HttpServletResponse response,
 					 	  	   ServletContext servCtx) throws Exception
 	{
@@ -159,7 +120,7 @@ public class LoginCommand implements TCESCommand, Serializable {
 		if (log!=null) log.debug("LoginCommand: forwarding to login page...");
 
 		goLoginPage(request,response,servCtx);
-	}
+	}*/
 
 }
 

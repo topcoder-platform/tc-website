@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * A base interface for
+ * A base interface for command processors called by the TCES controller.
  * @author bigjake <kitz@mit.edu>
  *
  */
