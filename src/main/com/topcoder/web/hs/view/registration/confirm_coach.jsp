@@ -26,46 +26,46 @@
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Contact Information</TD>
   </TR>
   <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">First Name&nbsp;</TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="coach" property="FirstName"/></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Last Name&nbsp;</TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="coach" property="LastName"/></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">School&nbsp;</TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<%=coach.getSchoolId()%>" list="<%=coach.getSchoolList()%>"/></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">State&nbsp;</TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<%=coach.getStateCode()%>" list="<%=coach.getStateList()%>"/></TD>
   </TR>
   <TR VALIGN="middle">
@@ -75,31 +75,31 @@
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Handle &amp; Email</TD>
   </TR>
   <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Handle&nbsp;</TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="coach" property="Handle"/></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Email&nbsp;</TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="coach" property="Email"/></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR VALIGN="middle">
@@ -109,26 +109,26 @@
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Editor &amp; Language</TD>
   </TR>
   <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Editor&nbsp;</TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<%=coach.getEditorId()%>" list="<%=coach.getEditorList()%>"/></TD>
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle"></TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Language&nbsp;</TD>
-   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><reg:listText value="<%=coach.getLanguageId()%>" list="<%=coach.getLanguageList()%>"/></TD>
   </TR>
   <TR VALIGN="middle">

@@ -15,15 +15,15 @@
         <jsp:include page="../includes/left_nav.jsp" />
 <jsp:include page="../includes/left_calendar.jsp" />
         </TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD VALIGN="top" BACKGROUND="/i/hs/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
+        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
             <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
     <TR>
         <TD>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/hs/headinginside_faq.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
+             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_faq.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
+             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
              </TD></TR>
             </TABLE>
         </TD>
@@ -35,38 +35,38 @@
             <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
                 </TABLE>
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body starts here-->
             <A NAME="top"></A>
-<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%"><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#1">How are point values for code submissions determined?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#2">How do I advance?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD WIDTH="490" VALIGN="middle" ALIGN="left"><A CLASS="bodyText" HREF="#3">It seems like I have the same points as someone else in my room. Who advances?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD WIDTH="490" VALIGN="middle" ALIGN="left"><A CLASS="bodyText" HREF="#4">How does rating work?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#5">Why is the point system so complicated?  Are you saying that at the time I submit a solution,
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%"><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#1">How are point values for code submissions determined?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5" CLASS="bodyText"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#2">How do I advance?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD WIDTH="490" VALIGN="middle" ALIGN="left"><A CLASS="bodyText" HREF="#3">It seems like I have the same points as someone else in my room. Who advances?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD WIDTH="490" VALIGN="middle" ALIGN="left"><A CLASS="bodyText" HREF="#4">How does rating work?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#5">Why is the point system so complicated?  Are you saying that at the time I submit a solution,
              I have no idea how many points I will receive for my submission?</A></TD></TR>
 
-             <!--<TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#7">How are room assignments done? Will people with similar ratings be assigned to the same room?</A></TD></TR>-->
+             <!--<TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#7">How are room assignments done? Will people with similar ratings be assigned to the same room?</A></TD></TR>-->
 
-<TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#8">What if I am participating from behind a firewall?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#9">
+<TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#8">What if I am participating from behind a firewall?</A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#9">
                 Occasionally, when navigating between rooms, I lose my cursor/focus, or stranger
                 it may have two blinking cursors, but I can't type anything?
-              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#10">
+              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#10">
                 Why am I not able to copy and paste to my arena applet?
-              </A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#11">
+              </A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#11">
                 How do I emote something or whisper a private message to someone?
-              </A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#12">
+              </A></TD></TR><TR><TD VALIGN="top" HEIGHT="5"><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#12">
                 How does the leaderboard work?
-              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#13">
+              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#13">
                 The small HTML window that holds the contest applet does not pop up in Mozilla 0.9.4.
-              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#14">
+              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#14">
                 Is it O.K. for a coder to obfuscate their code before submitting it?
-              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#15">
+              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#15">
                 If I choose to code a solution in C++, which implementation of string or vector do I use?
-              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#16">
+              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#16">
                How can I view problem statements, submissions, or statistics for previous matches or tournament rounds?
-              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#17">
+              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD VALIGN="middle" ALIGN="left" CLASS="bodyText"><A CLASS="bodyText" HREF="#17">
               Can I re-submit my code during the coding phase if I find an error?
-              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/hs/clear.gif"></TD></TR><TR><TD CLASS="bodyText"><B>More Questions? <A CLASS="bodyText" HREF="?module=Static&d1=contacts&d2=contacts">Contact Us</A></B></TD></TR><TR><TD VALIGN="top" HEIGHT="20"><IMG BORDER="0" HEIGHT="20" WIDTH="1" SRC="/i/hs/spacer.gif" ALT=""></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><A CLASS="bodyText" NAME="1"><B>How are point values for code submissions determined?</B></A><BR>
+              </A></TD></TR><TR><TD HEIGHT="5" VALIGN="top"><IMG BORDER="0" HEIGHT="3" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR><TD CLASS="bodyText"><B>More Questions? <A CLASS="bodyText" HREF="?module=Static&d1=contacts&d2=contacts">Contact Us</A></B></TD></TR><TR><TD VALIGN="top" HEIGHT="20"><IMG BORDER="0" HEIGHT="20" WIDTH="1" SRC="/i/spacer.gif" ALT=""></TD></TR><TR><TD VALIGN="top" CLASS="bodyText"><A CLASS="bodyText" NAME="1"><B>How are point values for code submissions determined?</B></A><BR>
 
       Points are determined based on two factors: the difficulty of the problem and time it took to code once it was opened.
       The longer it takes to code, the fewer points will be awarded upon submission, and vice versa.<BR><A CLASS="bodyText" HREF="#top">[back to top]</A><BR><BR><A CLASS="bodyText" NAME="2"><B>How do I advance?</B></A><BR>
@@ -168,7 +168,7 @@ Coder B's 55th submission of the 500pt problem will result in 150pts</li></ul>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                 </TABLE>
             </TD>
@@ -179,8 +179,8 @@ Coder B's 55th submission of the 500pt problem will result in 150pts</li></ul>
 
        </TABLE>
         </TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 
 <jsp:include page="../includes/right_resources.jsp" /></TD>

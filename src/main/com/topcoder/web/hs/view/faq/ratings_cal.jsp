@@ -15,15 +15,15 @@
         <jsp:include page="../includes/left_nav.jsp" />
         <jsp:include page="../includes/left_calendar.jsp" />
         </TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD VALIGN="top" BACKGROUND="/i/hs/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
+        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
             <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
     <TR>
         <TD>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/hs/headinginside_faq.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
+             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_faq.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
+             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
              </TD></TR>
             </TABLE>
         </TD>
@@ -35,7 +35,7 @@
             <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
                 </TABLE>
             </TD>
@@ -44,33 +44,33 @@
 <BR><BR><B>New ratings are calculated as follows:</B><BR><BR>
                 After each competition, each coder who attended the competition is re-rated according
                 the following algorithm.  Keep in mind that only coders who shared the same problem set are rated against one another.  The average rating of everyone in the competition is calculated:
-                <BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/avg.gif" WIDTH="167" HEIGHT="58" ALT="average rating"><BR><BR>
+                <BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/avg.gif" WIDTH="167" HEIGHT="58" ALT="average rating"><BR><BR>
                 Where NumCoders is the number of coders in the competition and Rating is the
                 rating without the volatility of the coder in the competition before the competition.
-                <BR><BR><B>The competition factor is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/cf.gif" WIDTH="356" HEIGHT="62" ALT="competition factor"><BR><BR>
+                <BR><BR><B>The competition factor is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/cf.gif" WIDTH="356" HEIGHT="62" ALT="competition factor"><BR><BR>
                 Where Volatility is the volatility of the coder in the competition before the competition.
-                <BR><BR><B>The skill of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/skill.gif" WIDTH="138" HEIGHT="34" ALT="skill"><BR><BR>
+                <BR><BR><B>The skill of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/skill.gif" WIDTH="138" HEIGHT="34" ALT="skill"><BR><BR>
                 Where Rating is the coder's rating before the competition.
-                <BR><BR><B>The deviation of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/dev.gif" WIDTH="141" HEIGHT="34" ALT="deviation"><BR><BR>
+                <BR><BR><B>The deviation of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/dev.gif" WIDTH="141" HEIGHT="34" ALT="deviation"><BR><BR>
                 Where Volatility is the volatility of the coder before the competition.
                 <BR><BR>
                 The probability of the coder getting a higher score than another coder in the
                 competition (WPi for i from 1 to NumCoders) is estimated.  See below for the 'Estimation Algorithm'.
                 The expected rank of the coder is calculated:
-                <BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/er.gif" WIDTH="118" HEIGHT="39" ALT="expected rank"><BR><BR><B>The expected performance of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/ep.gif" WIDTH="170" HEIGHT="34" ALT="expected performance"><BR><BR>
-                Where <IMG BORDER="0" SRC="/i/hs/rating/phi.gif" WIDTH="11" HEIGHT="11" ALT="inverse standard normal">
+                <BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/er.gif" WIDTH="118" HEIGHT="39" ALT="expected rank"><BR><BR><B>The expected performance of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/ep.gif" WIDTH="170" HEIGHT="34" ALT="expected performance"><BR><BR>
+                Where <IMG BORDER="0" SRC="/i/rating/phi.gif" WIDTH="11" HEIGHT="11" ALT="inverse standard normal">
                 is the inverse of the standard normal function.
-                <BR><BR><B>The actual performance of each coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/ap.gif" WIDTH="170" HEIGHT="34" ALT="expected performance"><BR><BR>
+                <BR><BR><B>The actual performance of each coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/ap.gif" WIDTH="170" HEIGHT="34" ALT="expected performance"><BR><BR>
                 Where ARank is the actual rank of the coder in the competition based on score
                 (1 for first place, NumCoders forlast).  If the coder tied with another coder,
                 the rank is the average of the positions covered by the tied coders.
-                <BR><BR><B>The performed as rating of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/pa.gif" WIDTH="286" HEIGHT="14" ALT="performed as"><BR><BR><B>The weight of the competition for the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/wt.gif" WIDTH="223" HEIGHT="37" ALT="weight of the competition"><BR><BR>
+                <BR><BR><B>The performed as rating of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/pa.gif" WIDTH="286" HEIGHT="14" ALT="performed as"><BR><BR><B>The weight of the competition for the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/wt.gif" WIDTH="223" HEIGHT="37" ALT="weight of the competition"><BR><BR>
                 Where TimesPlayed is the number of times the coder has been rated before.
                 <BR><BR>
                 To stabilize the higher rated members, the Weight of members whose rating is
                 between 2000 and 2500 is decreased 10% and the Weight of members whose rating
                 is over 2500 is decreased 20%.
-                <BR><BR><B>A cap is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/cap.gif" WIDTH="186" HEIGHT="37" ALT="cap"><BR><BR><B>The new volatility of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/nv.gif" WIDTH="421" HEIGHT="46" ALT="new volatility"><BR><BR><B>The new rating of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/hs/rating/nr.gif" WIDTH="253" HEIGHT="37" ALT="new rating"><BR><BR>
+                <BR><BR><B>A cap is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/cap.gif" WIDTH="186" HEIGHT="37" ALT="cap"><BR><BR><B>The new volatility of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/nv.gif" WIDTH="421" HEIGHT="46" ALT="new volatility"><BR><BR><B>The new rating of the coder is calculated:</B><BR><BR><IMG BORDER="0" ALIGN="center" SRC="/i/rating/nr.gif" WIDTH="253" HEIGHT="37" ALT="new rating"><BR><BR>
                 If |NewRating - Rating| &gt; Cap the NewRating is adjusted so it is at most Cap different than Rating.
                 <BR><BR><HR><BR><BR><B>Estimation Algorithm:</B><BR><BR>
 Estimating the probability a coder gets a higher score than another coder is done by looking at either coder's
@@ -129,7 +129,7 @@ WinProbability( SkillA, DeviationA, SkillB, DeviationB)
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                 </TABLE>
             </TD>
@@ -140,8 +140,8 @@ WinProbability( SkillA, DeviationA, SkillB, DeviationB)
 
        </TABLE>
         </TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 
 <jsp:include page="../includes/right_resources.jsp" /></TD>

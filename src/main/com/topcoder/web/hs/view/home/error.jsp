@@ -16,8 +16,8 @@
 <jsp:include page="../includes/left_nav.jsp" />
 <jsp:include page="../includes/left_calendar.jsp" />
         </TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/transparent_1pix.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/transparent_1pix.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/transparent_1pix.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/transparent_1pix.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
         <TD VALIGN="top" BGCOLOR="#000000">
             <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0">
     <TR>
@@ -27,7 +27,7 @@
             <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
                 </TABLE>
             </TD>
@@ -55,7 +55,7 @@
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                 </TABLE>
             </TD>

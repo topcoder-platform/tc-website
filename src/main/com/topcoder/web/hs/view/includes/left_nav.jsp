@@ -5,24 +5,24 @@
 /**** THIS CODE DOES NOT CURRENTLY HANDLE RENDERING THREE LEVELS OF MENUS ****/
 
 // highlight the selected menu item by using this property for its table cell
-String selbg = "background=\"/i/hs/s_calendar_bg.gif\"";
+String selbg = "background=\"/i/s_calendar_bg.gif\"";
 // highlight other items in the open submenu by using this property for its table cell
 String sibbg = "bgcolor=\"#4D5B99\"";  // sib for sibling
 // default property for unhighlighted items
 String defbg = "";
 
 // indent root items which are not or cannot open into submenus with this
-String itemind = "<img src=\"/i/hs/nav_arrow_right.gif\" width=\"10\" height=\"10\" alt=\"\" border=\"0\">";
+String itemind = "<img src=\"/i/nav_arrow_right.gif\" width=\"10\" height=\"10\" alt=\"\" border=\"0\">";
 // indent titles of open submenus with this
-String openind = "<img src=\"/i/hs/nav_arrow_bottom.gif\" width=\"10\" height=\"10\" alt=\"\" border=\"0\">";
+String openind = "<img src=\"/i/nav_arrow_bottom.gif\" width=\"10\" height=\"10\" alt=\"\" border=\"0\">";
 // indent submenu items with this
-String subind = "<img src=\"/i/hs/11x9.gif\" width=\"10\" height=\"10\" alt=\"\" border=\"0\">";
+String subind = "<img src=\"/i/11x9.gif\" width=\"10\" height=\"10\" alt=\"\" border=\"0\">";
 
 // spacer between items on the root menu
-String rootsep = "<tr><td height=\"1\"><img src=\"/i/hs/frame_left_nav.gif\" width=\"166\" height=\"1\" alt=\"----------\" border=\"0\"></td></tr>";
+String rootsep = "<tr><td height=\"1\"><img src=\"/i/frame_left_nav.gif\" width=\"166\" height=\"1\" alt=\"----------\" border=\"0\"></td></tr>";
 // spacer between items on open submenus
 String subsep = "";
-//String subsep = "<tr><td height=\"1\"><img src=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\"></td></tr>";
+//String subsep = "<tr><td height=\"1\"><img src=\"/i/frame_1pix_bg_lg_top_left.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\"></td></tr>";
 
 // set below in the service method, as they vary depending on the request
 String root, sub;

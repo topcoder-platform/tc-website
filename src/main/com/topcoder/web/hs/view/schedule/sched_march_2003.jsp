@@ -29,23 +29,23 @@
         </td>
         
 <!-- Center Column begins -->
-        <td width="1" bgcolor="#c5c5c9" valign="top"><img src="/i/hs/frame_1pix_bg_lg_top_left.gif" width="1" height="3" alt="" border="0"></td>
-        <td width="1" bgcolor="#000000" valign="top"><img src="/i/hs/frame_1pix_bg_lg_top_left.gif" width="1" height="3" alt="" border="0"></td>
-        <td valign="top" background="/i/hs/bluegradiant_bg.gif" bgcolor="#FFFFFF">
+        <td width="1" bgcolor="#c5c5c9" valign="top"><img src="/i/frame_1pix_bg_lg_top_left.gif" width="1" height="3" alt="" border="0"></td>
+        <td width="1" bgcolor="#000000" valign="top"><img src="/i/frame_1pix_bg_lg_top_left.gif" width="1" height="3" alt="" border="0"></td>
+        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                    <td align="left" height="44" width="348"><img src="/i/hs/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0"></td>
-                    <td background="/i/hs/headinginside_1pix_bg.gif" align="left" width="99%" height="44">&nbsp;</td>
+                    <td align="left" height="44" width="348"><img src="/i/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0"></td>
+                    <td background="/i/headinginside_1pix_bg.gif" align="left" width="99%" height="44">&nbsp;</td>
                 </tr>
 
                 <tr>
-                    <td colspan="2" height="10"><img src="/i/hs/clear_10_pix_width.gif" width="10" height="10" alt="" border="0"></td>
+                    <td colspan="2" height="10"><img src="/i/clear_10_pix_width.gif" width="10" height="10" alt="" border="0"></td>
                 </tr>
             </table>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                    <td width="10"><img src="/i/hs/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
                     <td height="100%" class="bodyText">
                         <p><strong>March 2003</strong></p>
                         <div align="right"><form name="selectform">
@@ -89,7 +89,7 @@
                                     <strong>Match 1</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
                             </tr>
@@ -104,7 +104,7 @@
                                     <strong>Match 2</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
                             </tr>
@@ -119,7 +119,7 @@
                                     <strong>Match 3</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
                                 <td id="calendar">21</td>
                                 <td id="calendar">22</td>
                             </tr>
@@ -134,7 +134,7 @@
                                     <strong>Match 4</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
-                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
+                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
                                 <td id="calendar">28</td>
                                 <td id="calendar">29</td>
                             </tr>
@@ -153,15 +153,15 @@
                         <p><br></p>
                         
                     </td>
-                    <td width="10"><img src="/i/hs/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
+                    <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             </table>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="1" bgcolor="#000000" valign="top"><img src="/i/hs/frame_1pix_bg_lg_top.gif" width="1" height="18" alt="" border="0"></td>
-        <td width="1" bgcolor="#C5C5C9" valign="top"><img src="/i/hs/frame_1pix_bg_lg_top_right.gif" width="1" height="18" alt="" border="0"></td>
+        <td width="1" bgcolor="#000000" valign="top"><img src="/i/frame_1pix_bg_lg_top.gif" width="1" height="18" alt="" border="0"></td>
+        <td width="1" bgcolor="#C5C5C9" valign="top"><img src="/i/frame_1pix_bg_lg_top_right.gif" width="1" height="18" alt="" border="0"></td>
         <td width="10" bgcolor="#001934"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
     </tr>

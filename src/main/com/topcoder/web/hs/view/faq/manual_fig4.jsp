@@ -15,15 +15,15 @@
         <jsp:include page="../includes/left_nav.jsp" />
         <jsp:include page="../includes/left_calendar.jsp" />
         </TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD VALIGN="top" BACKGROUND="/i/hs/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
+        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
+        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
             <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
     <TR>
         <TD>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/hs/headinginside_faq.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
+             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_faq.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
+             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
              </TD></TR>
             </TABLE>
         </TD>
@@ -35,7 +35,7 @@
             <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
                 </TABLE>
             </TD>
@@ -48,7 +48,7 @@ HREF="?module=Static&d1=faq&d2=manual_fig2"><b>Figure 2.</b> Lobby</A></li><li><
 Coding Phase
  </li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig5"><b>Figure 5.</b> Status Window - Challenge Phase</A></li></ul></P><P CLASS="bodyText"><b>Figure 4: Coding Window -
 
-Coding Phase</b></P><IMG BORDER="0" HEIGHT="434" WIDTH="619" ALT="Coding Window" SRC="/i/hs/problem_statement.gif"><P CLASS="bodyText">The <b>Coding Window</b> consists of:
+Coding Phase</b></P><IMG BORDER="0" HEIGHT="434" WIDTH="619" ALT="Coding Window" SRC="/i/problem_statement.gif"><P CLASS="bodyText">The <b>Coding Window</b> consists of:
           <ol CLASS="bodyText"><li>The <b>problem information:</b> Class Name, Method Name, Return Type, and Argument Types, found at the top of the window.</li><BR><li>Choice of <b>Standard</b> or <b>VI</b> editor is
 
 given. The user can switch between editors at any time during the Coding Phase.</li><BR><li>The <b>Problem Statement</b>.</li><BR><li>The <b>Coding Area</b>.</li><BR><li>When coding a problem,  A line number is used for
@@ -69,7 +69,7 @@ Clears existing code.</li></ul></ol></P><P><BR></P>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                 </TABLE>
             </TD>
@@ -80,8 +80,8 @@ Clears existing code.</li></ul></ol></P><P><BR></P>
 
        </TABLE>
         </TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
+        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 
 <jsp:include page="../includes/right_resources.jsp" /></TD>
