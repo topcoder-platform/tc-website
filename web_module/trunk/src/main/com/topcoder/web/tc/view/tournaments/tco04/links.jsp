@@ -12,10 +12,10 @@
 		<td valign=top class=logoBox rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="113" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/on_tournament.gif" width="179" height="24" border="0"></a><br/>
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=algorithm_overview"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=component_overview"><img src="/i/tournament/tco04/off_component.gif" width="179" height="24" border="0"></a><br/>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_overview"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_overview"><img src="/i/tournament/tco04/off_component.gif" width="179" height="24" border="0"></a><br/>
 		</td>
-		<td align="right" rowspan=2><img src="/i/tournament/tco04/algorithm_image.jpg" width="302" height="175" border="0"/></td>
+		<td align="right" rowspan=2><img src="/i/tournament/tco04/alg_image.jpg" width="302" height="175" border="0"/></td>
 	</tr>
 <% } else if (tabLev1.equals("algorithm")) { %>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#EBEBEB">
@@ -23,10 +23,10 @@
 		<td valign=top class=logoBox rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="113" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/off_tournament.gif" width="179" height="24" border="0"></a><br/>
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=algorithm_overview"><img src="/i/tournament/tco04/on_algorithm.gif" width="179" height="24" border="0"></a><br/>
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=component_overview"><img src="/i/tournament/tco04/off_component.gif" width="179" height="24" border="0"></a><br/>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_overview"><img src="/i/tournament/tco04/on_algorithm.gif" width="179" height="24" border="0"></a><br/>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_overview"><img src="/i/tournament/tco04/off_component.gif" width="179" height="24" border="0"></a><br/>
 		</td>
-		<td align="right" rowspan=2><img src="/i/tournament/tco04/algorithm_image.jpg" width="302" height="175" border="0"/></td>
+		<td align="right" rowspan=2><img src="/i/tournament/tco04/alg_image.jpg" width="302" height="175" border="0"/></td>
 	</tr>
 </table>
 <% } else if (tabLev1.equals("component")) { %>
@@ -34,10 +34,10 @@
 		<td valign=top class=logoBox rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/tco04_logo.gif" width="300" height="113" border="0"/></A></td>
 		<td align="center" valign=top class=topNavBox>
 			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about"><img src="/i/tournament/tco04/off_tournament.gif" width="179" height="24" border="0"></a><br/>
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=algorithm_overview"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
-			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=component_overview"><img src="/i/tournament/tco04/on_component.gif" width="179" height="24" border="0"></a><br/>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_overview"><img src="/i/tournament/tco04/off_algorithm.gif" width="179" height="24" border="0"></a><br/>
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_overview"><img src="/i/tournament/tco04/on_component.gif" width="179" height="24" border="0"></a><br/>
 		</td>
-		<td align="right" rowspan=2><img src="/i/tournament/tco04/algorithm_image.jpg" width="302" height="175" border="0"/></td>
+		<td align="right" rowspan=2><img src="/i/tournament/tco04/alg_image.jpg" width="302" height="175" border="0"/></td>
 	</tr>
 <% } %>
 
@@ -51,20 +51,22 @@
 
 <% if (tabLev1.equals("algorithm")) { %>
 	<% if (tabLev2.equals("details")) {%>
-                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_alg_description" class="statTextBig"><img src="/i/tournament/tco04/tab_details_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description" class="statTextBig"><img src="/i/tournament/tco04/tab_details_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
-                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_alg_description" class="statTextBig"><img src="/i/tournament/tco04/tab_details_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description" class="statTextBig"><img src="/i/tournament/tco04/tab_details_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } %>
+	<%--
 	<% if (tabLev2.equals("advancers")) {%>
-                <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_on.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_on.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
-                <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_off.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_off.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
 	<% } %>
 	<% if (tabLev2.equals("summary")) {%>
-                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_finals_analysis" class="statTextBig"><img src="/i/tournament/tco04/tab_summary_on.gif" alt="details" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="" class="statTextBig"><img src="/i/tournament/tco04/tab_summary_on.gif" alt="details" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
-                <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_finals_analysis" class="statTextBig"><img src="/i/tournament/tco04/tab_summary_off.gif" alt="details" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="" class="statTextBig"><img src="/i/tournament/tco04/tab_summary_off.gif" alt="details" width="88" height="22" border="0" /></A></td>
 	<% } %>
+	--%>
 <% } else if (tabLev1.equals("component")) { %>
 	<% if (tabLev2.equals("details")) {%>
                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_comp_description" class="statTextBig"><img src="/i/tournament/tco04/tab_details_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
@@ -93,9 +95,9 @@
                 <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about" class="statTextBig"><img src="/i/tournament/tco04/tab_details_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } %>
 	<% if (tabLev2.equals("join_us")) {%>
-                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=onsiteSchedule" class="statTextBig"><img src="/i/tournament/tco04/tab_joinus_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
+                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=onsite_schedule" class="statTextBig"><img src="/i/tournament/tco04/tab_joinus_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
-                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=onsiteSchedule" class="statTextBig"><img src="/i/tournament/tco04/tab_joinus_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
+                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=onsite_schedule" class="statTextBig"><img src="/i/tournament/tco04/tab_joinus_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
 	<% } %>
 <%--            
 	<% if (tabLev2.equals("sponsors")) {%>
@@ -126,12 +128,12 @@
 		<td class="subNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 <% if (tabLev1.equals("algorithm")) { %>
 	<% if (tabLev2.equals("details")) {%>
-		<td class="<%=tabLev3.equals("description")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_alg_description" class="subNavLink">Description</a></td>
-		<td class="<%=tabLev3.equals("schedule")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_alg_schedule" class="subNavLink">Schedule</a></td>
-		<td class="<%=tabLev3.equals("rules")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=tco04_alg_rules" class="subNavLink">Rules</a></td>
+		<td class="<%=tabLev3.equals("description")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description" class="subNavLink">Description</a></td>
+		<td class="<%=tabLev3.equals("schedule")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_schedule" class="subNavLink">Schedule</a></td>
+		<td class="<%=tabLev3.equals("rules")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_rules" class="subNavLink">Rules</a></td>
 	<% } else if (tabLev2.equals("advancers")) {%>
-		<td class="<%=tabLev3.equals("qualification")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true" class="subNavLink">Qualification</a></td>
-		<td class="<%=tabLev3.equals("overview")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true" class="subNavLink">Overview</a></td>
+		<td class="<%=tabLev3.equals("qualification")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=alg_qual&trans=true" class="subNavLink">Qualification</a></td>
+		<td class="<%=tabLev3.equals("overview")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=alg_adv_overview&trans=true" class="subNavLink">Overview</a></td>
 		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_bracket" class="subNavLink">Bracket</a></td>
 		<td class="<%=tabLev3.equals("radeye")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=radeye_semi" target="_blank" class="subNavLink">radeye's Odds</a></td>
 	<% } else if (tabLev2.equals("summary")) {%>
