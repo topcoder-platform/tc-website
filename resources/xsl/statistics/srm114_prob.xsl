@@ -163,7 +163,7 @@ Reference Implementation: <B>Penwiper</B>, practice room
     <table cellspacing="2">
 	<tr>
         <td style="background: #eee;" class="bodyText" colspan="2">
-          <b>Div II stats</b>
+          <b>Div-II stats</b>
         </td>
       </tr>
       <tr>
@@ -206,7 +206,7 @@ Reference Implementation: <B>Penwiper</B>, practice room
 	 <table cellspacing="2">
 	<tr>
         <td style="background: #eee;" class="bodyText" colspan="2">
-          <b>Div I stats</b>
+          <b>Div-I stats</b>
         </td>
       </tr>
       <tr>
@@ -246,7 +246,151 @@ Reference Implementation: <B>Penwiper</B>, practice room
       </tr>
     </table>
   </blockquote>
-  
+  <P>
+  As is evident from the above statistics, most people were able to submit this problem, and most ended up solving it successfully. The obvious approach for this problem was to implement a simple loop or nested loops to sort the directories in increasing order. The code that you use to compare two directories must first compare the directories on the basis of how many "forward-slashes" they have. The fewer the number of forward-slashes, the earlier the directory should be in the returned string array. If two given directories have the same number of forward slashes it becomes necessary to implement some sort of comparison function to see which one should come first.
+  </P>
+  <P>
+The comparison function used to compare two directories with equal numbers of forward-slashes should lexicographically compare the text between each set of forward slashes, starting with the text between the first set of forward-slashes. The comparison function should return as soon as the text being compared differs, i.e. it could return -1 to indicate that directory1 is less than directory2, or +1 to indicate that directory1 is greater than directory2.
+  </P>
+  <P>
+Virtually everyone had the right idea for this problem. The mistakes that were made were usually indexing problems or string out of bounds errors.
+  </P>
+
+  <font size="+2">
+  <b>Tile</b>
+</font>
+<BR/>
+
+    Used as: Division II - Level 3 
+	:<blockquote>
+    <table cellspacing="2">
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Value</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">900 points</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Submission Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">49 / 146 (33.56%) 
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Success Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">3 / 49 (6.12%) 
+</td>
+      </tr>
+	  <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Average Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">421.59 points
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>High Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">
+          <b>vorthys</b> for 590.86 points
+                </td>
+      </tr>
+    </table>
+	</blockquote>
+  <P>
+  Only three coders (<B>vorthys</B>, <B>puzzlehacker</B>, and <B>vesko8</B>) managed to solve this problem correctly. Given the low submission numbers and success rate for this problem, it probably should have been worth a bit more. All three of them used dynamic programming in their solutions. If you tried to solve this problem by trying all of the tile combinations until you got beyond 100,000, then your solution would time out for situations in which there are a large number of tiles that do not add up to 64 easily. For example, take 50 3x3 tiles. No combination of 3x3 tiles adds up to 64, but there are literally hundreds of millions of combinations (approx. 50C8) that come close and would have to be tried!
+  </P>
+  <P>
+Instead, set up an array of 65 values which represents the number of tile combinations that results in a given total ranging from 0 to 64 inclusive. Initialize the zero element of this array to 1, and the rest to zero. Loop over the number of tiles, and the combination totals as follows:
+  </P>
+  <PRE>
+  for (int i=0;i&lt;numtiles;i++) {
+	for (int j=64;j&gt;=tilesize[i];j--) {
+		numcombos[j]+=numcombos[j-tilesize[i]];
+	}
+}
+  </PRE>
+
+  <P>
+  Your return value is simply numcombos[64], the number of tile combinations that add up to an area of 64. Of course if this number is greater than 100,000 return 0 instead.
+  </P>
+  <P>
+  Reference Implementation: <B>vorthys</B>
+  </P>
+
+  <font size="+2">
+  <b>Highcard</b>
+</font>
+<BR/>
+
+    Used as: Division I - Level 2 
+	:<blockquote>
+    <table cellspacing="2">
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Value</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">450 points</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Submission Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">134 / 146 (91.78%) 
+</td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Success Rate</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">117 / 134 (87.31%) 
+</td>
+      </tr>
+	  <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>Average Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">375.71 points
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #eee;" class="bodyText">
+          <b>High Score</b>
+        </td>
+        <td style="background: #eee;" class="bodyText">
+          <b>radeye</b> for 443.15 points
+                </td>
+      </tr>
+    </table>
+	</blockquote>
+
+  <P>
+	  Remind me to never play cards with Chris. This problem required way less work than most Div I - Level 2 problems. Chris is cheating by looking at his friend's cards and optimally re-arranging his own cards. The simplest way for Chris to think about optimizing his own cards is to sort both the hand that he is dealt and the hand that his friend is dealt. Chris then applies his best card to the best card his friend has which is also lower than Chris' best card. Chris then applies his second best card, to the highest card left of his friend's which is also lower than Chris' second best card, and so on. Here's a pseudo-code snippet for Chris' strategy, based on my solution:
+  </P>
+<PRE>  
+Sort(chriscards);
+Sort(friendcards);
+int friend_index = number of friend cards - 1
+int numWinners=0;
+int chris_index = friend_index
+while (friend_index>=0) {
+	if (chris[chris_index]&gt;friend[friend_index]) {
+		numWinners++;
+		chris_index--;
+		friend_index--;
+	}
+	else {
+		friend_index--;
+	}
+}
+return nW;
+</PRE>
+
+<P>Reference Implementation: <B>Penwiper</B></P>
 
 
 <IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
