@@ -52,6 +52,13 @@
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=dev&d2=usdc_schedule" class="statTextBig"><img src="/i/development/usdc/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } %>
             
+<!-- Results tab -->
+            <% if (selectedTab.equals("results")) {%>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=dev&d2=usdc_results" class="statTextBig"><img src="/i/development/usdc/tab_results_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+            <% } else { %>
+                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=dev&d2=usdc_results" class="statTextBig"><img src="/i/development/usdc/tab_results_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+            <% } %>
+            
 <%--
 <!-- Design tab -->
             <% if (selectedTab.equals("design")) {%>
