@@ -48,7 +48,8 @@ public class TCTimestampResult extends TCResultItem {
                 return -1;
             if (otherTimestamp == null)
                 return 1;
-            return value.compareTo(otherTimestamp);
+            //timestamp.compareTo doesn't show up until 1.4
+            return new Long(value.getTime()).compareTo(new Long(otherTimestamp.getTime()));
         } else
             return this.toString().compareToIgnoreCase(other.toString());
     }
