@@ -205,19 +205,19 @@
                                             <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='1'">
                                                 <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
                                             </xsl:if>
-                                            1 Month
+                                            30 Days
                                         </option>
                                         <option value="3">
                                             <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='3'">
                                                 <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
                                             </xsl:if>
-                                            3 Months
+                                            90 Days
                                         </option>
                                         <option value="6">
                                             <xsl:if test="/TC/MEMBER_SEARCH/MemberSearch/MonthsSinceLastComp='6'">
                                                 <xsl:attribute name="SELECTED">TRUE</xsl:attribute>
                                             </xsl:if>
-                                            6 Months
+                                            180 Days
                                         </option>
                                     </select>
                                 </td>
