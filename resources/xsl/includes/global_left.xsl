@@ -274,7 +274,7 @@
             <xsl:call-template name="div_line_row"/>                                    
             <TR> 
               <TD VALIGN="top" BGCOLOR="#333333"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-              <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#333333"><FONT COLOR="#666666">&#160;Coding Competitions:</FONT></TD>
+              <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#333333"><FONT COLOR="#999999">&#160;Coding Competitions:</FONT></TD>
               <TD VALIGN="top" BGCOLOR="#333333"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
             </TR>
             <xsl:call-template name="div_line_row"/>
@@ -287,7 +287,7 @@
 
             <TR> 
               <TD VALIGN="top" BGCOLOR="#333333"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-              <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#333333"><FONT COLOR="#666666">&#160;Component Development:</FONT></TD>
+              <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#333333"><FONT COLOR="#999999">&#160;Component Development:</FONT></TD>
               <TD VALIGN="top" BGCOLOR="#333333"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
             </TR>
             <xsl:call-template name="div_line_row"/>
@@ -295,7 +295,7 @@
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
 			<xsl:when test="/TC/Command='components'">graybv_lite_bg</xsl:when>
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>&#160;&#160;This Week's Component Project Winners</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>&#160;&#160;This Week's Component<BR/>&#160;&#160;&#160;&#160;&#160;Project Winners</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
             <xsl:call-template name="div_line_row"/>
             <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -307,12 +307,12 @@
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
 			<xsl:when test="/TC/Command='comp_meth'">graybv_lite_bg</xsl:when>
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_meth</xsl:attribute>&#160;&#160;Component Development Methodology</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_meth</xsl:attribute>&#160;&#160;Component Development<BR/>&#160;&#160;&#160;&#160;&#160;Methodology</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
             <xsl:call-template name="div_line_row"/> 
                                    
             <TR> 
               <TD VALIGN="top" BGCOLOR="#333333"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-              <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#333333"><FONT COLOR="#666666">&#160;Application Development:</FONT></TD>
+              <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BGCOLOR="#333333"><FONT COLOR="#999999">&#160;Application Development:</FONT></TD>
               <TD VALIGN="top" BGCOLOR="#333333"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
             </TR>
             <xsl:call-template name="div_line_row"/>
@@ -326,7 +326,7 @@
             <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
 			<xsl:when test="/TC/Command='app_meth'">graybv_lite_bg</xsl:when>
 			<xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_meth</xsl:attribute>&#160;&#160;Application Project Methodology</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
+            &#160;&#160;&#160;<A CLASS="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_meth</xsl:attribute>&#160;&#160;Application Project<BR/>&#160;&#160;&#160;&#160;&#160;Methodology</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
             <xsl:call-template name="div_line_row"/>            
             <xsl:call-template name="tourney_row"/>
             <xsl:call-template name="rtables_row"/> 
