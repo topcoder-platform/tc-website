@@ -1,4 +1,5 @@
 <%@ include file="nocache.jsp" %>
+<%@ page session="true" %>
 <%@ page errorPage="error.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <%@ page import="com.topcoder.web.reg.servlet.*" %>

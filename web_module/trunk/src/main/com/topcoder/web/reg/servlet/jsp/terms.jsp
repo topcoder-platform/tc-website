@@ -1,5 +1,6 @@
 <%@ include file="nocache.jsp" %>
 <%@ page errorPage="error.jsp" %>
+<%@ page session="true" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <%@ page import="com.topcoder.web.reg.servlet.*" %>
 <jsp:useBean id="Registration" scope="session" class="com.topcoder.web.reg.bean.Registration" />
