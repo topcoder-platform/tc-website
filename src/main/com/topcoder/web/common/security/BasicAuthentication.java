@@ -105,19 +105,29 @@ public class BasicAuthentication implements WebAuthentication {
     /**
      * Get the user for this session.  May return information based on a
      * cookie from a prior session.  If no login has occurred and no cookie
-     * is present, returns an anonymous user.  Whatever happens, we cache
-     * the user in the persistor for future use.
+     * is present, returns an anonymous user.
      */
     public User getActiveUser() {
+        /*
+         * check if they're logged in.  accessing the current persistor implementation
+         * is quicker than accessing the cookie because of the hash.  if they are
+         * not logged in, hope is not lost, we may have cached them in the persitor
+         * before as being "identified", in this case, use that.  if that too is not
+         * there, we're forced to go to the cookie, but cache that for subsequence
+         * requests in the persitor.  if they're not in the cookie either, then
+         * they're anonymous
+         */
         User u = getUserFromPersistor();
         if (u == null) {
-            u = checkCookie();
-            if (u==null) {
-                u = guest;
+            u = (User)persistor.getObject(request.getSession().getId()+USER_COOKIE_NAME);
+            if (u == null) {
+                u = checkCookie();
+                if (u==null) {
+                    u = guest;
+                }
+                persistor.setObject(request.getSession().getId()+USER_COOKIE_NAME, u);
             }
         }
-        setUserInPersistor(u);
-
         return u;
     }
 
@@ -161,7 +171,8 @@ public class BasicAuthentication implements WebAuthentication {
      *
      * Calling this function is quite expensive; it runs a query on OLTP,
      * which cannot be cached and still get immediate behavior 2 above.
-     * note: greg paul - i've changed it to cache the password for 30 minutes to avoid the db hit.
+     * note: gpaul - i've changed it to cache the password for 30 minutes to avoid the db hit.
+     * but it is still pretty intensive...currently takes around 300 ms
      */
     private String hashForUser(long uid) throws Exception {
         CachedDataAccess dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
