@@ -29,7 +29,7 @@
 --%>
 					<td width="100%" valign="top">
 						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.BROOKS_REG_DEMOG%>"/>
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.AMAZON_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
@@ -73,103 +73,12 @@
                         </tr>
                         <tr>
                             <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.PHONE_NUMBER%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Phone Number</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>"  size="15" maxlength="50"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion"><span class="brErrorText">*</span> Email</td>
                             <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="30" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Address1</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.ADDRESS1%>"  size="30" maxlength="50"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Address2</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.ADDRESS2%>"  size="30" maxlength="50"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Address3</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.ADDRESS3%>"  size="30" maxlength="50"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> City</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.CITY%>"  size="15" maxlength="50"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Province</td>
-                            <td class="brRegTableAnswer">
-                                <tc-webtag:textInput name="<%=Constants.PROVINCE%>"  size="15" maxlength="50"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Pin/Zip Code</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.ZIP%>"  size="10" maxlength="15"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion"><span class="brErrorText">*</span> Country</td>
-                            <td class="brRegTableAnswer">
-                                <% ResultSetContainer countryRsc = (ResultSetContainer)request.getAttribute("countryList"); %>
-                                <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=countryRsc%>" fieldText="country_name" fieldValue="country_code"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="brErrorText" align="center">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">
-                                <span class="brErrorText">*</span> Student/Professional
-                            </td>
-                            <td class="brRegTableAnswer">
-                                Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
-                                Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
-                            </td>
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion">
