@@ -114,6 +114,18 @@
         <servlet-class>com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsInternalServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>DataServlet</servlet-name>
+        <display-name>DataServlet</display-name>
+        <description>The DataServlet controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.DataServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>DataServlet</servlet-name>
+      <url-pattern>/data</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
       <servlet-name>PactsInternalServlet</servlet-name>
       <url-pattern>/PactsInternalServlet</url-pattern>
