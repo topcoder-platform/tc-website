@@ -130,7 +130,7 @@ public final class TaskDevelopment {
                 
                 Calendar cal = Calendar.getInstance();
                 
-                SimpleDateFormat df = new SimpleDateFormat("MM.dd.yyyy");
+                SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 Date initialDate = df.parse(date);
                 devTag.addTag(new ValueTag("date", df.format(initialDate)));
                 cal.setTime(initialDate);
