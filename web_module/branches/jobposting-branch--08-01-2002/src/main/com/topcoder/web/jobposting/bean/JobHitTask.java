@@ -152,15 +152,13 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     }
 
     private void loadUserInfo(com.topcoder.ejb.AuthenticationServices.User user) throws Exception {
-
+        setUserId(user.getUserId());
         Request oltpDataRequest = new Request();
         oltpDataRequest.setContentHandle("member_profile_info");
         oltpDataRequest.setProperty("mid", ""+getUserId());
         DataAccess data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = data.getData(oltpDataRequest);
         ResultSetContainer rsc = (ResultSetContainer)resultMap.get("TCES_Member_Profile");
-        log.debug(rsc.toString());
-
 
         CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
         setUserId(user.getUserId());
