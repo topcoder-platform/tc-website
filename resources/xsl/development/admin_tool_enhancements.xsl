@@ -189,15 +189,15 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Winner Announced:</td>
-                                                    <td class="statText" align="right">8.13.3003</td>
+                                                    <td class="statText" align="right">8.13.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Updated Submission Due Date:</td>
-                                                    <td class="statText" align="right">8.15.3003</td>
+                                                    <td class="statText" align="right">8.15.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Estimated Development End Date:</td>
-                                                    <td class="statText" align="right">10.06.3003</td>
+                                                    <td class="statText" align="right">10.06.2003</td>
                                                 </tr>
                                             </table>
                                         </p>
@@ -210,7 +210,7 @@
                                         <p>
                                             <strong>
                                                 <!--<a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt; -->
-                                                Inquiry is closed.&gt;&gt;
+                                                Inquiry is closed.
                                             </strong>
                                         </p>
                                         <p>

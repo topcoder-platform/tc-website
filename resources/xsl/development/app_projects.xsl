@@ -90,7 +90,7 @@
                     <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
                     <td class="statText" align="center">$1,860</td>
                     <td class="statText" align="center">$690</td>
-                    <td class="statText" align="center">7.18.2003</td>
+                    <td class="statText" align="center">closed</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
 		<tr><td colspan="5"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
