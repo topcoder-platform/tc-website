@@ -70,7 +70,7 @@ public class UserList extends BaseProcessor {
         
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("CORP_user_list");
         if (rsc.getRowCount() == 0) {
-            throw new Exception("User list invalid");
+            throw new Exception("User list invalid. userId="+userId);
         }
         request.setAttribute("companyUsers",rsc);
         nextPage = ("/acc_admin/UserListView.jsp");
