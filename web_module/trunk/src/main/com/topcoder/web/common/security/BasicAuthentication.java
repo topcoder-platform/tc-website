@@ -135,7 +135,8 @@ public class BasicAuthentication implements WebAuthentication {
      */
     private String hashForUser(long uid) throws Exception {
         log.debug("hashForUser called...");
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        CachedDataAccess dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        dai.setExpireTime(30*60*1000);   //cache their password for 30 minutes, this should help db load
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
         dataRequest.setProperty("uid", Long.toString(uid));
