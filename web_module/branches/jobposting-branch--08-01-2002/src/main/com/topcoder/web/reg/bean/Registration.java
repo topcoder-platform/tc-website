@@ -350,7 +350,7 @@ public class Registration
             schoolStateChanged = false;
             school = Integer.toString(coder.getCurrentSchool().getSchoolId());
             schoolName = coder.getCurrentSchool().getName();
-            if (coder.getCurrentSchool().getGpa()!=0 && coder.getCurrentSchool().getGpaScale()!=0)
+            if (coder.getCurrentSchool().getGpa()!=0 && coder.getCurrentSchool().getGpaScale()!=0) {
                 gpa = ""+coder.getCurrentSchool().getGpa();
                 gpaScale = ""+coder.getCurrentSchool().getGpaScale();
             }
