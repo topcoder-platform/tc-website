@@ -12,8 +12,8 @@ import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.Constants;
-import com.topcoder.web.corp.Util;
 
 /**
  * This will be using the TopCoder Software security component to determine if a
@@ -28,6 +28,10 @@ import com.topcoder.web.corp.Util;
  *
  */
 public class TCESAuthorization implements Authorization {
+    protected static final Logger log = Logger.getLogger(
+        TCESAuthorization.class
+    );
+    
     private TCSubject tcUser;
 
     /**
@@ -74,7 +78,21 @@ public class TCESAuthorization implements Authorization {
             throw re;
         }
         finally {
-            Util.closeIC(ic);
+            closeIC(ic);
+        }
+    }
+
+    /**
+     * Just closes initial context with care
+     * @param ic
+     */
+    private static void closeIC(InitialContext ic) {
+        if( ic == null ) return;
+        try {
+            ic.close();
+        }
+        catch(Exception e) {
+            log.error("Can't close initial context "+ic);
         }
     }
 }

@@ -18,7 +18,6 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.Constants;
-import com.topcoder.web.corp.Util;
 
 /**
  * This implementation will use the TCS security component to attempt a login.
@@ -121,37 +120,6 @@ public class BasicAuthentication implements WebAuthentication {
         return ret;
     }
 
-//    /**
-//     * Pulls out user matching given ID from database.
-//     * 
-//     * @param id of user to be pulled out
-//     * @return User user matching an ID given. For security reasons password
-//     * will be set as null.
-//     * @throws Exception if there is not user with given id in DB or some errors
-//     * in underlying software has occured
-//     */
-//    private User pullUserFromDB(long id)
-//    throws NamingException, CreateException, NoSuchUserException,
-//            RemoteException, GeneralSecurityException
-//    {
-//        log.debug("pulling out user from db [id="+id+"]");
-//        InitialContext ic = null;
-//        try {
-//            ic = new InitialContext( Constants.SECURITY_CONTEXT_ENVIRONMENT );
-//            PrincipalMgrRemoteHome mgrHome = (PrincipalMgrRemoteHome)
-//            ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-//           
-//            PrincipalMgrRemote mgr = mgrHome.create();
-//            String uname = mgr.getUser(id).getName();
-//            // log.debug("[username="+uname+"]");
-//            // password set to null because user is not logged in yet
-//            return new SimpleUser(uname, null, id);
-//        }
-//        finally {
-//            closeIC(ic);
-//        }
-//    }
-
     /**
      * @see com.topcoder.web.common.security.WebAuthentication#getActiveUser()
      */
@@ -165,20 +133,6 @@ public class BasicAuthentication implements WebAuthentication {
         return getUser();
     }
 
-//    /**
-//     * 
-//     * @param ic
-//     */    
-//    private void closeIC(InitialContext ic) {
-//        if( ic == null ) return;
-//        try {
-//            ic.close();
-//        }
-//        catch(Exception e) {
-//            log.error("Can't close initial context "+ic);
-//        }
-//    }
-    
     /**
      * Get current user logged out and also clears pre-identification cookies in
      * addition to basic interface functionality.
@@ -251,7 +205,21 @@ public class BasicAuthentication implements WebAuthentication {
             );
         }
         finally {
-            Util.closeIC(ic);
+            closeIC(ic);
+        }
+    }
+    
+    /**
+     * Just closes initial context with care
+     * @param ic
+     */
+    private static void closeIC(InitialContext ic) {
+        if( ic == null ) return;
+        try {
+            ic.close();
+        }
+        catch(Exception e) {
+            log.error("Can't close initial context "+ic);
         }
     }
 }

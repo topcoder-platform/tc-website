@@ -89,7 +89,8 @@ public class Login extends BaseProcessor {
         String destination = request.getParameter(KEY_DESTINATION_PAGE);
 
         if( ! miniLogin ) {
-            SessionPersistor.getInstance(request.getSession(true)).popLastPage();
+            SessionPersistor sp = new SessionPersistor(request.getSession(true));
+            sp.popLastPage();
         }
 
         // if destination is null then controller will fetch recently viewed page

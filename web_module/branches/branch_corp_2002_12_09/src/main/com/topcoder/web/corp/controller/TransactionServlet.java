@@ -451,7 +451,7 @@ public class TransactionServlet extends HttpServlet {
             }
 
             // find out purchase parameters
-            SessionPersistor store = SessionPersistor.getInstance(
+            SessionPersistor store = new SessionPersistor(
                 req.getSession(true)
             );
             contactID = (new BasicAuthentication(store, req, resp))

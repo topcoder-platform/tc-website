@@ -112,7 +112,7 @@ public class MainServlet extends HttpServlet {
         );
 
         // first of all, to check, if it is allower to run that processor at all
-        SessionPersistor persistor = SessionPersistor.getInstance(
+        SessionPersistor persistor = new SessionPersistor(
             request.getSession(true)
         );
         WebAuthentication authToken;
@@ -207,7 +207,7 @@ public class MainServlet extends HttpServlet {
         if( dest == null ) {
             // it is supposed when processor returns null as next page, then
             // controller must use defaul page
-            dest = SessionPersistor.getInstance(req.getSession(true)).popLastPage();
+            dest = new SessionPersistor(req.getSession(true)).popLastPage();
             if( dest == null ) { //still null
                 dest = req.getContextPath()+"/"; // default page is web app root
             } 
