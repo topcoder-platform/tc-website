@@ -4,10 +4,11 @@
 <jsp:useBean id="problemRatingQuestions" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <html>
 <head>
-<title>TopCoder Problem Rating Questions - <%=request.getAttribute("problemName")%></title>
+<title>TopCoder Problem Rating Questions - <%= request.getAttribute("problemName") %></title>
 </head>
 <body>
 <form action="/tc/?module=SubmitRatings" method="POST">
+<input type="hidden" name="pid" value="<%= request.getParamter("pid") %>">
     <table>
         <rsc:iterator list="<%=problemRatingQuestions%>" id="result">
         <tr>
