@@ -75,6 +75,7 @@ public class FullRegConfirm extends FullRegBase {
             r.setQuestionId(q.getId());
             if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
                 r.setText(value);
+                responses.add(r);
             } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
                 try {
                     r.setAnswerId(Long.parseLong(value));
