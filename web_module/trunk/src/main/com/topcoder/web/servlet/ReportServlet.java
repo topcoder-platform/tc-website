@@ -286,11 +286,12 @@ public final class ReportServlet extends HttpServlet {
     private void getProfileDetail(HttpServletRequest request) throws Exception {
         log.debug("getProfileDetail called...");
         DataAccessInt dai = null;
-        RequestInt dataRequest = null;
+        Request dataRequest = null;
         Map resultMap = null;
 
         dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
         dataRequest = new Request(parseQueryString(request));
+        dataRequest.setContentHandle(Constants.REPORT_PROFILE_DETAIL_KEY);
         resultMap = dai.getData(dataRequest);
         request.setAttribute(Constants.REPORT_PROFILE_DETAIL_KEY, resultMap);
     }
