@@ -39,7 +39,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
+        <td width="4"><img src="/i/clear.gif" width="4" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
@@ -50,7 +50,9 @@
                     
                                 <div align="center"><img src="/i/es/header_looking_for.gif" alt="" width="510" height="68" border="0"/></div>
                        
-                                <p> <A href="stat?c=member_profile&#38;cr=151144"> <img src="/i/es/quote_member.gif" alt="" width="246" height="235" border="0" align="right"/></A> <br/><br/>Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
+                                <p> <A href="stat?c=member_profile&#38;cr=151144"> <img src="/i/es/quote_member.gif" alt="" width="246" height="235" border="0" align="right"/></A>
+                                <img src="/i/clear.gif" width="4" height="30" border="0"/><br/>
+                                Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
                                 employees. And, like us, they understand the value of making hiring decisions based on an objective measure of coding skill.</p>
 
                                 <p>Only rated members can apply for jobs posted by TCES. This allows companies to differentiate coders 
