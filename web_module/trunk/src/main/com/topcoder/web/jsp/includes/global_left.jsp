@@ -218,7 +218,10 @@
                 <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Round Tables</a></td></tr>
 
-<%} else if (request.getServletPath().indexOf("rtables")>-1) { %>
+<%} else if (request.getServletPath().indexOf("rtables")>-1) {
+    String temp = request.getParameter("forum");
+    temp = temp==null?"-1":temp;
+    int paramFid = Integer.parseInt(temp); %>
  
                <tr><td id="leftNavTitle" >Competition:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
@@ -226,7 +229,7 @@
                 <tr><td id="leftNav"><a class="left" href="/stat?&c=round_overview"><img width="10" height="10" src="/i/nav_arrow_right.gif" alt="" border="0"/>Statistics</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Tournaments</a></td></tr>
-                <tr><td id="leftNavSelect"><a class="leftOn" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Round Tables</a></td></tr>
+                <tr><td id="<%=paramFid>0?"leftNavOn":"leftNavSelect"%>"><a class="leftOn" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Round Tables</a></td></tr>
 <%
   // do a login if all parameters are good
   Authorization aToken = (Authorization) session.getAttribute("jiveAuthorization");
@@ -263,9 +266,6 @@
   }
   ForumFactory ff = ForumFactory.getInstance(aToken);
   Iterator forums = ff.forums();
-  String temp = request.getParameter("forum");
-  temp = temp==null?"-1":temp;
-  int paramFid = Integer.parseInt(temp);
   while( forums.hasNext() ) {
     Forum f = (Forum)forums.next();
     int fID = f.getID();
