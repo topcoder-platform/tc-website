@@ -42,7 +42,7 @@ public abstract class BaseTask implements Task {
         errors = new HashMap();
         navLinks = new ArrayList();
 
-        String begin = getServletPath()+"?"+Constants.TASK_PARAM;
+        String begin = getServletPath()+"?"+Constants.TASK_PARAM+"=";
         StringBuffer buf = new StringBuffer();
         buf.append(begin);
         buf.append(Constants.DB_SELECTION_TASK);
