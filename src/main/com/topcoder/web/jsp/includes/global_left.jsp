@@ -99,10 +99,11 @@
                 <tr><td id="leftNavTitle" >Competition:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
 <%-- My TopCoder --%>
-                <tr><td id="<%=level1.equals("my_topcoder")?"leftNavOn":"leftNav"%>"><a href="/Registration" class="<%=level1.equals("my_topcoder")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("my_topcoder")?"bottom":"right"%>.gif" border="0"/>My TopCoder</a></td></tr>
+                <tr><td id="<%=level1.equals("my_topcoder")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=my&d2=home" class="<%=level1.equals("my_topcoder")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("my_topcoder")?"bottom":"right"%>.gif" border="0"/>My TopCoder</a></td></tr>
                 <% if (level1.equals("my_topcoder")) { %>
+                    <tr><td id="<%=level2.equals("home")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=my&d2=home">Home</A></td></tr>
                     <tr><td id="<%=level2.equals("profile")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/Registration">Update My Profile</A></td></tr>
-                    <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/">Referrals</A></td></tr>
+                    <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=referral">Referrals</A></td></tr>
                     <tr><td id="<%=level2.equals("card")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=card&d2=description">Cards / Badges</A></td></tr>
                 <% } %>
 <%-- Schedule begins --%>
