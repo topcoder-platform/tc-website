@@ -13,8 +13,6 @@
   if(message==null) message = "";
   String username = request.getParameter(Login.USER_NAME);
   if(username==null) username = "";
-  String password = request.getParameter(Login.PASSWORD);
-  if (password==null) password = "";
 %>
 
 <html>
@@ -97,7 +95,7 @@ function submitEnter(e) {
 
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left"><input type="password" name="<%=Login.PASSWORD%>" value="<%=password%>" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
+                                <td align="left"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
                                 <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
                             </tr>
                             <tr valign="middle">
