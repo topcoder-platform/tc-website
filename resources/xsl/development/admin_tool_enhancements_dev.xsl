@@ -58,6 +58,14 @@
                                         <h1 class="devSubhead">
                                             <strong>Admin Tool Enhancements Application: Development</strong>
                                         </h1>
+                                        <p>
+                                            <font size="-2">&nbsp; &nbsp; &nbsp; &nbsp;
+                                            <a href="#summary">Summary of the Tournament</a> |
+                                            <a href="#about">About the Tournament</a> |
+                                            <a href="#prizes">About the Prizes</a> |
+                                            <a href="#conditions">Conditions of Participation</a>
+                                            </font>
+                                        </p>
                                         <!-- Overview -->
                                         <p>
                                             <strong>Overview</strong>
