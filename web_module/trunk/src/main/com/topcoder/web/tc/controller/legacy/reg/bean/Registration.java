@@ -94,6 +94,7 @@ public class Registration
     public static final String SCHOOL_NAME = "schoolName";
     public static final String GPA = "gpa";
     public static final String GPA_SCALE = "gpaScale";
+    public static final String COMP_COUNTRY = "compCountry";
 
     // step 3 attributes
     public static final String REGISTER = "register"; // error only
@@ -188,6 +189,7 @@ public class Registration
     protected String gpa;
     protected String gpaScale;
     protected String code;
+    protected String compCountry;
     protected boolean hasResume;
 
     public Registration() {
@@ -249,6 +251,7 @@ public class Registration
             gpa = "";
             gpaScale = "";
             hasResume = false;
+            compCountry = "";
             resetUser();
         }
     }
@@ -290,6 +293,7 @@ public class Registration
         state = checkNull(coder.getHomeState().getStateCode());
         zip = checkNull(coder.getHomeZip());
         country = checkNull(coder.getHomeCountry().getCountryCode());
+        compCountry = checkNull(coder.getCompCountry().getCountryCode());
         phone = checkNull(coder.getHomePhone());
         handle = checkNull(user.getHandle());
         password = checkNull(user.getPassword());
@@ -370,7 +374,7 @@ public class Registration
 
         ResumeServices rServices = null;
         try {
-            rServices = (ResumeServices)BaseProcessor.createEJB((InitialContext)TCContext.getInitial(), ResumeServices.class);
+            rServices = (ResumeServices)BaseProcessor.createEJB(TCContext.getInitial(), ResumeServices.class);
             hasResume = rServices.hasResume(user.getUserId(), DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
@@ -446,7 +450,12 @@ public class Registration
             if (isRegister()) {
                 this.schoolState = state;
                 this.referralSchoolState = state;
+                this.compCountry = country;
+            } else {
+                if (isEmpty(this.compCountry)) addError(COMP_COUNTRY, "Please fill in the country you would like to represen.");
             }
+
+
 
             if (isRegister() && isEmpty(this.terms)) addError(TERMS, "Please read and agree to terms to register.");
 
@@ -649,6 +658,8 @@ public class Registration
                 setZip(value);
             else if (name.equalsIgnoreCase(COUNTRY))
                 setCountry(value);
+            else if (name.equalsIgnoreCase(COMP_COUNTRY))
+                setCompCountry(value);
             else if (name.equalsIgnoreCase(PHONE))
                 setPhone(value);
             else if (name.equalsIgnoreCase(HANDLE))
@@ -904,6 +915,14 @@ public class Registration
         this.hasResume = hasResume;
     }
 
+    public String getCompCountry() {
+        return compCountry;
+    }
+
+    public void setCompCountry(String compCountry) {
+        this.compCountry = compCountry;
+    }
+
 
     String checkNull(String s) {
         return (s == null ? "" : s);
@@ -1060,6 +1079,10 @@ public class Registration
 
     public String getLanguageError() {
         return getError(LANGUAGE);
+    }
+
+    public String getCompCountrError() {
+        return getError(COMP_COUNTRY);
     }
 
     public String getCoderType() {
@@ -1525,6 +1548,9 @@ public class Registration
             coderNotify.add(cachedLookup.get(i.next()));
         }
 
+        Country compCountry = new Country();
+        compCountry.setCountryCode(this.compCountry);
+        coder.setCompCountry(compCountry);
 
         Editor editor = new Editor();
         editor.setEditorId(0); //standard editor
@@ -1760,7 +1786,7 @@ public class Registration
                 msgText.append("address spans two lines, please make sure you copy and paste");
                 msgText.append(" both sections without any spaces between them.\n\n");
                 msgText.append("You may utilize your activated TopCoder handle and password ");
-                msgText.append("in order to access your member home page on TopCoder’s web site ");
+                msgText.append("in order to access your member home page on TopCoderï¿½s web site ");
                 msgText.append("(<http://www.topcoder.com>).  Your handle and");
                 msgText.append(" password will also provide you with access to the TopCoder ");
                 msgText.append("Competition Arena, where you can practice, chat, and compete ");

@@ -60,11 +60,12 @@ final class UserDbCoder {
         query.append(" ,editor_id");
         query.append(" ,language_id");
         query.append(" ,coder_type_id");
+        query.append(" ,comp_country_code");
         query.append(" )");
         query.append(" VALUES (");
         query.append(" ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ");
         query.append(" ,CURRENT,");
-        query.append(" ?, ?, ?)");
+        query.append(" ?, ?, ?, ?)");
         try {
             State states = coder.getHomeState();
             Country country = coder.getHomeCountry();
@@ -93,6 +94,7 @@ final class UserDbCoder {
             ps.setInt(16, editorType.getEditorId());
             ps.setInt(17, coder.getLanguage().getLanguageId());
             ps.setInt(18, coder.getCoderType().getCoderTypeId());
+            ps.setString(19, coder.getCompCountry().getCountryCode());
             int RetVal = ps.executeUpdate();
             if (RetVal != 1) {
                 throw new TCException(
@@ -508,6 +510,7 @@ final class UserDbCoder {
                     query.append(" ,editor_id=?");
                     query.append(" ,language_id=?");
                     query.append(" ,coder_type_id=?");
+                    query.append(" ,comp_country_code=?");
                     query.append(" WHERE");
                     query.append(" coder_id=?");
                     State state = coder.getHomeState();
@@ -535,7 +538,8 @@ final class UserDbCoder {
                     ps.setInt(15, editorType.getEditorId());
                     ps.setInt(16, coder.getLanguage().getLanguageId());
                     ps.setInt(17, coder.getCoderType().getCoderTypeId());
-                    ps.setInt(18, coder.getCoderId());
+                    ps.setString(18, coder.getCompCountry().getCountryCode());
+                    ps.setInt(19, coder.getCoderId());
                     int RetVal = ps.executeUpdate();
                     if (RetVal != 1) {
                         throw new TCException(
@@ -989,14 +993,17 @@ final class UserDbCoder {
         query.append(" ,crr.reference_id");
         query.append(" ,crr.other");
         query.append(" ,(SELECT count(*)");
-        query.append(" FROM coder_image_xref cix");
-        query.append(" ,image i");
-        query.append(" WHERE cix.image_id = i.image_id");
-        query.append(" AND cix.coder_id = c.coder_id");
-        query.append(" AND i.image_type_id = 1) as image_flag");
+        query.append(    " FROM coder_image_xref cix");
+        query.append(       " , image i");
+        query.append(  " WHERE cix.image_id = i.image_id");
+        query.append(    " AND cix.coder_id = c.coder_id");
+        query.append(    " AND i.image_type_id = 1) as image_flag");
+        query.append( " ,c.comp_country_code");
+        query.append( " ,co1.country_name as comp_country_name");
         query.append(" FROM");
         query.append(" coder c");
         query.append(" ,country co");
+        query.append(" , country co1");
         query.append(" ,language l");
         query.append(" ,coder_type ct");
         query.append(" ,editor e");
@@ -1019,6 +1026,7 @@ final class UserDbCoder {
         query.append(" WHERE");
         query.append(" c.coder_id = ?");
         query.append(" AND c.country_code = co.country_code");
+        query.append(" AND c.comp_country_code = co1.country_code");
         query.append(" AND c.language_id = l.language_id");
         query.append(" AND c.coder_type_id  = ct.coder_type_id");
         query.append(" AND c.editor_id = e.editor_id");
@@ -1072,6 +1080,10 @@ final class UserDbCoder {
                 referral.setReferralDesc(rs.getString(27));
                 coderReferral.setReferenceId(rs.getInt(28));
                 coderReferral.setOther(rs.getString(29));
+                Country compCountry = new Country();
+                compCountry.setCountryCode(rs.getString("comp_country_code"));
+                compCountry.setCountryName(rs.getString("comp_country_name"));
+                coder.setCompCountry(compCountry);
                 if (rs.getInt(30) == 0)
                     coder.setHasImage(false);
                 else if (rs.getInt(30) == 1)
