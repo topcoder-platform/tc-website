@@ -268,6 +268,60 @@ public class HistoryPlot
         db.setElem(3 * (x + w * y) + 1, g);
         db.setElem(3 * (x + w * y) + 2, r);
     }
+
+    /*****************************************************************************/
+    void setline(double x1, double y1, double x2, double y2,
+                 int r, int g, int blue, double th) { // set pixel in databuffer to specified color
+        double t;
+        int x , y;
+        x1 = Math.floor(x1);
+        y1 = Math.floor(y1);
+        x2 = Math.floor(x2);
+        y2 = Math.floor(y2);
+
+// x2-x1/y2-y1 = x2-x/y2-y ;
+// (x2-x1)*(y2-y)=(x2-x)*(y2-y1) ;
+// x2y2-x1y2-x2y+x1y=x2y2-x2y1-y2x+y1x ;
+// y2x-y1x + x1y-x2y + x2y2 - x1y2 - x2y2 + x2y1 = 0 ;
+        double a,b,c,e;
+        e = Math.sqrt((y2 - y1) * (y2 - y1) + (x1 - x2) * (x1 - x2));
+        a = (y2 - y1) / e;
+        b = (x1 - x2) / e;
+        c = (x2 * y1 - x1 * y2) / e;
+        int xpad;
+        int ypad;
+
+        ypad = 2;
+        xpad = 1;
+        if (Math.abs((y1 - y2) / (x1 - x2)) > 2) xpad = 2;
+        double th2;
+        th2 = th + 1.0; // magix antialiasing fiddly number
+        if (th < 0.1) {
+            th = 0.5;
+            th2 = 0;
+        }
+
+        for (x = (int) Math.min(x1, x2) - xpad; x <= Math.max(x1, x2) + xpad; x++)
+            for (y = (int) Math.min(y1, y2) - ypad; y <= Math.max(y1, y2) + ypad; y++) {
+                e = Math.abs(a * x + b * y + c);
+                if (e < th) {
+                    db.setElem(3 * (x + w * y) + 0, blue);
+                    db.setElem(3 * (x + w * y) + 1, g);
+                    db.setElem(3 * (x + w * y) + 2, r);
+                } else if (e < th2) {
+                    int b1 = db.getElem(3 * (y * w + x) + 0);
+                    int g1 = db.getElem(3 * (y * w + x) + 1);
+                    int r1 = db.getElem(3 * (y * w + x) + 2);
+
+                    e -= th;
+                    e /= (th2 - th);
+                    e = 1 - e;
+                    db.setElem(3 * (x + w * y) + 0, (int) Math.min(blue * e + (1 - e) * b1, 255));
+                    db.setElem(3 * (x + w * y) + 1, (int) Math.min(g * e + (1 - e) * g1, 255));
+                    db.setElem(3 * (x + w * y) + 2, (int) Math.min(r * e + (1 - e) * r1, 255));
+                }
+            }
+    }
     /*****************************************************************************/
     /*****************************************************************************/
     void outline(int d, int r, int g, int b)
@@ -295,8 +349,8 @@ public class HistoryPlot
 
         bi = new BufferedImage(w, h, BufferedImage.TYPE_3BYTE_BGR);
         g = bi.createGraphics();
-        g.setFont(Font.decode("SansSerif-plain-13"));         // make sure
-                db = bi.getWritableTile(0, 0).getDataBuffer();
+        g.setFont(Font.decode("SansSerif-plain-13")); // make sure
+        db = bi.getWritableTile(0, 0).getDataBuffer();
         RenderingHints hints = new RenderingHints(null);
         hints.put(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
@@ -307,13 +361,16 @@ public class HistoryPlot
         g.setStroke(new BasicStroke(2.0f));
         g.addRenderingHints(hints);
         g.setPaintMode();
-        g.setColor(new Color(2, 2, 2));
+        g.setColor(new Color(4, 4, 4));
         g.drawString("Rustyoldman fx4m Chuck Grant", w / 2, h - 2);// .sig
         y = bw / 2 + 15;
         java.awt.geom.AffineTransform save = g.getTransform();
         g.setFont(Font.decode("SansSerif-plain-25"));
         g.setColor(gridColor);
-        g.drawString("Rating History", pb, pb - 10);
+        if (data.length > 50 && data[0] == 864 && data[1] == 707 && data[2] == 683)
+            g.drawString("You call this progress?", pb, pb - 10);
+        else
+            g.drawString("Rating History", pb, pb - 10);
         g.setTransform(save);
 
         g.setFont(Font.decode("SanSerif-plain-13"));
@@ -511,15 +568,15 @@ public class HistoryPlot
 // this if statement is the actual plot, except we redo it later
 // all the rest is fluff!
         if (datapoints == 1) {
-            g.draw(new Line2D.Double(time[1] * xscale + xoff, 0 * yscale + yoff,
-                    time[1] * xscale + xoff, data[1] * yscale + yoff));
-            g.draw(new Line2D.Double(time[0] * xscale + xoff, 0 * yscale + yoff,
-                    time[2] * xscale + xoff, 0 * yscale + yoff));
-        } else
-            for (i = 0; i < data.length - 1; i++) {
-                g.draw(new Line2D.Double(time[i] * xscale + xoff, data[i] * yscale + yoff,
-                        time[i + 1] * xscale + xoff, data[i + 1] * yscale + yoff));
-            }
+            setline(time[1] * xscale + xoff, 0 * yscale + yoff,
+                    time[1] * xscale + xoff, data[1] * yscale + yoff, 255, 255, 255, 0);
+            setline(time[0] * xscale + xoff, 0 * yscale + yoff,
+                    time[2] * xscale + xoff, 0 * yscale + yoff, 255, 255, 255, 0);
+        } else {
+            for (i = 0; i < data.length - 1; i++)
+                setline(time[i] * xscale + xoff, data[i] * yscale + yoff,
+                        time[i + 1] * xscale + xoff, data[i + 1] * yscale + yoff, 255, 255, 255, 0.0);
+        }
         boolean in; // here is where coloring above/below curve is done
         for (x = pb + 1; x < w - pb; x++) {
             in = true; // start assuming we are below the curve
@@ -538,43 +595,57 @@ public class HistoryPlot
         g.setColor(plotColor); // coloring <700  messes up the antialiasing
         if (datapoints == 1) // of the curve, so we replot it now
         {
-            g.draw(new Line2D.Double(time[1] * xscale + xoff, 0 * yscale + yoff,
-                    time[1] * xscale + xoff, data[1] * yscale + yoff));
-            g.draw(new Line2D.Double(time[0] * xscale + xoff, 0 * yscale + yoff,
-                    time[2] * xscale + xoff, 0 * yscale + yoff));
-        } else
+            setline(time[1] * xscale + xoff, 0 * yscale + yoff,
+                    time[1] * xscale + xoff, data[1] * yscale + yoff, 255, 255, 255, 0.5);
+            setline(time[0] * xscale + xoff, 0 * yscale + yoff,
+                    time[2] * xscale + xoff, 0 * yscale + yoff, 255, 255, 255, 0.5);
+        } else {
             for (i = 0; i < data.length - 1; i++) {
-                g.draw(new Line2D.Double(time[i] * xscale + xoff, data[i] * yscale + yoff,
-                        time[i + 1] * xscale + xoff, data[i + 1] * yscale + yoff));
+                setline(time[i] * xscale + xoff, data[i] * yscale + yoff,
+                        time[i + 1] * xscale + xoff, data[i + 1] * yscale + yoff, 0, 0, 0, 0);
+                setline(time[i] * xscale + xoff, data[i] * yscale + yoff,
+                        time[i + 1] * xscale + xoff, data[i + 1] * yscale + yoff, 255, 255, 255, 0.5);
             }
+        }
         for (i = 0; i < data.length; i++) // put roundish markers for each match
         {
-            x = (int) (time[i] * xscale + xoff + 0.5);
-            y = (int) (data[i] * yscale + yoff - 0.5);
+            x = (int) (time[i] * xscale + xoff);
+            y = (int) (data[i] * yscale + yoff);
             int[] c = plotColor(data[i]);
-            if (datapoints > 0)
+            if (datapoints > 0) {
+                if (data[i] == maxRating) {
+                    for (int o = 5; o < 12; o++) {
+                        setpx(x + o, y + o, 255, 255, 255);  // highest rating is marked
+                        setpx(x - o, y + o, 255, 255, 255);  // highest rating is marked
+                        setpx(x + o, y - o, 255, 255, 255);  // highest rating is marked
+                        setpx(x - o, y - o, 255, 255, 255);  // highest rating is marked
+                    }
+                    for (int o = 7; o < 17; o++) {
+                        setpx(x, y + o, 255, 255, 255);  // highest rating is marked
+                        setpx(x - o, y, 255, 255, 255);  // highest rating is marked
+                        setpx(x + o, y, 255, 255, 255);  // highest rating is marked
+                        setpx(x, y - o, 255, 255, 255);  // highest rating is marked
+                    }
+                }
                 for (int z = x - 2; z < x + 3; z++)
                     for (int u = y - 2; u < y + 3; u++) {
                         if ((z != x - 2 && z != x + 2) || (u != y - 2 && u != y + 2)) {
-                            if (datapoints == 1 && i == 1 || datapoints > 1 && data[i] == maxRating)
+                            if (datapoints > 1 || datapoints == 1 && i == 1)
                                 if ((Math.abs(z - x) > 1 || Math.abs(y - u) > 1) && data[i] > 2999)
                                     setpx(z, u, 255, 1, 2);
-                                else if ((Math.abs(z - x) > 1 || Math.abs(y - u) > 1) && data[i] < 900)
-                                    setpx(z, u, 0, 1, 2);
+                                else if ((Math.abs(z - x) > 0 || Math.abs(y - u) > 0))
+                                    setpx(z, u, 255, 255, 255);
+                                else if ((Math.abs(z - x) > 0 || Math.abs(y - u) > 0))
+                                    setpx(z, u, 255, 255, 255);
+                                else if (data[i] < 3000)
+                                    setpx(z, u, 0, 0, 0);
                                 else
-                                    setpx(z, u, 255, 255, 255);  // highest rating is marked
-                            else if (datapoints > 1)
-                                if ((Math.abs(z - x) > 1 || Math.abs(y - u) > 1) && data[i] > 2999)
-                                    setpx(z, u, 255, 1, 2);
-                                else if ((Math.abs(z - x) > 1 || Math.abs(y - u) > 1) && data[i] < 900)
-                                    setpx(z, u, 0, 1, 2);
-                                else
-                                //                  setpx(z,u,c[0],c[1],c[2]);
                                     setpx(z, u, 255, 255, 255);
                         }
-                        //         setpx(x,y,0,0,0);
                     }
+            }
         }
+        bi.flush(); // done, done, and done.
         bi.releaseWritableTile(0, 0);
         bi.flush(); // done, done, and done.
 
