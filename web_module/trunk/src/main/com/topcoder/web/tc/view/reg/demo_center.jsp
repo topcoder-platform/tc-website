@@ -258,7 +258,7 @@ function lookupText(qId){
 
                 <tr>
                     <td class="registerLabel" nowrap=""><%=demographicQuestion%>&nbsp;</td>
-                    <td class="statText"><%=demographicAnswer%>&#160;<%=demographicDescription%></td>
+                    <td class="statText"><%=demographicAnswer%><br /><%=demographicDescription%></td>
                 </tr>
 
                 </tc:demographic>
