@@ -226,6 +226,11 @@
 <BR/>
 <BR/>
 <OL>
+  <LI>    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(a) a U.S.* citizen;<BR/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(b) a lawful permanent resident of the U.S.*;<BR/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(c) a non-immigrant residing in the U.S.* with a valid visa; or<BR/>
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(d) a non-US citizen participating from my country of citizenship;<BR/>
+  </LI>
   <LI>I am at least 18 years of age.</LI>
   <LI>My date of birth is ___________.</LI>
   <LI>My home telephone number is <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/home_phone"/>.</LI>
