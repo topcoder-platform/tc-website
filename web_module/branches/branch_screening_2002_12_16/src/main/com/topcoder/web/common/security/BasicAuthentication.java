@@ -27,11 +27,11 @@ public class BasicAuthentication implements WebAuthentication {
     private BasicAuthentication() {
     }
     
-    public BasicAuthentication(Persistor userPersistor, ServletRequest request,
-    ServletResponse response) {
+    public BasicAuthentication(Persistor userPersistor,
+    HttpServletRequest request, HttpServletResponse response) {
         this.persistor = userPersistor;
-        this.request = (HttpServletRequest)request;
-        this.response = (HttpServletResponse)response;
+        this.request = request;
+        this.response = response;
     }
     
     private long getIdFromCookie(){
@@ -83,27 +83,12 @@ public class BasicAuthentication implements WebAuthentication {
     }
     
     /**
-     * Determines whether the user is currently logged in.
-     * @return True if the user is logged in, false otherwise.
-     */
-    public boolean isLoggedIn() {
-        return isLoggedIn(true);
-    }
-    
-    /**
      * For sensitive areas where a cookie is not sufficient authentication,
      * this method provides the option to ignore the cookie.
-     * @param checkCookie True if the cookie should be consulted, false if not.
-     * @return  True if the user is logged in, false otherwise.
+     * @return  User object containing user info stored in the persistor.
      */
-    public boolean isLoggedIn(boolean checkCookie) {
-        if(getIdFromPersistor() != -1)
-            return true;
-        if(checkCookie){
-            if(getIdFromCookie() != -1)
-                return true;
-        }
-        return false;
+    public User getActiveUser() {
+        return new SimpleUser(getIdFromPersistor(),null,null);
     }
     
     /**
@@ -112,12 +97,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @throws AuthenticationException Thrown if the login does not succeed.
      */
     public void login(User u) throws AuthenticationException {
-        if(request == null)
-            throw new AuthenticationException("HttpServletRequest unavailable");
-        if(response == null)
-            throw new AuthenticationException("HttpServletResponse unavailable");
-   
-        try {
+       try {
             Hashtable env = new Hashtable();
             env.put(Context.INITIAL_CONTEXT_FACTORY,
                 "org.jnp.interfaces.NamingContextFactory");

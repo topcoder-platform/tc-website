@@ -1,6 +1,6 @@
 package com.topcoder.web.screening.request;
 
-import javax.servlet.http.*;
+import javax.servlet.*;
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 
@@ -23,7 +23,7 @@ public class Login extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
-        HttpServletRequest request = (HttpServletRequest)getRequest();
+        ServletRequest request = getRequest();
         
         String handle = (String)request.getAttribute(HANDLE_PARAM);
         String password = (String)request.getAttribute(PASSWORD_PARAM);
@@ -38,14 +38,8 @@ public class Login extends BaseProcessor {
             return;
         }
 
-        HttpSession session = request.getSession();
-        Persistor persistor = new SessionPersistor(session);
-        
-        BasicAuthentication auth = 
-            new BasicAuthentication(persistor,request,getResponse());
-
         try{
-            auth.login(new SimpleUser(-1,handle,password));
+            getAuthentication().login(new SimpleUser(-1,handle,password));
         }catch(AuthenticationException ae){
             setNextPage("login.jsp");
             setNextPageInContext(true);

@@ -3,7 +3,7 @@ package com.topcoder.web.screening.request;
 import com.topcoder.web.common.RequestProcessor;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import com.topcoder.shared.security.Authentication;
 
 /** Provides some of the basic methods and data common to request processors.
  * @author Porgery
@@ -19,15 +19,15 @@ public abstract class BaseProcessor implements RequestProcessor {
     /** Holds value of property request. */
     private ServletRequest request;
     
-    /** Holds value of property response. */
-    private ServletResponse response;
+    /** Holds value of property authentication. */
+    private Authentication authentication;
     
     /** Creates a new instance of BaseProcessor */
     public BaseProcessor() {
         nextPage = null;
         nextPageInContext = true;
         request = null;
-        response = null;
+        authentication = null;
     }
     
     /** Performs the processing of the request.
@@ -77,18 +77,18 @@ public abstract class BaseProcessor implements RequestProcessor {
         this.request = request;
     }
     
-    /** Getter for property response.
-     * @return Value of property response.
+    /** Getter for property authentication.
+     * @return Value of property authentication.
      */
-    protected ServletResponse getResponse() {
-        return this.response;
+    protected Authentication getAuthentication() {
+        return this.authentication;
     }
     
-    /** Setter for property response.
-     * @param request New value of property response.
+    /** Setter for property authentication.
+     * @param authentication New value of property authentication.
      */
-    public void setResponse(ServletResponse response) {
-        this.response = response;
+    public void setAuthentication(Authentication authentication) {
+        this.authentication = authentication;
     }
     
 }

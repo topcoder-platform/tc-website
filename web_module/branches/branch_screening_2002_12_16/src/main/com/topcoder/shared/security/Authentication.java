@@ -18,12 +18,6 @@ public interface Authentication {
      */    
     public void logout();
     
-    /** 
-     * Determines whether the user is currently logged in.
-     * @return True if the user is logged in, false otherwise.
-     */    
-    public boolean isLoggedIn();
-    
     /**
      * Gets the current user's information.
      * @return A User object representing the current user.

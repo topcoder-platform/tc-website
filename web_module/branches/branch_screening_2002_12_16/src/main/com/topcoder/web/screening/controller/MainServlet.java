@@ -1,12 +1,13 @@
 package com.topcoder.web.screening.controller;
-import com.topcoder.web.common.*;
 
 import java.io.*;
-
 import java.util.*;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import com.topcoder.shared.security.*;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.*;
 
 /**
  * This class handles all incoming requests.
@@ -21,6 +22,7 @@ import javax.servlet.http.*;
  * version 1.0.0 -- 27-Dec-2002 -- created.
  * version 1.0.1 -- 27-Dec-2002 -- looks up constant changes in web.xml upon initialization.
  * version 1.0.2 -- 29-Dec-2002 -- fixed RequestProcessor usage. - Porgery
+ * version 1.0.3 -- 02-Jan-2003 -- fixed RequestProcessor usage again :). - Porgery
  */
  
 public class MainServlet
@@ -80,8 +82,11 @@ public class MainServlet
             Class            proc_class = Class.forName(PROCESSORS_PACKAGE+proc_param);
             RequestProcessor rp = (RequestProcessor)proc_class.newInstance();
 
+            Persistor p = new SessionPersistor(request.getSession());
+            Authentication auth = new BasicAuthentication(p, request, response);
+            
             rp.setRequest(request);
-            rp.setResponse(response);
+            rp.setAuthentication(auth);
             rp.process();
             String wherenow = rp.getNextPage();
             boolean forward = rp.isNextPageInContext();

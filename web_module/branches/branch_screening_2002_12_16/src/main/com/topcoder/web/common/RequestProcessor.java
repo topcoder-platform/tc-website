@@ -1,7 +1,7 @@
 package com.topcoder.web.common;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import com.topcoder.shared.security.Authentication;
 
 /** Interface for classes that process a servlet request.
  * @author Porgery
@@ -21,7 +21,7 @@ public interface RequestProcessor {
     
     /** Tells whether the next page is in the same context (which
      * means the request should be forwarded) or a different
-     * context (suggesting a browser redirect may be necessary).
+     * context (suggesting a browser redirect would be necessary).
      * @return True if the next page is in the current context,
      * or false otherwise.
      */    
@@ -33,9 +33,9 @@ public interface RequestProcessor {
      */    
     public void setRequest(ServletRequest sr);
     
-    /** Sets the response object that will be used to respond to the request.
-     * @param sr The ServletResponse object to be used.
+    /** Sets the authentication object that will be used.
+     * @param sr The Authentication object to be used.
      */    
-    public void setResponse(ServletResponse sr);
+    public void setAuthentication(Authentication auth);
     
 }
