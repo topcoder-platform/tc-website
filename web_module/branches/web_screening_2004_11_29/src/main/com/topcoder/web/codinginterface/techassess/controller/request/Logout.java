@@ -5,6 +5,8 @@ import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningLogoutResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 
 /**
  * User: dok
@@ -22,9 +24,15 @@ public class Logout extends Base {
 
         send(request);
 
+/*
+        SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        showProcessingPage(info.getServletPath()+"?"+Constants.MODULE+"="+Constants.RP_LOGOUT_RESPONSE+
+                "&"+Constants.MESSAGE_ID+"="+getMessageId());
+*/
+
         //todo do we need to wait for this really?
-        ScreeningLogoutResponse response = (ScreeningLogoutResponse)receive(5000);
-        log.debug("got response");
+        //ScreeningLogoutResponse response = (ScreeningLogoutResponse)receive(5000);
+        //log.debug("got response");
 
         getAuthentication().logout();
 

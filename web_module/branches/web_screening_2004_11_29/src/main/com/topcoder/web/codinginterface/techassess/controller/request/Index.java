@@ -15,10 +15,10 @@ public class Index extends Base {
     protected void businessProcessing() throws TCWebException {
 
         if (getUser().isAnonymous()) {
-            setNextPage(Constants.PAGE_LOGIN);
-            setIsNextPageInContext(true);
+            setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,
+                    new String[] {Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
+            setIsNextPageInContext(false);
         } else {
-            log.debug("path: " + ((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath());
             setNextPage(Constants.PAGE_INDEX);
             setIsNextPageInContext(true);
 
