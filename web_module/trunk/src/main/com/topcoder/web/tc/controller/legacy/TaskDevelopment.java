@@ -642,7 +642,7 @@ else if (command.equals("send")) {
                         TCSEmailMessage resp = new TCSEmailMessage();
                         resp.addToAddress(from, TCSEmailMessage.TO);
                         resp.setFromAddress(to);
-                        resp.setSubject(project + " Application");
+                        resp.setSubject(project);
                         StringBuffer respBody = new StringBuffer(100);
                         respBody.append("Hello ");
                         respBody.append(handle);
