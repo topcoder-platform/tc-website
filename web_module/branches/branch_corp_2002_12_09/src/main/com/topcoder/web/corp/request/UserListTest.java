@@ -8,8 +8,12 @@ import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 
 /**
 * ---------------------------------------------------------------------------
-* Test Only- not complete- still working on this.  Final file name will be
-* UserList.java when testing is complete. 
+* Test Only- Final file name will be UserList.java when testing is complete.   
+* Holding on Authentication, for testing purposes company id is passed as
+* a parameter, this will change to grabing it from the authentication session
+* access this file by going to:  
+* http://65.112.118.204/corp/?module=user-list&companyId=12345
+* (because test data in database has a company_id of 12345)
 * ---------------------------------------------------------------------------
 * Processor for user list page, contains logic for setting up a
 * list of users associated with a company and putting them into a 
@@ -17,7 +21,7 @@ import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 * use by the ListIteratorTag in the userlist jsp page.
 * 
 * @author   Daniel Cohn
-* @version  0.8
+* @version  0.9
 *
 */
 
