@@ -22,7 +22,7 @@ import java.util.*;
 public class TaxFormHeaderList implements PactsConstants {
 
 	private static Category log =
-		PactsLog.getInstance(TaxFormHeaderList.class.getName());
+		Category.getInstance(TaxFormHeaderList.class.getName());
 
 	public TaxFormHeader headerList[];
 

@@ -16,7 +16,7 @@ import org.apache.log4j.*;
 
 public class UserProfileHeaderList implements PactsConstants {
     private static Category log =
-	PactsLog.getInstance(UserProfileHeaderList.class.getName());
+	Category.getInstance(UserProfileHeaderList.class.getName());
 
     public UserProfileHeader[] headerList=null;
 

@@ -39,7 +39,7 @@ import org.apache.log4j.*;
    
 public class UserProfile implements PactsConstants, java.io.Serializable {
        private static Category log = 
-	   	PactsLog.getInstance(UserProfile.class.getName()); 
+	   	Category.getInstance(UserProfile.class.getName()); 
 
     public UserProfileHeader _header;
     public String _email;

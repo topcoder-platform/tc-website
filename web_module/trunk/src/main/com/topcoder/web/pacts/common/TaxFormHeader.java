@@ -23,7 +23,7 @@ import org.apache.log4j.*;
 
 public class TaxFormHeader implements PactsConstants, java.io.Serializable {
 	private static Category log =
-		PactsLog.getInstance(TaxFormHeader.class.getName());
+		Category.getInstance(TaxFormHeader.class.getName());
 
 /*  Explanation of Members
 *

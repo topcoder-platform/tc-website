@@ -21,7 +21,7 @@ import java.util.*;
 public class UpdateResults implements Map, java.io.Serializable {
 
 	private static Category log =
-		PactsLog.getInstance(UpdateResults.class.getName());
+		Category.getInstance(UpdateResults.class.getName());
 
 	private static final String STRING_CLOSER = ".";
 	private static final String ERROR = "Error";

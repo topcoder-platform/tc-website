@@ -23,7 +23,7 @@ import java.util.*;
 
 public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private static Category log =
-	PactsLog.getInstance(PaymentHeader.class.getName());
+	Category.getInstance(PaymentHeader.class.getName());
 
 /*  Explanation of Members
 *

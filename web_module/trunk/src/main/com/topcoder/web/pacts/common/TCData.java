@@ -13,7 +13,7 @@ import com.topcoder.web.pacts.common.*;
 
 public class TCData {
     private static Category log =
-	PactsLog.getInstance(TCData.class.getName());
+	Category.getInstance(TCData.class.getName());
 
     private static final boolean LOG_EXCEPTIONS = false;
     public static long getTCLong(ResultSetContainer.ResultSetRow row,
@@ -73,14 +73,23 @@ public class TCData {
 				 String key, String defaultVal,
 				 boolean printException) {
 	try {
-            StringTokenizer token = new StringTokenizer(
-                ((TCTimestampResult) row.getItem(key)).toString().substring(0,10),
-                "-");
+	    // Commented out by STK 5/29/02
+            //StringTokenizer token = new StringTokenizer(
+            //    ((TCTimestampResult) row.getItem(key)).toString().substring(0,10),
+            //    "-");
+	    
+	    // added by STK 5/29/02
+	    StringTokenizer tok1 = new StringTokenizer(
+		  ((TCTimestampResult) row.getItem(key)).toString());
+	    StringTokenizer token = new StringTokenizer(
+		  (String) tok1.nextElement(),"-");
+	    
             String year = (String) token.nextElement();
             String returnString = "";
             while (token.hasMoreElements()) {
                 returnString += (String) token.nextElement() + "/";
             }
+
             return returnString + year;
 	} catch (Exception e) {
 	    log.debug( "getTCDate got excepted with key=" + key );
