@@ -287,17 +287,18 @@ function getProblemDetail(id) {
 <% } // getProblemSetBCount() > 0 %>
 <% } // !isSessionComplete() %>
 
-<P><BR/></P>
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+            <p><br></p>
+        </td>
+<!-- Middle Column ends -->
 
-  <jsp:include page="/includes/foot.jsp"/>
+<!-- Gutter -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
 
-</BODY>
-</HTML>
+    </tr>
+</table>
+
+  <jsp:include page="/includes/foot.jsp" />
+
+</body>
+</html>
