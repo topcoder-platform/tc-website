@@ -277,7 +277,7 @@ Project End Date: June 28, 2002<BR/>
 </P>
 
 <P>
-Developer / QA Developer<BR/>
+Developer / QA Developer:<BR/>
 Project Start Date: June 10, 2002<BR/>
 Project End Date: June 28, 2002<BR/>
 </P>
