@@ -67,6 +67,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
    <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
+<p class="terciary">
+                <a href="/tc?module=Static&d1=crpf&d2=crpf_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Details
+            </p>
+
                 <blockquote>
 
                 <div align="center"><font size="3"><strong>Win a trip to <em>A Magical Evening,</em> the annual star-studded gala ball<br/>
