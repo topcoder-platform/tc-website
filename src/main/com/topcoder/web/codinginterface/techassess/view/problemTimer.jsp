@@ -62,7 +62,7 @@ if (o!=null) {
             var correctedLocalTime = new Date(myDate.getTime() - problemSyncedOffset);
 
             for (i=0; i<startTimes.length;i++) {
-                if (types[i]==EXAMPLE_SET) {
+                if (countDown&&types[i]==EXAMPLE_SET) {
                     text = "N/A";
                 } else  {
                     var myTime=0;
