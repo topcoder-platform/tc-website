@@ -35,14 +35,14 @@
             </IMG>
           </A>
          </TD> -->                            
-          <IMG SRC="/i/divider.gif" ALT="" WIDTH="1" HEIGHT="21" BORDER="0"/>
+          <!-- <IMG SRC="/i/divider.gif" ALT="" WIDTH="1" HEIGHT="21" BORDER="0"/> -->
           <A onMouseOver="changeImages('image2', 'image2on')" onMouseOut="changeImages('image2', 'image2off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
             <IMG NAME="image2" ALT="TCES" WIDTH="187" HEIGHT="21" BORDER="0">
               <xsl:attribute name="SRC">/i/menu_tces_<xsl:choose><xsl:when test="/TC/Task='tces'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
           </A>
-          <IMG SRC="/i/divider.gif" ALT="" WIDTH="1" HEIGHT="21" BORDER="0"/>
+          <!-- <IMG SRC="/i/divider.gif" ALT="" WIDTH="1" HEIGHT="21" BORDER="0"/> -->
           <!-- <A onMouseOver="changeImages('image5', 'image5on')" onMouseOut="changeImages('image5', 'image5off')" TARGET="_parent">
             <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/index.jsp</xsl:attribute>
             <IMG NAME="image5" SRC="/i/menu_rounds_off.gif" ALT="Round Tables" WIDTH="90" HEIGHT="21" BORDER="0"/>
