@@ -32,7 +32,6 @@ public class ApplicationServer {
   public static String USER_SERVICES           = bundle.getProperty("USER_SERVICES", "com.topcoder.ejb.UserServicesHome");
   public static String UTIL                    = bundle.getProperty("UTIL", "com.topcoder.ejb.UtilHome");
   public static String MPSQAS_SERVICES         = bundle.getProperty("PACTS_SERVICES", "com.topcoder.web.pacts.ejb.PactsServicesHome");
-  public static String STATISTICS              = bundle.getProperty("STATISTICS", "com.topcoder.web.stat.ejb.Statistics.StatisticsHome");
   public static String CONTEST_ADMIN_SERVICES  = bundle.getProperty("CONTEST_ADMIN_SERVICES", "jma.ContestAdminServicesHome");
   public static String PACTS_SERVICES          = bundle.getProperty("PACTS_SERVICES", "com.topcoder.web.pacts.ejb.PactsServicesHome");
   public static String PROJECT_SERVICES        = bundle.getProperty("PROJECT_SERVICES", "tc.ProjectServicesHome");
