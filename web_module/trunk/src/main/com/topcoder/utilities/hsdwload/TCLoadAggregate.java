@@ -1193,9 +1193,7 @@ public class TCLoadAggregate extends TCLoad {
             query.append("            AND rr2.round_id = rr.round_id) ");
             query.append("  FROM room_result rr");
             query.append(" WHERE attended = 'Y'");
-            if (!FULL_LOAD) {   //if it's not a full load, just load up the people that competed in the round we're loading
-              query.append(" AND round_id = " + fRoundId);
-            }
+            query.append(" AND round_id = " + fRoundId);
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             query = new StringBuffer(100);
