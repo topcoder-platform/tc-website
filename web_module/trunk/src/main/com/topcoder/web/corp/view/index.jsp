@@ -68,7 +68,7 @@
                        <h1 class="bodyTitle"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index">Private Label Events</a></h1>
                        <p>Many members of your IT staff may feel left out of traditional training and incentive programs. Just like our weekly Single Round Matches and 
                        Tournaments, <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index"><strong>TopCoder Private Label Events</strong></a> 
-                       are a unique way for your developers to learn new skills and build teamwork. You receive reports that help you identify your best talent, as well as 
+                       are a unique way for your developers to learn new skills and foster teamwork. You receive reports that help you identify your best talent, as well as 
                        discover hidden talent.</p></td>
                 </tr>
             </table>
