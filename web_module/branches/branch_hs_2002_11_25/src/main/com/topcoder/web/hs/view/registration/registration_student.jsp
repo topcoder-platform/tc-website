@@ -1,20 +1,7 @@
-<%@ page
- errorPage="../home/error.jsp"
-    import="com.topcoder.shared.dataAccess.resultSet.*,
-            java.util.*" %>
+<%@ page errorPage="../home/error.jsp" %>
+<%@ taglib uri="/registration-taglib.tld" prefix="reg" %>
+<jsp:useBean id="student" class="com.topcoder.web.hs.model.StudentRegistrationBean" scope="request"/>
 <jsp:include file="head.inc"/>
-<% Map data=(Map)request.getAttribute("STUDENT_DATA");
-   ResultSetContainer rsc;
-   ResultSetContainer.ResultSetRow rsr;
-   String first_name=(String)request.getAttribute("FIRST_NAME");
-   String last_name=(String)request.getAttribute("LAST_NAME");
-   String state_code=(String)request.getAttribute("STATE_CODE");
-   Integer school_id=(Integer)request.getAttribute("SCHOOL_ID");
-   String handle=(String)request.getAttribute("HANDLE");
-   String email=(String)request.getAttribute("EMAIL");
-   String confirm_email=(String)request.getAttribute("CONFIRM_EMAIL");
-   Integer editor_id=(Integer)request.getAttribute("EDITOR_ID");
-   Integer language_id=(Integer)request.getAttribute("LANGUAGE_ID"); %>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
 <P>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much demographic information as possible without making the registration process overly burdensome. Furthermore, we require that you verify the accuracy of the information you provide. This does not mean that sponsors have access to your personal information; they do not. It means that we want to give them as accurate aggregate information as possible.</P>
@@ -26,6 +13,7 @@
 <P><BR></P>
 <FORM ACTION="" METHOD="post" NAME="regForm">
  <INPUT TYPE="hidden" NAME="module" VALUE="StudentRegistration">
+ <INPUT TYPE="hidden" NAME="cmd" VALUE="register">
  <INPUT TYPE="hidden" NAME="pick" VALUE="">
  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" ALIGN="center">
   <TR>
@@ -50,7 +38,7 @@
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">First Name&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="firstName" VALUE="<%=first_name%>" SIZE="30" MAXLENGTH="30"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="firstName" VALUE="<jsp:getProperty name="student" property="FirstName"/>" SIZE="30" MAXLENGTH="30"></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -60,7 +48,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Last Name&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="lastName" VALUE="<%=last_name%>" SIZE="30" MAXLENGTH="30"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="lastName" VALUE="<jsp:getProperty name="student" property="LastName"/>" SIZE="30" MAXLENGTH="30"></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -71,17 +59,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">State&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
-    <SELECT NAME="state" CLASS="dropdown" ONCHANGE="Javascript:changeState()">
-     <OPTION value="-1">Pick a state</OPTION>
-     <% rsc=(ResultSetContainer)data.get("state_list");
-        for (Iterator i=rsc.iterator();i.hasNext();) {
-         rsr=(ResultSetContainer.ResultSetRow)i.next();
-         String code=(String)rsr.getItem("state_code").getResultData();
-         String name=(String)rsr.getItem("state_name").getResultData();
-         String selected=code.equals(state_code)?" SELECTED":""; %>
-     <OPTION value="<%=code%>"<%=selected%>><%=name%></OPTION>
-     <% } %>
-    </SELECT>
+    <reg:listSelect name="state" class="dropdown" onChange="Javascript:chagneState()" list="<%=student.getStateList()%>" selected="<%=student.getStateCode()%>"/>
    </TD>
   </TR>
   <TR>
@@ -93,17 +71,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">School&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
-    <SELECT DISABLED NAME="school" CLASS="dropdown">
-     <OPTION VALUE="-1">Pick a school</OPTION>
-     <% rsc=(ResultSetContainer)data.get("school_list");
-        for (Iterator i=rsc.iterator();i.hasNext();) {
-         rsr=(ResultSetContainer.ResultSetRow)i.next();
-         Integer id=(Integer)rsr.getItem("school_id").getResultData();
-         String name=(String)rsr.getItem("short_name").getResultData();
-         String selected=id.equals(school_id)?" SELECTED":""; %>
-     <OPTION VALUE="<%=id%>"<%=selected%>><%=name%></OPTION>
-     <% } %>
-    </SELECT>
+    <reg:listSelect name="school" class="dropdown" list="<%=student.getSchoolList()%>" selected="<%=student.getSchoolId()%>"/>
    </TD>
   </TR>
   <TR VALIGN="middle">
@@ -123,7 +91,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD class="bodyText" ALIGN="right" VALIGN="middle">Handle&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="handle" VALUE="<%=handle%>" SIZE="30" MAXLENGTH="15"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="handle" VALUE="<jsp:getProperty name="student" property="Handle"/>" SIZE="30" MAXLENGTH="15"></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -133,7 +101,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Password&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="password" VALUE="" SIZE="30" MAXLENGTH="15"></TD>
+   <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="password" VALUE="<jsp:getProperty name="student" property="Password"/>" SIZE="30" MAXLENGTH="15"></TD>
    <TD CLASS="bodyText" ALIGN="left" VALIGN="top">&nbsp;</TD>
   </TR>
   <TR>
@@ -144,7 +112,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Re-type Password&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="confirmPassword" VALUE="" SIZE="30" MAXLENGTH="15"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="confirmPassword" VALUE="<jsp:getProperty name="student" property="Password"/>" SIZE="30" MAXLENGTH="15"></TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&nbsp;</TD>
@@ -159,7 +127,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Email&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="email" VALUE="<%=email%>" SIZE="30" MAXLENGTH="100"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="email" VALUE="<jsp:getProperty name="student" property="Email"/>" SIZE="30" MAXLENGTH="100"></TD>
   </TR>
   <TR>
    <TD></TD>
@@ -169,7 +137,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Re-type Email&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="confirmEmail" VALUE="<%=confirm_email%>" SIZE="30" MAXLENGTH="100"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="confirmEmail" VALUE="<jsp:getProperty name="student" property="Email"/>" SIZE="30" MAXLENGTH="100"></TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&nbsp;</TD>
@@ -194,16 +162,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Editor&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" align="left" valign="middle">
-    <SELECT NAME="editor" CLASS="dropdown">
-     <% rsc=(ResultSetContainer)data.get("editor_list");
-        for (Iterator i=rsc.iterator();i.hasNext();) {
-         rsr=(ResultSetContainer.ResultSetRow)i.next();
-         Integer id=(Integer)rsr.getItem("editor_id").getResultData();
-         String desc=(String)rsr.getItem("editor_desc").getResultData();
-         String selected=id.equals(editor_id)?" SELECTED":""; %>
-     <OPTION VALUE="<%=id%>"<%=selected%>><%=desc%></OPTION>
-     <% } %>
-    </SELECT>
+    <reg:listSelect name="editor" class="dropdown" list="<%=student.getEditorList()%>" selected="<%=student.getEditorId()%>"/>
    </TD>
   </TR>
   <TR>
@@ -220,16 +179,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Language&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
-    <SELECT NAME="language" CLASS="dropdown">
-     <% rsc=(ResultSetContainer)data.get("language_list");
-        for (Iterator i=rsc.iterator();i.hasNext();) {
-         rsr=(ResultSetContainer.ResultSetRow)i.next();
-         Integer id=(Integer)rsr.getItem("language_id").getResultData();
-         String name=(String)rsr.getItem("language_name").getResultData();
-         String selected=id.equals(language_id)?" SELECTED":""; %>
-     <OPTION VALUE="<%=id%>"<%=selected%>><%=name%></OPTION>
-     <% } %>
-    </SELECT>
+    <reg:listSelect name="language" class="dropdown" list="<%=student.getLanguageList()%>" selected="<%=student.getLanguageId()%>"/>
    </TD>
   </TR>
   <TR>
