@@ -3,7 +3,7 @@
 <%@ page import="com.topcoder.web.corp.common.Constants" %>
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp" />
 
@@ -43,18 +43,18 @@ document.sessionConfirmForm.submit();
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session - <font color="#000000">Session Confirmation</font></h1>
-                        <p>Review the information below for correctness.  If the information is correct, click <strong>Submit</strong>.  If changes 
-                        need to be made, click <strong>Edit</strong> to return to the previous page.  Click <strong>Cancel</strong> if you do not wish 
+                        <p>Review the information below for correctness.  If the information is correct, click <strong>Submit</strong>.  If changes
+                        need to be made, click <strong>Edit</strong> to return to the previous page.  Click <strong>Cancel</strong> if you do not wish
                         to set up this session.</p><br>
                     </td>
                 </tr>
             </table>
 
             <jsp:useBean id="testSessionInfo" type="com.topcoder.web.corp.model.TestSessionInfo" scope="session" />
-                        
+
             <screen:form name="sessionConfirmForm" action="<%=sessionInfo.getServletPath()%>" method="GET">
             <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
-                        
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Session</td></tr>
 
@@ -68,7 +68,7 @@ document.sessionConfirmForm.submit();
                         </screen:resultSetRowIterator>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
-                
+
                 <tr>
                     <td class="testTableSubtitleEven">Profile:</td>
                         <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getProfileList()%>">
@@ -79,7 +79,7 @@ document.sessionConfirmForm.submit();
                         </screen:resultSetRowIterator>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
-                
+
                 <tr>
                     <td class="testTableSubtitleOdd">Begin:</td>
                         <input type="HIDDEN" name="beginMonth" value="<jsp:getProperty name="testSessionInfo" property="beginMonth" />" >
@@ -89,7 +89,7 @@ document.sessionConfirmForm.submit();
                     <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></td>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
-           
+
                 <tr>
                     <td class="testTableSubtitleEven">End:</td>
                         <input type="HIDDEN" name="endMonth" value="<jsp:getProperty name="testSessionInfo" property="endMonth" />" >
@@ -98,16 +98,16 @@ document.sessionConfirmForm.submit();
                         <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="testSessionInfo" property="endHour" />" >
                     <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></td>
                     <td class="errorTextEven">&#160;</td>
-                </tr>  
+                </tr>
 
                 <tr>
                     <td colspan="3" width="100%" align="center">
                         <table border="0" cellspacing="10" cellpadding="0">
                             <tr>
                                 <input type="HIDDEN" name="candidateEmailInfo" value="<jsp:getProperty name="testSessionInfo" property="candidateEmail" />" >
-                                <td colspan="3" class="testTableOdd">Invite candidate to Testing Application:&#160;<strong><jsp:getProperty name="testSessionInfo" property="candidateEmail" /></strong></td>
+                                <td colspan="3" class="testTableOdd">Invite candidate to Technical Assessment Application:&#160;<strong><jsp:getProperty name="testSessionInfo" property="candidateEmail" /></strong></td>
                             </tr>
-                
+
                             <tr>
                                 <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="testSessionInfo" property="repEmail" />" >
                                 <td colspan="3" class="testTableOdd">Send me email reminder:&#160;<strong><jsp:getProperty name="testSessionInfo" property="repEmail" /></strong></td>

@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -32,7 +32,7 @@
                           <jsp:include page="searchForm.jsp"/>
                       </screen:form>
 <P><BR/></P>
-</td> 
+</td>
 
 
 <!-- Center Column Ends -->

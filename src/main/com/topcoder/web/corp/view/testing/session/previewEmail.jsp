@@ -2,7 +2,7 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
 <head>
-<title>Topcoder | Testing Application Management Tool</title>
+<title>Topcoder | Technical Assessment Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp" />
 
@@ -12,14 +12,14 @@
 
 <body>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr><td colspan="3" class="globalNavSmall"><img src="/i/corp/clear.gif" width="1" height="15" border="0"/></td></tr>
 
     <tr>
         <td width="15"><a name="top"></a><img src="/i/corp/clear.gif" width="15" height="1" alt="" border="0"></td>
-        <td width="206"><img src="/i/corp/logo_testing.gif" width="206" height="49" border="0" alt="TopCoder Testing Application" vspace="13"></TD>
+        <td width="206"><img src="/i/corp/logo_testing.gif" width="206" height="49" border="0" alt="TopCoder Technical Assessment Application" vspace="13"></TD>
         <td width="100%"><img src="/i/corp/clear.gif" width="1" height="1" alt="" border="0"></td>
-    </tr>             
+    </tr>
 
     <tr><td colspan="3" class="testTop"><img src="/i/corp/clear.gif" width="1" height="18" border="0"/></td></tr>
 </table>
@@ -53,7 +53,7 @@
                     <td width="100%" class="bodyText">No email to be sent</td>
                 <% } %>
            </form></tr>
-        </table>             
+        </table>
             <p><br></p>
         </td>
 <!-- Middle Column ends -->
