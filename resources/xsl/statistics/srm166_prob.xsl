@@ -92,7 +92,7 @@ rates all around.
 </p>
 
 <p>
-The leading scorers in Division One &amp;mdash; <b>SnapDragon</b>, <b>ZorbaTHut</b>, and <b>venco</b> &amp;mdash;
+The leading scorers in Division One, <b>SnapDragon</b>, <b>ZorbaTHut</b>, and <b>venco</b>,
 obtained their scores solely through solving problems far faster than anyone else.
 Only a couple of contenders, such as <b>NGBronson</b> and <b>haha</b>, were knocked out of the running
 during the Challenge Phase.  <b>NGBronson</b> didn't handle carrying overflow from additions
