@@ -50,7 +50,7 @@
                         
                         
                         <table border="0" cellpadding="0" cellspacing="0">
-                            <tr> <td valign="top"><img src="/i/sponsor/artifact/artifact_banner.gif" width="510" height="66" /></td>
+                            <tr> <td valign="top"><img src="/i/sponsor/artifact/artifact_banner.jpg" width="510" height="66" /></td>
                             </tr>
                             <tr> <td valign="top"><img src="/i/sponsor/artifact/artifact_headline.gif" width="510" height="66" /></td>
                             </tr>
