@@ -35,6 +35,15 @@
           <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.COMMAND_DETAIL_NAME%></TD></TR>
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Command: <jsp:getProperty name="CommandDetailTask" property="CommandDesc"/></TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+            <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
+              <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="CommandId"/>" class="statText">
+                [edit command]
+              </A>
+              <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.COMMAND_ID_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="CommandId"/>" class="statText">
+                [edit command query]
+              </A>
+            </TD></TR>
+          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Group: <jsp:getProperty name="CommandDetailTask" property="GroupDesc"/></TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>

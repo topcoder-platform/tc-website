@@ -35,7 +35,7 @@
           <TR><TD CLASS="statText" COLSPAN="2"><%=Constants.COMMAND_LIST_NAME%></TD></TR>
           <TD CLASS="statTextBig">Group Name</TD>
           <TD CLASS="statTextBig">Command Name</TD>
-          <query:resultSetRowIterator id="command" rowList="<%=CommandListTask.getCommandList()%>">
+          <query:resultSetRowIterator id="command" list="<%=CommandListTask.getCommandList()%>">
             <TR>
               <TD CLASS="statText">
                 <query:resultSetItem row="<%=command%>" name="command_group_name"/>

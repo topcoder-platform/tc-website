@@ -36,6 +36,12 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
     /* Creates a new LoginTask */
     public ModifyCommandQueryTask() {
         super();
+        currentQueryList = new ArrayList();
+        otherQueryList = new ArrayList();
+        commandId = 0;
+        queryId = 0;
+        commandDesc = "";
+        attributeQueue = new HashMap();
     }
 
 
