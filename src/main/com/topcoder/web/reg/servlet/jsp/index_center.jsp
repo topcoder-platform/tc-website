@@ -296,6 +296,7 @@ Founder and Chairman, TopCoder, Inc.
     <td colspan="2" class="statText" align="left" valign="top">An email will be sent to authorize your account activation.<br></td>
   </tr>
 
+<!--
   <tr>
       <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="NotifyError" /></td>
   </tr>
@@ -304,6 +305,7 @@ Founder and Chairman, TopCoder, Inc.
         <tc:getProperty id="notify" name="Registration" property="Notify" />
     <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="checkbox" name="<%=Registration.NOTIFY%>" <%=(notify.equalsIgnoreCase(Registration.CHECKBOX_YES)?"checked":"")%>></td>
   </tr>
+-->
 
   <tr>
     <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="QuoteError" /></td>
