@@ -67,7 +67,7 @@ if (o!=null) {
                 } else  {
                     var myTime=0;
                     if (startTimes[i]==0) {
-                      myTimetim = 0;
+                      myTime = 0;
                     } else {
                       if (countDown==true)
                         myTime = endTimes[i] - correctedLocalTime.getTime();
