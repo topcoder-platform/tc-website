@@ -4,7 +4,6 @@ package com.topcoder.web.tc.controller.legacy;
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
 //import com.topcoder.common.web.data.report.Constants;
-import com.topcoder.common.web.data.report.Query;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.util.Data;
