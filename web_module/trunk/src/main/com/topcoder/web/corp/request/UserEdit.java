@@ -115,7 +115,7 @@ public class UserEdit extends BaseProcessor {
 
             tx.commit();
         } catch (Exception exc) {
-            rollbackHelper(tx);
+            rollbackHelper(tx, secTok.createNew);
             throw exc;
         } finally {
             Util.closeIC(icEJB);
@@ -515,7 +515,7 @@ public class UserEdit extends BaseProcessor {
      *
      * @param tx
      */
-    private final void rollbackHelper(Transaction tx) {
+    private final void rollbackHelper(Transaction tx, boolean removeSecurityUser) {
         if (tx != null) {
             log.error("rolling transaction back " + tx);
             try {
@@ -530,7 +530,9 @@ public class UserEdit extends BaseProcessor {
             // (thus, outside of transaction scope) so we have remove it
             // by hands
             try {
-                secTok.man.removeUser(secTok.targetUser, secTok.requestor);
+                if (removeSecurityUser) {
+                    secTok.man.removeUser(secTok.targetUser, secTok.requestor);
+                }
             } catch (Exception ignore) {
                 ignore.printStackTrace();
                 log.error("tx.roolback(): removing of security user has failed");
