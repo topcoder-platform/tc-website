@@ -76,7 +76,7 @@
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
                                     <p><a href="mailto:sponsorship@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br/>
-                                    Drew Vaughn, VP of Sales<br />
+                                    Robert Hughes, President and COO<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
                                     &#160;</p>
