@@ -42,12 +42,15 @@ public class Constants {
     public static String CCTX_URL = null;
     public static String CCTX_TYPE = null;
 
+    public static String JSP_ROOT = null;
+
     public static String REGISTRATION_PAGE_SUCCESS = null;
     public static String REGISTRATION_PAGE_RETRY = null;
     public static String USEREDIT_PAGE_SUCCESS = null;
     public static String USEREDIT_PAGE_RETRY = null;
     public static String USERLIST_PAGE = null;
     public static String LOGIN_PAGE = null;
+    public static String WELCOME_PAGE = null;
 
     public static String CORP_ADMIN_ROLE = null;
     public static String CORP_GROUP = null;
@@ -60,12 +63,16 @@ public class Constants {
 
 
     public static void init(ServletConfig cfg) {
-        REGISTRATION_PAGE_SUCCESS = cfg.getInitParameter("page-Registration-success");
-        REGISTRATION_PAGE_RETRY = cfg.getInitParameter("page-Registration-retry");
+        JSP_ROOT = cfg.getInitParameter("jsp_root");
+
+        REGISTRATION_PAGE_SUCCESS = JSP_ROOT+cfg.getInitParameter("page-Registration-success");
+        REGISTRATION_PAGE_RETRY = Constants.JSP_ROOT+cfg.getInitParameter("page-Registration-retry");
         USEREDIT_PAGE_SUCCESS = cfg.getInitParameter("page-UserEdit-success");
-        USEREDIT_PAGE_RETRY = cfg.getInitParameter("page-UserEdit-retry");
-        USERLIST_PAGE = cfg.getInitParameter("page-UserList");
-        LOGIN_PAGE = cfg.getInitParameter("page-login");
+        USEREDIT_PAGE_RETRY = JSP_ROOT+cfg.getInitParameter("page-UserEdit-retry");
+        USERLIST_PAGE = JSP_ROOT+cfg.getInitParameter("page-UserList");
+        LOGIN_PAGE = JSP_ROOT+cfg.getInitParameter("page-login");
+        WELCOME_PAGE  = JSP_ROOT+cfg.getInitParameter("page-welcome");
+
     }
 
     static {

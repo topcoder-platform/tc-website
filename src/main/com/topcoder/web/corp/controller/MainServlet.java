@@ -48,11 +48,8 @@ public class MainServlet extends HttpServlet {
     private static final String ERR_DELETE = "DELETE method invocation";
     private static final String ERR_PUT = "PUT method invocation";
     private static final String ERR_TRACE = "TRACE method invocation";
-    private static final String DEFAULT_ERRPAGE = "/exc/InternalError.jsp";
 
     private ServletConfig servletConfig = null;
-    private String welcomeApplicationPage = null;
-    private String loginApplicationPage = null;
     private String errorPageNavigation = null;
     private String errorPageSecurity = null;
     private String errorPageInternal = null;
@@ -67,20 +64,9 @@ public class MainServlet extends HttpServlet {
     public void init() throws ServletException {
         servletConfig = getServletConfig();
         Constants.init(servletConfig);
-        welcomeApplicationPage = servletConfig.getInitParameter("page-welcome");
-        loginApplicationPage = servletConfig.getInitParameter("page-login");
-        errorPageNavigation = servletConfig.getInitParameter("page-error-navigation");
-        errorPageSecurity = servletConfig.getInitParameter("page-error-security");
-        errorPageInternal = servletConfig.getInitParameter("page-error-internal");
-        if (errorPageNavigation == null || errorPageNavigation.trim().length() == 0) {
-            errorPageNavigation = DEFAULT_ERRPAGE;
-        }
-        if (errorPageSecurity == null || errorPageSecurity.trim().length() == 0) {
-            errorPageSecurity = DEFAULT_ERRPAGE;
-        }
-        if (errorPageInternal == null || errorPageInternal.trim().length() == 0) {
-            errorPageInternal = DEFAULT_ERRPAGE;
-        }
+        errorPageNavigation = Constants.JSP_ROOT+servletConfig.getInitParameter("page-error-navigation");
+        errorPageSecurity = Constants.JSP_ROOT+servletConfig.getInitParameter("page-error-security");
+        errorPageInternal = Constants.JSP_ROOT+servletConfig.getInitParameter("page-error-internal");
     }
 
     /**
@@ -102,7 +88,7 @@ public class MainServlet extends HttpServlet {
         String processorName = request.getParameter(Constants.KEY_MODULE);
         if (processorName == null) {
             log.warn("processing module not specified");
-            fetchRegularPage(request, response, welcomeApplicationPage, true);
+            fetchRegularPage(request, response, Constants.WELCOME_PAGE, true);
             return;
         }
 
@@ -151,7 +137,7 @@ public class MainServlet extends HttpServlet {
             log.debug("processing module " + processorClassName + " instantiated");
 
             // set main page in web.xml as homePage for Static Processor
-            request.setAttribute("homePage", welcomeApplicationPage);
+            request.setAttribute("homePage", Constants.WELCOME_PAGE);
 
             processorModule.setRequest(request);
             processorModule.setAuthentication(authToken);
@@ -287,7 +273,7 @@ public class MainServlet extends HttpServlet {
 
         StringBuffer loginPageDest = new StringBuffer(128);
         loginPageDest
-                .append(loginApplicationPage).append('?')
+                .append(Constants.LOGIN_PAGE).append('?')
                 .append(Login.KEY_DESTINATION_PAGE).append('=')
                 .append(URLEncoder.encode(originatingPage));
             fetchRegularPage(req, resp, loginPageDest.toString(), true);
