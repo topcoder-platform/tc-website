@@ -27,7 +27,7 @@ INSERT INTO command (command_id, command_desc, command_group_id) VALUES ( 47, 'T
 INSERT INTO command VALUES(48,'profile_detail',4);
 INSERT INTO command VALUES(49,'Email all TopCoder members',1);
 INSERT INTO command VALUES(50,'sponsor_image',7);
-INSERT INTO command VALUES(51,'Rated Members w/ Activation Code',7);
+INSERT INTO command VALUES(51,'Rated Members w/ Activation Code',1);
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
 INSERT INTO data_type VALUES (1002,'Decimal Input');
