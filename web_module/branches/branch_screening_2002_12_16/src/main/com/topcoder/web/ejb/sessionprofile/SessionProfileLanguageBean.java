@@ -41,11 +41,10 @@ public class SessionProfileLanguageBean extends BaseEJB
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("INSERT INTO session_profile_language_xref (screening_profile_id, " +
-                    "language_id, modify_date, create_date)"
-                    + " values(?,?,?,?) ");
+            StringBuffer query = new StringBuffer(180);
+            query.append("INSERT INTO session_profile_language_xref ");
+            query.append("(screening_profile_id, language_id, modify_date, ");
+            query.append("create_date) VALUES(?,?,?,?)");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -87,10 +86,9 @@ public class SessionProfileLanguageBean extends BaseEJB
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("DELETE from session_profile_language_xref " +
-                    "WHERE screening_profile_id = ? and language_id = ?");
+            StringBuffer query = new StringBuffer(160);
+            query.append("DELETE FROM session_profile_language_xref ");
+            query.append("WHERE screening_profile_id = ? AND language_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);

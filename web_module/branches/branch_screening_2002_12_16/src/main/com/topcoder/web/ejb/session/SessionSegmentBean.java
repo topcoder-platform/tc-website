@@ -43,11 +43,12 @@ public class SessionSegmentBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(240);
 
-            query.append("INSERT INTO session_segment (session_id," +
-                    "session_segment_id, start_time, end_time, modify_date, " +
-                    "create_date, segment_length)" + " values(?,?,?,?,?,?,?) ");
+            query.append("INSERT INTO session_segment (session_id,");
+            query.append("session_segment_id, start_time, end_time,");
+            query.append("modify_date, create_date, segment_length)");
+            query.append(" VALUES(?,?,?,?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -95,10 +96,9 @@ public class SessionSegmentBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE session_segment set start_time = ? where " +
-                "session_id = ? and session_segment_id = ?");
+            StringBuffer query = new StringBuffer(120);
+            query.append("UPDATE session_segment SET start_time = ? WHERE ");
+            query.append("session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -145,10 +145,9 @@ public class SessionSegmentBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE session_segment set end_time = ? where " +
-                "session_id = ? and session_segment_id = ?");
+            StringBuffer query = new StringBuffer(120);
+            query.append("UPDATE session_segment SET end_time = ? WHERE ");
+            query.append("session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -195,9 +194,9 @@ public class SessionSegmentBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("UPDATE session_segment set segment_length = ? where "
-                    + "session_id = ? and session_segment_id = ?");
+            StringBuffer query = new StringBuffer(120);
+            query.append("UPDATE session_segment SET segment_length = ? ");
+            query.append("WHERE session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -243,10 +242,10 @@ public class SessionSegmentBean extends BaseEJB {
         Date startTime = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(120);
 
-            query.append("SELECT start_time from session_segment " +
-                     "where session_id = ? and session_segment_id = ?");
+            query.append("SELECT start_time FROM session_segment ");
+            query.append("WHERE session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -300,10 +299,9 @@ public class SessionSegmentBean extends BaseEJB {
         Date endTime = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("SELECT end_time from session_segment " +
-                     "where session_id = ? and session_segment_id = ?");
+            StringBuffer query = new StringBuffer(120);
+            query.append("SELECT end_time FROM session_segment ");
+            query.append("WHERE session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -357,10 +355,9 @@ public class SessionSegmentBean extends BaseEJB {
         long segmentLength = 0;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("SELECT segment_length from session_segment " +
-                     "where session_id = ? and session_segment_id = ?");
+            StringBuffer query = new StringBuffer(120);
+            query.append("SELECT segment_length FROM session_segment ");
+            query.append("WHERE session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -415,12 +412,13 @@ public class SessionSegmentBean extends BaseEJB {
         String sessionSegmentDesc = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(300);
 
-            query.append("SELECT session_segment_desc from session_segment a, " +
-                    "session_segment_lu b " +
-                    "WHERE a.session_id = ? AND a.session_segment_id = ? " +
-                    "AND a.session_segment_id = b.session_segment_id");
+            query.append("SELECT session_segment_desc ");
+            query.append("FROM session_segment a, session_segment_lu b ");
+            query.append("WHERE a.session_id = ? ");
+            query.append("AND a.session_segment_id = ? ");
+            query.append("AND a.session_segment_id = b.session_segment_id");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);

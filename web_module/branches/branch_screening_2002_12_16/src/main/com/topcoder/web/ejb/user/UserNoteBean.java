@@ -43,9 +43,9 @@ public class UserNoteBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("INSERT INTO user_note_xref (user_id, " +
-                "note_id) values(?,?,?,?) ");
+            StringBuffer query = new StringBuffer(120);
+            query.append("INSERT INTO user_note_xref (user_id, ");
+            query.append("note_id) values(?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -87,9 +87,9 @@ public class UserNoteBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("DELETE from user_note_xref where user_id = ? " +
-                "and note_id = ? ");
+            StringBuffer query = new StringBuffer(120);
+            query.append("DELETE FROM user_note_xref WHERE user_id = ? ");
+            query.append("AND note_id = ? ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);

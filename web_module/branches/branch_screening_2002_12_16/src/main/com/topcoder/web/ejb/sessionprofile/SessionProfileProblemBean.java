@@ -47,11 +47,12 @@ public class SessionProfileProblemBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(240);
 
-            query.append("INSERT INTO session_profile_problem_xref (session_profile_id, " +
-                "problem_id, problem_type_id, sort_order, modify_date, " +
-                "create_date) values(?,?,?,?,?,?) ");
+            query.append("INSERT INTO session_profile_problem_xref ");
+            query.append("(session_profile_id, problem_id, problem_type_id, ");
+            query.append("sort_order, modify_date, create_date) ");
+            query.append("VALUES(?,?,?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -97,10 +98,11 @@ public class SessionProfileProblemBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(180);
 
-            query.append("UPDATE session_profile_problem_xref set problem_type_id = ? where " +
-                     "session_profile_id = ? and problem_id = ?");
+            query.append("UPDATE session_profile_problem_xref ");
+            query.append("SET problem_type_id = ? WHERE ");
+            query.append("session_profile_id = ? AND problem_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -146,9 +148,10 @@ public class SessionProfileProblemBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("UPDATE session_profile_problem_xref set sort_order = ? where " +
-                     "session_profile_id = ? and problem_id = ?");
+            StringBuffer query = new StringBuffer(180);
+            query.append("UPDATE session_profile_problem_xref ");
+            query.append("SET sort_order = ? WHERE ");
+            query.append("session_profile_id = ? AND problem_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -194,9 +197,10 @@ public class SessionProfileProblemBean extends BaseEJB {
         int problemTypeId = -1;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("SELECT problem_type_id from session_profile_problem_xref "
-                + " where session_profile_id = ? and problem_id = ?");
+            StringBuffer query = new StringBuffer(180);
+            query.append("SELECT problem_type_id ");
+            query.append("FROM session_profile_problem_xref ");
+            query.append("WHERE session_profile_id = ? AND problem_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -247,9 +251,10 @@ public class SessionProfileProblemBean extends BaseEJB {
         int sortOrder = -1;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("SELECT problem_type_id from session_profile_problem_xref "
-                + " where session_profile_id = ? and problem_id = ?");
+            StringBuffer query = new StringBuffer(180);
+            query.append("SELECT problem_type_id ");
+            query.append("FROM session_profile_problem_xref ");
+            query.append("WHERE session_profile_id = ? AND problem_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -271,10 +276,14 @@ public class SessionProfileProblemBean extends BaseEJB {
         } catch (Exception e) {
             throw new EJBException("Exception in getSortOrder sessionProfileId: " + sessionProfileId + " problemId: " + problemId);
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSortOrder");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getSortOrder");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getSortOrder");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getSortOrder");}}
+            if (rs != null) {try {rs.close();} catch (Exception ignore)
+            {log.error("FAILED to close ResultSet in getSortOrder");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore)
+            {log.error("FAILED to close PreparedStatement in getSortOrder");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore)
+            {log.error("FAILED to close Connection in getSortOrder");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore)
+            {log.error("FAILED to close Context in getSortOrder");}}
         }
 
         return sortOrder;
@@ -300,9 +309,10 @@ public class SessionProfileProblemBean extends BaseEJB {
         String problemTypeDesc = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("SELECT problem_type_desc from session_profile_problem_xref "
-                + " where session_profile_id = ? and problem_id = ?");
+            StringBuffer query = new StringBuffer(180);
+            query.append("SELECT problem_type_desc ");
+            query.append("FROM session_profile_problem_xref ");
+            query.append("WHERE session_profile_id = ? AND problem_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);

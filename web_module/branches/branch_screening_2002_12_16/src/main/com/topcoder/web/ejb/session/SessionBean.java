@@ -42,8 +42,29 @@ public class SessionBean extends BaseEJB {
                               boolean sendCandidateEmail,
                               long createUserId)
             throws RemoteException {
-        log.debug("createSession called. sessionProfileId: "
-                + sessionProfileId + " userId: " + userId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+        varBuf.append(" userId: ");
+        varBuf.append(userId);
+        varBuf.append(" beginTime: ");
+        varBuf.append(beginTime.toString());
+        varBuf.append(" endTime: ");
+        varBuf.append(endTime.toString());
+        varBuf.append(" sendRepEmail: ");
+        varBuf.append(sendRepEmail);
+        varBuf.append(" sendCandidateEmail: ");
+        varBuf.append(sendCandidateEmail);
+        varBuf.append(" createUserId: ");
+        varBuf.append(createUserId);
+
+        debugBuf.append("createSession called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -54,11 +75,11 @@ public class SessionBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
 
-            query.append("INSERT INTO session (session_id, " +
-                "session_profile_id, user_id, begin_time, end_time, " +
-                "send_rep_email, send_candidate_email, modify_date, " +
-                "create_date, create_user_id) " +
-                "values(?,?,?,?,?,?,?,?,?,?) ");
+            query.append("INSERT INTO session (session_id, " );
+            query.append("session_profile_id, user_id, begin_time, end_time, ");
+            query.append("send_rep_email, send_candidate_email, modify_date, ");
+            query.append("create_date, create_user_id) ");
+            query.append("VALUES(?,?,?,?,?,?,?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -76,22 +97,26 @@ public class SessionBean extends BaseEJB {
             pstmt.setBoolean(7,sendCandidateEmail);
             pstmt.setLong(10,createUserId);
 
-            int rowNum = pstmt.executeUpdate();
-            if (rowNum != sessionId)
-                throw new EJBException("row number does not match with primary key session id. row num:  "
-                        + rowNum + " sessionId: "
-                        + sessionId + " in createSession");
+            pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException creating Session sessionId: " + sessionId + " sessionProfileId: " + sessionProfileId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in createSession. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException creating Session sessionId: " + sessionId + " sessionProfileId: " + sessionProfileId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in createSession. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception creating Session sessionId: " + sessionId + " sessionProfileId: " + sessionProfileId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in createSession. ");
+            exceptionBuf.append(varBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createSession");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createSession");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createSession");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in createSession");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in createSession");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore){log.error("FAILED to close Context in createSession");}}
         }
         return sessionId;
     }
@@ -103,9 +128,21 @@ public class SessionBean extends BaseEJB {
      */
     public void setSessionProfileId(long sessionId, long sessionProfileId)
             throws RemoteException {
-        log.debug("setSessionProfileId called. sessionId: "
-            + sessionId + " sessionProfileId: " + sessionProfileId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
 
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+        varBuf.append(" sessionProfileId: ");
+        varBuf.append(sessionProfileId);
+
+        debugBuf.append("setSessionProfileId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+
+        // begin
         Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
@@ -114,8 +151,8 @@ public class SessionBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
 
-            query.append("UPDATE session set session_profile_id = ? where " +
-                     "session_id = ?");
+            query.append("UPDATE session SET session_profile_id = ? WHERE ");
+            query.append("session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -128,15 +165,24 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setSessionProfileId sessionProfileId: " + sessionProfileId + " sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setSessionProfileId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setSessionProfileId sessionProfileId: " + sessionProfileId + " sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in setSessionProfileId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setSessionProfileId sessionProfileId: " + sessionProfileId + " sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in setSessionProfileId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSessionProfileId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSessionProfileId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setSessionProfileId");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in setSessionProfileId");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in setSessionProfileId");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore){log.error("FAILED to close Context in setSessionProfileId");}}
         }
     }
 
@@ -147,8 +193,19 @@ public class SessionBean extends BaseEJB {
      */
     public void setUserId(long sessionId, long userId)
             throws RemoteException {
-        log.debug("setUserId called. sessionId: "
-                 + sessionId + " userId: " + userId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+        varBuf.append(" userId: ");
+        varBuf.append(userId);
+
+        debugBuf.append("setUserId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -158,8 +215,8 @@ public class SessionBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
 
-            query.append("UPDATE session set user_id = ? where " +
-                "session_id = ?");
+            query.append("UPDATE session SET user_id = ? WHERE ");
+            query.append("session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -172,15 +229,24 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setUserId sessionId: " + sessionId + " userId: " + userId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setUserId sessionId: " + sessionId + " userId: " + userId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in setUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setUserId sessionId: " + sessionId + " userId: " + userId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in setUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setUserId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setUserId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setUserId");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in setUserId");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in setUserId");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore){log.error("FAILED to close Context in setUserId");}}
         }
     }
 
@@ -192,8 +258,19 @@ public class SessionBean extends BaseEJB {
     public void setBeginTime(long sessionId, Date beginTime)
             throws RemoteException {
 
-        log.debug("setBeginTime called. sessionId: "
-            + sessionId + " beginTime: " + beginTime);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+        varBuf.append(" beginTime: ");
+        varBuf.append(beginTime.toString());
+
+        debugBuf.append("setBeginTime called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -202,9 +279,8 @@ public class SessionBean extends BaseEJB {
 
         try {
             StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE session set begin_time = ? where " +
-                "session_id = ?");
+            query.append("UPDATE session SET begin_time = ? WHERE ");
+            query.append("session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -217,14 +293,23 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setBeginTime sessionId: " + sessionId + " beginTime: " + beginTime);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setBeginTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setBeginTime sessionId: " + sessionId + " beginTime: " + beginTime);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in setBeginTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setBeginTime sessionId: " + sessionId + " beginTime: " + beginTime);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in setBeginTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setBeginTime");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setBeginTime");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in setBeginTime");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in setBeginTime");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setBeginTime");}}
         }
     }
@@ -236,8 +321,19 @@ public class SessionBean extends BaseEJB {
      */
     public void setEndTime(long sessionId, Date endTime)
             throws RemoteException {
-        log.debug("setEndTime called. sessionId: "
-            + sessionId + " beginTime: " + endTime);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+        varBuf.append(" endTime: ");
+        varBuf.append(endTime.toString());
+
+        debugBuf.append("setEndTime called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -245,10 +341,9 @@ public class SessionBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE session set end_time = ? where " +
-                "session_id = ?");
+            StringBuffer query = new StringBuffer(100);
+            query.append("UPDATE session SET end_time = ? WHERE ");
+            query.append("session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -261,15 +356,24 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setBeginTime sessionId: " + sessionId + " endTime: " + endTime);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setEndTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setBeginTime sessionId: " + sessionId + " endTime: " + endTime);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setEndTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setBeginTime sessionId: " + sessionId + " endTime: " + endTime);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setEndTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setBeginTime");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setBeginTime");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setBeginTime");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setEndTime");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setEndTime");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setEndTime");}}
        }
     }
 
@@ -280,8 +384,19 @@ public class SessionBean extends BaseEJB {
      */
     public void setSendRepEmail(long sessionId, boolean sendRepEmail)
             throws RemoteException {
-        log.debug("setSendRepEmail called. sessionId: "
-                 + sessionId + " sendRepEmail: " + sendRepEmail);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+        varBuf.append(" sendRepEmail: ");
+        varBuf.append(sendRepEmail);
+
+        debugBuf.append("setSendRepEmail called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -289,10 +404,9 @@ public class SessionBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE session set send_rep_email = ? where " +
-                "session_id = ?");
+            StringBuffer query = new StringBuffer(100);
+            query.append("UPDATE session SET send_rep_email = ? WHERE ");
+            query.append("session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -305,11 +419,20 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setSendRepEmail sessionId: " + sessionId + " sendRepEmail: " + sendRepEmail);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setSendRepEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setSendRepEmail sessionId: " + sessionId + " sendRepEmail: " + sendRepEmail);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in setSendRepEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setSendRepEmail sessionId: " + sessionId + " sendRepEmail: " + sendRepEmail);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in setSendRepEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSendRepEmail");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSendRepEmail");}}
@@ -324,8 +447,19 @@ public class SessionBean extends BaseEJB {
      */
     public void setSendCandidateEmail(long sessionId, boolean sendCandidateEmail)
             throws RemoteException {
-        log.debug("setSendRepEmail called. sessionId: "
-                 + sessionId + " sendCandidateEmail: " + sendCandidateEmail);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+        varBuf.append(" sendCandidateEmail: ");
+        varBuf.append(sendCandidateEmail);
+
+        debugBuf.append("setSendCandidateEmail called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -333,10 +467,9 @@ public class SessionBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE session set send_candidate_email = ? where " +
-                "session_id = ?");
+            StringBuffer query = new StringBuffer(100);
+            query.append("UPDATE session SET send_candidate_email = ? WHERE ");
+            query.append("session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -349,11 +482,20 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setSendCandidateEmail sessionId: " + sessionId + " sendCandidateEmail: " + sendCandidateEmail);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setSendCandidateEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setSendCanidateEmail sessionId: " + sessionId + " sendCandidateEmail: " + sendCandidateEmail);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in setSendCandidateEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setSendCanidateEmail sessionId: " + sessionId + " sendCandidateEmail: " + sendCandidateEmail);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in setSendCandidateEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSendRepEmail");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSendRepEmail");}}
@@ -368,8 +510,19 @@ public class SessionBean extends BaseEJB {
      */
     public void setCreateUserId(long sessionId, long createUserId)
             throws RemoteException {
-        log.debug("setSendRepEmail called. sessionId: "
-                 + sessionId + " createUserId: " + createUserId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+        varBuf.append(" createUserId: ");
+        varBuf.append(createUserId);
+
+        debugBuf.append("setCreateUserId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -377,10 +530,9 @@ public class SessionBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE session set create_user_id = ? where " +
-                "session_id = ?");
+            StringBuffer query = new StringBuffer(100);
+            query.append("UPDATE session SET create_user_id = ? WHERE ");
+            query.append("session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -393,11 +545,20 @@ public class SessionBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setCreateUserId sessionId: " + sessionId + " createUserId: " + createUserId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setCreateUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setCreateUserId sessionId: " + sessionId + " createUserId: " + createUserId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in setCreateUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in setCreateUserId sessionId: " + sessionId + " createUserId: " + createUserId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in setCreateUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setCreateUserId");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setCreateUserId");}}
@@ -412,7 +573,17 @@ public class SessionBean extends BaseEJB {
      */
     public long getSessionProfileId(long sessionId)
             throws RemoteException {
-        log.debug("getSessionProfileId called. sessionId: " + sessionId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+
+        debugBuf.append("getSessionProfileId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -423,8 +594,8 @@ public class SessionBean extends BaseEJB {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("SELECT session_profile_id from session where " +
-                "session_id = ?");
+            query.append("SELECT session_profile_id FROM session WHERE ");
+            query.append("session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -439,11 +610,20 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getSessionProfileId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in getSessionProfileId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getSessionProfileId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in getSessionProfileId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getSessionProfileId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in getSessionProfileId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSessionProfileId");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getSessionProfileId");}}
@@ -461,7 +641,17 @@ public class SessionBean extends BaseEJB {
      */
     public long getUserId(long sessionId)
             throws RemoteException {
-        log.debug("getUserId called. sessionId: " + sessionId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+
+        debugBuf.append("getUserId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -471,8 +661,8 @@ public class SessionBean extends BaseEJB {
         long userId = -1;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("SELECT user_id from session where session_id = ?");
+            StringBuffer query = new StringBuffer(100);
+            query.append("SELECT user_id FROM session WHERE session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -487,11 +677,20 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getUserId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in getUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getUserId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in getUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getUserId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in getUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getUserId");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getUserId");}}
@@ -509,7 +708,17 @@ public class SessionBean extends BaseEJB {
      */
     public Date getBeginTime(long sessionId)
             throws RemoteException {
-        log.debug("getBeginTime called. sessionId: " + sessionId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+
+        debugBuf.append("getBeginTime called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -519,8 +728,8 @@ public class SessionBean extends BaseEJB {
         Date beginTime = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("SELECT begin_time from session where session_id = ?");
+            StringBuffer query = new StringBuffer(100);
+            query.append("SELECT begin_time FROM session WHERE session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -535,11 +744,20 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getBeginTime sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in getBeginTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getBeginTime sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in getBeginTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getBeginTime sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in getBeginTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getBeginTime");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getBeginTime");}}
@@ -557,7 +775,17 @@ public class SessionBean extends BaseEJB {
      */
     public Date getEndTime(long sessionId)
             throws RemoteException {
-        log.debug("getEndTime called. sessionId: " + sessionId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+
+        debugBuf.append("getEndTime called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -567,7 +795,7 @@ public class SessionBean extends BaseEJB {
         Date endTime = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(100);
             query.append("SELECT end_time from session where session_id = ?");
 
             ctx = new InitialContext();
@@ -583,11 +811,20 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getEndTime sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in getEndTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getEndTime sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in getEndTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getEndTime sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in getEndTime. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getEndTime");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getEndTime");}}
@@ -605,7 +842,17 @@ public class SessionBean extends BaseEJB {
      */
     public boolean getSendRepEmail(long sessionId)
             throws RemoteException {
-        log.debug("getSendRepEmail called. sessionId: " + sessionId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+
+        debugBuf.append("getSendRepEmail called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -616,7 +863,8 @@ public class SessionBean extends BaseEJB {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("SELECT send_rep_email from session where session_id = ?");
+            query.append("SELECT send_rep_email FROM session ");
+            query.append("WHERE session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -631,11 +879,20 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getSendRepEmail sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in getSendRepEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getSendRepEmail sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in getSendRepEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getSendRepEmail sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in getSendRepEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSendRepEmail");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getSendRepEmail");}}
@@ -653,7 +910,17 @@ public class SessionBean extends BaseEJB {
      */
     public boolean getSendCandidateEmail(long sessionId)
             throws RemoteException {
-        log.debug("getSendCandidateEmail called. sessionId: " + sessionId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+
+        debugBuf.append("getSendCandidateEmail called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -663,8 +930,9 @@ public class SessionBean extends BaseEJB {
         boolean sendCandidateEmail = false;
 
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("SELECT send_candidate_email from session where session_id = ?");
+            StringBuffer query = new StringBuffer(100);
+            query.append("SELECT send_candidate_email FROM session ");
+            query.append("WHERE session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -679,11 +947,20 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getSendCandidateEmail sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in getSendCandidateEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getSendCandidateEmail sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in getSendCandidateEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getSendCandidateEmail sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in getSendCandidateEmail. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSendCandidateEmail");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getSendCandidateEmail");}}
@@ -701,7 +978,17 @@ public class SessionBean extends BaseEJB {
      */
     public long getCreateUserId(long sessionId)
             throws RemoteException {
-        log.debug("getCreateUserId called. sessionId: " + sessionId);
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+
+        debugBuf.append("getCreateUserId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
 
         Context ctx = null;
         PreparedStatement pstmt = null;
@@ -712,7 +999,8 @@ public class SessionBean extends BaseEJB {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("SELECT create_user_id from session where session_id = ?");
+            query.append("SELECT create_user_id FROM session ");
+            query.append("WHERE session_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -727,11 +1015,20 @@ public class SessionBean extends BaseEJB {
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getCreateUserId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in getCreateUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (NamingException e) {
-            throw new EJBException("NamingException in getCreateUserId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("NamingException in getCreateUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
-            throw new EJBException("Exception in getCreateUserId sessionId: " + sessionId);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in getCreateUserId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getCreateUserId");}}
             if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getCreateUserId");}}

@@ -48,11 +48,10 @@ public class NoteBean extends BaseEJB {
         long noteId = 0;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("INSERT INTO note (note_id, " +
-                "text, submitted_by, note_type_id, modify_date, create_date) "
-                + "values(?,?,?,?,?,?) ");
+            StringBuffer query = new StringBuffer(180);
+            query.append("INSERT INTO note (note_id, text, submitted_by, ");
+            query.append("note_type_id, modify_date, create_date) ");
+            query.append("VALUES(?,?,?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -103,10 +102,8 @@ public class NoteBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE note set text = ? where " +
-                "note_id = ?");
+            StringBuffer query = new StringBuffer(60);
+            query.append("UPDATE note set text = ? where note_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -148,10 +145,8 @@ public class NoteBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE note set submitted_by = ? where " +
-                "note_id = ?");
+            StringBuffer query = new StringBuffer(60);
+            query.append("UPDATE note set submitted_by = ? where note_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -193,10 +188,8 @@ public class NoteBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            StringBuffer query = new StringBuffer();
-
-            query.append("UPDATE note set note_type_id = ? where " +
-                "note_id = ?");
+            StringBuffer query = new StringBuffer(60);
+            query.append("UPDATE note set note_type_id = ? where note_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -239,7 +232,7 @@ public class NoteBean extends BaseEJB {
         String text = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(60);
             query.append("SELECT text from note where note_id = ?");
 
             ctx = new InitialContext();
@@ -288,7 +281,7 @@ public class NoteBean extends BaseEJB {
         long submittedBy = -1;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(60);
             query.append("SELECT submitted_by from note where note_id = ?");
 
             ctx = new InitialContext();
@@ -337,7 +330,7 @@ public class NoteBean extends BaseEJB {
         int noteTypeId = -1;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(60);
             query.append("SELECT note_type_id from note where note_id = ?");
 
             ctx = new InitialContext();
@@ -386,7 +379,7 @@ public class NoteBean extends BaseEJB {
         String noteTypeDesc = null;
 
         try {
-            StringBuffer query = new StringBuffer();
+            StringBuffer query = new StringBuffer(60);
             query.append("SELECT note_type_desc from note where note_id = ?");
 
             ctx = new InitialContext();
