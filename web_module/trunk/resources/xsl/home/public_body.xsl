@@ -11,6 +11,8 @@
   <xsl:import href="../includes/modules/coder_week2.xsl"/>
   <xsl:import href="../includes/modules/top_10_coders2.xsl"/>
   <xsl:import href="../includes/modules/top_10_schools.xsl"/>
+  <xsl:import href="../includes/modules/top_5_states.xsl"/>
+  <xsl:import href="../includes/modules/top_5_countries.xsl"/>
   <xsl:import href="../includes/modules/round_table.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/module_login.xsl"/>
@@ -23,7 +25,6 @@
   <xsl:template name="PublicBody">
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-    <tr><td valign="top" colspan="3"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 <!-- Left Column Begins -->
         <tr valign="top">
@@ -387,16 +388,20 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td valign="top" class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0" /><br />
+        <td valign="top" class="statText" width="244" bgcolor="#001935">
 
 <!--SRM Sponsor Starts-->
-            <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0" /><br />
+            <img src="/i/es/srmanimation_home.gif" alt="" width="244" height="142" border="0" usemap="#srmanimation_home" /><br />
             <map name="srmanimation_home">
              <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" /> 
                <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> --> 
                 <area shape="poly" alt="SRM Match 143" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4505&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
+
+<!-- Coder of the Month Begins -->
+            <a href="/stat?c=member_profile&amp;cr=285916"><img src="/i/codermonth_mar03.gif" alt="Coder of the Month" width="244" height="119" border="0" /></a><br />
+<!-- Coder of the Month ends -->
 
 <!-- TCES Quote Begins
             <map name="tcesMap">
@@ -407,10 +412,8 @@
  TCES Quote Ends -->
 
 <!-- TCS Promo Begins -->
-            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
             <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
-
-            <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="133" /></a><br />
+            <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="113" /></a><br />
 <!-- Comment out until contest is under way
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
             <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
@@ -516,71 +519,18 @@
             </table>  -->
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
-                <tr valign="top"><td height="17" class="moduleTitle" bgcolor="#333333"><img src="/i/module_labels_10_coders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>
-                <tr><td><img src="/i/clear.gif" width="1" height="3" border="0" /></td></tr>
+                <tr valign="top"><td height="17" class="moduleTitle" bgcolor="#093158"><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>
+                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
             </table>
 
-<xsl:call-template name="top_10_schools"/>
-<xsl:call-template name="top_10_coders"/>
-
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
-                <tr>
-                    <td align="left" class="statText"><img src="/i/clear.gif" width="20" height="4" border="0" /></td>
-                    <td></td>
-                    <td></td>
-                    <td align="left" class="statText"><img src="/i/clear.gif" width="10" height="4" border="0" /></td>
-                </tr>
-
-                <tr><td align="center" class="statText" colspan="4">More Leaders</td></tr>
-
-                <tr>
-                    <td></td>
-                    <td align="left" class="statText">Coders</td>
-                    <td align="right"><a href="/stat?c=coder_ratings" class="statText">view all</a></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td align="left" class="statText">Schools</td>
-                    <td align="right"><a href="/stat?c=school_avg_rating" class="statText">view all</a></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td align="left" class="statText">States</td>
-                    <td align="right"><a href="/stat?c=state_avg_rating" class="statText">view all</a></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td align="left" class="statText">Countries</td>
-                    <td align="right"><a href="/stat?c=country_avg_rating" class="statText">view all</a></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td align="left" class="statText"><img src="/i/clear.gif" width="20" height="10" border="0" /></td>
-                    <td></td>
-                    <td></td>
-                    <td align="left" class="statText"><img src="/i/clear.gif" width="10" height="10" border="0" /></td>
-                </tr>
-            </table>
-
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr>
-                    <td align="left" class="statText"><img src="/i/clear.gif" width="20" height="10" border="0" /></td>
-                    <td></td>
-                    <td></td>
-                    <td align="left" class="statText"><img src="/i/clear.gif" width="10" height="10" border="0" /></td>
-                </tr>
-            </table>
+            <xsl:call-template name="top_10_coders" />
+            <xsl:call-template name="top_10_schools" />
+            <xsl:call-template name="top_5_states" />
+            <xsl:call-template name="top_5_countries" />
 
 <!-- Statistics Begins -->
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
-                <tr><td colspan="3" bgcolor="#333333"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
+                <tr><td colspan="3" bgcolor="#093158"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
                 <tr>
                     <td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0" /></td>
                     <td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td>
@@ -597,12 +547,6 @@
                 <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
             </table>
 <!-- Statistics Ends -->
-
-<!-- Coder of the Month Begins -->
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td><a href="/stat?c=member_profile&amp;cr=285916"><img src="/i/codermonth_mar03.gif" alt="Coder of the Month" width="244" height="149" vspace="10" border="0" /></a></td></tr>
-            </table>
-<!-- Coder of the Month ends -->
         </td>
     </tr>
 </table>

@@ -22,8 +22,6 @@
   <xsl:template name="MemberBody">
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-    <tr><td width="1" colspan="5"><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#000000">
@@ -661,11 +659,10 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br />
-
+        <td valign="top" class="statText" width="244" bgcolor="#001935">
 
 <!--SRM Sponsor Starts-->
-            <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0" /><br />
+            <img src="/i/es/srmanimation_home.gif" alt="" width="244" height="142" border="0" usemap="#srmanimation_home" /><br />
             <map name="srmanimation_home">
              <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" /> 
                <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> --> 
@@ -673,6 +670,9 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
             </map>
 <!--SRM Sponsor Ends-->
 
+<!-- Coder of the Month Begins -->
+            <a href="/stat?c=member_profile&amp;cr=285916"><img src="/i/codermonth_mar03.gif" alt="Coder of the Month" width="244" height="119" border="0" /></a><br />
+<!-- Coder of the Month ends -->
 
 <!-- TCES Quote Begins
             <map name="tcesMap">
@@ -683,10 +683,8 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
  TCES Quote Ends -->
 
 <!-- TCS Promo Begins -->
-            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
             <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
-
-            <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="133" /></a><br />
+            <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="113" /></a><br />
 <!-- Comment out until contest is under way
             <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
             <a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
@@ -791,21 +789,20 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                 <tr><td><img src="/i/clear.gif" alt="" width="1" height="6" border="0" /></td></tr>
             </table>  -->
 
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" valign="top" bgcolor="#001935">
-                <tr><td height="17" class="moduleTitle" bgcolor="#333333"><img src="/i/module_labels_10_coders.gif" alt="Competition Leaders" width="244" height="20" border="0"/></td></tr>
-                <tr><td><img src="/i/clear.gif" width="1" height="3" border="0"/></td></tr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
+                <tr valign="top"><td height="17" class="moduleTitle" bgcolor="#093158"><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>
+                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
             </table>
 
-      <xsl:choose>
-        <xsl:when test="number(/TC/Rating)&lt;1200">
-          <xsl:call-template name="top_scorers"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
-        </xsl:when>
+            <xsl:choose>
+                <xsl:when test="number(/TC/Rating)&lt;1200">
+                    <xsl:call-template name="top_scorers"><xsl:with-param name="division">2</xsl:with-param></xsl:call-template>
+                </xsl:when>
 
-        <xsl:otherwise>
-
-        <xsl:call-template name="top_scorers"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
-        </xsl:otherwise>
-      </xsl:choose>
+                <xsl:otherwise>
+                    <xsl:call-template name="top_scorers"><xsl:with-param name="division">1</xsl:with-param></xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
@@ -818,7 +815,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 
 <!-- Statistics Begins -->
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
-                <tr><td colspan="3" bgcolor="#333333"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
+                <tr><td colspan="3" bgcolor="#001935"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
                 <tr>
                     <td rowspan="5"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
                     <td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td>
@@ -828,7 +825,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                 <tr><td><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
                 <tr><td class="quickstatText" valign="top">
 
-                <xsl:call-template name="quick_stats_pulldown"/>
+                            <xsl:call-template name="quick_stats_pulldown"/>
 
                     </td>
                 </tr>
@@ -836,11 +833,6 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
             </table>
 <!-- Statistics Ends -->
 
-<!-- Coder of the Month Begins -->
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td><a href="/stat?c=member_profile&amp;cr=285916"><img src="/i/codermonth_mar03.gif" alt="Coder of the Month" width="244" height="149" vspace="10" border="0" /></a></td></tr>
-            </table>
-<!-- Coder of the Month ends -->
         </td>
     </tr>
 </table>
