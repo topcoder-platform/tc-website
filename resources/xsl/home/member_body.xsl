@@ -394,7 +394,7 @@
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
                             <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 137</strong></a><br />
-                            Thurasday, March 6, 2003<br /><br />
+                            Thursday, March 6, 2003<br /><br />
                         </td>
                     </tr>
 
