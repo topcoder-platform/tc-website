@@ -241,6 +241,38 @@ A:active
 	text-decoration: none;
 }
 
+.bigRed
+{
+	color: #FF0000;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+A.bigRed:link
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+A.bigRed:visited
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+A.bigRed:hover
+{
+	color: #990000;
+	text-decoration: underline;
+}
+
+A.bigRed:active
+{
+	color: #FF0000;
+	text-decoration: underline;
+}
+
 .body
 {
 	background: #FFF;
