@@ -173,6 +173,12 @@
       <td>&#160;&#160;&#160;</td>
       <td><rsc:item name="member_since" row="<%=p%>"/></td>
     </tr>
+    <tr>
+      <td>Default Language</td>
+      <td>&#160;&#160;&#160;</td>
+      <td><rsc:item name="language_name" row="<%=p%>"/></td>
+    </tr>
+
 
 
     <tr><td><br/></td></tr>
