@@ -43,7 +43,6 @@
            <jsp:param name="image1" value="white"/>  
            <jsp:param name="title" value="Components"/>  
         </jsp:include>
-        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
 
             <p><h2 align="left">Review opportunities currently available!</h2></p>
 
