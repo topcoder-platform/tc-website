@@ -21,8 +21,8 @@ public class TCO04AlgorithmTerms extends TermsBase {
 
     public Calendar getBeginning() {
         Calendar beginning = Calendar.getInstance();
-        beginning.set(2004, Calendar.AUGUST, 9, 9, 0);
-        //beginning.set(2004, Calendar.JULY, 9, 9, 0);
+        //beginning.set(2004, Calendar.AUGUST, 9, 9, 0);
+        beginning.set(2004, Calendar.JULY, 9, 9, 0);
         return beginning;
     }
 
