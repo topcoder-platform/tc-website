@@ -73,17 +73,17 @@
 
 
                 <tr valign="top">
-                    <td class="formTextOdd" colspan="4">Single Sign-On (SSO) v1.0</td>
+                    <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO) v1.0</a></td>
                  </tr>
                 <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;<a href="?&amp;t=development&amp;c=single_sign_on_v10_des">Security Server</a></td>
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server</td>
                     <td class="formTextOdd" align="center">$3,306</td>
                     <td class="formTextOdd" align="center">$1,005</td>
                     <td class="formTextOdd" align="center">11/4 6:00 PM ET</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formTextOdd">&#160;&#160;&#160;&#160;<a href="?&amp;t=development&amp;c=single_sign_on_v10_des">Application Authentication Project</a></td>
+                    <td class="formTextOdd">&#160;&#160;&#160;&#160;Application Authentication</td>
                     <td class="formTextOdd" align="center">$2,826</td>
                     <td class="formTextOdd" align="center">$855</td>
                     <td class="formTextOdd" align="center">11/4 6:00 PM ET</td>
