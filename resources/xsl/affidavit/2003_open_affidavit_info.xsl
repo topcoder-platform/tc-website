@@ -61,19 +61,22 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+                        <p><font color="#CC0000"><strong>IMPORTANT INFORMATION NEEDED</strong></font></p><br/><br/>
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
                             Congratulations on your performance in the 2003 TopCoder Open Sponsored by Intel&#174;!
-                            You are eligible for a cash award of at least $25. IF WE DO NOT RECEIVE ALL OF THE
+                            You are eligible for a cash award of at least $25, however we must receive the documents
+                            below for you to collect your prize. IF WE DO NOT RECEIVE ALL OF THE
                             APPROPRIATE ITEMS BELOW BY MIDNIGHT, EASTERN TIME, WEDNESDAY, NOVEMBER 12th, YOU
                             WILL FORFEIT YOUR PRIZE.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
                         </p>
 
-                        <p><strong>To be completed by everyone:</strong></p>
+                        <p><strong>A.  To be completed by everyone:</strong></p>
 
-                        <blockquote>
-                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Midnight, Eastern Time, Wednesday, November 12th</p>
+                            <ol>
+                                <li>
+                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Midnight, Eastern Time, Wednesday, November 12th.</p>
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
@@ -87,11 +90,15 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 </p>
+                                </li>
+                                <li>
                                 <p>
-                                    <strong>2003 TOPCODER OPEN QUESTIONNAIRE</strong> - Form must be completed by Midnight, Eastern Time, Wednesday, Novemeber 12th:
+                                    <strong>2003 TOPCODER OPEN QUESTIONNAIRE</strong> - Form must be completed and submitted by Midnight, Eastern Time, Wednesday, Novemeber 12th:
                                     View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=201">2003 TopCoder Open Questionnaire</a>.  Complete ALL questions.
                                 </p>
-                                <p><strong>TAX FORM</strong> - must be postmarked on or before Midnight, Eastern Time, Wednesday, November 12th:</p>
+                                </li>
+                                <li>
+                                <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before Midnight, Eastern Time, Wednesday, November 12th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) to the address below.  If you don't know the form
@@ -109,13 +116,17 @@
                                         We already have your tax form on file.  You do NOT need to complete and return another form.
                                     </xsl:otherwise>
                                 </xsl:choose>
-                            </blockquote>
-                            <p><strong>To be completed only by those who will be traveling to the onsite semifinal rounds on December 4th and 5th in Uncasville, CT in the USA.</strong></p>
-                            <blockquote>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed by Midnight, Eastern Time, Wednesday, November 12th:</p>
+                                </li>
+                            </ol>
+                            <p><strong>B. To be completed only by those who will be traveling to the onsite semifinal rounds on December 4th and 5th in Uncasville, CT in the USA.</strong></p>
+                            <ol>
+                                <li>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by Midnight, Eastern Time, Wednesday, November 12th:</p>
 
                                 <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
+                                </li>
 
+                                <li>
                                 <p><strong>HEAD SHOT</strong> - must be emailed by Midnight, Eastern Time, November, November 12th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
@@ -126,7 +137,8 @@
                                         We have a head shot on file. If you'd like to change it click <a><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> RE-SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute>here</a>
                                     </xsl:otherwise>
                                 </xsl:choose>
-                            </blockquote>
+                                </li>
+                            </ol>
                         <div align="center">
                             TopCoder Attn: Tom Longo<br/>
                             703 Hebron Avenue<br/>
