@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 public class Results extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
-        if (isTournamentSurvey()) {
+        if (questionInfo.isEmpty()) {
             setNextPage(Constants.SURVEY_THANKS);
             setIsNextPageInContext(true);
         } else {
@@ -52,17 +52,5 @@ public class Results extends SurveyData {
         }
         return questionList;
     }
-
-    protected final boolean isTournamentSurvey() {
-        Question q = null;
-        boolean found = false;
-        for (Iterator it = questionInfo.iterator(); it.hasNext()&&!found;) {
-            q = (Question) it.next();
-            found |= q.getTypeId() == Constants.TOURNAMENT_SURVEY_QUESTION;
-        }
-        return found;
-    }
-
-
 
 }
