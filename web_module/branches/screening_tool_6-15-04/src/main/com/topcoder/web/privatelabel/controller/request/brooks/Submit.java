@@ -331,13 +331,14 @@ public class Submit extends FullRegSubmit {
                 buf.append("/corp/testing/testingApp.jsp?company=");
                 buf.append(companyId);
                 buf.append("\n\n");
+                buf.append("If you encounter any technical problems while using the Technical Assessment Tool, please contact us at brooks@topcoder.com.\n\n");
                 buf.append("Thank you,\n\n");             
                 buf.append("Brooks Automation Private Limited\n");
                 buf.append("Chennai, India");
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-                mail.setFromAddress("service@topcoder.com", "Brooks Automation Private Limited, Chennai");
+                mail.setFromAddress("brooks@topcoder.com", "Brooks Automation Private Limited, Chennai");
                 EmailEngine.send(mail);
                 
                 //ut.commit();
