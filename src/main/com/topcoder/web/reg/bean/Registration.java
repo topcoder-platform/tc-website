@@ -1696,15 +1696,6 @@ public class Registration
         CoderType coderType = new CoderType();
         coderType.setCoderTypeId(Integer.parseInt(this.coderType));
         coder.setCoderType(coderType);
-        ArrayList a = new ArrayList();
-        CoderConfirmation c = new CoderConfirmation();
-        c.setCode(getSunConfirm());
-        c.setContestId(SUN_CONTEST_ID);
-        try {
-          log.debug("sun confirm\n" + c.getXML().getXML(2));
-        } catch (Exception e) { e.printStackTrace();}
-        a.add(c);
-        coder.setCoderConfirmations(a);
         if (isRegister())
         {
             user.setTerms((terms.equalsIgnoreCase(CHECKBOX_YES)?"Y":"N"));
@@ -1836,6 +1827,31 @@ public class Registration
             currentSchool.setUserId ( coder.getCoderId() );
             currentSchool.setSchoolId ( schoolId );
             currentSchool.setName ( getSchoolName(schoolId) );
+        }
+
+
+        ArrayList a = coder.getCoderConfirmations();
+        boolean found = false;
+        for (int i=0; i<a.size(); i++) {
+          CoderConfirmation c = (CoderConfirmation)a.get(i);
+          if (c.getContestId() == SUN_CONTEST_ID) {
+            log.debug("XXX we found it, updated sun confirm code to " + getSunConfirm());
+            c.setModified("U");
+            c.setCode(getSunConfirm());
+            found = true;
+          }
+        }
+        if (!found) {
+          CoderConfirmation c = new CoderConfirmation();
+          c.setCode(getSunConfirm());
+          log.debug("XXX getSunConfirm: " + getSunConfirm());
+          log.debug("XXX getCode: " + c.getCode());
+          c.setContestId(SUN_CONTEST_ID);
+          c.setModified("A");
+          try {
+            log.debug("XXX sun confirm\n" + c.getXML().getXML(2));
+          } catch (Exception e) { e.printStackTrace();}
+          a.add(c);
         }
 
        
