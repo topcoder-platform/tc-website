@@ -109,24 +109,24 @@
             </table>
 
 <!-- Component Design Projects begin -->
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
+            <table class="formFrame" cellspacing="0" cellpadding="3" width="100%">
                     <xsl:if test="/TC/DEVELOPMENT/multiplier/status/phase=$design-phase">
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="7"><a name="design"></a><font size="3"><strong>Component Design Multiplier Status</strong></font></td></tr>
+                <tr valign="middle"><td class="projectTitles" colspan="7"><a name="design"></a>Component Design Multiplier Status</td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" width="35" class="statTextLarge" align="center">Catalog</td>
-                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Designer</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Design<br />Rating</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Inquiry<br />Date</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submission<br />Date</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Multiplier</td>
+                    <td width="35" class="projectHeaders" align="center">Catalog</td>
+                    <td width="30%" class="projectHeaders">Design Projects</td>
+                    <td class="projectHeaders" align="center">Designer</td>
+                    <td class="projectHeaders" align="center">Design<br />Rating</td>
+                    <td class="projectHeaders" align="center">Inquiry<br />Date</td>
+                    <td class="projectHeaders" align="center">Submission<br />Date</td>
+                    <td class="projectHeaders" align="center">Multiplier</td>
                 </tr>
 
 
                 <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status">
                         <tr>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center">
                             <xsl:choose>
                                <xsl:when test="./root_category_id = 5801776">
                                   <img src="/i/development/smJava.gif"/>
@@ -136,7 +136,7 @@
                                </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td class="formTextOdd" >
+                            <td class="projectCells" >
                                 <a target="_new">
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
@@ -146,8 +146,8 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./user_id"/></td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center"><xsl:value-of select="./user_id"/></td>
+                            <td class="projectCells" align="center">
                             <xsl:choose>
                                 <xsl:when test="./rating != ''">
                                    <xsl:value-of select="./rating"/>
@@ -157,8 +157,8 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center" nowrap="0"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center" nowrap="0">
                             <xsl:choose>
                                 <xsl:when test="./submission_date != ''">
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
@@ -169,17 +169,14 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td>
-                                 <CENTER>
+                            <td class="projectCells">
                                     <xsl:if test="./submission_date = ./min_sub_date and not(./submission_date='')">
-                                        <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0" />
-        			    </xsl:if>
-                                 </CENTER>
+                                        <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0" />
+                    			    </xsl:if>
                             </td>
                         </tr>
                 </xsl:for-each>
 
-                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 <!-- Component Design Projects ends -->
                     </xsl:if>
 
@@ -188,18 +185,18 @@
                 <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="7"><a name="development"></a><font size="3"><strong>Component Development Multiplier Status</strong></font></td></tr>
 
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" width ="35" class="statTextLarge" align="center">Catalog</td>
-                    <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Development Projects</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Developer</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Developer<br />Rating</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Inquiry<br />Date</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Submission<br />Date</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" align="center">Multiplier</td>
+                    <td width ="35" class="projectHeaders" align="center">Catalog</td>
+                    <td width="30%" class="projectHeaders">Development Projects</td>
+                    <td class="projectHeaders" align="center">Developer</td>
+                    <td class="projectHeaders" align="center">Developer<br />Rating</td>
+                    <td class="projectHeaders" align="center">Inquiry<br />Date</td>
+                    <td class="projectHeaders" align="center">Submission<br />Date</td>
+                    <td class="projectHeaders" align="center">Multiplier</td>
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status">
                         <tr>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center">
                             <xsl:choose>
                                <xsl:when test="./root_category_id = 5801776">
                                   <img src="/i/development/smJava.gif"/>
@@ -210,7 +207,7 @@
                             </xsl:choose>
                             </td>
 
-                            <td class="formTextOdd" >
+                            <td class="projectCells" >
                                 <a target="_new">
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
@@ -220,8 +217,8 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:value-of select="./user_id"/></td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center"><xsl:value-of select="./user_id"/></td>
+                            <td class="projectCells" align="center">
                             <xsl:choose>
                                 <xsl:when test="./rating != ''">
                                    <xsl:value-of select="./rating"/>
@@ -231,8 +228,8 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
-                            <td class="formTextOdd" align="center">
+                            <td class="projectCells" align="center" nowrap="0"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="inquiry_date"/></xsl:call-template></td>
+                            <td class="projectCells" align="center" nowrap="0">
                             <xsl:choose>
                                 <xsl:when test="./submission_date != ''">
                                     <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="submission_date"/></xsl:call-template>
@@ -242,12 +239,10 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td>
-                                 <CENTER>
+                            <td class="projectCells">
                                     <xsl:if test="./submission_date = ./min_sub_date and not(./submission_date='')">
-                                        <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0" />
-        			    </xsl:if>
-                                 </CENTER>
+                                        <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0" />
+                    			    </xsl:if>
                             </td>
                         </tr>
                 </xsl:for-each>
