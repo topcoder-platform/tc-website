@@ -87,7 +87,7 @@
 
             <p>Prizewinners will be notified via e-mail within 10 days of the completion of the Online Round #4 that
             they have won a prize.  Any prizewinner claiming a cash prize must complete and return the following
-            documents to TopCoder by Tuesday, October 28th:</p>
+            documents to TopCoder by Tuesday, November 12th:</p>
 
             <ul>
                 <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless you already have a
@@ -108,7 +108,7 @@
             registration form to register for the tournament. In order to be eligible to participate in the tournament, you must
             have completed any and all registration forms required by TopCoder.</p>
 
-            <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Tuesday, October 28th a
+            <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Tuesday, November 12th a
             completed (i) notarized Affidavit of Eligibility and Liability and Publicity Release, (ii) competitor questionnaire,
             (iii) travel form, and (iv) IRS Form W-9 or W-8BEN, as appropriate, if one is not already on file with TopCoder.
             In completing the Affidavit of Eligibility and Liability and Publicity Release, a winner (i) confirms his/her
