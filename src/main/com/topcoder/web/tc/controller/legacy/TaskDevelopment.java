@@ -44,7 +44,6 @@ import java.util.Map;
 
 public final class TaskDevelopment {
 
-
     private static final String XSL_DIR = TCServlet.XSL_ROOT + "development/";
     private static Logger log = Logger.getLogger(TaskDevelopment.class);
 

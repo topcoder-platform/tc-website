@@ -6,6 +6,8 @@ import java.rmi.RemoteException;
 
 public interface ComponentRegistrationServices extends EJBObject {
 
+    public static final int COMPONENT_REGISTRATION_LENGTH = 2;
+
     boolean isUserRegistered(long projectId, long userId, String dataSource) throws RemoteException, EJBException;
 
     boolean isRegClosed(long projectId, String dataSource) throws RemoteException, EJBException;
