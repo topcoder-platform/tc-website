@@ -49,6 +49,7 @@ public class Test extends Base {
             int i=0;
             do {
                 arg = getRequest().getParameter(CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+i);
+                log.debug("arg " + i + " is " + arg);
                 arguments.add(arg);
                 i++;
             } while (arg!=null);
