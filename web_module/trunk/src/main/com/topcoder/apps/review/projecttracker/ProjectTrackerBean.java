@@ -2734,7 +2734,7 @@ public class ProjectTrackerBean implements SessionBean {
     public void finalizeScores(long projectId) throws Exception, RemoteException {
         final String retrieveScores =
                 " SELECT cvd.phase_id ," +
-                "        level_id," +
+                "        cvd.level_id," +
                 "        p.comp_vers_id," +
                 "        DECODE(p.project_type_id, 1, 112, 2, 113) phase," +
                 "        price, " +
@@ -2791,7 +2791,7 @@ public class ProjectTrackerBean implements SessionBean {
                 "   AND p.project_id = ?" +
                 "   AND pi.phase_id = 1" +
                 " GROUP BY cvd.phase_id, " +
-                "          level_id, " +
+                "          cvd.level_id, " +
                 "          p.comp_vers_id," +
                 "          4," +
                 "          price," +
