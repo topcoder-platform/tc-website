@@ -92,7 +92,7 @@ function openWin(url, name, w, h) {
             <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
 
       <h2>Registration</h2>
-      <table cellpadding="1" cellspacing="3" class="bodyText" align="center">
+      <table cellpadding="1" cellspacing="3" class="bodyText" align="center" width="100%">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -103,10 +103,10 @@ function openWin(url, name, w, h) {
                 </td>
             </tr>
             <tr>
-                <td align="right" width="49%">
+                <td align="right">
                     Student/Professional
                 </td>
-                <td align="left" width="49%">
+                <td align="left" width="100%">
                     Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
@@ -119,7 +119,7 @@ function openWin(url, name, w, h) {
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">
+                    <td align="right" nowrap>
                         <%=question.getText()%>
                     </td>
                     <td align="left">
