@@ -68,6 +68,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">August 28</td>
+                                <td valign="middle" class="bodyText">Yarin</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_082803" class="bodyText">A Crash Course in the C++ STL</A></td>
+                            </tr>
+                            
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">July 29</td>
                                 <td valign="middle" class="bodyText">Pops</td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_072903" class="bodyText">The TopCoder Design Contest #2</A></td>
