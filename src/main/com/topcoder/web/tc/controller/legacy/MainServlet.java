@@ -97,16 +97,6 @@ public final class MainServlet extends BaseServlet {
         String requestCommand = null;
         boolean responseWritten = false;
         try {
-            //just trying to protect against invalid requests getting to the
-            //app server.  currently, we don't have a way to stop this ad the web
-            //server layer.
-            if (ApplicationServer.PROD == ApplicationServer.ENVIRONMENT) {
-                if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME)) {
-                    log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
-                    throw new NavigationException("Invalid Request - Wrong Server Name");
-                }
-            }
-
             // CHECK FOR SESSION TIMEOUT
             if (request.isRequestedSessionIdValid() == false && request.getRequestedSessionId() != null) {
                 timedOut = true;
