@@ -74,17 +74,9 @@ public class Registration
     public static final String REFERRAL_OTHER = "referralOther";
     public static final String DEMO_PREFIX = Demographic.PREFIX;
     public static final String DESC_PREFIX = Demographic.DESC_PREFIX;
-    //public static final String ORGANIZATION = "organization";
-    //public static final String ORGANIZATION_OTHER = "organizationOther";
     public static final String SCHOOL = "school";
     public static final String SCHOOL_STATE = "schoolState";
     public static final String SCHOOL_NAME = "schoolName";
-
-    //////// school info now tracked by demographics and currentSchool ////
-    // public static final String MAJOR = "major";
-    // public static final String DEGREE = "degree";
-    // public static final String GRADUATION_YEAR = "graduationYear";
-    ///////////////////////////////////////////////////////////////////////
     
     // step 3 attributes
     public static final String REGISTER = "register"; // error only
@@ -164,14 +156,6 @@ public class Registration
     protected String school;
     protected String schoolName;
     protected String code;
-    //// replced by demographics info ////
-    // protected String organizationOther;
-    // protected String organization;
-    // protected String major;
-    // protected String degree;
-    // protected String graduationYear;
-    //////////////////////////////////////
-
     
     public Registration()
     {
@@ -208,7 +192,6 @@ public class Registration
             coderType = "";
             terms = "";
             referral = "";
-            //referral = Integer.toString(CAMPUS_JOB_FAIR_REFERRAL);
             referralChanged = false;
             referralInterfaceChanged = false;
             referralSchoolState = "";
@@ -220,14 +203,6 @@ public class Registration
             school = "";
             schoolName = "";
             code = "";
-            /// replaced by demographics ///
-            // organization = "";
-            // organizationOther = "";
-            // major = "";
-            // degree = "";
-            // graduationYear = "";
-            /// replaced by demographics ///
-
             resetUser();
         }
         else
@@ -251,7 +226,7 @@ public class Registration
         if (user == null || user.getUserId() == 0) return;
 
         Log.msg(VERBOSE,"loading User data");
-        /*
+      /*
         Context context;
         try
         {
@@ -274,7 +249,7 @@ public class Registration
                 }
             }
         }
-        */
+      */
         
         CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get(CODER);
         firstName = checkNull(coder.getFirstName());
@@ -314,7 +289,6 @@ public class Registration
                 DemographicAssignment assignment = (DemographicAssignment) assignments.get(i);
                 DemographicQuestion question = assignment.getDemographicQuestion();
                 String questionId = Integer.toString(question.getDemographicQuestionId());
-                //DemographicResponse response = getDemographicResponse(coder.getDemographicResponses(),question.getDemographicQuestionId());
                 ArrayList responseList = getDemographicResponses ( coder.getDemographicResponses(), question.getDemographicQuestionId() );
                 if (responseList != null)
                 {
@@ -402,7 +376,13 @@ public class Registration
             
             if (!isNumber(this.language)) addError(LANGUAGE,"Please choose a default programming language.");
 
-            if (!isNumber(this.coderType) || !(coderType.equals(CODER_TYPE_STUDENT) || coderType.equals(CODER_TYPE_PROFESSIONAL))) addError(CODER_TYPE,"Please choose one.");
+            if (
+              ! isNumber ( this.coderType ) 
+              || ! (
+                coderType.equals ( CODER_TYPE_STUDENT ) 
+                || coderType.equals ( CODER_TYPE_PROFESSIONAL )
+              )
+            ) addError ( CODER_TYPE, "Please choose one." );
 
             if ( isRegister() )
             {
@@ -448,7 +428,7 @@ public class Registration
             }
             if (coderType.equals(CODER_TYPE_STUDENT))
             {
-                if (schoolStateChanged)
+                if ( schoolStateChanged && !isNumber(this.school) )
                 {
                     Log.msg ( VERBOSE, "school State HAS changed..." );
                     addError(SCHOOL,"Please select your school.");
@@ -459,14 +439,6 @@ public class Registration
                   Log.msg ( VERBOSE, "this.school is not a number =>"+this.school );
                   addError(SCHOOL,"Please select your school.");
                 }
-                /////////////////// this school info handled by demographics////////
-                //if (isEmpty(this.major)) addError(MAJOR,"Please select your major.");
-                //if (!isNumber(this.degree)) addError(DEGREE,"Please select your degree.");
-                //if (!isNumber(this.graduationYear)) addError(GRADUATION_YEAR,"Please select your graduation year.");
-                ////////////////////////////////////////////////////////////////////
-                //if ( this.school.equals(Integer.toString(OTHER_SCHOOL)) ) {
-                  //if (isEmpty(this.schoolName)) addError(SCHOOL_NAME,"Please enter the unlisted school name.");
-                //}
             }
            
 
@@ -670,13 +642,6 @@ public class Registration
             else if (name.equalsIgnoreCase(REFERRAL_OTHER)) setReferralOther(value);
             else if (name.equalsIgnoreCase(SCHOOL_STATE)) setSchoolState(value);
             else if (name.equalsIgnoreCase(SCHOOL)) setSchool(value);
-            /////////////////// this school info handled by demographics////////
-            //else if (name.equalsIgnoreCase(MAJOR)) setMajor(value);
-            //else if (name.equalsIgnoreCase(DEGREE)) setDegree(value);
-            //else if (name.equalsIgnoreCase(GRADUATION_YEAR)) setGraduationYear(value);
-            //else if (name.equalsIgnoreCase(ORGANIZATION)) setOrganization(value);
-            //else if (name.equalsIgnoreCase(ORGANIZATION_OTHER)) setOrganizationOther(value);
-            ////////////////////////////////////////////////////////////////////
             else if (name.startsWith(DEMO_PREFIX)) setDemographics ( name.substring(DEMO_PREFIX.length()), valArray );
             else return false;
         }
@@ -833,34 +798,6 @@ public class Registration
         this.schoolName = checkNull(value);
     }
 
-
-    /////////////////// this school info handled by demographics////////
-    /* 
-    public void setMajor(String value)
-    {
-        this.major = checkNull(value);
-    }
-    public void setDegree(String value)
-    {
-        this.degree = checkNull(value);
-    }
-    public void setGraduationYear(String value)
-    {
-        this.graduationYear = checkNull(value);
-    }
-    */   
-    /////////////////////////////////////////////////////////////////////
-
-/*
-    public void setOrganization(String value)
-    {
-        this.organization = checkNull(value);
-    }
-    public void setOrganizationOther(String value)
-    {
-        this.organizationOther = checkNull(value);
-    }
-*/      
 
 
     public void setDemographics ( String questionId, String[] value )
@@ -1775,7 +1712,7 @@ public class Registration
         if (this.coderType.equals(CODER_TYPE_STUDENT))
         {
             School currentSchool = coder.getCurrentSchool();
-            if ( currentSchool.getName().equals("") && isRegister() )
+            if ( currentSchool.getName().equals("") )  //&& isRegister() )
             {
                 currentSchool.setModified("A");
             }
@@ -1790,39 +1727,6 @@ public class Registration
             currentSchool.setName ( getSchoolName(schoolId) );
         }
 
-
-
-/*
-        boolean organizationFound = false;
-        for (int i=0;i<coder.getExperiences().size();i++)
-        {
-            Experience experience = (Experience) coder.getExperiences().get(i); 
-            if (experience.getExperienceType().getExperienceTypeId() == ORGANIZATION_EXPERIENCE)
-            {
-                organizationFound = true;
-                experience.setCompany(this.organizationOther);
-                experience.getOrganization().setOrganizationId(Integer.parseInt(this.organization));
-                experience.setModified("U");
-                break;
-            }
-        }
-        if (!organizationFound)
-        {
-            Experience experience = new Experience();
-            experience.setCoderId(coder.getCoderId());
-            experience.setCompany(this.organizationOther);
-            experience.setTitleDesc("");
-            experience.setStartMonth(0);
-            experience.setStartYear(0);
-            experience.setCity("");
-            experience.getCountry().setCountryCode(USA);
-            experience.getTitle().setTitleId(0);
-            experience.getOrganization().setOrganizationId(Integer.parseInt(this.organization));
-            experience.getExperienceType().setExperienceTypeId(ORGANIZATION_EXPERIENCE);
-            experience.setModified("A"); 
-            coder.getExperiences().add(experience);
-        }
-*/ 
        
         Context context = null;
         String activationCode = "";
