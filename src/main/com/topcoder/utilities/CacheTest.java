@@ -33,14 +33,6 @@ public class CacheTest {
     public static void main(String[] args) {
         // TODO code application logic here
         try {
-
-
-            Map m = new HashMap();
-
-            m.put("ryan", "test");
-
-            log.error("Pre-Cache: " + m.toString());
-
             CacheClient cc = null;
             try {
                 cc = CacheClientFactory.createCacheClient();
@@ -49,18 +41,25 @@ public class CacheTest {
                 System.exit(-1);
             }
 
-            cc.set("ryan", m, DEFAULT_EXPIRE_TIME);
-            log.error("Post-Cache: " + m.toString());
+            log.info("time " + System.currentTimeMillis());
+            for (int i=0; i<1000; i++) {
+                cc.set("key"+i, BIG, 5000);
+            }
+            log.info("time " + System.currentTimeMillis());
 
-            m.put("ryan", "test2");
-            log.error("Post-Change: " + m.toString());
+            for (int i=0; i<1000; i++) {
+                cc.set("key"+i, BIG, 5000);
+            }
+            log.info("time " + System.currentTimeMillis());
 
-            m = (Map) cc.get("ryan");
-            log.error("From-Cache: " + m.toString());
 
         } catch (Exception e) {
             log.error(e.getMessage());
         }
     }
+
+
+    private static final String BIG = "jkadsjafl;kjasdf;lkjadsf;lkjasdfl;ksadjf;lkasjdfl;ksajdf;lsadjfl;kasdjfl;kasdjfl;ksadjfl;sadjfl;ksadjfl;kasdjfl;kasdjfl;kasdjf;lkasdjfl;kasdjfl;kasdjfl;ksadjf;lsadjfl;ksadjf;lsadjfl;kasjfl;kasdjf;lja;lfjasl;kjfl;asdjflsadjflsjk;";
+
 
 }
