@@ -57,7 +57,7 @@ public class ProjectReviewApply extends Base {
                     r.setProperty("ph", StringUtils.checkNull(getRequest().getParameter("ph")));
                     Map results = getDataAccess().getData(r);
                     ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
-                    int catalog = detail.getIntItem(0, "catalog_id");
+                    int catalog = detail.getIntItem(0, "category_id");
 
                     if (catalog == Constants.JAVA_CATALOG_ID &&
                             rbu.canReviewJava(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
