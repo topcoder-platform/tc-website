@@ -10,47 +10,51 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
-        <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Press Room</TITLE>
-        <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-        <xsl:call-template name="Top"/>
-<!-- Body Begins -->
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR>
-    <!-- Left Column Begins -->
-        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
-        <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->	
-<!-- Left Column Include Ends -->    		
-        </TD>
-	<!-- Left Column Ends -->
-	<!-- Gutter Begins -->
-        <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
 
-<!-- Body Area -->
-	<!-- Center Column Begins -->	
-        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top">
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">white</xsl:with-param>
-  <xsl:with-param name="image">press_room</xsl:with-param>
-  <xsl:with-param name="title">&#160;Press Releases - 2003</xsl:with-param>
-</xsl:call-template>
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>
-                <TR>
-                    <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-                    <TD CLASS="bodyText" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/><br />
+<html>
+
+<head>
+
+<xsl:call-template name="Preload"/>      
+
+<title>TopCoder | Press Room</title>
+
+<xsl:call-template name="CSS"/>      
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
+</head>
+
+<body>
+
+<xsl:call-template name="Top"/>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+
+    <!-- Left Column Begins -->
+        <td width="170" bgcolor="#CCCCCC" valign="top">
+            <xsl:call-template name="global_left"/>
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="4" valign="top"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->	
+        <td class="bodyText" width="100%" valign="top">
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">white</xsl:with-param>
+                <xsl:with-param name="image">press_room</xsl:with-param>
+                <xsl:with-param name="title">&#160;Articles - 2003</xsl:with-param>
+            </xsl:call-template>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr><td valign="middle" class="bodyText" colspan="2"><img src="/i/clear.gif" alt="" width="1" height="23" border="0"/></td></tr>
+                <tr>
+                    <td valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
+                    <td class="bodyText" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
 
                         <div align="center"><img src="/i/pressroom/the_age_logo.gif" alt="The Age (Melbourne, Australia)" width="302" height="56" border="0" /></div>
 
@@ -101,34 +105,36 @@
 
                         <p><br /></p>
 
-                    </TD>
-                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                </TR>
+                    </td>
+                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
 
-                <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>   	
-            </TABLE>
-        </TD>
-	<!-- Center Column Ends -->
-<!-- Body Area Ends -->
+                <tr><td colspan="3" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>   	
+            </table>
+        </td>
+<!-- Center Column Ends -->
 
-	<!-- Gutter -->
-        <TD WIDTH="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-        <TD WIDTH="170" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins --> 
-        <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
-        </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-    </TR>
-</TABLE>
-<!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
+<!-- Gutter -->
+        <td width="4"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Right Column Begins -->
+        <td width="170" valign="top"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
+            <xsl:call-template name="public_right_col"/>       
+        </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<xsl:call-template name="Foot"/>
+
+</body>
+
+</html>
+
   </xsl:template>
 </xsl:stylesheet>
