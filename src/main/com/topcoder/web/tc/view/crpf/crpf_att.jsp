@@ -60,6 +60,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   </tr>
                </table>
 
+
 <!-- Tab bar links-->
 <jsp:include page="crpfLinks.jsp" >
    <jsp:param name="selectedTab" value="att"/>
@@ -78,7 +79,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 		<!--Overview-->
 		<table cellspacing="0" cellpadding="4" width="100%" border="0">
 		<tr><td>
-				<p><img src="/images/pixel_trans.gif" width="15" height="10" alt="" border="0"><br clear="all"><span class="section-title"><b>Public service and social responsibility are traditions deeply embedded at AT&amp;T, going back over 100 years to the beginnings of the company.</b></span></p>
+				<p><span class="section-title"><b>Public service and social responsibility are traditions deeply embedded at AT&amp;T, going back over 100 years to the beginnings of the company.</b></span></p>
 				<table border="0" cellpadding="0" cellspacing="0" align="right" summary="Overview."><tr><td width="5">&nbsp;</td><td><img src="/i/events/crpf03/volunteerpix3a.gif" width="180" height="209" border="0" alt="AT&amp;T Volunteers."><br><img src="/i/events/crpf03/spacer.gif" border="0" width="10" height="8" alt="Space."><br clear="all"></td></tr></table><p>Our commitment to the communities we serve continues to inspire the financial and product contributions our businesses and divisions make every year. It spurs, too, the volunteer activities of our employees who give so generously of themselves to the communities where they work and live worldwide. Our commitment to community is also the mainspring of the AT&amp;T Foundation, the principal arm of AT&amp;T's philanthropy since 1984.</p>
 				<ul>
 				<li><a href="#prior"><b>Our Priorities</b></a></li>
