@@ -86,6 +86,10 @@ public class TCCC05ProjectDetail implements Serializable {
         return score;
     }
     
+    public double getScoreDouble() {
+        return Double.parseDouble(score);
+    }
+    
     public void setScore(String c) {
         score = c;
     }
