@@ -112,6 +112,7 @@ public class EventManager {
 
 
     private static void notify(String body) {
+        log.error(body);
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject("User Event Processor Error");
 
