@@ -94,7 +94,7 @@
            </TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
-               <query:inputSelect name="<%=Constants.INPUT_ID_PARAM%>" class="dropdown" list="<%=ModifyQueryInputTask.getOtherInputList()%>" size="10" multiple="false"/>
+               <query:inputSelect name="<%=Constants.INPUT_ID_PARAM%>" class="dropdown" list="<%=ModifyQueryInputTask.getOtherInputList()%>" size="30" multiple="false"/>
              </TD>
            </TR>
            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
