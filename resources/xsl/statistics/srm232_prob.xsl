@@ -130,7 +130,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2" ID="Table1
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>kanags</b> for 249.99 points (0 mins 12 secs)
+      <b>supernova</b> for 248.98 points (1 mins 49 secs)
     </td>
   </tr>
   <tr>
