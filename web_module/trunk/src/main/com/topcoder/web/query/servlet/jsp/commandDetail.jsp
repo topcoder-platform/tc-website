@@ -42,6 +42,13 @@
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Group: <jsp:getProperty name="CommandDetailTask" property="GroupDesc"/></TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR>
+            <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
+            <TD CLASS="statText" ALIGN="left">
+              <jsp:getProperty name="CommandDetailTask" property="Db"/>
+            </TD>
+          </TR>
+          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+          <TR>
             <TD VALIGN="top" WIDTH="50%">
               <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                 <TR BGCOLOR="#333333">
