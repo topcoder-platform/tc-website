@@ -19,20 +19,19 @@
             <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
                 <tr valign="middle"><td height="46"><img src="/i/development/right_col_head_tcs.gif" alt="TopCoder Software" width="244" height="46" border="0" /></td></tr>
                 
-                <tr><td colspan="4" background="" height="10"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+                <tr><td background="" height="10"><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
                 
 <!-- Component Design Projects begins -->
                 <tr valign="middle"><td height="28"><img src="/i/development/head_new_components.gif" alt="NEW Component Projects" width="244" height="28" border="0" /></td></tr>
+            </table>
                 
-                <tr valign="top">
-                    <td bgcolor="#000000"> 
-                        <table width="244" cellspacing="0" cellpadding="0" border="0">                
-                            <tr valign="middle">
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Design Projects</td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                            </tr>
+            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000"> 
+                <tr valign="middle">
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Design Projects</td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                </tr>
 
                 <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:variable name="design-phase" select="'112'" />
@@ -42,7 +41,7 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$design-phase and ./status_id=$status_id">
 
-                            <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                         <xsl:variable name="initial_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
@@ -60,34 +59,35 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
                         </xsl:variable>
 
-                            <tr valign="top">
-                                <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td class="statText">
-                                    <a class="statText">
+                <tr valign="top">
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td class="statText">
+                        <a class="statText">
 
-                                    <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
-                                    </xsl:attribute><xsl:value-of select="./component_name"/>
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;phase=', ./phase_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
+                    </xsl:attribute><xsl:value-of select="./component_name"/>
 
-                                    <xsl:if test="number(./version) &gt;  number('1')">
-                                        v <xsl:value-of select="./version"/>
-                                    </xsl:if>
+                    <xsl:if test="number(./version) &gt;  number('1')">
+                        v <xsl:value-of select="./version"/>
+                    </xsl:if>
+                    
+                        </a>
+                    </td>
+                    <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                </tr>
+                    
+                    </xsl:if>
+                </xsl:for-each>
 
-                                    </a>
-                                </td>
-                                <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-                                <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                            </tr>
-                        </xsl:if>
-                    </xsl:for-each>
-
-                            <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+                <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 <!-- Component Design Projects ends -->
 
 <!-- Component Development Projects begins -->
-                            <tr valign="middle">
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Development Projects</td>
+                <tr valign="middle">
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
+                    <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Development Projects</td>
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                             </tr>
