@@ -55,7 +55,13 @@ if ( plugin ) {
 
          <div class="cardBody">
 
-                        <h2>TopCoder Cards</h2>
+<p>
+The TopCoder member base is an international community of computer programmers brought together through competition.  Our Algorithm competitions showcase developers' skills in solving complex mathematical and algorithmic problems.  Design and Development competitions give members an opportunity to build software components and applications that are sold to TopCoder clients.
+<br/><br/>
+TopCoder Cards are a snapshot of each member's performance to date. 
+</p>
+
+<br/>
 
 <div align="center">
 <SCRIPT language="JavaScript">
@@ -110,7 +116,7 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="card"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
