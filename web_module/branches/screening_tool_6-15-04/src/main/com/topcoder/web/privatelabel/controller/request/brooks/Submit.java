@@ -52,7 +52,8 @@ public class Submit extends FullRegSubmit {
     }
     
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
-        UserPrincipal ret = super.store(regInfo, newUser);
+        UserPrincipal ret = super.storeWithoutCoder(regInfo, newUser);
+        ret = super.storeQuestions(regInfo, ret);
         
         //check for resume save
         ResumeRegInfo info = (ResumeRegInfo)regInfo;

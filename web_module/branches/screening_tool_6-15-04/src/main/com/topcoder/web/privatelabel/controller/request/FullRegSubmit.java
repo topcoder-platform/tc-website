@@ -118,7 +118,7 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 //            user.setStatus(ret.getId(), '3', transDb);
 //        }
 
-        return ret;
+        return newUser;
     }
 
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {

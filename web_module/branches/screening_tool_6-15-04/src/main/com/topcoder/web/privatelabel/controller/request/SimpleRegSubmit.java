@@ -98,8 +98,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
         return newUser;
     }
-
-    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+    
+    public UserPrincipal storeWithoutCoder(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
         User user = (User) createEJB(getInitialContext(), User.class);
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class);
@@ -181,6 +181,15 @@ public class SimpleRegSubmit extends SimpleRegBase {
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
         email.setPrimaryEmailId(newUser.getId(), emailId, transDb);
 
+        return newUser;
+    }
+
+    protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+        newUser = this.storeWithoutCoder(regInfo, newUser);
+        Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+        Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
+
+        PrincipalMgrRemote mgr = getPrincipalManager();
 
         //create coder
         if (!coder.exists(newUser.getId(), transDb)) { // check if the user exists in registration database already as a coder
