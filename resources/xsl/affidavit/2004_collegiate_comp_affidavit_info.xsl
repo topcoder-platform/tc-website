@@ -31,7 +31,7 @@
 
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body  bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 
 <!-- Top begins -->
 <xsl:call-template name="Top"/>
@@ -65,38 +65,54 @@
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
-                            Congratulations on your performance in the Component Tournament of the 2003 TopCoder Open Sponsored by Intel&#174;!
-                            By advancing to the onsite finals, you are eligible for a prize, however we must receive the documents
-                            below for you to collect your prize. IF WE DO NOT RECEIVE ALL OF THE
-                            APPROPRIATE ITEMS BELOW BY MIDNIGHT, EASTERN TIME, WEDNESDAY, NOVEMBER 12th, YOU
-                            WILL FORFEIT YOUR PRIZE.  If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.
+                            Congratulations on your performance in the 2004 TopCoder Collegiate Challenge, sponsored by Yahoo!&#174;
                         </p>
+
+                        <p><strong>A.  To be completed by everyone by 9:00 PM ET Wednesday, March 17:</strong></p>
 
                             <ol>
                                 <li>
-                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Midnight, Eastern Time, Wednesday, November 12th.</p>
+                                    <p><strong>UPDATE YOUR MEMBER PROFILE</strong> - your member profile <u>must be</u>
+                                        accurate <u>and complete</u>.  You will not receive a cash prize or a t-shirt
+                                        unless your profile is complete.
+                                    </p>
+                                </li>
+                                <li>
+                                <p>
+                                    <strong>QUESTIONNAIRE</strong> - Form must be completed and submitted by 9:00 PM ET on Wednesday, March 17.
+                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=202">2004 TopCoder Collegiate Challenge Questionnaire</a>.
+                                    Complete ALL questions.  Please note that responses to the questions will be used in te TCCC program.
+                                </p>
+                                </li>
+                            </ol>
+                            <p><strong>B. To be completed only by those who will be traveling to the onsite semifinal rounds on April 15 &amp; 16 in Boston, MA, USA.</strong></p>
+                            <ol>
+                                <li>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 9:00 PM ET on Wednesday, March 24.</p>
+
+                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2004_collegiate_comp_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
+                                </li>
+
+                                <li>
+                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before 9:00 PM ET on Wednesday, March 24.</p>
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2003_comp_open_affidavit">
+                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2004_collegiate_affidavit">
                                         printable version</a> of your affidavit.  This affidavit must be notarized and returned to us at the address below.
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        View a <a href="/?&amp;t=affidavit&amp;c=2003_comp_open_affidavit">printable version</a> of your affidavit.  Please read
+                                        View a <a href="/?&amp;t=affidavit&amp;c=2004_collegiate_comp_affidavit">printable version</a> of your affidavit.  Please read
                                         the affidavit, sign it and return it to us at the address below.  Note that you do not have to have this affidavit
                                         notarized because we already have a notorized affidavit on file for you.
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 </p>
                                 </li>
+
+
                                 <li>
-                                <p>
-                                    <strong>2003 TOPCODER OPEN QUESTIONNAIRE</strong> - Form must be completed and submitted by Midnight, Eastern Time, Wednesday, November 12th:
-                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=201">2003 TopCoder Open Questionnaire</a>.  Complete ALL questions.
-                                </p>
-                                </li>
-                                <li>
-                                <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before Midnight, Eastern Time, Wednesday, November 12th:</p>
+                                <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before 9:00 PM ET on Wednesday, March 24.</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) via fax or mail to the address below.  If you don't know the form
@@ -115,14 +131,10 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 </li>
-                                <li>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by Midnight, Eastern Time, Wednesday, November 12th:</p>
 
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_comp_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
-                                </li>
 
                                 <li>
-                                <p><strong>HEAD SHOT</strong> - must be emailed by Midnight, Eastern Time, November, November 12th:</p>
+                                <p><strong>HEAD SHOT</strong> - must be emailed by 9:00 PM ET on Wednesday, March 24.</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -136,14 +148,14 @@
                             </ol>
                         <div align="center">
                             Address to send affidavits &amp; tax forms to:<br/>
-                            TopCoder <br/>
+                            TopCoder, Inc. <br/>
                             Attn: MaryBeth Luce<br/>
                             703 Hebron Avenue<br/>
                             Glastonbury, CT 06033
                         </div>
 
-                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Midnight, Eastern Time, Wednesday, November 12th.  Any
-                        items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
+                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM ET on Wednesday, March 24.  Any
+                        items that need to be mailed via the postal service must be received by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.</p>
                         <p><br/></p>
