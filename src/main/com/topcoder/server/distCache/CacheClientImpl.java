@@ -63,11 +63,11 @@ public class CacheClientImpl
         _cache.releaseLock(key);
     }
 
-    public Object remove(String key)
+    public CachedValue remove(String key)
             throws RemoteException
     {
         CachedValue cv =  _cache.remove(key);
-        if(cv!=null)return cv.getValue();
+        if(cv!=null)return cv;
         return null;
     }
 

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class SimpleClient
 {
     static CacheClient client = CacheClientFactory.createCacheClient();
+    static private boolean confirm = false;
 
     public static void main(String[] args) {
         try {
@@ -42,7 +43,30 @@ public class SimpleClient
         if (line.length() == 0) {
             return true;
         }
-
+        if(confirm)
+        {
+            if(line.charAt(0)=='Y' || line.charAt(0)=='y')
+            {
+                try
+                {
+                    confirm = false;
+                    client.clearCache();
+                    System.out.println("CLEARED");
+                }
+                catch (RemoteException e) {
+                    System.out.println("Exception: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+            else if(line.charAt(0)=='N' || line.charAt(0)=='n')
+            {
+                confirm = false;
+                System.out.println("NOT CLEARED");
+            }
+            else
+                System.out.println("Please enter yes or no.");
+            return true;
+        }
         if (line.equals("info")) {
             System.out.println("client: " + client);
         } else if (line.equals("bulk")) {
@@ -81,21 +105,17 @@ public class SimpleClient
         } else if (line.startsWith("remove ")) {
             String key = line.substring(line.indexOf(' ')+1);
             try {
-                client.remove(key);
-                System.out.println("REMOVED " + key);
+                Object o = client.remove(key);
+                if(o==null)System.out.println("ATTEMPT TO REMOVE "+key+" FAILED.  IT IS NOT IN THE CACHE.");
+                else System.out.println("SUCCESSFULLY REMOVED " + key);
             } catch (RemoteException e) {
                 System.out.println("Exception: " + e.getMessage());
 		e.printStackTrace();
             }
 
         } else if (line.equals("clear")) {
-            try {
-                client.clearCache();
-                System.out.println("CLEARED");
-            } catch (RemoteException e) {
-                System.out.println("Exception: " + e.getMessage());
-		e.printStackTrace();
-            }
+                confirm = true;
+                System.out.println("Are you sure you want to clear the cache?");
         } else if (line.equals("values")) {
             try {
                 ArrayList al = client.getValues();
@@ -103,6 +123,18 @@ public class SimpleClient
                 {
                     CachedValue cv = (CachedValue)(al.get(i));
                     System.out.println("key = "+cv.getKey()+", value = "+cv.getValue()+", last used = "+new Date(cv.getLastUsed()));
+                }
+            } catch (RemoteException e) {
+                System.out.println("Exception: " + e.getMessage());
+		e.printStackTrace();
+            }
+        } else if (line.equals("keys")) {
+            try {
+                ArrayList al = client.getValues();
+                for(int i = 0; i<al.size();i++)
+                {
+                    CachedValue cv = (CachedValue)(al.get(i));
+                    System.out.println("key = "+cv.getKey()+", last used = "+new Date(cv.getLastUsed())+", expires on "+new Date(cv.getExpireTime()));
                 }
             } catch (RemoteException e) {
                 System.out.println("Exception: " + e.getMessage());
@@ -117,11 +149,11 @@ public class SimpleClient
             }
         } else {
             try {
-                int pos = line.indexOf('=');
+                int pos = line.indexOf("<-");
                 if (pos == -1) {
                     System.out.println(line + "=" +  client.get(line));
                 } else {
-                    client.set(line.substring(0,pos), line.substring(pos+1), 10000);
+                    client.set(line.substring(0,pos), line.substring(pos+2), 10000);
                 }
             } catch (RemoteException e) {
                 System.out.println("Exception: " + e.getMessage());

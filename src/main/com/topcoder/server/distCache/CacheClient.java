@@ -77,7 +77,7 @@ public interface CacheClient
     public Object getAndLock(String key)
         throws RemoteException;
 
-    public Object remove(String key)
+    public CachedValue remove(String key)
             throws RemoteException;
 
     public void clearCache()
