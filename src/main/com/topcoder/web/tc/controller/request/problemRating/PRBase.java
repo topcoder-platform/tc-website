@@ -34,19 +34,15 @@ abstract public class PRBase extends Base {
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
 
         //get the info for the distribution graphs
-        List overall = getDistributionList(
-                (ResultSetContainer)qMap.get("overall_votes"),
-                (ResultSetContainer)qMap.get("div1_overall_votes"),
-                (ResultSetContainer)qMap.get("div2_overall_votes"));
+        List overall = new ArrayList();
         List div1 = getDistributionList(qMap, "div1_problem_rating_distribution");
         List div2 = getDistributionList(qMap, "div2_problem_rating_distribution");
 
-        ProblemRatingDistribution overallAvg = avg(overall);
-        ProblemRatingDistribution div1Avg = avg(div1);
-        ProblemRatingDistribution div2Avg = avg(div2);
-
+        ProblemRatingDistribution overallAvg = buildDistribution((ResultSetContainer)qMap.get("overall_votes"));
         overallAvg.setName("overallAll");
-        div1Avg.setName("overallDiv1");
+        ProblemRatingDistribution div1Avg = buildDistribution((ResultSetContainer)qMap.get("div1_overall_votes"));
+        div1Avg.setName("overalllDiv1");
+        ProblemRatingDistribution div2Avg = buildDistribution((ResultSetContainer)qMap.get("div2_overall_votes"));
         div2Avg.setName("overallDiv2");
 
         overall.add(overallAvg);
@@ -122,25 +118,6 @@ abstract public class PRBase extends Base {
             result.setFrequencies(frequencies);
             ret.add(result);
         }
-        return ret;
-    }
-
-    protected static List getDistributionList(ResultSetContainer rsc1,
-                                              ResultSetContainer rsc2,
-                                              ResultSetContainer rsc3) throws Exception {
-        ArrayList ret = new ArrayList(3);
-
-        ProblemRatingDistribution overall = buildDistribution(rsc1);
-        overall.setName("overallAll");
-        ret.add(overall);
-
-        ProblemRatingDistribution div1 = buildDistribution(rsc2);
-        div1.setName("overalllDiv1");
-        ret.add(div1);
-
-        ProblemRatingDistribution div2 = buildDistribution(rsc3);
-        div2.setName("overallDiv2");
-        ret.add(div2);
         return ret;
     }
 
