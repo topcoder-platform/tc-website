@@ -8,6 +8,8 @@ import com.topcoder.web.corp.model.TransactionInfo;
 import com.topcoder.web.ejb.product.*;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUseHome;
 import com.topcoder.web.common.tag.BaseTag;
 
 import javax.naming.InitialContext;
@@ -266,6 +268,9 @@ public class TransactionServlet extends HttpServlet {
     private void txBegin(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
+        InitialContext ic = (InitialContext)TCContext.getInitial();
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        userTerms.createUserTermsOfUse(txInfo.getContactID(), Constants.CORP_SITE_TERMS_ID);
         req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost() * txInfo.getQtty()));
 //        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
 //        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
