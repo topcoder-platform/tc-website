@@ -10,40 +10,40 @@
 <HTML>
   <HEAD>
     <TITLE>Query Tool</TITLE>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" href="/css/style.css"/>
+    <LINK REL="stylesheet" TYPE="text/css" href="/css/coders.css"/>
   </HEAD>
-  <BODY BGCOLOR="#000000" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0"">
+  <BODY bgcolor="#000000" topmargin="0" marginheight="0" LEFTMARGIN="0" marginwidth="0"">
   <jsp:include page="top.jsp" />
 
-  <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR><TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>
-    <TR>
-      <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
-        <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="8"></TD></TR>
-        </TABLE>
-      </TD>
-      <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD CLASS="statTextBig"><%=Constants.DB_SELECTION_NAME%></TD></TR>
-          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></TR>
+    <tr>
+      <td width="170" bgcolor="#000000" valign="top">
+        <table width="170" border="0" cellpadding="0" cellspacing="0">
+          <tr><td><img src="/i/clear.gif" width="170" height="8"></td></TR>
+        </table>
+      </td>
+      <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
+      <td class="statText" width="100%" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="400" height="1" VSPACE="5" border="0"><BR>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr><td class="statTextBig"><%=Constants.DB_SELECTION_NAME%></td></TR>
+          <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="16"></td></TR>
           <query:DBIterator id="db" list="<%=Constants.DB_LIST%>">
-            <TR><TD>
-             <A HREF="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="db" property="value"/>" class="statText">
+            <tr><td>
+             <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_LIST_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="db" property="value"/>" class="statText">
                 <jsp:getProperty name="db" property="DisplayName"/>
               </A>
-            </TD></TR>
+            </td></TR>
           </query:DBIterator>
-        </TABLE>
-      </TD>
-      <TD WIDTH="4" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
-      <TD WIDTH="10" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><BR>
-      </TD>
-      <TD WIDTH="25" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
+        </table>
+      </td>
+      <td width="4" bgcolor="#000000"><img src="/i/clear.gif" width="4" height="1" border="0"></td>
+      <td width="10" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"><BR>
+      </td>
+      <td width="25" bgcolor="#000000"><img src="/i/clear.gif" width="25" height="1" border="0"></td>
     </TR>
-  </TABLE>
+  </table>
   <jsp:include page="bottom.jsp" />
   </BODY>
 </HTML>

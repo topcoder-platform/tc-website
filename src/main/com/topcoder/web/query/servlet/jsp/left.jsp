@@ -7,41 +7,46 @@
     String begin = servletPath+"?"+Constants.TASK_PARAM+"=";
     String end = "&"+Constants.DB_PARAM+"="+db;
 %>
-        <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.DB_SELECTION_TASK+end%>" class="statText"><%=Constants.DB_SELECTION_NAME%></A>
-              </TD>
+        <table width="170" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td class="statText">
+                  <A href="<%=begin+Constants.DB_SELECTION_TASK+end%>" class="statText"><%=Constants.DB_SELECTION_NAME%></A>
+              </td>
             </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.COMMAND_LIST_TASK+end%>" class="statText"><%=Constants.COMMAND_LIST_NAME%></A>
-              </TD>
+            <tr><td><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            <tr>
+              <td class="statText">
+                  <A href="<%=begin+Constants.COMMAND_LIST_TASK+end%>" class="statText"><%=Constants.COMMAND_LIST_NAME%></A>
+              </td>
             </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.MODIFY_COMMAND_TASK+end%>" class="statText">New Command</A>
-              </TD>
+            <tr>
+              <td class="statText">
+                  <A href="<%=begin+Constants.QUERY_LIST_TASK+end%>" class="statText"><%=Constants.QUERY_LIST_NAME%></A>
+              </td>
             </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.MODIFY_GROUP_TASK+end%>" class="statText">New Command Group</A>
-              </TD>
+            <tr><td><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            <tr>
+              <td class="statText">
+                  <A href="<%=begin+Constants.MODIFY_COMMAND_TASK+end%>" class="statText">New Command</A>
+              </td>
             </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.MODIFY_QUERY_TASK+end%>" class="statText">New Query</A>
-              </TD>
+            <tr><td><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            <tr>
+              <td class="statText">
+                  <A href="<%=begin+Constants.MODIFY_GROUP_TASK+end%>" class="statText">New Command Group</A>
+              </td>
             </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<%=begin+Constants.MODIFY_INPUT_TASK+end%>" class="statText">New Input</A>
-              </TD>
+            <tr><td><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            <tr>
+              <td class="statText">
+                  <A href="<%=begin+Constants.MODIFY_QUERY_TASK+end%>" class="statText">New Query</A>
+              </td>
             </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-        </TABLE>
+            <tr><td><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            <tr>
+              <td class="statText">
+                  <A href="<%=begin+Constants.MODIFY_INPUT_TASK+end%>" class="statText">New Input</A>
+              </td>
+            </TR>
+            <tr><td><img src="/i/clear.gif" width="4" height="8"></td></TR>
+        </table>

@@ -1,7 +1,7 @@
 <%@  page
   language="java"%>
-  <TABLE BGCOLOR="#333333" WIDTH="100%" HEIGHT="50" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-    <TR>
-      <TD WIDTH="170"VALIGN="top" CLASS="statTextBig">Query Tool</TD>
+  <table bgcolor="#333333" width="100%" height="50" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="170"valign="top" class="statTextBig">Query Tool</td>
     </TR>
-  </TABLE>
+  </table>
