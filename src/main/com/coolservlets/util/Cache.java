@@ -134,8 +134,6 @@ public class Cache {
     public boolean containsKey(int key) {
         boolean ret = false;
         try {
-            if (getCache()==null) log.debug("cache client is null");
-            else log.debug("cache client is not null");
             ret = (getCache().containsKey(String.valueOf(key)));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
