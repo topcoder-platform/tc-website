@@ -1,7 +1,7 @@
 package com.topcoder.web.codinginterface.techassess.controller;
 
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.Util;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.screening.common.ScreeningContext;
@@ -15,7 +15,6 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -83,11 +82,7 @@ public class MainServlet extends BaseServlet {
 
 
     protected TCSubject getUser(long id) throws Exception {
-        //todo speed this up, we probably need to cache here
-        TCSubject user = null;
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-        user = pmgr.getUserSubject(id);
-        return user;
+        return Util.getUserSubject(id);
     }
 
 

@@ -404,7 +404,7 @@ public class Util implements ConfigManagerInterface {
         return conn;
     }
 
-    public static final TCSubject getUserSubject(long l)
+    public static final TCSubject getUserSubject(long l, boolean forceLoadFromDb)
             throws Exception, NoSuchUserException, NamingException {
         TCSubject ret = null;
 
@@ -415,12 +415,12 @@ public class Util implements ConfigManagerInterface {
             CacheClient cc = null;
             try {
                 cc = CacheClientFactory.createCacheClient();
-                ret = (TCSubject) (cc.get(key));
+                if (!forceLoadFromDb)
+                    ret = (TCSubject) (cc.get(key));
             } catch (Exception e) {
                 logger.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 hasCacheConnection = false;
             }
-            /* if it was not found in the cache */
             if (ret == null) {
                 ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                         ApplicationServer.SECURITY_PROVIDER_URL);
@@ -442,9 +442,15 @@ public class Util implements ConfigManagerInterface {
             throw e;
         } finally {
             try {
-                if (ctx!=null) ctx.close();
-            } catch (Exception e) {}
+                if (ctx != null) ctx.close();
+            } catch (Exception e) {
+            }
         }
+    }
+
+    public static final TCSubject getUserSubject(long l)
+            throws Exception, NoSuchUserException, NamingException {
+        return getUserSubject(l, false);
     }
 
 
