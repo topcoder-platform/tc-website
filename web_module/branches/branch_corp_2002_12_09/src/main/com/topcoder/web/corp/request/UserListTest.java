@@ -84,13 +84,27 @@ public class UserListTest extends BaseProcessor {
 
         try {
             StringBuffer query = new StringBuffer();
+
+            /*  CORRECT QUERY ONCE security_user table access works.
+
             query.append( "SELECT u.user_id, su.user_id AS handle," );
             query.append( " u.first_name, u.last_name" );
             query.append( " FROM security_user su, user u, contact c" );
             query.append( " WHERE su.login_id = u.user_id" );
             query.append( " AND u.user_id = c.contact_id" );
+            query.append( " AND c.company_id = " ); 
+            query.append(companyId);
+
+            */
+
+            // Test query until security_user table access works.
+            query.append( "SELECT u.user_id, u.user_id AS handle," );
+            query.append( " u.first_name, u.last_name" );
+            query.append( " FROM user u, contact c" );
+            query.append( " WHERE u.user_id = c.contact_id" );
             query.append( " AND c.company_id = " );
             query.append(companyId);
+
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
