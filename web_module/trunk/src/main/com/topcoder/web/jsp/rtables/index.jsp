@@ -54,12 +54,12 @@
     <jsp:include page="../script.jsp" />
     <%@ include file="rating.jsp" %>
   </HEAD>
-  <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+  <BODY>
   <jsp:include page="../top.jsp" />
-  <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+  <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
     <!-- Left Column Begins -->
-      <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+      <TD WIDTH="180" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
          <jsp:include page="../includes/global_left.jsp" />

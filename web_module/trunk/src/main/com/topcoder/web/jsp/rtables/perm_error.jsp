@@ -24,19 +24,19 @@
 
   </HEAD>
 
-  <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+  <BODY>
 
     <jsp:include page="../top.jsp" />
 
     <!--------main content table------------>
 
-    <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 
       <TR>
 
         <!-- Left Column Begins -->
 
-        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+        <TD WIDTH="180" VALIGN="top">
 
           <!-- Left Column Include Begins -->
 
@@ -147,7 +147,7 @@
 
         <!-- Gutter -->
 
-        <TD WIDTH="170" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"></TD>
+        <TD WIDTH="180"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"></TD>
 
         <!-- Gutter Ends -->
 
