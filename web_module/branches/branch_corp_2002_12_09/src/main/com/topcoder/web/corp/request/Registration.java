@@ -398,7 +398,7 @@ public class Registration extends BaseRegistration {
             ).create();
             long emailID = emailTable.createEmail(userID);
             emailTable.setPrimaryEmailId(userID, emailID);
-            emailTable.setAddress(userID, emailID, email);
+            emailTable.setAddress(emailID, email);
             
             
             // create address item for user
@@ -429,7 +429,7 @@ public class Registration extends BaseRegistration {
             ).create();
             long phoneID = phoneTable.createPhone(userID);
             phoneTable.setPrimaryPhoneId(userID, phoneID);
-            phoneTable.setNumber(userID, phoneID, phone);
+            phoneTable.setNumber(phoneID, phone);
             
             // int t = 0;
             // System.err.println(1/t);

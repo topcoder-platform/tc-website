@@ -488,7 +488,8 @@ public class TransactionServlet extends HttpServlet {
 
                 // calculate start date / end date
                 int field = -1;
-                String unitName = unitTable.getUnitDescription(unitTypeID);
+                String unitName;
+                unitName = unitTable.getUnitDescription(productID, unitTypeID);
                 if( "day".equalsIgnoreCase(unitName) ) {
                     field = Calendar.DAY_OF_MONTH;
                 }
