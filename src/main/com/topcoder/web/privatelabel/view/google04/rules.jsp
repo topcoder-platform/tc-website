@@ -102,7 +102,7 @@ The Rounds will be held on the following dates:
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap=nowrap>Championship Round</td>
-<td class="sidebarText">Friday, October 15, 2004<br>START: 4:00 PM
+<td class="sidebarText">Friday, October 15, 2004<br>START: 3:45 PM
 </td>
 </tr>
 <tr valign="top">
