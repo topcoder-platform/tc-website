@@ -172,7 +172,7 @@
 
                 <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
-                <tr valign="top">
+                <!--<tr valign="top">
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td colspan="2" class="statText">No Open Application Projects</td>
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
@@ -182,6 +182,7 @@
 	  	        <IMG height="3" alt="" src="/i/clear.gif" width="1" border="0"/>
 	            </TD>
 		</TR>
+        -->
                 <tr valign="top">
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
