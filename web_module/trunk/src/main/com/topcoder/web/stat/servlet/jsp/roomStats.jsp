@@ -66,9 +66,9 @@ ResultSetContainer rscRoomList = (ResultSetContainer) queryEntries.get("Rooms_Fo
 pageContext.setAttribute("resultSetRooms", rscRoomList);
 pageContext.setAttribute("cr", srb.getProperty("cr", ""));
 
-com.topcoder.web.stat.common.ResultSetContainer rsc2 = (com.topcoder.web.stat.common.ResultSetContainer) queryEntries.get("Room_Summary_Data");
+ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Room_Summary_Data");
 pageContext.setAttribute("resultSet", rsc2);
-com.topcoder.web.stat.common.ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
+ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
 String currRound = "";
 String currRoom = "";
 if (resultRow_0 != null) {
