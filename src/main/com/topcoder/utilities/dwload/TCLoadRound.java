@@ -1260,7 +1260,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,round_type_id ");    // 8
             query.append("       ,invitational  ");    // 9
             query.append("       ,notes         ");    // 10
-            query.append("       ,round_type_desc, "); //11
+            query.append("       ,round_type_desc "); //11
             query.append("       ,short_name)"); // 12
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");
