@@ -1,13 +1,15 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.common.web.data.Navigation;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.resume.common.Constants;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.resume.common.Constants;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Iterator;
 
 public class UploadTask extends ResumeTask{
@@ -20,7 +22,7 @@ public class UploadTask extends ResumeTask{
     public void process() throws ResumeTaskException{
         try{
             ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resumeServices.putResume(userId,fileType, fileName, file);
+            resumeServices.putResume(userId,fileType, fileName, file, db);
         }catch(Exception e){
             throw new ResumeTaskException(e);
         }
@@ -36,7 +38,10 @@ public class UploadTask extends ResumeTask{
         } else {
              userId = navigation.getUserId();
         }
-
+        if (super.getFileUpload().getParameter("cid")!=null) {
+            companyId = Long.parseLong(super.getFileUpload().getParameter("cid"));
+            db = getCompanyDb(companyId);
+        }
         UploadedFile uf = null;
         byte[] fileBytes = null;
         try {
@@ -53,6 +58,7 @@ public class UploadTask extends ResumeTask{
                     fileType = Integer.parseInt(super.getFileUpload().getParameter("fileType"));
                     fileName = uf.getRemoteFileName();
                     file = fileBytes;
+
                 }
             }else{
                 throw new ResumeTaskException("No files uploaded");
@@ -73,7 +79,7 @@ public class UploadTask extends ResumeTask{
     public void processStep(String step) throws Exception {
         try{
             ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resumeServices.putResume(userId,fileType, fileName, file);
+            resumeServices.putResume(userId,fileType, fileName, file, db);
             super.setNextPage(Constants.SUCCESS_PAGE);
         }catch(Exception e){
             throw new ResumeTaskException(e);
@@ -87,5 +93,8 @@ public class UploadTask extends ResumeTask{
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+
+
 
 }

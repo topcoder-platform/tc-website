@@ -370,7 +370,7 @@ public class Registration
         ResumeServices rServices = null;
         try {
             rServices = (ResumeServices)BaseProcessor.createEJB((InitialContext)TCContext.getInitial(), ResumeServices.class);
-            hasResume = rServices.hasResume(user.getUserId());
+            hasResume = rServices.hasResume(user.getUserId(), DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
         }

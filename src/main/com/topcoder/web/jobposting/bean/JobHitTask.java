@@ -253,7 +253,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         ResumeServices rServices = null;
         try {
             rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            setHasResume(rServices.hasResume(getUserId()));
+            setHasResume(rServices.hasResume(getUserId(), DBMS.OLTP_DATASOURCE_NAME));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
             throw e;

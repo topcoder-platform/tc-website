@@ -1,19 +1,20 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.web.tces.common.TCESConstants;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.tces.common.TCESConstants;
 
-import javax.servlet.http.*;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
@@ -44,8 +45,12 @@ public class CorporateDownloadTask extends ResumeTask{
         } else {
             userId = (int)authToken.getActiveUser().getId();
         }
+        if (super.getFileUpload().getParameter("cid")!=null) {
+            companyId = Long.parseLong(super.getFileUpload().getParameter("cid"));
+            db = getCompanyDb(companyId);
+        }
 
-       
+
         Request oltpDataRequest = new Request();
         oltpDataRequest.setContentHandle("tces_verify_member_access");
         oltpDataRequest.setProperty("uid", Integer.toString(getUserId()));
@@ -53,7 +58,7 @@ public class CorporateDownloadTask extends ResumeTask{
         oltpDataRequest.setProperty("cid", Integer.toString(getCampaignId()));
         oltpDataRequest.setProperty("mid", Integer.toString(getMemberId()));
 
-        DataAccess oltp = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt oltp = getDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         Map oltpResultMap = oltp.getData(oltpDataRequest);
 
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
@@ -85,7 +90,7 @@ public class CorporateDownloadTask extends ResumeTask{
     public void processStep(String step) throws Exception {
         try{
             ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            resume = resumeServices.getResume(getMemberId());
+            resume = resumeServices.getResume(getMemberId(), db);
         }catch(Exception e){
             throw new ResumeTaskException(e);
         }

@@ -102,7 +102,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         ResumeServices rServices = null;
         try {
             rServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
-            setHasResume(rServices.hasResume(mid));
+            setHasResume(rServices.hasResume(mid, DBMS.OLTP_DATASOURCE_NAME));
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
         }
