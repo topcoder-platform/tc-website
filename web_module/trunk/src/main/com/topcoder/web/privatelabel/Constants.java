@@ -151,11 +151,11 @@ public class Constants {
     public static String GOOGLE04_REG_SUBMIT;
     public static String GOOGLE04_ACTIVATION;
     public static String GOOGLE04_LOGIN;
-    public static String GOOGLE0_INDIA_05_REG_MAIN;
-    public static String GOOGLE0_INDIA_05_REG_DEMOG;
-    public static String GOOGLE0_INDIA_05_REG_CONFIRM;
-    public static String GOOGLE0_INDIA_05_REG_SUBMIT;
-    public static String GOOGLE0_INDIA_05_ACTIVATION;
+    public static String GOOGLE_INDIA_05_REG_MAIN;
+    public static String GOOGLE_INDIA_05_REG_DEMOG;
+    public static String GOOGLE_INDIA_05_REG_CONFIRM;
+    public static String GOOGLE_INDIA_05_REG_SUBMIT;
+    public static String GOOGLE_INDIA_05_ACTIVATION;
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
