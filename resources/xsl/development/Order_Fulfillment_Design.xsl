@@ -106,7 +106,7 @@
                                                         Once these orders have been entered the orders will be sent to the factories.
                                                         The factories will receive the order and transmit a record back to the system
                                                         stating the order was received and an expected completion date.  Users of the
-                                                        system will be able to view all orders to determine an order’s status and completion times.
+                                                        system will be able to view all orders to determine an order's status and completion times.
                                                         Communication between the system and the factories is not in scope for this application.
                                                         <br/>
                                                         <br/>
