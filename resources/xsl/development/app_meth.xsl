@@ -161,7 +161,7 @@
 					<li>Test Cases - Functional Test Cases that cover the public API of the application</li>
 					</ul></li>
 					<li>The Application Specification Document is expected to specify both generic components that can be mapped 
-					to the TopCoder Software Component Catalog, new components and component extensions necessary to implement 
+					to the <a class="statText" href="http://www.topcodersoftware.com/pages/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>, new components and component extensions necessary to implement 
 					functionality specific to the application.</li>
 					<li>An Architecture Review Board reviews and scores all design submissions. The Board will take several factors, 
 					including number of current TopCoder Software components used and new components identified into account when
