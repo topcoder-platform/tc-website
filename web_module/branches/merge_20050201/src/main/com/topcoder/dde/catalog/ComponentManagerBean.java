@@ -890,7 +890,7 @@ public class ComponentManagerBean
                 // if component went to dev, get the winner from design to add to forum post notification.
                 if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
                     (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
-                    log.debug("Project went to development. Winner of desing will be added to notification");
+                    log.debug("Project went to development. Design winner will be added to notification");
 
 
                     Project project = pt.getProjectById(
@@ -908,11 +908,12 @@ public class ComponentManagerBean
                         Notification notification = notificationHome.create();
 
                         if (notification != null) {
-                            notification.createNotification("forum post " + project.getForumId(),
+                            notification.createNotification(
+                                    "com.topcoder.dde.forum.ForumPostEvent " + project.getForumId(),
                                     project.getWinner().getId(),
                                     notification.FORUM_POST_TYPE_ID);
                         } else {
-                            log.debug("Can't get the notification bean.  The desing winner was not added.");
+                            log.debug("Can't get the notification bean.  The design winner was not added.");
                         }
                     } else {
                         log.debug("Winner can't be retrieved because project.getWinner()==null.  No notification added");
@@ -948,7 +949,7 @@ public class ComponentManagerBean
                     if (pm == null) {
                         log.debug("The PM can't be retrieved for this project.  Notification not added.");
                     } else {
-                        notification.createNotification("forum post "+ newForum,
+                        notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
                                 pm.getId(),
                                 notification.FORUM_POST_TYPE_ID);
                     }

@@ -99,7 +99,7 @@
 			    Properties prop = new Properties();
 			    prop.setProperty(notification.COMPONENT_NAME, fieldsRequest.get("name").getValue());
 			    prop.setProperty(notification.REQUESTOR_NAME, tcUser.getRegInfo().getUsername());
-			    notification.notifyEvent("component requested", prop);
+			    notification.notifyEvent("com.topcoder.dde.admin.ComponentRequestEvent", prop);
 
                         } catch (RemoteException re) {
                             requestError = true;
