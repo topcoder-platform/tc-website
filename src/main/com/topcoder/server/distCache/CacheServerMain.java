@@ -29,7 +29,7 @@ public class CacheServerMain
         }
         if(file!=null)
         {
-            System.out.println(file);
+            System.err.println(file);
             CacheConfiguration.setResourceFile(file);
         }
         server.startCache();
