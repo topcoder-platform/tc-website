@@ -65,6 +65,21 @@
                         <p class="statText"><a href="/contest/classes/How to create an Editor Plugin v2.htm" class="statText">Create your own plugins!</a></p>
 
                         <hr width="100%" noshade="noshade" color="#666666" />
+
+                        <p class="statText">
+                        Plugin Name: <strong>TZTester</strong><br />
+                        Description: TZTester is a CodeProcessor plug-in that automatically extracts the examples test cases given in the problem 
+                        description and generates C++ code that runs the test cases. <br />
+                        Author: TangentZ<br />
+                        Date: 03/03/2003<br />
+                        <a href="/contest/classes/TZTester/TZTester.html" class="statText">Documentation</a><br />
+                        Version: 1.01<br />
+                        <a href="/contest/classes/TZTester/TZTester.java" class="statText">Source code</a><br />
+                        EntryPoint: codeprocessor.EntryPoint (case sensitive)<br />
+                        ClassPath: CodeProcessor.jar; PopsEdit.jar; TZTester.jar<br />
+                        <a href="/contest/classes/TZTester/TZTester.jar" class="statText">TZTester.jar Plugin</a></p>
+
+                        <hr width="100%" noshade="noshade" color="#666666" />
                         
                         <p class="statText">
                         Plugin Name: <strong>RonProc</strong><br />
