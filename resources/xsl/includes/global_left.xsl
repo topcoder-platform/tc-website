@@ -390,7 +390,7 @@
                 </tr>
                 <tr>
                     <td id="leftSubnav">
-                        <A class="leftOn" href="/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_overview">Charity</A>
+                        <A class="leftOn" href="/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_photos">Charity</A>
                     </td>
                 </tr>
                 <tr>
