@@ -140,6 +140,7 @@ public class PrincipalMgrBean extends BaseEJB {
             query.append(" AND group_role_xref.role_id = security_roles.role_id");
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
+            ps.setLong(2, userId);
             rs = ps.executeQuery();
 
             while (rs.next()) {
