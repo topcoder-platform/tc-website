@@ -184,29 +184,27 @@
                 
                 <tr valign="top">
                     <td class="bodyText">
-                    <p><b>Development and Testing Phase:</b> All new components identified in the Design and Architecture Phase are posted and 
-                    developed according to the TopCoder Software Component Development Methodology.  Application Development team members 
-                    are strongly encouraged to submit designs for all components.</p> 
-                    <p>Self-defined TopCoder Software Development teams of one or more members integrate TopCoder Software components 
-                    into application development solutions and submit them to TopCoder Software for review.</p>
+                    <p><b>Development and Testing Phase:</b> TopCoder members inquire for the development position as posted
+                        by the TopCoder Software Project Manager.  The Project Manager then selects 2 members to compete
+                        for each required area of development.  Members must develop and implement the requirements of
+                        the specification as designed by the application winning design.
+                    </p>
 
                     <ol>
-                    <li>Teams submit development solutions in the same manner as design solutions.</li>  
-                    <li>Although the application design is complete, not all components have completed development.  
-                    Application development teams are expected to "stub out" component interfaces for components not yet 
-                    delivered to the catalog.</li> 
-                    <li>As components become available, development teams integrate them into the application solution.</li>
-                    <li>Teams are responsible for submitting completed development solutions.  Completed solutions include a working 
-                    solution, unit test cases and all associated documentation.</li>
-                    <li>Solutions are designed as extensions, customizations and integrations of TopCoder Software components and 
-                    must be developed as such.  The development teams can add additional code where necessary.</li>  
-                    <li>The Designer and TopCoder Software Application Manager are available to answer questions 
-                    and give guidance.</li>
-                    <li>A Development Review Board is selected from the Development Review Board Pool.</li>  
-                    <li>The Development Review Board and Designer are responsible for systems testing and scoring 
-                    each application.</li>  
-                    <li>Scoring includes accuracy testing, negative testing, stress testing, User Interface testing and integration testing.</li>  
-                    <li>Once all solutions are scored a winning solution is chosen and the runner-up development team is compensated.</li>
+                        <li>Developers submit development solutions in the same manner as design solutions.</li>
+                        <li>Developers are responsible for submitting completed development solutions that can be integrated
+                            with other developer submissions. Completed solutions include a working solution, unit test cases
+                            and all associated documentation.</li>
+                        <li>The Designer and TopCoder Software Application Manager are available to answer questions and give guidance.</li>
+                        <li>A Development Review Board is selected from the Development Review Board Pool.</li>
+                        <li>The Development Review Board and Designer are responsible for testing and scoring each submission.</li>
+                        <li>Scoring includes accuracy testing, failure testing, and stress testing.</li>
+                        <li>Once all submissions are scored a winning solution is chosen and the runner-up developer is compensated.</li>
+                        <li>The winning developers must integrate as a team all of the winning submissions into one application.</li>
+                        <li>A lead developer is chosen by the TopCoder Software Project Manager, from the winning submitters to
+                            facilitate the integration and build process.</li>
+                        <li>The Development Review Board will test the application for accuracy, stress, and failure at the end of the Integration Phase.  All bug fixes are addressed immediately by the integration team.</li>
+                        <li>The Development Review Board performs the Final Application Review once all the of fixes have been applied.</li>
                     </ol>
 
                     </td>
