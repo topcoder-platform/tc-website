@@ -15,8 +15,6 @@
 
 <title>TopCoder | Recruiting Reports</title>
 
-<link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
-
 <!-- JavaScript begins -->
 <jsp:include page="script.jsp" />
 <!-- JavaScript ends -->

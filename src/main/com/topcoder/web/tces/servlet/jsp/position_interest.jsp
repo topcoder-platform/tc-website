@@ -14,7 +14,6 @@
 
 <head>
     <title>TopCoder | Recruiting Reports</title>
-    <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
     <jsp:include page="script.jsp" />
 </head>
 
