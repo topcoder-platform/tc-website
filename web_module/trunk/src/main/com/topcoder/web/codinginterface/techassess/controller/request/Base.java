@@ -342,8 +342,9 @@ public abstract class Base extends BaseProcessor {
         buffer.append(FULL_CONTENT);
         buffer.append("<img src=\"");
         buffer.append(image.getSrc() == null ? "" : image.getSrc());
+        buffer.append("\"");
         if (image.getHeight() >= 0) {
-            buffer.append(" height=\"" + image.getHeight() + "\"");
+            buffer.append(" height=\"").append(image.getHeight()).append("\"");
         }
         if (image.getWidth() >= 0) {
             buffer.append(" width=\"" + image.getWidth() + "\"");
