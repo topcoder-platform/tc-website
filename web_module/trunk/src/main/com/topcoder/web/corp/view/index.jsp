@@ -28,7 +28,10 @@
    <tr>
 <!-- Left Column Begins -->
         <td width="170" valign="top">
-        <jsp:include page="includes/left.jsp" />
+        <jsp:include page="includes/left.jsp" >
+            <jsp:param name="level1" value="testing"/>
+            <jsp:param name="level2" value="overview"/>
+        </jsp:include>
         </td>
 <!-- Left Column Ends -->
 
