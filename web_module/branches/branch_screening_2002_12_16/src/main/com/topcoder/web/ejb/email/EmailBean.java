@@ -436,7 +436,7 @@ public class EmailBean implements SessionBean {
         try {
 
             StringBuffer query = new StringBuffer(1024);
-            query.append("SELECT email_id");
+            query.append("SELECT email_id ");
             query.append("FROM email ");
             query.append("WHERE primary = 1 ");
             query.append("AND user_id = ?");
