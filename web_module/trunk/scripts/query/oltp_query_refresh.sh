@@ -59,35 +59,39 @@ WHERE sjd.sched_job_detail_status_id = sjdslu.sched_job_detail_status_id
 AND sched_job_id = @ji@
 "
 
-java com.topcoder.utilities.QueryLoader TC_EMAIL 58 "Notify Active" 0 0 "
+java com.topcoder.utilities.QueryLoader TC_EMAIL 58 "Next Competition" 0 0 "
 SELECT
   LOWER(u.email) AS email_address
   ,u.handle
 FROM
   user u
-  ,coder c
+  ,coder_notify n
 WHERE
-  u.user_id = c.coder_id
+  u.user_id = n.coder_id
   AND u.status = 'A'
-  AND c.notify = 'Y'
+  AND n.notify_id = 1
 ORDER BY
   1"
 
 
-java com.topcoder.utilities.QueryLoader TC_EMAIL 59 "Notify Active US" 0 0 "
+java com.topcoder.utilities.QueryLoader TC_EMAIL 59 "Member Development or Employment Opportunities" 0 0 "
 SELECT
   LOWER(u.email) AS email_address
   ,u.handle
 FROM
   user u
   ,coder c
+  ,coder_notify n
 WHERE
-  u.user_id = c.coder_id
+  u.user_id = n.coder_id
+  AND u.user_id = c.coder_id
   AND u.status = 'A'
-  AND c.notify = 'Y'
+  AND n.notify_id = 4
   AND c.country_code = '840'
 ORDER BY
   1"
+
+
 
 java com.topcoder.utilities.QueryLoader "OLTP" 60 "Authenticate_Data_User" 0 0 "
 SELECT 'yep'
@@ -97,4 +101,34 @@ SELECT 'yep'
    AND s.sector_id = p.sector_id
    AND p.secure_object_id = @cr@
 "
+
+
+java com.topcoder.utilities.QueryLoader TC_EMAIL 61 "Competition Results" 0 0 "
+SELECT
+  LOWER(u.email) AS email_address
+  ,u.handle
+FROM
+  user u
+  ,coder_notify n
+WHERE
+  u.user_id = n.coder_id
+  AND u.status = 'A'
+  AND n.notify_id = 2
+ORDER BY
+  1"
+
+
+java com.topcoder.utilities.QueryLoader TC_EMAIL 62 "TopCoder News and Events" 0 0 "
+SELECT
+  LOWER(u.email) AS email_address
+  ,u.handle
+FROM
+  user u
+  ,coder_notify n
+WHERE
+  u.user_id = n.coder_id
+  AND u.status = 'A'
+  AND n.notify_id = 5
+ORDER BY
+  1"
 
