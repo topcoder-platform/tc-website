@@ -1568,6 +1568,19 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.division_seed ");                       // 30
             query.append("       ,pt.payment_type_id");                      // 31
             query.append("       ,pt.payment_type_desc");                    // 32
+            query.append("       ,(select count(*)");                        // 33
+            query.append("           from room_result rr1");
+            query.append("              , round_segment rs1");
+            query.append("              , round_segment rs2");
+            query.append("          where rs1.round_id = rr1.round_id");
+            query.append("            and rs1.segment_id = 1");
+            query.append("            and rs2.round_id = rr.round_id");
+            query.append("            and rs2.segment_id = 1");
+            query.append("            and rs1.start_time < rs2.start_time");
+            query.append("            and rr1.rated_flag = 1");
+            query.append("            and rr.round_id = rs2.round_id");
+            query.append("            and rr1.coder_id = rr.coder_id) as num_ratings");
+            query.append("       ,rr.rated_flag");                           //34
             query.append("  FROM room_result rr ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
@@ -1618,10 +1631,12 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,division_placed ");                 // 29
             query.append("       ,division_seed ");                   // 30
             query.append("       ,payment_type_id ");                 // 31
-            query.append("       ,payment_type_desc) ");              // 32
+            query.append("       ,payment_type_desc ");               // 32
+            query.append("       ,num_ratings ");                     // 33
+            query.append("       ,rated_flag)");                      // 34
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-            query.append("        ?,?,?,?,?,?,?,?,?,?,?,?)");  // 32 total values
+            query.append("        ?,?,?,?,?,?,?,?,?,?,?,?,?,?)");  // 34 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1684,6 +1699,8 @@ public class TCLoadRound extends TCLoad {
                     psIns.setInt(31, rs.getInt("payment_type_id"));
                     psIns.setString(32, rs.getString("payment_type_desc"));
                 }
+                psIns.setInt(33, rs.getInt("rated_flag")==1?rs.getInt("num_ratings")+1:rs.getInt("num_ratings"));
+                psIns.setInt(34, rs.getInt("rated_flag"));
 
                 retVal = psIns.executeUpdate();
                 count += retVal;
