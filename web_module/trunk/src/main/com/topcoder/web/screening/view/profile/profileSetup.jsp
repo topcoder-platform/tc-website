@@ -8,6 +8,7 @@
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="/script.jsp" />
+
 <script type="text/javascript" language="Javascript">
 <!--
 function getProblemDetail(id) {
@@ -46,6 +47,7 @@ function submitConfirm() {
     document.profileSetupForm.submit();
     return;
 }
+// -->
 </script>
 
 </head>
