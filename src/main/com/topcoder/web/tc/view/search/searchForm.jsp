@@ -17,7 +17,7 @@
                             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                                 <tr>
                                 <td class="bodyText">
-                                Enter search criteria below then click the go button. Search results matching the criteria
+                                Enter search criteria below then click the Search button. Search results matching the criteria
                                 selections will be returned. Click on a Handle to view information about the Coder.
                                 </td>
                                 </tr>
