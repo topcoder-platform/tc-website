@@ -1,5 +1,5 @@
 /**
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.apps.review;
 
@@ -104,6 +104,8 @@ public class AggregateProject implements Model {
                 // save the AggregationWorksheet
                 documentManager.saveAggregation(aggregationData.getAggregationWorksheet(), user.getTCSubject());
 
+                AutoPilot.aggregation(aggregationData);
+                
                 return new SuccessResult();
             }
 
