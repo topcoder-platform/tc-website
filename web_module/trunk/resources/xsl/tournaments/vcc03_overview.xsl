@@ -12,12 +12,23 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
+<!--
+<xsl:template match="swf">      
+<br />  
+<object type="application/x-shockwave-flash" 
+            data="{@src}" 
+            width="{@width}" 
+            height="{@height}">
+<param name="movie" value="{@src}" />
+</object>
+ </xsl:template> 
+-->
 <html>
 <head>
 
 <xsl:call-template name="Preload"/>      
 
-<title>2003 Verizon Coding Challenge - Overview</title>
+<title>2003 Verizon Coding Challenge - Computer Programming Tournament- Overview</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -55,12 +66,16 @@
         <td class="bodyText">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1"></xsl:with-param>
-                <xsl:with-param name="image">tournaments_white</xsl:with-param>
+                <xsl:with-param name="image">events</xsl:with-param>
                 <xsl:with-param name="title">2003 Verizon Coding Challenge</xsl:with-param>
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center"><img src="/i/tournament/tco03/header_tco_main.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" vspace="15" /></div>
+
+            <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="2003 Verizon Coding Challenge" width="494" height="119" border="0" vspace="15" /></div>
+<!--            <swf src="/i/tournament/vcc03/vcc03.swf" height="120" width="500" /> -->
+ 
+
 
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
@@ -77,17 +92,16 @@
             
             <ul>
                 <li><strong>Dates: </strong><br />
-                    October 7th through December 5th, 2003</li>
+                    August 20th through August 29th, 2003</li>
                 <li><strong>Rounds: </strong><br />
                     Two qualification rounds - online<br />
-                    Four elimination rounds - online<br />
-                    The Semifinal and Championship rounds will be held at the Mohegan Sun Casino and Resort in Uncasville, CT on December 4th and 5th</li>
+                    The Championship round will be held onsite in India on 8/29</li>
                 <li><strong>Prizes: </strong><br />
                     Total Prize Purse: $100,000 in cash<br />
                     Up to 500 competitors will receive a prize just for competing in Online Round #1<br />
                     Up to 200 eligible competitors will receive cash prizes</li>
                 <li><strong>Finalists: </strong><br />
-                    The top 16 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds</li>
+                    The top 16 finishers in the online rounds will advance to the onsite Championship round</li>
             </ul>
             </blockquote>
 

@@ -6,8 +6,8 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tco03_links.xsl"/>
-  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>  
+  <xsl:import href="../includes/modules/vcc03_links.xsl"/>
+  <xsl:import href="../includes/modules/vcc03_sublinks.xsl"/>  
   <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Schedule</title>
+<title>Verizon Coding Challenge - Computer Programming Tournament - Schedule</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -55,82 +55,35 @@
         <td class="bodyText">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1"></xsl:with-param>
-                <xsl:with-param name="image">tournaments_white</xsl:with-param>
-                <xsl:with-param name="title">2003 TopCoder Open</xsl:with-param>
+                <xsl:with-param name="image">events</xsl:with-param>
+                <xsl:with-param name="title">2003 Verizon Coding Challenge</xsl:with-param>
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center"><img src="/i/tournament/tco03/header_tco_main.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" vspace="15" /></div>
+            <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="2003 Verizon Coding Challenge" width="494" height="119" border="0" vspace="15" /></div>
 
 <!-- Tab bar links-->
-            <xsl:call-template name="tco03_links">
+            <xsl:call-template name="vcc03_links">
                 <xsl:with-param name="selectedTab">schedule</xsl:with-param>
             </xsl:call-template>
 
 <!-- Tab bar sub links-->
-            <xsl:call-template name="tco03_sublinks">
+            <xsl:call-template name="vcc03_sublinks">
                 <xsl:with-param name="selectedTab"></xsl:with-param>
             </xsl:call-template>
     
             <blockquote>
             <h2>Schedule</h2>
             
-<!-- Qualification Rounds begins -->
-            <p><span class="bodySubtitle">Qualification Rounds</span></p>
-
-            <p><a name="berths"></a><strong>Automatic Berths</strong> - The 100 highest rated TopCoder members as of October 7th will receive an automatic berth into
-            <A href="#online">Online Round #1.</A> The 100 highest rated members must have competed in at least three TopCoder rated events (i.e., 
-            Single Round Matches and/or previous tournaments) prior to October 7th with at least one (1) of those events being between July 7th
-            and October 7th.</p>
-
-            <p><strong>Qualification Spots</strong> - All members can compete for one of 400 qualification spots in the tournament.  Two Qualification
-            Rounds will be held, and the top 200 scorers from each Qualification Round will win a spot in Online Round #1 of the TCO.  Please note
-            that the top 100 rated members with an automatic berth will not be allowed to compete in the Qualification Rounds.  Also, those members
-            who qualify for the tournament during Qualification Round #1 will not be allowed to compete in Qualification Round #2.</p>
-
-            <a name="sched"></a>
-            <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Qualification Round #1</td>
-                    <td class="sidebarText">
-                        Tuesday, October 7<br />
-                        Registration:  6:00 PM - 8:55 PM<br />
-                        Compete: 9:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">All members</td>
-                    <td class="sidebarText" align="center">200</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Qualification Round #2</td>
-                    <td class="sidebarText">
-                        Thursday, October 9<br />
-                        Registration:  7:00 PM - 9:55 PM<br />
-                        Compete: 10:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">All members</td>
-                    <td class="sidebarText" align="center">200</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
-                        will be the following day at the same time.
-                    </td>
-                </tr>
-            </table><br />
-<!-- Qualification Rounds ends -->
+<!-- Qualification Description begins -->
+            <p><strong>Qualification Spots</strong> - Verizon will choose all qualifying members for the 500 available spots.  These 
+            members will then compete in Online Elimination Round 1</p>
+<!-- Qualification Description Ends -->
 
 <!-- Online Elimination Rounds begins -->
             <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
-            A total of 500 TopCoder members will compete in Online Round #1 of the TCO.  The field will be comprised of 100 automatic 
-            berths and 400 qualification spots. Each room winner and the next highest scorers in each round will advance.</p>
+            A total of 500 TopCoder members will compete in Online Round #1 of the VCC.  Each room winner and the next highest 
+            scorers in each round will advance.</p>
             
             <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -143,45 +96,23 @@
                 <tr valign="top">
                     <td class="sidebarText">Online Round #1</td>
                     <td class="sidebarText">
-                        Wednesday, October 15th<br />
+                        Wednesday, August 20th<br />
                         Login by:  9:20 PM<br />
                         Compete: 9:30 PM<br />
                     </td>
                     <td class="sidebarText" align="center">500</td>
-                    <td class="sidebarText" align="center">200</td>
+                    <td class="sidebarText" align="center">250</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText">Online Round #2</td>
                     <td class="sidebarText">
-                        Wednesday, October 22nd<br />
+                        Monday, August 25th<br />
                         Login by:  9:20 PM<br />
                         Compete: 9:30 PM<br />
                     </td>
                     <td class="sidebarText" align="center">200</td>
-                    <td class="sidebarText" align="center">100</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Online Round #3</td>
-                    <td class="sidebarText">
-                        Wednesday, October 29th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">100</td>
-                    <td class="sidebarText" align="center">50</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Online Round #4</td>
-                    <td class="sidebarText">
-                        Wednesday, November 5th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">50</td>
-                    <td class="sidebarText" align="center">16</td>
+                    <td class="sidebarText" align="center">25</td>
                 </tr>
 
                 <tr valign="top">
@@ -194,10 +125,10 @@
 <!-- Online Elimination Rounds ends -->
 
 <!-- Onsite Semifinal and Championship Rounds begins -->
-            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br />
-            The 16 advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete in the Semifinal round 
+            <p><span class="bodySubtitle">Onsite Championship Round</span><br />
+            The 25 advancers from Online Round #2 will travel to India on Friday, August 29th to compete in the Final round 
             of the tournament being held on Thursday, December 4th.</p>
-            
+<!--          
             <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
@@ -261,7 +192,7 @@
                     </td>
                 </tr>
             </table><br />
-
+-->
             </blockquote>
 
             <p><br/></p>

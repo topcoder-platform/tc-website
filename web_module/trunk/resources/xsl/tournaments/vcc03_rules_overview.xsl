@@ -6,8 +6,8 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tco03_links.xsl"/>
-  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>  
+  <xsl:import href="../includes/modules/vcc03_links.xsl"/>
+  <xsl:import href="../includes/modules/vcc03_sublinks.xsl"/>  
   <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Overview</title>
+<title>2003 Verizon Coding Challenge - Computer Programming Tournament - Rules - Overview</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -55,20 +55,20 @@
         <td class="bodyText">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1"></xsl:with-param>
-                <xsl:with-param name="image">tournaments_white</xsl:with-param>
-                <xsl:with-param name="title">2003 TopCoder Open</xsl:with-param>
+                <xsl:with-param name="image">events</xsl:with-param>
+                <xsl:with-param name="title">2003 Verizon Coding Challenge</xsl:with-param>
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center"><img src="/i/tournament/tco03/header_tco_main.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" vspace="15" /></div>
+            <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="2003 Verizon Coding Challenge" width="494" height="119" border="0" vspace="15" /></div>
 
 <!-- Tab bar links-->
-            <xsl:call-template name="tco03_links">
+            <xsl:call-template name="vcc03_links">
                 <xsl:with-param name="selectedTab">rules</xsl:with-param>
             </xsl:call-template>
 
 <!-- Tab bar sub links-->
-            <xsl:call-template name="tco03_sublinks">
+            <xsl:call-template name="vcc03_sublinks">
                 <xsl:with-param name="selectedList">rules</xsl:with-param>
                 <xsl:with-param name="selectedTab">overview</xsl:with-param>
             </xsl:call-template>
@@ -78,11 +78,12 @@
             
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
-            <p>The 2003 TopCoder Open ("TCO") will take place between October 7th and December 5th, 2003.  It will consist of two (2) online 
-            qualification rounds, four (4) online elimination rounds and two (2) onsite final rounds, being the Semifinal and Championship rounds.  
-            The prize purse for this tournament is $100,000 in cash.  Up to 500 competitors will receive a prize just for competing in Online 
-            Round #1, and up to 200 eligible competitors will receive cash prizes.  The top 16 finishers in the online rounds will advance to 
-            the onsite Semifinal and Championship rounds, being held at the Mohegan Sun Casino in Uncasville, CT from December 4th and 5th.</p>
+            <p>The 2003 Verizon Coding Challenge ("VCC") will take place between August 20th and 29th, 2003.  
+            It will consist of two (2) online qualification rounds and one (1) onsite championship round.  The prize 
+            purse for this tournament is $XXX,XXX in cash.  Up to 500 competitors will receive a prize just for competing 
+            in Online Round #1, and up to 200 eligible competitors will receive cash prizes.  The top 25 finishers in the 
+            online rounds will advance to the onsite Semifinal and Championship rounds, being held onsite in India on 
+            August 29th, 2003.</p>
             </blockquote>
 
             <p><br/></p>
