@@ -257,12 +257,11 @@ May 30, 2002</P>
     </td>
   </tr>
 </table>
-<b>The Problems</b>
-<a name="Median"></a>
-<font>
-  <b>Median</b>
-</font>
-<br/>
+
+<P>
+<a name="Median"></a><b>The Problems Median</b>
+</P>
+
 <div style="background: #eee; text: black; display: table;">
   <font size="-1">Author:
         <b>Perlaze</b>
@@ -277,9 +276,12 @@ May 30, 2002</P>
     in Room 33</font>
   <br/>
 </div>
+<P>
 <b>Implementation</b>
+</P>
+
 <p>
-            This is the sort of problem that many Division 2 coders would probably classify as a ``typing exercise.''
+            This is the sort of problem that many Division 2 coders would probably classify as a "typing exercise."
             The description basically gives the solution away: sort the input, then
             </p>
 <ul>
@@ -302,12 +304,8 @@ May 30, 2002</P>
             indices of <code>n / 2</code> and <code>n / 2 + 1</code> instead of
             <code>n / 2</code> and <code>(n - 1) / 2</code> which works for both odd- and even-length inputs).
             </p>
-<p>&#160;</p>
-<a name="Hiring"></a>
-<font>
-  <b>Hiring</b>
-</font>
-<br/>
+<a name="Hiring"></a><p><b>Hiring</b></p>
+
 <div style="background: #eee; text: black; display: table;">
   <font size="-1">Author:
         <b>Perlaze</b>
@@ -322,7 +320,10 @@ May 30, 2002</P>
     in Room 29</font>
   <br/>
 </div>
+<P>
 <b>Summary</b>
+</P>
+
 <p>
             The solution to this problem is to iterate through each unique, possible triple, and
             select the one that is best under the ordering on triples defined by the problem.
@@ -350,12 +351,8 @@ for(int i = 0; i &lt; len - 2; i++)
             However this is implemented, for each combination it is easy to pick the combination that yields the
             highest average exam score without exceeding the salary cap.
             </p>
-<p>&#160;</p>
-<a name="Super3"></a>
-<font>
-  <b>Super3</b>
-</font>
-<br/>
+<a name="Super3"></a><p><b>Super3</b></p>
+
 <div style="background: #eee; text: black; display: table;">
   <font size="-1">Author:
         <b>Perlaze</b>
@@ -370,8 +367,10 @@ for(int i = 0; i &lt; len - 2; i++)
     in Room 1</font>
   <br/>
 </div>
-<b>Summary</b>
-<b>Algorithm</b>
+<P>
+<b>Summary Algorithm</b>
+</P>
+
 <p>
             The algorithm consists of computing <code>round(1000 * odds)</code>, where <code>odds</code> is your odds of
             winning.  Rather than bothering with floating point arithmetic, however, we will decompose <code>odds</code>
@@ -400,12 +399,8 @@ for(int i = 0; i &lt; len - 2; i++)
             that would have made such a mistake glaringly obvious to those that tested with it.  Obviously quite a few
             people rushed through the problem without testing or reading it thoroughly.
             </p>
-<p>&#160;</p>
-<a name="Big2"></a>
-<font>
-  <b>Big2</b>
-</font>
-<br/>
+<a name="Big2"></a><p><b>Big2</b></p>
+
 <div style="background: #eee; text: black; display: table;">
   <font size="-1">Author:
         <b>Perlaze</b>
@@ -424,7 +419,10 @@ for(int i = 0; i &lt; len - 2; i++)
     in Room 1</font>
   <br/>
 </div>
+<P>
 <b>Summary</b>
+</P>
+
 <p>
             This was also a combinatorical problem, in the sense that the problem consisted of counting combinations that
             meet certain criteria.
@@ -432,7 +430,7 @@ for(int i = 0; i &lt; len - 2; i++)
 <b>Algorithm</b>
 <p>
             Due to the nature of the input, a brute force solution is all that is needed.  We iterate through each possible
-            subset of the hand that is of size 5, and count how many of these subsets constitute ``poker hands.''
+            subset of the hand that is of size 5, and count how many of these subsets constitute "poker hands."
             The number of possible subsets of size 5 is <tt>C(13, 5) = 13! / (5!8!) = 1287</tt>, which is within reach
             of even an incredibly slow implementation.
             </p>
@@ -505,12 +503,8 @@ for(int i = 0; i &lt; 9; i++)
             Fence-post errors are easy to make in this situation, and the dual nature of aces caused a lot of
             people to write incorrect code for checking for straights.
             </p>
-<p>&#160;</p>
-<a name="Shared"></a>
-<font>
-  <b>Shared</b>
-</font>
-<br/>
+<a name="Shared"></a><p><b>Shared</b></p>
+
 <div style="background: #eee; text: black; display: table;">
   <font size="-1">Author:
         <b>Soli</b>
@@ -525,7 +519,10 @@ for(int i = 0; i &lt; 9; i++)
     in Room 1</font>
   <br/>
 </div>
+<P>
 <b>Implementation</b>
+</P>
+
 <p>
             This monstrosity by <b>Soli</b> defeated most programmers in Division 1.
             Of 261 contestants, only 10 were even able to submit it, and only four of these submissions
@@ -580,7 +577,7 @@ for(int i = 0; i &lt; 9; i++)
                     </p>
                     <p>
                     We then look for processes of lower precedence that are holding locks that would exclude this process from obtaining the lock.
-                    For each such lock, we remove it, ``rolling back'' the process that held it when we do so.  If our process is requesting
+                    For each such lock, we remove it, "rolling back" the process that held it when we do so.  If our process is requesting
                     a read lock, we roll back any process of lower precedence that is holding a write lock on the same address back to the point
                     where it obtained that lock.  This rolling back process consists of setting the process's instruction counter to that associated
                     with the lock that it just lost, and then removing all locks it holds with an instruction counter higher than that.
