@@ -10,8 +10,8 @@
 
             <table width="100%" border="0" cellspacing="0" cellpadding="3">                     
                  <tr valign="top">
-                    <td class="bodyText">04.07.2003</td>
-                    <td class="bodyText" width="99%"><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_04_07_03</xsl:attribute>Duke University's David Arthur Wins 2003 Collegiate Challenge</a></td>
+                    <td class="bodyText">04.08.2003</td>
+                    <td class="bodyText" width="99%"><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_04_08_03</xsl:attribute>Duke University's David Arthur Wins 2003 Collegiate Challenge</a></td>
                 </tr>    
                              
                <tr valign="top">
@@ -39,7 +39,7 @@
                     <td class="bodyText" width="99%"><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_10_30_02</xsl:attribute>TopCoder Competitions Expand to High Schools</a></td>
                 </tr>                
 
-                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
+                <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
   </xsl:template>
 </xsl:stylesheet>
