@@ -102,7 +102,7 @@ public class QueryInputBean extends BaseEJB {
     }
 
     public void setDefaultValue(long queryId, long inputId, String defaultValue) throws RemoteException, EJBException {
-        log.debug("setOptional called...query: " + queryId + " input: " + inputId + " default value: " + defaultValue);
+        log.debug("setDefaultValue called...query: " + queryId + " input: " + inputId + " default value: " + defaultValue);
 
         PreparedStatement ps = null;
         Connection conn = null;
@@ -140,7 +140,7 @@ public class QueryInputBean extends BaseEJB {
     }
 
     public void setSortOrder(long queryId, long inputId, int sortOrder) throws RemoteException, EJBException {
-        log.debug("setOptional called...query: " + queryId + " input: " + inputId + " sort order: " + sortOrder);
+        log.debug("setSortOrder called...query: " + queryId + " input: " + inputId + " sort order: " + sortOrder);
 
         PreparedStatement ps = null;
         Connection conn = null;

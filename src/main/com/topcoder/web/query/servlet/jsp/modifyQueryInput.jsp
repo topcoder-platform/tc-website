@@ -63,12 +63,12 @@
                       <TD CLASS="statTextBig"><jsp:getProperty name="queryInput" property="InputCode"/></TD>
                       <TD CLASS="statTextBig"><jsp:getProperty name="queryInput" property="InputDesc"/></TD>
                       <TD CLASS="statTextBig">
-                        <input type="text" name="<%=Constants.SORT_ORDER_PARAM%>" value ="<jsp:getProperty name="queryInput" property="SortOrder"/>" size="3" maxlength="3"/>
+                        <input type="text" name="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="SortOrder"/>" size="3" maxlength="3"/>
                       </TD>
                       <TD CLASS="statTextBig">
-                        <input type="checkbox" name="<%=Constants.OPTIONAL_PARAM%>" class="bodyText" <%=queryInput.isOptional()?"checked":""%>/>
+                        <input type="checkbox" name="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>" class="bodyText" <%=queryInput.isOptional()?"checked":""%>/>
                       <TD CLASS="statTextBig">
-                        <input type="text" name="<%=Constants.DEFAULT_VALUE_PARAM%>" value ="<jsp:getProperty name="queryInput" property="DefaultValue"/>" size="30" maxlength="100"/>
+                        <input type="text" name="<%=Constants.DEFAULT_VALUE_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="DefaultValue"/>" size="30" maxlength="100"/>
                       </TD>
                       <TD CLASS="statTextBig">
                         <A HREF="<jsp:getProperty name="ModifyQueryInputTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyQueryInputTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<jsp:getProperty name="queryInput" property="InputId"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="ModifyQueryInputTask" property="QueryId"/>&<%=Constants.STEP_PARAM%>=<%=Constants.REMOVE_STEP%>" class="statText">
@@ -94,7 +94,7 @@
            </TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
-               <A HREF="javascript: document.ModQueryInputForm.<%=Constants.STEP_PARAM%>.value=<%=Constants.NEW_STEP%>; void document.ModQueryInputForm.submit()" class="statText">
+               <A HREF="javascript: document.ModQueryInputForm.<%=Constants.STEP_PARAM%>.value='<%=Constants.NEW_STEP%>';void document.ModQueryInputForm.submit();" class="statText">
                  [add]
                </A>
              </TD>
