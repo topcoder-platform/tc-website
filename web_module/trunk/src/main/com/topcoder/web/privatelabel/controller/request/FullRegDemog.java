@@ -74,7 +74,6 @@ public class FullRegDemog extends FullRegBase {
     }
 
     private DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
-        log.debug("makeQuestion: " + row);
         DemographicQuestion ret = new DemographicQuestion();
         ret.setDemographicQuestionId(row.getLongItem("demographic_question_id"));
         ret.setDemographicQuestionDesc(row.getStringItem("demographic_question_desc"));
@@ -98,7 +97,6 @@ public class FullRegDemog extends FullRegBase {
     }
 
     private DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
-        log.debug("makeAnswer: " + row);
         DemographicAnswer ret = new DemographicAnswer();
         ret.setDemographicAnswerId(row.getLongItem("demographic_answer_id"));
         ret.setDemographicAnswerText(row.getStringItem("demographic_answer_text"));
