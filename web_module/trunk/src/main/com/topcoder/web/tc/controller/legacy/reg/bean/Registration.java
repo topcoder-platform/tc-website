@@ -18,14 +18,12 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.UserPrincipal;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.transaction.Status;
 import javax.transaction.UserTransaction;
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -168,11 +166,8 @@ public class Registration
     protected String quote;
     protected String email;
     protected String confirmEmail;
-    //protected String notify;
-    //protected boolean notifyChecked;
     protected String language;
     protected String coderType;
-//    protected String sunConfirm;
     protected String terms;
     protected String referral;
     protected boolean referralChanged;
@@ -217,11 +212,8 @@ public class Registration
             quote = "";
             email = "";
             confirmEmail = "";
-            //notify = "";
-            //notifyChecked = false;
             language = "";
             coderType = "";
-//            sunConfirm = "";
             terms = "";
             referral = "";
             referralChanged = false;
@@ -301,11 +293,8 @@ public class Registration
         quote = checkNull(coder.getQuote());
         email = checkNull(user.getEmail());
         confirmEmail = email;
-        //notify = (checkNull(coder.getNotify()).equals("Y")?CHECKBOX_YES:"");
-        //notifyChecked = false;
         language = Integer.toString(coder.getLanguage().getLanguageId());
         coderType = Integer.toString(coder.getCoderType().getCoderTypeId());
-//        sunConfirm = checkNull(getSunConfirmation(coder.getCoderConfirmations()));
         terms = (checkNull(user.getTerms()).equals("Y")?CHECKBOX_YES:"");
         // referral data only used in Registration
         referral = Integer.toString(coder.getCoderReferral().getReferral().getReferralId());
@@ -386,11 +375,6 @@ public class Registration
     public void process()
             throws TaskException {
         log.info("Registration.process()");
-        //if (isStep(STEP_0))
-        //{
-        //clearErrors();
-        //}
-        //else
         if (isStep(STEP_1)) {
             clearErrors();
 
@@ -674,15 +658,10 @@ public class Registration
                 setEmail(value);
             else if (name.equalsIgnoreCase(CONFIRM_EMAIL))
                 setConfirmEmail(value);
-            //else if (name.equalsIgnoreCase(NOTIFY)) setNotify(value);
             else if (name.equalsIgnoreCase(LANGUAGE))
                 setLanguage(value);
             else if (name.equalsIgnoreCase(CODER_TYPE))
                 setCoderType(value);
-/*
-            else if (name.equalsIgnoreCase(SUN_CONFIRMATION))
-                setSunConfirm(value);
-*/
             else if (name.equalsIgnoreCase(TERMS))
                 setTerms(value);
             else if (name.startsWith(NOTIFY_PREFIX)) {
@@ -778,12 +757,6 @@ public class Registration
         this.confirmEmail = checkNull(value);
     }
 
-    //public void setNotify(String value)
-    //{
-    //notifyChecked = true;
-    //this.notify = checkNull(value);
-    //}
-
     public void setLanguage(String value) {
         this.language = checkNull(value);
     }
@@ -791,11 +764,6 @@ public class Registration
     public void setCoderType(String value) {
         this.coderType = checkNull(value);
     }
-/*
-    public void setSunConfirm(String value) {
-        this.sunConfirm = checkNull(value);
-    }
-*/
     public void setTerms(String value) {
         this.terms = checkNull(value);
     }
@@ -1063,16 +1031,6 @@ public class Registration
         return getError(CONFIRM_EMAIL);
     }
 
-    //public String getNotify()
-    //{
-    //return this.notify;
-    //}
-
-    //public String getNotifyError()
-    //{
-    //return getError(NOTIFY);
-    //}
-
     public String getLanguage() {
         return this.language;
     }
@@ -1088,11 +1046,6 @@ public class Registration
     public String getCoderType() {
         return this.coderType;
     }
-/*
-    public String getSunConfirm() {
-        return this.sunConfirm;
-    }
-*/
 
     public String getCoderTypeError() {
         return getError(CODER_TYPE);
@@ -1220,62 +1173,6 @@ public class Registration
     public String getGpaScaleError() {
         return getError(GPA_SCALE);
     }
-
-
-    /*   this stuff all handled by demographics
-
-    public String getMajor()
-    {
-        return this.major;
-    }
-    public String getMajorError()
-    {
-        return getError(MAJOR);
-    }
-    public String getDegree()
-    {
-        return this.degree;
-    }
-    public String getDegreeError()
-    {
-        return getError(DEGREE);
-    }
-    public String getGraduationYear()
-    {
-        return this.graduationYear;
-    }
-    public String getGraduationYearError()
-    {
-        return getError(GRADUATION_YEAR);
-    }
-    */
-
-
-
-
-/*
-    public String getOrganization()
-    {
-        return this.organization;
-    }
-    public String getOrganizationError()
-    {
-        return getError(ORGANIZATION);
-    }
-    public String getOrganizationOther()
-    {
-        return isEmpty(this.organizationOther)?getOrganizationOtherPrompt():this.organizationOther;
-    }
-
-    public String getOrganizationOtherPrompt()
-    {
-        return "club / organization name";
-    }
-    public String getOrganizationOtherError()
-    {
-        return getError(ORGANIZATION_OTHER);
-    }
-*/
 
     public ArrayList getDemographic(String questionId) {
         ArrayList result = null;
@@ -1670,31 +1567,6 @@ public class Registration
             }
         }
 
-/*
-        ArrayList a = coder.getCoderConfirmations();
-        boolean found = false;
-        for (int i = 0; i < a.size(); i++) {
-            CoderConfirmation c = (CoderConfirmation) a.get(i);
-            if (c.getContestId() == SUN_CONTEST_ID) {
-                c.setModified("U");
-                c.setCode(getSunConfirm());
-                found = true;
-            }
-        }
-        if (!found) {
-            CoderConfirmation c = new CoderConfirmation();
-            c.setCoderId(coder.getCoderId());
-            c.setCode(getSunConfirm());
-            c.setContestId(SUN_CONTEST_ID);
-            c.setModified("A");
-            try {
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            a.add(c);
-        }
-*/
-
         Context context = null;
         String activationCode = "";
         UserTransaction transaction = null;
@@ -1890,20 +1762,4 @@ public class Registration
         return true;
     }
 
-/*
-    private static String getSunConfirmation(ArrayList confirmList) {
-        CoderConfirmation temp = null;
-        boolean found = false;
-        for (int i = 0; i < confirmList.size() && !found; i++) {
-            temp = (CoderConfirmation) confirmList.get(i);
-            if (temp.getContestId() == SUN_CONTEST_ID) {
-                found = true;
-            }
-        }
-        if (found)
-            return temp.getCode();
-        else
-            return null;
-    }
- */
 }
