@@ -1,4 +1,8 @@
-<%@ include file="head.inc" %>
+<%@ page
+ errorPage="../home/error.jsp"
+    import="com.topcoder.shared.dataAccess.resultSet.*,
+            java.util.*" %>
+<jsp:include file="head.inc"/>
 <% Map data=(Map)request.getAttribute("STUDENT_DATA");
    ResultSetContainer rsc;
    ResultSetContainer.ResultSetRow rsr;
