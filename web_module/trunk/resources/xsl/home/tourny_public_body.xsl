@@ -191,7 +191,7 @@ time-consuming and expensive...
     </TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="15%" NOWRAP="0">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match</xsl:attribute>
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute>
         Results
       </A>
     </TD>
