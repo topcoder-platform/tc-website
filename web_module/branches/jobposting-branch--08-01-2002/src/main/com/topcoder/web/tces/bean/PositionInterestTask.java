@@ -150,7 +150,6 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
         setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
-        setCampaignStatus( cpgnInfRow.getItem("status_desc").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
         if (rsc.getRowCount() == 0) {

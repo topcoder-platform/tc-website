@@ -56,7 +56,6 @@
               
               <P>
               <B><%=CampaignInterestTask.getCampaignName()%></B><BR>
-              Status: <B><jsp:getProperty name="CampaignInterestTask" property="CampaignStatus"/></B><BR>
               <a href="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CampaignInterestTask.getCampaignID()%>" class="statText">View collective demographic info</A><BR>
               </P>
               <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
