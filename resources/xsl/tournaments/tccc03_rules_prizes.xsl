@@ -12,145 +12,153 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
-        <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Tournaments</TITLE>
-        <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-        <a name="top_page"></a>
-        <xsl:variable name="contestId">
-          <xsl:value-of select="/TC/SCHEDULE/ContestId"/>
-        </xsl:variable>
-        <xsl:call-template name="Top"/>
-        <!-- Body Begins -->
-        <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-          <TR>
-            <!-- Left Column Begins -->
-            <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-              <!-- Left Column Include Begins -->  
-              <!-- Global Seconday Nav Begins -->  
+<html>
+<head>
+
+<xsl:call-template name="Preload"/>      
+
+<title>TopCoder | Tournaments</title>
+
+<xsl:call-template name="CSS"/>      
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
+</head>
+
+<body>
+
+<a name="top_page"></a>
+
+<xsl:variable name="contestId">
+    <xsl:value-of select="/TC/SCHEDULE/ContestId"/>
+</xsl:variable>
+
+<!-- Top Begins -->
+<xsl:call-template name="Top"/>
+<!-- Top Ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
+<!-- Left Column Begins -->
+        <td width="170" bgcolor="#CCCCCC">
               <xsl:call-template name="global_left"/>
-              <!-- Global Seconday Nav Ends -->      
-              <!-- Left Column Include Ends -->          
-            </TD>
-            <!-- Left Column Ends -->
-            <!-- Gutter Begins -->
-            <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
-            <!-- Gutter Ends -->
-            <!-- Body Area -->
-            <!-- Center Column Begins -->  
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top">
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">steelblue</xsl:with-param>
-  <xsl:with-param name="image">tournaments_blue</xsl:with-param>
-  <xsl:with-param name="title">&#160;</xsl:with-param>
-</xsl:call-template>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-	<TR>
-		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-		<TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-    <!-- Coder of the Week Pulldown Begins -->				
-        <xsl:call-template name="tccc03_links"/>
-	<!-- Coder of the Week Pulldown Ends -->
-	<BR/>
-	<xsl:call-template name="tccc03rule_links"/>
-<P class="statText">
-Prizes will be awarded to a total of 200 competitors.  Prize money will be distributed as follows:
-</P>
-	
-						<DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="1" CELLPADDING="6" CELLSPACING="0">																		
-						<TR>
-							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Competitor(s)</TD>
-							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Prize Money</TD>
-						</TR>
-						<TR>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">200 advancers from Regional Quarterfinal Round who compete in Regional Semifinal Round</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$50 each</TD>
-						</TR>						
-						<TR>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">50 advancers from Regional Semifinal Round who compete in Regional Championship Round</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$50 each</TD>
-						</TR>
-						<TR>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">5 Regional Champions</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$600 each</TD>
-						</TR>
-						<TR>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">12 competitors who compete in the Semifinal Round who do not advance to the Championship Round</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$1,000 each</TD>
-						</TR>
-						<TR>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">4th place finisher in the Championship Round</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$2,500</TD>
-						</TR>
-						<TR>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">3rd place finisher in the Championship Round</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$5,000</TD>
-						</TR>																								
-						<TR>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">2nd place finisher in the Championship Round</TD>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText">$15,000</TD>
-						</TR>
-						<TR>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText"><B>1st place finisher - Tournament Champion</B></TD>
-							<TD VALIGN="top" BGCOLOR="#666666" class="statText"><B>$50,000</B></TD>
-						</TR>																										
-						</TABLE></DIV><BR/>
-<P CLASS="statText">
-** All prizes will be awarded at the conclusion of the final onsite round of competition. Any and all 
-applicable taxes on prizes including bringing a guest to the onsite rounds are the sole 
-responsibility of the prizewinner.						
-</P>
+        </td>
+<!-- Left Column Ends -->
 
-					<P><BR/></P>
-		</TD>
-		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-	</TR>   	
-	<TR>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>	
-	<TR>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-      </TABLE>
-    </TD>
-  <!-- Center Column Ends -->
-<!-- Body Area Ends -->
+<!-- Gutter Begins -->
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+<!-- Gutter Ends -->
 
-  <!-- Gutter -->
-    <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
+<!-- Center Column Begins -->  
+        <td class="bodyText" width="100%">
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">steelblue</xsl:with-param>
+                <xsl:with-param name="image">tournaments_gray</xsl:with-param>
+                <xsl:with-param name="title">2003 TopCoder Collegiate Challenge</xsl:with-param>
+            </xsl:call-template>
+        
+            <xsl:call-template name="tccc03_links"/>
+            
+            <xsl:call-template name="tccc03rule_links"/>
+    
+            <table border="0" cellspacing="0" cellpadding="0" class="tourney_bkgd" width="100%">
+                <tr valign="top">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                    <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td valign="middle" class="statText">
+                                    <p>Prizes will be awarded to a total of 200 competitors.  Prize money will be distributed as follows:<br /><br /></p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div align="center">
+                        <table width="100%" border="0" cellpadding="6" cellspacing="1">
+                            <tr>
+                            <td width="50%" align="center" valign="middle" height="21" bgcolor="#000000" class="statText">Competitor(s)</td>
+                            <td width="50%" align="center" valign="middle" height="21" bgcolor="#000000" class="statText">Prize Money</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#666666" class="statText">200 advancers from Regional Quarterfinal Round who compete in Regional Semifinal Round</td>
+                            <td valign="top" bgcolor="#666666" class="statText">$50 each</td>
+                        </tr>                        
+                        <tr>
+                            <td valign="top" bgcolor="#666666" class="statText">50 advancers from Regional Semifinal Round who compete in Regional Championship Round</td>
+                            <td valign="top" bgcolor="#666666" class="statText">$50 each</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#666666" class="statText">5 Regional Champions</td>
+                            <td valign="top" bgcolor="#666666" class="statText">$600 each</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#666666" class="statText">12 competitors who compete in the Semifinal Round who do not advance to the Championship Round</td>
+                            <td valign="top" bgcolor="#666666" class="statText">$1,000 each</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#666666" class="statText">4th place finisher in the Championship Round</td>
+                            <td valign="top" bgcolor="#666666" class="statText">$2,500</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#666666" class="statText">3rd place finisher in the Championship Round</td>
+                            <td valign="top" bgcolor="#666666" class="statText">$5,000</td>
+                        </tr>                                                                                                
+                        <tr>
+                            <td valign="top" bgcolor="#666666" class="statText">2nd place finisher in the Championship Round</td>
+                            <td valign="top" bgcolor="#666666" class="statText">$15,000</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#666666" class="statText"><b>1st place finisher - Tournament Champion</b></td>
+                            <td valign="top" bgcolor="#666666" class="statText"><b>$50,000</b></td>
+                            </tr>                                                                                                        
+                        </table>
+                        </div>
+                        
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tr>
+                                <td class="statText"><br />
+                                    ** All prizes will be awarded at the conclusion of the final onsite round of competition. Any and all 
+                                    applicable taxes on prizes including bringing a guest to the onsite rounds are the sole 
+                                    responsibility of the prizewinner.
+                                </td>
+                            </tr>
+                        </table>
+                        <p><br/></p>
+                    </td>
+                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
+            </table>
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
   <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins --> 
+        <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
+
         <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
-        </TD>
+
+        </td>
   <!-- Right Column Ends -->
-  <!-- Gutter -->
-    <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-  </TR>
-</TABLE>
-<!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
+
+<!-- Gutter Begins -->
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
+
+<!-- Footer Begins -->
+<xsl:call-template name="Foot"/>
+<!-- Footer Ends -->
+
+</body>
+</html>
+
   </xsl:template>
 </xsl:stylesheet>
 

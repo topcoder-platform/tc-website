@@ -12,6 +12,9 @@
 <xsl:when test="$image1='steelblue'"><img src="/i/clear.gif" width="1" height="8" BORDER="0"/><BR/>
 <IMG WIDTH="11" HEIGHT="26" BORDER="0"><xsl:attribute name="SRC">/i/steelblue_top_left1.gif</xsl:attribute></IMG>
 </xsl:when>
+<xsl:when test="$image1='steelgray'"><img src="/i/clear.gif" width="1" height="8" BORDER="0"/><BR/>
+<IMG WIDTH="11" HEIGHT="26" BORDER="0"><xsl:attribute name="SRC">/i/tourney_top_left1.gif</xsl:attribute></IMG>
+</xsl:when>
 <xsl:otherwise>
 <IMG WIDTH="11" HEIGHT="26" BORDER="0"><xsl:attribute name="SRC">/i/table_top_leftx.gif</xsl:attribute></IMG>
 </xsl:otherwise>
