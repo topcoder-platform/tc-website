@@ -82,16 +82,12 @@ public class Confirm extends FullRegConfirm {
             DemographicResponse r = null;
             DemographicQuestion q = null;
             int count = 0;
-            log.info("VAL:" + Constants.BROOKS_REFERRAL_QUESTION_ID);
             for (Iterator it = ((FullRegInfo) info).getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
-                log.info("H");
                 if(r.getQuestionId() == Long.parseLong(Constants.BROOKS_REFERRAL_QUESTION_ID))
                 {
-                    log.info("COUNT+1");
                     count++;
                 }
-                log.info("R=" + r.getQuestionId());
             }
             
             if(count != 0 && count > 3)
