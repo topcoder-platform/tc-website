@@ -146,6 +146,7 @@ public final class TaskDevelopment {
 
             devTag.addTag(new ValueTag("date", date));
             devTag.addTag(new ValueTag("version", request.getParameter("version")));
+            devTag.addTag(new ValueTag("tco", request.getParameter("tco")));
             devTag.addTag(new ValueTag("phase", request.getParameter("phase")));
             devTag.addTag(new ValueTag("posting_date", request.getParameter("posting_date")));
             devTag.addTag(new ValueTag("initial_submission", request.getParameter("initial_submission")));
@@ -190,7 +191,8 @@ public final class TaskDevelopment {
                         log.debug("rsc is null");
                     devTag.addTag(rsc.getTag("projects", "project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
-                    String handle = nav.getUser().getHandle();
+                    //String handle = nav.getUser().getHandle();
+                    String handle = nav.getSessionInfo().getHandle();
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
                     devTag.addTag(new ValueTag("To", to));
@@ -252,7 +254,8 @@ public final class TaskDevelopment {
             else if (command.equals("send")) {
                 if (nav.isLoggedIn()) {
                     devTag.addTag(new ValueTag("Project", project));
-                    String handle = nav.getUser().getHandle();
+                    //String handle = nav.getUser().getHandle();
+                    String handle = nav.getSessionInfo().getHandle();
                     String from = nav.getUser().getEmail();
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String experience = Conversion.clean(request.getParameter("Experience"));
@@ -270,8 +273,9 @@ public final class TaskDevelopment {
 
                     Data.loadUser(nav);
                     User user = nav.getUser();
-                    CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
-                    int rating = coder.getRating().getRating();
+                    //CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
+                    //int rating = coder.getRating().getRating();
+                    int rating = nav.getSessionInfo().getRating();
 
                     msgText.append("\n\nRating:\n");
                     msgText.append(rating);
@@ -353,9 +357,11 @@ public final class TaskDevelopment {
                     long userId;
                     devTag.addTag(new ValueTag("Project", project));
 
-                    String handle = nav.getUser().getHandle();
+                    //String handle = nav.getUser().getHandle();
+                    String handle = nav.getSessionInfo().getHandle();
                     devTag.addTag(new ValueTag("handle", handle));
 
+                    Data.loadUser(nav);
                     String from = nav.getUser().getEmail();
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String comment = Conversion.clean(request.getParameter("Comment"));
@@ -484,11 +490,12 @@ public final class TaskDevelopment {
 
                         if (!permissionAdded && rating > 0 || rating == -1) {
 
-                            log.error("Could not find a match for the forum");
+                            log.error("Could not find a match for the specific forum");
                         }
 
 
                         TCSEmailMessage mail = new TCSEmailMessage();
+                        log.debug("from: " + from);
                         mail.addToAddress(from, TCSEmailMessage.TO);
                         mail.setFromAddress(to);
                         mail.setSubject(project);
@@ -585,6 +592,7 @@ public final class TaskDevelopment {
         } catch (PermissionException pe) {
             throw pe;
         } catch (Exception e) {
+            log.debug(e.getMessage());
             e.printStackTrace();
             StringBuffer msg = new StringBuffer(150);
             msg.append("TaskDevelopment:process:");
