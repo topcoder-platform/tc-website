@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<table border="0" cellspacing="10" cellpadding="0" width="100%">
+<table border="0" cellspacing="10" cellpadding="0" width="800">
     
     <tr valign="top">
         <td align="center"><img src="/i/email/tcs_logo.gif" width="217" height="64"/><img src="/i/email/header_march.gif" width="584" height="64"/></td>
