@@ -63,20 +63,34 @@ public class ProblemArchive extends Base {
             String div2Level = StringUtils.checkNull(getRequest().getParameter(Constants.DIV2_LEVEL));
 
             ArrayList filters = new ArrayList();
-            if (!className.equals(""))
+            if (!className.equals("")) {
                 filters.add(new Contains(className, "problem_name"));
-            if (!minDiv1Success.equals(""))
+                setDefault(Constants.CLASS_NAME, className);
+            }
+            if (!minDiv1Success.equals("")) {
                 filters.add(new GreaterThanOrEqual(new BigDecimal(minDiv1Success), "div1_success"));
-            if (!minDiv2Success.equals(""))
+                setDefault(Constants.MIN_DIV1_SUCCESS, minDiv1Success);
+            }
+            if (!minDiv2Success.equals("")) {
                 filters.add(new GreaterThanOrEqual(new BigDecimal(minDiv2Success), "div2_success"));
-            if (!maxDiv1Success.equals(""))
+                setDefault(Constants.MIN_DIV2_SUCCESS, minDiv2Success);
+            }
+            if (!maxDiv1Success.equals("")) {
                 filters.add(new LessThanOrEqual(new BigDecimal(maxDiv1Success), "div1_success"));
-            if (!maxDiv2Success.equals(""))
+                setDefault(Constants.MAX_DIV1_SUCCESS, maxDiv1Success);
+            }
+            if (!maxDiv2Success.equals("")) {
                 filters.add(new LessThanOrEqual(new BigDecimal(maxDiv2Success), "div2_success"));
-            if (!div1Level.equals(""))
+                setDefault(Constants.MAX_DIV2_SUCCESS, maxDiv2Success);
+            }
+            if (!div1Level.equals("")) {
                 filters.add(new Equals(new Integer(div1Level), "div1_level"));
-            if (!div2Level.equals(""))
+                setDefault(Constants.DIV1_LEVEL, div1Level);
+            }
+            if (!div2Level.equals("")) {
                 filters.add(new Equals(new Integer(div2Level), "div2_level"));
+                setDefault(Constants.DIV2_LEVEL, div2Level);
+            }
 
             if (filters.size()>0) {
                 rsc = new ResultSetContainer(rsc, (ResultFilter[])filters.toArray(new ResultFilter[0]));
