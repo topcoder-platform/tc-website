@@ -1,10 +1,10 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.security.NoSuchUserException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.security.NoSuchUserException;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import java.util.StringTokenizer;
 

@@ -1,19 +1,19 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.address.Address;
+import com.topcoder.web.ejb.coder.Coder;
+import com.topcoder.web.ejb.company.Company;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.rating.Rating;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.address.Address;
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.ejb.company.Company;
-import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.rating.Rating;
-import com.topcoder.shared.util.Transaction;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.GroupPrincipal;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.UserTransaction;
 import java.util.Collection;

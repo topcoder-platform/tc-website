@@ -1,28 +1,28 @@
 package com.topcoder.web.privatelabel.controller.request;
 
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.Persistor;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import javax.rmi.PortableRemoteObject;
-import java.util.Map;
+import javax.sql.DataSource;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Provides some functionality that is basic to all registration
