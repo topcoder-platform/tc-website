@@ -9,16 +9,16 @@ import java.util.List;
  *
  * @author  Greg Paul
  */
-public class LinkIteratorTag extends IteratorTag {
+public class QueryInputIteratorTag extends IteratorTag {
     
-     List linkList;
+     List list;
 
-    public void setList(List linkList) {
-        this.linkList = linkList;
+    public void setList(List list) {
+        this.list = list;
     }
 
     public int doStartTag() throws JspException {
-        setCollection(linkList);
+        setCollection(list);
         return super.doStartTag();
     }
     

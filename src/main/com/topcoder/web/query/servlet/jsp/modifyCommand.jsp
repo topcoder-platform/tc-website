@@ -40,7 +40,7 @@
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
-                <input type="text" name="<%=Constants.COMMAND_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyCommandTask" property="CommandDesc" />" size="30" maxlength="100">
+                <input type="text" name="<%=Constants.COMMAND_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyCommandTask" property="CommandDesc" />" size="30" maxlength="100"/>
               </TD>
             </TR>
             <TR>
