@@ -60,7 +60,7 @@
                         <span class="bodySubTitle"><em>International Collegiate Elite From 15 Countries to Compete for $100,000 Purse in Programming Championship</em></span></p>
                         </div>
                         
-                        <p><strong>GLASTONBURY, Conn., April 6 8, 2004&#151;</strong>
+                        <p><strong>GLASTONBURY, Conn., April 6, 2004&#151;</strong>
                         TopCoder, Inc., the leader in online programming competition, skills assessment and competitive software development, today announced the 32 International onsite semifinalists who have advanced to the Championship rounds of the 2004 TopCoder Collegiate Challenge sponsored by Yahoo! This annual TopCoder tournament, the first such event sponsored by Yahoo!, is open to collegiate programmers worldwide and will award cash prizes totaling $100,000. The tournament's semifinal and Championship rounds will be held April 15th and 16th at the Boston Park Plaza Hotel &amp; Towers in Boston, MA. For more information visit: http://www.topcoder.com.
                         </p>
 

@@ -70,7 +70,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_04_06_04">TopCoder&#174; Announces 32 Semifinalists for 2004 TCCC</A></strong></font><br />
-                        The 32 semifinalists endured numerous online elimination rounds to earn a trip to the prestigious onsite finals, and will now compete head-to-head over two days of intense competition to determine the winners who will share the $100,000 prize purse.
+                        The 32 semifinalists endured numerous online elimination rounds to earn a trip to the prestigious onsite finals, and will now compete head-to-head over two days of intense competition to determine the winners who will share the $100,000 prize purse.<span class="prHead">[April 6]</span>
                         </p>
                     </td>
                 </tr>

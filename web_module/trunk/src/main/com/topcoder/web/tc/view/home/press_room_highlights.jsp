@@ -6,6 +6,8 @@
             </table>
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
+                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_04_06_04">TopCoder&#174; Announces 32 Semifinalists for 2004 TCCC Sponsored by Yahoo!&#174;</A> [April 6]</td></tr>  
+
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_03_08_04">NVIDIA Sponsors 2004 TopCoder Collegiate Challenge</A> [March 8]</td></tr>  
 
                 <tr><td class="prHead"><A href="http://www.fortune.com/fortune/print/0,15935,594536,00.html" target="_blank">Geek Gods</A> [March 5 - Fortune]</td></tr>  
@@ -15,8 +17,6 @@
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_03_01_04">Columbia University Student Wins DCCC '04</A> [March 1]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_16_04">TopCoder Announces Yahoo! as Title Sponsor for TCCC04</A> [February 16]</td></tr>  
-
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_02_04">TopCoder Announces DoubleClick 2004 Coding Challenge</A> [February 2]</td></tr>  
 
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
