@@ -95,19 +95,19 @@ public class UserMover {
             int count = 0;
             while (rs.next()) {
 
-                long userId = rs.getLong("user_id");
-                handle = rs.getString("handle");
-                char status = rs.getString("status").charAt(0);
-                String firstName = rs.getString("first_name");
-                String lastName = rs.getString("last_name");
-                String email = rs.getString("email");
-                String address1 = rs.getString("address1");
-                String address2 = rs.getString("address2");
-                String city = rs.getString("city");
-                String state = rs.getString("state_code");
-                String country = rs.getString("country_code");
-                String zip = rs.getString("last_name");
-                String phone = rs.getString("home_phone");
+                long userId = rs.getLong(1);
+                handle = rs.getString(2);
+                char status = rs.getString(3).charAt(0);
+                String firstName = rs.getString(7);
+                String lastName = rs.getString(8);
+                String email = rs.getString(4);
+                String address1 = rs.getString(10);
+                String address2 = rs.getString(11);
+                String city = rs.getString(12);
+                String state = rs.getString(5);
+                String country = rs.getString(6);
+                String zip = rs.getString(13);
+                String phone = rs.getString(9);
 
 
                 userEJB.createUser(userId, handle, status);
