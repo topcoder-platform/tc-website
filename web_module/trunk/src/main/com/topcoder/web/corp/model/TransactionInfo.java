@@ -19,6 +19,7 @@ import javax.naming.InitialContext;
 import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 import java.util.Calendar;
+import java.sql.Date;
 
 
 public class TransactionInfo {
@@ -32,8 +33,6 @@ public class TransactionInfo {
     private int qtty = 0;
     private double cost = 0;
 
-    private long start = 0;
-    private long end = 0;
     private String rcVeriSign = null;
     private Exception tcExc = null;
     private String terms = null;
@@ -100,24 +99,6 @@ public class TransactionInfo {
                     ).create();
             companyID = contactTable.getCompanyId(contactID);
 
-            // calculate start date / end date
-            int field = -1;
-            String unitName;
-            unitName = productTable.getUnitTypeDesc(productID);
-            if ("day".equalsIgnoreCase(unitName)) {
-                field = Calendar.DAY_OF_MONTH;
-            } else if ("week".equalsIgnoreCase(unitName)) {
-                field = Calendar.MONTH;
-            } else if ("year".equalsIgnoreCase(unitName)) {
-                field = Calendar.YEAR;
-            }
-
-            if (field != -1) {
-                Calendar calendar = Calendar.getInstance();
-                start = calendar.getTime().getTime();
-                calendar.add(field, qtty);
-                end = calendar.getTime().getTime();
-            }
             verify();
         } finally {
             Util.closeIC(icEJB);
@@ -198,20 +179,38 @@ public class TransactionInfo {
         this.cost = cost;
     }
 
-    public long getStart() {
-        return start;
-    }
+    public Date getEnd(Date start) throws NamingException, CreateException, RemoteException, Exception {
+        InitialContext icEJB = null;
+        Date ret = null;
+        try {
+            icEJB = (InitialContext) TCContext.getInitial();
+            // check if there is such product
+            Product productTable = ((ProductHome) icEJB.lookup(ProductHome.EJB_REF_NAME)).create();
 
-    public void setStart(long start) {
-        this.start = start;
-    }
+            // calculate start date / end date
+            int field = -1;
+            String unitName;
+            unitName = productTable.getUnitTypeDesc(productID);
+            if ("day".equalsIgnoreCase(unitName)) {
+                field = Calendar.DAY_OF_MONTH;
+            } else if ("week".equalsIgnoreCase(unitName)) {
+                field = Calendar.WEEK_OF_YEAR;
+            } else if ("year".equalsIgnoreCase(unitName)) {
+                field = Calendar.YEAR;
+            } else if ("month".equalsIgnoreCase(unitName)) {
+                field = Calendar.MONTH;
+            }
 
-    public long getEnd() {
-        return end;
-    }
-
-    public void setEnd(long end) {
-        this.end = end;
+            if (field != -1) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(start);
+                calendar.add(field, qtty);
+                ret = new Date(calendar.getTime().getTime());
+            }
+        } finally {
+            Util.closeIC(icEJB);
+        }
+        return ret;
     }
 
     public String getRcVeriSign() {
