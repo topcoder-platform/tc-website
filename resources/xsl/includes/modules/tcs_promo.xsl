@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="tcs_promo">
-            <a href="?t=development&amp;c=index"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
-            <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2: $6000 total prizes" border="0" width="244" height="113" /></a><br />
+            <A href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_promo.gif" alt="Component Design Contest 2" border="0" width="244" height="95" /></A><br />
 
-            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
-            <a href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
+            <A href="/?t=development&amp;c=des_bonus_contest_2"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></A><br />
 
             <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#001935">
                 <tr valign="middle">
@@ -49,15 +47,10 @@
                     <td class="statText" align="center">2</td>
                     <td class="statText" align="right">89.26</td>
                 </tr>
-                
-                
-                <tr valign="top">
-                    <td width="25%" colspan="4"><img src="/i/clear.gif" width="1" height="3" border="0" /></td>
-                </tr>
             </table>
 
-           <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333333">
-                <tr><td height="20" class="moduleTitle"><a href="?t=development&amp;c=comp_projects"><img src="/i/tcs_contest_promo_bottom.gif" alt="Win $2000" width="244" height="22" border="0" /></a></td></tr>
+           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr><td height="22" class="moduleTitle"><A href="?t=development&amp;c=comp_projects"><img src="/i/tcs_contest_promo_bottom.gif" alt="Many projects to choose from" width="244" height="22" border="0" /></A></td></tr>
             </table>
   </xsl:template>
 </xsl:stylesheet>
