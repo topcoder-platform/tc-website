@@ -178,31 +178,6 @@ public final class TaskDevelopment {
                     requiresLogin = true;
                 }
             }
-            /********************** comp_projects2 *******************/
-            else if (command.equals("comp_projects2")) {
-               Request dataRequest = null;
-               ResultSetContainer rsc = null;
-               Map resultMap = null;
-               log.debug("getting dai");
-               dataRequest = new Request();
-               dataRequest.setContentHandle("open_projects");
-
-               DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                        TCContext.getInitial().lookup(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
-               log.debug("got dai");
-
-               resultMap = dai.getData(dataRequest);
-               log.debug("got map");
-               rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
-
-               log.debug("got rsc");
-               if(rsc == null)
-                  log.debug("rsc is null");
-               devTag.addTag(rsc.getTag("projects", "project"));
-               xsldocURLString = XSL_DIR + command + ".xsl";
-
-            }
             /********************** tcs_inquire-design *******************/
             else if (command.equals("tcs_inquire-design")|| command.equals("tcs_inquire-dev")) {
                 if(comp != null)
@@ -551,7 +526,7 @@ public final class TaskDevelopment {
                } else {
                     requiresLogin = true;
                 }
-            } else if (command.length() > 0) {
+            } else if (command.length() > 0 && !request.getParameter("t").equals("app")) {
                /********** SHOULD BE A FUNCTION ****************/
                Request dataRequest = null;
                ResultSetContainer rsc = null;
