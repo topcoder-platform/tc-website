@@ -284,7 +284,7 @@ Each competition room will have a maximum of 20 coders. There will be 2 division
               has a chance to challenge the functionality of other competitors' code.
               A successful challenge will award 50 points to the challenger, and any 
               points gained by the submitter for the problem will be lost. 
-              Unsuccessful challenges will cost the challenger 50 points as a
+              Unsuccessful challenges will cost the challenger 25 points as a
               penalty, applied to their total score in that round of competition.
             </li>
             <li>
