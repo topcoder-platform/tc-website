@@ -5,7 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.bean.CommandQueryBean;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.bean.QueryBean;
-import com.topcoder.web.query.ejb.QueryServices.*;
+import com.topcoder.web.ejb.query.*;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 
