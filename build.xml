@@ -899,6 +899,8 @@
                 <include name="date_time.jsp"/>
                 <include name="menu.jsp"/>
                 <include name="top.jsp"/>
+                <include name="includes/global_left.jsp"/>
+                <include name="includes/modules/simpleSearch.jsp"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/shared/util/"/>
