@@ -60,9 +60,11 @@ public class TCCC05ProjectDetails extends StatBase {
             }
             
             String prz = ""; 
-            if(rsc.getIntItem(i, "payment") != 0) {
-                prz = dfmt.format(rsc.getDoubleItem(i, "payment"));
-                
+            if(rsc.getItem(i, "payment").getResultData() != null) { 
+                if(rsc.getIntItem(i, "payment") != 0) {
+                    prz = dfmt.format(rsc.getDoubleItem(i, "payment"));
+
+                }
             }
             
             String sub = "";
