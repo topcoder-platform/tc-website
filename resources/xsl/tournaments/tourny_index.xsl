@@ -79,7 +79,7 @@
                     <td class="bodyText">
                         March 2005<br />
                         Silicon Valley, CA<br />
-                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=overview">Details</A>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=about">Details</A>
                     </td>
                 </tr>
             </table>
