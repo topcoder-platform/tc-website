@@ -22,7 +22,7 @@ public class AddProfileProblems extends BaseProfileProcessor {
         info.addTestSetB(request.getParameterValues(Constants.TEST_SET_B_ADD));
 
         request.setAttribute(Constants.PROFILE_INFO, info);
-        setNextPage(((SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
+        setNextPage("testing/" + "?" +
                 Constants.MODULE_KEY + "=" +
                 Constants.POPULATE_PROFILE_PROCESSOR);
         setIsNextPageInContext(true);
