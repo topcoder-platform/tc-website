@@ -43,7 +43,7 @@ abstract public class PRBase extends Base {
         r.setContentHandle("Problem Rating Questions");
         String pid = getRequest().getParameter(Constants.PROBLEM_ID);
         if(pid==null) 
-            throw new NavigationException("There was an error with your problem.");
+            throw new NavigationException("Invalid Request.");
         r.setProperty("pm", pid);
         r.setProperty("cr", String.valueOf(userID));
         //response data has to be live, no cache
