@@ -16,7 +16,7 @@ public class AuthenticationServicesBean extends BaseEJB {
 /////////////////////////////////////////////////////////
 
 
-  private static final boolean VERBOSE = true;
+  private static final boolean VERBOSE = false;
 
   private static String DS = null;
   private static Integer STAFF_GROUP_ID = null;
