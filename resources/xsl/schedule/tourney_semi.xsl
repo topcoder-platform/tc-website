@@ -130,28 +130,14 @@
                 <TD CLASS="statText" ALIGN="center">16</TD>
                 <TD CLASS="statText" ALIGN="center">Room 2</TD>
               </TR>
-            <!--  <TR>
+                            <TR>
                 <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="coderTextRed">malpt</A>
+                    <A HREF="/stat?c=member_profile&amp;cr=264949" CLASS="coderTextRed">moira</A>
                   </TD>
-                <TD CLASS="statText" ALIGN="right">410.51</TD>
-                <TD CLASS="statText" ALIGN="right">Room 1</TD>
+                <TD CLASS="statText" ALIGN="right">487.01</TD>
+                <TD CLASS="statText" ALIGN="center">59</TD>
+                <TD CLASS="statText" ALIGN="center">Room 3</TD>
               </TR>
-              <TR>
-                <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
-                  </TD>
-                <TD CLASS="statText" ALIGN="right">257.85</TD>
-                <TD CLASS="statText" ALIGN="right">Room 1</TD>
-              </TR>
-              <TR>
-                <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=152342" CLASS="coderTextYellow">kyky</A>
-                  </TD>
-                <TD CLASS="statText" ALIGN="right">0.00</TD>
-                <TD CLASS="statText" ALIGN="right">Room 1</TD>
-              </TR>  -->
-<!--            </xsl:for-each>-->
           </TABLE><BR/>
             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
               <TR><TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<A HREF="#top" CLASS="statText">Back to top</A></TD></TR>
