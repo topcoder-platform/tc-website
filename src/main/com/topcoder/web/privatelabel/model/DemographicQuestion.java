@@ -4,7 +4,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import java.util.*;
 
-public class DemographicQuestion extends Base {
+public class DemographicQuestion extends Base implements Comparable {
     protected static Logger log = Logger.getLogger(DemographicQuestion.class);
 
     public static final int MULTIPLE_SELECT = 1;
@@ -17,6 +17,7 @@ public class DemographicQuestion extends Base {
     private String selectable;
     private boolean required;
     private TreeMap answers;
+    private int sort;
 
     public DemographicQuestion() {}
 
@@ -27,6 +28,7 @@ public class DemographicQuestion extends Base {
         ret.setDesc(desc);
         ret.setSelectable(selectable);
         ret.setRequired(required);
+        ret.setSort(sort);
         TreeMap list = new TreeMap();
         DemographicAnswer a = null;
         for (Iterator it = answers.values().iterator(); it.hasNext();) {
@@ -108,4 +110,18 @@ public class DemographicQuestion extends Base {
     public void setRequired(boolean required) {
         this.required = required;
     }
+
+    public int getSort() {
+        return sort;
+    }
+
+    public void setSort(int sort) {
+        this.sort = sort;
+    }
+
+    public int compareTo(Object o) {
+        DemographicQuestion other = (DemographicQuestion)o;
+        return new Integer(getSort()).compareTo(new Integer(other.getSort()));
+    }
+
 }
