@@ -44,4 +44,9 @@ public class User {
     public String toString() {
         return handle+"("+userId+")";
     }
+
+    public int hashCode() {
+        return (int)userId;
+    }
+
 }
