@@ -219,7 +219,7 @@
          <br><br>
          Winners in each round of competition will be those competitors who win the most points in their respective rooms. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
          <br><br>
-         Prizewinners will be announced upon completion of the Championship Round.  Any prizewinner claiming a cash prize must complete an Affidavit of Eligibility and Liability and Publicity Release onsite before claiming the prize (Google will provide the prizewinners with this document prior to the start of the Championship Round).  Prizewinners under the age of 18 must provide parental consent to claim the prize.
+         Prizewinners will be announced upon completion of the Championship Round.  Any prizewinner claiming a cash prize must complete an Affidavit of Eligibility and Liability and Publicity Release onsite before claiming the prize (Google will provide the prizewinners with this document prior to the start of the Championship Round).
          <br><br>
          Prizes will be sent to the prizewinners after the conclusion of the Championship Round.  Unclaimed or undeliverable prizes will not be awarded.
          <br><br>
