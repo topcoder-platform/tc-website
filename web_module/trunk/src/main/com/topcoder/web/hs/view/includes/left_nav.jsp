@@ -5,52 +5,52 @@
 /**** THIS CODE DOES NOT CURRENTLY HANDLE RENDERING THREE LEVELS OF MENUS ****/
 
 // highlight the selected menu item by using this property for its table cell
-String selbg = "BACKGROUND=\"/i/hs/graybv_lite_bg.gif\"";
+String selbg = "background=\"/i/hs/graybv_lite_bg.gif\"";
 // highlight other items in the open submenu by using this property for its table cell
-String sibbg = "BACKGROUND=\"/i/hs/steel_gray_bg.gif\"";  // sib for sibling
+String sibbg = "background=\"/i/hs/steel_gray_bg.gif\"";  // sib for sibling
 // default property for unhighlighted items
 String defbg = "";
 
 // indent root items which are not or cannot open into submenus with this
-String itemind = "<IMG SRC=\"/i/hs/nav_arrow_right.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
+String itemind = "<img src=\"/i/hs/nav_arrow_right.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
 // indent titles of open submenus with this
-String openind = "<IMG SRC=\"/i/hs/nav_arrow_bottom.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
+String openind = "<img src=\"/i/hs/nav_arrow_bottom.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
 // indent submenu items with this
-String subind = "<IMG SRC=\"/i/hs/11x9.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
+String subind = "<img src=\"/i/hs/11x9.gif\" WIDTH=\"10\" HEIGHT=\"10\" ALT=\"\" BORDER=\"0\">";
 
 // spacer between items on the root menu
-String rootsep = "<TR><TD HEIGHT=\"1\" BGCOLOR=\"#333333\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
+String rootsep = "<tr><td height=\"1\"><img src=\"/i/hs/frame_left_nav.gif\" width=\"166\" height=\"1\" alt=\"----------\" border=\"0\"></td></tr>";
 // spacer between items on open submenus
 String subsep = "";
-//String subsep = "<TR><TD HEIGHT=\"1\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
+//String subsep = "<tr><td height=\"1\"><img src=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" width=\"1\" height=\"1\" alt=\"\" border=\"0\"></td></tr>";
 
 // set below in the service method, as they vary depending on the request
 String root, sub;
 
 // formats a table row for a section header on the root menu
 String rootheader(String text) {
-    return "<TR><TH ALIGN=\"left\" HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"titlesidenav\">&nbsp;" + text + "</TH></TR>";
+    return "<tr><th class=\"titlesidenav\">&nbsp;" + text + "</th></tr>";
 }
 
 // formats a table row for an item on the root menu
 String rootitem(String link, String name, String key, boolean canopen) {
     String bg = root.equals(key) ? (canopen?sibbg:selbg) : defbg;
     String img = canopen && root.equals(key) ? openind : itemind;
-    return "<TR><TD HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
+    return "<tr><td class=\"sidenav\" " + bg + ">&nbsp;<a class=\"sidenav\" href=\"" + link + "\">" + img + name + "</a></td></tr>";
 }
 
 // formats a table row for an item on the root menu... special case where the item can open, but can also become selected
 String bothitem(String link, String name, String key, String subkey) {
     String bg = root.equals(key) ? (!sub.equals(subkey)?sibbg:selbg) : defbg;
     String img = root.equals(key) ? openind : itemind;
-    return "<TR><TD HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
+    return "<tr><td class=\"sidenav\" " + bg + ">&nbsp;<a class=\"sidenav\" href=\"" + link + "\">" + img + name + "</a></td></tr>";
 }
 
 // formats a table row for an item on a submenu
 String subitem(String link, String name, String key) {
     String bg = sub.equals(key) ? selbg : sibbg;
     String img = subind;
-    return "<TR><TD HEIGHT=\"15\" VALIGN=\"middle\" CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
+    return "<tr><td class=\"sidenav\" " + bg + ">&nbsp;<a class=\"sidenav\" href=\"" + link + "\">" + img + name + "</a></td></tr>";
 }
 
 // decides whether a submenu should be rendered
@@ -68,11 +68,9 @@ root = NavZone.getLevel0();
 sub = NavZone.getLevel1();
 %>
 
-<TABLE WIDTH="170" CELLSPACING="0" CELLPADDING="0" BORDER="0" BGCOLOR="#000000">
+<table width="170" cellspacing="0" cellpadding="2" border="0" bgcolor="#000000">
 
-    <%=rootsep%>
     <%=rootheader("What's Inside")%>
-    <%=rootsep%>
     <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How Schools Compete", "how_hs_compete", false)%>
     <%=rootsep%>
     <%=rootitem("?module=Static&d1=schedule&d2=schedule", "Schedule", "schedule", false)%>
@@ -126,11 +124,9 @@ sub = NavZone.getLevel1();
     <%=rootsep%>
 
     <%=rootitem("?module=Static&d1=resources&d2=resources", "Resources", "resources", false)%>
-    <%=rootsep%>
-    <%=rootheader("[TCHS] Corporate")%>
-    <%=rootsep%>
+    <%=rootheader("Corporate Info")%>
 
-    <%=bothitem("?module=Static&d1=about&d2=about", "About Us", "about", "about")%>
+    <%=bothitem("?module=Static&d1=about&d2=about", "About TCHS", "about", "about")%>
     <% if(subopen("about")) { %>
         <%=subsep%>
         <%=subitem("?module=Static&d1=about&d2=about_member", "For Members", "about_member")%>
@@ -144,5 +140,5 @@ sub = NavZone.getLevel1();
     <%=rootitem("?module=Static&d1=contacts&d2=contacts", "Contacts", "contacts", false)%>
     <%=rootsep%>
 
-</TABLE>
+</table>
 <!--Left Navigation Include Ends-->
