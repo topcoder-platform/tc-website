@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -64,6 +65,7 @@ public class MainServlet extends HttpServlet {
     	
     	try {
 	    	jndiInitialContext = AppContext.getInstance(propsFileName).getJndiInitialContext();
+            log.debug("initial context successfully instantiated");
     	}
     	catch(Exception e) {
     		log.error("can't get initial context", e);
@@ -77,6 +79,12 @@ public class MainServlet extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.debug("URI: "+request.getRequestURI()+"["+request.getQueryString()+"]" );
+//        System.err.println("---- java.class.path ----" +System.getProperty("java.class.path"));
+//        System.err.println("---real / path ---"+getServletContext().getRealPath("/"));
+//        Enumeration em =  System.getProperties().elements();
+//        while (em.hasMoreElements()) {
+//            System.err.println(em.nextElement());
+//        }
         
 //        Cookie [] clist = request.getCookies();
 //        for(int j=0; j<clist.length; ++j) {

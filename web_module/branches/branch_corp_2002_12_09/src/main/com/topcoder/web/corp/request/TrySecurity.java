@@ -2,11 +2,10 @@ package com.topcoder.web.corp.request;
 
 import java.util.Iterator;
 
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.web.common.AppContext;
 import com.topcoder.web.corp.stub.PersistStore;
-
-//import com.topcoder.security.UserPrincipal;
-//import com.topcoder.security.admin.PrincipalMgrRemote;
-//import com.topcoder.web.common.AppContext;
 
 /**
  * 
@@ -33,10 +32,11 @@ public class TrySecurity extends BaseProcessor {
     void businessProcessing() throws Exception {
         Iterator i = PersistStore.getInstance(null).userList();
         while( i.hasNext() ) {
-            System.err.println("------"+i.next()+"-------");
+//            System.err.println("------"+i.next()+"-------");
         }
-//        PrincipalMgrRemote remotePrincipalMgr = AppContext.getInstance().getRemotePrincipalManager();
-//        UserPrincipal user = remotePrincipalMgr.getUser(132456);
-//        throw new Exception("debug exception");
+        PrincipalMgrRemote remotePrincipalMgr = AppContext.getInstance().getRemotePrincipalManager();
+        UserPrincipal user = remotePrincipalMgr.getUser(132456);
+        log.debug("security component remote access check passed");
+        //throw new Exception("debug exception");
     }
 }
