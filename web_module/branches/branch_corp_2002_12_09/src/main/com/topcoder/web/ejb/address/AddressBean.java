@@ -1229,4 +1229,98 @@ public class AddressBean implements SessionBean {
             }
         }
     }
+
+    /**
+     *
+     *
+     * @param addressId the address ID of the entry
+     *
+     * @return a String with the entry's address type ID
+     *
+     * @throws EJBException
+     */
+    public String getAddressTypeDesc(long addressId) {
+        log.debug("getAddressTypeDesc called...address_id: " + addressId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        String ret = null;
+        long addressTypeId = 0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT address_type_id " +
+                                       "FROM address " +
+                                       "WHERE address_id = ?");
+            ps.setLong(1, addressId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                addressTypeId = rs.getLong("address_type_id");
+
+            ps = conn.prepareStatement("SELECT address_type_desc " +
+                                       "FROM address_type_lu " +
+                                       "WHERE address_type_id = ?");
+            ps.setLong(1, addressTypeId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("address_type_desc");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting address_type_desc");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting address type " +
+                                   "description");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting address_type_desc\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in " +
+                              "getAddressTypeDesc");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getAddressTypeDesc");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "getAddressTypeDesc");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getAddressTypeDesc");
+                }
+            }
+        }
+    }
 }

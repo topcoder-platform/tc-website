@@ -123,4 +123,12 @@ public interface Address extends EJBObject {
      */
     void setCountryCode(long addressId, String countryCode)
                  throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.address.AddressBean#getAddressTypeDesc
+     */
+    void getAddressTypeDesc(long addressId)
+                 throws RemoteException, EJBException;
 }
