@@ -57,8 +57,12 @@ public class TCLoadRequests extends TCLoad {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             log.info("It is now " + fStartTime.toString());
 
+/*
             fLastLogTime = getLastUpdateTime(REQUEST_LOAD);
+            log.debug("set last log time for request load to " + fLastLogTime);
+*/
             fLastWebLogTime = getLastUpdateTime(WEB_REQUEST_LOAD);
+            log.debug("set last log time for web request load to " + fLastWebLogTime);
 
 
 /*            loadRequests();
@@ -127,6 +131,7 @@ public class TCLoadRequests extends TCLoad {
 
 
     private void loadWebRequests() throws Exception {
+        log.debug("calledn loadWebRequests()");
         PreparedStatement psSel = null;
         PreparedStatement psIns = null;
 
@@ -192,6 +197,7 @@ public class TCLoadRequests extends TCLoad {
      * @param url
      */
     private void createUrl(URL url) throws Exception {
+        log.debug("called createUrl " + url.getUrl());
         PreparedStatement ps = null;
 
         try {
@@ -240,6 +246,7 @@ public class TCLoadRequests extends TCLoad {
      * @return
      */
     private long getUrlId(URL url) throws Exception {
+        log.debug("called getUrlId " + url.getUrl());
         long ret = -1;
         if (urlMap.containsKey(url)) {
             ret = ((Long) urlMap.get(url)).longValue();
@@ -274,7 +281,9 @@ public class TCLoadRequests extends TCLoad {
         return ret;
     }
 
+
     private long getCalendarId(Timestamp time) throws Exception {
+        log.debug("called getCalendarId " + time);
         long ret = -1;
         Date d = new Date(time.getTime());
         if (calendarMap.containsKey(d)) {
@@ -287,6 +296,7 @@ public class TCLoadRequests extends TCLoad {
     }
 
     private long getSessionId(String sessionId) throws Exception {
+        log.debug("called getSessionId() " + sessionId);
         long ret = 0;
         if (sessionMap.containsKey(sessionId)) {
             ret = ((Long)sessionMap.get(sessionId)).longValue();
@@ -321,6 +331,7 @@ public class TCLoadRequests extends TCLoad {
             " VALUES (0, ?, ?, ?)";
 
     private void setLastUpdateTime(int type) throws Exception {
+        log.debug("called setLastUpdateTime " + type);
         PreparedStatement psUpd = null;
 
         try {
