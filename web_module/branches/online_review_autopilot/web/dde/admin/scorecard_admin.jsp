@@ -143,7 +143,7 @@ for (int idx=0; idx<scorecards.length; idx++) {
   if (sc.getStatus() == 1) statusButton = "Inactivate";
   
   String defaultButton = "Clear Default";
-  if (sc.isDefault()) defaultButton = "Make Default";
+  if (!sc.isDefault()) defaultButton = "Make Default";
 %>
   <tr>
     <td><a href="/admin/scorecard.jsp?sid=<%=sc.getId()%>"><%=sc.getName()%></a></td>
@@ -152,7 +152,7 @@ for (int idx=0; idx<scorecards.length; idx++) {
     <td><%=tStatus%></td>
     <td><a href="/admin/scorecard_admin.jsp?a=status&sid=<%=sc.getId()%>">
     <%=statusButton%></a></td>
-    <td>
+    
     <td>
     <%if (sc.isDefault()) {%>
         Yes
@@ -162,6 +162,7 @@ for (int idx=0; idx<scorecards.length; idx++) {
     </td>
     <td><a href="/admin/scorecard_admin.jsp?a=default&sid=<%=sc.getId()%>">
     <%=defaultButton%></a></td>
+    <td>
 <% if (sc.getStatus() == 0) { %>
     To delete template:
     <a href="/admin/scorecard_admin.jsp?a=delete&sid=<%=sc.getId()%>"><strong>DELETE</strong></a>
