@@ -50,17 +50,19 @@
             <TABLE BORDER="1" CELLSPACING="0" CELLPADDING="0" WIDTH="50%" align="center">
                 <TR VALIGN="top">
                     <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-                    <TD class="statTextBig" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/><br>
-                        <P>Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></P>
+                    <TD class="statTextBig" WIDTH="100%">
+                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="10" BORDER="0"/><br>
+                        Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/><br>
+                        <IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="10" BORDER="0"/>
                         <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                             <TR>
-                                <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="49%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Campaign Name</strong></TD>
+                                <TD WIDTH="5" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                                <TD WIDTH="49%" colspan="2" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Campaign Name</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Start Date</strong></TD>
                                 <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD WIDTH="24%" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>End Date</strong></TD>
-                                <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD WIDTH="5" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                             </TR>
     
                 <%
@@ -81,27 +83,41 @@
                 <% i++;
                    currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
                    if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %> 
-                            <TR><TD colspan="7" class="statTextBig"><BR/><BR/></TD></TR>
-                            <TR><TD colspan="7" class="statTextBig"><%= campaignInfo.getItem("company_name").toString() %></TD></TR><BR/><BR/>
+                            <TR>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                                <TD colspan="6" class="statTextBig"><%= campaignInfo.getItem("company_name").toString() %><br>
+                                    <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="5" BORDER="0"></TD>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                            </TR>
                 <% lastCompany = currCompany;
                    } %>
 
                             <TR>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                                 <TD class="statText"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="statText"><%=campaignInfo.getItem("campaign_name").toString()%></A></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD class="statText"><%=campaignInfo.getItem("start_date").toString()%></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD class="statText"><%=campaignInfo.getItem("end_date").toString()%></TD>
-                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                             </TR>
 
                             </tces:rowIterator>
 
                             <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
                 
-                            <TR><TD class="statText" COLSPAN="7"><BR></TD></TR>                
-                            <TR><TD class="statText" align="center" colspan="7">Your job campaigns have expired.  Contact <A HREF="mailto:tces@topcoder.com" CLASS="statText">tces@topcoder.com</A> to renew your contract.</TD></TR>
+                            <TR>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                                <TD class="statText" COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="5" BORDER="0"></TD>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                            </TR>                
+                            
+                            <TR>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                                <TD class="statText" colspan="6">Your job campaigns have expired.  Contact <A HREF="mailto:tces@topcoder.com" CLASS="statText">tces@topcoder.com</A> to renew your contract.</TD>
+                                <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                            </TR>
 
                             <% } %>
 
@@ -109,7 +125,7 @@
                         
                         <P><BR></P>
                     </TD>
-                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                    <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                 </TR>
 
                 <TR><TD COLSPAN="3" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
