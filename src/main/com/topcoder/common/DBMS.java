@@ -41,6 +41,8 @@ public class DBMS {
     public final static String COMPILE_QUEUE            = "compileQueue";
     public final static String TESTING_QUEUE            = "testingQueue";
     public final static String TOPIC                    = "contestTopic";
+    public final static String PACTS_QUEUE              = "pactsQueue";
+
     
     
     // Sequence Ids
@@ -54,8 +56,8 @@ public class DBMS {
     public static final int EDUCATION_SEQ               = 8;
     public static final int RESPONSE_SEQ                = 9;
     public static final int PROBLEMSTATE_SEQ            = 11;
-    public static final int SECTOR_SEQ                  = 13;
-    
+  public static final int SECTOR_SEQ                  = 13;
+
 
   // Sequence ID's for PACTS
   public static final int AFFIDAVIT_SEQ               = 50;
@@ -352,6 +354,10 @@ public class DBMS {
                 case TAX_FORM_SEQ:
                   query = " execute procedure nextval("+ TAX_FORM_SEQ +") ";
                   break;
+                case SECTOR_SEQ:
+                  query = " execute procedure nextval("+ SECTOR_SEQ +") ";
+                  break;
+
                 default:
                     //Log.msg ( sequence_name + " IS NO A RECOGNIZED SEQUENCE " );
                     getSeqId = false;
@@ -694,6 +700,36 @@ public class DBMS {
     }
   }
 
+
+
+  /**
+   ******************************************************************************************
+   * getSqlExceptionString()
+   * Iterate through and collect sql exception information.  Can be called
+   * on non-informix sql exceptions.  Returns a string containing the information. <p>
+   *
+   * One use for this method is with log4j when it is desired to collect exception
+   * information into a logfile.
+   *
+   * @author dpecora
+   * @param sqle - a SQL exception
+   ******************************************************************************************
+   */
+  public static String getSqlExceptionString(SQLException sqle) {
+    int i = 1;
+    StringBuffer sb = new StringBuffer(500);
+    sb.append("*******************************\n");
+    do {
+      sb.append("  Error #" + i + ":\n");
+      sb.append("    SQLState = " + sqle.getSQLState() + "\n");
+      sb.append("    Message = " + sqle.getMessage() + "\n");
+      sb.append("    SQLCODE = " + sqle.getErrorCode() + "\n");
+      sqle = sqle.getNextException();
+      i++;
+    } while (sqle != null);
+
+    return sb.toString();
+  }
 
 
 
