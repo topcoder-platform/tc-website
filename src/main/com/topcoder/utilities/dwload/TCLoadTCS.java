@@ -355,8 +355,8 @@ public class TCLoadTCS extends TCLoad {
                             "(select count(*) from component_inquiry where project_id = p.project_id) as num_registrations, " +
                             "(select count(*) from submission where cur_version = 1 and project_id = p.project_id and submission_type = 1 and is_removed = 0) as num_submissions, " +
                             "(select count(*) from project_result where project_id = p.project_id and valid_submission_ind = 1) as num_valid_submissions, " +
-                            "(select avg(case when raw_score is null then 0 else raw_score end) from project_result where project_id = p.project_id) as avg_raw_score, " +
-                            "(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id) as avg_final_score, " +
+                            "(select avg(case when raw_score is null then 0 else raw_score end) from project_result where project_id = p.project_id and raw_score is not null) as avg_raw_score, " +
+                            "(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id and final_score is not null) as avg_final_score, " +
                             "case when p.project_type_id = 1 then 112 else 113 end as phase_id, " +
                             "(select description from phase where phase_id = (case when p.project_type_id = 1 then 112 else 113 end)) as phase_desc, " +
                             "cc.root_category_id as category_id, " +
