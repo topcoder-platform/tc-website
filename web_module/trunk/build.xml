@@ -873,7 +873,7 @@
     </target>
 
     <target name="deploy-corp" depends="war_corp,war_query,war_tces">
-        <unwar src="${war_dir}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
+        <unwar src="${war.dir}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
         <delete dir="${public_html}/${corp.war.name}/META-INF"/>
 
         <unwar src="${war.dir}/${query.war.name}.war" dest="${public_html}/${query.war.name}/" overwrite="yes"/>
