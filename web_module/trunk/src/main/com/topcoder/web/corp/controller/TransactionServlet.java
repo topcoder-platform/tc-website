@@ -431,16 +431,12 @@ public class TransactionServlet extends HttpServlet {
         try {
             icEJB = (InitialContext) TCContext.getInitial();
             dbTx = Util.beginTransaction();
-            Purchase purchaseTable = (
-                    (PurchaseHome) icEJB.lookup(PurchaseHome.EJB_REF_NAME)
-                    ).create();
+            Purchase purchaseTable = ((PurchaseHome) icEJB.lookup(PurchaseHome.EJB_REF_NAME)).create();
             long purchaseID;
-            purchaseID = purchaseTable.createPurchase(
-                    txInfo.getCompanyID(),
-                    txInfo.getProductID(),
-                    txInfo.getBuyerID(),
-                    txInfo.getCost()
-            );
+            purchaseID = purchaseTable.createPurchase(txInfo.getProductID(),txInfo.getBuyerID(),txInfo.getCost());
+            if (txInfo.getCompanyID()>0) {
+                purchaseTable.setCompanyId(purchaseID, txInfo.getCompanyID());
+            }
             Date startDate = purchaseTable.getCreateDate(purchaseID);
             purchaseTable.setStartDate(purchaseID, startDate);
             purchaseTable.setEndDate(purchaseID, txInfo.getEnd(startDate));
