@@ -728,6 +728,8 @@
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
     </target>
 
+    <target name="package-EJB-SchoolBean" depends="compile,init-SchoolBean-properties,package-EJB-GenericBean"/>
+
 
     <target name="init-SchoolBean-properties" >
         <property name="bean.dir"          value="school" />
