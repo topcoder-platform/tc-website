@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Verizon Coding Contest Powered by TopCoder - Registration</title>
+<title>Verizon Coding Challenge Powered by TopCoder - Registration</title>
 
 <jsp:include page="../nocache.jsp"/>
 <jsp:include page="../script.jsp" />
@@ -64,10 +64,10 @@
                             Be sure to spend some time in the Practice Room prior to the Challenge.  You can access
                             the Practice Room by clicking the “Practice Arena” link to the left.<br/><br/>
 
-                            Good luck to you in the Arena!<br/><br/>
+                            Good luck to you in the Arena!<br/><br/><br/>
 
-                            If you have any questions about how to participate, please email them
-                            to <a class="bodyCopy" href="mailto:service@topcoder.com">service@topcoder.com</a>
+                            <font size="-1">If you have any questions about how to participate, please email them
+                            to <a class="bodyCopy" href="mailto:service@topcoder.com">service@topcoder.com</a></font>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
