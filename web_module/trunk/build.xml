@@ -796,7 +796,7 @@
         <delete dir="${public_html}/admin/META-INF"/>
     </target>
 
-    <target name="build-security" depends="compile">
+    <target name="build-security    " depends="compile">
         <jar
             jarfile="${ejb_jars}/security.jar"
             basedir="${classes}"
@@ -839,8 +839,39 @@
         </java>
     </target>
 
+
+    <target name="contestFraud" depends="compile">
+        <java classname="com.topcoder.utilities.cheaterChecker.Contest" fork="true">
+            <arg value="HS_OLTP"/>
+            <arg value="2008"/>
+            <arg value="1505"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
     <target name="userMover" depends="compile">
         <java classname="com.topcoder.utilities.UserMover" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="password" depends="compile">
+        <java classname="com.topcoder.utilities.PasswordGetter" fork="true">
+            <arg value="${handle}"/>
             <classpath>
                 <pathelement location="${classes}"/>
                 <pathelement location="${resources}"/>
