@@ -179,7 +179,7 @@
                                <xsl:when test="./root_category_id = 5801776">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
-                                <xsl:when test="./catalog_name = 'Flash' ">
+                               <xsl:when test="./root_category_id = 8489485">
                                     <img src="/i/development/flashSm.gif"/>
                                 </xsl:when>
                                <xsl:otherwise>
