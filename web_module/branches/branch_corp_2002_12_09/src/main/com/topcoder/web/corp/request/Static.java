@@ -17,7 +17,7 @@ import java.util.Enumeration;
 */
 public class Static extends BaseProcessor { 
 
-    private static final String PREFIX = "d";  // Prefix for parameters
+    private final String PREFIX = "d";  // Prefix for parameters
 
     /** Constructor sets pageInContext to true since all Static pages are in
      *  the same context 
