@@ -117,7 +117,7 @@
 							Final Submission Due Date: <<<FINAL_SUBMISSION_DATE>>><br/>
 							Estimated Development End Date: <<<EST_DEV_END_DATE>>></p>
 
-							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
+							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
                             <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=<<<COMPONENT_NAME>>>: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
