@@ -26,6 +26,7 @@
         <pathelement location="${jars.dir}/servletapi-2.3.jar"/>
         <pathelement location="${jars.dir}/tcsUtil.jar"/>
         <pathelement location="${jars.dir}/configmanager2.jar"/>
+        <pathelement location="${jars.dir}/mailapi.jar"/>
 
     </path>
 
