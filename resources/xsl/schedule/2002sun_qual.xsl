@@ -67,7 +67,7 @@
 		<A HREF="http://sunnetwork.sun.com" TARGET="_blank" CLASS="statTextBig">Conference Info</A></TD>
 		<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sun_sched'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_about'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='2002sun_qual'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_rules_scoring'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_rules_conditions'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_rules_prizes'">orangebv_bg</xsl:when>
@@ -79,95 +79,66 @@
     </TABLE>
 
   <BR/><BR/>
-                    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BACKGROUND="/i/steel_darkblue_bg.gif">                  
-                    
-                    <TR>
-                      <TD COLSPAN="2" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Schedule</TD>
-                    </TR>
-                    <TR>
-                      <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                    </TR> 
-                    <TR>
-                      <TD HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
-                        &#160;&#160;Qualification Round
-                      </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="70%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=2002sun_qual" CLASS="statTextBig">Updates</A></TD>
-                    </TR>
-                    <TR>
-                      <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                    </TR>                                                                               
-                    <TR>
-                      <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">Dates&#160;</TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>
-                    </TR>
-                    <TR>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD VALIGN="middle" CLASS="statText">Wed. Sept. 18th, 11:30AM - 7:30PM</TD>
-                    </TR>
-                                                          
-                    <TR>
-                      <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-                    </TR> 
-                    <TR>
-                      <TD HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
-                        &#160;&#160;Quaterfinal Round
-                      </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Updates</FONT></TD>
-                    </TR>
-                    <TR>
-                      <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                    </TR>                                                                               
-                    <TR>
-                      <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">Dates&#160;</TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>
-                    </TR>
-                    <TR>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD VALIGN="middle" CLASS="statText">Thurs. Sept. 19th, 11:30AM</TD>
-                    </TR>
-                    
-                    <TR>
-                      <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-                    </TR> 
-                    <TR>
-                      <TD HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
-                        &#160;&#160;Semifinal Round
-                      </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Updates</FONT></TD>
-                    </TR>
-                    <TR>
-                      <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                    </TR>                                                                               
-                    <TR>
-                      <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">Dates&#160;</TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>
-                    </TR>
-                    <TR>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD VALIGN="middle" CLASS="statText">Thurs. Sept. 19th, 1:30PM</TD>
-                    </TR>                    
-                    
-                    <TR>
-                      <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-                    </TR> 
-                    <TR>
-                      <TD HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
-                        &#160;&#160;Championship Round
-                      </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Updates</FONT></TD>
-                    </TR>
-                    <TR>
-                      <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                    </TR>                                                                               
-                    <TR>
-                      <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">Dates&#160;</TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>
-                    </TR>
-                    <TR>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD VALIGN="middle" CLASS="statText">Thurs. Sept. 19th, 4:00PM</TD>
-                    </TR>                    
-                    </TABLE>
+    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BACKGROUND="/i/steel_darkblue_bg.gif">                    
+       <TR>
+          <TD COLSPAN="2" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Round Updates</TD>
+       </TR>
+       <TR>
+          <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+       </TR> 
+       <TR>
+          <TD COLSPAN="2" HEIGHT="18" ALIGN="left" WIDTH="30%" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
+                        &#160;&#160;Qualification Round</TD>
+       </TR>
+       <TR>
+          <TD COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+       </TR> 
+    </TABLE>
+    
+    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="3" CELLSPACING="0" BACKGROUND="/i/steel_darkblue_bg.gif">
+       <TR>
+          <TD CLASS="statText" WIDTH="25%">
+chogyonim<BR/>
+cvolzke<BR/>
+dpecora<BR/>
+eswarv<BR/>
+fuzzy<BR/>
+hashimca<BR/>
+hugo<BR/>
+iguasufalls<BR/>                  
+          </TD>
+          <TD CLASS="statText" WIDTH="25%">
+jerry924<BR/>
+jonmac<BR/>
+lbaskar<BR/>
+mmajorek<BR/>
+radeye<BR/>
+skippy<BR/>
+sqrrrl<BR/>
+tnicholas3<BR/>                  
+          </TD>
+          <TD CLASS="statText" WIDTH="25%">
+troydharrison<BR/>
+typedecl<BR/>
+vgoenka<BR/>
+Xcifer<BR/>
+bean911<BR/>
+brown_cow<BR/>
+climbbigrock<BR/>
+crazybrain<BR/>
+          </TD>
+          <TD CLASS="statText" WIDTH="25%">
+deng2k<BR/>
+dlangemak<BR/>
+krmc<BR/>
+krporeddy<BR/>
+mujain<BR/>
+snshah<BR/>
+tangollama<BR/>
+yurif<BR/>
+          </TD>
+       </TR> 
+    </TABLE>
           <P><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
