@@ -45,6 +45,18 @@ reference to find the detail records.
 6/6/2002 11:06 am edt  jason n. evans
 Print more meaningful errors for navigation errors for Memberside
 
+6/7/2002 7:35 pm edt jason n. evans
+Let's say we have a pacts administrator A and a topcoder contestant B.
+
+If A creates an affidavit manually for B without the necessary embedded xml in the affidavit text, when B subsequently
+tries to affirm it online, he sees a page "can not get affidavit" - this is a result of xml parsing exceptions
+on the server.
+
+Also, note that if A affirms an affidavit online on behalf of B and enters in a date of birth, this updates the
+coder table, so B might later on be surprised to find an incorrect birth date in his personal information if A got the
+date wrong.
+
+
 
 ****************** BEING WORKED ON  ***********************
 
