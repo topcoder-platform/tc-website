@@ -678,6 +678,37 @@
             <param name="unit-jar-name" value="company"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
         </antcall>
+        
+        <!-- Email ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="email"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+        </antcall>
+        
+        <!-- Phone ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="phone"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
+        </antcall>
+        
+        <!-- Product ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="product"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
+        </antcall>
+        
+        <!-- TermsOfUse ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="termsofuse"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+        </antcall>
+        
+        <!-- User ejb -->
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="user"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+        </antcall>        
+        
     </target>
     
     <target name="build-ejb-unit" depends="compile">
