@@ -260,7 +260,7 @@ public class ProblemInfo extends BaseModel {
         }
         if(rsc.size() > 1) {
             throw new ScreeningException(
-                    "Data error, too many results");
+                    "Data error, too many results - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
         }
 
         ProblemInfo info = new ProblemInfo();
