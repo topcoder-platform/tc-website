@@ -177,7 +177,7 @@
         </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="School"/>Employer or School:</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="Employer/School"/>Employer or School:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a15" size="15"/></TD>
             </TR>
 
