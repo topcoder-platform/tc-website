@@ -4,7 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 /**
- * contains some of the basic methods and data for request processors
+ * Contains some of the basic methods and data for request processors.
+ *
+ * @author Ambrose Feinstein
  */
 public abstract class Base implements RequestProcessor {
 
