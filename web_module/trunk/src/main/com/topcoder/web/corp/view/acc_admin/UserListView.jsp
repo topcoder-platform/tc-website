@@ -29,7 +29,10 @@
       <TD WIDTH="170" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <jsp:include page="../includes/left.jsp"/>
+        <jsp:include page="../includes/left.jsp">
+            <jsp:param name="level1" value="myAccount"/>
+            <jsp:param name="level2" value="userList"/>
+        </jsp:include>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -41,8 +44,8 @@
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Account Administration - User List</B></FONT><BR>
 <P>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
 </P>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
@@ -50,7 +53,7 @@
                 <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;Handle</B></TD>
                 <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>First Name</B></TD>
                 <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>Last Name</B></TD>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>             
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>
         </TR>
 
         <% /* Setup variables used for row alternating background colors */

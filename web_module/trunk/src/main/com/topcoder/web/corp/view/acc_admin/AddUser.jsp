@@ -24,7 +24,10 @@
       <TD WIDTH="170" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <jsp:include page="../includes/left.jsp"/>
+        <jsp:include page="../includes/left.jsp">
+            <jsp:param name="level1" value="myAccount"/>
+            <jsp:param name="level2" value="createUser"/>
+        </jsp:include>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -36,9 +39,9 @@
       <TD CLASS="bodyText" WIDTH="100%" valign="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Account Administration - Create/Modify User</B></FONT><BR>
 <P>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-</P><BR>                    
+                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
+</P><BR>
 <FORM method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" name="frmUserEdit">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
     <input type="hidden" name="module" value="UserEdit"/>
