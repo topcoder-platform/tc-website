@@ -70,7 +70,23 @@
                     				<td background="/i/steel_bluebv_bg.gif" class="statText" width="5%" height="18"><img src="/i/clear.gif" alt="" height="1" width="5" border="0" /></td>
                     				<td background="/i/steel_bluebv_bg.gif" class="statText" width="50%" height="18">Modified&#160;&#160;&#160;&#160;&#160; Download File&#160;</td>
                 				</tr>
+                			
+                			    <tr>
+                					<td colspan="3">
+                					<hr width="100%" size="1px" color="666666" /></td>
+                				</tr>
                 				
+                				<tr valign="middle">
+                    				<td class="statText" valign="top"><strong>TopCoder Software Development Environment</strong><br />
+                    				The TopCoder Software Development Environment is intended to facilitate the component design and 
+                    				and development process.  Anyone interested in working on component design or development 
+                    				should download this file and configure their environment before getting started.</td>
+                    				<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
+                    				<td class="statText" valign="top">
+                    				<br />
+                    				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/topcoder_env.jar" class="statText">topcoder_env.jar</a>
+                    				</td>
+                				</tr>	
                 				<tr>
                 					<td colspan="3"><img src="/i/clear.gif" alt="" height="5" border="0" /></td>
                 				</tr>
@@ -83,8 +99,8 @@
                     				<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" valign="top">
                     				<br />
-                    				02.13.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Java Design Deliverables.pdf</a><br />
-									02.13.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET Design Deliverables.pdf</a>
+                    				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Java Design Deliverables.pdf</a><br />
+									03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET Design Deliverables.pdf</a>
                     				</td>
                     				
                 				</tr>
@@ -102,9 +118,9 @@
                     				<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" valign="top">
                     				<br />
-                    				02.13.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Development Deliverables.pdf</a>
+                    				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Development Deliverables.pdf</a>
                     				<br />
-                    				02.13.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Development Deliverables.pdf</a>
+                    				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Development Deliverables.pdf</a>
                     				</td>
                 				</tr>
                 				
@@ -251,7 +267,7 @@
 							<tr valign="top">
 								<td class="statText" width="100%">
 									<p><strong>Sample Design Submission</strong><br />
-									This is the <a href="/i/development/downloads/submission-sample.jar" class="statText">winning design submission</a> from <a href="/stat?c=member_profile&amp;cr=279551" class="coderTextBlue">scamp</a> for the <a href="http://software.topcoder.com/pages/c_component.jsp?comp=3501906&amp;cat=1" class="statText">String Class</a> component. It should only be used as a guide for creating a design submission. Contents of this submission include:
+									This is the <a href="/i/development/downloads/submission-sample.jar" class="statText">winning design submission</a> from <a href="/stat?c=member_profile&amp;cr=119676" class="coderTextBlue">Pops</a> for the <a href="http://software.topcoder.com/pages/c_component.jsp?comp=6402357&amp;cat=1" class="statText">Class Discovery</a> component. It should only be used as a guide for creating a design submission. Contents of this submission include:
 									<ul>
 										<li>Component Specification</li>
 										<li>Test Cases</li>
@@ -287,7 +303,7 @@
 							<tr valign="top">
 								<td class="statText" width="100%">
 									<p><strong>Completed Component</strong><br/>
-									This is the completed <a href="/i/development/downloads/component-sample.jar" class="statText">Logging Wrapper</a> component that has gone through the Component Development Methodology.
+									This is the completed <a href="/i/development/downloads/logging_wrapper-1_0.jar" class="statText">Logging Wrapper</a> component that has gone through the Component Development Methodology.
 									You are encouraged to download and install this component for personal, non-commercial use and to incorporate it into future components.
 							    </p></td>
 							</tr>
