@@ -12,6 +12,7 @@
    <property name="build.javadocs" value="${build}/javadocs" />
    <property name="lib.dir"       value="lib" />
    <property name="jars.dir"      value="${lib.dir}/jars" />
+   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-1.0.2/lib" />
    <property name="bin"           value="lib/bin" />
    <property name="src.dir"       value="src"/>
    <property name="java"          value="${src.dir}/main" />
@@ -78,7 +79,7 @@
    <target name="full.deploy" depends="build.ejbs,deploy">
    </target>
 
-   <target name="deploy" depends="build.wars,servlets,jsp,moveStruts,moveReg">
+   <target name="deploy" depends="build.wars,servlets,jsp,moveStruts,moveReg,moveStats">
    </target>
 
    <target name="servlets" depends="compile">
@@ -100,6 +101,19 @@
    </target>
 
    <target name="moveStruts" depends="check_java_version">
+      <copy todir="${public_html}/WEB-INF/lib">
+         <fileset dir="" >
+                 <include name="**/*.jar" />
+         </fileset>
+      </copy>
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="" >
+                 <include name="**/*.tld" />
+         </fileset>
+      </copy>
+   </target>
+
+   <target name="moveStats" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF">
          <fileset dir="resources/stat" >
                  <include name="**/*.tld" />
