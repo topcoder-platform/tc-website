@@ -577,12 +577,12 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                     roundId = rs.getInt("round_id");
                     challengerId = rs.getInt("challenger_id");
                     defendantId = rs.getInt("defendant_id");
-                    problemId = rs.getInt("problem_id");
+                    problemId = rs.getInt("component_id");
                     challengerPoints = rs.getFloat("challenger_points");
                     defendantPoints = rs.getFloat("defendant_points");
                     succeeded = rs.getInt("succeeded");
                     if (rs.wasNull()) {
-                        throw new Exception("Succeede was null for challenge id " + challengeId + ".");
+                        throw new Exception("Succeed was null for challenge id " + challengeId + ".");
                     }
                 } else {
                     throw new Exception("Challenge for id " + challengeId + " not found.");
