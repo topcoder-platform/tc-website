@@ -137,13 +137,13 @@
                	 	<input type="hidden" name="timelineAction" value=""/>
                	 	<html:hidden property="currentEdition" value="timeline"/>
 			<td>
-			    <html:button value="Apply Changes" styleClass="submitButton" onclick="timelineAction.value='store'; submit()" />
+			    <input type="button" value="Apply Changes" onclick="timelineAction.value='store'; submit()" />
 			</td>
 			<td>
-			    <html:button value="Refresh" styleClass="submitButton" onclick="timelineAction.value='refresh'; submit()" />
+			    <input type="button" value="Refresh" onclick="timelineAction.value='refresh'; submit()" />
 			</td>
 			<td>
-			    <html:button value="Cancel" styleClass="submitButton" onclick="timelineAction.value='cancel'; submit()" />
+			    <input type="button" value="Cancel" onclick="timelineAction.value='cancel'; submit()" />
 			</td>
 			           
 		</tr>
