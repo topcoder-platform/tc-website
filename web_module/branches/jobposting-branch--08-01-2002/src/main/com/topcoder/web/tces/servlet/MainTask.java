@@ -68,10 +68,6 @@ log.debug("INPREACTION - "+((Integer)request.getSession(true).getAttribute("user
     public void processStep(String step)
         throws Exception
     {
-try {
-log.debug("INPROCSTEP - "+((Integer)request.getSession(true).getAttribute("user_id")).toString() );
-} catch (Exception ignore) {
-}
         if (step == null) {
             viewMain();
             return;
