@@ -73,6 +73,22 @@
                                         <tc-webtag:textInput type="text" name="<%=Constants.EMAIL_ADDRESS%>" size="30" maxlength="50" onkeypress="submitEnter(event)" />
                                     </td>
                                 </tr>
+                                <%
+                                    String[] cssClasses = new String[] { "screeningCellOdd", "screeningCellEven" };
+                                    int counter = 0;
+                                %>
+                                <pl:questionIterator id="question" list="<%=questionList%>">
+                                <%if(question.getId() == Constants.AREAS_OF_INTEREST_ID) { %> 
+                                <tr>
+                                    <td class="<%=cssClasses[counter % 2]%>" align=right>
+                                        <%=question.getText()%>
+                                    </td>
+                                    <td class="<%=cssClasses[counter++ % 2]%>">
+                                        <pl:demographicInput question="<%=question%>"/>
+                                    </td>
+                               </tr>
+                               <%} %>
+                            </pl:questionIterator>
                             </table>
                         </td>
                     </tr>
