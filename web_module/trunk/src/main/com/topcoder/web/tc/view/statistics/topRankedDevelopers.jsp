@@ -5,7 +5,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%
     ResultSetContainer rsc = (ResultSetContainer)
-            ((Map)request.getAttribute("QUERY_RESPONSE")).get("top_designers");
+            ((Map)request.getAttribute("QUERY_RESPONSE")).get("top_developers");
 %>
 
 <HTML>
@@ -33,7 +33,7 @@
              <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
              <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
              <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Designer Rankings&#160;&#160;</SPAN>
+               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Developer Rankings&#160;&#160;</SPAN>
              </TD>
              <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
            </TR>
@@ -51,7 +51,7 @@
                  </TR>
                  <TR>
                    <TD CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     To find out more about this page, click <A href="javascript:infoWindow('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topRatedDesigners')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A>
+                     To find out more about this page, click <A href="javascript:infoWindow('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topRatedDevelopers')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A>
                    </TD>
                  </TR>
                  <TR>
