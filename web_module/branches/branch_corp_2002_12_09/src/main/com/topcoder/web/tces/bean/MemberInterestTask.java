@@ -12,6 +12,8 @@ import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.*;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.SimpleUser;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -24,7 +26,7 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
 
     private static Logger log = Logger.getLogger(MemberInterestTask.class);
 
-    private int uid;
+    private long uid;
     private int cid;
     private int jid;
     private int mid;
@@ -57,14 +59,28 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
-        HttpSession session = request.getSession(true);
+//        HttpSession session = request.getSession(true);
+//
+//        if (!Authentication.isLoggedIn(session)) {
+//            log.debug("User not authenticated for access to TCES resource.");
+//            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
+//        }
+//
+//        uid = Authentication.userLoggedIn(session);
 
-        if (!Authentication.isLoggedIn(session)) {
+        User curUser = getAuthenticityToken().getUser();
+        if (curUser.isAnonymous()) { 
             log.debug("User not authenticated for access to TCES resource.");
-            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
+            throw new TCESAuthenticationException(
+                "User not authenticated for access to TCES resource.");
         }
 
-        uid = Authentication.userLoggedIn(session);
+//
+//      if (!Authorization.hasPermission(this.getClass().getName())) {
+//            throw new TCESAuthorizationException(curUser.getUserName()+": not Authorized for access to TCES resource.");
+//      }
+
+        uid = curUser.getId();
     }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
@@ -103,7 +119,7 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_member_interest");
 
-        dataRequest.setProperty("uid", Integer.toString(uid) );
+        dataRequest.setProperty("uid", Long.toString(uid) );
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
         dataRequest.setProperty("jid", Integer.toString(getJobID()) );
         dataRequest.setProperty("mid", Integer.toString(getMemberID()) );
@@ -123,7 +139,7 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
             throw new Exception ("mid="+Integer.toString(getMemberID())+
                                  " jid="+Integer.toString(getJobID())+
                                  " cid="+Integer.toString(getCampaignID())+
-                                 " does not belong to uid="+Integer.toString(uid) );
+                                 " does not belong to uid="+Long.toString(uid) );
         }
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");

@@ -10,6 +10,8 @@ import com.topcoder.web.tces.common.JSPUtils;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.SimpleUser;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -56,7 +58,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     private boolean hasResume;
 
-    private int uid;
+    private long uid;
 
     /** Holds data about the coder's Division I performance. */
     private ResultSetContainer.ResultSetRow divIStats;
@@ -290,12 +292,26 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             throws Exception {
         HttpSession session = request.getSession(true);
 
-        if (!Authentication.isLoggedIn(session)) {
+//        if (!Authentication.isLoggedIn(session)) {
+//            log.debug("User not authenticated for access to TCES resource.");
+//            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
+//        }
+//
+//        uid = Authentication.userLoggedIn(session);
+
+        User curUser = getAuthenticityToken().getUser();
+        if (curUser.isAnonymous()) { 
             log.debug("User not authenticated for access to TCES resource.");
-            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
+            throw new TCESAuthenticationException(
+                "User not authenticated for access to TCES resource.");
         }
 
-        uid = Authentication.userLoggedIn(session);
+//
+//      if (!Authorization.hasPermission(this.getClass().getName())) {
+//            throw new TCESAuthorizationException(curUser.getUserName()+": not Authorized for access to TCES resource.");
+//      }
+
+        uid = curUser.getId();
     }
 
     /** Performs post-processing for the task.
@@ -358,7 +374,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         // set up OLTP query command.
         Request oltpDataRequest = new Request();
         oltpDataRequest.setContentHandle("tces_member_profile");
-        oltpDataRequest.setProperty("uid", Integer.toString(uid));
+        oltpDataRequest.setProperty("uid", Long.toString(uid));
         oltpDataRequest.setProperty("jid", Integer.toString(getJobID()));
         oltpDataRequest.setProperty("cid", Integer.toString(getCampaignID()));
         oltpDataRequest.setProperty("mid", Integer.toString(getMemberID()));
@@ -372,7 +388,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             throw new TCESAuthenticationException(" mid=" + Integer.toString(getMemberID())
                     + " jid=" + Integer.toString(getJobID())
                     + " cid=" + Integer.toString(getCampaignID())
-                    + "does not belong to uid=" + Integer.toString(uid));
+                    + "does not belong to uid=" + Long.toString(uid));
         }
 
         // start packaging data for presentation.

@@ -7,6 +7,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCData;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.SimpleUser;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -29,7 +31,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
     private List campaignInfoList;
 
     /* Holds the ID currently logged-in user */
-    private int uid;
+    private long uid;
 
     /* Holds whether or not there are multiple different companies in the campaign list */
     private boolean hasManyCompanies;
@@ -88,14 +90,28 @@ public class MainTask extends BaseTask implements Task, Serializable {
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
-        HttpSession session = request.getSession(true);
+//        HttpSession session = request.getSession(true);
+//
+//        if (!Authentication.isLoggedIn(session)) {
+//            log.debug("User not authenticated for access to TCES resource.");
+//            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
+//        }
+//
+//        uid = Authentication.userLoggedIn(session);
 
-        if (!Authentication.isLoggedIn(session)) {
+        User curUser = getAuthenticityToken().getUser();
+        if (curUser.isAnonymous()) { 
             log.debug("User not authenticated for access to TCES resource.");
-            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
+            throw new TCESAuthenticationException(
+                "User not authenticated for access to TCES resource.");
         }
 
-        uid = Authentication.userLoggedIn(session);
+//
+//      if (!Authorization.hasPermission(this.getClass().getName())) {
+//            throw new TCESAuthorizationException(curUser.getUserName()+": not Authorized for access to TCES resource.");
+//      }
+
+        uid = curUser.getId();
     }
 
     public void processStep(String step)
@@ -109,7 +125,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_main");
 
-        dataRequest.setProperty("uid", Integer.toString(uid) );
+        dataRequest.setProperty("uid", Long.toString(uid) );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
