@@ -90,7 +90,7 @@
        <P>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dpertooleng&amp;a=secure" CLASS="bodyText">3D PERFORMANCE TOOLS ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dappsweng&amp;a=secure" CLASS="bodyText">3D APPLICATION SW ENGINEER</A></B><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cusqeng&amp;a=secure" CLASS="bodyText">CUSTOMER QUALITY ENGINEER</A></B><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cusqeng&amp;a=secure" CLASS="bodyText">CUSTOMER QUALITY ENGINEER (Taipei, Taiwan)</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_packdesigner&amp;a=secure" CLASS="bodyText">PACKAGE DESIGNER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srdesigneng&amp;a=secure" CLASS="bodyText">SENIOR DESIGN ENGINEER</A></B><BR/>
