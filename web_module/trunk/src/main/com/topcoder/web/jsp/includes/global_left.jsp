@@ -249,6 +249,7 @@
 <% } %>
 
 <%-- PACTS begins *************************** --%>
+<%--
 <% if (request.getServletPath().indexOf("pacts")>-1) { %>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle">P.A.C.T.s:</td>
@@ -257,8 +258,9 @@
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
             </table>
-<%-- PACTS ends *************************** --%>
 <% } %>
+--%>
+<%-- PACTS ends *************************** --%>
 
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td bgcolor="#990000"><jsp:include page="../includes/modules/simpleSearch.jsp"/></td></tr>
