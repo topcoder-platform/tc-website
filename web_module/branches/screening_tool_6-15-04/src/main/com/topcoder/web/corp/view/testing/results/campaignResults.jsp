@@ -189,7 +189,7 @@ function getProblemDetail(id) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <A href='JavaScript:getProblemDetail('<%=row.getStringItem("session_round_id")%>,<%=row.getStringItem("problem_id")%>')'>
+                        <A href="JavaScript:getProblemDetail('<%=row.getStringItem("session_round_id")%>,<%=row.getStringItem("problem_id")%>')">
                             <%=row.getStringItem("problem_name")%>
                         </A>
                     </td>
