@@ -162,6 +162,8 @@ public final class TaskStatic {
                             rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                         tournamentTag.addTag(rsc.getTag(regionCode+"_Competitors", "Competitor"));
                     }
+                    log.debug(requestCommand);
+                    log.debug("tco03_top100");
                     if (requestCommand.equals("tco03_top100")) {
                         log.debug("in here");
                         dataRequest = new Request();
@@ -169,7 +171,7 @@ public final class TaskStatic {
                         DataAccessInt dwdai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
 
                         Map top100Map= dwdai.getData(dataRequest);
-                        ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get("tco03_top100");
+                        ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get(requestCommand);
                         tournamentTag.addTag(top100Rsc.getTag("Competitors", "Competitor"));
 
                     }
