@@ -26,7 +26,7 @@ import javax.servlet.http.*;
 public class MainServlet
     extends HttpServlet {
         //defaults seeded for missing config params in web.xml
-    static String ERROR_PAGE         = "error.jsp";
+    static String ERROR_PAGE         = "errorPage.jsp";
     static String PROCESSORS_PACKAGE = "com.topcoder.web.screening.request";
     static String PROCESSORS_PARAM   = "rp";
 
