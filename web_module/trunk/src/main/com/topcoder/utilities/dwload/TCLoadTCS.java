@@ -51,14 +51,29 @@ public class TCLoadTCS extends TCLoad {
             
             doLoadContests();
             
-            String sSQL = "select distinct project_id from project_result";
-
+            String sSQL = "select distinct project_id from project";
+            
             PreparedStatement ps = prepareStatement(sSQL, SOURCE_DB);
             ResultSet rs = ps.executeQuery();
 
             while(rs.next())
             {
                 doLoadProject(rs.getLong("project_id"));
+            }
+
+            rs.close();
+            rs = null;
+            ps.close();
+            ps = null;
+            
+            sSQL = "select distinct project_id from project_result";
+
+            ps = prepareStatement(sSQL, SOURCE_DB);
+            rs = ps.executeQuery();
+
+            while(rs.next())
+            {
+                doLoadProjectResults(rs.getLong("project_id"));
             }
 
             rs.close();
@@ -296,8 +311,8 @@ public class TCLoadTCS extends TCLoad {
         }
     }
     
-     public void doLoadProject(long project_id) throws Exception
-     {
+    public void doLoadProject(long project_id) throws Exception
+    {
         PreparedStatement ps, ps2;
         ResultSet rs;
         
@@ -313,8 +328,8 @@ public class TCLoadTCS extends TCLoad {
                             "(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id) as avg_final_score, " +
                             "case when p.project_type_id = 1 then 112 else 113 end as phase_id, " +
                             "(select description from phase where phase_id = (case when p.project_type_id = 1 then 112 else 113 end)) as phase_desc, " +
-                            "(select category_id from comp_categories where component_id = cc.component_id) as category_id, " +
-                            "(select category_name from categories where category_id = (select category_id from comp_categories where component_id = cc.component_id)) as category_desc, " +
+                            "(select max(category_id) from comp_categories where component_id = cc.component_id) as category_id, " +
+                            "(select category_name from categories where category_id = (select max(category_id) from comp_categories where component_id = cc.component_id)) as category_desc, " +
                             "(select start_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as posting_date, " +
                             "(select end_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as submitby_date, " +
                             "p.complete_date  " +
@@ -323,7 +338,6 @@ public class TCLoadTCS extends TCLoad {
                             "comp_catalog cc " +
                             "where p.project_id = ? " +
                             "and p.cur_version = 1  " +
-                            "and p.project_stat_id in (2, 4, 5, 6) " +
                             "and cv.comp_vers_id = p.comp_vers_id " +
                             "and cc.component_id = cv.component_id";
 
@@ -389,54 +403,29 @@ public class TCLoadTCS extends TCLoad {
                 }
 
             }
-            else
-            {
-                sSQL = "delete from project_result where project_id = ?";
-
-                ps = prepareStatement(sSQL, TARGET_DB);
-                ps.setLong(1, project_id);
-
-                ps.execute();
-
-                ps.close();
-                ps = null;
-
-                sSQL = "delete from submission_review where project_id = ?";
-
-                ps = prepareStatement(sSQL, TARGET_DB);
-                ps.setLong(1, project_id);
-
-                ps.execute();
-
-                ps.close();
-                ps = null;
-
-                sSQL = "delete from contest_project_xref where project_id = ?";
-
-                ps = prepareStatement(sSQL, TARGET_DB);
-                ps.setLong(1, project_id);
-
-                ps.execute();
-
-                ps.close();
-                ps = null;
-
-                sSQL = "delete from project where project_id = ?";
-
-                ps = prepareStatement(sSQL, TARGET_DB);
-                ps.setLong(1, project_id);
-
-                ps.execute();
-
-                ps.close();
-                ps = null;
-
-                return;
-            }
             rs.close();
             rs = null;
             ps.close();
             ps = null;
+
+            
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'project_result / project' table failed.\n" +
+                    sqle.getMessage());
+        }      
+    }
+    
+     public void doLoadProjectResults(long project_id) throws Exception
+     {
+        PreparedStatement ps, ps2;
+        ResultSet rs;
+        
+        try {
+            log.info("PROCESSING PROJECT RESULTS " + project_id);
+
+            //get data from source DB
+            String sSQL = "";
 
             /*sSQL = "delete from project_result where project_id = ?";
 
