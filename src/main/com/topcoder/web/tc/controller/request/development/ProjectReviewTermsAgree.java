@@ -15,12 +15,12 @@ import com.topcoder.shared.util.DBMS;
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
-   protected void applicationProcessing() throws TCWebException {
+    protected void applicationProcessing() throws TCWebException {
         try {
             if ("on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                 UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
                 if (!userTerms.hasTermsOfUse(getUser().getId(),
-                                    Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                        Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                     userTerms.createUserTermsOfUse(getUser().getId(),
                             Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 }
@@ -49,17 +49,13 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
 
         //todo wrap in a transaction
-        if (rba.exists(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId)) {
-            throw new NavigationException("You have already applied to review this project.");
-        } else {
-            rba.createRBoardApplication(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId);
-            String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
-            rba.setPrimary(DBMS.TCS_OLTP_DATASOURCE_NAME, userId,
-                    projectId, phaseId, new Boolean(primary).booleanValue());
-            if (phaseId == SoftwareComponent.DEV_PHASE) {
-                int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
-                rba.setReviewRespId(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
-            }
+        rba.createRBoardApplication(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId);
+        String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
+        rba.setPrimary(DBMS.TCS_OLTP_DATASOURCE_NAME, userId,
+                projectId, phaseId, new Boolean(primary).booleanValue());
+        if (phaseId == SoftwareComponent.DEV_PHASE) {
+            int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
+            rba.setReviewRespId(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
         }
 
     }
