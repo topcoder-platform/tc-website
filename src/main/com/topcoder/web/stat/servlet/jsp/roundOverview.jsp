@@ -15,6 +15,7 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <%@ include file="/script.jsp" %>
+
  </HEAD>
  <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
    <%@ include file="/top.jsp" %>
@@ -196,6 +197,18 @@
   <TR>
     <TD VALIGN="middle" COLSPAN="5" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP="0" HEIGHT="16" CLASS="registerNav"  BACKGROUND="/i/steel_bluebv_bg.gif"><B></B></TD>
   </TR>
+  <TR>
+    <TD COLSPAN="5" ALIGN="center" CLASS="statText">
+      Viewing top&#160;
+<FORM name="coderRankForm" action="/stat" method="get">
+<INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">
+</FORM>
+      &#160;to&#160;
+      <A HREF="javascript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
+    </TD>
+  </TR>
+
+
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
   <TR>
     <TD VALIGN="middle" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></TD>
