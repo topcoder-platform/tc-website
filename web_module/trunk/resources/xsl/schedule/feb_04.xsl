@@ -132,29 +132,29 @@
                             
                             <tr> 
                                 <td id="calendar">22</td>
-                                <td id="calendar">23</td>
+                                <td id="calendarTourney">
+                                    <span id="calendarSRMDate">23</span><br/>
+                                    <strong>2004 TopCoder Collegiate Challenge</strong><br/>
+                                    Qualification Round Starts<br/>
+                                    12:00&#160;PM<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
                                 <td id="calendarTourney">
                                     <span id="calendarSRMDate">24</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
-                                    Round 1: Part 1<br/>
-                                    Compete: 9:00&#160;PM<br/>
+                                    Qualification Round Ends<br/>
+                                    12:00&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
                                 <td id="calendar">25</td>
-                                <td id="calendarTourney">
-                                    <span id="calendarSRMDate">26</span><br/>
-                                    <strong>2004 TopCoder Collegiate Challenge</strong><br/>
-                                    Round 1: Part 2<br/>
-                                    Compete: 9:00&#160;PM<br/>
-                                    &#160;<br />
-                                    &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
+                                <td id="calendar">26</td>
                                 <td id="calendar">27</td>
                                 <td id="calendarTourney">
                                     <span id="calendarSRMDate">28</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
-                                    Round 1: Part 3<br/>
+                                    Round 1<br/>
                                     Compete: 12:00&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
