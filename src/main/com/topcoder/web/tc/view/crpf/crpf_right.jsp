@@ -1,5 +1,6 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page language="java" %>
+<jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+
 
                             <SCRIPT LANGUAGE="JavaScript">
                             <!--
@@ -71,20 +72,21 @@
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 
-<SCRIPT language="JavaScript">
-<!--
-     var params = '<tc:problemRatingDistributionIterator list="<%=overallDistribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator><tc:problemRatingDistributionIterator list="<%=div1Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator><tc:problemRatingDistributionIterator list="<%=div2Distribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingDistributionIterator>'
-     params = params.substring(0, params.length-1);
-     if (flashinstalled>1){
-             document.write('<object type="application/x-shockwave-flash" data="/i/events/crpf03/crpf_meter.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="170" height=300 border="0" salign="Top" id="myFlash" >');
-             document.write('<PARAM NAME=movie VALUE="/i/events/crpf03/crpf_meter.swf?'+params+'">');
-             document.write('<PARAM NAME=quality VALUE="high">');
-             document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
-             document.write('<embed src="/i/events/crpf03/crpf_meter.swf?'+params+'&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=170 height=300 border="0" salign="Top" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash" swLiveConnect="true" ></embed>');
-             document.write('</object>');
-     }
-     // -->
-  </SCRIPT>
+
+            <rsc:iterator list="<%=donationTotal%>" id="info">
+                <SCRIPT language="JavaScript">
+                <!--
+                     if (flashinstalled>1){
+                             document.write('<object type="application/x-shockwave-flash" data="/i/events/crpf03/crpf_meter.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="170" height=300 border="0" salign="Top" id="myFlash" >');
+                             document.write('<PARAM NAME=movie VALUE="/i/events/crpf03/crpf_meter.swf?currentTotal=<rsc:item row="<%=info%>" name="amount" format="0.00"/>">');
+                             document.write('<PARAM NAME=quality VALUE="high">');
+                             document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
+                             document.write('<embed src="/i/events/crpf03/crpf_meter.swf?currentTotal=<rsc:item row="<%=info%>" name="amount" format="0.00"/>&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=170 height=300 border="0" salign="Top" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash" swLiveConnect="true" ></embed>');
+                             document.write('</object>');
+                     }
+                     // -->
+                  </SCRIPT>
+             </rsc:iterator>
 
                             <SCRIPT LANGUAGE="JavaScript">
                             <!--
