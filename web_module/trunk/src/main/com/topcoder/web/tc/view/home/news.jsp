@@ -35,7 +35,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm232_prob">SRM 232 - Problem Set & Analysis</A></span><br><br>
       This match seemed to have a lot less challenges than other matches, but the systests were brutal for many coders, especially on the division 1 650 and 900.</td>
-      <td class="newsPhoto">by <A href="/stat?c=member_profile&cr=10407399">timmac</A><br><img src="/i/m/timmac_mug.gif" /></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=10407399">timmac</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -98,7 +98,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm231_prob">SRM 231 - Problem Set & Analysis</A></span><br><br>
       SRM 231 gave division 2 coders a welcome reprieve from the difficulties of the last few matches.</td>
-      <td class="newsPhoto">by <A href="/stat?c=member_profile&cr=159052">lbackstrom</A><br><img src="/i/m/lbackstrom_mug.gif" /></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=159052">lbackstrom</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -170,7 +170,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity1">Computational Complexity: Section 1</A></span><br><br>
       "In this article I'll try to introduce you to the area of computation complexity."</td>
-      <td class="newsPhoto">by <A href="/stat?c=member_profile&cr=8357090">misof</A><br><img src="/i/m/misof_mug.gif" /></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=8357090">misof</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -197,7 +197,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm230_prob">SRM 230 - Problem Set & Analysis</A></span><br><br>
       Last night's SRM was one of the most exciting in recent history.  <b>SnapDragon</b>, <b>tomek</b>, <b>JohnDethridge</b>, and <b>radeye</b> were neck and neck till the very end.</td>
-      <td class="newsPhoto">by <A href="/stat?c=member_profile&cr=251317">brett1479</A><br><img src="/i/m/brett1479_mug.gif" /></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=251317">brett1479</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
