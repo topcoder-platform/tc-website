@@ -79,6 +79,8 @@
                         ClassPath: see documentation<br />
                         <a href="/contest/classes/PopsPack/PopsPack.jar" class="statText">PopsPack.jar Plugin</a></p>
 
+                        <hr width="100%" noshade="noshade" color="#666666" />
+
                         <p class="statText">
                         Plugin Name: <strong>TZTester</strong><br />
                         Description: TZTester is a CodeProcessor plug-in that automatically extracts the examples test cases given in the problem 
