@@ -266,7 +266,7 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
                             <TR>
-                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                             </TR>
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Development Rating:</TD>
@@ -281,7 +281,7 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
                             <TR>
-                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                                <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
                             </TR>
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Reliability Rating:</TD>
