@@ -71,6 +71,7 @@
                       <td class=tableTextOdd align=center><jsp:getProperty name="problem" property="completedCount"/>/<jsp:getProperty name="problem" property="problemCount"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="description"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="status"/></td>
+                      <% System.out.println(problem.getClass().getName()); %>
                       <td class=tableTextOdd align=right><span id="problemTimer<%=((ScreeningProblemSet)problem).getProblemLabels()[0].getComponentID()%>">Initializing</span></td>
                    </tr>
                </tc-webtag:listIterator>
