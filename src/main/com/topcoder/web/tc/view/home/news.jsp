@@ -10,7 +10,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm235_prob">SRM 235 - Problem Set & Analysis</A></span><br><br>
-      As prolific as Einstein was, he would have needed to solve all three problems in under thiry-six minutes in order to beat <b>tomek</b> in this match.</td>
+      As prolific as Einstein was, he would have needed to solve all three problems in under thirty-six minutes in order to beat <b>tomek</b> in this match.</td>
       <td class="newsPhoto"><img src="/i/m/the_one_smiley_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=156485">the_one_smiley</A></td></tr></table>
       </td>
    </tr>
