@@ -68,15 +68,19 @@ function find(n) {
     </xsl:when>
 
     <xsl:otherwise>
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+
+            <A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/es/animated_emp_promo.gif" alt="" width="170" height="119" border="0" /></A><br />
+
+            <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br />
+
+            <A href="/?t=about_tc&amp;c=jobs"><img src="/i/es/proj_manager_promo.gif" alt="" width="170" height="106" border="0" /></A><br />
+
             <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br />
 
             <xsl:call-template name="calendar"/>
 
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-
-            <A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/tces_sidebar.gif" alt="" width="170" height="95" border="0"/></A><br />
-
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            <p><br/></p>
     </xsl:otherwise>
 </xsl:choose>
 
