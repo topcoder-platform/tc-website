@@ -43,6 +43,7 @@ public class ProblemArchive extends Base {
             s.addDefault(rsc.getColumnIndex("div2_level"), "desc");
             s.addDefault(rsc.getColumnIndex("div1_success"), "desc");
             s.addDefault(rsc.getColumnIndex("div2_success"), "desc");
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             getRequest().setAttribute("resultMap", result);
 
             setNextPage(Constants.PROBLEM_ARCHIVE);
