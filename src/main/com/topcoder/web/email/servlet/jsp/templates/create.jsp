@@ -15,7 +15,7 @@
 	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.EMAILTEMPLATE_TASK%>">
 	<input type="hidden" name="<%=EmailConstants.STEP%>" value="<%=EmailConstants.TEMPLATE_ADD%>">
 
-	<jsp:include page="template-body.jsp" />
+	<%@include file="template-body.jsp" %>
 	<br>
 	<input type="submit" value="create">
 
