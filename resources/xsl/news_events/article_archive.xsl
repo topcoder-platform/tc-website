@@ -61,6 +61,8 @@
 <!-- 2005  -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+                            <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_02_01_05">DE-CODER: The kings of coding</A> [February 1 - ADT]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.computerworld.com/industrytopics/financial/story/0,10801,98834,00.html">Code Reuse Pays Off for ING</A> [January 10 - ComputerWorld]</td></tr>
 
                             <tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
