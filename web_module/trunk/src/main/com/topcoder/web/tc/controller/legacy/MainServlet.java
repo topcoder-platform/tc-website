@@ -223,7 +223,7 @@ public final class MainServlet extends HttpServlet {
             else if (requestTask.equals("statistics") && requestCommand.equals("member_profile")) {
                 //if we get a "old" version of a member_profile request, just send it off to the new version
                 String coderId = Conversion.checkNull(request.getParameter("Coder_Id"));
-                response.sendRedirect(response.encodeURL("http://" + request.getServerName() + "/stat?c=member_profile&cr=" + coderId));
+                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/stat?c=member_profile&cr=" + coderId));
                 return;
             }
             //************************ image ************************
@@ -239,7 +239,7 @@ public final class MainServlet extends HttpServlet {
             }
             //************************ static  ************************
             else if (requestTask.equals("") || requestCommand.equals("")) {
-                response.sendRedirect(response.encodeURL("http://" + request.getServerName() + "/tc"));
+                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/tc"));
                 return;
             }
             else {
@@ -250,7 +250,7 @@ public final class MainServlet extends HttpServlet {
             // REDIRECT TO HOMEPAGE.
             if (!responseWritten) {
                 if (HTMLString.equals("home")) {
-                    response.sendRedirect(response.encodeURL("http://" + request.getServerName()));
+                    response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName()));
                 } else if (HTMLString.startsWith("login~")) {
                     StringTokenizer params = new StringTokenizer(HTMLString, "~");
                     params.nextToken();
