@@ -45,7 +45,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Sets the value of <code>sessionInfo</code>.
      *
-     * @param sessionInfo
+     * @param val
      */
     public void setSessionInfo( SessionInfo val ) {
         sessionInfo = val;
@@ -63,7 +63,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Sets the value of <code>subject</code>.
      *
-     * @param subject
+     * @param val
      */
     public void setSubject( String val ) {
         subject = val;
@@ -102,13 +102,49 @@ public class EmailInfo extends BaseModel {
         msgText.append(sdf.format(sessionInfo.getEndDate()));
         msgText.append("\n");
 
+
+        msgText.append("Dear Candidate:\n");
+        msgText.append("Thank you for your interest in working at ");
+        msgText.append(companyName);
+        msgText.append(".  We would like you to participate in the next stage of our screening ");
+        msgText.append("process - the Private Candidate Testing Application powered by TopCoder.  ");
+        msgText.append("Through this Testing Application, you will be asked to solve algorithmic ");
+        msgText.append("problems as an objective measure of your programming ability, then compared ");
+        msgText.append("to other candidates being evaluated for the same position.\n");
+        msgText.append("\n");
+        msgText.append("Please review the Help Manual before getting started: ");
+        msgText.append("******<URL to online help manual>******* OR attached Word document\n");
+        msgText.append("\n");
+        msgText.append("The following session has been scheduled for you:\n");
+        msgText.append("Begin: ");
+        msgText.append(sdf.format(sessionInfo.getBeginDate()));
+        msgText.append("\n");
+        msgText.append("End: ");
+        msgText.append(sdf.format(sessionInfo.getEndDate()));
+        msgText.append("\n");
+        msgText.append("Login:  ");
+        msgText.append(candidateHandle);
+        msgText.append("\n");
+        msgText.append("Password:  ");
+        msgText.append(candidatePassword);
+        msgText.append("\n\n");
+        msgText.append("On average, you should expect to spend 3 hours using the Testing Application.  ");
+        msgText.append("You can access the Testing Application here: ******<URL>*******\n");
+        msgText.append("\n");
+        msgText.append("Best of luck!\n");
+        msgText.append(repName);
+        msgText.append("\n");
+        msgText.append(companyName);
+
+
+
         return msgText.toString();
     }
 
     /**
      * Sets the value of <code>candidateAddress</code>.
      *
-     * @param candidateAddress
+     * @param val
      */
     public void setCandidateAddress( String val ) {
         candidateAddress = val;
@@ -126,7 +162,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Sets the value of <code>candidatePassword</code>.
      *
-     * @param candidatePassword
+     * @param val
      */
     public void setCandidatePassword( String val ) {
         candidatePassword = val;
@@ -144,7 +180,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Sets the value of <code>candidateHandle</code>.
      *
-     * @param candidateHandle
+     * @param val
      */
     public void setCandidateHandle( String val ) {
         candidateHandle = val;
@@ -162,7 +198,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Sets the value of <code>companyId</code>.
      *
-     * @param companyId
+     * @param val
      */
     public void setCompanyId( long val ) {
         companyId = val;
@@ -180,7 +216,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Sets the value of <code>companyName</code>.
      *
-     * @param companyName
+     * @param val
      */
     public void setCompanyName( String val ) {
         companyName = val;
@@ -198,7 +234,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Sets the value of <code>repName</code>.
      *
-     * @param repName
+     * @param val
      */
     public void setRepName( String val ) {
         repName = val;
@@ -216,7 +252,7 @@ public class EmailInfo extends BaseModel {
     /**
      * Sets the value of <code>repAddress</code>.
      *
-     * @param repAddress
+     * @param val
      */
     public void setRepAddress( String val ) {
         repAddress = val;
