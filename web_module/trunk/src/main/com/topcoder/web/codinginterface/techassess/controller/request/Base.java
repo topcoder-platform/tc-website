@@ -10,6 +10,7 @@ import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
 import com.topcoder.shared.netCommon.screening.request.ScreeningBaseRequest;
+import com.topcoder.shared.netCommon.screening.response.ScreeningBaseResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
@@ -91,11 +92,11 @@ public abstract class Base extends BaseProcessor {
         HttpSession session = getRequest().getSession();
         if (m.isSynchronous()) {
             if (session.getAttribute(Constants.SERVER_BUSY + getSessionId()) == null) {
-                synchronized (session) {
-                    this.messageId = sender.sendMessageGetID(new HashMap(), m);
-                    session.setAttribute(Constants.SERVER_BUSY + getSessionId(), "");
-                }
+                this.messageId = sender.sendMessageGetID(new HashMap(), m);
+                session.setAttribute(Constants.SERVER_BUSY + getSessionId(), "");
             } else {
+                //we need to mark it not busy anymore because if we don't
+                //they won't be able to make any more requests.
                 session.removeAttribute(Constants.SERVER_BUSY + getSessionId());
                 throw new ServerBusyException();
             }
@@ -344,7 +345,7 @@ public abstract class Base extends BaseProcessor {
         getResponse().flushBuffer();
     }
 
-    protected Message receive(int waitTime) throws TimeOutException {
+    protected Message receive(int waitTime) throws TCWebException {
 
         if (messageId == null) throw new RuntimeException("You must call send before receive.");
 
@@ -363,7 +364,12 @@ public abstract class Base extends BaseProcessor {
         log.debug("errors: " + getRequest().getSession().getAttribute(ERRORS_KEY + messageId));
 */
 
-        return (Message) receiver.receive(waitTime, messageId, getResponse());
+        ScreeningBaseResponse m = (ScreeningBaseResponse) receiver.receive(waitTime, messageId, getResponse());
+
+        if (m.isSynchronous())
+            getRequest().getSession().removeAttribute(Constants.SERVER_BUSY + getSessionId());
+
+        return m;
     }
 
 
