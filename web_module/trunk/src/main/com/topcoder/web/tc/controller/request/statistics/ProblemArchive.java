@@ -11,6 +11,7 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 
 import java.util.Map;
 import java.util.ArrayList;
+import java.math.BigDecimal;
 
 /**
  * User: dok
@@ -65,13 +66,13 @@ public class ProblemArchive extends Base {
             if (!className.equals(""))
                 filters.add(new Contains(className, "problem_name"));
             if (!minDiv1Success.equals(""))
-                filters.add(new GreaterThanOrEqual(new Float(minDiv1Success), "div1_success"));
+                filters.add(new GreaterThanOrEqual(new BigDecimal(minDiv1Success), "div1_success"));
             if (!minDiv2Success.equals(""))
-                filters.add(new GreaterThanOrEqual(new Float(minDiv2Success), "div2_success"));
+                filters.add(new GreaterThanOrEqual(new BigDecimal(minDiv2Success), "div2_success"));
             if (!maxDiv1Success.equals(""))
-                filters.add(new LessThanOrEqual(new Float(maxDiv1Success), "div1_success"));
+                filters.add(new LessThanOrEqual(new BigDecimal(maxDiv1Success), "div1_success"));
             if (!maxDiv2Success.equals(""))
-                filters.add(new LessThanOrEqual(new Float(maxDiv2Success), "div2_success"));
+                filters.add(new LessThanOrEqual(new BigDecimal(maxDiv2Success), "div2_success"));
             if (!div1Level.equals(""))
                 filters.add(new Equals(new Integer(div1Level), "div1_level"));
             if (!div2Level.equals(""))

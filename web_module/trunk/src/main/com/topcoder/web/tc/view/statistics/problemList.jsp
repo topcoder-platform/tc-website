@@ -135,7 +135,7 @@
                 </tr>
                  <tr>
                     <td align="center" class="statText">Division I Level</td>
-                    <tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/>
+                    <td align="center" class="statText"><tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -144,7 +144,7 @@
                 </tr>
                  <tr>
                     <td align="center" class="statText">Division II Level</td>
-                    <tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/>
+                    <td align="center" class="statText"><tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
                  </tr>
                 <tr>
                     <td colspan="2" class="statText" align="center">
