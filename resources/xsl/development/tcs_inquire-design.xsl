@@ -16,7 +16,7 @@
     
     <xsl:call-template name="Preload"/>      
 
-<title>TopCoder | Development</title>
+<title>Inquire about the <xsl:value-of select="/TC/DEVELOPMENT/componentName"/> Design project at TopCoder Software Development</title>
 
     <xsl:call-template name="CSS"/>      
 
@@ -46,7 +46,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6" valign="top"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"/></td>
+        <td width="15" valign="top"><img src="/i/clear.gif" width="15" height="5" alt="" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
@@ -54,19 +54,33 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">development</xsl:with-param>
-                <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+                <xsl:with-param name="title">&#160;Components</xsl:with-param>
             </xsl:call-template>
 
             <xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
             <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
             <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>                
             
-            <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                <tr valign="top">
-                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
+            <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br/>
+            
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="middle">
+                    <td class="bodyText">
                             
 <!-- Title -->
                         <h2 class="devSubhead"><strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/>: Design</strong></h2>
+                    </td>
+                    <td align="right">
+                        <xsl:if test="/TC/DEVELOPMENT/tco='t'">
+                            <img src="/i/development/tco_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
+                        </xsl:if>          
+                    </td>
+                </tr>
+            </table>
+                                    
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td class="bodyText">
 
 <!-- Overview -->
                         <p><strong>Overview</strong><br />
@@ -75,10 +89,10 @@
 
 <!-- Project Type -->
                         <p><strong>Project Type</strong><br />
-                        Component Design Project: Provide a complete design for the <xsl:value-of select="/TC/DEVELOPMENT/componentName"/> component.<br />
-                        Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution. 
-                        If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.
-                            </p>
+                        Component Design Project: Provide a complete design for the <xsl:value-of select="/TC/DEVELOPMENT/componentName"/> component.</p>
+                        
+                        <p>Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution. 
+                        If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.</p>
                             
 <!-- Technologies -->
                         <p><strong>Technologies</strong></p>
@@ -153,58 +167,44 @@
                         Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/final_submission"/><br/>
                         </p>
 
-
+                        <p><br /></p>
 
 <!-- Register at TCS -->
-                           <p>
-                                <strong>View the 
-                                    <a target="_new">
+                           <p><strong>View the <A target="_blank">
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="concat('http://software.topcoder.com/catalog/document?id=', $docId)"/>
                                         </xsl:attribute>
-                                        Requirement Specification
-                                    </a> for this component project &gt;&gt;</strong>
+                                        Requirement Specification</A> for this component project</strong>
                             </p>
-                        
 
-                           <p>
-                                <strong>
-                                <a>
+                           <p><strong><A>
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('/?&amp;t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Design&amp;date=', /TC/DEVELOPMENT/date)"/>
                                     </xsl:attribute>
-                                    Register for the Component Project
-                                </a>
-                                to get information necessary to submit a solution &gt;&gt;</strong>
+                                    Register</A> for this Component Project to get information necessary to submit a solution</strong>
                             </p>
                             
                             <p><br /></p>
-                           <p>
-                                <strong>
-<!--                                Please email your submission to <a href="mailto:submissions@topcodersoftware.com">submissions@topcodersoftware.com</a>
-                                -->
-                                <a target="_new">  
+                           
+                           <p align="right"><strong><A>  
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/s_upload_submission.jsp?version=', $version, '&amp;phase=',
  $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
 
                                     </xsl:attribute>
-                                    Upload your submission! &gt;&gt;
-                                </a>
-                               </strong>
+                                    Upload your submission!</A> &gt;&gt;</strong>
                             </p>
-                        <p><br /></p>
-                        
                     </td>
                 </tr>
-
-                <tr><td width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>     
             </table>
+
+            <p><br /><br /></p>
+
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
