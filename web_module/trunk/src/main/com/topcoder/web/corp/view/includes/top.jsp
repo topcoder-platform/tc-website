@@ -6,22 +6,22 @@
                  com.topcoder.web.common.security.BasicAuthentication,
                  com.topcoder.web.corp.model.SessionInfo"
          autoFlush="false" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
+<jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
 <%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
 %>
 
 <a name="top"/>
-<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
+<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">
     <tr valign="middle">
         <td class="login" width="99%">&nbsp;</td>
         <td class="login" nowrap="nowrap">
-    <% if (sessionInfo.isGuest()) {  // no logged user %>
+    <% if (SessionInfo.isGuest()) {  // no logged user %>
             You are not logged in.
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=LoginPage" class="loginLinks" target="_parent">Login</a>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Register</a>
     <% } else { %>
-            <jsp:getproperty name="sessionInfo" property="Handle" /> is logged in.
+            <jsp:getproperty name="SessionInfo" property="Handle" /> is logged in.
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="loginLinks" target="_parent">Logout</a>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">My Account</a>
     <% } %>
@@ -47,7 +47,7 @@
         </td>
         <td width="20"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
         <td width="100%" nowrap="nowrap" align="right">
-<% if( sessionInfo.isGuest() ) { %>
+<% if( SessionInfo.isGuest() ) { %>
            <table border="0" cellpadding="0" cellspacing="0" align="right">
                 <tr valign="middle"><form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
                     <td nowrap="nowrap" class="loginText" align="right">User Name:&#160;&#160;</td>
@@ -74,7 +74,7 @@
 <!-- Main Navigation bar begins -->
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
     <tr valign="middle">
-        <td class="topNav" width="49%">&#160;</td>  
+        <td class="topNav" width="49%">&#160;</td>
 
 <% if (isHomePage) { %>
         <td class="topNavOn" nowrap="nowrap">&nbsp;&nbsp;Home&nbsp;&nbsp;</td>
@@ -85,7 +85,7 @@
         <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;<a href="/testing/" class="topLink">Testing Application Management Tool</a>&nbsp;&nbsp;</td>
         <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;<a href="/tces/?task=MainTask" class="topLink">Recruiting Reporting Tool</a>&nbsp;&nbsp;</td>
         <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;<a href="http://www.topcodersoftware.com" class="topLink">TopCoder Software</a>&nbsp;&nbsp;</td>
-        <td class="topNav" width="49%">&#160;</td>  
+        <td class="topNav" width="49%">&#160;</td>
     </tr>
 </table>
 
@@ -93,4 +93,3 @@
 	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="2" border="0" /></td></tr>
 </table>
 <!-- Main Navigation bar ends -->
-
