@@ -133,16 +133,19 @@
             <xsl:call-template name="member_surveys"/>
 <!-- Member Surveys ends -->
         
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
-                <tr valign="top"><td height="17" class="moduleTitle" bgcolor="#093158"><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>
-                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr><td height="17" bgcolor="#838383"><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /></td></tr>
             </table>
-
+            <img src="/i/clear.gif" width="1" height="1" border="0" />
+            
             <xsl:call-template name="top_10_coders" />
+            <img src="/i/clear.gif" width="1" height="1" border="0" />
+            
             <xsl:call-template name="top_10_schools" />
+            <img src="/i/clear.gif" width="1" height="1" border="0" />
+            
             <xsl:call-template name="top_5_countries" />
-        
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
 
 <!-- Statistics Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#EEEEEE">
