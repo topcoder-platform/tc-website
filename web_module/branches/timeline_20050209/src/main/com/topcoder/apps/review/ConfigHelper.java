@@ -106,6 +106,7 @@ public class ConfigHelper implements ConfigManagerInterface {
      */
     static final String START_DATE_CALCULATOR_CLASSNAME = "start_date_calculator_classname";
 
+    public static final String WORKDAYS_CONF_FILE="workdays_conf_file";
     /**
      * The list of properties.
      */
@@ -247,11 +248,11 @@ public class ConfigHelper implements ConfigManagerInterface {
         return Double.parseDouble(ConfigManager.getInstance().getString(NAMESPACE, MINIMUM_SCORE));
     }
 
-    static String getXSL(String xsl) throws Exception {
+    public static String getXSL(String xsl) throws Exception {
         return ConfigManager.getInstance().getString(NAMESPACE, xsl);
     }
 
-    static String getString(String property) throws Exception {
+    public static String getString(String property) throws Exception {
         return ConfigManager.getInstance().getString(NAMESPACE, property);
     }
 

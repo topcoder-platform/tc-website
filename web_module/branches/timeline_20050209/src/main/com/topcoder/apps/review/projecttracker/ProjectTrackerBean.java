@@ -1950,19 +1950,14 @@ public class ProjectTrackerBean implements SessionBean {
      */
     private Date[] calcDates(long projectTypeId, Phase[] phaseArr ) {
 
-//        try {
+        try {
             int n = phaseArr.length;
             StartDateCalculator sdc = null;
-try {
-    info("QQ class:" + ConfigHelper.getStartDateCalculatorClassname());
             sdc = (StartDateCalculator) Class.forName(ConfigHelper.getStartDateCalculatorClassname()).newInstance();
-} catch (Exception e) {
-            info("Couldn't load config " + e);
-            throw new IllegalArgumentException();
-        }
             java.util.Date startDate = sdc.calculateNextStart(projectTypeId);
 
-            com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate, new TCWorkdays());
+            com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate,
+                        new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
 
             TCPhase[] phases = new TCPhase[n];
             for (int i=0; i < n; i++) {
@@ -1980,11 +1975,10 @@ try {
             result[n] = new Date (phases [n - 1].calcEndDate().getTime());
 
             return result;
-/*        } catch (Exception e) {
+        } catch (Exception e) {
             info("Couldn't calculate the project dates due to: " + e);
-            throw new IllegalArgumentException();
             return null;
-        }*/
+        }
 
 
     }
