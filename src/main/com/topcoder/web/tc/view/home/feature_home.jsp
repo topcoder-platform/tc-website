@@ -18,13 +18,13 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td> 
 
                     <td  width="100%" class="bodyText"  valign="top">
-                        <p><a href="/index?t=features&c=feat_110204" class="bodyText"><font size="4"><strong>Encryption Algorithms</strong></font></a><br />
-                        Tuesday, November 2, 2004</p>
+                        <p><a href="/index?t=features&c=feat_120704" class="bodyText"><font size="4"><strong>More on Encryption and Security</strong></font></a><br />
+                        Tuesday, December 7, 2004</p>
 
                         <p>
-						Encryption is one of those fancy terms that sometimes gets thrown around in computer science, and the sound of the word might have a subtle reminder of the CIA or some other covert operation.  In fact, encryption has a lot to do with information security.
+						In the first article, we discussed some of the basics of encryption, including a brief history, some basic methods, and some fundamentals behind data encoding and security.
 
-                        <a href="/index?t=features&c=feat_110204" class="bodyText"><strong>full&#160;story</strong></a></p>
+                        <a href="/index?t=features&c=feat_120704" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
