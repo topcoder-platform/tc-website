@@ -76,7 +76,7 @@
                     <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="30" border="0" /><br />
                         <p><strong>Your inquiry has been sent. Thank You!</strong></p>
         
-                        <p><xsl:value-of select="/TC/DEVELOPMENT/Project"/>
+                        <p>
                         Thank you for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/>: Design project.  You will be contacted on May 27th by a TopCoder Application Manager.  At that time you will be notified if you were selected as a developer for this project.
                         </p>
                             

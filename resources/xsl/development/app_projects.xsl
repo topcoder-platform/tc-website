@@ -74,7 +74,7 @@
                     <td width="47%" background="/i/steel_bluebv_bg.gif" class="statText" nowrap="nowrap">Project</td>
                     <td width="19%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Winning Designer</td>
                     <td width="19%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Second Place</td>
-                    <td width="15%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Submission Due</td>
+                    <td width="15%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Inquire By</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
                
@@ -103,37 +103,37 @@
                     <td width="32%" background="/i/steel_bluebv_bg.gif" class="statText" nowrap="nowrap">Project</td>
                     <td width="19%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Winning Developer</td>
                     <td width="19%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Second Place</td>
-                    <td width="15%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Submission Due</td>
+                    <td width="15%" background="/i/steel_bluebv_bg.gif" class="statText" align="center" nowrap="nowrap">Inquire By</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
                
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Application Front End</a></td>
+                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Front End</a></td>
                     <td class="statText" align="center">$1,600</td>
                     <td class="statText" align="center">$600</td>
-                    <td class="statText" align="center">6.16.2003</td>
+                    <td class="statText" align="center">5.27.2003</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
 
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Application Business Logic</a></td>
+                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
                     <td class="statText" align="center">$2,400</td>
                     <td class="statText" align="center">$900</td>
-                    <td class="statText" align="center">6.16.2003</td>
+                    <td class="statText" align="center">5.27.2003</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
 
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-pl">Online Review Application Persistence Layer</a></td>
+                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-pl">Online Review Persistence Layer</a></td>
                     <td class="statText" align="center">$2,400</td>
                     <td class="statText" align="center">$900</td>
-                    <td class="statText" align="center">6.16.2003</td>
+                    <td class="statText" align="center">5.27.2003</td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
             </table>
