@@ -36,6 +36,10 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 
+import com.topcoder.shared.problem.Problem;
+import com.topcoder.shared.problem.ProblemComponent;
+import com.topcoder.shared.problemParser.ProblemComponentFactory;
+
 import com.topcoder.web.tc.model.Skill;
 
 import javax.naming.Context;
@@ -95,12 +99,12 @@ public class PDFGenerator extends BaseProcessor {
         
         //load competition stats
         r = new Request();
-        r.setContentHandle("placement_profile_info");
+        r.setContentHandle("placement_profile_stats");
         r.setProperty("cr", String.valueOf(uid));
         
         DecimalFormat formater = new DecimalFormat("#.##");
         
-        rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("placement_profile_info");
+        rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("placement_profile_stats");
         
         config.setNumContests(rsc.getStringItem(0, "num_ratings"));
         config.setRating(rsc.getIntItem(0, "rating"));
@@ -122,10 +126,54 @@ public class PDFGenerator extends BaseProcessor {
         int cid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("component")));
         
         //load solution?
+        r = new Request();
+        r.setContentHandle("placement_problem_details");
+        r.setProperty("cr", String.valueOf(uid));
+        r.setProperty("pm", String.valueOf(cid));
+        
+        rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("placement_problem_details");
+        config.setProblemName(rsc.getStringItem(0, "desc"));
+        config.setAvgTimeToSubmit(formatTime(rsc.getIntItem(0, "avg_time")));
+        config.setSubmissionPercent(formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "coder_count")) + "%");
+        config.setSuccessfulSubmissionPercent(formater.format(rsc.getDoubleItem(0, "problems_correct")) + "%");
+        config.setSubmissionTime(formatTime(rsc.getIntItem(0, "time_elapsed")));
+        config.setSubmissionText(rsc.getStringItem(0, "submission_text"));
+        
+        ProblemComponent[] arrProblemComponent = new ProblemComponent[0];
+        arrProblemComponent[0] = new ProblemComponentFactory().build(rsc.getStringItem(0, "problem_text"), true);
+        Problem problem = new Problem();
+        problem.setProblemComponents(arrProblemComponent);
+        
+        config.setProblem(problem);
         
         //get resume
         
         return config;
+    }
+    
+    private String formatTime(int t) {
+        String ret = "";
+        
+        int current = t;
+        t /= 1000;
+        
+        int secs = t % 60;
+        t -= secs;
+        t /= 60;
+        
+        ret = ":" + (secs < 10 ? "0" : "") + secs + ret;
+        
+        int mins = t % 60;
+        t -= mins;
+        t /= 60;
+        
+        if(t > 0) {
+            ret = t + ":" + (mins < 10 ? "0" : "") + mins + ret;
+        } else {
+            ret = mins + ret;
+        }
+        
+        return ret;
     }
      
     protected static DataAccessInt getDWDataAccess() throws Exception { 
