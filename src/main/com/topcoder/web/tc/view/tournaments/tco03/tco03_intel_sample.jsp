@@ -8,7 +8,7 @@
 
 </head>
 
-<body onLoad="timer(1);">
+<body>
 
 <table border="0" cellspacing="10" cellpadding="0" width="100%">
     <tr valign="top">

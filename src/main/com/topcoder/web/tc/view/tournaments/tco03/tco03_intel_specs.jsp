@@ -8,7 +8,7 @@
 
 </head>
 
-<body onLoad="timer(1);">
+<body>
 <table border="0" cellspacing="10" cellpadding="0" width="100%">
     <tr valign="top">
         <td align="center"><img src="/i/sponsor/intel_ids/specs_header.gif" width="510" height="64"/></td>
