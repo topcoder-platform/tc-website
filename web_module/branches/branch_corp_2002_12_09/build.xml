@@ -83,7 +83,7 @@
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
     </target>
     <target name="full_deploy" depends="build_ejbs,deploy"/>
-    <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES,deploy-corp,deploy-tces"/>
+    <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES,deploy-corp"/>
     <target name="servlets" depends="compile,move_file_upload_xml">
         <move todir="${servlets}/${statservlets}">
             <fileset dir="${classes}/${statservlets}">
@@ -465,6 +465,7 @@
         <antcall target="war_email"/>
         <antcall target="war_query"/>
         <antcall target="war_corp"/>
+        <antcall target="war_tces"/>
     </target>
     <target name="dev_wars" depends="compile">
         <antcall target="dev_war_query"/>
@@ -536,26 +537,26 @@
         </copy>
     </target>
     <target name="dev_war_tces" depends="compile">
-        <mkdir dir="${public_html}/${tces.war.name}"/>
-        <copy todir="${public_html}/${tces.war.name}">
+        <delete dir="${tc_cluster}/${tces.war.name}"/>
+        <mkdir dir="${tc_cluster}/${tces.war.name}"/>
+        <copy todir="${tc_cluster}/${tces.war.name}">
             <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
-                <include name="*.jsp"/>
+                <include name="**/*.jsp"/>
             </fileset>
         </copy>
-        <copy todir="${public_html}/${tces.war.name}/WEB-INF">
+        <copy todir="${tc_cluster}/${tces.war.name}/WEB-INF">
             <fileset dir="${resources}/${tces.war.name}">
                 <include name="*.tld"/>
                 <include name="*.xml"/>
             </fileset>
         </copy>
-        <copy todir="${public_html}/${tces.war.name}/classes">
+        <copy todir="${tc_cluster}/${tces.war.name}/classes">
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/tces/**"/>
-                <include name="com/topcoder/web/common/**"/>
-                <include name="com/topcoder/shared/**"/>
             </fileset>
         </copy>
     </target>
+
 
     <target name="war_corp" depends="compile,corp-ejb-all">
         <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
@@ -613,47 +614,23 @@
             </webinf>
         </war>
     </target>
-	<target name="war_tces" depends="compile">
+    <target name="war_tces" depends="compile">
         <war warfile="${war.dir}/${tces.war.name}.war" webxml="${resources}/tces/web.xml">
+            <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tces/**"/>
-                <include name="com/topcoder/web/common/**"/>
-                <include name="com/topcoder/web/ejb/**"/>            
-                <include name="com/topcoder/shared/**"/>
-                <exclude name="**/*Bean.class"/>
-                <exclude name="**/*Impl.class"/>
             </classes>
-            <webinf dir="${resources}/${tces.war.name}">
+            <webinf dir="${resources}/tces">
                 <include name="tces-taglib.tld"/>
             </webinf>
-            <zipfileset dir="${java}/com/topcoder/web/tces/servlet/jsp" includes="*/**" prefix=""/>
-            <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
         </war>
     </target>
 
     <target name="war-idgen" depends="compile">
        
     </target>
-
-	<target name="deploy-tces" depends="war_tces">
-        <copy todir="${public_html}" file="${war.dir}/${tces.war.name}.war"/>
-        <unwar src="${public_html}/${tces.war.name}.war" dest="${public_html}/${tces.war.name}/" overwrite="yes"/>
-        <delete file="${public_html}/${tces.war.name}.war"/>
-        <delete dir="${public_html}/${tces.war.name}/META-INF"/>
-
-		<!-- libraries to be included in weblogic classpath -->
-        <copy todir="${public_html}/../ext-lib">
-            <fileset dir="${jars.dir}">
-                <include name="idgenerator.jar"/>
-                <include name="security.jar"/>
-                <include name="jbossall-client.jar"/>
-                <include name="log4j-boot.jar"/>
-                <include name="jdom.jar"/>
-            </fileset>
-        </copy> 
-
-    </target>
-
 
     <target name="deploy-corp" depends="war_corp, war-idgen">
         <copy todir="${public_html}" file="${war.dir}/${corp.war.name}.war"/>
