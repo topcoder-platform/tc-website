@@ -140,7 +140,7 @@
       </copy>
       <copy todir="${root.trgt}">
          <fileset dir="${root.src}" >
-                 <include name="**/*.jsp" />
+                 <include name="**/*.*" />
          </fileset>
       </copy>
       <copy todir="${pacts.trgt}">
