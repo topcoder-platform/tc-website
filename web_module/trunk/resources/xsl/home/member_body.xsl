@@ -454,12 +454,10 @@ for more information.<BR/><BR/>
 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
 <tr>
     <td valign="top" width="4"><img src="/i/clear.gif" alt="" width="4" height="1" border="0"/></td>
-    <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 128</b></a><br/>
-Monday, January 6, 2003<br/><br/>
-
-
-    </td>
+						<td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
+							<xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><b>Single Round Match 130</b></a><br/>
+							Saturday, January 25, 2003<br/><br/>
+						</td> 
     <td valign="top" width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
   </tr>
   <tr>

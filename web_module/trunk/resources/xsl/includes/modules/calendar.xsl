@@ -51,14 +51,14 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">22</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">23</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">24</TD>
-                        <TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?&amp;RoundId=4447&amp;t=schedule&amp;c=srm" CLASS="smallFoot">25</A></TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4447" CLASS="smallText">25</A></TD>
                       </TR>
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">26</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">27</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">28</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">29</TD>
-                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?&amp;RoundId=4450&amp;t=schedule&amp;c=srm" CLASS="smallText">30</A></TD>
+                        <TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/?&amp;RoundId=4450&amp;t=schedule&amp;c=srm" CLASS="smallFoot">30</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">31</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">&#160;</TD>
                       </TR>				  
