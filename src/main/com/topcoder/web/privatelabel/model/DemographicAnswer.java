@@ -58,7 +58,7 @@ public class DemographicAnswer extends Base implements Comparable {
 
     public int compareTo(Object o) {
         DemographicAnswer other = (DemographicAnswer)o;
-        return new Integer(getSort()).compareTo(new Integer(other.getSort()));
+        return new Integer(other.getSort()).compareTo(new Integer(getSort()));
     }
 
 
