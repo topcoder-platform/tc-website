@@ -172,13 +172,13 @@ public class Submit  extends ContractingBase {
                     ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
                     for(int i = 0; i < rsc.size(); i++) {
                         
-                        if(info.getNote(rsc.getStringItem(i, "note_id")) == null) {
+                        if(info.getNote(rsc.getStringItem(i, "note_type_id")) == null) {
                             //delete
                             usernotebean.removeUserNote(info.getUserID(), rsc.getLongItem(i, "note_id"), DBMS.OLTP_DATASOURCE_NAME);
                         } else {
                             //update
-                            notebean.setText(rsc.getLongItem(i, "note_id"), info.getNote(rsc.getStringItem(i, "note_id")), DBMS.OLTP_DATASOURCE_NAME);
-                            info.removeNote(rsc.getStringItem(i, "note_id"));
+                            notebean.setText(rsc.getLongItem(i, "note_id"), info.getNote(rsc.getStringItem(i, "note_type_id")), DBMS.OLTP_DATASOURCE_NAME);
+                            info.removeNote(rsc.getStringItem(i, "note_type_id"));
                         }
                     }
                 }
