@@ -87,7 +87,7 @@ public class VerizonActivate extends Activate {
 
 
         ret.setEligible(VerizonRegSubmit.isEligible(ret));
-        ret.setRegFull(VerizonReg.getActiveCount(db) > Constants.MAX_VERIZON_REGISTRATIONS);
+        ret.setRegFull(VerizonReg.getActiveCount(db) >= Constants.MAX_VERIZON_REGISTRATIONS);
 
         return ret;
     }
