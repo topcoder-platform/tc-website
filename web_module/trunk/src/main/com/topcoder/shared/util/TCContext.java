@@ -82,6 +82,7 @@ public class TCContext {
      * @throws NamingException
      */
     public static InitialContext getContext(String initialContextFactory, String providerUrl) throws NamingException {
+        log.debug("get context for " + initialContextFactory + " on " +  providerUrl);
         Hashtable env = new Hashtable();
         env.put(Context.INITIAL_CONTEXT_FACTORY, initialContextFactory);
         env.put(Context.PROVIDER_URL, providerUrl);
