@@ -59,6 +59,8 @@
       <mkdir dir="${servlets}/${pactsservlets}" />
       <mkdir dir="${servlets}/${regservlets}" />
      
+   </target>
+   <target name="create_public_html">
       <mkdir dir="${public_html}/WEB-INF/lib" />
    </target>
 
@@ -112,7 +114,7 @@
       </move>
    </target>
 
-   <target name="moveStruts" depends="check_java_version">
+   <target name="moveStruts" depends="check_java_version,create_public_html">
       <copy todir="${public_html}/WEB-INF/lib">
          <fileset dir="${struts.dir}" >
                  <include name="*.jar" />
@@ -126,7 +128,7 @@
    </target>
 
 <!--
-   <target name="moveStruts" depends="check_java_version">
+   <target name="moveStruts" depends="check_java_version,create_public_html">
       <copy todir="${public_html}/WEB-INF/lib">
          <fileset dir="${jars.dir}" >
                  <include name="common*.jar" />
@@ -143,7 +145,7 @@
    </target>
 -->
 
-   <target name="moveStats" depends="check_java_version">
+   <target name="moveStats" depends="check_java_version,create_public_html">
       <copy todir="${public_html}/WEB-INF">
          <fileset dir="resources/stat" >
                  <include name="*.tld" />
@@ -151,7 +153,7 @@
       </copy>
    </target>
 
-   <target name="moveReg" depends="check_java_version">
+   <target name="moveReg" depends="check_java_version,create_public_html">
       <copy todir="${public_html}/WEB-INF">
          <fileset dir="resources/reg" >
                  <include name="**/*.tld" />
