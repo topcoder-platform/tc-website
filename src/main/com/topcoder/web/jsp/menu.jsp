@@ -1,7 +1,8 @@
 <%@  page
  language="java"
  errorPage="/errorPage.jsp"
-  import="com.topcoder.common.web.data.Navigation"
+  import="com.topcoder.common.web.data.Navigation,
+          com.topcoder.shared.util.ApplicationServer"
 %>
 <%
    Navigation nav = (Navigation) session.getAttribute ( "navigation" );
@@ -27,9 +28,9 @@
 
         <td class="topNav" nowrap><A href="http://software.topcoder.com" class="topLink">Software</A></td>
 
-        <td class="topNav" nowrap><A href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</A></td>
+        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</A></td>
 
-        <td class="topNav" nowrap><A href="http://corporate.topcoder.com/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Sponsorship</A></td>
+        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Sponsorship</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>

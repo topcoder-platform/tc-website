@@ -4,7 +4,8 @@
   import="com.topcoder.common.web.data.Navigation,com.coolservlets.forum.*,
           java.text.SimpleDateFormat,
           java.util.HashMap,
-          java.util.Iterator"
+          java.util.Iterator,
+          com.topcoder.shared.util.ApplicationServer"
 %>
 
             <img alt="" width="180" height="5" src="/i/spacer.gif" border="0" /><br/>
@@ -17,7 +18,7 @@
 
                 <tr><td id="leftNavOn"><a class="leftOn" href="?&amp;t=tces&amp;c=index"><img width="10" height="10" src="/i/nav_arrow_bottom.gif" alt="" border="0"/>Employment Services</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/?&amp;t=tces&amp;c=hiring">Hiring for Employers</a></td></tr>
-                <tr><td id="leftSubnav"><a class="leftOn" href="http://corporate.topcoder.com/tces/?task=MainTask">TCES Reporting</a></td></tr>
+                <tr><td id="leftSubnav"><a class="leftOn" href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/tces/?task=MainTask">TCES Reporting</a></td></tr>
 
                 <tr><td id="leftNavTitle" >Competition:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
