@@ -41,8 +41,8 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->	
-        <td class="promoText" width="99%">
-            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+        <td align="center" class="promoText" width="99%">
+            <table border="0" cellspacing="10" cellpadding="0" width="510">
                 
                             
                 <tr valign="top">
@@ -54,14 +54,15 @@
                             	<tr valign="top">
                                 		<td valign="top" ><img src="/i/sponsor/intel_ids/IDS_TC-Rules_header.gif" width="510" height="115" /></td>
                             	</tr>
-                            	
+                            	<tr></tr>
                             	<tr>
                             		<td class="bodyText">
+                            		
                             			<p><strong>NO PURCHASE NECESSARY</strong></p>
                             			
                             			<p><strong>PARTICIPATION</strong> <br/>Promotion begins September 26, 2003 at 8 a.m. PST, and is open to legal residents of the 50 United States 
                             			and the District of Columbia, as well as to residents of countries that can accept sweepstakes awards, who are 18 years of age or older. 
-                            			Employees of Intel Corp. http://www.intel.com/ http://www.intel.com/ http://www.intel.com/, their affiliated companies, 
+                            			Employees of Intel Corp.,their affiliated companies, 
                             			advertising and promotion agencies and the immediate family members of each are not eligible. Subject to all federal, state and local 
                             			laws and regulations apply. Void where prohibited. </p>
                             			
@@ -86,7 +87,7 @@
                             			an alternate winner may be selected. The winner will be notified by e-mail, phone, or mail. A list of winners can be obtained by sending a 
                             			self addressed stamped envelope to Intel&#174; IDS E-mail Promotion,5200 NE Elam Young Parkway, MS HF2-26, Hillsboro, OR 97124. </p>
                             			
-                            			<p><strong>PRIZES AND ODDS</strong><br/>Two (2) Intel&#174; Centrino&#73; mobile technology-based notebooks. Odds of winning depend upon 
+                            			<p><strong>PRIZES AND ODDS</strong><br/>Two (2) Intel&#174; Centrino&#74; mobile technology-based notebooks. Odds of winning depend upon 
                             			number of eligible entries received. No substitution or transfer of prizes, except if prize becomes unavailable for any reason, sponsor 
                             			may award substitute of equal or greater value. If winner is a minor, prize will be awarded to parent or guardian, who must sign all 
                             			required documents. The winner accepts responsibility for all federal, state, and local taxes and fees in connection with the prize.</p>
