@@ -123,8 +123,8 @@ public class QueryBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, queryId);
-            ps.setString(2, name);
+            ps.setString(1, name);
+            ps.setLong(2, queryId);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for query: " +
                     queryId + " name: " + name);
@@ -159,8 +159,8 @@ public class QueryBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, queryId);
-            ps.setInt(2, ranking);
+            ps.setInt(1, ranking);
+            ps.setLong(2, queryId);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for query: " +
                     queryId + " ranking: " + ranking);
@@ -196,8 +196,8 @@ public class QueryBean extends BaseEJB {
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, queryId);
-            ps.setInt(2, columnIndex);
+            ps.setInt(1, columnIndex);
+            ps.setLong(2, queryId);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for query: " +
                     queryId + " column_index: " + columnIndex);
