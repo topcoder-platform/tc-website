@@ -6,39 +6,39 @@
 
 
 
-  <xsl:import href="../top.xsl"/>
+  <xsl:import href="../../top.xsl"/>
 
 
 
-  <xsl:import href="../script.xsl"/>
+  <xsl:import href="../../script.xsl"/>
 
 
 
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../../includes/body_top.xsl"/>  
 
 
 
-  <xsl:import href="../foot.xsl"/>
+  <xsl:import href="../../foot.xsl"/>
 
 
 
-  <xsl:import href="../includes/modules/practice_room.xsl"/>
+  <xsl:import href="../../includes/modules/practice_room.xsl"/>
 
 
 
-  <xsl:import href="../includes/modules/module_login.xsl"/>  
+  <xsl:import href="../../includes/modules/module_login.xsl"/>  
 
 
 
-  <xsl:import href="../includes/modules/calendar.xsl"/>
+  <xsl:import href="../../includes/modules/calendar.xsl"/>
 
 
 
-  <xsl:import href="../includes/jobs/public_jobs_left.xsl"/> 
+  <xsl:import href="../../includes/tces/public_tces_left.xsl"/> 
 
 
 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../../includes/public_right_col.xsl"/>     
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-        <xsl:call-template name="public_jobs_left"/>
+        <xsl:call-template name="public_tces_left"/>
 
 
 
@@ -336,10 +336,9 @@
 
 &#160;&#160;<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge">Jobs</A>&#160;|&#160;
 
-<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge_faq">GE IMLP FAQ</A>&#160;|&#160;
+<A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=ge_faq&amp;a=secure">GE IMLP FAQ</A>&#160;|&#160;
 
-<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge_criteria">IMLP Criteria</A>&#160;|&#160;
-
+<A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=ge_criteria&amp;a=secure">IMLP Criteria</A>&#160;|&#160;
 </TD>
 
 </TR>
