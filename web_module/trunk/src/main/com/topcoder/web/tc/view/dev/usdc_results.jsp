@@ -48,16 +48,7 @@
    <jsp:param name="selectedTab" value="results"/>
 </jsp:include>
 
-<h2>Contest Results</h2>
-
-<%--
-                        <p align=right>
-                        <a href="#week">Weekly</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="#month">Monthly</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a href="#quarter">Quarterly</a>
-                        </p>
---%>
-
+                        <br/>
                         <a name="week"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
