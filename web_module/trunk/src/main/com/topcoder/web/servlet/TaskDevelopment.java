@@ -29,6 +29,7 @@ import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentManager;
+import com.topcoder.dde.catalog.ComponentSummary
 import com.topcoder.dde.catalog.ComponentVersionInfo;
 import com.topcoder.dde.catalog.Document;
 import com.topcoder.dde.user.RegistrationInfo;
@@ -200,14 +201,43 @@ public final class TaskDevelopment {
             else if (command.equals("comp_projects2")) {
 
                RecordTag designProjectsTag = new RecordTag("design_projects");
-               for(int i =0; i <2;i++){
-                    RecordTag designProject = new RecordTag("designproject");
-                    ValueTag projectTag = new ValueTag("payment", "343");
-                    ValueTag nameTag = new ValueTag("componentName", "Component Name" + i);
+               Collection colComponents = catalog.getComponentsByStatus(ComponentInfo.APPROVED);
+               ComponentSummary summaries[] = (ComponentSummary[])colComponents.toArray(new ComponentSummary[0]);
+               
+               for(int k = 0; k < summaries.length; k++){
+                    lngComponent = summaries[k].getComponentId();
+                    componentManager = getComponentManager(lngComponent);
 
-                    designProject.addTag(projectTag);
-                    designProject.addTag(nameTag);
-                    designProjectsTag.addTag(designProject);
+                    Collection colVersions = componentManager.getAllVersionInfo();
+                    ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
+
+                    long versionId = 0L;
+                    long phaseId = 0L;
+                    for(int i=0;i<versions.length;i++)
+                    {
+                        if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) || 
+                                (versions[i].getPhase() == ComponentVersionInfo.DEVELOPMENT)))
+                        {
+                            versionId = versions[i].getVersion();
+                            phaseId = versions[i].getPhase();
+                        }
+                    }
+                    componentManager = getComponentManager(componentId, versionId);
+                    
+                    if(phaseId == ComponentVersionInfo.SPECIFICATION)
+                    {
+                        ComponentInfo comp = componentManager.getComponentInfo();
+                        RecordTag designProject = new RecordTag("designproject");         
+                        ValueTag projectTag = new ValueTag("payment", "343");
+                        ValueTag nameTag = new ValueTag("componentName", comp.getName());
+                        ValueTag componentId = new ValueTag("componentId", comp.getId());
+    
+                        designProject.addTag(projectTag);
+                        designProject.addTag(nameTag);
+                        designProjectsTag.addTag(designProject);
+                    }
+                    else if (phase == ComponentVersionInfo.DEVELOPMENT){
+                    }
                }  
                devTag.addTag(designProjectsTag); 
                xsldocURLString = XSL_DIR + command + ".xsl";
