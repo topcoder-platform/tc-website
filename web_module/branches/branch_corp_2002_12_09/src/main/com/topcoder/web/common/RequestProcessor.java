@@ -1,6 +1,7 @@
 package com.topcoder.web.common;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Depending on user's request type Controller will instantiate corresponding
@@ -26,7 +27,7 @@ public interface RequestProcessor {
 	 * 
 	 * @param req request issued by user  
 	 */
-	public void setRequest(HttpServletRequest req);
+	public void prepare(HttpServletRequest req, HttpServletResponse resp);
 	
 	/**
 	 * Based on the request (received via setRequest(..)) performs some actions
@@ -48,7 +49,7 @@ public interface RequestProcessor {
 	public void process() throws Exception; 
 	
 	/**
-	 * Returns new destination page (it differs form requested by user) if
+	 * Returns new destination page (it differs from requested by user) if
 	 * somethihg is wrong with user request. Implementor must prepare that page
 	 * vhen processing request in process() method.
 	 * 

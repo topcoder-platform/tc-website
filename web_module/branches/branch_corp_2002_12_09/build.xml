@@ -3,6 +3,7 @@
    <property name="version"       value="0.0.1" />
    <property name="build"         value="build" />
    <property name="war.dir"       value="${build}/wars" />
+   <property name="corp.war.name"      value="portal"/>
    <property name="email.war.name"      value="email"/>
    <property name="query.war.name"      value="query"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
@@ -103,8 +104,7 @@
    <target name="full_deploy" depends="build_ejbs,deploy">
    </target>
 
-   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES">
-   </target>
+   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES,deploy-corp" />
 
    <target name="servlets" depends="compile,move_file_upload_xml">
       <move todir="${servlets}/${statservlets}">
@@ -580,13 +580,39 @@
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
+        <antcall target="war_corp"/>
     </target>
 
     <target name="dev_wars" depends="compile">
         <antcall target="dev_war_query"/>
         <antcall target="dev_war_email"/>
+        <antcall target="dev_war_corp"/>
     </target>
          
+    <target name="dev_war_corp" depends="compile">
+<!--      <delete dir="${public_html}/${corp.war.name}"/>
+-->
+      <mkdir dir="${public_html}/${corp.war.name}"/>
+      <copy todir="${public_html}/${corp.war.name}">
+        <fileset dir="${java}/com/topcoder/web/corp/jsp">
+          <include name="**/*.jsp"/>
+        </fileset>
+      </copy>
+      <copy todir="${public_html}/${corp.war.name}/WEB-INF">
+        <fileset dir="${resources}/${corp.war.name}">
+          <include name="*.tld"/>
+          <include name="*.xml"/>
+        </fileset>
+      </copy>
+      <copy todir="${public_html}/${corp.war.name}/classes">
+        <fileset dir="${classes}">
+          <include name="com/topcoder/web/corp/**"/>
+          <include name="com/topcoder/web/common/**"/>
+          <include name="com/topcoder/shared/**"/>
+        </fileset>
+      </copy>
+    </target>
+
     <target name="dev_war_query" depends="compile">
       <delete dir="${tc_cluster}/${query.war.name}"/>
       <mkdir dir="${tc_cluster}/${query.war.name}"/>
@@ -630,6 +656,35 @@
     </target>
 
     
+    <target name="war_corp" depends="compile">
+        <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
+            <fileset dir="${java}/com/topcoder/web/portal/jsp">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/web/corp/**"/>
+                <include name="com/topcoder/web/common/**"/>
+                <include name="com/topcoder/shared/**"/>
+            </classes>
+            <classes dir="${resources}">
+                <include name="log4j.properties"/>
+            </classes>
+
+            <lib dir="${jars.dir}">
+                <include name="log4j.jar"/>
+            </lib>
+<!--
+            <webinf dir="${resources}/corp">
+                <include name="corp-taglib.tld"/>
+            </webinf>
+            <zipfileset dir="${java}/com/topcoder/web/corp/jsp">
+                <include name="**/*.jpg"/>
+            </zipfileset>
+-->
+
+        </war>
+    </target>
+
     <target name="war_email" depends="compile">
         <war warfile="${war.dir}/${email.war.name}.war" webxml="${resources}/email/web.xml">
             <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
@@ -658,6 +713,16 @@
                 <include name="query-taglib.tld"/>
             </webinf>
         </war>
+    </target>
+
+    <target name="deploy-corp" depends="war_corp">
+      <copy todir="${public_html}">
+        <fileset dir="${war.dir}">
+          <include name="${corp.war.name}.war"/>
+        </fileset>
+      </copy>
+
+      <unwar src="${public_html}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
     </target>
 
 </project>
