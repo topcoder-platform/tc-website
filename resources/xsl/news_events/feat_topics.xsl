@@ -71,39 +71,43 @@ publication date.
 </P>
 
 <P>
-<B>The Never-Ending Project</B><BR/>
-<A HREF="mailto:editorial@topcoder.com?subject=The Never-Ending Project" CLASS="bodyGeneric">write this feature</A>
+<B>Tech Tips</B><BR/>
+A design pattern? An implementation strategy? A project management
+technique? Features in this category will be designed to share a
+potentially useful development technique with other TopCoder members.<BR/>
+<A HREF="mailto:editorial@topcoder.com?subject=Tech Tips" CLASS="bodyGeneric">write this feature</A>
 </P>
 
 <P>
-<B>How the Project was Saved</B><BR/>
-<A HREF="mailto:editorial@topcoder.com?subject=How the Project was Saved" CLASS="bodyGeneric">write this feature</A>
+<B>Around the Corner</B><BR/>
+A write-up on some development related technology that has the potential
+to impact the future of software.<BR/>
+<A HREF="mailto:editorial@topcoder.com?subject=Around the Corner" CLASS="bodyGeneric">write this feature</A>
 </P>
 
 <P>
-<B>Next Time, I'd Hesitate to Start a Project</B> (with/without what piece of technology)<BR/>
-<A HREF="mailto:editorial@topcoder.com?subject=Next Time, I'd Hesitate to Start a Project (with/without what piece of technology)" CLASS="bodyGeneric">write this feature</A>
+<B>From the Field</B><BR/>
+A description of a specific project success or failure story.  What were
+the technologies used and how did they contribute to the project
+outcome?<BR/>
+<A HREF="mailto:editorial@topcoder.com?subject=From the Field" CLASS="bodyGeneric">write this feature</A>
 </P>
 
 <P>
-<B>Waste Patrol...The Blown Budget</B><BR/>
-<A HREF="mailto:editorial@topcoder.com?subject=Waste Patrol...The Blown Budget" CLASS="bodyGeneric">write this feature</A>
+<B>TopCoder Talk</B><BR/>
+A discussion of a topic that is related directly to TopCoder
+competitions.  Some past topics have included TopCoder strategy, and the
+TopCoder problem creation process.<BR/>
+<A HREF="mailto:editorial@topcoder.com?subject=TopCoder Talk" CLASS="bodyGeneric">write this feature</A>
 </P>
 
 <P>
-<B>Cool Tech Tip</B><BR/>
-<A HREF="mailto:editorial@topcoder.com?subject=Cool Tech Tip" CLASS="bodyGeneric">write this feature</A>
+<B>Have an Idea?</B><BR/>
+<A HREF="mailto:editorial@topcoder.com?subject=New topic?" CLASS="bodyGeneric">Click here</A> to submit your own feature idea.
 </P>
 
 <P>
-<B>I Increased My Proficiency with (name technology) by doing...</B><BR/>
-<A HREF="mailto:editorial@topcoder.com?subject=I Increased My Proficiency with (name technology) by doing..." CLASS="bodyGeneric">write this feature</A>
-</P>
-
-<P><A HREF="mailto:editorial@topcoder.com?subject=New topic?" CLASS="bodyGeneric">Click here</A> to submit your own feature idea.</P>
-
-<P>
-<BR/>
+<HR/>
 </P>
 
 <P>
@@ -135,7 +139,7 @@ within your country of residence.
 
 <P>
 Feature articles should range between 500-700 words. The article must depict the writer's own experiences without slander or 
-deformation of character. All events must be true and without fictitious exaggeration.
+defamation of character.
 </P>
 
 <P>
