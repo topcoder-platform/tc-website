@@ -405,6 +405,7 @@
 
       <xsl:choose>
       <xsl:when test="/TC/InvitationalInfo/IsRegistered/is_registered='0'"> 
+        <xsl:choose>
         <xsl:when test="/TC/InvitationalInfo/IsEligible/is_eligible='0'"> 
           Not Eligible. 
         </xsl:when>
