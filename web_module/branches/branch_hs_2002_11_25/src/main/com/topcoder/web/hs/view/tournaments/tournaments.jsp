@@ -23,7 +23,7 @@
         <TD>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
              <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/hs/headinginside_tourny.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="100%">&nbsp;
+             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
              </TD></TR>
             </TABLE>
         </TD>
