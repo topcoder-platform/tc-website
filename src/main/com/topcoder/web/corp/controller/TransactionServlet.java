@@ -121,6 +121,7 @@ public class TransactionServlet extends HttpServlet {
         defaultPageFailure = cfg.getInitParameter("page-failure");
         defaultPageIntForm = cfg.getInitParameter("intermediate-form");
         defaultPageTerms = cfg.getInitParameter("terms");
+        defaultPageBadCountry = cfg.getInitParameter("ineligible-country");
         errorPageSecurity = cfg.getInitParameter("page-error-security");
         loginApplicationPage = cfg.getInitParameter("page-login");
     }
@@ -161,14 +162,16 @@ public class TransactionServlet extends HttpServlet {
                     log.debug("user [id=" + tcUser.getUserId() + "] has not enough " +
                             "permissions to work with module " + this.getClass().getName()
                     );
-                    throw new NotAuthorizedException(
-                            "Not enough permissions to work with requested module"
-                    );
+                    throw new NotAuthorizedException("Not enough permissions to work with requested module");
                 }
 
                 TransactionInfo txInfo = buildTermsTransactionInfo(req, resp);
-                req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
-                req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+                if (userCountryEligible(txInfo.getBuyerID(), txInfo.getProductID())) {
+                    req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
+                    req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+                } else {
+                    req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+                }
             } catch (NotAuthorizedException nae) {
                 if (auth.getUser().isAnonymous()) {
                     /* If the user is anonymous and tries to access a resource they
@@ -522,6 +525,10 @@ public class TransactionServlet extends HttpServlet {
             key = req.getSession(true).toString();
         }
         return key;
+    }
+
+    private boolean userCountryEligible(long userId, long productId) throws Exception {
+        return true;
     }
 
 
