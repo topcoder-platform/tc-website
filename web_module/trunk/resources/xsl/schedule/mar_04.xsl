@@ -93,18 +93,20 @@
                                     <strong>Match 185</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=sponsor&c=intel_ids">Intel</A><br />
+                                    Sponsor: <A href="/?t=sponsor&amp;c=intel_ids">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4745&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">2</td>
-                                <td id="calendarTourney">
-                                    <span id="calendarSRMDate">3</span><br/>
+                                <td id="calendarTCCC04">
+                                    <span id="calendarTCCC04Date">3</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 2<br/>
                                     Compete: 9:00&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    </td>
                                 <td id="calendar">4</td>
                                 <td id="calendar">5</td>
                                 <td id="calendar">6</td>
@@ -114,14 +116,16 @@
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
-                                <td id="calendarTourney">
-                                    <span id="calendarSRMDate">10</span><br/>
+                                <td id="calendarTCCC04">
+                                    <span id="calendarTCCC04Date">10</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 3<br/>
                                     Compete: 9:00&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    </td>
                                 <td id="calendar">11</td>
                                 <td id="calendar">12</td>
                                 <td id="calendarSRM">
@@ -145,14 +149,16 @@
                                     Sponsor: Gentleware<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4755&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendarTourney">
-                                    <span id="calendarSRMDate">17</span><br/>
+                                <td id="calendarTCCC04">
+                                    <span id="calendarTCCC04Date">17</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 4<br/>
                                     Compete: 9:00&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    </td>
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
