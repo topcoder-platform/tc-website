@@ -241,7 +241,7 @@ TopCoder needs to install and run the SecureWay LDAP server by IBM.  The selecte
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=LDAP%20Installation">here</a> to be selected as a configuration specialist and to obtain the information necessary to submit a solution.
+                                                        Closed
                                                     </p>
                                                 </td>
                                             </tr>

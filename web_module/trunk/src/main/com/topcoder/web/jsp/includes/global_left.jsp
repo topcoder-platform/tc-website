@@ -95,7 +95,8 @@
                 <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=getting_started" class="<%=level2.equals("support")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" alt="" border="0"/>Support / FAQs</a></td></tr>
                 <% if (level2.equals("support")) { %>
                     <tr><td id="<%=level3.equals("gettingStarted")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=getting_started">Getting Started</A></td></tr>
-                	<tr><td id="<%=level3.equals("faq")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=devFaq">Development FAQ</A></td></tr>
+                	<tr><td id="<%=level3.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=ratings">Rating System</A></td></tr>
+                	<tr><td id="<%=level3.equals("reliability")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=reliability">Reliability Rating</A></td></tr>
                 	<tr><td id="<%=level3.equals("getPaid")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=development&c=dev_payment">How to Get Paid</A></td></tr>
                 <% } %>
             </table>
