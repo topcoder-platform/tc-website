@@ -90,7 +90,7 @@ public class AnswerInput extends BaseTag {
         setName(PREFIX + question.getId());
         StringBuffer s = new StringBuffer(200);
         if (question.getStyleId()==Question.LONG_ANSWER) {
-            s.append("<textarea");
+            s.append("<textarea ");
             s.append("cols=\"").append(60).append("\" ");
             s.append("rows=\"").append(8).append("\" ");
             s.append("wrap=\"").append("virtual").append("\" ");
