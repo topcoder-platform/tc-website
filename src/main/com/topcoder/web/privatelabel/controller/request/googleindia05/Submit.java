@@ -100,6 +100,7 @@ public class Submit extends FullRegSubmit {
 
             buf.append("Your Google activation code is ");
             buf.append(code);
+            buf.append("\n\n");
 
             buf.append("To activate your account, navigate to the following WWW URL:\n");
 
