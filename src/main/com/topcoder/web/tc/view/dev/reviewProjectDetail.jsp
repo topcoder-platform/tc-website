@@ -2,11 +2,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.model.ReviewBoardApplication"%>
+                 com.topcoder.web.tc.model.ReviewBoardApplication,
+                 java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer projectDetail= (ResultSetContainer)request.getAttribute("projectDetail");%>
-<% ResultSetContainer reviewerList= (ResultSetContainer)request.getAttribute("reviewerList");%>
+<% List reviewerList= (List)request.getAttribute("reviewerList");%>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
@@ -106,6 +107,7 @@
                             <tc:beanWrite name="reviewer" property="reviewerType"/>
                         </td>
                         <td class="bodyText">
+
                             <% if (((ReviewBoardApplication)reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
                             <% } else { %>
