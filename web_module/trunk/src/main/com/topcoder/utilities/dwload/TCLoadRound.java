@@ -175,6 +175,8 @@ public class TCLoadRound extends TCLoad {
 
             loadProblem();
 
+            loadProblemCategory();
+
             loadProblemSubmission();
 
             loadSystemTestCase();
@@ -2206,6 +2208,86 @@ public class TCLoadRound extends TCLoad {
         }
     }
 
+
+    /**
+     * This populates the 'challenge' table
+     */
+    private void loadProblemCategory() throws Exception {
+        int retVal = 0;
+        int count = 0;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        PreparedStatement psDel = null;
+        ResultSet rs = null;
+        StringBuffer query = null;
+
+        try {
+            query = new StringBuffer(100);
+            query.append(" select distinct p.problem_id");
+            query.append("      , cc.component_category_id");
+            query.append(" from problem p");
+            query.append(" , component c");
+            query.append(" , component_category_xref cc");
+            query.append(" , round_component rc");
+            query.append(" where cc.component_id = c.component_id");
+            query.append(" and c.problem_id = p.problem_id");
+            query.append(" and c.component_id = rc.component_id");
+            query.append(" and rc.round_id = ?");
+
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+
+            query = new StringBuffer(100);
+            query.append("INSERT INTO problem_category_xref");
+            query.append("      (problem_id ");        // 1
+            query.append("       ,problem_category_id) ");       // 2
+            query.append("VALUES (");
+            query.append("?,?");  // 2 values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append("DELETE FROM problem_component_xref");
+            query.append(" WHERE round_id = ? ");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
+
+            // On to the load
+            psSel.setInt(1, fRoundId);
+            rs = psSel.executeQuery();
+
+            // First thing we do is delete all the challenge entries for this round
+            psDel.setInt(1, fRoundId);
+            psDel.executeUpdate();
+
+            while (rs.next()) {
+                psIns.clearParameters();
+                psIns.setLong(1, rs.getLong(1));  // problem_id
+                psIns.setLong(2, rs.getLong(2));  // problem_category_id
+
+                retVal = psIns.executeUpdate();
+                count += retVal;
+                if (retVal != 1) {
+                    throw new SQLException("TCLoadRound: Insert for prbolem_id " +
+                            rs.getLong(1) + " problem_category_id " + rs.getLong(2) +
+                            " modified " + retVal + " rows, not one.");
+                }
+
+                printLoadProgress(count, "problem_category_xref");
+            }
+
+            log.info("Problem Category records copied = " + count);
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'problem_category_xref' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psIns);
+            close(psDel);
+        }
+    }
+
+
+
     /**
      * This method places the start time of the load into the update_log table
      */
@@ -2267,4 +2349,5 @@ public class TCLoadRound extends TCLoad {
             throw new SQLException("Unable to determine start for " + roundId);
         }
     }
+
 }
