@@ -99,7 +99,7 @@ public class Controller
                 forwardToError(request,response,e);
             }
 */
-            forward(request,response,taskName + ".jsp");
+            forward(request,response,Registration.PATH + taskName + ".jsp");
          } 
       } catch ( ServletException se ) {
         throw se;

@@ -30,12 +30,12 @@ public class Registration
 
 		public static Hashtable htValidTasks = new Hashtable();
 		static {
-			htValidTasks.put("test");
-			htValidTasks.put("contact");
-			htValidTasks.put("employment");
-			htValidTasks.put("education");
-			htValidTasks.put("skills");
-			htValidTasks.put("job");
+			htValidTasks.put("test", "true");
+			htValidTasks.put("contact", "true");
+			htValidTasks.put("employment", "true");
+			htValidTasks.put("education", "true");
+			htValidTasks.put("skills", "true");
+			htValidTasks.put("job", "true");
 		}
 	   
     // steps 
