@@ -6,6 +6,7 @@ import com.topcoder.web.query.common.AuthenticationException;
 import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 
 import javax.servlet.http.*;
@@ -24,6 +25,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
     private String commandDesc;
     private int groupId;
     private long commandId;
+    private ResultSetContainer groups;
 
     /* Creates a new LoginTask */
     public ModifyCommandTask() {
@@ -147,7 +149,13 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
         this.commandDesc = commandDesc;
     }
 
+    public ResultSetContainer getGroups() {
+        return groups;
+    }
 
+    public void setGroups(ResultSetContainer groups) {
+        this.groups = groups;
+    }
 
 }
 
