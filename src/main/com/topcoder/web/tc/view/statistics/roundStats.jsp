@@ -138,25 +138,26 @@ String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("
 if (bRequireLogin){
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
-%>           
+%>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>  
+                 </TR>
         <TR>
                    <TD COLSPAN="4" CLASS="statText">
                      <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
                      <FORM name="">
-                     <SELECT NAME="Contest" onchange="goTo(this)">
-           <OPTION value="#">Select a Round:</OPTION>
-         <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
-         <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
-           <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
-               <% } else { %>
-           <OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
-        <% } %>   
-        </logic:iterate>
-           </SELECT>
+<%--attempting to reduce download size --%>
+<SELECT NAME="Contest" onchange="goTo(this)">
+<OPTION value="#">Select a Round:</OPTION>
+<logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
+<% if (resultRow.getItem(0).toString().equals(currRound)) { %>
+<OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+<% } else { %>
+<OPTION value="/stat?c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+<% } %>
+</logic:iterate>
+</SELECT>
                    </FORM>
                    </TD>
                  </TR>
@@ -275,56 +276,56 @@ pageContext.setAttribute("resultSetDates", rsc);
            
             
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
-    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
-       <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 14 /*"coder_score"*/ + "]" %>'/>
-        <% if ((!bSorted) && !(pageContext.getAttribute("roomName").toString().equals(resultRow.getItem(5).toString()))){ 
-             pageContext.setAttribute("roomName",resultRow.getItem(5));
-              pageContext.setAttribute("roomId",resultRow.getItem(4));
-              pageContext.setAttribute("roomDivision",resultRow.getItem(15));
-        %> 
-                 <TR>    
-                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
-                 </TR>   
-                 <TR>    
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="18" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
-                 </TR>   
-                 <TR>
-                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>    
-                 </TR> 
-        <% } %>
-                 <TR VALIGN="middle">
-                   <TD CLASS="statText"  HEIGHT="13" WIDTH="10">
-                     <A HREF="/stat?c=coder_room_stats&rd=<%= currRound %>&rm=<bean:write name="resultRow" property='<%= "item[" + 4 /* id */ + "]" %>'/>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"/></A>
-                   </TD>
-                   <TD CLASS="statText"><A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></TD>
-                   <TD CLASS="statText"ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* coding pts */ + "].resultData" %>'/></TD>
-                   <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 8 /* challenge pts */ + "].resultData" %>'/></TD>
-                   <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* testing pts */ + "].resultData" %>'/></TD>
-                   <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 10 /* final pts */ + "].resultData" %>'/></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 11 /* advanced */ + "]" %>'/></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 12 /* old rating */ + "].resultData" %>'/></TD>
-                   <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 13 /* change in */ + "].resultData" %>'/></TD>
-                   <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 14 /* new rating */ + "].resultData" %>'/></TD>
-                   <TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="center" VALIGN="middle">
-                     <% if (resultRow.getIntItem("rating_change")<0) { %>
-                      <IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>
-                     <% } %>
-                     <% if (resultRow.getIntItem("rating_change")>0) { %>
-                      <IMG src="/i/arrow_green_up.gif" width="10" height="10" border="0"/>
-                     <% } %>
-                   </TD>
-                   <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-               <TR>
-                   <TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
-                 </TR>
-         </logic:iterate>
+<%-- attempting to reduce download size --%>
+<logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
+  <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 14 /*"coder_score"*/ + "]" %>'/>
+<% if ((!bSorted) && !(pageContext.getAttribute("roomName").toString().equals(resultRow.getItem(5).toString()))) {
+ pageContext.setAttribute("roomName",resultRow.getItem(5));
+ pageContext.setAttribute("roomId",resultRow.getItem(4));
+ pageContext.setAttribute("roomDivision",resultRow.getItem(15));
+%>
+<TR>
+<TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+</TR>
+<TR>
+<TD BACKGROUND="/i/steel_bluebv_bg.gif" COLSPAN="18" CLASS="statText" VALIGN="middle" HEIGHT="16"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE= "3" ALIGN="left"><A HREF="/stat?c=room_stats&rd=<%= currRound %>&rm=<%= pageContext.getAttribute("roomId") %>" CLASS="statText"><%= pageContext.getAttribute("roomName") %> - <%= pageContext.getAttribute("roomDivision") %></A></TD>
+</TR>
+<TR>
+<TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+</TR>
+<% } %>
+<TR VALIGN="middle">
+<TD CLASS="statText"  HEIGHT="13" WIDTH="10">
+<A HREF="/stat?c=coder_room_stats&rd=<%= currRound %>&rm=<bean:write name="resultRow" property='<%= "item[" + 4 /* id */ + "]" %>'/>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"/></A>
+</TD>
+<TD CLASS="statText"><A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A></TD>
+<TD CLASS="statText"ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* coding pts */ + "].resultData" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+<TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 8 /* challenge pts */ + "].resultData" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+<TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* testing pts */ + "].resultData" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+<TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 10 /* final pts */ + "].resultData" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 11 /* advanced */ + "]" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 12 /* old rating */ + "].resultData" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+<TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 13 /* change in */ + "].resultData" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+<TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 14 /* new rating */ + "].resultData" %>'/></TD>
+<TD CLASS="statText" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+<TD CLASS="statText" ALIGN="center" VALIGN="middle">
+<% if (resultRow.getIntItem("rating_change")<0) { %>
+<IMG src="/i/arrow_red_down.gif" width="10" height="10" border="0"/>
+<% } %>
+<% if (resultRow.getIntItem("rating_change")>0) { %>
+<IMG src="/i/arrow_green_up.gif" width="10" height="10" border="0"/>
+<% } %>
+</TD>
+<TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+</TR>
+<TR>
+<TD COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"></TD>
+</TR></logic:iterate>
                  <TR>
                    <TD CLASS="statText" COLSPAN="18"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
