@@ -114,12 +114,24 @@
       <tr><td><hr/><center><h2>Skills</h2></center></td></tr>
 
 <script language="javascript">
+    function remove( a ){
+        var i;
+        var j = 0;
+        for(i = 0; i<document.search[a].length; i++){
+            if(document.search[a].options[i].selected){
+                j++;
+            }else{
+                document.search[a].options[i-j] = document.search[a].options[i];
+                document.search[a].options[i] = null;
+            }
+        }
+    }
     function itemAdd( a, b, c)
     {
         var i;
+        var j = document.search[b].selectedIndex;
         for(i = 0; i<document.search[a].length; i++){
             if(document.search[a].options[i].selected){
-                var j = document.search[b].selectedIndex;
                 var len = document.search[c].length;
                 var val1 = document.search[a].options[i].val;
                 var text1 = document.search[a].options[i].text;
@@ -172,7 +184,8 @@
         </select>
         <select multiple size=10 name="skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         </select>
-        <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a>
+        <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a><br/>
+        <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a>
         </td></tr>
       </rsc:iterator>
       <tr><td></td></tr>
