@@ -34,13 +34,11 @@
    <table width="100%" border="0">
    <tr><td class="errorText">
      <!-- Error message content pane -->
-     Error have occured when trying to perform requested action. There are a lot of reasons
-     why it would be happen. Most probably it is because there are some technical problems
-     with service. E.g. there may be maintenance works on certain site pages, etc.<br><br>
+     An error has occurred.  If you would like to report this to TopCoder click <A CLASS="bodyText" HREF="mailto:service@topcoder.com">here</A>.
+     <br><br>
    </td></tr>
    <tr><td class="bodyText">
-     We are sorry for any inconveniences caused by this<br>
-     Site Administration<br><br>
+     Sorry for any inconvenience.<br><br>
    </td></tr>
    <tr><td class="bodyText"><a href="Javascript:history.back()">&lt; back</a></td></tr>
    </table>

@@ -61,7 +61,6 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
      <form method="POST" action="<%=request.getContextPath()%>/Tx/?op=begin">
        <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
        <input type="hidden" name="prod-id" value="1"/> <!-- product id -->
-       <input type="hidden" name="utype-id" value="2"/> <!-- unit type id -->
        <table>
          <tr><td width="100%" align ="center"><input type="submit" value=" buy it "/></td></tr>
        </table>

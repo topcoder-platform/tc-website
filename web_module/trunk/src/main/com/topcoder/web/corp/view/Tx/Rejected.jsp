@@ -33,11 +33,10 @@
    <DIV CLASS="header">
 
      <!-- Error message content pane -->
+     An error has occurred when processing your request.  If you would like to
+     report this to TopCoder click <A CLASS="bodyText" HREF="mailto:service@topcoder.com">here</A>.
 
-     You have not enough priveleges to perform this action<br>
-     If you think this page was shown by mistake, please contact us<br>
-     We are sorry for any inconveniences caused by this<br>
-     Site Administration<br><br>
+     <br><br>
    </DIV>
 
    <!-- web-app debug time stack trace  BEGIN -->

@@ -766,7 +766,7 @@ public class ProductBean implements SessionBean {
      * @param productId product ID of entry to set
      * @param unitTypeId the number of units to set to
      */
-    public void setUnitTypeId(long productId, int unitTypeId) {
+    public void setUnitTypeId(long productId, long unitTypeId) {
         log.debug("setUnitTypeId called...productId: " + productId +
                  " unitTypeId: " + unitTypeId);
 

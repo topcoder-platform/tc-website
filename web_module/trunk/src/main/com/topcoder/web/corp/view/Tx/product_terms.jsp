@@ -67,7 +67,6 @@
   <TR ALIGN="right" VALIGN="middle">
        <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
        <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID"/>"/>
-       <input type="hidden" name="utype-id" value="<jsp:getProperty name="TransactionInfo" property="unitTypeID"/>"/>
 
      <TD COLSPAN="3" ALIGN="center" VALIGN="middle" CLASS="statText"><input type="submit" onClick="" name="submit" value=" Submit "></td>
   </TR>

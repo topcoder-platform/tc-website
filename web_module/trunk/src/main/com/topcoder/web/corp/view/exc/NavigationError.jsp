@@ -35,8 +35,10 @@
    <tr><td class="errorText">
 
      <!-- Error message content pane -->
-     Link entered refers to missing resource. If you have entered it by hands, verify that it is
-     correct.<br>
+     The page your requested does not exist.  If you feel you have reached this page in error and
+     would like to report this to TopCoder click <A CLASS="bodyText" HREF="mailto:service@topcoder.com">here</A>.
+
+    <br>
    </td></tr>
    <tr><td class="bodyText">&nbsp;
    </td></tr>
