@@ -300,7 +300,7 @@
 <!-- Features ends -->
 
 <!-- Development-Overview Begins -->
-        <xsl:when test="$level1='development'">
+        <xsl:when test="/TC/Task='development'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="development_row"/>
@@ -311,11 +311,26 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="$level2='index'">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                            <xsl:when test="$level1='dev_index'">leftNavSelect</xsl:when>
+                            <xsl:otherwise>leftNav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Overview</A>
+                        <A class="leftOn">
+                        <xsl:attribute name="class">
+                        <xsl:choose>
+                            <xsl:when test="$level1='dev_index'">leftOn</xsl:when>
+                            <xsl:otherwise>left</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>
+                        <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_right.gif">
+                            <xsl:attribute name="src">
+                                <xsl:choose>
+                                    <xsl:when test="$level1='dev_index'">/i/clear.gif</xsl:when>
+                                    <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:attribute>
+                        </img>Overview</A>
                     </td>
                 </tr>
 
@@ -324,25 +339,40 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="$level2='dev_payment'">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                            <xsl:when test="$level1='dev_payment'">leftNavSelect</xsl:when>
+                            <xsl:otherwise>leftNav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=dev_payment</xsl:attribute>How to Get Paid</A>
+                        <A class="leftOn">
+                        <xsl:attribute name="class">
+                        <xsl:choose>
+                            <xsl:when test="$level1='dev_payment'">leftOn</xsl:when>
+                            <xsl:otherwise>left</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=dev_payment</xsl:attribute>
+                        <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_right.gif">
+                            <xsl:attribute name="src">
+                                <xsl:choose>
+                                    <xsl:when test="$level1='dev_payment'">/i/clear.gif</xsl:when>
+                                    <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:attribute>
+                        </img>How to Get Paid</A>
                     </td>
                 </tr>
 
 <!-- Development Round Tables -->
                 <tr>
-                    <td id="leftSubnav">
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/viewForum.jsp?forum=157655&amp;mc=239</xsl:attribute>TC Developer Round Tables</A>
+                    <td id="leftNav">
+                        <A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/viewForum.jsp?forum=157655&amp;mc=239</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TC Developer Round Tables</A>
                     </td>
                 </tr>
 
 <!-- TCS Developer Forums -->
                 <tr>
-                    <td id="leftSubnav">
-                        <A class="leftOn"><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/forum/c_active_collab.jsp?ft=2</xsl:attribute>TCS Developer Forums</A>
+                    <td id="leftNav">
+                        <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/forum/c_active_collab.jsp?ft=2</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TCS Developer Forums</A>
                     </td>
                 </tr>
 
@@ -922,12 +952,20 @@
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>Features</A></td></tr>
 </xsl:template>
 
-<xsl:template name="dev_row">
-                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</A></td></tr>
-</xsl:template>
-
 <xsl:template name="dev_overview_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Overview</A></td></tr>
+</xsl:template>
+
+<xsl:template name="dev_paid_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>How to Get Paid</A></td></tr>
+</xsl:template>
+
+<xsl:template name="dev_roundtables_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>TC Developer Round Tables</A></td></tr>
+</xsl:template>
+
+<xsl:template name="dev_forums_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>TCS Developer Forums</A></td></tr>
 </xsl:template>
 
 <xsl:template name="components_row">
@@ -988,16 +1026,32 @@
     <xsl:param name="level3"></xsl:param>
     <!-- Components: -->
     <tr>
-      <td id="leftSubnav">
-        <xsl:attribute name="id">
-          <xsl:choose>
-            <xsl:when test="$level2='components'">leftSubnavOn</xsl:when>
-            <xsl:otherwise>leftSubnav</xsl:otherwise>
-          </xsl:choose>
-        </xsl:attribute>
-        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>Components:</A>
-      </td>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+                <xsl:choose>
+                    <xsl:when test="$level2='components'">leftNavOn</xsl:when>
+                    <xsl:otherwise>leftNav</xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn">
+                <xsl:attribute name="class">
+                    <xsl:choose>
+                        <xsl:when test="$level2='components'">leftOn</xsl:when>
+                        <xsl:otherwise>left</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>
+            <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
+                 <xsl:attribute name="src">
+                    <xsl:choose>
+                        <xsl:when test="$level2='components'">/i/nav_arrow_bottom.gif</xsl:when>
+                        <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            </img>Components</A>
+        </td>
     </tr>
+
         <xsl:if test="$level2='components'">
               <!-- Project Winners -->
                             <tr>
@@ -1034,7 +1088,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_archive</xsl:attribute>Project Status</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://172.16.20.222:8082/review</xsl:attribute>Project Submit &amp; Review</A>
                                 </td>
                             </tr>
 
@@ -1100,17 +1154,32 @@
         <xsl:param name="level2"></xsl:param>
         <xsl:param name="level3"></xsl:param>
         <!-- Applications: -->
-        <tr>
-          <td id="leftSubnav">
+    <tr>
+        <td id="leftSubnav">
             <xsl:attribute name="id">
-              <xsl:choose>
-                <xsl:when test="$level2='applications'">leftSubnavOn</xsl:when>
-                <xsl:otherwise>leftSubnav</xsl:otherwise>
+                <xsl:choose>
+                    <xsl:when test="$level2='applications'">leftNavOn</xsl:when>
+                    <xsl:otherwise>leftNav</xsl:otherwise>
               </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Applications:</A>
-          </td>
-        </tr>
+            <A class="leftOn">
+                <xsl:attribute name="class">
+                    <xsl:choose>
+                        <xsl:when test="$level2='applications'">leftOn</xsl:when>
+                        <xsl:otherwise>left</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_projects</xsl:attribute>
+            <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
+                 <xsl:attribute name="src">
+                    <xsl:choose>
+                        <xsl:when test="$level2='applications'">/i/nav_arrow_bottom.gif</xsl:when>
+                        <xsl:otherwise>/i/nav_arrow_right.gif</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+            </img>Applications</A>
+        </td>
+    </tr>
             <xsl:if test="$level2='applications'">
 
     <!-- Open Projects -->
