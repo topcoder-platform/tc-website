@@ -49,8 +49,8 @@
                             </tr>
 
                             <tr>
-                                <td class="devProjectWinner">Group 1</td>
-                                <td class="devProjectWinnerMoney"></td>
+                                <td class="devProjectWinner2">Group 1</td>
+                                <td class="devProjectWinnerMoney2"></td>
                             </tr>
                             <tr>
                                 <td class="devProjectWinner2">Winning Developer:</td>
@@ -58,20 +58,20 @@
                             </tr>
 
                             <tr>
-                                <td class="devProjectSecond2">Second Place:</td>
-                                <td class="devProjectSecondMoney2">$313.00</td>
+                                <td class="devProjectSecond">Second Place:</td>
+                                <td class="devProjectSecondMoney">$313.00</td>
                             </tr>
                             <tr>
-                                <td class="devProjectWinner2">Group 2</td>
-                                <td class="devProjectWinnerMoney2"></td>
+                                <td class="devProjectWinner">Group 2</td>
+                                <td class="devProjectWinnerMoney"></td>
                             </tr>                            
                             <tr>
-                                <td class="devProjectWinner2">Winning Developer:</td>
+                                <td class="devProjectWinner">Winning Developer:</td>
                                 <td class="devProjectWinnerMoney">$333.00</td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectSecond">Second Place:</td>
+                                <td class="devProjectSecond2">Second Place:</td>
                                 <td class="devProjectSecondMoney2">$125.00</td>
                             </tr>                            
                         </table>
