@@ -8,7 +8,7 @@
     Calendar end = Calendar.getInstance();
     end.set(2004, 1, 23, 9, 0);
     Calendar beginning = Calendar.getInstance();
-    end.set(2004, 0, 1, 0, 0);
+    beginning.set(2004, 0, 1, 0, 0);
 
     System.out.println("now: " + now);
     System.out.println("begin: " + beginning);
