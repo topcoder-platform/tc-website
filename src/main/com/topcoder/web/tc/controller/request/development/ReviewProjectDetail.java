@@ -142,7 +142,7 @@ public class ReviewProjectDetail extends Base {
 
     }
 
-    private ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
                                            int levelId, long userId, String handle, boolean primary,
                                            long projectId, int reviewerTypeId) throws Exception {
         ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, phaseId, levelId, projectId, reviewerTypeId);
@@ -152,7 +152,7 @@ public class ReviewProjectDetail extends Base {
         return ret;
     }
 
-    private ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
                                            int levelId, long projectId, int reviewerTypeId) throws Exception {
         //figure out if we have default money values for the reviewers
         Request r = new Request();
