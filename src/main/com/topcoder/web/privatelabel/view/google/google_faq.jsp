@@ -98,7 +98,7 @@ No.  You may only submit one time for a given problem.  Make sure to test before
 The score that you end up with when you have completed the qualification process may or may not be your final score.  When the qualification period has ended, all submissions will be run against a series of system test cases.  If your submission produces the wrong result (or runs more than 8 seconds) for any of the test cases, you will lose your points for that submission.  The points that you receive for a submission is only a factor of the time elapsed between opening the problem statement and submitting the solution.  Whether or not you get to keep those points is determined during the system testing process.<br><br>
 
                         <font color="006633" size="3"><b>How will I know if I have qualified for the first round of the Google Code Jam?</b></font><br><br>
-Shortly following the qualification period, the testing will be done.  As soon as the testing is completed the qualifiers for the first round will be posted <a href="/pl/?=Static=google=google_overview <http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_overview">here</a>.  In addition, an email will be sent to all qualifiers indicating whether or not each has advanced.<br><br>
+Shortly following the qualification period, the testing will be done.  As soon as the testing is completed the qualifiers for the first round will be posted <a href="/pl/?=Static=google=google_overview">here</a>.  In addition, an email will be sent to all qualifiers indicating whether or not each has advanced.<br><br>
 
                         </font>
                         </p>
