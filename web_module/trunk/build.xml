@@ -468,12 +468,10 @@
         <mkdir  dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_jobPosting"/>
-        <antcall target="war_stat"/>
+<!--        <antcall target="war_stat"/> -->
     </target>
     
-    <!-- i'll leave this in for now, but it can't be deployed because WL 5.1
-         doesn't see the jars in WEB-INF/lib 
-    -->
+<!-- 
     <target name="war_stat" depends="compile">
         <war warfile="${war.dir}/${stat.war.name}" webxml="${resources}/stat/web.xml">
             <fileset dir="${java}/com/topcoder/web/stat/servlet/jsp">
@@ -500,6 +498,7 @@
             </lib>
         </war>
     </target>
+-->
     <target name="war_email" depends="compile">
         <war warfile="${war.dir}/${email.war.name}" webxml="${resources}/email/web.xml">
             <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
