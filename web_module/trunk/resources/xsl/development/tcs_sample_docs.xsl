@@ -94,7 +94,7 @@
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">05.28.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Component_Guidelines.pdf" class="bodyText">TopCoder Software Component Guidelines.pdf</a></td>
                             </tr>
@@ -136,14 +136,14 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">05.28.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Java_Designer_Component_Deliverables.pdf" class="bodyText">Java Design Deliverables.pdf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">05.28.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="bodyText">.NET Design Deliverables.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/DOTNET_Designer_Component_Deliverables.pdf" class="bodyText">.NET Design Deliverables.pdf</a></td>
                             </tr>
                         </table>
                     </td>
@@ -160,12 +160,12 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">05.28.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Java_Developer_Component_Deliverables.pdf" class="bodyText">Java Development Deliverables.pdf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">05.28.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/DOTNET_Developer_Component_Deliverables.pdf" class="bodyText">.NET Development Deliverables.pdf</a></td>
                             </tr>
@@ -180,56 +180,55 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                         The purpose of the specification is to provide additional details 
                         about the design, including implementation details which may not be covered in the UML diagrams. This template 
                         should be filled out and submitted with each design submission.<br /><br />
-                        If you do not have Microsoft Word 2000, please submit a Component Specification in rtf or txt format. Please 
-                        use the PDF version as a reference.
                     </td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">04.14.2003</td>
+                                <td class="bodyText">08.28.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Component_Specification.rtf" class="bodyText">Component Specification.rtf</a></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-                                
+
                 <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                                 
                 <tr valign="middle">
                     <td class="bodyText" height="15" valign="top"><strong>Screening and Review Scorecards</strong><br />
                         The screening and review scorecards are used by the Architecture and Development Review Boards to score component 
-                        submissions. All members who submit a design or development solution will receive the populated scorecards from the 
-                        review boards. 
+                        submissions. All members who submit a design or development solution will be able to log in to TopCoder Software Project
+                        Submit &amp; Review and view their corresponding project's screening and review scorecards.  These are sample screen shots 
+                        from the Submit &amp; Review application.
                     </td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">09.02.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Screening_Scorecard.pdf" class="bodyText">Design Screening Scorecard.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Sample_Design_Screening_Scorecard.pdf" class="bodyText">Sample Design Screening Scorecard.pdf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">04.10.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Review_Scorecard.pdf" class="bodyText">Design Review Scorecard.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Sample_Design_Review_Scorecard.pdf" class="bodyText">Sample Design Review Scorecard.pdf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">09.02.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Screening_Scorecard.pdf" class="bodyText">Development Screening Scorecard.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Sample_Development_Screening_Scorecard.pdf" class="bodyText">Sample Development Screening Scorecard.pdf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">05.28.2003</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Review_Scorecard.pdf" class="bodyText">Development Review Scorecard.pdf</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Sample_Development_Review_Scorecard.pdf" class="bodyText">Sample Development Review Scorecard.pdf</a></td>
                             </tr>
                         </table>
                     </td>
                 </tr>
-                                
+ 
                 <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                                 
                 <tr valign="middle">
@@ -294,10 +293,9 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
             <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                 <tr valign="top">
                     <td class="bodyText" width="100%">
-                        <p><strong>Completed Component</strong><br/>
-                        This is the completed <a href="/i/development/downloads/logging_wrapper-1_0.jar" class="bodyText">Logging Wrapper</a> 
-                        component that has gone through the Component Development Methodology. You are encouraged to download and install this component 
-                        for personal, non-commercial use and to incorporate it into future TopCoder Software components.</p>
+                        <p><strong>Sample Completed Components</strong><br/>
+                        Visit our <a href="/components/free_components.jsp">Free Components</a> page for samples of completed components. You are encouraged to download and install these components 
+                        for personal, non-commercial use and to incorporate them into future TopCoder Software components.</p>
                     </td>
                 </tr>
             </table>
