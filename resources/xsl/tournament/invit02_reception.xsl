@@ -76,11 +76,12 @@
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P><IMG SRC="/i/tournament/invit02/tourney_photo_recpt_1.jpg" ALT="" WIDTH="200" HEIGHT="435" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
-<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>The Reception: A View from the Inside</B></FONT><BR/>
+<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>The Reception: A view from Inside</B></FONT><BR/>
 <I>16 coders arrive for the Invitational</I><BR/><BR/>
 Thursday, November 21, 2002<BR/>
 </P>
 <!-- body content goes here -->
+<P><B>A View from the Inside</B></P>
 
 <P>In a scene reminiscent of Survivor, 16 finalists have gathered onsite to outwit, out-type and out-code each other and, in the process, walk away with $50,000.  With the Melbourne University vs. University of Waterloo rivalry alive on the international scene, and the question of whether Stanford University will continue its dominance on the minds of the Americans, the 2002 TopCoder Invitational is slated to be the most exciting onsite event yet.  Join me as the scene unfolds over the next two days...</P>
 
@@ -194,5 +195,3 @@ Thursday, November 21, 2002<BR/>
     </HTML>
   </xsl:template>
 </xsl:stylesheet>
-
-
