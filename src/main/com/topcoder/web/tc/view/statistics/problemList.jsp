@@ -8,6 +8,18 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("problem_list"); %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
+<script language="JavaScript"><!--
+  function next() {
+    document.problemListForm.<%=DataAccessConstants.START_RANK%>.value=<%=rsc.getStartRow()+50%>;
+    document.problemListForm.<%=DataAccessConstants.END_RANK%>.value=<%=rsc.getEndRow()+50%>;
+    document.problemListForm.submit();
+  }
+  function previous() {
+    document.problemListForm.<%=DataAccessConstants.START_RANK%>.value=<%=rsc.getStartRow()-50%>;
+    document.problemListForm.<%=DataAccessConstants.END_RANK%>.value=<%=rsc.getEndRow()-50%>;
+    document.problemListForm.submit();
+  }
+//--></script>
 
 <HTML>
  <HEAD>
@@ -43,9 +55,12 @@
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
 
+
+              <form name="problemListForm" method="get">
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
-                   <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="7" BORDER="0"></TD>
+                   <TD COLSPAN="9"><%=(results.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"bodyText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                    | <%=(results.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"bodyText\">next &gt;&gt;</a>":"next &gt;&gt;")%></TD>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -92,6 +107,7 @@
                    <TD COLSPAN="9" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
                </TABLE>
+              </form>
              </TD>
            </TR>
            <TR>
