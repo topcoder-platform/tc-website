@@ -73,9 +73,9 @@
     
 	<% } %>
 	<% if (tabLev2.equals("advancers")) {%>
-                <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&d1=tournaments&d2=tco04&d3=alg_qualification" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_on.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true&d1=tournaments&d2=tco04&d3=alg_adv_overview" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_on.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
-                <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&d1=tournaments&d2=tco04&d3=alg_qualification" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_off.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
+                <td class="statTextBig" width="88"><A href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true&d1=tournaments&d2=tco04&d3=alg_adv_overview" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_off.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
 	<% } %>
 	<%--
 	<% if (tabLev2.equals("summary")) {%>
@@ -146,8 +146,8 @@
 		<td class="<%=tabLev3.equals("rules")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_rules" class="subNavLink">Rules</a></td>
 	<% } else if (tabLev2.equals("advancers")) {%>
 		<td class="<%=tabLev3.equals("qualification")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&d1=tournaments&d2=tco04&d3=alg_qualification" class="subNavLink">Qualification</a></td>
+		<td class="<%=tabLev3.equals("overview")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=tco04_alg_adv_overview&trans=true&d1=tournaments&d2=tco04&d3=alg_adv_overview" class="subNavLink">Overview</a></td>
 		<%--
-		<td class="<%=tabLev3.equals("overview")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=alg_adv_overview&trans=true" class="subNavLink">Overview</a></td>
 		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_bracket" class="subNavLink">Bracket</a></td>
 		--%>
 		<td class="<%=tabLev3.equals("radeye")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=radeye_rd1" target="_blank" class="subNavLink">radeye's Odds</a></td>
