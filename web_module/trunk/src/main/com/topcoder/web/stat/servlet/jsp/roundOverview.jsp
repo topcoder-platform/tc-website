@@ -37,6 +37,7 @@
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
     ResultSetContainer.ResultSetRow currentRow = null;
     int topN = Integer.parseInt(srb.getProperty("er","5"));
+    boolean lastMatch = srb.getProperty("rd")==null;
     if(topN<0||topN>100)topN = 5;
     currentRow = leaders.getRow(0);
     String contestName = currentRow.getItem("contest_name").toString();
@@ -95,14 +96,14 @@
 </TABLE> -->
  	<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/><BR/>
 
-   <A CLASS="bodyGeneric" href="/stat?&amp;c=last_match&amp;rd=<%= roundID %>"><B><%= contestName %></B></A><BR/>
+   <A CLASS="bodyGeneric" href="/stat?&amp;c=<%= lastMatch?"last_match":"round_stats&amp;rd="+roundID %>"><B><%= contestName %></B></A><BR/>
 DATE<BR/>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
   <%for(int i = 0; i<divisionNames.size();i++){%>
     <TD VALIGN="middle" COLSPAN="2" BGCOLOR="#CCCCCC" WIDTH="40%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0"><A HREF="/stat?c=last_match&amp;rd=<%= roundID %>&amp;dn=<%= divisionIDs.get(i).toString() %>" CLASS="bodyGeneric">Results</A></TD>
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0"><A HREF="/stat?c=<%= lastMatch?"last_match":"round_stats&amp;rd="+roundID %>&amp;dn=<%= divisionIDs.get(i).toString() %>" CLASS="bodyGeneric">Results</A></TD>
   <%}%>
   </TR>
 
