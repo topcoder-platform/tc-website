@@ -31,10 +31,9 @@ public class DemographicAnswerText  extends TagSupport {
 
             if (question.getAnswerType()==DemographicQuestion.FREE_FORM) {
                 ret = response.getText();
-            } else if (question.getAnswerType()==DemographicQuestion.SINGLE_SELECT) {
+            } else if (question.getAnswerType()==DemographicQuestion.SINGLE_SELECT ||
+                    question.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT) {
                 ret = question.getAnswer(response.getAnswerId()).getText();
-            } else if (question.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT) {
-                //todo handle multiple select
             }
             pageContext.getOut().print(ret);
         } catch (IOException e) {
