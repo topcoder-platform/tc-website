@@ -30,7 +30,7 @@
 <%
 ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
 ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
-ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
+ResultSetContainer.ResultSetRow resultRow_0 = leaders.isValidRow(0)? leaders.getRow(0):null;
 String roundID = resultRow_0!=null?resultRow_0.getItem("round_id").toString():"";
 
 %>
@@ -195,7 +195,6 @@ Wednesday, August 12, 2002<BR/>
 					<TD VALIGN="top" WIDTH="11" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD COLSPAN="3" CLASS="statText" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">  -->
 <!-- Coder of the Week Begins -->
-        <!-- <xsl:call-template name="coder_week"/> -->
 <!-- Coder of the Week Ends -->
 
 
