@@ -75,7 +75,7 @@ import java.util.*;
  *
  * @see Group
  */
-public interface User {
+public interface User extends java.io.Serializable {
    
     /**
      * Returns the user's rating.
