@@ -71,16 +71,16 @@
 
 <P>Delivering on this mission requires a clearly defined set of values and tenets. Our company values are not new, but have recently been articulated to reinforce our new mission. </P>
 
-<P><B>Great people with great values</B></P>
+<P><B>Great people with great values</B><BR/>
+Achieving our mission requires great people who are bright, creative, and energetic, and who share the following values:
 <UL>
-<LI>Achieving our mission requires great people who are bright, creative, and energetic, and who share the following values:</LI>
 <LI>Integrity and honesty.</LI> 
 <LI>Passion for customers, partners, and technology.</LI> 
 <LI>Open and respectful with others and dedicated to making them better.</LI> 
 <LI>Willingness to take on big challenges and see them through.</LI> 
 <LI>Self critical, questioning, and committed to personal excellence and self-improvement.</LI> 
 <LI>Accountable for commitments, results, and quality to customers, shareholders, partners, and employees.</LI> 
-</UL>
+</UL></P>
 
 <P><B>Tenets that propel our mission</B><BR/>
 The tenets central to accomplishing our mission include:</P>
@@ -94,7 +94,7 @@ The tenets central to accomplishing our mission include:</P>
 <LI>Excellence. Excellence in everything we do to deliver on our mission.</LI> 
 </UL>
 
-<P>At Microsoft, we're committed to our mission-improving the potential of our customers around the world.</P>
+<P>At Microsoft, we're committed to our mission &#150; improving the potential of our customers around the world.</P>
 
 <P><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Click here</A> for our available positions.</P>
 
