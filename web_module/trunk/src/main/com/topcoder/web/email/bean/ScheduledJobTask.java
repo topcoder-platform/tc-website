@@ -184,7 +184,7 @@ public class ScheduledJobTask
 
     private String reloadCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         setProperties(job, request);
 
@@ -205,7 +205,7 @@ public class ScheduledJobTask
     private String add(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the newly created scheduled job
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         if (!job.isAdded()) {
             if (job.getSendTestState()) {
@@ -386,7 +386,7 @@ public class ScheduledJobTask
 
     private String reloadEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         setProperties(job, request);
 
@@ -422,7 +422,7 @@ public class ScheduledJobTask
     private String save(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // set properties..
         setProperties(job, request);
@@ -478,7 +478,7 @@ public class ScheduledJobTask
     private String chooseListAdd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // set properties..
         setProperties(job, request);
@@ -536,7 +536,7 @@ public class ScheduledJobTask
     private String chooseQueryAdd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
 
         // set properties..
@@ -571,7 +571,7 @@ public class ScheduledJobTask
     private String setCommandInputsAdd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // parse query inputs
         Map commandInputMap = getCommandInputs(request);
@@ -597,7 +597,7 @@ public class ScheduledJobTask
     private String setListAdd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         String listId = request.getParameter(EmailConstants.LIST_ID);
 
@@ -647,7 +647,7 @@ public class ScheduledJobTask
 
     private String chooseReportTemplate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         String param = request.getParameter(EmailConstants.ID);
         if (param != null)
@@ -685,7 +685,7 @@ public class ScheduledJobTask
     private String chooseCommandInputsAdd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         job.setCommandId(request.getParameter(EmailConstants.COMMAND_ID));
         job.setListId("0");
@@ -724,7 +724,7 @@ public class ScheduledJobTask
     private String askSendTest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // first set the template id
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
         job.setTemplateId(request.getParameter("templateId"));
         log.debug("template id: " + job.getTemplateId());
 
@@ -744,7 +744,7 @@ public class ScheduledJobTask
 
     private String chooseTestList(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         job.setTemplateId(request.getParameter("templateId"));
         log.debug("template id: " + job.getTemplateId());
@@ -774,7 +774,7 @@ public class ScheduledJobTask
     private String sendTestMessage(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         if (!job.isAdded()) {
             ScheduledJobForm testJob = null;
@@ -824,7 +824,7 @@ public class ScheduledJobTask
     private String chooseListEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // set properties..
         setProperties(job, request);
@@ -857,7 +857,7 @@ public class ScheduledJobTask
     private String setListEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         String listId = request.getParameter(EmailConstants.LIST_ID);
 
@@ -882,7 +882,7 @@ public class ScheduledJobTask
     private String chooseTemplateEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // set properties..
         setProperties(job, request);
@@ -913,7 +913,7 @@ public class ScheduledJobTask
 
     private String setTemplateEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // set the template id
         job.setTemplateId(request.getParameter("templateId"));
@@ -935,7 +935,7 @@ public class ScheduledJobTask
     private String chooseQueryEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // set properties..
         setProperties(job, request);
@@ -956,7 +956,7 @@ public class ScheduledJobTask
     private String chooseCommandInputsEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // set the command id
         job.setCommandId(request.getParameter(EmailConstants.COMMAND_ID));
@@ -989,7 +989,7 @@ public class ScheduledJobTask
     private String setCommandInputsEdit(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the job form
-        ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+        ScheduledJobForm job = (ScheduledJobForm) request.getAttribute("ScheduledJob");
 
         // parse query inputs
         Map commandInputMap = getCommandInputs(request);
