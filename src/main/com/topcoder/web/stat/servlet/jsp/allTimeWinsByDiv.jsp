@@ -16,7 +16,7 @@ else if (sDivision.equals("2")) romanDivision = "II";
                       <TD background="/i/steel_darkblue_bg.gif" COLSPAN="3" CLASS="smallFoot"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"></TD>
                     </TR>
                     <TR>
-                      <TD background="/i/steel_gray_bg.gif" COLSPAN="3" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">&nbsp;All-Time Wins&nbsp;-&nbsp;Division&nbsp;<%=romanDivision%></TD>
+                      <TD background="/i/steel_gray_bg.gif" COLSPAN="3" CLASS="statTextBig" VALIGN="middle" HEIGHT="18">&nbsp;All-Time Wins&nbsp;-&nbsp;Division-<%=romanDivision%></TD>
                     </TR>
                     <TR>
                       <TD background="/i/steel_darkblue_bg.gif" COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
