@@ -141,6 +141,7 @@ public class DBMS {
      * @param sequence_name
      * @return
      * @throws Exception
+     * @deprecated
      */
     public static final int getTransSeqId(java.sql.Connection qconn, int sequence_name)
             throws Exception {
