@@ -74,7 +74,7 @@
                                              <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309357&name=Go%20Shopping">XX-Large</option>
                                           </select>
                                           </td>
-                                          <td valign="middle" class="bodyText" width="100%">
+                                          <td valign="middle" class="bodyText" width="100%"> 
                                           <input type="button" onClick="doSubmit(document.sizeSelect.menu);" value="Buy Now" class="bodyText">
                                           </td>
                                         </form>
