@@ -32,7 +32,7 @@
       Edit the resource's parameters with the form below.  When satisfied,
       click the "Save Modifications" at the bottom of the form.
     </p>
-    <form method="POST" name="editForm" action="/CmDispatch" target="workspaceFrame">
+    <form name="editForm" method="POST" action="/CmDispatch" target="workspaceFrame">
       <input type="hidden" name="page" value="selectResource" />
 <% Resource resource = state.getSelectedResource(); %>
       <table>
@@ -110,7 +110,8 @@
         </tr>
         <tr>
           <td colspan="2">
-            <br/><input type="button" name="submit" value="Move to Production" onClick="if(confirm('Move to Production.  Are you sure?'))document.editForm.submit();" />
+            <!--<SCRIPT type="text/javascript">alert(this.form.name)</SCRIPT>-->
+            <br/><input type="submit" name="submit" value="Move to Production" onClick="return confirm('Move to Production.  Are you sure?');" />
           </td>
         </tr>
 
