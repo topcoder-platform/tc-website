@@ -63,11 +63,11 @@ Finally, a set of examples is provided.  These give sample inputs against which 
 	<ul>
 	<li>
 	<span class=bodySubtitle>Introduction</span><br/>
-	The problem statement usually begins by motivating the problem.  It gives a situation or context for the problem, before diving into the gory details.  This is usually irrelevant to solving the problem, so ignore it if necessary.  In some cases, the motivation can cause serious ambiguities if it is treated as binding - see MatchMaking (SRM 203 Div I Easy / Div II Medium).  Also note that for some simple problems, the initial context may be left out. 
+	The problem statement usually begins by motivating the problem.  It gives a situation or context for the problem, before diving into the gory details.  This is usually irrelevant to solving the problem, so ignore it if necessary.  In some cases, the motivation can cause serious ambiguities if it is treated as binding - see <A href="/tc?module=ProblemDetail&rd=4775&pm=2911">MatchMaking</A> (SRM 203 Div I Easy / Div II Medium).  Also note that for some simple problems, the initial context may be left out. 
 	<br/><br/>
 	The ordering of the rest of this section varies greatly from problem to problem, based on the writing style of the problem author. 
 	<br/><br/>
-	There will be a description of what you need to do, in high-level terms.  Take, for example, UserName (SRM 203, Div 2 easy).  What the problem is asking for you to do is to find the first variant of a given username that is not already taken.  Note that the problem has not yet said anything about variable names or types, or input formats. 
+	There will be a description of what you need to do, in high-level terms.  Take, for example, <A href="/tc?module=ProblemDetail&rd=4775&pm=2913">UserName</A> (SRM 203, Div 2 easy).  What the problem is asking for you to do is to find the first variant of a given username that is not already taken.  Note that the problem has not yet said anything about variable names or types, or input formats. 
 	<br/><br/>
 	There will also be a low-level description of the input.  At the bare minimum, the types and variable names of the inputs will be given to you, as well as what they correspond to and what they mean.  Sometimes much more information about input formats will be given; this typically occurs in more complicated problems. 
 	<br/><br/>
@@ -130,6 +130,30 @@ Finally, there are a number of examples.  Usually, problems which are trickier o
 
 <span class=bodySubtitle>Try it Yourself</span><br/>
 Listed below are a number of additional problems, grouped roughly by difficulty of comprehension.  Try them for yourself in the TopCoder Arena Practice Rooms.  Even if you can't solve them, at least work on figuring out what the problem wants by breaking it down in this manner.
+<br/><br/>
+<span class=bodySubtitle>Mentioned in this writeup:</span><br/>
+SRM 203 Div 2 Easy - <A href="/tc?module=ProblemDetail&rd=5849&pm=2913">UserName</A><br/> 
+SRM 191 Div 2 Easy - <A href="/tc?module=ProblemDetail&rd=4775&pm=2297">BettingMoney</A><br/> 
+SRM 203 Div 1 Easy - <A href="/tc?module=ProblemDetail&rd=5849&pm=2911">MatchMaking</A><br/> 
+SRM 170 Div 2 Hard - <A href="/tc?module=ProblemDetail&rd=4655&pm=1835">Poetry</A>
+<br/><br/>
+<span class=bodySubtitle>Similar tasks:</span><br/>
+SRM 146 Div 2 Easy - <A href="/tc?module=ProblemDetail&rd=4535&pm=1692">Yahtzee</A><br/> 
+SRM 200 Div 2 Easy - <A href="/tc?module=ProblemDetail&rd=5075&pm=2868">NoOrderOfOperations</A><br/> 
+SRM 185 Div 2 Easy - <A href="/tc?module=ProblemDetail&rd=4745&pm=1962">PassingGrade</A><br/> 
+SRM 155 Div 2 Easy - <A href="/tc?module=ProblemDetail&rd=4580&pm=1686">Quipu</A><br/> 
+SRM 147 Div 2 Easy - <A href="/tc?module=ProblemDetail&rd=4540&pm=1667">CCipher</A><br/> 
+SRM 208 Div 1 Easy - <A href="/tc?module=ProblemDetail&rd=5854&pm=2923">TallPeople</A><br/> 
+SRM 173 Div 1 Easy - <A href="/tc?module=ProblemDetail&rd=4670&pm=2002">WordForm</A><br/> 
+SRM 162 Div 1 Easy - <A href="/tc?module=ProblemDetail&rd=4615&pm=1846">PaperFold</A>
+<br/><br/>
+<span class=bodySubtitle>More challenging tasks:</span><br/>
+SRM 197 Div 2 Hard - <A href="/tc?module=ProblemDetail&rd=5072&pm=2829">QuickSums</A><br/> 
+SRM 158 Div 1 Hard - <A href="/tc?module=ProblemDetail&rd=4598&pm=1157">Jumper</A><br/> 
+SRM 170 Div 1 Easy - <A href="/tc?module=ProblemDetail&rd=4655&pm=1915">RecurrenceRelation</A><br/> 
+SRM 177 Div 1 Easy - <A href="/tc?module=ProblemDetail&rd=4690&pm=1609">TickTick</A><br/> 
+SRM 169 Div 2 Hard - <A href="/tc?module=ProblemDetail&rd=4650&pm=1876">Twain</A><br/> 
+SRM 155 Div 1 Med  - <A href="/tc?module=ProblemDetail&rd=4580&pm=1694">QuipuReader</A>
 			</p>
             
 
