@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -15,7 +16,7 @@
 				<td class=homeTopBar align=right><A href="/" class="loginLinks">About TopCoder</A></td>
 			</tr>
 			<tr>
-				<td class=homeLogo><img src="http://www.topcoder.com/i/logo_r.gif" border=0 /></td>
+				<td class=homeLogo><img src="/i/logo_r.gif" border=0 /></td>
 			</tr>
 			<tr>
 				<td class=homeRedBar>&#160;</td>
@@ -74,12 +75,12 @@
 		<td class=homeCentCol>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/techAssessTool.jpg" border=0 /></A></td></tr>
-			<tr><td class=homeSmallPromo><A href="http://software.topcoder.com/components/subscriptions.jsp"><img src="/i/home/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
+			<tr><td class=homeSmallPromo><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/subscriptions.jsp"><img src="/i/home/promos/compSubscriptions.jpg" border=0 /></A></td></tr>
 		</table>
 		<table width="100%" border=0 cellpadding=0 cellspacing=0>
 			<tr>
 				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-				<td class=homeTitle><A href="http://software.topcoder.com"> class=homeTitleLink>Software</A></td>
+				<td class=homeTitle><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>"> class=homeTitleLink>Software</A></td>
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
