@@ -97,7 +97,7 @@ public class DataCacheRefresh {
                         for (int j = 0; j < host.length; j++) {
                             if (byteArraysEqual(cacheIp, host[j].getAddress())) {
                                 found[j] = true;
-                                log.debug(Conversion.ipBytesToString(cacheIp) + " REFRESHED");
+                                log.info(Conversion.ipBytesToString(cacheIp) + " REFRESHED");
                                 break;
                             }
                         }
