@@ -48,66 +48,65 @@
                 <tr valign="top">
                     <td width="99%" class="bodyText">
 
-            <div align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=room2"><img src="/i/promos/tco_promo_big.gif" alt="2003 TopCoder Open sponsored by Intel&#174;" width="530" height="164" border="0" /></A></div>
+            <div align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=room3"><img src="/i/promos/tco_promo_big.gif" alt="2003 TopCoder Open sponsored by Intel&#174;" width="530" height="164" border="0" /></A></div>
 
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
-                            <tr valign="top"><td align="left"><img src="/i/tournament/tco03/room2/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
-                            <tr valign="top"><td align="left" class="smallText">tomek is all smiles after taking Room 2</td></tr>
+                            <tr valign="top"><td align="left"><img src="/i/tournament/tco03/room3/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
+                            <tr valign="top"><td align="left" class="smallText">Yarin breathes a sigh of relief.</td></tr>
                         </table>
             
-            <h2>Landslide victory by tomek</h2>
+            <h2>Photo finish: Yarin! </h2>
 
-            <p>by Matt Murphy (veredox), <em>TopCoder Staff</em><br />
-            Thursday, December 4, 2003</p>
+<p>The third match of the day was the closest yet.  reid and Yarin have recent a history of 
+competition.  reid, rated higher than Yarin, lost to him in two of the four previous TCO rounds.</p>
 
-            <p>It's not too surprising that tomek is moving on to the finals.  He is the highest rated 
-            TopCoder member and has beat all of his "roommates" in every round of the TCO to date.</p>
+<p>Today's action started when reid and Yarin submitted the 275-point problem two seconds 
+apart for 220.27 and 220.06 points, respectively.  reid continued to pull on Yarin, submitting 
+his level two solution exactly seven minutes later.  Two minutes after that, Yarin answered with 
+his submission.  At this point the score was 695.84 to 676.16 - advantage reid - with no submissions 
+from either of the other competitors.</p>
 
-            <p>"At the beginning, I was very scared," said tomek.  "After I checked the second problem, 
-            I saw the score and knew that I would win.  I did the last problem just in case one of the others 
-            failed."</p>
+<p>Finally, 28 minutes into the coding phase, DjinnKahn submitted the level one problem for 
+163.58 points.  Before long, mathijs had all three problems open without a single submission.  
+"I got lost in the level one.  I wanted to do it more elegantly than was needed," he later commented.</p>
 
-            <p>tomek was the first to submit the 250-point problem, and did so in less than 10 minutes.  
-            The rest of the level one submissions came in five minute intervals in the order of bladerunner, 
-            madking and ambrose.</p>
+<p>It was neck and neck but reid was the first to submit a 950-point solution.  Yarin finished 
+his submission 8 minutes later, but reid was still leading by 118.95 points.  To everyone's surprise, 
+reid resubmitted the level three shortly thereafter, putting Yarin 100.11 points in the lead!</p>
 
-            <p>ambrose was the only competitor to open the level three problem next.  After four minutes of 
-            viewing the problem statement, he opted for the 500-pointer instead.  A short 82 seconds later, 
-            tomek submitted his solution for the same problem.  At this point in the game, bladerunner and 
-            madking began to lag behind the leader.  bladerunner submitted his level two solution with half 
-            an hour left in the coding phase; madking 15 minutes after that.</p>
+<p>The coding phase ended and the challenge phase began.  This time: action (albeit minimal).  
+Yarin took a shot at DjinnKahn's level one solution and was unsuccessful, bringing reid 50 points 
+closer to the #1 spot.  Luckily for Yarin, there were no more challenges and, as is becoming customary, 
+all solutions passed their system tests.</p>
 
-            <p>With 8-1/2 minutes to spare, tomek made his final submission, sealing the win.  Lastly, with one minute left to code, ambrose submitted his level two solution.</p>
-
-            <p>Once again, the quality of the semi-finalists' submissions was evidenced by the lack of activity during the challenge phase.  All solutions passed the system tests.</p>
-
-            <p>The final scoreboard looked like this:</p>
+<p>The final scores were as follows: </p>
 
             <div align="center">
             <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
                 <tr>
-                    <td  class="pointsName">tomek</td>
-                    <td class="pointsScore">1113.62</td>
+                    <td  class="pointsName">Yarin</td>
+                    <td class="pointsScore">1184.28</td>
                 </tr>
                                			
                 <tr>
-                    <td  class="pointsName">bladerunner</td>
-                    <td class="pointsScore">479.59</td>
+                    <td  class="pointsName">reid</td>
+                    <td class="pointsScore">1134.17</td>
                 </tr>
                                			
                 <tr>
-                    <td  class="pointsName">madking</td>
-                    <td class="pointsScore">415.04</td>
+                    <td  class="pointsName">DjinnKahn</td>
+                    <td class="pointsScore">163.58</td>
                 </tr>
                                			
                 <tr>
-                    <td  class="pointsName">ambrose</td>
-                    <td class="pointsScore">382.65</td>
+                    <td  class="pointsName">mathijs</td>
+                    <td class="pointsScore">0.00</td>
                 </tr>
             </table>
             </div>	
 
-            <p>Will tomek continue his winning streak all the way to the top?  Who will confront him in the final round?  Don't touch that dial...</p>
+<p>When asked about the exciting finish of the coding phase, Yarin was very gracious.  "I didn't really 
+think [my submission] would pass.  reid's solution was much cleaner."</p>
 
                     </td>
                 </tr>
@@ -118,25 +117,25 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%">            
                 <tr>
                     <td class="thumbnails" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/01.jpg');"><img src="/i/tournament/tco03/room2/01_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/02.jpg');"><img src="/i/tournament/tco03/room2/02_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/03.jpg');"><img src="/i/tournament/tco03/room2/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/04.jpg');"><img src="/i/tournament/tco03/room2/04_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/05.jpg');"><img src="/i/tournament/tco03/room2/05_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/01.jpg');"><img src="/i/tournament/tco03/room3/01_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/02.jpg');"><img src="/i/tournament/tco03/room3/02_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/03.jpg');"><img src="/i/tournament/tco03/room3/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/04.jpg');"><img src="/i/tournament/tco03/room3/04_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/05.jpg');"><img src="/i/tournament/tco03/room3/05_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" align="center"><img src="/i/tournament/tco03/room2/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
+                    <td class="bodyText" align="center"><img src="/i/tournament/tco03/room3/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
                 </tr>            
                 
                 <tr>
                     <td class="thumbnails" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/06.jpg');"><img src="/i/tournament/tco03/room2/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/07.jpg');"><img src="/i/tournament/tco03/room2/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/08.jpg');"><img src="/i/tournament/tco03/room2/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/09.jpg');"><img src="/i/tournament/tco03/room2/09_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/10.jpg');"><img src="/i/tournament/tco03/room2/10_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/06.jpg');"><img src="/i/tournament/tco03/room3/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/07.jpg');"><img src="/i/tournament/tco03/room3/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/08.jpg');"><img src="/i/tournament/tco03/room3/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/09.jpg');"><img src="/i/tournament/tco03/room3/09_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room3/10.jpg');"><img src="/i/tournament/tco03/room3/10_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
             </table>
