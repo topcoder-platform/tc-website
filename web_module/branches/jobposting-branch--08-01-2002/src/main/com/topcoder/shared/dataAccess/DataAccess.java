@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.util.Map;
 
 /**
- * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data from the data warehouse.
+ * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data.
  *
  * @author  Dave Pecora
  * @version $Revision$
