@@ -58,6 +58,7 @@ public class Controller
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
                     tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
+            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             CoderSessionInfo info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
@@ -221,7 +222,7 @@ public class Controller
     User getUser(HttpSession session) throws Exception {
         if (session != null) {
             Object navigation = session.getAttribute(NAVIGATION);
-            if (navigation == null) { 
+            if (navigation == null) {
                 log.debug("navigation object was null");
                 navigation = new Navigation();
                 session.setAttribute(NAVIGATION, navigation);
