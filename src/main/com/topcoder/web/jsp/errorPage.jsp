@@ -1,9 +1,10 @@
-<%@ page import="com.topcoder.web.common.BaseServlet"%>
+<%@ page import="com.topcoder.web.common.BaseServlet, javax.servlet.http.HttpServletResponse"%>
 <%@ page language="java"
 session="true" 
 isErrorPage="true" 
 %>
-<% if (exception == null) exception = (Exception)request.getAttribute("exception");
+<% response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+   if (exception == null) exception = (Exception)request.getAttribute("exception");
    if (exception!=null) exception.printStackTrace();
    String message = (String)request.getAttribute(BaseServlet.MESSAGE_KEY);
    String url = (String)request.getAttribute(BaseServlet.URL_KEY);
