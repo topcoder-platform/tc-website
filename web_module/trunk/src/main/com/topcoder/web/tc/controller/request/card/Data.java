@@ -13,6 +13,8 @@ import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.OutputKeys;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.text.DecimalFormat;
 
 import org.xml.sax.helpers.AttributesImpl;
 import org.xml.sax.Attributes;
@@ -61,14 +63,18 @@ public class Data extends Base {
 
             hd.startElement("","","memberStats",emptyAtts);
 
+            SimpleDateFormat sdf = new SimpleDateFormat("MM.dd.yyyy");
+            DecimalFormat df = new DecimalFormat("0.00");
+
             addElement(hd, "handle", profileRsc.getStringItem(0, "handle"), emptyAtts);
             addElement(hd, "photo", profileRsc.getStringItem(0, "image_path"), emptyAtts);
             addElement(hd, "algorithmRating", profileRsc.getStringItem(0, "algorithm_rating"), emptyAtts);
             addElement(hd, "algorithmRatingMax", profileRsc.getStringItem(0, "highest_rating"), emptyAtts);
             addElement(hd, "rank", profileRsc.getStringItem(0, "rank"), emptyAtts);
-            addElement(hd, "percentile", profileRsc.getStringItem(0, "percentile"), emptyAtts);
-            addElement(hd, "memberSince", profileRsc.getStringItem(0, "member_since"), emptyAtts);
-            addElement(hd, "lastMatchDate", profileRsc.getStringItem(0, "last_match"), emptyAtts);
+            addElement(hd, "percentile",
+                    df.format(((Number)profileRsc.getItem(0, "percentile").getResultData()).doubleValue()), emptyAtts);
+            addElement(hd, "memberSince", sdf.format(profileRsc.getItem(0, "member_since")), emptyAtts);
+            addElement(hd, "lastMatchDate", sdf.format(profileRsc.getItem(0, "last_match")), emptyAtts);
             addElement(hd, "bestDvi1", profileRsc.getStringItem(0, "best_div1"), emptyAtts);
             addElement(hd, "bestDiv2", profileRsc.getStringItem(0, "best_div2"), emptyAtts);
             addElement(hd, "competitions", profileRsc.getStringItem(0, "num_competitions"), emptyAtts);
