@@ -123,6 +123,12 @@
 
         <!-- request parameters -->
         <init-param>
+            <param-name>problem_id</param-name>
+            <param-value>pid</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>survey_id</param-name>
             <param-value>sid</param-value>
             <description></description>
