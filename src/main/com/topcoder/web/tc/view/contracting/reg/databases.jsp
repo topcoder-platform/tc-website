@@ -150,7 +150,7 @@ return false;
 				<TEXTAREA NAME="comments" ROWS="3" COLS="40"></TEXTAREA>
 				</td>
 			</tr>
-			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=success"><img src="/i/submit.jpg" border=0/></a></td></tr>
+			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=industries"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
 		</FORM>
 

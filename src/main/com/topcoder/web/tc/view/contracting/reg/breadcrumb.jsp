@@ -24,7 +24,7 @@
 	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=databases" class=vbcLINK>Databases 5</A></td><% } %>
 	</tr>
 	<tr>
-	<% if (phase.equals("databases")) {%><td class=vbcON>Industries 6</td>
+	<% if (phase.equals("industries")) {%><td class=vbcON>Industries 6</td>
 	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=industries" class=vbcLINK>Industries 6</A></td><% } %>
 	</tr>
 	<tr>
