@@ -1,7 +1,7 @@
 package com.topcoder.web.common;
 
 import javax.servlet.ServletRequest;
-import com.topcoder.shared.security.Authentication;
+import com.topcoder.web.common.security.WebAuthentication;
 
 /** Interface for classes that process a servlet request.
  * @author Porgery
@@ -36,6 +36,6 @@ public interface RequestProcessor {
     /** Sets the authentication object that will be used.
      * @param sr The Authentication object to be used.
      */    
-    public void setAuthentication(Authentication auth);
+    public void setAuthentication(WebAuthentication auth);
     
 }
