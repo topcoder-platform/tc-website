@@ -75,7 +75,8 @@
                         The ant build files distributed with the design and development distributions will 
                         use this file to override certain parts of the build.xml.  This file can be modified
                         to suit your local environment, the build file TopCoder distributes should not be
-                        modified.  If you think it needs to be, contact your project manager.</td>
+                        modified.  If you think it needs to be, contact your project manager.  Keep in mind
+                        that the reviewers will be using the build.xml that was distributed.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
