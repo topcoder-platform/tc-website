@@ -99,7 +99,7 @@ function submitEnter(e) {
                                 <td nowrap class="bodyText">&#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a></td>
                             </tr>
                             <tr valign="middle">
-                                <td nowrap class="bodyText" align="right" colspan="3"><input type="checkbox" name="<%=Login.REMEMBER_USER%>" checked></td>
+                                <td nowrap class="bodyText" colspan="3"><input type="checkbox" name="<%=Login.REMEMBER_USER%>" checked> Remember Me</td>
                             </tr>
 
 
