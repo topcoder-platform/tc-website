@@ -162,6 +162,11 @@ function getProblemDetail(id) {
                             Problem
                         </A>
                     </td>
+                    <td class="screeningHeader" width="10%">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=compnent_status&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
+                            Status
+                        </A>
+                    </td>
                     <td class="screeningHeader" width="10%" align=center>
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=total_time&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
                             Time
@@ -213,7 +218,9 @@ function getProblemDetail(id) {
                             <%=row.getStringItem("problem_name")%>
                         </A>
                     </td>
-
+                    <td class='<%=cssClasses[counter % 2]%>' align=center>
+                        <%=row.getStringItem("compnent_status")%>
+                    </td>
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
                         <%=row.getStringItem("problem_time")%>
                     </td>
