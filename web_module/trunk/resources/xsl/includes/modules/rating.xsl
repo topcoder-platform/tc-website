@@ -12,6 +12,17 @@
       </xsl:choose>
   </xsl:template>
 
+  <xsl:template name="GetRatingClass">
+      <xsl:param name="rating"></xsl:param>
+      <xsl:choose>
+        <xsl:when test="number($rating)>2199">coderTextRed</xsl:when>
+        <xsl:when test="number($rating)>1499 and number($rating)&lt;2200">coderTextYellow</xsl:when>
+        <xsl:when test="number($rating)>1199 and number($rating)&lt;1500">coderTextBlue</xsl:when>
+        <xsl:when test="number($rating)>899 and number($rating)&lt;1200">coderTextGreen</xsl:when>
+        <xsl:when test="number($rating)&lt;0900">coderTextGray</xsl:when>
+      </xsl:choose>
+  </xsl:template>
+
   <xsl:template name="GetRatingToDisplay">
     <xsl:param name="rating"></xsl:param>
     <xsl:choose>
