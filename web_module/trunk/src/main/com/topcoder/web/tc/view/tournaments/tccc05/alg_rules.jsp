@@ -23,7 +23,6 @@
             
         <p class=bigTitle>Algorithm Competition Official Rules and Regulations</p>
 
-        <p>
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#registration">Registration</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#qualification">Qualification Round</a>&nbsp;&nbsp;|&nbsp;&nbsp;
