@@ -85,7 +85,7 @@ else
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
                                 <td class="sidebarText" align=left><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
-                                <td class="sidebarText" align=center nowrap=nowrap><a href="/tc?module=USDCMemberResults&from=1&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="num_submissions" row="<%=resultRow%>"/></a></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><a href="/tc?module=USDCMemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="num_submissions" row="<%=resultRow%>"/></a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
