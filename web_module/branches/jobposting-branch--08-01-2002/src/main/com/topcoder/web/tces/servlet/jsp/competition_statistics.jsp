@@ -14,7 +14,7 @@
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
-<jsp:useBean id="taskBean" scope="request" class="com.topcoder.web.tces.bean.CompetitionStatisticsTask" />
+<jsp:useBean id="CompetitionStatisticsTask" scope="request" class="com.topcoder.web.tces.bean.CompetitionStatisticsTask" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -51,8 +51,10 @@
         
         <p>
         <b>Competition Statistics</b>
-        Competition: <b><%= taskBean.getStatistic("contest_name") %></b>
-        Division: <b><%= taskBean.getStatistic("division_desc") %></b>
+        <br>
+        Competition: <b><%= CompetitionStatisticsTask.getStatistic("contest_name") %></b>
+        <br>
+        Division: <b><%= CompetitionStatisticsTask.getStatistic("division_desc") %></b>
         </p>
 
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
@@ -69,7 +71,7 @@
                     # of Competitors
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("num_competitors") %></b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("num_competitors") %></b>
                   </TD>
                 </TR>
                 <TR>
@@ -77,7 +79,7 @@
                     Average Score
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("overall_avg_points") %></b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("overall_avg_points") %></b>
                   </TD>
                 </TR>
                 <TR>
@@ -85,7 +87,7 @@
                     Std. Deviation
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("overall_std_dev") %></b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("overall_std_dev") %></b>
                   </TD>
                 </TR>
                 <TR>
@@ -93,7 +95,7 @@
                     # Submissions
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("overall_problems_submitted") %></b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("overall_problems_submitted") %></b>
                   </TD>
                 </TR>
                 <TR>
@@ -101,7 +103,7 @@
                     Percent Correct
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("overall_submission_accuracy") %>%</b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy") %>%</b>
                   </TD>
                 </TR>
               </TABLE>
@@ -110,7 +112,7 @@
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
                 <TR>
                   <TD class='statText' colspan='2'>
-                    <b>Individual (<jsp:getProperty name="taskBean" property="Handle"/>)</b>
+                    <b>Individual (<jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/>)</b>
                   </TD>
                 </TR>
                 <TR>
@@ -118,7 +120,7 @@
                     Score
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("final_points") %></b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("final_points") %></b>
                   </TD>
                 </TR>
                 <TR>
@@ -126,7 +128,7 @@
                     # Std. Deviations
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("point_standard_deviation") %></b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("point_standard_deviation") %></b>
                   </TD>
                 </TR>
                 <TR>
@@ -134,7 +136,7 @@
                     # Submissions
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("problems_submitted") %></b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("problems_submitted") %></b>
                   </TD>
                 </TR>
                 <TR>
@@ -142,7 +144,7 @@
                     # Correct
                   </TD>
                   <TD class='statText' align='right'>
-                    <b><%= taskBean.getStatistic("problems_correct") %></b>
+                    <b><%= CompetitionStatisticsTask.getStatistic("problems_correct") %></b>
                   </TD>
                 </TR>
               </TABLE>
@@ -175,10 +177,10 @@
 
                 
 
-                <tces:rowIterator id="level" rowList="<%=(List)taskBean.getCoderStatsByLevel()%>">
+                <tces:rowIterator id="level" rowList="<%=(List)CompetitionStatisticsTask.getCoderStatsByLevel()%>">
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=taskBean.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=taskBean.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=taskBean.getMemberID()%>&pm=<%= level.getItem("problem_id").toString() %>" class="statText">
+                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionStatisticsTask.getMemberID()%>&pm=<%= level.getItem("problem_id").toString() %>" class="statText">
                         <b><%= level.getItem("level_desc").toString() %></b>
                       </A>
                     </TD>
@@ -232,7 +234,7 @@
 
                 
 
-                <tces:rowIterator id="level" rowList="<%=(List)taskBean.getOverallStatsByLevel()%>">
+                <tces:rowIterator id="level" rowList="<%=(List)CompetitionStatisticsTask.getOverallStatsByLevel()%>">
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;
                         <b><%= level.getItem("level_desc").toString() %></b>
@@ -282,39 +284,39 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_problems_presented") %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_problems_presented") %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_problems_submitted").toString() %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_problems_submitted").toString() %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_submit_percent").toString() %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_submit_percent").toString() %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_problems_correct").toString() %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_problems_correct").toString() %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_submission_accuracy").toString() %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_submission_accuracy").toString() %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_accuracy").toString() %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_accuracy").toString() %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_submission_points_per_problem").toString() %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_submission_points_per_problem").toString() %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_final_points_per_problem").toString() %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_final_points_per_problem").toString() %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= taskBean.getStatistic("overall_time_per_problem").toString() %>
+                        <%= CompetitionStatisticsTask.getStatistic("overall_time_per_problem").toString() %>
                     </TD>
                   </TR>
               </TABLE>
