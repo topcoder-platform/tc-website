@@ -7,8 +7,8 @@
 
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle" >Please Read:</td></tr>
-                <tr><td id="leftNav"><A href="/?&t=about_tc&c=terms" class="left">Terms, Revisions</A></td></tr>
-                <tr><td id="leftNav"><A href="/?&t=about_tc&c=privacy" class="left">Privacy Policy</A></td></tr>
+                <tr><td id="leftNav"><A href="/?t=about_tc&amp;c=terms" class="left">Terms, Revisions</A></td></tr>
+                <tr><td id="leftNav"><A href="/?t=about_tc&amp;c=privacy" class="left">Privacy Policy</A></td></tr>
             </table>
             
             <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br/><br/>
