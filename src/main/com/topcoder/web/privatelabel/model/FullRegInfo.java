@@ -16,6 +16,7 @@ public class FullRegInfo extends SimpleRegInfo {
 
     public FullRegInfo(SimpleRegInfo info) {
         super(info);
+        responses = new ArrayList();
     }
 
     public int getCoderType() {
