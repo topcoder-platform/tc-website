@@ -15,7 +15,7 @@ public class Constants {
     /**
      *  variables that shouldn't be initialized
      */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "INT_NOT_FOUND", "bundle"};
+    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle"};
 
     public static String STATIC_PREFIX;
     public static String DEFAULT_PAGE;
