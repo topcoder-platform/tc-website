@@ -89,6 +89,7 @@ public class Controller
         } catch (ServletException se) {
             throw se;
         } catch (Exception e) {
+            log.error("Exception in resume Controller");
             e.printStackTrace();
             try{
                 forwardToError(request, response, e);
