@@ -18,10 +18,13 @@
 	<tr>
 		<td width="49%">&#160;</td>
 		<td align=center>
-			<span>
-			<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo">
-			<a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
-			</span>
+			<table border=0 width=100% cellpadding=0 cellspacing=0>
+				<tr>
+					<td width="49%"></td>
+					<td valign=bottom align=center><img border=0 src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo"></td>
+					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
+				</tr>
+			</table>
 		</td>
 		<td width="49%"></td>
 	</tr>
