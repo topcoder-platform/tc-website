@@ -146,6 +146,7 @@ class MailHelper {
                      throws Exception {
 
         // fill common data into the xml
+LogHelper.log("failedReviewMail");
         XMLDocument xmlDocument = new XMLDocument("MAILDATA");
         xmlDocument.addTag(new ValueTag("USER_NAME", to.getHandle()));
         xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
@@ -154,6 +155,7 @@ class MailHelper {
         xmlDocument.addTag(new ValueTag("IS_COMMENTED", comment.trim().length() > 0 ? 1 : 0));
 
         String filenameXSL = ConfigHelper.getXSL(ConfigHelper.FINAL_REVIEW_FAIL_XSL);
+LogHelper.log("filenameXSL="+filenameXSL);
 
         if (filenameXSL == null) {
             StringBuffer s = new StringBuffer();
@@ -176,6 +178,8 @@ class MailHelper {
 
         // format mail and send it
         String bodyText = formatBody(xmlDocument, filenameXSL);
+LogHelper.log("bodyText="+bodyText);
+
         sendMail(from, to, "Final Review results", bodyText);
     }
 

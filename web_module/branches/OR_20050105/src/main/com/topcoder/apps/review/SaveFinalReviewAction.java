@@ -68,6 +68,7 @@ public final class SaveFinalReviewAction extends ReviewAction {
             ResultData result = new BusinessDelegate().finalReview(data);
 
             if (result instanceof SuccessResult)  {
+                log(Level.INFO, "SuccessResult");
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
 
@@ -81,7 +82,7 @@ public final class SaveFinalReviewAction extends ReviewAction {
                     if (items [i].getFinalFixStatus().getId() == 1) { // fix constant!
                         notFixedItems++;
                     }
-
+log(Level.INFO, "NotFixedItems="+notFixedItems);
                 if (notFixedItems == 0) {
                     AutoPilot.finalReviewEmail(data);
                 } else {
