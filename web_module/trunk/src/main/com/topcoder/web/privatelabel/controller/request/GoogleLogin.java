@@ -89,13 +89,12 @@ public class GoogleLogin extends FullLogin {
         boolean ret = false;
         try {
             getAuthentication().login(new SimpleUser(0, handle, password));
-        } catch (Exception e) {
-            e.printStackTrace();
-        } //catch (LoginException e) {
-          //  if (!hasError(Constants.HANDLE))
-          //      addError(Constants.HANDLE, e.getMessage());
-       // }
-        if (!getUser().isAnonymous()) {
+        } catch (LoginException e) {
+            if (!hasError(Constants.HANDLE))
+                addError(Constants.HANDLE, e.getMessage());
+
+        }
+        if (!getAuthentication().getUser().isAnonymous()) {
             User user = (User) createEJB(getInitialContext(), User.class);
             char status = user.getStatus(getUser().getId(), db);
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
