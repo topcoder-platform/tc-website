@@ -8,11 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.topcoder.security.NotAuthorizedException;
+import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.TCESAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.corp.Util;
 
 /**
  * Only two methods are supported GET & POST (identical behaviour in
@@ -81,10 +87,32 @@ public class MainServlet extends HttpServlet {
         String processorClassName = servletConfig.getInitParameter(
             PFX_PROCMODULE+processorName
         );
-        
+
+        // first of all, to check, if it is allower to run that processor at all
+        SessionPersistor persistor = SessionPersistor.getInstance(
+            request.getSession(true)
+        );
+        WebAuthentication authToken;
+        authToken = new BasicAuthentication(persistor, request, response);
+
         RequestProcessor processorModule = null;
         
         try {
+            TCSubject tcUser = Util.retrieveTCSubject(authToken.getActiveUser());
+            Authorization authorization = new TCESAuthorization(tcUser);
+            boolean allowedToRun = false;
+            allowedToRun = authorization.hasPermission(
+                new SimpleResource(processorClassName)
+            ); 
+            if(! allowedToRun ) {
+                log.debug("user [id="+tcUser.getUserId()+"] has not enough "+
+                    "permissions to work with module "+processorClassName
+                );
+                throw new NotAuthorizedException("Not enough permissions to "+
+                    "work with requested module"
+                );
+            }
+
             processorModule = (RequestProcessor)
                 Class.forName(processorClassName).newInstance();
             log.debug("processing module "+processorClassName+" instantiated");
@@ -99,11 +127,6 @@ public class MainServlet extends HttpServlet {
             // set main page in web.xml as homePage Attribute for Static Processor
             request.setAttribute("homePage",dest);
             processorModule.setRequest(request);
-            SessionPersistor persistor = SessionPersistor.getInstance(
-                request.getSession(true)
-            );
-            WebAuthentication authToken;
-            authToken = new BasicAuthentication(persistor, request, response); 
             processorModule.setAuthToken(authToken);
             processorModule.process();
             boolean forward = processorModule.isNextPageInContext();

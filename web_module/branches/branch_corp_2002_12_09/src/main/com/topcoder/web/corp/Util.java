@@ -6,6 +6,10 @@ import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 import javax.transaction.TransactionManager;
 
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 
 
@@ -50,7 +54,7 @@ public class Util {
     }
     
     /**
-     *
+     * Just closes initial context with care
      * @param ic
      */
     public static void closeIC(InitialContext ic) {
@@ -62,5 +66,26 @@ public class Util {
             log.error("Can't close initial context "+ic);
         }
     }
-    
+
+    /**
+     * Pulls out TCSubject object for given user from DB
+     *
+     * @return TCSubject
+     * @throws Exception some tech faults prevents to the operation completion
+     */
+    public static TCSubject retrieveTCSubject(User u) throws Exception {
+        InitialContext ic = null;
+        try {
+            ic = new InitialContext(Constants.SECURITY_CONTEXT_ENVIRONMENT);
+            PrincipalMgrRemoteHome rHome =
+            (PrincipalMgrRemoteHome)ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote mgr = rHome.create();
+            TCSubject ret = mgr.getUserSubject(u.getId());
+            log.debug("current TCSubject: "+ret);
+            return ret;
+        }
+        finally {
+            closeIC(ic);
+        }
+    }
 }

@@ -51,6 +51,8 @@ public abstract class BaseProcessor implements RequestProcessor {
         // perform some preprocessing actions here, then call supplied by subclass
         // businessProcessing() method
         // ..
+        // first of all we are needed to verify if current user is allowed to
+        // work with current RequestProcessor
         //
         
         businessProcessing();
