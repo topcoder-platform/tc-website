@@ -131,7 +131,8 @@ if (appeal != null) {
 			    	<td width="10%" valign="top" class="forumTextOdd">
 
 
-<%    if (!appeal.isResolved() || (theForm.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS)) {
+<%     if ((appeal != null) || (theForm.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS)) {
+
 %>
 			    	<input type="button" onClick='document.location="<%= response.encodeURL("/review/appeal.do?id="+theForm.getProject().getId()+"&qid="+qidValue+"&aid="+aidValue) %>"' value="Appeal" class="submitButton"/></td>
 <%}
