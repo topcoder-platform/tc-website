@@ -1419,7 +1419,7 @@ public class DocumentManagerBean implements SessionBean {
                         "s.submission_v_id, " +
                         "su.login_id, su.user_id, " +
                         "uc.first_name, uc.last_name, e.address email_address " +
-                        "FROM submission s, security_user su, user uc, " +
+                        "FROM submission s, security_user su, user uc, r_user_role rur " +
                         "email e  " +
                         "WHERE s.cur_version = 1 AND " +
                         "s.submission_id = ? AND " +
@@ -1428,8 +1428,11 @@ public class DocumentManagerBean implements SessionBean {
                         "e.primary = 1 AND " +
                         "e.user_id = uc.user_id AND " +
                         "su.login_id = uc.user_id AND " +
-                        "su.login_id = s.submitter_id " +
-                        "ORDER BY s.submission_id");
+                        "su.login_id = s.submitter_id AND " +
+                        "rur.login_id = s.login_id AND " +
+                        "rur.cur_version = 1 AND " +
+                        "rur.project_id = s.project_id" +
+                        "ORDER BY rur.r_user_role_id");
                 ps.setLong(1, givenSubmissionId);
                 ps.setInt(2, submissionType);
                 ps.setBoolean(3, retrieveRemoved);
