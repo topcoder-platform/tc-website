@@ -119,7 +119,7 @@ function goTo(selection){
           <td CLASS="smallFoot" align="right" height="13"><bean:write name="resultRow" property='<%= "item[" + 8 /*"rank"*/ + "]" %>'/>&nbsp;</td>
           <td nowrap=nowrap><tc:ratingImage link='<%=sLink+resultRow.getIntItem(1)%>' bg='B' cid='<%=resultRow.getIntItem(1)%>' /></td>
         <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 2 /*"pt gain"*/ + "]" %>'/></TD>
-                <TD CLASS="statText" ALIGN="center"><bean:write name="resultRow" property='<%= "item[" + 6 /*"srm"*/ + "]" %>'/></TD>
+                <TD CLASS="statText" ALIGN="center" nowrap=nowrap><bean:write name="resultRow" property='<%= "item[" + 6 /*"srm"*/ + "]" %>'/></TD>
     </tr>
     </logic:iterate>
   </logic:present>
