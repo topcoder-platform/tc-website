@@ -45,7 +45,7 @@ public class UseBeanTag extends BodyTagSupport {
     public int doEndTag() throws JspException {
         pageContext.setAttribute(id, pageContext.getAttribute(name), scope);
 
-        this.clazz= DEFAULT_TYPE;
+        this.clazz= DEFAULT_CLASS;
         this.scope = DEFAULT_SCOPE;
         this.name = null;
         this.id = null;

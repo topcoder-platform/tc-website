@@ -61,7 +61,7 @@
                   <td class=tableHeader>Test Status</td>
                   <td class=tableHeader align=right>Time Available</td>
                </tr>
-               <tc-webtag:listIterator id="problem" list="<%=problem_sets%>">
+               <tc-webtag:listIterator id="problem" list="<%=problemSets%>">
                    <tr>
                       <td class=tableTextOdd><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
                       <td class=tableTextOdd>asdfasdf</td>
