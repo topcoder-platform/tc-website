@@ -1,5 +1,7 @@
 package com.topcoder.web.screening.request;
 
+import com.topcoder.security.UserPrincipal;
+
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
@@ -39,17 +41,15 @@ public class PopulateCandidate extends BaseProcessor {
                 //do some kind of db lookup
                 InitialContext context = new InitialContext();
                 PrincipalMgr principalMgr = new PrincipalMgr();
-                EmailHome eHome = (EmailHome)PortableRemoteObject.narrow(
-                        context.lookup("screening:"+EmailHome.class.getName()),
-                        EmailHome.class);
-                Email email = eHome.create();
                 
                 //will throw exception or return null?
                 info.setUserId(new Long(userId));
 
-                long emailId = email.getPrimaryEmailId(userId);
-                info.setUserName(email.getAddress(emailId));
-                info.setPassword(principalMgr.getPassword(userId));
+                UserPrincipal user = principalMgr.getUser(userId);
+                if(user != null) {
+                    info.setUserName(user.getName());
+                    info.setPassword(principalMgr.getPassword(userId));
+                }
             }
 
             //set this so we don't lose the value
