@@ -103,18 +103,19 @@
       <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='0'">
         <xsl:choose>
         <xsl:when test="/TC/HOME/InvitationalInfo/IsEligible='0'">
-          You are not eligible to compete in the TopCoder Invitational Tournament.  There are 3 possible reasons for this.<BR/>
+          You are not eligible to compete in the 2002 TopCoder Invitational Tournament.  There are 3 possible reasons for this.<BR/>
           1) You are not from an eligible country.<BR/>  
           2) You have not competed in at least 3 rated events.<BR/> 
           3) You have not competed since March 30, 2002.
         </xsl:when>
         <xsl:otherwise>
-          Click <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">here</A> to register for the TopCoder Invitational.
+Based on your profile information and your rated event participation, you are eligible to register for the 2002 TopCoder Invitational tournament.  Even if your rating is below the current cut-off, registering for the event now will ensure that you are on the stand-by list in the event that not all of the invited members accept their invitations.<BR/><BR/>
+          <A HREF="/TourneyReg?&amp;cd=4320&amp;rd=4320" CLASS="bodyText">Click here to register for the 2002 TopCoder Invitational</A>
         </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
-          You are currently registered for the TopCoder Invitational.
+          You are currently registered for the 2002 TopCoder Invitational.
       </xsl:otherwise>
       </xsl:choose>
     </TD>
