@@ -404,3 +404,15 @@ WHERE u.status = 'A'
 AND handle not like '%guest%'
 ORDER BY 1
 "
+
+java com.topcoder.utilities.QueryLoader "OLTP" 74 "Sponsor_Image" 0 0 "
+SELECT p.path || i.file_name AS file_path
+  FROM image i,
+       path p,
+       company_image_xref cix
+ WHERE i.image_type_id = @it@
+   AND cix.company_id = @cm@
+   AND i.path_id = p.path_id
+   AND cix.image_id = i.image_id
+   AND cix.status = 1
+"
