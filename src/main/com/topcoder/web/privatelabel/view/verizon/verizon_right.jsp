@@ -5,7 +5,7 @@
                     <td valign="top" width="138">
                         <table border="0" cellspacing="0" cellpadding="0" bgcolor="#DD0000">
                             <tr>
-                                <td class="tableHead" width="138" height="21"><img alt="" src="/images/spacer.gif" height="1" width="10">Important Dates</td>
+                                <td class="tableHead" width="138" height="21"><img alt="" src="/images/spacer.gif" height="1" width="10">Schedule</td>
                             </tr>
                         </table>
 
@@ -13,8 +13,12 @@
 
                         <table border="0" cellspacing="5" cellpadding="0" width="138" class="formFrame">
                             <tr><td class="subBodyCopy">Registraton Starts<br/><strong>October 27th</strong><br/><strong>7:00 AM - IST</strong></td></tr>
+                            
+                            <tr><td class="subBodyCopy">Registraton Ends<br/><strong>October 30th</strong><br/><strong>10:00 PM - IST</strong></td></tr>
 
                             <tr><td class="subBodyCopy">Round #1 - Online<br/><strong>October 31st</strong><br/><strong>7:00 PM - IST</strong></td></tr>
+                            
+                            <tr><td class="subBodyCopy">Round #2 - Online<br/><strong>November 3rd</strong><br/><strong>7:00 PM - IST</strong></td></tr>
 
                             <tr><td class="subBodyCopy">Championship Round<br/><span class="smallText">Live at the Verizon Chennai Facility</span><br/><strong>November 7th</strong><br/><strong>6:00 PM - IST</strong></td></tr>
                         </table>
