@@ -70,31 +70,24 @@
 
                            <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
 
-                           <P>
-                           <B>Positions currently available</B>
-                           </P>
+<p><B>Software Engineering</B><br/>
 
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_soft_eng&amp;a=secure" CLASS="bodyText">Software Engineering</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_java&amp;a=secure" CLASS="bodyText">Java</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_eng_tools&amp;a=secure" CLASS="bodyText">Engineering Tools</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_verification&amp;a=secure" CLASS="bodyText">Verification</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_windows&amp;a=secure" CLASS="bodyText">Windows</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_linux&amp;a=secure" CLASS="bodyText">Linux Kernel</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_front_end&amp;a=secure" CLASS="bodyText">Front End Focus</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_soft_eng_1&amp;a=secure" CLASS="bodyText">Software Engineer #1</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_soft_eng_2&amp;a=secure" CLASS="bodyText">Software Engineer #2</A></B></TD>
-  </TR>
-</TABLE> 
+Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
+
+<p>Google is growing! We need world-class engineers to develop the next generation search engine. Our engineering team is working on problems 
+in a number of areas, including cutting-edge information retrieval algorithms, scalability issues related to dealing with huge amounts of data and 
+a rapidly increasing user population, and a variety of novel search features. If you have a need to bring order to a chaotic web, contact us.</p>
+
+<p><B>Requirements</B></p>
+<ul>
+<li>BS or MS in Computer Science or equivalent (PhD a plus)</li>
+<li>Several years of software development experience</li>
+<li>Enthusiasm for solving interesting problems</li>
+<li>Experience with Unix/Linux or Windows environments, C++ development, distributed systems, machine learning, information retrieval, network programming and/or developing large software systems a plus</li>
+</ul>
+	
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=138&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=cryptic_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+
                            
 
                         </TD>
