@@ -124,7 +124,7 @@ log.debug("getting handleinput "+handleInput);
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
-
+log.debug("ROW = "+rRow.toString());
         String actualPassword = TCData.getTCString(rRow, "password");
         if (actualPassword == null) {
             throw new Exception("Unable to read user data from DB in handleLogin");
