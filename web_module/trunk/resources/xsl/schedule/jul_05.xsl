@@ -107,7 +107,7 @@
                                     Register: 8:00&#160;AM<br />
                                     Compete: 11:00&#160;AM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=6519&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=7225&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
                             </tr>
@@ -121,7 +121,7 @@
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=6519&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=7226&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">13</td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
@@ -141,7 +141,7 @@
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=6519&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=7227&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
                             
                             <tr> 
@@ -155,7 +155,7 @@
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=6519&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=7228&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">29</td>
                                 <td id="calendar">30</td>
                             </tr>
