@@ -30,19 +30,19 @@
             <h3>No purchase necessary to enter or win. Void where prohibited.</h3>
 
             <p><span class="dc_subTitle">Summary of the Tournament</span><br/>
-            The DoubleClick&#153; 2004 Coding Challenge ("DCCC") is being offered by DoubleClick Inc. ("DoubleClick") and TopCoder, Inc. ("TopCoder").  The DCCC will take place between Monday, February 9 and Friday, February 27, 2004.  It begins with a one-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the subsequent two rounds of the programming tournament.  The entire tournament consists of a Qualification Round, one (1) main competition round, and one (1) onsite final round.  All participants who compete in the main competition round will receive a DoubleClick 2004 Coding Challenge T-shirt.  In addition, DoubleClick will award $10,000 in cash prizes to the 10 finalists in the tournament.</p>
+            The DoubleClick&#153; 2004 Coding Challenge ("DCCC") is being offered by DoubleClick Inc. ("DoubleClick") and TopCoder, Inc. ("TopCoder").  The DCCC will take place between Monday, February 2 and Friday, February 27, 2004.  It begins with a two-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the subsequent two rounds of the programming tournament.  The entire tournament consists of a Qualification Round, one (1) main competition round, and one (1) onsite final round.  All participants who compete in the main competition round will receive a DoubleClick 2004 Coding Challenge T-shirt.  In addition, DoubleClick will award $10,000 in cash prizes to the 10 finalists in the tournament.</p>
 
             <a name="eligibility"></a>
             <p><span class="dc_subTitle">Eligibility</span><br/>
             Students meeting the following criteria are eligible to compete in the DoubleClick 2004 Coding Challenge:</p>
 
             <ul>
-            <li>Must be at least 18 years of age (as of February 9, 2004)</li>
+            <li>Must be at least 18 years of age (as of February 2, 2004)</li>
             <li>Must be matriculated full-time at either Columbia University (2960 Broadway, New York, NY 10027) or New York University (22 Washington Square North, New York, NY 10011)</li>
             </ul>
 
             <p><span class="dc_subTitle">Registration</span><br/>
-            Registration will open on Monday, February 9 at 9:00AM ET and will close on Sunday, February 15 at 12:00PM ET.  Individuals can only register once.</p>
+            Registration will open on Monday, February 2 at 12:00PM ET and will close on Sunday, February 15 at 12:00PM ET.  Individuals can only register once.</p>
 
             <p><span class="dc_subTitle">Competition Advancement</span><br/>
             At the end of Round 1 (Qualification), all participants with positive (i.e., greater than zero) scores will be eligible to compete in Round 2 (Main Competition).  All participants competing in the main competition round will be randomly assigned to specific virtual rooms, with up to 10 people in each room.  TopCoder will determine all room assignments prior to the start of the main competition round. The top 10 scorers from across all virtual rooms in Round 2 will advance to Round 3 (Final), which will be held onsite at DoubleClick's headquarters in New York, NY, USA.</p>
@@ -69,7 +69,7 @@
             All participants in Round 2 must log in to the Competition Arena no later than ten minutes prior to the start of the online round.  If a participant does not participate, for any reason, in the online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. </p>
 
             <p><span class="dc_subTitle">Scoring and Advancing</span><br/>
-            After the results of Round 2 are compiled, the top 10 scorers from across all virtual rooms will be identified and will advance to Round 3, the Final Round.  Each participant must have positive points to advance, so if there are less than 10 participants who score positive points, only those competitors with a positive point total will advance.  Participant advancement is determined by comparing the total point values from all three phases of the round (see <a href="#structure">Structure of Rounds 2 and 3</a>) for each participant.</p>
+            After the results of Round 2 are compiled, the top 10 scorers from across all virtual rooms will be identified and will advance to Round 3, the final round.  Each participant must have positive points to advance, so if there are less than 10 participants who score positive points, only those competitors with a positive point total will advance.  Participant advancement is determined by comparing the total point values from all three phases of the round (see <a href="#structure">Structure of Rounds 2 and 3</a>) for each participant.</p>
 
             <p>NOTE:  In the event of a tie for an advancing position from Round 2 to Round 3, the tie will be resolved in the following manner:</p>
 
@@ -83,19 +83,19 @@
             Rounds 2 and 3 consist of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. Round 1, the Qualification Round, will consist only of the Coding Phase and System Testing Phase.  (See <a href="#qualification">Qualification Round</a> for details.)</p>
 
             <ul>
-            <li>The <b>Coding Phase</b> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles, and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.</li>
+            <li>The <b>Coding Phase</b> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earning potential. Points for a question are awarded upon submission of any solution that successfully compiles, and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.</li>
             <li>The <b>Challenge Phase</b> is a timed event wherein each competitor has a chance to challenge the functionality of other participants' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 50 points as a penalty, applied against their total score in that round of competition. </li>
             <li>The <b>System Testing Phase</b> is a series of automated tests applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a participant's submission does not match the expected output, the submission is considered flawed. All successful challenges from the Challenge Phase will be added to the global set of test cases that are used in the System Testing Phase to test all submitted code.</li>
             </ul>
 
-            <p><span class="dc_subTitle">Onsite Final Round</span><br/>
-            The 10 advancers from Round 2 will travel, at their own expense, to DoubleClick's headquarters to compete in the Final Round of the tournament being held on Friday, February 27, 2004 at 1:00PM ET.  Each finalist must confirm his/her attendance in the Final Round by 5:00PM ET on Tuesday, February 24, 2004.  If a participant does not confirm his/her attendance in the Final Round by this time, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.</p>
+            <p><span class="dc_subTitle">Onsite final round</span><br/>
+            The 10 advancers from Round 2 will travel, at their own expense, to DoubleClick's headquarters to compete in the final round of the tournament being held on Friday, February 27, 2004 at 1:00PM ET.  Each finalist must confirm his/her attendance in the final round by 5:00PM ET on Tuesday, February 24, 2004.  If a participant does not confirm his/her attendance in the final round by this time, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.</p>
 
-            <p>The Final Round will consist of a single virtual room of 10 participants, all 10 of whom will win a cash prize, depending on how each places in the round.  The participant with the highest point value in the Final Round will be declared the first place winner.  In the event of a tie in the Final Round, the tie will be resolved in the following manner (in order):</p>
+            <p>The final round will consist of a single virtual room of 10 participants, all 10 of whom will win a cash prize, depending on how each places in the round.  The participant with the highest point value in the final round will be declared the first place winner.  In the event of a tie in the final round, the tie will be resolved in the following manner (in order):</p>
 
             <ul>
             <li>Total points acquired (higher is better) during Round 2</li>
-            <li>If a tie still remains in the Final Round, then the prize money will be distributed equally among the tied participants.</li>
+            <li>If a tie still remains in the final round, then the prize money will be distributed equally among the tied participants.</li>
             </ul>
 
             <a name="prizes"></a>
@@ -114,27 +114,27 @@
                 </tr>
 
                 <tr>
-                    <td width="50%" class="sidebarText">2nd place finisher* in the Final Round</td>
+                    <td width="50%" class="sidebarText">2nd place finisher* in the final round</td>
                     <td width="50%" class="sidebarText" align="right">$1,750</td>
                 </tr>
 
                 <tr>
-                    <td width="50%" class="sidebarText">3rd place finisher* in the Final Round</td>
+                    <td width="50%" class="sidebarText">3rd place finisher* in the final round</td>
                     <td width="50%" class="sidebarText" align="right">$1,000</td>
                 </tr>
 
                 <tr>
-                    <td width="50%" class="sidebarText">4th place finisher* in the Final Round</td>
+                    <td width="50%" class="sidebarText">4th place finisher* in the final round</td>
                     <td width="50%" class="sidebarText" align="right">$750</td>
                 </tr>
 
                 <tr>
-                    <td width="50%" class="sidebarText">5th place finisher* in the Final Round</td>
+                    <td width="50%" class="sidebarText">5th place finisher* in the final round</td>
                     <td width="50%" class="sidebarText" align="right">$500</td>
                 </tr>
 
                 <tr>
-                    <td width="50%" class="sidebarText">Remaining 5 finalists not finishing with one of the top 5 scores* in the Final Round</td>
+                    <td width="50%" class="sidebarText">Remaining 5 finalists not finishing with one of the top 5 scores* in the final round</td>
                     <td width="50%" class="sidebarText" align="right">$200 each</td>
                 </tr>
 
@@ -144,7 +144,7 @@
                 </tr>
 
                 <tr>
-                    <td colspan="2" class="sidebarText">* Cash prize winners must be present at the Final Round to receive prize. </td>
+                    <td colspan="2" class="sidebarText">* Cash prize winners must be present at the final round to receive prize. </td>
                 </tr>
             </table>
 
@@ -160,9 +160,9 @@
 
             <p>As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. DoubleClick and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by DoubleClick and TopCoder.</p>
 
-            <p>Prizewinners will be announced upon completion of the Final Round.  Any prizewinner claiming a cash prize must complete the appropriate legal documents onsite before claiming the prize (DoubleClick will provide the prizewinners with these documents prior to the start of the Final Round).</p>
+            <p>Prizewinners will be announced upon completion of the final round.  Any prizewinner claiming a cash prize must complete the appropriate legal documents onsite before claiming the prize (DoubleClick will provide the prizewinners with these documents prior to the start of the final round).</p>
 
-            <p>All prizes will be sent to winners within two weeks after the conclusion of the Final Round as long as the necessary legal documents have been received.  All T-shirts will be sent to participants within six weeks after the conclusion of the Final Round using the address given during registration.  Unclaimed or undeliverable prizes will not be awarded.</p>
+            <p>All prizes will be sent to winners within two weeks after the conclusion of the final round as long as the necessary legal documents have been received.  All T-shirts will be sent to participants within six weeks after the conclusion of the final round using the address given during registration.  Unclaimed or undeliverable prizes will not be awarded.</p>
 
             <p><span class="dc_subTitle">Legal Documents</span><br/>
             As a condition of winning and redeeming a cash prize, winners will be required to complete and provide to DoubleClick a completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9 or W-8BEN, as appropriate.  In completing the Affidavit, a winner (a) confirms his/her eligibility, (b) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (c) verifies the accuracy of the information submitted in the DoubleClick 2004 Coding Challenge registration process, (d) authorizes TopCoder and DoubleClick to publicize the tournament's results, (e) agrees to sign any applicable forms required by tax authorities, (f) licenses to TopCoder and DoubleClick rights to all information submitted during the tournament (including rights to source code and other executables), and (g) releases TopCoder and DoubleClick from liability arising out of any prize won. DoubleClick requires contestants to complete Form W-9 or W-8BEN, as applicable, for tax reporting purposes.</p>

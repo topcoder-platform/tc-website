@@ -30,17 +30,17 @@
             <tr>
                <td class="sidebarTitle" size="33%">Event</td>
                <td class="sidebarTitle" size="33%">Date</td>
-               <td class="sidebarTitle" size="33%">Time - ET</td>
+               <td class="sidebarTitle" size="33%">Time (ET)</td>
             </tr>
             <tr>
                <td class="sidebarText">Registration Opens</td>
-               <td class="sidebarText">Monday, February 9</td>
-               <td class="sidebarText">9:00AM</td>
+               <td class="sidebarText">Monday, February 2</td>
+               <td class="sidebarText">12:00PM (noon)</td>
             </tr>
             <tr>
                <td class="sidebarText">Registration Closes</td>
                <td class="sidebarText">Sunday, February 15</td>
-               <td class="sidebarText">12:00PM(noon)</td>
+               <td class="sidebarText">12:00PM (noon)</td>
             </tr>
             <tr>
                <td class="sidebarText">Qualification Session #1 - unlimited participation</td>

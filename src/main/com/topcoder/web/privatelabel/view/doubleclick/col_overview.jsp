@@ -61,7 +61,7 @@
          </ul>
 
          <p><span class="dc_subTitle">Ready to prove you're one of the best in NYC?</span></br>
-         Registration for the DoubleClick 2004 Coding Challenge opens on February 9th and closes on February 15th.  Registration is unlimited.  All competitors with positive points in the Qualification Round will be eligible to participate in the Main Competition Round.</p>
+         Registration for the DoubleClick 2004 Coding Challenge opens on February 2th and closes on February 15th.  All competitors with positive points in the Qualification Round will be eligible to participate in the Main Competition Round.</p>
 
          <p>The top 10 scorers from the Main Competition Round will be invited to compete for cash prizes in the Final Round being held at DoubleClick's headquarters on February 27th.</p>
 

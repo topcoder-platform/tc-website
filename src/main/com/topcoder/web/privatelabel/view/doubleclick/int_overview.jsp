@@ -56,7 +56,7 @@
          </ul>
 
          <p><span class="dc_subTitle">Ready to prove you're one of DoubleClick's best?</span><br/>
-         Registration for the DoubleClick 2004 Coding Challenge opens on February 9th and closes on February 15th.  Registration is unlimited.  All employees who register will be eligible to compete in the Main Competition Round.</p>
+         Registration for the DoubleClick 2004 Coding Challenge opens on February 2nd and closes on February 15th.  All employees who register will be eligible to compete in the Main Competition Round.</p>
 
          <p>The top 10 scorers from the Main Competition Round will be invited to compete for great prizes in the Final Round being held online on February 27th.</p>
 
