@@ -302,11 +302,15 @@ public class WebSiteFlowXmlInfo {
 			step.val = s;						
 		} else if (type.equals("link")) {
 			// reading link
-			WsfLink link = readOneLink(el);
+			NodeList nel = el.getElementsByTagName("link");
+			Element eel = (Element)nel.item(0);
+			WsfLink link = readOneLink(eel);
 			step.val = link;			
 		} else if (type.equals("form")) {
 			// reading link
-			WsfForm form = readOneForm(el);
+			NodeList nel = el.getElementsByTagName("form");
+			Element eel = (Element)nel.item(0);
+			WsfForm form = readOneForm(eel);
 			step.val = form;			
 		} else {
 			throw new DataFormatException("Wrong step type: " + type);
