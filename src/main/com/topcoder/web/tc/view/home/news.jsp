@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.30.05<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/index.jsp">"Top 10 Most Downloaded Components" added to TCS homepage</A></span><br><br>
+      Find out what components are being downloaded the most.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://software.topcoder.com/index.jsp">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.30.05<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">TCCC05 <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals">Development</A> Finals details available.</span><br><br>
       This includes submissions, scores, reviews, and tests.
@@ -235,18 +247,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room3_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.10.05<br>6:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room2_analysis">ploh wins Room 2</A></span><br><br>
-      ploh's submissions all survived, and he beat second place John Dethridge by a wide margin.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_room2_analysis">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
