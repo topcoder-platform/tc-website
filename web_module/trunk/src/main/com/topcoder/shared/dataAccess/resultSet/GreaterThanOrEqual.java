@@ -40,6 +40,8 @@ public class GreaterThanOrEqual implements ResultFilter {
         }
         Number other = (Number)item.getResultData();
 
+        log.debug("row: " + rsr);
+        log.debug("item: " + item);
         log.debug("compare " + other + " with " + n);
 
         return ((Comparable)other).compareTo(n)>=0;
