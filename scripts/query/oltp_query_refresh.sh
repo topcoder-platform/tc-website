@@ -962,6 +962,8 @@ SELECT c.coder_id
             AND dr1.demographic_answer_id = da1.demographic_answer_id
             AND dr1.demographic_question_id = da1.demographic_question_id) AS grad_year
      ,u.handle
+     , (CASE WHEN c.coder_type_id = 1 THEN cs.gpa || '/' || cs.gpa_scale
+             ELSE 'N/A' END) as gpa
   FROM country cy
      , user u
      , coder_type ct
