@@ -150,8 +150,8 @@ public class SimpleSearch extends Base {
         QueryRequest r = new QueryRequest();
         r.addQuery("member_search", searchQuery.toString());
         r.addQuery("count", countQuery.toString());
-        r.setProperty(DataAccessConstants.START_RANK, m.getStart().toString());
-        r.setProperty(DataAccessConstants.END_RANK, m.getEnd().toString());
+        r.setProperty("member_search"+DataAccessConstants.START_RANK, m.getStart().toString());
+        r.setProperty("member_search"+DataAccessConstants.END_RANK, m.getEnd().toString());
 
 
         QueryDataAccess cda = new QueryDataAccess(DBMS.DW_DATASOURCE_NAME);
