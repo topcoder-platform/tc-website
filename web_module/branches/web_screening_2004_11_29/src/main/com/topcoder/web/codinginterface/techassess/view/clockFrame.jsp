@@ -93,6 +93,7 @@
         }
 
         function updateDivOrSpan(root, name, text) {
+            alert(name);
             if(root.getElementById) {
                 root.getElementById(name).innerHTML = text;
             } else {
