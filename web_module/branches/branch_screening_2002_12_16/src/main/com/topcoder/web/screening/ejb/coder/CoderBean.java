@@ -13,7 +13,7 @@ import java.sql.*;
 
 /**
  *
- * @author Fred Wang (fred@fredwang.com)
+ * @author Fred Wang (silentmobius)
  * @version $Revision$
  * Jan 9, 2003 12:48:54 AM
  */
