@@ -31,7 +31,6 @@ public class TCESConstants {
 
     public static String TASK_PARAM = "task";
     public static String STEP_PARAM = null;
-    public static String JOB_ID_PARAM = null;
     public static String USER_ID_PARAM = null;
     public static String HANDLE_PARAM = null;
     public static String PASSWORD_PARAM = null;
@@ -53,7 +52,6 @@ public class TCESConstants {
     public static String MEM_INFO_DEGREE_KEY = "degree";
     public static String MEM_INFO_MAJOR_KEY = "major";
     public static String MEM_INFO_GRADDATE_KEY = "graddate";
-    public static String MEM_INFO_DEGREE_KEY = "degree";
     public static String MEM_RATING_CURRENT_KEY = "current";
     public static String MEM_RATING_HIGH_KEY = "high";
     public static String MEM_RATING_LOW_KEY = "low";
