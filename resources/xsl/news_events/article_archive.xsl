@@ -65,9 +65,11 @@
 
                             <tr><td class="newsText"><A href="http://www.devx.com/Java/Article/12009" target="_blank">International Collegiate Programming Champion talks shop</A> [April 23 - DevX]</td></tr>
 
+                            <tr><td class="newsText"><A href="http://developer.java.sun.com/developer/technicalArticles/Programming/TopCoder/" target="_blank">TopCoders Vie For College Crown</A> [April 17 - java.sun.com]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.princeton.edu/~seasweb/eqnews/spring03/feature8.html" target="_blank">Newlyweds earn nest egg</A> [April 13 - Princeton EQuad News]</td></tr>
 
-                            <tr><td class="newsText"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=smart010&amp;date=20030201&amp;query=PLU+Grad" target="_blank">Ex-slacker, PLU Grad is world's smartest guy </A> [February 2 - Seattle Times]</td></tr>
+                            <tr><td class="newsText"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?slug=smart010&amp;date=20030201&amp;query=PLU+Grad" target="_blank">Ex-slacker, PLU Grad is world's smartest guy</A> [February 2 - Seattle Times]</td></tr>
 
                             <tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
         
@@ -117,7 +119,7 @@
      
                             <tr><td class="newsText"><A href="/index?t=news_events&amp;c=article_javaboutique">Sun Microsystems Launches New Way to Reach Java Community . . .</A> [December 17]</td></tr>
      
-                            <tr><td class="newsText"><A href="/index?t=news_events&amp;c=article_cnet_dec10">Students to compete in Java, C++ </A> [December 10]</td></tr>
+                            <tr><td class="newsText"><A href="/index?t=news_events&amp;c=article_cnet_dec10">Students to compete in Java, C++</A> [December 10]</td></tr>
      
                             <tr><td class="newsText"><A href="/index?t=news_events&amp;c=article_brndwk">Sun Microsystems Named Exclusive Sponsor of Computer Challenge</A> [December 10]</td></tr>
      
