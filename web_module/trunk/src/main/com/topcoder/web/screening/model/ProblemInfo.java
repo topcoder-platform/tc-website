@@ -48,7 +48,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>roundId</code>.
      *
-     * @param roundId
+     * @param val
      */
     public void setRoundId( Long val )
     {
@@ -68,7 +68,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>problemId</code>.
      *
-     * @param problemId
+     * @param val
      */
     public void setProblemId( Long val )
     {
@@ -89,7 +89,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>problemName</code>.
      *
-     * @param problemName
+     * @param val
      */
     public void setProblemName( String val )
     {
@@ -109,7 +109,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>divisionDesc</code>.
      *
-     * @param divisionDesc
+     * @param val
      */
     public void setDivisionDesc( String val )
     {
@@ -129,7 +129,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>difficultyDesc</code>.
      *
-     * @param difficultyDesc
+     * @param val
      */
     public void setDifficultyDesc( String val )
     {
@@ -149,7 +149,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>categoryDesc</code>.
      *
-     * @param categoryDesc
+     * @param val
      */
     public void setCategoryDesc( String val )
     {
@@ -169,7 +169,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>problemStatement</code>.
      *
-     * @param problemStatement
+     * @param val
      */
     public void setProblemStatement( String val )
     {
@@ -189,7 +189,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>submissionAccuracy</code>.
      *
-     * @param submissionAccuracy
+     * @param val
      */
     public void setSubmissionAccuracy( String val )
     {
@@ -209,7 +209,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>submission</code>.
      *
-     * @param submission
+     * @param val
      */
     public void setSubmission( String val )
     {
@@ -229,7 +229,7 @@ public class ProblemInfo extends BaseModel {
     /**
      * Sets the value of <code>overallAccuracy</code>.
      *
-     * @param overallAccuracy
+     * @param val
      */
     public void setOverallAccuracy( String val )
     {
