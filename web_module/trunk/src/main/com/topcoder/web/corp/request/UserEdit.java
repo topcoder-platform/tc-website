@@ -245,7 +245,7 @@ public class UserEdit extends BaseProcessor {
             }
 
             // user is logged in
-            if (!secTok.loggedAsPrimary) { // primary user can create
+            if (!secTok.isAccountAdmin) { // primary user can create
                 // other are still able to edit themself
                 log.debug("switched to edit mode");
                 targetUserID = secTok.loggedUserID;
@@ -257,7 +257,7 @@ public class UserEdit extends BaseProcessor {
         if (!secTok.createNew) { // edit mode
             // modifications is allowed if primary edits own group members
             // or regular user edits self
-            if (secTok.loggedAsPrimary) {
+            if (secTok.isAccountAdmin) {
                 // check if user belongs same company
                 if (secTok.targetUserCompanyID != secTok.loggedUserCompanyID) {
                     throw new NotAuthorizedException(
@@ -422,7 +422,7 @@ public class UserEdit extends BaseProcessor {
 
             try {
                 success = false;
-                UserPrincipal user = mgr.getUser(userName);
+                mgr.getUser(userName);
                 markFormFieldAsInvalid(
                         KEY_LOGIN, "Please enter another user name."
                 );
@@ -670,7 +670,7 @@ public class UserEdit extends BaseProcessor {
     protected class SecurityInfo {
         private Contact contactTable;
 
-        boolean loggedAsPrimary = false;
+        boolean isAccountAdmin = false;
         TCSubject requestor = null;
         long primaryUserID = -1;
         long loggedUserID = -1;
@@ -710,11 +710,11 @@ public class UserEdit extends BaseProcessor {
                         (CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)
                         ).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
-                if (loggedUserID == primaryUserID) {
-                    loggedAsPrimary = true;
+                if (secTok.man.getRoles(secTok.requestor).contains(Constants.CORP_ADMIN_ROLE)) {
+                    isAccountAdmin = true;
                     primaryUserCompanyID = loggedUserCompanyID;
                 } else {
-                    loggedAsPrimary = false;
+                    isAccountAdmin = false;
                     primaryUserCompanyID = contactTable.getCompanyId(primaryUserID);
                 }
                 renewTargetUser();

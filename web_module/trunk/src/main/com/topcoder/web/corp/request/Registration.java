@@ -142,7 +142,7 @@ public final class Registration extends UserEdit {
      */
     private boolean isExtFieldsEditable() {
         return
-                (secTok.loggedAsPrimary && !secTok.createNew) ||
+                (secTok.isAccountAdmin && !secTok.createNew) ||
                 (secTok.loggedUserID < 0 && secTok.createNew);
     }
 
@@ -239,7 +239,7 @@ public final class Registration extends UserEdit {
                 );
             }
             // well, user is logged in
-            if (secTok.loggedAsPrimary) {
+            if (secTok.isAccountAdmin) {
                 if (secTok.loggedUserCompanyID != secTok.targetUserCompanyID) {
                     throw new NotAuthorizedException(
                             "You are not allowed edit foreign users"
@@ -345,7 +345,7 @@ public final class Registration extends UserEdit {
             companyID = contactTable.getCompanyId(targetUserID);
         }
         contactTable.setTitle(targetUserID, title);
-        if (secTok.loggedAsPrimary || secTok.loggedUserID < 0) {
+        if (secTok.isAccountAdmin || secTok.loggedUserID < 0) {
             companyTable.setName(companyID, company);
         } else {
             return;
