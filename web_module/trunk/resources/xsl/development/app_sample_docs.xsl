@@ -118,7 +118,8 @@
                                         the deliverables required of a complete submission and the responsibilities of a winning
                                         designer.  The Application Design Review Board will not review submissions that do not meet
                                         the screening requirements.
-
+                                        <br/>
+                                        <br/>
                                         The Application Design Specification is to be completed by the Designers as part of
                                         their submission for the design project.
                                     </td>
@@ -189,10 +190,12 @@
                                         the deliverables required of a complete submission and the responsibilities of a winning
                                         developer.  The Application Development Review Board will not review submissions that do not meet
                                         the screening requirements.
-
+                                        <br/>
+                                        <br/>
                                         The Application Development Specification document is to be completed by the Developers as part of
                                         their submission for the design project.
-
+                                        <br/>
+                                        <br/>
                                         The Application Development Scope document is to be completed by the Developers as part of
                                         their submission for the design project.
                                     </td>
