@@ -376,10 +376,10 @@
             int k=0;
             while(it.hasNext()) {
               k++;
-              if (k%2==1)
+              if (k%2==1) {
 %>          <TR bgcolor="#ccffcc">
 <%
-              else
+              } else {
 %>          <TR>
 
 <%
@@ -397,7 +397,7 @@
               }
 %>
             </TR>
-<%
+<%           }
             }
 %>
 
