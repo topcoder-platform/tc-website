@@ -45,8 +45,28 @@
                 </tr>
             </table>
 <!-- Special Message ends -->
-        
-            <img src="/i/clear.gif" alt="" width="1" height="6" border="0" /><br />
+
+            <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
+
+<!-- Catalog Intro begins -->
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr><td colspan="3" height="60"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_title.gif" alt="Introducing the TopCoder Software Component Catalog" width="556" height="60" border="0" /></A></td></tr>
+                <tr>
+                    <td width="220" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp#personal" target="_top"><img src="/i/promos/catalog_intro_personal.gif" alt="Personal" width="220" height="90" border="0" /></A></td>
+                    <td width="126" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_icon.gif" alt="" width="126" height="90" border="0" /></A></td>
+                    <td width="210" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp#professional" target="_top"><img src="/i/promos/catalog_intro_professional.gif" alt="Professional" width="210" height="90" border="0" /></A></td>
+                </tr>
+                <tr><td colspan="3" height="20"><img src="/i/promos/catalog_intro_nav.gif" alt="" width="556" height="20" border="0" usemap="#catalog_intro_map" /></td></tr>
+            </table>
+
+<map name="catalog_intro_map">
+    <area shape="rect" alt="Buy now" coords="334,0,396,18" href="http://software.topcoder.com/pages/s_subscriptions.jsp" target="_top" />
+    <area shape="rect" alt="Browse catalog" coords="235,0,333,18" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_top" />
+    <area shape="rect" alt="Learn more" coords="158,0,234,18" href="http://software.topcoder.com/pages/s_learn.jsp" target="_top" />
+</map>
+<!-- Catalog Intro ends -->
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
 <!-- My Stats Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%">

@@ -32,7 +32,6 @@
             <xsl:call-template name="global_left"/><br />
 <!-- Do Not Delete This Line --><font size="1" color="#000000" face="tahoma">HiddenWord</font>
         </td>
-
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -52,14 +51,34 @@
                 </tr>
             </table>
 <!-- Special Message ends -->
-        
-            <img src="/i/clear.gif" alt="" width="1" height="6" border="0" /><br />
+
+            <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
+
+<!-- Catalog Intro begins -->
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr><td colspan="3" height="60"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_title.gif" alt="Introducing the TopCoder Software Component Catalog" width="556" height="60" border="0" /></A></td></tr>
+                <tr>
+                    <td width="220" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp#personal" target="_top"><img src="/i/promos/catalog_intro_personal.gif" alt="Personal" width="220" height="90" border="0" /></A></td>
+                    <td width="126" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_icon.gif" alt="" width="126" height="90" border="0" /></A></td>
+                    <td width="210" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp#professional" target="_top"><img src="/i/promos/catalog_intro_professional.gif" alt="Professional" width="210" height="90" border="0" /></A></td>
+                </tr>
+                <tr><td colspan="3" height="20"><img src="/i/promos/catalog_intro_nav.gif" alt="" width="556" height="20" border="0" usemap="#catalog_intro_map" /></td></tr>
+            </table>
+
+<map name="catalog_intro_map">
+    <area shape="rect" alt="Buy now" coords="334,0,396,18" href="http://software.topcoder.com/pages/s_subscriptions.jsp" target="_top" />
+    <area shape="rect" alt="Browse catalog" coords="235,0,333,18" href="http://software.topcoder.com/pages/c_showroom.jsp" target="_top" />
+    <area shape="rect" alt="Learn more" coords="158,0,234,18" href="http://software.topcoder.com/pages/s_learn.jsp" target="_top" />
+</map>
+<!-- Catalog Intro ends -->
+
+            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
 <!-- Summary/Best/Worst Begins  -->
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 142</font></td>
-                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><A HREF="/stat?&amp;c=last_match" class="bodyText"><strong>View Summary</strong></A></td>
+                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/stat?&amp;c=last_match" class="bodyText"><strong>View Summary</strong></a></td>
                 </tr>
             </table>
 
@@ -95,7 +114,7 @@
                         <td width="20%" class="statTextBig" nowrap="nowrap">&#160;&#160;&#160;<xsl:value-of select="division"/></td>
                         <td width="10%" class="statText">&#160;&#160;<xsl:value-of select="change_type"/>:</td>
                         <td width="35%" class="statText" nowrap="nowrap">
-                            <A>
+                            <a>
                             <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                             <xsl:attribute name="CLASS">
                                 <xsl:call-template name="GetRatingClass">
@@ -105,7 +124,7 @@
                                 </xsl:call-template>
                             </xsl:attribute>
                             <xsl:value-of select="handle"/>
-                            </A>
+                            </a>
                         </td>
                         <td width="15%" class="statText" align="center"><xsl:value-of select="change"/></td>
                         <td width="20%" class="statText" nowrap="nowrap"><xsl:value-of select="room_name"/></td>
