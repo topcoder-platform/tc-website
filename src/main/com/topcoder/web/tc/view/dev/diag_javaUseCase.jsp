@@ -14,7 +14,11 @@
 <table align=left cellpadding=0 cellspacing=10 class=bodyText>
 	<tr>
 		<td colspan=2>
-		<p class=bodyText>All coordinates are 1-based, with (1, 1) being on the top left of the palette. <br/>Coordinates are specified as (row, column)</p>
+		<p class=bodyText>
+		The following is the standard color scheme found in this diagram.  The coordinates, given in<br/>
+		(row, column) format, refer to the standard Poseidon color palette grid.  All coordinates are<br/>
+		1-based. For example, (1,1) refers to the color selection in the upper left corner of the palette.
+		</p>
 		</td>
 	</tr>
 	</tr>
