@@ -56,7 +56,6 @@ public class TCESConstants {
     public static String MEMBER_ID_PARAM = "mid";
     public static String ROUND_ID_PARAM = "rd";
     public static String PROBLEM_ID_PARAM = "pm";
-    public static String JOB_HIT_TYPE_PARAM = null;
 
     public static String MSG_ATTR_KEY = null;
     public static String COMPANY_NAME_ATTR_KEY = "CompanyName";
@@ -102,13 +101,8 @@ public class TCESConstants {
                                                              "Avg Points Overall",
                                                              "Avg Time to Submit" };
 
-    public static String JOB_HIT_PREFIX = null;
-
     public static int PRO_CODER_TYPE  = 2;
     public static int STUDENT_CODER_TYPE = 1;
-
-    public static int CLICK_THRU_ID = -1;
-    public static int JOB_POSTING_ID = -1;
 
     public static DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
     public static NumberFormat NUMBER_FORMAT = new DecimalFormat("####0.00");
@@ -125,11 +119,6 @@ public class TCESConstants {
 
         MSG_ATTR_KEY = servletConfig.getInitParameter("msg_attr_key");
 
-        JOB_HIT_TYPE_PARAM = servletConfig.getInitParameter("job_hit_type_param");
-        JOB_HIT_PREFIX= servletConfig.getInitParameter("job_hit_prefix");
-
-        CLICK_THRU_ID = getIntParameter(servletConfig, "click_thru_id");
-        JOB_POSTING_ID = getIntParameter(servletConfig, "job_posting_id");
     }
 
     private static int getIntParameter(ServletConfig servletConfig, String key)
