@@ -145,11 +145,11 @@
 			<tr>
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText><br/>
-				<b>10/04</b> - SRM 218<br/><br/>
-				<b>10/11</b> - TCO04 Semifinals<br/><br/>
-				<b>10/12</b> - TCO04 Finals<br/><br/>
-				<b>10/20</b> - SRM 219<br/><br/>
-				<b>10/23</b> - SRM 220
+				<b>11/04</b> - SRM 218<br/><br/>
+				<b>11/11</b> - TCO04 Semifinals<br/><br/>
+				<b>11/12</b> - TCO04 Finals<br/><br/>
+				<b>11/20</b> - SRM 219<br/><br/>
+				<b>11/23</b> - SRM 220
 				</td>
 			</tr>
 			<tr>
