@@ -162,7 +162,8 @@ public class TransactionServlet extends HttpServlet {
         if( OP_TX_STATUS.equals(op) ) {
             try {
                 String retPage = txStatus(req, resp);
-                req.getRequestDispatcher(retPage).forward(req, resp);
+//                req.getRequestDispatcher(retPage).forward(req, resp);
+                resp.sendRedirect(retPage);
             }
             catch(Exception e) {
                 e.printStackTrace();
