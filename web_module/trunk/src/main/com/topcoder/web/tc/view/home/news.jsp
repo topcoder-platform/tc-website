@@ -7,6 +7,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.07.05<br>1:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm237_prob">SRM 237 - Problem Set & Analysis</A></span><br><br>
+      With the fastest time on the hard problem, <b>Eryx</b> finished first in division 1 by well over 100 points and moved up to number 3 in the overall ranking.</td>
+      <td class="newsPhoto"><img src="/i/m/legakis_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=287269">legakis</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm237_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.05.05<br>4:05 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/040105.pdf" target="_blank">University computer whiz wins big at tech tourney</A></span><br><br>
       A piece on the TCCC05 Component Development Competition Champion, Gary Linscott, aka gladius." [Barrhaven Independent]
@@ -242,18 +257,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/?&t=news_events&c=pr_03_14_05a">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.14.05<br>12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_03_14_05b">LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A></span><br><br>
-      "As developers turn to SOA, reusable components are becoming the building blocks of applications because of their ability to reduce costs, streamline projects and improve productivity."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_03_14_05b">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
