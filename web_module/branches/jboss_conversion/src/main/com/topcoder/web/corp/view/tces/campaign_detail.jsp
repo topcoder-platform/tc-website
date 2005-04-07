@@ -30,7 +30,7 @@
 </jsp:include>
 <!-- Top ends -->
 
-<table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
+<table width="100%" border=0 cellpadding=0 cellspacing=0 align=center>
 	<TR valign="top">
 		<td width="50%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
@@ -63,7 +63,7 @@
                 </tr>
 
                 <% int i=0; %>
-                    <tces:mapIterator id="position" mapList="<%=(List)CampaignDetailTask.getPositionList()%>">
+                    <tces:mapIterator id="position" mapList="<%=CampaignDetailTask.getPositionList()%>">
                 <% i++; %>
 
                 <tr>

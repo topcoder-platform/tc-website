@@ -69,7 +69,7 @@
                             </TR>
 
                             <% boolean odd = true; %>
-                            <tces:mapIterator id="responseRow" MapList="<%=StudentResponseList%>">
+                            <tces:mapIterator id="responseRow" mapList="<%=StudentResponseList%>">
                                 <TR>
                                   <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="50%">
                                     <%=(String)responseRow.get("title")%>
@@ -98,7 +98,7 @@
 
 
                         <% boolean odd = true;; %>
-                        <tces:mapIterator id="resp" MapList="<%=StudentResponsesList%>">
+                        <tces:mapIterator id="resp" mapList="<%=StudentResponsesList%>">
                             <TR>
                               <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="50%">
                                 <%=(String)resp.get("title")%>
@@ -151,7 +151,7 @@
                             </TR>
 
                             <% boolean odd = true;%>
-                            <tces:mapIterator id="responseRow" MapList="<%=ProResponseList%>">
+                            <tces:mapIterator id="responseRow" mapList="<%=ProResponseList%>">
                                 <TR>
                                   <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="50%">
                                     <%=(String)responseRow.get("title")%>
@@ -180,7 +180,7 @@
                         </TR>
 
                         <% boolean odd = true; %>
-                        <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
+                        <tces:mapIterator id="resp" mapList="<%=ProResponsesList%>">
                             <TR>
                               <TD class="<%=odd?"screeningCellOdd":"screeningCellEven"%>" width="50%">
                                 <%=(String)resp.get("title")%>
