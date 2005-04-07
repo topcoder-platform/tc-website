@@ -20,5 +20,5 @@
             <% if (selectedTab.equals("submit")) {%>
                  Submit your design
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_accept">Submit your design</a>
+                  <a href="/tc?module=TCO05LogoTerms">Submit your design</a>
             <% } %>
