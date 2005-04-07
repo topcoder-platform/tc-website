@@ -57,7 +57,7 @@
 
             <br><br>
             <span class="bodySubtitle">Logo submission</span><br>
-            Thank you accepting the terms of the TCO05 Logo Contest. Please use the form below to attach your logo submission:
+            Thank you for accepting the terms of the TCO05 Logo Contest. Please use the form below to attach your logo submission:
             <br><br>
 			<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="logoSubmission" enctype="multipart/form-data">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO05LogoSubmit"/>
