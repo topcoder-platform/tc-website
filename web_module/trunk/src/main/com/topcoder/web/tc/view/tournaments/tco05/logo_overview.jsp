@@ -6,9 +6,9 @@
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 
 <style type="text/css">
-.pageSpacer 
-{ 
-   width: 510px; 
+.pageSpacer
+{
+   width: 510px;
 	padding: 15px 0px 10px 0px;
    text-align: left;
 }
@@ -70,7 +70,7 @@
             <A href="/Registration">Register here</A>
             <br><br>
             <b>Ready to submit your design?</b><br>
-            <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_accept">Submit now</A>
+            <A href="/tc?module=TCO05LogoTerms">Submit now</A>
          </div>
 
          <p><br/></p>

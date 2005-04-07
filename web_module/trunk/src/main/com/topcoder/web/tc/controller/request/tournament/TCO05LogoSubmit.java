@@ -6,6 +6,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.ejb.image.Image;
 import com.topcoder.web.ejb.coder.CoderImage;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
@@ -32,53 +33,65 @@ public class TCO05LogoSubmit extends Base {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new SimpleResource(this.getClass().getName()));
         } else {
-            MultipartRequest request = (MultipartRequest) getRequest();
-            UploadedFile file = request.getUploadedFile(Constants.LOGO);
-            if (file != null) {
-                log.debug("got file " + file.getFile());
-                StringBuffer fileName = new StringBuffer(100);
-                fileName.append(getUser().getId()).append("_");
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(new Date());
-                fileName.append(cal.get(Calendar.YEAR)).append("_");
-                fileName.append(cal.get(Calendar.MONTH+1)).append("_");
-                fileName.append(cal.get(Calendar.DAY_OF_MONTH)).append("_");
-                fileName.append(cal.get(Calendar.HOUR_OF_DAY)).append("_");
-                fileName.append(cal.get(Calendar.MINUTE)).append("_");
-                fileName.append(cal.get(Calendar.SECOND)).append("_");
-                fileName.append(cal.get(Calendar.MILLISECOND));
-                int idx = file.getRemoteFileName().lastIndexOf('.');
-                if (idx>=0)
-                    fileName.append(file.getRemoteFileName().substring(file.getRemoteFileName().lastIndexOf('.')));
-                log.debug("filename built is " + fileName.toString());
-                FileOutputStream fos = new FileOutputStream(IMAGE_PATH+fileName.toString());
-                log.debug("write that file to " + fileName.toString());
-                byte[] bytes = new byte[(int) file.getSize()];
-                file.getInputStream().read(bytes);
-                file.getInputStream().close();
-                fos.write(bytes);
-                fos.close();
+            //check if they agreed to terms, no back doors here buddy!
+            UserTermsOfUse ut = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
+            if (ut.hasTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME)) {
+                MultipartRequest request = (MultipartRequest) getRequest();
+                UploadedFile file = request.getUploadedFile(Constants.LOGO);
+                if (file != null) {
+                    log.debug("got file " + file.getFile());
+                    StringBuffer fileName = new StringBuffer(100);
+                    fileName.append(getUser().getId()).append("_");
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(new Date());
+                    fileName.append(cal.get(Calendar.YEAR)).append("_");
+                    fileName.append(cal.get(Calendar.MONTH+1)).append("_");
+                    fileName.append(cal.get(Calendar.DAY_OF_MONTH)).append("_");
+                    fileName.append(cal.get(Calendar.HOUR_OF_DAY)).append("_");
+                    fileName.append(cal.get(Calendar.MINUTE)).append("_");
+                    fileName.append(cal.get(Calendar.SECOND)).append("_");
+                    fileName.append(cal.get(Calendar.MILLISECOND));
+                    int idx = file.getRemoteFileName().lastIndexOf('.');
+                    if (idx>=0)
+                        fileName.append(file.getRemoteFileName().substring(file.getRemoteFileName().lastIndexOf('.')));
+                    log.debug("filename built is " + fileName.toString());
+                    FileOutputStream fos = new FileOutputStream(IMAGE_PATH+fileName.toString());
+                    log.debug("write that file to " + fileName.toString());
+                    byte[] bytes = new byte[(int) file.getSize()];
+                    file.getInputStream().read(bytes);
+                    file.getInputStream().close();
+                    fos.write(bytes);
+                    fos.close();
 
-                TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
-                try {
-                    tm.begin();
-                    Image image = (Image)createEJB(getInitialContext(), Image.class);
-                    CoderImage coderImage = (CoderImage)createEJB(getInitialContext(), CoderImage.class);
-                    long imageId = image.createImage(fileName.toString(), IMAGE_TYPE, PATH_ID,
-                            DBMS.JTS_OLTP_DATASOURCE_NAME);
-                    log.debug("created image " + imageId);
-                    coderImage.createCoderImage(getUser().getId(), imageId, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
-                    tm.commit();
-                    setNextPage("/tournaments/tco05/logo_success.jsp");
-                    setIsNextPageInContext(true);
-                } catch (Exception e) {
-                    if (tm!=null && tm.getStatus()==Status.STATUS_ACTIVE) {
-                        log.warn("rolling back");
-                        tm.rollback();
+                    TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                    try {
+                        tm.begin();
+                        Image image = (Image)createEJB(getInitialContext(), Image.class);
+                        CoderImage coderImage = (CoderImage)createEJB(getInitialContext(), CoderImage.class);
+                        long imageId = image.createImage(fileName.toString(), IMAGE_TYPE, PATH_ID,
+                                DBMS.JTS_OLTP_DATASOURCE_NAME);
+                        log.debug("created image " + imageId);
+                        coderImage.createCoderImage(getUser().getId(), imageId, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                        tm.commit();
+                        setNextPage("/tournaments/tco05/logo_success.jsp");
+                        setIsNextPageInContext(true);
+                    } catch (Exception e) {
+                        if (tm!=null && tm.getStatus()==Status.STATUS_ACTIVE) {
+                            log.warn("rolling back");
+                            tm.rollback();
+                        }
+                        throw e;
                     }
-                    throw e;
                 }
+            } else {
+                //go to the terms of use processor
+                setNextPage("/tc?module=TCO05LogoTerms");
+                setIsNextPageInContext(false);
+
             }
+
+
+
         }
     }
 }
