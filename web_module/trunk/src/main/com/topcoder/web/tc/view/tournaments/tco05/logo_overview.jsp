@@ -4,6 +4,7 @@
 <head>
 <title>2004 TopCoder Collegiate Challenge  - Computer Programming Tournament - Overview</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 
 <style type="text/css">
 .pageSpacer

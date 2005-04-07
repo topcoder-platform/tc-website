@@ -5,6 +5,7 @@
 <head>
 <title>2004 TopCoder Collegiate Challenge  - Computer Programming Tournament - Overview</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <style type="text/css">
