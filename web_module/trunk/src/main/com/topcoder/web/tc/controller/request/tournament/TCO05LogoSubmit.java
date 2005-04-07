@@ -43,7 +43,7 @@ public class TCO05LogoSubmit extends Base {
                 fileName.append(cal.get(Calendar.YEAR)).append("_");
                 fileName.append(cal.get(Calendar.MONTH+1)).append("_");
                 fileName.append(cal.get(Calendar.DAY_OF_MONTH)).append("_");
-                fileName.append(cal.get(Calendar.HOUR)).append("_");
+                fileName.append(cal.get(Calendar.HOUR_OF_DAY)).append("_");
                 fileName.append(cal.get(Calendar.MINUTE)).append("_");
                 fileName.append(cal.get(Calendar.SECOND)).append("_");
                 fileName.append(cal.get(Calendar.MILLISECOND));
