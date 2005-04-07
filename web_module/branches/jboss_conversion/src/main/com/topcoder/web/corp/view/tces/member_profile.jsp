@@ -98,9 +98,9 @@
 				<br/><br/>
 				</td>
 				<td class=bodyText>
-				<strong>Interested in:</strong> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
+				<strong>Interested in:</strong> <jsp:getProperty name="MemberProfileTask" property="jobName"/>
 				<br/>
-				<A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
+				<A HREF="<jsp:getProperty name="MemberProfileTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="memberID"/>" class="bodyText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
 				<br/><br/>
 				</td>
 			</tr>
@@ -124,7 +124,7 @@
 		<br/><br/>
 
 		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
-			<TR><TD COLSPAN="10" class="screeningTitle"><B>Division-I Performance</B></TD</TR>
+			<TR><TD COLSPAN="10" class="screeningTitle"><B>Division-I Performance</B></TD></TR>
 			<TR><TD COLSPAN="10" class="screeningHeader">Average Points per Contest: <%= MemberProfileTask.getDivIStatistic("avg_contest_points") %></TD></TR>
 			<TR><TD COLSPAN="10" class="screeningHeader">Statistics by Problem Level:</TD></TR>
 			<TR><TD class="screeningHeader">&#160;</TD>
@@ -215,7 +215,7 @@ i++;
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("total_submitted") %></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("total_submit_percent") %>%</TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("correct") %></TD>
-				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right<%= MemberProfileTask.getDivIStatistic("total_submission_accuracy") %>%</TD>
+				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("total_submission_accuracy") %>%</TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= MemberProfileTask.getDivIStatistic("avg_submission_points") %></TD>
 				<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right><%= JSPUtils.timeFormat(MemberProfileTask.getDivIStats().getItem("avg_time_elapsed")) %></TD>
 			</TR>
@@ -229,7 +229,7 @@ i++;
 		<br/><br/>
 
 		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
-			<TR><TD COLSPAN="10" class="screeningTitle">Division-II Performance</TD</TR>
+			<TR><TD COLSPAN="10" class="screeningTitle">Division-II Performance</TD></TR>
 			<TR><TD COLSPAN="10" class="screeningHeader">Average Points per Contest: <%= MemberProfileTask.getDivIIStatistic("avg_contest_points") %></TD></TR>
 			<TR><TD COLSPAN="10" class="screeningHeader">Statistics by Problem Level:</TD></TR>
 			<TR>

@@ -41,8 +41,8 @@
 						<br/>
 						<span class=testHead>Position Interest</span>
 						<br/><br/>
-                        <strong>Campaign:</strong> <jsp:getProperty name="PositionInterestTask" property="CampaignName"/><br/>
-                        <strong>Position:</strong> <jsp:getProperty name="PositionInterestTask" property="PositionName"/><br>
+                        <strong>Campaign:</strong> <jsp:getProperty name="PositionInterestTask" property="campaignName"/><br/>
+                        <strong>Position:</strong> <jsp:getProperty name="PositionInterestTask" property="positionName"/><br>
                         <a href="<jsp:getProperty name="PositionInterestTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.DEMOGRAPHIC_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>" class="bodyText">View collective demographic info</a><br>
                         </p>
                     </td>

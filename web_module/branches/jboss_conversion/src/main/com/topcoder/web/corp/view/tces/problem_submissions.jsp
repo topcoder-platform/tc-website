@@ -54,10 +54,10 @@
                     <strong>Email:</strong> <a href="mailto:<%=ProblemSubmissionsTask.getMemberInfo().getItem(0, "email").toString() %>" class="bodyText"><%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "email").toString() %></A><br/>
                     <strong>Phone:</strong> <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "home_phone").toString()%><br/>
                     <% if (ProblemSubmissionsTask.hasResume()) { %>
-                    <a href="<jsp:getProperty name="ProblemSubmissionsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
+                    <a href="<jsp:getProperty name="ProblemSubmissionsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="ProblemSubmissionsTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
                     <% } %>
 					<br/><br/>
-                    <strong>Interested in:</strong> <jsp:getProperty name="ProblemSubmissionsTask" property="JobName"/>
+                    <strong>Interested in:</strong> <jsp:getProperty name="ProblemSubmissionsTask" property="jobName"/>
 					<br/><br/>
 
                     <A HREF="<jsp:getProperty name="ProblemSubmissionsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemSubmissionsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemSubmissionsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemSubmissionsTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
@@ -70,16 +70,16 @@
                 <tr>
                     <td class="bodyText" align="right">
 	                <% if (!ProblemSubmissionsTask.isRestrictedCampaign()) {%>
-	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_history_graph&cr=<jsp:getProperty name="ProblemSubmissionsTask" property="MemberID"/>&cm=<jsp:getProperty name="ProblemSubmissionsTask" property="CompanyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_history_graph&cr=<jsp:getProperty name="ProblemSubmissionsTask" property="memberID"/>&cm=<jsp:getProperty name="ProblemSubmissionsTask" property="companyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
 	                <% } %>
-	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="ProblemSubmissionsTask" property="CompanyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
+	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="ProblemSubmissionsTask" property="companyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
                     </td>
                 </tr>
             </table>
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                 <tr>
-                  <td class="screeningHeader"<strong>Date</strong></td>
+                  <td class="screeningHeader"><strong>Date</strong></td>
                   <td class="screeningHeader"><strong>Event Name</strong></td>
                   <td class="screeningHeader"><strong>Division</strong></td>
                   <td class="screeningHeader"><strong>Level</strong></td>

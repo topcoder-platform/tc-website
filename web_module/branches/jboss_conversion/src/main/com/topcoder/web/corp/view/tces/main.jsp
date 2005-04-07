@@ -7,7 +7,7 @@
           com.topcoder.web.corp.common.TCESConstants" %>
 
 <%@ taglib uri="tces-taglib.tld" prefix="tces"%>
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc"%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
