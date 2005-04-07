@@ -59,7 +59,7 @@
                         <strong>Phone:</strong> <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "home_phone").toString()%>
 						<br/>
 						<% if (CompetitionHistoryTask.hasResume()) { %>
-						<a href="<jsp:getProperty name="CompetitionHistoryTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>" class="bodyText"><strong>Resume</strong></a>
+						<a href="<jsp:getProperty name="CompetitionHistoryTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="memberID"/>" class="bodyText"><strong>Resume</strong></a>
 						<% } %>
 						<br/><br/>
                         <strong>Interested in:</strong> <jsp:getProperty name="CompetitionHistoryTask" property="jbName"/>
