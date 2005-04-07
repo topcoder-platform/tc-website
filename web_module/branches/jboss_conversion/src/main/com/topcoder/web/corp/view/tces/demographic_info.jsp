@@ -48,7 +48,7 @@
 						<br/>
 						<span class=testHead>Campaign Demographic Info</span>
 						<br/><br/>
-                        <strong>Campaign:</strong> <jsp:getProperty name="DemographicTask" property="CampaignName"/><br/>
+                        <strong>Campaign:</strong> <jsp:getProperty name="DemographicTask" property="campaignName"/><br/>
                         </p>
                     </td>
                 </tr>
@@ -61,7 +61,7 @@
 
             		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="screeningTitle" COLSPAN="3"><b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
+                          <TD class="screeningTitle" COLSPAN="3"><b>Student (<jsp:getProperty name="DemographicTask" property="studentCoderCount"/>)</b></TD>
                         </TR>
                         <% if (!StudentResponseList.isEmpty()) { %>
                             <TR>
@@ -142,7 +142,7 @@
 
             		<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                         <TR>
-                          <TD class="screeningTitle" COLSPAN="3">Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</TD>
+                          <TD class="screeningTitle" COLSPAN="3">Professional (<jsp:getProperty name="DemographicTask" property="proCoderCount"/>)</TD>
                         </TR>
 
                         <% if (!ProResponseList.isEmpty()) { %>

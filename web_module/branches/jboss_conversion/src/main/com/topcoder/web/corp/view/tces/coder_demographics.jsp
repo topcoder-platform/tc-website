@@ -54,10 +54,10 @@
                         <strong>Email:</strong> <a href="mailto:<%=CoderDemographicsTask.getMemberInfo().getItem(0, "email").toString() %>" class="bodyText"><%= CoderDemographicsTask.getMemberInfo().getItem(0, "email").toString() %></A><br/>
                         <strong>Phone:</strong> <%= CoderDemographicsTask.getMemberInfo().getItem(0, "home_phone").toString()%><br/>
                         <% if (CoderDemographicsTask.hasResume()) { %>
-                          <a href="<jsp:getProperty name="CoderDemographicsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="MemberID"/>" class="bodyText"><B>Resume</B></a>
+                          <a href="<jsp:getProperty name="CoderDemographicsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="campaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="jobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CoderDemographicsTask" property="memberID"/>" class="bodyText"><B>Resume</B></a>
                         <% } %>
 						<br/><br/>
-                        <strong>Interested in:</strong> <jsp:getProperty name="CoderDemographicsTask" property="JobName"/>
+                        <strong>Interested in:</strong> <jsp:getProperty name="CoderDemographicsTask" property="jobName"/>
 						<br/><br/>
 <% if (CoderDemographicsTask.getIsRanked()) { %>
 						Coder Demographic Info

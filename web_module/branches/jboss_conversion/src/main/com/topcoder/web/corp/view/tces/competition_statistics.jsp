@@ -36,7 +36,7 @@
 					</tces:trailIterator>
 					<A HREF="<jsp:getProperty name="CompetitionStatisticsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionStatisticsTask.getMemberID()%>" >Problem Submissions</A> &gt;
 					<br/>
-					<span class=testHead>Competition Statistics: <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/></span>
+					<span class=testHead>Competition Statistics: <jsp:getProperty name="CompetitionStatisticsTask" property="handle"/></span>
 
 
 				<br/><br/>
@@ -53,7 +53,7 @@
 					<TD width='50%'>
 				<table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
 					<TR>
-						<TD class=screeningHeader colspan=2>Individual: <jsp:getProperty name="CompetitionStatisticsTask" property="Handle"/></TD>
+						<TD class=screeningHeader colspan=2>Individual: <jsp:getProperty name="CompetitionStatisticsTask" property="handle"/></TD>
 					</TR>
 					<TR>
 						<TD class=bodyText><B>Score</B></TD>

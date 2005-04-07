@@ -35,7 +35,7 @@
 	                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
 	                </tces:trailIterator>
 					<br/>
-					<span class=testHead>Member Interest: <jsp:getProperty name="MemberInterestTask" property="Handle"/></span>
+					<span class=testHead>Member Interest: <jsp:getProperty name="MemberInterestTask" property="handle"/></span>
 					<br/><br/>
                     <strong>Campaign:</strong> <%=MemberInterestTask.getCampaignName()%>
 					<br/><br/>

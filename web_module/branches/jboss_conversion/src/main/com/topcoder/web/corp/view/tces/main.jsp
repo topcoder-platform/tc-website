@@ -27,7 +27,7 @@
 </jsp:include>
 <jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.MainTask" />
 
-<table width=100% border=0 cellpadding=0 cellspacing=0 align=center>
+<table width="100%" border=0 cellpadding=0 cellspacing=0 align=center>
 	<TR valign="top">
 		<td width="50%"><jsp:include page="left.jsp" /></td>
 <!-- Center Column Begins -->
@@ -36,7 +36,7 @@
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
-                        <p><span class=testHead>Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></span></p>
+                        <p><span class=testHead>Employment Campaigns for <jsp:getProperty name="MainTask" property="companyName"/></span></p>
                     </td>
                 </tr>
             </table>

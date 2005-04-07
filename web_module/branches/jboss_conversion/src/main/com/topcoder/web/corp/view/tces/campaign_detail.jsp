@@ -46,11 +46,11 @@
 						<br/>
 						<span class=testHead>Employment Campaign Positions</span>
 						<br/><br/>
-			            <strong><jsp:getProperty name="CampaignDetailTask" property="CompanyName" /></strong><br/>
-			            <strong>Campaign:</strong> <jsp:getProperty name="CampaignDetailTask" property="CampaignName" /><br/>
-			            <strong>Total Hits:</strong> <jsp:getProperty name="CampaignDetailTask" property="TotalHits" /><br/>
-			            <strong>Most Recent Hit:</strong> <jsp:getProperty name="CampaignDetailTask" property="MostRecentHit" /></p>
-			            <p><A href="<jsp:getProperty name="CampaignDetailTask" property="servletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="CampaignID" />" class="bodyText">View Overall Campaign Interest</A></p>
+			            <strong><jsp:getProperty name="CampaignDetailTask" property="companyName" /></strong><br/>
+			            <strong>Campaign:</strong> <jsp:getProperty name="CampaignDetailTask" property="campaignName" /><br/>
+			            <strong>Total Hits:</strong> <jsp:getProperty name="CampaignDetailTask" property="totalHits" /><br/>
+			            <strong>Most Recent Hit:</strong> <jsp:getProperty name="CampaignDetailTask" property="mostRecentHit" /></p>
+			            <p><A href="<jsp:getProperty name="CampaignDetailTask" property="servletPath" />?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CampaignDetailTask" property="campaignID" />" class="bodyText">View Overall Campaign Interest</A></p>
                     </td>
                 </tr>
             </table>

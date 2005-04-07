@@ -62,7 +62,7 @@
 						<a href="<jsp:getProperty name="CompetitionHistoryTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.RESUME_DOWNLOAD_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>" class="bodyText"><strong>Resume</strong></a>
 						<% } %>
 						<br/><br/>
-                        <strong>Interested in:</strong> <jsp:getProperty name="CompetitionHistoryTask" property="JobName"/>
+                        <strong>Interested in:</strong> <jsp:getProperty name="CompetitionHistoryTask" property="jbName"/>
 						<br/><br/>
                         <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>" class="bodyText">Coder Demographic Info</A>
 						<br/>
@@ -74,9 +74,9 @@
                 <tr>
                     <td class="bodyText" align="right">
 	                <% if (!CompetitionHistoryTask.isRestrictedCampaign()) {%>
-	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_history_graph&cr=<jsp:getProperty name="CompetitionHistoryTask" property="MemberID"/>&cm=<jsp:getProperty name="CompetitionHistoryTask" property="CompanyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_history_graph&cr=<jsp:getProperty name="CompetitionHistoryTask" property="memberID"/>&cm=<jsp:getProperty name="CompetitionHistoryTask" property="companyId"/>','800','600','history')" class="bodyText">Rating History Graph</a> &nbsp;&nbsp;|&nbsp;&nbsp;
 	                <% } %>
-	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="CompetitionHistoryTask" property="CompanyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
+	                <A HREF="JavaScript:getGraph('/corp/graph/?c=rating_distribution_graph&cm=<jsp:getProperty name="CompetitionHistoryTask" property="companyId"/>','600','400','distribution')" class="bodyText">Overall Rating Distribution Graph</a>
                     </td>
                 </tr>
             </table>
