@@ -104,7 +104,7 @@ public class ProjectReviewApply extends Base {
                     if (primary) {
                         for (Iterator it = reviewers.iterator(); it.hasNext();) {
                             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
-                            if (row.getIntItem("primary") == 1) {
+                            if (row.getIntItem("primary_ind") == 1) {
                                 throw new NavigationException("Sorry, this review position is already taken.");
                             }
                         }
