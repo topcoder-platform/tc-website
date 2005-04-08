@@ -617,12 +617,15 @@ public class PDFGenerator extends BaseProcessor {
             String s = parts.nextToken();
             
             Phrase statement = new Phrase();
+            if(s.equals(""))
+                s = " ";
+            
             statement.add(new Paragraph(s, FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
             problem.addCell(statement);    
         }
         
-        if(info.getProblem().getComponent(0).getTestCases().length == 0) {
+        if(info.getProblem().getComponent(0).getTestCases().length != 0) {
 
             cell = new PdfPCell(new Phrase("Definition", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
             cell.setBorderWidth(0);
