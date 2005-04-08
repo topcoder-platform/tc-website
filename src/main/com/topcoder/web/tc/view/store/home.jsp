@@ -56,15 +56,48 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td class="bodyText" align="center">
-    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-          		<tr><td height="15"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-		        <tr><td align="center"><a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_a.gif" alt="TopCoder Gear Store" width="540" height="58" border="0" /></a><br/>
-                <a href="/tc?module=Static&d1=store&d2=tshirt_gray" ><img src="/i/store/store_home_b.jpg" alt="TopCoder Gear Store" width="540" height="441" border="0" /></a></td></tr>	
-    </table>
+	<table align="center" border="0" cellpadding="5" cellspacing="0">
+	<tr>
+		<td class="leftbg" rowspan="8"></td>
+		<td colspan="2"><img src="tcgear_logo.gif"></img></td>
+		<td class="rightbg" rowspan="8"></td>
+	</tr>
+	
+		<tr>
+			<td><img src="teeshort_grey.jpg"></img></td>
+			<td><a href="tc_store_greytee_s.html"><strong>TopCoder Logo Tee</strong><br>Grey Short Sleeve</a></td>
+		</tr>
+		
+		<tr>
+			<td><img src="teeshort_black.jpg"></img></td>
+			<td><a href="tc_store_blacktee_s.html"><strong>TopCoder Logo Tee</strong><br>Black Short Sleeve</a></td>
+		</tr>
+		
+		<tr>
+			<td><img src="teelong_grey.jpg"></img></td>
+			<td><a href="tc_store_greytee_l.html"><strong>TopCoder Logo Tee</strong><br>Grey Long Sleeve</a></td>
+		</tr>
+		
+		<tr>
+			<td><img src="teelong_black.jpg"></img></td>
+			<td><a href="tc_store_blacktee_l.html"><strong>TopCoder Logo Tee</strong><br>Black Long Sleeve</a></td>
+		</tr>
+		
+		<tr>
+			<td><img src="polo.jpg"></img></td>
+			<td><a href="tc_store_polo.html"><strong>TopCoder Polo</strong><br>Black Short Sleeve</a></td>
+		</tr>
 
-            <p><br></p>
-</td>
+		<tr>
+			<td><img src="jacket.jpg"></img></td>
+			<td><a href="tc_store_jacket.html"><strong>TopCoder Jacket</strong></a></td>
+		</tr>
+		
+		<tr>
+			<td><img src="backpack.jpg"></img></td>
+			<td><a href="tc_store_backpack.html"><strong>TopCoder Backpack</strong></a></td>
+		</tr>
+</table>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
