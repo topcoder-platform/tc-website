@@ -194,7 +194,7 @@ public class ServerMonitorBot {
             System.out.println("SENDING ERROR LOG");
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
-                em.addToAddress("8609182841@mobile.att.net", TCSEmailMessage.TO);
+                em.addToAddress("8609182841@mmode.com", TCSEmailMessage.TO);
                 em.addToAddress("8604626228@vtext.com", TCSEmailMessage.TO);
                 em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
                 em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
