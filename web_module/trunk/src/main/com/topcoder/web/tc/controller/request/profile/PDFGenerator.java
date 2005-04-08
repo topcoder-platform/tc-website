@@ -619,144 +619,147 @@ public class PDFGenerator extends BaseProcessor {
             problem.addCell(statement);    
         }
         
-        cell = new PdfPCell(new Phrase("Definition", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-        cell.setBorderWidth(0);
-        cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
-        problem.addCell(cell);
+        if(info.getProblem().getComponent(0).getTestCases().length == 0) {
 
-        PdfPTable def = new PdfPTable(3);
-        def.setWidthPercentage(100);
-        def.getDefaultCell().setPadding(2);
-        def.getDefaultCell().setBorderWidth(0);
-        def.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
-        def.setWidths(new int[] {5, 20, 75});
+            cell = new PdfPCell(new Phrase("Definition", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
+            cell.setBorderWidth(0);
+            cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
+            problem.addCell(cell);
 
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase("Class:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase(info.getProblem().getComponent(0).getClassName(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            PdfPTable def = new PdfPTable(3);
+            def.setWidthPercentage(100);
+            def.getDefaultCell().setPadding(2);
+            def.getDefaultCell().setBorderWidth(0);
+            def.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+            def.setWidths(new int[] {5, 20, 75});
 
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase("Method:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase(info.getProblem().getComponent(0).getMethodName(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase("Class:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(info.getProblem().getComponent(0).getClassName(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        String params = "";
-        DataType[] paramTypes = info.getProblem().getComponent(0).getParamTypes();
-        for (int i = 0; i < paramTypes.length; i++) {
-            if (i > 0)
-                params += ", ";
-            params += new DataTypeRenderer(paramTypes[i]).toPlainText(info.getLanguage());
-        }
-        
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase("Parameters:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase(params, FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase("Method:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(info.getProblem().getComponent(0).getMethodName(), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase("Returns:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase(new DataTypeRenderer(info.getProblem().getComponent(0).getReturnType()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase("Method Signature:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase(info.getLanguage().getMethodSignature(info.getProblem().getComponent(0).getMethodName(),
-                info.getProblem().getComponent(0).getReturnType(),
-                info.getProblem().getComponent(0).getParamTypes(),
-                info.getProblem().getComponent(0).getParamNames()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-
-        problem.addCell(def);
-
-        cell = new PdfPCell(new Phrase("Notes", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-        cell.setBorderWidth(0);
-        cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
-        problem.addCell(cell);
-
-        PdfPTable notes = new PdfPTable(2);
-        notes.setWidthPercentage(100);
-        notes.getDefaultCell().setPadding(2);
-        notes.getDefaultCell().setBorderWidth(0);
-        notes.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
-        notes.setWidths(new int[] {5, 95});
-
-        com.topcoder.shared.problem.Element[] notesElements = info.getProblem().getComponent(0).getNotes();
-        
-        for(int i = 0; i < notesElements.length; i++) {
-            notes.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-            notes.addCell(new Phrase(new NodeElementRenderer((NodeElement)notesElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        }
-
-        notes.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        notes.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-
-        problem.addCell(notes);
-
-        cell = new PdfPCell(new Phrase("Constraints", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-        cell.setBorderWidth(0);
-        cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
-        problem.addCell(cell);
-
-        PdfPTable constraints = new PdfPTable(2);
-        constraints.setWidthPercentage(100);
-        constraints.getDefaultCell().setPadding(2);
-        constraints.getDefaultCell().setBorderWidth(0);
-        constraints.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
-        constraints.setWidths(new int[] {5, 95});
-        
-        com.topcoder.shared.problem.Constraint[] constraintsElements = info.getProblem().getComponent(0).getConstraints();
-        
-        for(int i = 0; i < constraintsElements.length; i++) {
-            constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-            constraints.addCell(new Phrase(new UserConstraintRenderer((UserConstraint)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        }
-
-        constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-        constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-
-        problem.addCell(constraints);
-
-        cell = new PdfPCell(new Phrase("Examples", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
-        cell.setBorderWidth(0);
-        cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
-        problem.addCell(cell);
-        
-        TestCase[] testCases = info.getProblem().getComponent(0).getTestCases();
-
-        int j = 0;
-        
-        for(int i =0; i < testCases.length; i++) {
-            if(testCases[i].isExample()) {
-                cell = new PdfPCell(new Phrase(j + ")", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-                j++;
-                cell.setBorderWidth(0);
-                problem.addCell(cell);
-
-                PdfPTable example = new PdfPTable(2);
-                example.setWidthPercentage(100);
-                example.getDefaultCell().setPadding(2);
-                example.getDefaultCell().setBorderWidth(0);
-                example.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
-                example.setWidths(new int[] {5, 95});
-                
-                for(int k = 0; k < testCases[i].getInput().length; k++) {
-                    example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
-                    example.addCell(new Phrase(testCases[i].getInput()[k], FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
-                }
-
-
-                example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
-                example.addCell(new Phrase(testCases[i].getOutput(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
-
-                if(testCases[i].getAnnotation() != null) {
-                    example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-                    example.addCell(new Phrase(new NodeElementRenderer((NodeElement)testCases[i].getAnnotation()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
-                }
-                
-                problem.addCell(example);
+            String params = "";
+            DataType[] paramTypes = info.getProblem().getComponent(0).getParamTypes();
+            for (int i = 0; i < paramTypes.length; i++) {
+                if (i > 0)
+                    params += ", ";
+                params += new DataTypeRenderer(paramTypes[i]).toPlainText(info.getLanguage());
             }
-        }
 
+            def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase("Parameters:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(params, FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+
+            def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase("Returns:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(new DataTypeRenderer(info.getProblem().getComponent(0).getReturnType()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+
+            def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase("Method Signature:", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(info.getLanguage().getMethodSignature(info.getProblem().getComponent(0).getMethodName(),
+                    info.getProblem().getComponent(0).getReturnType(),
+                    info.getProblem().getComponent(0).getParamTypes(),
+                    info.getProblem().getComponent(0).getParamNames()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+
+            def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            def.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+
+            problem.addCell(def);
+
+            cell = new PdfPCell(new Phrase("Notes", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
+            cell.setBorderWidth(0);
+            cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
+            problem.addCell(cell);
+
+            PdfPTable notes = new PdfPTable(2);
+            notes.setWidthPercentage(100);
+            notes.getDefaultCell().setPadding(2);
+            notes.getDefaultCell().setBorderWidth(0);
+            notes.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+            notes.setWidths(new int[] {5, 95});
+
+            com.topcoder.shared.problem.Element[] notesElements = info.getProblem().getComponent(0).getNotes();
+
+            for(int i = 0; i < notesElements.length; i++) {
+                notes.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+                notes.addCell(new Phrase(new NodeElementRenderer((NodeElement)notesElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            }
+
+            notes.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            notes.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+
+            problem.addCell(notes);
+
+            cell = new PdfPCell(new Phrase("Constraints", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
+            cell.setBorderWidth(0);
+            cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
+            problem.addCell(cell);
+
+            PdfPTable constraints = new PdfPTable(2);
+            constraints.setWidthPercentage(100);
+            constraints.getDefaultCell().setPadding(2);
+            constraints.getDefaultCell().setBorderWidth(0);
+            constraints.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+            constraints.setWidths(new int[] {5, 95});
+
+            com.topcoder.shared.problem.Constraint[] constraintsElements = info.getProblem().getComponent(0).getConstraints();
+
+            for(int i = 0; i < constraintsElements.length; i++) {
+                constraints.addCell(new Phrase("-", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+                constraints.addCell(new Phrase(new UserConstraintRenderer((UserConstraint)constraintsElements[i]).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            }
+
+            constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+            constraints.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+
+            problem.addCell(constraints);
+
+            cell = new PdfPCell(new Phrase("Examples", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
+            cell.setBorderWidth(0);
+            cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
+            problem.addCell(cell);
+
+            TestCase[] testCases = info.getProblem().getComponent(0).getTestCases();
+
+            int j = 0;
+
+            for(int i =0; i < testCases.length; i++) {
+                if(testCases[i].isExample()) {
+                    cell = new PdfPCell(new Phrase(j + ")", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+                    j++;
+                    cell.setBorderWidth(0);
+                    problem.addCell(cell);
+
+                    PdfPTable example = new PdfPTable(2);
+                    example.setWidthPercentage(100);
+                    example.getDefaultCell().setPadding(2);
+                    example.getDefaultCell().setBorderWidth(0);
+                    example.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+                    example.setWidths(new int[] {5, 95});
+
+                    for(int k = 0; k < testCases[i].getInput().length; k++) {
+                        example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
+                        example.addCell(new Phrase(testCases[i].getInput()[k], FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
+                    }
+
+
+                    example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
+                    example.addCell(new Phrase(testCases[i].getOutput(), FontFactory.getFont(FontFactory.COURIER, 12, Font.NORMAL, Color.black)));
+
+                    if(testCases[i].getAnnotation() != null) {
+                        example.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+                        example.addCell(new Phrase(new NodeElementRenderer((NodeElement)testCases[i].getAnnotation()).toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+                    }
+
+                    problem.addCell(example);
+                }
+            }
+
+        }
         problem.addCell(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
         problem.addCell(new Phrase("This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without prior written consent of TopCoder, Inc. is strictly prohibited.  (c) 2004 TopCoder, Inc.  All rights reserved.", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
