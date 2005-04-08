@@ -9,17 +9,25 @@ package com.topcoder.web.tc.controller.request.profile;
 import java.awt.Color;
 import java.text.DecimalFormat;
 
+import com.lowagie.text.*;
+import com.lowagie.text.pdf.*; 
+
+import java.util.List;
+
 import com.topcoder.shared.util.ApplicationServer;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.PlacementConfig;
 import com.topcoder.common.web.render.*;
 import com.topcoder.shared.problem.DataType;
+import com.topcoder.shared.problem.TextElement;
 import com.topcoder.shared.problem.NodeElement;
 import com.topcoder.shared.problem.UserConstraint;
 import com.topcoder.shared.problem.TestCase;
+import java.io.FileOutputStream;
 
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.fileconversion.*;
@@ -41,16 +49,15 @@ import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
 
 import com.topcoder.web.tc.model.Skill;
+
+import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.Arrays;
-
+import java.util.StringTokenizer;
 import java.util.Collections;
 
 import com.topcoder.web.common.*;
 import com.topcoder.shared.security.ClassResource;
-import java.awt.Font;
-import java.awt.Rectangle;
-import java.util.StringTokenizer;
 
 /**
  *
