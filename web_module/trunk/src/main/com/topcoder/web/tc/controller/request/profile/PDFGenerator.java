@@ -611,11 +611,14 @@ public class PDFGenerator extends BaseProcessor {
 
         NodeElementRenderer nr = new NodeElementRenderer((NodeElement)info.getProblem().getComponent(0).getIntro());
         
-        Phrase statement = new Phrase();
-        statement.add(new Paragraph(nr.toPlainText(info.getLanguage()), FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
+        String[] parts = nr.toPlainText(info.getLanguage()).split("\n");
+        for(int i = 0; i< parts.length; i++) {
+            Phrase statement = new Phrase();
+            statement.add(new Paragraph(parts[i], FontFactory.getFont(FontFactory.HELVETICA, 12, Font.NORMAL, Color.black)));
 
-        problem.addCell(statement);
-
+            problem.addCell(statement);    
+        }
+        
         cell = new PdfPCell(new Phrase("Definition", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, Color.black)));
         cell.setBorderWidth(0);
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
