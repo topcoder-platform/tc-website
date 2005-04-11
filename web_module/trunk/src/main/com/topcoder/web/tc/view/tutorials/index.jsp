@@ -83,6 +83,7 @@
                <tc-webtag:handle coderId="8357090" context="algorithm"/>
 					</td><td class="bodyText" nowrap=nowrap><strong>Computational Complexity</a><br />
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=complexity1"><strong>Section 1</strong></a><br>
+					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=complexity2"><strong>Section 2</strong></a><br>
 				</td></tr>
 			</table>
 
