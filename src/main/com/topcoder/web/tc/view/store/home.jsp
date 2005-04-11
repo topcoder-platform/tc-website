@@ -20,7 +20,7 @@
 
 	.rightbg	{ background-image: url(tc_store_right.gif); height: 100% }
 	
-    IMG			{ margin: 0px; border-width: 1px; border-color: #FF0000 }
+    store_img			{ margin: 0px; border-width: 1px; border-color: #FF0000 }
   
 	H3, P, a:link, a:visited
 			{ 	font-family: Verdana, sans-serif;
@@ -40,16 +40,16 @@
 
 </head>
 
-<body id="store_body">
+<body>
 
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table id="store_table" width="100%" border="1" cellpadding="0" cellspacing="0">
+<table width="100%" border="1" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td id="store_td" width="180">
+        <td width="180">
             <jsp:include page="../../includes/global_left.jsp">
                 <jsp:param name="level1" value="store"/>
             </jsp:include>
@@ -57,15 +57,15 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td id="store_td" width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-	<table align="center" border="0" cellpadding="5" cellspacing="0">
+	<table id="store_table" align="center" border="0" cellpadding="5" cellspacing="0">
 	<tr>
 		<td id="store_td" class="leftbg" rowspan="8"></td>
-		<td colspan="2"><img src="tcgear_logo.gif"></img></td>
-		<td class="rightbg" rowspan="8"></td>
+		<td id="store_td" colspan="2"><img src="tcgear_logo.gif"></img></td>
+		<td id="store_td" class="rightbg" rowspan="8"></td>
 	</tr>
 	
 		<tr>
