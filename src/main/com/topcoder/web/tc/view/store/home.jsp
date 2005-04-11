@@ -14,7 +14,7 @@
  	
  	store_table	{ width: 540px; border-color: #CC0000 }
  	 			
- 	TD		{ text-align: center; width: 180px; height: 55px; border-width: 1px; border-color: #000000 }
+ 	store_td		{ text-align: center; width: 180px; height: 55px; border-width: 1px; border-color: #000000 }
   
 	.leftbg	{ background-image: url(tc_store_left.gif); height: 100% }
 
@@ -49,7 +49,7 @@
 <table id="store_table" width="100%" border="1" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
+        <td id="store_td" width="180">
             <jsp:include page="../../includes/global_left.jsp">
                 <jsp:param name="level1" value="store"/>
             </jsp:include>
@@ -57,13 +57,13 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td id="store_td" width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
 	<table align="center" border="0" cellpadding="5" cellspacing="0">
 	<tr>
-		<td class="leftbg" rowspan="8"></td>
+		<td id="store_td" class="leftbg" rowspan="8"></td>
 		<td colspan="2"><img src="tcgear_logo.gif"></img></td>
 		<td class="rightbg" rowspan="8"></td>
 	</tr>
