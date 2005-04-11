@@ -138,7 +138,6 @@ function editTimeline()
                 </tr>
             </table>
 
-                
 <logic:equal name="projectForm" property="templatesValid" value="false">
             <table border="0" cellpadding="0" cellspacing="0">
                <tr>
@@ -147,6 +146,8 @@ function editTimeline()
                 </tr>
             </table>
 </logic:equal>
+
+            <br/>
 
             Screening scorecard:
             <html:select property="screeningTemplate" styleClass="searchForm">
