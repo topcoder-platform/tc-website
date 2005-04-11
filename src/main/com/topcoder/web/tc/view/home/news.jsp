@@ -4,7 +4,36 @@
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
 
-
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.11.05<br>10:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity2">Computational Complexity: Section 2</A></span><br><br>
+       "In this part of the article we will focus on estimating the time complexity for recursive programs. In essence, this will lead to finding the order of growth for solutions of recurrence equations."</td>
+      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=8357090">misof</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=complexity2">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=index">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.11.05<br>10:10 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041105">The Design Process - Section 2: appeals phase don'ts</A></span><br><br>
+       "Over the next two weeks we'll explain the phase I believe most designers have trouble with - the appeals phase."</td>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=041105">full story</A>&#160;|&#160;
+         <A href="/?&t=features&c=index">archive</A>
+   </td></tr>
+ 
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.07.05<br>1:15 PM</td>
@@ -234,30 +263,6 @@
    <tr><td class="newsLinksCell">
          <A href="/i/tournament/tccc05/onsite_movies/NBC.wmv">watch movie</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=movies">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>03.15.05<br>12:35 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=contracting&d2=vertex">Vertex Pharmaceuticals</A></span><br><br>
-      <A href="/tc?module=Static&d1=contracting&d2=vertex">Vertex</A> is offering a position as a Lead Scientific Software Analyst, available to <strong>ALL</strong> TopCoder members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
- 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.14.05<br>12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_03_14_05a">Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;</A></span><br><br>
-      TopCoder today announced the champions of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_03_14_05a">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 </table>
