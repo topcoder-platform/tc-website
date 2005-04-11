@@ -649,30 +649,30 @@ Our results:
 
 <P>
 <DIV ALIGN="CENTER">
-<TABLE CELLPADDING=3 BORDER="1">
-<TR><TD ALIGN="RIGHT">level</TD>
-<TD ALIGN="CENTER">1</TD>
-<TD ALIGN="CENTER">2</TD>
-<TD ALIGN="CENTER">3</TD>
-<TD ALIGN="LEFT">...</TD>
+<table width="350" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<TR><TD class="sidebarTitle" ALIGN="RIGHT">level</TD>
+<TD class="sidebarText" ALIGN="CENTER" width="25%">1</TD>
+<TD class="sidebarText" ALIGN="CENTER" width="25%">2</TD>
+<TD class="sidebarText" ALIGN="CENTER" width="25%">3</TD>
+<TD class="sidebarText" ALIGN="LEFT" width="25%">...</TD>
 </TR>
-<TR><TD ALIGN="RIGHT">work</TD>
-<TD ALIGN="CENTER"><SPAN CLASS="MATH"><I>cN</I><SUP>3</SUP></SPAN></TD>
-<TD ALIGN="CENTER"><!-- MATH
+<TR><TD class="sidebarTitle" ALIGN="RIGHT">work</TD>
+<TD class="sidebarText" ALIGN="CENTER"><SPAN CLASS="MATH"><I>cN</I><SUP>3</SUP></SPAN></TD>
+<TD class="sidebarText" ALIGN="CENTER"><!-- MATH
  ${3\over 8} cN^3$
  -->
 <SPAN CLASS="MATH"><IMG
  WIDTH="13" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="/i/education/complexity2/img16.png"
  ALT="$ {3\over 8}$"><I>cN</I><SUP>3</SUP></SPAN></TD>
-<TD ALIGN="CENTER"><!-- MATH
+<TD class="sidebarText" ALIGN="CENTER"><!-- MATH
  ${3^2 \over 8^2} cN^3$
  -->
 <SPAN CLASS="MATH"><IMG
  WIDTH="19" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
  SRC="/i/education/complexity2/img17.png"
  ALT="$ {3^2 \over 8^2}$"><I>cN</I><SUP>3</SUP></SPAN></TD>
-<TD ALIGN="LEFT">...</TD>
+<TD class="sidebarText" ALIGN="LEFT">...</TD>
 </TR>
 </TABLE>
 </DIV>
@@ -753,30 +753,30 @@ We get:
 
 <P>
 <DIV ALIGN="CENTER">
-<TABLE CELLPADDING=3 BORDER="1">
-<TR><TD ALIGN="RIGHT">level</TD>
-<TD ALIGN="CENTER">1</TD>
-<TD ALIGN="CENTER">2</TD>
-<TD ALIGN="CENTER">3</TD>
-<TD ALIGN="LEFT">...</TD>
+<table width="350" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<TR><TD class="sidebarTitle" ALIGN="RIGHT">level</TD>
+<TD class="sidebarText" ALIGN="CENTER" width="25%">1</TD>
+<TD class="sidebarText" ALIGN="CENTER" width="25%">2</TD>
+<TD class="sidebarText" ALIGN="CENTER" width="25%">3</TD>
+<TD class="sidebarText" ALIGN="LEFT" width="25%">...</TD>
 </TR>
-<TR><TD ALIGN="RIGHT">work</TD>
-<TD ALIGN="CENTER"><SPAN CLASS="MATH"><I>cN</I></SPAN></TD>
-<TD ALIGN="CENTER"><!-- MATH
+<TR><TD class="sidebarTitle" ALIGN="RIGHT">work</TD>
+<TD class="sidebarText" ALIGN="CENTER"><SPAN CLASS="MATH"><I>cN</I></SPAN></TD>
+<TD class="sidebarText" ALIGN="CENTER"><!-- MATH
  ${5\over 3} cN$
  -->
 <SPAN CLASS="MATH"><IMG
  WIDTH="13" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
  SRC="/i/education/complexity2/img21.png"
  ALT="$ {5\over 3}$"><I>cN</I></SPAN></TD>
-<TD ALIGN="CENTER"><!-- MATH
+<TD class="sidebarText" ALIGN="CENTER"><!-- MATH
  ${5^2 \over 3^2} cN$
  -->
 <SPAN CLASS="MATH"><IMG
  WIDTH="19" HEIGHT="41" ALIGN="MIDDLE" BORDER="0"
  SRC="/i/education/complexity2/img22.png"
  ALT="$ {5^2 \over 3^2}$"><I>cN</I></SPAN></TD>
-<TD ALIGN="LEFT">...</TD>
+<TD class="sidebarText" ALIGN="LEFT">...</TD>
 </TR>
 </TABLE>
 </DIV>
