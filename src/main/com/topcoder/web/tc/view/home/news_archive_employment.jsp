@@ -35,6 +35,7 @@
         </jsp:include>
 
             <table border=0 cellpadding=2 cellspacing=0 width="100%">
+            <tr class="bodyText"><td nowrap="nowrap">04.11.05 10:55 AM&#160;-&#160</td><td width="100%">New job opening at <A href="/tc?module=Static&d1=about&d2=employment_account_exec">TopCoder</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">04.01.05 3:45 PM&#160;-&#160</td><td width="100%">New job opening at <A href="/tc?module=Static&d1=contracting&d2=comac">Comac</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">03.22.05 11:05 AM&#160;-&#160</td><td width="100%">New job openings at <A href="/tc?module=Static&d1=contracting&d2=csfb">CSFB</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">03.15.05 12:35 PM&#160;-&#160</td><td width="100%">New job opening at <A href="/tc?module=Static&d1=contracting&d2=vertex">Vertex Pharmaceuticals</A></td></tr>

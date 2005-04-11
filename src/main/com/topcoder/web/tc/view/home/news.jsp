@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.11.05<br>10:55 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=about&d2=employment_account_exec">TopCoder</A></span><br><br>
+      <A href="/tc?module=Static&d1=about&d2=employment_account_exec">TopCoder</A> is offering a position as an Employment Services Account Executive, available to <strong>ALL</strong> members.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=about&d2=jobs">see all available TC jobs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.11.05<br>10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -253,18 +265,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>03.16.05<br>12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/NBC.wmv">The TCCC05 on NBC</A></span><br><br>
-      NBC Channel 11's Technology Reporter Scott Budman in Santa Clara recently did this segment on the TCCC05.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tccc05/onsite_movies/NBC.wmv">watch movie</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=movies">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 
