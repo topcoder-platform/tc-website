@@ -5,6 +5,9 @@
 <title>TopCoder Gear Store</title>
 
 <jsp:include page="../../script.jsp" />
+
+<STYLE TYPE="text/css">
+<!--
  	BODY      { margin: 0px;
  				padding: 0px;
  				background: #FFFFFF; }
@@ -32,6 +35,8 @@
 				
 	a:hover	{ text-decoration: none;
 				color: #ff0000; }
+-->
+ </STYLE>
 
 </head>
 
