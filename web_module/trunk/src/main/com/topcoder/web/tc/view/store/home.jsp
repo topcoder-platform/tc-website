@@ -61,7 +61,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-	<table class="store_table" align="center" border="1" cellpadding="5" cellspacing="0">
+	<table id="store_table" align="center" border="1" cellpadding="5" cellspacing="0">
 	<tr>
 		<td id="store_td" class="leftbg" rowspan="8"></td>
 		<td id="store_td" colspan="2"><img src="tcgear_logo.gif"></img></td>
@@ -69,37 +69,37 @@
 	</tr>
 	
 		<tr>
-			<td><img src="teeshort_grey.jpg"></img></td>
+			<td><img src="/i/store/tc_store_teeshort_grey.jpg"></img></td>
 			<td><a href="tc_store_greytee_s.html"><strong>TopCoder Logo Tee</strong><br>Grey Short Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="teeshort_black.jpg"></img></td>
+			<td><img src="/i/store/tc_store_teeshort_black.jpg"></img></td>
 			<td><a href="tc_store_blacktee_s.html"><strong>TopCoder Logo Tee</strong><br>Black Short Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="teelong_grey.jpg"></img></td>
+			<td><img src="/i/store/tc_store_teelong_grey.jpg"></img></td>
 			<td><a href="tc_store_greytee_l.html"><strong>TopCoder Logo Tee</strong><br>Grey Long Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="teelong_black.jpg"></img></td>
+			<td><img src="/i/store/tc_store_teelong_black.jpg"></img></td>
 			<td><a href="tc_store_blacktee_l.html"><strong>TopCoder Logo Tee</strong><br>Black Long Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="polo.jpg"></img></td>
+			<td><img src="/i/store/tc_store_polo.jpg"></img></td>
 			<td><a href="tc_store_polo.html"><strong>TopCoder Polo</strong><br>Black Short Sleeve</a></td>
 		</tr>
 
 		<tr>
-			<td><img src="jacket.jpg"></img></td>
+			<td><img src="/i/store/tc_store_jacket.jpg"></img></td>
 			<td><a href="tc_store_jacket.html"><strong>TopCoder Jacket</strong></a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="backpack.jpg"></img></td>
+			<td><img src="/i/store/tc_store_backpack.jpg"></img></td>
 			<td><a href="tc_store_backpack.html"><strong>TopCoder Backpack</strong></a></td>
 		</tr>
 </table>
