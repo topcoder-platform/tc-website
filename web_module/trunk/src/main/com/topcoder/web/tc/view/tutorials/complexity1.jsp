@@ -17,20 +17,7 @@
 	line-height: 14px;
 	background-color: #EEEEEE;
 	border: 1px solid #999;
-    }
-.GAtableText, .GAtableText2, .GAtableText3, .GAtableText4, .GAtableText5
-{
-	color: #333;
-	font-size: 11px;
-	font-weight: normal;
-	line-height: 14px;
 }
-.GAtableText{	background-color: #EEEEEE; }
-.GAtableText2{	background-color: #FF6600; }
-.GAtableText3{	background-color: #FFCC00; }
-.GAtableText4{	background-color: #FFFF00; }
-.GAtableText5{	background-color: #FFFF99; }
-
 </style>
 </head>
 
