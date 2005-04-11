@@ -8,11 +8,11 @@
 
 <STYLE TYPE="text/css">
 <!--
- 	BODY      { margin: 0px;
+ 	store_body      { margin: 0px;
  				padding: 0px;
  				background: #FFFFFF; }
  	
- 	TABLE	{ width: 540px; border-color: #CC0000 }
+ 	store_table	{ width: 540px; border-color: #CC0000 }
  	 			
  	TD		{ text-align: center; width: 180px; height: 55px; border-width: 1px; border-color: #000000 }
   
@@ -40,13 +40,13 @@
 
 </head>
 
-<body>
+<body id="store_body">
 
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="1" cellpadding="0" cellspacing="0">
+<table id="store_table" width="100%" border="1" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
