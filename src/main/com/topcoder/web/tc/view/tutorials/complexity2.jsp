@@ -51,6 +51,8 @@ By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=8357090"><strong
 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 </p>
 
+<A href="/tc?module=Static&d1=tutorials&d2=complexity1">...read Section 1</A>
+<br/><br/>
 <P>
 In this part of the article we will focus on estimating the time complexity for recursive programs.
 In essence, this will lead to finding the order of growth for solutions of recurrence equations.
