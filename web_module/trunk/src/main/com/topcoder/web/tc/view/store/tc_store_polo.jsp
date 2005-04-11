@@ -68,40 +68,13 @@
 		<td class="store_td" colspan="2"><img src="/i/store/tcgear_logo.gif"></img></td>
 		<td class="rightbg" rowspan="8"></td>
 	</tr>
-	
 		<tr>
-			<td><img class="store_img" src="/i/store/tc_store_teeshort_grey.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_greytee_s"><strong>TopCoder Logo Tee</strong><br>Grey Short Sleeve</a></td>
+			<td class="store_td" colspan="2"><img src="/i/store/tc_store_polo2.jpg"></img></td>
 		</tr>
-		
 		<tr>
-			<td><img src="/i/store/tc_store_teeshort_black.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_blacktee_s"><strong>TopCoder Logo Tee</strong><br>Black Short Sleeve</a></td>
-		</tr>
-		
-		<tr>
-			<td><img src="/i/store/tc_store_teelong_grey.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_greytee_l"><strong>TopCoder Logo Tee</strong><br>Grey Long Sleeve</a></td>
-		</tr>
-		
-		<tr>
-			<td><img src="/i/store/tc_store_teelong_black.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_blacktee_l"><strong>TopCoder Logo Tee</strong><br>Black Long Sleeve</a></td>
-		</tr>
-		
-		<tr>
-			<td><img src="/i/store/tc_store_polo.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_polo"><strong>TopCoder Polo</strong><br>Black Short Sleeve</a></td>
-		</tr>
-
-		<tr>
-			<td><img src="/i/store/tc_store_jacket.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_jacket"><strong>TopCoder Jacket</strong></a></td>
-		</tr>
-		
-		<tr>
-			<td><img src="/i/store/tc_store_backpack.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_backpack"><strong>TopCoder Backpack</strong></a></td>
+			<td class="store_td" colspan="2"><H3>TopCoder Polo Shirt<P> 	
+100% Ultra cotton pique sportshirt, 7oz. short sleeve is black with red pin stripes. TopCoder logo is embroidered on the left chest and on the upper back.</p>
+		<a href="tc?module=Static&d1=store&d2=home"><strong>- Back -</strong></a></td>
 		</tr>
 </table>
 <!-- Center Column Ends -->
