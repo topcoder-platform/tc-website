@@ -822,6 +822,8 @@ The next logical step is to show how to estimate the time complexity of a given
 algorithm. As we have already seen in Example 3, sometimes this can be messy.
 It gets really messy when recursion is involved.
 We will address these issues in the second part of this article.
+<br/><br/>
+<A href="/tc?module=Static&d1=tutorials&d2=complexity2">...continue to Section 2</A>
 
             
 
