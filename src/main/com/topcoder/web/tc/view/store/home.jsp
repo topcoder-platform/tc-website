@@ -61,7 +61,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-	<table class="store_table" align="center" border="0" cellpadding="5" cellspacing="0">
+	<table class="store_table" align="center" border="1" cellpadding="5" cellspacing="0">
 	<tr>
 		<td id="store_td" class="leftbg" rowspan="8"></td>
 		<td id="store_td" colspan="2"><img src="tcgear_logo.gif"></img></td>
