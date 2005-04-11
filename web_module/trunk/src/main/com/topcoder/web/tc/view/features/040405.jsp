@@ -53,7 +53,6 @@
 			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 			</p>
 
-			<p>
 <a name="introduction"></a>
 <span class=bodySubtitle>Introduction</span><br/>
 The design competition has started to heat up recently and has been attracting a lot of new designers.  I thought this would be an ideal time to provide some advice about the TCS design process.  This four-part series will attempt to provide some constructive advice about the different phases in the design process.  This article will not attempt to provide you with strategies or to provide a design tutorial, it will simply describe how to make the most of each of the phases and provide some useful do's and dont's that my experience as both a designer and reviewer has seen.
@@ -82,8 +81,8 @@ The last advice that I'd like to give is to encourage you to use the forums thro
 <br><br>
 <span class=bodySubtitle>What's coming up…</span><br/>
 Over the next two weeks we'll start exploring the appeals phase by pointing out some of the common ways designers appeal decisions (both the good and the bad ways).  We'll then wrap up the series by explaining the final fixes phase and what lessons you should take away from the whole experience.
-			</p>
-            
+<br/><br/>
+<A href="/tc?module=Static&d1=features&d2=041105">...continue to Section 2</A>
 
         </div>
         <p><br/></p>
