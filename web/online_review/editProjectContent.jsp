@@ -5,6 +5,16 @@
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
+<script language="javascript">
+function editTimeline()
+{
+	document.projectForm.action='<html:rewrite page="/editTimeline.do?action=load" />';
+	document.projectForm.submit.click();
+}
+
+</script>
+
+
 <!-- Start Title -->            
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
 <logic:equal name="projectForm" property="submitterRemoval" value="true">
@@ -23,6 +33,7 @@
 </logic:equal>
     <html:form action="/saveProject">    
     <html:hidden property="id" />
+    <html:hidden property="currentEdition" value="project"/>
     <tr>
         <td class="whiteBkgnd">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -67,77 +78,66 @@
 <!-- Start Text -->
             
 <bean:define id="theProject" name="projectForm" property="project" type="com.topcoder.apps.review.projecttracker.Project" />
-            <table border="0" cellpadding="0" cellspacing="1" width="100%">
-<logic:equal name="projectForm" property="timelineValid" value="false">
-                <tr>
-                    <td colspan="<%=theProject.getTimeline().length+1%>" width="100%" class="errorText">
-                        <html:errors property='timeline' /></td>
-                </tr>
-</logic:equal>
-                <tr>
-                    <td colspan="<%=theProject.getTimeline().length+1%>" class="forumTextEven"><strong><bean:message key="prompt.timeline" /></strong></td>
-                </tr>
 
+
+
+
+
+
+
+<!-- Time Line -->
                 
-                <tr valign=top>
-<% 
-   int startColumns[] = {0, 4, 7}; 
-   int endColumns[] = {3, 6, 9}; 
-
-
-   int phaseCount = theProject.getTimeline().length;
-   if (phaseCount != 10) {
-       startColumns = new int[] {0, phaseCount / 3, (2 * phaseCount) / 3};
-       endColumns = new int[] {phaseCount / 3 - 1, (2 * phaseCount) / 3 - 1, phaseCount - 1};
-   }
-   
-   
-   int column = 0;
-   
-%>
-
-<logic:iterate id="phaseInstance" indexId="pIdx" name="projectForm" property="timeline">
-<%if(pIdx.intValue()  == startColumns[column]) {%>
-
-                    <td>
-                        <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd"  width="100%">
-                            <tr valign="top">
-                                <td class="forumTitleCenter"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
-                                <td class="forumTitleCenter">
-                                    Start
-                                </td>
-                                <td class="forumTitleCenter">
-                                    End
-                                </td>
-                            </tr>
-                            
-<%}%>
-                <tr valign="top">
-                    <td class="forumTitleCenter">
-                        <bean:define id="phaseName" name="phaseInstance" property="phase.name" />
-                        <html:radio property="currentPhase" value="<%=phaseName.toString()%>" /><br/><bean:write name="phaseName" /></td>
-                    <td class="forumTextCenterOdd">
-                        <html:text property='<%="phaseStart["+pIdx+"]"%>' size="20" /></td>
-                    <td class="forumTextCenterOdd">
-                        <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" /></td>
-                </tr>
-<%if(pIdx.intValue() == endColumns[column]) {
-	column++; 
-	%>
- 
-                        </table>
-                    </td>
-<%}%>
-</logic:iterate>
-                 </tr>
-                            
-            </table>
-                        
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
-                    <td class="whiteBkgnd" colspan="3"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                    <td colspan="<%=theProject.getTimeline().length+1%>" class="timelineSubtitle"><strong><bean:message key="prompt.timeline" /></strong>                   
+		<a href="javascript:editTimeline()" >Edit Timeline</a>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td class="timelineTitleCenter" width="1"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                    <logic:iterate id="phaseInstance" name="projectForm" property="timeline">
+                        <td class="timelineTitleCenter" width="12%">
+                            <bean:define id="phaseName" name="phaseInstance" property="phase.name" />
+			    <html:radio property="currentPhase" value="<%=phaseName.toString()%>" />
+			       <br/>
+			   <bean:write name="phaseName" />
+			 </td>                  
+                    </logic:iterate>
+                </tr>
+                <tr>
+                    <td class="timelineTitleCenter"><strong><bean:message key="prompt.timelineStart" /></strong></td>
+                    <bean:define id="currentPhase" name="projectForm" property="currentPhase" />
+                    
+
+
+                    
+                    <logic:iterate id="phaseInstance" name="projectForm" property="timeline">
+                        <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
+                            <td class="timelineHiliteCenter">
+                                <strong><review:showDate name="phaseInstance" property="startDate" /></strong></td>
+                        </logic:equal>            
+                        <logic:notEqual name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
+                            <td class="timelineCenter">
+                                <review:showDate name="phaseInstance" property="startDate" /></td>
+                        </logic:notEqual>            
+                    </logic:iterate>
+                </tr>
+                <tr>
+                    <td class="timelineTitleCenter"><strong><bean:message key="prompt.timelineEnd" /></strong></td>
+                    <logic:iterate id="phaseInstance" name="projectForm" property="timeline">
+                        <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
+                            <td class="timelineHiliteCenter">
+                                <strong><review:showDate name="phaseInstance" property="endDate" /></strong></td>
+                        </logic:equal>            
+                        <logic:notEqual name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
+                            <td class="timelineCenter">
+                                <review:showDate name="phaseInstance" property="endDate" /></td>
+                        </logic:notEqual>            
+                    </logic:iterate>
                 </tr>
             </table>
+
 <logic:equal name="projectForm" property="templatesValid" value="false">
             <table border="0" cellpadding="0" cellspacing="0">
                <tr>
@@ -146,6 +146,8 @@
                 </tr>
             </table>
 </logic:equal>
+
+            <br/>
 
             Screening scorecard:
             <html:select property="screeningTemplate" styleClass="searchForm">
@@ -275,8 +277,11 @@
 					<td><html:submit styleClass="submitButton"><bean:message key="button.backToEditProject" /></html:submit></td></form>
 </logic:equal>
 <logic:notEqual name="projectForm" property="submitterRemoval" value="true">
-					<form action="javascript:history.back()">
-					<td><html:submit styleClass="submitButton"><bean:message key="button.back" /></html:submit></td></form>
+					<bean:define id="projectId" name="projectForm" property="project.id" />
+					<bean:define id="url" value='<%="/projectDetail.do?id="+projectId%>' />
+					<form action='<html:rewrite page="<%=String.valueOf(url)%>" />' method="post" >
+					<td><html:submit styleClass="submitButton"><bean:message key="button.cancel" /></html:submit></td></form>
+
 </logic:notEqual>
 				</tr>
             </table>

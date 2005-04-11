@@ -30,6 +30,7 @@ public class Phase implements Serializable {
     private String name;
     private long id;
     private int order;
+    private int defaultDuration;
 
     /**
      * Creates a new Phase object.
@@ -38,10 +39,11 @@ public class Phase implements Serializable {
      * @param order DOCUMENT ME!
      * @param name DOCUMENT ME!
      */
-    public Phase(long id, int order, String name) {
+    public Phase(long id, int order, int defaultDuration, String name) {
         this.id = id;
         this.order = order;
         this.name = name;
+        this.defaultDuration = defaultDuration;
     }
 
     /**
@@ -76,6 +78,18 @@ public class Phase implements Serializable {
     public long getOrder() {
         return order;
     }
+
+    /**
+     * <p>
+     * Return the default duration of this phase.
+     * </p>
+     *
+     * @return the default duration  of this phase.
+     */
+    public int getDefaultDuration() {
+        return defaultDuration;
+    }
+
 
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)

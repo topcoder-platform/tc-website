@@ -51,6 +51,7 @@ public final class EditProjectAction extends ReviewAction {
                 + orpd.getUser().getHandle() + "' in session "
                 + request.getSession().getId());
 
+
         String action = null;
         if (request.getParameter(Constants.ACTION_KEY) != null) {
             action = request.getParameter(Constants.ACTION_KEY).toString();
@@ -58,11 +59,21 @@ public final class EditProjectAction extends ReviewAction {
             action = ((ProjectForm) form).getAction();
         }
 
+        // If the action is store timeline or cancel timeline, we don´t have to load again
+        // the project from the database because it is already in form.
+        if (Constants.ACTION_STORE.equals(action) || Constants.ACTION_CANCEL.equals(action)) {
+            ((ProjectForm) form).backFromTimeline();
+
+            ((ProjectForm) form).setAction(Constants.ACTION_EDIT);
+            return new SuccessResult();
+        }
+
         // Call the business layer
         BusinessDelegate businessDelegate = new BusinessDelegate();
         ResultData result = businessDelegate.projectDetail(orpd);
 
         if (result instanceof SuccessResult) {
+
             ProjectRetrieval pr = (ProjectRetrieval) result;
             // Populate the form
             form = new ProjectForm();
