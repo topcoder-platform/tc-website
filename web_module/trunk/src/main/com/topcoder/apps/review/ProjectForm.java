@@ -10,6 +10,11 @@ import com.topcoder.util.format.DateFormatMethod;
 import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.PrimitiveFormatter;
 import com.topcoder.util.format.PrimitiveFormatterFactory;
+import com.topcoder.project.phases.TCPhase;
+import com.topcoder.project.phases.PhaseDateComparator;
+import com.topcoder.date.workdays.TCWorkdays;
+
+
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
@@ -22,7 +27,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Iterator;
 import java.util.Set;
+import com.topcoder.util.log.Level;
+import com.topcoder.util.log.Log;
+import com.topcoder.util.log.LogException;
+import com.topcoder.util.log.LogFactory;
 
 /**
  * <p>
@@ -33,6 +43,8 @@ import java.util.Set;
  * @version 1.0
  */
 public final class ProjectForm extends ReviewForm {
+
+
 
     // --------------------------------------------------- Instance Variables
 
@@ -92,11 +104,6 @@ public final class ProjectForm extends ReviewForm {
     private ProjectStatus terminatedStatus = null;
 
     /**
-     * Whether the timeline is valid.
-     */
-    private boolean timelineValid = true;
-
-    /**
      * Whether the reason is valid.
      */
     private boolean reasonValid = true;
@@ -105,6 +112,11 @@ public final class ProjectForm extends ReviewForm {
      * Whether the participants are valid.
      */
     private boolean[] participantsValid = null;
+
+    /**
+     * Whether the phases are valid.
+     */
+    private boolean[] phaseValid = null;
 
     /**
      * Whether the scorecard templates are valid.
@@ -120,6 +132,11 @@ public final class ProjectForm extends ReviewForm {
      * The start dates.
      */
     private String[] startDates = null;
+
+    /**
+     * The start dates when the timeline is edited.
+     */
+    private String[] forcedStartDates = null;
 
     /**
      * The end dates.
@@ -157,7 +174,61 @@ public final class ProjectForm extends ReviewForm {
 
     private String screeningTemplate = null;
     private String reviewTemplate = null;
+
+    /**
+     * Indicate what page is currently present. It can take the values "project" or "timeline",
+     */
+    private String currentEdition = null;
+
+
+    /**
+     * The Project from the ProjectPhases component to store a set of phases.
+     */
+     private com.topcoder.project.phases.Project projectPhases = null;
+
+
+    /**
+     * The length in minutes of each phase.
+     */
+    private int[] phaseMinutes = null;
+
+    /**
+     * The length of each phase as hh:mm
+     */
+    private String[] phaseLengths = null;
+
+    /**
+     * Indicates for each phase if it must adjust its start date to the end date of the previous phase.
+     */
+    private boolean[] adjustStartDates = null;
+
+    /**
+     * Logging instance
+     */
+    private Log log = null;
+
+
+
     // ----------------------------------------------------------- Properties
+
+
+    /**
+     * log a message.
+     *
+     * @param level the logging level.
+     * @message the text to be logged.
+     */
+    protected void log(Level level, java.lang.Object message) {
+        try {
+            if (log == null) {
+                log = LogFactory.getInstance().getLog("com.topcoder.apps.review");
+            }
+            log.log(level, message);
+        } catch (LogException e) {
+        }
+    }
+
+
 
     /**
      * Return the project.
@@ -363,6 +434,43 @@ public final class ProjectForm extends ReviewForm {
             }
         }
     }
+
+    /**
+     * Return the specified phase's start time.
+     *
+     * @param index The index of phase.
+     * @return the specified phase's start time.
+     */
+    public String getForcedPhaseStart(int index) {
+        return forcedStartDates[index];
+    }
+
+    /**
+     * Set the specified phase's start time.
+     *
+     * @param index The index of phase.
+     * @param start The new phase's start time.
+     */
+    public void setForcedPhaseStart(int index, String start) {
+        if (project != null) {
+            forcedStartDates[index] = start.trim();
+        }
+    }
+
+    /**
+     * Converts a date in string representation to a Date object.
+     */
+    private Date parseDate(String date) {
+        SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT);
+        SimpleDateFormat sdf2 = new SimpleDateFormat(Constants.DATE_FORMAT2);
+
+        if (date.indexOf(".") >= 0) {
+            return sdf.parse(date.trim(), new ParsePosition(0));
+        } else {
+            return sdf2.parse(date.trim(), new ParsePosition(0));
+        }
+    }
+
 
     /**
      * Return the name of specified role.
@@ -574,15 +682,6 @@ public final class ProjectForm extends ReviewForm {
     }
 
     /**
-     * Return whether the timeline is valid.
-     *
-     * @return whether the timeline is valid.
-     */
-    public boolean getTimelineValid() {
-        return timelineValid;
-    }
-
-    /**
      * Return whether the participants is valid.
      *
      * @param index The index of participant.
@@ -590,6 +689,16 @@ public final class ProjectForm extends ReviewForm {
      */
     public boolean getParticipantsValid(int index) {
         return participantsValid[index];
+    }
+
+    /**
+     * Return whether the phase is valid.
+     *
+     * @param index The index of phase.
+     * @return whether the phase is valid.
+     */
+    public boolean getPhaseValid(int index) {
+        return phaseValid[index];
     }
 
     /**
@@ -754,6 +863,65 @@ public final class ProjectForm extends ReviewForm {
         return -1;
     }
 
+    /**
+     * Get the key for the page that is being currently edited.
+     *
+     * @return the key for the page that is being currently edited.
+     */
+    public String getCurrentEdition() {
+        return currentEdition;
+    }
+
+    /**
+     * Set the key for the page that is being currently edited.
+     */
+    public void setCurrentEdition(String currentEdition) {
+        this.currentEdition = currentEdition;
+    }
+
+    /**
+     * Return the specified phase's length in minutes
+     *
+     * @param index The index of phase.
+     * @return the specified phase's length in minutes
+     */
+    public String getPhaseLength(int index) {
+        return phaseLengths[index];
+    }
+
+    /**
+     * Set the specified phase's length in minutes
+     *
+     * @param index The index of phase.
+     * @param start The new phase's length in minutes
+     */
+    public void setPhaseLength(int index, String phaseLength) {
+        phaseLengths[index] = phaseLength;
+        phaseMinutes[index] = parseLength(phaseLength);
+    }
+
+
+    /**
+     * Get if the phase must adjust its start date to the end date of the previous phase.
+     *
+     * @param index The index of phase.
+     * @return true if it must adjust its start date to the end date of the previous phase.
+     */
+    public String getAdjustStartDate(int index) {
+        return Boolean.toString(adjustStartDates[index]);
+    }
+
+    /**
+     * Set if the phase must adjust its start date to the end date of the previous phase.
+     *
+     * @param index The index of phase.
+     * @param adjust true if it must adjust its start date to the end date of the previous phase.
+     */
+    public void setAdjustStartDate(int index, String adjust) {
+        adjustStartDates[index] = Boolean.valueOf(adjust).booleanValue();
+    }
+
+
     public void setReviewTemplate(String template) {
         this.reviewTemplate = template;
         this.project.setReviewTemplateId(getReviewTemplateId());
@@ -792,44 +960,41 @@ public final class ProjectForm extends ReviewForm {
                 errors.add(ActionErrors.GLOBAL_ERROR,
                         new ActionError("error.reason.required"));
             }
-        } else if (Constants.ACTION_EDIT.equals(action)) {
-            timelineValid = true;
+            return errors;
+        }
 
-            for (int i = 0; i < project.getTimeline().length; i++) {
-                String phaseName = project.getTimeline()[i].getPhase().getName();
-                Date start = project.getTimeline()[i].getStartDate();
-                Date end = project.getTimeline()[i].getEndDate();
 
-                if (start == null) {
-                    errors.add("timeline",
-                            new ActionError("error.format", "Error in the start date of phase " + phaseName));
-                    timelineValid = false;
-                }
-                if (end == null) {
-                    errors.add("timeline",
-                            new ActionError("error.format", "Error in the end date of phase " + phaseName));
-                    timelineValid = false;
-                }
-                if (start != null && end != null && start.compareTo(end) > 0) {
-                    errors.add("timeline",
-                            new ActionError("error.format",
-                                    "Start date of phase " + phaseName + " must be ahead of end date"));
-                    timelineValid = false;
-                }
-                if (start != null && i > 0 && project.getTimeline()[i - 1].getEndDate() != null
-                        && start.compareTo(project.getTimeline()[i - 1].getEndDate()) < 0) {
-                    errors.add("timeline",
-                            new ActionError("error.format",
-                                    "Start date of phase " + phaseName
-                            + " must be after the previous end date"));
-                    timelineValid = false;
+        // if the user stored or refreshed the timeline, verify it
+        if (Constants.EDITING_TIMELINE.equals(currentEdition)) {
+            String timelineAction = request.getParameter(Constants.ACTION_KEY);
+            if (Constants.ACTION_STORE.equals(timelineAction) || Constants.ACTION_REFRESH.equals(timelineAction))  {
+
+                for (int i = 0; i < project.getTimeline().length; i++) {
+                    phaseValid[i] = true;
+
+                    if (!adjustStartDates[i]) {
+                        Date start = parseDate(forcedStartDates[i]);
+
+                        if (start == null) {
+                            errors.add("phase[" + i + "]",
+                                    new ActionError("error.format", "Error in the start date"));
+                            phaseValid[i] = false;
+                            setValid(false);
+                        }
+                    }
+                    if  (phaseMinutes[i] < 0) {
+                        errors.add("phase[" + i + "]",
+                                   new ActionError("error.format", "Error in the phase duration"));
+                        phaseValid[i] = false;
+                        setValid(false);
+                    }
                 }
             }
+        }
 
-            if (!timelineValid) {
-                setValid(false);
-            }
-
+        // if the user edited the project, verify it.
+        if (Constants.EDITING_PROJECT.equals(currentEdition) && Constants.ACTION_EDIT.equals(action)) {
+            log(Level.INFO, "checking payments");
             for (int i = 0; i < project.getParticipants().length; i++) {
                 if (!participantsValid[i]) {
                     setValid(false);
@@ -875,7 +1040,18 @@ public final class ProjectForm extends ReviewForm {
         return errors;
     }
 
-    // ------------------------------------------------------ Protected Methods
+
+    /**
+     * This method needs to be called when the timeline edition finish and it goes back to project edition.
+     * It makes all participants to be valid, because if the user has written an invalid handle, when going
+     * to edit timeline, this will be marked as an error.
+     */
+    public void backFromTimeline() {
+        for (int i = 0; i < project.getParticipants().length; i++) {
+            participantsValid[i] = true;
+        }
+    }
+
 
     /**
      * Creates the form bean from the project.
@@ -910,7 +1086,12 @@ public final class ProjectForm extends ReviewForm {
         participantsValid = new boolean[project.getParticipants().length];
         participantsHandle = new String[project.getParticipants().length];
         startDates = new String[project.getTimeline().length];
+        forcedStartDates = new String[project.getTimeline().length];
         endDates = new String[project.getTimeline().length];
+        phaseLengths = new String[project.getTimeline().length];
+        phaseMinutes = new int[project.getTimeline().length];
+        phaseValid = new boolean[project.getTimeline().length];
+        adjustStartDates = new boolean[project.getTimeline().length];
         reviewerSeqs = new int[project.getParticipants().length];
         for (int i = 0; i < project.getParticipants().length; i++) {
             long roleId = project.getParticipants()[i].getRole().getId();
@@ -939,19 +1120,23 @@ public final class ProjectForm extends ReviewForm {
             } else {
                 startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
             }
+
             if (project.getTimeline()[i].getEndDate() == null) {
                 endDates[i] = null;
             } else {
                 endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
             }
+
+            phaseValid[i] = true;
         }
+
 
         for (int i = 0; i < projectStatuses.length; i++) {
             if (projectStatuses[i].getId() == ProjectStatus.ID_TERMINATED) {
                 terminatedStatus = businessDelegate.getProjectStatuses()[i];
                 break;
             }
-        }
+         }
 
         this.autopilot = project.getAutoPilot();
 
@@ -961,6 +1146,153 @@ public final class ProjectForm extends ReviewForm {
         this.submitterRemoval = false;
         this.submitterRemovalSet = null;
     }
+
+
+    /**
+     * Sets the necessary fields for editing the timeline.
+     *
+     *
+     * @return an instance of FailureResult if TCWorkdays configuration couldn't be loaded or an instance of SuccessResult
+     * if all went fine.
+     */
+    public ResultData editTimeline() {
+        // Create the project that handles the phases using a configuration file for Workdays
+        try {
+
+            projectPhases = new com.topcoder.project.phases.Project(project.getTimeline()[0].getStartDate(),
+                            new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
+        } catch (Exception e) {
+            return new FailureResult("Couldn't load the TCWorkdays configuration due to: " + e);
+        }
+
+        // The first phase can't be adjusted to previous phase and its starting date is equivalent to the project
+        // starting date
+        adjustStartDates[0] = false;
+        forcedStartDates[0] = dateFormatter.format(project.getTimeline()[0].getStartDate());
+
+        int n = startDates.length;
+        TCPhase[] phases = new TCPhase[n];
+
+
+        // create the phases.  Each phase depends on the previous.  If its start date equals the end date of the previous
+        // phase, it is considered that it is adjusted to the previous phase.
+        for (int i = 0; i < n; i++) {
+            phases[i] = new TCPhase(projectPhases, project.getTimeline()[i].getStartDate(), project.getTimeline()[i].getEndDate());
+            if (i > 0) {
+                phases [i].addDependency(phases[i - 1]);
+                adjustStartDates[i] = project.getTimeline()[i].getStartDate().equals(project.getTimeline()[i-1].getEndDate());
+                forcedStartDates[i] = adjustStartDates[i]? "" : dateFormatter.format(project.getTimeline()[i].getStartDate());
+            }
+
+            phaseMinutes[i] = phases[i].getLength();
+            phaseLengths[i] = formatLength(phaseMinutes[i]);
+        }
+
+        return new SuccessResult();
+    }
+
+
+
+    /**
+     * Adjust the phases to the start dates and lengths specified by the user.
+     * If a phase's start date is before the end of the previous date, it will be adjusted to its end,
+     *
+     * @return an instance of SuccessResult.
+     */
+    public ResultData refreshTimeline() {
+        int n = startDates.length;
+
+
+
+        // Clear the project and re enter the phases.
+        projectPhases.clearPhases();
+        Date startDate = projectPhases.getStartDate();
+        TCPhase[] phases = new TCPhase[n];
+
+        for (int i = 0; i < n; i++) {
+            if (!adjustStartDates[i]) {
+                Date newStartDate = parseDate(forcedStartDates[i]);
+
+                // Just change the date if it is after the last phase start.  If not, it would give an error.
+                // If the date for the phase is earlier than the date for a previous phase, it is not taken into account.
+                if (newStartDate.after(startDate) || (i == 0)) {
+                    startDate = newStartDate;
+                } else {
+                    adjustStartDates[i] = true;
+                    forcedStartDates[i] = "";
+                }
+            }
+
+
+            phases[i] = new TCPhase(projectPhases, startDate, phaseMinutes[i]);
+
+            if (i > 0) {
+                phases [i].addDependency(phases[i - 1]);
+            }
+
+            startDates[i] = dateFormatter.format(phases[i].getStartDate());
+            endDates[i] = dateFormatter.format(phases[i].calcEndDate());
+            startDate = phases[i].calcEndDate();
+        }
+        return new SuccessResult();
+    }
+
+
+    /**
+     * Commit the changes in the timeline to the project.
+     *
+     * @return an instance of SuccessResult.
+     */
+    public ResultData commitTimeline() {
+        for (int i = 0; i < startDates.length; i++)  {
+            setPhaseStart(i, startDates[i]);
+            setPhaseEnd(i, endDates[i]);
+        }
+        return new SuccessResult();
+
+    }
+
+    /**
+     * Parse a time length with format "hh:mm" and return the equivalent in minutes.
+     *
+     * @param length a length with format hh:mm
+     * @return the number of minutes or -1 if the string can't be parsed.
+     */
+    public int parseLength(String length) {
+        try {
+            String fields[] = length.trim().split(":");
+
+            if (fields.length != 2) {
+                return -1;
+            }
+
+            int hours = Integer.parseInt(fields[0]);
+            int minutes = Integer.parseInt(fields[1]);
+
+            if ((hours < 0) || (minutes < 0)) {
+                return -1;
+            }
+
+            return hours * 60 + minutes;
+        } catch (Exception e) {
+            return -1;
+        }
+
+    }
+
+
+    /**
+     * Formats a quantity of minutes to "hh:mm"
+     *
+     * @param minutes the quantity of minutes
+     * @return a string with format "hh:mm.
+     */
+    public String formatLength(int minutes) {
+        int h = minutes / 60;
+        int m = minutes % 60;
+        return h + ":" + (m < 10? "0" : "") + m;
+    }
+
 
     /**
      * Creates the ProjectData from this form bean.

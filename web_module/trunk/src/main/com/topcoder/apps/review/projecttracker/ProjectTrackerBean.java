@@ -18,6 +18,9 @@ import com.topcoder.apps.review.GeneralSecurityException;
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.security.*;
+import com.topcoder.apps.review.StartDateCalculator;
+import com.topcoder.apps.review.ConfigHelper;
+
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -36,6 +39,8 @@ import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
+import com.topcoder.project.phases.TCPhase;
+import com.topcoder.date.workdays.TCWorkdays;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -1647,6 +1652,10 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(ps);
             ps = null;
 
+            if (dates == null) {
+                dates = calcDates(projectTypeId, phaseArr);
+            }
+
             for (int i = 0; i < phaseArr.length; i++) {
                 Date startDate;
                 Date endDate;
@@ -1929,6 +1938,56 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(conn, ps, rs);
         }
         return projectId;
+    }
+
+
+    /**
+     * Calculate the dates for the phases of a project.
+     * If any error occurs, it is logged and null is returned, so empty dates will be used.
+     *
+     *
+     * @return the start dates of each phase and the end date of the last phase.
+     */
+    private Date[] calcDates(long projectTypeId, Phase[] phaseArr ) {
+
+        try {
+            int n = phaseArr.length;
+
+            // try to instantiate a start date calculator, that will give the start date for the project.
+            StartDateCalculator sdc = null;
+            sdc = (StartDateCalculator) Class.forName(ConfigHelper.getStartDateCalculatorClassname()).newInstance();
+            java.util.Date startDate = sdc.calculateNextStart(projectTypeId);
+
+            // create a project to handle the phases
+            com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate,
+                        new TCWorkdays(ConfigHelper.getString(ConfigHelper.WORKDAYS_CONF_FILE), TCWorkdays.XML_FILE_FORMAT));
+
+
+            // create the phases so that each one depends on the previous phase.
+            TCPhase[] phases = new TCPhase[n];
+            for (int i=0; i < n; i++) {
+                phases[i] = new TCPhase(project, startDate, phaseArr[i].getDefaultDuration());
+                if (i > 0) {
+                    phases [i].addDependency(phases[i - 1]);
+                }
+            }
+
+
+            // get the start dates and the end date.
+            Date[] result = new Date [n + 1];
+
+            for (int i=0; i < n; i++) {
+                result [i] = new Date(phases[i].getStartDate().getTime());
+            }
+            result[n] = new Date (phases [n - 1].calcEndDate().getTime());
+
+            return result;
+        } catch (Exception e) {
+            info("Couldn't calculate the project dates due to: " + e);
+            return null;
+        }
+
+
     }
 
     /**

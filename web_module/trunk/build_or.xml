@@ -120,8 +120,10 @@
     <!-- Dependencies  -->
     <property name="baseexception.jar.name" value="base_exception.jar"/>
     <property name="baseexception.jar" value="${jarsdir}/tcs/${baseexception.jar.name}"/>
+    <property name="configmanager.version" value="2.1.3"/>
     <property name="configmanager.jar.name" value="configuration_manager.jar"/>
-    <property name="configmanager.jar" value="${jarsdir}/tcs/${configmanager.jar.name}"/>
+    <property name="configmanager.path" value="configuration_manager/${configmanager.version}"/>
+    <property name="configmanager.jar" value="${jarsdir}/tcs/${configmanager.path}/${configmanager.jar.name}"/>
     <property name="securitymanager.jar.name" value="security_manager.jar"/>
     <property name="securitymanager.jar" value="${jarsdir}/tcs/${securitymanager.jar.name}"/>
     <property name="loggingwrapper.jar.name" value="logging_wrapper.jar"/>
@@ -148,6 +150,18 @@
     <property name="executablewrapper.jar" value="${jarsdir}/tcs/${executablewrapper.jar.name}"/>
     <property name="jobscheduling.jar.name" value="job_scheduling.jar"/>
     <property name="jobscheduling.jar" value="${jarsdir}/tcs/${jobscheduling.jar.name}"/>
+    <property name="typesafeenum.version" value="1.0"/>
+    <property name="typesafeenum.jar.name" value="typesafe_enum.jar"/>
+    <property name="typesafeenum.path" value="typesafe_enum/${typesafeenum.version}"/>
+    <property name="typesafeenum.jar" value="${jarsdir}/tcs/${typesafeenum.path}/${typesafeenum.jar.name}"/>
+    <property name="workdays.version" value="1.0"/>
+    <property name="workdays.jar.name" value="workdays.jar"/>
+    <property name="workdays.path" value="workdays/${workdays.version}"/>
+    <property name="workdays.jar" value="${jarsdir}/tcs/${workdays.path}/${workdays.jar.name}"/>
+    <property name="projectphases.version" value="1.0"/>
+    <property name="projectphases.jar.name" value="project_phases.jar"/>
+    <property name="projectphases.path" value="project_phases/${projectphases.version}"/>
+    <property name="projectphases.jar" value="${jarsdir}/tcs/${projectphases.path}/${projectphases.jar.name}"/>
 
     <!-- Xerces -->
     <!-- <property name="cvs_xerces.jar" value="${libdir}/xerces.jar"/> -->
@@ -215,6 +229,9 @@
         <pathelement location="${objectformatter.jar}" />
         <pathelement location="${documentgeneration.jar}" />
         <pathelement location="${executablewrapper.jar}" />
+        <pathelement location="${workdays.jar}" />
+        <pathelement location="${typesafeenum.jar}" />
+        <pathelement location="${projectphases.jar}" />
 
         <pathelement location="${jbossclient.jar}" />
         <pathelement location="${junit.jar}" />
@@ -439,7 +456,7 @@
                 <include name="com/topcoder/apps/review/autopilottimer/**/*"/>
                 <include name="com/topcoder/apps/review/security/**/*"/>
                 <include name="com/topcoder/apps/review/*"/>
-        		<include name="com/topcoder/dde/util/ApplicationServer.class"/>
+        	<include name="com/topcoder/dde/util/ApplicationServer.class"/>
                 <include name="com/topcoder/dde/util/Cookies.class"/>
             </classes>
 
@@ -529,6 +546,10 @@
         <copy file="${refreshablecache.jar}" todir="${build_libdir_ear}" />
         <copy file="${tcsutil.jar}" todir="${build_libdir_ear}" />
         <copy file="${objectformatter.jar}" todir="${build_libdir_ear}" />
+
+	<copy file="${typesafeenum.jar}" todir="${build_libdir_ear}" />
+	<copy file="${workdays.jar}" todir="${build_libdir_ear}" />
+	<copy file="${projectphases.jar}" todir="${build_libdir_ear}" />
 
         <copy file="${xerces.jar}" todir="${build_libdir_ear}" />
     </target>
