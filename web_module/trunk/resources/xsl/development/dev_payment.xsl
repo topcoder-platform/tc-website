@@ -57,6 +57,20 @@
 
             <h2>TopCoder Payment Methods and Requirements</h2>
                                     
+<p><span class="bodySubtitle">How Component Payments Work</span><br/>
+TopCoder begins the payment process for a component phase (design or development) once the review process finishes.  This can happen in one of two ways:
+</p>
+<ul>
+<li>The review process completes normally.  In this case, the component will enter component preparation (you will receive an email about this).  The component will exit component preparation no later than 5pm Eastern US time on the following business day.  At this point, the payment process will begin.</li>
+<li>The review process does not complete normally.  This happens when no submissions pass screening or no submissions pass review.  In this case, the component will be removed for reposting.  This will happen no later than 5pm Eastern US time on the business day following the end of the screening phase (if no submissions passed screening) or the appeals response phase (if no submissions passed review).  At this point, the payment process will begin.</li>
+</ul>
+<p>
+Once the payment process begins, TopCoder will send out your payment within 14 days.  It may take longer to reach you, depending on your preferred payment method (checks generally take the longest).  We recommend that you use the <a href="#eligibility">PayPal method</a>, since it is free of charge and faster than checks.
+<br /><br />
+Additionally, the appropriate completed <A href="/?&amp;t=support&amp;c=form_faq">tax form</A> must be on file in order to receive your payments.
+</p>
+				<p>Please email any other questions to <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</p>
+
 				<p><span class="bodySubtitle">Payment Methods</span><br/>
 				Members can be paid by the following methods:</p>
 
@@ -80,7 +94,8 @@
 					<li>To sign up for wire transfer payments, email us at <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</li>
 					</ul>
 
-				<li>PayPal&#174;</li>
+				<a name="eligibility"></a>
+            <li>PayPal&#174;</li>
 				<table cellpadding="0" cellspacing="0" border="0" width="500">
 					<tr>
 						<td width="100%" class="bodyText">
