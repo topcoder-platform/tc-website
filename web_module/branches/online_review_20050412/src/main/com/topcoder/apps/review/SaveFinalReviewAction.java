@@ -72,6 +72,7 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 if (data.getFinalReview().isApproved()) {
                     AutoPilot.finalReviewEmail(data);
                 } else {
+                    log(Level.INFO, "SaveFinalReviewAction: The review wasn't approved.");
                     // Count how many not fixed items are
                     FixItem[] items = data.getFinalReview().getFixCheckList();
 
