@@ -139,7 +139,7 @@ public class SimpleSearch extends Base {
         if (m.getStateCode() != null)
             queryBottom.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
         if (m.getHandle() != null)
-            queryBottom.append(" AND c.handle_lower like LOWER('").append(StringUtils.replace(m.getHandle(), "'", "''")).append("')");
+            queryBottom.append(" AND c.handle_lower like '").append(StringUtils.replace(m.getHandle(), "'", "''").toLowerCase()).append("'");
         queryBottom.append(" AND r.last_rated_round_id = ro.round_id");
         queryBottom.append(" AND r.rating BETWEEN ");
         queryBottom.append(m.getMinRating() == null ? "0" : m.getMinRating().toString());
