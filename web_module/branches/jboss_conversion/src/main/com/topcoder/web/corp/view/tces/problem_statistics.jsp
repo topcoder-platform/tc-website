@@ -67,7 +67,7 @@ function openWnd(pageUrl) {
 					</tces:trailIterator>
 					<A HREF="<jsp:getProperty name="ProblemStatisticsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>" >Problem Submissions</A> &gt;
 					<br/>
-					<span class=testHead>Problem Statistics: <jsp:getProperty name="ProblemStatisticsTask" property="Handle"/></span>
+					<span class=testHead>Problem Statistics: <jsp:getProperty name="ProblemStatisticsTask" property="handle"/></span>
 					<br/><br/>
 					<B>Problem Name:</B> <%= ProblemStatisticsTask.getStatistic("class_name") %>
 					<br/>
