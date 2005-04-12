@@ -99,6 +99,7 @@ System.out.println("wtf3");
                 if( (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) ||
                     (participants[i].getRole().getId() == Role.ID_REVIEWER) )
                 {
+System.out.println("wtf woo " + i);
                     MailHelper.failedReviewMail(user, participants[i].getUser(), notFixedItems, comment, project);
                 }
             }
@@ -136,7 +137,7 @@ System.out.println("wtf9");
                 return result;
             }
         } catch(Exception e) {
-System.out.println("wtf10");
+System.out.println("wtf10 - " + e.toString());
             return new FailureResult(e.toString());
         }
 System.out.println("wtf11");
