@@ -266,7 +266,9 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * @return the FinalReviewData created from this form bean.
      */
     protected FinalReviewData toReviewData(OnlineReviewProjectData orpd) {
-        finalReview.setCompleted(true);
+        if (Constants.ACTION_FINISH.equals(action)) {
+            finalReview.setCompleted(true);
+        }
         finalReview.setApproved(isApproved);
         return new FinalReviewData(orpd, finalReview);
     }
