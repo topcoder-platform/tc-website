@@ -8,33 +8,24 @@
 
 <STYLE TYPE="text/css">
 <!--
- 	.store_body      { margin: 0px;
- 				padding: 0px;
- 				background: #FFFFFF; }
- 	
- 	.store_table	{ width: 540px; border-color: #CC0000 }
- 	 			
- 	.store_td		{ text-align: center; width: 180px; height: 55px; border-width: 1px; border-color: #000000 }
-  
-	.leftbg	{ background-image: url(/i/store/tc_store_left.gif); height: 100% }
-
-	.rightbg	{ background-image: url(/i/store/tc_store_right.gif); height: 100% }
-	
-    .store_img			{ margin: 0px; border-width: 1px; border-color: #FF0000 }
-  
-	H3, P, a:link, a:visited
-			{ 	font-family: Verdana, sans-serif;
+ 	.StoreTABLE	{ margin-top: 10px; margin-bottom: 10px; text-align: center; width: 540px;
+ 				font-family: Verdana, sans-serif;
 				color: #000000;
-				font-size: 10pt;
+				font-size: 11pt;
 				font-weight: normal;
 				text-decoration: none;
 				text-align: center;
-				line-height: 12pt }
-	
-	H3		{ font-weight: bold }
+				line-height: 14pt }
+ 	 			
+ 	.StoreTD	{ text-align: center; width: 180px; height: 55px; }
+  
+	.LeftBG		{ background-image: url(/i/store/tc_store_left.gif); width: 90px; height: 100% }
+
+	.RightBG	{ background-image: url(/i/store/tc_store_right.gif); width: 90px; height: 100% }
+    
+    a.Store:link, a.Store:active, a.Store:visited	{ color: #000000; text-decoration: none }
+    a.Store:hover	{ color: #FF0000; text-decoration: none }
 				
-	a:hover	{ text-decoration: none;
-				color: #ff0000; }
 -->
  </STYLE>
 
@@ -62,46 +53,46 @@
 
 <!-- Center Column Begins -->
 <td class="bodyText" align="center">
-	<table class="store_table" align="center" border="0" cellpadding="5" cellspacing="0">
+	<table class="StoreTABLE" align="center" border="0" cellpadding="5" cellspacing="0">
 	<tr>
-		<td class="leftbg" rowspan="8"></td>
-		<td class="store_td" colspan="2"><img src="/i/store/tcgear_logo.gif"></img></td>
-		<td class="rightbg" rowspan="8"></td>
+		<td class="LeftBG" rowspan="8"></td>
+		<td class="StoreTD" colspan="2"><img src="/i/store/tcgear_logo.gif"></img></td>
+		<td class="RightBG" rowspan="8"></td>
 	</tr>
 	
 		<tr>
-			<td><img class="store_img" src="/i/store/tc_store_teeshort_grey.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_greytee_s"><strong>TopCoder Logo Tee</strong><br>Grey Short Sleeve</a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_greytee_s"><img src="/i/store/tc_store_teeshort_grey.jpg"></img></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_greytee_s"><strong>TopCoder Logo Tee</strong><br>Grey Short Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="/i/store/tc_store_teeshort_black.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_blacktee_s"><strong>TopCoder Logo Tee</strong><br>Black Short Sleeve</a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_blacktee_s"><img src="/i/store/tc_store_teeshort_black.jpg"></img></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_blacktee_s"><strong>TopCoder Logo Tee</strong><br>Black Short Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="/i/store/tc_store_teelong_grey.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_greytee_l"><strong>TopCoder Logo Tee</strong><br>Grey Long Sleeve</a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_greytee_l"><img src="/i/store/tc_store_teelong_grey.jpg"></img></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_greytee_l"><strong>TopCoder Logo Tee</strong><br>Grey Long Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="/i/store/tc_store_teelong_black.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_blacktee_l"><strong>TopCoder Logo Tee</strong><br>Black Long Sleeve</a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_blacktee_l"><img src="/i/store/tc_store_teelong_black.jpg"></img></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_blacktee_l"><strong>TopCoder Logo Tee</strong><br>Black Long Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="/i/store/tc_store_polo.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_polo"><strong>TopCoder Polo</strong><br>Black Short Sleeve</a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_polo"><img src="/i/store/tc_store_polo.jpg"></img></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_polo"><strong>TopCoder Polo</strong><br>Black Short Sleeve</a></td>
 		</tr>
 
 		<tr>
-			<td><img src="/i/store/tc_store_jacket.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_jacket"><strong>TopCoder Jacket</strong></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_jacket"><img src="/i/store/tc_store_jacket.jpg"></img></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_jacket"><strong>TopCoder Jacket</strong></a></td>
 		</tr>
 		
 		<tr>
-			<td><img src="/i/store/tc_store_backpack.jpg"></img></td>
-			<td><a href="tc?module=Static&d1=store&d2=tc_store_backpack"><strong>TopCoder Backpack</strong></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_backpack"><img src="/i/store/tc_store_backpack.jpg"></img></a></td>
+			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_backpack"><strong>TopCoder Backpack</strong></a></td>
 		</tr>
 </table>
 <!-- Center Column Ends -->
