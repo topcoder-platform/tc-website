@@ -117,7 +117,7 @@ System.out.println("wtf6");
             form.setScorecardTemplates(docManager.getScorecardTemplates());
 
             form.setReason("auto pilot moving to Final Fixes");
-
+System.out.println("wtf7");
             UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
             UserProjectInfo info = null;
             for(int i = 0; i < projs.length; i++) {
@@ -125,20 +125,21 @@ System.out.println("wtf6");
                     info = projs[i];
                 }
             }
-
+System.out.println("wtf8");
             if(info == null) return new FailureResult("Project not found");
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
-
+System.out.println("wtf9");
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
             if(!(result instanceof SuccessResult)) {
                 return result;
             }
         } catch(Exception e) {
+System.out.println("wtf10");
             return new FailureResult(e.toString());
         }
-
+System.out.println("wtf11");
         return new SuccessResult();
     }
 
