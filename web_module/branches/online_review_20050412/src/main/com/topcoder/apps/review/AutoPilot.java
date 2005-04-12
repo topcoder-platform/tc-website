@@ -78,6 +78,7 @@ public class AutoPilot {
 
     public static ResultData finalReviewFailed(FinalReviewData data, int notFixedItems, String comment) {
         try {
+System.out.println("wtf1");
             //setup user info
             TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
@@ -89,9 +90,9 @@ public class AutoPilot {
             SecurityEnabledUser user = userManager.getUser(subject);
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
-
+System.out.println("wtf2");
             if(!project.getAutoPilot()) return new SuccessResult();
-
+System.out.println("wtf3");
             // Send mails to the product Manager and reviewers
             UserRole[] participants = project.getParticipants();
             for(int i = 0; i < participants.length;i++) {
@@ -101,14 +102,14 @@ public class AutoPilot {
                     MailHelper.failedReviewMail(user, participants[i].getUser(), notFixedItems, comment, project);
                 }
             }
-
+System.out.println("wtf4");
             // add the winner for receiving the mail
             MailHelper.failedReviewMail(user, project.getWinner(), notFixedItems, comment, project);
-
+System.out.println("wtf5");
 
             // Move to final fixes
             ProjectForm form = new ProjectForm();
-
+System.out.println("wtf6");
             form.fromProject(project);
 
             form.setCurrentPhase("Final Fixes");
