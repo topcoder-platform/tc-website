@@ -85,7 +85,8 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 }
 
             } else if (result instanceof FailureResult) {
-                log(Level.ERROR, "SaveFinalReviewAction: " + result.getMessage());
+                log(Level.ERROR, "SaveFinalReviewAction: "
+                        + ((FailureResult) result).getMessage());
             }
 
             return result;
