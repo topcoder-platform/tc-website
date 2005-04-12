@@ -1,0 +1,165 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navAbout.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="aboutIndex.shtml" class="breadcrumbLinks">About Us</a> > <strong>Quality</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- About Us Catagories -->
+				<tr valign="top">
+					<td class="leftNav">
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="5" class="leftHead"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+								<td width="155" class="leftHead" colspan="2"></td>
+								<td width="10" class="leftHead" valign="top"><img src="images/leftNavHead.gif" alt="" width="10" height="22" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutIndex.shtml">How software will be built</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutProductivity.shtml">Productivity</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutStandards.shtml">Standards</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutReuse.shtml">Re-use</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutQuality.shtml">Quality</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr valign="top">
+								<td><img src="images/clear.gif" alt="" width="5" height="5" border="0"></td>
+								<td class="leftNavText">::&nbsp;</td>
+								<td class="leftNavText"><a class="leftNavLinks" href="aboutResources.shtml">Resources</a></td>
+								<td><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td>
+							</tr>
+							<tr><td colspan="4"><img src="images/leftNavFooter.gif" alt="" width="165" height="11" border="0" /></td></tr>
+						</table>
+					</td>
+				</tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Subscription promo -->
+				<tr valign="top"><td><a href="subscription.shtml"><img src="images/promoSubscription.gif" alt="Buy a Subscription" width="165" height="90" border="0" /></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Collaboration promo -->
+				<tr valign="top"><td><a href="collabEventEngine.shtml"><img src="images/promoCollaborate.gif" alt="Collaborate!" width="165" height="120" border="0"></a></td></tr>
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+<!-- Viewpoint
+				<tr valign="top"><td><img src="images/promoViewPlattner.gif" alt="Viewpoint" width="165" height="157" border="0" /></td></tr>
+				<tr><td height="20"><img src="images/clear.gif" alt="" width="10" height="20" border="0" /></td></tr>  -->
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headAboutUs.gif" alt="About Us" width="545" height="32" border="0" /></td></tr>
+				<tr><td class="subhead">Delivering Exceptional Code</td></tr>
+				<tr><td class="normal">
+						<p>One of the many advantages to purchasing software components from TopCoder Software is the quality of the components 
+						themselves.  It is difficult when building custom software solutions to implement rigorous testing procedures.  Time is 
+						usually a critical factor and a "we'll fix it in the next release" mentality often prevails.</p>
+
+						<p>In contrast, Quality Assurance (QA) is the bedrock of TopCoder Software. Since TopCoder Software components are 
+						products that will be used by a multitude of customers, it is crucial that they perform consistently and reliably. TopCoder 
+						Software puts great emphasis on diligently performing several levels of Quality Assurance.  This provides crucial 
+						consistency of quality among all components.</p>
+
+						<p>TopCoder Software development teams are made up of highly rated members from the TopCoder member base.  These are 
+						developers who have been rated and ranked through TopCoder coding competitions and have proven to be high quality 
+						developers.  The development team is made up of members filling roles as Software Architects, Software Developers and 
+						Quality Assurance Developers.  See our Resources (link) page for more information on TopCoder.</p>
+
+						<p>The Software Developer performs the first level of Quality Assurance in the unit testing of the component. The component 
+						is not passed on to the next phase of QA until the Software Developer has signed off on the quality of the component and the 
+						Software Architect has concurred.</p>
+
+						<p>The Quality Assurance Developer then performs the second level of QA.  The Quality Assurance Developer creates and 
+						executes comprehensive test cases for the component. They develop software to run the tests and work with the Software 
+						Developer to correct any errors.</p>
+
+						<p>The team Software Architect next reviews the QA Developer's test results and performs additional testing. Once the 
+						Architect is satisfied that the quality of the component meets TopCoder Software standards, they pass it on to the Product 
+						Manager for final review.</p>
+
+						<p>The TopCoder Software Product Manager has ultimate responsibility for the quality of the components in their product 
+						category.  Once they receive the component from the Software Architect, they perform rigorous testing utilizing the 
+						TopCoder Test Harness. This testing covers scalability, reliability and performance as well as adherence to component 
+						functional requirements. The TopCoder Software Product Manager is responsible for the delivery and management of all 
+						components in a specific category of the TopCoder Software Component Catalog.</p>
+
+						<p>Utilizing this rigorous Quality Assurance methodology, TopCoder Software insures that all components in the catalog 
+						are of the highest quality and are exceptionally reliable.</p>
+
+						<p>See what is available today. Visit our <a href="catalogIndex.shtml">Component Catalog</a>.</p>
+				</tr>
+				<tr><td><img src="images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
+			</table>
+		</td>
+
+<!-- Middle Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>
