@@ -4,7 +4,7 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.*;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.common.model.CoderSessionInfo;
 
 public class Logout extends Base {
 

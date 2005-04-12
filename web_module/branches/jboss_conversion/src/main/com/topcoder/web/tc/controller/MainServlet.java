@@ -9,7 +9,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.common.model.CoderSessionInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

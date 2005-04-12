@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.model;
+package com.topcoder.web.common.model;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;

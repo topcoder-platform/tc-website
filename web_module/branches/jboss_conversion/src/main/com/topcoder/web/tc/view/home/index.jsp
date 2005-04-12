@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer,
                  java.text.DecimalFormat,
                  com.topcoder.common.web.data.Navigation,
-                 com.topcoder.web.tc.model.CoderSessionInfo"%>
+                 com.topcoder.web.common.model.CoderSessionInfo"%>
 <%@  page language="java"  %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
