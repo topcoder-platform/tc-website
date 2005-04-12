@@ -1088,6 +1088,9 @@
                  <include name="com/topcoder/web/common/"/>
                  <include name="com/topcoder/web/privatelabel/"/>
              </classes>
+             <webinf dir="${resources}/privatelabel">
+                 <include name="jboss-web.xml"/>
+             </webinf>
              <webinf dir="${resources}/taglib">
                  <include name="tc-webtags.tld"/>
                  <include name="privatelabel.tld"/>
