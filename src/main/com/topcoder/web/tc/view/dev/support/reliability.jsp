@@ -43,6 +43,8 @@
 The reliability factor is calculated as the percent of projects that a member registers for in which that same 
 member presents a timely submission that passes screening.</p>
 
+<p>When figuring out the reliability bonus for a project, the reliability rating at the time the participant signed up for the project is used.  A participant with no previous projects is considered to have no reliability rating, and therefore gets no bonus.</p>
+
 <p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed 
 80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10% 
 of the prize. For Reliability Ratings equal to or exceeding 90% and less than 95%, winning members will receive a bonus equal 
