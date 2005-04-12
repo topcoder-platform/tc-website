@@ -67,7 +67,6 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
 
-
                 // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
                 if (data.getFinalReview().isApproved()) {
                     AutoPilot.finalReviewEmail(data);
