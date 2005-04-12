@@ -78,7 +78,6 @@ public class AutoPilot {
 
     public static ResultData finalReviewFailed(FinalReviewData data, int notFixedItems, String comment) {
         try {
-System.out.println("wtf1");
             //setup user info
             TCSubject subject = new TCSubject(ADMINISTRATOR_ID);
             subject.addPrincipal(new RolePrincipal("Administrator", 1));
@@ -90,27 +89,25 @@ System.out.println("wtf1");
             SecurityEnabledUser user = userManager.getUser(subject);
 
             Project project = projectTracker.getProject(data.getProject(), user.getTCSubject());
-System.out.println("wtf2");
+
             if(!project.getAutoPilot()) return new SuccessResult();
-System.out.println("wtf3");
+
             // Send mails to the product Manager and reviewers
             UserRole[] participants = project.getParticipants();
             for(int i = 0; i < participants.length;i++) {
                 if( (participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER) ||
                     (participants[i].getRole().getId() == Role.ID_REVIEWER) )
                 {
-System.out.println("wtf woo " + i);
                     MailHelper.failedReviewMail(user, participants[i].getUser(), notFixedItems, comment, project);
                 }
             }
-System.out.println("wtf4");
+
             // add the winner for receiving the mail
             MailHelper.failedReviewMail(user, project.getWinner(), notFixedItems, comment, project);
-System.out.println("wtf5");
 
             // Move to final fixes
             ProjectForm form = new ProjectForm();
-System.out.println("wtf6");
+
             form.fromProject(project);
 
             form.setCurrentPhase("Final Fixes");
@@ -118,7 +115,7 @@ System.out.println("wtf6");
             form.setScorecardTemplates(docManager.getScorecardTemplates());
 
             form.setReason("auto pilot moving to Final Fixes");
-System.out.println("wtf7");
+
             UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
             UserProjectInfo info = null;
             for(int i = 0; i < projs.length; i++) {
@@ -126,21 +123,18 @@ System.out.println("wtf7");
                     info = projs[i];
                 }
             }
-System.out.println("wtf8");
             if(info == null) return new FailureResult("Project not found");
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
-System.out.println("wtf9");
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
             if(!(result instanceof SuccessResult)) {
                 return result;
             }
         } catch(Exception e) {
-System.out.println("wtf10 - " + e.toString());
             return new FailureResult(e.toString());
         }
-System.out.println("wtf11");
+
         return new SuccessResult();
     }
 
