@@ -84,6 +84,8 @@ public final class SaveFinalReviewAction extends ReviewAction {
                     AutoPilot.finalReviewFailed(data, notFixedItems, data.getFinalReview().getComments());
                 }
 
+            } else if (result instanceof FailureResult) {
+                log(Level.ERROR, "SaveFinalReviewAction: " + result.getMessage());
             }
 
             return result;
