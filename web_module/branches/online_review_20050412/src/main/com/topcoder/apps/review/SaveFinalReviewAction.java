@@ -50,6 +50,8 @@ public final class SaveFinalReviewAction extends ReviewAction {
 
         FinalReviewForm frForm = (FinalReviewForm) form;
 
+        System.out.println("wtf0");
+        
         // Check valid token
         if (!isTokenValid(request)) {
             request.getSession().removeAttribute(mapping.getAttribute());
@@ -63,16 +65,16 @@ public final class SaveFinalReviewAction extends ReviewAction {
             FinalReviewData data = frForm.toReviewData(orpd);
             ResultData result = new BusinessDelegate().finalReview(data);
 
+            System.out.println("wtf1");
             if (result instanceof SuccessResult)  {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
-
 
                 // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
                 if (data.getFinalReview().isApproved()) {
                     AutoPilot.finalReviewEmail(data);
                 } else {
-                    log(Level.INFO, "SaveFinalReviewAction: The review wasn't approved.");
+                    System.out.println("wtf2");
                     // Count how many not fixed items are
                     FixItem[] items = data.getFinalReview().getFixCheckList();
 
