@@ -105,7 +105,6 @@ public class AutoPilot {
             // add the winner for receiving the mail
             MailHelper.failedReviewMail(user, project.getWinner(), notFixedItems, comment, project);
 
-
             // Move to final fixes
             ProjectForm form = new ProjectForm();
 
@@ -124,11 +123,9 @@ public class AutoPilot {
                     info = projs[i];
                 }
             }
-
             if(info == null) return new FailureResult("Project not found");
 
             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, info);
-
             ProjectData new_data = form.toActionData(orpd);
             ResultData result = new BusinessDelegate().projectAdmin(new_data);
             if(!(result instanceof SuccessResult)) {

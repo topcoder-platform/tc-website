@@ -44,7 +44,7 @@ public class AggregationWorksheetForm extends ReviewForm {
     /**
      * The user action.
      */
-    private String action = null;
+    protected String action = null;
 
     /**
      * The related scorecards.
