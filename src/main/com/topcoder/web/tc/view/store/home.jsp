@@ -23,7 +23,7 @@
 
 	.RightBG	{ background-image: url(/i/store/tc_store_right.gif); width: 90px; height: 100% }
 	
-	.StoreIMG	{ border-color: #000000 }
+	.StoreIMG	{ border-width: 2px; border-color: #000000 }
     
     a.Store:link, a.Store:active, a.Store:visited	{ color: #000000; text-decoration: none; border-color: #000000 }
     a.Store:hover	{ color: #FF0000; text-decoration: none }
