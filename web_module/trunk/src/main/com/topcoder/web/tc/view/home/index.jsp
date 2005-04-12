@@ -100,7 +100,7 @@
 <%-- Center Column --%>
       <td class=homeCentCol>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/techAssessTool.jpg" border=0 /></A></td></tr>
+         <tr><td class=homeBigPromo><A href="/i/tournament/tccc05/onsite_movies/GeorgeCygan.mov"><img src="/i/home/promos/GeorgeCygan.jpg" border=0 /></A></td></tr>
       </table>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
@@ -133,7 +133,7 @@
 <%-- Right Column --%>
       <td class=homeRightCol>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=movies"><img src="/i/home/promos/tccc05Movies.jpg" border=0 /></A></td></tr>
+         <tr><td class=homeBigPromo><A href="/?&t=support&c=referral"><img src="/i/home/promos/referrals.jpg" border=0 /></A></td></tr>
       </table>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
