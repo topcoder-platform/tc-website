@@ -22,8 +22,10 @@
 	.LeftBG		{ background-image: url(/i/store/tc_store_left.gif); width: 90px; height: 100% }
 
 	.RightBG	{ background-image: url(/i/store/tc_store_right.gif); width: 90px; height: 100% }
+	
+	.StoreIMG	{ border-color: #000000 }
     
-    a.Store:link, a.Store:active, a.Store:visited	{ color: #000000; text-decoration: none }
+    a.Store:link, a.Store:active, a.Store:visited	{ color: #000000; text-decoration: none; border-color: #000000 }
     a.Store:hover	{ color: #FF0000; text-decoration: none }
 				
 -->
@@ -61,37 +63,37 @@
 	</tr>
 	
 		<tr>
-			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_greytee_s"><img src="/i/store/tc_store_teeshort_grey.jpg"></img></a></td>
+			<td><a href="tc?module=Static&d1=store&d2=tc_store_greytee_s"><img class="StoreIMG" src="/i/store/tc_store_teeshort_grey.jpg"></img></a></td>
 			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_greytee_s"><strong>TopCoder Logo Tee</strong><br>Grey Short Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_blacktee_s"><img src="/i/store/tc_store_teeshort_black.jpg"></img></a></td>
+			<td><a href="tc?module=Static&d1=store&d2=tc_store_blacktee_s"><img class="StoreIMG" src="/i/store/tc_store_teeshort_black.jpg"></img></a></td>
 			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_blacktee_s"><strong>TopCoder Logo Tee</strong><br>Black Short Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_greytee_l"><img src="/i/store/tc_store_teelong_grey.jpg"></img></a></td>
+			<td><a href="tc?module=Static&d1=store&d2=tc_store_greytee_l"><img class="StoreIMG" src="/i/store/tc_store_teelong_grey.jpg"></img></a></td>
 			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_greytee_l"><strong>TopCoder Logo Tee</strong><br>Grey Long Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_blacktee_l"><img src="/i/store/tc_store_teelong_black.jpg"></img></a></td>
+			<td><a href="tc?module=Static&d1=store&d2=tc_store_blacktee_l"><img class="StoreIMG" src="/i/store/tc_store_teelong_black.jpg"></img></a></td>
 			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_blacktee_l"><strong>TopCoder Logo Tee</strong><br>Black Long Sleeve</a></td>
 		</tr>
 		
 		<tr>
-			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_polo"><img src="/i/store/tc_store_polo.jpg"></img></a></td>
+			<td><a href="tc?module=Static&d1=store&d2=tc_store_polo"><img class="StoreIMG" src="/i/store/tc_store_polo.jpg"></img></a></td>
 			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_polo"><strong>TopCoder Polo</strong><br>Black Short Sleeve</a></td>
 		</tr>
 
 		<tr>
-			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_jacket"><img src="/i/store/tc_store_jacket.jpg"></img></a></td>
+			<td><a href="tc?module=Static&d1=store&d2=tc_store_jacket"><img class="StoreIMG" src="/i/store/tc_store_jacket.jpg"></img></a></td>
 			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_jacket"><strong>TopCoder Jacket</strong></a></td>
 		</tr>
 		
 		<tr>
-			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_backpack"><img src="/i/store/tc_store_backpack.jpg"></img></a></td>
+			<td><a href="tc?module=Static&d1=store&d2=tc_store_backpack"><img class="StoreIMG" src="/i/store/tc_store_backpack.jpg"></img></a></td>
 			<td><a class="Store" href="tc?module=Static&d1=store&d2=tc_store_backpack"><strong>TopCoder Backpack</strong></a></td>
 		</tr>
 </table>
