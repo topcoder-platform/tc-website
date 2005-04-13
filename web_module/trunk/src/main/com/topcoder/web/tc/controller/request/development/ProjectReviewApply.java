@@ -119,7 +119,7 @@ public class ProjectReviewApply extends Base {
                             }
                         }
                         // If somebody came in by constructing the URL, make sure this is consistent too.
-                        if (primary == (reviewTypeId == 2)) {
+                        if (primary != (reviewTypeId == 2)) {
                             throw new NavigationException("Sorry, there was an error in the application"
                                     + " (primary reviewers must be failure reviewers, and vice versa).");
                         }
