@@ -1087,6 +1087,7 @@
              <classes dir="${classes}">
                  <include name="com/topcoder/web/common/"/>
                  <include name="com/topcoder/web/privatelabel/"/>
+                 <include name="com/topcoder/web/tc/Constants.class"/>
              </classes>
              <webinf dir="${resources}/privatelabel">
                  <include name="jboss-web.xml"/>
