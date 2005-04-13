@@ -3,7 +3,7 @@ package com.topcoder.project.phases;
 import java.util.Date;
 import java.util.List;
 
-import com.topcoder.date.workdays.TCWorkdays;
+import com.topcoder.apps.review.TCWorkdays;
 import com.topcoder.date.workdays.WorkdaysUnitOfTime;
 
 

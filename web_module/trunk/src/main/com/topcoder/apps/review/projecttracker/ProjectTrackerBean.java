@@ -40,7 +40,7 @@ import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
 import com.topcoder.project.phases.TCPhase;
-import com.topcoder.date.workdays.TCWorkdays;
+import com.topcoder.apps.review.TCWorkdays;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
