@@ -188,7 +188,7 @@
                         4th Place - 10,000 INR</p>
 
                         <p>To find out more detailed information about the Verizon Coding Challenge, including a list of the prizes, please read
-                        the <a href="/pl/?&module=Static&d1=verizon04&d2=verizon04_rules">Official Rules and Regulations</a>.</p>
+                        the <a href="/pl/?module=Static&d1=verizon04&d2=verizon04_rules">Official Rules and Regulations</a>.</p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>

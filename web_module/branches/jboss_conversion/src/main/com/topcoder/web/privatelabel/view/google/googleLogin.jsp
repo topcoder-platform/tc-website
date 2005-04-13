@@ -120,7 +120,7 @@ function submitEnter(e) {
 
                         </form>
                         <br/>
-                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?&module=GoogleReg&cid=1865&eid=1">here</a>.
+                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?module=GoogleReg&cid=1865&eid=1">here</a>.
                         </font>
                         </p>
 

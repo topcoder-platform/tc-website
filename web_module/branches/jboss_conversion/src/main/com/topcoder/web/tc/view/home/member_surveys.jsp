@@ -6,17 +6,17 @@
             <table width="530" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999"><font size="3">Member Surveys</font></td>
-                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?&module=SurveyList" class="bodyText"><strong>View All</strong></a></td>
+                    <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/tc?module=SurveyList" class="bodyText"><strong>View All</strong></a></td>
                 </tr>
             </table>
-            
+
             <table width="530" cellspacing="0" cellpadding="0" border="0" class="surveyFrame">
                 <tr>
                     <td>
                         <p class="surveyText"><span class="surveyTextBig"><rsc:item name="date" row="<%=resultRow%>"/> - </span><rsc:item name="question_text" row="<%=resultRow%>"/></p>
                     </td>
                 </tr>
-                
+
                 <tr valign="top">
                     <td class="surveyButtons">
                         <a href="/tc?module=SurveyResults&sid=<rsc:item name="survey_id" row="<%=resultRow%>"/>"><img src="/i/results.gif" width="60" height="18" border="0"/></a>
@@ -25,4 +25,3 @@
                 </tr>
             </table>
 </rsc:iterator>
-            

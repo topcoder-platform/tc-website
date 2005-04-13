@@ -174,7 +174,7 @@
                     <td width="70%" class="sidebarText">
                     <ul>
                     <li>One complimentary full Conference pass to the 2005 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
-                    <li>A collection of 23 <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone04&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
+                    <li>A collection of 23 <A href="Javascript:openWin('/pl/?module=Static&d1=javaone04&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
                     <li>One Zodiac Mobile Entertainment console and package from TapWave, valued at $625</li>
                     </ul>
                     </td>
@@ -251,7 +251,7 @@
 			The tournament is void in whole or in part where prohibited by law.</p>
 
 			<p class="regmiddle">A list of tournament winners will be available on the web site at
-			<a href="/pl/?&module=Static&d1=javaone04&d2=javaone_overview">www.topcoder.com/javaone2004</a> and will be displayed for
+			<a href="/pl/?module=Static&d1=javaone04&d2=javaone_overview">www.topcoder.com/javaone2004</a> and will be displayed for
 			at least 3 months after the end of the tournament.</p>
 
 			<p class="regmiddle">This tournament is brought to you by Sun Microsystems, Inc. (<a href="http://www.sun.com/">http://www.sun.com</a>),

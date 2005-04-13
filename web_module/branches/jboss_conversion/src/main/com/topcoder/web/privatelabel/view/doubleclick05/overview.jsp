@@ -25,19 +25,19 @@
 		<td class="dc_bodyText">
          <p>
           <span class="bigTitle">Announcing the DoubleClick 2005 Coding Challenge!</span>
-<br><br>         
+<br><br>
 It's faster and even more competitive than last year! Once again, we have teamed up with TopCoder - the leader in online programming competitions - to bring you an exciting contest online round with fantastic prizes for all.
-<br><br>         
-For those who place in the top five spots, the bounty is great: recognition among co-workers and the satisfaction of having beaten DoubleClick employees from around the world.  
-<br><br>         
+<br><br>
+For those who place in the top five spots, the bounty is great: recognition among co-workers and the satisfaction of having beaten DoubleClick employees from around the world.
+<br><br>
 The DoubleClick&#153; 2005 Coding Challenge, Powered by TopCoder&#174;, is your chance to prove you are the best! Are you up to the challenge?
-<br><br>         
+<br><br>
 <span class="dc_subTitle">What language do you speak?</span><br>
-Participants will have their choice of using Java, C++, C# or VB.Net to solve complex algorithmic problems. 
-<br><br>         
+Participants will have their choice of using Java, C++, C# or VB.Net to solve complex algorithmic problems.
+<br><br>
 <span class="dc_subTitle">Here's what you do</span><br>
 Download the DoubleClick 2005 Coding Challenge <A href="/i/events/doubleclick05/CompetitionManual.pdf">Competition Manual</A>.
-<br><br>         
+<br><br>
 The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. Here's how it works:
 
 <ul>
@@ -53,10 +53,10 @@ Within minutes of the end of the Challenge Phase, TopCoder's automated, objectiv
 
 <span class="dc_subTitle">Ready to prove you're one of DoubleClick's best?</span><br>
 Registration for the DoubleClick 2005 Coding Challenge opens on February 22nd and closes on March 1st. All employees who register will be eligible to compete in the competition.
-<br><br>         
+<br><br>
 <span class="dc_subTitle">Prizes</span><br>
 All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge T-shirt and a personally engraved memento.  In addition, the top five scorers overall will win grand prizes, and the remaining top 10% of finishers in each region will win prizes.  For example, if there are 50 participants in a given region, the top five finishers in that region who did not receive a grand prize will receive a prize.  If a region has less than 10 participants, the top finisher in that region will still receive a prize, provided he/she did not win a grand prize. DoubleClick will pay all applicable taxes on prizes.  Prizes will be distributed as described here.
-<br><br>         
+<br><br>
 
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -96,15 +96,15 @@ All participants who compete in the competition round will receive a DoubleClick
                 </tr>
             </table>
 
-<br><br>         
-To find out more detailed information about the DoubleClick 2005 Coding Challenge, please read the <A href="/pl/?&module=Static&d1=doubleclick05&d2=rules">Official Rules and Regulations</A>.
+<br><br>
+To find out more detailed information about the DoubleClick 2005 Coding Challenge, please read the <A href="/pl/?module=Static&d1=doubleclick05&d2=rules">Official Rules and Regulations</A>.
 
 		</td>
 	</tr>
 </table>
 
 <p><br/></p>
-   
+
 <jsp:include page="foot.jsp" />
 
 </body>

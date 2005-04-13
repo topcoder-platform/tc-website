@@ -50,7 +50,7 @@
 <%-- Review Boards ends --%>
 
 <%-- Press Room begins --%>
-                <tr><td id="<%=level1.equals("press_room")?"leftNavOn":"leftNav"%>"><a href="/?&t=news_events&c=index" class="<%=level1.equals("press_room")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("press_room")?"bottom":"right"%>.gif" border="0"/>Press Room</a></td></tr>
+                <tr><td id="<%=level1.equals("press_room")?"leftNavOn":"leftNav"%>"><a href="/?t=news_events&c=index" class="<%=level1.equals("press_room")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("press_room")?"bottom":"right"%>.gif" border="0"/>Press Room</a></td></tr>
 <%-- Press Room ends --%>
 
 <%-- Management begins --%>
@@ -58,7 +58,7 @@
 <%-- Management ends --%>
 
 <%-- Contacts begins --%>
-                <tr><td id="<%=level1.equals("contacts")?"leftNavOn":"leftNav"%>"><a href="/?&t=contacts&c=index" class="<%=level1.equals("contacts")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("contacts")?"bottom":"right"%>.gif" border="0"/>Contact Us</a></td></tr>
+                <tr><td id="<%=level1.equals("contacts")?"leftNavOn":"leftNav"%>"><a href="/?t=contacts&c=index" class="<%=level1.equals("contacts")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("contacts")?"bottom":"right"%>.gif" border="0"/>Contact Us</a></td></tr>
 <%-- Contacts ends --%>
 
             </table>
@@ -104,7 +104,7 @@
                 	<tr><td id="<%=level3.equals("compDocumentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">Component Documentation</A></td></tr>
                 	<tr><td id="<%=level3.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=ratings">Rating System</A></td></tr>
                 	<tr><td id="<%=level3.equals("reliability")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=support&d3=reliability">Reliability Rating</A></td></tr>
-                	<tr><td id="<%=level3.equals("getPaid")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=development&c=dev_payment">How to Get Paid</A></td></tr>
+                	<tr><td id="<%=level3.equals("getPaid")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=dev_payment">How to Get Paid</A></td></tr>
                 <% } %>
             </table>
 
@@ -126,9 +126,9 @@
                     <% } %>
                 <% } %>
 <%-- Schedule begins --%>
-                <tr><td id="<%=level1.equals("schedule")?"leftNavOn":"leftNav"%>"><a href="/?&t=schedule&c=index" class="<%=level1.equals("schedule")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("schedule")?"bottom":"right"%>.gif" alt="" border="0"/>Schedule</a></td></tr>
+                <tr><td id="<%=level1.equals("schedule")?"leftNavOn":"leftNav"%>"><a href="/?t=schedule&c=index" class="<%=level1.equals("schedule")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("schedule")?"bottom":"right"%>.gif" alt="" border="0"/>Schedule</a></td></tr>
 <%-- Statistics begins --%>
-                <tr><td id="<%=level1.equals("statistics")?"leftNavOn":"leftNav"%>"><a href="/stat?&c=round_overview" class="<%=level1.equals("statistics")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("statistics")?"bottom":"right"%>.gif" alt="" border="0"/>Statistics</a></td></tr>
+                <tr><td id="<%=level1.equals("statistics")?"leftNavOn":"leftNav"%>"><a href="/stat?c=round_overview" class="<%=level1.equals("statistics")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level1.equals("statistics")?"bottom":"right"%>.gif" alt="" border="0"/>Statistics</a></td></tr>
 
             <% if (level1.equals("statistics")) { %>
             <%
@@ -141,8 +141,8 @@
                     else info = nav.getSessionInfo();
                 }
             %>
-                <tr><td id="<%=level2.equals("round_overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=round_overview<%=request.getParameter("rd")==null?"":"&rd="+request.getParameter("rd")%>">Round Overview</a></td></tr>
-                <tr><td id="<%=level2.equals("last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=last_match">Last Match Results</a></td></tr>
+                <tr><td id="<%=level2.equals("round_overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=round_overview<%=request.getParameter("rd")==null?"":"&rd="+request.getParameter("rd")%>">Round Overview</a></td></tr>
+                <tr><td id="<%=level2.equals("last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=last_match">Last Match Results</a></td></tr>
                 <% if (!info.isAnonymous() && info.getRating()>0) { %>
                     <tr><td id="<%=level2.equals("my_last_match")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=coder_room_stats&cr=<%=info.getUserId()%>">My Last Match</a></td></tr>
                     <tr><td id="<%=level2.equals("member_profile")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=member_profile&cr=<%=info.getUserId()%>">Member Profile</a></td></tr>
@@ -150,11 +150,11 @@
                     <tr><td id="<%=level2.equals("earnings_history")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=earnings_history&cr=<%=info.getUserId()%>">Earnings History</a></td></tr>
                 <% } %>
                 <tr><td id="<%=level2.equals("problem_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=ProblemArchive">Problem Archive</a></td></tr>
-                <tr><td id="<%=level2.equals("coder_ratings")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>
+                <tr><td id="<%=level2.equals("coder_ratings")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?c=coder_ratings">Coder Rankings</a></td></tr>
                 <tr><td id="<%=level2.equals("editorial_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>
                 <tr><td id="<%=level2.equals("quick_stats")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>
                 <tr><td id="<%=level2.equals("search")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=ViewAdvanced">Advanced Member Search</a></td></tr>
-                <tr><td id="<%=level2.equals("member_surveys")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?&module=SurveyList">Member Surveys</a></td></tr>
+                <tr><td id="<%=level2.equals("member_surveys")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=SurveyList">Member Surveys</a></td></tr>
             <% } %>
 <%-- Statistics ends --%>
 
@@ -163,16 +163,16 @@
 
             <% if (level1.equals("education")) { %>
                 <tr><td id="<%=level2.equals("alg_tutorials")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=tutorials&d2=index">Algorithm Tutorials</A></td></tr>
-                <tr><td id="<%=level2.equals("features")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=features&c=index">Features</A></td></tr>
+                <tr><td id="<%=level2.equals("features")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=features&c=index">Features</A></td></tr>
                 <tr><td id="<%=level2.equals("tutor_transcripts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=tutor_transcripts&d2=index">Tutor Transcripts</A></td></tr>
             <% } %>
 
 <%-- Events begins --%>
-                <tr><td id="<%=level1.equals("events")?"leftNavOn":"leftNav"%>"><a href="/?&t=tournaments&c=tourny_index" class="<%=level1.equals("events")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("events")?"bottom":"right"%>.gif" border="0"/>Events</a></td></tr>
+                <tr><td id="<%=level1.equals("events")?"leftNavOn":"leftNav"%>"><a href="/?t=tournaments&c=tourny_index" class="<%=level1.equals("events")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("events")?"bottom":"right"%>.gif" border="0"/>Events</a></td></tr>
 
             <% if (level1.equals("events")) { %>
-                <tr><td id="<%=level2.equals("tournaments")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_index">Tournaments</A></td></tr>
-                <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_photos">Charity</A></td></tr>
+                <tr><td id="<%=level2.equals("tournaments")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?amp;t=tournaments&amp;c=tourny_index">Tournaments</A></td></tr>
+                <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_photos">Charity</A></td></tr>
                 <tr><td id="<%=level2.equals("private_label")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/pl/">Private Label</A></td></tr>
             <% } %>
 <%-- Events ends --%>
@@ -239,12 +239,12 @@
                     <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=help&d2=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support / FAQs</a></td></tr>
             <% if (level1.equals("support")) { %>
                 <tr><td id="<%=level2.equals("guide")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=help&d2=index">Algorithm Competition Guide</A></td></tr>
-                <tr><td id="<%=level2.equals("general")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=index">General FAQ</A></td></tr>
-                <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=comp_faq">Competition FAQ</A></td></tr>
-                <tr><td id="<%=level2.equals("forms")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=form_faq">Forms W-9 & W-8BEN FAQ</A></td></tr>
-                <tr><td id="<%=level2.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=ratings">Ratings Overview</A></td></tr>
-                <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=charities">Charity Donations</A></td></tr>
-                <tr><td id="<%=level2.equals("samples")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=support&c=sample_problems">Sample Problem Statements</A></td></tr>
+                <tr><td id="<%=level2.equals("general")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=support&c=index">General FAQ</A></td></tr>
+                <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=support&c=comp_faq">Competition FAQ</A></td></tr>
+                <tr><td id="<%=level2.equals("forms")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=support&c=form_faq">Forms W-9 & W-8BEN FAQ</A></td></tr>
+                <tr><td id="<%=level2.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=support&c=ratings">Ratings Overview</A></td></tr>
+                <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=support&c=charities">Charity Donations</A></td></tr>
+                <tr><td id="<%=level2.equals("samples")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=support&c=sample_problems">Sample Problem Statements</A></td></tr>
             <% } %>
     <%-- Support/FAQs ends --%>
 

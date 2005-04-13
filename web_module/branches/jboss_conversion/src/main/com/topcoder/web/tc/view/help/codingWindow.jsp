@@ -33,9 +33,9 @@
         <td width="100%" align="left" class="bodyText">
         <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="support"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Algorithm Competition Guide"/>  
+           <jsp:param name="image" value="support"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Algorithm Competition Guide"/>
         </jsp:include>
 
         <h2>The Coding Window</h2>
@@ -43,19 +43,19 @@
 		<p>
 		The coding window is the most important part of a TopCoder competition.  It is in the coding window that the problem statement is shown, and the solutions are created, compiled, tested, and ultimately submitted.
 		</p>
-		
+
 		<a name="problemstatement"></a>
 		<p><span class="bodySubtitle">1 The Problem Statement</span><br/>
-		The top pane of the Coding Window contains the problem statement in its entirety.  The problem statement explains exactly what it is that you should be attempting to accomplish.  It includes an explanation of the task, the class and method definitions (that your solution must adhere to), all of the constraints for any input parameters, and examples to help clarify the rest of the statement.  
+		The top pane of the Coding Window contains the problem statement in its entirety.  The problem statement explains exactly what it is that you should be attempting to accomplish.  It includes an explanation of the task, the class and method definitions (that your solution must adhere to), all of the constraints for any input parameters, and examples to help clarify the rest of the statement.
 		</p>
 
 		<a name="language"></a>
 		<p><span class="bodySubtitle">2 Choosing a Language</span><br/>
 		TopCoder currently allows coders to utilize Java, C++, C#, or Visual Basic .Net as a competition programming language.  You have the option to choose a programming language on a problem-by-problem basis.  It is legal for you to use two different programming languages to solve two problems in a single competition.  For this reason, you have the option of choosing the programming language from within the coding window.  You can find the language selection area in the upper right area of the coding window - under "Choose your Language".  The programming language that is automatically selected by default will match the "Default Language" setting in your member profile on TopCoder's website.  Remember to select the appropriate language before you attempt to compile your code.  Strange compilation results can be a symptom of having the wrong language selected.  For information on exactly how TopCoder performs compilations and tests in each language check here:
 		<br/><br/>
-		<A href="http://www.topcoder.com/?&t=support&c=index#java1">Java</A><br/>
-		<A href="http://www.topcoder.com/?&t=support&c=index#181">C++</A><br/>
-		<A href="http://www.topcoder.com/?&t=support&c=index#c1">C# or VB</A>
+		<A href="http://www.topcoder.com/?t=support&c=index#java1">Java</A><br/>
+		<A href="http://www.topcoder.com/?t=support&c=index#181">C++</A><br/>
+		<A href="http://www.topcoder.com/?t=support&c=index#c1">C# or VB</A>
 		</p>
 
 		<a name="createsolution"></a>
@@ -66,13 +66,13 @@
 		<br/><br/>
 		There are <A href="/?t=arena&c=plugins">TopCoder Arena plug-ins</A> available that will better integrate a local IDE with the TopCoder Arena.
 		<br/><br/>
-		Any standard output (i.e. System.out.println) from the execution of your class/method will be returned to you along with the results of your test.  This may be useful for debugging your code.  
+		Any standard output (i.e. System.out.println) from the execution of your class/method will be returned to you along with the results of your test.  This may be useful for debugging your code.
 		<br/><br/>
 		In all cases, your solution must run in under 8 seconds for every allowable test case in order to be considered correct.  User testing your code for a specific case will notify you of the results as well as the run time.
 		<br/><br/>
 		If you've inserted iterative system output in your solution for debugging purposes, it is a very good idea to delete or comment out these lines prior to submitting your code (of course, you'll need to compile first).  System output will be applied against your memory limit and will likely slow down the execution of your code.
 		</p>
-		
+
 		<a name="compiling"></a>
 		<p><span class="bodySubtitle">4 Compiling</span><br/>
 		Code compilations from within the coding window take place on TopCoder's servers.  The language that is chosen in the coding window at the time of the compilation will dictate which language compiler the compilation request is sent to.  A compilation request will send the code that is currently in the coding window to the TopCoder compiler.  If a compilation is successful, you will be notified of such.  If the compilation is not successful, the errors that are returned by the compiler will be displayed to you in the compilation results window.  Once a successful compilation is accomplished, the resultant compiled object will be stored on TopCoder's server.  Any user test or code submission will always utilize the most recent successfully compiled code.
@@ -88,7 +88,7 @@
 		<br/><br/>
 		While user testing your code, be aware of the execution time that is provided to you for each case.  Remember that any execution time that exceeds 8 seconds (for any single test case) will cause your entire submission to fail the system tests (or a challenge).  The execution time may vary a bit - especially when it comes to garbage collection.  Even if your solution executes in under 8 seconds for a specific case - it is still possible that it may fail during another execution (like when it really matters!).  It is always risky to be even close to 8 seconds.
 		</p>
- 
+
 		<a name="submitting"></a>
 		<p><span class="bodySubtitle">6 Submitting</span><br/>
 		At any point after a successful compilation and prior to any subsequent unsuccessful compilation, you have the option to submit your code.  Upon code submission, you will receive some amount of points - based on the length of time that has elapsed between opening that problem and submitting it.  The longer it takes for you to submit, the less points you will receive.  It is important to realize that upon submission, the points will be assigned to you regardless of whether or not your submission is correct.  At the end of the coding phase, the final point values for each competitor do not take into consideration correctness in any way.  Point values initially received for incorrect submissions will be eventually subtracted from the total score - either during the challenge phase or during the system-testing phase.
@@ -113,7 +113,7 @@
 		The timer in the coding window will be always counting down to the end of the current phase of competition (unless your are in a practice room).  Remember that there is variable latency between your computer and our servers.  It is ALWAYS best to perform any submissions with at least 30 seconds left in the coding phase - anything less than that is a risk to you.
 		</p>
 
-		
+
          <p><br/></p>
          </td>
 <!-- Center Column Ends -->

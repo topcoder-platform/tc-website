@@ -120,7 +120,7 @@ if (!rsc.isEmpty()) {
                                     <A HREF="<%="https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
 
 <% } else { %>
-                                    <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+                                    <A HREF="<%="/tc?module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
 
 <% } %>
                                     <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>

@@ -39,7 +39,7 @@
   						<p></p>
   						<p class ="regmiddle"><strong><font size="4">Mobility Winners - Wednesday June 30</font></strong></p>
 
-						<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_monday">Monday</a> | <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_tuesday">Tuesday</a> | Wednesday</p>
+						<p class ="regmiddle"><a href="/pl/?module=Static&d1=javaone04&d2=javaone_monday">Monday</a> | <a href="/pl/?module=Static&d1=javaone04&d2=javaone_tuesday">Tuesday</a> | Wednesday</p>
 
 			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -73,7 +73,7 @@
                 </tr>
             </table>
 
-			<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_wednesdayphotos">View Photos</a> from the event.</p>
+			<p class ="regmiddle"><a href="/pl/?module=Static&d1=javaone04&d2=javaone_wednesdayphotos">View Photos</a> from the event.</p>
 
 					</td>
 				</tr>

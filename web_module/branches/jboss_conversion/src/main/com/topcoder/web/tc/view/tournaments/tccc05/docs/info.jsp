@@ -44,7 +44,7 @@
                                 <li>
                                 <p>
                                     <span class=bodySubtitle>QUESTIONNAIRE</span> - Form must be completed and submitted by 9:00 PM EST on Wednesday, February 2.
-                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=206">2005 TopCoder Collegiate Challenge Questionnaire</a>.
+                                    View the <a href="/tc?amp;module=ViewSurvey&amp;sid=206">2005 TopCoder Collegiate Challenge Questionnaire</a>.
                                     NOTE: All questions are mandatory.  The answers to questions 1-17 may be included in the 2005 TCCC Program or
                                     used in onsite introductions, at TopCoder's discretion.  The answers to questions 18 - 22 will be
                                     provided to Yahoo!.
@@ -110,7 +110,7 @@
                                 <li>
                                 <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 9:00 AM ET on Monday, October 18.</p>
 
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2004_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
+                                <p>View the <a href="/?amp;t=affidavit&amp;c=2004_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                                 </li>
 
                             </ol>

@@ -43,7 +43,7 @@
         			<A href="http://software.topcoder.com/catalog/c_showroom.jsp?cat=5801777" target="blank">.NET Catalog</A></p></td>
         		<td><img src="http://www.topcoder.com/i/clear.gif" alt="" width="210" height="1" border="0"/></td>
         		<td class="bodyText" align="right"><p>
-        			<A href="http://www.topcoder.com/?&t=contacts&c=index" target="blank">Contact Us</A>&nbsp;&nbsp;|&nbsp;&nbsp;
+        			<A href="http://www.topcoder.com/?t=contacts&c=index" target="blank">Contact Us</A>&nbsp;&nbsp;|&nbsp;&nbsp;
         			<A href="http://software.topcoder.com/login.jsp" target="blank">Login</A></p></td>
         	</tr>
         </table>
@@ -309,13 +309,13 @@
                 		</tr>
 
 
-                    		<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.topcoder.com/?&t=news_events&c=pr_04_19b_04" target="blank">Champions Announced In 2004 TCCC Sponsored by Yahoo!<sup>&#174;</sup></A><br/>
+                    		<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.topcoder.com/?t=news_events&c=pr_04_19b_04" target="blank">Champions Announced In 2004 TCCC Sponsored by Yahoo!<sup>&#174;</sup></A><br/>
 							 TopCoder announced today that Tomasz Czajka of Warsaw, Poland, Pavlo Aksonov of the Ukraine and Roman Koshlyak, also of the
 							 Ukraine, have won the Coding, Design and Development Component tournaments of the 2004 TopCoder Collegiate Challenge
 							 sponsored by Yahoo! [April 19]
 							</td></tr>
 
-							<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.topcoder.com/?&t=news_events&c=pr_04_19_04" target="blank">Custom Web Application Enables Online Gift Card Service</A><br/>
+							<tr><td class="bodyText" bgcolor="#FFFFFF"><A href="http://www.topcoder.com/?t=news_events&c=pr_04_19_04" target="blank">Custom Web Application Enables Online Gift Card Service</A><br/>
 							Stage Stores has implemented a high quality enterprise solution to reduce the inconvenience and cost of customers having
 							to call an 800 number to purchase gift cards. The customized web solution is compatible across Apache Web Server,
 							Tomcat Servlet Engine and Oracle RDBMS platforms and was designed and developed by TopCoder Software using the

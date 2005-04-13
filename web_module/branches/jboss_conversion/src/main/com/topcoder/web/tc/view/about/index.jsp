@@ -65,7 +65,7 @@
                         Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. This, coupled
                         with Divisions,</A> offer a more level
                         field of competition for newer members in order to build ratings and move into potential
-                        <A href="/index?&t=tournaments&c=tourny_index">Tournament</A> opportunities.</li><br />
+                        <A href="/index?t=tournaments&c=tourny_index">Tournament</A> opportunities.</li><br />
 
                         <li><A href="/?t=development&c=index"><strong>Development</strong></A><br />
                         Rated TopCoder members are eligible to participate in TopCoder Component Development. Members submit design and development solutions

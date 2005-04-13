@@ -82,7 +82,7 @@
 
                         <table width="530" border="0" cellpadding="5" cellspacing="0" align="center">
                         	<tr>
-                        		<td colspan="2" align="center"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_overview" target="_blank"><img src="/i/corp/conevent_javaone04.gif" width="182" height="88" alt="" border="0"></a></td>
+                        		<td colspan="2" align="center"><a href="/pl/?module=Static&d1=javaone04&d2=javaone_overview" target="_blank"><img src="/i/corp/conevent_javaone04.gif" width="182" height="88" alt="" border="0"></a></td>
                         	</tr>
                         	<tr>
                         		<td align="center"><a href="/index?t=tournaments&c=javaone2003"><img src="/i/corp/conevent_javaone03.gif" width="182" height="88" alt="" border="0"></a></td>

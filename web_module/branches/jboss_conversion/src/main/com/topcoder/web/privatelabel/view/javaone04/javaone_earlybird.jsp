@@ -42,7 +42,7 @@
 
   						<p class="regmiddle">
   							<b>Early Bird Discount</b>&nbsp; &nbsp; | &nbsp; &nbsp;
-      						<a href="/pl/?&module=Static&d1=javaone04&d2=javaone_student"><b>Student Discount</b></a></p>
+      						<a href="/pl/?module=Static&d1=javaone04&d2=javaone_student"><b>Student Discount</b></a></p>
       					<p class="regmiddle"><strong><font size="4">Early Bird Discount</font></strong></p>
 
 						<p class="regmiddle">Early Bird TopCoder Professional discount:</p>

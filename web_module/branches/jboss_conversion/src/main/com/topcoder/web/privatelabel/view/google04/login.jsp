@@ -98,10 +98,10 @@ function submitEnter(e) {
 
                         </form>
                         <br/>
-                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?&module=Google04Reg&cid=1865&eid=1">here</a>.
+                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?module=Google04Reg&cid=1865&eid=1">here</a>.
 
 			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

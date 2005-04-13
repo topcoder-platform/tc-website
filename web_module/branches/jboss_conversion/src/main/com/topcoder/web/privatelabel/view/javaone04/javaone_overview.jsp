@@ -37,7 +37,7 @@
   					<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0">
   					<img src="/i/clear.gif" width="140" height="1"><a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>
   					<p></p>
-  					<img src="/i/clear.gif" width="15" height="1"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_wednesday"><img src="/i/events/javaone04/winners.gif" width="335" height="61" border="0"></a><br/>
+  					<img src="/i/clear.gif" width="15" height="1"><a href="/pl/?module=Static&d1=javaone04&d2=javaone_wednesday"><img src="/i/events/javaone04/winners.gif" width="335" height="61" border="0"></a><br/>
   					<img src="/i/clear.gif" width="20" height="10">
 					<p class ="regmiddle"><strong><font size="4">Code - Compete - Win!</font></strong></p>
 

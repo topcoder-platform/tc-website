@@ -7,12 +7,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.22.05<br>12:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_22_05">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?t=news_events&c=pr_02_22_05">Semifinalists Announced for 2005 TCCC Sponsored by Yahoo!&#174;</A></span><br><br>
       TopCoder today announced the 31 International onsite semifinalists who have advanced to the Championship rounds of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_02_22_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=pr_02_22_05">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
@@ -90,12 +90,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.16.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_16_05">NVIDIA Corporation Returns as Premier Sponsor of 2005 TCCC</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?t=news_events&c=pr_02_16_05">NVIDIA Corporation Returns as Premier Sponsor of 2005 TCCC</A></span><br><br>
       NVIDIA sponsors their fifth consecutive TC tournament.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_02_16_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=pr_02_16_05">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
@@ -160,12 +160,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.09.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_09_05">Google Code Jam Comes to India</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?t=news_events&c=pr_02_09_05">Google Code Jam Comes to India</A></span><br><br>
       The Google India Code Jam is an extension of Google's annual Code Jam competition and celebrates the art of computer science...
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_02_09_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=pr_02_09_05">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
@@ -173,7 +173,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>02.07.05<br>1:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/reid.mov">reid, on going to an onsite event</A></span><br><br>
-      One of TC's top ranked algorithm members talks about what it's like to go to an onsite event and meet up with other members. 
+      One of TC's top ranked algorithm members talks about what it's like to go to an onsite event and meet up with other members.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -184,12 +184,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>02.07.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_02_07_05">TC Community Surpasses 50,000 Worldwide</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?t=news_events&c=pr_02_07_05">TC Community Surpasses 50,000 Worldwide</A></span><br><br>
       A milestone for TopCoder.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_02_07_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=pr_02_07_05">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
@@ -221,7 +221,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.03.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=tccc05_online_rd_4">TCCC05 Round 4 - Problem Set & Analysis</A></span><br><br>
-      Eryx dominated from start to finish, which for him, occurred at the 35 minute mark. 
+      Eryx dominated from start to finish, which for him, occurred at the 35 minute mark.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -244,12 +244,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.01.05<br>4:05 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_02_01_05">DE-CODER: The kings of coding</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?t=news_events&c=art_02_01_05">DE-CODER: The kings of coding</A></span><br><br>
       "'Tomek' and 'Pops' may be unfamiliar names to you, but in the world of coding competitions, they're as big as rock stars."
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=art_02_01_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=art_02_01_05">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
@@ -328,12 +328,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>01.25.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_01_25_05">TCS Delivers for Consortium of Spinal Cord Injury Researchers</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?t=news_events&c=pr_01_25_05">TCS Delivers for Consortium of Spinal Cord Injury Researchers</A></span><br><br>
       TCS has deployed a web-based application to disseminate critical microarray data between the CRPF and the general scientific community.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_01_25_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=pr_01_25_05">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
@@ -358,7 +358,7 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=SurveyResults&sid=6516">results</A>&#160;|&#160;
          <A href="/tc?module=ViewSurvey&sid=6516">vote</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
+         <A href="/tc?module=SurveyList">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -458,7 +458,7 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=SurveyResults&sid=6515">results</A>&#160;|&#160;
          <A href="/tc?module=ViewSurvey&sid=6515">vote</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
+         <A href="/tc?module=SurveyList">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -504,8 +504,8 @@
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_comp">Component Competition News</A></td>
    </tr>
    <tr class="sidebarText">
-      <td><A href="/tc?&module=SurveyList"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0" /></A></td>
-      <td><A href="/tc?&module=SurveyList">Surveys</A></td>
+      <td><A href="/tc?module=SurveyList"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0" /></A></td>
+      <td><A href="/tc?module=SurveyList">Surveys</A></td>
       <td><A href="/?t=statistics&c=editorial_archive"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /></A></td>
       <td><A href="/?t=statistics&c=editorial_archive">Problem Sets & Analyses</A></td>
    </tr>

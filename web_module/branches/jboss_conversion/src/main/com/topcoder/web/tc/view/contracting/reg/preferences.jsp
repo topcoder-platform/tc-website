@@ -164,7 +164,7 @@ return false;
                         </tc-webtag:errorIterator>
 			<%if(request.getAttribute("hasResume") != null && request.getAttribute("hasResume").equals("true")) {%>
 			<tr>
-				<td class=bodyText><a href="/Resume?&t=DownloadTask">Download your existing resume</a></td>
+				<td class=bodyText><a href="/Resume?t=DownloadTask">Download your existing resume</a></td>
 			</tr>
 			<%}%>
 			<tr>

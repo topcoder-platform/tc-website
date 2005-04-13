@@ -58,10 +58,10 @@
                             Your account has been activated, however you are not eligible to compete in
                             the Verizon Coding Challenge based on the information provided during
                             registration.  To read the eligibility requirements, see the
-                            <a class="bodyCopy" href="?&module=Static&d1=verizon&d2=vcc03_rules">Official Rules</a>.<br/><br/>
+                            <a class="bodyCopy" href="?module=Static&d1=verizon&d2=vcc03_rules">Official Rules</a>.<br/><br/>
 
                             You can use your handle and password to login to the Practice Arena to
-                            hone your skills for future Verizon coding events – just click the
+                            hone your skills for future Verizon coding events ï¿½ just click the
                             "Practice Arena" link to the left.<br/><br/><br/><br/><br/><br/><br/>
 
                              <p style="font-size:10px">Questions?  Contact us at <a href="mailto:vcc@topcoder.com?subject=VCC Question">vcc@topcoder.com</a></p>

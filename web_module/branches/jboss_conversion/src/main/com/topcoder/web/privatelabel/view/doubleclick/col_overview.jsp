@@ -38,7 +38,7 @@
 			<p>For those who make it to the finals, the bounty is great: cash prizes, recognition among peers and the satisfaction of having beaten hundreds of other top collegiate technologists. The finalists will be hosted at DoubleClick headquarters in NYC, recognized on the tournament website and in a press release announcing the winners.</p>
 
 			<p>Technology is the lifeblood of DoubleClick. The Internet has only just begun, and DoubleClick will shape the future of technology in the virtual world. DoubleClick's technologies have become the leading tools for <a class="bodyText_link" href="http://www.doubleclick.com/us/products/campaign_management/" target="_blank">campaign management</a>, <a class="bodyText_link" href="http://www.doubleclick.com/us/products/online_advertising/" target="_blank">online advertising</a>, <a class="bodyText_link" href="http://www.doubleclick.com/us/products/email_marketing/" target="_blank">email delivery</a>, <a class="bodyText_link" href="http://www.doubleclick.com/us/products/direct_marketing/" target="_blank">direct marketing</a>, <a class="bodyText_link" href="http://www.doubleclick.com/us/products/marketing_analytics/" target="_blank">marketing analytics</a>, and <a class="bodyText_link" href="http://www.doubleclick.com/us/products/data_management/" target="_blank">data management</a>.  DoubleClick believes the future of technology lies in the minds of some of the best and brightest students Columbia and NYU have to offer.  The DoubleClick 2004 Coding Challenge, Powered by TopCoder&#174;, is your chance to prove you are the best!</p>
-			
+
          <p><span class="dc_subTitle">What language do you speak?</span><br/>
          Participants will have their choice of using Java, C++, C# or VB.Net - the most relevant of current software development technologies - to solve complex algorithmic problems.</p>
 
@@ -106,12 +106,12 @@
                 </tr>
             </table>
 
-         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Official Rules and Regulations</a>.</p>
+         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?module=Static&d1=doubleclick&d2=col_rules">Official Rules and Regulations</a>.</p>
 
 		</td>
 	</tr>
 </table>
-   
+
 <jsp:include page="foot.jsp" />
 
 </body>

@@ -35,7 +35,7 @@
 			<table cellspacing="0" cellpadding="0" border="0" width="100%">
 				<tr>
 <%--
-                    <td class=demoLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td>
+                    <td class=demoLeftCol valign="top"><a href="/pl/?module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td>
 --%>
 					<td width="100%" valign="top">
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >

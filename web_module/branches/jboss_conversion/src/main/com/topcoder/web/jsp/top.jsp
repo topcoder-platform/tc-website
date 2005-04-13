@@ -47,10 +47,10 @@
 <% if ( !sessionInfo.isAnonymous() ) { %>
             <strong>Hello, </strong>
             <a href="/stat?c=member_profile&amp;cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a>
-            &#160;&#160;|&#160;&#160;<a href="/tc?&amp;module=Logout" class=loginLinks>Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="/tc?amp;module=Logout" class=loginLinks>Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>
-            <a href="/tc?&module=Login" class=loginLinks>Login</a>
+            <a href="/tc?module=Login" class=loginLinks>Login</a>
             &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Register</a>
 <%}%>
             &#160;&#160;|&#160;&#160;<a href="/" class=loginLinks>Home</a>

@@ -25,7 +25,7 @@
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -48,15 +48,15 @@
 			<td class="advancersTitle" align="right" width="100%">Advancers</td>
 			</tr>
 			<tr valign="top">
-			<td class="advancersRound"><a href="/pl/?&module=Static&d1=gicj05&d2=advQual" class="topLink">Qualification Round</a></td>
-			<td class="sidebarText" align="right"><a href="/pl/?&module=Static&d1=gicj05&d2=advQual">500</a></td>
+			<td class="advancersRound"><a href="/pl/?module=Static&d1=gicj05&d2=advQual" class="topLink">Qualification Round</a></td>
+			<td class="sidebarText" align="right"><a href="/pl/?module=Static&d1=gicj05&d2=advQual">500</a></td>
 			</tr>
 			</table>
 
 
 
 			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

@@ -176,7 +176,7 @@ public class DataServlet extends HttpServlet {
             nav = (Navigation) request.getSession().getAttribute("navigation");
             if (nav == null || !nav.isIdentified())
                 response.sendRedirect("http://" + request.getServerName() +
-                        "/tc?&module=Login&message=" +
+                        "/tc?module=Login&message=" +
                         "You must log in to view this portion of the site.&nextpage=" +
                         request.getRequestURI());
 

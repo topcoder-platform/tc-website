@@ -41,7 +41,7 @@
   					<p></p>
 
   						<p class="regmiddle">
-  							<a href="/pl/?&module=Static&d1=javaone04&d2=javaone_earlybird"><b>Early Bird Discount</b></a>&nbsp; &nbsp; | &nbsp; &nbsp;
+  							<a href="/pl/?module=Static&d1=javaone04&d2=javaone_earlybird"><b>Early Bird Discount</b></a>&nbsp; &nbsp; | &nbsp; &nbsp;
       						<b>Student Discount</b></p>
       					<p class="regmiddle"><strong><font size="4">Student Discount</font></strong></p>
 

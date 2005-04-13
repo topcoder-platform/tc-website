@@ -40,7 +40,7 @@
   						<p></p>
   						<p class ="regmiddle"><strong><font size="4">Web Services Winners - Monday June 28</font></strong></p>
 
-						<p class ="regmiddle">Monday | <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_tuesday">Tuesday</a> | <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_wednesday">Wednesday</a></p>
+						<p class ="regmiddle">Monday | <a href="/pl/?module=Static&d1=javaone04&d2=javaone_tuesday">Tuesday</a> | <a href="/pl/?module=Static&d1=javaone04&d2=javaone_wednesday">Wednesday</a></p>
 
 			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -74,7 +74,7 @@
                 </tr>
             </table>
 
-            <p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_mondayphotos">View Photos</a> from the event.</p>
+            <p class ="regmiddle"><a href="/pl/?module=Static&d1=javaone04&d2=javaone_mondayphotos">View Photos</a> from the event.</p>
 
 
 

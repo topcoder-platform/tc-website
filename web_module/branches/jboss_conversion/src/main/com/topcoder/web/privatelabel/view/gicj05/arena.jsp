@@ -33,7 +33,7 @@ function openWin(url, name, w, h) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -55,7 +55,7 @@ function openWin(url, name, w, h) {
 			<br/><br/>
          Using a proxy server? Click <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">here</A> to read how to <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
 			<br/><br/>
-         Click <A href="/pl/?&module=Static&d1=gicj05&d2=instructions">here</A> to read to the <A href="/pl/?&module=Static&d1=gicj05&d2=instructions">competition instructions</A>.
+         Click <A href="/pl/?module=Static&d1=gicj05&d2=instructions">here</A> to read to the <A href="/pl/?module=Static&d1=gicj05&d2=instructions">competition instructions</A>.
          <br/><br/>
          Click <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java Applet</A>.
          <br/><br/>
@@ -67,7 +67,7 @@ function openWin(url, name, w, h) {
          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 			<br/><br/>
-			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

@@ -42,7 +42,7 @@
                <table align="center">
                   <tr>
                      <td>
-                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
+                     <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
@@ -60,7 +60,7 @@
 </jsp:include>
 
                <p class="terciary">
-                <a href="/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Details
+                <a href="/tc?amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;Details
             </p>
 
                 <blockquote>
@@ -96,7 +96,7 @@
                 <p><strong>Serious money to solve a serious problem</strong><br />
                 TopCoder will match every dollar our members raise up to $50,000!</p>
 
-                <p>Please read the <A href="/tc?&module=Static&d1=crpf&d2=crpf_rules_overview" target="_top">Rules</A> to get all the details about this exciting new event.</p>
+                <p>Please read the <A href="/tc?module=Static&d1=crpf&d2=crpf_rules_overview" target="_top">Rules</A> to get all the details about this exciting new event.</p>
 
                </blockquote>
 
