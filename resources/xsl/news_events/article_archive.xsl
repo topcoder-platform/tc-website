@@ -61,6 +61,10 @@
 <!-- 2005  -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+                            <tr><td class="newsText"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">Business Briefs on TC and LogicLibrary</A> [April 13 - SDT]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://www.sys-con.com/story/?storyid=49134" target="_blank">LogicLibrary Checks Out TopCoder to Enable SOA</A> [April 9 - .NET Developer's Journal]</td></tr>
+
                             <tr><td class="newsText"><A href="/i/pressroom/040105.pdf" target="_blank">University computer whiz wins big at tech tourney</A> [April 1 - Barrhaven Independent]</td></tr>
 
                             <tr><td class="newsText"><A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank">Do you have what it takes?</A> [April - ComputerUser]</td></tr>
