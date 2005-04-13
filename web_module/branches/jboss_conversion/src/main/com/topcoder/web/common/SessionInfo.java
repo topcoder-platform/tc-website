@@ -67,7 +67,6 @@ public class SessionInfo implements Serializable {
         isLoggedIn = !authentication.getUser().isAnonymous();
 
         if (log.isDebugEnabled()) {
-            Thread.dumpStack();
             log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
                     getQueryString() + " request: " + getRequestString());
         }
