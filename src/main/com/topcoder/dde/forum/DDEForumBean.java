@@ -173,6 +173,13 @@ public class DDEForumBean implements SessionBean {
                 conn = null;
             }
         }
+        
+        if (component == null) {
+            System.out.println("NULL COMPONENT WTF");
+        } else {
+            System.out.println("COMPONENT NOT NULL " + component.getName());
+        }
+        
         return component;
     }
 
