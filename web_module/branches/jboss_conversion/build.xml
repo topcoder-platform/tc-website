@@ -643,6 +643,8 @@
                  <include name="Resume.properties"/>
                  <include name="TC.properties"/>
                  <include name="cache.properties"/>
+                 <include name="Email.properties"/>
+                 <include name="EmailEngine.properties"/>
              </fileset>
          </copy>
          <copy todir="${jboss_conf}">
