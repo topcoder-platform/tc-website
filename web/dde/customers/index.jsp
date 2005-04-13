@@ -59,16 +59,44 @@
 
             <hr width="100%" size="1px" noshade>
 
+<!-- CBDI begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/cbdi_logo.gif" alt="CBDI" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">CBDI is an independent analyst firm and think-tank, providing a focus for the industry on best practice in business software creation, reuse and management.<br><br>
+                    <A href="http://www.cbdiforum.com/index.php3" target="_blank">homepage</A>&#160;|&#160;
+                     <A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/cbdi_journal.pdf&refer=homepage" target="_blank">white paper</A>
+                     </td>
+                </tr>
+            </table>
+<!-- CBDI ends -->
+
+             <hr width="100%" size="1px" noshade>
+
+<!-- StageStores begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/stagestores_logo.gif" alt="Stagestores" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">StageStores, Inc. brings nationally recognized brand name apparel, accessories, cosmetics and footwear for the entire family to small and mid-size towns and communities with over 520 stores in 27 states.<br><br>
+                    <A href="http://www.stagestores.com/" target="_blank">homepage</A>&#160;|&#160;
+                     <A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=homepage" target="_blank">case study</A>
+                     </td>
+                </tr>
+            </table>
+<!-- StageStores ends -->
+
+             <hr width="100%" size="1px" noshade>
+
 <!-- ABB begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/abb_logo.gif" alt="ABB" width="170" height="57" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/abb_logo.gif" alt="ABB" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>A leader in power and automation technologies that enable customers to improve performance while lowering environmental impact. </p>
-                    </td>
+                    <td width="99%" class="bodyText">A leader in power and automation technologies that enable customers to improve performance while lowering environmental impact.<br><br>
+                    <A href="http://www.abb.com/" target="_blank">homepage</A>
+                     </td>
                 </tr>
             </table>
 <!-- ABB ends -->
@@ -78,14 +106,11 @@
 <!-- Borders begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/borders.gif" alt="Borders" width="170" height="36" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/borders_logo.gif" alt="Borders" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>With more than 32,000 employees worldwide, this company provides its customers with the books, music,
-                        movies, and other entertainment items they love.</p>
-                    </td>
+                    <td width="99%" class="bodyText">With more than 32,000 employees worldwide, this company provides its customers with the books, music, movies, and other entertainment items they love.<br><br>
+                    <A href="http://www.amazon.com/exec/obidos/tg/browse/-/577394/103-3590679-6259839" target="_blank">homepage</A>
+                     </td>
                 </tr>
             </table>
 <!-- Borders ends -->
@@ -95,14 +120,11 @@
 <!-- Burlington begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/burlington.gif" alt="Burlington Coat Factory" width="170" height="42" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/burlington_logo.gif" alt="Burlington Coat Factory" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>Burlington Coat Factory Warehouse Corporation is a national department store retail chain
-                        offering current, high quality, designer merchandise at up to 60% less than other department store prices.</p>
-                    </td>
+                    <td width="99%" class="bodyText">Burlington Coat Factory Warehouse Corporation is a national department store retail chain offering current, high quality, designer merchandise at up to 60% less than other department store prices.<br><br>
+                    <A href="http://corporate.burlingtoncoatfactory.com/" target="_blank">homepage</A>
+                     </td>
                 </tr>
             </table>
 <!-- Burlington ends -->
@@ -112,31 +134,38 @@
 <!-- Detroit Edison begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/detroit_edison.gif" alt="Detroit Edison" width="170" height="78" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/detroit_edison_logo.gif" alt="Detroit Edison" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>Founded in 1903, this investor-owned electric utility generates, transmits, and distributes electricy to 2.1 million
-                        customers in Southeastern Michigan.</p>
-                    </td>
+                    <td width="99%" class="bodyText">Founded in 1903, this investor-owned electric utility generates, transmits, and distributes electricy to 2.1 million customers in Southeastern Michigan.<br><br>
+                    <A href="http://my.dteenergy.com/main/index.do" target="_blank">homepage</A>
+                     </td>
                 </tr>
             </table>
 <!-- Detroit Edison ends -->
 
              <hr width="100%" size="1px" noshade>
 
+<!-- Ferguson begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/ferguson_logo.gif" alt="Ferguson" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">Ferguson distributes plumbing, pipe, valves and fittings, heating and cooling, and waterworks products to the construction industry through a coast-to-coast network of showrooms, counters and distribution centers.<br><br>
+                    <A href="http://www.ferguson.com/" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Ferguson ends -->
+
+             <hr width="100%" size="1px" noshade>
+
 <!-- Franklin Mortgage begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/frankin_mortgage.gif" alt="Franklin Mortgage" width="170" height="51" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/frankin_mortgage_logo.gif" alt="Franklin Mortgage" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>Acquiring and selling non-conforming mortgage loans on residential properties, this firm is one of the largest privately held
-                        lenders in the nation.</p>
-                    </td>
+                    <td width="99%" class="bodyText">Acquiring and selling non-conforming mortgage loans on residential properties, this firm is one of the largest privately held lenders in the nation.<br><br>
+                     </td>
                 </tr>
             </table>
 <!-- Franklin Mortgage ends -->
@@ -146,13 +175,11 @@
 <!-- Oxford begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/oxford.gif" alt="Oxford" width="170" height="42" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/oxford_logo.gif" alt="Oxford" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>Learn about Oxford programs, products and services including Access to Care, Preventive and Practical resources.</p>
-                    </td>
+                    <td width="99%" class="bodyText">Learn about Oxford programs, products and services including Access to Care, Preventive and Practical resources.<br><br>
+                    <A href="https://www.oxhp.com/" target="_blank">homepage</A>
+                     </td>
                 </tr>
             </table>
 <!-- Oxford ends -->
@@ -162,14 +189,11 @@
 <!-- Philip Morris begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/philipmorris.gif" alt="Oxford" width="170" height="42" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/philipmorris_logo.gif" alt="Philip Morris" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>Hiring the best people, producing the highest quality products, and giving back to the community helped grow
-                        this 101-year-old company into the leading manufacturer of cigarettes in the United States.</p>
-                    </td>
+                    <td width="99%" class="bodyText">Hiring the best people, producing the highest quality products, and giving back to the community helped grow this 101-year-old company into the leading manufacturer of cigarettes in the United States.<br><br>
+                    <A href="http://www.philipmorrisusa.com/en/home.asp" target="_blank">homepage</A>
+                     </td>
                 </tr>
             </table>
 <!-- Philip Morris ends -->
@@ -179,14 +203,12 @@
 <!-- Praxair begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/praxair.gif" alt="Praxair" width="170" height="40" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/praxair_logo.gif" alt="Praxair" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>With annual sales of $5.6 billion, Praxair, Inc. is a global, Fortune 500 company that supplies atmospheric,
-                        process and specialty gases, high-performance coatings, and related services and technologies.</p>
-                    </td>
+                    <td width="99%" class="bodyText">With annual sales of $5.6 billion, Praxair, Inc. is a global, Fortune 500 company that supplies atmospheric, process and specialty gases, high-performance coatings, and related services and technologies.<br><br>
+                    <A href="http://www.praxair.com/" target="_blank">homepage</A><%--&#160;|&#160;
+                     <A href="/" target="_blank">case study</A>--%>
+                     </td>
                 </tr>
             </table>
 <!-- Praxair ends -->
@@ -196,49 +218,25 @@
 <!-- Rodale begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/rodale.gif" alt="Rodale" width="170" height="62" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/rodale_logo.gif" alt="Rodale" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p> Rodale today is a global leader in healthy, active living information. Rodale's nine magazine properties, all veteran
-                        publications in their categories, include the brands Prevention, Men's Health and Runner's World, which are published
-                        in 36 countries.</p>
-                    </td>
+                    <td width="99%" class="bodyText">Rodale today is a global leader in healthy, active living information. Rodale's nine magazine properties, all veteran publications in their categories, include the brands Prevention, Men's Health and Runner's World, which are published in 36 countries.<br><br>
+                    <A href="http://www.rodale.com/" target="_blank">homepage</A>
+                     </td>
                 </tr>
             </table>
 <!-- Rodale ends -->
 
              <hr width="100%" size="1px" noshade>
 
-<!-- StageStores begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/stagestores_logo.gif" alt="Stagestores" width="170" height="36" border="0" /></td>
-
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>StageStores, Inc. brings nationally recognized brand name apparel, accessories, cosmetics and footwear for
-                        the entire family to small and mid-size towns and communities with over 520 stores in 27 states.</p>
-                    </td>
-                </tr>
-            </table>
-<!-- StageStores ends -->
-
-             <hr width="100%" size="1px" noshade>
-
 <!-- Talbots begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/talbots.gif" alt="Talbots" width="170" height="59" border="0" /></td>
-
+                    <td width="170"><img src="/images/clients/talbots_logo.gif" alt="Talbots" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-
-                    <td width="99%" class="bodyText">
-                        <p>With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger,
-                        and e-tailer of women's classic apparel.</p>
-                    </td>
+                    <td width="99%" class="bodyText">With hundreds of locations in the US, Canada, and the UK, Talbots is a leading specialty retailer, cataloger, and e-tailer of women's classic apparel.<br><br>
+                    <A href="http://www1.talbots.com/talbotsonline/index.asp" target="_blank">homepage</A>
+                     </td>
                 </tr>
             </table>
 <!-- Talbots ends -->
