@@ -12,7 +12,6 @@ import com.topcoder.util.format.PrimitiveFormatter;
 import com.topcoder.util.format.PrimitiveFormatterFactory;
 import com.topcoder.project.phases.TCPhase;
 import com.topcoder.project.phases.PhaseDateComparator;
-import com.topcoder.date.workdays.TCWorkdays;
 
 
 import org.apache.struts.action.ActionError;

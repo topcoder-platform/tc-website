@@ -134,6 +134,7 @@
              <exclude name="com/topcoder/dde/**"/>
              <exclude name="com/topcoder/sql/**"/>
              <exclude name="com/topcoder/util/**"/>
+             <exclude name="com/topcoder/project/**"/>
          </javac>
      </target>
 
