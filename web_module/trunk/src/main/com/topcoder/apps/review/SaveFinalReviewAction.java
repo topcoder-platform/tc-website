@@ -83,7 +83,6 @@ public final class SaveFinalReviewAction extends ReviewAction {
 
                     AutoPilot.finalReviewFailed(data, notFixedItems, data.getFinalReview().getComments());
                 }
-
             }
             
             return result;
