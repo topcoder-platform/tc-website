@@ -175,7 +175,7 @@ public class DDEForumBean implements SessionBean {
         }
         
         if (component == null) {
-            System.out.println("NULL COMPONENT WTF");
+            System.out.println("NULL COMPONENT WTF " + forumId);
         } else {
             System.out.println("COMPONENT NOT NULL " + component.getName());
         }
