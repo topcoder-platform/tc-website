@@ -6,6 +6,30 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.13.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">Business Briefs on TC and LogicLibrary</A></span><br><br>
+      "Through a joint agreement, LogicLibrary will make TopCoder Software's component catalog available to the users of the Logidex asset management system." [SDT]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/pressroom/SDT_041305.jpg" target="_blank">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.13.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.sys-con.com/story/?storyid=49134" target="_blank">LogicLibrary Checks Out TopCoder to Enable SOA</A></span><br><br>
+      "This strategic partnership is intended to bolster the collection of 'out-of-the box' content preinstalled with Logidex." [.NET Developer's Journal]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://www.sys-con.com/story/?storyid=49134" target="_blank">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.11.05<br>10:55 AM</td>
       <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=about&d2=employment_account_exec">TopCoder</A></span><br><br>
       <A href="/tc?module=Static&d1=about&d2=employment_account_exec">TopCoder</A> is offering a position as an Employment Services Account Executive, available to <strong>ALL</strong> members.
@@ -250,21 +274,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.17.05<br>10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm234_prob">SRM 234 - Problem Set & Analysis</A></span><br><br>
-      During this fast paced SRM, many coders were able to finish the entire set well before the coding phase ended.</td>
-      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=251317">brett1479</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm234_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 </table>
 <br><br>
 
