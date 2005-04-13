@@ -28,8 +28,8 @@
 	<tr><td><div><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
 	<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DEMO_REG_SUBMIT%>"/>
-            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
-            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
+            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
+            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -48,59 +48,59 @@
                         <tr>
                             <td class="demoRegQuestion"><b>Personal</b></td>
                             <td class="demoRegAnswer">
-                                <a class="demoRegAnswer" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                                <a class="demoRegAnswer" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>">edit<a/>
                             </td>
                         </tr>
                         <tr>
                             <td class="demoRegQuestion">First Name</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="FirstName"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="firstName"/></td>
                         </tr>
 
                         <tr>
                             <td class="demoRegQuestion">Middle Initial</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="MiddleName"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="middleName"/></td>
                         </tr>
 
                         <tr>
                             <td class="demoRegQuestion">Last Name</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="LastName"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="lastName"/></td>
                         </tr>
                         <tr>
                             <td class="demoRegQuestion">Email Address</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="Email"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="email"/></td>
                         </tr>
 
                         <tr>
                             <td class="demoRegQuestion">Address1</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="Address1"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="address1"/></td>
                         </tr>
 
                         <tr>
                             <td class="demoRegQuestion">Address2</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="Address2"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="address2"/></td>
                         </tr>
 
                         <tr>
                             <td class="demoRegQuestion">Address3</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="Address3"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="address3"/></td>
                         </tr>
 
                         <tr>
                             <td class="demoRegQuestion">City</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="City"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="city"/></td>
                         </tr>
                         <tr>
                             <td class="demoRegQuestion">State</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="StateCode"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="stateCode"/></td>
                         </tr>
                         <tr>
                             <td class="demoRegQuestion">Pin/Zip Code</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="Zip"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="zip"/></td>
                         </tr>
 
                         <tr>
                             <td class="demoRegQuestion">Country</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="CountryName"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="countryName"/></td>
                         </tr>
                         </table>
 
@@ -110,7 +110,7 @@
                         <tr>
                             <td class="demoRegQuestion"><b>Demographics</b></td>
                             <td class="demoRegAnswer">
-                                <a class="demoRegAnswer" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                                <a class="demoRegAnswer" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.BROOKS_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="companyId"/>">edit<a/>
                             </td>
                         </tr>
                         <pl:responseIterator id="resp" list="<%=responseList%>">
@@ -126,7 +126,7 @@
 
                         <tr>
                             <td class="demoRegQuestion">Resume</td>
-                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="UploadStatus"/></td>
+                            <td class="demoRegAnswer"><jsp:getProperty name="regInfo" property="uploadStatus"/></td>
                         </tr>
                         <tr>
                             <td class="demoRegQuestion"></td>
