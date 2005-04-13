@@ -1526,27 +1526,27 @@
 
     <servlet-mapping>
         <servlet-name>TransactionServlet</servlet-name>
-        <url-pattern>/Tx/</url-pattern>
+        <url-pattern>/Tx</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>tces</servlet-name>
-        <url-pattern>/tces/</url-pattern>
+        <url-pattern>/tces</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>screening</servlet-name>
-        <url-pattern>/testing/</url-pattern>
+        <url-pattern>/testing</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>JNLPServlet</servlet-name>
-        <url-pattern>/JNLPServlet/</url-pattern>
+        <url-pattern>/JNLPServlet</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>GraphServlet</servlet-name>
-        <url-pattern>/graph/</url-pattern>
+        <url-pattern>/graph</url-pattern>
     </servlet-mapping>
 
     <taglib>
