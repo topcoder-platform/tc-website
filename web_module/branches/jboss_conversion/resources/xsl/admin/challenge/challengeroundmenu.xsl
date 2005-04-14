@@ -3,7 +3,7 @@
 <xsl:import href="../menu.xsl"/>
 <xsl:import href="../top.xsl"/>
 
-<xsl:preserve-space elements="*"/> 
+<xsl:preserve-space elements="*"/>
 <xsl:template match="/">
 
 <html>
@@ -73,22 +73,19 @@
                 </td>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">JavaScript:doRound('<xsl:value-of select="RoundId"/>')
-                      </xsl:attribute>
+                      <xsl:attribute name="HREF">JavaScript:doRound('<xsl:value-of select="RoundId"/>')</xsl:attribute>
                       click
                     </A>
                 </td>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">JavaScript:doProblem('<xsl:value-of select="RoundId"/>')
-                      </xsl:attribute>
+                      <xsl:attribute name="HREF">JavaScript:doProblem('<xsl:value-of select="RoundId"/>')</xsl:attribute>
                       click
                     </A>
                 </td>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">JavaScript:doCoder('<xsl:value-of select="RoundId"/>')
-                      </xsl:attribute>
+                      <xsl:attribute name="HREF">JavaScript:doCoder('<xsl:value-of select="RoundId"/>')</xsl:attribute>
                       click
                     </A>
                 </td>
@@ -106,7 +103,7 @@
 <xsl:attribute name="ACTION">/admin</xsl:attribute>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CONSTRAINTID"/> 
+        <xsl:value-of select="/TC/CONSTRAINTID"/>
     </xsl:attribute>
 </input>
 
@@ -116,7 +113,7 @@
 <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
 </FORM>
 
- 
+
 </body>
 
 </html>
