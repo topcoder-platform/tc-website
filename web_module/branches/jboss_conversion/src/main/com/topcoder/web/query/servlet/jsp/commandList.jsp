@@ -32,7 +32,7 @@
               <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="CommandListForm" >
                 <input type="hidden" name="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.COMMAND_LIST_TASK%>">
                 <input type="hidden" name="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="CommandList" property="db"/>">
-                <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=CommandList.getCommandGroupList()%>" selectedValue='<%=""+CommandList.getCommandGroupId()%>' topValue="0" topText="All Groups" onChange="javascript: void CommandListForm.submit();"/>
+                <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" styleClass="dropdown" list="<%=CommandList.getCommandGroupList()%>" selectedValue='<%=""+CommandList.getCommandGroupId()%>' topValue="0" topText="All Groups" onChange="javascript: void CommandListForm.submit();"/>
               </form>
             </td>
           </tr>

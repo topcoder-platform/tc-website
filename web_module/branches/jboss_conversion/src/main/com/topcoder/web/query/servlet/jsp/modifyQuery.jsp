@@ -57,7 +57,7 @@
             <tr>
               <td class="statText" ALIGN="right">Ranking: </td>
               <td class="statText" ALIGN="left">
-                <query:booleanSelect name="<%=Constants.RANKING_PARAM%>" class="bodyText" selectedValue='<%=ModifyQuery.isRanking()?"true":"false"%>'/>
+                <query:booleanSelect name="<%=Constants.RANKING_PARAM%>" styleClass="bodyText" selectedValue='<%=ModifyQuery.isRanking()?"true":"false"%>'/>
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>

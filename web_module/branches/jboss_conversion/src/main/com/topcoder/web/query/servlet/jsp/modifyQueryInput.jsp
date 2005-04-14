@@ -67,7 +67,7 @@
                         <input type="text" name="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="SortOrder"/>" size="3" maxlength="3"/>
                       </td>
                       <td class="statTextBig">
-                        <query:booleanSelect name="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>" class="dropdown" selectedValue='<%=queryInput.isOptional()?"true":"false"%>'/>
+                        <query:booleanSelect name="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>" styleClass="dropdown" selectedValue='<%=queryInput.isOptional()?"true":"false"%>'/>
                       <td class="statTextBig">
                         <input type="text" name="<%=Constants.DEFAULT_VALUE_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="DefaultValue"/>" size="30" maxlength="100"/>
                       </td>
@@ -92,7 +92,7 @@
            </tr>
            <tr>
              <td class="statTextBig" colspan="2" ALIGN="center">
-               <query:inputSelect name="<%=Constants.INPUT_ID_PARAM%>" class="dropdown" list="<%=ModifyQueryInput.getOtherInputList()%>" size="30" multiple="false"/>
+               <query:inputSelect name="<%=Constants.INPUT_ID_PARAM%>" styleClass="dropdown" list="<%=ModifyQueryInput.getOtherInputList()%>" size="30" multiple="false"/>
              </td>
            </tr>
            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>

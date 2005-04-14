@@ -60,7 +60,7 @@
             <tr>
               <td class="statText" ALIGN="right">Data Type: </td>
               <td class="statText" ALIGN="left">
-                <query:dataTypeSelect name="<%=Constants.DATA_TYPE_ID_PARAM%>" class="dropdown" selectedValue='<%=""+ModifyInput.getDataTypeId()%>'/>
+                <query:dataTypeSelect name="<%=Constants.DATA_TYPE_ID_PARAM%>" styleClass="dropdown" selectedValue='<%=""+ModifyInput.getDataTypeId()%>'/>
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
