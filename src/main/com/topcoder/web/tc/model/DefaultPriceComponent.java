@@ -9,11 +9,11 @@ import com.topcoder.shared.util.logging.Logger;
 public class DefaultPriceComponent implements SoftwareComponent {
     private static Logger log = Logger.getLogger(DefaultPriceComponent.class);
 
-    private final static float[] DESIGN_PRICE_LOOKUP = {0f, 700f, 700f};
+    private final static float[] DESIGN_PRICE_LOOKUP = {0f, 800f, 800f};
     private final static float[] DEV_PRICE_LOOKUP = {0f, 500f, 500f};
 
-    private final static float DEV_REVIEW_RATE = 30;
-    private final static float DESIGN_REVIEW_RATE = 35f;
+    private final static float DEV_REVIEW_RATE = 27f;
+    private final static float DESIGN_REVIEW_RATE = 32f;
 
     protected int phaseId;
     protected int level;
