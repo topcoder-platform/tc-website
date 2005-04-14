@@ -35,9 +35,7 @@
                 </td>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">JavaScript:doSubmit('<xsl:value-of select="RoomId"/>')
-                          <xsl:attribute name="HREF">/admin?Task=challenge&amp;Command=getChallengeList&amp;roomid=<xsl:value-of select="RoomId"/>&amp;filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;roundid<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/></xsl:attribute>
-                      </xsl:attribute>
+                      <xsl:attribute name="HREF">/admin?Task=challenge&amp;Command=getChallengeList&amp;roomid=<xsl:value-of select="RoomId"/>&amp;filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;roundid<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/></xsl:attribute>
                       <xsl:value-of select="RoomId"/>
                     </A>
                 </td>

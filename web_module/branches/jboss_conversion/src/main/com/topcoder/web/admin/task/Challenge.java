@@ -101,7 +101,7 @@ public final class Challenge {
             try {
                 contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = Integer.parseInt(request.getParameter("roundid"));
-                int filter = Integer.parseInt(request.getParameter("filter"));
+                roomList = contestEJB.getRoomList(roundId);
                 roomList = contestEJB.getRoomList(roundId);
             } catch (Exception e) {
                 log.error("Challenge: getRoomList error retrieving room list .");
