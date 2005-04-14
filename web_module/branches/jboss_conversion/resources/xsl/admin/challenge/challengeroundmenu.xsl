@@ -15,47 +15,6 @@
                 <xsl:call-template name="Menu"/>
 
 
-                <SCRIPT TYPE="text/Javascript"><![CDATA[
-
-                 function doRound(roundId) {
-                    document.frmResults.Task.value    = 'challenge';
-                    document.frmResults.Command.value = 'getRoomList';
-                    document.frmResults.roundid.value = roundId;
-                    document.frmResults.filter.value = 90;
-                    document.frmResults.submit();
-                  }
-
-                 function doProblem(roundId) {
-                    document.frmResults.Task.value    = 'challenge';
-                    document.frmResults.Command.value = 'getProblemList';
-                    document.frmResults.roundid.value = roundId;
-                    document.frmResults.filter.value = 90;
-                    document.frmResults.submit();
-                  }
-
-                 function doCoder(roundId) {
-                    document.frmResults.Task.value    = 'challenge';
-                    document.frmResults.Command.value = 'getCoderList';
-                    document.frmResults.roundid.value = roundId;
-                    document.frmResults.filter.value = 90;
-                    document.frmResults.submit();
-                  }
-
-                ]]></SCRIPT>
-
-                <form name="frmResults" method="post" action="/admin">
-                    <input type="hidden" name="constraintid" value="">
-                        <xsl:attribute name="value">
-                            <xsl:value-of select="/TC/CONSTRAINTID"/>
-                        </xsl:attribute>
-                    </input>
-
-                    <INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
-                    <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
-                    <INPUT TYPE="HIDDEN" NAME="roundid" VALUE=""/>
-                    <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
-
-
                     <TABLE width="100%" cellpadding="0" cellspacing="0" border="0">
                         <tr>
                             <td valign="center" align="center">
@@ -86,19 +45,19 @@
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">JavaScript:doRound('<xsl:value-of select="RoundId"/>')</xsl:attribute>
+                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getRoomList&amp;roundId=<xsl:value-of select="RoundId"/></xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">JavaScript:doProblem('<xsl:value-of select="RoundId"/>')</xsl:attribute>
+                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getProblemList&amp;roundId=<xsl:value-of select="RoundId"/></xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">JavaScript:doCoder('<xsl:value-of select="RoundId"/>')</xsl:attribute>
+                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getCoderList&amp;roundId=<xsl:value-of select="RoundId"/></xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
@@ -112,8 +71,6 @@
                             </td>
                         </tr>
                     </TABLE>
-
-                </form>
 
 
             </body>
