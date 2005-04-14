@@ -1201,8 +1201,6 @@ public final class ProjectForm extends ReviewForm {
     public ResultData refreshTimeline() {
         int n = startDates.length;
 
-
-
         // Clear the project and re enter the phases.
         projectPhases.clearPhases();
         Date startDate = projectPhases.getStartDate();
@@ -1222,7 +1220,11 @@ public final class ProjectForm extends ReviewForm {
                 }
             }
 
-
+            // If we're changing the start date of the first phase, we may
+            // need to change the start date of the project.
+            if (i == 0 && startDate.before(projectPhases.getStartDate())) {
+                projectPhases.setStartDate(startDate);
+            }
             phases[i] = new TCPhase(projectPhases, startDate, phaseMinutes[i]);
 
             if (i > 0) {
