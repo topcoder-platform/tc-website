@@ -18,7 +18,7 @@
             <local-home>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome</local-home>
             <local>com.topcoder.ejb.ContestAdminServices.ContestAdminServices</local>
 -->
-            <ejb-class>com.topcoder.ejb.AuthenticationServices.ContestAdminServicesBean</ejb-class>
+            <ejb-class>com.topcoder.ejb.ContestAdminServices.ContestAdminServicesBean</ejb-class>
             <transaction-type>Bean</transaction-type>
             <session-type>Stateless</session-type>
         </session>
