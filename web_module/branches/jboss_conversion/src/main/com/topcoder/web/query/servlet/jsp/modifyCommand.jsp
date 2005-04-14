@@ -59,7 +59,7 @@
             <tr>
               <td class="statText" ALIGN="right">Group: </td>
               <td class="statText" ALIGN="left">
-                <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" class="dropdown" list="<%=ModifyCommand.getGroups()%>" selectedValue='<%=""+ModifyCommand.getGroupId()%>'/>
+                <query:commandGroupSelect name="<%=Constants.GROUP_ID_PARAM%>" styleClass="dropdown" list="<%=ModifyCommand.getGroups()%>" selectedValue='<%=""+ModifyCommand.getGroupId()%>'/>
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>

@@ -64,7 +64,7 @@
                       <td class="statTextBig"><jsp:getProperty name="queryInput" property="inputCode"/></td>
                       <td class="statTextBig"><jsp:getProperty name="queryInput" property="inputDesc"/></td>
                       <td class="statTextBig">
-                        <input type="text" name="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="SortOrder"/>" size="3" maxlength="3"/>
+                        <input type="text" name="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="sortOrder"/>" size="3" maxlength="3"/>
                       </td>
                       <td class="statTextBig">
                         <query:booleanSelect name="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>" styleClass="dropdown" selectedValue='<%=queryInput.isOptional()?"true":"false"%>'/>
