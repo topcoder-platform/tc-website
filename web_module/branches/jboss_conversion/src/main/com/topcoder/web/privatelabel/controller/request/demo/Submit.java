@@ -32,6 +32,8 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.rmi.PortableRemoteObject;
 import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -69,24 +71,24 @@ public class Submit extends FullRegSubmit {
 
 
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
-        UserTransaction tx = null;
+        TransactionManager tm = null;
 
         long ret = 0;
         UserPrincipal newUser = null;
         try {
-            tx = Transaction.get();
-            Transaction.begin(tx);
+            tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
 
             PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
             newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
 
             ret = store(regInfo, newUser);
-            Transaction.commit(tx);
+            tm.commit();
         } catch (Exception e) {
             Exception ex = null;
             try {
-                if (tx != null) {
-                    Transaction.rollback(tx);
+                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
+                    tm.rollback();
                 }
             } catch (Exception x) {
                 throw new TCWebException(e);
