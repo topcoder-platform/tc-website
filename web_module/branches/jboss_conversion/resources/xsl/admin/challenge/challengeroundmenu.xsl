@@ -87,25 +87,19 @@
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">JavaScript:doRound('
-                                                        <xsl:value-of select="RoundId"/>')
-                                                    </xsl:attribute>
+                                                    <xsl:attribute name="HREF">JavaScript:doRound('<xsl:value-of select="RoundId"/>')</xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">JavaScript:doProblem('
-                                                        <xsl:value-of select="RoundId"/>')
-                                                    </xsl:attribute>
+                                                    <xsl:attribute name="HREF">JavaScript:doProblem('<xsl:value-of select="RoundId"/>')</xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">JavaScript:doCoder('
-                                                        <xsl:value-of select="RoundId"/>')
-                                                    </xsl:attribute>
+                                                    <xsl:attribute name="HREF">JavaScript:doCoder('<xsl:value-of select="RoundId"/>')</xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
