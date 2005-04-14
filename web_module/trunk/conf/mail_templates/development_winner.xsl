@@ -15,7 +15,8 @@ The required enhancements can be found in Project Submit &#38; Review by logging
 
 I would like to thank you for participating and hope you will continue to submit solutions for future projects.  Any feedback regarding the project or the process can be directed to service@topcodersoftware.com. 
 
-thanks and congratulations,
+Thanks and congratulations,
+TopCoder Software Service
 
 </xsl:for-each>
 </xsl:template>

@@ -15,7 +15,8 @@ The required enhancements can be found in Project Submit &#38; Review by logging
  
 Please note that as the winning designer, you are not eligible to submit a development solution for this component.  I would like to thank you for participating and hope you will continue to submit design solutions for future projects.  If you have any ideas on enhancing this process, please let us know.
 
-thanks and congratulations,
+Thanks and congratulations,
+TopCoder Software Service
 
 </xsl:for-each>
 </xsl:template>

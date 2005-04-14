@@ -9,7 +9,8 @@
 
 Any feedback regarding the project or the process can be directed to service@topcodersoftware.com.
 
-thanks,
+Thanks,
+TopCoder Software Service
 
 </xsl:for-each>
 </xsl:template>
