@@ -261,9 +261,9 @@ class MailHelper {
         xmlDocument.addTag(new ValueTag("QUESTION_TEXT", question.getQuestionText()));
         xmlDocument.addTag(new ValueTag("APPEAL_TEXT", appeal.getAppealText()));
         xmlDocument.addTag(new ValueTag("QUESTION_NUMBER",
-                question.getSequenceLocation() + "." +
+                question.getScorecardSection().getSectionGroup().getSequenceLocation() + "." +
                 question.getScorecardSection().getSequenceLocation() + "." +
-                question.getScorecardSection().getSectionGroup().getSequenceLocation()));
+                question.getSequenceLocation()));
         String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealCreatedXSL());
         sendMail(project.getProjectManager(), appeal.getReviewer(), "Appeal created", bodyText);
     }
@@ -284,12 +284,13 @@ class MailHelper {
         xmlDocument.addTag(new ValueTag("APPEAL_TEXT", appeal.getAppealText()));
         xmlDocument.addTag(new ValueTag("APPEAL_RESPONSE", appeal.getAppealResponse()));
         xmlDocument.addTag(new ValueTag("QUESTION_NUMBER",
-                question.getSequenceLocation() + "." +
+                question.getScorecardSection().getSectionGroup().getSequenceLocation() + "." +
                 question.getScorecardSection().getSequenceLocation() + "." +
-                question.getScorecardSection().getSectionGroup().getSequenceLocation()));
-        System.out.println("QUESTION_NUMBER = " + question.getSequenceLocation() + "." +
+                question.getSequenceLocation()));
+        System.out.println("QUESTION_NUMBER = " +
+                question.getScorecardSection().getSectionGroup().getSequenceLocation() + "." +
                 question.getScorecardSection().getSequenceLocation() + "." +
-                question.getScorecardSection().getSectionGroup().getSequenceLocation());
+                question.getSequenceLocation());
         String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealResolvedXSL());
         sendMail(project.getProjectManager(), appeal.getAppealer(), "Appeal resolved", bodyText);
     }
