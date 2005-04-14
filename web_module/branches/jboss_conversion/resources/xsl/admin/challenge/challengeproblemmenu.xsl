@@ -39,7 +39,7 @@
             <tr>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">/admin?Taskchallenge&amp;Command=getProblemChallengeList&amp;problemid=<xsl:value-of select="ProblemId"/>&amp;filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;roundid<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/></xsl:attribute>
+                      <xsl:attribute name="HREF">/admin?Task=challenge&amp;Command=getProblemChallengeList&amp;problemid=<xsl:value-of select="ProblemId"/>&amp;filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;roundid<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/></xsl:attribute>
                       <xsl:value-of select="ProblemId"/>
                     </A>
                 </td>
