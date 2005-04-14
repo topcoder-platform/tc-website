@@ -43,8 +43,7 @@
 
                 ]]></SCRIPT>
 
-                <FORM NAME="frmResults" METHOD="POST">
-                    <xsl:attribute name="ACTION">/admin</xsl:attribute>
+                <form name="frmResults" method="post" action="/admin">
                     <input type="hidden" name="constraintid" value="">
                         <xsl:attribute name="value">
                             <xsl:value-of select="/TC/CONSTRAINTID"/>
@@ -114,7 +113,7 @@
                         </tr>
                     </TABLE>
 
-                </FORM>
+                </form>
 
 
             </body>
