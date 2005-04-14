@@ -1,9 +1,10 @@
 <%@  page
   language="java"
   import="com.topcoder.web.query.common.Constants"%>
+  <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <%
     String db = request.getParameter(Constants.DB_PARAM)==null?"":request.getParameter(Constants.DB_PARAM);
-    String servletPath = request.getParameter(Constants.SERVLET_PATH_PARAM)==null?"":request.getParameter(Constants.SERVLET_PATH_PARAM);
+    String servletPath = sessionInfo.getServletPath();
     String begin = servletPath+"?"+Constants.TASK_PARAM+"=";
     String end = "&"+Constants.DB_PARAM+"="+db;
 %>

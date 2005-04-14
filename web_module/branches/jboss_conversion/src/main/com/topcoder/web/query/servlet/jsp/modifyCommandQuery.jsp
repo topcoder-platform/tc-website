@@ -20,10 +20,8 @@
     <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></tr>
     <tr>
       <td width="170" valign="top">
-        <jsp:include page="left.jsp" flush="true">
-          <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyCommandQuery.getDb()%>"/>
-          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=sessionInfo.getServletPath()%>"/>
-        </jsp:include>      </td>
+        <jsp:include page="left.jsp"/>
+              </td>
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" valign="top" ALIGN="left">
         <table width="80%" border="0" cellpadding="0" cellspacing="0">
