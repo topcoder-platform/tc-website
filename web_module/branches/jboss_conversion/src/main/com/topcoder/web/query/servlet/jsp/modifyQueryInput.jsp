@@ -69,7 +69,7 @@
                       <td class="statTextBig">
                         <query:booleanSelect name="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>" styleClass="dropdown" selectedValue='<%=queryInput.isOptional()?"true":"false"%>'/>
                       <td class="statTextBig">
-                        <input type="text" name="<%=Constants.DEFAULT_VALUE_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="DefaultValue"/>" size="30" maxlength="100"/>
+                        <input type="text" name="<%=Constants.DEFAULT_VALUE_PARAM+queryInput.getInputId()%>" value ="<jsp:getProperty name="queryInput" property="defaultValue"/>" size="30" maxlength="100"/>
                       </td>
                       <td class="statTextBig">
                         <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyQueryInput" property="db"/>&<%=Constants.INPUT_ID_PARAM%>=<jsp:getProperty name="queryInput" property="inputId"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="ModifyQueryInput" property="queryId"/>&<%=Constants.STEP_PARAM%>=<%=Constants.REMOVE_STEP%>" class="statText">
