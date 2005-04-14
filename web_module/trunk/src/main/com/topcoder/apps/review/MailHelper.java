@@ -287,10 +287,6 @@ class MailHelper {
                 question.getScorecardSection().getSectionGroup().getSequenceLocation() + "." +
                 question.getScorecardSection().getSequenceLocation() + "." +
                 question.getSequenceLocation()));
-        System.out.println("QUESTION_NUMBER = " +
-                question.getScorecardSection().getSectionGroup().getSequenceLocation() + "." +
-                question.getScorecardSection().getSequenceLocation() + "." +
-                question.getSequenceLocation());
         String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealResolvedXSL());
         sendMail(project.getProjectManager(), appeal.getAppealer(), "Appeal resolved", bodyText);
     }
