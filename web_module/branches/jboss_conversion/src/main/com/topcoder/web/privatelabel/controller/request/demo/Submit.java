@@ -9,7 +9,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
-import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
@@ -31,7 +30,6 @@ import com.topcoder.web.privatelabel.model.ResumeRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.rmi.PortableRemoteObject;
-import javax.transaction.UserTransaction;
 import javax.transaction.TransactionManager;
 import javax.transaction.Status;
 import java.sql.Timestamp;
