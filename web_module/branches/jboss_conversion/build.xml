@@ -983,10 +983,9 @@
 
          <copy todir="${jboss_deploy}">
              <fileset dir="${ejb_jars}">
-                 <include name="ContestAdminService.jar"/>
+                 <include name="ContestAdminServices.jar"/>
              </fileset>
          </copy>
-
 
      </target>
 

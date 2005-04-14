@@ -4,9 +4,7 @@ import com.topcoder.common.web.data.*;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.ejb.SessionContext;
-import javax.naming.Context;
-import java.io.ByteArrayOutputStream;
+import javax.ejb.EJBException;
 import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,23 +13,29 @@ import java.util.ArrayList;
 
 
 public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
+/*
     private Context InitContext;
     private SessionContext ctx;
+*/
     private static Logger log = Logger.getLogger(ContestAdminServicesBean.class);
 
 
     static final int NUM_PROBLEMS = 3;
 
 
+/*
     private static final int NOT_OPENED = 110;        // Default
     private static final int LOOKED_AT = 120;                //Opened. Not yet compiled
     private static final int UNSUBMITTED = 121;      // Compiled, but not yet submitted
     private static final int PASSED = 2;                             // Moving on without submitting
+*/
     private static final int NOT_CHALLENGED = 130;    // Submitted
     private static final int CHALLENGE_FAILED = 131;
     private static final int CHALLENGE_SUCCEEDED = 140;
+/*
     private static final int SYSTEM_TEST_FAILED = 160;
     private static final int SYSTEM_TEST_SUCCEEDED = 150;
+*/
     private static final int STATUS_NORMAL = 90;
     private static final int STATUS_OVERTURNED = 91;
     private static final int STATUS_NULLIFIED = 92;
@@ -41,15 +45,14 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Saves a contest.
      *
      * @param ca - ContestAdmin
-     * @exception RemoteException
+     * @exception EJBException
      * @return int contest_id
      ******************************************************************************************
      **/
-    public int saveContest(ContestAdmin ca) throws RemoteException {
+    public int saveContest(ContestAdmin ca) {
         log.debug("Contest: saveContest() called ... ");
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
         int retVal = 0;
         int contest_id = 0;
 
@@ -88,7 +91,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 throw new SQLException("ContestBean saveContest retval = " + retVal);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException("Contest: saveContest: Error:\n" + e);
+            throw new EJBException("Contest: saveContest: Error:\n" + e);
         } finally {
             try {
                 if (ps != null) {
@@ -128,7 +131,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      *                header information contained in the contest table.
      *****************************************************************************************
      **/
-    public ArrayList getContestList() throws RemoteException {
+    public ArrayList getContestList() {
         log.debug("Contest: getContestList() called ... ");
 
         ArrayList results = new ArrayList();
@@ -223,7 +226,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException("Contest: getContestList: queryContestInfo: Error:\n" + e);
+            throw new EJBException("Contest: getContestList: queryContestInfo: Error:\n" + e);
         } finally {
             try {
                 if (rs != null) {
@@ -256,6 +259,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
     // This function takes a number of seconds and returns (in an arraylist) the number
     // of hours, minutes and seconds.
+/*
     private ArrayList convertSeconds(int seconds) {
         ArrayList retVal = new ArrayList(3);
         int hours = seconds / 3600;
@@ -271,6 +275,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         retVal.add((new Integer(secs)).toString());
         return retVal;
     }
+*/
 
     /*****************************************************************************************
      * This method is used for updating BLOB objects in the database because it can't be done through
@@ -282,12 +287,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param obj - Object - the object to be inserted as a blob into the field in the table
      * @param whereClause - String - what the where clause should be of the insert statement for
      *                               inserting the blob
-     * @exception RemoteException
+     * @exception EJBException
      ******************************************************************************************
      **/
     public void insertBlobObject(String tableName, String fieldName, Object obj, String whereClause)
-            throws RemoteException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            {
         byte[] bytes = null;
 
         java.sql.Connection conn = null;
@@ -305,7 +309,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             if (bytes != null) {
                 ps.setBytes(1, bytes);
             } else {
-                throw new RemoteException("Contest.insertBlobObject: error serializing the blob object");
+                throw new EJBException("Contest.insertBlobObject: error serializing the blob object");
             }
 
             int success = ps.executeUpdate();
@@ -336,12 +340,12 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param fieldName - String - name of a field within the table
      * @param whereClause - String - what the where clause should be of the insert statement for
      *                               inserting the blob
-     * @exception RemoteException
+     * @exception EJBException
      * @return Object - the blob object retrieved from the database
      ******************************************************************************************
      **/
     public Object getBlobObject(String tableName, String fieldName, String whereClause)
-            throws RemoteException {
+            {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -370,7 +374,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 try {
                     retVal = DBMS.getBlobObject(rs, 1);
                 } catch (Exception pee) {
-                    throw new RemoteException("DBMS.getBlobObject - error retrieving blob object from result set: " + pee);
+                    throw new EJBException("DBMS.getBlobObject - error retrieving blob object from result set: " + pee);
                 }
             } else {
                 System.out.println("ContestBean.getBlobObject - no rows returned in ResultSet");
@@ -398,11 +402,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all rounds and corresponding characteristics from the
      * round table
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList of Round
      ***************************************************************************************
      **/
-    public ArrayList getRoundList() throws RemoteException {
+    public ArrayList getRoundList() {
         log.info("Contest.getRoundList() called ... ");
         return getRoundList(0);
     }
@@ -411,11 +415,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all rounds, for a given contest, and corresponding characteristics from the
      * round table
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList of Round
      ***************************************************************************************
      **/
-    public ArrayList getRoundList(int contest_id) throws RemoteException {
+    public ArrayList getRoundList(int contest_id) {
         log.info("Contest.getRoundList(contest_id) called ... ");
 
         ArrayList rounds = new ArrayList();
@@ -484,9 +488,8 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      *  coder for a given round
      *****************************************************************************************
      **/
-    public void removeSystemTestResult(int roundId, int coderId, int componentId, int testCaseId) throws RemoteException {
+    public void removeSystemTestResult(int roundId, int coderId, int componentId, int testCaseId) {
         log.info("Contest: removeSystemTestResult(roundId, coderId, componentId, testCaseId) called ... ");
-        int result = 0;
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         StringBuffer query = new StringBuffer(120);
@@ -498,7 +501,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             ps = conn.prepareStatement(query.toString());
             ps.execute();
         } catch (Exception e) {
-            throw new RemoteException("Contest:removeSystemTestResult:query: Error:\n" + e);
+            throw new EJBException("Contest:removeSystemTestResult:query: Error:\n" + e);
         } finally {
             try {
                 if (ps != null) ps.close();
@@ -528,9 +531,8 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      *  Description:  This method will return nullify a given challenge of a round.
      *****************************************************************************************
      **/
-    public void nullifyChallenge(int challengeId) throws RemoteException {
+    public void nullifyChallenge(int challengeId) {
         log.info("Contest: nullifyChallenge (int challengeId [" + challengeId + "]) called ... ");
-        int result = 0;
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -700,7 +702,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             } catch (Exception exception2) {
                 exception2.printStackTrace();
             }
-            throw new RemoteException("ContestAdminServices: nullifyChallenge Error:\n" + e);
+            throw new EJBException("ContestAdminServices: nullifyChallenge Error:\n" + e);
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -729,17 +731,16 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all system test results, for a given round, and corresponding characteristics from the
      * system test result table
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList of Challenge
      ***************************************************************************************
      **/
-    public ArrayList getSystemTestCaseReportList(int round_id, int filter) throws RemoteException {
+    public ArrayList getSystemTestCaseReportList(int round_id, int filter) {
         log.info("Contest.getSystemTestResultList(round_id[" + round_id + "] filter[" + filter + "] ) called ... ");
 
         ArrayList systemTestCaseReportList = new ArrayList();
         SystemTestCaseReport systemTestCaseReportAttr = null;
         Problem problemAttr = null;
-        Room roomAttr = null;
 
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
@@ -836,11 +837,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all challenges, for a given round, and corresponding characteristics from the
      * challenge table
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList of Challenge
      ***************************************************************************************
      **/
-    public ArrayList getChallengeList(int round_id, int constraintId, int filter, int constraintType) throws RemoteException {
+    public ArrayList getChallengeList(int round_id, int constraintId, int filter, int constraintType) {
         log.info("Contest.getChallengeList(round_id[" + round_id + "] constraintId [" + constraintId + "] filter[" + filter + "] constraintType[" + constraintType + "]) called ... ");
 
         ArrayList challenges = new ArrayList();
@@ -975,11 +976,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all round problem_ids from the
      * ROUND_PROBLEMS table for a contest round
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList of problem_ids
      *****************************************************************************************
      **/
-    public ArrayList getRoundProblems(int round_id, int contest_id) throws RemoteException {
+    public ArrayList getRoundProblems(int round_id, int contest_id) {
         log.info("Contest.getRoundProblems(round_id[" + round_id + "] contest[" + contest_id + "]) called ... ");
 
         ArrayList roundProblems = new ArrayList();
@@ -1026,11 +1027,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * This method retrieves all subjects from the SUBJECTS (POSTGRES)
      * or LANGUAGE (INFORMIX) table.
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList of Language.
      *****************************************************************************************
      **/
-    public ArrayList getLanguages() throws RemoteException {
+    public ArrayList getLanguages() {
         log.debug("Contest.getLanguages() called ...");
 
         java.sql.Connection conn = null;
@@ -1072,11 +1073,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     /*****************************************************************************************
      * This method returns the next contest_id (MAX(contest_id) + 1) from the CONTEST table.
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return int representing the next unique contest_id from the CONTEST table.
      *****************************************************************************************
      **/
-    public int getNextContestId() throws RemoteException {
+    public int getNextContestId() {
         log.debug("Contest.getNextContestId() called ...");
 
         int retVal = -1;
@@ -1119,11 +1120,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     /*****************************************************************************************
      * This method returns the next round_id (MAX(round_id) + 1) from the ROUND table.
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return int representing the next unique round_id from the ROUND table.
      *****************************************************************************************
      **/
-    public int getNextRoundId() throws RemoteException {
+    public int getNextRoundId() {
         log.debug("Contest.getNextRoundId() called ...");
 
         int retVal = -1;
@@ -1167,11 +1168,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     /*****************************************************************************************
      *
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList a list of the source that a particular coder has compiled/saved
      *****************************************************************************************
      */
-    public ArrayList getCoderCompilations(int roundId, int coderId) throws RemoteException {
+    public ArrayList getCoderCompilations(int roundId, int coderId) {
         log.debug("ejb.ContestAdminBean.getCompilations called...");
 
         ArrayList result = new ArrayList();
@@ -1259,10 +1260,10 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new RemoteException(sqe.getMessage());
+            throw new EJBException(sqe.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException(e.getMessage());
+            throw new EJBException(e.getMessage());
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -1290,11 +1291,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     /*****************************************************************************************
      * Get a list of rounds from the db
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList all the distinct rounds in the system
      *****************************************************************************************
      */
-    public ArrayList getRounds() throws RemoteException {
+    public ArrayList getRounds() {
         log.debug("ejb.ContestAdminBean.getRounds called...");
 
         ArrayList result = new ArrayList();
@@ -1324,10 +1325,10 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new RemoteException(sqe.getMessage());
+            throw new EJBException(sqe.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException(e.getMessage());
+            throw new EJBException(e.getMessage());
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -1355,11 +1356,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     /*****************************************************************************************
      *
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList all the coders from a given round
      *****************************************************************************************
      */
-    public ArrayList getCodersByRound(int roundId) throws RemoteException {
+    public ArrayList getCodersByRound(int roundId) {
         log.debug("ejb.ContestAdminBean.getCodersByRound called...");
 
         ArrayList result = new ArrayList();
@@ -1389,10 +1390,10 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             }
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new RemoteException(sqe.getMessage());
+            throw new EJBException(sqe.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException(e.getMessage());
+            throw new EJBException(e.getMessage());
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -1417,11 +1418,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     }
 
     /*****************************************************************************************
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList of Rooms
      ***************************************************************************************
      **/
-    public ArrayList getRoomList(int round_id) throws RemoteException {
+    public ArrayList getRoomList(int round_id) {
         log.debug("Contest.getRoomList(round_id) called ... ");
 
         ArrayList rooms = new ArrayList();
@@ -1480,7 +1481,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     }
 
 
-    public ArrayList getCoderList(int roundId) throws RemoteException {
+    public ArrayList getCoderList(int roundId) {
         log.info("Contest.getCoderList(roundId[" + roundId + "]) called ... ");
 
         ArrayList coders = new ArrayList();
@@ -1534,7 +1535,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
     }
 
-    public ArrayList getCoderList(int roundId, int problemId) throws RemoteException {
+    public ArrayList getCoderList(int roundId, int problemId) {
         log.debug("Contest.getCoderList(roundId,problemId) called ... ");
 
         ArrayList coders = new ArrayList();
@@ -1590,7 +1591,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     }
 
 
-    public ArrayList getProblemList(int round_id) throws RemoteException {
+    public ArrayList getProblemList(int round_id) {
         log.info("Contest.getProblemList(round_id{" + round_id + "]) called ... ");
 
         ArrayList problems = new ArrayList();
@@ -1658,11 +1659,11 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all system test results, for a given round, and corresponding characteristics from the
      * system test result table
      *
-     * @exception RemoteException
+     * @exception EJBException
      * @return ArrayList of Challenge
      ***************************************************************************************
      **/
-    public ArrayList getSystemTestCaseReportList(int roundId, int problemId, int coderId, int filter) throws RemoteException {
+    public ArrayList getSystemTestCaseReportList(int roundId, int problemId, int coderId, int filter) {
         log.debug("Contest.getSystemTestResultList(round_id, filter) called ... ");
 
         ArrayList systemTestCaseReportList = new ArrayList();
@@ -1774,7 +1775,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      *
      * @param challenge_id - int representing a unique challenge_id
      */
-    public void overturnChallenge(int challenge_id) throws RemoteException {
+    public void overturnChallenge(int challenge_id) {
 
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
@@ -1814,7 +1815,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 message = rs.getString(6);
                 submission_points = rs.getDouble(7);
             } else {
-                throw new RemoteException("Error in ReverseChallenge: no information retrieved for challenge_id: " + challenge_id);
+                throw new EJBException("Error in ReverseChallenge: no information retrieved for challenge_id: " + challenge_id);
             }
 
             System.out.println("problem_id: " + problem_id);
@@ -1831,7 +1832,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 overturnUnsucceededChallenge(conn, problem_id, round_id, defendant_id, challenger_id, challenge_id, message, submission_points);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException("Error in ReverseChallenge: " + e.getMessage());
+            throw new EJBException("Error in ReverseChallenge: " + e.getMessage());
         } finally {
             try {
                 if (rs != null) {
@@ -1869,7 +1870,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     private static void overturnSucceededChallenge(java.sql.Connection conn, int problem_id, int round_id,
                                                    int defendant_id, int challenger_id, int challenge_id,
                                                    String message, double submission_points)
-            throws RemoteException {
+            {
 
         try {
 
@@ -1888,7 +1889,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 System.out.println("Error Rolling Back: ");
                 ex.printStackTrace();
             }
-            throw new RemoteException("Error in overturnSucceededChallenge: " + e.getMessage());
+            throw new EJBException("Error in overturnSucceededChallenge: " + e.getMessage());
         }
 
     }
@@ -1909,7 +1910,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     private static void overturnUnsucceededChallenge(java.sql.Connection conn, int problem_id, int round_id,
                                                      int defendant_id, int challenger_id, int challenge_id,
                                                      String message, double submission_points)
-            throws RemoteException {
+            {
         //negate the submission points
         submission_points = 0 - submission_points;
 
@@ -1929,7 +1930,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 System.out.println("Error Rolling Back: ");
                 ex.printStackTrace();
             }
-            throw new RemoteException("Error in overturnUnsucceededChallenge: " + e.getMessage());
+            throw new EJBException("Error in overturnUnsucceededChallenge: " + e.getMessage());
         }
 
     }
@@ -1948,7 +1949,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      */
     private static void updateChallenge(java.sql.Connection conn, int succeeded, double challenger_points,
                                         double defendant_points, String message, int challenge_id)
-            throws RemoteException {
+            {
 
         PreparedStatement ps = null;
         StringBuffer sqlStr = new StringBuffer(250);
@@ -1967,14 +1968,14 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             ps.setInt(5, challenge_id);
 
             if (ps.executeUpdate() == -1) {
-                throw new RemoteException("Error in updateChallenge: record not updated for challenge_id: " +
+                throw new EJBException("Error in updateChallenge: record not updated for challenge_id: " +
                         challenge_id);
             }
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException("Error in updateChallenge: " + e.getMessage());
+            throw new EJBException("Error in updateChallenge: " + e.getMessage());
         } finally {
             try {
                 if (ps != null) {
@@ -1998,7 +1999,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param point_change - double representing the amount of points the users point_total should change
      */
     private static void updateRoomResult(java.sql.Connection conn, int round_id, int coder_id, double point_change)
-            throws RemoteException {
+            {
 
         PreparedStatement ps = null;
         StringBuffer sqlStr = new StringBuffer(250);
@@ -2014,14 +2015,14 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             ps.setInt(3, coder_id);
 
             if (ps.executeUpdate() == -1) {
-                throw new RemoteException("Error in updateRoomResult: record not updated for coder_id: " +
+                throw new EJBException("Error in updateRoomResult: record not updated for coder_id: " +
                         coder_id + " round_id: " + round_id);
             }
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException("Error in updateRoomResult: " + e.getMessage());
+            throw new EJBException("Error in updateRoomResult: " + e.getMessage());
         } finally {
             try {
                 if (ps != null) {
@@ -2047,7 +2048,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      */
     private static void updateComponentState(java.sql.Connection conn, double submission_points, int status_id,
                                              int round_id, int coder_id, int component_id)
-            throws RemoteException {
+            {
 
         PreparedStatement ps = null;
         StringBuffer sqlStr = new StringBuffer(150);
@@ -2065,14 +2066,14 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             ps.setInt(5, component_id);
 
             if (ps.executeUpdate() == -1) {
-                throw new RemoteException("Error in updateComponentState: record not updated for coder_id: " +
+                throw new EJBException("Error in updateComponentState: record not updated for coder_id: " +
                         coder_id + " round_id: " + round_id + " problem_id: " + component_id);
             }
 
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException("Error in updateComponentState: " + e.getMessage());
+            throw new EJBException("Error in updateComponentState: " + e.getMessage());
         } finally {
             try {
                 if (ps != null) {
@@ -2092,7 +2093,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param succeeded - int - 0 = unsuccessful challenge, 1 = successful challenge
      * @param message - String representing the old challenge message
      */
-    private static String modifyMessage(int succeeded, String message) throws RemoteException {
+    private static String modifyMessage(int succeeded, String message) {
 
         int index;
         StringBuffer strBuf = new StringBuffer(message);
@@ -2111,7 +2112,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RemoteException("Error in modifyMessage: " + e.getMessage());
+            throw new EJBException("Error in modifyMessage: " + e.getMessage());
         }
 
     }
