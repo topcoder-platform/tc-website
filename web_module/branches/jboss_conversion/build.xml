@@ -771,6 +771,9 @@
              <zipfileset dir="${java}/com/topcoder/web/email/servlet/jsp">
                  <include name="**/*.jpg"/>
              </zipfileset>
+             <webinf dir="${resources}/email">
+                 <include name="jboss-web.xml"/>
+             </webinf>
          </war>
          <unwar src="${war.dir}/email.war" dest="${jboss_deploy}/email.war/" overwrite="yes"/>
          <delete dir="${jboss_deploy}/email.war/META-INF"/>
@@ -971,7 +974,9 @@
                  <include name="com/topcoder/web/common/"/>
                  <include name="com/topcoder/web/admin/**"/>
              </classes>
-
+             <webinf dir="${resources}/admin">
+                 <include name="jboss-web.xml"/>
+             </webinf>
          </war>
          <unwar src="${war.dir}/admin.war" dest="${jboss_deploy}/admin.war/" overwrite="yes"/>
          <delete dir="${jboss_deploy}/admin.war/META-INF"/>
