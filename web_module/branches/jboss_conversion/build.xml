@@ -738,6 +738,9 @@
              <webinf dir="${resources}/query">
                  <include name="query-taglib.tld"/>
              </webinf>
+             <webinf dir="${resources}/query">
+                 <include name="jboss-web.xml"/>
+             </webinf>
          </war>
          <unwar src="${war.dir}/query.war" dest="${jboss_deploy}/query.war/" overwrite="yes"/>
          <delete dir="${jboss_deploy}/query.war/META-INF"/>
