@@ -3,7 +3,7 @@
   import= "com.topcoder.web.query.common.*,
            com.topcoder.web.query.request.*"
 %>
-<%@ taglib uri="/query-taglib.tld" prefix="query"%>
+<%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="ModifyQueryInput" scope="request" class="com.topcoder.web.query.request.ModifyQueryInput" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -13,7 +13,7 @@
     <LINK REL="stylesheet" TYPE="text/css" href="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" href="/css/coders.css"/>
   </HEAD>
-  <BODY bgcolor="#000000" topmargin="0" marginheight="0" LEFTMARGIN="0" marginwidth="0"">
+  <BODY bgcolor="#000000" topmargin="0" marginheight="0" LEFTMARGIN="0" marginwidth="0">
   <jsp:include page="top.jsp" />
 
   <table bgcolor="#000000" width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -28,16 +28,16 @@
         <table width="80%" border="0" cellpadding="0" cellspacing="0">
           <FORM ACTION="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post" name="ModQueryInputForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_QUERY_INPUT_TASK%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.QUERY_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInput" property="QueryId"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.QUERY_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInput" property="queryId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInput" property="Db"/>">
+            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInput" property="db"/>">
             <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_QUERY_INPUT_NAME%></td></tr>
             <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.INPUT_ID_PARAM%>"><%=err%></query:error></td></tr>
             <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.QUERY_ID_PARAM%>"><%=err%></query:error></td></tr>
-            <tr><td class="statTextBig" colspan="2" ALIGN="center">Query: <jsp:getProperty name="ModifyQueryInput" property="QueryName"/></td></tr>
+            <tr><td class="statTextBig" colspan="2" ALIGN="center">Query: <jsp:getProperty name="ModifyQueryInput" property="queryName"/></td></tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <tr>
-              <td class="statText" ALIGN="center" colspan="2">DB: <jsp:getProperty name="ModifyQueryInput" property="Db"/></td>
+              <td class="statText" ALIGN="center" colspan="2">DB: <jsp:getProperty name="ModifyQueryInput" property="db"/></td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <tr>
