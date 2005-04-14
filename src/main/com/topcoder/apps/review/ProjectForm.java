@@ -1225,6 +1225,7 @@ public final class ProjectForm extends ReviewForm {
             if (i == 0 && startDate.before(projectPhases.getStartDate())) {
                 projectPhases.setStartDate(startDate);
             }
+            
             phases[i] = new TCPhase(projectPhases, startDate, phaseMinutes[i]);
 
             if (i > 0) {
