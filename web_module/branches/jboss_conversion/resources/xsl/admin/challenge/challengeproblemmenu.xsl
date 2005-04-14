@@ -3,7 +3,7 @@
 <xsl:import href="../menu.xsl"/>
 <xsl:import href="../top.xsl"/>
 
-<xsl:preserve-space elements="*"/> 
+<xsl:preserve-space elements="*"/>
 <xsl:template match="/">
 
 <html>
@@ -14,17 +14,6 @@
       <xsl:call-template name="Top"/>
       <xsl:call-template name="Menu"/>
 
-
-
-<SCRIPT TYPE="text/Javascript"><![CDATA[
- function doSubmit(problemid) {
-    document.frmResults.Task.value    = 'challenge';
-    document.frmResults.Command.value = 'getProblemChallengeList';
-    document.frmResults.problemid.value = problemid;
-    document.frmResults.filter.value = 90;
-    document.frmResults.submit();
-  }
-]]></SCRIPT>
 
 
 <TABLE width="100%" cellpadding="0" cellspacing="0" border="0" >
@@ -50,8 +39,7 @@
             <tr>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">JavaScript:doSubmit('<xsl:value-of select="ProblemId"/>')
-                      </xsl:attribute>
+                      <xsl:attribute name="HREF">/admin?Taskchallenge&amp;Command=getProblemChallengeList&amp;problemid=<xsl:value-of select="ProblemId"/>&amp;filter=90</xsl:attribute>
                       <xsl:value-of select="ProblemId"/>
                     </A>
                 </td>
@@ -79,7 +67,7 @@
 <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
-        <xsl:value-of select="/CONSTRAINTID"/> 
+        <xsl:value-of select="/CONSTRAINTID"/>
     </xsl:attribute>
 </input>
 
@@ -92,7 +80,7 @@
 <INPUT TYPE="HIDDEN" NAME="problemid" VALUE=""/>
 </FORM>
 
- 
+
 </body>
 
 </html>

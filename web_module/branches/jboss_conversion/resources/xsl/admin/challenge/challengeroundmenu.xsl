@@ -45,19 +45,19 @@
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getRoomList&amp;roundId=<xsl:value-of select="RoundId"/></xsl:attribute>
+                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getRoomList&amp;roundid=<xsl:value-of select="RoundId"/></xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getProblemList&amp;roundId=<xsl:value-of select="RoundId"/></xsl:attribute>
+                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getProblemList&amp;roundid=<xsl:value-of select="RoundId"/></xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
                                             <td>
                                                 <A>
-                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getCoderList&amp;roundId=<xsl:value-of select="RoundId"/></xsl:attribute>
+                                                    <xsl:attribute name="HREF">/admin?filter=90&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;Task=challenge&amp;Command=getCoderList&amp;roundid=<xsl:value-of select="RoundId"/></xsl:attribute>
                                                     click
                                                 </A>
                                             </td>
