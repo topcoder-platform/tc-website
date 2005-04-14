@@ -3,7 +3,7 @@
   import= "com.topcoder.web.query.common.*,
            com.topcoder.web.query.request.*"
 %>
-<%@ taglib uri="/query-taglib.tld" prefix="query"%>
+<%@ taglib uri="query-taglib.tld" prefix="query"%>
 <jsp:useBean id="QuerySearch" scope="request" class="com.topcoder.web.query.request.QuerySearch" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -32,7 +32,7 @@
           <tr>
             <td class="statText" ALIGN="right">DB:&#160;</td>
             <td class="statText" ALIGN="left">
-              <jsp:getProperty name="QuerySearch" property="Db"/>
+              <jsp:getProperty name="QuerySearch" property="db"/>
             </td>
           </tr>
           <tr>
@@ -47,10 +47,10 @@
           <tr bgcolor="#333333">
             <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get" name="QuerySearchForm" >
               <input type="hidden" name="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.QUERY_SEARCH_TASK%>">
-              <input type="hidden" name="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="QuerySearch" property="Db"/>">
+              <input type="hidden" name="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="QuerySearch" property="db"/>">
             <td class="statTextBig">Search Criteria:</td>
             <td class="statTextBig">
-              <input type="text" name="<%=Constants.SEARCH_CRITERIA_PARAM%>" value ='<jsp:getProperty name="QuerySearch" property="SearchCriteria" />' size="30" maxlength="100"/>
+              <input type="text" name="<%=Constants.SEARCH_CRITERIA_PARAM%>" value ='<jsp:getProperty name="QuerySearch" property="searchCriteria" />' size="30" maxlength="100"/>
             </td>
             <td class="statTextBig">
               <A href="javascript:void document.QuerySearchForm.submit()" class="statText">
@@ -63,12 +63,12 @@
           <query:queryIterator id="query" list="<%=QuerySearch.getSearchResults()%>">
             <tr>
               <td class="statText" ALIGN="right">
-                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="queryId"/>" class="statText">
                   [edit]
                 </A>
               </td>
               <td class="statText">
-                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="QueryId"/>" class="statText">
+                <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.QUERY_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="QuerySearch" property="db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="query" property="queryId"/>" class="statText">
                   <jsp:getProperty name="query" property="name"/>
                 </A>
               </td>
