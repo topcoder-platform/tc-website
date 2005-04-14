@@ -39,7 +39,7 @@
             <tr>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">/admin?Taskchallenge&amp;Command=getProblemChallengeList&amp;problemid=<xsl:value-of select="ProblemId"/>&amp;filter=90</xsl:attribute>
+                      <xsl:attribute name="HREF">/admin?Taskchallenge&amp;Command=getProblemChallengeList&amp;problemid=<xsl:value-of select="ProblemId"/>&amp;filter=90&amp;constraintid=<xsl:value-of select="/CONSTRAINTID"/>&amp;roundid<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/></xsl:attribute>
                       <xsl:value-of select="ProblemId"/>
                     </A>
                 </td>
@@ -58,28 +58,6 @@
     </td>
   </tr>
 </TABLE>
-
-<FORM NAME="frmResults" METHOD="POST">
-<xsl:attribute name="ACTION">/admin</xsl:attribute>
-<INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
-<INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
-<INPUT TYPE="HIDDEN" NAME="results" VALUE=""/>
-<INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
-<input type="hidden" name="constraintid" value="">
-    <xsl:attribute name="value">
-        <xsl:value-of select="/CONSTRAINTID"/>
-    </xsl:attribute>
-</input>
-
-<input type="hidden" name="roundid" value="">
-    <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
-    </xsl:attribute>
-</input>
-
-<INPUT TYPE="HIDDEN" NAME="problemid" VALUE=""/>
-</FORM>
-
 
 </body>
 
