@@ -5,6 +5,7 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.document.InitialSubmission;
+import com.topcoder.apps.review.document.ScorecardQuestion;
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.file.render.RecordTag;
 import com.topcoder.file.render.ValueTag;
@@ -255,9 +256,14 @@ class MailHelper {
      */
     static void appealCreated(Project project, Appeal appeal) throws Exception {
         XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        ScorecardQuestion question = appeal.getQuestion();
         xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
-        xmlDocument.addTag(new ValueTag("QUESTION_TEXT", appeal.getQuestion().getQuestionText()));
+        xmlDocument.addTag(new ValueTag("QUESTION_TEXT", question.getQuestionText()));
         xmlDocument.addTag(new ValueTag("APPEAL_TEXT", appeal.getAppealText()));
+        xmlDocument.addTag(new ValueTag("QUESTION_NUMBER",
+                question.getSequenceLocation() + "." +
+                question.getScorecardSection().getSequenceLocation() + "." +
+                question.getScorecardSection().getSectionGroup().getSequenceLocation()));
         String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealCreatedXSL());
         sendMail(project.getProjectManager(), appeal.getReviewer(), "Appeal created", bodyText);
     }
@@ -272,10 +278,15 @@ class MailHelper {
      */
     static void appealResolved(Project project, Appeal appeal) throws Exception {
         XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        ScorecardQuestion question = appeal.getQuestion();
         xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
-        xmlDocument.addTag(new ValueTag("QUESTION_TEXT", appeal.getQuestion().getQuestionText()));
+        xmlDocument.addTag(new ValueTag("QUESTION_TEXT", question.getQuestionText()));
         xmlDocument.addTag(new ValueTag("APPEAL_TEXT", appeal.getAppealText()));
         xmlDocument.addTag(new ValueTag("APPEAL_RESPONSE", appeal.getAppealResponse()));
+        xmlDocument.addTag(new ValueTag("QUESTION_NUMBER",
+                question.getSequenceLocation() + "." +
+                question.getScorecardSection().getSequenceLocation() + "." +
+                question.getScorecardSection().getSectionGroup().getSequenceLocation()));
         String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealResolvedXSL());
         sendMail(project.getProjectManager(), appeal.getAppealer(), "Appeal resolved", bodyText);
     }
