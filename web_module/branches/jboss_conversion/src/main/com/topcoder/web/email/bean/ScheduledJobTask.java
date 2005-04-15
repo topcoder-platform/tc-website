@@ -2,12 +2,11 @@ package com.topcoder.web.email.bean;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.ejb.EmailServices.EmailJob;
-import com.topcoder.shared.ejb.EmailServices.EmailJobHome;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.servlet.EmailConstants;
 import com.topcoder.web.email.servlet.TaskRouter;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
@@ -1343,11 +1342,10 @@ public class ScheduledJobTask
             throws ServletException {
         int id = -1;
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             id = emailJob.createEmailJob(
                     Integer.parseInt(job.getTemplateId()),
@@ -1396,11 +1394,10 @@ public class ScheduledJobTask
             throws ServletException {
         int id = -1;
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             id = emailJob.createEmailReportJob(
                     baseJobId,
@@ -1447,11 +1444,10 @@ public class ScheduledJobTask
 
     private static void saveJob(ScheduledJobForm job)
             throws ServletException {
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             int jobId = Integer.parseInt(job.getId());
 
@@ -1504,11 +1500,10 @@ public class ScheduledJobTask
 
         job.setId(String.valueOf(jobId));
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             int templateId = emailJob.getTemplateId(jobId);
             int listId = emailJob.getListId(jobId);
@@ -1623,12 +1618,11 @@ public class ScheduledJobTask
 
     private static void cancelJob(int jobId)
             throws ServletException {
-        Context context = null;
+        InitialContext context = null;
 
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             emailJob.cancelEmailJob(jobId);
         } catch (Exception e) {
@@ -1655,11 +1649,10 @@ public class ScheduledJobTask
     private static void resumeJob(int jobId)
             throws ServletException {
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             emailJob.resumeEmailJob(jobId);
         } catch (Exception e) {
@@ -1689,11 +1682,10 @@ public class ScheduledJobTask
             throws ServletException {
         String data = "";
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             data = emailJob.getJobDetailData(jobId, jobDetailId);
         } catch (Exception e) {
@@ -1727,11 +1719,10 @@ public class ScheduledJobTask
             throws ServletException {
         JobSummary jobSummary = new JobSummary();
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             Date startDate = emailJob.getStartAfterDate(jobId);
             Date endDate = emailJob.getStopBeforeDate(jobId);
@@ -1821,11 +1812,10 @@ public class ScheduledJobTask
         List logList = new ArrayList();
         Object[] ret = new Object[3];
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
-            EmailJob emailJob = emailJobHome.create();
+            EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
 
             Object[] jobDetailResults = emailJob.getJobDetailResults(jobId, sr, er);
             Map jobDetailResultMap = (Map) jobDetailResults[0];

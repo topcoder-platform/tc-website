@@ -7,6 +7,7 @@ import com.topcoder.shared.ejb.EmailServices.EmailTemplateHome;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.servlet.EmailConstants;
 import com.topcoder.web.email.servlet.TaskRouter;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -281,11 +282,10 @@ public class TemplateTask
             throws ServletException {
         int id = -1;
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailTemplateHome emailTemplateHome = (EmailTemplateHome) context.lookup(EmailConstants.EMAILTEMPLATE_EJB);
-            EmailTemplate emailTemplate = emailTemplateHome.create();
+            EmailTemplate emailTemplate = (EmailTemplate) BaseProcessor.createEJB(context, EmailTemplate.class);
             id = emailTemplate.createTemplate(Integer.parseInt(template.getGroup()),
                     template.getName(),
                     template.getTemplate());
@@ -319,11 +319,10 @@ public class TemplateTask
         EmailTemplateForm template = new EmailTemplateForm();
         template.setId(String.valueOf(templateId));
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailTemplateHome emailTemplateHome = (EmailTemplateHome) context.lookup(EmailConstants.EMAILTEMPLATE_EJB);
-            EmailTemplate emailTemplate = emailTemplateHome.create();
+            EmailTemplate emailTemplate = (EmailTemplate) BaseProcessor.createEJB(context, EmailTemplate.class);
 
             template.setName(emailTemplate.getTemplateName(templateId));
             template.setGroup(String.valueOf(emailTemplate.getTemplateGroupId(templateId)));
@@ -356,11 +355,10 @@ public class TemplateTask
     private static void saveTemplate(int templateId, EmailTemplateForm template)
             throws ServletException {
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailTemplateHome emailTemplateHome = (EmailTemplateHome) context.lookup(EmailConstants.EMAILTEMPLATE_EJB);
-            EmailTemplate emailTemplate = emailTemplateHome.create();
+            EmailTemplate emailTemplate = (EmailTemplate) BaseProcessor.createEJB(context, EmailTemplate.class);
 
             emailTemplate.setGroupId(templateId,
                     Integer.parseInt(template.getGroup()));
@@ -392,11 +390,10 @@ public class TemplateTask
     private static void deleteTemplate(int templateId)
             throws ServletException {
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailTemplateHome emailTemplateHome = (EmailTemplateHome) context.lookup(EmailConstants.EMAILTEMPLATE_EJB);
-            EmailTemplate emailTemplate = emailTemplateHome.create();
+            EmailTemplate emailTemplate = (EmailTemplate) BaseProcessor.createEJB(context, EmailTemplate.class);
 
             emailTemplate.setGroupId(templateId,
                     EmailConstants.DELETED_GROUP_ID);
@@ -428,11 +425,10 @@ public class TemplateTask
 
         log.debug("Retrieving templates of group: " + group);
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailTemplateHome emailTemplateHome = (EmailTemplateHome) context.lookup(EmailConstants.EMAILTEMPLATE_EJB);
-            EmailTemplate emailTemplate = emailTemplateHome.create();
+            EmailTemplate emailTemplate = (EmailTemplate) BaseProcessor.createEJB(context, EmailTemplate.class);
             templateMap = emailTemplate.getTemplates(group);
         } catch (Exception e) {
             log.error("Error getting template listing", e);
@@ -463,11 +459,10 @@ public class TemplateTask
         Map groupMap = new HashMap();
 
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailTemplateGroupHome emailTemplateGroupHome = (EmailTemplateGroupHome) context.lookup(EmailConstants.EMAILTEMPLATE_GROUP_EJB);
-            EmailTemplateGroup emailTemplateGroup = emailTemplateGroupHome.create();
+            EmailTemplateGroup emailTemplateGroup = (EmailTemplateGroup) BaseProcessor.createEJB(context, EmailTemplateGroup.class);
             groupMap = emailTemplateGroup.getGroups();
         } catch (Exception e) {
             log.error("Error getting template group listing", e);
@@ -517,11 +512,10 @@ public class TemplateTask
             throws ServletException {
         String name = "";
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailTemplateHome emailTemplateHome = (EmailTemplateHome) context.lookup(EmailConstants.EMAILTEMPLATE_EJB);
-            EmailTemplate emailTemplate = emailTemplateHome.create();
+            EmailTemplate emailTemplate = (EmailTemplate) BaseProcessor.createEJB(context, EmailTemplate.class);
             name = emailTemplate.getTemplateName(templateId);
         } catch (Exception e) {
             log.error("Error getting template name", e);

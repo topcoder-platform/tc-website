@@ -28,7 +28,7 @@ function validate()
 
 
 
-	<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+	<%@ taglib uri="email-taglib.tld" prefix="email"%>
 
 	<jsp:useBean id="Error" scope="request" class="java.util.ArrayList" />
 

@@ -1,9 +1,9 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
 <%@ page errorPage="../error.jsp" %>
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<%@ taglib uri="email-taglib.tld" prefix="email"%>
 <jsp:useBean id="AddressList" scope="session" class="com.topcoder.web.email.bean.AddressListForm" />
 
-<html>	
+<html>
 <head>
 	<title>Mailing list members</title>
 </head>

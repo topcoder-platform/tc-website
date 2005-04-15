@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*" %>
 <%@ page errorPage="../error.jsp" %>
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<%@ taglib uri="email-taglib.tld" prefix="email"%>
 <jsp:useBean id="ScheduledJob" scope="session" class="com.topcoder.web.email.bean.ScheduledJobForm" />
 
 <html>

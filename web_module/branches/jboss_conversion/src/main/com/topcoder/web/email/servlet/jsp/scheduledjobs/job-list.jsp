@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
 <%@ page errorPage="../error.jsp" %>
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<%@ taglib uri="email-taglib.tld" prefix="email"%>
 <jsp:useBean id="JobList" scope="session" class="java.util.ArrayList"/>
 
 
@@ -49,30 +49,30 @@
 	</td>
 	<td class="bodyText">
 		<%=summary.getStatus()%>
-		<% 
+		<%
 		int okCount = Integer.parseInt(summary.getStatusOk());
 		int failCount = Integer.parseInt(summary.getStatusFailed());
 		int todoCount = Integer.parseInt(summary.getStatusTodo());
 		int otherCount = Integer.parseInt(summary.getStatusOther());
 		int totalCount = okCount + failCount + todoCount + otherCount;
 		int statusId = Integer.parseInt(summary.getStatusId());
-		if (totalCount < 1) { 
+		if (totalCount < 1) {
 			if (statusId == EmailConstants.JOB_STATUS_CANCELLED
 		 	 || statusId == EmailConstants.JOB_STATUS_COMPLETE) {
 		%>
 	(never started)
-		<% 
+		<%
 			} else if (statusId == EmailConstants.JOB_STATUS_ACTIVE) {
 		%>
 	(queued)
-		<% 
+		<%
 			}
 		} else {
-	%> (<%=okCount%> sent<% 
+	%> (<%=okCount%> sent<%
 			if (failCount > 0) { %>, <font color=<%=errcolor%>><%=failCount%> failed</font><% }
 			if (todoCount > 0) { %>, <%=todoCount%> todo<% }
 			if (otherCount > 0) { %>, <%=otherCount%> other<% }
-	%>)<% 
+	%>)<%
 		}
 		%>
 	</td>

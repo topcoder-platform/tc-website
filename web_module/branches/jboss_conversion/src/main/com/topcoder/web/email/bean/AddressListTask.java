@@ -2,13 +2,11 @@ package com.topcoder.web.email.bean;
 
 import com.topcoder.shared.ejb.EmailServices.EmailList;
 import com.topcoder.shared.ejb.EmailServices.EmailListGroup;
-import com.topcoder.shared.ejb.EmailServices.EmailListGroupHome;
-import com.topcoder.shared.ejb.EmailServices.EmailListHome;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.servlet.EmailConstants;
 import com.topcoder.web.email.servlet.TaskRouter;
+import com.topcoder.web.common.BaseProcessor;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
@@ -565,11 +563,10 @@ public class AddressListTask
             throws ServletException {
         int id = -1;
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList)BaseProcessor.createEJB(context, EmailList.class);
 
             id = emailList.createList(Integer.parseInt(addressList.getGroup()),
                     addressList.getName());
@@ -592,7 +589,7 @@ public class AddressListTask
      * Retrieves information about an address list and returns
      * the AddressListForm object representing the list.
      *
-     * @param addressListId		the id of the desired address list
+     * @param listId		the id of the desired address list
      *
      * @return AddressListForm	the populated AddressListForm
      */
@@ -603,11 +600,10 @@ public class AddressListTask
 
         addressList.setId(String.valueOf(listId));
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
 
             addressList.setName(emailList.getListName(listId));
             addressList.setGroup(String.valueOf(emailList.getListGroupId(listId)));
@@ -657,12 +653,10 @@ public class AddressListTask
     private static void saveAddressList(AddressListForm addressList)
             throws ServletException {
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
-
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
             emailList.setGroupId(Integer.parseInt(addressList.getId()),
                     Integer.parseInt(addressList.getGroup()));
             emailList.setName(Integer.parseInt(addressList.getId()),
@@ -691,11 +685,10 @@ public class AddressListTask
     private static void deleteAddressList(int listId)
             throws ServletException {
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
 
             emailList.setGroupId(listId,
                     EmailConstants.DELETED_GROUP_ID);
@@ -730,11 +723,10 @@ public class AddressListTask
 
         log.debug("member xml: " + memberData.toXML());
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
 
             id = emailList.addMember(listId, memberData.toXML());
         } catch (Exception e) {
@@ -767,11 +759,10 @@ public class AddressListTask
 
         String memberDataString = "";
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
 
             memberDataString = emailList.getData(listId, memberId);
 
@@ -814,11 +805,10 @@ public class AddressListTask
     private static void saveMember(int listId, MemberData memberData)
             throws ServletException {
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
 
             // remove/then add...
             emailList.removeMember(listId, Integer.parseInt(memberData.getId()));
@@ -849,11 +839,10 @@ public class AddressListTask
 
     private static void deleteMember(int listId, int memberId)
             throws ServletException {
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
 
             emailList.removeMember(listId, memberId);
         } catch (Exception e) {
@@ -884,11 +873,10 @@ public class AddressListTask
 
         log.debug("Retrieving address lists of group: " + group);
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
             addressListMap = emailList.getLists(group);
         } catch (Exception e) {
             log.error("Error getting address list listing", e);
@@ -916,11 +904,10 @@ public class AddressListTask
             throws ServletException {
         Map groupMap = new HashMap();
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListGroupHome emailListGroupHome = (EmailListGroupHome) context.lookup(EmailConstants.ADDRESSLIST_GROUP_EJB);
-            EmailListGroup emailListGroup = emailListGroupHome.create();
+            EmailListGroup emailListGroup = (EmailListGroup) BaseProcessor.createEJB(context, EmailListGroup.class);
             groupMap = emailListGroup.getGroups();
         } catch (Exception e) {
             log.error("Error getting address list group listing", e);
@@ -980,11 +967,10 @@ public class AddressListTask
             throws ServletException {
         String name = "";
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
             name = emailList.getListName(listId);
 
         } catch (Exception e) {
@@ -1014,11 +1000,10 @@ public class AddressListTask
             throws ServletException {
         Set memberSet;
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
             memberSet = emailList.getMembers(listId);
         } catch (Exception e) {
             log.error("Error getting address list members", e);
@@ -1049,11 +1034,10 @@ public class AddressListTask
             throws ServletException {
         String memberXML = "";
 
-        Context context = null;
+        InitialContext context = null;
         try {
             context = new InitialContext();
-            EmailListHome emailListHome = (EmailListHome) context.lookup(EmailConstants.ADDRESSLIST_EJB);
-            EmailList emailList = emailListHome.create();
+            EmailList emailList = (EmailList) BaseProcessor.createEJB(context, EmailList.class);
             memberXML = emailList.getData(listId, memberId);
         } catch (Exception e) {
             log.error("Error getting member data", e);
