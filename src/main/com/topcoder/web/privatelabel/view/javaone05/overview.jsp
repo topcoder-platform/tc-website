@@ -7,31 +7,30 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link rel=stylesheet href="/css/style.css">
 <link rel=stylesheet href="/css/javaone05.css">
 <title>2005 JavaOne Coding Challenge</title>
 </head>
 <body>
-         <table border=0 cellspacing=0 width="800" align="center">
+<map name="bannerMap">
+<area shape="rect" alt="http://www.sun.com/" coords="697,4,799,72" href="http://www.sun.com/" target="_new">
+<area shape="rect" alt="http://java.sun.com/" coords="624,3,694,72" href="http://java.sun.com/" target="_new">
+<area shape="rect" alt="http://www.sun.com/javaone" coords="0,7,616,70" href="http://www.sun.com/javaone" target="_new">
+</map>
+
+<center>
+<table id="main" width="800" cellpadding="0" cellspacing="0" border="0">
             <tr>
                <td colspan="2" align="left" valign="middle">
-               <img src="/i/events/javaone05/banner_top.gif" width="800" height="106" border="0"/>
+               <img src="/i/events/javaone05/banner_top.gif" border="0" usemap="#bannerMap" alt="JavaOne - Experiencing Java technology through education, industry, and community">
                </td>
             </tr>
             <tr>
                <td valign="top" width="164"><jsp:include page="links.jsp" /></td>
                <td valign="top" >
-            <!-- start breadcrumb -->
-                    <table border="0" cellspacing="0" cellpadding="0" bgcolor="#F0F0F0" >
-                        <tr><td width="19"><img src="/i/clear.gif" width="634" height="20"></td></tr>
-                  </table>
-              <!-- end breadcrumb -->
                  <p></p>
                  <img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0">
-                 <img src="/i/clear.gif" width="140" height="1"><a href="http://www.topcoder.com/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0"/></a>
+                 <img src="/i/clear.gif" width="140" height="1"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0"/></a>
                  <p></p>
-                 <img src="/i/clear.gif" width="15" height="1"><a href="/pl/?&module=Static&d1=javaone05&d2=javaone_wednesday"><img src="/i/events/javaone05/winners.gif" width="335" height="61" border="0"></a><br/>
-                 <img src="/i/clear.gif" width="20" height="10">
                <p class ="regmiddle"><strong><font size="4">Code - Compete - Win!</font></strong></p>
                
                <p class ="regmiddle">Sun Microsystems has again teamed up with TopCoder to bring the JavaOne&#8480; Coding Challenge to conference attendees.
@@ -46,7 +45,7 @@
                
                <p class ="regmiddle">In the onsite Competition Arena, participants will be presented with real-world programming problems and will be 
                given 30 minutes to use the Java programming language to code, compile, test, and submit solutions to the problem sets. 
-               The problems will focus on the 3 major themes for the 2004 JavaOne Conference - Mobility, Enterprise Applications, and 
+               The problems will focus on the 3 major themes for the 2005 JavaOne Conference - Mobility, Enterprise Applications, and 
                Web Services. </p>
 
                <p class ="regmiddle">After each day's qualification round, TopCoder will objectively score the competitors' submissions for accuracy and for length of time to 
@@ -70,6 +69,6 @@
             </tr>
             
          </table>
-         
+</center>
    </body>
 </html>

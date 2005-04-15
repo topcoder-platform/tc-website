@@ -36,7 +36,7 @@
               <!-- end breadcrumb -->
                  <p></p>
                  <img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0">
-                 <img src="/i/clear.gif" width="140" height="1"><a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>                    
+                 <img src="/i/clear.gif" width="140" height="1"><a href="/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>                    
                     <p></p>
                     <p class="regmiddle"><strong><font size="4">Offical Rules and Regulations</font></strong></p>
 
@@ -255,7 +255,7 @@
          at least 3 months after the end of the tournament.</p>
 
          <p class="regmiddle">This tournament is brought to you by Sun Microsystems, Inc. (<a href="http://www.sun.com/">http://www.sun.com</a>), 
-         901 San Antonio Road, Palo Alto, CA 94303 and TopCoder, Inc. (<a href="http://www.topcoder.com/">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+         901 San Antonio Road, Palo Alto, CA 94303 and TopCoder, Inc. (<a href="/">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
       
                   
                </td>
