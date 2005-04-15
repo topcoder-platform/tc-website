@@ -710,7 +710,7 @@
 
     <taglib>
         <taglib-uri>email-taglib.tld</taglib-uri>
-        <taglib-location>/WEB-INF/email-tablib.tld</taglib-location>
+        <taglib-location>/WEB-INF/email-taglib.tld</taglib-location>
     </taglib>
 
 
