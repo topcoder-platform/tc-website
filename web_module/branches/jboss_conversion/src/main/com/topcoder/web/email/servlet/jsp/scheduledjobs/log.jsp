@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*" %>
+<%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*,
+                 java.util.List" %>
 <%@ page errorPage="../error.jsp" %>
 <%@ taglib uri="email-taglib.tld" prefix="email"%>
 
