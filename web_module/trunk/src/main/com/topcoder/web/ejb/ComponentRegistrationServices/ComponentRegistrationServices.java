@@ -5,8 +5,10 @@ import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
 public interface ComponentRegistrationServices extends EJBObject {
-
-    public static final int COMPONENT_REGISTRATION_LENGTH = 2;
+    /**
+     * Number of days that a component will be open for registration.
+     */
+    public static final int COMPONENT_REGISTRATION_LENGTH = 3;
 
     boolean isUserRegistered(long projectId, long userId, String dataSource) throws RemoteException, EJBException;
 
