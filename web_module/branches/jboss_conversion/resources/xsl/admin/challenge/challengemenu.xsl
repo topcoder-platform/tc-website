@@ -26,8 +26,7 @@
  <tr>
    <td valign="top" align="center">
 
-<form name="frmResults" method="post">
-      <table width="800" cellspacing="0" cellpadding="0" border="0">
+<!--      <table width="800" cellspacing="0" cellpadding="0" border="0">
         <tr>
           <td><img src="/images/spacer.gif" height="20" width="20" /></td>
         </tr>
@@ -47,7 +46,7 @@
           </td>
         </tr>
 
-      </table>
+      </table>-->
       <table width="800" cellspacing="0" cellpadding="0" border="0">
            <xsl:for-each select="/TC/CHALLENGE/Challenge">
             <tr>
@@ -125,7 +124,6 @@
               </tr>
           </xsl:for-each>
       </table>
-</form>
                 </td>
               </tr>
       </table>
