@@ -193,7 +193,7 @@
                     <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
                     <td class="projectHeaders" align="center">Registration Ends</td>
                     <td class="projectHeaders" align="center">Submissions</td>
-                    <td class="projectHeaders" align="center">Payment*</td>
+                    <td class="projectHeaders" align="center">Payment *</td>
                     <td class="projectHeaders" align="center">Complexity</td>
                     <td class="projectHeaders" align="center">Submit by</td>
                     <td class="projectHeaders" align="center">Details</td>
