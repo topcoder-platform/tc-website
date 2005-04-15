@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.15.05<br>9:35 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm238_prob">SRM 238 - Problem Set & Analysis</A></span><br><br>
+      This SRM's early time slot seemed to enhance coder performance.  In Division 2, the medium was submitted by more than 80% of the coders, and most were correct.  The Div 1 Hard was correctly solved by 18 competitors.</td>
+      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=251317">brett1479</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm238_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.13.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">Business Briefs on TC and LogicLibrary</A></span><br><br>
       "Through a joint agreement, LogicLibrary will make TopCoder Software's component catalog available to the users of the Logidex asset management system." [SDT]
@@ -260,18 +275,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=supernova">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>03.18.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">Small change to Unused Code Rule, new problem timeout limit, and more...</A></span><br><br>
-      For the first SRM in April (April 2) we're going to be making a few changes and adding some new features.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 </table>
