@@ -44,7 +44,7 @@
             <tr>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">/admin?Task=challenge&amp;Command=getCoderChallengeList&amp;coderid=<xsl:value-of select="CoderId"/>&amp;filter=90&amp;constraintid<xsl:value-of select="/TC/CONSTRAINTID"/></xsl:attribute>
+                      <xsl:attribute name="HREF">/admin?Task=challenge&amp;Command=getCoderChallengeList&amp;coderid=<xsl:value-of select="CoderId"/></xsl:attribute>
                       <xsl:value-of select="CoderId"/>
                     </A>
                 </td>
