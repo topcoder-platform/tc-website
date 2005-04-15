@@ -1,4 +1,3 @@
-<link type="text/css" rel=stylesheet href="http://java.sun.com/javaone/javaone2004.css">
 <p><br/></p>
 <table id="footer" width="800" cellpadding="5" cellspacing="0">
    <tr>
@@ -7,7 +6,7 @@
       &nbsp; &nbsp; | &nbsp; &nbsp; 
          <a href="/tc?module=Static&d1=about&d2=index"><b>About TopCoder</b></a>
          &nbsp; &nbsp; | &nbsp; &nbsp; 
-         <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_rules"><b>Rules and Regulations</b></a><br/>
+         <a href="/pl/?&module=Static&d1=javaone05&d2=rules"><b>Rules and Regulations</b></a><br/>
          </td>
    </tr>
    
