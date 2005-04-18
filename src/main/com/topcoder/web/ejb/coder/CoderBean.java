@@ -238,6 +238,44 @@ public class CoderBean extends BaseEJB {
         }
     }
 
+    public void setContactDate(long coderId, long timestamp, String dataSource) {
+        log.debug("setContactDate called. coderId: " + coderId + " date: " + timestamp);
+
+        PreparedStatement pstmt = null;
+        Connection conn = null;
+        InitialContext ctx = null;
+
+        try {
+            StringBuffer query = new StringBuffer();
+
+            query.append(" UPDATE coder ");
+            query.append(" SET contact_date = ?");
+            query.append(" WHERE coder_id = ?");
+
+            conn = DBMS.getConnection(dataSource);
+            pstmt = conn.prepareStatement(query.toString());
+            if(timestamp == -1){
+                pstmt.setDate(1, null);
+            }else{
+                pstmt.setDate(1, new java.sql.Date(timestamp));
+            }
+            pstmt.setLong(2, coderId);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException in setContactDate coderId: " + coderId + " date : " + timestamp);
+        } catch (Exception e) {
+            throw new EJBException("Exception in setContactDate coderId: " + coderId + " date : " + timestamp);
+        } finally {
+            close(pstmt);
+            close(conn);
+            close(ctx);
+        }
+    }
+
+
 
     /**
      *

@@ -45,6 +45,7 @@ public class Constants {
     public static String MAX_NUM_RATINGS;
     public static String MAX_DAYS_SINCE_LAST_COMP;
     public static String NOTE_TEXT;
+    public static String CONTACT_TEXT;
     public static String SCHOOL_NAME;
     public static int TCO05_LOGO_TERMS_ID;
     public static String LOGO;
@@ -113,6 +114,7 @@ public class Constants {
     public static String PLACEMENT_INFO_DETAIL;
     public static String NOTE_LIST;
     public static String NOTE_EDIT;
+    public static String CONTACT_DATE;
 
 
     //dev pages

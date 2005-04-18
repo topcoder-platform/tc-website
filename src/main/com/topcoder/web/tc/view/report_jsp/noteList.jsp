@@ -28,6 +28,7 @@
                 <% } %>
         </td></tr>
         <tr><td colspan=4 align=left><A HREF="/tc?module=EditNote&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">Add Note</A></td></tr>
+        <tr><td colspan=4 align=left><A HREF="/tc?module=SetContactDate&uid=<%=request.getAttribute(com.topcoder.web.tc.Constants.USER_ID)%>">Set Contact Date</A></td></tr>
         <tr>
             <td>Text</td>
             <td>Author</td>
