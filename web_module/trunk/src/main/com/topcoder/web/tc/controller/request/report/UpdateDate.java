@@ -37,7 +37,7 @@ public class UpdateDate extends Base {
                     y = Integer.parseInt(st.nextToken());
                     if(y<100)y+=2000;
                     GregorianCalendar gc = new GregorianCalendar(y,m-1,d);
-                    time = gc.getTimeInMillis();
+                    time = gc.getTime().getTime();
                 }
             }catch(NoSuchElementException nsee){
                 throw new Exception("Date is not formatted properly.");
