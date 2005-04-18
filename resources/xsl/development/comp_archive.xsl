@@ -77,7 +77,6 @@
                     <td class="bodyText" colspan="5">
                         <p>This page will be updated when a project date changes.  If you have specific questions about any projects,
                         email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p>
-                        <p>Note that project winners will not be announced until after the Review Complete date.</p>
                     </td>
                 </tr>
 
@@ -91,9 +90,9 @@
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="30%" class="projectHeaders">Projects</td>
-                    <td class="projectHeaders" align="center">Initial<br />Submit</td>
-                    <td class="projectHeaders" align="center">Review<br />Complete</td>
-                    <td class="projectHeaders" align="center">Final<br />Submit</td>
+                    <td class="projectHeaders" align="center">Initial<br />Submission</td>
+                    <td class="projectHeaders" align="center">Winner<br />Announced</td>
+                    <td class="projectHeaders" align="center">Final<br />Submission</td>
                     <td class="projectHeaders" align="center">Design<br />Complete</td>
                 </tr>
 
@@ -150,9 +149,9 @@
                 <tr valign="middle">
                     <td class="projectHeaders" align="center">Catalog</td>
                     <td width="30%" class="projectHeaders">Projects</td>
-                    <td class="projectHeaders" align="center">Initial<br />Submit</td>
-                    <td class="projectHeaders" align="center">Review<br />Complete</td>
-                    <td class="projectHeaders" align="center">Final<br />Submit</td>
+                    <td class="projectHeaders" align="center">Initial<br />Submission</td>
+                    <td class="projectHeaders" align="center">Winner<br />Announced</td>
+                    <td class="projectHeaders" align="center">Final<br />Submission</td>
                     <td class="projectHeaders" align="center">Development<br />Complete</td>
                 </tr>
 
@@ -225,4 +224,3 @@
     </xsl:template>
 
 </xsl:stylesheet>
-
