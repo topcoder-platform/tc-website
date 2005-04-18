@@ -66,7 +66,7 @@ public class Compile extends Base {
 
             showProcessingPage();
 
-            ScreeningCompileResponse response = (ScreeningCompileResponse) receive(5000);
+            ScreeningCompileResponse response = (ScreeningCompileResponse) receive(30*1000);
 
             setUserMessage(response.getMessage());
             Problem p = new Problem();
