@@ -180,6 +180,19 @@
          	 <exclude name="com/topcoder/project/**"/>
          </javac>
      </target>
+ 	
+ 	<target name="compile_forums" depends="init">
+ 	         <javac
+ 	             srcdir="${java}"
+ 	             destdir="${classes}"
+ 	             classpathref="class.path"
+ 	             deprecation="${deprecation}"
+ 	             debug="${debug}"
+ 	             >
+ 	             <include name="com/topcoder/web/forums/**"/>
+ 	             <include name="com/topcoder/web/common/**"/>
+ 	         </javac>
+ 	     </target>
 
      <target name="javadocs">
          <mkdir dir="${build.javadocs}"/>
@@ -1114,7 +1127,7 @@
          <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
      </target>
 
- 	<target name="war-forums" depends="compile">
+ 	<target name="war-forums" depends="compile_forums">
  		        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
  		            <fileset dir="${java}/com/topcoder/web/forums/view">
  		                <include name="**/*.*"/>
