@@ -82,6 +82,8 @@
 
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
             </table>
+            
+            <br>
 
 <!-- Component Design Projects begin -->
             <table class="formFrame" cellspacing="0" cellpadding="3" width="100%">
