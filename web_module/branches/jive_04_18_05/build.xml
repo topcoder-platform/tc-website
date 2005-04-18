@@ -1157,6 +1157,9 @@
  		                <include name="tc-webtags.tld"/>
  		                <include name="tc-taglib.tld"/>
  		            </webinf>
+ 		        	<webinf dir="${resources}/forums">
+ 		        	    <include name="jboss-web.xml"/>
+ 		        	</webinf>
  		        </war>
  		        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
  			<delete dir="${jboss_deploy}/forums.war/META-INF"/>
