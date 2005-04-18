@@ -1,9 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.tc.controller.request.authentication.Login,
-                 com.topcoder.web.tc.Constants" %>
+         import="com.topcoder.web.common.BaseServlet
+%>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<%--
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <%
@@ -16,13 +14,11 @@
   String username = request.getParameter(Login.USER_NAME);
   if(username==null) username = "";
 %>
---%>
 
 <html>
 <head>
 <title>TopCoder | Login</title>
 
-<%--
 <jsp:include page="../script.jsp" />
 
 <SCRIPT type="text/javascript">
@@ -63,6 +59,7 @@ function submitEnter(e) {
         <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
+<%--
 <!-- Center Column begins -->
         <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
 
@@ -126,6 +123,7 @@ function submitEnter(e) {
             </div>
         </td>
 <!-- Center Column ends -->
+--%>
 
 <!-- Gutter -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
@@ -147,6 +145,5 @@ function submitEnter(e) {
 <!-- Footer ends -->
 
 </body>
---%>
 </html>
 
