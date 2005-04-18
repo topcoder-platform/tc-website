@@ -39,11 +39,6 @@
 		</div>
 
 		<p>
-      <A href="#job1">Lead Developer</A><br>
-      <A href="#job2">Software Developer (Hedge Fund)</A>
-      <br><br>
-
-      <hr noshade="noshade" size="1" />
       <a name="job1"></a>
       <span class="bodySubtitle">Lead Developer</span>
       <br><br>
@@ -59,25 +54,6 @@
       <a href="/tc?module=JobHit&jid=276&jt=4">Register for this position here!</a>
 		<br/><br/>
 
-      <hr noshade="noshade" size="1" />
-      <a name="job2"></a>
-      <span class="bodySubtitle">Software Developer (Hedge Fund)</span>
-      <br><br>
-      <strong>Job description:</strong><br>
-      Permanent Job<br>
-      Full Time
-      <br><br>
-      Tower Research Capital LLC, a quantitative hedge fund manager, is looking to hire computer programmer with world class intelligence, good math skills, and very strong programming skills to help work on our trading infrastructure.  The firm successfully trades a number of different strategies in a variety of markets.  We have an extremely high performance network that processes a huge amount of financial information in real time.  The team here is made up of an extremely talented group of quantitative financial analysts and programmers.  Please see <A href="http://www.tower-research.com" target="_blank">www.tower-research.com</A> for more details.
-      <br><br>
-      Job responsibilities include expanding and maintaining our trading capabilities on various markets around the world.  Duties will include: coding connections to new markets, optimizing the performance of our systems, maintaining and expanding our databases of financial information, performing basic systems administration to keep our trading network running, and building risk management and performance tracking tools.
-      <br><br>
-      Successful candidates will have a degree in math, engineering, or computer science from a top university.   Very strong computer programming skills are required.  Must have solid C++ experience and some Java knowledge.  Linux knowledge is a must and Solaris a plus.  Should be familiar with PC hardware.  Basic Linux system administration skills required.  Knowledge of Perl, shell-scripts, DNS, NFS a plus.  Must be able to work on multiple tasks in a fast-paced environment.   No finance or economics knowledge required.
-      <br><br>
-      <a href="/tc?module=JobHit&jid=277&jt=4">Register for this position here!</a>
-		<br/><br/>
-
-      <hr noshade="noshade" size="1" />
-		<br/><br/>
 		</p>
 
         </div>
