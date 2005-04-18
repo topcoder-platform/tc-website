@@ -13,6 +13,7 @@ import com.topcoder.web.corp.model.TestSessionInfo;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Map;
+import java.util.Date;
 
 public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     private final static Logger log = Logger.getLogger(BaseSessionProcessor.class);
@@ -75,6 +76,17 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
         if (info.getBeginDate().compareTo(info.getEndDate()) >= 0) {
             addError("dateCompare",
                     "Begin Time must be earlier than End Time");
+            success = false;
+        }
+        Date now = new Date();
+        if (info.getBeginDate().before(now)) {
+            addError("dateCompare",
+                    "Begin Time must be after the current time.");
+            success = false;
+        }
+        if (info.getEndDate().before(now)) {
+            addError("dateCompare",
+                    "End Time must be after the current time.");
             success = false;
         }
 
