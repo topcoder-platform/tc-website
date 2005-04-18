@@ -94,6 +94,10 @@
 
                 <!-- Start Text -->
                 <logic:iterate id="question" indexId="qIdx" name="reviewScorecardForm" property="questions">
+                    <logic:equal name="reviewScorecardForm" property="questionIndex" value="<%=String.valueOf(qIdx.intValue())%>">
+                        <a name="lastPosition"></a>
+                    </logic:equal>
+                    
                     <logic:equal name="question" property="groupFirst" value="true">
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr>
@@ -152,12 +156,6 @@
                             </tr>
                             <logic:notEqual name="question" property="type" value="objective">
                                 <logic:iterate id="rspns" indexId="rIdx" name="question" property="responses">
-                                    <!-- FIXME: Need better logic here, this breaks on deletes. -->
-                                    <logic:equal name="reviewScorecardForm" property="questionIndex" value="<%=String.valueOf(qIdx.intValue())%>">
-                                        <logic:equal name="reviewScorecardForm" property="responseIndex" value="<%=String.valueOf(rIdx.intValue())%>">
-                                            <a name="lastPosition"></a>
-                                        </logic:equal>
-                                    </logic:equal>
                                     <tr>
                                         <td colspan="2">
                                             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="whiteBkgnd">
@@ -244,6 +242,6 @@
 
 <logic:notEqual name="reviewScorecardForm" property="questionIndex" value="-1">
     <script>
-        window.location="#lastPosition";
+        window.location = "#lastPosition";
     </script>
 </logic:notEqual>
