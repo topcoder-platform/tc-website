@@ -203,7 +203,7 @@ function submitSession() {
 
                 <tr>
                     <td><img src="/i/corp/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td colspan="2" class="errortextOdd"><screen:errors id="err" name="dateCompare" ><%=err%></screen:errors></td>
+                    <td colspan="2" class="errortextOdd"><screen:errors id="err" name="dateCompare" ><%=err%><br /></screen:errors></td>
                 </tr>
 
                 <tr>
