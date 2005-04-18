@@ -191,7 +191,7 @@
  	             >
  	             <include name="com/topcoder/web/forums/**"/>
  	             <include name="com/topcoder/web/common/**"/>
- 	         	 <include name="com/topcoder/common/**"/>
+ 	         	 <include name="com/topcoder/common/web/data/**"/>
  	         </javac>
  	     </target>
 
