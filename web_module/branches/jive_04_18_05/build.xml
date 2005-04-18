@@ -47,6 +47,7 @@
          <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
          <pathelement location="${jars.dir}/ifxjdbc.jar"/>
          <pathelement location="${jars.dir}/bfograph.jar"/>
+     	 <pathelement location="${jars.dir}/jivebase.jar"/>
 
          <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
          <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
