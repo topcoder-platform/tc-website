@@ -55,7 +55,7 @@ public class UpdateDate extends Base {
             }else{
                 note = "Contact date set to "+(m<10?"0":"")+m+"/"+(d<10?"0":"")+d+"/"+y+".";
             }
-            setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=UpdateNote&" + Constants.NOTE_ID + "=&" + Constants.NOTE_TEXT + "=" + note);
+            setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=UpdateNote&" + Constants.NOTE_ID + "=&" + Constants.NOTE_TEXT + "=" + note + "&" + Constants.USER_ID + "=" + userId);
             setIsNextPageInContext(false);
 
         } catch (TCWebException e) {
