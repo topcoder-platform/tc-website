@@ -153,8 +153,8 @@
                             <logic:notEqual name="question" property="type" value="objective">
                                 <logic:iterate id="rspns" indexId="rIdx" name="question" property="responses">
                                     <!-- FIXME: Need better logic here, this breaks on deletes. -->
-                                    <logic:equal name="reviewScorecardForm" property="questionIndex" value="qIdx">
-                                        <logic:equal name="reviewScorecardForm" property="responseIndex" value="rIdx">
+                                    <logic:equal name="reviewScorecardForm" property="questionIndex" value="<%=String.valueOf(qIdx.intValue())%>">
+                                        <logic:equal name="reviewScorecardForm" property="responseIndex" value="<%=String.valueOf(rIdx.intValue())%>">
                                             <a name="lastPosition"></a>
                                         </logic:equal>
                                     </logic:equal>
