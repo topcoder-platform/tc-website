@@ -75,9 +75,11 @@
 			
 <!-- Start Text -->
 <logic:iterate id="question" indexId="qIdx" name="screeningScorecardForm" property="questions">
+<!--
     <logic:equal name="screeningScorecardForm" property="questionIndex" value="<%=String.valueOf(qIdx.intValue())%>">
         <a name="lastPosition"></a>
     </logic:equal>
+ -->
     
 	<logic:equal name="question" property="groupFirst" value="true">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -190,8 +192,10 @@
 	</html:form>
 </table>
 
+<!--
 <logic:notEqual name="screeningScorecardForm" property="questionIndex" value="-1">
     <script>
         window.location = "#lastPosition";
     </script>
 </logic:notEqual>
+ -->
