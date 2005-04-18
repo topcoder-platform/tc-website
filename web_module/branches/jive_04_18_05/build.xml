@@ -1152,6 +1152,7 @@
  		                <include name="com/topcoder/web/common/**/*.class" />
  		            	<include name="com/topcoder/web/forums/**/*.class" />
  		                <include name="com/topcoder/security/**/*.class" />
+ 		            	<include name="com/topcoder/common/tc/model/**/*.class"/>
  		            </classes>
  		            <webinf dir="${resources}/taglib">
  		                <include name="tc.tld"/>
