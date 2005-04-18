@@ -1,1 +1,1 @@
-	<a href="/tc?module=Static&d1=contracting&d2=index"><IMG SRC="/i/promos/employmentOpps2.gif" BORDER="0" ALT=""></a><br/>
+<a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_overview"><IMG SRC="/i/home/promos/tco05_logo_contest.gif" BORDER="0" ALT="" /></a><br/>
