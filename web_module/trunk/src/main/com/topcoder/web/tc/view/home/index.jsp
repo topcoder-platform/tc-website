@@ -100,7 +100,7 @@
 <%-- Center Column --%>
       <td class=homeCentCol>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/i/tournament/tccc05/onsite_movies/GeorgeCygan.mov"><img src="/i/home/promos/GeorgeCygan.jpg" border=0 /></A></td></tr>
+         <tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/assessment_tool.jpg" border=0 /></A></td></tr>
       </table>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
