@@ -283,7 +283,9 @@ public class ProfileSearch extends Base {
             rc = "lower("+col+")";
             rv = "lower('"+val+"')";
         }
-        if(val.indexOf('%') != -1 || val.indexOf('_') != -1){
+        if(val.equals("%")){
+            return "";
+        }if(val.indexOf('%') != -1 || val.indexOf('_') != -1){
             return "    AND "+rc+" LIKE "+rv+"\n";
         } else {
             return "    AND "+rc+" = "+rv+"\n";
