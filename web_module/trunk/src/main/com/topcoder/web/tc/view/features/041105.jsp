@@ -85,8 +85,10 @@ While I agree that most of these simply errors that are easily correctable, they
 <br><br>
 I try to universally deny these types of appeals and have noticed (during aggregation phase) that other reviewers do the same.  You'd be better off concentrating on the real appeals than trying any sort of delay action.
 <br><br>
-<span class=bodySubtitle>Next Week</span><br/>
+<span class="bodySubtitle">Next Week</span><br/>
 We'll explore the proper way to frame the appeals to avoid the above situations and how to successfully appeal mistakes.
+<br/><br/>
+<A href="/tc?module=Static&d1=features&d2=041905">...continue to Section 3</A>
             
 
         </div>
