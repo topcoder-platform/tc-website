@@ -218,14 +218,12 @@ public class FinalReviewForm extends AggregationWorksheetForm {
 
         ActionErrors errors = new ActionErrors();
         setValid(true);
-        approvedValid = true;
-        commentsValid = true;
 
         // If the final review isn't marked completed, we don't need to
         // validate yet.
-        if (!getCompleted()) {
-            return errors;
-        }
+        //if (!getCompleted()) {
+        //    return errors;
+        //}
         
         if (getResponses() != null) {
             for (int i = 0; i < getResponses().length; i++) {
@@ -245,6 +243,9 @@ public class FinalReviewForm extends AggregationWorksheetForm {
             }
         }
 
+        approvedValid = true;
+        commentsValid = true;
+        
         // if the project was rejected but all the items were fixed, a comment is needed
         if (!getApproved() && !mustReject && ((getComments() == null) || (getComments().trim().length() == 0))) {
             setValid(false);
@@ -287,7 +288,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
 
         statuses = businessDelegate.getFinalFixStatuses();
         isApproved = finalReview.isApproved();
-        isCompleted = Constants.ACTION_FINISH.equals(action);
+        //isCompleted = Constants.ACTION_FINISH.equals(action);
     }
 
     /**
@@ -298,7 +299,8 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * @return the FinalReviewData created from this form bean.
      */
     protected FinalReviewData toReviewData(OnlineReviewProjectData orpd) {
-        finalReview.setCompleted(isCompleted);
+        //finalReview.setCompleted(isCompleted);
+        finalReview.setCompleted(true);
         finalReview.setApproved(isApproved);
         return new FinalReviewData(orpd, finalReview);
     }

@@ -193,12 +193,14 @@
 		<td align="center" class="lightBkgnd">
 			<table border="0" cellpadding="0" cellspacing="4">
 				<tr>
+<!--
 <logic:equal name="utility" property="admin" value="false">
                                     <td>
 				        <html:submit styleClass="submitButton" onclick="set(this.form, 'save')">
 					<bean:message key="button.save" /></html:submit>
                                     </td>
-</logic:equal>					        
+</logic:equal>
+-->
                                     <td>
 				        <html:submit styleClass="submitButton" onclick="set(this.form, 'finish')">
 					<bean:message key="button.finish" /></html:submit>
