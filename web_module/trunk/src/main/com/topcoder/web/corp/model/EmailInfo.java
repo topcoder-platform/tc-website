@@ -101,7 +101,7 @@ public class EmailInfo extends BaseModel {
         msgText.append("as an objective measure of your programming ability.");
         msgText.append("\n\n");
         msgText.append("Please review the Help Manual before getting started: ");
-        msgText.append("http://www.topcoder.com/corp/testing/help/index.jsp");
+        msgText.append("http://www.topcoder.com/techassess/techassess?module=Static&d1=help&d2=index");
         msgText.append("\n\n");
         msgText.append("The following session has been scheduled for you:");
         msgText.append("\n\n");
@@ -123,7 +123,7 @@ public class EmailInfo extends BaseModel {
         msgText.append(" MINUTES TO COMPLETE ALL PORTIONS OF THE TEST.");
         msgText.append("\n\n");
         msgText.append("You must have the Java 1.4.x runtime installed to access ");
-        msgText.append("the Technical Assessment Application here: http://www.topcoder.com/corp/testing/testingApp.jsp?company=");
+        msgText.append("the Technical Assessment Application here: http://www.topcoder.com/techassess/techassess?module=Login&cm=");
         msgText.append(companyId);
         msgText.append("\n\n");
         msgText.append("If you are unable to connect when you attempt to login, please try checking the HTTP Tunneling option and entering your login/password again.");
@@ -153,7 +153,7 @@ public class EmailInfo extends BaseModel {
         msgText.append(" Eastern Time\n");
         msgText.append("\n");
         msgText.append("Access this individual's information by logging into the Technical Assessment Application ");
-        msgText.append("Management Tool http://www.topcoder.com/corp/testing/ and clicking on Candidates.");
+        msgText.append("Management Tool http://www.topcoder.com/corp/testing/ and clicking on Candidate Status.");
         msgText.append("\n");
         msgText.append("\n");
         msgText.append("Thank you,");
