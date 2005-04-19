@@ -405,7 +405,6 @@
         <mkdir dir="${jboss.conf.dir}/${upload.dir}"/>
         <copy file="${dde.ear}" todir="${jboss.deploy.dir}"/>
         <copy file="${informixinit.sar}" todir="${jboss.deploy.dir}"/>
-        <copy file="${dist.jars.dir}/${shared.jar.name}" todir="${jboss.lib.dir}" />
     </target>
 
 
@@ -434,8 +433,6 @@
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war" quiet="false"/>
         <mkdir dir="${jboss.deploy.dir}/dde.ear/review.war"/>
         <unwar src="${onlinereview.war}" dest="${jboss.deploy.dir}/dde.ear/review.war" overwrite="yes"/>
-        
-        <copy file="${dist.jars.dir}/${shared.jar.name}" todir="${jboss.lib.dir}" />
     </target>
 
 
