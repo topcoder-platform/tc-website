@@ -140,6 +140,8 @@
     <property name="projectphases.path" value="project_phases/${projectphases.version}"/>
     <property name="projectphases.jar" value="${jardir}/tcs/${projectphases.path}/${projectphases.jar.name}"/>
 
+    <property name="shared.jar.name" value="shared.jar" />
+    
     <path id="buildlibs">
         <pathelement location="${build_classdir}"/>
         <pathelement location="${ejb.jar}"/>
@@ -223,6 +225,14 @@
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${build_classdir}"/>
     </target>
     
+    <target name="jar_shared" depends="compile_shared">
+         <jar jarfile="${dist.jars.dir}/${shared.jar.name}">
+             <fileset dir="${build_classdir}">
+                 <include name="com/topcoder/shared/**/*.class"/>
+             </fileset>
+         </jar>
+     </target>
+    
     <target name="compile_timeline" >
         <mkdir dir="${build_classdir}"/>
         <javac srcdir="${javamain}"
@@ -235,7 +245,7 @@
         </javac>
     </target>
 
-    <target name="package" depends="compile,compile_timeline,build-or">
+    <target name="package" depends="compile,compile_timeline,build-or,jar_shared">
         <mkdir dir="${dist.jars.dir}"/>
         <copy file="${idgenerator.jar}" todir="${dist.jars.dir}"/>
         <copy file="${forum.jar}" todir="${dist.jars.dir}"/>
@@ -351,11 +361,7 @@
         	update="true"
         	basedir="${build_classdir}"
         	includes="com/topcoder/date/workdays/TCWorkdays.class" />
-        
-        
     </target>
-
-
 
     <target name="make-ear" unless="with-tests" depends="package">
         <ear earfile="${dde.ear}" appxml="./application.xml">
@@ -399,6 +405,7 @@
         <mkdir dir="${jboss.conf.dir}/${upload.dir}"/>
         <copy file="${dde.ear}" todir="${jboss.deploy.dir}"/>
         <copy file="${informixinit.sar}" todir="${jboss.deploy.dir}"/>
+        <copy file="${dist.jars.dir}/${shared.jar.name}" todir="${jboss.lib.dir}" />
     </target>
 
 
@@ -427,6 +434,8 @@
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war" quiet="false"/>
         <mkdir dir="${jboss.deploy.dir}/dde.ear/review.war"/>
         <unwar src="${onlinereview.war}" dest="${jboss.deploy.dir}/dde.ear/review.war" overwrite="yes"/>
+        
+        <copy file="${dist.jars.dir}/${shared.jar.name}" todir="${jboss.lib.dir}" />
     </target>
 
 
