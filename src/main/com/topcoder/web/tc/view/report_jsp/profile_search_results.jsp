@@ -78,7 +78,7 @@
   <body>
     <table class="entry" cellspacing=0>
     <tr>
-    <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
+    <tc:counter min="0" max="<%=results.getColumnCount()-2%>" id="i">
         <td>
             <a href="JavaScript:sort(<%=i%>)">
                 <%=headers.get(Integer.parseInt(i))%>&nbsp;&nbsp;&nbsp;
@@ -87,7 +87,8 @@
     </tc:counter>
     </tr>
     <rsc:iterator list="<%=results%>" id="resultRow">
-        <tr>
+        <% String bg = resultRow.getStringItem(results.getColumnCount()-1).equals("t") ? " BGCOLOR="#CCCCFF" : "";%>
+        <tr<%=bg%>>
             <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
                 <td nowrap>
                     <%=resultRow.getStringItem(Integer.parseInt(i))%>&nbsp;

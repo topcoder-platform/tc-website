@@ -64,13 +64,14 @@ public class ProfileSearch extends Base {
     
     private String buildQuery(TCRequest request, List headers){
         boolean cs = "on".equals(request.getParameter("casesensitive"));
-        headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country", "Algorithm Rating", "Design Rating", "Development Rating","","","","",""}));
         List[] skills = buildSkillsQuery(request, headers);
         boolean skill = skills[0].size() > 0;
         List[] demo = buildDemoQuery(request);
         List tables, constraints;
         (tables = demo[0]).addAll(skills[0]);
         (constraints = demo[1]).addAll(skills[1]);
+        String comp = request.getParameter("company");
+        String sch = request.getParameter("school");
         
         StringBuffer query = new StringBuffer(5000);
         if("on".equals(request.getParameter("count"))){
@@ -84,6 +85,15 @@ public class ProfileSearch extends Base {
             query.append("  , c.city as City\n");
             query.append("  , st.state_name as State\n");
             query.append("  , cry.country_name as Country\n");
+            headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country"}));
+            if(comp != null && comp.length() > 0){
+                query.append("  , drc.demographic_response as Company\n");
+                headers.add("Company");
+            }
+            if(sch != null && sch.length() > 0){
+                query.append("  , sch.name as School\n");
+                headers.add("School");
+            }
             query.append("  , r.rating as Algorithm_Rating\n");
             query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
             query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
@@ -92,19 +102,24 @@ public class ProfileSearch extends Base {
             query.append("  , (select unique '<a href=/tc?module=PlacementInfoDetail&uid=' || upi.user_id || '>Placement Info</a>' from user_preference upi where upi.user_id = c.coder_id AND upi.preference_id in (2,7))\n");
             query.append("  , '<a href=/tc?module=LegacyReport&t=profile&ha=' || u.handle || '>General Info</a>'\n");
             query.append("  , '<a href=/stat?c=member_profile&cr=' || c.coder_id || '>Public Profile</a>'\n");
+            headers.addAll(Arrays.asList(new String[]{ "Algorithm Rating", "Design Rating", "Development Rating","","","","",""}));
             for(int i = 0; i<skills[2].size(); i++){
                 query.append("  , ");
                 query.append((String)skills[2].get(i));
                 query.append('\n');
             }
+            query.append("  , c.contact_date > current\n");
         }
         query.append("  FROM coder c,\n");
         query.append("    rating r,\n");
         query.append("    user u,\n");
 
-        String comp = request.getParameter("company");
         if(comp != null && comp.length() > 0){
             query.append("    demographic_response drc,\n");
+        }
+        if(sch != null && sch.length() > 0){
+            query.append("    school sch,\n");
+            query.append("    current_school cur_sch,\n");
         }
 
         if("on".equals(request.getParameter("resume"))){
@@ -133,6 +148,11 @@ public class ProfileSearch extends Base {
             query.append("    AND drc.coder_id = c.coder_id\n");
             query.append("    AND drc.demographic_question_id = 15\n");
             query.append(stringMatcher(comp,"drc.demographic_response",cs));
+        }
+        if(sch != null && sch.length() > 0){
+            query.append("    AND cur_sch.coder_id = c.coder_id\n");
+            query.append("    AND cur_sch.school_id = sch.school_id\n");
+            query.append(stringMatcher(sch,"sch.name",cs));
         }
 
         if("on".equals(request.getParameter("resume"))){
@@ -394,7 +414,7 @@ public class ProfileSearch extends Base {
         Map skillMap = new HashMap();
         Map skillSetMap = new HashMap();
         Map demo = new HashMap();
-        String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating"};
+        String[] textFields = {"handle","email","firstname","lastname","zipcode","city","company","school","maxdayssincerating","minevents","mindays","maxdays","minrating","maxrating"};
         String[] checkBoxes = {"count","pro","stud","resume","travel","auth","casesensitive"};
         boolean[] def = {false,true,true,false,false,false,false};
         boolean revise = "on".equals(request.getParameter("revise"));
