@@ -52,11 +52,6 @@ public class Compile extends Base {
 
             code = StringUtils.checkNull(getRequest().getParameter(Constants.CODE));
 
-            if (code.equals("")) {
-                setUserMessage("Sorry, you cannot compile blank code.");
-            }
-
-
             ScreeningCompileRequest request = new ScreeningCompileRequest(componentId, problemTypeId, languageId, code);
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(getSessionId());
