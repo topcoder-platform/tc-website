@@ -3346,7 +3346,7 @@ public class DocumentManagerBean implements SessionBean {
                         ps.setLong(1, finalReview.getAggregationWorkSheet().getId());
                         rs = ps.executeQuery();
                         if (rs.next()) {
-                            String errorMsg = "DM.saveFinalReview(): Concurrent error(saving new FinalnReview)" +
+                            String errorMsg = "DM.saveFinalReview(): Concurrent error(saving new FinalReview)" +
                                     ", worksheetId: " + finalReview.getAggregationWorkSheet().getId();
                             error(errorMsg);
                             ejbContext.setRollbackOnly();
