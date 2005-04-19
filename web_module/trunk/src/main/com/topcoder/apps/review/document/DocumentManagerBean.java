@@ -3451,7 +3451,7 @@ public class DocumentManagerBean implements SessionBean {
                     }
 
                     // If the final fix status is null, we don't need to save it yet.
-                    if (fixItemArr[i].getFinalFixStatus() != null) {
+                    //if (fixItemArr[i].getFinalFixStatus() != null) {
                         ps = conn.prepareStatement(
                                 "INSERT INTO fix_item " +
                                 "(fix_item_v_id, fix_item_id, " +
@@ -3475,7 +3475,7 @@ public class DocumentManagerBean implements SessionBean {
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
-                    }
+                    //}
                 }
             }
         } catch (SQLException e) {

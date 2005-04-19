@@ -70,7 +70,8 @@ public final class SaveFinalReviewAction extends ReviewAction {
                 // If the final fixes are not approved, mails will be sent and the project will go back to final fixes
                 if (data.getFinalReview().isApproved()) {
                     AutoPilot.finalReviewEmail(data);
-                } else if (data.getFinalReview().isCompleted()) {
+                //} else if (data.getFinalReview().isCompleted()) {
+                } else {
                     // Count how many not fixed items are
                     FixItem[] items = data.getFinalReview().getFixCheckList();
 
