@@ -9,6 +9,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 
 /**
  * User: dok
@@ -49,8 +50,11 @@ public class Compile extends Base {
                 throw new NavigationException("Invalid Request, missing parameter");
             }
 
-            if (hasParameter(Constants.CODE))
-                code = getRequest().getParameter(Constants.CODE);
+            code = StringUtils.checkNull(getRequest().getParameter(Constants.CODE));
+
+            if (code.equals("")) {
+                setUserMessage("Sorry, you cannot compile blank code.");
+            }
 
 
             ScreeningCompileRequest request = new ScreeningCompileRequest(componentId, problemTypeId, languageId, code);
