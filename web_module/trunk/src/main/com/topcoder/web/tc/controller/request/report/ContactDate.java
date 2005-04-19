@@ -7,6 +7,11 @@ import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.TCDateResult;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import java.util.GregorianCalendar;
+import java.util.Map;
 
 public class ContactDate extends Base {
     protected void businessProcessing() throws TCWebException {
@@ -18,8 +23,6 @@ public class ContactDate extends Base {
             throw new NavigationException("Request missing user id");
         }
 
-        String nId = getRequest().getParameter(Constants.NOTE_ID);
-
         try {
 
             User user = (User) createEJB(getInitialContext(), User.class);
@@ -27,6 +30,14 @@ public class ContactDate extends Base {
             getRequest().setAttribute(Constants.HANDLE,
                     user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
             getRequest().setAttribute(Constants.USER_ID, userId);
+            Request r = new Request();
+            r.setContentHandle("contact_date");
+            DataAccessInt dataAccess = getDataAccess(false);
+            Map m = dataAccess.getData(r);
+            java.sql.Date date = (java.sql.Date)((TCDateResult)((ResultSetContainer)m.get("contact_date")).getItem(0,0)).getResultData();
+            GregorianCalendar gc = new GregorianCalendar();
+            gc.setTime(date);
+            getRequest().setAttribute("date",gc.get(GregorianCalendar.MONTH)+1+"/"+gc.get(GregorianCalendar.DATE)+"/"+gc.get(GregorianCalendar.YEAR));
 
             setNextPage(Constants.CONTACT_DATE);
             setIsNextPageInContext(true);

@@ -24,7 +24,7 @@
             <tr><td align=center><a href="/tc?module=&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td></tr>
             <tr>
                 <td align=center>
-                    Contact Date: (mm/dd/yyyy or blank to reset): <input type="textfield" name="<%=com.topcoder.web.tc.Constants.CONTACT_TEXT%>" size="20"/>
+                    Contact Date: (mm/dd/yyyy or blank to reset): <input type="textfield" name="<%=com.topcoder.web.tc.Constants.CONTACT_TEXT%>" size="20" value="<%=request.getAttribute("date")%>"/>
                 </td>
             </tr>
             <tr>
