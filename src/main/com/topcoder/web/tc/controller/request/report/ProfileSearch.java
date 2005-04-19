@@ -80,7 +80,7 @@ public class ProfileSearch extends Base {
             query.append("SELECT COUNT(*)\n");
         }else{
             query.append("SELECT");
-            if(comp != null && comp.length() > 0 || sch!=null && sch.length() > 0){
+            if(comp != null && comp.length() > 0 && !comp.equals("%") || sch!=null && sch.length() > 0 && !sch.equals("%")){
                 query.append(" {+ordered}");
             }
             query.append(" u.handle as Handle\n");
@@ -123,8 +123,8 @@ public class ProfileSearch extends Base {
             query.append("    current_school cur_sch,\n");
         }
         query.append("    coder c,\n");
-        query.append("    rating r,\n");
         query.append("    user u,\n");
+        query.append("    rating r,\n");
 
 
         if("on".equals(request.getParameter("resume"))){
