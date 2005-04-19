@@ -103,6 +103,7 @@ public class UpdateSession extends BaseSessionProcessor {
                         long testSetASegment = end.getTime() - start.getTime();
 
                         segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_A_ID), testSetASegment);
+                        info.setTestSetALength(testSetASegment);
                     }
 
                     rsc = (ResultSetContainer)
@@ -116,6 +117,7 @@ public class UpdateSession extends BaseSessionProcessor {
                     long testSetBSegment = Long.parseLong(row.getItem("count").toString()) *
                             Long.parseLong(Constants.TEST_SET_B_SEGMENT_INTERVAL);
                     segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_B_ID), testSetBSegment);
+                    info.setTestSetBLength(testSetBSegment);
 
                     //if we got through all that, then send the email
                     if (info.useCandidateEmail() || info.useRepEmail()) {

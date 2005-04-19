@@ -28,6 +28,8 @@ public class TestSessionInfo extends BaseModel {
     private String endHour;
     private String candidateEmail;
     private String repEmail;
+    private long testSetALength = 75*60*1000;  //default to 75 minutes
+    private long testSetBLength = 60*60*1000;  //default to 1 hour
 
     public TestSessionInfo() {
         candidateEmail = "YES";
@@ -61,7 +63,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>candidate</code>.
      *
-     * @param candidate
+     * @param val
      */
     public void setCandidateId(String val) {
         candidateId = val;
@@ -79,7 +81,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>profileList</code>.
      *
-     * @param profileList
+     * @param val
      */
     public void setProfileList(ResultSetContainer val) {
         profileList = val;
@@ -97,7 +99,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>candidateList</code>.
      *
-     * @param candidateList
+     * @param val
      */
     public void setCandidateList(ResultSetContainer val) {
         candidateList = val;
@@ -115,7 +117,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>beginMonth</code>.
      *
-     * @param beginMonth
+     * @param val
      */
     public void setBeginMonth(String val) {
         beginMonth = val;
@@ -133,7 +135,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>beginDay</code>.
      *
-     * @param beginDay
+     * @param val
      */
     public void setBeginDay(String val) {
         beginDay = val;
@@ -151,7 +153,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>beginYear</code>.
      *
-     * @param beginYear
+     * @param val
      */
     public void setBeginYear(String val) {
         beginYear = val;
@@ -169,7 +171,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>beginHour</code>.
      *
-     * @param beginHour
+     * @param val
      */
     public void setBeginHour(String val) {
         beginHour = val;
@@ -187,7 +189,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>endMonth</code>.
      *
-     * @param endMonth
+     * @param val
      */
     public void setEndMonth(String val) {
         endMonth = val;
@@ -205,7 +207,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>endDay</code>.
      *
-     * @param endDay
+     * @param val
      */
     public void setEndDay(String val) {
         endDay = val;
@@ -223,7 +225,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>endYear</code>.
      *
-     * @param endYear
+     * @param val
      */
     public void setEndYear(String val) {
         endYear = val;
@@ -241,7 +243,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>endHour</code>.
      *
-     * @param endHour
+     * @param val
      */
     public void setEndHour(String val) {
         endHour = val;
@@ -259,7 +261,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>candidateEmail</code>.
      *
-     * @param candidateEmail
+     * @param val
      */
     public void setCandidateEmail(String val) {
         if (val == null) {
@@ -284,7 +286,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>repEmail</code>.
      *
-     * @param repEmail
+     * @param val
      */
     public void setRepEmail(String val) {
         if (val == null) {
@@ -313,6 +315,23 @@ public class TestSessionInfo extends BaseModel {
     public Date getEndDate() {
         return formDate(endYear, endMonth, endDay, endHour);
     }
+
+    public long getTestSetALength() {
+        return testSetALength;
+    }
+
+    public void setTestSetALength(long testSetALength) {
+        this.testSetALength = testSetALength;
+    }
+
+    public long getTestSetBLength() {
+        return testSetBLength;
+    }
+
+    public void setTestSetBLength(long testSetBLength) {
+        this.testSetBLength = testSetBLength;
+    }
+
 
     public void setBeginDate(Date beginDate) {
         Calendar c = Calendar.getInstance();
