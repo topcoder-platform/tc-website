@@ -176,7 +176,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/gentiva_logo.gif" alt="Gentiva" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">With our vast network of licensed and certified home health care agencies, we employ an expansive team of caregivers, and provide health services for a diverse group of patients each year.<br><br>
+                    <td width="99%" class="bodyText">With their vast network of licensed and certified home health care agencies, Gentiva employs an expansive team of caregivers, and provide health services for a diverse group of patients each year.<br><br>
                     <A href="http://www.gentiva.com/" target="_blank">homepage</A>
                      </td>
                 </tr>
