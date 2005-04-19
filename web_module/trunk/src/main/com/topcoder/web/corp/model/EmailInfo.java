@@ -122,11 +122,9 @@ public class EmailInfo extends BaseModel {
         msgText.append(hours).append(" HOURS AND ").append(minutes);
         msgText.append(" MINUTES TO COMPLETE ALL PORTIONS OF THE TEST.");
         msgText.append("\n\n");
-        msgText.append("You must have the Java 1.4.x runtime installed to access ");
+        msgText.append("You may access ");
         msgText.append("the Technical Assessment Application here: http://www.topcoder.com/techassess/techassess?module=Login&cm=");
         msgText.append(companyId);
-        msgText.append("\n\n");
-        msgText.append("If you are unable to connect when you attempt to login, please try checking the HTTP Tunneling option and entering your login/password again.");
         msgText.append("\n\n");
         msgText.append("Thank you,\n");
         msgText.append(repName);
