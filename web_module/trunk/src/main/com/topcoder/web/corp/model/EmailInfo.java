@@ -86,6 +86,11 @@ public class EmailInfo extends BaseModel {
      */
     public String getMsgText() {
         if (sessionInfo == null) return null;
+
+        long total = sessionInfo.getTestSetALength()+sessionInfo.getTestSetBLength();
+        long hours = (total)/(60*60*1000);
+        long minutes = (total-(hours*(60*60*1000)))/(60*1000);
+
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
 //        msgText.append("Thank you for your interest in working at ");
@@ -113,7 +118,9 @@ public class EmailInfo extends BaseModel {
         msgText.append(candidatePassword);
         msgText.append("\n\n");
         msgText.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT PRIOR TO THE END ");
-        msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 2 HOURS TO COMPLETE ALL PORTIONS OF THE TEST.");
+        msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW UP TO ");
+        msgText.append(hours).append(" HOURS AND ").append(minutes);
+        msgText.append(" MINUTES TO COMPLETE ALL PORTIONS OF THE TEST.");
         msgText.append("\n\n");
         msgText.append("You must have the Java 1.4.x runtime installed to access ");
         msgText.append("the Technical Assessment Application here: http://www.topcoder.com/corp/testing/testingApp.jsp?company=");
