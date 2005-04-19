@@ -41,39 +41,39 @@
                 </tr>
 
                 <tr>
-                    <td width="33%" class="sidebarText">Monday, June 28</td>
+                    <td width="33%" class="sidebarText">Monday, June 27</td>
                     <td width="34%" class="sidebarText">Web Services - Qualification</td>
-                    <td width="33%" class="sidebarText">11:00 am - 4:00 pm</td>
+                    <td width="33%" class="sidebarText">11:00 am - 3:30 pm</td>
                 </tr>
 
                 <tr>
-                    <td width="33%" class="sidebarText">Monday, June 28</td>
+                    <td width="33%" class="sidebarText">Monday, June 27</td>
                     <td width="34%" class="sidebarText">Web Services - Competition</td>
-                    <td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
+                    <td width="33%" class="sidebarText">4:30 pm - 6:00 pm</td>
                 </tr>
 
                 <tr>
-                    <td width="33%" class="sidebarText">Tuesday, June 29</td>
+                    <td width="33%" class="sidebarText">Tuesday, June 28</td>
                     <td width="34%" class="sidebarText">Enterprise Services - Qualification</td>
-                    <td width="33%" class="sidebarText">11:00 am - 3:00 pm</td>
+                    <td width="33%" class="sidebarText">11:00 am - 3:30 pm</td>
                 </tr>
 
                 <tr>
-                    <td width="33%" class="sidebarText">Tuesday, June 29</td>
+                    <td width="33%" class="sidebarText">Tuesday, June 28</td>
                     <td width="34%" class="sidebarText">Enterprise Services - Competition</td>
-                    <td width="33%" class="sidebarText">3:30 pm - 5:00 pm</td>
+                    <td width="33%" class="sidebarText">4:30 pm - 6:00 pm</td>
                 </tr>
                 
                 <tr>
-                    <td width="33%" class="sidebarText">Wednesday, June 30</td>
+                    <td width="33%" class="sidebarText">Wednesday, June 29</td>
                     <td width="34%" class="sidebarText">Mobility - Qualification</td>
-                    <td width="33%" class="sidebarText">11:00 am - 3:00 pm</td>
+                    <td width="33%" class="sidebarText">11:00 am - 3:30 pm</td>
                 </tr>
 
                 <tr>
-                    <td width="33%" class="sidebarText">Wednesday, June 30</td>
+                    <td width="33%" class="sidebarText">Wednesday, June 29</td>
                     <td width="34%" class="sidebarText">Mobility - Competition</td>
-                    <td width="33%" class="sidebarText">3:30 pm - 5:00 pm</td>
+                    <td width="33%" class="sidebarText">4:30 pm - 6:00 pm</td>
                 </tr>
             </table>
 
