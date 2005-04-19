@@ -32,6 +32,7 @@ public class ContactDate extends Base {
             getRequest().setAttribute(Constants.USER_ID, userId);
             Request r = new Request();
             r.setContentHandle("contact_date");
+            r.setProperty(Constants.USER_ID,userId);
             DataAccessInt dataAccess = getDataAccess(false);
             Map m = dataAccess.getData(r);
             java.sql.Date date = (java.sql.Date)((TCDateResult)((ResultSetContainer)m.get("contact_date")).getItem(0,0)).getResultData();
