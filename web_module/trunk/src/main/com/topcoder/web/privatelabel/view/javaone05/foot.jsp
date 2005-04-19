@@ -10,6 +10,15 @@
 <center>
 <br />
 <table id="footer" width="800" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="3" valign="middle" align="center" class="footer">
+		<a href="http://developers.sun.com/"><b>sun.com/developers</b></a>
+		&nbsp; &nbsp; | &nbsp; &nbsp; 
+      	<a href="/tc?module=Static&d1=about&d2=index"><b>About TopCoder</b></a>
+      	&nbsp; &nbsp; | &nbsp; &nbsp; 
+      	<a href="/pl/?&module=Static&d1=javaone05&d2=rules"><b>Rules and Regulations</b></a><br/>
+      	</td>
+	</tr>
 
 <tr>
 <td colspan="3" height="1" bgcolor="#DFDFDF"><img src="/javaone/images/dot_DFDFDF.gif" width="1" height="1"></td>

@@ -40,13 +40,13 @@
 
 						<p class="regmiddle">Join Us and SAVE $300 at the JavaOne<sup>SM</sup> Conference in San Francisco!</p>
 
-						<p class="regmiddle">Come join us at the JavaOne Conference taking place June 28-July 1, 
-						2004, at Moscone Center in San Francisco. As the power behind the Coding Challenge at the Conference, 
+						<p class="regmiddle">Come join us at the JavaOne Conference taking place June 7-June 30, 
+						2005, at Moscone Center in San Francisco. As the power behind the Coding Challenge at the Conference, 
 						TopCoder invites you to stop by the Competition Arena in the JavaOne Pavilion. It all starts at the 
 						JavaOne Conference, your source for cutting-edge knowledge and proven solutions.</p>
 
-						<p class="regmiddle">Professional TopCoder members save $300 off onsite pricing when you register by May 31, 2004.  
-						Register online today at <a href="http://javaone.medialiveinternational.com/sf2004/registration.html" target="_blank">java.sun.com/javaone/sf</a>.
+						<p class="regmiddle">Professional TopCoder members save $300 off onsite pricing when you register by May 31, 2005.  
+						Register online today at <a href="http://javaone.medialiveinternational.com/sf2005/registration.html" target="_blank">java.sun.com/javaone/sf</a>.
 						Please use Registration Code "EXNAYA27" to receive your savings. </p>
 
 						<p class="regmiddle">The JavaOne conference is your ultimate source for Java technology knowledge and 
@@ -63,11 +63,11 @@
 						</ul></blockquote>
 
 
-						<p class="regmiddle">Register online at <a href="http://javaone.medialiveinternational.com/sf2004/registration.html" target="_blank">java.sun.com/javaone/sf</a> today. 
+						<p class="regmiddle">Register online at <a href="http://javaone.medialiveinternational.com/sf2005/registration.html" target="_blank">java.sun.com/javaone/sf</a> today. 
 						Be sure to use Registration Code "EXNAYA27" to receive your savings. </p>
 
 						<p class="regmiddle">We look forward to seeing you in San Francisco this June! </p>
-                  <p class="regmiddle">This offer is not valid for Web-based registration. Offer expires June 26, 2004. </p>
+                  <p class="regmiddle">This offer is not valid for Web-based registration. Offer expires June 26, 2005. </p>
                </td>
             <tr>
                <td colspan="2" align="left" valign="middle">
