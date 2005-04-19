@@ -59,21 +59,6 @@
 
             <hr width="100%" size="1px" noshade>
 
-<!-- CBDI begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/cbdi_logo.gif" alt="CBDI" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">CBDI is an independent analyst firm and think-tank, providing a focus for the industry on best practice in business software creation, reuse and management.<br><br>
-                    <A href="http://www.cbdiforum.com/index.php3" target="_blank">homepage</A>&#160;|&#160;
-                     <A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/cbdi_journal.pdf&refer=homepage" target="_blank">white paper</A>
-                     </td>
-                </tr>
-            </table>
-<!-- CBDI ends -->
-
-             <hr width="100%" size="1px" noshade>
-
 <!-- StageStores begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
