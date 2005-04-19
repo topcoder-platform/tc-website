@@ -171,6 +171,20 @@
 
              <hr width="100%" size="1px" noshade>
 
+<!--Gentiva begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/gentiva_logo.gif" alt="Gentiva" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">With our vast network of licensed and certified home health care agencies, we employ an expansive team of caregivers, and provide health services for a diverse group of patients each year.<br><br>
+                    <A href="http://www.gentiva.com/" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Gentiva ends -->
+
+             <hr width="100%" size="1px" noshade>
+
 <!-- Oxford begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
