@@ -3450,29 +3450,32 @@ public class DocumentManagerBean implements SessionBean {
                         info("DM.saveAggregationReview(): Saving a new FinalReview, id: " + finalReview.getId());
                     }
 
-                    ps = conn.prepareStatement(
-                            "INSERT INTO fix_item " +
-                            "(fix_item_v_id, fix_item_id, " +
-                            "final_fix_s_id, agg_response_id, " +
-                            "final_review_id, " +
-                            "modify_user, cur_version) " +
-                            "VALUES " + "(0, ?, ?, ?, ?, ?, 1)");
-                    ps.setLong(1, fixItemArr[i].getId());
-                    ps.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
-                    ps.setLong(3, fixItemArr[i].getAggregationResponse().getId());
-                    ps.setLong(4, finalReview.getId());
-                    ps.setLong(5, requestorId);
+                    // If the final fix status is null, we don't need to save it yet.
+                    if (fixItemArr[i].getFinalFixStatus() != null) {
+                        ps = conn.prepareStatement(
+                                "INSERT INTO fix_item " +
+                                "(fix_item_v_id, fix_item_id, " +
+                                "final_fix_s_id, agg_response_id, " +
+                                "final_review_id, " +
+                                "modify_user, cur_version) " +
+                                "VALUES " + "(0, ?, ?, ?, ?, ?, 1)");
+                        ps.setLong(1, fixItemArr[i].getId());
+                        ps.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
+                        ps.setLong(3, fixItemArr[i].getAggregationResponse().getId());
+                        ps.setLong(4, finalReview.getId());
+                        ps.setLong(5, requestorId);
 
-                    int nr = ps.executeUpdate();
+                        int nr = ps.executeUpdate();
 
-                    if (nr != 1) {
-                        String errorMsg = "DM.saveFinalReview(): Could not insert FixItem! , fixItemId: " + fixItemArr[i].getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr != 1) {
+                            String errorMsg =
+                                    "DM.saveFinalReview(): Could not insert FixItem! , fixItemId: "
+                                    + fixItemArr[i].getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
                     }
-
-
                 }
             }
         } catch (SQLException e) {
