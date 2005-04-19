@@ -13,6 +13,7 @@ public interface CodingInterfaceConstants {
     public static final String PROBLEM_TYPE_ID = "ptid"; //this may belong in the tech assess constants, not here
     public static final String LANGUAGE_ID = "lid";
     public static final String CODE = "code";
+    public static final String ENCODED = "encoded";
     public static final String MODULE = "module";
     public static final String STATIC_PREFIX = "d";
     public static final String MESSAGE_ID = "messid";
