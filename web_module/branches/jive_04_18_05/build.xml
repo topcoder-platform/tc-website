@@ -193,6 +193,7 @@
  	             <include name="com/topcoder/web/common/**"/>
  	         	 <include name="com/topcoder/common/web/data/**"/>
  	         	 <include name="com/topcoder/web/tc/model/**"/>
+ 	         	 <include name="com/topcoder/ejb/**"/>
  	         </javac>
  	     </target>
 
@@ -1153,6 +1154,8 @@
  		            	<include name="com/topcoder/web/forums/**/*.class" />
  		                <include name="com/topcoder/security/**/*.class" />
  		            	<include name="com/topcoder/web/tc/model/**/*.class"/>
+ 		            	<include name="com/topcoder/common/**/*.class"/>
+ 		            	<include name="com/topcoder/ejb/**/*.class"/>
  		            </classes>
  		            <webinf dir="${resources}/taglib">
  		                <include name="tc.tld"/>
