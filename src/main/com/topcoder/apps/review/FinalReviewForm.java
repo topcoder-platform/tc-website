@@ -43,15 +43,19 @@ public class FinalReviewForm extends AggregationWorksheetForm {
     private boolean commentsValid = true;
 
     /**
-     * Wheter the user has selected a valid value for the approved radio button
+     * Whether the user has selected a valid value for the approved radio button
      */
     private boolean approvedValid = true;
 
-
     /**
-     * Wheter the final fixes are approved.
+     * Whether the final fixes are approved.
      */
     private boolean isApproved = false;
+    
+    /**
+     * Whether the final fixes are completed.
+     */
+    private boolean isCompleted = false;
 
     // ----------------------------------------------------------- Properties
 
@@ -122,6 +126,28 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      */
     public void setApproved(boolean isApproved) {
         this.isApproved = isApproved;
+    }
+    
+    /**
+     * <p>
+     * Return whether this final review is completed
+     * </p>
+     *
+     * @return true if the final review is completed
+     */
+    public boolean getCompleted() {
+        return isCompleted;
+    }
+
+    /**
+     * <p>
+     * Set whether this review is completed.
+     * </p>
+     *
+     * @param isCompleted Whether this review is completed.
+     */
+    public void setCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 
     /**
@@ -197,7 +223,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
 
         // If the final review isn't marked completed, we don't need to
         // validate yet.
-        if (!finalReview.isCompleted()) {
+        if (!getCompleted()) {
             return errors;
         }
         
@@ -261,6 +287,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
 
         statuses = businessDelegate.getFinalFixStatuses();
         isApproved = finalReview.isApproved();
+        isCompleted = Constants.ACTION_FINISH.equals(action);
     }
 
     /**
@@ -271,7 +298,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
      * @return the FinalReviewData created from this form bean.
      */
     protected FinalReviewData toReviewData(OnlineReviewProjectData orpd) {
-        finalReview.setCompleted(Constants.ACTION_FINISH.equals(action));
+        finalReview.setCompleted(isCompleted);
         finalReview.setApproved(isApproved);
         return new FinalReviewData(orpd, finalReview);
     }
