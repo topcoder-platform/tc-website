@@ -47,7 +47,7 @@
                         adhere to, all of the constraints for any input parameters, and examples to help clarify the statement. <br><br>
 
                         <span class="bodySmallTitle">Choosing a Language</span><br>
-                        Currently the Technical Assessment Application supports three programming languages - Java, C++, and C#.  Employers decide which options you
+                        Currently the Technical Assessment Application supports three programming languages - Java, C++, C# and Visual Basic.  Employers decide which options you
                         will be given, so it is possible that you will not see all three languages as choices.  If you do have the option of choosing a language, you
                         may do so on a problem-by-problem basis.  You can find the language selection area in the upper right of the coding window called
                         <strong>Choose your style</strong>.  Remember to select the appropriate language before you attempt to compile your code.  Strange compilation
@@ -55,7 +55,7 @@
 
                         <span class="bodySmallTitle">Creating a Solution</span><br>
                         The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to
-                        your class members and invoke the appropriate methods.  Bellow you will find code templates for Java, C++ and C#:<br><br>
+                        your class members and invoke the appropriate methods.  Bellow you will find code templates for Java, C++, C# and Visual Basic:<br><br>
 
                         <a name="coded"></a><span class="bodySmallTitle">Java Code Template</span><br>
                         <pre>import &lt;necessary classes&gt;
@@ -93,6 +93,18 @@ public class &lt;class-name> {
         return &lt;result&gt;;
     }
 }
+                        </pre>
+
+
+                        <span class="bodySmallTitle">Visual Basic Code Template</span><br>
+                        <pre>Imports &lt;necessary classes&gt;;
+
+Public Class &lt;class-name> {
+    Public Function &lt;method-name&gt;(ByVal arg1 As &lt;argument-type&gt;) As &lt;return-type&gt;
+        //your source here
+        Return &lt;result&gt;;
+    End Function
+End Class
                         </pre>
 
                         <a name="compiled"></a><span class="bodySmallTitle">Compiling</span><br>
