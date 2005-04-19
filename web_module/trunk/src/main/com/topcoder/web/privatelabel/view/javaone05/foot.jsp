@@ -1,45 +1,51 @@
 <p><br/></p>
-<table id="footer" width="800" cellpadding="5" cellspacing="0">
-   <tr>
-      <td colspan="3" valign="middle" align="center" class="footer">
-      <a href="http://developers.sun.com/"><b>sun.com/developers</b></a>
-      &nbsp; &nbsp; | &nbsp; &nbsp; 
-         <a href="/tc?module=Static&d1=about&d2=index"><b>About TopCoder</b></a>
-         &nbsp; &nbsp; | &nbsp; &nbsp; 
-         <a href="/pl/?&module=Static&d1=javaone05&d2=rules"><b>Rules and Regulations</b></a><br/>
-         </td>
-   </tr>
-   
+<!-- begin footer table -->
 
-   <tr>
-        <td width="146" height="100" valign="CENTER">
-        <a href="http://www.sun.com" target="_new"><img src="/i/events/javaone04/logo_sun.gif" alt="Sponsored By Sun" width="124" height="97" border="0"></a>
-       </td>
-       
-      <td width="480" height="100">
-       <font size="1" face="FONT-FAMILY: Arial, Geneva, Verdana, Helvetica, sans-serif;"><A HREF="http://www.sun.com/share/text/SMICopyright.html" target="_new" class="footerLink">Copyright</A> &#169; 1996-2004 
-       <A HREF="http://www.sun.com/" target="_new" class="footerLink">Sun Microsystems Inc.</A>&nbsp;&nbsp;All Rights Reserved.&nbsp;&nbsp;
-       <A HREF="http://www.sun.com/share/text/termsofuse.html" target="_new" class="footerLink">Terms of Use</A>.&nbsp;&nbsp;
-       <A HREF="http://www.sun.com/privacy/" target="_new" class="footerLink">Privacy Policy</A>.
-       Java, J2EE, J2SE, J2ME, and all Java-based marks are 
-      <a href="http://www.sun.com/suntrademarks/" target="_new" class="footerLink">trademarks or registered trademarks</a> of Sun Microsystems, 
-      Inc. in the United States and other countries.<br/>
-    
-    
-      To send comments about the JavaOne conference Web pages, please use the 
-       <a href="http://developers.sun.com/contact/feedback.jsp?requrl=/UserTypedUrl&category=sdn"  target="_new" class="footerLink">
-       Developer Web site Feedback form</a>.
-   
-       <A HREF="http://javaone.medialiveinternational.com/sf2004/disclaimer.html" class="footerLink">Third Party Content Disclaimer</A>&nbsp;&nbsp;Conference content is subject to change.<br/>
+<map name="bannerMap">
+<area shape="rect" alt="http://www.sun.com/" coords="697,4,799,72" href="http://www.sun.com/" target="_new">
+<area shape="rect" alt="http://java.sun.com/" coords="624,3,694,72" href="http://java.sun.com/" target="_new">
+<area shape="rect" alt="http://www.sun.com/javaone" coords="0,7,616,70" href="http://www.sun.com/javaone" target="_new">
+</map>
 
-       MediaLive International is a trademark owned or used under license by MediaLive International, Inc.<br/></font>
-       </td>
+<center>
+<br />
+<table id="footer" width="800" cellpadding="0" cellspacing="0">
+
+<tr>
+<td colspan="3" height="1" bgcolor="#DFDFDF"><img src="/javaone/images/dot_DFDFDF.gif" width="1" height="1"></td>
+</tr>
+
+<tr>
+<td width="122" height="57" align="center" valign="TOP" class="footer">
+<div align="center"><br /><img src="/i/events/javaone05/SunLogo.gif" border="0" usemap="#Map"></div>
+
+</td>
        
-        <td width="144" height="100" valign="middle"> 
-        <a href="http://www.medialiveinternational.com" target="_new"><img src="/i/events/javaone04/logo_medialive.gif" alt="MediaLive International" width="122" height="50" border="0" vspace="5"></a>
-        
-       </td>
-   </tr>
+<td width="534" height="100" valign="TOP" class="footer style1" style="padding-top:17px;">
+<a href="http://www.sun.com/share/text/SMICopyright.html" target="_blank">Copyright</a> &copy; 1996-2005&nbsp;
+
+<a href="http://www.sun.com/" target="_blank">Sun Microsystems, Inc.</a>
+ All rights reserved. <a href="http://www.sun.com/share/text/termsofuse.html">Terms of Use</a>. <a href="http://www.sun.com/privacy">Privacy Policy</a>. Sun,
+   Sun Microsystems, the Sun logo, Java, the Java Coffee Cup logo,
+   JavaOne, the JavaOne logo, Java Developer Conference, Java Community
+   Process, JCP, 100% Pure Java, J2EE, J2ME, J2SE, Jini, Solaris,
+   "Write Once, Run Anywhere," and all Java-based marks and logos are
+   <a href="http://www.sun.com/suntrademarks/">trademarks or registered trademarks</a> of Sun Microsystems, Inc. in the United States and other countries. <br /><br />
+
+   
+To send comments about the JavaOne conference Web pages, please use the
+<a href="http://developers.sun.com/contact/feedback.jsp?requrl=/UserTypedUrl&category=sdn" target="_blank">Developer 
+Web site Feedback form</a>. <a href="http://access1.sun.com/copyright.html" target="_blank">Third Party Content Disclaimer.</a>&nbsp;Conference content is subject to change.
+</td>
+</tr>
 </table>
+</center>
+
+<div align="center">
+<map name="Map"><area shape="rect" coords="18,29,101,71" href="http://www.sun.com/" target="_blank"></map>
+<map name="Map2"><area shape="rect" coords="13,25,110,58" href="http://www.pedersen.com/" target="_blank"></map>
+</div>
+
+<!-- end footer table -->
 
 <p><br/></p>
