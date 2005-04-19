@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.19.05<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041905">The Design Process - Section 3: appeals phase do's</A></span><br><br>
+       "The purpose [now] turns to provide the reviewer with the proper reasoning and enough information to overturn their original objections."</td>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=041905">full story</A>&#160;|&#160;
+         <A href="/?&t=features&c=index">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.18.05<br>9:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_overview">TCO05 Logo Design Contest</A></span><br><br>
       Announcing the TCO05 Logo Design Contest, a chance for you to put your mark on the next TopCoder tournament and earn some money while you're at it.
@@ -263,18 +278,6 @@
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm235_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>03.22.05<br>11:05 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=csfb">CSFB</A></span><br><br>
-      <A href="/tc?module=Static&d1=contracting&d2=csfb">CSFB</A> is offering positions as Quantitative Software Developer, Core Infrastructure / Internal Systems Developer, and Sr. Design Engineer, available to <strong>ALL</strong> members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
  
 </table>
