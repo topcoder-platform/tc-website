@@ -57,19 +57,19 @@
                   <p class="regmiddle"><strong>Conference Overview</strong><br/>
                      Hundreds of in-depth technical sessions give you the skills and training you need. This year's topics cover seven 
                      key areas important to you:<br/>
-                     Topic 1-The Foundations: Core J2SE(TM) Technologies<br/>
+                     Topic 1-Core Platform<br/>
                      Topic 2-Core Enterprise Technologies<br/>
-                     Topic 3-Java Technology on the Desktop<br/>
-                     Topic 4-Java Technology for the Web<br/>
-                     Topic 5-Java Technology for Mobility<br/>
-                     Topic 6-Dissecting the Implementation: Solutions<br/>
-                     Topic 7-Intriguing and Unexpected: "New and Cool"</p>
+                     Topic 3-Desktop<br/>
+                     Topic 4-Web Tier<br/>
+                     Topic 5-Tools<br/>
+                     Topic 6-Mobility and Devices<br/>
+                     Topic 7-Cool Stuff</p>
 
 
                   <p class="regmiddle">To register, call 1-888-886-8769 and identify yourself as a student or faculty member from the 
                   TopCoder program.* </p>
 
-                  <p class="regmiddle">Find all your solutions at the 2004 JavaOne conference.</p>
+                  <p class="regmiddle">Find all your solutions at the 2005 JavaOne conference.</p>
 
                   <p class="regmiddle">We look forward to seeing you in San Francisco this June!</p>
 
@@ -78,7 +78,7 @@
                   and a copy of your current course schedule with no less than eight credits. For faculty or staff, a letter on school 
                   letterhead from your department head or dean must be submitted to verify full-time status.</p>
 
-                  <p class="regmiddle">This offer is not valid for Web-based registration. Offer expires June 26, 2004. </p>
+                  <p class="regmiddle">This offer is not valid for Web-based registration. Offer expires June 25, 2005. </p>
                </td>
             <tr>
                <td colspan="2" align="left" valign="middle">
