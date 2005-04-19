@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.report;
+ package com.topcoder.web.tc.controller.request.report;
 
 import com.topcoder.common.web.data.report.*;
 import com.topcoder.shared.dataAccess.*;
@@ -79,7 +79,11 @@ public class ProfileSearch extends Base {
             headers.add("Count");
             query.append("SELECT COUNT(*)\n");
         }else{
-            query.append("SELECT u.handle as Handle\n");
+            query.append("SELECT");
+            if(comp != null && comp.length() > 0 || sch!=null && sch.length() > 0){
+                query.append(" {+ordered}");
+            }
+            query.append(" u.handle as Handle\n");
             query.append("  , c.first_name as First_Name\n");
             query.append("  , c.last_name as Last_Name\n");
             query.append("  , c.city as City\n");
@@ -110,10 +114,7 @@ public class ProfileSearch extends Base {
             }
             query.append("  , c.contact_date > current\n");
         }
-        query.append("  FROM coder c,\n");
-        query.append("    rating r,\n");
-        query.append("    user u,\n");
-
+        query.append("  FROM");
         if(comp != null && comp.length() > 0){
             query.append("    demographic_response drc,\n");
         }
@@ -121,6 +122,10 @@ public class ProfileSearch extends Base {
             query.append("    school sch,\n");
             query.append("    current_school cur_sch,\n");
         }
+        query.append("    coder c,\n");
+        query.append("    rating r,\n");
+        query.append("    user u,\n");
+
 
         if("on".equals(request.getParameter("resume"))){
             query.append("    resume res,\n");
