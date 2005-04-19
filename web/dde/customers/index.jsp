@@ -116,6 +116,20 @@
 
              <hr width="100%" size="1px" noshade>
 
+<!-- Caliper begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">Caliper has advised more than 25,000 companies - including FedEx, Avis and some of the fastest growing smaller firms - on Employee Selection, Employee Development, Team Building and Organizational Development. <br><br>
+                    <A href="http://www.calipercorp.com/" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Caliper ends -->
+
+             <hr width="100%" size="1px" noshade>
+
 <!-- Detroit Edison begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
