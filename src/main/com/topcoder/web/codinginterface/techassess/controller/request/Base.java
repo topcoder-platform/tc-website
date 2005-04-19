@@ -45,7 +45,11 @@ public abstract class Base extends BaseProcessor {
 
     private QueueMessageSender sender = null;
     private WebQueueResponseManager receiver = null;
-    private String messageId = null;
+    /**
+     *setting empty for the case when we have an input error that we
+     * want to use <code>setUserMessage</code>to communicate to the user.
+     */
+    private String messageId = "EMPTY";
     private long sessionId = -1;
     private long companyId = -1;
     private List languages = null;
