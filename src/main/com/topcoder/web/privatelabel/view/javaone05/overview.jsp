@@ -41,7 +41,7 @@
                Challenge t-shirt and messenger bag.</p>
                
                <p class ="regmiddle"><strong><font size="4">Let the Coding Begin!</font></strong><br/></p>
-               <p class ="regmiddle">Each day offers a qualification round, a 30-minute challenge pitting you against all other participants at the JavaOne Conference.</p>
+               <p class ="regmiddle">Each day offers a qualification round - a 30-minute challenge pitting you against all other participants from the JavaOne Conference.</p>
                
                <p class ="regmiddle">In the onsite Competition Arena, participants will be presented with real-world programming problems and will be 
                given 30 minutes to use the Java programming language to code, compile, test, and submit solutions to the problem sets. 
@@ -57,10 +57,7 @@
                
                <p class ="regmiddle">Have you ever wanted to show your colleagues how much better you are in your Java programming skills? This is the 
                way to show off your stuff. Take your grand prize back to the office and show your peers that you came out on top! 
-               The winners of each day's competition will be recognized by posting their name on the Coding Challenge Scoreboard.</p>
-               
-               
-               
+               The winners of each day's competition will be recognized by posting their name on the Coding Challenge Scoreboard and on the JavaOne website.</p>
                </td>
             <tr>
                <td colspan="2" align="left" valign="middle">

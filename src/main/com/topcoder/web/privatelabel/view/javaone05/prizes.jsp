@@ -47,9 +47,8 @@
                     <td width="30%" class="sidebarText" valign="top">Grand Prize (3)*</td>
                     <td width="70%" class="sidebarText">
                     <ul>
-                    <li>One complimentary full Conference pass to the 2005 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
+                    <li>One complimentary full Conference pass to the 2006 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
                     <li>A collection of 23 <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone04&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
-                    <li>One Zodiac Mobile Entertainment console and package from TapWave, valued at $625</li>
                     </ul>
                     </td>
                 </tr>
