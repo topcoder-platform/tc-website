@@ -58,7 +58,7 @@ public class Submit extends Base {
                 code = getRequest().getParameter(Constants.CODE);
             
             if (hasParameter(Constants.ENCODED)) {
-                code = URLDecoder.decode(code);
+                code = URLDecoder.decode(code, "UTF-8");
             }
             
             resubmit = (String.valueOf(true).equalsIgnoreCase(getRequest().getParameter(Constants.SUBMIT_FLAG)));
@@ -94,7 +94,7 @@ public class Submit extends Base {
                         new String[]{String.valueOf(getMessageId()), String.valueOf(componentId), String.valueOf(problemTypeId)}));
             } else if (response.getStatus() == ScreeningSubmitResponse.RESUBMIT) {
                 //encode code string so that it fits in a hidden field
-                code = URLEncoder.encode(code);
+                code = URLEncoder.encode(code,"UTF-8");
                 
                 setUserMessage(response.getMessage());
                 setDefault(Constants.CODE, code);
