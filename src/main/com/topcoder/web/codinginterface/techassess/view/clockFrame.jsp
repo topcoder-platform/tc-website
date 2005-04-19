@@ -1,7 +1,9 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,java.util.List,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel,
-                 java.util.ArrayList"%>
+                 java.util.ArrayList,
+                 java.util.TimeZone,
+                 java.util.Date"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
@@ -17,7 +19,7 @@
         var serverTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
         var localTime = new Date();
 
-        var serverOffset = -5; //hours from GMT
+        var serverOffset = <%=TimeZone.getDefault().getOffset(new Date().getTime())/(60*60*1000)%>
         var offset = localTime.getTimezoneOffset();
         offset = offset / 60;
         offset = offset * -1
