@@ -1,7 +1,9 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
                  java.util.List,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet,
-                 com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo"%>
+                 com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo,
+                 java.util.Date,
+                 java.util.TimeZone"%>
 <script language="JavaScript" type="text/javascript" src="/js/techassess.js"></script>
 <script language="javascript">
 
@@ -29,7 +31,7 @@ if (o!=null) {
         var problemServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
         var problemLocalTime = new Date();
 
-        var problemServerOffset = -5; //hours from GMT
+        var problemServerOffset = <%=TimeZone.getDefault().getOffset(new Date().getTime())/(60*60*1000)%>
         var problemOffset = problemLocalTime.getTimezoneOffset();
         problemOffset = problemOffset / 60;
         problemOffset = problemOffset * -1
