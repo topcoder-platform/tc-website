@@ -41,6 +41,7 @@
             <tc-webtag:hiddenInput name="<%=Constants.SUBMIT_FLAG%>"/>
             <tc-webtag:hiddenInput name="<%=Constants.LANGUAGE_ID%>"/>
             <tc-webtag:hiddenInput name="<%=Constants.CODE%>"/>
+            <input type="hidden" name="<%=Constants.ENCODED%>" value="true"/>
               <table cellspacing=0 cellpadding=0 class=bodyTable>
                  <tr>
                     <td><img src="/i/corp/screening/bodyTL.gif" alt=""/></td>
