@@ -99,10 +99,10 @@ public class &lt;class-name> {
                         <span class="bodySmallTitle">Visual Basic Code Template</span><br>
                         <pre>Imports &lt;necessary classes&gt;;
 
-Public Class &lt;class-name> {
+Public Class &lt;class-name>
     Public Function &lt;method-name&gt;(ByVal arg1 As &lt;argument-type&gt;) As &lt;return-type&gt;
         //your source here
-        Return &lt;result&gt;;
+        Return &lt;result&gt;
     End Function
 End Class
                         </pre>
