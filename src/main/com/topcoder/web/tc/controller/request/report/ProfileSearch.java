@@ -75,7 +75,6 @@ public class ProfileSearch extends Base {
         
         StringBuffer query = new StringBuffer(5000);
         if("on".equals(request.getParameter("count"))){
-            headers = new ArrayList();
             headers.add("Count");
             if(comp != null && comp.length() > 0 && !comp.equals("%") || sch!=null && sch.length() > 0 && !sch.equals("%")){
                 query.append("SELECT {+ordered} COUNT(*), false\n");
