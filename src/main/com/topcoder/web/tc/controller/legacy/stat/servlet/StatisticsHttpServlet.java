@@ -170,6 +170,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                             "/tc?&module=Login&message=" +
                             "You must log in to view this portion of the site.&nextpage=http://" +
                             request.getServerName() + "/stat?" + replace(sQueryString));
+                    return;
                 }
                 request.setAttribute("REQUEST_BEAN", dataRequest);
                 DataAccessInt dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
