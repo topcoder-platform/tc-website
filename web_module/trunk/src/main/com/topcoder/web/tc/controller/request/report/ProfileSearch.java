@@ -77,9 +77,9 @@ public class ProfileSearch extends Base {
         if("on".equals(request.getParameter("count"))){
             headers.add("Count");
             if(comp != null && comp.length() > 0 && !comp.equals("%") || sch!=null && sch.length() > 0 && !sch.equals("%")){
-                query.append("SELECT {+ordered} COUNT(*), false\n");
+                query.append("SELECT {+ordered} COUNT(*), 'false'\n");
             }else{
-                query.append("SELECT COUNT(*), false\n");
+                query.append("SELECT COUNT(*), 'false'\n");
             }
         }else{
             query.append("SELECT");
