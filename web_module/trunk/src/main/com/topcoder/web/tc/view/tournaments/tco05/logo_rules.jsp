@@ -72,7 +72,7 @@ To be eligible for the contest, you must be:
 Employees of TopCoder, Inc., their affiliated companies, advertising and promotion agencies and immediate family members of each are not eligible. Employees of any TCO05 sponsoring companies are allowed to compete in the 2005 TopCoder Open Logo Design Contest.  All federal, state and local laws and regulations apply. Void where prohibited. 
 <br><br>
 <b>TO ENTER</b><br>
-If not already a member, register for TopCoder electronically at www.topcoder.com.  Once registered at TopCoder, submit designs using the submission functionality at www.topcoder.com/logocontest.   TopCoder will accept the first three (3) designs submitted by each registrant.  The logos must be in EPS (Encapsulated PostScript) format and must be submitted by 5:00pm EDT on Friday, May 13, 2005.  Submissions received after that time or by any other method will not be considered.  
+If not already a member, register for TopCoder electronically at www.topcoder.com.  Once registered at TopCoder, submit designs using the submission functionality at www.topcoder.com/logocontest.   TopCoder will accept the first three (3) designs submitted by each registrant.  <span class="bigRed">The logos must be in EPS (Encapsulated PostScript) format and must be submitted by 5:00pm EDT on Friday, May 13, 2005.</span>  Submissions received after that time or by any other method will not be considered.  
 <br><br>
 The logo must adhere to these guidelines:
 <ul>
