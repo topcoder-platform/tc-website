@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo"%>
 <%
     String probTimer = request.getParameter("timer")==null?"":request.getParameter("timer");
 %>
@@ -13,6 +14,12 @@
       <td class=timeCellRight>Time Remaining<br />
         <tc-webtag:useBean id="problemInfo" name="<%=Constants.PROBLEM%>" type="com.topcoder.web.codinginterface.techassess.model.ProblemInfo" toScope="page" />
         <span id="problemTimer<%=problemInfo.getComponentId()%>">Initializing</span></td>
+      <% } else if (probTimer.equals("set_remaining")) { %>
+      <td class=timeCellRight>Time Remaining<br />
+        <span id="problemSetTimer<%=((ProblemSetInfo)problem).getProblems()[0].getComponentID()%>">Initializing</span></td>
       <% } %>
    </tr>
 </table>
+
+
+

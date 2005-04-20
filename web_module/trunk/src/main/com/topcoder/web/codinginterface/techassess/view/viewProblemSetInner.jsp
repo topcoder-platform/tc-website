@@ -31,7 +31,7 @@
 
 <%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
-         <jsp:param name="timer" value="current"/>
+         <jsp:param name="timer" value="set_remaining"/>
       </jsp:include>
 
       <table cellspacing=0 cellpadding=0 class=bodyTable>
