@@ -77,7 +77,11 @@ public class ProfileSearch extends Base {
         if("on".equals(request.getParameter("count"))){
             headers = new ArrayList();
             headers.add("Count");
-            query.append("SELECT COUNT(*)\n");
+            if(comp != null && comp.length() > 0 && !comp.equals("%") || sch!=null && sch.length() > 0 && !sch.equals("%")){
+                query.append("SELECT {+ordered} COUNT(*), current\n");
+            }else{
+                query.append("SELECT COUNT(*), current\n");
+            }
         }else{
             query.append("SELECT");
             if(comp != null && comp.length() > 0 && !comp.equals("%") || sch!=null && sch.length() > 0 && !sch.equals("%")){
