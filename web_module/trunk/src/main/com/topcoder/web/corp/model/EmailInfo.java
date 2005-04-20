@@ -119,7 +119,7 @@ public class EmailInfo extends BaseModel {
         msgText.append("\n\n");
         msgText.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT PRIOR TO THE END ");
         msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW UP TO ");
-        msgText.append(hours).append(" HOURS AND ").append(minutes);
+        msgText.append(hours).append(" HOUR").append((hours==1?"":"S")).append(" AND ").append(minutes);
         msgText.append(" MINUTES TO COMPLETE ALL PORTIONS OF THE TEST.");
         msgText.append("\n\n");
         msgText.append("You may access ");
