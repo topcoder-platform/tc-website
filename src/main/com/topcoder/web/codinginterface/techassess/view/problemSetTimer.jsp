@@ -13,50 +13,50 @@ if (o!=null) {
             List problems = (List)o;
         %>
 
-                var endTimes= new Array(<%=problems.size()%>);
-                var ids = new Array(<%=problems.size()%>);
-                var types = new Array(<%=problems.size()%>);
-                var startTimes = new Array(<%=problems.size()%>);
+                var psEndTimes= new Array(<%=problems.size()%>);
+                var psIds = new Array(<%=problems.size()%>);
+                var psTypes = new Array(<%=problems.size()%>);
+                var psStartTimes = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
-                    %> endTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTime()+((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
-                    %> ids[<%=i%>] = 'problemSetTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
-                    %> types[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTypeId()%>; <%
-                    %> startTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
+                    %> psEndTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTime()+((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
+                    %> psIds[<%=i%>] = 'problemSetTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
+                    %> psTypes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTypeId()%>; <%
+                    %> psStartTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
                 }
         %>
-        var EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
+        var PS_EXAMPLE_SET = <%=Constants.EXAMPLE_ID%>;
 
         //perform clock sync, time below is in milliseconds after epoch
-        var problemServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
-        var problemLocalTime = new Date();
+        var psProblemServerTime = new Date(<%=request.getAttribute(Constants.CURRENT_TIME)%>);
+        var psProblemLocalTime = new Date();
 
-        var problemServerOffset = <%=TimeZone.getDefault().getOffset(new Date().getTime())/(60*60*1000)%>
-        var problemOffset = problemLocalTime.getTimezoneOffset();
-        problemOffset = problemOffset / 60;
-        problemOffset = problemOffset * -1
+        var psProblemServerOffset = <%=TimeZone.getDefault().getOffset(new Date().getTime())/(60*60*1000)%>
+        var psProblemOffset = psProblemLocalTime.getTimezoneOffset();
+        psProblemOffset = psProblemOffset / 60;
+        psProblemOffset = psProblemOffset * -1
 
-        problemServerTime = new Date(problemServerTime.getTime() - ((problemServerOffset - problemOffset) * 60 * 60 * 1000));
+        psProblemServerTime = new Date(psProblemServerTime.getTime() - ((psProblemServerOffset - psProblemOffset) * 60 * 60 * 1000));
 
-        var problemSyncedOffset = problemLocalTime.getTime() - problemServerTime.getTime();
+        var psProblemSyncedOffset = psProblemLocalTime.getTime() - psProblemServerTime.getTime();
 
-        for (i=0;i<endTimes.length; i++) {
-          endTimes[i]=endTimes[i] - ((problemServerOffset - problemOffset) * 60 * 60 * 1000);
+        for (i=0;i<psEndTimes.length; i++) {
+          psEndTimes[i]=psEndTimes[i] - ((psProblemServerOffset - psProblemOffset) * 60 * 60 * 1000);
         }
 
         function problemUpdate() {
             var d = new Date();
-            var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
+            var correctedLocalTime = new Date(d.getTime() - psProblemSyncedOffset);
 
-            for (i=0; i<endTimes.length;i++) {
-                if (types[i]==EXAMPLE_SET) {
+            for (i=0; i<psEndTimes.length;i++) {
+                if (psTypes[i]==PS_EXAMPLE_SET) {
                     text = "N/A";
                 } else  {
                     var timeLeft
-                    if (startTimes[i]==0) {
-                      timeLeft = endTimes[i];
+                    if (psStartTimes[i]==0) {
+                      timeLeft = psEndTimes[i];
                     } else {
-                      timeLeft = endTimes[i] - correctedLocalTime.getTime();
+                      timeLeft = psEndTimes[i] - correctedLocalTime.getTime();
                     }
                     if(timeLeft > 0 ) {
                         text = convertToTimeString(timeLeft);
@@ -65,7 +65,7 @@ if (o!=null) {
                     }
                 }
                 if (top.mainFrame) {
-                    updateDivOrSpan(top.mainFrame.document, ids[i], text);
+                    updateDivOrSpan(top.mainFrame.document, psIds[i], text);
                 }
 
             }
