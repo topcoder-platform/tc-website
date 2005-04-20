@@ -8,9 +8,9 @@
     <% if ((level1.equals("index"))) { %>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <img src="/images/headFeaturedClients.gif" width="170" height="29" alt="Featured Clients" border="0"><br>
-                <img src="/images/rodale_promo.gif" width="170" height="160" alt="Rodale" border="0"><br>
-                <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <img src="/images/praxair_promo.gif" width="170" height="147" alt="Praxair" border="0"><br>
+                <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
+                <img src="/images/philipmorris_promo.gif" alt="Philip Morris" border="0"><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <p class="seeAll"><A href="/customers/index.jsp">See all customers</A></p>
 <!-- Home Page ends -->
