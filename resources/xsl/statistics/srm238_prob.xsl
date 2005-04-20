@@ -283,7 +283,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      67 / 307 (21.82%)
+      64 / 303 (21.12%)
     </td>
   </tr>
   <tr>
@@ -291,7 +291,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      53 / 67 (79.10%)
+      50 / 64 (78.12%)
     </td>
   </tr>
   <tr>
@@ -299,7 +299,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>DineshLayek</b> for 995.69 points (1 mins 52 secs)
+      <b>CatalinT</b> for 859.01 points (11 mins 55 secs)
     </td>
   </tr>
   <tr>
@@ -307,7 +307,7 @@ Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      582.30 (for 53 correct submissions)
+      576.76 (for 50 correct submissions)
     </td>
   </tr>
 </table></blockquote>
