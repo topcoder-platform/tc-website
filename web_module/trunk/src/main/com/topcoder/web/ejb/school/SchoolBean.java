@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SchoolBean extends BaseEJB {
-    private static Logger log = Logger.getLogger(SchoolBean.class);
+    private static final Logger log = Logger.getLogger(SchoolBean.class);
 
     public long createSchool(String dataSource, String idDataSource, String sortLetter, String city, String country, long userId, String name) throws EJBException {
         log.debug("create school (many fields) called...");
@@ -195,6 +195,16 @@ public class SchoolBean extends BaseEJB {
         }
     }
 
+    public void setUserId(long schoolId, long userId, String dataSource) throws EJBException {
+        log.debug("setUserId called...");
+        update("school",
+                new String[]{"user_id"},
+                new String[]{String.valueOf(userId)},
+                new String[]{"school_id"},
+                new String[]{String.valueOf(schoolId)},
+                dataSource);
+    }
+
     public String getSchoolDivisionCode(long schoolId, String dataSource)
             throws EJBException {
         log.debug("getSchoolDivisionCode called...");
@@ -346,6 +356,8 @@ public class SchoolBean extends BaseEJB {
         }
         return (shortName);
     }
+
+
 
 }
 
