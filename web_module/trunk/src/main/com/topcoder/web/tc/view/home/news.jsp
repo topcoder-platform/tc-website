@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.20.05<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_submissions">Logo Design Contest submissions</A></span><br><br>
+      Take a look at the current contenders for the TCO05 Logo Design Contest.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_submissions">view submissions</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.20.05<br>9:55 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -253,30 +265,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals">Design</A>&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals">Development</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.28.05<br>9:50 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">Steven Skiena's TCCC05 Presentation: <A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 1</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena2.mov">Part 2</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena3.mov">Part 3</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena4.mov">Part 4</A></span><br><br>
-      Listen to the entire presentation by TCCC05 speaker, Steven Skiena.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 1</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena2.mov">Part 2</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena3.mov">Part 3</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena4.mov">Part 4</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.28.05<br>9:50 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skienaReview">Steven Skiena's TCCC05 Review</A></span><br><br>
-      Professor Steven Skiena reviews the TCCC05 problems and discusses the tournament.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skienaReview">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
