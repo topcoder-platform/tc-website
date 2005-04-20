@@ -8,6 +8,7 @@ import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
+import com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.common.NavigationException;
 
@@ -57,9 +58,18 @@ public class ViewProblemSet extends Base {
 
             ScreeningProblemSet[] problemSets = response.getProblemSets();
             ArrayList problemList = new ArrayList();
+            ArrayList setList = new ArrayList(1);
             boolean found = false;
             for (int i = 0; i < problemSets.length && !found; i++) {
                 if (problemSets[i].getType().intValue() == problemType) {
+                    //we need to have the problem set list like this so that we can have a countdown timer
+                    //it was easier to just reuse the timer code than to refactor using the problem objects
+                    //instead of the set object below
+                    setList.add(new ProblemSetInfo(problemSets[i].getProblemSetDesc(), problemSets[i].getProblemSetName(),
+                        problemSets[i].getStartTime(), problemSets[i].getCompletionTime().longValue(),
+                        problemSets[i].getStatus(), problemSets[i].getType().intValue(),
+                        problemSets[i].getProblemLabels()));
+
                     found = true;
                     //ok, we found the set, now we need to get the actual problems
                     ScreeningProblemLabel[] labels = problemSets[i].getProblemLabels();
@@ -110,3 +120,4 @@ public class ViewProblemSet extends Base {
     }
 
 }
+
