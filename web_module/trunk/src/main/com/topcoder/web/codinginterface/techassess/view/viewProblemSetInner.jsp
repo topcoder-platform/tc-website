@@ -11,6 +11,7 @@
 <jsp:include page="problemTimer.jsp">
   <jsp:param name="countDown" value="false"/>
 </jsp:include>
+<jsp:include page="problemSetTimer.jsp"/>
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
