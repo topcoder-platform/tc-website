@@ -42,13 +42,13 @@
 
                 <tr>
                     <td width="33%" class="sidebarText">Monday, June 27</td>
-                    <td width="34%" class="sidebarText">Web Services - Qualification</td>
+                    <td width="34%" class="sidebarText">Service-oriented architectures - Qualification</td>
                     <td width="33%" class="sidebarText">11:00 am - 3:30 pm</td>
                 </tr>
 
                 <tr>
                     <td width="33%" class="sidebarText">Monday, June 27</td>
-                    <td width="34%" class="sidebarText">Web Services - Competition</td>
+                    <td width="34%" class="sidebarText">Service-oriented architectures - Competition</td>
                     <td width="33%" class="sidebarText">4:30 pm - 6:00 pm</td>
                 </tr>
 

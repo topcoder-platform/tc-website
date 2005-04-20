@@ -36,7 +36,7 @@
                         <b>Student Discount</b></p>
                <p class ="regmiddle"><strong><font size="4">Student Discount</font></strong></p>
                
-                  <p class="regmiddle">JavaOne&#8480; Conference: TopCoder students and professors SAVE over $1000 with Academic Pricing!</p>
+                  <p class="regmiddle">JavaOne<sup>SM</sup> Conference: TopCoder students and professors SAVE over $1000 with Academic Pricing!</p>
 
                   <p class="regmiddle">REGISTER by June 25 as a full-time student or active faculty and save!<br/>
                                  Student Rate: $395<br/>
