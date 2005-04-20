@@ -27,10 +27,8 @@
             <tr>
                <td valign="top" width="164"><jsp:include page="links.jsp" /></td>
                <td valign="top" >
-                 <p></p>
-                 <img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0">
-                 <img src="/i/clear.gif" width="140" height="1"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0"/></a>
-                 <p></p>
+                 <table border="0" width="100%" cellpadding="7" cellspacing="0"><tr><td valign="top"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0" /></td>
+                 <td align="right" valign="top"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0" /></a></td></tr></table>
                     <p class ="regmiddle"><strong><font size="4">Prizes</font></strong></p>
                   <p class ="regmiddle">From each day's Qualification Round, the top four Qualifiers will be invited back in the evening to compete 
                   in a <br/>one-hour head-to-head competition for these exciting grand prizes. In addition, the first 800 participants 
