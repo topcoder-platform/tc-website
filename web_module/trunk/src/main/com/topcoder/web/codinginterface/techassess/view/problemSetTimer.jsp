@@ -44,7 +44,7 @@ if (o!=null) {
           psEndTimes[i]=psEndTimes[i] - ((psProblemServerOffset - psProblemOffset) * 60 * 60 * 1000);
         }
 
-        function problemUpdate() {
+        function problemSetupUpdate() {
             var d = new Date();
             var correctedLocalTime = new Date(d.getTime() - psProblemSyncedOffset);
 
@@ -70,9 +70,9 @@ if (o!=null) {
 
             }
 
-            setTimeout("problemUpdate()", 1000);
+            setTimeout("problemSetUpdate()", 1000);
         }
 
-        setTimeout("problemUpdate()", 1000);
+        setTimeout("problemSetUpdate()", 1000);
 <% } %>
     </script>
