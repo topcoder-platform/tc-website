@@ -35,31 +35,31 @@
 <strong><font size="4">Offical Rules and Regulations</font></strong>
 <br><br>
 <strong>Overview</strong><br/>
-The 2005 JavaOne&#8480; Coding Challenge will take place entirely at the JavaOne&#8480; Conference at the Moscone Center in San Francisco, CA from June 27th through June 29th.  Prizes will be awarded throughout the Challenge, with the winner of each daily competition receiving a "grand" prize.
+The 2005 JavaOne<sup>SM</sup> Coding Challenge will take place entirely at the JavaOne<sup>SM</sup> Conference at the Moscone Center in San Francisco, CA from June 27th through June 29th.  Prizes will be awarded throughout the Challenge, with the winner of each daily competition receiving a "grand" prize.
 <br><br>	
-All expenses to attend the JavaOne&#8480; conference, including the conference registration fee, and the JavaOne&#8480; Coding Challenge are the responsibility of the individual.
+All expenses to attend the JavaOne<sup>SM</sup> conference, including the conference registration fee, and the JavaOne<sup>SM</sup> Coding Challenge are the responsibility of the individual.
 <br><br>
 <strong>Eligibility</strong><br/>
-Each contestant must have purchased one of the following attendee passes to the JavaOne&#8480; Conference in order to participate in the JavaOne&#8480; Coding Challenge:
+Each contestant must have purchased one of the following attendee passes to the JavaOne<sup>SM</sup> Conference in order to participate in the JavaOne<sup>SM</sup> Coding Challenge:
 
 
 <ul>
 <li>Conference Plus Pass</li>
 <li>Conference Pass</li>
-<li>JavaOne&#8480; Pavilion Guest Pass</li>
+<li>JavaOne<sup>SM</sup> Pavilion Guest Pass</li>
 </ul>
 
 
-To register for the JavaOne&#8480; conference, visit http://java.sun.com/javaone/sf/registration.jsp 
+To register for the JavaOne<sup>SM</sup> conference, visit http://java.sun.com/javaone/sf/registration.jsp 
 <br><br>	
-The JavaOne&#8480; Coding Challenge is open to citizens and lawful permanent residents of the United States*, and to all non-immigrants currently in the United States* with a valid Visa, who are at least 18 years of age.
+The JavaOne<sup>SM</sup> Coding Challenge is open to citizens and lawful permanent residents of the United States*, and to all non-immigrants currently in the United States* with a valid Visa, who are at least 18 years of age.
 <br><br>	
 *Including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands
 <br><br>	
-Employees and former employees of TopCoder, Inc., Sun Microsystems, Inc., JavaOne&#8480; Conference sponsors and exhibitors, and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
+Employees and former employees of TopCoder, Inc., Sun Microsystems, Inc., JavaOne<sup>SM</sup> Conference sponsors and exhibitors, and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br><br>
 <strong>Competitions</strong><br/>
-The JavaOne&#8480; Coding Challenge provides a hands-on experience for conference attendees to apply what they learn during the conference tracks.  Following each day's technical presentations, attendees can proceed to the TopCoder arena where attendees will attempt to solve various problems in the "Competition Arena."  At the conclusion of each day's Qualification Round, a 4-person competition will be held.  The four individuals who achieved the highest cumulative score for their respective problem set during the Qualification Round will be invited to compete in the afternoon's competition. The schedule of competitions is as follows:
+The JavaOne<sup>SM</sup> Coding Challenge provides a hands-on experience for conference attendees to apply what they learn during the conference tracks.  Following each day's technical presentations, attendees can proceed to the TopCoder arena where attendees will attempt to solve various problems in the "Competition Arena."  At the conclusion of each day's Qualification Round, a 4-person competition will be held.  The four individuals who achieved the highest cumulative score for their respective problem set during the Qualification Round will be invited to compete in the afternoon's competition. The schedule of competitions is as follows:
 <br><br>
 
 DATE	TRACK	TIME (all times are PT)
@@ -102,7 +102,7 @@ First 800 Participants	One JavaOne Coding Challenge T-Shirt and Messenger Bag
 <br><br>
 Prizes will be awarded daily at the conclusion of the competition. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.
 <br><br>
-All contestants will only be allowed to win once during the competitions.  All contestants will be checked to ensure their eligibility, and that they have not won in any of the prior daily competitions during the 2005 JavaOne&#8480; Coding Challenge. 
+All contestants will only be allowed to win once during the competitions.  All contestants will be checked to ensure their eligibility, and that they have not won in any of the prior daily competitions during the 2005 JavaOne<sup>SM</sup> Coding Challenge. 
 <br><br>
 <strong>Conditions of Participation</strong><br/>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder and Sun Microsystems, which are final, binding and conclusive in all matters.

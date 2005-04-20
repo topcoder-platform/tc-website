@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
+ <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
@@ -33,8 +33,8 @@
                  <p></p>
                     <p class ="regmiddle"><strong><font size="4">Prizes</font></strong></p>
                   <p class ="regmiddle">From each day's Qualification Round, the top four Qualifiers will be invited back in the evening to compete 
-                  in a <br/>one-hour head-to-head competition for these exciting grand prizes. In addition, the first 1000 participants 
-                  receive a JavaOne Coding Challenge t-shirt and messenger bag.</p>
+                  in a <br/>one-hour head-to-head competition for these exciting grand prizes. In addition, the first 800 participants 
+                  receive a JavaOne Coding Challenge, Powered by TopCoder messenger bag and t-shirt.</p>
 
                   
          <table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -69,8 +69,8 @@
                 </tr>
 
                 <tr>
-                    <td width="30%" class="sidebarText">First 1,000 Participants</td>
-                    <td width="70%" class="sidebarText">One JavaOne Coding Challenge T-Shirt and Messenger Bag</td>
+                    <td width="30%" class="sidebarText">First 800 Participants</td>
+                    <td width="70%" class="sidebarText">One (1) JavaOne Coding Challenge, Powered by TopCoder Messenger Bag and T-shirt</td>
                 </tr>
                 <tr>
                     <td width="100%" class="sidebarText" colspan="2">

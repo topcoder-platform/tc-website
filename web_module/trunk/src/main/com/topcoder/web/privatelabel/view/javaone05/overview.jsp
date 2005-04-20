@@ -33,20 +33,19 @@
                  <p></p>
                <p class ="regmiddle"><strong><font size="4">Compete with Code and Win!</font></strong></p>
                
-               <p class ="regmiddle">Sun Microsystems has again teamed up with TopCoder to bring the JavaOne&#8480; Coding Challenge to conference attendees.
+               <p class ="regmiddle">Sun Microsystems has again teamed up with TopCoder to bring the JavaOne<sup>SM</sup> Coding Challenge to conference attendees.
                This unique event gathers together developers who use Java&#153; technology for coding, competition, and fun. By participating 
                in the JavaOne Coding Challenge, attendees have the opportunity to apply what they learn during the Conference sessions 
-               to real-world programming problems that have a Mobility, Enterprise Applications, or Web Services theme. If you are a 
-               Java technology developer, you do not want to miss this event. The first 1,000 participants will receive a JavaOne Coding 
-               Challenge t-shirt and messenger bag.</p>
+               to real-world programming problems that have a Mobility, Enterprise Applications, or Service-oriented architectures theme. If you are a 
+               Java technology developer, you do not want to miss this event. The first 800 participants will receive a JavaOne Coding 
+               Challenge, Powered by TopCoder messenger bag and t-shirt</p>
                
                <p class ="regmiddle"><strong><font size="4">Let the Coding Begin!</font></strong><br/></p>
                <p class ="regmiddle">Each day offers a qualification round - a 30-minute challenge pitting you against all other participants from the JavaOne Conference.</p>
                
                <p class ="regmiddle">In the onsite Competition Arena, participants will be presented with real-world programming problems and will be 
                given 30 minutes to use the Java programming language to code, compile, test, and submit solutions to the problem sets. 
-               The problems will focus on the 3 major themes for the 2005 JavaOne Conference - Mobility, Enterprise Applications, and 
-               Web Services. </p>
+               The problems will focus on the 3 major themes for the 2005 JavaOne Conference - Mobility, Enterprise Applications, Service-oriented architectures.</p>
 
                <p class ="regmiddle">After each day's qualification round, TopCoder will objectively score the competitors' submissions for accuracy and for length of time to 
                complete the problem. The four individuals with the highest scores 
