@@ -55,11 +55,11 @@
             </div>
 
             <br><br>
-            <table cellpadding="6" cellspacing="0" align="center" border="0">
+            <table cellpadding="10" cellspacing="0" align="center" border="0">
             <tr><td>001<br><img src="/i/tournament/tco05/logo_submissions/001.gif" alt="" border="0" /></td></tr>
             <tr><td>002<br><img src="/i/tournament/tco05/logo_submissions/002.gif" alt="" border="0" /></td></tr>
             <tr><td>003<br><img src="/i/tournament/tco05/logo_submissions/003.gif" alt="" border="0" /></td></tr>
-            <tr><td>004<br><img src="/i/tournament/tco05/logo_submissions/004.gif" alt="" border="0" /></td></tr>
+            </table>
          </div>
 
          <p><br/></p>
