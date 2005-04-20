@@ -15,8 +15,9 @@
         <tc-webtag:useBean id="problemInfo" name="<%=Constants.PROBLEM%>" type="com.topcoder.web.codinginterface.techassess.model.ProblemInfo" toScope="page" />
         <span id="problemTimer<%=problemInfo.getComponentId()%>">Initializing</span></td>
       <% } else if (probTimer.equals("set_remaining")) { %>
+        <tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" type="java.util.List" toScope="page" />
       <td class=timeCellRight>Time Remaining<br />
-        <span id="problemSetTimer<%=((ProblemSetInfo)problem).getProblems()[0].getComponentID()%>">Initializing</span></td>
+        <span id="problemSetTimer<%=((ProblemSetInfo)problemSets.get(0)).getProblems()[0].getComponentID()%>">Initializing</span></td>
       <% } %>
    </tr>
 </table>
