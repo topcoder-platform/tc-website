@@ -27,6 +27,7 @@ public class ViewProblemSetInner extends Base {
                 if (hasDefault(Constants.PROBLEMS) && hasDefault(Constants.PROBLEM_TYPE_ID) &&
                         hasDefault(Constants.CONTINUE_LINK) && hasDefault(Constants.CONTINUE_DESC)) {
                     //log.debug("has defaults");
+                    getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
                     getRequest().setAttribute(Constants.PROBLEMS, getDefault(Constants.PROBLEMS));
                     getRequest().setAttribute(Constants.PROBLEM_TYPE_ID, getDefault(Constants.PROBLEM_TYPE_ID));
                     getRequest().setAttribute(Constants.CONTINUE_LINK, getDefault(Constants.CONTINUE_LINK));

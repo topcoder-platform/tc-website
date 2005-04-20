@@ -69,7 +69,6 @@ public class ViewProblemSet extends Base {
                         problemSets[i].getStartTime(), problemSets[i].getCompletionTime().longValue(),
                         problemSets[i].getStatus(), problemSets[i].getType().intValue(),
                         problemSets[i].getProblemLabels()));
-                    setDefault(Constants.PROBLEM_SETS, setList);
 
                     found = true;
                     //ok, we found the set, now we need to get the actual problems
@@ -109,6 +108,7 @@ public class ViewProblemSet extends Base {
             }
             //log.debug("there are " + problemList.size() + " problems");
 
+            setDefault(Constants.PROBLEM_SETS, setList);
             setDefault(Constants.PROBLEMS, problemList);
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
 
