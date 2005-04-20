@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.20.05<br>9:55 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm239_prob">SRM 239 - Problem Set & Analysis</A></span><br><br>
+      <b>tomek</b> strikes again! Out of the three coders who managed to solve all the problems, <b>tomek</b> took a comfortable lead of almost 300 points.</td>
+      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=7371063">supernova</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm239_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.19.05<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -265,21 +280,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.24.05<br>9:35 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm235_prob">SRM 235 - Problem Set & Analysis</A></span><br><br>
-      As prolific as Einstein was, he would have needed to solve all three problems in under thirty-six minutes in order to beat <b>tomek</b> in this match.</td>
-      <td class="newsPhoto"><img src="/i/m/the_one_smiley_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=156485">the_one_smiley</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm235_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 </table>
 <br><br>
 
