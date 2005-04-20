@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.20.05 11:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_submissions">Logo Design Contest submissions</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.18.05 9:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_overview">TCO05 Logo Design Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.30.05 11:00 AM - </td><td width="100%">TCCC05 <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals">Design</A>&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals">Development</A> Finals details available.</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.28.05 9:50 AM - </td><td width="100%">Steven Skiena's TCCC05 Presentation: <A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 1</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena2.mov">Part 2</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena3.mov">Part 3</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena4.mov">Part 4</A></td></tr>
