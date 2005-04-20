@@ -1709,6 +1709,7 @@ public class Registration
                 log.debug("No answer for questionId=" + questionId);
             }
         }
+        boolean createdSchool = false;
         try {
             if (this.coderType.equals(CODER_TYPE_STUDENT)) {
                 School currentSchool = coder.getCurrentSchool();
@@ -1739,6 +1740,7 @@ public class Registration
                         //create school
                         schoolId = s.createSchool(DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME,
                                 schoolName.substring(0, 1).toUpperCase(), "NA", this.country, coder.getCoderId(), schoolName);
+                        createdSchool = true;
                     }
                 }
 
@@ -1760,7 +1762,7 @@ public class Registration
             throw new TaskException(e);
         }
 
-        Context context = null;
+        InitialContext context = null;
         String activationCode = "";
         UserTransaction transaction = null;
         try {
@@ -1785,9 +1787,6 @@ public class Registration
             if (!Transaction.commit(transaction)) {
                 throw new TaskException("Unable to commit transaction");
             }
-
-
-
             //we're working outsite a transaction now...
             if (isRegister()) {
                 Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
@@ -1818,6 +1817,12 @@ public class Registration
             user.setModified("S");
             coder.setAllModifiedStable();
 
+            if (createdSchool) {
+                com.topcoder.web.ejb.school.School s =
+                        (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(context,
+                                com.topcoder.web.ejb.school.School.class);
+                s.setUserId(coder.getCurrentSchool().getSchoolId(), user.getUserId(), DBMS.OLTP_DATASOURCE_NAME);
+            }
             //auto activate
             if (isRegister() && autoActivate) {
                 InitialContext ctx = TCContext.getInitial();
