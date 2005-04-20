@@ -69,6 +69,7 @@ public class ViewProblemSet extends Base {
                         problemSets[i].getStartTime(), problemSets[i].getCompletionTime().longValue(),
                         problemSets[i].getStatus(), problemSets[i].getType().intValue(),
                         problemSets[i].getProblemLabels()));
+                    getRequest().setAttribute(Constants.PROBLEM_SETS,  setList);
 
                     found = true;
                     //ok, we found the set, now we need to get the actual problems
