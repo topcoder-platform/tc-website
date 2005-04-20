@@ -34,9 +34,10 @@
             offset = offset / 60;
             offset = offset * -1
 
-            var leadingIdent = d.getHours() >= 12 ? "PM" : "AM" ;
+            <%--var leadingIdent = d.getHours() >= 12 ? "PM" : "AM" ;--%>
 
-            var text = padWithZeroes(d.getHours() % 12) + ":" + padWithZeroes(d.getMinutes()) + ":" + padWithZeroes(d.getSeconds()) + " " + leadingIdent + " GMT" + offset;
+            <%--var text = padWithZeroes(d.getHours() % 12) + ":" + padWithZeroes(d.getMinutes()) + ":" + padWithZeroes(d.getSeconds()) + " " + leadingIdent + " GMT" + offset;--%>
+            var text = padWithZeroes(d.getHours()) + ":" + padWithZeroes(d.getMinutes()) + ":" + padWithZeroes(d.getSeconds()) + " GMT" + offset;
 
             if (top.mainFrame) {
                 updateDivOrSpan(top.mainFrame.document, "currentTime", text);
