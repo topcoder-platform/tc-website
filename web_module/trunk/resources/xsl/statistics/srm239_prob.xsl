@@ -540,7 +540,7 @@ there are a lot of segments lying on the same 'line'. Also, make sure to delete 
 Because of the relatively small constraints, it is also possible to consider a 400*400 grid and take every
 possible segment of length 1 to check whether it can be drawn or not from the initial given segments. This
 approach is feasible as you know from the problem statement that a segment can either be parallel or form
-a 45 degree angle with one of the axes. There are a lot of ways to go from here, see <a href="/stat?c=problem_solution&amp;rm=202645&amp;rd=6538&amp;pm=3555&amp;cr=303185"> tomek's</a> implementation
+a 45 degree angle with one of the axes. There are a lot of ways to go from here, see <a href="/stat?c=problem_solution&amp;rm=202641&amp;rd=6538&amp;pm=4439&amp;cr=144400"> tomek's</a> implementation
 for a clean solution. <br />
 </p>
 
