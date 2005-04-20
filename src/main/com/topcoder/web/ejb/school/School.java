@@ -33,5 +33,5 @@ public interface School extends EJBObject {
     long getSchoolId(String name, String dataSource)
             throws EJBException, RemoteException;
 
-    void setUserId(long schoolId, long userId, String dataSource) throws RemoteException;
+    void setUserId(long schoolId, long userId, String dataSource) throws EJBException, RemoteException;
 }
