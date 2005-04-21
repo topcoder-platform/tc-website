@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="com.topcoder.shared.language.JavaLanguage"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -76,7 +76,7 @@
            </TR>
            <TR>
               <TD CLASS="screeningCellOdd" VALIGN="top">
-<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="Java" class="bodyText"/>
+<screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/>
               </TD>
            </TR>
          </table>
