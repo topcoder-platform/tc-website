@@ -65,6 +65,7 @@
             <tr><td>007<br><img src="/i/tournament/tco05/logo_submissions/007.gif" alt="" border="0" /></td></tr>
             <tr><td>008<br><img src="/i/tournament/tco05/logo_submissions/008.gif" alt="" border="0" /></td></tr>
             <tr><td>009<br><img src="/i/tournament/tco05/logo_submissions/009.gif" alt="" border="0" /></td></tr>
+            <tr><td>010<br><img src="/i/tournament/tco05/logo_submissions/010.gif" alt="" border="0" /></td></tr>
             </table>
          </div>
 
