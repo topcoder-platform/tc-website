@@ -371,9 +371,9 @@ public class ProblemInfo extends BaseModel {
 
 
         row = (ResultSetContainer.ResultSetRow) rsc.get(0);
-        info.setTCSubmissionAccuracy(row.getItem("submission_accuracy").toString());
-        info.setTCSubmission(row.getItem("submission_percentage").toString());
-        info.setTCOverallAccuracy(row.getItem("overall_accuracy").toString());
+        info.setTcSubmissionAccuracy(row.getItem("submission_accuracy").toString());
+        info.setTcSubmission(row.getItem("submission_percentage").toString());
+        info.setTcOverallAccuracy(row.getItem("overall_accuracy").toString());
 /*
         } else {
 */
@@ -419,27 +419,27 @@ public class ProblemInfo extends BaseModel {
         this.roundName = roundName;
     }
 
-    public String getTCSubmissionAccuracy() {
+    public String getTcSubmissionAccuracy() {
         return tcSubmissionAccuracy;
     }
 
-    public void setTCSubmissionAccuracy(String tcSubmissionAccuracy) {
+    public void setTcSubmissionAccuracy(String tcSubmissionAccuracy) {
         this.tcSubmissionAccuracy = tcSubmissionAccuracy;
     }
 
-    public String getTCSubmission() {
+    public String getTcSubmission() {
         return tcSubmission;
     }
 
-    public void setTCSubmission(String tcSubmission) {
+    public void setTcSubmission(String tcSubmission) {
         this.tcSubmission = tcSubmission;
     }
 
-    public String getTCOverallAccuracy() {
+    public String getTcOverallAccuracy() {
         return tcOverallAccuracy;
     }
 
-    public void setTCOverallAccuracy(String tcOverallAccuracy) {
+    public void setTcOverallAccuracy(String tcOverallAccuracy) {
         this.tcOverallAccuracy = tcOverallAccuracy;
     }
 

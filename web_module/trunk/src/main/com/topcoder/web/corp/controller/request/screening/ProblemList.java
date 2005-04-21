@@ -48,17 +48,10 @@ public class ProblemList extends BaseScreeningProcessor {
                     while (item < result.size() &&
                             round.equals(result.getItem(item, "session_round_id").toString())) {
                         String problem = result.getItem(item, "problem_id").toString();
-                        if (super.getUsageType() == Constants.USAGE_TYPE_SCREENING) {
-                            subList.add(
-                                    ProblemInfo.createProblemInfo(user,
-                                            Long.parseLong(round),
-                                            Long.parseLong(problem), true));
-                        } else {
                             subList.add(
                                     ProblemInfo.createProblemInfo(user,
                                             Long.parseLong(round),
                                             Long.parseLong(problem)));
-                        }
                         item++;
                     }
                     list.add(subList);
