@@ -122,6 +122,7 @@ public abstract class BaseServlet extends HttpServlet {
         SessionInfo info = null;
 
         try {
+            try {
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
@@ -146,7 +147,6 @@ public abstract class BaseServlet extends HttpServlet {
             loginfo.append(" ****]");
             log.info(loginfo);
 
-            try {
                 try {
                     String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
                     if (cmd.equals(""))
