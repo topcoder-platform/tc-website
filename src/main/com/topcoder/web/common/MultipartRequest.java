@@ -2,6 +2,7 @@ package com.topcoder.web.common;
 
 import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -15,13 +16,15 @@ import java.util.Iterator;
 public class MultipartRequest extends SimpleRequest {
 
     private FileUpload file = null;
+    private static Logger log = Logger.getLogger(MultipartRequest.class);
 
     public MultipartRequest(HttpServletRequest request) throws IOException {
         super(request);
-        //create new fileupload object
-        this.request = request;
+        log.debug("create file upload object");
 
         file = new FileUpload(request, false);
+
+        log.debug("created file upload object");
     }
 
     public String getParameter(String name) {
