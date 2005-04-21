@@ -71,7 +71,7 @@ function getProblemDetail(id) {
         <screen:nestedListIterator id="subSet" list="<%=problemList%>">
             <% ProblemInfo firstProblem = (ProblemInfo)subSet.get(0); %>
             <TR>
-                <TD COLSPAN="8" CLASS="screeningHeader"><%=firstProblem.getRoundName()%></TD>
+                <TD COLSPAN="11" CLASS="screeningHeader"><%=firstProblem.getRoundName()%></TD>
             </TR>
             <screen:problemInfoIterator id="problem" list="<%= subSet %>">
 	        <TR>
@@ -81,9 +81,9 @@ function getProblemDetail(id) {
 		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submission' />%</TD>
 		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submissionAccuracy' />%</TD>
 		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='overallAccuracy' />%</TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submission' />%</TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submissionAccuracy' />%</TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='overallAccuracy' />%</TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcSubmission' />%</TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcSubmissionAccuracy' />%</TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcOverallAccuracy' />%</TD>
 		       <TD ALIGN="center" class="<%=cssClasses[counter++ % 2]%>"><screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
 	        </TR>
             </screen:problemInfoIterator>
