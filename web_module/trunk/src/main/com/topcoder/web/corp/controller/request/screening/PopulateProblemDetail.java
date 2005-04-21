@@ -27,15 +27,8 @@ public class PopulateProblemDetail extends BaseScreeningProcessor {
         long problemId = Long.parseLong(roundProblemId.substring(index + 1));
         ProblemInfo info = null;
         try {
-            if (super.getUsageType() == Constants.USAGE_TYPE_SCREENING) {
-                log.debug("GOOD");
-                info =
-                        ProblemInfo.createProblemInfo(getUser(), roundId, problemId, true);
-            } else {
-                log.debug("BAD");
                 info =
                         ProblemInfo.createProblemInfo(getUser(), roundId, problemId);
-            }
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
