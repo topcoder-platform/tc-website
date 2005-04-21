@@ -60,6 +60,8 @@
             <span class="bodySubtitle">Logo submission</span><br>
             Thank you for accepting the terms of the TCO05 Logo Contest. Please use the form below to attach your logo submission:
             <br><br>
+            <span class="bigRed">The maximum file size per submission is 2.0 MB.</span>
+            <br><br>
 			<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="logoSubmission" enctype="multipart/form-data">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO05LogoSubmit"/>
             <b>Logo:</b><br><input type="file" name="<%=Constants.LOGO%>">
