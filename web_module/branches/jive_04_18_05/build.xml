@@ -48,6 +48,7 @@
          <pathelement location="${jars.dir}/ifxjdbc.jar"/>
          <pathelement location="${jars.dir}/bfograph.jar"/>
      	 <pathelement location="${jars.dir}/jivebase.jar"/>
+     	 <pathelement location="${jars.dir}/jiveforums.jar"/>
 
          <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
          <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -181,7 +182,7 @@
          </javac>
      </target>
  	
- 	<target name="compile_forums" depends="init">
+ 	<target name="compile_forums" depends="init,jar_shared">
  	         <javac
  	             srcdir="${java}"
  	             destdir="${classes}"
@@ -196,6 +197,18 @@
  	         	 <include name="com/topcoder/ejb/**"/>
  	         </javac>
  	     </target>
+ 	
+ 	<target name="compile_forumData" depends="init,jar_shared">
+ 	 	         <javac
+ 	 	             srcdir="${java}"
+ 	 	             destdir="${classes}"
+ 	 	             classpathref="class.path"
+ 	 	             deprecation="${deprecation}"
+ 	 	             debug="${debug}"
+ 	 	             >
+ 	 	             <include name="com/topcoder/utilities/forumConvert/**"/>
+ 	 	         </javac>
+ 	 	     </target>
 
      <target name="javadocs">
          <mkdir dir="${build.javadocs}"/>
@@ -1154,7 +1167,6 @@
  		            	<include name="com/topcoder/web/forums/**/*.class" />
  		                <include name="com/topcoder/security/**/*.class" />
  		            	<include name="com/topcoder/web/tc/model/**/*.class"/>
- 		            	<include name="com/topcoder/common/**/*.class"/>
  		            	<include name="com/topcoder/ejb/**/*.class"/>
  		            </classes>
  		            <webinf dir="${resources}/taglib">
@@ -1308,6 +1320,20 @@
              </classpath>
          </java>
      </target>
+ 	
+ 	
+ 	<target name="run-ForumConverter" depends="compile_forumData">
+ 	         <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="no">
+ 	         	<classpath>
+ 	         	     <pathelement location="${classes}"/>
+ 	         	     <pathelement location="${resources}"/>
+ 	         		 <fileset dir="${jars.dir}">
+ 	         		 	<include name="**/*.jar"/>
+ 	         		 </fileset>
+ 	         		 <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+ 	         	</classpath>
+ 	         </java>
+ 	     </target>
 
 
      <target name="comp_price" depends="compile">
