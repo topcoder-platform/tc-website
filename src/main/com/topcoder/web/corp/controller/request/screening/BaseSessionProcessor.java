@@ -79,17 +79,9 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
             success = false;
         }
         Date now = new Date();
-        if (info.getBeginDate().before(now) && info.getEndDate().before(now)) {
-            addError("dateCompare",
-                    "Begin and End Times must be after the current time.");
-            success = false;
-        } else if (info.getEndDate().before(now)) {
+        if (info.getEndDate().before(now)) {
             addError("dateCompare",
                     "End Time must be after the current time.");
-            success = false;
-        } else if (info.getBeginDate().before(now)) {
-            addError("dateCompare",
-                    "Begin Time must be after the current time.");
             success = false;
         }
 
