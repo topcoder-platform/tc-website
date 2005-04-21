@@ -42,7 +42,7 @@
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
             <jsp:useBean id="problemInfo" type="com.topcoder.web.corp.model.ProblemInfo" scope="request" />
             <TR>
-              <TD COLSPAN="6" CLASS="screeningTitle"><jsp:getProperty name="problemInfo" property="problemName" /></TD>
+              <TD COLSPAN="9" CLASS="screeningTitle"><jsp:getProperty name="problemInfo" property="problemName" /></TD>
            </TR>
             <TR>
                <TD ALIGN="left" CLASS="screeningHeader">Division</TD>
