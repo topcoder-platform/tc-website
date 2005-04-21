@@ -265,7 +265,7 @@ public class TCLoadRequests extends TCLoad {
 
 
         } catch (SQLException sqle) {
-            log.info("TCLoadRequests: Insert for " +
+            log.error("TCLoadRequests: Insert for " +
                         "url " + url.getUrl() + " coderId " + url.getCoderId() + " roundId " + url.getRoundId() +
                         " pageName " + url.getPageName());
             DBMS.printSqlException(true, sqle);
