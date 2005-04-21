@@ -30,6 +30,9 @@ public class ProblemInfo extends BaseModel {
     private String submissionAccuracy;
     private String submission;
     private String overallAccuracy;
+    private String tcSubmissionAccuracy;
+    private String tcSubmission;
+    private String tcOverallAccuracy;
     private HashSet algorithmicCategories;
     private HashSet businessCategories;
     private String roundName;
@@ -255,15 +258,6 @@ public class ProblemInfo extends BaseModel {
     public static ProblemInfo createProblemInfo(User user,
                                                 long roundId,
                                                 long problemId) throws Exception {
-        return createProblemInfo(user, roundId, problemId, false);
-
-    }
-
-    public static ProblemInfo createProblemInfo(User user,
-                                                long roundId,
-                                                long problemId,
-                                                boolean screening)
-            throws Exception {
 
         log.debug("Getting problem info for round " + roundId + ", problem " + problemId);
         /* was only used to check permissions for a particular user to a particular problem.
@@ -354,56 +348,62 @@ public class ProblemInfo extends BaseModel {
         }
 
         Request accuracyInfo = new Request();
+/*
         if (!screening) {
-            accuracyInfo.setProperty(DataAccessConstants.COMMAND,
-                    Constants.ACCURACY_INFO_QUERY_KEY);
+*/
+        accuracyInfo.setProperty(DataAccessConstants.COMMAND,
+                Constants.ACCURACY_INFO_QUERY_KEY);
 
-            accuracyInfo.setProperty("pm", String.valueOf(problemId));
-            accuracyInfo.setProperty("rd", contestRoundId);
-            accuracyInfo.setProperty("dn", divisionId);
-            map = dwAccess.getData(accuracyInfo);
-            rsc = (ResultSetContainer) map.get(Constants.ACCURACY_INFO_QUERY_KEY);
+        accuracyInfo.setProperty("pm", String.valueOf(problemId));
+        accuracyInfo.setProperty("rd", contestRoundId);
+        accuracyInfo.setProperty("dn", divisionId);
+        map = dwAccess.getData(accuracyInfo);
+        rsc = (ResultSetContainer) map.get(Constants.ACCURACY_INFO_QUERY_KEY);
 
-            if (rsc.size() == 0) {
-                throw new ScreeningException(
-                        "Data error, accuracy info query returned no rows");
-            }
-            if (rsc.size() > 1) {
-                throw new ScreeningException(
-                        "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
-            }
-
-
-            row = (ResultSetContainer.ResultSetRow) rsc.get(0);
-            info.setSubmissionAccuracy(row.getItem("submission_accuracy").toString());
-            info.setSubmission(row.getItem("submission_percentage").toString());
-            info.setOverallAccuracy(row.getItem("overall_accuracy").toString());
-        } else {
-            accuracyInfo.setProperty(DataAccessConstants.COMMAND,
-                    "problem_statistics_by_company");
-
-            accuracyInfo.setProperty("pid", String.valueOf(problemId));
-            accuracyInfo.setProperty("uid", String.valueOf(user.getId()));
-            map = dwNew.getData(accuracyInfo);
-            rsc = (ResultSetContainer) map.get("problem_statistics_by_company");
-
-            if (rsc.size() == 0) {
-                throw new ScreeningException(
-                        "Data error, accuracy info query returned no rows");
-            }
-            if (rsc.size() > 1) {
-                throw new ScreeningException(
-                        "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
-            }
-
-
-            row = (ResultSetContainer.ResultSetRow) rsc.get(0);
-            info.setSubmissionAccuracy(row.getItem("submit_correct_percent").toString());
-            info.setSubmission(row.getItem("submission_percent").toString());
-            info.setOverallAccuracy(row.getItem("overall_correct_percent").toString());
+        if (rsc.size() == 0) {
+            throw new ScreeningException(
+                    "Data error, accuracy info query returned no rows");
         }
+        if (rsc.size() > 1) {
+            throw new ScreeningException(
+                    "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
+        }
+
+
+        row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+        info.setTCSubmissionAccuracy(row.getItem("submission_accuracy").toString());
+        info.setTCSubmission(row.getItem("submission_percentage").toString());
+        info.setTCOverallAccuracy(row.getItem("overall_accuracy").toString());
+/*
+        } else {
+*/
+        accuracyInfo.setContentHandle("problem_statistics_by_company");
+
+        accuracyInfo.setProperty("pid", String.valueOf(problemId));
+        accuracyInfo.setProperty("uid", String.valueOf(user.getId()));
+        map = dwNew.getData(accuracyInfo);
+        rsc = (ResultSetContainer) map.get("problem_statistics_by_company");
+
+        if (rsc.size() == 0) {
+            throw new ScreeningException(
+                    "Data error, accuracy info query returned no rows");
+        }
+        if (rsc.size() > 1) {
+            throw new ScreeningException(
+                    "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
+        }
+
+
+        row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+        info.setSubmissionAccuracy(row.getItem("submit_correct_percent").toString());
+        info.setSubmission(row.getItem("submission_percent").toString());
+        info.setOverallAccuracy(row.getItem("overall_correct_percent").toString());
+/*
+        }
+*/
         return info;
     }
+
 
     /** Getter for property roundName.
      * @return Value of property roundName.
@@ -417,6 +417,30 @@ public class ProblemInfo extends BaseModel {
      */
     public void setRoundName(String roundName) {
         this.roundName = roundName;
+    }
+
+    public String getTCSubmissionAccuracy() {
+        return tcSubmissionAccuracy;
+    }
+
+    public void setTCSubmissionAccuracy(String tcSubmissionAccuracy) {
+        this.tcSubmissionAccuracy = tcSubmissionAccuracy;
+    }
+
+    public String getTCSubmission() {
+        return tcSubmission;
+    }
+
+    public void setTCSubmission(String tcSubmission) {
+        this.tcSubmission = tcSubmission;
+    }
+
+    public String getTCOverallAccuracy() {
+        return tcOverallAccuracy;
+    }
+
+    public void setTCOverallAccuracy(String tcOverallAccuracy) {
+        this.tcOverallAccuracy = tcOverallAccuracy;
     }
 
 }
