@@ -63,7 +63,7 @@
 
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_04_22_05">How Google Searches - For Talent</A> [April 22 - BusinessWeek]</td></tr>
 
-                            <tr><td class="newsText"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">Business Briefs on TC and LogicLibrary</A> [April 13 - SDT]</td></tr>
+                            <tr><td class="newsText"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">LogicLibrary, TopCoder Business Brief</A> [April 13 - SDT]</td></tr>
 
                             <tr><td class="newsText"><A href="http://www.sys-con.com/story/?storyid=49134" target="_blank">LogicLibrary Checks Out TopCoder to Enable SOA</A> [April 9 - .NET Developer's Journal]</td></tr>
 
