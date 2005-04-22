@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- BusinessWeek -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=art_04_22_05"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=art_04_22_05">How Google Searches - For Talent</A></strong></font><br />
+						   "It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. Wherever the best talent is, Google wants them.<span class="prHead">[April 22 - BusinessWeek]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- SDT -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
