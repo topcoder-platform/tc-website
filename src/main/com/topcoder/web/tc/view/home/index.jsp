@@ -158,7 +158,7 @@
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
             How Google Searches - For Talent<A href="/?&t=news_events&c=art_04_22_05"> ...more</A><br/>[April 22 - BusinessWeek]<br/><br/>
-            Business Briefs on TC and LogicLibrary<A href="/i/pressroom/SDT_041305.jpg" target="_blank"> ...more</A><br/>[April 13 - SDT]<br/><br/>
+            LogicLibrary, TopCoder Business Brief<A href="/i/pressroom/SDT_041305.jpg" target="_blank"> ...more</A><br/>[April 13 - SDT]<br/><br/>
             LogicLibrary Checks Out TopCoder to Enable SOA<A href="http://www.sys-con.com/story/?storyid=49134" target="_blank"> ...more</A><br/>[April 9 - .NET Developer's Journal]<br/><br/>
             University computer whiz wins big at tech tourney<A href="/i/pressroom/040105.pdf" target="_blank"> ...more</A><br/>[April 1 - Barrhaven Independent]<br/><br/>
             Do you have what it takes?<A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank"> ...more</A><br/>[April - ComputerUser]<br/><br/>

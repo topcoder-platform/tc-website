@@ -8,7 +8,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.22.05<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_04_22_05">How Google Searches - For Talent</A></span><br><br>
-      "It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. Wherever the best talent is, Google wants them. [BusinessWeek]
+      " 'It's a dog-eat-dog world,' says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. 'Wherever the best talent is, Google wants them.' " [BusinessWeek]
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -88,7 +88,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.13.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">Business Briefs on TC and LogicLibrary</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">LogicLibrary, TopCoder Business Brief</A></span><br><br>
       "Through a joint agreement, LogicLibrary will make TopCoder Software's component catalog available to the users of the Logidex asset management system." [SDT]
       </td>
    </tr>
