@@ -58,7 +58,7 @@
                         <div align="center">
                         <p><span class="bodyTitle">How Google Searches - For Talent</span><br/>
                         <span class="bodySubTitle"><em>At the India Code Jam, only the hottest software writers need apply</em></span><br />
-                        <span class="bodySubTitle"><em>By PaJosey Puliyenthruruthel in Bangalore<br />BusinessWeek</em></span></p>
+                        <span class="bodySubTitle"><em>By Josey Puliyenthruruthel in Bangalore<br />BusinessWeek</em></span></p>
                         </div>
 
 <p>
