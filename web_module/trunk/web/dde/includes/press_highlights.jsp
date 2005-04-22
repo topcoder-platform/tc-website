@@ -8,7 +8,7 @@
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
                               
-                <tr><td class="prHead"><A href="http://www.topcoder.com/i/pressroom/SDT_041305.jpg"> Business Briefs on TC and LogicLibrary</A> [April 13]</td></tr>    
+                <tr><td class="prHead"><A href="http://www.topcoder.com/i/pressroom/SDT_041305.jpg"> LogicLibrary, TopCoder Business Brief</A> [April 13]</td></tr>    
                            
                 <tr><td class="prHead"><A href="http://www.sys-con.com/story/?storyid=49134"> LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A> [April 9]</td></tr>    
                            
