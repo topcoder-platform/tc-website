@@ -370,7 +370,7 @@ elegant solution: <br /><br />
 
 <pre>
     int ret[] = new int[N], mult = 1; 
-    for (int i = N-1; i &gt; 0; i--, mult = (mult * 10) % P) 
+    for (int i = N-1; i &#8805; 0; i--, mult = (mult * 10) % P) 
     {
         ret[i] = mult; 
     }
