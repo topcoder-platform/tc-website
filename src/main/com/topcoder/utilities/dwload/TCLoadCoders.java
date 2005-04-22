@@ -1043,6 +1043,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,i.width ");
             query.append("  FROM image i ");
             query.append(" WHERE i.modify_date > ?");
+            query.append(" and i.image_type_id = 1");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
 
