@@ -76,7 +76,7 @@
                   and a copy of your current course schedule with no less than eight credits. For faculty or staff, a letter on school 
                   letterhead from your department head or dean must be submitted to verify full-time status.</p>
 
-                  <p class="regmiddle">This offer is not valid for Web-based registration. Offer expires June 25, 2005. </p>
+                  <p class="regmiddle">This offer is not valid for Web-based registration. Be sure to mention Registration Code "TCODER1" when you register. Offer expires June 25, 2005. </p>
                </td>
             <tr>
                <td colspan="2" align="left" valign="middle">
