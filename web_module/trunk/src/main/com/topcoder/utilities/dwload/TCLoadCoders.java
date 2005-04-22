@@ -1205,7 +1205,6 @@ public class TCLoadCoders extends TCLoad {
             query.append(" WHERE cix.modify_date > ?");
             query.append(" and i.image_type_id = 1");
             query.append(" and i.image_id = cix.image_id");
-            query.append(" and i.coder_id = cix.coder_id");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
             psSel.setTimestamp(1, fLastLogTime);
 
