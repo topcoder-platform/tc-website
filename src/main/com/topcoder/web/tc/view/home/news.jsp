@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.22.05<br>12:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_04_22_05">How Google Searches - For Talent</A></span><br><br>
+      "It's a dog-eat-dog world," says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. Wherever the best talent is, Google wants them. [BusinessWeek]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?&t=news_events&c=art_04_22_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>04.20.05<br>11:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_submissions">Logo Design Contest submissions</A></span><br><br>
       Take a look at the current contenders for the TCO05 Logo Design Contest.
@@ -254,18 +266,6 @@
    <tr><td class="newsLinksCell">
          <A href="http://software.topcoder.com/index.jsp">see the Top 10</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.30.05<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">TCCC05 <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals">Development</A> Finals details available.</span><br><br>
-      Including submissions, scores, reviews, and tests.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals">Design</A>&#160;|&#160;<A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals">Development</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
