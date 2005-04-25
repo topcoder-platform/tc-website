@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.25.05<br>9:35 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=042505">The Design Process - Section 4: the wrap up</A></span><br><br>
+       "In this final part of the design process series, we explore what should be done on a loss and what to expect after a win!"</td>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=042505">full story</A>&#160;|&#160;
+         <A href="/?&t=features&c=index">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.22.05<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_04_22_05">How Google Searches - For Talent</A></span><br><br>
       " 'It's a dog-eat-dog world,' says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. 'Wherever the best talent is, Google wants them.' " [BusinessWeek]
@@ -254,18 +269,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?&module=ViewSurvey&sid=208">view survey</A>&#160;|&#160;
          <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>03.30.05<br>11:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/index.jsp">"Top 10 Most Downloaded Components" added to TCS homepage</A></span><br><br>
-      Find out what components are being downloaded the most.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://software.topcoder.com/index.jsp">see the Top 10</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
 </table>
