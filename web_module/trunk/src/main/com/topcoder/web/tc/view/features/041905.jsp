@@ -96,6 +96,8 @@ There is really no way to tell if either approach is better when both approaches
 <br><br>
 <span class="bodySubtitle">Final Week</span><br/>
 Next week will end this four part series on the design process.  That article will examine what you should do if you didn't win the design, how to properly handle the final fix phase and some tips on how to handle the development phase (blasted developers, always finding problems!).
+<br/><br/>
+<A href="/tc?module=Static&d1=features&d2=042505">...continue to Section 4</A>
             
 
         </div>
