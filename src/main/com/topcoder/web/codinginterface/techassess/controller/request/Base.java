@@ -64,7 +64,7 @@ public abstract class Base extends BaseProcessor {
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
         } catch (TimeExpiredException ex) {
             if (sessionId>=0) unlock();
-            closeProcessingPage(buildProcessorRequestString(Constants.RP_TIME_EXPIRED, new String[] {Constants.LOGOUT, Constants.MESSAGE}, 
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_TIME_EXPIRED, new String[] {Constants.LOGOUT, Constants.ERROR_MESSAGE}, 
                         new String[] {String.valueOf(ex.isLogout()), ex.getMessage()}));
         }
     }

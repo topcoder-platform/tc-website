@@ -38,7 +38,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String COMPANY_ID;
     public static String SESSION_ID;
     public static String LOGOUT;
-    public static String MESSAGE;
+    public static String ERROR_MESSAGE;
 
     //request processors
     public static String RP_LOGOUT;
