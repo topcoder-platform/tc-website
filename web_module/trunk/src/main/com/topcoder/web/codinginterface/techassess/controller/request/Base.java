@@ -6,11 +6,13 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
+import com.topcoder.shared.messaging.TimeExpiredException;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
 import com.topcoder.shared.netCommon.screening.request.ScreeningBaseRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningBaseResponse;
+import com.topcoder.shared.netCommon.screening.response.ScreeningTimeExpiredResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
@@ -60,6 +62,10 @@ public abstract class Base extends BaseProcessor {
         } catch (TimeOutException e) {
             if (sessionId>=0) unlock();
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
+        } catch (TimeExpiredException ex) {
+            if (sessionId>=0) unlock();
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_TIME_EXPIRED, new String[] {Constants.LOGOUT, Constants.MESSAGE}, 
+                        new String[] {String.valueOf(ex.isLogout()), ex.getMessage()}));
         }
     }
 
@@ -374,7 +380,7 @@ public abstract class Base extends BaseProcessor {
         getResponse().flushBuffer();
     }
 
-    protected Message receive(int waitTime) throws TCWebException, TimeOutException {
+    protected Message receive(int waitTime) throws TCWebException, TimeOutException, TimeExpiredException {
 
         if (messageId == null) throw new RuntimeException("You must call send before receive.");
 
@@ -390,6 +396,13 @@ public abstract class Base extends BaseProcessor {
 */
 
         ScreeningBaseResponse m = (ScreeningBaseResponse) receiver.receive(waitTime, messageId, getResponse());
+        
+        if(m instanceof ScreeningTimeExpiredResponse) {
+            //throw an exception so we can redirect them to a new page
+            ScreeningTimeExpiredResponse resp = (ScreeningTimeExpiredResponse)m;
+            TimeExpiredException ex = new TimeExpiredException(resp.getMessage(), resp.forceLogout());
+            throw ex;
+        }
 
         //log.debug("response: " + m.getClass().getName());
         if (m.isSynchronous()) {

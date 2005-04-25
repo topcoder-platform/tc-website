@@ -37,6 +37,8 @@ public class Constants implements CodingInterfaceConstants {
     //parameters
     public static String COMPANY_ID;
     public static String SESSION_ID;
+    public static String LOGOUT;
+    public static String MESSAGE;
 
     //request processors
     public static String RP_LOGOUT;
@@ -55,6 +57,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String RP_SAVE;
     public static String RP_COMPILE;
     public static String RP_TIMEOUT;
+    public static String RP_TIME_EXPIRED;
     public static String RP_SUBMIT;
     public static String RP_SUBMIT_RESPONSE;
     public static String RP_TEST;
@@ -80,7 +83,7 @@ public class Constants implements CodingInterfaceConstants {
     public static int TEST_SET_B_ID;
     public static int EXAMPLE_ID;
     public static int TEST_IMAGE_TYPE;
-
+    
     public static final String SHORT_CONTENT =
             "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">" +
             "<html>" +
