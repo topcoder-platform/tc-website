@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>04.25.05<br>11:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/JohnDethridge.mov">John Dethridge on the TCCC05</A></span><br><br>
+      John Dethridge talks about TopCoder finalists, and the difference between Algortihm Competitions and Component Competitions.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tccc05/onsite_movies/JohnDethridge.mov">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.25.05<br>9:35 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -259,18 +271,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>03.31.05<br>12:05 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=208">TCO05 seeding/advancement survey</A></span><br><br>
-      Which of the following seeding/advancement formats would you most prefer for the online portion of the upcoming TopCoder Open Algorithm Competition?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=208">view survey</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 
