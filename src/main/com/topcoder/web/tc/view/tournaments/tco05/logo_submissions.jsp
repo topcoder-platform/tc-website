@@ -56,6 +56,7 @@
 
             <br><br>
             <table cellpadding="10" cellspacing="0" align="center" border="0">
+            <tr><td>060<br><img src="/i/tournament/tco05/logo_submissions/060.gif" alt="" border="0" /></td></tr>
             <tr><td>059<br><img src="/i/tournament/tco05/logo_submissions/059.gif" alt="" border="0" /></td></tr>
             <tr><td>058<br><img src="/i/tournament/tco05/logo_submissions/058.gif" alt="" border="0" /></td></tr>
             <tr><td>057<br><img src="/i/tournament/tco05/logo_submissions/057.gif" alt="" border="0" /></td></tr>
