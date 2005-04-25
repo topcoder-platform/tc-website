@@ -20,7 +20,7 @@ public class TimeExpired extends Base {
 
         String message;
         if (hasParameter(Constants.MESSAGE)) {
-            message = getRequest().getParameter(Constants.PROBLEM_TYPE_ID).trim();
+            message = getRequest().getParameter(Constants.MESSAGE).trim();
         } else {
             throw new NavigationException("Invalid Request, missing parameter");
         }
