@@ -126,6 +126,8 @@ public class ProjectTrackerBean implements SessionBean {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        PreparedStatement psForum = null;
+        ResultSet rsForum = null;
 
         try {
             conn = dataSource.getConnection();
@@ -224,7 +226,7 @@ public class ProjectTrackerBean implements SessionBean {
 */
 
                 // Get forum id with custom sql
-                PreparedStatement psForum = conn.prepareStatement(
+                psForum = conn.prepareStatement(
                         "SELECT fm.forum_id " +
                         "FROM forum_master fm, comp_forum_xref cfx " +
                         "WHERE fm.forum_id = cfx.forum_id AND " +
@@ -233,7 +235,7 @@ public class ProjectTrackerBean implements SessionBean {
                         "fm.status_id = 1");
 
                 psForum.setLong(1, compVersId);
-                ResultSet rsForum = psForum.executeQuery();
+                rsForum = psForum.executeQuery();
                 if (rsForum.next()) {
                     forumId = rsForum.getLong(1);
                 }
@@ -260,10 +262,6 @@ public class ProjectTrackerBean implements SessionBean {
                         projectStatus, notificationSent, requestor.getUserId(),
                         projectVersionId);
 */
-                Common.close(rsForum);
-                Common.close(psForum);
-                rsForum = null;
-                psForum = null;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -277,7 +275,10 @@ public class ProjectTrackerBean implements SessionBean {
                     throw new RuntimeException(e);
                 } catch (CatalogException e) {
                     throw new RuntimeException(e);
-                }*/ finally {
+                }*/
+        finally {
+            Common.close(rsForum);
+            Common.close(psForum);
             Common.close(conn, ps, rs);
         }
 
@@ -322,18 +323,7 @@ public class ProjectTrackerBean implements SessionBean {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            try {
-                if (rs != null) rs.close();
-            } catch (SQLException ignore) {
-            }
-            try {
-                if (ps != null) ps.close();
-            } catch (SQLException ignore) {
-            }
-            try {
-                if (c != null) c.close();
-            } catch (SQLException ignore) {
-            }
+            Common.close(c, ps, rs);
         }
 
         return projectId;
@@ -2838,30 +2828,8 @@ public class ProjectTrackerBean implements SessionBean {
         } catch (SQLException sqe) {
             throw new Exception(sqe);
         } finally {
-            if (psCompleteDate != null) {
-                try {
-                    psCompleteDate.close();
-                } catch (SQLException sqe) {
-                    System.err.println("Tried to close completed date ps: " +
-                            sqe);
-                }
-            }
-            if (psRatingInd != null) {
-                try {
-                    psRatingInd.close();
-                } catch (SQLException sqe) {
-                    System.err.println("Tried to close ratind ind ps: " +
-                            sqe);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException sqe) {
-                    System.err.println("Tried to close insert scores ps: " +
-                            sqe);
-                }
-            }
+            Common.close(conn, psCompleteDate, null);
+            Common.close(psRatingInd);
         }
     }
 
@@ -2993,39 +2961,10 @@ public class ProjectTrackerBean implements SessionBean {
         } catch (SQLException sqe) {
             throw new EJBException(sqe);
         } finally {
-            if (rsScores != null) {
-                try {
-                    rsScores.close();
-                } catch (SQLException sqe) {
-                    System.err.println("Tried to close  scores rs: " +
-                            sqe);
-                }
-            }
-            if (psRetrieveScores != null) {
-                try {
-                    psRetrieveScores.close();
-                } catch (SQLException sqe) {
-                    System.err.println("Tried to close retrieve scores ps: " +
-                            sqe);
-                }
-            }
-
-            if (psInsertScores != null) {
-                try {
-                    psInsertScores.close();
-                } catch (SQLException sqe) {
-                    System.err.println("Tried to close insert scores ps: " +
-                            sqe);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException sqe) {
-                    System.err.println("Tried to close insert scores ps: " +
-                            sqe);
-                }
-            }
+            Common.close(rsScores);
+            Common.close(psRetrieveScores);
+            Common.close(psInsertScores);
+            Common.close(conn);
         }
 
     }
