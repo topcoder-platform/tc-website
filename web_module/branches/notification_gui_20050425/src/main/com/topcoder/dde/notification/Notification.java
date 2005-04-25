@@ -16,6 +16,7 @@ import java.sql.Date;
 */
 
 import java.util.Properties;
+import java.util.Set;
 
 import java.rmi.RemoteException;
 
@@ -25,7 +26,8 @@ import javax.ejb.EJBObject;
 /**
  *
  *
- * @author cucu
+ * @author cucu, isv
+ * @version 1.1 04/22/2005
  */
 public interface Notification extends EJBObject {
 
@@ -45,4 +47,34 @@ public interface Notification extends EJBObject {
 
     public void notifyEvent(String event, Properties prop) throws RemoteException;
 
+    /**
+     * <p>Gets the notification events which are assigned to requested user.</p>
+     *
+     * @param userId a <code>long</code> providing the ID of a user/coder to get the assigned events for.
+     * @return a <code>Set</code> of {@link NotificationEvent} instances representing the notification events assigned
+     *         to requested user. May return an empty set if there are no notification events assigned to requested user
+     *         but never returns <code>null</code>.
+     * @throws RemoteException
+     */
+    public Set getAssignedEvents(long userId) throws RemoteException;
+
+    /**
+     * <p>Gets the notification events which are not assigned to requested user.</p>
+     *
+     * @param userId a <code>long</code> providing the ID of a user/coder to get the non-assigned events for.
+     * @return a <code>Set</code> of {@link NotificationEvent} instances representing the notification events which are
+     *         not assigned to requested user. May return an empty set if all existing notification events are already
+     *         assigned to requested user but never returns <code>null</code>.
+     * @throws RemoteException
+     */
+    public Set getUnassignedEvents(long userId) throws RemoteException;
+
+    /**
+     * <p>Unassigns specified notification event from specified user.</p>
+     *
+     * @param userId a <code>long</code> providing the ID of a user to unassign the requested notification event from.
+     * @param eventId a <code>long</code> providing the ID of a notification event to unassign from the requested user.
+     * @throws RemoteException
+     */
+    public void unassignEvent(long userId, long eventId) throws RemoteException;
 }

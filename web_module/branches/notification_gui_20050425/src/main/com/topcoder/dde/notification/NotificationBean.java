@@ -8,18 +8,14 @@ package com.topcoder.dde.notification;
 
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
 
 import com.topcoder.apps.review.persistence.Common;
 
 import com.topcoder.apps.review.EJBHelper;
 import com.topcoder.apps.review.ConfigHelper;
 
-import com.topcoder.file.render.RecordTag;
 import com.topcoder.file.render.ValueTag;
 import com.topcoder.file.render.XMLDocument;
 import com.topcoder.file.render.xsl.XSLTransformerWrapper;
@@ -27,7 +23,6 @@ import com.topcoder.file.render.xsl.XSLTransformerWrapperException;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
 
-import com.topcoder.util.TCException;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.util.log.Level;
@@ -35,16 +30,12 @@ import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
 
-import java.rmi.RemoteException;
-
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 
@@ -52,18 +43,20 @@ import javax.sql.DataSource;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 /**
  * This is the concrete implementation of the Notification interface.
  * The bean is used to send email notifications when some events occur.
  *
- * @author cucu
+ * @author cucu, isv
+ * @version 1.1 04/22/2005
  */
 public class NotificationBean implements SessionBean {
     private Log log;
@@ -284,6 +277,147 @@ public class NotificationBean implements SessionBean {
     }
 
     /**
+     * <p>A <code>String</code> providing the SQL query to be used to locate the details for notification events which
+     * are already assigned to specified user.</p>
+     */
+    private static final String GET_ASSIGNED_EVENTS_QUERY = "SELECT ne.notification_event_id,ne.description,ne.event " +
+            "FROM notification_event ne,user_notification_event_xref unex " +
+            "WHERE unex.user_id = ? " +
+            "AND   unex.notification_event_id = ne.notification_event_id";
+
+    /**
+     * <p>Gets the notification events which are assigned to requested user.</p>
+     *
+     * @param userId a <code>long</code> providing the ID of a user/coder to get the assigned events for.
+     * @return a <code>Set</code> of {@link NotificationEvent} instances representing the notification events assigned
+     *         to requested user. May return an empty set if there are no notification events assigned to requested user
+     *         but never returns <code>null</code>.
+     */
+    public Set getAssignedEvents(long userId) {
+        info("Notification.getAssignedEvents for user "+ userId);
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // A set for collectiing the assigned events
+        Set assignedEvents = new TreeSet();
+
+        try {
+            // Get the list of assigned events
+            conn = dataSource.getConnection();
+            ps = conn.prepareStatement(GET_ASSIGNED_EVENTS_QUERY);
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+
+            // Populate the resulting set with assigned events
+            NotificationEvent event;
+            while (rs.next()) {
+                event = new NotificationEvent(rs.getLong(1), rs.getString(2));
+                event.setEventName(rs.getString(3));
+                assignedEvents.add(event);
+            }
+
+        } catch (Exception e) {
+            info("error in getAssignedEvents: " + e.toString());
+        } finally {
+            Common.close(conn, ps, rs);
+        }
+
+        return assignedEvents;
+    }
+
+    /**
+     * <p>A <code>String</code> providing the SQL query to be used to locate the details for notification events which
+     * are not assigned to specified user.</p>
+     */
+    private static final String GET_UNASSIGNED_EVENTS_QUERY = "SELECT ne.notification_event_id,ne.description,ne.event "
+            + "FROM notification_event ne "
+            + "WHERE NOT ne.notification_event_id IN "
+            + "(SELECT notification_event_id FROM user_notification_event_xref WHERE user_id = ?)";
+
+    /**
+     * <p>Gets the notification events which are not assigned to requested user.</p>
+     *
+     * @param userId a <code>long</code> providing the ID of a user/coder to get the non-assigned events for.
+     * @return a <code>Set</code> of {@link NotificationEvent} instances representing the notification events which are
+     *         not assigned to requested user. May return an empty set if all existing notification events are already
+     *         assigned to requested user but never returns <code>null</code>.
+     */
+    public Set getUnassignedEvents(long userId) {
+        info("Notification.getUnassignedEvents for user "+ userId);
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // A set for collectiing the unassigned events
+        Set unassignedEvents = new TreeSet();
+
+        try {
+            // Get the list of unassigned events
+            conn = dataSource.getConnection();
+            ps = conn.prepareStatement(GET_UNASSIGNED_EVENTS_QUERY);
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+
+            // Populate the resulting set with unassigned events
+            NotificationEvent event;
+            while (rs.next()) {
+                event = new NotificationEvent(rs.getLong(1), rs.getString(2));
+                event.setEventName(rs.getString(3));
+                unassignedEvents.add(event);
+            }
+
+        } catch (Exception e) {
+            info("error in getUnassignedEvents: " + e.toString());
+        } finally {
+            Common.close(conn, ps, rs);
+        }
+
+        return unassignedEvents;
+    }
+
+    /**
+     * <p>A <code>String</code> providing the SQL command to be used to unassign the specified notification event from
+     * specified user.</p>
+     */
+    private static final String UNASSIGN_EVENT_FROM_USER_COMMAND = "DELETE FROM user_notification_event_xref "
+            + "WHERE user_id = ? AND notification_event_id = ?";
+
+    /**
+     * <p>Unassigns specified notification event from specified user.</p>
+     *
+     * @param userId a <code>long</code> providing the ID of a user to unassign the requested notification event from.
+     * @param eventId a <code>long</code> providing the ID of a notification event to unassign from the requested user.
+     */
+    public void unassignEvent(long userId, long eventId) {
+        info("Notification.unassignEvent for user "+ userId + " and notification event " + eventId);
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            // Get the list of unassigned events
+            conn = dataSource.getConnection();
+            ps = conn.prepareStatement(UNASSIGN_EVENT_FROM_USER_COMMAND);
+            ps.setLong(1, userId);
+            ps.setLong(2, eventId);
+
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            info("error in unassignEvent: " + e.toString());
+        } finally {
+            Common.close(ps);
+            Common.close(conn);
+        }
+    }
+
+
+    /**
      * Send a mail from a user to another user.
      *
      * @param from the sender
@@ -394,7 +528,4 @@ public class NotificationBean implements SessionBean {
     public void setSessionContext(SessionContext ctx) throws EJBException {
         this.ejbContext = ctx;
     }
-
-
-
 }
