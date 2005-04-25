@@ -214,6 +214,13 @@ public class ReliabilityRating {
                 } catch (Exception e) {
                     System.err.println("could not close");
                 }
+            if (ps2 != null)
+                try {
+                    ps2.close();
+                } catch (Exception e) {
+                    System.err.println("could not close");
+                }
+            ps2 = null;
             ps = null;
             rs = null;
         }

@@ -232,243 +232,260 @@ public class RatingQubits {
 
         levelId = -1;
 
-        TreeMap ratings = new TreeMap(); //contains all rating info
-        ArrayList histories = new ArrayList();
+        try {
+            TreeMap ratings = new TreeMap(); //contains all rating info
+            ArrayList histories = new ArrayList();
 
-        //clear history
-        histories = new ArrayList();
+            //clear history
+            histories = new ArrayList();
 
-        for (i = 0; i < Integer.parseInt(historyLength); i++) {
-            histories.add(null);
-        }
+            for (i = 0; i < Integer.parseInt(historyLength); i++) {
+                histories.add(null);
+            }
 
-        while (rs.next()) {
-            /*if(rs.getInt("level_id") != levelId)
-            {
-                //new level
-                levelId = rs.getInt("level_id");
-                System.out.println("Processing new level: " + levelId);
-
-                //clear history
-                histories = new ArrayList();
-
-                for(i = 0; i < Integer.parseInt(historyLength); i++)
+            while (rs.next()) {
+                /*if(rs.getInt("level_id") != levelId)
                 {
-                    histories.add(null);
-                }
-            } */
+                    //new level
+                    levelId = rs.getInt("level_id");
+                    System.out.println("Processing new level: " + levelId);
 
-            //new project
-            int processed = 0;
-            namesplusprov = new Vector();
-            ratingsplusprov = new Vector();
-            volatilitiesplusprov = new Vector();
-            timesplayedplusprov = new Vector();
-            scoresplusprov = new Vector();
+                    //clear history
+                    histories = new ArrayList();
 
-            names = new Vector();
-            endratings = new Vector();
-            endvols = new Vector();
-            endratingsnovol = new Vector();
-            scores = new Vector();
-
-
-            //get all submissions for this project
-            sqlStr.replace(0, sqlStr.length(), "SELECT * ");
-            sqlStr.append(" FROM project_result");
-            sqlStr.append(" WHERE project_id = ? and rating_ind = 1");
-
-            ps = conn.prepareStatement(sqlStr.toString());
-            ps.setLong(1, rs.getLong("project_id"));
-            rs2 = ps.executeQuery();
-
-            while (rs2.next()) {
-                processed++;
-
-                namesplusprov.add("" + rs2.getLong("user_id"));
-                scoresplusprov.add(new Double(rs2.getDouble("final_score")));
-
-                if (!ratings.containsKey("" + rs2.getLong("user_id"))) {
-                    rating r = new rating(rs2.getLong("user_id"), initialScore, 0, initialVolatility, initialScore);
-                    ratings.put("" + rs2.getLong("user_id"), r);
-                }
-
-                rating r = (rating) ratings.get("" + rs2.getLong("user_id"));
-                ratingsplusprov.add(new Double(r.rating));
-                timesplayedplusprov.add(new Integer(r.num_ratings));
-                volatilitiesplusprov.add(new Double(r.vol));
-            }
-
-            rs2.close();
-            rs2 = null;
-            ps.close();
-            ps = null;
-
-            if (processed == 0) {
-                System.out.println("PROCESSING ERROR: NO RECORDS FOR PROJECT " + rs.getLong("project_id"));
-            }
-
-            System.out.println("Running ratings for project: " + rs.getLong("project_id") + " (" + processed + " ratings)");
-
-            Vector n = new Vector();
-            Vector er = new Vector();
-            Vector ev = new Vector();
-            Vector ernv = new Vector();
-            Vector s = new Vector();
-
-            for (int x = 0; x < namesplusprov.size(); x++) {
-                //lookup user info
-                String userId = (String) namesplusprov.get(x);
-                System.out.println("RATING " + userId);
-
-                Vector npp = new Vector();
-                Vector tppprov = new Vector();
-                Vector spp = new Vector();
-                Vector rpp = new Vector();
-                Vector vpp = new Vector();
-
-                for (i = 0; i < namesplusprov.size(); i++) {
-                    if (((String) namesplusprov.get(i)).equals(userId)) {
-                        npp.add(namesplusprov.get(i));
-                    } else {
-                        npp.add("0");
+                    for(i = 0; i < Integer.parseInt(historyLength); i++)
+                    {
+                        histories.add(null);
                     }
-                    tppprov.add(timesplayedplusprov.get(i));
-                    spp.add(scoresplusprov.get(i));
-                    rpp.add(ratingsplusprov.get(i));
-                    vpp.add(volatilitiesplusprov.get(i));
-                }
+                } */
 
-                processed = 0;
-                for (i = 0; i < histories.size() && processed < Integer.parseInt(historyLength); i++) {
-                    history h = (history) histories.get(i);
-                    if (h == null) {
-                        continue;
-                    }
-                    if (h.user_id == Integer.parseInt(userId)) {
-                        System.out.println("THROWING OUT SAME USER");
-                        continue;
-                    }
+                //new project
+                int processed = 0;
+                namesplusprov = new Vector();
+                ratingsplusprov = new Vector();
+                volatilitiesplusprov = new Vector();
+                timesplayedplusprov = new Vector();
+                scoresplusprov = new Vector();
 
+                names = new Vector();
+                endratings = new Vector();
+                endvols = new Vector();
+                endratingsnovol = new Vector();
+                scores = new Vector();
+
+
+                //get all submissions for this project
+                sqlStr.replace(0, sqlStr.length(), "SELECT * ");
+                sqlStr.append(" FROM project_result");
+                sqlStr.append(" WHERE project_id = ? and rating_ind = 1");
+
+                ps = conn.prepareStatement(sqlStr.toString());
+                ps.setLong(1, rs.getLong("project_id"));
+                rs2 = ps.executeQuery();
+
+                while (rs2.next()) {
                     processed++;
 
-                    npp.add("0");
-                    tppprov.add(new Integer(1));
-                    spp.add(new Double(h.score));
-                    vpp.add(new Double(h.vol));
-                    rpp.add(new Double(h.rating));
+                    namesplusprov.add("" + rs2.getLong("user_id"));
+                    scoresplusprov.add(new Double(rs2.getDouble("final_score")));
+
+                    if (!ratings.containsKey("" + rs2.getLong("user_id"))) {
+                        rating r = new rating(rs2.getLong("user_id"), initialScore, 0, initialVolatility, initialScore);
+                        ratings.put("" + rs2.getLong("user_id"), r);
+                    }
+
+                    rating r = (rating) ratings.get("" + rs2.getLong("user_id"));
+                    ratingsplusprov.add(new Double(r.rating));
+                    timesplayedplusprov.add(new Integer(r.num_ratings));
+                    volatilitiesplusprov.add(new Double(r.vol));
                 }
 
-                System.out.println("History length is " + processed);
+                rs2.close();
+                rs2 = null;
+                ps.close();
+                ps = null;
 
-                resultsplusprov = rateEvent(npp, rpp, vpp, tppprov, spp);
+                if (processed == 0) {
+                    System.out.println("PROCESSING ERROR: NO RECORDS FOR PROJECT " + rs.getLong("project_id"));
+                }
 
-                names = (Vector) resultsplusprov.get(3);
-                endratings = (Vector) resultsplusprov.get(2);
-                endvols = (Vector) resultsplusprov.get(1);
-                endratingsnovol = (Vector) resultsplusprov.get(0);
-                scores = (Vector) resultsplusprov.get(4);
+                System.out.println("Running ratings for project: " + rs.getLong("project_id") + " (" + processed + " ratings)");
 
-                for (i = 0; i < endratings.size(); i++) {
-                    n.add(names.get(i));
-                    s.add(scores.get(i));
-                    ev.add(endvols.get(i));
-                    ernv.add(endratingsnovol.get(i));
-                    er.add(endratings.get(i));
+                Vector n = new Vector();
+                Vector er = new Vector();
+                Vector ev = new Vector();
+                Vector ernv = new Vector();
+                Vector s = new Vector();
+
+                for (int x = 0; x < namesplusprov.size(); x++) {
+                    //lookup user info
+                    String userId = (String) namesplusprov.get(x);
+                    System.out.println("RATING " + userId);
+
+                    Vector npp = new Vector();
+                    Vector tppprov = new Vector();
+                    Vector spp = new Vector();
+                    Vector rpp = new Vector();
+                    Vector vpp = new Vector();
+
+                    for (i = 0; i < namesplusprov.size(); i++) {
+                        if (((String) namesplusprov.get(i)).equals(userId)) {
+                            npp.add(namesplusprov.get(i));
+                        } else {
+                            npp.add("0");
+                        }
+                        tppprov.add(timesplayedplusprov.get(i));
+                        spp.add(scoresplusprov.get(i));
+                        rpp.add(ratingsplusprov.get(i));
+                        vpp.add(volatilitiesplusprov.get(i));
+                    }
+
+                    processed = 0;
+                    for (i = 0; i < histories.size() && processed < Integer.parseInt(historyLength); i++) {
+                        history h = (history) histories.get(i);
+                        if (h == null) {
+                            continue;
+                        }
+                        if (h.user_id == Integer.parseInt(userId)) {
+                            System.out.println("THROWING OUT SAME USER");
+                            continue;
+                        }
+
+                        processed++;
+
+                        npp.add("0");
+                        tppprov.add(new Integer(1));
+                        spp.add(new Double(h.score));
+                        vpp.add(new Double(h.vol));
+                        rpp.add(new Double(h.rating));
+                    }
+
+                    System.out.println("History length is " + processed);
+
+                    resultsplusprov = rateEvent(npp, rpp, vpp, tppprov, spp);
+
+                    names = (Vector) resultsplusprov.get(3);
+                    endratings = (Vector) resultsplusprov.get(2);
+                    endvols = (Vector) resultsplusprov.get(1);
+                    endratingsnovol = (Vector) resultsplusprov.get(0);
+                    scores = (Vector) resultsplusprov.get(4);
+
+                    for (i = 0; i < endratings.size(); i++) {
+                        n.add(names.get(i));
+                        s.add(scores.get(i));
+                        ev.add(endvols.get(i));
+                        ernv.add(endratingsnovol.get(i));
+                        er.add(endratings.get(i));
+                    }
+
+                }
+
+                while (er.size() > 0) {
+                    int newrating = Math.round(((Double) er.remove(0)).floatValue());
+                    int newratingnovol = Math.round(((Double) ernv.remove(0)).floatValue());
+                    int newvol = Math.round(((Double) ev.remove(0)).floatValue());
+                    int coder = (new Integer(n.remove(0).toString())).intValue();
+                    double score = ((Double) s.remove(0)).floatValue();
+
+                    rating r = (rating) ratings.get("" + coder);
+
+                    //update project_result record with new and old rating
+                    sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ? ");
+                    sqlStr.append(" WHERE project_id = ? and user_id = ? ");
+
+                    ps = conn.prepareStatement(sqlStr.toString());
+                    ps.setDouble(1, r.rating);
+                    ps.setInt(2, newrating);
+                    ps.setInt(3, rs.getInt("project_id"));
+                    ps.setInt(4, coder);
+
+                    ps.execute();
+                    ps.close();
+                    ps = null;
+
+                    //update user_rating
+                    r.rating = newrating;
+                    r.vol = newvol;
+                    r.rating_no_vol = newratingnovol;
+                    r.num_ratings++;
+                    r.last_project_rated = rs.getInt("project_id");
+
+                    ratings.put("" + coder, r);
+
+                    //insert history
+                    history h = new history(coder, score, newrating, newvol);
+                    System.out.println("HISTORY UPDATE: " + coder + ", " + score + ", " + newrating + ", " + newvol);
+
+                    //rotate history
+                    histories.add(0, h);
+                    //Collections.rotate(histories, 1);
+                    //histories.set(0, h);
+
+                    System.out.println("HISTORY IS NOW " + histories.size());
                 }
 
             }
 
-            while (er.size() > 0) {
-                int newrating = Math.round(((Double) er.remove(0)).floatValue());
-                int newratingnovol = Math.round(((Double) ernv.remove(0)).floatValue());
-                int newvol = Math.round(((Double) ev.remove(0)).floatValue());
-                int coder = (new Integer(n.remove(0).toString())).intValue();
-                double score = ((Double) s.remove(0)).floatValue();
+            //commit final ratings to DB
+            Object[] vals = ratings.values().toArray();
+            for (i = 0; i < vals.length; i++) {
+                rating r = (rating) vals[i];
 
-                rating r = (rating) ratings.get("" + coder);
+                //System.out.println(r.user_id + "\t" + r.rating);
 
-                //update project_result record with new and old rating
-                sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ? ");
-                sqlStr.append(" WHERE project_id = ? and user_id = ? ");
+                sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating set rating = ?, vol = ?, rating_no_vol = ?, last_rated_project_id = ?, num_ratings = ?, mod_date_time = CURRENT ");
+                sqlStr.append(" where phase_id = ? and user_id = ?");
 
                 ps = conn.prepareStatement(sqlStr.toString());
                 ps.setDouble(1, r.rating);
-                ps.setInt(2, newrating);
-                ps.setInt(3, rs.getInt("project_id"));
-                ps.setInt(4, coder);
+                ps.setDouble(2, r.vol);
+                ps.setDouble(3, r.rating_no_vol);
+                ps.setInt(4, r.last_project_rated);
+                ps.setInt(5, r.num_ratings);
+                ps.setInt(6, phaseId);
+                ps.setDouble(7, r.user_id);
 
-                ps.execute();
+                int retVal = ps.executeUpdate();
+
                 ps.close();
                 ps = null;
 
-                //update user_rating
-                r.rating = newrating;
-                r.vol = newvol;
-                r.rating_no_vol = newratingnovol;
-                r.num_ratings++;
-                r.last_project_rated = rs.getInt("project_id");
+                if (retVal == 0) {
 
-                ratings.put("" + coder, r);
+                    sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (user_id, phase_id, rating, vol, rating_no_vol, last_rated_project_id, num_ratings, mod_date_time, create_date_time) ");
+                    sqlStr.append(" values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT )");
+                    ps = conn.prepareStatement(sqlStr.toString());
+                    ps.setDouble(1, r.user_id);
+                    ps.setInt(2, phaseId);
+                    ps.setDouble(3, r.rating);
+                    ps.setDouble(4, r.vol);
+                    ps.setDouble(5, r.rating_no_vol);
+                    ps.setInt(6, r.last_project_rated);
+                    ps.setInt(7, r.num_ratings);
 
-                //insert history
-                history h = new history(coder, score, newrating, newvol);
-                System.out.println("HISTORY UPDATE: " + coder + ", " + score + ", " + newrating + ", " + newvol);
+                    ps.execute();
 
-                //rotate history
-                histories.add(0, h);
-                //Collections.rotate(histories, 1);
-                //histories.set(0, h);
+                    ps.close();
+                    ps = null;
+                }
 
-                System.out.println("HISTORY IS NOW " + histories.size());
+            }
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+            } catch (Exception ignore) {
+            }
+            try {
+                if (rs2 != null) {
+                    rs2.close();
+                }
+            } catch (Exception ignore) {
             }
 
         }
 
-        //commit final ratings to DB
-        Object[] vals = ratings.values().toArray();
-        for (i = 0; i < vals.length; i++) {
-            rating r = (rating) vals[i];
-
-            //System.out.println(r.user_id + "\t" + r.rating);
-
-            sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating set rating = ?, vol = ?, rating_no_vol = ?, last_rated_project_id = ?, num_ratings = ?, mod_date_time = CURRENT ");
-            sqlStr.append(" where phase_id = ? and user_id = ?");
-
-            ps = conn.prepareStatement(sqlStr.toString());
-            ps.setDouble(1, r.rating);
-            ps.setDouble(2, r.vol);
-            ps.setDouble(3, r.rating_no_vol);
-            ps.setInt(4, r.last_project_rated);
-            ps.setInt(5, r.num_ratings);
-            ps.setInt(6, phaseId);
-            ps.setDouble(7, r.user_id);
-
-            int retVal = ps.executeUpdate();
-
-            ps.close();
-            ps = null;
-
-            if (retVal == 0) {
-
-                sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (user_id, phase_id, rating, vol, rating_no_vol, last_rated_project_id, num_ratings, mod_date_time, create_date_time) ");
-                sqlStr.append(" values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT )");
-                ps = conn.prepareStatement(sqlStr.toString());
-                ps.setDouble(1, r.user_id);
-                ps.setInt(2, phaseId);
-                ps.setDouble(3, r.rating);
-                ps.setDouble(4, r.vol);
-                ps.setDouble(5, r.rating_no_vol);
-                ps.setInt(6, r.last_project_rated);
-                ps.setInt(7, r.num_ratings);
-
-                ps.execute();
-
-                ps.close();
-                ps = null;
-            }
-
-        }
     }
 
     int STEPS = 100;
