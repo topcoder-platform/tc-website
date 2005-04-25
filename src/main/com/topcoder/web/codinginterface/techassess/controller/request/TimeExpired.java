@@ -10,7 +10,7 @@ public class TimeExpired extends Base {
 
     protected void techAssessProcessing() throws Exception {
         if (hasParameter(Constants.LOGOUT)) {
-            boolean logout = Boolean.parseBoolean(getRequest().getParameter(Constants.LOGOUT).trim());
+            boolean logout = Boolean.valueOf(getRequest().getParameter(Constants.LOGOUT).trim()).booleanValue();
             
             if(logout) {
                 getAuthentication().logout();
