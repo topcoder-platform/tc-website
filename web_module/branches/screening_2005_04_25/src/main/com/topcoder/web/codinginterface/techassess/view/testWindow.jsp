@@ -2,7 +2,8 @@
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.shared.problem.DataType,
                  com.topcoder.web.common.render.DataTypeRenderer,
-                 com.topcoder.web.codinginterface.CodingInterfaceConstants"%>
+                 com.topcoder.web.codinginterface.CodingInterfaceConstants,
+                 com.topcoder.shared.problem.TestCase"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
@@ -46,6 +47,20 @@
                     </td>
                 </tr>
             </ci:argumentIterator>
+
+
+
+            <tr><td colspan="2"></td></tr>
+                        <select name="testcase" size="1">
+                          <option value="#" selected> Select Example: </option>
+                          <%
+                                TestCase[] tests = prob.getPrimaryComponent().getTestCases();
+                                for (int i=0; i<tests.length; i++) {
+                                    %> <option>Example <%=i%></option><%
+                                }
+                            %>
+                        </select>
+
             <tr><td colspan="2"></td></tr>
             <tr>
                 <td colspan="2" align=center>
