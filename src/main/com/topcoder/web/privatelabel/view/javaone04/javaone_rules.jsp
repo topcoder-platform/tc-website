@@ -84,49 +84,49 @@
 						their respective problem during the Qualification Round will be invited to compete in the afternoon's competition. 
 						The schedule of competitions is as follows:</p>
 						
-									<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td width="33%" class="sidebarTitle">Date</td>
-                    <td width="34%" class="sidebarTitle">Problem Set Theme</td>
-                    <td width="33%" class="sidebarTitle">Time</td>
-                </tr>
+<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+<tr>
+<td width="33%" class="sidebarTitle">Date</td>
+<td width="34%" class="sidebarTitle">Problem Set Theme</td>
+<td width="33%" class="sidebarTitle">Time</td>
+</tr>
 
-                <tr>
-                    <td width="33%" class="sidebarText">Monday, June 28</td>
-                    <td width="34%" class="sidebarText">Web Services - Qualification</td>
-                    <td width="33%" class="sidebarText">11:00 am - 4:00 pm</td>
-                </tr>
+<tr>
+<td width="33%" class="sidebarText">Monday, June 28</td>
+<td width="34%" class="sidebarText">Web Services - Qualification</td>
+<td width="33%" class="sidebarText">11:00 am - 4:00 pm</td>
+</tr>
 
-                <tr>
-                    <td width="33%" class="sidebarText">Monday, June 28</td>
-                    <td width="34%" class="sidebarText">Web Services - Competition</td>
-                    <td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
-                </tr>
+<tr>
+<td width="33%" class="sidebarText">Monday, June 28</td>
+<td width="34%" class="sidebarText">Web Services - Competition</td>
+<td width="33%" class="sidebarText">5:00 pm - 6:30 pm</td>
+</tr>
 
-                <tr>
-                    <td width="33%" class="sidebarText">Tuesday, June 29</td>
-                    <td width="34%" class="sidebarText">Enterprise Services - Qualification</td>
-                    <td width="33%" class="sidebarText">11:00 am - 3:00 pm</td>
-                </tr>
+<tr>
+<td width="33%" class="sidebarText">Tuesday, June 29</td>
+<td width="34%" class="sidebarText">Enterprise Services - Qualification</td>
+<td width="33%" class="sidebarText">11:00 am - 3:00 pm</td>
+</tr>
 
-                <tr>
-                    <td width="33%" class="sidebarText">Tuesday, June 29</td>
-                    <td width="34%" class="sidebarText">Enterprise Services - Competition</td>
-                    <td width="33%" class="sidebarText">3:30 pm - 5:00 pm</td>
-                </tr>
-                
-                <tr>
-                    <td width="33%" class="sidebarText">Wednesday, June 30</td>
-                    <td width="34%" class="sidebarText">Mobility - Qualification</td>
-                    <td width="33%" class="sidebarText">11:00 am - 3:00 pm</td>
-                </tr>
+<tr>
+<td width="33%" class="sidebarText">Tuesday, June 29</td>
+<td width="34%" class="sidebarText">Enterprise Services - Competition</td>
+<td width="33%" class="sidebarText">3:30 pm - 5:00 pm</td>
+</tr>
 
-                <tr>
-                    <td width="33%" class="sidebarText">Wednesday, June 30</td>
-                    <td width="34%" class="sidebarText">Mobility - Competition</td>
-                    <td width="33%" class="sidebarText">3:30 pm - 5:00 pm</td>
-                </tr>
-            </table>
+<tr>
+<td width="33%" class="sidebarText">Wednesday, June 30</td>
+<td width="34%" class="sidebarText">Mobility - Qualification</td>
+<td width="33%" class="sidebarText">11:00 am - 3:00 pm</td>
+</tr>
+
+<tr>
+<td width="33%" class="sidebarText">Wednesday, June 30</td>
+<td width="34%" class="sidebarText">Mobility - Competition</td>
+<td width="33%" class="sidebarText">3:30 pm - 5:00 pm</td>
+</tr>
+</table>
             
             <p class="regmiddle"><strong>Competition Structure</strong><br/>
             Java will be the only allowable programming language in the competition.  Each competition will have 3 phases - 
@@ -163,50 +163,50 @@
 			Prizes will be awarded to each person who participates in the Qualification Rounds.  The winner of each day's competition will be 
 			awarded a 'grand' prize.  The prizes are as follows:</p>
 			
-						<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td width="30%" class="sidebarTitle">Participant(s)</td>
-                    <td width="70%" class="sidebarTitle">Prize</td>
-                </tr>
+<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+<tr>
+<td width="30%" class="sidebarTitle">Participant(s)</td>
+<td width="70%" class="sidebarTitle">Prize</td>
+</tr>
 
-                <tr>
-                    <td width="30%" class="sidebarText" valign="top">Grand Prize (3)*</td>
-                    <td width="70%" class="sidebarText">
-                    <ul>
-                    <li>One complimentary full Conference pass to the 2005 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
-                    <li>A collection of 23 <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone04&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
-                    <li>One Zodiac Mobile Entertainment console and package from TapWave, valued at $625</li>
-                    </ul>
-                    </td>
-                </tr>
+<tr>
+<td width="30%" class="sidebarText" valign="top">Grand Prize (3)*</td>
+<td width="70%" class="sidebarText">
+<ul>
+<li>One complimentary full Conference pass to the 2005 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
+<li>A collection of 23 <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone05&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
+<li>One Zodiac Mobile Entertainment console and package from TapWave, valued at $625</li>
+</ul>
+</td>
+</tr>
 
-                <tr>
-                    <td width="30%" class="sidebarText">1st Runner Up (3)*</td>
-                    <td width="70%" class="sidebarText">$500 gift certificate to redeem in the JavaOne Conference Retail Store</td>
-                </tr>
+<tr>
+<td width="30%" class="sidebarText">1st Runner Up (3)*</td>
+<td width="70%" class="sidebarText">$500 gift certificate to redeem in the JavaOne Conference Retail Store</td>
+</tr>
 
-                <tr>
-                    <td width="30%" class="sidebarText">2nd Runner Up (3)*</td>
-                    <td width="70%" class="sidebarText">$250 gift certificate to redeem in the JavaOne Conference Retail Store</td>
-                </tr>
+<tr>
+<td width="30%" class="sidebarText">2nd Runner Up (3)*</td>
+<td width="70%" class="sidebarText">$250 gift certificate to redeem in the JavaOne Conference Retail Store</td>
+</tr>
 
-                <tr>
-                    <td width="30%" class="sidebarText">3rd Runner Up (3)*</td>
-                    <td width="70%" class="sidebarText">$125 gift certificate to redeem in the JavaOne Conference Retail Store</td>
-                </tr>
+<tr>
+<td width="30%" class="sidebarText">3rd Runner Up (3)*</td>
+<td width="70%" class="sidebarText">$125 gift certificate to redeem in the JavaOne Conference Retail Store</td>
+</tr>
 
-                <tr>
-                    <td width="30%" class="sidebarText">First 1,000 Participants</td>
-                    <td width="70%" class="sidebarText">One JavaOne Coding Challenge T-Shirt and Messenger Bag</td>
-                </tr>
-                <tr>
-                    <td width="100%" class="sidebarText" colspan="2">
-                    *One Grand Prize and one 1st, 2nd, and 3rd Runner-Up prize awarded daily<br/>
-                    **Titles subject to change based on availability
-                    </td>
-                    
-                </tr>
-            </table>
+<tr>
+<td width="30%" class="sidebarText">First 1,000 Participants</td>
+<td width="70%" class="sidebarText">One JavaOne Coding Challenge T-Shirt and Messenger Bag</td>
+</tr>
+<tr>
+<td width="100%" class="sidebarText" colspan="2">
+*One Grand Prize and one 1st, 2nd, and 3rd Runner-Up prize awarded daily<br/>
+**Titles subject to change based on availability
+</td>
+
+</tr>
+</table>
             
             <p class="regmiddle">Prizes will be awarded daily at the conclusion of the competition. Any and all applicable taxes on 
             prizes are the sole responsibility of the prizewinner.</p>	
