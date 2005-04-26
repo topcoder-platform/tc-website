@@ -325,7 +325,6 @@
                 if(validateArg(val)) {
                     //valid, now add
                     putOption("document.frmArray", "listBox", getLength("document.frmArray", "listBox.options"), new Option(val));
-
                     clearInput();
                     updateCountSpan();
                 }
