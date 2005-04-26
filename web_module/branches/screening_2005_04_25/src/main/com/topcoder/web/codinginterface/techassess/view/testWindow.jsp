@@ -4,7 +4,8 @@
                  com.topcoder.web.common.render.DataTypeRenderer,
                  com.topcoder.web.codinginterface.CodingInterfaceConstants,
                  com.topcoder.shared.problem.TestCase,
-                 com.topcoder.shared.netCommon.screening.ScreeningConstants"%>
+                 com.topcoder.shared.netCommon.screening.ScreeningConstants,
+                 java.net.URLEncoder"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
@@ -63,10 +64,12 @@
                             %>
                         </select>
             </td></tr>
+<%--
 
             <tr><td colspan="2" align="center">
                <a href="javascript:show();">show me</a>
             </td></tr>
+--%>
 
             <tr><td colspan="2"></td></tr>
             <tr>
@@ -98,26 +101,43 @@
                         putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i));
                     }
                 } else {
-                    putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i, getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i));
+                    putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i,getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i));
                 }
             }
 
+<%--
             function show() {
                   <ci:argumentIterator problem="<%=prob%>" language="language">
                     alert(document.frmTesting.<%=CodingInterfaceConstants.TEST_ARGUMENT+argumentIndex%>.value);
                   </ci:argumentIterator>
             }
+--%>
 
 
             function setExample(idx) {
               switch(idx) {
                 <% for (int i=0; i<testCases.length; i++) { %>
                     case <%=i%>:
-                    <%  String[] args = testCases[i].getInput();
-                        for (int j=0; j<args.length; j++) { %>
-                            document.frmTesting.<%=CodingInterfaceConstants.TEST_ARGUMENT+j%>.value="<%=args[j]%>";
-                            setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + j);
-                    <%  } %>
+                    <%  String[] args = testCases[i].getInput();%>
+                        <%--we're using the argument iterator to make it easier to get the dimension.
+                        if for some reason the test case and the problem arguments don't line up, we'll have a problem--%>
+                        <ci:argumentIterator problem="<%=prob%>" language="language">
+                            <%-- set the value in this form, then set the value in the parent
+                                 because that's where the array input screen reads it from
+                                 and finally mark it as being modified --%>
+                            <% int j= Integer.parseInt(argumentIndex); %>
+                            <% String arg = args[j].startsWith("{")&&args[j].endsWith("}")?args[j].substring(1, args[j].length()-1):args[j];%>
+<%--
+                            first we replacing the +'s that java puts in for spaces with spaces, the javascript decoder doesn't do this.
+                            this is safe because java encodes +'s, so they won't be in the string unless they were spaces.  then we remove newlines
+--%>
+                            document.frmTesting.<%=CodingInterfaceConstants.TEST_ARGUMENT+j%>.value=decodeURIComponent("<%=URLEncoder.encode(arg, "UTF-8")%>".replace(/\+/g, " ")).replace(/\n/g,"");
+                            putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT+j%>", decodeURIComponent("<%=URLEncoder.encode(arg, "UTF-8")%>".replace(/\+/g, " ")).replace(/\n/g,""));
+                            <% if (argumentDimension.equals("0")) { %>
+                                document.frmTesting.<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT+j%>.value=<%=arg%>;
+                            <% } %>
+                            setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT+ j%>");
+                        </ci:argumentIterator>
                         break;
                 <% } %>
                     default:
@@ -207,8 +227,8 @@
                                 putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
                                 break;
                             default:
-                                putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase());
-                                putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase());
+                                putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
+                                putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
                                 break;
                         }
                 }
