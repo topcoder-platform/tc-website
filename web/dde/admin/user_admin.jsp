@@ -1,4 +1,7 @@
-<%@ page import="javax.naming.*" %>
+<%@ page import="javax.naming.*,
+                 com.topcoder.dde.notification.NotificationEvent,
+                 com.topcoder.dde.notification.NotificationHome,
+                 com.topcoder.dde.notification.Notification" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -46,6 +49,13 @@
 
     String strError = "";
     String strMessage = "";
+
+    // Obtain a reference to Notification EJB
+    NotificationHome notificationHome
+        = (NotificationHome) PortableRemoteObject.narrow(CONTEXT.lookup(NotificationHome.EJB_REF_NAME),
+                                                         NotificationHome.class);
+    Notification notification = notificationHome.create();
+
 
     if (action != null) {
         if (action.equalsIgnoreCase("Lookup")) {
@@ -108,6 +118,36 @@
             }
         }
 
+        // Handle the actions specific to notification event assignments
+        if (action.equalsIgnoreCase("Assign Event")) {
+            debug.addMsg("user admin", "assigning notification events");
+            String[] strEvents = request.getParameterValues("selEvent");
+            try {
+                long lngUser = Long.parseLong(request.getParameter("user"));
+                for (int i = 0; i < strEvents.length; i++) {
+                    notification.assignEvent(Long.parseLong(strEvents[i]), lngUser);
+                }
+                strMessage += "Notification events were assigned";
+            } catch (RemoteException re) {
+                strError += "RemoteException occurred while assigning notification event: " + re.getMessage();
+            } catch (SQLException e) {
+                strError += "SQLException occurred while assigning notification event: " + e.getMessage();
+            }
+        }
+
+        if (action.equalsIgnoreCase("RemoveEvent")) {
+            debug.addMsg("user admin", "unassigning notification event");
+            String strEvent = request.getParameter("event");
+            debug.addMsg("user admin", "unassign notification event" + strEvent);
+            try {
+                long lngEvent = Long.parseLong(strEvent);
+                long lngUser = Long.parseLong(request.getParameter("user"));
+                notification.unassignEvent(lngUser, lngEvent);
+                strMessage += "Notification event was unassigned";
+            } catch (RemoteException re) {
+                strError += "RemoteException occurred while unassigning notification event: " + re.getMessage();
+            }
+        }
     }
 
     if (selectedPrincipal != null) {
@@ -126,6 +166,8 @@
     DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(
     CONTEXT.lookup(DDEForumHome.EJB_REF_NAME), DDEForumHome.class);
     DDEForum ddeforum = ddeforumhome.create();
+
+
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -281,6 +323,7 @@
 								<td width="48%">
 									<form name="frmUserInfo" action="<%= page_name %>" method="POST">
 									<input type="hidden" name="lngPrincipal" value="<%= selectedPrincipal.getId() %>"></input>
+									<input type="hidden" name="user" value="<%= selectedUser.getId() %>"></input>
 									<img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td width="1%" class="adminLabel" nowrap="nowrap">First Name</td>
 								<td width="1%" class="adminText" nowrap="nowrap"><strong><%= selectedUser.getRegInfo().getFirstName() %></strong></td>
@@ -421,6 +464,79 @@
 				<tr><td class="adminTitle" colspan="2"><img src="/images/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
 			</table>
 <!-- User Roles ends -->
+
+
+<!-- User Notification Events begins -->
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr><td class="adminSubhead">User Notification Events</td></tr>
+			</table>
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+    <%
+        // Obtain a list of notification events assigned to user
+        Set events = notification.getAssignedEvents(selectedUser.getId());
+        NotificationEvent event;
+
+        if (events.size() > 0) {
+    %>
+				<tr valign="top">
+					<td width="80%" class="adminTitle">Notification Event</td>
+					<td width="20%" class="adminTitleCenter">Action</td>
+				</tr>
+
+	<%
+
+            // Render the list of notification events assigned to user
+            Iterator iterator = events.iterator();
+            while (iterator.hasNext()) {
+                event = (NotificationEvent) iterator.next();
+    %>
+				<tr valign="top">
+					<td class="forumText">
+                        <%=event.getDescription()%>
+                    </td>
+					<td class="forumTextCenter">
+                        <strong>
+                            <a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&user=<%=selectedUser.getId()%>&event=<%=event.getId()%>&a=RemoveEvent">
+                                Remove Event
+                            </a>
+                        </strong>
+                    </td>
+				</tr>
+    <%
+            }
+        }
+
+        // Render the drop-down list to select the notification event to assign to user
+        // Such a drop-down list should better not contain the events already assigned to user
+        events = notification.getUnassignedEvents(selectedUser.getId());
+        if (events.size() > 0) {
+	%>
+
+				<tr valign="top">
+					<td class="forumSubject">
+						<select class="adminForm" name="selEvent" multiple="true" >
+	<%
+        Iterator iterator = events.iterator();
+        while (iterator.hasNext()) {
+            event = (NotificationEvent) iterator.next();
+	%>
+                           	<option value="<%=event.getId()%>">
+                                <%=event.getDescription()%>
+                            </option>
+	<%  } %>
+                        </select>
+                    </td>
+					<td class="forumSubjectCenter">
+                        <input class="adminButton" type="submit" name="a" value="Assign Event" />
+                    </td>
+				</tr>
+    <%  }  %>
+				<tr><td class="adminTitle" colspan="2"><img src="/images/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
+			</table>
+
+<!-- User Notification Events ends -->
 
 <% } %>
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center">
