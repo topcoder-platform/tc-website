@@ -1,7 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page
   contentType="text/html"%>
-<!-- Footer Include Begins -->
 
 <!-- Footer Include Begins -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">

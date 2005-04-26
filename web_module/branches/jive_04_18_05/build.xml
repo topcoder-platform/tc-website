@@ -1149,11 +1149,11 @@
  		                <include name="**/*.*"/>
  		            </fileset>
  		            <fileset dir="${java}/com/topcoder/web/jsp">
+ 		            	<include name="tcscript.js"/>
  		                <include name="errorPage.jsp"/>
  		                <include name="top.jsp"/>
  		                <include name="foot.jsp"/>
  		                <include name="date_time.jsp"/>
- 		                <include name="script.jsp"/>
  		                <include name="body_top.jsp"/>
  		                <include name="page_title.jsp"/>
  		                <include name="menu.jsp"/>
