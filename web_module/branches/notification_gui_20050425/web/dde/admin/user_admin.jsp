@@ -125,11 +125,13 @@
             try {
                 long lngUser = Long.parseLong(request.getParameter("user"));
                 for (int i = 0; i < strEvents.length; i++) {
-                    notification.createNotification(strEvents[i], lngUser, Notification.FORUM_POST_TYPE_ID);
+                    notification.assignEvent(Long.parseLong(strEvents[i]), lngUser);
                 }
                 strMessage += "Notification events were assigned";
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while assigning notification event: " + re.getMessage();
+            } catch (SQLException e) {
+                strError += "SQLException occurred while assigning notification event: " + e.getMessage();
             }
         }
 
@@ -520,7 +522,7 @@
         while (iterator.hasNext()) {
             event = (NotificationEvent) iterator.next();
 	%>
-                           	<option value="<%=event.getEventName()%>">
+                           	<option value="<%=event.getId()%>">
                                 <%=event.getDescription()%>
                             </option>
 	<%  } %>
