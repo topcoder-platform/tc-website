@@ -17,8 +17,6 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.apps.review.document.DocumentManager;
-import com.topcoder.apps.review.document.DocumentManagerHome;
 import com.topcoder.dde.notification.Notification;
 import com.topcoder.dde.notification.NotificationHome;
 import com.topcoder.dde.forum.*;
@@ -895,6 +893,9 @@ public class ComponentManagerBean
                 projectTypeId = 2;
             }
 
+            // A String description of the notification event corresponding to current component
+            String description = null;
+
             try {
                 Context homeBindings = new InitialContext();
                 ProjectTrackerHome ptHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
@@ -923,10 +924,11 @@ public class ComponentManagerBean
                         Notification notification = notificationHome.create();
 
                         if (notification != null) {
+                            description = createNotificationEventDescription("Forum Post");
                             notification.createNotification(
                                     "com.topcoder.dde.forum.ForumPostEvent " + project.getForumId(),
                                     project.getWinner().getId(),
-                                    notification.FORUM_POST_TYPE_ID);
+                                    Notification.FORUM_POST_TYPE_ID, description);
                         } else {
                             log.debug("Can't get the notification bean.  The design winner was not added.");
                         }
@@ -964,9 +966,14 @@ public class ComponentManagerBean
                     if (pm == null) {
                         log.debug("The PM can't be retrieved for this project.  Notification not added.");
                     } else {
+                        // Generate the description if it hasn't been generated yet
+                        if (description == null) {
+                            description = createNotificationEventDescription("Forum Post");
+                        }
+
                         notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
                                 pm.getId(),
-                                notification.FORUM_POST_TYPE_ID);
+                                Notification.FORUM_POST_TYPE_ID, description);
                     }
                 }
 
@@ -2315,4 +2322,45 @@ public class ComponentManagerBean
     }
 
     // All your database are belong to us
+
+    /**
+     * <p>Generates the description for the notification event correponding to posting to a forum associated with
+     * current version of current component. Such a description may be used to populate the
+     * 'notification_event.description' column when adding a new notification event.</p>
+     *
+     * @param type a <code>String</code> describing the type of notification
+     * @return a <code>String</code> providing the description of a notification event for current version of current
+     *         component.
+     * @throws CatalogException
+     */
+    private String createNotificationEventDescription(String type) throws CatalogException {
+        if (type == null) {
+            throw new NullPointerException("type should not be null");
+        }
+        
+        StringBuffer buffer = new StringBuffer();
+
+        ComponentInfo info = getComponentInfo();
+        ComponentVersionInfo version = getVersionInfo();
+
+        String category = "";
+
+        try {
+            // Locate the base category for the component.
+            LocalDDECompCatalog catalog = catalogHome.findByPrimaryKey(new Long(info.getId()));
+            LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(catalog.getRootCategory()));
+            category = categories.getName();
+        } catch(FinderException e) {
+            throw new CatalogException(e.toString());
+        }
+
+        buffer.append(category);
+        buffer.append(" ");
+        buffer.append(info.getName());
+        buffer.append(" ");
+        buffer.append(version.getVersionLabel());
+        buffer.append(" - " + type);
+
+        return buffer.toString().trim();
+    }
 }
