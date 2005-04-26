@@ -10,6 +10,7 @@ package com.topcoder.dde.notification;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.topcoder.apps.review.persistence.Common;
 
@@ -64,6 +65,18 @@ public class NotificationBean implements SessionBean {
     private DataSource dataSource;
     private IdGen idGen;
 
+    /**
+     * <p>An <code>int</code> providing the SQL error code specific to current database vendor indicating that a foreign
+     * key constraint has been violated.</p>
+     */
+    private static final int FK_VIOLATION_ERROR_CODE = -691;
+
+    /**
+     * <p>An <code>int</code> providing the SQL error code specific to current database vendor indicating that a primary
+     * key constraint has been violated.</p>
+     */
+    private static final int PK_VIOLATION_ERROR_CODE = -268;
+
     private void info(String msg) {
         try {
             log.log(Level.INFO, msg);
@@ -89,14 +102,14 @@ public class NotificationBean implements SessionBean {
     }
 
     /**
-     * Store a new event in the database.
+     * <p>Stores a new event in the database.</p>
      *
-     * @event the event name
-     * @typeId type of event, as defined in table notification_mail_type_lu.
-     *
-     * @return the primary key for the inserted event.
+     * @param event a <code>String</code> providing the the event name.
+     * @param description a <code>String</code> providing the description of new notification event.
+     * @param typeId a <code>long</code> providing the type of event, as defined in table notification_mail_type_lu.
+     * @return a <code>long</code> providing the primary key for the inserted event.
      */
-    public long createEvent(String event, long typeId) {
+    public long createEvent(String event, String description, long typeId) {
         info("Notification.createEvent " + event + " with type " + typeId);
         Connection conn = null;
         PreparedStatement ps = null;
@@ -105,14 +118,15 @@ public class NotificationBean implements SessionBean {
         try {
             conn = dataSource.getConnection();
             ps = conn.prepareStatement("INSERT INTO notification_event "+
-                                       "(notification_event_id, event, notification_mail_type_id) " +
-                                       "VALUES (?,?,?)");
+                                       "(notification_event_id, event, notification_mail_type_id, description) " +
+                                       "VALUES (?,?,?,?)");
 
             id = idGen.nextId("NOTIFICATION_EVENT_SEQ");
 
             ps.setLong(1, id);
             ps.setString(2, event);
-            ps.setLong(3,typeId);
+            ps.setLong(3, typeId);
+            ps.setString(4, description);
 
             int nr = ps.executeUpdate();
 
@@ -132,15 +146,19 @@ public class NotificationBean implements SessionBean {
     }
 
     /**
-     * Make a user be notified for an event.  If the event doesn't exist, it will be created with the type "typeId".
-     * If the user is already notified for that event, nothing happens.
+     * <p>Makes a user be notified for an event. If the event doesn't exist, it will be created with the specified type
+     * and description. If the user is already notified for that event, nothing happens.</p>
      *
-     * @param the name of the event
-     * @userId the id of the user that be notified for the event
-     * @typeId it will be used in the case that the event must be created.
+     * @param event the name of the event
+     * @param userId the id of the user that be notified for the event
+     * @param typeId it will be used in the case that the event must be created.
+     * @param description a <code>String</code> providing the description of an event in the case that the event must be
+     *        created.
      */
-    public void createNotification(String event, long userId, long typeId) {
-        info("Notification.createNotification for event " + event + ", user "+ userId + " with type " + typeId);
+    public void createNotification(String event, long userId, long typeId, String description) {
+        info("Notification.createNotification for event " + event + ", user "+ userId + " with type " + typeId
+            + " and description " + description);
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -159,7 +177,7 @@ public class NotificationBean implements SessionBean {
 
             // If the event doens't exist, create it.
             if (!rs.next()) {
-                id = createEvent(event, typeId);
+                id = createEvent(event, description, typeId);
             } else {
                 id = rs.getLong(1);
             }
@@ -203,10 +221,10 @@ public class NotificationBean implements SessionBean {
     }
 
     /**
-     * Sends mail for notifying that an event has happened. The properties are used to store additional data
-     * for the mail template.
+     * <p>Sends mail for notifying that an event has happened. The properties are used to store additional data
+     * for the mail template.</p>
      *
-     * @param event the event name
+     * @param event the event name.
      * @param prop the additional name-values to be used for the mail template.
      */
     public void notifyEvent(String event, Properties prop) {
@@ -416,6 +434,52 @@ public class NotificationBean implements SessionBean {
         }
     }
 
+    /**
+     * <p>A <code>String</code> providing the SQL command to be used to assign the specified notification event to
+     * specified user.</p>
+     */
+    private static final String ASSIGN_EVENT_TO_USER_COMMAND = "INSERT INTO user_notification_event_xref "
+        + "(notification_event_id, user_id) VALUES(?, ?)";
+
+    /**
+     * <p>Makes a user be notified for an event. If the event doesn't exist, it will not be created and the operation
+     * will fail with exception. If the user is already notified for that event, nothing happens.</p>
+     *
+     * @param eventId a <code>long</code> providing the ID of a notification event to assign to the requested user.
+     * @param userId a <code>long</code> providing the ID of a user to assign the requested notification event to.
+     * @throws SQLException if the specified event does not exist.
+     */
+    public void assignEvent(long eventId, long userId) throws SQLException {
+        info("Notification.assignEvent for event " + eventId + ", user "+ userId);
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = dataSource.getConnection();
+
+            ps = conn.prepareStatement(ASSIGN_EVENT_TO_USER_COMMAND);
+            ps.setLong(1,eventId);
+            ps.setLong(2,userId);
+
+            int rowsInserted = ps.executeUpdate();
+            if ( rowsInserted != 1) {
+                info("assignEvent: Unexpected number of inserted rows - " + rowsInserted);
+            }
+        } catch (SQLException e) {
+            int vendorErrorCode = e.getErrorCode();
+            if (vendorErrorCode == FK_VIOLATION_ERROR_CODE) {
+                throw e;
+            } else if (vendorErrorCode == PK_VIOLATION_ERROR_CODE) {
+                info("The event " + eventId + " is already assigned to user " + userId);
+            } else {
+                info("SQL error in assignEvent: " + e.toString());
+            }
+        } finally {
+            Common.close(ps);
+            Common.close(conn);
+        }
+    }
 
     /**
      * Send a mail from a user to another user.
@@ -450,11 +514,6 @@ public class NotificationBean implements SessionBean {
      * Formats the body of the email by appling an XSL transformation to an XML file which is dinamically
      * generated (containing info such as the names of the sender and receiver, the project name and id and the reason.
      *
-     * @param from the sender user
-     * @param to the receiver user
-     * @param proj the project
-     * @param reason the reason
-     * @param changeType the type of the project change (a combination of the constants defined in this class)
      * @param bodyXSL the name of the XSL file (template of the body) to be applied
      *
      * @return the formatted body
