@@ -22,7 +22,7 @@
    </tr>
    <tr>
    <% if (!tabLev1.equals("login")) { %>
-      <td class=tabBar><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_INDEX%>" target="_top"><img src="/i/corp/screening/mainTab.gif" alt="" /></a></td>
+      <td class=tabBar><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_INDEX%>&<%=Constants.COMPANY_ID%>=<%=session.getAttribute(Constants.COMPANY_ID)%>" target="_top"><img src="/i/corp/screening/mainTab.gif" alt="" /></a></td>
    <% } %>
       <td class=tabBar><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=index" target="_blank"><img src="/i/corp/screening/helpTab.gif" alt=""/></a></td>
    <% if (!tabLev1.equals("login")) { %>
