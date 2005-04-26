@@ -1159,6 +1159,8 @@
  		                <include name="menu.jsp"/>
  		                <include name="calendar.jsp"/>
  		                <include name="public_right.jsp"/>
+ 		            	<include name="includes/global_left.jsp"/>
+ 		            	<include name="includes/modules/simpleSearch.jsp"/>
  		            </fileset>
  		            <classes dir="${classes}">
  		                <include name="com/topcoder/shared/**/*.class"/>
@@ -1323,7 +1325,7 @@
  	
  	
  	<target name="run-ForumConverter" depends="compile_forumData">
- 	         <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="no">
+ 	         <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="true">
  	         	<classpath>
  	         	     <pathelement location="${classes}"/>
  	         	     <pathelement location="${resources}"/>

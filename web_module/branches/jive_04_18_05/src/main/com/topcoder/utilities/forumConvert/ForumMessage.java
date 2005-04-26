@@ -36,11 +36,41 @@ public class ForumMessage {
 		this.modifiedDate = modifiedDate;
 		this.creationDate = creationDate;
 		this.parentMessageID = parentMessageID;
+		this.messageList = new ArrayList();
+	}
+	
+	public int getMessageID() {
+		return messageID;
+	}
+	public int getThreadID() {
+		return threadID;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public String getBody() {
+		return body;
+	}
+	public String getModifiedDate() {
+		return modifiedDate;
+	}
+	public String getCreationDate() {
+		return creationDate;
+	}
+	public int getParentMessageID() {
+		return parentMessageID;
+	}
+	
+	public void addMessage(ForumMessage message) {
+		this.messageList.add(message);
 	}
 	
 	public String toXML() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Message id=\"");
+		sb.append("<Message id=\"");
 		sb.append(messageID);
 		sb.append("\">\n");
 		sb.append("<Subject>");
@@ -51,21 +81,23 @@ public class ForumMessage {
 		sb.append("</Body>\n");
 		sb.append("<CreationDate>");
 		sb.append(creationDate);
+		sb.append(" EST");
 		sb.append("</CreationDate>\n");
 		sb.append("<ModifiedDate>");
 		sb.append(modifiedDate);
+		sb.append(" EST");
 		sb.append("</ModifiedDate>\n");
 		
-		/*
-		<Message id="1">
-		<Subject>the beginning</Subject>
-                <Body>and then this was a post</Body>
-                <CreationDate>2004/11/23 11:00:04.312 EST</CreationDate>
-                <ModifiedDate>2004/11/23 11:00:04.312 EST</ModifiedDate>
-                <PropertyList>
-                  <Property name="IP" value="172.16.1.182"/>
-                </PropertyList>
-                <MessageList> */
+		if (messageList.size() > 0) {
+			sb.append("<MessageList>\n");
+			for (int i=0; i<messageList.size(); i++) {
+				ForumMessage fm = (ForumMessage)messageList.get(i);
+				sb.append(fm.toXML());
+			}
+			sb.append("</MessageList>\n");
+		}
+		
+		sb.append("</Message>\n");
 		
 		return sb.toString();
 	}

@@ -32,11 +32,35 @@ public class ForumForum {
 		this.modifiedDate = modifiedDate;
 		this.creationDate = creationDate;
 		this.userID = userID;
+		this.threadList = new ArrayList();
+	}
+	
+	public int getForumID() {
+		return forumID;
+	}
+	public String getName() {
+		return name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public String getCreationDate() {
+		return creationDate;
+	}
+	public String getModifiedDate() {
+		return modifiedDate;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	
+	public void addThread(ForumThread thread) {
+		this.threadList.add(thread);
 	}
 	
 	public String toXML() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("Forum id=\"");
+		sb.append("<Forum id=\"");
 		sb.append(forumID);
 		sb.append("\">\n");
 		sb.append("<Name>");
@@ -47,18 +71,58 @@ public class ForumForum {
 		sb.append("</Description>\n");
 		sb.append("<CreationDate>");
 		sb.append(creationDate);
+		sb.append(" EST");
 		sb.append("</CreationDate>\n");
 		sb.append("<ModifiedDate>");
 		sb.append(modifiedDate);
+		sb.append(" EST");
 		sb.append("</ModifiedDate>\n");
 		
-		/*
-		<Forum id="1">
-		<Name>Bullpen</Name>
-        <Description>Some crazy description</Description>
-        <CreationDate>2004/11/23 10:59:05.789 EST</CreationDate>
-        <ModifiedDate>2004/11/24 10:10:55.396 EST</ModifiedDate> */
+		if (threadList.size() > 0) {
+			sb.append("<ThreadList>\n");
+			for (int i=0; i<threadList.size(); i++) {
+				ForumThread ft = (ForumThread)threadList.get(i);
+				sb.append(ft.toXML());
+			}
+			sb.append("</ThreadList>\n");
+		}
+		
+		sb.append("</Forum>\n");
 		
 		return sb.toString();
+	}
+	
+	public void writeXML(java.io.FileWriter writer) throws Exception {
+		StringBuffer sb = new StringBuffer();
+		sb.append("<Forum id=\"");
+		sb.append(forumID);
+		sb.append("\">\n");
+		sb.append("<Name>");
+		sb.append(name);
+		sb.append("</Name>\n");
+		sb.append("<Description>");
+		sb.append(description);
+		sb.append("</Description>\n");
+		sb.append("<CreationDate>");
+		sb.append(creationDate);
+		sb.append(" EST");
+		sb.append("</CreationDate>\n");
+		sb.append("<ModifiedDate>");
+		sb.append(modifiedDate);
+		sb.append(" EST");
+		sb.append("</ModifiedDate>\n");
+		writer.write(sb.toString());
+		
+		if (threadList.size() > 0) {
+			writer.write("<ThreadList>\n");
+			for (int i=0; i<threadList.size(); i++) {
+				ForumThread ft = (ForumThread)threadList.get(i);
+				writer.write(ft.toXML());
+				writer.flush();
+			}
+			writer.write("</ThreadList>\n");
+		}
+		
+		writer.write("</Forum>\n");
 	}
 }
