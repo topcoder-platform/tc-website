@@ -522,7 +522,10 @@ public class TCLoadRequests extends TCLoad {
                 ret.append("=");
                 ret.append(me.getValue());
             }
-            return ret.toString();
+            //254 is as long as we can fit in the column, so we'll do everything based on a trimmed version of the url
+            if (ret.length()>254)
+                return ret.toString().substring(0, 254);
+            else return ret.toString();
         }
 
         public boolean hasCoderId() {
