@@ -924,7 +924,7 @@ public class ComponentManagerBean
                         Notification notification = notificationHome.create();
 
                         if (notification != null) {
-                            description = createNotificationEventDescription();
+                            description = createNotificationEventDescription("Forum Post");
                             notification.createNotification(
                                     "com.topcoder.dde.forum.ForumPostEvent " + project.getForumId(),
                                     project.getWinner().getId(),
@@ -968,7 +968,7 @@ public class ComponentManagerBean
                     } else {
                         // Generate the description if it hasn't been generated yet
                         if (description == null) {
-                            description = createNotificationEventDescription();
+                            description = createNotificationEventDescription("Forum Post");
                         }
 
                         notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
@@ -2328,11 +2328,16 @@ public class ComponentManagerBean
      * current version of current component. Such a description may be used to populate the
      * 'notification_event.description' column when adding a new notification event.</p>
      *
+     * @param type a <code>String</code> describing the type of notification
      * @return a <code>String</code> providing the description of a notification event for current version of current
      *         component.
      * @throws CatalogException
      */
-    private String createNotificationEventDescription() throws CatalogException {
+    private String createNotificationEventDescription(String type) throws CatalogException {
+        if (type == null) {
+            throw new NullPointerException("type should not be null");
+        }
+        
         StringBuffer buffer = new StringBuffer();
 
         ComponentInfo info = getComponentInfo();
@@ -2354,7 +2359,7 @@ public class ComponentManagerBean
         buffer.append(info.getName());
         buffer.append(" ");
         buffer.append(version.getVersionLabel());
-        buffer.append(" - Forum Post");
+        buffer.append(" - " + type);
 
         return buffer.toString().trim();
     }
