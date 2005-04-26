@@ -1146,16 +1146,16 @@
  	<target name="war-forums" depends="compile_forums">
  		        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
  		            <fileset dir="${java}/com/topcoder/web/forums/view">
- 		                <include name="**/*.*"/>
+ 		                <include name="*.*"/>
  		            </fileset>
  		            <fileset dir="${java}/com/topcoder/web/jsp">
- 		            	<include name="tcscript.js"/>
  		                <include name="errorPage.jsp"/>
  		                <include name="top.jsp"/>
  		                <include name="foot.jsp"/>
  		                <include name="date_time.jsp"/>
  		                <include name="body_top.jsp"/>
  		                <include name="page_title.jsp"/>
+ 		            	<include name="script.jsp"/>
  		                <include name="menu.jsp"/>
  		                <include name="calendar.jsp"/>
  		                <include name="public_right.jsp"/>
