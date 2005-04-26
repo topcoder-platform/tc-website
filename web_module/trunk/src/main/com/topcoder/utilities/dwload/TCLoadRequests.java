@@ -462,6 +462,7 @@ public class TCLoadRequests extends TCLoad {
     private class URL {
         private String baseUrl;
         private TreeMap paramMap = new TreeMap();
+        private String url = null;
 
         private URL(String url) {
             String trimedUrl = null;
@@ -503,10 +504,6 @@ public class TCLoadRequests extends TCLoad {
                     }
                 }
             }
-
-        }
-
-        public String getUrl() {
             Map.Entry me = null;
             StringBuffer ret = new StringBuffer(baseUrl.length());
             ret.append(baseUrl);
@@ -522,10 +519,15 @@ public class TCLoadRequests extends TCLoad {
                 ret.append("=");
                 ret.append(me.getValue());
             }
+
             //254 is as long as we can fit in the column, so we'll do everything based on a trimmed version of the url
             if (ret.length()>254)
-                return ret.toString().substring(0, 254);
-            else return ret.toString();
+                this.url = ret.toString().substring(0, 254);
+            else this.url = ret.toString();
+        }
+
+        public String getUrl() {
+            return url;
         }
 
         public boolean hasCoderId() {
