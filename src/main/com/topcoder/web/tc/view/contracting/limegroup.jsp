@@ -34,26 +34,9 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-		<div align="center">
-      <img src="/i/contracting/limegroup_logo.gif" border=0/>
-		</div>
-
 		<p>
-      <a name="job1"></a>
-      <span class="bodySubtitle">Lead Developer</span>
-      <br><br>
-      <strong>Job description:</strong><br>
-      Skills: C++, Java, Linux, SQL, XML, HTML, Perl, Javascript, Postgres<br>
-      Permanent Job<br>
-      Full Time
-      <br><br>
-      The <A href="http://www.limegroup.com" target="_blank">LimeGroup</A> is in the process of starting a new company in the field of electronic finance.  This job offers the opportunity to help found a company and architect and build the core systems from the ground up.  We are looking for a person who has both the technical skills to code the application and business/personal skills to grow the team and company over time.
-      <br><br>
-      Must have very good programming experience.  Strong technical skills using C++/Java, Linux, SQL, XML, Perl, HTML, Javascript.  Object-oriented analysis, design and development required.  Should have experience with a relational database preferably Postgres or MySQL.  Experience with robust and redundant systems a plus. 
-      <br><br>
-      <a href="/tc?module=JobHit&jid=276&jt=4">Register for this position here!</a>
+      These job openings are no longer available.  Please <A href="/tc?module=Static&d1=contracting&d2=index">click here</A> to see what Employment Opportunities are currently posted.
 		<br/><br/>
-
 		</p>
 
         </div>
