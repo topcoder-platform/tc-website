@@ -307,7 +307,7 @@
       <tr>
         <td class="forumTitleCenter" width="20%">Appeals</td>
         <td class="forumTitleCenter" width="20%">Appealer</td>
-        <td class="forumTitleCenter" width="20%">Submitter</td>
+        <!-- <td class="forumTitleCenter" width="20%">Submitter</td> -->
         <td class="forumTitleCenter" width="20%">Reviewer</td>
         <td class="forumTitleCenter" width="20%">Status</td>
       </tr>
@@ -328,9 +328,11 @@
         <td class="<%=rowClassAppeal%>" nowrap>
           <bean:write name="appeal" property="appealer.handle" />
         </td>
+        <!--
         <td class="<%=rowClassAppeal%>" nowrap>
           <bean:write name="appeal" property="submitter.handle" />
         </td>
+        -->
         <td class="<%=rowClassAppeal%>">
           <bean:write name="appeal" property="reviewer.handle" />
         </td>
