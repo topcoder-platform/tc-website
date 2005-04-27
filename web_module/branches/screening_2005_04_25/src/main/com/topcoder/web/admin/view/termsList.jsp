@@ -9,7 +9,7 @@
 </head>
     <body>
         <% ResultSetContainer termsList = (ResultSetContainer)request.getAttribute("terms_list"); %>
-        <table>
+        <table cellpadding="3" cellspacing="0">
             <tr>
                 <td>&#160;</td>
                 <td>Text</td>
