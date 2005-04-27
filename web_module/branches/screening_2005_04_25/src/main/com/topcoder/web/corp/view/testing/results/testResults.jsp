@@ -306,6 +306,7 @@ if ( plugin ) {
 		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Time</B></TD>
                 <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">Percentile</TD>
+               <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">&#160;</TD>
 		<% } %>
                        <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">&#160;</TD>
 	        </TR>
