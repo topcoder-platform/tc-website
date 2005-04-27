@@ -302,7 +302,7 @@
   <table class="forumBkgd" cellspacing="1" cellpadding="0" width="100%" border="0">
     <tbody>
       <tr>
-        <td class="forumTextEven" colspan="5"><strong>Appeals</strong></td>
+        <td class="forumTextEven" colspan="4"><strong>Appeals</strong></td>
       </tr>
       <tr>
         <td class="forumTitleCenter" width="20%">Appeals</td>
