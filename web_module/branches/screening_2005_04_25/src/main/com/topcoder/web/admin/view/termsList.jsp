@@ -5,20 +5,20 @@
 <title>TopCoder Admin</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 </head>
-<body>
+    <body>
 
-<% ResultSetContainer termsList = (ResultSetContainer)request.getAttribute("terms_list"); %>
-<table>
-    <rsc:iterator list="<%=termsList%>" id="terms">
-        <tr>
-            <td><%=terms.getStringItem("terms_text").substring(0, 50)%></td>
-            <td><rsc:item row="<%=terms%>" name="terms_of_use_type_desc"/></td>
-            <td><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy H:m:s"/></td>
-            <td><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy H:m:s"/></td>
-        </tr>
-    </rsc:iterator>
-</table>
+    <% ResultSetContainer termsList = (ResultSetContainer)request.getAttribute("terms_list"); %>
+    <table>
+        <rsc:iterator list="<%=termsList%>" id="terms">
+            <tr>
+                <td><%=terms.getStringItem("terms_text").substring(0, 50)%></td>
+                <td><rsc:item row="<%=terms%>" name="terms_of_use_type_desc"/></td>
+                <td><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy H:m:s"/></td>
+                <td><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy H:m:s"/></td>
+            </tr>
+        </rsc:iterator>
+    </table>
 
 
-</body>
+    </body>
 </html>
