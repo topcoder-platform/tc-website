@@ -17,7 +17,6 @@
                 <td>Create Date</td>
                 <td>Modify Date</td>
             </tr>
-            <% boolean even = false;%>
             <rsc:iterator list="<%=termsList%>" id="terms">
                 <tr>
                     <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a></td>
