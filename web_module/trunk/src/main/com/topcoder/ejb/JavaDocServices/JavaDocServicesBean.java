@@ -25,9 +25,9 @@ public class JavaDocServicesBean extends BaseEJB {
      * Checks if a user has permission to view a java doc.  The returned String
      * is "" if he does and a String error message if he doesn't.
      */
-    public String authenticateUserForWebService(String handle, String password, String webServiceName)
+    public String authenticateUserForWebService(String handle, String password, String webServiceName, String dbName)
             throws JavaDocServicesException {
-        logger.info("authenticateUserForWebService(" + handle + ", " + password + ", " + webServiceName + ")");
+        logger.info("authenticateUserForWebService(" + handle + ", " + password + ", " + webServiceName + "," + dbName + ")");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -36,7 +36,7 @@ public class JavaDocServicesBean extends BaseEJB {
         String errors = "";
 
         try {
-            conn = DBMS.getConnection();
+            conn = DBMS.getConnection(dbName);
 
             //First, is this a user?
             sql = new StringBuffer("SELECT user_id FROM user WHERE handle = ? AND password = ? AND status = 'A'");
@@ -115,9 +115,9 @@ public class JavaDocServicesBean extends BaseEJB {
      * Returns the HTML corresponding the the file specified by path for the
      * specified web service.
      */
-    public String getFile(String webServiceName, String path)
+    public String getFile(String webServiceName, String path, String dbName)
             throws RemoteException, JavaDocServicesException {
-        logger.info("getFile(" + webServiceName + ", " + path + ")");
+        logger.info("getFile(" + webServiceName + ", " + path + "," + dbName + ")");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -126,7 +126,7 @@ public class JavaDocServicesBean extends BaseEJB {
         String file = "";
 
         try {
-            conn = DBMS.getConnection();
+            conn = DBMS.getConnection(dbName);
 
             sql = new StringBuffer();
             sql.append("SELECT wsjd.content ");
