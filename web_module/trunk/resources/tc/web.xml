@@ -175,6 +175,13 @@
     </servlet>
 
     <servlet>
+        <servlet-name>javaonedocs</servlet-name>
+        <display-name>javaonedocs</display-name>
+        <description>The javaone javadocs controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.JavaOneJavaDocServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>PactsMemberServlet</servlet-name>
         <display-name>PactsMemberServlet</display-name>
         <description>The PactsMemberServlet controller servlet</description>
