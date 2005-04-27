@@ -46,6 +46,7 @@
                                     Java Code Template<br>
                                     C++ Code Template<br>
                                     C# Code Template<br>
+                                    Visual Basic Code Template<br>
                                     Compiling<br>
                                     User Testing<br>
                                     The Problem Arguments Window<br>
