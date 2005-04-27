@@ -29,7 +29,15 @@ public final class JavaDocServlet extends HttpServlet {
     private static final String PATH = "path";
     private static final String PASSWORD = "password";
     private static final String HANDLE = "handle";
-    private static final String DB = "db";
+    private static final String DB_NAME = "OLTP";
+    
+    private String getServletPath() {
+        return SERVLET_NAME;
+    }
+    
+    private String getDB() {
+        return DB_NAME;
+    }
 
     private JavaDocServices services = null;
 
@@ -77,15 +85,10 @@ public final class JavaDocServlet extends HttpServlet {
         String path = request.getParameter(PATH);
         String password = request.getParameter(PASSWORD);
         String handle = request.getParameter(HANDLE);
-        String db = request.getParameter(DB);
-        log.info("webServiceName = " + webServiceName + ", path = " + path + ", password = " + password + ", handle = " + handle + ", db = " + db);
+        log.info("webServiceName = " + webServiceName + ", path = " + path + ", password = " + password + ", handle = " + handle );
 
         if (webServiceName == null) {
             forwardToErrorPage(request, response, null, "A webServiceName property must be set.");
-            return;
-        }
-        if (db == null) {
-            forwardToErrorPage(request, response, null, "A db property must be set.");
             return;
         }
 
@@ -100,7 +103,7 @@ public final class JavaDocServlet extends HttpServlet {
             if (password == null || handle == null) {
                 //the user has not yet tried to login
                 log.debug("Hasn't tried to log in.");
-                writeLoginHtml(out, webServiceName, db);
+                writeLoginHtml(out, webServiceName);
             } else {
 
                 //try to authenticate the user
@@ -108,7 +111,7 @@ public final class JavaDocServlet extends HttpServlet {
                 String error = "";
 
                 try {
-                    error = services.authenticateUserForWebService(handle, password, webServiceName,db);
+                    error = services.authenticateUserForWebService(handle, password, webServiceName, getDB());
                 } catch (Exception e) {
                     log.error("Error authenticating " + handle);
                     forwardToErrorPage(request, response, e, "Error using JavaDocServices to authenticate user.");
@@ -118,7 +121,7 @@ public final class JavaDocServlet extends HttpServlet {
                 if (error.length() != 0) {
                     log.debug("Invalid login: " + error);
                     //invalid login
-                    writeLoginHtmlWithError(out, webServiceName, error,db);
+                    writeLoginHtmlWithError(out, webServiceName, error);
                 } else {
                     log.debug("Good login.");
                     //good login
@@ -152,7 +155,7 @@ public final class JavaDocServlet extends HttpServlet {
             String file = null;
 
             try {
-                file = services.getFile(webServiceName, requestPath,db);
+                file = services.getFile(webServiceName, requestPath,getDB());
             } catch (Exception e) {
                 log.error("Error getting " + path + " for " + webServiceName);
                 forwardToErrorPage(request, response, e, "Error using JavaDocServices to get file.");
@@ -161,8 +164,7 @@ public final class JavaDocServlet extends HttpServlet {
             log.debug("file = " + file);
 
             //fix the links in the file to start with "javadocs?webServiceName=name&"
-            file = HTMLLinkChanger.prependToAllAddresses(SERVLET_NAME + "?" + DB + "=" + db +
-                    "&" + WEB_SERVICE_NAME + "=" + webServiceName + "&path=", file);
+            file = HTMLLinkChanger.prependToAllAddresses(getServletPath() + "?" + WEB_SERVICE_NAME + "=" + webServiceName + "&path=", file);
             out.append(file);
         }
 
@@ -171,11 +173,11 @@ public final class JavaDocServlet extends HttpServlet {
         outputStream.flush();
     }
 
-    private void writeLoginHtml(StringBuffer out, String webServiceName, String db) {
-        writeLoginHtmlWithError(out, webServiceName, "",db);
+    private void writeLoginHtml(StringBuffer out, String webServiceName) {
+        writeLoginHtmlWithError(out, webServiceName, "");
     }
 
-    private void writeLoginHtmlWithError(StringBuffer out, String webServiceName, String error, String db) {
+    private void writeLoginHtmlWithError(StringBuffer out, String webServiceName, String error) {
         out.append(
                 "<HTML><HEAD><TITLE>Log in to view the java docs.</TITLE></HEAD>" +
                 "<BODY><H1>Java Doc Viewer Login</H1>");
@@ -187,7 +189,7 @@ public final class JavaDocServlet extends HttpServlet {
 
         out.append(
                 "Please login to view the java docs for " + webServiceName + ".<P>" +
-                "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + SERVLET_NAME + "?" + WEB_SERVICE_NAME + "=" + webServiceName + "&DB=" + db + "\">" +
+                "<FORM NAME=\"login_form\" METHOD=\"post\" ACTION=\"" + getServletPath() + "?" + WEB_SERVICE_NAME + "=" + webServiceName + "\">" +
                 "Handle: <INPUT TYPE=\"text\" NAME=\"" + HANDLE + "\" SIZE=\"15\"<BR>" +
                 "Password: <INPUT TYPE=\"password\" NAME=\"" + PASSWORD + "\" SIZE=\"15\"<BR>" +
                 "<INPUT TYPE=\"submit\" NAME=\"login_button\" VALUE=\"Login\"><BR>" +
