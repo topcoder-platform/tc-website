@@ -20,7 +20,7 @@ import java.io.IOException;
  *
  * @author Tim Bulat
  */
-public final class JavaDocServlet extends HttpServlet {
+public class JavaDocServlet extends HttpServlet {
 
     private static Logger log = Logger.getLogger(JavaDocServlet.class);
     private static final String ERROR_PAGE = "/errorPage.jsp";
@@ -31,11 +31,11 @@ public final class JavaDocServlet extends HttpServlet {
     private static final String HANDLE = "handle";
     private static final String DB_NAME = "OLTP";
     
-    private String getServletPath() {
+    protected String getServletPath() {
         return SERVLET_NAME;
     }
     
-    private String getDB() {
+    protected String getDB() {
         return DB_NAME;
     }
 
