@@ -5,7 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.servlet.ServletConfig;
 import java.lang.reflect.Field;
 
-public class Constants {
+public class Constants implements AdminConstants {
 
     private static Logger log = Logger.getLogger(Constants.class);
 
