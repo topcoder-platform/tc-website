@@ -37,10 +37,10 @@
             <p class=pL>
             <span class=bodyBigTitle>Resources</span>
             <br /><br />
-            Java
-            C++
-            C#
-            Visual Basic
+            Java - <a href="http://java.sun.com/j2se/1.4.2/docs/api/index.html">http://java.sun.com/j2se/1.4.2/docs/api/index.html</a>
+            C++ - <a href="http://www.sgi.com/tech/stl/">http://www.sgi.com/tech/stl/</a>
+            C# - <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp</a>
+            Visual Basic - <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp</a>
 
 
 
