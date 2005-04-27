@@ -80,6 +80,9 @@ public class TCLoadRequests extends TCLoad {
     private static final String NEWEST_REQUEST_TIME =
             " select max(timestamp) from request";
 
+    private static final String DELETE =
+            " delete from request where timestamp <= ?";
+
 
     public TCLoadRequests() {
         //DEBUG = false;
@@ -176,6 +179,7 @@ public class TCLoadRequests extends TCLoad {
     private void loadWebRequests() throws Exception {
         //log.debug("called loadWebRequests()");
         PreparedStatement psSel = null;
+        PreparedStatement psDel = null;
 
         ResultSet rs = null;
         int count = 0;
@@ -221,6 +225,10 @@ public class TCLoadRequests extends TCLoad {
 
                 printLoadProgress(count, "site_hit");
             }
+            log.info("deleting transactional records.");
+            psDel = prepareStatement(DELETE, SOURCE_DB);
+            psDel.setTimestamp(1, fStartTime);
+            psDel.executeUpdate();
 
             log.info("Records loaded for site_hit: " + count);
         } catch (SQLException sqle) {
