@@ -181,7 +181,7 @@
          	 <exclude name="com/topcoder/project/**"/>
          </javac>
      </target>
- 	
+
  	<target name="compile_forums" depends="init,jar_shared">
  	         <javac
  	             srcdir="${java}"
@@ -197,7 +197,7 @@
  	         	 <include name="com/topcoder/ejb/**"/>
  	         </javac>
  	     </target>
- 	
+
  	<target name="compile_forumData" depends="init,jar_shared">
  	 	         <javac
  	 	             srcdir="${java}"
@@ -689,7 +689,7 @@
              </fileset>
          </copy>
      </target>
- 	
+
      <target name="move-libs" depends="package-Jive">
          <copy todir="${jboss_lib}">
              <fileset dir="${bin}">
@@ -739,7 +739,7 @@
          </copy>
 
      </target>
- 	
+
  	 <target name="move-jive-libs">
  	         <copy todir="${jboss_lib}">
  	             <fileset dir="${jars.dir}">
@@ -1190,7 +1190,7 @@
  		        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
  			<delete dir="${jboss_deploy}/forums.war/META-INF"/>
  		</target>
- 	
+
      <target name="war-tc" depends="compile">
          <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
              <fileset dir="${java}/com/topcoder/web/tc/view">
@@ -1328,8 +1328,8 @@
              </classpath>
          </java>
      </target>
- 	
- 	
+
+
  	<target name="run-ForumConverter" depends="compile_forumData">
  	         <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="true">
  	         	<classpath>

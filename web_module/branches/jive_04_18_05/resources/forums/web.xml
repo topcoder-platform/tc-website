@@ -12,7 +12,7 @@
 
     <servlet-mapping>
         <servlet-name>ForumsServlet</servlet-name>
-        <url-pattern>/forums</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 
