@@ -37,10 +37,19 @@
             <p class=pL>
             <span class=bodyBigTitle>Resources</span>
             <br /><br />
-            Java - <a href="http://java.sun.com/j2se/1.4.2/docs/api/index.html">http://java.sun.com/j2se/1.4.2/docs/api/index.html</a>
-            C++ - <a href="http://www.sgi.com/tech/stl/">http://www.sgi.com/tech/stl/</a>
-            C# - <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp</a>
-            Visual Basic - <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp</a>
+
+
+            <span class="bodySmallTitle">Java</span><br />
+            <a href="http://java.sun.com/j2se/1.4.2/docs/api/index.html">http://java.sun.com/j2se/1.4.2/docs/api/index.html</a>
+            <br /><br />
+            <span class="bodySmallTitle">C++</span><br />
+            <a href="http://www.sgi.com/tech/stl/">http://www.sgi.com/tech/stl/</a>
+            <br /><br />
+            <span class="bodySmallTitle">C#</span><br />
+            <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp</a>
+            <br /><br />
+            <span class="bodySmallTitle">Visual Basic</span><br />
+            <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp</a>
 
             <br><br>
 
