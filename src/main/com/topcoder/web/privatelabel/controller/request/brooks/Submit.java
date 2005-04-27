@@ -337,7 +337,7 @@ public class Submit extends FullRegSubmit {
                 buf.append("Please review the Help Manual before getting started:\n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/corp/testing/help/index.jsp");
+                buf.append("/techassess/techassess?module=Static&d1=help&d2=index");
                 buf.append("\n\n");
                 buf.append("The following session has been scheduled for you:\n\n");
                 buf.append("Begin: ");
@@ -353,13 +353,10 @@ public class Submit extends FullRegSubmit {
                 buf.append(info.getPassword());
                 buf.append("\n\n");
                 buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT TOOL PRIOR TO THE END TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 1 HOUR TO COMPLETE ALL PORTIONS OF THE TEST.\n\n");
-                buf.append("You must have the Java 1.4.x runtime installed to access the Technical Assessment Tool here:\n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
-                buf.append("/corp/testing/testingApp.jsp?company=");
+                buf.append("/techassess/techassess?module=Login&cm=");
                 buf.append(companyId);
-                buf.append("\n\n");
-                buf.append("If you are unable to connect when you attempt to login, please try checking the HTTP Tunneling option and entering your login/password again.");
                 buf.append("\n\n");
                 buf.append("If you encounter any technical problems while using the Technical Assessment Tool, please contact us at brooks@topcoder.com.\n\n");
                 buf.append("Thank you,\n\n");
