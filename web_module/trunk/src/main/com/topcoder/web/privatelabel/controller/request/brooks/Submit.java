@@ -353,6 +353,7 @@ public class Submit extends FullRegSubmit {
                 buf.append(info.getPassword());
                 buf.append("\n\n");
                 buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT TOOL PRIOR TO THE END TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 1 HOUR TO COMPLETE ALL PORTIONS OF THE TEST.\n\n");
+                buf.append("You may access the Technical Assessment Tool here:\n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/techassess/techassess?module=Login&cm=");
