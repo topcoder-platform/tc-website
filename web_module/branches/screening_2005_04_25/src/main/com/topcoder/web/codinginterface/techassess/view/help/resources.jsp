@@ -42,8 +42,6 @@
             C# - <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp</a>
             Visual Basic - <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/cpref_start.asp</a>
 
-
-
             <br><br>
 
             </p>
