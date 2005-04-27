@@ -1053,6 +1053,9 @@
                  <include name="com/topcoder/web/common/"/>
                  <include name="com/topcoder/web/admin/**"/>
              </classes>
+             <webinf dir="${resources}/taglib">
+                 <include name="rsc-taglib.tld"/>
+             </webinf>
 
          </war>
          <unwar src="${war.dir}/admin.war" dest="${public_html}/admin/" overwrite="yes"/>
