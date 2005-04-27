@@ -7,9 +7,6 @@ import java.lang.reflect.Field;
 
 public class Constants {
 
-    public static String index_page = null;
-    public static String jsp_root = null;
-    public static String login_page = null;
     private static Logger log = Logger.getLogger(Constants.class);
 
     /**

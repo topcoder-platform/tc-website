@@ -6,7 +6,6 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
  * @author  dok

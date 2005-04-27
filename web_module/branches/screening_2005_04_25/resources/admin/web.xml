@@ -34,7 +34,7 @@
         </init-param>
         <init-param>
             <param-name>processor_path</param-name>
-            <param-value>com.topcoder.web.admin.request.</param-value>
+            <param-value>com.topcoder.web.admin.controller.request.</param-value>
             <description>the path to the processors for this app</description>
         </init-param>
         <init-param>
@@ -45,21 +45,6 @@
         <!-- end  parameters required by BaseServlet -->
 
         <!-- begin application specific parameters -->
-        <init-param>
-            <param-name>jsp_root</param-name>
-            <param-value>/</param-value>
-            <description></description>
-        </init-param>
-        <init-param>
-            <param-name>index_page</param-name>
-            <param-value>index.jsp</param-value>
-            <description></description>
-        </init-param>
-        <init-param>
-            <param-name>login_page</param-name>
-            <param-value>login.jsp</param-value>
-            <description></description>
-        </init-param>
         <!-- end application specific parameters -->
     </servlet>
 
@@ -72,10 +57,10 @@
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/security</url-pattern>
     </servlet-mapping>
-
     <taglib>
-        <taglib-uri>tces-taglib.tld</taglib-uri>
-        <taglib-location>tces-taglib.tld</taglib-location>
+        <taglib-uri>rsc-taglib.tld</taglib-uri>
+        <taglib-location>/WEB-INF/rsc-taglib.tld</taglib-location>
     </taglib>
+
 
 </web-app>
