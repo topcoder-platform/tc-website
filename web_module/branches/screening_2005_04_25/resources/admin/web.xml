@@ -55,7 +55,7 @@
 
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/security</url-pattern>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <taglib>
         <taglib-uri>rsc-taglib.tld</taglib-uri>
