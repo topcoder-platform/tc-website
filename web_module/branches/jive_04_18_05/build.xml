@@ -1157,9 +1157,6 @@
  		            <fileset dir="${java}/com/topcoder/web/forums/view">
  		                <include name="*.*"/>
  		            </fileset>
- 		        	<fileset dir="${java}/com/topcoder/web/tc/view">
- 		        	    <include name="*.*"/>
- 		       		</fileset>
  		            <fileset dir="${java}/com/topcoder/web/jsp">
  		                <include name="errorPage.jsp"/>
  		                <include name="top.jsp"/>
@@ -1184,7 +1181,7 @@
  		            	<include name="com/topcoder/ejb/**/*.class"/>
  		            </classes>
  		            <webinf dir="${resources}/taglib">
- 		                <include name="tc-taglib.tld"/>
+ 		                <include name="tc-webtags.tld"/>
  		            </webinf>
  		        	<webinf dir="${resources}/forums">
  		        	    <include name="jboss-web.xml"/>
