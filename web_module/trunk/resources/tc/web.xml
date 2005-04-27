@@ -267,6 +267,11 @@
     </servlet-mapping>
 
     <servlet-mapping>
+      <servlet-name>javaonedocs</servlet-name>
+      <url-pattern>/javaonedocs</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
       <servlet-name>graph</servlet-name>
       <url-pattern>/graph</url-pattern>
     </servlet-mapping>
