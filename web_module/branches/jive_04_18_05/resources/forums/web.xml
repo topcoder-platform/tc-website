@@ -11,7 +11,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ForumsServlet</servlet-name>
+        <servlet-name>forums</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     
