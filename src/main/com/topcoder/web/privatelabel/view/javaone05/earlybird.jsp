@@ -65,7 +65,7 @@
 						Be sure to use Registration Code "TCODER2" to receive your savings. </p>
 
 						<p class="regmiddle">We look forward to seeing you in San Francisco this June! </p>
-                  <p class="regmiddle">This offer is not valid for Web-based registration. Offer expires May 27, 2005. </p>
+                  <p class="regmiddle">Offer expires May 27, 2005.</p>
                </td>
             <tr>
                <td colspan="2" align="left" valign="middle">
