@@ -744,7 +744,6 @@
  	         <copy todir="${jboss_lib}">
  	             <fileset dir="${jars.dir}">
  	             	 <include name="jivebase.jar"/>
- 	                 <include name="jiveforums.jar"/>
  	             </fileset>
  	         </copy>
  	 </target>
@@ -1182,9 +1181,6 @@
  		            	<include name="com/topcoder/ejb/**/*.class"/>
  		            </classes>
  		            <webinf dir="${resources}/taglib">
- 		                <include name="tc.tld"/>
- 		                <include name="rsc-taglib.tld"/>
- 		                <include name="tc-webtags.tld"/>
  		                <include name="tc-taglib.tld"/>
  		            </webinf>
  		        	<webinf dir="${resources}/forums">
