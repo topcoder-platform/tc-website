@@ -185,7 +185,7 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="screeningHeader">Expected</TD>
 		       <TD ALIGN="center" CLASS="screeningHeader">Received</TD>
 		       <TD ALIGN="center" CLASS="screeningHeader">Status</TD>
-               <TD ALIGN="center" CLASS="screeningHeader">Processing Time</TD>
+               <TD ALIGN="center" CLASS="screeningHeader">Processing Time (ms)</TD>
 	        </TR>
             <% boolean even = false; %>
            <screen:resultSetRowIterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
