@@ -740,7 +740,7 @@
 
      </target>
  	
- 	 <target name="move-jive-libs" depends="package-Jive">
+ 	 <target name="move-jive-libs">
  	         <copy todir="${jboss_lib}">
  	             <fileset dir="${jars.dir}">
  	             	 <include name="jivebase.jar"/>
