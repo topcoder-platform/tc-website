@@ -689,6 +689,7 @@
              </fileset>
          </copy>
      </target>
+ 	
      <target name="move-libs" depends="package-Jive">
          <copy todir="${jboss_lib}">
              <fileset dir="${bin}">
@@ -738,6 +739,15 @@
          </copy>
 
      </target>
+ 	
+ 	 <target name="move-jive-libs" depends="package-Jive">
+ 	         <copy todir="${jboss_lib}">
+ 	             <fileset dir="${jars.dir}">
+ 	             	 <include name="jivebase.jar"/>
+ 	                 <include name="jiveforums.jar"/>
+ 	             </fileset>
+ 	         </copy>
+ 	 </target>
 
      <target name="move">
          <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
