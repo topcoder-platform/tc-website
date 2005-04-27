@@ -7,4 +7,5 @@ package com.topcoder.web.admin;
  */
 public interface AdminConstants {
     public static final String TERMS_OF_USE_ID = "tid";
+    public static final String TERMS = "terms";
 }

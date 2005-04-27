@@ -61,6 +61,10 @@
         <taglib-uri>rsc-taglib.tld</taglib-uri>
         <taglib-location>/WEB-INF/rsc-taglib.tld</taglib-location>
     </taglib>
+    <taglib>
+        <taglib-uri>tc-webtags.tld</taglib-uri>
+        <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
+    </taglib>
 
 
 </web-app>

@@ -16,7 +16,8 @@ public class EditTerms extends Base {
         String tId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
         TermsOfUse termsOfUse = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
 
-        getRequest().setAttribute("terms", termsOfUse.getText(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME));
+        setDefault(Constants.TERMS_OF_USE_ID, tId);
+        setDefault("terms", termsOfUse.getText(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME));
         setNextPage("/editTerms.jsp");
         setIsNextPageInContext(true);
     }

@@ -1,0 +1,30 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.admin.Constants"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<html>
+<head>
+<title>TopCoder Admin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+</head>
+    <body>
+        <table cellpadding="3" cellspacing="0">
+            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method=post name="termsForm">
+                <input type="hidden" name="module" value="UpdateTerms"/>
+                <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" />
+                <tr>
+                    <td align=center>
+                        <tc-webtag:textArea name="terms" rows="20" cols="100"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align=center>
+                        <input type="submit" name="submit" value="Update"/>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </body>
+</html>
+
