@@ -50,6 +50,10 @@ A:active {
     color: #000;
     text-decoration: underline;
 }
+.huge {
+    font-size: 30px;
+    font-weight: bold;
+}
 
 
 </style>
