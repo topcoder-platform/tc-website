@@ -1181,6 +1181,9 @@
  		            	<include name="com/topcoder/web/tc/model/**/*.class"/>
  		            	<include name="com/topcoder/ejb/**/*.class"/>
  		            </classes>
+ 		        	<classes dir=".">
+ 		        		<include name="jive_init.xml" />
+ 		        	</classes>
  		            <webinf dir="${resources}/taglib">
  		                <include name="tc-webtags.tld"/>
  		            </webinf>
