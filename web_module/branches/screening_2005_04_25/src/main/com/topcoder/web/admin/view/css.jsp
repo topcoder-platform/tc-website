@@ -5,9 +5,9 @@ table {
 	cellspacing: 0;
 }
 .defaultText {
-		color: #0066cc;
+		color: #000;
 		vertical-align: top;
-		background-color: #EEE;
+		background-color: #999;
 }
 
 A:link {
