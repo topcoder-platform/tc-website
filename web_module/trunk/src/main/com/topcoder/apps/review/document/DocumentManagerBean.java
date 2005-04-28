@@ -42,7 +42,7 @@ public class DocumentManagerBean implements SessionBean {
     private Log log;
     private SessionContext ejbContext;
     private DataSource dataSource;
-    private ProjectTrackerLocal projectTracker;
+    //private ProjectTrackerLocal projectTracker;
     private IdGen idGen;
 
     private static final double EPS = 1e-10;
@@ -160,7 +160,6 @@ public class DocumentManagerBean implements SessionBean {
      * DOCUMENT ME!
      *
      * @param submitterId
-     * @param projectId
      * @param reviewerId
      * @param requestor
      *
@@ -1087,7 +1086,6 @@ public class DocumentManagerBean implements SessionBean {
      * Save a subjectiveResponse.
      *
      * @param conn
-     * @param ps
      * @param subjResp
      * @param questionId
      * @param requestorId
@@ -1116,16 +1114,16 @@ public class DocumentManagerBean implements SessionBean {
                         rs = ps.executeQuery();
 
                         if (rs.next()) {
-                            if (rs.getLong(1) != ((SubjectiveResponse) subjResp[j]).getVersionId()) {
+                            if (rs.getLong(1) != (subjResp[j]).getVersionId()) {
                                 String errorMsg = "DM.saveSubjectiveResponses(): Concurrent error, subjResponseId: " +
-                                        ((SubjectiveResponse) subjResp[j]).getId();
+                                        (subjResp[j]).getId();
                                 error(errorMsg);
                                 ejbContext.setRollbackOnly();
                                 throw new ConcurrentModificationException(errorMsg);
                             }
                         } else {
                             String errorMsg = "DM.saveSubjectiveResponses(): Trying to save non-existing SubjectiveResponse, " +
-                                    "subjectiveResponseId: " + ((SubjectiveResponse) subjResp[j]).getId();
+                                    "subjectiveResponseId: " + (subjResp[j]).getId();
                             error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
@@ -1148,7 +1146,7 @@ public class DocumentManagerBean implements SessionBean {
 
                         if (nr == 0) {
                             String errorMsg = "DM.saveSubjectiveResponses(): Trying to save non-existing SubjectiveResponse, " +
-                                    "subjectiveResponseId: " + ((SubjectiveResponse) subjResp[j]).getId();
+                                    "subjectiveResponseId: " + (subjResp[j]).getId();
                             error(errorMsg);
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
@@ -1340,7 +1338,7 @@ public class DocumentManagerBean implements SessionBean {
         return ffSubmission;
     }
 
-    static String SQLStart = "SELECT s.submission_id, s.submission_url, " +
+    static final String SQLStart = "SELECT s.submission_id, s.submission_url, " +
             "s.sub_pm_review_msg, s.sub_pm_screen_msg, " +
             "s.submitter_id, s.is_removed, " +
             "s.final_score, s.placement, s.passed_screening, " +
@@ -1359,13 +1357,13 @@ public class DocumentManagerBean implements SessionBean {
             "rur.project_id = s.project_id AND " +
             "rur.cur_version = 1 AND " +
             "su.login_id = s.submitter_id ";
-    static String SQLEnd = "ORDER BY rur.r_user_role_id";
-    static String SQLSub = "AND s.submitter_id = ? ";
-    static String SQLNotRemoved = "AND s.is_removed = 0 ";
-    static String SQLAdmin = SQLStart + SQLNotRemoved + SQLEnd;
-    static String SQLAdminRemoved = SQLStart + SQLEnd;
-    static String SQLDev = SQLStart + SQLSub + SQLNotRemoved + SQLEnd;
-    static String SQLDevRemoved = SQLStart + SQLSub + SQLEnd;
+    static final String SQLEnd = "ORDER BY rur.r_user_role_id";
+    static final String SQLSub = "AND s.submitter_id = ? ";
+    static final String SQLNotRemoved = "AND s.is_removed = 0 ";
+    static final String SQLAdmin = SQLStart + SQLNotRemoved + SQLEnd;
+    static final String SQLAdminRemoved = SQLStart + SQLEnd;
+    static final String SQLDev = SQLStart + SQLSub + SQLNotRemoved + SQLEnd;
+    static final String SQLDevRemoved = SQLStart + SQLSub + SQLEnd;
 
     /**
      * Helper-function to get a submission from the database.
@@ -1464,7 +1462,7 @@ public class DocumentManagerBean implements SessionBean {
                 String submissionURLstring = rs.getString(2);
                 String pmReviewMsg = rs.getString(3);
                 String pmScreeningMsg = rs.getString(4);
-                long submitterId = rs.getLong(5);
+//                long submitterId = rs.getLong(5);
                 boolean isRemoved = rs.getBoolean(6);
 
                 float finalScore = rs.getFloat(7);
@@ -1546,7 +1544,7 @@ public class DocumentManagerBean implements SessionBean {
                                     //break ties
                                     int[] vals = new int[2];
                                     for (int y = 0; y < scorecards.length; y++) {
-                                        if (scorecards[y].getSubmission().equals((InitialSubmission) obj1) && scorecards[y].isCompleted()) {
+                                        if (scorecards[y].getSubmission().equals(obj1) && scorecards[y].isCompleted()) {
                                             double scr = scorecards[y].getScore();
                                             boolean good = true;
                                             for (int z = 0; z < scorecards.length; z++) {
@@ -1560,7 +1558,7 @@ public class DocumentManagerBean implements SessionBean {
                                                 vals[0]++;
                                         }
 
-                                        if (scorecards[y].getSubmission().equals((InitialSubmission) obj2) && scorecards[y].isCompleted()) {
+                                        if (scorecards[y].getSubmission().equals(obj2) && scorecards[y].isCompleted()) {
                                             double scr = scorecards[y].getScore();
                                             boolean good = true;
                                             for (int z = 0; z < scorecards.length; z++) {
@@ -1597,7 +1595,7 @@ public class DocumentManagerBean implements SessionBean {
                             }
                         }
                         if (fixedScoring) {
-                            submission = (InitialSubmission) getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE,
+                            submission = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE,
                                     submissionId, false, false)[0];
                         } else {
                             submission = new InitialSubmission(submissionId, submissionURL, pmReviewMsg, pmScreeningMsg,
@@ -1686,12 +1684,13 @@ public class DocumentManagerBean implements SessionBean {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        long submissionSerial = -1;
+//        long submissionSerial = -1;
 
         try {
             conn = dataSource.getConnection();
 
             // TODO retrieve new project?
+/*
             boolean perm = false;
             if (submission instanceof InitialSubmission) {
                 if ((Common.isRole(submission.getProject(), requestor.getUserId(), Role.ID_DESIGNER_DEVELOPER) &&
@@ -1707,6 +1706,7 @@ public class DocumentManagerBean implements SessionBean {
                     perm = true;
                 }
             }
+*/
             if (submission.getDirty() == true) {
                 Timestamp timestamp = null;
                 if (submission.getId() != -1) {
@@ -2603,7 +2603,7 @@ public class DocumentManagerBean implements SessionBean {
                 long aggApprovalId = rs.getLong(2);
                 String aggReviewText = rs.getString(3);
                 boolean isPMReviewed = rs.getBoolean(4);
-                long aggWorksheetId = rs.getLong(5);
+                //long aggWorksheetId = rs.getLong(5);
                 boolean isCompleted = rs.getBoolean(6);
                 long reviewerId = rs.getLong(7);
                 long aggReviewVersionId = rs.getLong(8);
@@ -3126,7 +3126,7 @@ public class DocumentManagerBean implements SessionBean {
                 long aggResponseId = rs.getLong(1);
                 long subjRespId = rs.getLong(2);
                 long aggRespStatId = rs.getLong(3);
-                long worksheetId = rs.getLong(4);
+//                long worksheetId = rs.getLong(4);
                 long questionId = rs.getLong(5);
                 long reviewerId = rs.getLong(6);
                 long respVersionId = rs.getLong(7);
@@ -3717,9 +3717,6 @@ public class DocumentManagerBean implements SessionBean {
      * @return
      */
     private User[] getReviewers(Project project, long scorecardType) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
 
         UserRole[] roleArr = project.getParticipants();
         List userList = new LinkedList();
@@ -4048,45 +4045,52 @@ public class DocumentManagerBean implements SessionBean {
 
             if (testCase.getDirty() == true) {
                 if (testCase.getId() != -1) {
-                    // This is an existing testcase
-                    ps = conn.prepareStatement(
-                            "SELECT testcases_v_id " +
-                            "FROM testcases " +
-                            "WHERE testcases_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, testCase.getId());
-                    rs = ps.executeQuery();
-                    // Check if testcase has been modified after calling
-                    // the get-method.
-                    if (rs.next()) {
-                        if (rs.getLong(1) != testCase.getVersionId()) {
-                            String errorMsg = "DM.saveTestCase(): Concurrent error, testcaseId: " + testCase.getId() +
-                                    ", testcaseVersionId: " + testCase.getVersionId();
+                    try {
+                        // This is an existing testcase
+                        ps = conn.prepareStatement(
+                                "SELECT testcases_v_id " +
+                                "FROM testcases " +
+                                "WHERE testcases_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, testCase.getId());
+                        rs = ps.executeQuery();
+                        // Check if testcase has been modified after calling
+                        // the get-method.
+                        if (rs.next()) {
+                            if (rs.getLong(1) != testCase.getVersionId()) {
+                                String errorMsg = "DM.saveTestCase(): Concurrent error, testcaseId: " + testCase.getId() +
+                                        ", testcaseVersionId: " + testCase.getVersionId();
+                                error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new ConcurrentModificationException(errorMsg);
+                            }
+                        } else {
+                            String errorMsg = "DM.saveTestCase(): Trying to save non-existing testcase, testcaseId: " + testCase.getId();
                             error(errorMsg);
                             ejbContext.setRollbackOnly();
-                            throw new ConcurrentModificationException(errorMsg);
+                            throw new InvalidEditException(errorMsg);
                         }
-                    } else {
-                        String errorMsg = "DM.saveTestCase(): Trying to save non-existing testcase, testcaseId: " + testCase.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                    } finally {
+                        Common.close(null, ps, rs);
                     }
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE testcases " +
+                                "SET cur_version = 0 " +
+                                "WHERE testcases_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, testCase.getId());
 
-                    ps = conn.prepareStatement(
-                            "UPDATE testcases " +
-                            "SET cur_version = 0 " +
-                            "WHERE testcases_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, testCase.getId());
+                        int nr = ps.executeUpdate();
 
-                    int nr = ps.executeUpdate();
-
-                    if (nr == 0) {
-                        String errorMsg = "DM.saveTestCase(): Trying to save non-existing testcase, testcaseId: " + testCase.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "DM.saveTestCase(): Trying to save non-existing testcase, testcaseId: " + testCase.getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(null, ps, null);
                     }
 
                 } else {
@@ -4115,33 +4119,38 @@ public class DocumentManagerBean implements SessionBean {
                                 e1.toString();
                         error(errorMsg);
                         throw new RuntimeException(errorMsg);
+                    } finally {
+                        Common.close(null, ps, rs);
                     }
                     info("DM.saveTestCase(): Saving a new testcase, id: " + testCase.getId());
                 }
 
-                ps = conn.prepareStatement(
-                        "INSERT INTO testcases " +
-                        "(testcases_v_id, testcases_id, " +
-                        "testcases_url, project_id, " +
-                        "reviewer_id, testcase_type, " +
-                        "modify_user, cur_version) " + "VALUES " +
-                        "(0, ?, ?, ?, ?, ?, ?, 1)");
-                ps.setLong(1, testCase.getId());
-                ps.setString(2, testCase.getURL().toString());
-                ps.setLong(3, testCase.getProject().getId());
-                ps.setLong(4, testCase.getReviewer().getId());
-                ps.setLong(5, testCase.getType().getId());
-                ps.setLong(6, requestor.getUserId());
+                try {
+                    ps = conn.prepareStatement(
+                            "INSERT INTO testcases " +
+                            "(testcases_v_id, testcases_id, " +
+                            "testcases_url, project_id, " +
+                            "reviewer_id, testcase_type, " +
+                            "modify_user, cur_version) " + "VALUES " +
+                            "(0, ?, ?, ?, ?, ?, ?, 1)");
+                    ps.setLong(1, testCase.getId());
+                    ps.setString(2, testCase.getURL().toString());
+                    ps.setLong(3, testCase.getProject().getId());
+                    ps.setLong(4, testCase.getReviewer().getId());
+                    ps.setLong(5, testCase.getType().getId());
+                    ps.setLong(6, requestor.getUserId());
 
-                int nr = ps.executeUpdate();
+                    int nr = ps.executeUpdate();
 
-                if (nr != 1) {
-                    String errorMsg = "DM.saveTestCase(): Could not insert testcase! , testcaseId: " + testCase.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
+                    if (nr != 1) {
+                        String errorMsg = "DM.saveTestCase(): Could not insert testcase! , testcaseId: " + testCase.getId();
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                } finally {
+                    Common.close(null, ps, rs);
                 }
-
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -4150,7 +4159,7 @@ public class DocumentManagerBean implements SessionBean {
         }
     }
 
-    private static String SQLGetAppeals =
+    private final static String SQLGetAppeals =
             "SELECT a.appeal_id" +
             ", a.appealer_id" +
             ", a.question_id" +
@@ -4177,12 +4186,12 @@ public class DocumentManagerBean implements SessionBean {
             "AND rur.login_id = sub.submitter_id " +
             "AND rur.cur_version = 1 " +
             "AND rur.project_id = s.project_id ";
-    private static String SQLGetAppealsAll = SQLGetAppeals +
+    private final static String SQLGetAppealsAll = SQLGetAppeals +
             "AND s.project_id = ? ";
-    private static String SQLGetAppealsQA = SQLGetAppeals +
+    private final static String SQLGetAppealsQA = SQLGetAppeals +
             "AND a.appealer_id = ? " +
             "AND a.question_id = ? ";
-    private static String SQLGetAppealsId = SQLGetAppeals +
+    private final static String SQLGetAppealsId = SQLGetAppeals +
             "AND a.appeal_id = ? ";
 
     /**
@@ -4706,7 +4715,7 @@ public class DocumentManagerBean implements SessionBean {
                     }
                 } // end new section
 
-                ScorecardQuestion question;
+                //ScorecardQuestion question;
                 TQuestion tQuestion = new TQuestion(
                         qTemplateVID, qTemplateId, projectType,
                         scorecardType, questionText, questionWeight,
@@ -4752,26 +4761,26 @@ public class DocumentManagerBean implements SessionBean {
                         "DELETE FROM question_template " +
                         "WHERE template_id = ?");
                 ps.setLong(1, template.getId());
-                int nr = ps.executeUpdate();
+                ps.executeUpdate();
                 Common.close(ps);
                 ps = conn.prepareStatement(
                         "DELETE FROM scorecard_section " +
                         "WHERE template_id = ?");
                 ps.setLong(1, template.getId());
-                nr = ps.executeUpdate();
+                ps.executeUpdate();
                 Common.close(ps);
                 ps = conn.prepareStatement(
                         "DELETE FROM sc_section_group " +
                         "WHERE template_id = ?");
                 ps.setLong(1, template.getId());
-                nr = ps.executeUpdate();
+                ps.executeUpdate();
                 Common.close(ps);
                 // Delete template
                 ps = conn.prepareStatement(
                         "DELETE FROM scorecard_template " +
                         "WHERE template_id = ?");
                 ps.setLong(1, -template.getId());
-                nr = ps.executeUpdate();
+                ps.executeUpdate();
                 Common.close(ps);
                 return;
             }
@@ -4790,7 +4799,7 @@ public class DocumentManagerBean implements SessionBean {
                             "DELETE FROM question_template " +
                             "WHERE template_id = ?");
                     ps.setLong(1, template.getId());
-                    int nr = ps.executeUpdate();
+                    ps.executeUpdate();
                     Common.close(ps);
                     ps = conn.prepareStatement(
                             "DELETE FROM scorecard_section " +
@@ -4822,7 +4831,7 @@ public class DocumentManagerBean implements SessionBean {
                     ps.setString(2, groups[i].getGroupName());
                     ps.setInt(3, groups[i].getGroupSeqLoc());
                     ps.setLong(4, template.getId());
-                    int nr = ps.executeUpdate();
+                    ps.executeUpdate();
                     Common.close(ps);
                 }
                 for (int i = 0; i < groups.length; i++) {
@@ -4843,7 +4852,7 @@ public class DocumentManagerBean implements SessionBean {
                         ps.setInt(4, sections[j].getSectionSeqLoc());
                         ps.setLong(5, sections[j].getGroupId());
                         ps.setLong(6, template.getId());
-                        int nr = ps.executeUpdate();
+                        ps.executeUpdate();
                         Common.close(ps);
                     }
                 }
@@ -4873,7 +4882,7 @@ public class DocumentManagerBean implements SessionBean {
                             ps.setLong(7, questions[k].getSectionId());
                             ps.setInt(8, questions[k].getQuestionType());
                             ps.setLong(9, template.getId());
-                            int nr = ps.executeUpdate();
+                            ps.executeUpdate();
                             Common.close(ps);
                         }
                     }
@@ -4890,7 +4899,7 @@ public class DocumentManagerBean implements SessionBean {
                 ps.setInt(1, template.getProjectType());
                 ps.setInt(2, template.getScorecardType());
 
-                int nr = ps.executeUpdate();
+                ps.executeUpdate();
                 Common.close(ps);
             }
 
@@ -4908,7 +4917,7 @@ public class DocumentManagerBean implements SessionBean {
                 ps.setInt(3, template.getStatus());
                 ps.setInt(4, template.getProjectType());
                 ps.setInt(5, template.getScorecardType());
-                int nr = ps.executeUpdate();
+                ps.executeUpdate();
                 Common.close(ps);
             } else {
                 ps = conn.prepareStatement(
@@ -4925,7 +4934,7 @@ public class DocumentManagerBean implements SessionBean {
                 ps.setInt(4, template.getScorecardType());
                 ps.setBoolean(5, template.isDefault());
                 ps.setLong(6, template.getId());
-                int nr = ps.executeUpdate();
+                ps.executeUpdate();
                 Common.close(ps);
             }
         } catch (SQLException e) {
