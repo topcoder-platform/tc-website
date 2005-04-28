@@ -4,7 +4,8 @@
                  com.topcoder.dde.submission.Submitters,
                  com.topcoder.dde.submission.Utility,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypesHome,
-                 com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes" %>
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes,
+                 com.topcoder.file.TCSFile" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -49,7 +50,65 @@
 		}
 
 </script>
+<%!
+public Object[] parseDocumentNameAndType(String componentName, String fileName, Map docTypesMap) {
+
+    // Set the default values for document name and document type
+    String name = "Other (misc)";
+    long lngType = 6;
+
+    // Parse the document name and document type from file name
+    if (fileName.startsWith(componentName + "_")) {
+
+        // Strip out the component name from the file name
+        fileName = fileName.substring(componentName.length() + 1);
+
+        // Strip out the filename extension
+        fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+
+        // Iterate over each existing document type and check if the file corresponds to that type
+        String docTypeName;
+        Long docTypeId;
+        Iterator iterator = docTypesMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            docTypeId = (Long) iterator.next();
+            docTypeName = ((String) docTypesMap.get(docTypeId)).replace(' ', '_');
+
+            // If the file corresponds to current document type then try to parse the name of the
+            // document which is expected to follow after the type
+            if (fileName.startsWith(docTypeName)) {
+                lngType = docTypeId.longValue();
+                name = docTypeName;
+
+                // Strip out the document type
+                fileName = fileName.substring(docTypeName.length()).trim();
+
+                // If something has left then that's the document name
+                if (fileName.length() > 0) {
+                    name += " - " + fileName.trim();
+                }
+            }
+        }
+    } else if (fileName.equalsIgnoreCase("javadocs.jar")) {
+        lngType = Document.JAVADOCS;
+        name = "Javadocs";
+    } else if (fileName.toLowerCase().startsWith("xml_docs")
+               && fileName.toLowerCase().endsWith(".jar")) {
+        lngType = Document.JAVADOCS;
+        name = "XML Documentation";
+    }
+
+    name = name.replace('_', ' ').trim();
+
+    return new Object[] {name, new Long(lngType)};
+}
+
+%>
+
 <%
+
+
+
 Object objTechTypes = CONTEXT.lookup("CatalogEJB");
 CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 Catalog catalog = home.create();
@@ -119,68 +178,28 @@ if (request.getMethod().equals("POST")) {
             // Documents
             if (action.equals("Add Document")) {
 
-                // Set the default values for document name and document type
-                String name = "Other (misc)";
-                long lngType = 6;
-
                 if (fileUploads.hasNext()) {
-                    // Get the component details
-                    component = componentManager.getComponentInfo();
-
-                    String componentName = component.getName().replace(' ', '_');
-
                     UploadedFile uf = (UploadedFile) fileUploads.next();
                     String fileName = uf.getRemoteFileName();
 
-                    // Parse the document name and document type from file name
-                    if (fileName.startsWith(componentName + "_")) {
-                        // Strip out the component name from the file name
-                        fileName = fileName.substring(componentName.length() + 1);
+                    // Get the component details
+                    component = componentManager.getComponentInfo();
+                    String componentName = component.getName().replace(' ', '_');
 
-                        // Strip out the filename extension
-                        fileName = fileName.substring(0, fileName.lastIndexOf('.'));
-
-                        // Iterate over each existing document type and check if the file corresponds to that type
-                        String docTypeName;
-                        Long docTypeId;
-                        iterator = docTypesMap.keySet().iterator();
-                        while (iterator.hasNext()) {
-                            docTypeId = (Long) iterator.next();
-                            docTypeName = ((String) docTypesMap.get(docTypeId)).replace(' ', '_');
-
-                            // If the file corresponds to current document type then try to parse the name of the
-                            // document which is expected to follow after the type
-                            if (fileName.startsWith(docTypeName)) {
-                                lngType = docTypeId.longValue();
-                                name = docTypeName;
-
-                                // Strip out the document type
-                                fileName = fileName.substring(docTypeName.length()).trim();
-
-                                // If something has left then that's the document name
-                                if (fileName.length() > 0) {
-                                    name += " - " + fileName.trim();
-                                }
-                            }
+                    // Check if that's an archive with bundled documentation files
+                    if (fileName.equals(componentName.toLowerCase() + "_docs.jar")) {
+                        // Generate the name for temporary directory and create that directory
+                        TCSFile tmpDir = new TCSFile(rootDir, "tmp" + System.currentTimeMillis());
+                        while (tmpDir.exists()) {
+                            tmpDir = new TCSFile(rootDir, "tmp" + System.currentTimeMillis());
                         }
-                    } else if (fileName.equalsIgnoreCase("javadocs.jar")) {
-                        lngType = Document.JAVADOCS;
-                        name = "Javadocs";
-                    } else if (fileName.toLowerCase().startsWith("xml_docs")
-                               && fileName.toLowerCase().endsWith(".jar")) {
-                        lngType = Document.JAVADOCS;
-                        name = "XML Documentation";
-                    }
+                        tmpDir.mkdirs();
 
-                    name = name.replace('_', ' ').trim();
+                        // Upload file to temporary directory
+                        File url = new File(tmpDir, uf.getRemoteFileName());
+                        FileOutputStream fos = new FileOutputStream(url);
 
-                    // Upload file
-                    String url = dir + uf.getRemoteFileName();;
-                    InputStream is = uf.getInputStream();
-                    new File(rootDir + dir).mkdirs();
-                    File f = new File(rootDir + url);
-                    if (!f.exists()) {
-                        FileOutputStream fos = new FileOutputStream(f);
+                        InputStream is = uf.getInputStream();
                         int b = is.read();
                         while (b != -1) {
                             fos.write(b);
@@ -189,20 +208,94 @@ if (request.getMethod().equals("POST")) {
                         fos.close();
                         is.close();
 
-                        // Extract the Javadocs
-                        if (lngType == Document.JAVADOCS) {
-                            File jDocDir = new File(f.getParent(),"javadoc");
-                            jDocDir.mkdir();
-                            System.err.println("Executing: jar -xf "+f.getAbsolutePath()+" in "+jDocDir.getAbsolutePath());
-                            Runtime.getRuntime().exec("jar -xf "+f.getAbsolutePath(), new String[0], jDocDir);
-//                            sun.tools.jar.Main.main(new String[]{"-xf",f.getAbsolutePath(),"-C",jDocDir.getAbsolutePath()});
+                        // Extract the documents from archive
+                        System.err.println("Executing: jar -xf " + url.getAbsolutePath() + " in " + tmpDir.getAbsolutePath());
+                        Process process = Runtime.getRuntime().exec("jar -xf " + url.getAbsolutePath(), new String[0], tmpDir);
+                        process.waitFor();
+
+                        // Delete the uploaded documentation archive
+                        url.delete();
+
+                        File componentDir = new File(rootDir, dir);
+                        componentDir.mkdirs();
+
+                        // Register documents to component and move the files to appropriate directory
+                        File[] docFiles = tmpDir.listFiles();
+                        for (int i = 0; i < docFiles.length; i++) {
+                            if (docFiles[i].isDirectory()) {
+                                continue;
+                            }
+
+                            File targetDocFile = new File(componentDir, docFiles[i].getName());
+
+                            // Check if the target file already exists, if so then report an error
+                            if (targetDocFile.exists()) {
+                                strError += "The file " + targetDocFile.getName() + " already exists<BR>";
+                            } else {
+                                // Otherwise move the documentation file from temporary directory to component directory
+                                // and register document to component
+                                docFiles[i].renameTo(targetDocFile);
+
+                                // Parse the name and type of the document
+                                Object[] nameType = parseDocumentNameAndType(componentName,
+                                                                             targetDocFile.getName(),
+                                                                             docTypesMap);
+
+                                // Extract the Javadocs
+                                if (((Long) nameType[1]).longValue() == Document.JAVADOCS) {
+                                    File jDocDir = new File(targetDocFile.getParent(),"javadoc");
+                                    jDocDir.mkdir();
+                                    System.err.println("Executing: jar -xf " + targetDocFile.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
+                                    Runtime.getRuntime().exec("jar -xf " + targetDocFile.getAbsolutePath(), new String[0], jDocDir).waitFor();
+                                }
+
+                                // Create document and register it to component
+                                Document document = new Document((String) nameType[0],
+                                                                 dir + docFiles[i].getName(),
+                                                                 ((Long) nameType[1]).longValue());
+                                componentManager.addDocument(document);
+                            }
                         }
 
-                        // Add document to component
-                        com.topcoder.dde.catalog.Document document = new com.topcoder.dde.catalog.Document(name, url, lngType);
-                        componentManager.addDocument(document);
+                        // Delete temporary directory
+                        tmpDir.deleteTree();
+
                     } else {
-                        strError += "File: " + f.getName() + " already exists";
+                        // Get the name and type of the document
+                        Object[] nameType = parseDocumentNameAndType(componentName, fileName, docTypesMap);
+                        String name = (String) nameType[0];
+                        long lngType = ((Long) nameType[1]).longValue();
+
+                        // Upload file
+                        String url = dir + uf.getRemoteFileName();;
+                        InputStream is = uf.getInputStream();
+                        new File(rootDir + dir).mkdirs();
+                        File f = new File(rootDir + url);
+                        if (!f.exists()) {
+                            FileOutputStream fos = new FileOutputStream(f);
+                            int b = is.read();
+                            while (b != -1) {
+                                fos.write(b);
+                                b = is.read();
+                            }
+                            fos.close();
+                            is.close();
+
+                            // Extract the Javadocs
+                            if (lngType == Document.JAVADOCS) {
+                                File jDocDir = new File(f.getParent(),"javadoc");
+                                jDocDir.mkdir();
+                                System.err.println("Executing: jar -xf "+f.getAbsolutePath()+" in "+jDocDir.getAbsolutePath());
+                                Runtime.getRuntime().exec("jar -xf "+f.getAbsolutePath(), new String[0], jDocDir);
+//                                sun.tools.jar.Main.main(new String[]{"-xf",f.getAbsolutePath(),"-C",jDocDir.getAbsolutePath()});
+                            }
+
+                            // Add document to component
+                            com.topcoder.dde.catalog.Document document = new com.topcoder.dde.catalog.Document(name, url, lngType);
+                            componentManager.addDocument(document);
+                        } else {
+                            strError += "File: " + f.getName() + " already exists<BR>";
+                        }
                     }
                 }
             }
@@ -237,7 +330,7 @@ if (request.getMethod().equals("POST")) {
                         document.setURL(url);
                         componentManager.updateDocument(document);
                     } else {
-                        strError += "File: " + f.getName() + " already exists.  ";
+                        strError += "File: " + f.getName() + " already exists.<BR>";
                     }
                 }
             }
@@ -266,7 +359,7 @@ if (request.getMethod().equals("POST")) {
                             Download download = new Download(desc, url);
                             componentManager.addDownload(download);
                         } else {
-                            strError += "File: " + f.getName() + " already exists.  ";
+                            strError += "File: " + f.getName() + " already exists.<BR> ";
                         }
                     }
                 }
@@ -295,7 +388,7 @@ if (request.getMethod().equals("POST")) {
                         download.setURL(url);
                         componentManager.updateDownload(download);
                     } else {
-                        strError += "File: " + f.getName() + " already exists.  ";
+                        strError += "File: " + f.getName() + " already exists.<BR>";
                     }
                 }
             }
@@ -648,7 +741,7 @@ if (action != null) {
             if (e.getMessage().startsWith("Online Review:")) {
                 strError += e.getMessage();
             } else {
-                strError += "An error occurred while updating version info.";
+                strError += "An error occurred while updating version info.<BR>";
             }
             ver = componentManager.getVersionInfo();
         }
@@ -821,7 +914,7 @@ if (action != null) {
         } catch (GeneralSecurityException gse) {
             strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
         } catch (Exception e) {
-            strError += "Principal user could not be found.";
+            strError += "Principal user could not be found.<BR>";
         }
     }
 
@@ -860,7 +953,7 @@ if (action != null) {
         } catch (GeneralSecurityException gse) {
             strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
         } catch (Exception e) {
-            strError += "Principal user could not be found.";
+            strError += "Principal user could not be found.<BR>";
         }
     }
 
@@ -897,7 +990,7 @@ if (action != null) {
         } catch (GeneralSecurityException gse) {
             strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
         } catch (Exception e) {
-            strError += "Principal user could not be found.";
+            strError += "Principal user could not be found.<BR>";
         }
     }
 
