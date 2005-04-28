@@ -5,10 +5,21 @@ table {
 	cellspacing: 0;
 }
 .defaultText {
-		color: #000;
-		vertical-align: top;
-		background-color: #999;
+	color: #000;
+	vertical-align: top;
+	background-color: #999;
 }
+.title {
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
+.header {
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 
 A:link {
     color: #C00;
@@ -29,5 +40,6 @@ A:active {
     color: #000;
     text-decoration: underline;
 }
+
 
 </style>

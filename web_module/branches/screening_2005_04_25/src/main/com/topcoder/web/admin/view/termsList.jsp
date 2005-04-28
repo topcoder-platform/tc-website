@@ -18,11 +18,11 @@
                     <% ResultSetContainer termsList = (ResultSetContainer)request.getAttribute("terms_list"); %>
                     <table>
                         <tr>
-                            <td>&#160;</td>
-                            <td>Text</td>
-                            <td>Type</td>
-                            <td>Create Date</td>
-                            <td>Modify Date</td>
+                            <td class="header">&#160;</td>
+                            <td class="header">Text</td>
+                            <td class="header">Type</td>
+                            <td class="header">Create Date</td>
+                            <td class="header">Modify Date</td>
                         </tr>
                         <rsc:iterator list="<%=termsList%>" id="terms">
                             <tr>
