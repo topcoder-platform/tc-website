@@ -1,8 +1,6 @@
 <style type="text/css">
 table {
 	width: 100%;
-	cellpadding: 3;
-	cellspacing: 0;
 }
 
 .title {
@@ -11,19 +9,24 @@ table {
     font-weight: bold;
 }
 
+td {
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+
 .header {
     color: #000;
     font-size: 14px;
     font-weight: bold;
+
     background-color: #777
 }
 
-td.even {
+.even {
     color: #000;
     background-color: #999;
 }
 
-td.odd {
+.odd {
     color: #000;
     background-color: #CCC;
 }

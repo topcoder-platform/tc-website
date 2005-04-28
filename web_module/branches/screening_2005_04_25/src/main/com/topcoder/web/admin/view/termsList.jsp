@@ -24,13 +24,14 @@
                             <td class="header">Create Date</td>
                             <td class="header">Modify Date</td>
                         </tr>
+                        <% boolean even = false; %>
                         <rsc:iterator list="<%=termsList%>" id="terms">
                             <tr>
-                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a></td>
-                                <td><%=terms.getStringItem("terms_text").substring(0, 50)%></td>
-                                <td><rsc:item row="<%=terms%>" name="terms_of_use_type_desc"/></td>
-                                <td><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy H:m:s"/></td>
-                                <td><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy H:m:s"/></td>
+                                <td class="<%=even?"even":"odd"%>"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a></td>
+                                <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("terms_text").substring(0, 50)%></td>
+                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="terms_of_use_type_desc"/></td>
+                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy H:m:s"/></td>
+                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy H:m:s"/></td>
                             </tr>
                         </rsc:iterator>
                     </table>
