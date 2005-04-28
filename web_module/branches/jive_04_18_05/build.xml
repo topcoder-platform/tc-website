@@ -1188,7 +1188,9 @@
  		        	    <include name="jboss-web.xml"/>
  		        	</webinf>
  		        	<lib dir="${jive.dir}">
- 		        	    <include name="*.jar"/>
+ 		        	    <include name="jivebase.jar"/>
+ 		        		<include name="jiveforums.jar"/>
+ 		        		<include name="velocity-dep.jar"/>
  		        	</lib>
  		        </war>
  		        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
