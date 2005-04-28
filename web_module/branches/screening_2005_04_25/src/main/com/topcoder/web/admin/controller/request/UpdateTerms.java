@@ -30,6 +30,8 @@ public class UpdateTerms extends EditTerms {
                 addError(Constants.TERMS_OF_USE_TYPE_ID, "You must choose a terms of use type");
                 loadTermsTypeList();
                 setDefault(Constants.TERMS_OF_USE_TYPE_ID, ttId);
+                setDefault(Constants.TERMS_OF_USE_ID, tId);
+                setDefault(Constants.TERMS, termsText);
                 setNextPage("/editTerms.jsp");
                 setIsNextPageInContext(true);
             } else {

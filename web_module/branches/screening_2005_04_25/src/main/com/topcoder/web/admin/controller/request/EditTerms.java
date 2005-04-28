@@ -18,15 +18,19 @@ public class EditTerms extends Base {
         String ttId = getRequest().getParameter(Constants.TERMS_OF_USE_TYPE_ID);
         TermsOfUse termsOfUse = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
 
-        Request r = new Request();
-        r.setContentHandle("terms_of_use_type_list");
-        getRequest().setAttribute("terms_of_use_type_list", getDataAccess().getData(r).get("terms_of_use_type_list"));
+        loadTermsTypeList();
 
         setDefault(Constants.TERMS_OF_USE_ID, tId);
         setDefault(Constants.TERMS_OF_USE_TYPE_ID, ttId);
         setDefault("terms", termsOfUse.getText(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME));
         setNextPage("/editTerms.jsp");
         setIsNextPageInContext(true);
+    }
+
+    protected void loadTermsTypeList() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("terms_of_use_type_list");
+        getRequest().setAttribute("terms_of_use_type_list", getDataAccess().getData(r).get("terms_of_use_type_list"));
     }
 
 }
