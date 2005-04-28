@@ -8,6 +8,9 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.util.DBMS;
 
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
+
 /**
  * @author  dok
  * @version  $Revision$ $Date$
@@ -20,10 +23,10 @@ public class UpdateTerms extends Base {
         String termsText = getRequest().getParameter(Constants.TERMS);
         long termsOfUseTypeId = Long.parseLong(getRequest().getParameter(Constants.TERMS_OF_USE_TYPE_ID));
 
+        TransactionManager tm = null;
         try {
 
             TermsOfUse termsOfUse = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
-            TransactionManager tm = null;
             long termsOfUseId = 0;
             tm.begin();
             if (StringUtils.checkNull(tId).equals("")) {
