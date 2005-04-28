@@ -40,7 +40,7 @@
 
       <td>
 
-        <u>Coder&#160;&#160;</u> 
+        <u>Coder&#160;&#160;</u>
 
       </td>
 
@@ -49,15 +49,15 @@
 
     </tr>
 
-    <tr> 
+    <tr>
 
       <td valign="top">
 
         <ul>
 
-          <li><a href="/admin/?Task=challenge&amp;Command=getRoundMenu">Challenge</a></li>
+          <li><a href="/admin/contest?Task=challenge&amp;Command=getRoundMenu">Challenge</a></li>
 
-          <li><a href="/admin/?Task=compilation&amp;Command=get_rounds">Compilation</a></li>
+          <li><a href="/admin/contest?Task=compilation&amp;Command=get_rounds">Compilation</a></li>
 
         </ul>
 
