@@ -16,7 +16,7 @@
                 <td>
                     <table cellpadding="3" cellspacing="0">
                         <tr>
-                            <td>
+                            <td align="center">
                                 Where do you want to go today?
                             </td>
                         </tr>
