@@ -11,13 +11,13 @@
 </head>
     <body>
         <jsp:include page="top.jsp"/>
-        <table cellpadding="3" cellspacing="0">
+        <table>
             <tr valign="top">
                 <td>
                     <jsp:include page="left.jsp"/>
                 </td>
                 <td>
-                    <table cellpadding="3" cellspacing="0">
+                    <table>
                         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method=post name="termsForm">
                             <input type="hidden" name="module" value="UpdateTerms"/>
                             <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" />

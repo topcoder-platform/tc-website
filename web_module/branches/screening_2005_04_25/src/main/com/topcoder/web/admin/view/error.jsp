@@ -7,13 +7,13 @@
 </head>
     <body>
         <jsp:include page="top.jsp"/>
-        <table cellpadding="3" cellspacing="0">
+        <table>
             <tr valign="top">
                 <td>
                     <jsp:include page="left.jsp"/>
                 </td>
                 <td>
-                    <table cellpadding="3" cellspacing="0">
+                    <table>
                         <tr>
                             <td><%=(String)request.getAttribute(BaseServlet.MESSAGE_KEY)%></td>
                         </tr>

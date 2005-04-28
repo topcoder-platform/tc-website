@@ -9,14 +9,14 @@
 </head>
     <body>
         <jsp:include page="top.jsp"/>
-        <table cellpadding="3" cellspacing="0">
+        <table>
             <tr valign="top">
                 <td>
                     <jsp:include page="left.jsp"/>
                 </td>
                 <td>
                     <% ResultSetContainer termsList = (ResultSetContainer)request.getAttribute("terms_list"); %>
-                    <table cellpadding="3" cellspacing="0">
+                    <table>
                         <tr>
                             <td>&#160;</td>
                             <td>Text</td>

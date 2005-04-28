@@ -1,5 +1,5 @@
 <table>
-    <table cellpadding="3" cellspacing="0">
+    <table>
         <tr>
             <td>
                 <a href="/admin/contest">Contest Admin</a>
