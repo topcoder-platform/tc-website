@@ -15,6 +15,7 @@ table {
     color: #000;
     font-size: 14px;
     font-weight: bold;
+    background-color: #777
 }
 
 td.even {
