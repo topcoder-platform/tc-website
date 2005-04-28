@@ -7,7 +7,7 @@
         </tr>
         <tr>
             <td>
-                <a href="/admin?module=TermsList">Terms of Use Admin</a>
+                <a href="/admin/?module=TermsList">Terms of Use Admin</a>
             </td>
         </tr>
 </table>
