@@ -3,7 +3,7 @@
 <xsl:import href="../menu.xsl"/>
 <xsl:import href="../top.xsl"/>
 
-<xsl:preserve-space elements="*"/> 
+<xsl:preserve-space elements="*"/>
 <xsl:template match="/">
 
 <html>
@@ -60,7 +60,7 @@
 </TABLE>
 
 <FORM NAME="frmResults" METHOD="POST">
-     <xsl:attribute name="ACTION">/admin</xsl:attribute>
+     <xsl:attribute name="ACTION">/admin/contest</xsl:attribute>
      <INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
      <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
      <INPUT TYPE="HIDDEN" NAME="coderid" VALUE=""/>
@@ -75,11 +75,11 @@
              <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
          </xsl:attribute>
      </input>
-     
+
      <INPUT TYPE="HIDDEN" NAME="problemid" VALUE=""/>
 </FORM>
 
- 
+
 </body>
 
 </html>
