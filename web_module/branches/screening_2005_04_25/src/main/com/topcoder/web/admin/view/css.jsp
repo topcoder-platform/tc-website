@@ -17,7 +17,7 @@ td {
     color: #000;
     font-size: 14px;
     font-weight: bold;
-    background-color: #B54444
+    background-color: #de6f6f
 }
 
 .even {

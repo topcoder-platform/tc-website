@@ -41,7 +41,7 @@
                             </tr>
 
                             <tr>
-                                <td align="center">
+                                <td align="left">
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS%>"><%=err%></tc-webtag:errorIterator>
                                 </td>
                             </tr>
