@@ -3,22 +3,21 @@ table {
 	width: 100%;
 }
 
+td {
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+
 .title {
     color: #000;
     font-size: 18px;
     font-weight: bold;
 }
 
-td {
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-}
-
 .header {
     color: #000;
     font-size: 14px;
     font-weight: bold;
-
-    background-color: #777
+    background-color: #B54444
 }
 
 .even {
