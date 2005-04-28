@@ -44,9 +44,9 @@ public class UpdateTerms extends EditTerms {
                     termsOfUseId = termsOfUse.createTermsOfUse(DBMS.JTS_OLTP_DATASOURCE_NAME, DBMS.OLTP_DATASOURCE_NAME);
                 } else {
                     termsOfUseId = Long.parseLong(tId);
-                    termsOfUse.setText(termsOfUseId, termsText, DBMS.JTS_OLTP_DATASOURCE_NAME);
-                    termsOfUse.setTermsOfUseTypeId(termsOfUseId, Long.parseLong(ttId), DBMS.JTS_OLTP_DATASOURCE_NAME);
                 }
+                termsOfUse.setText(termsOfUseId, termsText, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                termsOfUse.setTermsOfUseTypeId(termsOfUseId, Long.parseLong(ttId), DBMS.JTS_OLTP_DATASOURCE_NAME);
                 tm.commit();
 
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);

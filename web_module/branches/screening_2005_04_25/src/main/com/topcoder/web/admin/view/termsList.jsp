@@ -17,7 +17,7 @@
                 <td>
                     <% ResultSetContainer termsList = (ResultSetContainer)request.getAttribute("terms_list"); %>
                     <table>
-                        <tr><td class="header" align="center"><a href="/admin/?module=EditTerms">Create New</a></td></tr>
+                        <tr><td class="big" align="center" colspan="5"><a href="/admin/?module=EditTerms">Create New</a></td></tr>
                         <tr>
                             <td class="header">&#160;</td>
                             <td class="header">Text</td>
@@ -36,7 +36,7 @@
                             </tr>
                             <% even = !even;%>
                         </rsc:iterator>
-                        <tr><td class="header" align="center"><a href="/admin/?module=EditTerms">Create New</a></td></tr>
+                        <tr><td class="big" align="center" colspan="5"><a href="/admin/?module=EditTerms">Create New</a></td></tr>
                     </table>
 
                 </td>
