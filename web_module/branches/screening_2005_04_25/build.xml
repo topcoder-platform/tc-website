@@ -1055,6 +1055,7 @@
              </classes>
              <webinf dir="${resources}/taglib">
                  <include name="rsc-taglib.tld"/>
+                 <include name="tc-webtags.tld"/>
              </webinf>
 
          </war>

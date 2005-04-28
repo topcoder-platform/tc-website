@@ -15,7 +15,7 @@
                 <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" />
                 <tr>
                     <td align=center>
-                        <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="20" cols="100"/>
+                        <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="60" cols="150"/>
                     </td>
                 </tr>
                 <tr>
