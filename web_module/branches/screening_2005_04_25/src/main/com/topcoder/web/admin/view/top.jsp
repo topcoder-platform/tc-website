@@ -2,7 +2,7 @@
 <jsp:include page="css.jsp"/>
 <table>
     <tr>
-        <td align="center">
+        <td class="title" align="center">
             TopCoder Administration
         </td>
     </tr>
