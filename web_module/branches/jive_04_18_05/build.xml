@@ -9,6 +9,7 @@
      <property name="build.javadocs" value="${build}/javadocs"/>
      <property name="lib.dir" value="lib"/>
      <property name="jars.dir" value="${lib.dir}/jars"/>
+ 	 <property name="jive.dir" value="$(jars.dir)/jive"/>
      <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
      <property name="bin" value="lib/bin"/>
      <property name="src.dir" value="src"/>
@@ -1186,9 +1187,8 @@
  		        	<webinf dir="${resources}/forums">
  		        	    <include name="jboss-web.xml"/>
  		        	</webinf>
- 		        	<lib dir="${jars.dir}">
- 		        	    <include name="jivebase.jar"/>
- 		        		<include name="jiveforums.jar"/>
+ 		        	<lib dir="${jive.dir}">
+ 		        	    <include name="*.jar"/>
  		        	</lib>
  		        </war>
  		        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>

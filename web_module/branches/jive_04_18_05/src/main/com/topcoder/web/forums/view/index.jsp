@@ -1,11 +1,8 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet"
-%>
-
-<!--
-         		 com.jivesoftware.util.StringUtils,
+         import="com.topcoder.web.common.BaseServlet,
+                 com.jivesoftware.util.StringUtils,
          		 com.jivesoftware.forum.*"
--->
+%>
 
 <html>
 <head>

@@ -16,7 +16,7 @@
     </servlet-mapping>
     
     <taglib>
-        <taglib-uri>tc-webtags</taglib-uri>
+        <taglib-uri>tc-webtags.tld</taglib-uri>
         <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
     </taglib>
 
