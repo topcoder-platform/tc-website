@@ -33,6 +33,7 @@
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy H:m:s"/></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy H:m:s"/></td>
                             </tr>
+                            <% even = !even;%>
                         </rsc:iterator>
                     </table>
                 </td>

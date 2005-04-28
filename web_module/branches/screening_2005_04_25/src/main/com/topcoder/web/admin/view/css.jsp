@@ -23,12 +23,12 @@ td {
 
 .even {
     color: #000;
-    background-color: #999;
+    background-color: #CCC;
 }
 
 .odd {
     color: #000;
-    background-color: #CCC;
+    background-color: #EEE;
 }
 
 
