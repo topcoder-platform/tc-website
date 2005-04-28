@@ -16,7 +16,7 @@
                 <td>
                     <table>
                         <tr>
-                            <td align="center" class="huge" border=1>
+                            <td align="left" class="huge">
                                 <br /><br /><br /><br /><br /><br /><br /><br /><br />
                                 Where do you want to go today?
                             </td>
