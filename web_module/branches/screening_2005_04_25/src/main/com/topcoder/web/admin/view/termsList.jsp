@@ -31,8 +31,8 @@
                                 <td class="<%=even?"even":"odd"%>"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a> <rsc:item row="<%=terms%>" name="terms_of_use_id"/></td>
                                 <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("terms_text").length()>50?terms.getStringItem("terms_text").substring(0, 50):terms.getStringItem("terms_text")%></td>
                                 <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="terms_of_use_type_desc"/></td>
-                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy H:m:s"/></td>
-                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy H:m:s"/></td>
+                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy HH:mm:ss"/></td>
+                                <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy HH:mm:ss"/></td>
                             </tr>
                             <% even = !even;%>
                         </rsc:iterator>

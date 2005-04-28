@@ -24,7 +24,7 @@
 
                             <tr>
                                 <td align="center">
-                                    <input type="submit" name="submit" value="Update"/>
+                                    <input type="submit" name="submit" value="Save"/>
                                 </td>
                             </tr>
 
@@ -53,7 +53,7 @@
                             </tr>
                             <tr>
                                 <td align="center">
-                                    <input type="submit" name="submit" value="Update"/>
+                                    <input type="submit" name="submit" value="Save"/>
                                 </td>
                             </tr>
                         </form>
