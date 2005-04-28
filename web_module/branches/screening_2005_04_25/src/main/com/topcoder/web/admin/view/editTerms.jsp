@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                     <td align="left">
-                        <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_TYPE_ID%>" list='<%=request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
+                        <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_TYPE_ID%>" list='<%=(ResultSetContainer)request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
                     </td>
                 </tr>
 

@@ -7,6 +7,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.ApplicationServer;
 
 import javax.transaction.TransactionManager;
 import javax.transaction.Status;
@@ -28,6 +29,7 @@ public class UpdateTerms extends Base {
 
             TermsOfUse termsOfUse = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
             long termsOfUseId = 0;
+            tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
             tm.begin();
             if (StringUtils.checkNull(tId).equals("")) {
                 termsOfUseId = termsOfUse.createTermsOfUse(DBMS.JTS_OLTP_DATASOURCE_NAME, DBMS.OLTP_DATASOURCE_NAME);
