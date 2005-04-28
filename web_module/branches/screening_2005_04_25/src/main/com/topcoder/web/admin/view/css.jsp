@@ -55,5 +55,10 @@ A:active {
     font-weight: bold;
 }
 
+.big {
+    font-size: 14px;
+    font-weight: bold;
+}
+
 
 </style>
