@@ -4,6 +4,7 @@ import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.admin.Constants;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.Request;
 
 /**
  * @author  dok
@@ -14,9 +15,15 @@ public class EditTerms extends Base {
 
     protected void businessProcessing() throws Exception {
         String tId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
+        String ttId = getRequest().getParameter(Constants.TERMS_OF_USE_TYPE_ID);
         TermsOfUse termsOfUse = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
 
+        Request r = new Request();
+        r.setContentHandle("terms_of_use_type_list");
+        getRequest().setAttribute("terms_of_use_type_list", getDataAccess().getData(r).get("terms_of_use_type_list"));
+
         setDefault(Constants.TERMS_OF_USE_ID, tId);
+        setDefault(Constants.TERMS_OF_USE_TYPE_ID, ttId);
         setDefault("terms", termsOfUse.getText(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME));
         setNextPage("/editTerms.jsp");
         setIsNextPageInContext(true);
