@@ -8,7 +8,7 @@
     <body>
         <jsp:include page="top.jsp"/>
         <table cellpadding="3" cellspacing="0">
-            <tr>
+            <tr valign="top">
                 <td>
                     <jsp:include page="left.jsp"/>
                 </td>
