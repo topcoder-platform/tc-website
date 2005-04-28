@@ -29,6 +29,7 @@ public class UpdateTerms extends EditTerms {
             if (ttId.equals("")) {
                 addError(Constants.TERMS_OF_USE_TYPE_ID, "You must choose a terms of use type");
                 loadTermsTypeList();
+                log.debug("defaut type is " + ttId);
                 setDefault(Constants.TERMS_OF_USE_TYPE_ID, ttId);
                 setDefault(Constants.TERMS_OF_USE_ID, tId);
                 setDefault(Constants.TERMS, termsText);

@@ -1,5 +1,7 @@
-<%@ page
-         contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet"
-%>
-left
+<table>
+    <tr>
+        <td>
+            <a href="/admin">Admin Home</a>
+        </td>
+    </tr>
+</table>
