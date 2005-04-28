@@ -29,7 +29,7 @@
                             </tr>
 
                             <tr>
-                                <td align="center">
+                                <td align="left">
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TYPE_ID%>"><%=err%></tc-webtag:errorIterator>
                                 </td>
                             </tr>
@@ -47,7 +47,7 @@
                             </tr>
 
                             <tr>
-                                <td align="center">
+                                <td align="left">
                                     <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="40" cols="150"/>
                                 </td>
                             </tr>
