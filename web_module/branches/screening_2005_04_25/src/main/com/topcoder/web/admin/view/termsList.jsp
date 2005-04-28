@@ -8,24 +8,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 </head>
     <body>
-        <% ResultSetContainer termsList = (ResultSetContainer)request.getAttribute("terms_list"); %>
+        <jsp:include page="top.jsp"/>
         <table cellpadding="3" cellspacing="0">
             <tr>
-                <td>&#160;</td>
-                <td>Text</td>
-                <td>Type</td>
-                <td>Create Date</td>
-                <td>Modify Date</td>
+                <td>
+                    <jsp:include page="left.jsp"/>
+                </td>
+                <td>
+                    <% ResultSetContainer termsList = (ResultSetContainer)request.getAttribute("terms_list"); %>
+                    <table cellpadding="3" cellspacing="0">
+                        <tr>
+                            <td>&#160;</td>
+                            <td>Text</td>
+                            <td>Type</td>
+                            <td>Create Date</td>
+                            <td>Modify Date</td>
+                        </tr>
+                        <rsc:iterator list="<%=termsList%>" id="terms">
+                            <tr>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a></td>
+                                <td><%=terms.getStringItem("terms_text").substring(0, 50)%></td>
+                                <td><rsc:item row="<%=terms%>" name="terms_of_use_type_desc"/></td>
+                                <td><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy H:m:s"/></td>
+                                <td><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy H:m:s"/></td>
+                            </tr>
+                        </rsc:iterator>
+                    </table>
+                </td>
             </tr>
-            <rsc:iterator list="<%=termsList%>" id="terms">
-                <tr>
-                    <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a></td>
-                    <td><%=terms.getStringItem("terms_text").substring(0, 50)%></td>
-                    <td><rsc:item row="<%=terms%>" name="terms_of_use_type_desc"/></td>
-                    <td><rsc:item row="<%=terms%>" name="create_date" format="MM.dd.yyyy H:m:s"/></td>
-                    <td><rsc:item row="<%=terms%>" name="modify_date" format="MM.dd.yyyy H:m:s"/></td>
-                </tr>
-            </rsc:iterator>
         </table>
     </body>
 </html>

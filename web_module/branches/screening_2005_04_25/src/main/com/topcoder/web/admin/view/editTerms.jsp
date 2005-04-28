@@ -10,47 +10,57 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 </head>
     <body>
+        <jsp:include page="top.jsp"/>
         <table cellpadding="3" cellspacing="0">
-            <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method=post name="termsForm">
-                <input type="hidden" name="module" value="UpdateTerms"/>
-                <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" />
+            <tr>
+                <td>
+                    <jsp:include page="left.jsp"/>
+                </td>
+                <td>
+                    <table cellpadding="3" cellspacing="0">
+                        <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method=post name="termsForm">
+                            <input type="hidden" name="module" value="UpdateTerms"/>
+                            <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" />
 
-                <tr>
-                    <td align="center">
-                        <input type="submit" name="submit" value="Update"/>
-                    </td>
-                </tr>
+                            <tr>
+                                <td align="center">
+                                    <input type="submit" name="submit" value="Update"/>
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td align="center">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TYPE_ID%>"><%=err%></tc-webtag:errorIterator>
-                    </td>
-                </tr>
+                            <tr>
+                                <td align="center">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_OF_USE_TYPE_ID%>"><%=err%></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td align="left">
-                        <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_TYPE_ID%>" list='<%=(ResultSetContainer)request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
-                    </td>
-                </tr>
+                            <tr>
+                                <td align="left">
+                                    <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_TYPE_ID%>" list='<%=(ResultSetContainer)request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td align="center">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS%>"><%=err%></tc-webtag:errorIterator>
-                    </td>
-                </tr>
+                            <tr>
+                                <td align="center">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS%>"><%=err%></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td align="center">
-                        <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="60" cols="150"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <input type="submit" name="submit" value="Update"/>
-                    </td>
-                </tr>
-            </form>
-        </table>
+                            <tr>
+                                <td align="center">
+                                    <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="60" cols="150"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <input type="submit" name="submit" value="Update"/>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+                 </td>
+             </tr>
+         </table>
     </body>
 </html>
 
