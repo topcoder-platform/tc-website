@@ -2,6 +2,7 @@
                  com.topcoder.web.admin.Constants"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
@@ -13,13 +14,26 @@
             <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method=post name="termsForm">
                 <input type="hidden" name="module" value="UpdateTerms"/>
                 <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" />
+
                 <tr>
-                    <td align=center>
+                    <td align="center">
+                        <input type="submit" name="submit" value="Update"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <tc-webtag:rscSelect name="<%=Constants.TERMS_OF_USE_TYPE_ID%>" list='<%=request.getAttribute("terms_of_use_type_list")%>' fieldText="terms_of_use_type_desc" fieldValue="terms_of_use_type_id"/>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td align="center">
                         <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="60" cols="150"/>
                     </td>
                 </tr>
                 <tr>
-                    <td align=center>
+                    <td align="center">
                         <input type="submit" name="submit" value="Update"/>
                     </td>
                 </tr>
