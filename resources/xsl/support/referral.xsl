@@ -85,16 +85,11 @@
 			Therefore, please ensure that any referred member provides the correct handle upon registering with TopCoder.</P>
 
 			<P><STRONG><font size="4">Official Rules</font></STRONG><BR/>
-			The Referral Program will apply only to those referred members who have registered with TopCoder between April 29, 
-			2004 and April 28, 2005.</P>
-
-			<P>Any eligible TopCoder member whose TopCoder handle was provided in the "Referring Member" field of the TopCoder 
-			registration process on or after April 29, 2004 will be placed into the Referral Program.</P>
+         Any eligible TopCoder member whose TopCoder handle was provided in the "Referring Member" field of the TopCoder registration process will be placed into the Referral Program.</P>
 
 			<P>TopCoder will pay a referral commission equal to 10% of any amount earned or won by a referred member during the 365-day 
 			period following the initial registration date of the referred member. No additional referral compensation will be paid 
-			for a referred member's winnings following the one-year anniversary of the referred member's registration.  This includes amounts 
-			won during algorithm and component competitions and amounts earned by referred members as Review Board members.</P>
+			for a referred member's winnings following the one-year anniversary of the referred member's registration.  This includes amounts won during algorithm and component competitions, logo competitions, and amounts earned by referred members as Review Board members.</P>
 
 			<P>To receive a referral commission, the TopCoder member must be 18 years of age or older and must not have been permanently 
 			suspended from participating in TopCoder competitions.  Payment is contingent upon TopCoder receiving a completed affidavit 
