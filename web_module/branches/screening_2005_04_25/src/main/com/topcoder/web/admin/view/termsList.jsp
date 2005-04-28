@@ -35,7 +35,9 @@
                             </tr>
                             <% even = !even;%>
                         </rsc:iterator>
+                        <tr><td class="header"><a href="/admin/?module=EditTerms">Create New</a></td></tr>
                     </table>
+
                 </td>
             </tr>
         </table>
