@@ -7,6 +7,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.common.StringUtils;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -349,7 +350,7 @@ public class ProblemInfo extends BaseModel {
 
         Request accuracyInfo = new Request();
         //if the problems are associated with tc rounds, then get the data
-        if (contestRoundId!=null) {
+        if (!StringUtils.checkNull(contestRoundId).equals("")) {
             accuracyInfo.setProperty(DataAccessConstants.COMMAND,
                     Constants.ACCURACY_INFO_QUERY_KEY);
 
