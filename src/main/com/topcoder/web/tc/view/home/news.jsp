@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.28.05<br>10:45 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_04_08_05">Code Warriors</A></span><br><br>
+      "Young computer programmers battle for fame, money, and the love of algorithms. " [Chronicle of Higher Education]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?&t=news_events&c=art_04_08_05">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>04.25.05<br>11:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/JohnDethridge.mov">John Dethridge on the TCCC05</A></span><br><br>
       John Dethridge talks about TopCoder finalists, and the difference between Algortihm Competitions and Component Competitions.
@@ -259,18 +271,6 @@
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.01.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=contracting&d2=comac">Comac</A></span><br><br>
-      <A href="/tc?module=Static&d1=contracting&d2=comac">Comac</A> is offering a position as a Senior Software Developer, available to <strong>ALL</strong> members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
- 
 </table>
 <br><br>
 
