@@ -1,0 +1,209 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navRequest.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><strong>Request a New Component</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="165" height="5" border="0" /></td></tr>
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headRequestNewComp.gif" alt="Request a New Component" width="545" height="32" border="0" /></td></tr>
+				<tr><td class="subhead"></td></tr>
+			</table>
+				
+			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
+				<tr valign="top">
+					<td align="center">
+						<table cellpadding="0" cellspacing="0" border="0">
+							<tr><td width="445" height="29" colspan="2"><img src="images/reqNewCompHead.gif" alt="Request a New Component" width="445" height="29" border="0" /></td></tr>
+						</table>
+						
+						<table width="445" cellpadding="0" cellspacing="5" border="0" class="compSearch">
+<!-- Column Setting Row -->
+							<tr valign="middle">
+								<td width="5"><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td width="120"><img src="images/clear.gif" width="115" height="1" border="0"/></td>
+								<td width="20" ><img src="images/clear.gif" width="15" height="1" border="0" /></td>
+								<td width="270" ><img src="images/clear.gif" width="265" height="1" border="0" /></td>
+								<td width="5"><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- Component Name Error Text -->
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="compSearch"></td>
+								<td class="errorText" colspan="2"></td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- Component Name -->
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="compSearchTitle">Component Name</td>
+								<td class="compSearch" colspan="2"><input class="compSearchForm" type="text" size="35" name="compName" value="" maxlength="40"></td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+							
+<!-- Overview Error Text -->
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="compSearch"></td>
+								<td class="errorText" colspan="2"></td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- Overview -->
+							<tr valign="top">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="compSearchTitle">Overview</td>
+								<td class="compSearch" colspan="2"><textarea class="compSearchForm" name="reply" rows="6" cols="30"></textarea></td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- Technologies Error Text -->
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="compSearch"></td>
+								<td class="errorText" colspan="2"></td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- Technologies -->
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel">Technologies</td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="j2ee"></td>
+								<td class="registerText" nowrap>J2EE</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+										
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="net"></td>
+								<td class="registerText" nowrap>.Net</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+										
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="com"></td>
+								<td class="registerText" nowrap>COM / COM+</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+			
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="webServices"></td>
+								<td class="registerText" nowrap>Web Services</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+				
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="java"></td>
+								<td class="registerText" nowrap>Java</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+				
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="cPlus"></td>
+								<td class="registerText" nowrap>C / C++</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+				
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="ejb"></td>
+								<td class="registerText" nowrap>EJB</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+						</table>
+
+						<table width="445" cellpadding="0" cellspacing="10" border="0" class="compSearch">
+							<tr><td class="loginCenter">You must be a registered user.&nbsp;&nbsp;&nbsp;<a class="loginLinks" href="loginIndex.shtml">:: Login</a>&nbsp;&nbsp;&nbsp;<a class="loginLinks" href="registerIndex.shtml">:: Register</a></td></tr>
+						</table>
+
+						<table width="445" cellpadding="0" cellspacing="10" border="0" class="compSearch">
+							<tr>
+								<td class="adminControl"><input class="adminControlButton" type="submit" name="reply" value="&nbsp;Clear Fields&nbsp;"></input><img src="images/clear.gif" alt="" width="10" height="10" border="0" /><input class="adminControlButton" type="submit" name="reply" value="&nbsp;Continue&nbsp;"></input></td>
+							</tr>
+						</table>
+
+						<table width="445" cellpadding="0" cellspacing="0" border="0">
+							<tr><td width="445" class="compSearch"><img src="images/reqNewCompFoot.gif" alt="" width="445" height="11" border="0" /></td></tr>
+							<tr><td height="40"><img src="images/clear.gif" alt="" width="10" height="40" border="0" /></td></tr>
+						</table></td>
+				</tr>
+			</table></td>
+<!-- Middle Column ends -->
+
+<!-- Gutter 2 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+<!-- Gutter 2 ends -->
+
+<!-- Right Column begins -->
+		<td width="245">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="245" height="15" border="0" /></td></tr>
+			</table>
+		</td>
+<!--Right Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>
