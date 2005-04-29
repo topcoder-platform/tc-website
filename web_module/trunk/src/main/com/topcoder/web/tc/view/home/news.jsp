@@ -6,6 +6,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.29.05<br>3:10 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">TCS to post Design and Development projects on Wednesdays</span><br><br>
+      TCS will be switching from its current posting schedule on Tuesdays and Thursdays to posting all component projects on Wednesdays starting May 11.  This will allow competitors to evaluate whether they want to participate in design or development before they sign up for a project and to streamline the component timeline.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.28.05<br>10:45 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_04_08_05">Code Warriors</A></span><br><br>
       "Young computer programmers battle for fame, money, and the love of algorithms. " [Chronicle of Higher Education]
@@ -257,18 +268,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?&module=ViewSurvey&sid=6535">view survey</A>&#160;|&#160;
          <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.01.05<br>4:35 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank">Do you have what it takes?</A></span><br><br>
-      "CIOs and other H.R. decision-makers have some specific ideas about what they want from IT job applicants. Setting yourself apart from the pack has never been more crucial, but how does one go about doing that?" [ComputerUser.com]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 </table>
