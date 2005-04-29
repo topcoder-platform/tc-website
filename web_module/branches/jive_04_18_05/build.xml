@@ -1197,9 +1197,6 @@
  		        		<include name="jiveforums.jar"/>
  		        		<include name="velocity-dep.jar"/>
  		        	</lib>
-                     <lib dir="${jars.dir}">
-                         <include name="security.jar"/>
-                     </lib>
  		        </war>
  		        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
  			<delete dir="${jboss_deploy}/forums.war/META-INF"/>
