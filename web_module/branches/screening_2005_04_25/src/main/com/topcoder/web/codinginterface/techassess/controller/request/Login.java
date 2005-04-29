@@ -21,7 +21,6 @@ public class Login extends Base {
 
         String handle = null;
         String password = null;
-        long companyId = 0;
 
         setDefault(Constants.COMPANY_ID, new Long(getCompanyId()));
 
@@ -39,7 +38,7 @@ public class Login extends Base {
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
             } else {
-                ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
+                ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, getCompanyId());
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
                 try {
