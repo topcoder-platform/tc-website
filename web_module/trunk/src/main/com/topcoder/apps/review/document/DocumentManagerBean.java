@@ -1711,54 +1711,62 @@ public class DocumentManagerBean implements SessionBean {
                 Timestamp timestamp = null;
                 if (submission.getId() != -1) {
                     // This is an existing submission
-                    ps = conn.prepareStatement(
-                            "SELECT submission_v_id, submission_date, submission_url " +
-                            "FROM submission " +
-                            "WHERE submission_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, submission.getId());
-                    rs = ps.executeQuery();
-                    // Check if submission has been modified after calling
-                    // the get-method.
-                    if (rs.next()) {
-                        if (rs.getLong(1) != submission.getVersionId()) {
-                            String errorMsg = "DM.saveSub(): Concurrent error, submissionId: " + submission.getId() +
-                                    ", submissionVersionId: " + submission.getVersionId();
+                    try {
+                        ps = conn.prepareStatement(
+                                "SELECT submission_v_id, submission_date, submission_url " +
+                                "FROM submission " +
+                                "WHERE submission_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, submission.getId());
+                        rs = ps.executeQuery();
+                        // Check if submission has been modified after calling
+                        // the get-method.
+                        if (rs.next()) {
+                            if (rs.getLong(1) != submission.getVersionId()) {
+                                String errorMsg = "DM.saveSub(): Concurrent error, submissionId: " + submission.getId() +
+                                        ", submissionVersionId: " + submission.getVersionId();
+                                error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new ConcurrentModificationException(errorMsg);
+                            }
+                            timestamp = rs.getTimestamp(2);
+                            String submissionURLstring = rs.getString(3);
+                            try {
+                                URL submissionURL = new URL(submissionURLstring);
+                                if (!submissionURL.equals(submission.getURL())) {
+                                    timestamp = null;
+                                }
+                            } catch (MalformedURLException e) {
+                                throw new RuntimeException(e);
+                            }
+                        } else {
+                            String errorMsg = "DM.saveSub(): Trying to save non-existing submission, submissionId: " + submission.getId();
                             error(errorMsg);
                             ejbContext.setRollbackOnly();
-                            throw new ConcurrentModificationException(errorMsg);
+                            throw new InvalidEditException(errorMsg);
                         }
-                        timestamp = rs.getTimestamp(2);
-                        String submissionURLstring = rs.getString(3);
-                        try {
-                            URL submissionURL = new URL(submissionURLstring);
-                            if (!submissionURL.equals(submission.getURL())) {
-                                timestamp = null;
-                            }
-                        } catch (MalformedURLException e) {
-                            throw new RuntimeException(e);
-                        }
-                    } else {
-                        String errorMsg = "DM.saveSub(): Trying to save non-existing submission, submissionId: " + submission.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                    } finally {
+                        Common.close(null, ps, rs);
                     }
 
-                    ps = conn.prepareStatement(
-                            "UPDATE submission " +
-                            "SET cur_version = 0 " +
-                            "WHERE submission_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, submission.getId());
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE submission " +
+                                "SET cur_version = 0 " +
+                                "WHERE submission_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, submission.getId());
 
-                    int nr = ps.executeUpdate();
+                        int nr = ps.executeUpdate();
 
-                    if (nr == 0) {
-                        String errorMsg = "DM.saveSub(): Trying to save non-existing submission, scorecardId: " + submission.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "DM.saveSub(): Trying to save non-existing submission, scorecardId: " + submission.getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(null, ps, null);
                     }
 
                 } else {
@@ -1793,78 +1801,84 @@ public class DocumentManagerBean implements SessionBean {
                                 e1.toString();
                         error(errorMsg);
                         throw new RuntimeException(errorMsg);
+                    } finally {
+                        Common.close(null, ps, rs);
                     }
                     info("DM.saveSub(): Saving a new submission, id: " + submission.getId());
                 }
 
-                if (timestamp != null) {
-                    ps = conn.prepareStatement(
-                            "INSERT INTO submission " +
-                            "(submission_v_id, submission_id, " +
-                            "submission_type, submission_url, " +
-                            "sub_pm_review_msg, sub_pm_screen_msg, " +
-                            "submitter_id, project_id, is_removed, " +
-                            "final_score, placement, passed_screening, advanced_to_review, " +
-                            "modify_user, " +
-                            "submission_date, cur_version) " + "VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
-                } else {
-                    ps = conn.prepareStatement(
-                            "INSERT INTO submission " +
-                            "(submission_v_id, submission_id, " +
-                            "submission_type, submission_url, " +
-                            "sub_pm_review_msg, sub_pm_screen_msg, " +
-                            "submitter_id, project_id, is_removed, " +
-                            "final_score, placement, passed_screening, advanced_to_review, " +
-                            "modify_user, cur_version) " + "VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
-                }
+                try {
+                    if (timestamp != null) {
+                        ps = conn.prepareStatement(
+                                "INSERT INTO submission " +
+                                "(submission_v_id, submission_id, " +
+                                "submission_type, submission_url, " +
+                                "sub_pm_review_msg, sub_pm_screen_msg, " +
+                                "submitter_id, project_id, is_removed, " +
+                                "final_score, placement, passed_screening, advanced_to_review, " +
+                                "modify_user, " +
+                                "submission_date, cur_version) " + "VALUES " +
+                                "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                    } else {
+                        ps = conn.prepareStatement(
+                                "INSERT INTO submission " +
+                                "(submission_v_id, submission_id, " +
+                                "submission_type, submission_url, " +
+                                "sub_pm_review_msg, sub_pm_screen_msg, " +
+                                "submitter_id, project_id, is_removed, " +
+                                "final_score, placement, passed_screening, advanced_to_review, " +
+                                "modify_user, cur_version) " + "VALUES " +
+                                "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                    }
 
-                ps.setLong(1, submission.getId());
-                if (submission instanceof InitialSubmission) {
-                    ps.setInt(2, InitialSubmission.SUBMISSION_TYPE);
-                } else {
-                    ps.setInt(2, FinalFixSubmission.SUBMISSION_TYPE);
-                }
+                    ps.setLong(1, submission.getId());
+                    if (submission instanceof InitialSubmission) {
+                        ps.setInt(2, InitialSubmission.SUBMISSION_TYPE);
+                    } else {
+                        ps.setInt(2, FinalFixSubmission.SUBMISSION_TYPE);
+                    }
 
-                if (Common.tooBig(submission.getURL().toString()) ||
-                        Common.tooBig(submission.getPMReviewMessage()) ||
-                        Common.tooBig(submission.getPMScreeningMessage())) {
-                    String errorMsg = "DM.saveSub(), text-field too long!";
-                    error(errorMsg);
-                    throw new RuntimeException(errorMsg);
-                }
-                ps.setString(3, submission.getURL().toString());
-                ps.setString(4, submission.getPMReviewMessage());
-                ps.setString(5, submission.getPMScreeningMessage());
-                ps.setLong(6, submission.getSubmitter().getId());
-                ps.setLong(7, submission.getProject().getId());
-                ps.setBoolean(8, submission.isRemoved());
+                    if (Common.tooBig(submission.getURL().toString()) ||
+                            Common.tooBig(submission.getPMReviewMessage()) ||
+                            Common.tooBig(submission.getPMScreeningMessage())) {
+                        String errorMsg = "DM.saveSub(), text-field too long!";
+                        error(errorMsg);
+                        throw new RuntimeException(errorMsg);
+                    }
+                    ps.setString(3, submission.getURL().toString());
+                    ps.setString(4, submission.getPMReviewMessage());
+                    ps.setString(5, submission.getPMScreeningMessage());
+                    ps.setLong(6, submission.getSubmitter().getId());
+                    ps.setLong(7, submission.getProject().getId());
+                    ps.setBoolean(8, submission.isRemoved());
 
-                if (submission instanceof InitialSubmission) {
-                    InitialSubmission initSub = (InitialSubmission) submission;
-                    ps.setDouble(9, initSub.getFinalScore());
-                    ps.setInt(10, initSub.getPlacement());
-                    ps.setBoolean(11, initSub.isPassedScreening());
-                    ps.setBoolean(12, initSub.isAdvancedToReview());
-                } else {
-                    ps.setNull(9, Types.DOUBLE);
-                    ps.setNull(10, Types.DECIMAL);
-                    ps.setNull(11, Types.BOOLEAN);
-                    ps.setNull(12, Types.BOOLEAN);
-                }
+                    if (submission instanceof InitialSubmission) {
+                        InitialSubmission initSub = (InitialSubmission) submission;
+                        ps.setDouble(9, initSub.getFinalScore());
+                        ps.setInt(10, initSub.getPlacement());
+                        ps.setBoolean(11, initSub.isPassedScreening());
+                        ps.setBoolean(12, initSub.isAdvancedToReview());
+                    } else {
+                        ps.setNull(9, Types.DOUBLE);
+                        ps.setNull(10, Types.DECIMAL);
+                        ps.setNull(11, Types.BOOLEAN);
+                        ps.setNull(12, Types.BOOLEAN);
+                    }
 
-                ps.setLong(13, submission.getRequestorId());
-                if (timestamp != null) {
-                    ps.setTimestamp(14, timestamp);
-                }
-                int nr = ps.executeUpdate();
+                    ps.setLong(13, submission.getRequestorId());
+                    if (timestamp != null) {
+                        ps.setTimestamp(14, timestamp);
+                    }
+                    int nr = ps.executeUpdate();
 
-                if (nr != 1) {
-                    String errorMsg = "DM.saveSub(): Could not insert submission! , submissionId: " + submission.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
+                    if (nr != 1) {
+                        String errorMsg = "DM.saveSub(): Could not insert submission! , submissionId: " + submission.getId();
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                } finally {
+                    Common.close(null, ps, null);
                 }
 
             }
@@ -2032,19 +2046,23 @@ public class DocumentManagerBean implements SessionBean {
         try {
             conn = dataSource.getConnection();
 
-            ps = conn.prepareStatement(
-                    "SELECT review_v_id, is_completed " +
-                    "FROM testcase_review " +
-                    "WHERE review_id = ? AND " +
-                    "cur_version = 1");
-            ps.setLong(1, tcReview.getId());
-            rs = ps.executeQuery();
-
             long reviewVID = -1;
             boolean reviewIsCompleted = false;
-            if (rs.next()) {
-                reviewVID = rs.getLong(1);
-                reviewIsCompleted = rs.getBoolean(2);
+            try {
+                ps = conn.prepareStatement(
+                        "SELECT review_v_id, is_completed " +
+                        "FROM testcase_review " +
+                        "WHERE review_id = ? AND " +
+                        "cur_version = 1");
+                ps.setLong(1, tcReview.getId());
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    reviewVID = rs.getLong(1);
+                    reviewIsCompleted = rs.getBoolean(2);
+                }
+            } finally {
+                Common.close(null, ps, rs);
             }
 
             // If review is completed and the user isn't admin/pm,
@@ -2082,21 +2100,25 @@ public class DocumentManagerBean implements SessionBean {
                         throw new InvalidEditException(errorMsg);
                     }
 
-                    ps = conn.prepareStatement(
-                            "UPDATE testcase_review " +
-                            "SET cur_version = 0 " +
-                            "WHERE review_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, tcReview.getId());
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE testcase_review " +
+                                "SET cur_version = 0 " +
+                                "WHERE review_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, tcReview.getId());
 
-                    int nr = ps.executeUpdate();
+                        int nr = ps.executeUpdate();
 
-                    if (nr == 0) {
-                        String errorMsg = "DM.saveTestCaseReview(): Trying to save non-existing TestCaseReview, testCaseReviewId: " +
-                                tcReview.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "DM.saveTestCaseReview(): Trying to save non-existing TestCaseReview, testCaseReviewId: " +
+                                    tcReview.getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(null, ps, null);
                     }
 
                 } else {
@@ -2129,38 +2151,44 @@ public class DocumentManagerBean implements SessionBean {
                         error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new RuntimeException(errorMsg);
+                    } finally {
+                        Common.close(null, ps, rs);
                     }
                     info("DM.saveTestCaseReview(): Saving a new TestCaseReview, id: " + tcReview.getId());
                 }
-                ps = conn.prepareStatement(
-                        "INSERT INTO testcase_review " +
-                        "(review_v_id, review_id, " +
-                        "testcase_app_id, review_text, " +
-                        "project_id, reviewer_id, " +
-                        "reviewee_id, is_completed, modify_user, " +
-                        "cur_version) " + "VALUES " + "(0, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
-                ps.setLong(1, tcReview.getId());
-                ps.setLong(2, tcReview.getTestCaseApproval().getId());
-                if (Common.tooBig(tcReview.getReviewText())) {
-                    String errorMsg = "DM.saveTestCaseReview(), text-field too long!";
-                    error(errorMsg);
-                    throw new RuntimeException(errorMsg);
-                }
-                ps.setString(3, tcReview.getReviewText());
-                ps.setLong(4, tcReview.getProject().getId());
-                ps.setLong(5, tcReview.getReviewer().getId());
-                ps.setLong(6, tcReview.getReviewee().getId());
-                ps.setBoolean(7, tcReview.isCompleted());
-                ps.setLong(8, requestorId);
+                try {
+                    ps = conn.prepareStatement(
+                            "INSERT INTO testcase_review " +
+                            "(review_v_id, review_id, " +
+                            "testcase_app_id, review_text, " +
+                            "project_id, reviewer_id, " +
+                            "reviewee_id, is_completed, modify_user, " +
+                            "cur_version) " + "VALUES " + "(0, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                    ps.setLong(1, tcReview.getId());
+                    ps.setLong(2, tcReview.getTestCaseApproval().getId());
+                    if (Common.tooBig(tcReview.getReviewText())) {
+                        String errorMsg = "DM.saveTestCaseReview(), text-field too long!";
+                        error(errorMsg);
+                        throw new RuntimeException(errorMsg);
+                    }
+                    ps.setString(3, tcReview.getReviewText());
+                    ps.setLong(4, tcReview.getProject().getId());
+                    ps.setLong(5, tcReview.getReviewer().getId());
+                    ps.setLong(6, tcReview.getReviewee().getId());
+                    ps.setBoolean(7, tcReview.isCompleted());
+                    ps.setLong(8, requestorId);
 
-                int nr = ps.executeUpdate();
+                    int nr = ps.executeUpdate();
 
-                if (nr != 1) {
-                    String errorMsg = "DM.saveTestCaseReview(): Could not insert TestCaseReview!\n" +
-                            ", testCaseReviewId: " + tcReview.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
+                    if (nr != 1) {
+                        String errorMsg = "DM.saveTestCaseReview(): Could not insert TestCaseReview!\n" +
+                                ", testCaseReviewId: " + tcReview.getId();
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                } finally {
+                    Common.close(null, ps, null);
                 }
 
             }
@@ -2857,8 +2885,8 @@ public class DocumentManagerBean implements SessionBean {
                     long finalReviewId = rs.getLong(1);
                     boolean isCompleted = rs.getBoolean(2);
                     long reviewVersionId = rs.getLong(3);
-                    boolean isApproved = rs.getBoolean (4);
-                    String comments = rs.getString (5);
+                    boolean isApproved = rs.getBoolean(4);
+                    String comments = rs.getString(5);
 
                     finalReview = new FinalReview(finalReviewId, null, aggWorksheet, isCompleted, requestor.getUserId(),
                             reviewVersionId, isApproved, comments);
@@ -2899,8 +2927,8 @@ public class DocumentManagerBean implements SessionBean {
                     isCompleted = rs.getBoolean(5);
                     reviewVersionId = rs.getLong(6);
                     long fixItemVid = rs.getLong(7);
-                    isApproved = rs.getBoolean (8);
-                    comments = rs.getString (9);
+                    isApproved = rs.getBoolean(8);
+                    comments = rs.getString(9);
 
                     FinalFixStatusManager finalFixStatusManager = (FinalFixStatusManager) Common.getFromCache(
                             "FinalFixStatusManager");
@@ -3268,20 +3296,24 @@ public class DocumentManagerBean implements SessionBean {
 
         try {
             conn = dataSource.getConnection();
-
-            ps = conn.prepareStatement(
-                    "SELECT fr.final_review_v_id, fr.is_completed " +
-                    "FROM final_review fr " +
-                    "WHERE fr.final_review_id = ? AND " +
-                    "cur_version = 1");
-            ps.setLong(1, finalReview.getId());
-            rs = ps.executeQuery();
-
             long reviewVID = -1;
             boolean reviewIsCompleted = false;
-            if (rs.next()) {
-                reviewVID = rs.getLong(1);
-                reviewIsCompleted = rs.getBoolean(2);
+
+            try {
+                ps = conn.prepareStatement(
+                        "SELECT fr.final_review_v_id, fr.is_completed " +
+                        "FROM final_review fr " +
+                        "WHERE fr.final_review_id = ? AND " +
+                        "cur_version = 1");
+                ps.setLong(1, finalReview.getId());
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    reviewVID = rs.getLong(1);
+                    reviewIsCompleted = rs.getBoolean(2);
+                }
+            } finally {
+                Common.close(null, ps, rs);
             }
 
             // If review is completed and the user isn't admin/pm,
@@ -3318,21 +3350,25 @@ public class DocumentManagerBean implements SessionBean {
                         throw new InvalidEditException(errorMsg);
                     }
 
-                    ps =
-                            conn.prepareStatement(
-                                    "UPDATE final_review "
-                            + "SET cur_version = 0 "
-                            + "WHERE final_review_id = ? AND "
-                            + "cur_version = 1");
-                    ps.setLong(1, finalReview.getId());
-                    int nr = ps.executeUpdate();
+                    try {
+                        ps =
+                                conn.prepareStatement(
+                                        "UPDATE final_review "
+                                + "SET cur_version = 0 "
+                                + "WHERE final_review_id = ? AND "
+                                + "cur_version = 1");
+                        ps.setLong(1, finalReview.getId());
+                        int nr = ps.executeUpdate();
 
-                    if (nr == 0) {
-                        String errorMsg = "DM.saveFinalReview(): Trying to save non-existing FinalReview, finalReviewId: " +
-                                finalReview.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "DM.saveFinalReview(): Trying to save non-existing FinalReview, finalReviewId: " +
+                                    finalReview.getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(null, ps, null);
                     }
 
                 } else {
@@ -3358,32 +3394,38 @@ public class DocumentManagerBean implements SessionBean {
                                 e1.toString();
                         error(errorMsg);
                         throw new RuntimeException(errorMsg);
+                    } finally {
+                        Common.close(null, ps, rs);
                     }
                     info("DM.saveFinalReview(): Saving a new FinalReview, id: " + finalReview.getId());
                 }
-                ps =
-                    conn.prepareStatement(
-                            "INSERT INTO final_review "
+                try {
+                    ps =
+                            conn.prepareStatement(
+                                    "INSERT INTO final_review "
                             + "(final_review_v_id, final_review_id, "
                             + "agg_worksheet_id, is_completed, "
                             + "modify_user, cur_version, is_approved, comments) "
                             + "VALUES "
                             + "(0, ?, ?, ?, ?, 1, ?, ?)");
 
-                ps.setLong(1, finalReview.getId());
-                ps.setLong(2, finalReview.getAggregationWorkSheet().getId());
-                ps.setBoolean(3, finalReview.isCompleted());
-                ps.setLong(4, requestorId);
-                ps.setBoolean(5, finalReview.isApproved());
-                ps.setString (6, finalReview.getComments());
+                    ps.setLong(1, finalReview.getId());
+                    ps.setLong(2, finalReview.getAggregationWorkSheet().getId());
+                    ps.setBoolean(3, finalReview.isCompleted());
+                    ps.setLong(4, requestorId);
+                    ps.setBoolean(5, finalReview.isApproved());
+                    ps.setString(6, finalReview.getComments());
 
-                int nr = ps.executeUpdate();
-                if (nr != 1) {
-                    // TODO Fix error messages
-                    String errorMsg = "could not insert finalReview!";
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
+                    int nr = ps.executeUpdate();
+                    if (nr != 1) {
+                        // TODO Fix error messages
+                        String errorMsg = "could not insert finalReview!";
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                } finally {
+                    Common.close(null, ps, null);
                 }
 
             }
@@ -3391,81 +3433,85 @@ public class DocumentManagerBean implements SessionBean {
             // save array of FixItem
             FixItem[] fixItemArr = finalReview.getFixCheckList();
 
-            for (int i = 0; i < fixItemArr.length; i++) {
-                if (fixItemArr[i].getDirty() == true) {
-                    if (fixItemArr[i].getId() != -1) {
-                        ps = conn.prepareStatement(
-                                "SELECT fix_item_v_id " +
-                                "FROM fix_item " +
-                                "WHERE fix_item_id = ? AND " +
-                                "cur_version = 1");
-                        ps.setLong(1, fixItemArr[i].getId());
-                        rs = ps.executeQuery();
+            PreparedStatement psSel = null;
+            PreparedStatement psUpd = null;
+            PreparedStatement psIns = null;
+            try {
+                psSel = conn.prepareStatement(
+                        "SELECT fix_item_v_id " +
+                        "FROM fix_item " +
+                        "WHERE fix_item_id = ? AND " +
+                        "cur_version = 1");
+                psUpd = conn.prepareStatement(
+                        "UPDATE fix_item " +
+                        "SET cur_version = 0 " +
+                        "WHERE fix_item_id = ? AND " +
+                        "cur_version = 1");
+                psIns = conn.prepareStatement(
+                        "INSERT INTO fix_item " +
+                        "(fix_item_v_id, fix_item_id, " +
+                        "final_fix_s_id, agg_response_id, " +
+                        "final_review_id, " +
+                        "modify_user, cur_version) " +
+                        "VALUES " + "(0, ?, ?, ?, ?, ?, 1)");
+                for (int i = 0; i < fixItemArr.length; i++) {
+                    if (fixItemArr[i].getDirty() == true) {
+                        if (fixItemArr[i].getId() != -1) {
+                            psSel.setLong(1, fixItemArr[i].getId());
+                            rs = psSel.executeQuery();
 
-                        if (rs.next()) {
-                            if (rs.getLong(1) != fixItemArr[i].getVersionId()) {
-                                String errorMsg = "DM.saveFinalReview(): Concurrent error saving fixitem, finalReviewId: " +
-                                        finalReview.getId() + ", fixItemId" + fixItemArr[i] + ", fixItemVersionId: " +
-                                        fixItemArr[i].getVersionId();
+                            if (rs.next()) {
+                                if (rs.getLong(1) != fixItemArr[i].getVersionId()) {
+                                    String errorMsg = "DM.saveFinalReview(): Concurrent error saving fixitem, finalReviewId: " +
+                                            finalReview.getId() + ", fixItemId" + fixItemArr[i] + ", fixItemVersionId: " +
+                                            fixItemArr[i].getVersionId();
+                                    error(errorMsg);
+                                    ejbContext.setRollbackOnly();
+                                    throw new ConcurrentModificationException(errorMsg);
+                                }
+                            } else {
+                                String errorMsg = "DM.saveAggregationReview(): Trying to save non-existing FixItem, fixItemId: " +
+                                        fixItemArr[i].getId();
                                 error(errorMsg);
                                 ejbContext.setRollbackOnly();
-                                throw new ConcurrentModificationException(errorMsg);
+                                throw new InvalidEditException(errorMsg);
                             }
+
+                            psUpd.setLong(1, fixItemArr[i].getId());
+
+                            int nr = psUpd.executeUpdate();
+
+                            if (nr == 0) {
+                                String errorMsg = "DM.saveAggregationReview(): Trying to save non-existing FixItem, fixItemId: " +
+                                        fixItemArr[i].getId();
+                                error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new InvalidEditException(errorMsg);
+                            }
+
+
                         } else {
-                            String errorMsg = "DM.saveAggregationReview(): Trying to save non-existing FixItem, fixItemId: " +
-                                    fixItemArr[i].getId();
-                            error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new InvalidEditException(errorMsg);
+                            try {
+                                // New FixItem
+                                // TODO IMPORTANT! Check that item doesn't exist!
+                                fixItemArr[i].setId(idGen.nextId());
+                            } catch (RemoteException e1) {
+                                // TODO Auto-generated catch block
+                                e1.printStackTrace();
+                                throw new RuntimeException(e1);
+                            }
+                            info("DM.saveAggregationReview(): Saving a new FinalReview, id: " + finalReview.getId());
                         }
 
-                        ps = conn.prepareStatement(
-                                "UPDATE fix_item " +
-                                "SET cur_version = 0 " +
-                                "WHERE fix_item_id = ? AND " +
-                                "cur_version = 1");
-                        ps.setLong(1, fixItemArr[i].getId());
+                        // If the final fix status is null, we don't need to save it yet.
+                        //if (fixItemArr[i].getFinalFixStatus() != null) {
+                        psIns.setLong(1, fixItemArr[i].getId());
+                        psIns.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
+                        psIns.setLong(3, fixItemArr[i].getAggregationResponse().getId());
+                        psIns.setLong(4, finalReview.getId());
+                        psIns.setLong(5, requestorId);
 
-                        int nr = ps.executeUpdate();
-
-                        if (nr == 0) {
-                            String errorMsg = "DM.saveAggregationReview(): Trying to save non-existing FixItem, fixItemId: " +
-                                    fixItemArr[i].getId();
-                            error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new InvalidEditException(errorMsg);
-                        }
-
-
-                    } else {
-                        try {
-                            // New FixItem
-                            // TODO IMPORTANT! Check that item doesn't exist!
-                            fixItemArr[i].setId(idGen.nextId());
-                        } catch (RemoteException e1) {
-                            // TODO Auto-generated catch block
-                            e1.printStackTrace();
-                            throw new RuntimeException(e1);
-                        }
-                        info("DM.saveAggregationReview(): Saving a new FinalReview, id: " + finalReview.getId());
-                    }
-
-                    // If the final fix status is null, we don't need to save it yet.
-                    //if (fixItemArr[i].getFinalFixStatus() != null) {
-                        ps = conn.prepareStatement(
-                                "INSERT INTO fix_item " +
-                                "(fix_item_v_id, fix_item_id, " +
-                                "final_fix_s_id, agg_response_id, " +
-                                "final_review_id, " +
-                                "modify_user, cur_version) " +
-                                "VALUES " + "(0, ?, ?, ?, ?, ?, 1)");
-                        ps.setLong(1, fixItemArr[i].getId());
-                        ps.setLong(2, fixItemArr[i].getFinalFixStatus().getId());
-                        ps.setLong(3, fixItemArr[i].getAggregationResponse().getId());
-                        ps.setLong(4, finalReview.getId());
-                        ps.setLong(5, requestorId);
-
-                        int nr = ps.executeUpdate();
+                        int nr = psIns.executeUpdate();
 
                         if (nr != 1) {
                             String errorMsg =
@@ -3475,9 +3521,15 @@ public class DocumentManagerBean implements SessionBean {
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
-                    //}
+                        //}
+                    }
                 }
+            } finally {
+                Common.close(null, psSel, rs);
+                Common.close(null, psUpd, null);
+                Common.close(null, psIns, null);
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -4355,20 +4407,23 @@ public class DocumentManagerBean implements SessionBean {
             long appealVID = -1;
             boolean appealIsResolved = false;
 
-            if (appeal.getId() != -1) {
-                ps = conn.prepareStatement(
-                        "SELECT appeal_v_id, is_resolved " +
-                        "FROM appeal " +
-                        "WHERE appeal_id = ? AND " +
-                        "cur_version = 1");
-                ps.setLong(1, appeal.getId());
-                rs = ps.executeQuery();
+            try {
+                if (appeal.getId() != -1) {
+                    ps = conn.prepareStatement(
+                            "SELECT appeal_v_id, is_resolved " +
+                            "FROM appeal " +
+                            "WHERE appeal_id = ? AND " +
+                            "cur_version = 1");
+                    ps.setLong(1, appeal.getId());
+                    rs = ps.executeQuery();
 
-                if (rs.next()) {
-                    appealVID = rs.getLong(1);
-                    appealIsResolved = rs.getBoolean(2);
+                    if (rs.next()) {
+                        appealVID = rs.getLong(1);
+                        appealIsResolved = rs.getBoolean(2);
+                    }
                 }
-                Common.close(ps);
+            } finally {
+                Common.close(null, ps, rs);
             }
 
             // If appeal is resolved and the user isn't admin/pm,
@@ -4415,22 +4470,26 @@ public class DocumentManagerBean implements SessionBean {
                         throw new InvalidEditException(errorMsg);
                     }
 
-                    ps = conn.prepareStatement(
-                            "UPDATE appeal " +
-                            "SET cur_version = 0 " +
-                            "WHERE appeal_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, appeal.getId());
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE appeal " +
+                                "SET cur_version = 0 " +
+                                "WHERE appeal_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, appeal.getId());
 
-                    int nr = ps.executeUpdate();
-                    //Common.close(ps);
+                        int nr = ps.executeUpdate();
+                        //Common.close(ps);
 
-                    if (nr == 0) {
-                        String errorMsg = "DM.saveAppeal(): Trying to save non-existing Appeal, appealId: " +
-                                appeal.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "DM.saveAppeal(): Trying to save non-existing Appeal, appealId: " +
+                                    appeal.getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(null, ps, null);
                     }
                 } else {
                     try {
@@ -4461,62 +4520,72 @@ public class DocumentManagerBean implements SessionBean {
                         error(errorMsg);
                         ejbContext.setRollbackOnly();
                         throw new RuntimeException(errorMsg);
+                    } finally {
+                        Common.close(null, ps, rs);
                     }
                     info("DM.saveAppeal(): Saving a new Appeal, id: " + appeal.getId());
                 }
 
+                try {
+                    ps = conn.prepareStatement(
+                            "INSERT INTO appeal " +
+                            "(appeal_v_id, appeal_id, " +
+                            "appealer_id, question_id, " +
+                            "is_resolved, appeal_text, " +
+                            "appeal_response, modify_user, " +
+                            "cur_version) " +
+                            "VALUES " +
+                            "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
+
+                    if (Common.tooBig(appeal.getAppealText()) ||
+                            Common.tooBig(appeal.getAppealResponse())) {
+                        String errorMsg = "DM.saveAppeal(), text-field too long!";
+                        error(errorMsg);
+                        throw new RuntimeException(errorMsg);
+                    }
+                    ps.setLong(1, appeal.getId());
+                    ps.setLong(2, appeal.getAppealer().getId());
+                    ps.setLong(3, appeal.getQuestion().getId());
+                    ps.setBoolean(4, appeal.isResolved());
+                    info("text: " + appeal.getAppealText());
+                    info("response: " + appeal.getAppealResponse());
+                    ps.setString(5, appeal.getAppealText());
+                    if (appeal.getAppealResponse() == null) {
+                        ps.setNull(6, Types.CLOB);
+                    } else {
+                        ps.setString(6, appeal.getAppealResponse());
+                    }
+                    ps.setLong(7, requestor.getUserId());
+
+                    int nr = ps.executeUpdate();
+
+                    if (nr != 1) {
+                        String errorMsg = "DM.saveAppeal(): Could not insert Appeal!\n" +
+                                ", appealId: " + appeal.getId();
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                } finally {
+                    Common.close(null, ps, rs);
+                }
+            }
+            try {
                 ps = conn.prepareStatement(
-                        "INSERT INTO appeal " +
-                        "(appeal_v_id, appeal_id, " +
-                        "appealer_id, question_id, " +
-                        "is_resolved, appeal_text, " +
-                        "appeal_response, modify_user, " +
-                        "cur_version) " +
-                        "VALUES " +
-                        "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
-
-                if (Common.tooBig(appeal.getAppealText()) ||
-                        Common.tooBig(appeal.getAppealResponse())) {
-                    String errorMsg = "DM.saveAppeal(), text-field too long!";
-                    error(errorMsg);
-                    throw new RuntimeException(errorMsg);
+                        "SELECT scorecard_id " +
+                        "FROM scorecard_question " +
+                        "WHERE cur_version = 1 AND " +
+                        "question_id = ?");
+                ps.setLong(1, appeal.getQuestion().getId());
+                rs = ps.executeQuery();
+                long scorecardId = -1;
+                if (rs.next()) {
+                    scorecardId = rs.getLong(1);
                 }
-                ps.setLong(1, appeal.getId());
-                ps.setLong(2, appeal.getAppealer().getId());
-                ps.setLong(3, appeal.getQuestion().getId());
-                ps.setBoolean(4, appeal.isResolved());
-                info("text: " + appeal.getAppealText());
-                info("response: " + appeal.getAppealResponse());
-                ps.setString(5, appeal.getAppealText());
-                if (appeal.getAppealResponse() == null) {
-                    ps.setNull(6, Types.CLOB);
-                } else {
-                    ps.setString(6, appeal.getAppealResponse());
-                }
-                ps.setLong(7, requestor.getUserId());
-
-                int nr = ps.executeUpdate();
-
-                if (nr != 1) {
-                    String errorMsg = "DM.saveAppeal(): Could not insert Appeal!\n" +
-                            ", appealId: " + appeal.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
-                }
+                saveQuestion(conn, appeal.getQuestion(), scorecardId, requestor.getUserId());
+            } finally {
+                Common.close(null, ps, rs);
             }
-            ps = conn.prepareStatement(
-                    "SELECT scorecard_id " +
-                    "FROM scorecard_question " +
-                    "WHERE cur_version = 1 AND " +
-                    "question_id = ?");
-            ps.setLong(1, appeal.getQuestion().getId());
-            rs = ps.executeQuery();
-            long scorecardId = -1;
-            if (rs.next()) {
-                scorecardId = rs.getLong(1);
-            }
-            saveQuestion(conn, appeal.getQuestion(), scorecardId, requestor.getUserId());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -4805,13 +4874,13 @@ public class DocumentManagerBean implements SessionBean {
                             "DELETE FROM scorecard_section " +
                             "WHERE template_id = ?");
                     ps.setLong(1, template.getId());
-                    nr = ps.executeUpdate();
+                    ps.executeUpdate();
                     Common.close(ps);
                     ps = conn.prepareStatement(
                             "DELETE FROM sc_section_group " +
                             "WHERE template_id = ?");
                     ps.setLong(1, template.getId());
-                    nr = ps.executeUpdate();
+                    ps.executeUpdate();
                     Common.close(ps);
                 }
                 // Insert new questions/sections/groups
@@ -4956,12 +5025,6 @@ public class DocumentManagerBean implements SessionBean {
 
         try {
             InitialContext context = new InitialContext();
-
-            ProjectTrackerLocalHome ptHome = (ProjectTrackerLocalHome) javax.rmi.PortableRemoteObject.narrow(context.lookup(
-                    "com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome"),
-                    ProjectTrackerLocalHome.class);
-            projectTracker = ptHome.create();
-
             Object o = context.lookup("idgenerator/IdGenEJB");
             IdGenHome idGenHome = (IdGenHome) PortableRemoteObject.narrow(o, IdGenHome.class);
             idGen = idGenHome.create();
@@ -4971,7 +5034,7 @@ public class DocumentManagerBean implements SessionBean {
 //            PolicyMgrRemote policyMgr = home2.create();
 
         } catch (Exception e) {
-            throw new CreateException("Could not find projectTracker or IdGen!" + e);
+            throw new CreateException("Could not find IdGen!" + e);
         }
 
         try {
