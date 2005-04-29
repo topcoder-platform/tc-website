@@ -46,7 +46,6 @@
          <pathelement location="${resources}"/>
          <pathelement location="${images}"/>
          <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
-     	 <pathelement location="${jars.dir}/security.jar"/>
          <pathelement location="${jars.dir}/ifxjdbc.jar"/>
          <pathelement location="${jars.dir}/bfograph.jar"/>
      	 <pathelement location="${jive.dir}/jivebase.jar"/>
@@ -195,6 +194,7 @@
  	             >
  	             <include name="com/topcoder/web/forums/**"/>
  	             <include name="com/topcoder/web/common/**"/>
+	         	 <include name="com/topcoder/security/**/*"/>
  	         	 <include name="com/topcoder/common/web/data/**"/>
  	         	 <include name="com/topcoder/web/tc/model/**"/>
  	         	 <include name="com/topcoder/ejb/**"/>
@@ -1196,9 +1196,6 @@
  		        	    <include name="jivebase.jar"/>
  		        		<include name="jiveforums.jar"/>
  		        		<include name="velocity-dep.jar"/>
- 		        	</lib>
- 		        	<lib dir="${jars.dir}">
- 		        		<include name="security.jar"/>
  		        	</lib>
  		        </war>
  		        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
