@@ -6,7 +6,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.29.05<br>3:10 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.29.05<br>3:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle">TCS to post Design and Development projects on Wednesdays</span><br><br>
       TCS will be switching from its current posting schedule on Tuesdays and Thursdays to posting all component projects on Wednesdays starting May 11.  This will allow competitors to evaluate whether they want to participate in design or development before they sign up for a project and to streamline the component timeline.
       </td>
