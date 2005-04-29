@@ -17,6 +17,7 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.security.TCSubject;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -40,4 +41,16 @@ public class ForumsServlet extends BaseServlet {
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
     }
+
+
+    /**
+     * todo Temp hack, implement this with something meaningful or change the base to improve this dependency
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    protected TCSubject getUser(long id) throws Exception {
+        return new TCSubject(132456);
+    }
+
 }
