@@ -56,6 +56,11 @@
 
             <br><br>
             <table cellpadding="10" cellspacing="0" align="center" border="0">
+            <tr><td>096<br><img src="/i/tournament/tco05/logo_submissions/096.gif" alt="" border="0" /></td></tr>
+            <tr><td>095<br><img src="/i/tournament/tco05/logo_submissions/095.gif" alt="" border="0" /></td></tr>
+            <tr><td>094<br><img src="/i/tournament/tco05/logo_submissions/094.gif" alt="" border="0" /></td></tr>
+            <tr><td>093<br><img src="/i/tournament/tco05/logo_submissions/093.gif" alt="" border="0" /></td></tr>
+            <tr><td>092<br><img src="/i/tournament/tco05/logo_submissions/092.gif" alt="" border="0" /></td></tr>
             <tr><td>091<br><img src="/i/tournament/tco05/logo_submissions/091.gif" alt="" border="0" /></td></tr>
             <tr><td>090<br><img src="/i/tournament/tco05/logo_submissions/090.gif" alt="" border="0" /></td></tr>
             <tr><td>089<br><img src="/i/tournament/tco05/logo_submissions/089.gif" alt="" border="0" /></td></tr>
