@@ -1197,6 +1197,9 @@
  		        		<include name="jiveforums.jar"/>
  		        		<include name="velocity-dep.jar"/>
  		        	</lib>
+                     <lib dir="${jars.dir}">
+                         <include name="security.jar"/>
+                     </lib>
  		        </war>
  		        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
  			<delete dir="${jboss_deploy}/forums.war/META-INF"/>
@@ -1340,7 +1343,7 @@
          </java>
      </target>
 
- 	
+
  	<target name="run-ForumConverter" depends="compile_forumData">
  	         <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="true">
  	         	<classpath>
@@ -1353,8 +1356,8 @@
  	         	</classpath>
  	         </java>
  	     </target>
- 	
- 	
+
+
  	<target name="run-ForumUserConverter" depends="compile_forumData">
  	 	         <java classname="com.topcoder.utilities.forumConvert.ForumUserConverter" fork="true">
  	 	         	<classpath>
@@ -1368,7 +1371,7 @@
  	 	         </java>
  	 	     </target>
 
-     	
+
      <target name="comp_price" depends="compile">
          <java classname="com.topcoder.web.tc.model.SoftwareComponent" fork="false">
              <classpath>
