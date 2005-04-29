@@ -18,20 +18,20 @@ public class ForumMessage {
 	private int messageID;
 	private int threadID;
 	private String subject;
-	private int userID;
+	private String userName;
 	private String body;
 	private String modifiedDate;
 	private String creationDate;
 	private int parentMessageID;
 	private ArrayList messageList;
 	
-	public ForumMessage(int messageID, int threadID, String subject, int userID,
+	public ForumMessage(int messageID, int threadID, String subject, String userName,
 			String body, String modifiedDate, String creationDate, int parentMessageID)
 	{
 		this.messageID = messageID;
 		this.threadID = threadID;
 		this.subject = subject;
-		this.userID = userID;
+		this.userName = userName;
 		this.body = body;
 		this.modifiedDate = modifiedDate;
 		this.creationDate = creationDate;
@@ -48,8 +48,8 @@ public class ForumMessage {
 	public String getSubject() {
 		return subject;
 	}
-	public int getUserID() {
-		return userID;
+	public String getUserName() {
+		return userName;
 	}
 	public String getBody() {
 		return body;
@@ -79,6 +79,9 @@ public class ForumMessage {
 		sb.append("<Body>");
 		sb.append(body);
 		sb.append("</Body>\n");
+		sb.append("<Username>");
+		sb.append(userName);
+		sb.append("</Username>\n");
 		sb.append("<CreationDate>");
 		sb.append(creationDate);
 		sb.append(" EST");

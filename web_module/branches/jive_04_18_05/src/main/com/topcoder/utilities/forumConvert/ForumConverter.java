@@ -106,16 +106,14 @@ public class ForumConverter {
         //AuthToken authToken = AuthFactory.getAuthToken("admin","bloody1");
         //ForumFactory forumFactory = ForumFactory.getInstance(authToken);        
         
-        // remove existing forums, messages, threads
-        // repopulate them
-        
         String q_forum = "select forumid, name, description, modifieddate, creationdate, userid " + 
 			" from jiveforum" +
 			" order by creationdate";
-        String q_message = "select m.messageid, m.threadid, m.subject, m.userid, m.body, " + 
+        String q_message = "select m.messageid, m.threadid, m.subject, u.handle, m.body, " + 
 			" m.modifieddate, m.creationdate, t.parentid " +
-			" from jivemessage m, OUTER(jivemessagetree t) " +
-			" where m.messageid = t.childid" +
+			" from jivemessage m, user u, OUTER(jivemessagetree t) " +
+			" where m.messageid = t.childid " +
+			" and m.userid = u.user_id " +
 			" order by m.creationdate";
         String q_thread = "select threadid, forumid, rootmessageid, name, creationdate, modifieddate, userid " +
 			" from jivethread" +
@@ -172,7 +170,7 @@ public class ForumConverter {
         		int messageID = rs_message.getInt(1);
         		int messageThreadID = rs_message.getInt(2);
         		String messageSubject = rs_message.getString(3);
-        		int messageUserID = rs_message.getInt(4);
+        		String messageUserName = rs_message.getString(4);
         		String messageBody = rs_message.getString(5);
         		Long messageModifiedDateMillis = new Long(rs_message.getString(6));
         		String messageModifiedDate = DateUtil.toString(messageModifiedDateMillis.longValue(), JIVE_DATE_FORMAT);
@@ -181,7 +179,7 @@ public class ForumConverter {
         		int messageParentID = rs_message.getInt(8);
         		
         		ForumMessage message = new ForumMessage(messageID, messageThreadID,
-        				parse(messageSubject), messageUserID, parse(messageBody), messageModifiedDate,
+        				parse(messageSubject), messageUserName, parse(messageBody), messageModifiedDate,
 						messageCreationDate, messageParentID);
         		map_message.put(new Integer(messageID), message);
         		list_message.add(message);

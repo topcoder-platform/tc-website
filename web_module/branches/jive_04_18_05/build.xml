@@ -48,8 +48,9 @@
          <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
          <pathelement location="${jars.dir}/ifxjdbc.jar"/>
          <pathelement location="${jars.dir}/bfograph.jar"/>
-     	 <pathelement location="${jars.dir}/jivebase.jar"/>
-     	 <pathelement location="${jars.dir}/jiveforums.jar"/>
+     	 <pathelement location="${jive.dir}/jivebase.jar"/>
+     	 <pathelement location="${jive.dir}/jiveforums.jar"/>
+     	 <pathelement location="${jive.dir}/xwork.jar"/>
 
          <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
          <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -1338,7 +1339,7 @@
          </java>
      </target>
 
-
+ 	
  	<target name="run-ForumConverter" depends="compile_forumData">
  	         <java classname="com.topcoder.utilities.forumConvert.ForumConverter" fork="true">
  	         	<classpath>
@@ -1351,8 +1352,22 @@
  	         	</classpath>
  	         </java>
  	     </target>
+ 	
+ 	
+ 	<target name="run-ForumUserConverter" depends="compile_forumData">
+ 	 	         <java classname="com.topcoder.utilities.forumConvert.ForumUserConverter" fork="true">
+ 	 	         	<classpath>
+ 	 	         	     <pathelement location="${classes}"/>
+ 	 	         	     <pathelement location="${resources}"/>
+ 	 	         		 <fileset dir="${jars.dir}">
+ 	 	         		 	<include name="**/*.jar"/>
+ 	 	         		 </fileset>
+ 	 	         		 <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+ 	 	         	</classpath>
+ 	 	         </java>
+ 	 	     </target>
 
-
+     	
      <target name="comp_price" depends="compile">
          <java classname="com.topcoder.web.tc.model.SoftwareComponent" fork="false">
              <classpath>
