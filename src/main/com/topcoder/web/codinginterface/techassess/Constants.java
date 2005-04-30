@@ -65,6 +65,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String RP_TEST_WINDOW;
     public static String RP_TEST_WINDOW_RESPONSE;
     public static String RP_STATIC;
+    public static String RP_TIME_EXPIRED;
 
     //session keys
     public static String TEST_SET_A;

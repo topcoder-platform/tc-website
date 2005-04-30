@@ -3,7 +3,7 @@
 <xsl:import href="../menu.xsl"/>
 <xsl:import href="../top.xsl"/>
 
-<xsl:preserve-space elements="*"/> 
+<xsl:preserve-space elements="*"/>
 <xsl:template match="/">
 
 <html>
@@ -103,10 +103,10 @@
 </TABLE>
 
 <FORM NAME="frmResults" METHOD="POST">
-<xsl:attribute name="ACTION">/admin</xsl:attribute>
+<xsl:attribute name="ACTION">/admin/contest</xsl:attribute>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CONSTRAINTID"/> 
+        <xsl:value-of select="/TC/CONSTRAINTID"/>
     </xsl:attribute>
 </input>
 
@@ -116,7 +116,7 @@
 <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
 </FORM>
 
- 
+
 </body>
 
 </html>

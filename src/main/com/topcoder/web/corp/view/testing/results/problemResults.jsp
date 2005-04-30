@@ -105,7 +105,6 @@ if ( plugin ) {
                            <B>Candidate:</B> <screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink>
                        </TD>
 	        </TR>
-	        <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 	        <tr>
                     <td class="bodyText">
                         <strong>Preference Level:</strong>
@@ -144,7 +143,6 @@ if ( plugin ) {
                         </SCRIPT>
                     </td>
 	        </tr>
-	        <% } %>
 	        <TR>
 		       <TD VALIGN="top" CLASS="bodyText">
                            <B>Test Profile:</B> <jsp:getProperty name='profileInfo' property='profileName'/>
@@ -180,13 +178,14 @@ if ( plugin ) {
 
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
            <TR>
-              <TD COLSPAN="4" CLASS="screeningTitle"><B>System Test</B></TD>
+              <TD COLSPAN="5" CLASS="screeningTitle"><B>System Test</B></TD>
            </TR>
 	        <TR>
 		       <TD ALIGN="left" CLASS="screeningHeader">Args</TD>
 		       <TD ALIGN="center" CLASS="screeningHeader">Expected</TD>
 		       <TD ALIGN="center" CLASS="screeningHeader">Received</TD>
 		       <TD ALIGN="center" CLASS="screeningHeader">Status</TD>
+               <TD ALIGN="center" CLASS="screeningHeader">Processing Time (ms)</TD>
 	        </TR>
             <% boolean even = false; %>
            <screen:resultSetRowIterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
@@ -195,12 +194,13 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("expected_result").getResultData())%></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("received").getResultData())%></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
+               <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="processing_time" /></TD>
 	        </TR>
             <% even = !even; %>
            </screen:resultSetRowIterator>
            <% if(submissionInfo.getTestResults().isEmpty()){ %>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd" colspan='4'>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd" colspan="5">
                            No system tests were performed on this problem.
                        </TD>
 	        </TR>

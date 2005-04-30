@@ -1,5 +1,6 @@
-<%@ page import="com.topcoder.web.common.BaseServlet"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<%@ page import="com.topcoder.web.admin.Constants"%>
+                 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
 <title>TopCoder Admin</title>
@@ -15,7 +16,10 @@
                 <td>
                     <table>
                         <tr>
-                            <td><%=(String)request.getAttribute(BaseServlet.MESSAGE_KEY)%></td>
+                            <td align="left" class="huge">
+                                <br /><br /><br />
+                                Where do you want to go today?
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -23,4 +27,3 @@
         </table>
     </body>
 </html>
-

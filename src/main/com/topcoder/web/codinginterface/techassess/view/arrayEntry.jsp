@@ -22,7 +22,8 @@
             </tr>
             <tr>
                 <td>
-                    <input type=text id="inputText" style="width:96%" onKeyPress="submitEnter(event)"/>
+                     <%--autocomplete = off just to stop a javascript bug in mozilla/firefox--%>
+                    <input type=text id="inputText" autocomplete="OFF" style="width:96%" onKeyPress="submitEnter(event)"/>
                 </td>
             </tr>
             <tr>
@@ -325,7 +326,6 @@
                 if(validateArg(val)) {
                     //valid, now add
                     putOption("document.frmArray", "listBox", getLength("document.frmArray", "listBox.options"), new Option(val));
-
                     clearInput();
                     updateCountSpan();
                 }

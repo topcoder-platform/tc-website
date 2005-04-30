@@ -21,16 +21,8 @@ public class Login extends Base {
 
         String handle = null;
         String password = null;
-        long companyId = 0;
 
-        if (hasParameter(Constants.COMPANY_ID)) {
-            companyId = Long.parseLong(getRequest().getParameter(Constants.COMPANY_ID));
-            setDefault(Constants.COMPANY_ID, new Long(companyId));
-            setCompanyId(companyId);
-            loadSponsorImage();
-        } else {
-            throw new NavigationException("Invalid request, missing required parameter.");
-        }
+        setDefault(Constants.COMPANY_ID, new Long(getCompanyId()));
 
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE);
@@ -46,7 +38,7 @@ public class Login extends Base {
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
             } else {
-                ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
+                ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, getCompanyId());
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
                 try {
