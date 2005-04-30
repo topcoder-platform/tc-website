@@ -44,7 +44,6 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         if (info == null) {
             info = buildProfileInfo(getRequest());
             getRequest().setAttribute(Constants.PROFILE_INFO, info);
-        } else {
         }
 
         //get Problem Set

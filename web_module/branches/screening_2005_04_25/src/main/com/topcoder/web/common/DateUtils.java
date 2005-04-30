@@ -1,5 +1,7 @@
 package com.topcoder.web.common;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.Calendar;
@@ -11,6 +13,8 @@ import java.util.Calendar;
  */
 public class DateUtils {
 
+    private final static Logger log = Logger.getLogger(DateUtils.class);
+
     /**
      * Adjust a date from one timezone to another
      * @param d
@@ -19,6 +23,7 @@ public class DateUtils {
      * @return
      */
     public static Date getConvertedDate(Date d, String fromTimeZone, String toTimeZone) {
+        log.debug("convert " + d.toString() + " from " + fromTimeZone + " to " + toTimeZone);
         return new Date(d.getTime()+getOffset(fromTimeZone, toTimeZone));
     }
 
@@ -29,6 +34,7 @@ public class DateUtils {
      * @return
      */
     public static Date getConvertedDate(Date d, String toTimeZone) {
+        log.debug("convert " + d.toString() + " to " + toTimeZone);
         return new Date(d.getTime()+getOffset(toTimeZone));
     }
 
@@ -41,6 +47,7 @@ public class DateUtils {
     public static int getOffset(String fromTimeZone, String toTimeZone) {
         Calendar to = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
         Calendar from = Calendar.getInstance(TimeZone.getTimeZone(fromTimeZone));
+        log.debug("offset is " + (to.get(Calendar.ZONE_OFFSET)-from.get(Calendar.ZONE_OFFSET)));
         return to.get(Calendar.ZONE_OFFSET)-from.get(Calendar.ZONE_OFFSET);
     }
 
@@ -52,6 +59,7 @@ public class DateUtils {
     public static int getOffset(String toTimeZone) {
         Calendar to = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
         Calendar from = Calendar.getInstance();
+        log.debug("offset is " + (to.get(Calendar.ZONE_OFFSET)-from.get(Calendar.ZONE_OFFSET)));
         return to.get(Calendar.ZONE_OFFSET)-from.get(Calendar.ZONE_OFFSET);
     }
 
