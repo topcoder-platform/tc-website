@@ -46,6 +46,7 @@
                                     Java Code Template<br>
                                     C++ Code Template<br>
                                     C# Code Template<br>
+                                    Visual Basic Code Template<br>
                                     Compiling<br>
                                     User Testing<br>
                                     The Problem Arguments Window<br>
@@ -85,6 +86,15 @@
                             <% } %>
                             </tr>
  <!-- The Timer ends -->
+<!-- Resources begins -->
+                            <tr>
+                            <% if (selected.equals("resources")) { %>
+                                <td class=helpTitleOn>Resources</td>
+                            <% } else { %>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=resources">Resources</a></td>
+                            <% } %>
+                            </tr>
+ <!-- Resources  ends -->
 
                             <tr><td>&#160;</td></tr>
                         </table>

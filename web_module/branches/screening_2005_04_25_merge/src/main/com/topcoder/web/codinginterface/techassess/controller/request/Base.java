@@ -179,9 +179,15 @@ public abstract class Base extends BaseProcessor {
     public long getCompanyId() throws TCWebException {
         if (companyId < 0) {
             Long temp = (Long) getRequest().getSession().getAttribute(Constants.COMPANY_ID);
-            if (temp == null)
-                throw new TCWebException("company id has not been set");
-            else {
+            if (temp == null) {
+                String compId = getRequest().getParameter(Constants.COMPANY_ID);
+                if (compId == null) {
+                    throw new TCWebException("company id has not been set");
+                } else {
+                    setCompanyId(Long.parseLong(compId));
+                    companyId = Long.parseLong(compId);
+                }
+            } else {
                 companyId = temp.longValue();
             }
         }

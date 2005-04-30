@@ -45,37 +45,26 @@
         <!-- end  parameters required by BaseServlet -->
 
         <!-- begin application specific parameters -->
-        <init-param>
-            <param-name>jsp_root</param-name>
-            <param-value>/</param-value>
-            <description></description>
-        </init-param>
-        <init-param>
-            <param-name>index_page</param-name>
-            <param-value>index.jsp</param-value>
-            <description></description>
-        </init-param>
-        <init-param>
-            <param-name>login_page</param-name>
-            <param-value>login.jsp</param-value>
-            <description></description>
-        </init-param>
         <!-- end application specific parameters -->
     </servlet>
 
     <servlet-mapping>
         <servlet-name>Admin</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/contest</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/security</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
-
     <taglib>
-        <taglib-uri>tces-taglib.tld</taglib-uri>
-        <taglib-location>tces-taglib.tld</taglib-location>
+        <taglib-uri>rsc-taglib.tld</taglib-uri>
+        <taglib-location>/WEB-INF/rsc-taglib.tld</taglib-location>
     </taglib>
+    <taglib>
+        <taglib-uri>tc-webtags.tld</taglib-uri>
+        <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
+    </taglib>
+
 
 </web-app>

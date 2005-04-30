@@ -78,12 +78,12 @@ function getProblemDetail(id) {
 		       <TD ALIGN="left" class="<%=cssClasses[counter % 2]%>"><A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
 		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='divisionDesc' /></TD>
 		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='difficultyDesc' /></TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submission' />%</TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submissionAccuracy' />%</TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='overallAccuracy' />%</TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcSubmission' />%</TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcSubmissionAccuracy' />%</TD>
-		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcOverallAccuracy' />%</TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submission' format='0.00%' ifNull='N/A' /></TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submissionAccuracy' format='0.00%' ifNull='N/A' /></TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='overallAccuracy' format='0.00%' ifNull='N/A' /></TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcSubmission' format='0.00%' ifNull='N/A'/></TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcSubmissionAccuracy' format='0.00%' ifNull='N/A' /></TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='tcOverallAccuracy' format='0.00%' ifNull='N/A' /></TD>
 		       <TD ALIGN="center" class="<%=cssClasses[counter++ % 2]%>"><screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
 	        </TR>
             </screen:problemInfoIterator>

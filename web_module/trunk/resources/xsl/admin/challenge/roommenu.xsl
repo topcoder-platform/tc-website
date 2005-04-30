@@ -62,16 +62,16 @@
 </TABLE>
 
 <FORM NAME="frmResults" METHOD="POST">
-<xsl:attribute name="ACTION">/admin</xsl:attribute>
+<xsl:attribute name="ACTION">/admin/contest</xsl:attribute>
 <INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CONSTRAINTID"/> 
+        <xsl:value-of select="/TC/CONSTRAINTID"/>
     </xsl:attribute>
 </input>
 <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="roomid" VALUE=""/>
-<INPUT TYPE="HIDDEN" NAME="roundid"> 
+<INPUT TYPE="HIDDEN" NAME="roundid">
   <xsl:attribute name="VALUE">
       <xsl:value-of select="/TC/CHALLENGE/Contest/RoundId"/>
   </xsl:attribute>
@@ -79,7 +79,7 @@
 <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
 </FORM>
 
- 
+
 </body>
 
 </html>

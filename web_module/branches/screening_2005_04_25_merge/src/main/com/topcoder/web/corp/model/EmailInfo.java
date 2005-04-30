@@ -9,6 +9,7 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.DateUtils;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
@@ -93,43 +94,72 @@ public class EmailInfo extends BaseModel {
 
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
-//        msgText.append("Thank you for your interest in working at ");
-//        msgText.append(companyName);
-//        msgText.append(".  ");
-        msgText.append("We would like you to participate in the Private Candidate Technical Assessment Application powered by ");
-        msgText.append("TopCoder.  Through this Technical Assessment, you will be asked to solve algorithmic problems ");
-        msgText.append("as an objective measure of your programming ability.");
-        msgText.append("\n\n");
-        msgText.append("Please review the Help Manual before getting started: ");
-        msgText.append("http://www.topcoder.com/techassess/techassess?module=Static&d1=help&d2=index");
-        msgText.append("\n\n");
-        msgText.append("The following session has been scheduled for you:");
-        msgText.append("\n\n");
-        msgText.append("Begin: ");
-        msgText.append(sdf.format(sessionInfo.getBeginDate()));
-        msgText.append(" Eastern Time\n");
-        msgText.append("End: ");
-        msgText.append(sdf.format(sessionInfo.getEndDate()));
-        msgText.append(" Eastern Time\n");
-        msgText.append("Login:  ");
-        msgText.append(candidateHandle);
-        msgText.append("\n");
-        msgText.append("Password:  ");
-        msgText.append(candidatePassword);
-        msgText.append("\n\n");
-        msgText.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT PRIOR TO THE END ");
-        msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW UP TO ");
-        msgText.append(hours).append(" HOUR").append((hours==1?"":"S")).append(" AND ").append(minutes);
-        msgText.append(" MINUTES TO COMPLETE ALL PORTIONS OF THE TEST.");
-        msgText.append("\n\n");
-        msgText.append("You may access ");
-        msgText.append("the Technical Assessment Application here: http://www.topcoder.com/techassess/techassess?module=Login&cm=");
-        msgText.append(companyId);
-        msgText.append("\n\n");
-        msgText.append("Thank you,\n");
-        msgText.append(repName);
-        msgText.append("\n");
-        msgText.append(companyName);
+
+        //todo yikes this is a nasty hack for google india
+        if (companyId == 8039) {
+            msgText.append("Dear Google Engineering Candidate,\n\n");
+            msgText.append("You have been requested to write an online programming test by Google.\n\n");
+            msgText.append("Please review the Help Manual before getting started: ");
+            msgText.append("http://www.topcoder.com/techassess/techassess?module=Static&d1=help&d2=index\n\n");
+            msgText.append("The following session has been scheduled for you:\n\n");
+            msgText.append("Begin: ");
+            msgText.append(sdf.format(DateUtils.getConvertedDate(sessionInfo.getBeginDate(), "IST")));
+            msgText.append(" IST\n");
+            msgText.append("End: ");
+            msgText.append(sdf.format(DateUtils.getConvertedDate(sessionInfo.getEndDate(), "IST")));
+            msgText.append(" IST\n");
+            msgText.append("Login:  ");
+            msgText.append(candidateHandle);
+            msgText.append("\n");
+            msgText.append("Password:  ");
+            msgText.append(candidatePassword);
+            msgText.append("\n\n");
+            msgText.append("IMPORTANT: Please note that you must complete ALL portions of the test prior to the end time shown above.\n\n");
+            msgText.append("You should allow 1-2 hours to complete all portions of the test.\n\n");
+            msgText.append("You may access the test here: ");
+            msgText.append("http://www.topcoder.com/techassess/techassess?module=Login&cm=");
+            msgText.append(companyId);
+            msgText.append("\n\n");
+            msgText.append("Thank you,\n\n");
+            msgText.append("Google India Staffing");
+        } else {
+            msgText.append("We would like you to participate in the Private Candidate Technical Assessment Application powered by ");
+            msgText.append("TopCoder.  Through this Technical Assessment, you will be asked to solve algorithmic problems ");
+            msgText.append("as an objective measure of your programming ability.");
+            msgText.append("\n\n");
+            msgText.append("Please review the Help Manual before getting started: ");
+            msgText.append("http://www.topcoder.com/techassess/techassess?module=Static&d1=help&d2=index");
+            msgText.append("\n\n");
+            msgText.append("The following session has been scheduled for you:");
+            msgText.append("\n\n");
+            msgText.append("Begin: ");
+            msgText.append(sdf.format(sessionInfo.getBeginDate()));
+            msgText.append(" Eastern Time\n");
+            msgText.append("End: ");
+            msgText.append(sdf.format(sessionInfo.getEndDate()));
+            msgText.append(" Eastern Time\n");
+            msgText.append("Login:  ");
+            msgText.append(candidateHandle);
+            msgText.append("\n");
+            msgText.append("Password:  ");
+            msgText.append(candidatePassword);
+            msgText.append("\n\n");
+            msgText.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT PRIOR TO THE END ");
+            msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW UP TO ");
+            msgText.append(hours).append(" HOUR").append((hours==1?"":"S")).append(" AND ").append(minutes);
+            msgText.append(" MINUTES TO COMPLETE ALL PORTIONS OF THE TEST.");
+            msgText.append("\n\n");
+            msgText.append("You may access ");
+            msgText.append("the Technical Assessment Application here: http://www.topcoder.com/techassess/techassess?module=Login&cm=");
+            msgText.append(companyId);
+            msgText.append("\n\n");
+            msgText.append("Thank you,\n");
+            msgText.append(repName);
+            msgText.append("\n");
+            msgText.append(companyName);
+        }
+
+
 
         return msgText.toString();
     }

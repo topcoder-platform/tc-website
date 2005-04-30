@@ -7,6 +7,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.web.common.StringUtils;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -348,35 +349,36 @@ public class ProblemInfo extends BaseModel {
         }
 
         Request accuracyInfo = new Request();
-/*
-        if (!screening) {
-*/
-        accuracyInfo.setProperty(DataAccessConstants.COMMAND,
-                Constants.ACCURACY_INFO_QUERY_KEY);
+        //if the problems are associated with tc rounds, then get the data
+        if (!StringUtils.checkNull(contestRoundId).equals("")) {
+            accuracyInfo.setProperty(DataAccessConstants.COMMAND,
+                    Constants.ACCURACY_INFO_QUERY_KEY);
 
-        accuracyInfo.setProperty("pm", String.valueOf(problemId));
-        accuracyInfo.setProperty("rd", contestRoundId);
-        accuracyInfo.setProperty("dn", divisionId);
-        map = dwAccess.getData(accuracyInfo);
-        rsc = (ResultSetContainer) map.get(Constants.ACCURACY_INFO_QUERY_KEY);
+            accuracyInfo.setProperty("pm", String.valueOf(problemId));
+            accuracyInfo.setProperty("rd", contestRoundId);
+            accuracyInfo.setProperty("dn", divisionId);
+            map = dwAccess.getData(accuracyInfo);
+            rsc = (ResultSetContainer) map.get(Constants.ACCURACY_INFO_QUERY_KEY);
 
-        if (rsc.size() == 0) {
-            throw new ScreeningException(
-                    "Data error, accuracy info query returned no rows");
+            if (rsc.size() == 0) {
+                throw new ScreeningException(
+                        "Data error, accuracy info query returned no rows");
+            }
+            if (rsc.size() > 1) {
+                throw new ScreeningException(
+                        "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
+            }
+
+
+            row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+            info.setTcSubmissionAccuracy(row.getItem("submission_accuracy").toString());
+            info.setTcSubmission(row.getItem("submission_percentage").toString());
+            info.setTcOverallAccuracy(row.getItem("overall_accuracy").toString());
         }
-        if (rsc.size() > 1) {
-            throw new ScreeningException(
-                    "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
-        }
 
 
-        row = (ResultSetContainer.ResultSetRow) rsc.get(0);
-        info.setTcSubmissionAccuracy(row.getItem("submission_accuracy").toString());
-        info.setTcSubmission(row.getItem("submission_percentage").toString());
-        info.setTcOverallAccuracy(row.getItem("overall_accuracy").toString());
-/*
-        } else {
-*/
+
+
         accuracyInfo.setContentHandle("problem_statistics_by_company");
 
         accuracyInfo.setProperty("pid", String.valueOf(problemId));

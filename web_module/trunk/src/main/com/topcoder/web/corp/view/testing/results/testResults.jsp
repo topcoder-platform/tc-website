@@ -289,9 +289,9 @@ if ( plugin ) {
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
 	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-		       <TD COLSPAN="6" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
+		       <TD COLSPAN="9" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
 		<% } else { %>
-                       <TD COLSPAN="8" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
+                       <TD COLSPAN="9" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
 		<% } %>
 	        </TR>
 	        <TR>
@@ -307,6 +307,7 @@ if ( plugin ) {
                 <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">Percentile</TD>
 		<% } %>
+               <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">&#160;</TD>
                        <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">&#160;</TD>
 	        </TR>
                 <% even = false; %>

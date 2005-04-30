@@ -278,8 +278,14 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>ifNull</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
     </tag>
-    
+
     <tag>
         <name>placementProfileSearchResultIterator</name>
         <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
@@ -297,7 +303,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
+
     <tag>
         <name>preferenceGroupIterator</name>
         <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
@@ -315,7 +321,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
+
     <tag>
         <name>preferenceIterator</name>
         <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
@@ -333,7 +339,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
+
     <tag>
         <name>preferenceInput</name>
         <tagclass>com.topcoder.web.tc.view.tag.PreferenceInput</tagclass>
@@ -348,7 +354,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
+
     <tag>
         <name>skillIterator</name>
         <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>

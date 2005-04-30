@@ -5,7 +5,7 @@
 
 
 <xsl:import href="challenge_top.xsl"/>
-<xsl:preserve-space elements="*"/> 
+<xsl:preserve-space elements="*"/>
 <xsl:template match="/">
 
 <html>
@@ -28,11 +28,11 @@
    <td valign="top" align="center">
 
 <form name="frmResults" method="post">
-<xsl:attribute name="action">/admin</xsl:attribute>
+<xsl:attribute name="action">/admin/contest</xsl:attribute>
 <input type="hidden" name="Task" value=""/>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CONSTRAINTID"/> 
+        <xsl:value-of select="/TC/CONSTRAINTID"/>
     </xsl:attribute>
 </input>
 <input type="hidden" name="Command" value=""/>
@@ -73,7 +73,7 @@
   function doFilter(id) {
     document.frmResults.filter.value = id;
     document.frmResults.Task.value = 'challenge';
-    if(document.frmResults.constraintid.value == '1') 
+    if(document.frmResults.constraintid.value == '1')
     {
         document.frmResults.Command.value = 'getChallengeList';
     } else if(document.frmResults.constraintid.value == '2')  {
@@ -107,7 +107,7 @@
 
       </table>
       <table width="800" cellspacing="0" cellpadding="0" border="0">
-           <xsl:for-each select="/TC/CHALLENGE/Challenge">      
+           <xsl:for-each select="/TC/CHALLENGE/Challenge">
             <tr>
               <td colspan="2"><br/><hr/><br/></td>
             </tr>
@@ -122,14 +122,14 @@
               <tr>
                 <td>
                    <a><xsl:attribute name="HREF">JavaScript:doRemove('<xsl:value-of select="ChallengeId"/>')</xsl:attribute>
-                      Nullify 
+                      Nullify
                    </a>
                 </td>
               </tr>
               <tr>
                 <td>
                    <a><xsl:attribute name="HREF">JavaScript:doOverturn('<xsl:value-of select="ChallengeId"/>')</xsl:attribute>
-                      Overturn 
+                      Overturn
                    </a>
                 </td>
               </tr>
@@ -181,14 +181,14 @@
                 <td>Message</td>
                 <td><xsl:value-of select="Message"/></td>
               </tr>
-          </xsl:for-each>    
+          </xsl:for-each>
       </table>
-</form>            
+</form>
                 </td>
               </tr>
       </table>
 
-</body> 
+</body>
 </html>
 </xsl:template>
 </xsl:stylesheet>

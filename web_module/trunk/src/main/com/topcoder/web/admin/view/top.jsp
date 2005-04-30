@@ -1,5 +1,10 @@
-<%@ page
-         contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet"
-%>
-top
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+<jsp:include page="css.jsp"/>
+<table>
+    <tr>
+        <td class="title" align="center">
+            TopCoder Administration
+        </td>
+    </tr>
+</table>
+
