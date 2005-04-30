@@ -44,13 +44,6 @@
         </init-param>
         <!-- end  parameters required by BaseServlet -->
 
-        <init-param>
-            <param-name>jiveHome</param-name>
-            <param-value>/export/home/jboss/jboss-4.0.0/server/default/data/jiveHome</param-value>
-            <description></description>
-        </init-param>
-
-
     </servlet>
 
     <servlet-mapping>
