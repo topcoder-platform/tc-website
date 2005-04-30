@@ -1181,6 +1181,9 @@
  		            	<include name="com/topcoder/web/forums/**/*.class" />
  		                <include name="com/topcoder/security/**/*.class" />
  		            </classes>
+ 		        	<classes dir="${resources}/forums">
+ 		        		<include name="jive_init.xml" />
+ 		        	</classes>
  		            <webinf dir="${resources}/taglib">
  		                <include name="tc-webtags.tld"/>
  		            </webinf>

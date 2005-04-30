@@ -8,7 +8,7 @@
         <display-name>Forums Servlet</display-name>
         <description>The Forums controller servlet</description>
         <servlet-class>com.topcoder.web.forums.controller.ForumsServlet</servlet-class>
-    
+
         <!-- begin parameters required by BaseServlet -->
         <init-param>
             <param-name>module_key</param-name>
@@ -43,13 +43,21 @@
             <description>where to forward for errors</description>
         </init-param>
         <!-- end  parameters required by BaseServlet -->
+
+        <init-param>
+            <param-name>jiveHome</param-name>
+            <param-value>/export/home/jboss/jboss-4.0.0/server/default/data/jiveHome</param-value>
+            <description></description>
+        </init-param>
+
+
     </servlet>
 
     <servlet-mapping>
         <servlet-name>forums</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
+
     <taglib>
         <taglib-uri>tc-webtags.tld</taglib-uri>
         <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
