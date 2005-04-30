@@ -23,8 +23,7 @@ public class DateUtils {
      * @return
      */
     public static Date getConvertedDate(Date d, String fromTimeZone, String toTimeZone) {
-        log.debug("convert " + d.toString() + " from " + fromTimeZone + " to " + toTimeZone);
-        return new Date(d.getTime()+getOffset(fromTimeZone, toTimeZone));
+        return new Date(d.getTime()+(getOffset(d, fromTimeZone, toTimeZone)));
     }
 
     /**
@@ -34,33 +33,31 @@ public class DateUtils {
      * @return
      */
     public static Date getConvertedDate(Date d, String toTimeZone) {
-        log.debug("convert " + d.toString() + " to " + toTimeZone);
-        return new Date(d.getTime()+getOffset(toTimeZone));
+        return new Date(d.getTime()+(getOffset(d, toTimeZone)));
     }
 
     /**
-     * Determine the offset between one timezone and another
+     * Determine the offset between one timezone and another on the specified date
+     * @param d
      * @param fromTimeZone
      * @param toTimeZone
-     * @return
+     * @return the offset in milliseconds
      */
-    public static int getOffset(String fromTimeZone, String toTimeZone) {
-        Calendar to = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
-        Calendar from = Calendar.getInstance(TimeZone.getTimeZone(fromTimeZone));
-        log.debug("offset is " + (to.get(Calendar.ZONE_OFFSET)-from.get(Calendar.ZONE_OFFSET)));
-        return to.get(Calendar.ZONE_OFFSET)-from.get(Calendar.ZONE_OFFSET);
+    public static int getOffset(Date d, String fromTimeZone, String toTimeZone) {
+        int fromOffset = TimeZone.getTimeZone(fromTimeZone).getOffset(d.getTime());
+        int toOffset = TimeZone.getTimeZone(toTimeZone).getOffset(d.getTime());
+        return toOffset-fromOffset;
     }
 
     /**
-     * Determine the offset between the default timezone and another
+     * Determine the offset between the default timezone and another on the specified date
      * @param toTimeZone
-     * @return
+     * @return the offset in milliseconds
      */
-    public static int getOffset(String toTimeZone) {
-        Calendar to = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
-        Calendar from = Calendar.getInstance();
-        log.debug("offset is " + (to.get(Calendar.ZONE_OFFSET)-from.get(Calendar.ZONE_OFFSET)));
-        return to.get(Calendar.ZONE_OFFSET)-from.get(Calendar.ZONE_OFFSET);
+    public static int getOffset(Date d, String toTimeZone) {
+        int fromOffset = TimeZone.getDefault().getOffset(d.getTime());
+        int toOffset = TimeZone.getTimeZone(toTimeZone).getOffset(d.getTime());
+        return toOffset-fromOffset;
     }
 
 
