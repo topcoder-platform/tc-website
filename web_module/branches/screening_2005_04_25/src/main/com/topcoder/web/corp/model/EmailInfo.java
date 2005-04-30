@@ -114,7 +114,7 @@ public class EmailInfo extends BaseModel {
             msgText.append("Password:  ");
             msgText.append(candidatePassword);
             msgText.append("\n\n");
-            msgText.append("IMPORTANT: Please net that you must complete ALL portions of the test prior to the end time shown above.\n\n");
+            msgText.append("IMPORTANT: Please note that you must complete ALL portions of the test prior to the end time shown above.\n\n");
             msgText.append("You should allow 1-2 hours to complete all portions of the test.\n\n");
             msgText.append("You may access the test here: ");
             msgText.append("http://www.topcoder.com/techassess/techassess?module=Login&cm=");
