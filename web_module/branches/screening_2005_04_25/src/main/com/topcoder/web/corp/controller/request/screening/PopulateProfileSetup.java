@@ -65,7 +65,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
                     info.setTestSetA(row.getItem("round_id").toString());
                 }
             }
-            info.setHasTestSetA(!info.getTestSetA().equals(new Long(Constants.NO_TEST_SET_A)));
+            info.setHasTestSetA(!new Long(Constants.NO_TEST_SET_A).equals(info.getTestSetA()));
 
             info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), user));
 
