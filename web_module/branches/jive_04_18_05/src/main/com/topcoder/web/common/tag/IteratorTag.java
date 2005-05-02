@@ -50,7 +50,7 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public int doAfterBody() throws JspException {
-s        if (iterator.hasNext()) {
+        if (iterator.hasNext()) {
             pageContext.setAttribute(getId(), iterator.next());
             return EVAL_BODY_TAG;
         } else {
