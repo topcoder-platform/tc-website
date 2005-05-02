@@ -295,6 +295,27 @@
                 <local>com.topcoder.forum.ForumAdminLocal</local>
                 <ejb-link>ForumAdminEJB</ejb-link>
             </ejb-local-ref>
+            <ejb-ref>
+                <ejb-ref-name>ejb/TeamMemberRolesEJB</ejb-ref-name>
+                <ejb-ref-type>Session</ejb-ref-type>
+                <home>com.topcoder.dde.catalog.TeamMemberRolesHome</home>
+                <remote>com.topcoder.dde.catalog.TeamMemberRoles</remote>
+                <ejb-link>TeamMemberRolesEJB</ejb-link>
+            </ejb-ref>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <res-type>javax.sql.DataSource</res-type>
+                <res-auth>Container</res-auth>
+            </resource-ref>
+        </session>
+        <!-- Team Member Roles EJB -->
+        <session>
+            <ejb-name>TeamMemberRolesEJB</ejb-name>
+            <home>com.topcoder.dde.catalog.TeamMemberRolesHome</home>
+            <remote>com.topcoder.dde.catalog.TeamMemberRoles</remote>
+            <ejb-class>com.topcoder.dde.catalog.TeamMemberRolesBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>

@@ -18,5 +18,12 @@
                 <jndi-name>java:/InformixDS</jndi-name>
             </resource-ref>
         </session>
+        <session>
+            <ejb-name>TeamMemberRolesEJB</ejb-name>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <jndi-name>java:/InformixDS</jndi-name>
+            </resource-ref>
+        </session>
     </enterprise-beans>
 </jboss>
