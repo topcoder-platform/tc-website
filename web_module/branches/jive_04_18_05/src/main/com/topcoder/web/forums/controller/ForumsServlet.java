@@ -6,26 +6,18 @@
  */
 package com.topcoder.web.forums.controller;
 
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.security.TCSubject;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.MissingResourceException;
-import java.util.Set;
 
 /**
  * @author mtong
