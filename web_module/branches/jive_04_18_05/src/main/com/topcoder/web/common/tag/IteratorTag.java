@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
+import javax.servlet.jsp.tagext.BodyContent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -51,6 +52,10 @@ public class IteratorTag extends BodyTagSupport {
         if (iterator!=null&&iterator.hasNext()) {
             pageContext.setAttribute(getId(), iterator.next());
         }
+    }
+    public void setBodyContent(BodyContent bodyContent) {
+        log.debug("setBodyContent() called..");
+        super.setBodyContent(bodyContent);
     }
 
     public int doAfterBody() throws JspException {
