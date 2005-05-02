@@ -49,18 +49,18 @@
             </jsp:include>
 
             <table cellpadding="0" cellspacing="0" class="rtTable">
-                <th>
-                <td class="rtHeader" width="80%">Topic</td>
-                <td class="rtHeader" width="20%">T./M.</td>
-                <td class="rtHeader" align="center" colspan="2">Last Post</td>
-                </th>
-                <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
                 <tr>
-                <td class="rtHeader" width="80%"><jsp:getProperty name="forum" property="name" /></td>
-                <td class="rtHeader" width="20%"><jsp:getProperty name="forum" property="threadCount" />/<jsp:getProperty name="forum" property="messageCount" /></td>
-                <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage" />
-                <td class="rtHeader" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MM:dd:yyyy HH:mm:ss"/></td>
+                    <td class="rtHeader" width="80%">Topic</td>
+                    <td class="rtHeader" width="20%">T./M.</td>
+                    <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
+                <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
+                    <tr>
+                        <td class="rtHeader" width="80%"><jsp:getProperty name="forum" property="name" /></td>
+                        <td class="rtHeader" width="20%"><jsp:getProperty name="forum" property="threadCount" />/<jsp:getProperty name="forum" property="messageCount" /></td>
+                        <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage" />
+                        <td class="rtHeader" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MM:dd:yyyy HH:mm:ss"/></td>
+                    </tr>
                 </tc-webtag:iterator>
             </table>
 
