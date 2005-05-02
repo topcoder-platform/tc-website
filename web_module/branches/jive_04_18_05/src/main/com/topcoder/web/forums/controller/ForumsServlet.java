@@ -12,12 +12,14 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.security.TCSubject;
+import com.topcoder.web.common.model.CoderSessionInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Set;
 
 /**
  * @author mtong
@@ -43,5 +45,10 @@ public class ForumsServlet extends BaseServlet {
         return new TCSubject(132456);
     }
 
-
+    protected SessionInfo createSessionInfo(TCRequest request,
+            WebAuthentication auth, Set groups) throws Exception {
+		CoderSessionInfo ret = null;
+		ret = new CoderSessionInfo(request, auth, groups);
+		return ret;
+	}
 }

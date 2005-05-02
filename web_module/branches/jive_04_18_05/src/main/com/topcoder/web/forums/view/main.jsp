@@ -17,13 +17,13 @@
 <title>TopCoder</title>
 
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
-<jsp:include page="../../script.jsp" />
+<jsp:include page="script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -31,7 +31,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
 		<td width="180">
-			<jsp:include page="../includes/global_left.jsp">
+			<jsp:include page="includes/global_left.jsp">
 				<jsp:param name="level1" value=""/>
 				<jsp:param name="level2" value=""/>
 			</jsp:include>
@@ -41,7 +41,7 @@
 <!-- Center Column Begins -->
          <td width="100%" class="rtBody">
 
-        <jsp:include page="../page_title.jsp" >
+        <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="round_table"/>
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
@@ -73,7 +73,7 @@ A topic with a <b>bold title</b> indicates it either has a new thread or has a t
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="foot.jsp" />
 
 </body>
 
