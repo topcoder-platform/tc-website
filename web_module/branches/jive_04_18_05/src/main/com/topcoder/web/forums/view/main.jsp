@@ -6,7 +6,6 @@
 %>
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<% Iterator it = (Iterator)request.getAttribute("forums"); %>
 
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -47,14 +46,12 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<% Forum forum = null; %>
 	<th>
 	<td class="rtHeader" width="80%">Topic</td>
 	<td class="rtHeader" width="20%">T./M.</td>
 	<td class="rtHeader" align="center" colspan="2">Last Post</td>
 	</th>
-<% while (it.hasNext()) { 
-	forum = (Forum)it.next(); %>
+	<tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=request.getAttribute("forums")%>' />
 	<tr>
 	<td class="rtHeader" width="80%"><jsp:getProperty name="forum" property="name" /></td>
 	<td class="rtHeader" width="20%"><jsp:getProperty name="forum" property="threadCount" />/<jsp:getProperty name="forum" property="messageCount" /></td>
