@@ -855,6 +855,7 @@ if (action != null) {
     }
 
     // Team Member Role
+/*
     if (action.equals("Add Role")) {
         String strUsername = request.getParameter("txtTeamMemberRoleUsername");
         String strRole = request.getParameter("selRole");
@@ -878,6 +879,7 @@ if (action != null) {
         componentManager.removeTeamMemberRole(roleId);
         //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
     }
+*/
 
     String rootDir = "";
     try {
@@ -1684,9 +1686,11 @@ if (action != null) {
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
                     <td width="30%" class="adminTitle">Username</td>
-                    <td width="30%" class="adminTitle">Role</td>
+                    <td width="70%" class="adminTitle">Roles</td>
+<%--
                     <td width="30%" class="adminTitle">Rating</td>
                     <td width="10%" class="adminTitleCenter">Action</td>
+--%>
                 </tr>
 
 <%
@@ -1695,12 +1699,20 @@ if (action != null) {
 %>
                 <tr valign="top">
                     <td class="forumText"><%= teamMemberRoles[i].getUsername() %></td>
-                    <td class="forumText"><%= teamMemberRoles[i].getRoleName() %></td>
+                    <td class="forumText"><%= teamMemberRoles[i].getRoleNames() %></td>
+<%--
                     <td class="forumText"><%= teamMemberRoles[i].getTCSRating() %></td>
-                    <td class="forumTextCenter" nowrap><strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= lngVersion %>&role=<%= teamMemberRoles[i].getId() %>&a=DeleteRole">Delete Role</a></strong></td>
+                    <td class="forumTextCenter" nowrap>
+                        <strong>
+                            <a href="component_version_admin.jsp?comp=<%=lngComponent%>&ver=<%=lngVersion%>&role=<%=teamMemberRoles[i].getId()%>&a=DeleteRole">Delete Role
+                            </a>
+                        </strong>
+                    </td>
+--%>
                 </tr>
 <% } %>
 
+<%--
                 <tr valign="top">
                     <td class="forumText"><input class="adminSearchForm" type="text" size="25" maxlength="64" name="txtTeamMemberRoleUsername" value=""></td>
                     <td class="forumText">
@@ -1712,6 +1724,7 @@ if (action != null) {
                     <td class="forumText"><input class="adminSearchForm" type="text" size="10" maxlength="4" name="txtTeamMemberRating" value=""></td>
                     <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
                 </tr>
+--%>
             </table>
 
 <!-- Permission Roles begins -->
