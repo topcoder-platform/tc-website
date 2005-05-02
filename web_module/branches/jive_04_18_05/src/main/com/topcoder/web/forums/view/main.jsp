@@ -29,7 +29,7 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
-   
+<%--   
 <!-- Left Column Begins-->
 		<td width="180">
 			<jsp:include page="includes/global_left.jsp">
@@ -38,7 +38,7 @@
 			</jsp:include>
 		</td>
 <!-- Left Column Ends -->
-
+--%>
 
 <!-- Center Column Begins -->
         <td width="100%" class="rtBody">
@@ -59,7 +59,7 @@
                         <td class="rtThreadCellWrap" width="80%"><jsp:getProperty name="forum" property="name" /></td>
                         <td class="rtThreadCell" width="20%"><jsp:getProperty name="forum" property="threadCount" />/<jsp:getProperty name="forum" property="messageCount" /></td>
                         <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage" />
-                        <td class="rtThreadCell" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MM:dd:yyyy HH:mm:ss"/></td>
+                        <td class="rtThreadCell" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy hh:mm a"/></td>
                     </tr>
                 </tc-webtag:iterator>
             </table>
