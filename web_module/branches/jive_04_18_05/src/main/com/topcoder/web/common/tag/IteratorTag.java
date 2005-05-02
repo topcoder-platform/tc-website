@@ -43,7 +43,7 @@ public class IteratorTag extends BodyTagSupport {
 
     public int doStartTag() throws JspException {
         log.debug("doStartTag() called, collection = " + collection + " iterator = " + iterator);
-        return EVAL_BODY_BUFFERED;
+        return EVAL_BODY_TAG;
     }
 
     public void doInitBody() throws JspException {
@@ -60,7 +60,7 @@ public class IteratorTag extends BodyTagSupport {
             temp = iterator.next();
             pageContext.setAttribute(getId(), temp);
             log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
-            return EVAL_BODY_BUFFERED;
+            return EVAL_BODY_TAG;
         } else {
             try {
                 if (bodyContent != null) {
