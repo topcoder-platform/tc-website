@@ -9,6 +9,13 @@
 <head>
 <link rel=stylesheet href="/css/javaone05.css">
 <title>2005 JavaOne Coding Challenge</title>
+<script>
+function openWin(url, name, w, h) {
+ win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+ win.location.href = url;
+ win.focus();
+}
+</script>
 </head>
 <body>
 <map name="bannerMap">
@@ -46,7 +53,7 @@
                     <td width="70%" class="sidebarText">
                     <ul>
                     <li>One complimentary full Conference pass to the 2006 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
-                    <li>A collection of 23 <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone04&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
+                     <li>A collection of <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone05&d2=book_titles','Books',700,655);">6 books from Sun Microsystems Press</A>, valued at $300**</li>
                     </ul>
                     </td>
                 </tr>
