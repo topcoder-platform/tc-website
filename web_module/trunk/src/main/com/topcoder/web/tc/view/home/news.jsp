@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.02.05<br>9:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm240_prob">SRM 240 - Problem Set & Analysis</A></span><br><br>
+      This problem set gave competitors a hard time. The only problem with success rate over 50% was the division 1 easy... with 52,75%.</td>
+      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=7371063">Jan_Kuipers</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm240_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.29.05<br>3:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle">TCS to post Design and Development projects on Wednesdays</span><br><br>
       TCS will be switching from its current posting schedule on Tuesdays and Thursdays to posting all component projects on Wednesdays starting May 11.  This will allow competitors to evaluate whether they want to participate in design or development before they sign up for a project and to streamline the component timeline.
@@ -258,18 +273,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>04.04.05<br>9:15 AM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=6535">Multimedia data compression survey</A></span><br><br>
-      Which best describes your experience/interest in working with multimedia data compression technology?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=6535">view survey</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 
