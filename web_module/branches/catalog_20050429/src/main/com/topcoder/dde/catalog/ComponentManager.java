@@ -458,8 +458,10 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * <code>role</code> represents a role that was returned by the catalog
      * (instead of constructed by the client), or if the role cannot be created
      */
+/*
     public TeamMemberRole addTeamMemberRole(TeamMemberRole role)
             throws RemoteException, CatalogException;
+*/
 
     /**
      * Adds a document to the active version of the component managed by this
@@ -634,9 +636,9 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * method call to fail
      * @throws CatalogException if the development role cannot be removed
      */
-    public void removeTeamMemberRole(long memberRoleId)
+/*    public void removeTeamMemberRole(long memberRoleId)
             throws RemoteException, CatalogException;
-
+*/
     /**
      * Removes a dependency from the active version of the component managed by
      * this instance.
