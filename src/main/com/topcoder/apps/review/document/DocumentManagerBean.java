@@ -2303,22 +2303,25 @@ public class DocumentManagerBean implements SessionBean {
         try {
             conn = dataSource.getConnection();
 
-            ps = conn.prepareStatement(
-                    "SELECT agg_worksheet_v_id, is_completed " +
-                    "FROM agg_worksheet " +
-                    "WHERE agg_worksheet_id = ? AND " +
-                    "cur_version = 1");
-            ps.setLong(1, worksheet.getId());
-            rs = ps.executeQuery();
-
             long worksheetVID = -1;
             boolean worksheetIsCompleted = false;
-            if (rs.next()) {
-                worksheetVID = rs.getLong(1);
-                worksheetIsCompleted = rs.getBoolean(2);
+            try {
+                ps = conn.prepareStatement(
+                        "SELECT agg_worksheet_v_id, is_completed " +
+                        "FROM agg_worksheet " +
+                        "WHERE agg_worksheet_id = ? AND " +
+                        "cur_version = 1");
+                ps.setLong(1, worksheet.getId());
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    worksheetVID = rs.getLong(1);
+                    worksheetIsCompleted = rs.getBoolean(2);
+                }
+            } finally {
+                Common.close(rs);
+                Common.close(ps);
             }
-            Common.close(rs);
-            Common.close(ps);
 
             // If worksheet is completed and the user isn't admin/pm,
             // then don't allow save!
@@ -2327,19 +2330,22 @@ public class DocumentManagerBean implements SessionBean {
             // See if there is at least one Aggregation Review with status = rejected
             boolean allowSaveFlag = false;
             if (worksheetIsCompleted) {
-                ps = conn.prepareStatement(
-                        "SELECT ar.agg_review_id " +
-                        "FROM agg_review ar " +
-                        "WHERE ar.cur_version = 1 AND " +
-                        "ar.agg_approval_id = " + AggregationApproval.ID_REJECTED + " AND " +
-                        "ar.agg_worksheet_id = ?");
-                ps.setLong(1, worksheet.getId());
-                rs = ps.executeQuery();
-                if (rs.next()) {
-                    allowSaveFlag = true;
+                try {
+                    ps = conn.prepareStatement(
+                            "SELECT ar.agg_review_id " +
+                            "FROM agg_review ar " +
+                            "WHERE ar.cur_version = 1 AND " +
+                            "ar.agg_approval_id = " + AggregationApproval.ID_REJECTED + " AND " +
+                            "ar.agg_worksheet_id = ?");
+                    ps.setLong(1, worksheet.getId());
+                    rs = ps.executeQuery();
+                    if (rs.next()) {
+                        allowSaveFlag = true;
+                    }
+                } finally {
+                    Common.close(rs);
+                    Common.close(ps);
                 }
-                Common.close(rs);
-                Common.close(ps);
                 if (!(Common.isAdmin(requestor) ||
                         Common.isRole(worksheet.getProject(), requestor.getUserId(), Role.ID_PRODUCT_MANAGER)) &&
                         !allowSaveFlag) {
@@ -2352,18 +2358,21 @@ public class DocumentManagerBean implements SessionBean {
                 }
                 if (allowSaveFlag) {
                     // Set Aggregation reviews to isCompleted=false
-                    ps = conn.prepareStatement(
-                            "UPDATE agg_review " +
-                            "SET is_completed = 0, " +
-                            "agg_approval_id = NULL, " +
-                            "is_pm_reviewed = 0 " +
-                            "WHERE " +
-                            "cur_version = 1 AND " +
-                            "agg_worksheet_id = ? ");
-                    ps.setLong(1, worksheet.getId());
-                    ps.executeUpdate();
-                    Common.close(rs);
-                    Common.close(ps);
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE agg_review " +
+                                "SET is_completed = 0, " +
+                                "agg_approval_id = NULL, " +
+                                "is_pm_reviewed = 0 " +
+                                "WHERE " +
+                                "cur_version = 1 AND " +
+                                "agg_worksheet_id = ? ");
+                        ps.setLong(1, worksheet.getId());
+                        ps.executeUpdate();
+                    } finally {
+                        Common.close(rs);
+                        Common.close(ps);
+                    }
                 }
             }
 
@@ -2390,41 +2399,49 @@ public class DocumentManagerBean implements SessionBean {
                         throw new InvalidEditException(errorMsg);
                     }
 
-                    ps = conn.prepareStatement(
-                            "UPDATE agg_worksheet " +
-                            "SET cur_version = 0 " +
-                            "WHERE agg_worksheet_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, worksheet.getId());
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE agg_worksheet " +
+                                "SET cur_version = 0 " +
+                                "WHERE agg_worksheet_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, worksheet.getId());
 
-                    int nr = ps.executeUpdate();
+                        int nr = ps.executeUpdate();
 
-                    if (nr == 0) {
-                        String errorMsg = "DM.saveAggregation(): Trying to save non-existing AggregationWorksheet" +
-                                ", aggWorksheetId: " + worksheet.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "DM.saveAggregation(): Trying to save non-existing AggregationWorksheet" +
+                                    ", aggWorksheetId: " + worksheet.getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(ps);
                     }
 
                 } else {
                     try {
                         // New AggregationWorksheet, check that it doesn't exist in db
-                        ps = conn.prepareStatement(
-                                "SELECT agg_worksheet_v_id " +
-                                "FROM agg_worksheet " +
-                                "WHERE cur_version = 1 AND " +
-                                "project_id = ? ");
-                        ps.setLong(1, worksheet.getProject().getId());
-                        rs = ps.executeQuery();
-                        if (rs.next()) {
-                            String errorMsg = "DM.saveAggregation(): Concurrent error(saving new AggregationWorksheet)" +
-                                    ", projectId: " + worksheet.getProject().getId();
-                            error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new ConcurrentModificationException(errorMsg);
+                        try {
+                            ps = conn.prepareStatement(
+                                    "SELECT agg_worksheet_v_id " +
+                                    "FROM agg_worksheet " +
+                                    "WHERE cur_version = 1 AND " +
+                                    "project_id = ? ");
+                            ps.setLong(1, worksheet.getProject().getId());
+                            rs = ps.executeQuery();
+                            if (rs.next()) {
+                                String errorMsg = "DM.saveAggregation(): Concurrent error(saving new AggregationWorksheet)" +
+                                        ", projectId: " + worksheet.getProject().getId();
+                                error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new ConcurrentModificationException(errorMsg);
+                            }
+                            worksheet.setId(idGen.nextId());
+                        } finally {
+                            Common.close(ps);
                         }
-                        worksheet.setId(idGen.nextId());
                     } catch (RemoteException e1) {
                         String errorMsg = "DM.saveAggregation(): RemoteException trying to use id-generator:\n" +
                                 e1.toString();
@@ -2434,28 +2451,32 @@ public class DocumentManagerBean implements SessionBean {
                     info("DM.saveAggregation(): Saving a new worksheet, id: " + worksheet.getId());
                 }
 
-                ps = conn.prepareStatement(
-                        "INSERT INTO agg_worksheet " +
-                        "(agg_worksheet_v_id, agg_worksheet_id, " +
-                        "is_completed, is_pm_reviewed, " +
-                        "aggregator_id, project_id, " +
-                        "modify_user, cur_version) " +
-                        "VALUES (0, ?, ?, ?, ?, ?, ?, 1)");
-                ps.setLong(1, worksheet.getId());
-                ps.setBoolean(2, worksheet.isCompleted());
-                ps.setBoolean(3, worksheet.isPMReviewed());
-                ps.setLong(4, worksheet.getAggregator().getId());
-                ps.setLong(5, worksheet.getProject().getId());
-                ps.setLong(6, requestorId);
+                try {
+                    ps = conn.prepareStatement(
+                            "INSERT INTO agg_worksheet " +
+                            "(agg_worksheet_v_id, agg_worksheet_id, " +
+                            "is_completed, is_pm_reviewed, " +
+                            "aggregator_id, project_id, " +
+                            "modify_user, cur_version) " +
+                            "VALUES (0, ?, ?, ?, ?, ?, ?, 1)");
+                    ps.setLong(1, worksheet.getId());
+                    ps.setBoolean(2, worksheet.isCompleted());
+                    ps.setBoolean(3, worksheet.isPMReviewed());
+                    ps.setLong(4, worksheet.getAggregator().getId());
+                    ps.setLong(5, worksheet.getProject().getId());
+                    ps.setLong(6, requestorId);
 
-                int nr = ps.executeUpdate();
+                    int nr = ps.executeUpdate();
 
-                if (nr != 1) {
-                    String errorMsg = "DM.saveAggregation(): Could not insert AggregationWorksheet!" +
-                            ", aggWorksheetId: " + worksheet.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
+                    if (nr != 1) {
+                        String errorMsg = "DM.saveAggregation(): Could not insert AggregationWorksheet!" +
+                                ", aggWorksheetId: " + worksheet.getId();
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                } finally {
+                    Common.close(ps);
                 }
 
                 info("DM.saveAggregation(): AggregationWorksheet inserted");
@@ -2495,21 +2516,25 @@ public class DocumentManagerBean implements SessionBean {
                             throw new InvalidEditException(errorMsg);
                         }
 
-                        ps = conn.prepareStatement(
-                                "UPDATE agg_response " +
-                                "SET cur_version = 0 " +
-                                "WHERE agg_response_id = ? AND " +
-                                "cur_version = 1");
-                        ps.setLong(1, aggRespArr[i].getId());
+                        try {
+                            ps = conn.prepareStatement(
+                                    "UPDATE agg_response " +
+                                    "SET cur_version = 0 " +
+                                    "WHERE agg_response_id = ? AND " +
+                                    "cur_version = 1");
+                            ps.setLong(1, aggRespArr[i].getId());
 
-                        int nr = ps.executeUpdate();
+                            int nr = ps.executeUpdate();
 
-                        if (nr == 0) {
-                            String errorMsg = "DM.saveAggregation(): Trying to save non-existing AggregationResponse, aggResponseId: " +
-                                    aggRespArr[i].getId();
-                            error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new InvalidEditException(errorMsg);
+                            if (nr == 0) {
+                                String errorMsg = "DM.saveAggregation(): Trying to save non-existing AggregationResponse, aggResponseId: " +
+                                        aggRespArr[i].getId();
+                                error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new InvalidEditException(errorMsg);
+                            }
+                        } finally {
+                            Common.close(ps);
                         }
 
                     } else {
@@ -2524,36 +2549,40 @@ public class DocumentManagerBean implements SessionBean {
                         info("DM.saveAggregation(): Saving a new AggregationResponse, id: " + aggRespArr[i].getId());
                     }
 
-                    ps = conn.prepareStatement(
-                            "INSERT INTO agg_response " +
-                            "(agg_response_v_id, agg_response_id, " +
-                            "subjective_resp_id, agg_resp_stat_id, " +
-                            "agg_worksheet_id, " +
-                            "response_text, response_type_id, " +
-                            "modify_user, cur_version) " +
-                            "VALUES (0, ?, ?, ?, ?, ?, ?, ?, 1)");
-                    ps.setLong(1, aggRespArr[i].getId());
-                    ps.setLong(2, aggRespArr[i].getSubjectiveResponse().getId());
-                    if (aggRespArr[i].getAggregationResponseStatus() == null) {
-                        ps.setNull(3, Types.DECIMAL);
-                    } else {
-                        ps.setLong(3, aggRespArr[i].getAggregationResponseStatus().getId());
-                    }
-                    ps.setLong(4, worksheet.getId());
-                    ps.setString(5, aggRespArr[i].getSubjectiveResponse().getResponseText());
-                    ps.setLong(6, aggRespArr[i].getSubjectiveResponse().getResponseType().getId());
-                    ps.setLong(7, requestorId);
+                    try {
+                        ps = conn.prepareStatement(
+                                "INSERT INTO agg_response " +
+                                "(agg_response_v_id, agg_response_id, " +
+                                "subjective_resp_id, agg_resp_stat_id, " +
+                                "agg_worksheet_id, " +
+                                "response_text, response_type_id, " +
+                                "modify_user, cur_version) " +
+                                "VALUES (0, ?, ?, ?, ?, ?, ?, ?, 1)");
+                        ps.setLong(1, aggRespArr[i].getId());
+                        ps.setLong(2, aggRespArr[i].getSubjectiveResponse().getId());
+                        if (aggRespArr[i].getAggregationResponseStatus() == null) {
+                            ps.setNull(3, Types.DECIMAL);
+                        } else {
+                            ps.setLong(3, aggRespArr[i].getAggregationResponseStatus().getId());
+                        }
+                        ps.setLong(4, worksheet.getId());
+                        ps.setString(5, aggRespArr[i].getSubjectiveResponse().getResponseText());
+                        ps.setLong(6, aggRespArr[i].getSubjectiveResponse().getResponseType().getId());
+                        ps.setLong(7, requestorId);
 
-                    int nr = ps.executeUpdate();
+                        int nr = ps.executeUpdate();
 
-                    if (nr != 1) {
-                        String errorMsg = "DM.saveAggregation(): Could not insert AggregationResponse! , aggResponseId: " +
-                                aggRespArr[i].getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr != 1) {
+                            String errorMsg = "DM.saveAggregation(): Could not insert AggregationResponse! , aggResponseId: " +
+                                    aggRespArr[i].getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                        info("DM.saveAggregation(): aggResponse inserted");
+                    } finally {
+                        Common.close(ps);
                     }
-                    info("DM.saveAggregation(): aggResponse inserted");
 
                 }
             }
