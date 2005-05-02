@@ -1024,6 +1024,7 @@ public class TCLoadAggregate extends TCLoad {
             query.append("       ,rr.old_rating");  // 4
             query.append("       ,rr.new_rating");  // 5
             query.append("       ,r.calendar_id");
+            query.append("       ,r.round_id");
             query.append("  FROM room_result rr ");
             query.append("       ,round r ");
             if (srmOnly)
