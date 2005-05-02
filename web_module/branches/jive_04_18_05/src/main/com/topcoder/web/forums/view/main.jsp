@@ -58,7 +58,6 @@
 	<tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage" />
 	<td class="rtHeader" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MM:dd:yyyy HH:mm:ss"/></td>
 	</tr>	
-<% } %>
 </table>
 
 A topic with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.
