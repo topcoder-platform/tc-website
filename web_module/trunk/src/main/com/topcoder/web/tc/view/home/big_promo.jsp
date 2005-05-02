@@ -1,1 +1,1 @@
-<a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_overview"><IMG SRC="/i/home/promos/tco05_logo_contest.gif" BORDER="0" ALT="" /></a><br/>
+<a href="/pl/?&module=Static&d1=javaone05&d2=overview"><IMG SRC="/i/home/promos/javaone05.gif" BORDER="0" ALT="" /></a><br/>
