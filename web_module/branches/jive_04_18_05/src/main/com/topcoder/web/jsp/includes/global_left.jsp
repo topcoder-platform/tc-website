@@ -6,7 +6,7 @@
           java.util.HashMap,
           java.util.Iterator,
           com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.web.tc.model.CoderSessionInfo,
+          com.topcoder.web.common.model.CoderSessionInfo,
           com.topcoder.web.common.BaseServlet"
 %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>

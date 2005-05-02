@@ -11,7 +11,7 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.ApplicationServer;
