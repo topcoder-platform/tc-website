@@ -9,6 +9,14 @@
 <head>
 <link rel=stylesheet href="/css/javaone05.css">
 <title>2005 JavaOne Coding Challenge</title>
+<script>
+function openWin(url, name, w, h) {
+ win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+ win.location.href = url;
+ win.focus();
+}
+</script>
+
 </head>
 <body>
 <map name="bannerMap">
@@ -124,7 +132,7 @@ Prizes will be awarded to each person who participates in the Qualification Roun
 <td class="sidebarText">
 <ul>
 <li>One complimentary full Conference pass to the 2006 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
-<li>A collection of 23 <A href="JavaScript:void window.open('/pl/?&module=Static&d1=javaone05&d2=book_titles','Books','top=2,left=2,width=685,height=655,scrollbars=1,status=0');"">Java Series Publications</A>, valued at over $950**</li>
+<li>A collection of <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone05&d2=book_titles','Books',700,655);">6 books from Sun Microsystems Press</A>, valued at $300**</li>
 </ul>
 </td>
 </tr>
