@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer,
                  java.text.DecimalFormat,
                  com.topcoder.common.web.data.Navigation,
-                 com.topcoder.web.tc.model.CoderSessionInfo"%>
+                 com.topcoder.web.common.model.CoderSessionInfo"%>
 <%@  page language="java"  %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -18,7 +18,7 @@
     request.getSession(true).setAttribute("navigation", nav);
     CoderSessionInfo sessionInfo = nav.getSessionInfo();
 %>
- 
+
 <body>
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <%-- Header --%>
@@ -37,7 +37,7 @@
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
             <td class="BIGPromoBox"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_overview"><img src="/i/home/promos/tco05_logo_contest.gif" border="0" alt=""/></A></td>
             <td width="50%" class="homeLogo">&#160;</td>
-         </tr>            
+         </tr>
       </table>
       </td>
    </tr>

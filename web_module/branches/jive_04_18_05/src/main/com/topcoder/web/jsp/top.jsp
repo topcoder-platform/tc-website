@@ -1,16 +1,11 @@
 <%@  page
   language="java"
-  import="com.topcoder.common.web.data.CoderRegistration,
-          com.topcoder.common.web.util.*,
-          java.text.DecimalFormat,
-          com.topcoder.common.web.data.Navigation,
+  import="java.text.DecimalFormat,
           java.util.HashMap,
-          com.topcoder.web.common.model.CoderSessionInfo" %>
+          com.topcoder.web.common.model.CoderSessionInfo,
+          com.topcoder.web.common.BaseServlet" %>
 <%
-   Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
-   if (nav==null) nav = new Navigation(request, response);
-   request.getSession(true).setAttribute("navigation", nav);
-   CoderSessionInfo sessionInfo = nav.getSessionInfo();
+   CoderSessionInfo sessionInfo = (CoderSessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
    String styleClass = "coderTextWhite";
    int rating = 0;
    if (!sessionInfo.isAnonymous()) {
