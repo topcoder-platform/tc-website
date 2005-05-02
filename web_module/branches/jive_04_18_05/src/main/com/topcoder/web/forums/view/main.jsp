@@ -28,6 +28,7 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
+   <%--
 <!-- Left Column Begins-->
 		<td width="180">
 			<jsp:include page="includes/global_left.jsp">
@@ -36,6 +37,7 @@
 			</jsp:include>
 		</td>
 <!-- Left Column Ends -->
+--%>
  
 <!-- Center Column Begins -->
          <td width="100%" class="rtBody">
