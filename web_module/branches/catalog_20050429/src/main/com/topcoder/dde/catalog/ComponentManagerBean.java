@@ -46,6 +46,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -108,6 +109,8 @@ public class ComponentManagerBean
     public long versionId;
     public long version;
 
+    private TeamMemberRolesHome teamMemberRolesHome;
+
 
     public ComponentManagerBean() {
     }
@@ -164,6 +167,8 @@ public class ComponentManagerBean
                 homeBindings.lookup(LocalDDELicenseLevelHome.EJB_REF_NAME);
         forumadminHome = (ForumAdminLocalHome)
                 homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
+        teamMemberRolesHome = (TeamMemberRolesHome)
+                homeBindings.lookup(TeamMemberRolesHome.EJB_REF_NAME);
 /*
             /** SECURITY MANAGER
         Hashtable principalMgrEnvironment=new Hashtable();
@@ -1249,17 +1254,23 @@ public class ComponentManagerBean
     }
 
     public Collection getTeamMemberRoles() throws CatalogException {
+
+/*
         List memberRoles = new ArrayList();
         Iterator roleIterator;
+
         try {
             roleIterator = userroleHome.findByCompVersId(versionId).iterator();
         } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
+
         while (roleIterator.hasNext()) {
             LocalDDEUserRole role = (LocalDDEUserRole) roleIterator.next();
+
             long userId =
                     ((Long) role.getUserMaster().getPrimaryKey()).longValue();
+
             String username;
             try {
                 username =
@@ -1269,6 +1280,8 @@ public class ComponentManagerBean
             } catch (Exception exception) {
                 throw new CatalogException(exception.toString());
             }
+
+
             memberRoles.add(new TeamMemberRole(
                     ((Long) role.getPrimaryKey()).longValue(),
                     userId, username,
@@ -1276,8 +1289,22 @@ public class ComponentManagerBean
                     role.getRoles().getName(), role.getRoles().getDescription(),
                     role.getTcsRating()));
         }
+
         Collections.sort(memberRoles, new Comparators.TeamMemberRoleSorter());
         return memberRoles;
+*/
+        try {
+            TeamMemberRoles teamMemberRoles = teamMemberRolesHome.create();
+            return teamMemberRoles.getTeamMemberRoles(componentId, version);
+        } catch (CreateException e) {
+            throw new CatalogException("An error occurred while getting the team member roles " + e);
+        } catch (SQLException e) {
+            throw new CatalogException("An error occurred while getting the team member roles " + e);
+        } catch (NamingException e) {
+            throw new CatalogException("An error occurred while getting the team member roles " + e);
+        } catch (RemoteException e) {
+            throw new CatalogException("An error occurred while getting the team member roles " + e);
+        }
     }
 
     public Collection getDocuments() throws CatalogException {
@@ -1618,6 +1645,7 @@ public class ComponentManagerBean
         }
     }
 
+/*
     public TeamMemberRole addTeamMemberRole(TeamMemberRole role)
             throws CatalogException {
         if (role == null) {
@@ -1672,7 +1700,7 @@ public class ComponentManagerBean
             throw new CatalogException(exception.toString());
         }
     }
-
+*/
     public Document addDocument(Document document) throws CatalogException {
         if (document == null) {
             throw new CatalogException("Null specified for document");
@@ -1954,6 +1982,7 @@ public class ComponentManagerBean
         }
     }
 
+/*
     public void removeTeamMemberRole(long memberRoleId)
             throws CatalogException {
         try {
@@ -1969,6 +1998,7 @@ public class ComponentManagerBean
             throw new CatalogException(exception.toString());
         }
     }
+*/
 
     public void removeDependency(long dependeeId) throws CatalogException {
         try {
