@@ -862,6 +862,7 @@ public class TCLoadAggregate extends TCLoad {
             query.append("       ,rm.division_id ");  // 3
             query.append("       ,rr.room_placed ");  // 4
             query.append("       ,r.calendar_id");
+            query.append("       ,r.round_id");
             query.append("  FROM room_result rr ");
             query.append("       ,room rm ");
             query.append("       ,round r ");
@@ -869,7 +870,8 @@ public class TCLoadAggregate extends TCLoad {
             query.append("   AND r.round_type_id = " + SINGLE_ROUND_MATCH);
             query.append("   AND r.round_id = rr.round_id ");
             query.append(" ORDER BY rr.coder_id ");
-            query.append("          ,r.calendar_id ");
+            query.append("          ,r.calendar_id asc ");
+            query.append("          ,r.round_id asc ");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             query = new StringBuffer(100);
@@ -1179,6 +1181,7 @@ public class TCLoadAggregate extends TCLoad {
             query.append("       ,rr.old_rating");  // 4
             query.append("       ,rr.new_rating");  // 5
             query.append("       ,r.calendar_id");
+            query.append("       ,r.round_id");
             query.append("  FROM room_result rr ");
             query.append("       ,round r ");
             if (srmOnly)
@@ -1187,7 +1190,8 @@ public class TCLoadAggregate extends TCLoad {
                 query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ", " + TOURNAMENT_ROUND + ")");
             query.append("   AND r.round_id = rr.round_id ");
             query.append(" ORDER BY rr.coder_id ");
-            query.append("          ,r.calendar_id ");
+            query.append("          ,r.calendar_id asc ");
+            query.append("          ,r.round_id asc ");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             query = new StringBuffer(100);
