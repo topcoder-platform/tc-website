@@ -1,7 +1,7 @@
 <%@  page
   language="java"
   errorPage="../errorPage.jsp"
-  import="com.topcoder.common.web.data.Navigation,com.coolservlets.forum.*,
+  import="com.topcoder.common.web.data.Navigation,
           java.text.SimpleDateFormat,
           java.util.HashMap,
           java.util.Iterator,
