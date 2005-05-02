@@ -15,141 +15,41 @@
         <td align="center" width="100%">
             <table width="650" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr valign="top">
-                   <td class="sidebarTitle" width="3%"></td>
-                    <td class="sidebarTitle" width="50%">Title</td>
-                    <td class="sidebarTitle" width="47%">Author</td>
+                	<td class="sidebarTitle" width="3%"></td>
+                    <td class="sidebarTitle" width="50%">Title & Author</td>
+                    <td class="sidebarTitle" width="47%">Description</td>
                 </tr>
                 
                 <tr valign="top">
-                   <td class="sidebarText">1</td>
-                    <td class="sidebarText">The Java Virtual Machine Specification, Second Edition</td>
-                    <td class="sidebarText">Lindholm, Tim/ Yellin, Frank</td>
+                	<td class="sidebarText">1</td>
+                    <td class="sidebarText">Core J2EE Patterns by Alur, Deepak/ Malks, Dan/ Crupi, John (0131422464)</td>
+                    <td class="sidebarText">Completely revised and updated, Core J2EE Patterns, Second Edition focuses on patterns, best practices, and design strategies. It features the J2EE Pattern Catalog with 21 patterns--including newly documented patterns providing proven solutions for enterprise applications. It also describes J2EE technology bad practices and covers refactorings to improve existing designs.</td>
                 </tr>
                 <tr valign="top">
-                   <td class="sidebarText">2</td>
-                    <td class="sidebarText">The Java Native Interface</td>
-                    <td class="sidebarText">Liang, Sheng</td>
+                	<td class="sidebarText">2</td>
+                    <td class="sidebarText">Just Java 2, Sixth Edition, Peter van der Linden (0131482114)</td>
+                    <td class="sidebarText">Just Java(tm) 2 is the complete, accessible Java tutorial for working programmers at all levels. Updated for J2SE 5.0, this sixth edition is more than an engaging overview of Java and its libraries: it's also a practical introduction to today's best enterprise and server-side programming techniques.</td>
                 </tr>
                 <tr valign="top">
-                   <td class="sidebarText">3</td>
-                    <td class="sidebarText">Concurrent Programming in Java, Second Edition</td>
-                    <td class="sidebarText">Lea, Douglas</td>
+                	<td class="sidebarText">3</td>
+                    <td class="sidebarText">Core Java ServerFaces, David Geary/Cay Horstmann (0131463055)</td>
+                    <td class="sidebarText">Core JavaServer Faces is the one book a programmers needs to master this technology. It provides hints, tips, and explicit "how-to" information that allow you to quickly become more productive. In addition, it explains how to integrate JSF with databases, use directory services, wireless apps, Web services, and more.</td>
                 </tr>
                 <tr valign="top">
-                   <td class="sidebarText">4</td>
-                    <td class="sidebarText">Java 2 Platform, Enterprise Edition</td>
-                    <td class="sidebarText">Shannon, Bill/ Hapner, Mark/ Matena, Vlada/ Davidson, James/ Pelegri-Llopart, Eduardo/ Cable, Larry/ Enterprise Team</td>
+                	<td class="sidebarText">4</td>
+                    <td class="sidebarText">Effective Enterprise Java, Ted Neward (0321130006)</td>
+                    <td class="sidebarText">Title includes 75 easily digestible tips that will help master J2EE development on a systemic and architectural level. With this book developers will learn how to design enterprise systems so they adapt to future demands, improve the efficiency of your code without compromising its correctness, and discover how to implement sophisticated functionality that is not directly supported by the language or platform.</td>
                 </tr>
                 <tr valign="top">
-                   <td class="sidebarText">5</td>
-                    <td class="sidebarText">The Java 3D API Specification, Second Edition </td>
-                    <td class="sidebarText">Sowizral, Henry/ Rushforth, Kevin/ Deering, Michael </td>
+                	<td class="sidebarText">5</td>
+                    <td class="sidebarText">JFC Swing Tutorial, Walrath, Kathy/ Campione, Mary/ Huml, Alison/ Zakhour, Sharon  (0201914670)</td>
+                    <td class="sidebarText">This task-oriented, example-driven tutorial allows programmers to create user interfaces that work without change on multiple platforms, appearing and performing as well as or better than native interfaces. Title includes an easy-to-use tabbed reference section, new introductory chapters, and coverage of newer features such as JSpinner, JFormattedTextField, JProgressBar, mouse wheel support, the rearchitected focus subsystem, and improved support for drag and drop.</td>
                 </tr>
                 <tr valign="top">
-                   <td class="sidebarText">6</td>
-                    <td class="sidebarText">Java Platform Performance</td>
-                    <td class="sidebarText">Wilson, Steve/ Kesselman, Jeff</td>
+                	<td class="sidebarText">6</td>
+                    <td class="sidebarText">Robust Java,  Steven Stelting (0131008528)</td>
+                    <td class="sidebarText">This title teaches programmers how they can build more robust software: code that handles unexpected problems gracefully, and keeps on running. Using extensive code examples, Steve covers every facet of Java exceptions and exception handling, encompassing architecture, design, development, testing, and debugging.</td>
                 </tr>
-                <tr valign="top">
-                   <td class="sidebarText">7</td>
-                    <td class="sidebarText">The Java Programming Language, Third Edition</td>
-                    <td class="sidebarText">Arnold, Ken/ Gosling, James/ Holmes, David</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">8</td>
-                    <td class="sidebarText">The Java Language Specification, Second Edition</td>
-                    <td class="sidebarText">Gosling, James/ Joy, Bill/ Steele, Guy/ Bracha, Gilad</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">9</td>
-                    <td class="sidebarText">Java Card Technology for Smart Cards</td>
-                    <td class="sidebarText">Chen, Zhiqun</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">10</td>
-                    <td class="sidebarText">Effective Java Programming Language Guide</td>
-                    <td class="sidebarText">Bloch, Joshua</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">11</td>
-                    <td class="sidebarText">J2EE Connector Architecture and Enterprise Application Integration</td>
-                    <td class="sidebarText">Sharma, Rahul/ Stearns, Beth/ Ng, Tony</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">12</td>
-                    <td class="sidebarText">Java Message Service API Tutorial and Reference</td>
-                    <td class="sidebarText">Hapner, Mark/ Burridge, Rich/ Sharma, Rahul/ Fialli, Joseph/ Haase, Kim</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">13</td>
-                    <td class="sidebarText">Designing Enterprise Applications with the J2EE Platform, Second Edition</td>
-                    <td class="sidebarText">Singh, Inderjeet/ Stearns, Beth/ Johnson, Mark/ Enterprise Team</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">14</td>
-                    <td class="sidebarText">The Java Developers Almanac 1.4, Volume 1</td>
-                    <td class="sidebarText">Chan, Patrick</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">15</td>
-                    <td class="sidebarText">The Java Developers Almanac 1.4, Volume 2</td>
-                    <td class="sidebarText">Chan, Patrick </td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">16</td>
-                    <td class="sidebarText">Inside Java 2 Platform Security, Second Edition</td>
-                    <td class="sidebarText">Gong, Li/ Ellison, Gary/ Dageforde, Mary</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">17</td>
-                    <td class="sidebarText">Applying Enterprise JavaBeans, Second Edition</td>
-                    <td class="sidebarText">Matena, Vlada/ Krishnan, Sanjeev/ DeMichiel, Linda/ Stearns, Beth</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">18</td>
-                    <td class="sidebarText">MIDP 2.0 Style Guide for the Java 2 Platform, Micro Edition</td>
-                    <td class="sidebarText">Bloch, Cynthia/ Wagner, Annette</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">19</td>
-                    <td class="sidebarText">Programming Wireless Devices with the Java 2 Platform, Micro Edition, Second Edition</td>
-                    <td class="sidebarText">Riggs, Roger/ Taivalsaari, Antero/ Van Peursem, Jim/ Huopaniemi, Jyri/ Patel, Mark/ Uotila, Aleksi</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">20</td>
-                    <td class="sidebarText">JDBC API Tutorial and Reference, Third Edition</td>
-                    <td class="sidebarText">Fisher, Maydene/ Ellis, Jon/ Bruce, Jonathan</td>
-                </tr>                
-                <tr valign="top">
-                   <td class="sidebarText">21</td>
-                    <td class="sidebarText">The JFC Swing Tutorial, Second Edition</td>
-                    <td class="sidebarText">Walrath, Kathy/ Campione, Mary/ Huml, Alison/ Zakhour, Sharon</td>
-                </tr>      
-                <tr valign="top">
-                   <td class="sidebarText">22</td>
-                    <td class="sidebarText">Designing Web Services with the J2EE 1.4 Platform</td>
-                    <td class="sidebarText">Singh, Inderjeet/ Brydon, Sean/ Murray, Greg/ Ramachandran, Vijay/ Violleau, Thierry/ Stearns, Beth</td>
-                </tr>      
-                <tr valign="top">
-                   <td class="sidebarText">23</td>
-                    <td class="sidebarText">The J2EE Tutorial, Second Edition</td>
-                    <td class="sidebarText">Bodoff, Stephanie/ Green, Dale/ Haase, Kim/ Jendrock, Eric</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarTitle" width="3%"></td>
-                    <td class="sidebarTitle" width="50%">Posters</td>
-                    <td class="sidebarTitle" width="47%">Author</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">1</td>
-                    <td class="sidebarText">The Java Class Libraries Poster, Seventh Edition</td>
-                    <td class="sidebarText">Chan, Patrick/ Lee, Rosanna</td>
-                </tr>
-                <tr valign="top">
-                   <td class="sidebarText">2</td>
-                    <td class="sidebarText">The Java Class Libraries Poster, Java 2 Platform Enterprise Edition, version 1.4</td>
-                    <td class="sidebarText">Chan, Patrick/ Lee, Rosanna</td>
-                </tr>  
             </table>
         </td>
     </tr>
