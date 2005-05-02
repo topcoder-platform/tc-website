@@ -43,7 +43,7 @@ public class ForumsServlet extends BaseServlet {
         return new TCSubject(132456);
     }
 
-
+/*
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         RequestProcessor rp = null;
@@ -114,11 +114,6 @@ public class ForumsServlet extends BaseServlet {
                 handleException(request, response, e);
             }
 
-            /* things are extremely broken, or perhaps some of the response
-             * buffer had already been flushed when an error was thrown,
-             * and the forward to error page failed.  in any event, make
-             * one last attempt to get an error message to the browser
-             */
         } catch (Exception e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
@@ -130,7 +125,7 @@ public class ForumsServlet extends BaseServlet {
             out.println("</body></html>");
             out.flush();
         }
-    }
+    }*/
 
 
 
