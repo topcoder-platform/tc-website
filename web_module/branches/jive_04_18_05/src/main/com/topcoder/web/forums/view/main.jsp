@@ -51,7 +51,7 @@
 	<td class="rtHeader" width="20%">T./M.</td>
 	<td class="rtHeader" align="center" colspan="2">Last Post</td>
 	</th>
-	<tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=request.getAttribute("forums")%>' />
+	<tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>' />
 	<tr>
 	<td class="rtHeader" width="80%"><jsp:getProperty name="forum" property="name" /></td>
 	<td class="rtHeader" width="20%"><jsp:getProperty name="forum" property="threadCount" />/<jsp:getProperty name="forum" property="messageCount" /></td>
