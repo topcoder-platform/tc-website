@@ -13,7 +13,7 @@ public class Login extends BaseProcessor {
 
     protected void businessProcessing() throws Exception {
 
-        setNextPage("/tc?module=Login&nextpage="+ApplicationServer.SERVER_NAME+"/admin");
+        setNextPage("/tc?module=Login&nextpage=http://"+ApplicationServer.SERVER_NAME+"/admin");
         setIsNextPageInContext(false);
 
 
