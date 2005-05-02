@@ -2,7 +2,8 @@
          import="com.topcoder.web.common.BaseServlet,
                  com.jivesoftware.util.StringUtils,
          		 com.jivesoftware.forum.*,
-         		 java.util.Iterator"
+         		 java.util.Iterator,
+                 java.util.Enumeration"
 %>
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -38,33 +39,32 @@
 		</td>
 <!-- Left Column Ends -->
 --%>
- 
+
 <!-- Center Column Begins -->
-         <td width="100%" class="rtBody">
+        <td width="100%" class="rtBody">
 
-        <jsp:include page="page_title.jsp" >
-            <jsp:param name="image" value="round_table"/>
-            <jsp:param name="title" value="&#160;"/>
-        </jsp:include>
+            <jsp:include page="page_title.jsp" >
+                <jsp:param name="image" value="round_table"/>
+                <jsp:param name="title" value="&#160;"/>
+            </jsp:include>
 
-<table cellpadding="0" cellspacing="0" class="rtTable">
-	<th>
-	<td class="rtHeader" width="80%">Topic</td>
-	<td class="rtHeader" width="20%">T./M.</td>
-	<td class="rtHeader" align="center" colspan="2">Last Post</td>
-	</th>
-	<tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>' />
-	<tr>
-	<td class="rtHeader" width="80%"><jsp:getProperty name="forum" property="name" /></td>
-	<td class="rtHeader" width="20%"><jsp:getProperty name="forum" property="threadCount" />/<jsp:getProperty name="forum" property="messageCount" /></td>
-	<tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage" />
-	<td class="rtHeader" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MM:dd:yyyy HH:mm:ss"/></td>
-	</tr>	
-</table>
+            <table cellpadding="0" cellspacing="0" class="rtTable">
+                <th>
+                <td class="rtHeader" width="80%">Topic</td>
+                <td class="rtHeader" width="20%">T./M.</td>
+                <td class="rtHeader" align="center" colspan="2">Last Post</td>
+                </th>
+                <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
+                <tr>
+                <td class="rtHeader" width="80%"><jsp:getProperty name="forum" property="name" /></td>
+                <td class="rtHeader" width="20%"><jsp:getProperty name="forum" property="threadCount" />/<jsp:getProperty name="forum" property="messageCount" /></td>
+                <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage" />
+                <td class="rtHeader" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MM:dd:yyyy HH:mm:ss"/></td>
+                </tr>
+                </tc-webtag:iterator>
+            </table>
 
-A topic with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.
-
-        <p><br/></p>
+            <p>A topic with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</p>
         </td>
 <!-- Center Column Ends -->
 
