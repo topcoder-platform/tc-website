@@ -6,7 +6,13 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import java.util.Iterator;
+
 import com.topcoder.web.common.BaseProcessor;
+
+import com.jivesoftware.base.AuthFactory;
+import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.forum.ForumFactory;
 
 /**
  * @author mtong
@@ -16,6 +22,10 @@ import com.topcoder.web.common.BaseProcessor;
  */
 public class ForumList extends BaseProcessor {
 	protected void businessProcessing() throws Exception {
+		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
+		Iterator itForums = ForumFactory.getInstance(authToken).getForums();
+		getRequest().setAttribute("forums", itForums);
+		
 		setNextPage("/main.jsp");
 		setIsNextPageInContext(true);
 	}

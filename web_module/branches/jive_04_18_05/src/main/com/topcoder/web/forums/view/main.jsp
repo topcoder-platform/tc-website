@@ -1,74 +1,80 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
                  com.jivesoftware.util.StringUtils,
-         		 com.jivesoftware.forum.*"
+         		 com.jivesoftware.forum.*,
+         		 java.util.Iterator"
 %>
+
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<% Iterator it = (Iterator)request.getAttribute("forums"); %>
+
+<%@  page language="java"  %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 
 <html>
 <head>
-<title>TopCoder | Round Tables</title>
+<title>TopCoder</title>
 
-<jsp:include page="script.jsp" />
+<link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
+<jsp:include page="../../script.jsp" />
 
 </head>
 
 <body>
 
-<!-- Top begins -->
-<%-- Needs auth token
-<jsp:include page="top.jsp" >
-    <jsp:param name="level1" value="login"/>
+<jsp:include page="../../top.jsp" >
+    <jsp:param name="level1" value=""/>
 </jsp:include>
---%>
-<!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="top">
-
-<%-- Needs auth token
-<!-- Left Column Begins -->
-        <td width="170">
-            <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="login"/>
-            </jsp:include>
-        </td>
+   <tr valign="top">
+<!-- Left Column Begins-->
+		<td width="180">
+			<jsp:include page="../includes/global_left.jsp">
+				<jsp:param name="level1" value=""/>
+				<jsp:param name="level2" value=""/>
+			</jsp:include>
+		</td>
 <!-- Left Column Ends -->
---%>
+ 
+<!-- Center Column Begins -->
+         <td width="100%" class="rtBody">
 
-<!-- Center Column begins -->
-        <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="round_table"/>
+            <jsp:param name="title" value="&#160;"/>
+        </jsp:include>
 
-			<table cellspacing=0 class=pageTitleTable>
-    			<tr>
-        			<td width="100%" class=pageTitle><img border=0 src="/i/header_round_table.gif" alt="round_table"/></td><td align=right class=pageSubtitle>&#160;&#160;</td>
-    			</tr>
-			</table>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+<% Forum forum = null; %>
+	<th>
+	<td class="rtHeader" width="80%">Topic</td>
+	<td class="rtHeader" width="20%">T./M.</td>
+	<td class="rtHeader" align="center" colspan="2">Last Post</td>
+	</th>
+<% while (it.hasNext()) { 
+	forum = (Forum)it.next(); %>
+	<tr>
+	<td class="rtHeader" width="80%"><jsp:getProperty name="forum" property="name" /></td>
+	<td class="rtHeader" width="20%"><jsp:getProperty name="forum" property="threadCount" />/<jsp:getProperty name="forum" property="messageCount" /></td>
+	<tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage" />
+	<td class="rtHeader" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MM:dd:yyyy HH:mm:ss"/></td>
+	</tr>	
+<% } %>
+</table>
 
+A topic with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.
+
+        <p><br/></p>
         </td>
-<!-- Center Column ends -->
-
-<!-- Gutter Begins -->
-        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
-<!-- Left Column Ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
+<!-- Center Column Ends -->
 
     </tr>
 </table>
 
-<!-- Footer begins -->
-  <jsp:include page="foot.jsp"/>
-<!-- Footer ends -->
+<jsp:include page="../../foot.jsp" />
 
 </body>
+
 </html>
