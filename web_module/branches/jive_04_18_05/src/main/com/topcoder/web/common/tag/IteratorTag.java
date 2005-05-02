@@ -1,6 +1,8 @@
 package com.topcoder.web.common.tag;
 
 
+import com.topcoder.shared.util.logging.Logger;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 import java.io.IOException;
@@ -16,6 +18,7 @@ import java.util.Iterator;
  */
 public class IteratorTag extends BodyTagSupport {
 
+    private static Logger log = Logger.getLogger(IteratorTag.class);
     // Collection to iterate through
     protected Collection collection;
     // Iterator to iterate through
@@ -25,8 +28,8 @@ public class IteratorTag extends BodyTagSupport {
 
     public void setCollection(Collection collection) {
         // if the collection is null, use an empty list
-        if (collection == null) collection = new ArrayList();
-        this.collection = collection;
+        if (collection == null) this.collection = new ArrayList();
+        else this.collection = collection;
         this.iterator = collection.iterator();
     }
 
@@ -39,17 +42,19 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public int doStartTag() throws JspException {
+        log.debug("doStartTag() called, collection = " + collection + " iterator = " + iterator);
         return (iterator != null && iterator.hasNext()) ? EVAL_BODY_TAG : SKIP_BODY;
     }
 
     public void doInitBody() throws JspException {
-        Object element = iterator.next();
-        if (element != null) {
-            pageContext.setAttribute(getId(), element);
+        log.debug("doInitBody() called, collection = " + collection + " iterator = " + iterator);
+        if (iterator.hasNext()) {
+            pageContext.setAttribute(getId(), iterator.next());
         }
     }
 
     public int doAfterBody() throws JspException {
+        log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
         if (iterator.hasNext()) {
             pageContext.setAttribute(getId(), iterator.next());
             return EVAL_BODY_TAG;
