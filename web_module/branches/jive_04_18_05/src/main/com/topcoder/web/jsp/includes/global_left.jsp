@@ -217,15 +217,6 @@
                         }
                         aToken = (Authorization) session.getAttribute("jiveAuthorization");
                     }
-                    ForumFactory ff = ForumFactory.getInstance(aToken);
-                    Iterator forums = ff.forums();
-                    while( forums.hasNext() ) {
-                        Forum f = (Forum)forums.next();
-                        int fID = f.getID();
-                        String fName = f.getName();
-                        int messageCount = f.getMessageCount(); %>
-
-                        <tr><td id="<%=paramFid>0&&paramFid==fID?"leftSubnavOn":"leftSubnav"%>"><a href="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="leftOn"><%=(fName!=null)?fName:"&nbsp;"%></a></td></tr>
                     <% } %>
             <% } %>
     <%-- Round Tables ends --%>
