@@ -5,7 +5,7 @@
                  java.util.Map,
                  com.topcoder.web.corp.Constants"
          %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
@@ -80,27 +80,27 @@
                 String bgColor = new String();
         %>
 
-            <tc-webtag:iterator list="<%=rsc%>" id="resultRow" >
+            <rsc:iterator list="<%=rsc%>" id="resultRow" >
         <%
                 bgColor = isGreyBGCOLOR ? "#EEEEEE" : "#FFFFFF";
                 isGreyBGCOLOR = !isGreyBGCOLOR; // change BGCOLOR for next row.
         %>
                 <tr>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">&#160;
-                        <tc-webtag:item row="<%=resultRow%>" name="handle"/></TD>
+                        <rsc:item row="<%=resultRow%>" name="handle"/></TD>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
-                        <tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
+                        <rsc:item row="<%=resultRow%>" name="first_name"/></TD>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
-             <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
+             <rsc:item row="<%=resultRow%>" name="last_name"/></TD>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
                       <% if (sessionInfo.getUserId()==resultRow.getLongItem("user_id")) { %>
-                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
                       <% } else { %>
-                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<rsc:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
                       <% } %>
                     </TD>
                 </tr>
-        </tc-webtag:iterator>
+        </rsc:iterator>
 
             <table border="0" cellspacing="10" cellpadding="0" width="80%">
                  <tr>

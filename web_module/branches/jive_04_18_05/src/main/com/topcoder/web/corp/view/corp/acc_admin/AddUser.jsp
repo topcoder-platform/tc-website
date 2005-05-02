@@ -3,7 +3,7 @@
                  com.topcoder.web.corp.Constants,
                  com.topcoder.web.corp.controller.request.UserEdit"
          %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -164,14 +164,14 @@
        if( rsc != null ) { %>
 
                 <tr><td colspan="3"><IMG src="/i/corp/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></td></tr>
-    <tc-webtag:iterator list="<%=rsc%>" id="row" >
+    <rsc:iterator list="<%=rsc%>" id="row" >
                 <tr valign="middle"><% String checked = row.getItem("has_permission").compareTo("1")==0 ? " checked=\"1\"" : " "; %>
                     <td width="49%" class="bodyText">&#160;</td>
                     <td class="bodyText" nowrap><input type="checkbox" name="perm-<%=row.getItem("role_id")%>"<%=checked%>>&#160;<%=row.getItem("description")%></input></TD>
                     <td width="49%" class="bodyText">&#160;</td>
                         <input type="hidden" name="permid-<%=row.getItem("role_id")%>"/>
                 </tr>
-    </tc-webtag:iterator>
+    </rsc:iterator>
     <% } %>
                 <tr><td colspan="3"><IMG src="/i/corp/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></td></tr>
             </table>
