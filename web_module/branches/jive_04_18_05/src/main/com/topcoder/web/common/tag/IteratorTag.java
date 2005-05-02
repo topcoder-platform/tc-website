@@ -39,7 +39,7 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public int doStartTag() throws JspException {
-        return iterator.hasNext() ? EVAL_BODY_TAG : SKIP_BODY;
+        return (iterator != null && iterator.hasNext()) ? EVAL_BODY_TAG : SKIP_BODY;
     }
 
     public void doInitBody() throws JspException {
