@@ -3,6 +3,17 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.02.05<br>3:35 PM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=6539">Radio frequency identification (RFID) survey</A></span><br><br>
+      Which of the following best describes your experience with radio frequency identification (RFID) technology?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=6539">view survey</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -254,19 +265,6 @@
          <A href="/index?t=statistics&c=srm237_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
- 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.05.05<br>4:05 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/040105.pdf" target="_blank">University computer whiz wins big at tech tourney</A></span><br><br>
-      A piece on the TCCC05 Component Development Competition Champion, Gary Linscott, aka gladius." [Barrhaven Independent]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/pressroom/040105.pdf" target="_blank">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
  
 </table>
 <br><br>
