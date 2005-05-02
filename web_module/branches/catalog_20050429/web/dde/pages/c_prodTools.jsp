@@ -299,10 +299,14 @@
                         <%
                             if (teamMemberRoles.length > 0) { %>
                         <p><strong>Authors</strong><br />
-                        <%      for (int i=0; i < teamMemberRoles.length - 1; i++) { %>
-                        <%= teamMemberRoles[i].getUsername() %>,&nbsp;
-                        <%      } %>
-                            <%= teamMemberRoles[teamMemberRoles.length-1].getUsername() %>
+                        <%  for (int i=0; i < teamMemberRoles.length; i++) {
+                                if (teamMemberRoles[i].getRoleNames().toUpperCase().indexOf("PRODUCT MANAGER") < 0) {
+                        %>
+                                <%=i < teamMemberRoles.length - 1 ? teamMemberRoles[i].getUsername() + ", " : teamMemberRoles[i].getUsername()%>
+                        <%
+                                }
+                            }
+                        %>
                         </p>
                         <%  } %>
                         
