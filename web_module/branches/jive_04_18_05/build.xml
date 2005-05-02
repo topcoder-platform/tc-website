@@ -1195,7 +1195,7 @@
  		        		<include name="xwork.jar"/>
  		        		<include name="htmlparser.jar"/>
  		        	</lib>
- 		        	<lib dir="$(lib.dir)">
+ 		        	<lib dir="${lib.dir}">
  		        		<include name="object_formatter.jar"/>
  		        	</lib>
  		        </war>
