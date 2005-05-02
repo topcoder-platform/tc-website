@@ -1099,6 +1099,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
 
             query = new StringBuffer(500);
+/*
             query.append("SELECT ur.user_role_id, ur.login_id, s.user_id,                ");
             query.append("       r.role_id, r.role_name, r.description, ur.tcs_rating    ");
             query.append("  FROM user_role ur, roles r, comp_catalog c, comp_versions v,  ");
@@ -1111,6 +1112,30 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             else
                 query.append("   AND ? = v.version                          ");
             query.append("   AND ur.comp_vers_id = v.comp_vers_id            ORDER BY 3 ");
+*/
+
+            // Now the team member roles are read from 'r_user_role' and 'project_result' tables instead of 'user_role'
+            // table
+            query.append("SELECT ur.r_user_role_v_id, ur.login_id, s.user_id,");
+            query.append("       r.review_role_id, r.review_role_name ");
+            query.append("FROM r_user_role ur,review_role r,comp_catalog c,comp_versions v,security_user s,project p ");
+            query.append("WHERE ur.cur_version=1 ");
+            query.append("AND   ur.r_role_id=r.review_role_id ");
+            query.append("AND   ur.login_id=s.login_id ");
+            query.append("AND   ur.project_id=p.project_id ");
+            query.append("AND   p.cur_version = 1 ");
+            query.append("AND   p.comp_vers_id=v.comp_vers_id ");
+            query.append("AND   v.component_id=c.component_id ");
+            if (version < 0) {
+                query.append("AND   v.version=c.current_version ");
+            } else {
+                query.append("AND v.version=? ");
+            }
+            query.append("AND   (ur.r_role_id <> 1 ");
+            query.append("       OR ur.r_role_id=1 ");
+            query.append("          AND EXISTS (SELECT pr.user_id FROM project_result pr WHERE pr.project_id=p.project_id AND ur.login_id = pr.user_id AND pr.placed=1)) ");
+            query.append("AND   c.component_id = ? ");
+            query.append("ORDER BY 3 ");
 
             try {
 
@@ -1119,13 +1144,21 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 if (version >= 0) ps.setLong(2, version);
                 rs = ps.executeQuery();
 
-                List list = new ArrayList();
-                while (rs.next())
-                    list.add(new TeamMemberRole(rs.getLong(1),
-                            rs.getLong(2), rs.getString(3), rs.getLong(4),
-                            rs.getString(5), rs.getString(6), rs.getInt(7)));
+                String username;
+                TeamMemberRole teamMemberRole;
+                Map list = new TreeMap();
+                while (rs.next()) {
+                    username = rs.getString(3);
+                    teamMemberRole = (TeamMemberRole) list.get(username);
+                    if (teamMemberRole == null) {
+                        teamMemberRole = new TeamMemberRole(rs.getLong(2), username);
+                        list.put(username, teamMemberRole);
+                    }
 
-                members = (TeamMemberRole[]) list.toArray(new TeamMemberRole[0]);
+                    teamMemberRole.addRole(rs.getLong(4), rs.getString(5));
+                }
+
+                members = (TeamMemberRole[]) list.values().toArray(new TeamMemberRole[0]);
 
             } finally {
                 try {
