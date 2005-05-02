@@ -43,12 +43,12 @@ public class IteratorTag extends BodyTagSupport {
 
     public int doStartTag() throws JspException {
         log.debug("doStartTag() called, collection = " + collection + " iterator = " + iterator);
-        return (iterator != null && iterator.hasNext()) ? EVAL_BODY_TAG : SKIP_BODY;
+        return EVAL_BODY_TAG;
     }
 
     public void doInitBody() throws JspException {
         log.debug("doInitBody() called, collection = " + collection + " iterator = " + iterator);
-        if (iterator.hasNext()) {
+        if (iterator!=null&&iterator.hasNext()) {
             pageContext.setAttribute(getId(), iterator.next());
         }
     }
