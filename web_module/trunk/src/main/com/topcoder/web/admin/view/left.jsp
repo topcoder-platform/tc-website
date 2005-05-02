@@ -15,4 +15,14 @@
                 <a href="/admin/?module=TermsList">Terms of Use Admin</a>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a href="/report">TopCoder Reporting</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/query/query">Query Tool</a>
+            </td>
+        </tr>
 </table>
