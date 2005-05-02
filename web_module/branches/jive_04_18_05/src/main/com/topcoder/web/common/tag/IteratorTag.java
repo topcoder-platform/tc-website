@@ -19,7 +19,7 @@ public class IteratorTag extends BodyTagSupport {
     // Collection to iterate through
     protected Collection collection;
     // Iterator to iterate through
-    protected Iterator iterator;    
+    protected Iterator iterator;
 
     protected String type;
 
@@ -29,10 +29,10 @@ public class IteratorTag extends BodyTagSupport {
         this.collection = collection;
         this.iterator = collection.iterator();
     }
-    
+
     public void setIterator(Iterator iterator) {
     	this.iterator = iterator;
-    }  	
+    }
 
     public void setType(String type) {
         this.type = type;
@@ -50,9 +50,8 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public int doAfterBody() throws JspException {
-    	Object element = iterator.next();
-        if (element != null) {
-            pageContext.setAttribute(getId(), element);
+s        if (iterator.hasNext()) {
+            pageContext.setAttribute(getId(), iterator.next());
             return EVAL_BODY_TAG;
         } else {
             try {
