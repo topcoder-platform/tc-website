@@ -35,7 +35,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm240_prob">SRM 240 - Problem Set & Analysis</A></span><br><br>
       This problem set gave competitors a hard time. The only problem with success rate over 50% was the division 1 easy... with 52,75%.</td>
-      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=7371063">Jan_Kuipers</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=309453">Jan_Kuipers</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
