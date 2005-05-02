@@ -10,7 +10,13 @@
                             <tr valign="middle"><form name="simpleSearchForm" method="get" action="/tc">
                                 <td valign="middle">
                                     <input type="hidden" name="module" value="SimpleSearch" />
-                                    <input type="text" name="<%=WebConstants.HANDLE%>" value="Handle:" size="12" maxlength="15" onFocus="javascript: if (document.simpleSearchForm.<%=Constants.HANDLE%>.value=='Handle:') document.simpleSearchForm.<%=Constants.HANDLE%>.value = '';" onBlur="javascript: if (document.simpleSearchForm.<%=Constants.HANDLE%>.value == '') document.simpleSearchForm.<%=Constants.HANDLE%>.value = 'Handle:';" />
+                                    <input type="text" name="<%=WebConstants.HANDLE%>" value="Handle:" size="12" maxlength="15" 
+                                    	onFocus="javascript: 
+                                    		if (document.simpleSearchForm.<%=WebConstants.HANDLE%>.value=='Handle:') 
+                                    			document.simpleSearchForm.<%=WebConstants.HANDLE%>.value = '';" 
+                                    	onBlur="javascript: 
+                                    		if (document.simpleSearchForm.<%=WebConstants.HANDLE%>.value == '') 
+                                    			document.simpleSearchForm.<%=WebConstants.HANDLE%>.value = 'Handle:';" />
                                 </td>
                                 <td class="statTextBig"><A href="javascript:void document.simpleSearchForm.submit();"><img src="/i/button_go_member_search.gif" alt="Go" width="24" height="18" vspace="3" border="0" /></A></td>
                                 <td width="99%"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
