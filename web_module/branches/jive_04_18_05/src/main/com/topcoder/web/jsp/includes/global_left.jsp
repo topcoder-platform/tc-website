@@ -176,49 +176,8 @@
             <% } %>
 <%-- Events ends --%>
 
-<%-- Round Tables begins --%>
+	<%-- Round Tables begins --%>
                 <tr><td id="<%=level1.equals("rtables")?"leftNavOn":"leftNav"%>"><a href="/rtables/index.jsp" class="<%=level1.equals("rtables")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("rtables")?"bottom":"right"%>.gif" border="0"/>Round Tables (Forums)</a></td></tr>
-
-                <% if (level1.equals("rtables")) {
-                    String temp = request.getParameter("forum");
-                    temp = temp==null?"-1":temp;
-                    int paramFid = Integer.parseInt(temp);
-
-                    %>
-                    <tr><td id="<%=paramFid<0?"leftSubnavOn":"leftSubnav"%>"><a href="/rtables/index.jsp" class="leftOn">Topics</a></td></tr>
-                    <%
-
-                     // do a login if all parameters are good
-                    Authorization aToken = (Authorization) session.getAttribute("jiveAuthorization");
-                    if (aToken==null) {
-                        Authorization authToken = null;
-                        String rtUser = "";
-                        String rtPassword = "";
-                        String Redirect_URL = "http://" + request.getServerName();
-                        Navigation n = null;
-                        try {
-                            n = (Navigation) session.getAttribute("navigation");
-                            if (n==null) n = new Navigation();
-                            if ( n.isIdentified() ) {
-                                rtUser = n.getSessionInfo().getHandle();
-                            }
-                        } catch( Exception e ) {
-                            response.sendRedirect(Redirect_URL);
-                            return;
-                        }
-                        // do a login if all parameters are good
-                        AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
-                        if(rtUser.equals("")) {
-                            authToken = authFactory.getAnonymousAuthorization();
-                            session.setAttribute("jiveAuthorization",authToken);
-                        } else {
-                            authToken = authFactory.getAuthorization(rtUser,rtPassword);
-                            session.setAttribute("jiveAuthorization",authToken);
-                        }
-                        aToken = (Authorization) session.getAttribute("jiveAuthorization");
-                    }
-                    <% } %>
-            <% } %>
     <%-- Round Tables ends --%>
 
     <%-- Support/FAQs begins --%>
