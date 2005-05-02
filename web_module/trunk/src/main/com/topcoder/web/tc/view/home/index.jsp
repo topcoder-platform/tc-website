@@ -138,16 +138,15 @@
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
             <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-            <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>April Events:</A></td>
+            <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>May Events:</A></td>
          </tr>
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
-            <b>4/02</b> - SRM 236<br/><br/>
-            <b>4/06</b> - SRM 237<br/><br/>
-            <b>4/14</b> - SRM 238<br/><br/>
-            <b>4/18</b> - SRM 239<br/><br/>
-            <b>4/30</b> - SRM 240<br/><br/>
+            <b>5/04</b> - SRM 241 - 9:00 PM<br/><br/>
+            <b>5/14</b> - SRM 242 - 12:00 PM<br/><br/>
+            <b>5/17</b> - SRM 243 - 9:00 PM<br/><br/>
+            <b>5/23</b> - SRM 244 - 11:00 AM<br/><br/>
             </td>
          </tr>
          <tr>
