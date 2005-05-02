@@ -557,138 +557,147 @@ public class ProjectTrackerBean implements SessionBean {
             conn = dataSource.getConnection();
 
             if (project.getDirty() == true) {
-                ps = conn.prepareStatement(
-                        "SELECT p.project_v_id, pi.phase_id, p.project_stat_id " +
-                        "FROM project p, phase_instance pi " +
-                        "WHERE p.project_id = ? AND " +
-                        "p.phase_instance_id = pi.phase_instance_id AND " +
-                        "p.cur_version = 1 AND " +
-                        "pi.cur_version = 1");
-                ps.setLong(1, project.getId());
-                rs = ps.executeQuery();
+                long oldPhaseId = 0;
+                long oldStatusId = 0;
 
-                if (rs.next()) {
-                    if (rs.getLong(1) != project.getVersionId()) {
-                        String errorMsg = "PT.saveProject(): Concurrent error, projectId: " + project.getId() +
-                                ", projectVersionId: " + project.getVersionId();
+                try {
+                    ps = conn.prepareStatement(
+                            "SELECT p.project_v_id, pi.phase_id, p.project_stat_id " +
+                            "FROM project p, phase_instance pi " +
+                            "WHERE p.project_id = ? AND " +
+                            "p.phase_instance_id = pi.phase_instance_id AND " +
+                            "p.cur_version = 1 AND " +
+                            "pi.cur_version = 1");
+                    ps.setLong(1, project.getId());
+                    rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        if (rs.getLong(1) != project.getVersionId()) {
+                            String errorMsg = "PT.saveProject(): Concurrent error, projectId: " + project.getId() +
+                                    ", projectVersionId: " + project.getVersionId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new ConcurrentModificationException(errorMsg);
+                        }
+                    } else {
+                        String errorMsg = "PT.saveProject(): Trying to save non-existing project, projectId: " + project.getId();
                         error(errorMsg);
                         ejbContext.setRollbackOnly();
-                        throw new ConcurrentModificationException(errorMsg);
+                        throw new InvalidEditException(errorMsg);
                     }
-                } else {
-                    String errorMsg = "PT.saveProject(): Trying to save non-existing project, projectId: " + project.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
+
+                    oldPhaseId = rs.getLong(2);
+                    oldStatusId = rs.getLong(3);
+                } finally {
+                    Common.close(rs);
+                    Common.close(ps);
                 }
 
-                long oldPhaseId = rs.getLong(2);
-                long oldStatusId = rs.getLong(3);
+                try {
+                    ps = conn.prepareStatement(
+                            "UPDATE project " +
+                            "SET cur_version = 0 " +
+                            "WHERE project_id = ?");
+                    ps.setLong(1, project.getId());
 
-                // Clean up these two variables for reuse - bblais
-                Common.close(rs);
-                Common.close(ps);
-                rs = null;
-                ps = null;
+                    int nr = ps.executeUpdate();
+                    info("PT.saveProject(): cur_version set to 0");
 
-                ps = conn.prepareStatement(
-                        "UPDATE project " +
-                        "SET cur_version = 0 " +
-                        "WHERE project_id = ?");
-                ps.setLong(1, project.getId());
-
-                int nr = ps.executeUpdate();
-
-                info("PT.saveProject(): cur_version set to 0");
-
-                if (nr == 0) {
-                    String errorMsg = "PT.saveProject(): Trying to save non-existing project, projectId: " + project.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
-                }
-
-                // Clean up this variable for reuse - bblais
-                Common.close(ps);
-                ps = null;
-
-                ps = conn.prepareStatement(
-                        "INSERT INTO project " +
-                        "(project_v_id, project_id, comp_vers_id, phase_instance_id, " +
-                        "winner_id, overview, " +
-                        "notes, project_type_id, project_stat_id, notification_sent, " +
-                        "modify_user, modify_reason, level_id, autopilot_ind, " +
-                        "cur_version) VALUES " +
-                        "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
-
-                PhaseInstance[] piArr = project.getTimeline();
-                Phase currentPhase = project.getCurrentPhase();
-                long currentPhaseInstanceId = 0;
-
-                for (int i = 0; i < piArr.length; i++) {
-                    if (currentPhase.getId() == piArr[i].getPhase().getId()) {
-                        currentPhaseInstanceId = piArr[i].getId();
+                    if (nr == 0) {
+                        String errorMsg = "PT.saveProject(): Trying to save non-existing project, projectId: " + project.getId();
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
                     }
+                } finally {
+                    Common.close(ps);
                 }
 
-                if (currentPhaseInstanceId == 0) {
-                    String errorMsg = "PT.saveProject(): currentphase not valid!";
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
+
+                Phase currentPhase = null;
+
+                try {
+                    ps = conn.prepareStatement(
+                            "INSERT INTO project " +
+                            "(project_v_id, project_id, comp_vers_id, phase_instance_id, " +
+                            "winner_id, overview, " +
+                            "notes, project_type_id, project_stat_id, notification_sent, " +
+                            "modify_user, modify_reason, level_id, autopilot_ind, " +
+                            "cur_version) VALUES " +
+                            "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+
+                    PhaseInstance[] piArr = project.getTimeline();
+                    currentPhase = project.getCurrentPhase();
+                    long currentPhaseInstanceId = 0;
+
+                    for (int i = 0; i < piArr.length; i++) {
+                        if (currentPhase.getId() == piArr[i].getPhase().getId()) {
+                            currentPhaseInstanceId = piArr[i].getId();
+                        }
+                    }
+
+                    if (currentPhaseInstanceId == 0) {
+                        String errorMsg = "PT.saveProject(): currentphase not valid!";
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+
+                    info("PT.saveProject(): about to set parameters for insert");
+                    if (Common.tooBig(project.getOverview()) ||
+                            Common.tooBig(project.getNotes()) ||
+                            Common.tooBig(reason)) {
+                        String errorMsg = "PT.saveProject(), text-field too long!";
+                        error(errorMsg);
+                        throw new RuntimeException(errorMsg);
+                    }
+                    ps.setLong(1, project.getId());
+                    ps.setLong(2, project.getCompVersId());
+                    ps.setLong(3, currentPhaseInstanceId);
+                    if (project.getWinner() == null) {
+                        ps.setNull(4, Types.DECIMAL);
+                    } else {
+                        ps.setLong(4, project.getWinner().getId());
+                    }
+                    ps.setString(5, project.getOverview());
+                    ps.setString(6, project.getNotes());
+                    if (project.getProjectType() == null) {
+                        String errorMsg = "PT.saveProject(),id: " + project.getId() +
+                                "ProjectType is null";
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                    ps.setLong(7, project.getProjectType().getId());
+                    if (project.getProjectStatus() == null) {
+                        String errorMsg = "PT.saveProject(),id: " + project.getId() +
+                                "ProjectStatus is null";
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                    ps.setLong(8, project.getProjectStatus().getId());
+                    ps.setBoolean(9, project.isNotificationSent());
+                    ps.setLong(10, project.getRequestorId());
+                    ps.setString(11, reason);
+                    ps.setLong(12, project.getLevelId());
+                    ps.setBoolean(13, project.getAutoPilot());
+                    int nr = ps.executeUpdate();
+
+                    Common.close(ps);
+                    ps = null;
+
+                    if (nr != 1) {
+                        String errorMsg = "PT.saveProject(): Could not insert project! , projectId: " + project.getId();
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                    info("PT.saveProject(): inserted new project version!");
+                } finally {
+                    Common.close(ps);
                 }
 
-                info("PT.saveProject(): about to set parameters for insert");
-                if (Common.tooBig(project.getOverview()) ||
-                        Common.tooBig(project.getNotes()) ||
-                        Common.tooBig(reason)) {
-                    String errorMsg = "PT.saveProject(), text-field too long!";
-                    error(errorMsg);
-                    throw new RuntimeException(errorMsg);
-                }
-                ps.setLong(1, project.getId());
-                ps.setLong(2, project.getCompVersId());
-                ps.setLong(3, currentPhaseInstanceId);
-                if (project.getWinner() == null) {
-                    ps.setNull(4, Types.DECIMAL);
-                } else {
-                    ps.setLong(4, project.getWinner().getId());
-                }
-                ps.setString(5, project.getOverview());
-                ps.setString(6, project.getNotes());
-                if (project.getProjectType() == null) {
-                    String errorMsg = "PT.saveProject(),id: " + project.getId() +
-                            "ProjectType is null";
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
-                }
-                ps.setLong(7, project.getProjectType().getId());
-                if (project.getProjectStatus() == null) {
-                    String errorMsg = "PT.saveProject(),id: " + project.getId() +
-                            "ProjectStatus is null";
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
-                }
-                ps.setLong(8, project.getProjectStatus().getId());
-                ps.setBoolean(9, project.isNotificationSent());
-                ps.setLong(10, project.getRequestorId());
-                ps.setString(11, reason);
-                ps.setLong(12, project.getLevelId());
-                ps.setBoolean(13, project.getAutoPilot());
-                nr = ps.executeUpdate();
-
-                Common.close(ps);
-                ps = null;
-
-                if (nr != 1) {
-                    String errorMsg = "PT.saveProject(): Could not insert project! , projectId: " + project.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
-                }
-                info("PT.saveProject(): inserted new project version!");
 
                 if (oldPhaseId != currentPhase.getId()) {
                     if (currentPhase.getId() == Phase.ID_AGGREGATION) {
@@ -708,17 +717,16 @@ public class ProjectTrackerBean implements SessionBean {
                             scorecardTemplateId = project.getReviewTemplateId();
                         }
 
-                        ps = conn.prepareStatement(
-                                "SELECT pt.template_id " +
-                                "FROM project_template pt " +
-                                "WHERE pt.project_id = ? AND " +
-                                "pt.scorecard_type = ? ");
-                        ps.setLong(1, project.getId());
-                        ps.setInt(2, scorecardType);
-                        rs = ps.executeQuery();
-                        if (!rs.next()) {
-                            Common.close(rs);
-                            Common.close(ps);
+                        try {
+                            ps = conn.prepareStatement(
+                                    "SELECT pt.template_id " +
+                                    "FROM project_template pt " +
+                                    "WHERE pt.project_id = ? AND " +
+                                    "pt.scorecard_type = ? ");
+                            ps.setLong(1, project.getId());
+                            ps.setInt(2, scorecardType);
+                            rs = ps.executeQuery();
+                            if (!rs.next()) {
 /*
 // The following code automatically selects
 // a scorecard_template for the project
@@ -740,25 +748,33 @@ public class ProjectTrackerBean implements SessionBean {
                             }
                             Common.close(ps);
 */
-                            if (scorecardTemplateId == -1) {
-                                String errorMsg = "PT.saveProject(): missing scorecard template id! projectId: " + project.getId();
-                                error(errorMsg);
-                                throw new RuntimeException(errorMsg);
+                                PreparedStatement ps1 = null;
+                                try {
+                                    if (scorecardTemplateId == -1) {
+                                        String errorMsg = "PT.saveProject(): missing scorecard template id! projectId: " + project.getId();
+                                        error(errorMsg);
+                                        throw new RuntimeException(errorMsg);
+                                    }
+                                    ps1 = conn.prepareStatement(
+                                            "INSERT INTO project_template " +
+                                            "(project_id, scorecard_type, template_id) " +
+                                            "VALUES (?,?,?)");
+                                    ps1.setLong(1, project.getId());
+                                    ps1.setInt(2, scorecardType);
+                                    ps1.setLong(3, scorecardTemplateId);
+                                    int nr = ps1.executeUpdate();
+                                    if (nr != 1) {
+                                        String errorMsg = "PT.saveProject(): Could not insert new project_template! , projectId: " + project.getId();
+                                        error(errorMsg);
+                                        throw new RuntimeException(errorMsg);
+                                    }
+                                } finally {
+                                    Common.close(ps1);
+                                }
                             }
-                            ps = conn.prepareStatement(
-                                    "INSERT INTO project_template " +
-                                    "(project_id, scorecard_type, template_id) " +
-                                    "VALUES (?,?,?)");
-                            ps.setLong(1, project.getId());
-                            ps.setInt(2, scorecardType);
-                            ps.setLong(3, scorecardTemplateId);
-                            nr = ps.executeUpdate();
+                        } finally {
+                            Common.close(rs);
                             Common.close(ps);
-                            if (nr != 1) {
-                                String errorMsg = "PT.saveProject(): Could not insert new project_template! , projectId: " + project.getId();
-                                error(errorMsg);
-                                throw new RuntimeException(errorMsg);
-                            }
                         }
                     }
 
@@ -766,62 +782,77 @@ public class ProjectTrackerBean implements SessionBean {
 
                 if (oldPhaseId == Phase.ID_SUBMISSION && currentPhase.getId() == Phase.ID_SCREENING) {
                     //update project result records for people who submitted
-                    ps = conn.prepareStatement(
-                            "update project_result " +
-                            "set valid_submission_ind = 0, reliability_ind = 1 " +
-                            "where not exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) " +
-                            "and project_id = ?");
+                    try {
+                        ps = conn.prepareStatement(
+                                "update project_result " +
+                                "set valid_submission_ind = 0, reliability_ind = 1 " +
+                                "where not exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) " +
+                                "and project_id = ?");
 
-                    ps.setLong(1, project.getId());
-                    ps.execute();
-                    Common.close(ps);
+                        ps.setLong(1, project.getId());
+                        ps.execute();
+                    } finally {
+                        Common.close(ps);
+                    }
                 } else if (oldPhaseId == Phase.ID_SCREENING && currentPhase.getId() == Phase.ID_REVIEW) {
-                    ps = conn.prepareStatement(
-                            "update project_result " +
-                            "set valid_submission_ind = 0, reliability_ind = 1 " +
-                            "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 0) " +
-                            "and project_id = ?");
+                    try {
+                        ps = conn.prepareStatement(
+                                "update project_result " +
+                                "set valid_submission_ind = 0, reliability_ind = 1 " +
+                                "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 0) " +
+                                "and project_id = ?");
 
-                    ps.setLong(1, project.getId());
-                    ps.execute();
-                    Common.close(ps);
+                        ps.setLong(1, project.getId());
+                        ps.execute();
+                    } finally {
+                        Common.close(ps);
+                    }
 
-                    ps = conn.prepareStatement(
-                            "update project_result " +
-                            "set valid_submission_ind = 1, reliability_ind = 1 " +
-                            "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 1) " +
-                            "and project_id = ?");
+                    try {
+                        ps = conn.prepareStatement(
+                                "update project_result " +
+                                "set valid_submission_ind = 1, reliability_ind = 1 " +
+                                "where exists(select * from submission where project_id = project_result.project_id and submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1 and passed_screening = 1) " +
+                                "and project_id = ?");
 
-                    ps.setLong(1, project.getId());
-                    ps.execute();
-                    Common.close(ps);
+                        ps.setLong(1, project.getId());
+                        ps.execute();
+                    } finally {
+                        Common.close(ps);
+                    }
                 } else if (oldPhaseId == Phase.ID_REVIEW && currentPhase.getId() == Phase.ID_APPEALS) {
-                    ps = conn.prepareStatement(
-                            "update project_result " +
-                            "set raw_score = (select ROUND(sum(s.raw_score)/3,2) from scorecard s where s.project_id = project_id and s.scorecard_type = 2" +
-                            "   AND s.cur_version = 1 and" +
-                            " s.submission_id = (select submission_id from submission where project_id = project_result.project_id and " +
-                            " submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) )" +
-                            "where project_id = ?");
+                    try {
+                        ps = conn.prepareStatement(
+                                "update project_result " +
+                                "set raw_score = (select ROUND(sum(s.raw_score)/3,2) from scorecard s where s.project_id = project_id and s.scorecard_type = 2" +
+                                "   AND s.cur_version = 1 and" +
+                                " s.submission_id = (select submission_id from submission where project_id = project_result.project_id and " +
+                                " submitter_id = project_result.user_id and is_removed = 0 and cur_version = 1) )" +
+                                "where project_id = ?");
 
-                    ps.setLong(1, project.getId());
-                    ps.execute();
-                    Common.close(ps);
+                        ps.setLong(1, project.getId());
+                        ps.execute();
+                    } finally {
+                        Common.close(ps);
+                    }
 
                 } else if (oldPhaseId == Phase.ID_FINAL_FIXES && currentPhase.getId() == Phase.ID_FINAL_REVIEW) {
                     //set it to not complete so that the final reviewer can make changes...this is just incase this
                     //isn't the first final review.
-                    ps = conn.prepareStatement(
-                            "UPDATE final_review " +
-                            "SET is_completed = 0 " +
-                            "WHERE cur_version = 1 " +
-                            "AND agg_worksheet_id = (SELECT agg_worksheet_id " +
-                            "FROM agg_worksheet " +
-                            "WHERE cur_version = 1 " +
-                            "AND project_id = ?)");
-                    ps.setLong(1, project.getId());
-                    ps.execute();
-                    Common.close(ps);
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE final_review " +
+                                "SET is_completed = 0 " +
+                                "WHERE cur_version = 1 " +
+                                "AND agg_worksheet_id = (SELECT agg_worksheet_id " +
+                                "FROM agg_worksheet " +
+                                "WHERE cur_version = 1 " +
+                                "AND project_id = ?)");
+                        ps.setLong(1, project.getId());
+                        ps.execute();
+                    } finally {
+                        Common.close(ps);
+                    }
                 }
 
                 //aggregate scores for stats
@@ -857,96 +888,96 @@ public class ProjectTrackerBean implements SessionBean {
 
             for (int i = 0; i < phaseInstance.length; i++) {
                 if (phaseInstance[i].getDirty() == true) {
-                    ps = conn.prepareStatement(
-                            "SELECT phase_inst_v_id " +
-                            "FROM phase_instance " +
-                            "WHERE phase_instance_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, phaseInstance[i].getId());
-                    rs = ps.executeQuery();
+                    try {
+                        ps = conn.prepareStatement(
+                                "SELECT phase_inst_v_id " +
+                                "FROM phase_instance " +
+                                "WHERE phase_instance_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, phaseInstance[i].getId());
+                        rs = ps.executeQuery();
 
-                    if (rs.next()) {
-                        if (rs.getLong(1) != phaseInstance[i].getVersionId()) {
-                            String errorMsg = "PT.saveProject(): Concurrent error saving phaseInstance, projectId: " + project.getId() +
-                                    ", phaseInstanceId: " + phaseInstance[i] + ", phaseInstanceVersionId: " +
-                                    phaseInstance[i].getVersionId();
+                        if (rs.next()) {
+                            if (rs.getLong(1) != phaseInstance[i].getVersionId()) {
+                                String errorMsg = "PT.saveProject(): Concurrent error saving phaseInstance, projectId: " + project.getId() +
+                                        ", phaseInstanceId: " + phaseInstance[i] + ", phaseInstanceVersionId: " +
+                                        phaseInstance[i].getVersionId();
+                                error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new ConcurrentModificationException(errorMsg);
+                            }
+                        } else {
+                            String errorMsg = "PT.saveProject(): Trying to save non-existing phaseInstance, phaseInstanceId: " +
+                                    phaseInstance[i].getId();
                             error(errorMsg);
                             ejbContext.setRollbackOnly();
-                            throw new ConcurrentModificationException(errorMsg);
+                            throw new InvalidEditException(errorMsg);
                         }
-                    } else {
-                        String errorMsg = "PT.saveProject(): Trying to save non-existing phaseInstance, phaseInstanceId: " +
-                                phaseInstance[i].getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                    } finally {
+                        Common.close(rs);
+                        Common.close(ps);
                     }
 
-                    // Clean up these two variables for reuse - bblais
-                    Common.close(rs);
-                    Common.close(ps);
-                    rs = null;
-                    ps = null;
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE phase_instance " +
+                                "SET cur_version = 0 " +
+                                "WHERE phase_instance_id = ?");
+                        ps.setLong(1, phaseInstance[i].getId());
 
-                    ps = conn.prepareStatement(
-                            "UPDATE phase_instance " +
-                            "SET cur_version = 0 " +
-                            "WHERE phase_instance_id = ?");
-                    ps.setLong(1, phaseInstance[i].getId());
+                        int nr = ps.executeUpdate();
 
-                    int nr = ps.executeUpdate();
-
-                    if (nr == 0) {
-                        String errorMsg = "PT.saveProject(): Trying to save non-existing phaseInstance, phaseInstanceId: " +
-                                phaseInstance[i].getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "PT.saveProject(): Trying to save non-existing phaseInstance, phaseInstanceId: " +
+                                    phaseInstance[i].getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                        debug("PT.saveProject(): phase_instance.cur_version set to 0!");
+                    } finally {
+                        Common.close(ps);
                     }
 
-                    // Clean up this variable for reuse - bblais
-                    Common.close(ps);
-                    ps = null;
 
-                    debug("PT.saveProject(): phase_instance.cur_version set to 0!");
+                    try {
+                        ps = conn.prepareStatement(
+                                "INSERT INTO phase_instance " +
+                                "(phase_inst_v_id, phase_instance_id, " +
+                                "start_date, end_date, " +
+                                "phase_id, project_id, " +
+                                "modify_user, cur_version) VALUES " +
+                                "(0, ?, ?, ?, ?, ?, ?, 1)");
+                        ps.setLong(1, phaseInstance[i].getId());
+                        if (phaseInstance[i].getStartDate() == null) {
+                            ps.setDate(2, null);
+                        } else {
+                            ps.setDate(2, new java.sql.Date(phaseInstance[i].getStartDate().getTime()));
+                        }
+                        if (phaseInstance[i].getEndDate() == null) {
+                            ps.setDate(3, null);
+                        } else {
+                            ps.setDate(3, new java.sql.Date(phaseInstance[i].getEndDate().getTime()));
+                        }
+                        ps.setLong(4, phaseInstance[i].getPhase().getId());
+                        ps.setLong(5, project.getId());
+                        ps.setLong(6, project.getRequestorId());
 
-                    ps = conn.prepareStatement(
-                            "INSERT INTO phase_instance " +
-                            "(phase_inst_v_id, phase_instance_id, " +
-                            "start_date, end_date, " +
-                            "phase_id, project_id, " +
-                            "modify_user, cur_version) VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, 1)");
-                    ps.setLong(1, phaseInstance[i].getId());
-                    if (phaseInstance[i].getStartDate() == null) {
-                        ps.setDate(2, null);
-                    } else {
-                        ps.setDate(2, new java.sql.Date(phaseInstance[i].getStartDate().getTime()));
+                        int nr = ps.executeUpdate();
+
+                        if (nr != 1) {
+                            String errorMsg = "PT.saveProject(): Could not insert phaseInstance! , phaseInstanceId: " +
+                                    phaseInstance[i].getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+
+                        debug("PT.saveProject(): phase_instance inserted!");
+                    } finally {
+                        Common.close(ps);
                     }
-                    if (phaseInstance[i].getEndDate() == null) {
-                        ps.setDate(3, null);
-                    } else {
-                        ps.setDate(3, new java.sql.Date(phaseInstance[i].getEndDate().getTime()));
-                    }
-                    ps.setLong(4, phaseInstance[i].getPhase().getId());
-                    ps.setLong(5, project.getId());
-                    ps.setLong(6, project.getRequestorId());
 
-                    nr = ps.executeUpdate();
-
-                    if (nr != 1) {
-                        String errorMsg = "PT.saveProject(): Could not insert phaseInstance! , phaseInstanceId: " +
-                                phaseInstance[i].getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
-                    }
-
-                    // Clean up this variable for reuse - bblais
-                    Common.close(ps);
-                    ps = null;
-
-                    debug("PT.saveProject(): phase_instance inserted!");
                 }
                 // end of save PhaseInstance
             }
@@ -976,56 +1007,55 @@ public class ProjectTrackerBean implements SessionBean {
                  */
                 if (userRole[i].getDirty() == true) {
                     if (userRole[i].getId() > 0) {
-                        ps = conn.prepareStatement(
-                                "SELECT r_user_role_v_id " +
-                                "FROM r_user_role " +
-                                "WHERE r_user_role_id = ? AND " +
-                                "cur_version = 1");
-                        ps.setLong(1, userRole[i].getId());
-                        rs = ps.executeQuery();
+                        try {
+                            ps = conn.prepareStatement(
+                                    "SELECT r_user_role_v_id " +
+                                    "FROM r_user_role " +
+                                    "WHERE r_user_role_id = ? AND " +
+                                    "cur_version = 1");
+                            ps.setLong(1, userRole[i].getId());
+                            rs = ps.executeQuery();
 
-                        if (rs.next()) {
-                            if (rs.getLong(1) != userRole[i].getVersionId()) {
-                                String errorMsg = "PT.saveProject(): Concurrent error saving userRole, projectId: " + project.getId() +
-                                        ", userRoleId: " + userRole[i].getId() + ", userRoleVersionId: " +
-                                        userRole[i].getVersionId();
+                            if (rs.next()) {
+                                if (rs.getLong(1) != userRole[i].getVersionId()) {
+                                    String errorMsg = "PT.saveProject(): Concurrent error saving userRole, projectId: " + project.getId() +
+                                            ", userRoleId: " + userRole[i].getId() + ", userRoleVersionId: " +
+                                            userRole[i].getVersionId();
+                                    error(errorMsg);
+                                    ejbContext.setRollbackOnly();
+                                    throw new ConcurrentModificationException(errorMsg);
+                                }
+                            } else {
+                                String errorMsg = "PT.saveProject(): Trying to save non-existing userRole, userRoleId: " +
+                                        userRole[i].getId();
                                 error(errorMsg);
                                 ejbContext.setRollbackOnly();
-                                throw new ConcurrentModificationException(errorMsg);
+                                throw new InvalidEditException(errorMsg);
                             }
-                        } else {
-                            String errorMsg = "PT.saveProject(): Trying to save non-existing userRole, userRoleId: " +
-                                    userRole[i].getId();
-                            error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new InvalidEditException(errorMsg);
+                        } finally {
+                            Common.close(rs);
+                            Common.close(ps);
                         }
 
-                        // Clean up these two variables for reuse - bblais
-                        Common.close(rs);
-                        Common.close(ps);
-                        rs = null;
-                        ps = null;
+                        try {
+                            ps = conn.prepareStatement(
+                                    "UPDATE r_user_role " +
+                                    "SET cur_version = 0 " +
+                                    "WHERE r_user_role_id = ?");
+                            ps.setLong(1, userRole[i].getId());
 
-                        ps = conn.prepareStatement(
-                                "UPDATE r_user_role " +
-                                "SET cur_version = 0 " +
-                                "WHERE r_user_role_id = ?");
-                        ps.setLong(1, userRole[i].getId());
+                            int nr = ps.executeUpdate();
 
-                        int nr = ps.executeUpdate();
-
-                        if (nr == 0) {
-                            String errorMsg = "PT.saveProject(): Trying to save non-existing userRole, userRoleId: " +
-                                    userRole[i].getId();
-                            error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new InvalidEditException(errorMsg);
+                            if (nr == 0) {
+                                String errorMsg = "PT.saveProject(): Trying to save non-existing userRole, userRoleId: " +
+                                        userRole[i].getId();
+                                error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new InvalidEditException(errorMsg);
+                            }
+                        } finally {
+                            Common.close(ps);
                         }
-
-                        // Clean up this variable for reuse - bblais
-                        Common.close(ps);
-                        ps = null;
 
                     } else {
                         try {
@@ -1037,49 +1067,49 @@ public class ProjectTrackerBean implements SessionBean {
                             throw new RuntimeException(e1);
                         }
                     }
-                    ps = conn.prepareStatement(
-                            "INSERT INTO r_user_role " +
-                            "(r_user_role_v_id, r_user_role_id, r_role_id, project_id, " +
-                            "login_id, payment_info_id, r_resp_id, " +
-                            "modify_user, cur_version) VALUES " +
-                            "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
-                    ps.setLong(1, userRole[i].getId());
-                    ps.setLong(2, userRole[i].getRole().getId());
-                    ps.setLong(3, project.getId());
-                    if (userRole[i].getUser() == null) {
-                        ps.setNull(4, Types.DECIMAL);
-                    } else {
-                        ps.setLong(4, userRole[i].getUser().getId());
+                    try {
+                        ps = conn.prepareStatement(
+                                "INSERT INTO r_user_role " +
+                                "(r_user_role_v_id, r_user_role_id, r_role_id, project_id, " +
+                                "login_id, payment_info_id, r_resp_id, " +
+                                "modify_user, cur_version) VALUES " +
+                                "(0, ?, ?, ?, ?, ?, ?, ?, 1)");
+                        ps.setLong(1, userRole[i].getId());
+                        ps.setLong(2, userRole[i].getRole().getId());
+                        ps.setLong(3, project.getId());
+                        if (userRole[i].getUser() == null) {
+                            ps.setNull(4, Types.DECIMAL);
+                        } else {
+                            ps.setLong(4, userRole[i].getUser().getId());
+                        }
+
+                        PaymentInfo pi = userRole[i].getPaymentInfo();
+
+                        if (pi == null) {
+                            // TODO check
+                            ps.setNull(5, Types.DECIMAL);
+                        } else {
+                            ps.setLong(5, pi.getId());
+                        }
+
+                        if (userRole[i].getReviewerResponsibility() == null) {
+                            ps.setNull(6, Types.DECIMAL);
+                        } else {
+                            ps.setLong(6, userRole[i].getReviewerResponsibility().getId());
+                        }
+                        ps.setLong(7, project.getRequestorId());
+
+                        int nr = ps.executeUpdate();
+
+                        if (nr != 1) {
+                            String errorMsg = "PT.saveProject(): Could not insert userRole! , userRoleId: " + userRole[i].getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(ps);
                     }
-
-                    PaymentInfo pi = userRole[i].getPaymentInfo();
-
-                    if (pi == null) {
-                        // TODO check
-                        ps.setNull(5, Types.DECIMAL);
-                    } else {
-                        ps.setLong(5, pi.getId());
-                    }
-
-                    if (userRole[i].getReviewerResponsibility() == null) {
-                        ps.setNull(6, Types.DECIMAL);
-                    } else {
-                        ps.setLong(6, userRole[i].getReviewerResponsibility().getId());
-                    }
-                    ps.setLong(7, project.getRequestorId());
-
-                    int nr = ps.executeUpdate();
-
-                    if (nr != 1) {
-                        String errorMsg = "PT.saveProject(): Could not insert userRole! , userRoleId: " + userRole[i].getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
-                    }
-
-                    // Clean up this variable for reuse - bblais
-                    Common.close(ps);
-                    ps = null;
                 }
                 // end of save UserRole
 
@@ -1087,83 +1117,83 @@ public class ProjectTrackerBean implements SessionBean {
                 PaymentInfo paymentInfo = userRole[i].getPaymentInfo();
 
                 if ((paymentInfo != null) && (paymentInfo.getDirty() == true)) {
-                    ps = conn.prepareStatement(
-                            "SELECT payment_info_v_id " +
-                            "FROM payment_info " +
-                            "WHERE payment_info_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, paymentInfo.getId());
-                    rs = ps.executeQuery();
+                    try {
+                        ps = conn.prepareStatement(
+                                "SELECT payment_info_v_id " +
+                                "FROM payment_info " +
+                                "WHERE payment_info_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, paymentInfo.getId());
+                        rs = ps.executeQuery();
 
-                    if (rs.next()) {
-                        if (rs.getLong(1) != paymentInfo.getVersionId()) {
-                            String errorMsg = "PT.saveProject(): Concurrent error saving paymentInfo, projectId: " + project.getId() +
-                                    ", paymentInfoId: " + paymentInfo + ", paymentInfoVersionId: " +
-                                    paymentInfo.getVersionId();
+                        if (rs.next()) {
+                            if (rs.getLong(1) != paymentInfo.getVersionId()) {
+                                String errorMsg = "PT.saveProject(): Concurrent error saving paymentInfo, projectId: " + project.getId() +
+                                        ", paymentInfoId: " + paymentInfo + ", paymentInfoVersionId: " +
+                                        paymentInfo.getVersionId();
+                                error(errorMsg);
+                                ejbContext.setRollbackOnly();
+                                throw new ConcurrentModificationException(errorMsg);
+                            }
+                        } else {
+                            String errorMsg = "PT.saveProject(): saving non-existing paymentInfo!";
                             error(errorMsg);
                             ejbContext.setRollbackOnly();
-                            throw new ConcurrentModificationException(errorMsg);
+                            throw new InvalidEditException(errorMsg);
                         }
-                    } else {
-                        String errorMsg = "PT.saveProject(): saving non-existing paymentInfo!";
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                    } finally {
+                        Common.close(rs);
+                        Common.close(ps);
                     }
 
-                    // Clean up these two variables for reuse - bblais
-                    Common.close(rs);
-                    Common.close(ps);
-                    rs = null;
-                    ps = null;
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE payment_info " +
+                                "SET cur_version = 0 " +
+                                "WHERE payment_info_id = ?");
+                        ps.setLong(1, paymentInfo.getId());
 
-                    ps = conn.prepareStatement(
-                            "UPDATE payment_info " +
-                            "SET cur_version = 0 " +
-                            "WHERE payment_info_id = ?");
-                    ps.setLong(1, paymentInfo.getId());
+                        int nr = ps.executeUpdate();
 
-                    int nr = ps.executeUpdate();
-
-                    if (nr == 0) {
-                        String errorMsg = "PT.saveProject():saving non-existing paymentInfo!";
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "PT.saveProject():saving non-existing paymentInfo!";
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(ps);
                     }
 
-                    // Clean up this variable for reuse - bblais
-                    Common.close(ps);
-                    ps = null;
 
-                    ps = conn.prepareStatement(
-                            "INSERT INTO payment_info " +
-                            "(payment_info_v_id, payment_info_id, payment, payment_stat_id, " +
-                            "modify_user, cur_version) VALUES " +
-                            "(0, ?, ?, ?, ?, 1)");
-                    ps.setLong(1, paymentInfo.getId());
-                    ps.setFloat(2, paymentInfo.getPayment());
-                    if (paymentInfo.getPaymentStatus() == null) {
-                        error("ProjectTrackerBean.saveProject, project_id: " + project.getId() +
-                                "PaymentInfo has PaymentStatus=null, paymentinfo_id: " + paymentInfo.getId());
-                        throw new InvalidEditException("ProjectTrackerBean.saveProject, project_id: " + project.getId() +
-                                "PaymentInfo has PaymentStatus=null, paymentinfo_id: " + paymentInfo.getId());
+                    try {
+                        ps = conn.prepareStatement(
+                                "INSERT INTO payment_info " +
+                                "(payment_info_v_id, payment_info_id, payment, payment_stat_id, " +
+                                "modify_user, cur_version) VALUES " +
+                                "(0, ?, ?, ?, ?, 1)");
+                        ps.setLong(1, paymentInfo.getId());
+                        ps.setFloat(2, paymentInfo.getPayment());
+                        if (paymentInfo.getPaymentStatus() == null) {
+                            error("ProjectTrackerBean.saveProject, project_id: " + project.getId() +
+                                    "PaymentInfo has PaymentStatus=null, paymentinfo_id: " + paymentInfo.getId());
+                            throw new InvalidEditException("ProjectTrackerBean.saveProject, project_id: " + project.getId() +
+                                    "PaymentInfo has PaymentStatus=null, paymentinfo_id: " + paymentInfo.getId());
+                        }
+                        ps.setLong(3, paymentInfo.getPaymentStatus().getId());
+                        ps.setLong(4, project.getRequestorId());
+
+                        int nr = ps.executeUpdate();
+
+                        if (nr != 1) {
+                            String errorMsg = "PT.saveProject(): Could not save PaymentInfo to database.";
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(ps);
                     }
-                    ps.setLong(3, paymentInfo.getPaymentStatus().getId());
-                    ps.setLong(4, project.getRequestorId());
-
-                    nr = ps.executeUpdate();
-
-                    if (nr != 1) {
-                        String errorMsg = "PT.saveProject(): Could not save PaymentInfo to database.";
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
-                    }
-
-                    // Clean up this variable for reuse - bblais
-                    Common.close(ps);
-                    ps = null;
                 }
                 // end of save PaymentInfo
             }
@@ -1194,17 +1224,17 @@ public class ProjectTrackerBean implements SessionBean {
                         "project_id = ?");
             }
 
-            ps = conn.prepareStatement(sqlString.toString());
-            ps.setLong(1, project.getId());
+            try {
+                ps = conn.prepareStatement(sqlString.toString());
+                ps.setLong(1, project.getId());
 
-            for (int i = 0; i < userRole.length; i++) {
-                ps.setLong(i + 2, userRole[i].getId());
+                for (int i = 0; i < userRole.length; i++) {
+                    ps.setLong(i + 2, userRole[i].getId());
+                }
+                ps.executeUpdate();
+            } finally {
+                Common.close(ps);
             }
-            ps.executeUpdate();
-
-            // Clean up this variable for reuse - bblais
-            Common.close(ps);
-            ps = null;
 
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
