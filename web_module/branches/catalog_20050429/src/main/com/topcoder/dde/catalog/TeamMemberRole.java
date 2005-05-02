@@ -10,7 +10,9 @@
 
 package com.topcoder.dde.catalog;
 
-import com.topcoder.dde.user.User;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.Iterator;
 
 /**
  * An object that represents a component development role. Instances of this
@@ -36,24 +38,35 @@ public class TeamMemberRole implements java.io.Serializable {
     /** The minimum possible rating */
     public static final int MIN_RATING = 0;
 
-    private long id;
+//    private long id;
     private long userId;
     private String username;
-    private long roleId;
-    private String roleName;
-    private String roleDescription;
-    private int tcsRating;
+
+    private Map projectRoles = null;
+
+
+//    private long roleId;
+//    private String roleName;
+//    private String roleDescription;
+//    private int tcsRating;
+
+    public TeamMemberRole(long userId, String username) {
+        this.userId = userId;
+        this.username = username;
+        this.projectRoles = new TreeMap();
+
+    }
 
 
     TeamMemberRole(long id, long userId, String username, long roleId,
                    String roleName, String roleDescription, int tcsRating) {
-        this.id = id;
+//        this.id = id;
         this.userId = userId;
         this.username = username;
-        this.roleId = roleId;
-        this.roleName = roleName;
-        this.roleDescription = roleDescription;
-        this.tcsRating = tcsRating;
+//        this.roleId = roleId;
+//        this.roleName = roleName;
+//        this.roleDescription = roleDescription;
+//        this.tcsRating = tcsRating;
     }
 
     /**
@@ -69,30 +82,30 @@ public class TeamMemberRole implements java.io.Serializable {
      * <code>tcsRating</code> is not between <code>MIN_RATING</code> and
      * <code>MAX_RATING</code>, inclusive
      */
-    public TeamMemberRole(User user, Role role, int tcsRating) {
-        if (user == null) {
-            throw new IllegalArgumentException(
-                    "Null specified for user");
-        }
-        if (role == null) {
-            throw new IllegalArgumentException(
-                    "Null specified for role");
-        }
-        if (role.getId() == -1) {
-            throw new IllegalArgumentException(
-                    "Specified role does not exist in the catalog");
-        }
-        if (tcsRating > MAX_RATING || tcsRating < MIN_RATING) {
-            throw new IllegalArgumentException(
-                    "Invalid value specified for rating");
-        }
-        id = -1;
-        this.userId = user.getId();
-        this.roleId = role.getId();
-        this.roleName = role.getName();
-        this.roleDescription = role.getDescription();
-        this.tcsRating = tcsRating;
-    }
+//    public TeamMemberRole(User user, Role role, int tcsRating) {
+//        if (user == null) {
+//            throw new IllegalArgumentException(
+//                    "Null specified for user");
+//        }
+//        if (role == null) {
+//            throw new IllegalArgumentException(
+//                    "Null specified for role");
+//        }
+//        if (role.getId() == -1) {
+//            throw new IllegalArgumentException(
+//                    "Specified role does not exist in the catalog");
+//        }
+//        if (tcsRating > MAX_RATING || tcsRating < MIN_RATING) {
+//            throw new IllegalArgumentException(
+//                    "Invalid value specified for rating");
+//        }
+//        id = -1;
+//        this.userId = user.getId();
+//        this.roleId = role.getId();
+//        this.roleName = role.getName();
+//        this.roleDescription = role.getDescription();
+//        this.tcsRating = tcsRating;
+//    }
 
 
     /**
@@ -102,9 +115,9 @@ public class TeamMemberRole implements java.io.Serializable {
      * was constructed by the client (instead of returned by the component
      * catalog)
      */
-    public long getId() {
-        return id;
-    }
+//    public long getId() {
+//        return id;
+//    }
 
     /**
      * Returns the primary key of the user that plays this development role
@@ -131,36 +144,36 @@ public class TeamMemberRole implements java.io.Serializable {
      *
      * @return the primary key of the role
      */
-    public long getRoleId() {
-        return roleId;
-    }
+//    public long getRoleId() {
+//        return roleId;
+//    }
 
     /**
      * Returns the name of the role
      *
      * @return the name of the role
      */
-    public String getRoleName() {
-        return roleName;
-    }
+//    public String getRoleName() {
+//        return roleName;
+//    }
 
     /**
      * Returns a description of the role
      *
      * @return a description of the role
      */
-    public String getRoleDescription() {
-        return roleDescription;
-    }
+//    public String getRoleDescription() {
+//        return roleDescription;
+//    }
 
     /**
      * Returns the rating assigned to the user for this role
      *
      * @return the rating assigned to the user for this role
      */
-    public int getTCSRating() {
-        return tcsRating;
-    }
+//    public int getTCSRating() {
+//        return tcsRating;
+//    }
 
     /**
      * Compares the specified object with this development role for equality.
@@ -177,9 +190,9 @@ public class TeamMemberRole implements java.io.Serializable {
             return false;
         }
         TeamMemberRole other = (TeamMemberRole) object;
-        return getUserId() == other.getUserId()
-                && getRoleId() == other.getRoleId()
-                && getTCSRating() == other.getTCSRating();
+        return getUserId() == other.getUserId();
+//                && getRoleId() == other.getRoleId();
+//                && getTCSRating() == other.getTCSRating();
     }
 
     /**
@@ -190,14 +203,31 @@ public class TeamMemberRole implements java.io.Serializable {
      * @return the hash code value for this development role
      */
     public int hashCode() {
-        return (int) (getUserId() ^ getRoleId() ^ getTCSRating());
+//        return (int) (getUserId() ^ getRoleId() ^ getTCSRating());
+        return (int) (getUserId());
     }
 
     public String toString() {
-        return "Development Role " + getId() + ": " + getUserId() + " "
-                + getTCSRating() + " - " + getRoleId() + " "
-                + getRoleName() + " (" + getRoleDescription() + ")";
+//        return "Development Role " + getId() + ": " + getUserId() + " "
+//                + getTCSRating() + " - " + getRoleId() + " "
+//                + getRoleName() + " (" + getRoleDescription() + ")";
+        return "Development Role " + ": " + getUserId() + " - " + getRoleNames();
+//                + " - " + getRoleId() + " "
+//                + getRoleName();
     }
 
 
+    public void addRole(long roleId, String roleName) {
+        projectRoles.put(new Long(roleId), roleName);
+    }
+
+    public String getRoleNames() {
+        StringBuffer buf = new StringBuffer();
+
+        Iterator iterator = projectRoles.values().iterator();
+        while (iterator.hasNext()) {
+            buf.append(", " + iterator.next());
+        }
+        return buf.toString().trim().substring(2);
+    }
 }
