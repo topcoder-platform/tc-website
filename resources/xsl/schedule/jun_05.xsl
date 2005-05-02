@@ -95,6 +95,7 @@
                                     <strong>Match 245</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
+                                    Sponsored by: <A href="/pl/?&amp;module=Static&amp;d1=javaone05&amp;d2=overview">Sun &amp; JavaOne</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=7220&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">2</td>
