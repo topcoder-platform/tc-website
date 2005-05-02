@@ -1032,7 +1032,8 @@ public class TCLoadAggregate extends TCLoad {
                 query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ", " + TOURNAMENT_ROUND + ")");
             query.append("   AND r.round_id = rr.round_id ");
             query.append(" ORDER BY rr.coder_id ");
-            query.append("          ,r.calendar_id ");
+            query.append("          ,r.calendar_id asc");
+            query.append("          ,r.round_id asc");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             query = new StringBuffer(100);
