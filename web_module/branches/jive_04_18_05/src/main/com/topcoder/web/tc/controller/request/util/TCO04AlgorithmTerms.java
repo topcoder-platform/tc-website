@@ -27,7 +27,7 @@ public class TCO04AlgorithmTerms extends TermsBase {
     }
 
     public String getEventName() {
-        return "TCO Alogrithm Competition";
+        return "TCO Algorithm Competition";
     }
 
     public int getTermsId() {

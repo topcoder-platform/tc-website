@@ -9,7 +9,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@  page language="java"  %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 
 <html>
@@ -60,7 +60,10 @@
                         	<br><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>/<jsp:getProperty name="forum" property="messageCount"/></td>
                         <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-                        <td class="rtThreadCell" align="center" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy hh:mm a"/></td>
+                        <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
+                   		<td class="rtThreadCell"><A href="/" class="coderTextGray"><jsp:getProperty name="message" property="user"/></A></td>
+                   		<% System.out.println(message.getUser().getUsername()); %>
+                   		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                     </tr>
                 </tc-webtag:iterator>
             </table>

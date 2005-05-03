@@ -14,7 +14,7 @@ public class HandleTag extends TagSupport {
     private String link = "";
     private String cssclass = "";
     private boolean darkBG = true;
-    private boolean alogrithm = false;
+    private boolean algorithm = false;
     private boolean design = false;
     private boolean development = false;
 
@@ -57,7 +57,7 @@ public class HandleTag extends TagSupport {
     }
 
     public void setContext(String s) {
-        if (s.toLowerCase().trim().equals(ALGORITHM)) alogrithm = true;
+        if (s.toLowerCase().trim().equals(ALGORITHM)) algorithm = true;
         if (s.toLowerCase().trim().equals(DESIGN)) design = true;
         if (s.toLowerCase().trim().equals(DEVELOPMENT)) development = true;
     }
@@ -96,7 +96,7 @@ public class HandleTag extends TagSupport {
                 output.append(cssclass);
             } else {
                 int rating = 0;
-                if (alogrithm)
+                if (algorithm)
                     rating = rsc.getIntItem(0, "algorithm_rating");
                 else if (design)
                     rating = rsc.getIntItem(0, "design_rating");
