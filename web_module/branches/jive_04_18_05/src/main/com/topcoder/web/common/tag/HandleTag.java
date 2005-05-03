@@ -66,6 +66,7 @@ public class HandleTag extends TagSupport {
 
         try {
             //lookup ratings from cache
+            //todo fix this so it points to the warehouse, we'll need admins in there for it to work though
             CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             da.setExpireTime(24 * 60 * 60 * 1000);
 
