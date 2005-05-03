@@ -127,17 +127,15 @@ public class HandleTag extends TagSupport {
     }
     
     /**
-     * Just in case the app server is caching tag (jboss!!!)
+     * Because the app server (JBoss) is caching the tag,
      * we have to clear out all the instance variables at the
-     * end of execution
+     * end of execution.
      */
-    /*
     public int doEndTag() throws JspException {
-        this.link = null;
-        this.cssclass = null;
+        this.link = "";
+        this.cssclass = "";
         return super.doEndTag();
-    }
-    */
+    }    
 
     private String getRatingCSS(int rating) {
         if (rating < 0)
