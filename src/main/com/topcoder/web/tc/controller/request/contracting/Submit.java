@@ -18,8 +18,8 @@ import com.topcoder.web.ejb.user.UserNote;
 import com.topcoder.web.ejb.user.UserPreference;
 import com.topcoder.web.tc.Constants;
 
-import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
+import javax.transaction.Status;
 import java.util.*;
 
 /**
@@ -34,12 +34,9 @@ public class Submit extends ContractingBase {
             UserTransaction ut = Transaction.get(getInitialContext());
             ut.begin();
 
-            InitialContext ctx = null;
-
             try {
                 //prefs
-                ctx = TCContext.getInitial();
-                UserPreference prefbean = (UserPreference) createEJB(ctx, UserPreference.class);
+                UserPreference prefbean = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
 
                 //load pref group list, iterate through each one, deleting, updating
                 Request r = new Request();
@@ -107,7 +104,7 @@ public class Submit extends ContractingBase {
                 }
 
                 //skills
-                CoderSkill skillbean = (CoderSkill) createEJB(ctx, CoderSkill.class);
+                CoderSkill skillbean = (CoderSkill) createEJB(getInitialContext(), CoderSkill.class);
 
                 Hashtable edits = new Hashtable();
                 ArrayList deletes = new ArrayList();
@@ -161,8 +158,8 @@ public class Submit extends ContractingBase {
                 skillbean.bulkCreateCoderSkill(info.getUserID(), insertSkillIdArray, insertRankingArray, DBMS.OLTP_DATASOURCE_NAME);
 
                 //notes
-                Note notebean = (Note) createEJB(ctx, Note.class);
-                UserNote usernotebean = (UserNote) createEJB(ctx, UserNote.class);
+                Note notebean = (Note) createEJB(getInitialContext(), Note.class);
+                UserNote usernotebean = (UserNote) createEJB(getInitialContext(), UserNote.class);
 
                 //get user's notes for contracting, add update where appropriate
                 r = new Request();
@@ -194,14 +191,16 @@ public class Submit extends ContractingBase {
                 ut.commit();
                 clearInfo();
             } catch (Exception e) {
-                ut.rollback();
-                throw e;
+                if (ut!=null && ut.getStatus()==Status.STATUS_ACTIVE) {
+                    ut.rollback();
+                    throw e;
+                }
             }
 
             //send confirmation email
 
             //lookup email address
-            Email emailbean = (Email) createEJB(ctx, Email.class);
+            Email emailbean = (Email) createEJB(getInitialContext(), Email.class);
             String email = "";
             long emailId = emailbean.getPrimaryEmailId(info.getUserID(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
             email = emailbean.getAddress(emailId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
