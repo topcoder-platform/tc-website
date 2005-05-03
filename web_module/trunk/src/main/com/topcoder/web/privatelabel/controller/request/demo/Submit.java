@@ -79,8 +79,9 @@ public class Submit extends FullRegSubmit {
 
             PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
             newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
-
-            ret = store(regInfo, newUser);
+            //this isn't super wonderful since we're updating the input
+            regInfo.setUserId(newUser.getId());
+            ret = store(regInfo);
             Transaction.commit(tx);
         } catch (Exception e) {
             Exception ex = null;
@@ -110,7 +111,7 @@ public class Submit extends FullRegSubmit {
     }
 
 
-    protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+    protected long store(SimpleRegInfo regInfo) throws Exception {
         long ret = super.storeWithoutCoder(regInfo);
 
         //need to add coder record to avoid breaking a bunch of foreign keys
@@ -118,7 +119,7 @@ public class Submit extends FullRegSubmit {
                 PortableRemoteObject.narrow(
                         getInitialContext().lookup(CoderHome.class.getName()), CoderHome.class);
         Coder coder = cHome.create();
-        coder.createCoder(newUser.getId(), 1);
+        coder.createCoder(regInfo.getUserId(), 1);
 
         super.setCoderType(ret, ((FullRegInfo) regInfo).getCoderType());
         super.storeQuestions(regInfo, ret);
