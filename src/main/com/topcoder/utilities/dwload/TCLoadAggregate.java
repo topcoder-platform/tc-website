@@ -41,6 +41,7 @@ public class TCLoadAggregate extends TCLoad {
     private int STATUS_SUCCEEDED = 1;    // succeeded
     private int SINGLE_ROUND_MATCH = 1;    // singrndmatch
     private int TOURNAMENT_ROUND = 2;
+    private int LONG_ROUND = 10;
     private int RATING_INCREASE_SRM_ONLY = 3;
     private int RATING_INCREASE = 4;
     private int RATING_DECREASE_SRM_ONLY = 5;
@@ -1032,7 +1033,7 @@ public class TCLoadAggregate extends TCLoad {
             if (srmOnly)
                 query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ")");
             else
-                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ", " + TOURNAMENT_ROUND + ")");
+                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ", " + TOURNAMENT_ROUND + ", " + LONG_ROUND + ")");
             query.append("   AND r.round_id = rr.round_id ");
             query.append(" ORDER BY rr.coder_id ");
             query.append("          ,r.calendar_id asc");
@@ -1096,8 +1097,8 @@ public class TCLoadAggregate extends TCLoad {
 
                 // The first thing we do is check to see if we are still with
                 // the same coder and in the same division. Only with those
-                // constraints can a win streak continue. And then, iff room
-                // placed is 1 do we continue the streak.
+                // constraints can a win streak continue. And then, iff new rating
+                // is greater than old rating do we continue the streak.
                 if ((cur_coder_id == -1 || coder_id == cur_coder_id) &&
                         newRating > oldRating) {
                     cur_coder_id = coder_id;
@@ -1187,7 +1188,7 @@ public class TCLoadAggregate extends TCLoad {
             if (srmOnly)
                 query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ")");
             else
-                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ", " + TOURNAMENT_ROUND + ")");
+                query.append(" WHERE r.round_type_id in (" + SINGLE_ROUND_MATCH + ", " + TOURNAMENT_ROUND + ", " + LONG_ROUND+ ")");
             query.append("   AND r.round_id = rr.round_id ");
             query.append(" ORDER BY rr.coder_id ");
             query.append("          ,r.calendar_id asc ");
