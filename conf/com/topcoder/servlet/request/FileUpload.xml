@@ -3,7 +3,7 @@
                 <Value>/export/home/apps/downloads</Value>
         </Property>
         <Property name="temp_directory">
-                <Value>/export/home/apps/downloads</Value>
+                <Value>/export/home/apps/temp_files</Value>
         </Property>
         <Property name="default_directory">
                 <Value>/export/home/apps/downloads</Value>
