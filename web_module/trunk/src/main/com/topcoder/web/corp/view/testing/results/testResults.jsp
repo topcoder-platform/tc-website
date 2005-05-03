@@ -167,7 +167,7 @@ if ( plugin ) {
         <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <tr>
-		       <td colspan="9" class="screeningTitle">Test Set A Results:</td>
+		       <td colspan="11" class="screeningTitle">Test Set A Results:</td>
 	        </tr>
 
 	        <tr>
@@ -293,9 +293,9 @@ if ( plugin ) {
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
 	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-		       <TD COLSPAN="9" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
+		       <TD COLSPAN="11" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
 		<% } else { %>
-                       <TD COLSPAN="9" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
+                       <TD COLSPAN="11" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
 		<% } %>
 	        </TR>
 	        <TR>
@@ -331,8 +331,8 @@ if ( plugin ) {
 		       <TD ALIGN="left" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="compile_count" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="test_count" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="compile_count" ifNull="0"/></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="test_count" ifNull="0"/></TD>
 		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
