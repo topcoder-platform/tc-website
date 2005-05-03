@@ -11,7 +11,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 
-<jsp:useBean id="forum" class="com.jivesoftware.forum.Forum" scope="request"/>
+<tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 
 <html>
 <head>
@@ -48,7 +48,8 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="/forums/" class="rtbcLink">Round Tables</A> >> <A href="/forums/?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A></td>
+<tr><td class="rtbc"><A href="/forums/" class="rtbcLink">Round Tables</A> >> 
+	<A href="/forums/?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A></td>
 <td class="rtbc" align="right"><b><< PREV&#160;&#160;&#160;[ 1 <A href="/">2</A> <A href="/">3</A> ]&#160;&#160;&#160;<A href="/">NEXT>></A></b></td></tr>
 </table>
 
