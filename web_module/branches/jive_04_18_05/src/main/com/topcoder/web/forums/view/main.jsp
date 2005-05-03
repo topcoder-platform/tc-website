@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
+         		 com.topcoder.web.forums.ForumConstants,
          		 java.util.Iterator,
                  java.util.Enumeration"
 %>

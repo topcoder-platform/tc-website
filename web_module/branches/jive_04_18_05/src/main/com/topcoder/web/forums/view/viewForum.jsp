@@ -1,3 +1,10 @@
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         import="com.topcoder.web.common.BaseServlet,
+         		 com.topcoder.web.forums.ForumConstants,
+         		 java.util.Iterator,
+                 java.util.Enumeration"
+%>
+
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@  page language="java"  %>
@@ -39,7 +46,7 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="/" class="rtbcLink">Algorithm Competitions</A> >> <A href="/" class="rtbcLink">Problems</A> >> <A href="/" class="rtbcLink">SRM 220</A> >> Division 1 Level 1 (HiddenNumbers)</span>
+<tr><td class="rtbc"><A href="forums/" class="rtbcLink">Round Tables</A> >> <A href="/" class="rtbcLink"><%=forum.getName()%></A></td>
 <td class="rtbc" align="right"><b><< PREV&#160;&#160;&#160;[ 1 <A href="/">2</A> <A href="/">3</A> ]&#160;&#160;&#160;<A href="/">NEXT>></A></b></td></tr>
 </table>
 
@@ -147,10 +154,6 @@
 <td class="rtThreadCell"><b>Feb 2, 2005 6:52 PM</b></td>
 <td class="rtThreadCell">by: <A href="/" class="coderTextRed">coral9527</A></td>
 </tr>
-</table>
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="/" class="rtbcLink">Algorithm Competitions</A> >> <A href="/" class="rtbcLink">Problems</A> >> <A href="/" class="rtbcLink">SRM 220</A> >> Division 1 Level 1 (HiddenNumbers)</span>
-<td class="rtbc" align="right"><b><< PREV&#160;&#160;&#160;[ 1 <A href="/">2</A> <A href="/">3</A> ]&#160;&#160;&#160;<A href="/">NEXT>></A></b></td></tr>
 </table>
 <br><br>
 A thread with a <b>bold title</b> indicates it is either a new thread or has new postings.

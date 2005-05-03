@@ -14,6 +14,7 @@ import com.topcoder.web.forums.ForumConstants;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.forum.ForumFactory;
+import com.jivesoftware.forum.Forum;
 
 /**
  * @author mtong
@@ -25,7 +26,9 @@ public class ThreadList extends BaseProcessor {
 	protected void businessProcessing() throws Exception {
 		long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
 		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
-		Iterator itThreads = ForumFactory.getInstance(authToken).getForum(forumID).getThreads();
+		Forum forum = ForumFactory.getInstance(authToken).getForum(forumID);
+		Iterator itThreads = forum.getThreads();
+		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("threads", itThreads);
 		
 		setNextPage("/viewForum.jsp?" + ForumConstants.FORUM_ID + "=" + forumID);
