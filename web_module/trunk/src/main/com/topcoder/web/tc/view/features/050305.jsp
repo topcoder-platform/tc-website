@@ -56,44 +56,43 @@
 
 <a name="introduction"></a>
 <span class="bodySubtitle">Introduction</span><br/>
-This feature is the joint work of two fellow topcoders: Dan[Popovici] && mariusmuja.
-
-Introduction
--------------
-
 A regular expression is special string that describes a search pattern. Most of you surely met and used them already when typing expressions like ls(or dir) *.txt , to get a list of all the files with the extension txt.
 Regular expressions are very useful not only for pattern matching, but also for manipulating text.
 In SRMs regular expressions can be extremely handy. Many problems that require quite some coding, can be written using regular expressions on a few lines, making your life much easier.
-
-
-(Not so) Formal Description of Regular Expressions
---------------------------------------------------
-
+<br><br>
+<span class="bodySubtitle">(Not so) Formal Description of Regular Expressions</span><br>
 A regular expression(regex) is one or more non-empty branches, separated by '|'.  It matches anything that matches one of the branches. 
 The following regular expression will match any of the three words "the","top","coder"(quotes for clarity). 
+<pre>
 REGEX is : the|top|coder
 INPUT is : Marius is one of the topcoders.
 Found the text "the" starting at index 17 and ending at index 20.
 Found the text "top" starting at index 21 and ending at index 24.
 Found the text "coder" starting at index 24 and ending at index 29.
-
+</pre>
 A branch is one or more pieces, concatenated. It matches a match for the first, followed by a match for the second, etc.
-
+<br><br>
 A piece is an atom possibly followed by a '*', '+', '?', or bound. An atom followed by '*' matches a sequence of 0 or more matches of the atom. An atom followed by `+' matches a sequence of 1 or more matches of the atom. An atom followed by `?' matches a sequence of 0 or 1 matches of the atom. 
-
+<br><br>
 The following regular expression matches any successive occurrence of the words 'top' and 'coder'.
+
+<pre>
 REGEX is: (top|coder)+
 INPUT is: This regex matches topcoder and also codertop.
 Found "topcoder" starting at index 19 and ending at index 27.
 Found "codertop" starting at index 37 and ending at index 45.
+</pre>
 
 A bound is '{' followed by an unsigned decimal integer, possibly followed by ',' possibly followed by another unsigned  decimal  integer, always followed by '}'.If there are two integers, the first may not exceed the second. An atom followed by a bound containing one integer i and no comma matches a sequence of exactly i matches of the atom. An atom followed by a bound containing one integer i and a comma matches a sequence of i or more matches of the atom. An atom followed by a bound containing two integers i and j matches a sequence of i through j (inclusive) matches of the atom.
 The following regular expression matches any  sequence made of '1's having length 2,3 or 4 .
+
+<pre>
 REGEX is: 1{2,4}
 INPUT is: 101 + 10 = 111 , 11111 = 10000 + 1111
 Found the text "111" starting at index 11 and ending at index 14.
 Found the text "1111" starting at index 17 and ending at index 21.
 Found the text "1111" starting at index 33 and ending at index 37.
+</pre>
 
 One should observ that, greadily, the longest possible sequence is being matched and that different matches do not overlap. 
 
@@ -101,15 +100,18 @@ An atom is a regular expression enclosed in '()' (matching a match for the regul
 
 The following regular expression matches a string composed of two lowercase words separated by any character.
 
+<pre>
 Current REGEX is: ([a-z]+).\1
 Current INPUT is: top-topcoder|coder
 I found the text "top-top" starting at index 0 and ending at index 7.
 I found the text "coder|coder" starting at index 7 and ending at index 18.
+</pre>
 
 A bracket expression is a list of characters enclosed in '[]'. It normally matches any single character from the list. If the list begins with '^', it matches any single character not from the rest of the list. If  two characters in  the list are separated  by `-', this is shorthand for the full range of characters between those two inclusive (e.g. '[0-9]' matches any decimal digit). With the exception of ']','^','-' all other special characters, including `\', lose their special significance within a bracket expression.
 
 The following regular expression matches any 3 character words not starting with 'b','c','d' and ending in 'at'.
 
+<pre>
 Current REGEX is: [^b-d]at
 Current INPUT is: bat
 No match found.
@@ -117,10 +119,12 @@ No match found.
 Current REGEX is: [^b-d]at
 Current INPUT is: hat
 I found the text "hat" starting at index 0 and ending at index 3.
+</pre>
 
 
 This example combines most concepts presented above.The regex matches a set of open/close pair of html tags.
 
+<pre>
 REGEX is: &lt;([a-zA-Z][a-zA-Z0-9]*)(()| [^&gt;]*)&gt;(.*)&lt;/\1&gt;
 INPUT is: &lt;font size="2"&gt;Topcoder is the&lt;/font&gt; &lt;b&gt;best&lt;/b&gt;
 Found "&lt;font size="2"&gt;Topcoder is the&lt;/font&gt;" starting at index 0 and ending at index 37.
@@ -129,17 +133,15 @@ Found "&lt;b&gt;best&lt;/b&gt;" starting at index 38 and ending at index 49.
 ([a-zA-Z][a-zA-Z0-9]*) will match any word that starts with a letter and continues with an arbitrary number of letters or digits. 
 (()| [^&gt;]*) will match either the empty string or any string which does not contain '&gt;' . 
 \1 will be replaced using backreferencing with the word matched be ([a-zA-Z][a-zA-Z0-9]*)
+</pre>
 
 The above description is a brief one covering the basics of regular expressions. An regex written following the above rules should work in both Java(&gt;=1.4) and C++(POSIX EXTENDED). For a more in depth view of the extensions provided by different languages you can see the links given in the reference part.
 
 
-
-Using regular expressions
--------------------------
-
-In java
--------
-
+<br><br>
+<span class="bodySubtitle">Using regular expressions</span><br>
+<br>
+<strong>In java</strong><br>
 In java(1.4 and above) there is a package "java.util.regex" which allows usage of regular expressions.
 This package contains three classes : Pattern, Matcher and PatternSyntaxException.
 A Pattern object is a compiled representation of a regular expression. The Pattern class provides no public constructors. To create a pattern, you must call one of its public static compile methods, both of which will return a Pattern object.
