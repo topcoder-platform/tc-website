@@ -16,16 +16,40 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * <p>An implementation of <code>Team Member Roles EJB</code>.</p>
+ *
+ * @author isv
+ * @version 1.0 04/30/2005
+ */
 public class TeamMemberRolesBean implements SessionBean {
-
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(TeamMemberRolesBean.class);
 
     private SessionContext ejbContext;
 
+    /**
+     * <p>Gets the roles for members assigned to current version of specified component.</p>
+     *
+     * @param componentId a <code>long</code> providing the ID of a requested component.
+     * @return a <code>List</code> containing the <code>TeamMemberRole</code> objects providing the roles assigned to
+     *         team members in context of specified component.
+     * @throws SQLException
+     * @throws NamingException
+     */
     public List getTeamMemberRoles(long componentId) throws SQLException, NamingException {
         return getTeamMemberRoles(componentId, -1);
     }
 
+    /**
+     * <p>Gets the roles for members assigned to specified version of specified component.</p>
+     *
+     * @param componentId a <code>long</code> providing the ID of a requested component.
+     * @param compVersionId a <code>long</code> providing the ID of a version of specified component. Note, this value
+     *        maps to 'comp_versions.version' but not 'comp_versions.comp_vers_id' column.
+     * @return a <code>List</code> containing the <code>TeamMemberRole</code> objects providing the roles assigned to
+     *         team members in context of specified version of specified component.
+     * @throws SQLException
+     * @throws NamingException
+     */
     public List getTeamMemberRoles(long componentId, long compVersionId) throws SQLException, NamingException {
         Connection c = null;
         PreparedStatement ps = null;
@@ -102,13 +126,25 @@ public class TeamMemberRolesBean implements SessionBean {
         }
     }
 
+    /**
+     * <p>Gets the connection to database.</p>
+     *
+     * @return a <code>Connection</code> to database.
+     * @throws SQLException
+     * @throws NamingException
+     */
     private static Connection getConnection() throws SQLException, NamingException {
-
         return getDataSource().getConnection();
     }
 
+    /**
+     * <p>Gets the <code>DataSource</code> to be used to obtain the connections to database. Performs a lookup for a
+     * data source within initial JNDI context under "java:comp/env/jdbc/DefaultDS" name.</p>
+     *
+     * @return a <code>DataSource</code> to be used to obtain the connections to database.
+     * @throws NamingException
+     */
     private static DataSource getDataSource() throws NamingException {
-
         return (DataSource) (new InitialContext()).lookup("java:comp/env/jdbc/DefaultDS");
     }
 

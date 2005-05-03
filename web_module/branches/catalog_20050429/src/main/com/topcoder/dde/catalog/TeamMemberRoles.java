@@ -14,8 +14,31 @@ import java.rmi.RemoteException;
  */
 public interface TeamMemberRoles extends EJBObject {
 
+    /**
+     * <p>Gets the roles for members assigned to current version of specified component.</p>
+     *
+     * @param componentId a <code>long</code> providing the ID of a requested component.
+     * @return a <code>List</code> containing the <code>TeamMemberRole</code> objects providing the roles assigned to
+     *         team members in context of specified component.
+     * @throws RemoteException
+     * @throws SQLException
+     * @throws NamingException
+     */
     public List getTeamMemberRoles(long componentId) throws RemoteException, SQLException, NamingException;
 
-    public List getTeamMemberRoles(long componentId, long compVersionId) throws RemoteException, SQLException, NamingException;
+    /**
+     * <p>Gets the roles for members assigned to specified version of specified component.</p>
+     *
+     * @param componentId a <code>long</code> providing the ID of a requested component.
+     * @param compVersionId a <code>long</code> providing the ID of a version of specified component. Note, this value
+     *        maps to 'comp_versions.version' but not 'comp_versions.comp_vers_id' column.
+     * @return a <code>List</code> containing the <code>TeamMemberRole</code> objects providing the roles assigned to
+     *         team members in context of specified version of specified component.
+     * @throws RemoteException
+     * @throws SQLException
+     * @throws NamingException
+     */
+    public List getTeamMemberRoles(long componentId, long compVersionId)
+        throws RemoteException, SQLException, NamingException;
 
 }
