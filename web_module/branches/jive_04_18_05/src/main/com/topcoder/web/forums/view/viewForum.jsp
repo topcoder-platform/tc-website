@@ -47,7 +47,7 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="/forums/" class="rtbcLink">Round Tables</A> >> <A href='<%="/forums/?module=ThreadList" + ForumConstants.FORUM_ID + "=" + forum.getID()%>' class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A></td>
+<tr><td class="rtbc"><A href="/forums/" class="rtbcLink">Round Tables</A> >> <A href='<%="/forums/?module=ThreadList&" + ForumConstants.FORUM_ID + "=" + forum.getID()%>' class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A></td>
 <td class="rtbc" align="right"><b><< PREV&#160;&#160;&#160;[ 1 <A href="/">2</A> <A href="/">3</A> ]&#160;&#160;&#160;<A href="/">NEXT>></A></b></td></tr>
 </table>
 
