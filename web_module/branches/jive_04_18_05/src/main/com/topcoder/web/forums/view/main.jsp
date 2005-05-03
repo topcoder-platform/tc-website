@@ -62,7 +62,7 @@
                         <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
                         <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
                    		<td class="rtThreadCell"><A href="/" class="coderTextGray"><jsp:getProperty name="message" property="user"/></A></td>
-                   		<% System.out.println(message.getUser().getUsername()); %>
+                   		<% System.out.println(message.getUser().getUsername() + " " + message.getUser().getID()); %>
                    		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                     </tr>
                 </tc-webtag:iterator>
