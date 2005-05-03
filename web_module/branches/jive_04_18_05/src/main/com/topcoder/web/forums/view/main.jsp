@@ -56,12 +56,11 @@
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
                     <tr>
-                        <td class="rtThreadCellWrap"><A href="/" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
+                        <td class="rtThreadCellWrap"><A href='<%="viewForums.jsp/forum=" + forum.getID()%>' class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
                         	<br><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>/<jsp:getProperty name="forum" property="messageCount"/></td>
                         <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
                         <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
-                   		<% System.out.println(message.getUser().getUsername() + " " + message.getUser().getID()); %>
                    		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
                     </tr>
                 </tc-webtag:iterator>
