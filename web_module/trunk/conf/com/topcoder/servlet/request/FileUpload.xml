@@ -1,6 +1,6 @@
 <CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/export/home/apps/jboss-3.0.4_tomcat-4.0.6/server/default/conf/CM v2 Schema.xsd" version="v2">
         <Property name="allowed_directories">
-                <Value>/export/home/apps/downloads</Value>
+                <Value>/export/home/apps/</Value>
         </Property>
         <Property name="temp_directory">
                 <Value>/export/home/apps/temp_files</Value>
