@@ -174,6 +174,8 @@ if ( plugin ) {
 		       <td width="11%" align="left" class="screeningHeader">Problem</td>
 		       <td width="11%" align="center" class="screeningHeader">Language</td>
 		       <td width="11%" align="center" class="screeningHeader">Status</td>
+		       <td width="11%" align="center" class="screeningHeader"># Compiles</td>
+		       <td width="11%" align="center" class="screeningHeader"># Tests</td>
 		       <td width="11%" align="center" class="screeningHeader">Test Passed</td>
 		       <td width="11%" align="center" class="screeningHeader">Test Failed</td>
 		       <td width="11%" align="center" class="screeningHeader">% Test Passed</td>
@@ -197,6 +199,8 @@ if ( plugin ) {
 		       <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>">&#160;<a href="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" class="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></a></td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="compile_count" ifNull="0"/></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="test_count" ifNull="0" /></td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</td>
@@ -298,6 +302,8 @@ if ( plugin ) {
 		       <TD ALIGN="left" WIDTH="10%" CLASS="screeningHeader"><B>Problem</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Language</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Status</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B># Compiles</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B># Tests</B></TD>
 		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Test Passed</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Test Failed</B></TD>
@@ -325,6 +331,8 @@ if ( plugin ) {
 		       <TD ALIGN="left" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="compile_count" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="test_count" /></TD>
 		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
