@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
+         		 com.jivesoftware.forum.Forum,
          		 java.util.Iterator,
                  java.util.Enumeration"
 %>
@@ -46,7 +47,7 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="forums/" class="rtbcLink">Round Tables</A> >> <A href="/" class="rtbcLink"><%=forum.getName()%></A></td>
+<tr><td class="rtbc"><A href="forums/" class="rtbcLink">Round Tables</A> >> <A href="/" class="rtbcLink"><%=((Forum)request.getAttribute("forums")).getName()%></A></td>
 <td class="rtbc" align="right"><b><< PREV&#160;&#160;&#160;[ 1 <A href="/">2</A> <A href="/">3</A> ]&#160;&#160;&#160;<A href="/">NEXT>></A></b></td></tr>
 </table>
 
