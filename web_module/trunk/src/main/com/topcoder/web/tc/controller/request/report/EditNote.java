@@ -32,12 +32,12 @@ public class EditNote extends Base {
 
             getRequest().setAttribute(Constants.HANDLE,
                     user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
-            getRequest().setAttribute(Constants.USER_ID, userId);
+            setDefault(Constants.USER_ID, userId);
 
             if (!StringUtils.checkNull(nId).equals("")) {
                 setDefault(Constants.NOTE_TEXT,
                         note.getText(Long.parseLong(nId), DBMS.OLTP_DATASOURCE_NAME));
-                getRequest().setAttribute(Constants.NOTE_ID, nId);
+                setDefault(Constants.NOTE_ID, nId);
             }
 
             setNextPage(Constants.NOTE_EDIT);
