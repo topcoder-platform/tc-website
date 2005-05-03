@@ -35,7 +35,7 @@
          </tr>
          <tr>
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
-            <td class="BIGPromoBox"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_overview"><img src="/i/home/promos/tco05_logo_contest.gif" border="0" alt=""/></A></td>
+            <td class="BIGPromoBox"><A href="/pl/?&module=Static&d1=javaone05&d2=overview"><img src="/i/home/promos/javaone05.gif" border="0" alt=""/></A></td>
             <td width="50%" class="homeLogo">&#160;</td>
          </tr>            
       </table>
