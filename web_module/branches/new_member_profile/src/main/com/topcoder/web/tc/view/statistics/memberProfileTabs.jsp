@@ -1,8 +1,8 @@
 <%
-   String isRatedAlg = request.getParameter("isRatedAlg")==null?"":request.getParameter("isRatedAlg");
-   String isRatedDes = request.getParameter("isRatedDes")==null?"":request.getParameter("isRatedDes");
-   String isRatedDev = request.getParameter("isRatedDev")==null?"":request.getParameter("isRatedDev");
-   String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
+   boolean isRatedAlg = ((Boolean)request.getAttribute("hasAlg")).booleanValue();
+   boolean isRatedDes = ((Boolean)request.getAttribute("hasDes")).booleanValue();
+   boolean isRatedDev = ((Boolean)request.getAttribute("hasDev")).booleanValue();
+   String selectedTab = request.getAttribute("tab");
    String coderId = request.getParameter("cr");
 %>
 
@@ -11,18 +11,18 @@
 
 <%--------------ALG TAB------------%>
 
-<% if (isRatedAlg.equals("true")) {%>
+<% if (isRatedAlg) {%>
   <% if (selectedTab.equals("alg")) {%>
       <td class="tabLeftOn">&#160;</td>
       <td class="tabIconOn"><img src="/i/stats/algIconOn.gif" alt="Algorithm Statistics" border="0" /></td>
       <td width="33%" class="tabTextOn"><A href="/tc?module=MemberProfile&tab=alg&cr=<%=coderId%>" class="tabLink">Algorithm Statistics</A></td>
-    <% if (isRatedDes.equals("true")) {%>
+    <% if (isRatedDes) {%>
       <td valign="top"><img src="/i/stats/tabMidOnOff.gif" alt="" border="0" /></td>
     <% } else { %>
       <td valign="top"><img src="/i/stats/tabMidOnNA.gif" alt="" border="0" /></td>
     <% } %>
   <% } else { %>
-    <% if (isRatedDes.equals("true")) {%>
+    <% if (isRatedDes) {%>
       <td class="tabLeftOff">&#160;</td>
       <td class="tabIconOff"><img src="/i/stats/algIconOff.gif" alt="Algorithm Statistics" border="0" /></td>
       <td width="33%" class="tabTextOff"><A href="/tc?module=MemberProfile&tab=alg&cr=<%=coderId%>" class="tabLink">Algorithm Statistics</A></td>
@@ -39,7 +39,7 @@
     <% } %>
   <% } %>
 <% } else { %>
-  <% if (isRatedDes.equals("true")) {%>
+  <% if (isRatedDes) {%>
     <% if (selectedTab.equals("des")) {%>
       <td class="tabLeftNA">&#160;</td>
       <td class="tabIconNA"><img src="/i/stats/desIconNA.gif" alt="Des" border="0" /></td>
@@ -61,17 +61,17 @@
 
 <%--------------DES TAB------------%>
 
-<% if (isRatedDes.equals("true")) {%>
+<% if (isRatedDes) {%>
   <% if (selectedTab.equals("des")) {%>
       <td class="tabIconOn"><img src="/i/stats/desIconOn.gif" alt="Design Statistics" border="0" /></td>
       <td width="33%" class="tabTextOn"><A href="/tc?module=MemberProfile&tab=des&cr=<%=coderId%>" class="tabLink">Design Statistics</A></td>
-    <% if (isRatedDev.equals("true")) {%>
+    <% if (isRatedDev) {%>
       <td valign="top"><img src="/i/stats/tabMidOnOff.gif" alt="" border="0" /></td>
     <% } else { %>
       <td valign="top"><img src="/i/stats/tabMidOnNA.gif" alt="" border="0" /></td>
     <% } %>
   <% } else { %>
-    <% if (isRatedDev.equals("true")) {%>
+    <% if (isRatedDev) {%>
       <td class="tabIconOff"><img src="/i/stats/desIconOff.gif" alt="Design Statistics" border="0" /></td>
       <td width="33%" class="tabTextOff"><A href="/tc?module=MemberProfile&tab=des&cr=<%=coderId%>" class="tabLink">Design Statistics</A></td>
       <% if (selectedTab.equals("dev")) {%>
@@ -86,7 +86,7 @@
     <% } %>
   <% } %>
 <% } else { %>
-  <% if (isRatedDev.equals("true")) {%>
+  <% if (isRatedDev) {%>
     <% if (selectedTab.equals("dev")) {%>
       <td class="tabIconNA"><img src="/i/stats/desIconNA.gif" alt="Des" border="0" /></td>
       <td width="33%" class="tabTextNA">Design Statistics</td>
@@ -105,7 +105,7 @@
 
 <%--------------DEV TAB------------%>
 
-<% if (isRatedDev.equals("true")) {%>
+<% if (isRatedDev) {%>
   <% if (selectedTab.equals("dev")) {%>
       <td class="tabIconOn"><img src="/i/stats/devIconOn.gif" alt="Development Statistics" border="0" /></td>
       <td width="33%" class="tabTextOn"><A href="/tc?module=MemberProfile&tab=dev&cr=<%=coderId%>" class="tabLink">Development Statistics</A></td>
