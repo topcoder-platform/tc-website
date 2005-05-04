@@ -68,7 +68,7 @@ public class ThreadList extends BaseProcessor implements Pageable {
     	if (totalItemCount == -1) {
             initFields();
         }
-        return start;
+        return totalItemCount;
     }
     
     public ResultFilter getResultFilter() {
