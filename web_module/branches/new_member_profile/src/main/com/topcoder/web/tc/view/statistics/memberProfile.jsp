@@ -60,7 +60,7 @@
                 <tc-webtags:ratingColor rating='0'>not rated</tc-webtags:ratingColor>
             <%}%>
             </td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Design Rating:</td><td class="tableStat" align="right">
+<%--            <tr><td class="tableCat" nowrap="nowrap">Design Rating:</td><td class="tableStat" align="right">
             <%if(rscCoderData.getItem(0, "design_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "design_rating")%>'><rsc:item name="design_rating" set="<%=rscCoderData%>"/></tc-webtags:ratingColor>
             <%} else {%>
@@ -73,7 +73,7 @@
             <%} else {%>
                 <tc-webtags:ratingColor rating='0'>not rated</tc-webtags:ratingColor>
             <%}%>
-            </td></tr>
+            </td></tr>--%>
             <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right">$$$</td></tr>
             <tr><td class="tableCat" colspan="2">&#160;</td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Member Since:</td><td class="tableStat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
