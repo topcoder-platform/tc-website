@@ -93,7 +93,7 @@
 
 <br>
 <!-- Tab barlinks-->
-<jsp:include page="memProTabs.jsp" >
+<jsp:include page="memberProfileTabs.jsp" >
 <jsp:param name="isRatedAlg" value="true"/>
 <jsp:param name="isRatedDes" value="true"/>
 <jsp:param name="isRatedDev" value="false"/>
