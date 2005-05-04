@@ -81,9 +81,12 @@ public class Login extends Base {
             }
         } else {
             loadTerms();
+            log.debug("set next page to " + Constants.PAGE_LOGIN);
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
+            log.debug("all done processing");
         }
+        log.debug("really all done processing");
 
     }
 
