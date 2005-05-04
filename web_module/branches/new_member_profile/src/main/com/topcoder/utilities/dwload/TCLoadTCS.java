@@ -939,7 +939,7 @@ public class TCLoadTCS extends TCLoad {
         try {
 
             query = new StringBuffer(100);
-            query.append(" SELECT r.coder_id");
+            query.append(" SELECT r.user_id");
             query.append(" ,r.rating");
             query.append(" FROM user_rating r ");
             if (phaseId == 112)
@@ -948,7 +948,7 @@ public class TCLoadTCS extends TCLoad {
                 query.append(" ,  active_developers a");
             query.append(" WHERE ");
             query.append(" r.rating > 0");
-            query.append(" AND a.coder_id = r.coder_id");
+            query.append(" AND a.user_id = r.user_id");
             query.append(" AND r.phase_id = ");
             query.append(phaseId);
             query.append(" ORDER BY r.rating DESC");
@@ -957,12 +957,12 @@ public class TCLoadTCS extends TCLoad {
             rs = psSel.executeQuery();
             ret = new ArrayList();
             while (rs.next()) {
-                ret.add(new CoderRating(rs.getInt("coder_id"), rs.getInt("rating")));
+                ret.add(new CoderRating(rs.getInt("user_id"), rs.getInt("rating")));
             }
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'coder_rank' table failed for overall rating rank.\n" +
+            throw new Exception("Load of 'user_rating' table failed for overall rating rank.\n" +
                     sqle.getMessage());
         } finally {
             close(rs);
