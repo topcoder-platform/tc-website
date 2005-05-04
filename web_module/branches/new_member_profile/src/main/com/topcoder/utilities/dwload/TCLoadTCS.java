@@ -1026,7 +1026,7 @@ public class TCLoadTCS extends TCLoad {
             query = new StringBuffer(100);
             query.append(" DELETE");
             query.append(" FROM user_rank");
-            query.append(" WHERE phaseId = " + phaseId);
+            query.append(" WHERE phase_id = " + phaseId);
             psDel = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
