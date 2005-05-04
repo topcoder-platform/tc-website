@@ -15,4 +15,5 @@ package com.topcoder.web.forums;
 public interface ForumConstants {
 	public final static String FORUM_ID = "forumID";
 	public final static String THREAD_ID = "threadID";
+	public final static String START_IDX = "start";
 }
