@@ -74,7 +74,7 @@
                 <tc-webtags:ratingColor rating='0'>not rated</tc-webtags:ratingColor>
             <%}%>
             </td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,###"/></td></tr>
+            <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
             <tr><td class="tableCat" colspan="2">&#160;</td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Member Since:</td><td class="tableStat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
             <tr><td class="tableCat">Country:</td><td class="tableStat" align="right"><rsc:item name="country_name" set="<%=rscCoderData%>"/></td></tr>
