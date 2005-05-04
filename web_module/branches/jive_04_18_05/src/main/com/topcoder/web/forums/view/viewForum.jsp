@@ -79,7 +79,6 @@
 <% } %>
 </table>
 
-<%= user.getProperty("jiveThreadRange") %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr>
 <td class="rtHeader" width="70%">Topic</td>
