@@ -10,7 +10,10 @@
 
 package com.topcoder.web.common.tag;
 
+import java.io.IOException;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.tagext.BodyContent;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 /**
@@ -74,6 +77,16 @@ public class RatingColorTag extends BodyTagSupport {
     }
     
     public int doAfterBody() throws JspException {
+        BodyContent bodyContent = getBodyContent();
+        if (bodyContent != null) {
+            try {
+                pageContext.getOut().print(bodyContent.getString());
+                bodyContent.clear();
+            }
+            catch (IOException ex) {
+                throw new JspTagException(ex.getMessage());
+            }
+        }
         return SKIP_BODY;
     }
     
