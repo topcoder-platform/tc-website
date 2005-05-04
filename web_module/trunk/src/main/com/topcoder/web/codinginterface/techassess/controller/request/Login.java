@@ -111,10 +111,11 @@ public class Login extends Base {
         if (showProcessing) showProcessingPage();
         ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
 
-        if (termsResponse!=null)
+        if (termsResponse.getMessage()!=null) {
+            log.debug("terms are " + termsResponse.getMessage());
             setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
+        }
 
-        log.debug("termsLoad complete");
 
 
     }
