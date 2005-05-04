@@ -312,35 +312,35 @@ public abstract class BaseServlet extends HttpServlet {
         fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
     }
 
-    protected TCSubject getUser(long id) throws Exception {
-        TCSubject user = null;
+        protected TCSubject getUser(long id) throws Exception {
+            TCSubject user = null;
 
-        StringBuffer buf = new StringBuffer(40);
-        buf.append(USER_SUBJECT_PREFIX);
-        buf.append(id);
+            StringBuffer buf = new StringBuffer(40);
+            buf.append(USER_SUBJECT_PREFIX);
+            buf.append(id);
 
-        CacheClient cc = null;
-        boolean hasCacheConnection = true;
-        try {
-            cc = CacheClientFactory.createCacheClient();
-            user = (TCSubject) (cc.get(buf.toString()));
-        } catch (Exception e) {
-            log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
-            hasCacheConnection = false;
-        }
-        if (user == null) {
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            user = pmgr.getUserSubject(id);
+            CacheClient cc = null;
+            boolean hasCacheConnection = true;
             try {
-                if (hasCacheConnection) {
-                    cc.set(buf.toString(), user, 30 * 60 * 1000);
-                } else {
-                    log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: ");
-                }
+                cc = CacheClientFactory.createCacheClient();
+                user = (TCSubject) (cc.get(buf.toString()));
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+                hasCacheConnection = false;
             }
+            if (user == null) {
+                PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+                user = pmgr.getUserSubject(id);
+                try {
+                    if (hasCacheConnection) {
+                        cc.set(buf.toString(), user, 30 * 60 * 1000);
+                    } else {
+                        log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: ");
+                    }
+                } catch (Exception e) {
+                    log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+                }
+            }
+            return user;
         }
-        return user;
-    }
 }

@@ -31,6 +31,7 @@ public class Login extends Base {
         String password = null;
 
         setDefault(Constants.COMPANY_ID, new Long(getCompanyId()));
+        setDefault(Constants.FRESH_REQUEST, String.valueOf(true));
 
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE);
@@ -45,8 +46,7 @@ public class Login extends Base {
             if (hasErrors()) {
                 loadTerms(true);
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
-                        new String[]{Constants.MESSAGE_ID, Constants.COMPANY_ID},
-                        new String[]{String.valueOf(getMessageId()), String.valueOf(getCompanyId())}));
+                        new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
             } else {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, getCompanyId());
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
@@ -79,16 +79,14 @@ public class Login extends Base {
                  * should go to which browser without the message id.
                  */
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
-                        new String[]{Constants.MESSAGE_ID, Constants.COMPANY_ID},
-                        new String[]{String.valueOf(getMessageId()), String.valueOf(getCompanyId())}));
+                        new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
 
 
             }
         } else {
             loadTerms(true);
             closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
-                    new String[]{Constants.MESSAGE_ID, Constants.COMPANY_ID},
-                    new String[]{String.valueOf(getMessageId()), String.valueOf(getCompanyId())}));
+                    new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
         }
 
     }
