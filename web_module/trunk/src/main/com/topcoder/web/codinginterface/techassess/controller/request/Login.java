@@ -57,7 +57,8 @@ public class Login extends Base {
 
                 ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
 
-                setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
+                if (termsResponse!=null)
+                    setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
 
                 try {
                     send(request);
