@@ -1,26 +1,9 @@
 package com.topcoder.utilities.dwload;
 
 /**
- * TCLoadCoders.java
+ * TCLoadTCS.java
  *
- * TCLoadCoders loads coder information tables from one database to another.
- * The tables that are built by this load procedure are:
- * <ul>
- * <li>state</li>
- * <li>country</li>
- * <li>coder</li>
- * <li>skill</li>
- * <li>skill_type</li>
- * <li>coder_skill</li>
- * <li>rating</li>
- * <li>path</li>
- * <li>image</li>
- * <li>coder_image_xref</li>
- * <li>school</li>
- * <li>current_school</li>
- * </ul>
- *
- * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
+ * @author rfairfax
  * @version $Revision$
  */
 
@@ -37,7 +20,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class TCLoadTCS extends TCLoad {
-    private static Logger log = Logger.getLogger(TCLoadCoders.class);
+    private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
     public TCLoadTCS() {
         DEBUG = false;
