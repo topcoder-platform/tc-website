@@ -77,7 +77,6 @@ public class MainServlet extends BaseServlet {
 
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-        //todo maybe we check if they have an active session here
         return true;
     }
 
@@ -102,6 +101,7 @@ public class MainServlet extends BaseServlet {
         rp.setReceiver(receiver);
         rp.setAuthentication(authentication);
         rp.process();
+        log.debug("done process");
         return rp;
     }
 
