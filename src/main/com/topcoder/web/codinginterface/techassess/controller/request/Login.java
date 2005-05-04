@@ -112,7 +112,7 @@ public class Login extends Base {
         ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
 
         if (termsResponse.getMessage()!=null) {
-            log.debug("terms are " + termsResponse.getMessage());
+            //log.debug("terms are " + termsResponse.getMessage());
             setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
         }
 
