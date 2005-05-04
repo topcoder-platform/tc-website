@@ -94,8 +94,16 @@
 <br>
 <!-- Tab barlinks-->
 <jsp:include page="memberProfileTabs.jsp" />
-
+<%
+    String tab = (String)request.getAttribute("tab");
+    if(tab.equals("alg")) {
+%>
 <jsp:include page="memberProfileTabAlg.jsp" />
+<% } else if(tab.equals("des")) { %>
+<jsp:include page="memberProfileTabDes.jsp" />
+<% } else if(tab.equals("dev")) { %>
+
+<% } %>
 
         </td>
 <!-- Center Column Ends -->
