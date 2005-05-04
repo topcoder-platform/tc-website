@@ -55,9 +55,53 @@
         <td width="99%">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <img src="/images/headCustomers.gif" alt="Customers" width="545" height="32" border="0" /><br>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
+<!-- ABB begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/abb_logo.gif" alt="ABB" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">A leader in power and automation technologies that enable customers to improve performance while lowering environmental impact.<br><br>
+                    <A href="http://www.abb.com/" target="_blank">homepage</A>&#160;|&#160;
+                     <A href="/images/clients/abb_casestudy.pdf" target="_blank">case study</A>
+                     </td>
+                </tr>
+            </table>
+<!-- ABB ends -->
 
+             <hr width="100%" size="1px" noshade>
+            <br><br>
 
-            <hr width="100%" size="1px" noshade>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Case Studies</td></tr></table>
+<!-- ING begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">Potential returns like reduced costs for application maintenance and enhancements, the ability to take advantage of the company's applications framework for reuse wherever possible, and service modules that could seamlessly integrate other applications within the IQM suite.<br><br>
+                    <A href="http://www.salk.edu/" target="_blank">homepage</A>&#160;|&#160;
+                     <A href="/images/clients/fin_services_casestudy.pdf" target="_blank">case study</A>
+                     </td>
+                </tr>
+            </table>
+<!-- ING ends -->
+
+             <hr width="100%" size="1px" noshade>
+
+<!-- Salk begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/salk_logo.gif" alt="Salk Institute" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">With more than 32,000 employees worldwide, this company provides its customers with the books, music, movies, and other entertainment items they love.<br><br>
+                    <A href="http://www.salk.edu/" target="_blank">homepage</A>&#160;|&#160;
+                     <A href="/images/clients/salk_institute_casestudy.pdf" target="_blank">case study</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Salk ends -->
+
+             <hr width="100%" size="1px" noshade>
 
 <!-- StageStores begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -73,21 +117,9 @@
 <!-- StageStores ends -->
 
              <hr width="100%" size="1px" noshade>
+            <br><br>
 
-<!-- ABB begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/abb_logo.gif" alt="ABB" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">A leader in power and automation technologies that enable customers to improve performance while lowering environmental impact.<br><br>
-                    <A href="http://www.abb.com/" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- ABB ends -->
-
-             <hr width="100%" size="1px" noshade>
-
+            <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Other Customers</td></tr></table>
 <!-- Borders begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
@@ -215,7 +247,7 @@
 
 <!-- Praxair begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
+               <tr valign="top">
                     <td width="170"><img src="/images/clients/praxair_logo.gif" alt="Praxair" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">With annual sales of $5.6 billion, Praxair, Inc. is a global, Fortune 500 company that supplies atmospheric, process and specialty gases, high-performance coatings, and related services and technologies.<br><br>
@@ -225,8 +257,6 @@
                 </tr>
             </table>
 <!-- Praxair ends -->
-
-             <hr width="100%" size="1px" noshade>
 
 <!-- Rodale begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
