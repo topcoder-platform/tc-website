@@ -34,6 +34,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 public class TCLoadTCS extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadCoders.class);
@@ -96,6 +97,9 @@ public class TCLoadTCS extends TCLoad {
             doLoadUserReliability();
 
             doLoadRoyalty();
+            
+            doLoadRank(112);
+            doLoadRank(113);
 
             //fix problems with submission date
             sSQL = "update project_result " +
@@ -935,6 +939,160 @@ public class TCLoadTCS extends TCLoad {
             throw new Exception("Load of 'events' table failed.\n" +
                     sqle.getMessage());
         }
+    }
+    
+    /**
+     * Get a sorted list (by rating desc) of all the active coders
+     * and their ratings.
+     * @return List containing CoderRating objects
+     * @throws Exception if something goes wrong when querying
+     */
+    private List getCurrentRatings(int phaseId) throws Exception {
+        StringBuffer query = null;
+        PreparedStatement psSel = null;
+        ResultSet rs = null;
+        List ret = null;
+
+        try {
+
+            query = new StringBuffer(100);
+            query.append(" SELECT r.coder_id");
+            query.append(" ,r.rating");
+            query.append(" FROM user_rating r ");
+            if (phaseId == 112)
+                query.append(" ,  active_designers a");
+            else
+                query.append(" ,  active_developers a");
+            query.append(" WHERE ");
+            query.append(" r.rating > 0");
+            query.append(" AND a.coder_id = r.coder_id");
+            query.append(" AND r.phase_id = ");
+            query.append(phaseId);
+            query.append(" ORDER BY r.rating DESC");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
+
+            rs = psSel.executeQuery();
+            ret = new ArrayList();
+            while (rs.next()) {
+                ret.add(new CoderRating(rs.getInt("coder_id"), rs.getInt("rating")));
+            }
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'coder_rank' table failed for overall rating rank.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+        }
+        return ret;
+
+    }
+    
+    private class CoderRating implements Comparable {
+        private int _coderId = 0;
+        private int _rating = 0;
+
+        CoderRating(int coderId, int rating) {
+            _coderId = coderId;
+            _rating = rating;
+        }
+
+        public int compareTo(Object other) {
+            if (((CoderRating) other).getRating() > _rating)
+                return 1;
+            else if (((CoderRating) other).getRating() < _rating)
+                return -1;
+            else
+                return 0;
+        }
+
+        int getCoderId() {
+            return _coderId;
+        }
+
+        int getRating() {
+            return _rating;
+        }
+
+        void setCoderId(int coderId) {
+            _coderId = coderId;
+        }
+
+        void setRating(int rating) {
+            _rating = rating;
+        }
+
+        public String toString() {
+            return new String(_coderId + ":" + _rating);
+        }
+    }
+
+    private void doLoadRank(int phaseId) throws Exception {
+        StringBuffer query = null;
+        PreparedStatement psDel = null;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        ResultSet rs = null;
+        int count = 0;
+        int coderCount = 0;
+        List ratings = null;
+
+        try {
+
+            query = new StringBuffer(100);
+            query.append(" DELETE");
+            query.append(" FROM user_rank");
+            query.append(" WHERE phaseId = " + phaseId);
+            psDel = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append(" INSERT");
+            query.append(" INTO user_rank (user_id, percentile, rank, phase_id)");
+            query.append(" VALUES (?, ?, ?, " + phaseId + ")");
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            /* coder_rank table should be kept "up-to-date" so get the most recent stuff
+             * from the rating table
+             */
+            ratings = getCurrentRatings(phaseId);
+            coderCount = ratings.size();
+
+            // delete all the records for the overall rating rank type
+            psDel.executeUpdate();
+
+            int i = 0;
+            int rating = 0;
+            int rank = 0;
+            int size = ratings.size();
+            int tempRating = 0;
+            int tempCoderId = 0;
+            for (int j = 0; j < size; j++) {
+                i++;
+                tempRating = ((CoderRating) ratings.get(j)).getRating();
+                tempCoderId = ((CoderRating) ratings.get(j)).getCoderId();
+                if (tempRating != rating) {
+                    rating = tempRating;
+                    rank = i;
+                }
+                psIns.setInt(1, tempCoderId);
+                psIns.setFloat(2, (float) 100 * ((float) (coderCount - rank) / coderCount));
+                psIns.setInt(3, rank);
+                count += psIns.executeUpdate();
+            }
+            log.info("Records loaded for overall rating rank load: " + count);
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'user_rank' table failed for overall rating rank.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psIns);
+            close(psDel);
+        }
+
     }
 
 }
