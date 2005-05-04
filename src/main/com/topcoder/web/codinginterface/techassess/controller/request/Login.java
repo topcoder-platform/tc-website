@@ -45,7 +45,8 @@ public class Login extends Base {
             if (hasErrors()) {
                 loadTerms(true);
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
-                        new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
+                        new String[]{Constants.MESSAGE_ID, Constants.COMPANY_ID},
+                        new String[]{String.valueOf(getMessageId()), String.valueOf(getCompanyId())}));
             } else {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, getCompanyId());
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
@@ -78,13 +79,16 @@ public class Login extends Base {
                  * should go to which browser without the message id.
                  */
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
-                        new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
+                        new String[]{Constants.MESSAGE_ID, Constants.COMPANY_ID},
+                        new String[]{String.valueOf(getMessageId()), String.valueOf(getCompanyId())}));
+
 
             }
         } else {
             loadTerms(true);
             closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
-                    new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
+                    new String[]{Constants.MESSAGE_ID, Constants.COMPANY_ID},
+                    new String[]{String.valueOf(getMessageId()), String.valueOf(getCompanyId())}));
         }
 
     }
