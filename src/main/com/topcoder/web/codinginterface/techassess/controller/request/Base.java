@@ -25,6 +25,7 @@ import com.topcoder.web.common.*;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
@@ -117,7 +118,20 @@ public abstract class Base extends BaseProcessor {
             //log.debug("lock it up, it's a syncronous request");
             lock();
         }
+        String oldMessageId = this.messageId;
         this.messageId = sender.sendMessageGetID(new HashMap(), m);
+        if (oldMessageId!=null) {
+            //that means we already sent a message, so we should load up
+            //anything in the session associated with that message and transfer
+            //it to the new one
+            HttpSession session = getRequest().getSession();
+            session.setAttribute(ERRORS_KEY+messageId, session.getAttribute(ERRORS_KEY+oldMessageId));
+            session.setAttribute(DEFAULTS_KEY+messageId, session.getAttribute(DEFAULTS_KEY+oldMessageId));
+            session.setAttribute(Constants.MESSAGE+messageId, session.getAttribute(Constants.MESSAGE+oldMessageId));
+            getRequest().removeAttribute(ERRORS_KEY+oldMessageId);
+            getRequest().removeAttribute(DEFAULTS_KEY+oldMessageId);
+            getRequest().removeAttribute(Constants.MESSAGE+oldMessageId);
+        }
 
     }
 
@@ -387,19 +401,12 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected Message receive(int waitTime) throws TCWebException, TimeOutException, TimeExpiredException {
-        return receive(waitTime, true);
-    }
-
-    protected Message receive(int waitTime, boolean loadSession) throws TCWebException, TimeOutException, TimeExpiredException {
-
         if (messageId == null) throw new RuntimeException("You must call send before receive.");
 
-        if (loadSession) {
-            getRequest().getSession().setAttribute(ERRORS_KEY + messageId, errors);
-            getRequest().removeAttribute(ERRORS_KEY);
-            getRequest().getSession().setAttribute(DEFAULTS_KEY + messageId, defaults);
-            getRequest().removeAttribute(DEFAULTS_KEY);
-        }
+        getRequest().getSession().setAttribute(ERRORS_KEY + messageId, errors);
+        getRequest().removeAttribute(ERRORS_KEY);
+        getRequest().getSession().setAttribute(DEFAULTS_KEY + messageId, defaults);
+        getRequest().removeAttribute(DEFAULTS_KEY);
 
         ScreeningBaseResponse m = (ScreeningBaseResponse) receiver.receive(waitTime, messageId, getResponse());
 
