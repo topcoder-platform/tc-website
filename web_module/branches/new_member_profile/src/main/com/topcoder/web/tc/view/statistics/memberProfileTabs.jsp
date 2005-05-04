@@ -2,7 +2,7 @@
    boolean isRatedAlg = ((Boolean)request.getAttribute("hasAlg")).booleanValue();
    boolean isRatedDes = ((Boolean)request.getAttribute("hasDes")).booleanValue();
    boolean isRatedDev = ((Boolean)request.getAttribute("hasDev")).booleanValue();
-   String selectedTab = request.getAttribute("tab");
+   String selectedTab = (String) request.getAttribute("tab");
    String coderId = request.getParameter("cr");
 %>
 

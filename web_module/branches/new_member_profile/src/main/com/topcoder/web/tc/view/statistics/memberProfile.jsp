@@ -93,12 +93,7 @@
 
 <br>
 <!-- Tab barlinks-->
-<jsp:include page="memberProfileTabs.jsp" >
-<jsp:param name="isRatedAlg" value='<%=request.getAttribute("hasAlg")%>'/>
-<jsp:param name="isRatedDes" value='<%=request.getAttribute("hasDes")%>'/>
-<jsp:param name="isRatedDev" value='<%=request.getAttribute("hasDev")%>'/>
-<jsp:param name="selectedTab" value='<%=request.getAttribute("tab")%>'/>
-</jsp:include>
+<jsp:include page="memberProfileTabs.jsp" />
 
 <jsp:include page="memberProfileTabAlg.jsp" />
 
