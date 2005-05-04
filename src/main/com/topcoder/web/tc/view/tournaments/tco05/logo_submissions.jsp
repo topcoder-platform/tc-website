@@ -45,6 +45,7 @@
 <!-- Center Column Begins -->
          <td class="bodyText" width="100%" align="center">
 
+
          <div class="pageSpacer">
 
             <div class="logoBox"><img src="/i/tournament/tco05/logo_logo.gif" alt="TCO05 Logo Contest" border="0"/></div>

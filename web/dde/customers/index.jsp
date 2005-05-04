@@ -79,7 +79,6 @@
                     <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">A national financial institution needed database management functionality delivered across a variety of platforms as part of an Information Quality Management initiative. TopCoder Software devised an IQM solution that allows users to intuitively navigate through data.<br><br>
-                    <A href="http://www.salk.edu/" target="_blank">homepage</A>&#160;|&#160;
                      <A href="/images/clients/fin_services_casestudy.pdf" target="_blank">case study</A>
                      </td>
                 </tr>

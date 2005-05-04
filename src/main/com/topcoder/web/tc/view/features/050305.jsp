@@ -219,7 +219,7 @@ regfree(&amp;reg);
 </pre>
 
 <span class="bodySubtitle">GNU_regex</span><br>
-The GNU_regex API has a richer set of functions. With GNU regex functions you can both match a string with a pattern and search a pattern in a string. The usage of these functions is somehow similar with the usage of the POSIX functions: a pattern must first be compiled with 're_compile_pattern', and the pattern buffer obtained is used to search and match. The functions used for searching and matching are 're_search' and 're_match'. In case of searching a fastmap can be used in order to optimize search. Without a fastmap the search algorithm tries to match the pattern at consecutive positions in the string. The fastmap tells the algorithm what are the characters from which a match can start. The fastmap is constructed by calling the 're_compile_fastmap'. The GNU_regex also provides the functions 're_search2' and 're_match2' for searching and matching with split data. To free the allocated fields of a pattern buffer you must use 'regfree'.
+The GNU_regex API has a richer set of functions. With GNU regex functions you can both match a string with a pattern and search a pattern in a string. The usage of these functions is somehow similar with the usage of the POSIX functions: a pattern must first be compiled with 're_compile_pattern', and the pattern buffer obtained is used to search and match. The functions used for searching and matching are 're_search' and 're_match'. In case of searching a fastmap can be used in order to optimize search. Without a fastmap the search algorithm tries to match the pattern at consecutive positions in the string. The fastmap tells the algorithm what the characters are from which a match can start. The fastmap is constructed by calling the 're_compile_fastmap'. The GNU_regex also provides the functions 're_search2' and 're_match2' for searching and matching with split data. To free the allocated fields of a pattern buffer you must use 'regfree'.
 <br><br>
 For an in-depth description of how to use these functions please consult [3].
 <br><br>
@@ -264,7 +264,7 @@ regfree(&buffer);
 
 
 <span class="bodySubtitle">Real SRMs Examples</span><br>
-The following examples are written all in Java for the sake of clarity. A C++ user can use the POSIX or the GNU regex APIs to construct functions similar to those available in Java(replace_all, split, matches).
+The following examples are all written in Java for the sake of clarity. A C++ user can use the POSIX or the GNU regex APIs to construct functions similar to those available in Java(replace_all, split, matches).
 <br><br>
 <strong><A href="/stat?c=problem_statement&pm=2396&rd=4755">CyberLine</A> (SRM 187 div 1, level 1)</strong>
 <pre>
