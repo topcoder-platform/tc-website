@@ -100,6 +100,8 @@
 <jsp:param name="selectedTab" value="alg"/>
 </jsp:include>
 
+<jsp:include page="memberProfileTabAlg.jsp" />
+
         </td>
 <!-- Center Column Ends -->
 
