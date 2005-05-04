@@ -67,7 +67,7 @@ public class Login extends Base {
                     setSessionId(response.getSessionID());
                 } else {
                     loadTerms(false);
-                    addError(Constants.HANDLE, response.getMessage());
+                    addError(Constants.HANDLE, getMessageId());
                 }
 
                 /* send them over to the login response page.  we're including the message
