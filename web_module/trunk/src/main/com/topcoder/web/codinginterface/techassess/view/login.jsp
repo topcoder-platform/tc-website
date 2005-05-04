@@ -61,7 +61,7 @@ function submitEnter(e) {
                                 <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
                                 <table width="400" cellspacing=0 cellpadding=0 border=0 class=tableFrame>
                                     <tr>
-                                        <td colspan="2">
+                                        <td colspan="2" class="tableText">
                                             <% if (((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).containsKey(CodingInterfaceConstants.TERMS)) { %>
                                                 <tc-webtag:textArea name="<%=CodingInterfaceConstants.TERMS%>" rows="15" cols="60"/>
                                             <% } %>
