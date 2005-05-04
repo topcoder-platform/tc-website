@@ -95,6 +95,9 @@ if(!rscSummaryDiv2.isEmpty()) {
          </table>
 <%
 }
+ResultSetContainer rscSummaryChal = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Challenge_Summary");
+ResultSetContainer rscTotalChal = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Challenge_Totals");
+if(!rscSummaryChal.isEmpty()) {
 %>
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
             <tr><td class="tableTitle" colspan="5">Challenges</td></tr>
@@ -104,31 +107,24 @@ if(!rscSummaryDiv2.isEmpty()) {
                <td class="tableHeader" align="right" width="33%"># Challenges</td>
                <td class="tableHeader" align="right" width="33%">Success %  	</td>
             </tr>
+            <rsc:iterator id="resultRow" list="<%=rscSummaryChal%>">
             <tr>
-               <td class="tableCat" nowrap="nowrap">Level One</td>
-               <td class="tableStatR">4</td>
-               <td class="tableStatR">1</td>
-               <td class="tableStatR">78.26%</td>
+               <td class="tableCat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
+               <td class="tableStatR"><rsc:item name="challenges_made_failed" set="<%=rscTotalDiv2%>" /></td>
+               <td class="tableStatR"><rsc:item name="challenge_attempts_made" set="<%=rscTotalDiv2%>" /></td>
+               <td class="tableStatR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
             </tr>
-            <tr>
-               <td class="tableCat" nowrap="nowrap">Level Two</td>
-               <td class="tableStatR">2</td>
-               <td class="tableStatR">8</td>
-               <td class="tableStatR">33.33%</td>
-            </tr>
-            <tr>
-               <td class="tableCat" nowrap="nowrap">Level Three</td>
-               <td class="tableStatR">0</td>
-               <td class="tableStatR">2</td>
-               <td class="tableStatR">0.00%</td>
-            </tr>
+            </rsc:iterator>
             <tr>
                <td class="tableCat" nowrap="nowrap">Total</td>
-               <td class="tableStatR">6</td>
-               <td class="tableStatR">11</td>
-               <td class="tableStatR">57.50%</td>
+               <td class="tableStatR"><rsc:item name="challenges_made_failed" set="<%=rscTotalChal%>" /></td>
+               <td class="tableStatR"><rsc:item name="challenge_attempts_made" set="<%=rscTotalChal%>" /></td>
+               <td class="tableStatR"><rsc:item name="success_percentage" set="<%=rscTotalChal%>" format="0.00%" /></td>
             </tr>
          </table>
+<%
+}
+%>
       </td>
    </tr>
 </table>
