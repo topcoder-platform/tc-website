@@ -42,7 +42,7 @@ public class TCLoadTCS extends TCLoad {
             PreparedStatement ps = prepareStatement("set lock mode to wait 5", SOURCE_DB);
             ps.execute();
             ps.close();
-
+/*
             doLoadEvents();
 
             doLoadContests();
@@ -80,7 +80,7 @@ public class TCLoadTCS extends TCLoad {
             doLoadUserReliability();
 
             doLoadRoyalty();
-            
+  */          
             doLoadRank(112);
             doLoadRank(113);
 
