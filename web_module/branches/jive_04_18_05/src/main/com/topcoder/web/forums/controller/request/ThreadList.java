@@ -53,6 +53,8 @@ public class ThreadList extends BaseProcessor implements Pageable {
 		getRequest().setAttribute("user", user);
 		getRequest().setAttribute("paginator", paginator);
 		
+		initFields();
+		
 		setNextPage("/viewForum.jsp");
 		setIsNextPageInContext(true);
 	}
@@ -92,5 +94,6 @@ public class ThreadList extends BaseProcessor implements Pageable {
 
         // Compute the total # of items (threads in this case)
         totalItemCount = forum.getThreadCount(getResultFilter());
+        System.out.println("totalItemCount: " + totalItemCount);
     }
 }
