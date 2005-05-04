@@ -43,6 +43,25 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("resultMap", result);
             
             //here we want to get the current tab, then load data for that tab
+            boolean hasAlg = false;
+            boolean hasDes = false;
+            boolean hasDev = false;
+            
+            if(rsc.getIntItem(0, "rating") != 0) {
+                hasAlg = true;
+            }
+            
+            if(rsc.getItem(0, "design_rating").getResultData() != null) {
+                hasDes = true;
+            }
+            
+            if(rsc.getItem(0, "development_rating").getResultData() != null) {
+                hasDev = true;
+            }
+            
+            getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
+            getRequest().setAttribute("hasDes", new Boolean(hasDes));
+            getRequest().setAttribute("hasDev", new Boolean(hasDev));
             
             setNextPage(Constants.MEMBER_PROFILE);
             setIsNextPageInContext(true);

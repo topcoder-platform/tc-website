@@ -91,12 +91,13 @@
    <tr>
 </table>
 
+<%=request.getAttribute("hasAlg")%>
 <br>
 <!-- Tab barlinks-->
 <jsp:include page="memberProfileTabs.jsp" >
-<jsp:param name="isRatedAlg" value="true"/>
-<jsp:param name="isRatedDes" value="true"/>
-<jsp:param name="isRatedDev" value="false"/>
+<jsp:param name="isRatedAlg" value='<%=request.getAttribute("hasAlg")%>'/>
+<jsp:param name="isRatedDes" value='<%=request.getAttribute("hasDes")%>'/>
+<jsp:param name="isRatedDev" value='<%=request.getAttribute("hasDev")%>'/>
 <jsp:param name="selectedTab" value="alg"/>
 </jsp:include>
 
