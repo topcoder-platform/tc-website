@@ -110,8 +110,8 @@ if(!rscSummaryChal.isEmpty()) {
             <rsc:iterator id="resultRow" list="<%=rscSummaryChal%>">
             <tr>
                <td class="tableCat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="challenges_made_failed" set="<%=rscTotalDiv2%>" /></td>
-               <td class="tableStatR"><rsc:item name="challenge_attempts_made" set="<%=rscTotalDiv2%>" /></td>
+               <td class="tableStatR"><rsc:item name="challenges_made_failed" row="<%=resultRow%>" /></td>
+               <td class="tableStatR"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" /></td>
                <td class="tableStatR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
             </tr>
             </rsc:iterator>
