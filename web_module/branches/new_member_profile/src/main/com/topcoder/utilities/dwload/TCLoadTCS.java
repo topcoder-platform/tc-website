@@ -952,7 +952,7 @@ public class TCLoadTCS extends TCLoad {
             query.append(" AND r.phase_id = ");
             query.append(phaseId);
             query.append(" ORDER BY r.rating DESC");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
+            psSel = prepareStatement(query.toString(), TARGET_DB);
 
             rs = psSel.executeQuery();
             ret = new ArrayList();
