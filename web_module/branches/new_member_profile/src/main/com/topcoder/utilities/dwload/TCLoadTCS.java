@@ -42,7 +42,7 @@ public class TCLoadTCS extends TCLoad {
             PreparedStatement ps = prepareStatement("set lock mode to wait 5", SOURCE_DB);
             ps.execute();
             ps.close();
-/*
+
             doLoadEvents();
 
             doLoadContests();
@@ -80,12 +80,12 @@ public class TCLoadTCS extends TCLoad {
             doLoadUserReliability();
 
             doLoadRoyalty();
-  */          
+  
             doLoadRank(112);
             doLoadRank(113);
 
             //fix problems with submission date
-            /*sSQL = "update project_result " +
+            sSQL = "update project_result " +
                     "         set submit_timestamp = (select max(u.submission_date) " +
                     "         from project p, " +
                     "         user_component_score u " +
@@ -113,7 +113,7 @@ public class TCLoadTCS extends TCLoad {
             ps.execute();
             ps.close();
             ps = null;
-*/
+
             doClearCache();
 
             log.info("SUCCESS: TCS load ran successfully.");
