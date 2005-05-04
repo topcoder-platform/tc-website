@@ -428,6 +428,7 @@
     <tag>
         <name>ratingColor</name>
         <tagclass>com.topcoder.web.common.tag.RatingColorTag</tagclass>
+        <bodycontent>JSP</bodycontent>
         <attribute>
             <name>rating</name>
             <required>true</required>
