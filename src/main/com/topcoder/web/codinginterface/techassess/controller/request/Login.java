@@ -96,6 +96,7 @@ public class Login extends Base {
      * @throws TimeOutException
      */
     protected void loadTerms() throws TCWebException, TimeExpiredException, TimeOutException {
+        log.debug("loadTerms() called ...");
         ScreeningTermsRequest termsRequest = new ScreeningTermsRequest(getCompanyId());
         termsRequest.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
@@ -109,6 +110,8 @@ public class Login extends Base {
 
         if (termsResponse!=null)
             setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
+
+        log.debug("termsLoad complete");
 
 
     }
