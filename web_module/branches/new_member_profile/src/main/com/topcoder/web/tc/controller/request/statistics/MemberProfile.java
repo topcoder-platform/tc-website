@@ -13,6 +13,7 @@ package com.topcoder.web.tc.controller.request.statistics;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import java.util.Map;
@@ -47,21 +48,42 @@ public class MemberProfile extends Base {
             boolean hasDes = false;
             boolean hasDev = false;
             
+            int algRating = 0;
+            int desRating = 0;
+            int devRating = 0;
+            
             if(rsc.getIntItem(0, "rating") != 0) {
                 hasAlg = true;
+                algRating = rsc.getIntItem(0, "rating");
             }
             
             if(rsc.getItem(0, "design_rating").getResultData() != null) {
                 hasDes = true;
+                desRating = rsc.getIntItem(0, "design_rating");
             }
             
             if(rsc.getItem(0, "development_rating").getResultData() != null) {
                 hasDev = true;
+                devRating = rsc.getIntItem(0, "development_rating");
+            }
+            
+            //get the selected tab
+            String tab = StringUtils.checkNull(getRequest().getParameter("tab"));
+            if(tab.equals("")) {
+                //get the higest rating
+                if(algRating >= desRating && algRating >= devRating) {
+                    tab = "alg";
+                } else if(desRating >= algRating && desRating >= devRating) {
+                    tab = "des";
+                } else {
+                    tab = "dev";
+                }
             }
             
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
             getRequest().setAttribute("hasDes", new Boolean(hasDes));
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
+            getRequest().setAttribute("tab", tab);
             
             setNextPage(Constants.MEMBER_PROFILE);
             setIsNextPageInContext(true);
