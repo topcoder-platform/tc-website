@@ -48,7 +48,7 @@ public class RatingColorTag extends BodyTagSupport {
 
     public int doStartTag() throws JspException {
 
-        try {
+        try { 
             //check for css override
             boolean bCSSOverride = false;
             if (cssclass != null && !cssclass.equals("")) {
