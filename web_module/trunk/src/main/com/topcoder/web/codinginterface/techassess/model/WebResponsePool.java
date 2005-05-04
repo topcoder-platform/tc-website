@@ -15,6 +15,7 @@ import java.io.Serializable;
  */
 public class WebResponsePool extends ResponsePool {
 
+    private int DEFAULT_PRINT_WAIT = 500;
     public WebResponsePool() {
         super();
     }
@@ -26,16 +27,20 @@ public class WebResponsePool extends ResponsePool {
     public synchronized Serializable get(int timeoutLength, String correlationId, TCResponse response) throws TimeOutException {
         long startTime = System.currentTimeMillis();
         long endTime = startTime + timeoutLength;
+        long lastPrint = 0;
         while (System.currentTimeMillis() < endTime) {
 
             if (responseMap.containsKey(correlationId)) {
                 return (Serializable) responseMap.get(correlationId);
             } else {
                 try {
-                    //perhaps writing something out to the response for every wait is overkill.  it might
-                    //make sense to write 20 bytes every 1/2 second or something like that.
-                    response.getWriter().print(" ");
-                    response.getWriter().flush();
+                    //print something out to the client every DEFAULT_PRINT_WAIT so that it doesn't time out
+                    long curr = System.currentTimeMillis();
+                    if ((lastPrint+DEFAULT_PRINT_WAIT)<curr) {
+                        response.getWriter().print("                   ");
+                        response.getWriter().flush();
+                        lastPrint =curr;
+                    }
                     wait(waitTime);
                 } catch (InterruptedException e) {
                     //ignore
