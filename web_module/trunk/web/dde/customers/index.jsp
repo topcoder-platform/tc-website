@@ -61,7 +61,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/abb_logo.gif" alt="ABB" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">A leader in power and automation technologies that enable customers to improve performance while lowering environmental impact.<br><br>
+                    <td width="99%" class="bodyText">ABB, a leading power and automation technology enabler, needed a modern, user-friendly HTML interface that would allow users in its engineering and systems business units to access data on its mainframe legacy system. The Project Management Dashboard application delivered by TopCoder Software limited the amount of custom code built to 42 percent that of more traditional development models.<br><br>
                     <A href="http://www.abb.com/" target="_blank">homepage</A>&#160;|&#160;
                      <A href="/images/clients/abb_casestudy.pdf" target="_blank">case study</A>
                      </td>
@@ -78,7 +78,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">Potential returns like reduced costs for application maintenance and enhancements, the ability to take advantage of the company's applications framework for reuse wherever possible, and service modules that could seamlessly integrate other applications within the IQM suite.<br><br>
+                    <td width="99%" class="bodyText">A national financial institution needed database management functionality delivered across a variety of platforms as part of an Information Quality Management initiative. TopCoder Software devised an IQM solution that allows users to intuitively navigate through data.<br><br>
                     <A href="http://www.salk.edu/" target="_blank">homepage</A>&#160;|&#160;
                      <A href="/images/clients/fin_services_casestudy.pdf" target="_blank">case study</A>
                      </td>
@@ -93,7 +93,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/salk_logo.gif" alt="Salk Institute" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">With more than 32,000 employees worldwide, this company provides its customers with the books, music, movies, and other entertainment items they love.<br><br>
+                    <td width="99%" class="bodyText">The world-renowned Salk Institute, a private, non-profit, research organization dedicated to fundamental research in biology and its relation to health, wanted to make an extremely large amount of gene data resulting from years of research on the topic of spinal cord injury available to the scientific community. TopCoder Software devised a solution that enables users to access project data through an HTML-based interface.<br><br>
                     <A href="http://www.salk.edu/" target="_blank">homepage</A>&#160;|&#160;
                      <A href="/images/clients/salk_institute_casestudy.pdf" target="_blank">case study</A>
                      </td>
