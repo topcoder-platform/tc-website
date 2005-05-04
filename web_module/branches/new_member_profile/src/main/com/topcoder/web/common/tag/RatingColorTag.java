@@ -77,15 +77,12 @@ public class RatingColorTag extends BodyTagSupport {
     }
     
     public int doAfterBody() throws JspException {
-        BodyContent bodyContent = getBodyContent();
-        if (bodyContent != null) {
-            try {
-                pageContext.getOut().print(bodyContent.getString());
-                bodyContent.clear();
+        try {
+            if (bodyContent != null) {
+                bodyContent.writeOut(getPreviousOut());
             }
-            catch (IOException ex) {
-                throw new JspTagException(ex.getMessage());
-            }
+        } catch (IOException e) {
+            throw new JspException(e.getMessage());
         }
         return SKIP_BODY;
     }
