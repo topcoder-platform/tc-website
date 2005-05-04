@@ -7,7 +7,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
  * User: dok
  * Date: Dec 17, 2004
  */
-public class LoginResponse extends Base {
+public class LoginResponse extends Login {
 
     protected static final Logger log = Logger.getLogger(LoginResponse.class);
 
@@ -21,6 +21,7 @@ public class LoginResponse extends Base {
             loadUserMessageIntoRequest(messageId);
             loadSessionDefaultsIntoRequest(messageId);
             if (hasErrors()) {
+                loadTerms();
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
             }
