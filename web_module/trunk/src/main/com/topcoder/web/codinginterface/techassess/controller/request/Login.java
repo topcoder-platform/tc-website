@@ -67,7 +67,7 @@ public class Login extends Base {
                     setSessionId(response.getSessionID());
                 } else {
                     loadTerms(false);
-                    addError(Constants.HANDLE, getMessageId());
+                    addError(Constants.HANDLE, response.getMessage());
                 }
 
                 /* send them over to the login response page.  we're including the message
@@ -109,7 +109,7 @@ public class Login extends Base {
                     "When using this tool, please wait for a response before you attempt to proceed.");
         }
         if (showProcessing) showProcessingPage();
-        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000, false);
+        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
 
         if (termsResponse!=null)
             setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
