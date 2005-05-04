@@ -13,8 +13,12 @@ import com.topcoder.web.forums.ForumConstants;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.action.ActionUtils;
+
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.action.ForumAction;
+import com.jivesoftware.forum.action.util.Paginator;
 
 /**
  * @author mtong
@@ -25,11 +29,14 @@ import com.jivesoftware.forum.Forum;
 public class ThreadList extends BaseProcessor {
 	protected void businessProcessing() throws Exception {
 		long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
+		ForumAction action = (ForumAction)ActionUtils.getAction();
+		Paginator paginator = new Paginator(action);
 		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
 		Forum forum = ForumFactory.getInstance(authToken).getForum(forumID);
 		Iterator itThreads = forum.getThreads();
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("threads", itThreads);
+		getRequest().setAttribute("paginator", paginator);
 		
 		setNextPage("/viewForum.jsp");
 		setIsNextPageInContext(true);

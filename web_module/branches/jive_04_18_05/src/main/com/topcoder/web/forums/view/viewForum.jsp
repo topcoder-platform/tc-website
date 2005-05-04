@@ -70,7 +70,7 @@
 <td class="rtThreadCellWrap"><A href='<%="?module=Thread&" + ForumConstants.THREAD_ID + "=" + thread.getID()%>' class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
 	[ <A href="/" class="rtLinkNew">1</A> <A href="/" class="rtLinkNew">2</A> ]</td>
 <td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
-<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
+<td class="rtThreadCell"><%=thread.getMessageCount()-1%><jsp:getProperty name="paginator" property="numPages"/></td>
 <td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
 <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
 <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
