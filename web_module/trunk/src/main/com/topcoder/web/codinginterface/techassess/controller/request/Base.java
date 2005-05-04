@@ -64,7 +64,7 @@ public abstract class Base extends BaseProcessor {
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
         } catch (TimeExpiredException ex) {
             if (sessionId>=0) unlock();
-            closeProcessingPage(buildProcessorRequestString(Constants.RP_TIME_EXPIRED, new String[] {Constants.LOGOUT, Constants.ERROR_MESSAGE}, 
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_TIME_EXPIRED, new String[] {Constants.LOGOUT, Constants.ERROR_MESSAGE},
                         new String[] {String.valueOf(ex.isLogout()), ex.getMessage()}));
         }
     }
@@ -387,22 +387,22 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected Message receive(int waitTime) throws TCWebException, TimeOutException, TimeExpiredException {
+        return receive(waitTime, true);
+    }
+
+    protected Message receive(int waitTime, boolean loadSession) throws TCWebException, TimeOutException, TimeExpiredException {
 
         if (messageId == null) throw new RuntimeException("You must call send before receive.");
 
-        //log.debug("setting up session errors");
-        getRequest().getSession().setAttribute(ERRORS_KEY + messageId, errors);
-        getRequest().removeAttribute(ERRORS_KEY);
-        //log.debug("setting up session defaults");
-        getRequest().getSession().setAttribute(DEFAULTS_KEY + messageId, defaults);
-        getRequest().removeAttribute(DEFAULTS_KEY);
-/*
-        log.debug("defaults: " + getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId));
-        log.debug("errors: " + getRequest().getSession().getAttribute(ERRORS_KEY + messageId));
-*/
+        if (loadSession) {
+            getRequest().getSession().setAttribute(ERRORS_KEY + messageId, errors);
+            getRequest().removeAttribute(ERRORS_KEY);
+            getRequest().getSession().setAttribute(DEFAULTS_KEY + messageId, defaults);
+            getRequest().removeAttribute(DEFAULTS_KEY);
+        }
 
         ScreeningBaseResponse m = (ScreeningBaseResponse) receiver.receive(waitTime, messageId, getResponse());
-        
+
         if(m instanceof ScreeningTimeExpiredResponse) {
             //throw an exception so we can redirect them to a new page
             ScreeningTimeExpiredResponse resp = (ScreeningTimeExpiredResponse)m;
@@ -418,6 +418,7 @@ public abstract class Base extends BaseProcessor {
 
         return m;
     }
+
 
 
     protected static List getLanguages(ArrayList languageIds) {

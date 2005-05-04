@@ -64,6 +64,7 @@ public class Login extends Base {
                     getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
                     setSessionId(response.getSessionID());
                 } else {
+                    loadTerms();
                     addError(Constants.HANDLE, response.getMessage());
                 }
 
@@ -104,7 +105,7 @@ public class Login extends Base {
             throw new NavigationException("Sorry, the server is busy with a previous request.  " +
                     "When using this tool, please wait for a response before you attempt to proceed.");
         }
-        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
+        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000, false);
 
         if (termsResponse!=null)
             setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
