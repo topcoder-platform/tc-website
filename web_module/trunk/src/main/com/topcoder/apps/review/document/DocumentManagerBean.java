@@ -2485,46 +2485,61 @@ public class DocumentManagerBean implements SessionBean {
             // Save aggregationResponses
             AggregationResponse[] aggRespArr = worksheet.getAggregationResponses();
 
-            for (int i = 0; i < aggRespArr.length; i++) {
-                info("DM.saveAggregation(), saving aggResp nr: " + i);
-                if (aggRespArr[i].getDirty() == true ||
-                        aggRespArr[i].getSubjectiveResponse().getDirty() == true) {
-                    info("DM.saveAggregation(), saving aggResp = dirty");
-                    if (aggRespArr[i].getId() != -1) {
-                        ps = conn.prepareStatement(
-                                "SELECT agg_response_v_id " +
-                                "FROM agg_response " +
-                                "WHERE agg_response_id = ? AND " +
-                                "cur_version = 1");
-                        ps.setLong(1, aggRespArr[i].getId());
-                        rs = ps.executeQuery();
+            PreparedStatement psSel = null;
+            PreparedStatement psUpd = null;
+            PreparedStatement psIns = null;
+            try {
+                psSel = conn.prepareStatement(
+                        "SELECT agg_response_v_id " +
+                        "FROM agg_response " +
+                        "WHERE agg_response_id = ? AND " +
+                        "cur_version = 1");
+                psUpd = conn.prepareStatement(
+                        "UPDATE agg_response " +
+                        "SET cur_version = 0 " +
+                        "WHERE agg_response_id = ? AND " +
+                        "cur_version = 1");
+                psIns = conn.prepareStatement(
+                        "INSERT INTO agg_response " +
+                        "(agg_response_v_id, agg_response_id, " +
+                        "subjective_resp_id, agg_resp_stat_id, " +
+                        "agg_worksheet_id, " +
+                        "response_text, response_type_id, " +
+                        "modify_user, cur_version) " +
+                        "VALUES (0, ?, ?, ?, ?, ?, ?, ?, 1)");
 
-                        if (rs.next()) {
-                            if (rs.getLong(1) != aggRespArr[i].getVersionId()) {
-                                String errorMsg = "DM.saveAggregation(): Concurrent error saving aggResponse, aggWorksheetId: " +
-                                        worksheet.getId() + ", aggRespId: " + aggRespArr[i] + ", aggRespVersionId: " +
-                                        aggRespArr[i].getVersionId();
+
+                for (int i = 0; i < aggRespArr.length; i++) {
+                    info("DM.saveAggregation(), saving aggResp nr: " + i);
+                    if (aggRespArr[i].getDirty() == true ||
+                            aggRespArr[i].getSubjectiveResponse().getDirty() == true) {
+                        info("DM.saveAggregation(), saving aggResp = dirty");
+                        if (aggRespArr[i].getId() != -1) {
+                            psSel.clearParameters();
+                            psSel.setLong(1, aggRespArr[i].getId());
+                            rs = psSel.executeQuery();
+
+                            if (rs.next()) {
+                                if (rs.getLong(1) != aggRespArr[i].getVersionId()) {
+                                    String errorMsg = "DM.saveAggregation(): Concurrent error saving aggResponse, aggWorksheetId: " +
+                                            worksheet.getId() + ", aggRespId: " + aggRespArr[i] + ", aggRespVersionId: " +
+                                            aggRespArr[i].getVersionId();
+                                    error(errorMsg);
+                                    ejbContext.setRollbackOnly();
+                                    throw new ConcurrentModificationException(errorMsg);
+                                }
+                            } else {
+                                String errorMsg = "DM.saveAggregation(): Trying to save non-existing AggregationResponse, aggResponseId: " +
+                                        aggRespArr[i].getId();
                                 error(errorMsg);
                                 ejbContext.setRollbackOnly();
-                                throw new ConcurrentModificationException(errorMsg);
+                                throw new InvalidEditException(errorMsg);
                             }
-                        } else {
-                            String errorMsg = "DM.saveAggregation(): Trying to save non-existing AggregationResponse, aggResponseId: " +
-                                    aggRespArr[i].getId();
-                            error(errorMsg);
-                            ejbContext.setRollbackOnly();
-                            throw new InvalidEditException(errorMsg);
-                        }
 
-                        try {
-                            ps = conn.prepareStatement(
-                                    "UPDATE agg_response " +
-                                    "SET cur_version = 0 " +
-                                    "WHERE agg_response_id = ? AND " +
-                                    "cur_version = 1");
-                            ps.setLong(1, aggRespArr[i].getId());
+                            psUpd.clearParameters();
+                            psUpd.setLong(1, aggRespArr[i].getId());
 
-                            int nr = ps.executeUpdate();
+                            int nr = psUpd.executeUpdate();
 
                             if (nr == 0) {
                                 String errorMsg = "DM.saveAggregation(): Trying to save non-existing AggregationResponse, aggResponseId: " +
@@ -2533,44 +2548,33 @@ public class DocumentManagerBean implements SessionBean {
                                 ejbContext.setRollbackOnly();
                                 throw new InvalidEditException(errorMsg);
                             }
-                        } finally {
-                            Common.close(ps);
-                        }
 
-                    } else {
-                        try {
-                            // New AggregationResponse
-                            aggRespArr[i].setId(idGen.nextId());
-                        } catch (RemoteException e1) {
-                            // TODO Auto-generated catch block
-                            e1.printStackTrace();
-                            throw new RuntimeException(e1);
-                        }
-                        info("DM.saveAggregation(): Saving a new AggregationResponse, id: " + aggRespArr[i].getId());
-                    }
-
-                    try {
-                        ps = conn.prepareStatement(
-                                "INSERT INTO agg_response " +
-                                "(agg_response_v_id, agg_response_id, " +
-                                "subjective_resp_id, agg_resp_stat_id, " +
-                                "agg_worksheet_id, " +
-                                "response_text, response_type_id, " +
-                                "modify_user, cur_version) " +
-                                "VALUES (0, ?, ?, ?, ?, ?, ?, ?, 1)");
-                        ps.setLong(1, aggRespArr[i].getId());
-                        ps.setLong(2, aggRespArr[i].getSubjectiveResponse().getId());
-                        if (aggRespArr[i].getAggregationResponseStatus() == null) {
-                            ps.setNull(3, Types.DECIMAL);
                         } else {
-                            ps.setLong(3, aggRespArr[i].getAggregationResponseStatus().getId());
+                            try {
+                                // New AggregationResponse
+                                aggRespArr[i].setId(idGen.nextId());
+                            } catch (RemoteException e1) {
+                                // TODO Auto-generated catch block
+                                e1.printStackTrace();
+                                throw new RuntimeException(e1);
+                            }
+                            info("DM.saveAggregation(): Saving a new AggregationResponse, id: " + aggRespArr[i].getId());
                         }
-                        ps.setLong(4, worksheet.getId());
-                        ps.setString(5, aggRespArr[i].getSubjectiveResponse().getResponseText());
-                        ps.setLong(6, aggRespArr[i].getSubjectiveResponse().getResponseType().getId());
-                        ps.setLong(7, requestorId);
 
-                        int nr = ps.executeUpdate();
+                        psIns.clearParameters();
+                        psIns.setLong(1, aggRespArr[i].getId());
+                        psIns.setLong(2, aggRespArr[i].getSubjectiveResponse().getId());
+                        if (aggRespArr[i].getAggregationResponseStatus() == null) {
+                            psIns.setNull(3, Types.DECIMAL);
+                        } else {
+                            psIns.setLong(3, aggRespArr[i].getAggregationResponseStatus().getId());
+                        }
+                        psIns.setLong(4, worksheet.getId());
+                        psIns.setString(5, aggRespArr[i].getSubjectiveResponse().getResponseText());
+                        psIns.setLong(6, aggRespArr[i].getSubjectiveResponse().getResponseType().getId());
+                        psIns.setLong(7, requestorId);
+
+                        int nr = psIns.executeUpdate();
 
                         if (nr != 1) {
                             String errorMsg = "DM.saveAggregation(): Could not insert AggregationResponse! , aggResponseId: " +
@@ -2580,11 +2584,15 @@ public class DocumentManagerBean implements SessionBean {
                             throw new InvalidEditException(errorMsg);
                         }
                         info("DM.saveAggregation(): aggResponse inserted");
-                    } finally {
-                        Common.close(ps);
-                    }
 
+                    }
                 }
+
+            } finally {
+                Common.close(rs);
+                Common.close(psSel);
+                Common.close(psUpd);
+                Common.close(psIns);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
