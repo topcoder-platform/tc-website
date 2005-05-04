@@ -1,10 +1,17 @@
 
+<% ResultSetContainer rscAlgData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Alg_Data"); %>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider" rowspan="3">
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
             <tr><td class="tableTitle" colspan="2">Algorithm Competitions</td></tr>
-            <tr><td class="ratingBox" colspan="2">Rating:<br><span class="coderBlue">1251</span></td></tr>
+            <tr><td class="ratingBox" colspan="2">Rating:<br>
+            <%if(rscAlgData.getIntItem(0, "rating") != 0) {%>
+                <tc-webtags:ratingColor rating='<%=rscAlgData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscAlgData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
             <tr><td class="tableCatNW" colspan="2"><A href="/history">[rating history]</A><br><br></td></tr>
             <tr><td class="tableCatNW">Ranking:</td><td class="tableStatRNW">not ranked</td></tr>
             <tr><td class="tableCatNW">Volatility:</td><td class="tableStatRNW">391</td></tr>

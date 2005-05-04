@@ -16,6 +16,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -40,8 +41,6 @@ public class MemberProfile extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("Coder_Data");
-                        
-            getRequest().setAttribute("resultMap", result);
             
             //here we want to get the current tab, then load data for that tab
             boolean hasAlg = false;
@@ -79,6 +78,23 @@ public class MemberProfile extends Base {
                     tab = "dev";
                 }
             }
+            
+            if(tab.equals("alg")) {
+                //load algo data from Coder_Alg_Data
+                r = new Request();
+                r.setContentHandle("Coder_Alg_Data");
+                r.setProperty("cr", coderId);
+
+                dai = getDataAccess(true);
+                Map algoData = dai.getData(r);
+                Iterator it = algoData.keySet().iterator();
+                while(it.hasNext()) {
+                    String key = (String) it.next();
+                    result.put(key, algoData.get(key));
+                }
+            }
+            
+            getRequest().setAttribute("resultMap", result);
             
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));
             getRequest().setAttribute("hasDes", new Boolean(hasDes));
