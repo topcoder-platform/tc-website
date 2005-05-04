@@ -27,5 +27,6 @@ public interface CodingInterfaceConstants {
     public static final String TERMS = "terms";
     //public static final String SUCCESS_FLAG = "suc";
     public static final String SERVER_BUSY = "busy";
+    public static final String FRESH_REQUEST = "fr";
 }
 

@@ -8,6 +8,8 @@ import com.topcoder.shared.screening.common.ScreeningContext;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.codinginterface.techassess.controller.request.Base;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.techassess.model.WebResponsePool;
@@ -80,13 +82,38 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
+    private static final String KEY_PREFIX = "user_subject:";
 
     protected TCSubject getUser(long id) throws Exception {
-        //todo speed this up, we probably need to cache here
-        TCSubject user = null;
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-        user = pmgr.getUserSubject(id);
-        return user;
+        //todo use security helper when we get it
+        TCSubject ret = null;
+
+        String key = KEY_PREFIX + String.valueOf(id);
+        try {
+            boolean hasCacheConnection = true;
+            CacheClient cc = null;
+            try {
+                cc = CacheClientFactory.createCacheClient();
+                ret = (TCSubject) (cc.get(key));
+            } catch (Exception e) {
+                log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+                hasCacheConnection = false;
+            }
+            if (ret == null) {
+                PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+                ret = pmgr.getUserSubject(id);
+                if (hasCacheConnection) {
+                    try {
+                        cc.set(key, ret, 1000 * 60 * 30);
+                    } catch (Exception e) {
+                        log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+                    }
+                }
+            }
+            return ret;
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
 
