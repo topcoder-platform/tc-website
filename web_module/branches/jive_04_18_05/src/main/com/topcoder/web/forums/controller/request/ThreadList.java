@@ -31,7 +31,7 @@ public class ThreadList extends BaseProcessor {
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("threads", itThreads);
 		
-		setNextPage("/viewForum.jsp?" + ForumConstants.FORUM_ID + "=" + forumID);
+		setNextPage("/viewForum.jsp");
 		setIsNextPageInContext(true);
 	}
 }
