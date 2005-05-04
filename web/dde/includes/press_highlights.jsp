@@ -10,7 +10,7 @@
                               
                 <tr><td class="prHead"><A href="http://www.topcoder.com/i/pressroom/SDT_041305.jpg"> LogicLibrary, TopCoder Business Brief</A> [April 13]</td></tr>    
                            
-                <tr><td class="prHead"><A href="http://www.sys-con.com/story/?storyid=49134"> LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A> [April 9]</td></tr>    
+                <tr><td class="prHead"><A href="http://www.sys-con.com/story/?storyid=49134"> LogicLibrary Checks Out TopCoder to Enable SOA</A> [April 9]</td></tr>    
                            
                 <tr><td class="prHead"><A href="http://www.topcoder.com/?&t=news_events&c=pr_03_14_05b"> LogicLibrary Teams with TopCoder to Accelerate SOA Deployments</A> [March 14]</td></tr>    
                            
