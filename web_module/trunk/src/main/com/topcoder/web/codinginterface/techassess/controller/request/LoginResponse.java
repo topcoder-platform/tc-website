@@ -20,6 +20,7 @@ public class LoginResponse extends Base {
             loadSessionErrorsIntoRequest(messageId);
             loadUserMessageIntoRequest(messageId);
             loadSessionDefaultsIntoRequest(messageId);
+            //no handle default means that they are just loading up the login page to login
             if (hasErrors()||!hasDefault(Constants.HANDLE)) {
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
