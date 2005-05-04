@@ -56,7 +56,7 @@
 <tr><td class="rtbc"><A href="/forums/" class="rtbcLink">Round Tables</A> >> 
 	<A href="/forums/?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A></td>
 <% if (paginator.getNumPages() > 1) { %>
-	<td class="rtbc" align="right"><b><< PREV&#160;&#160;&#160; 
+	<td class="rtbc" align="right"><b> 
 		<%  if (paginator.getPreviousPage()) { %>
 			<A href="/forums/?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
             	<< PREV</A>&#160;&#160;&#160;
@@ -88,19 +88,25 @@
 <td class="rtHeader" width="10%">Views</td>
 <td class="rtHeader" align="center" colspan="2">Last Post</td>
 </tr>
-<% int limit = 0; %>
+<%  int startIdx = paginator.getStart(); 
+	int endIdx = paginator.getNextPageStart(); 
+	int idx = 0;
+	System.out.println("s: " + startIdx + " e: " + endIdx);
+%>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
-<% if (++limit <= 12) { %>
-<tr>
-<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-<td class="rtThreadCellWrap"><A href='<%="?module=Thread&" + ForumConstants.THREAD_ID + "=" + thread.getID()%>' class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
-	[ <A href="/" class="rtLinkNew">1</A> <A href="/" class="rtLinkNew">2</A> ]</td>
-<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
-<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
-<td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
-<td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
-<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
-</tr>
+<%  if (idx >= startIdx && idx < endIdx) { 
+		idx++;
+%>
+		<tr>
+		<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+		<td class="rtThreadCellWrap"><A href='<%="?module=Thread&" + ForumConstants.THREAD_ID + "=" + thread.getID()%>' class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+			[ <A href="/" class="rtLinkNew">1</A> <A href="/" class="rtLinkNew">2</A> ]</td>
+		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
+		<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
+		<td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
+		<td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
+		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+		</tr>
 <% } %>
 </tc-webtag:iterator>
 </table>

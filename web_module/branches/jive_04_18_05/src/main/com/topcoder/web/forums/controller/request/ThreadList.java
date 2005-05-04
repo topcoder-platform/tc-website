@@ -29,7 +29,7 @@ import com.jivesoftware.forum.action.util.Paginator;
  */
 public class ThreadList extends BaseProcessor implements Pageable {
 	private long forumID;
-	private int start = -1;
+	private int start = 0;
 	private int totalItemCount;
 	
 	private ResultFilter resultFilter;
@@ -38,14 +38,13 @@ public class ThreadList extends BaseProcessor implements Pageable {
 	
 	protected void businessProcessing() throws Exception {
 		forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
-		if (getRequest().getParameter(ForumConstants.START_IDX) != null) {
-			start = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
-		}
 		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
 		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		forum = forumFactory.getForum(forumID);
 		Iterator itThreads = forum.getThreads();
 		user = forumFactory.getUserManager().getUser("mktong");
+		
+		initPagingFields();
 		Paginator paginator = new Paginator(this);
 		
 		getRequest().setAttribute("forum", forum);
@@ -53,35 +52,35 @@ public class ThreadList extends BaseProcessor implements Pageable {
 		getRequest().setAttribute("user", user);
 		getRequest().setAttribute("paginator", paginator);
 		
-		initFields();
-		
 		setNextPage("/viewForum.jsp");
 		setIsNextPageInContext(true);
 	}
 	
 	public int getStart() {
 		if (start == -1) {
-            initFields();
+            initPagingFields();
         }
         return start;
 	}
      
     public int getTotalItemCount() {
     	if (totalItemCount == -1) {
-            initFields();
+            initPagingFields();
         }
         return totalItemCount;
     }
     
     public ResultFilter getResultFilter() {
     	if (resultFilter == null) {
-            initFields();
+            initPagingFields();
         }
         return resultFilter;
     }
     
-    protected void initFields() {
-    	start = 0;
+    protected void initPagingFields() {
+		if (getRequest().getParameter(ForumConstants.START_IDX) != null) {
+			start = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
+		}
         resultFilter = ResultFilter.createDefaultThreadFilter();
         resultFilter.setStartIndex(getStart());
         int threadRange = 15;
@@ -94,6 +93,5 @@ public class ThreadList extends BaseProcessor implements Pageable {
 
         // Compute the total # of items (threads in this case)
         totalItemCount = forum.getThreadCount(getResultFilter());
-        System.out.println("totalItemCount: " + totalItemCount);
     }
 }
