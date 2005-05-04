@@ -57,21 +57,21 @@
             <%if(rscCoderData.getIntItem(0, "rating") != 0) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
             <%} else {%>
-                <tc-webtags:ratingColor rating='0'>not rated</tc-webtags:ratingColor>
+                not rated
             <%}%>
             </td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Design Rating:</td><td class="tableStat" align="right">
             <%if(rscCoderData.getStringItem(0, "design_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "design_rating")%>'><rsc:item name="design_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
             <%} else {%>
-                <tc-webtags:ratingColor rating='0'>not rated</tc-webtags:ratingColor>
+                not rated
             <%}%>
             </td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Development Rating:</td><td class="tableStat" align="right">
             <%if(rscCoderData.getStringItem(0, "development_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "development_rating")%>'><rsc:item name="development_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
             <%} else {%>
-                <tc-webtags:ratingColor rating='0'>not rated</tc-webtags:ratingColor>
+                not rated
             <%}%>
             </td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
@@ -90,6 +90,15 @@
       </td>
    <tr>
 </table>
+
+<br>
+<!-- Tab barlinks-->
+<jsp:include page="memProTabs.jsp" >
+<jsp:param name="isRatedAlg" value="true"/>
+<jsp:param name="isRatedDes" value="true"/>
+<jsp:param name="isRatedDev" value="false"/>
+<jsp:param name="selectedTab" value="alg"/>
+</jsp:include>
 
         </td>
 <!-- Center Column Ends -->
