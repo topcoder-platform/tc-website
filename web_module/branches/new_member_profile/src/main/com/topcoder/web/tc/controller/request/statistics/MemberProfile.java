@@ -39,7 +39,7 @@ public class MemberProfile extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("Coder_Data");
-            
+                        
             getRequest().setAttribute("resultMap", result);
             
             //here we want to get the current tab, then load data for that tab

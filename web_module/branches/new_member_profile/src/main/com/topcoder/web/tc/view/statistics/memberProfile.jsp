@@ -56,7 +56,7 @@
             <tr><td class="tableCat" nowrap="nowrap">Algorithm Rating:</td><td class="tableStat" align="right"><span class="coderTextBlue">1251</span></td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Design Rating:</td><td class="tableStat" align="right"><span class="coderTextYellow">1838</span></td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Development Rating:</td><td class="tableStat" align="right">not rated</td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right">$19745.00</td></tr>
+            <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right">$$$</td></tr>
             <tr><td class="tableCat" colspan="2">&#160;</td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Member Since:</td><td class="tableStat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
             <tr><td class="tableCat">Country:</td><td class="tableStat" align="right"><rsc:item name="country_name" set="<%=rscCoderData%>"/></td></tr>
