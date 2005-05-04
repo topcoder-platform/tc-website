@@ -21,13 +21,11 @@ public class LoginResponse extends Base {
             loadUserMessageIntoRequest(messageId);
             loadSessionDefaultsIntoRequest(messageId);
             //no handle default means that they are just loading up the login page to login
-            if (hasErrors()||!hasDefault(Constants.HANDLE)) {
+            if (hasErrors()||!hasDefault(Constants.HANDLE)&&hasParameter(Constants.COMPANY_ID)) {
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
             } else if (getUser().isAnonymous()) {
-                //this must mean they hit refresh on the response page as they
-                //don't have any errors suggesting a user/password entry mistake
-                //and they are not logged in, so why else would they be here
+                //this most likely means they hit refresh on the response page
                 setNextPage(buildProcessorRequestString(Constants.RP_LOGIN,null, null));
                 setIsNextPageInContext(false);
 
