@@ -20,7 +20,7 @@ public class LoginResponse extends Base {
             loadSessionErrorsIntoRequest(messageId);
             loadUserMessageIntoRequest(messageId);
             loadSessionDefaultsIntoRequest(messageId);
-            if (hasErrors()) {
+            if (hasErrors()||!hasDefault(Constants.HANDLE)) {
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
             }
