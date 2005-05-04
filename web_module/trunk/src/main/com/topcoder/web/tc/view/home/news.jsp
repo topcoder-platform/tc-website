@@ -5,6 +5,21 @@
    </tr>
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.25.05<br>9:35 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=050305">Using Regular Expressions</A></span><br><br>
+       "A regular expression is special string that describes a search pattern. Most of you surely met and used them already when typing expressions like ls(or dir) *.txt , to get a list of all the files with the extension txt."</td>
+      <td class="newsPhoto"><img src="/i/m/Dan[Popovici]_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Dan[Popovici]</A><br>&<a class="bodyText" href="/stat?c=member_profile&amp;cr=294328">mariusmuja</a></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=050305">full story</A>&#160;|&#160;
+         <A href="/?&t=features&c=index">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.02.05<br>3:35 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=6539">Radio frequency identification (RFID) survey</A></span><br><br>
       Which of the following best describes your experience with radio frequency identification (RFID) technology?
@@ -251,20 +266,6 @@
          <A href="/?&t=features&c=index">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>04.07.05<br>1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm237_prob">SRM 237 - Problem Set & Analysis</A></span><br><br>
-      With the fastest time on the hard problem, <b>Eryx</b> finished first in division 1 by well over 100 points and moved up to number 3 in the overall ranking.</td>
-      <td class="newsPhoto"><img src="/i/m/legakis_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=287269">legakis</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm237_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
  
 </table>
 <br><br>
