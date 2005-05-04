@@ -7,10 +7,13 @@ import com.topcoder.shared.netCommon.screening.response.ScreeningTermsResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.messaging.TimeExpiredException;
+import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.TCWebException;
 
 /**
  * User: dok
@@ -38,28 +41,12 @@ public class Login extends Base {
             }
 
             if (hasErrors()) {
+                loadTerms();
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
             } else {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, getCompanyId());
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
-
-                ScreeningTermsRequest termsRequest = new ScreeningTermsRequest(getCompanyId());
-                termsRequest.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
-
-                try {
-                    send(termsRequest);
-                } catch (ServerBusyException e) {
-                    throw new NavigationException("Sorry, the server is busy with a previous request.  " +
-                            "When using this tool, please wait for a response before you attempt to proceed.");
-                }
-
-                showProcessingPage();
-
-                ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
-
-                if (termsResponse!=null)
-                    setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
 
                 try {
                     send(request);
@@ -68,6 +55,7 @@ public class Login extends Base {
                             "When using this tool, please wait for a response before you attempt to proceed.");
                 }
 
+                showProcessingPage();
 
                 ScreeningLoginResponse response = (ScreeningLoginResponse) receive(5000);
 
@@ -91,9 +79,36 @@ public class Login extends Base {
 
             }
         } else {
+            loadTerms();
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
         }
+
+    }
+
+    /**
+     * Loads up the terms.  This is just a tad sketchy, cuz we're not going to a processing page
+     * but lets hope that things happen fast enough that it's a non-issue.  i wouldn't expect
+     * a browser to time out that fast.
+     * @throws TCWebException
+     * @throws TimeExpiredException
+     * @throws TimeOutException
+     */
+    protected void loadTerms() throws TCWebException, TimeExpiredException, TimeOutException {
+        ScreeningTermsRequest termsRequest = new ScreeningTermsRequest(getCompanyId());
+        termsRequest.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
+
+        try {
+            send(termsRequest);
+        } catch (ServerBusyException e) {
+            throw new NavigationException("Sorry, the server is busy with a previous request.  " +
+                    "When using this tool, please wait for a response before you attempt to proceed.");
+        }
+        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
+
+        if (termsResponse!=null)
+            setDefault(CodingInterfaceConstants.TERMS, termsResponse.getMessage());
+
 
     }
 
