@@ -15,6 +15,8 @@ import com.topcoder.web.codinginterface.CodingInterfaceConstants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 
+import java.io.IOException;
+
 /**
  * User: dok
  * Date: Dec 6, 2004
@@ -41,9 +43,9 @@ public class Login extends Base {
             }
 
             if (hasErrors()) {
-                loadTerms();
-                setNextPage(Constants.PAGE_LOGIN);
-                setIsNextPageInContext(true);
+                loadTerms(true);
+                closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
+                        new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
             } else {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, getCompanyId());
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
@@ -64,7 +66,7 @@ public class Login extends Base {
                     getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
                     setSessionId(response.getSessionID());
                 } else {
-                    loadTerms();
+                    loadTerms(false);
                     addError(Constants.HANDLE, response.getMessage());
                 }
 
@@ -80,13 +82,10 @@ public class Login extends Base {
 
             }
         } else {
-            loadTerms();
-            log.debug("set next page to " + Constants.PAGE_LOGIN);
-            setNextPage(Constants.PAGE_LOGIN);
-            setIsNextPageInContext(true);
-            log.debug("all done processing");
+            loadTerms(true);
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_LOGIN_RESPONSE,
+                    new String[]{Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
         }
-        log.debug("really all done processing");
 
     }
 
@@ -98,7 +97,7 @@ public class Login extends Base {
      * @throws TimeExpiredException
      * @throws TimeOutException
      */
-    protected void loadTerms() throws TCWebException, TimeExpiredException, TimeOutException {
+    protected void loadTerms(boolean showProcessing) throws TCWebException, TimeExpiredException, TimeOutException, IOException {
         log.debug("loadTerms() called ...");
         ScreeningTermsRequest termsRequest = new ScreeningTermsRequest(getCompanyId());
         termsRequest.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
@@ -109,6 +108,7 @@ public class Login extends Base {
             throw new NavigationException("Sorry, the server is busy with a previous request.  " +
                     "When using this tool, please wait for a response before you attempt to proceed.");
         }
+        if (showProcessing) showProcessingPage();
         ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000, false);
 
         if (termsResponse!=null)
