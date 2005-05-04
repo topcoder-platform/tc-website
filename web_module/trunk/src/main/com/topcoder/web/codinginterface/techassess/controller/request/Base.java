@@ -258,7 +258,7 @@ public abstract class Base extends BaseProcessor {
     protected void loadSessionDefaultsIntoRequest(String messageId, boolean clear) {
         HashMap m = (HashMap) getRequest().getSession().getAttribute(DEFAULTS_KEY + messageId);
         Map.Entry me = null;
-        //log.debug("loading session defaults into request " + m);
+        log.debug("loading session defaults into request " + m);
         if (m != null) {
             for (Iterator it = m.entrySet().iterator(); it.hasNext();) {
                 me = (Map.Entry) it.next();
