@@ -55,7 +55,7 @@
             <tr><td class="handleCell" colspan="2"><tc-webtags:handle coderId='<%=rscCoderData.getStringItem(0, "coder_id")%>'/></td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Algorithm Rating:</td><td class="tableStat" align="right">
             <%if(rscCoderData.getIntItem(0, "rating") != 0) {%>
-                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscCoderData%>"/></tc-webtags:ratingColor>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "rating")%>'>asdf<rsc:item name="rating" set="<%=rscCoderData%>"/></tc-webtags:ratingColor>
             <%} else {%>
                 <tc-webtags:ratingColor rating='0'>not rated</tc-webtags:ratingColor>
             <%}%>
