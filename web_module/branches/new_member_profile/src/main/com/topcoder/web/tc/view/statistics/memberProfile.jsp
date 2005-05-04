@@ -91,6 +91,7 @@
    <tr>
 </table>
 
+<%=request.getAttribute("tab")%>
 <br>
 <!-- Tab barlinks-->
 <jsp:include page="memberProfileTabs.jsp" >
