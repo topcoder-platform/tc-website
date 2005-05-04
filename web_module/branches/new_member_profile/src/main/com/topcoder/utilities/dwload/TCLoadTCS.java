@@ -85,7 +85,7 @@ public class TCLoadTCS extends TCLoad {
             doLoadRank(113);
 
             //fix problems with submission date
-            sSQL = "update project_result " +
+            /*sSQL = "update project_result " +
                     "         set submit_timestamp = (select max(u.submission_date) " +
                     "         from project p, " +
                     "         user_component_score u " +
@@ -113,7 +113,7 @@ public class TCLoadTCS extends TCLoad {
             ps.execute();
             ps.close();
             ps = null;
-
+*/
             doClearCache();
 
             log.info("SUCCESS: TCS load ran successfully.");
