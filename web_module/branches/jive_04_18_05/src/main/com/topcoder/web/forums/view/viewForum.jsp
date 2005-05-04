@@ -54,6 +54,7 @@
 <td class="rtbc" align="right"><b><< PREV&#160;&#160;&#160;[ 1 <A href="/">2</A> <A href="/">3</A> ]&#160;&#160;&#160;<A href="/">NEXT>></A></b></td></tr>
 </table>
 
+<%= "Thread Range: " + user.getProperty("jiveThreadRange") %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr>
 <td class="rtHeader" width="70%">Topic</td>
@@ -70,7 +71,7 @@
 <td class="rtThreadCellWrap"><A href='<%="?module=Thread&" + ForumConstants.THREAD_ID + "=" + thread.getID()%>' class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
 	[ <A href="/" class="rtLinkNew">1</A> <A href="/" class="rtLinkNew">2</A> ]</td>
 <td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
-<td class="rtThreadCell"><%=thread.getMessageCount()-1%><jsp:getProperty name="paginator" property="numPages"/></td>
+<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
 <td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
 <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
 <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
