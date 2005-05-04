@@ -45,6 +45,7 @@ public class Login extends Base {
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
                 ScreeningTermsRequest termsRequest = new ScreeningTermsRequest(getCompanyId());
+                request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
 
                 try {
                     send(termsRequest);
