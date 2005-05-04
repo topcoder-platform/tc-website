@@ -53,9 +53,27 @@
       <td valign="top">
          <table cellpadding="0" cellspacing="0" border="0" class="statTable">
             <tr><td class="handleCell" colspan="2"><tc-webtags:handle coderId='<%=rscCoderData.getStringItem(0, "coder_id")%>'/></td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Algorithm Rating:</td><td class="tableStat" align="right"><span class="coderTextBlue">1251</span></td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Design Rating:</td><td class="tableStat" align="right"><span class="coderTextYellow">1838</span></td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Development Rating:</td><td class="tableStat" align="right">not rated</td></tr>
+            <tr><td class="tableCat" nowrap="nowrap">Algorithm Rating:</td><td class="tableStat" align="right">
+            <%if(rscCoderData.getIntItem(0, "rating") != 0) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscCoderData%>"/></tc:webtags-ratingColor>
+            <%} else {%>
+                <tc-webtags:ratingColor rating='0'>not rated</tc:webtags-ratingColor>
+            <%}%>
+            </td></tr>
+            <tr><td class="tableCat" nowrap="nowrap">Design Rating:</td><td class="tableStat" align="right">
+            <%if(rscCoderData.getItem(0, "design_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "design_rating")%>'><rsc:item name="design_rating" set="<%=rscCoderData%>"/></tc:webtags-ratingColor>
+            <%} else {%>
+                <tc-webtags:ratingColor rating='0'>not rated</tc:webtags-ratingColor>
+            <%}%>
+            </td></tr>
+            <tr><td class="tableCat" nowrap="nowrap">Development Rating:</td><td class="tableStat" align="right">
+            <%if(rscCoderData.getItem(0, "development_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "development_rating")%>'><rsc:item name="development_rating" set="<%=rscCoderData%>"/></tc:webtags-ratingColor>
+            <%} else {%>
+                <tc-webtags:ratingColor rating='0'>not rated</tc:webtags-ratingColor>
+            <%}%>
+            </td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right">$$$</td></tr>
             <tr><td class="tableCat" colspan="2">&#160;</td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Member Since:</td><td class="tableStat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
