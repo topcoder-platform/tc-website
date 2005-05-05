@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.05.05<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm241_prob">SRM 241 - Problem Set & Analysis</A></span><br><br>
+      In Division 1, <b>pparys</b> took home his first SRM victory, solving all three problems correctly.  <b>bladerunner</b> and <b>Petr</b> took the second and third slots.</td>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=10407399">timmac</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm241_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>05.05.05<br>12:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=495563&mc=1">Compilers & testers have been updated with Java 5</A></span><br><br>
       You are now be able to compile / test / submit code containing Java 5 features in the practice rooms and during an SRM.
@@ -247,21 +262,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=about&d2=jobs">see all available TC jobs</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
- 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.11.05<br>10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity2">Computational Complexity: Section 2</A></span><br><br>
-       "In this part of the article we will focus on estimating the time complexity for recursive programs. In essence, this will lead to finding the order of growth for solutions of recurrence equations."</td>
-      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=8357090">misof</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=complexity2">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=index">archive</A>
    </td></tr>
  
  
