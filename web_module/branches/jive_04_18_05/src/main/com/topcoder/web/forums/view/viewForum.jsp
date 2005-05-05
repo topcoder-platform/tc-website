@@ -93,7 +93,6 @@
 <%  int startIdx = paginator.getStart(); 
 	int endIdx = paginator.getNextPageStart(); 
 	int idx = 0;
-	System.out.println("s: " + startIdx + " e: " + endIdx);
 %>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
 <%  if (idx >= startIdx && idx < endIdx) { %>

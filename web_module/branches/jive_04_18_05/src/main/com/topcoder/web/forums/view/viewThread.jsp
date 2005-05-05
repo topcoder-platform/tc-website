@@ -59,7 +59,7 @@
 <% if (paginator.getNumPages() > 1) { %>
 	<td class="rtbc" align="right"><b> 
 		<%  if (paginator.getPreviousPage()) { %>
-			<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getRootMessage().getID()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+			<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
             	<< PREV</A>&#160;&#160;&#160;
         <%  } %>
 
@@ -70,7 +70,7 @@
         			<%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
         					<%= pages[i].getNumber() %>
         			<%  } else { %>
-            				<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getRootMessage().getID()%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+            				<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
 	                		<%= pages[i].getNumber() %></A>
 	                <%  } %>
             <%  } %>
@@ -78,14 +78,20 @@
         ]
 
 		<%  if (paginator.getNextPage()) { %>
-			&#160;&#160;&#160;<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getRootMessage().getID()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT>></A>
+			&#160;&#160;&#160;<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT>></A>
         <%  } %>
 	</b></td></tr>
 <% } %>
 </table>
 
+<%  int startIdx = paginator.getStart(); 
+	int endIdx = paginator.getNextPageStart(); 
+	int idx = 0;
+%>
+<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+<%  if (idx >= startIdx && idx < endIdx) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<tr><td class="rtHeader" colspan="2">Mon, Jan 24 2005 at 12:59 PM EST | New way to solve problem</td></tr>
+<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | New way to solve problem</td></tr>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><img src="/i/m/radeye_mug.gif" border="0" class="rtPhoto" /><br><A href="/" class="coderTextRed">radeye</A><br><A href="/">1037 posts</A></div></td>
 <td class="rtTextCell">
@@ -111,6 +117,8 @@ while (p2 < n) {
 </tr>
 <tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/prevTopic.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/nextTopic.gif" class="rtButton" alt="" /></A></td></tr>
 </table>
+<%  } idx++; %>
+</tc-webtag:iterator>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr><td class="rtHeader" colspan="2">Mon, Jan 24 2005 at 1:05 PM EST | Re: New way to solve problem</td></tr>
