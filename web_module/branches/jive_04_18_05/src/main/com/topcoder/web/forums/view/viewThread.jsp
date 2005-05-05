@@ -13,7 +13,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 
-<tc-webtag:useBean id="forumFactory" name="forum" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
@@ -90,16 +90,14 @@
 	int idx = 0;
 %>
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-<%  if (idx >= startIdx && idx < endIdx) { %>
-<table cellpadding="0" cellspacing="0" class="rtTable">
-<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
-<tr>
-<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><img src="/i/m/radeye_mug.gif" width="55" height="61" border="0" class="rtPhoto" /><br><A href="/" class="coderTextRed"><%=message.getUser().getUsername()%></A><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
-<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>
-</tr>
-<tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/prevTopic.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/nextTopic.gif" class="rtButton" alt="" /></A></td></tr>
-</table>
-<%  } idx++; %>
+	<table cellpadding="0" cellspacing="0" class="rtTable">
+	<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
+	<tr>
+	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><img src="/i/m/radeye_mug.gif" width="55" height="61" border="0" class="rtPhoto" /><br><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
+	<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>
+	</tr>
+	<tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A></td></tr>
+	</table>
 </tc-webtag:iterator>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">

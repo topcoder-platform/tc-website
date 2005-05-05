@@ -95,18 +95,16 @@
 	int idx = 0;
 %>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
-<%  if (idx >= startIdx && idx < endIdx) { %>
-		<tr>
-		<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-		<td class="rtThreadCellWrap"><A href='<%="?module=Thread&" + ForumConstants.THREAD_ID + "=" + thread.getID()%>' class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
-			[ <A href="/" class="rtLinkNew">1</A> <A href="/" class="rtLinkNew">2</A> ]</td>
-		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
-		<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
-		<td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
-		<td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
-		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
-		</tr>
-<%  } idx++; %>
+	<tr>
+	<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+	<td class="rtThreadCellWrap"><A href='<%="?module=Thread&" + ForumConstants.THREAD_ID + "=" + thread.getID()%>' class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+		[ <A href="/" class="rtLinkNew">1</A> <A href="/" class="rtLinkNew">2</A> ]</td>
+	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
+	<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
+	<td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
+	<td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
+	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+	</tr>
 </tc-webtag:iterator>
 </table>
 <br><br>

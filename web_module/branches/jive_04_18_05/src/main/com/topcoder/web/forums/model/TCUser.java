@@ -17,8 +17,15 @@ import java.util.Date;
  * Time: 12:04:35 PM
  */
 public class TCUser extends SimpleUserAdapter {
-
-
+	
+	/**
+	 * TC-specific fields
+	 */
+	private String imagePath;
+	public String getImagePath() {
+		return imagePath;
+	}
+	
     /**
      * Load a user by id.
      *
@@ -60,14 +67,17 @@ public class TCUser extends SimpleUserAdapter {
      */
     private void loadFromDb(DataSource dataSource) throws UserNotFoundException {
         final String QUERY =
-              " select e.address as email_address " +
-                   " , u.user_id " +
-                   " , u.handle " +
-                   " , u.create_date " +
-                " from user u " +
-                   " , email e " +
-               " where u.user_id = e.user_id " +
-                 " and e.primary = 1 ";
+        	" select  u.email " +
+	        	" , u.user_id " +
+				" , u.handle " +
+				" , c.member_since " +
+				" , p.path || i.file_name as image_path " +
+			" from user u, coder c, outer(coder_image_xref x, image i, path p) " +
+			" where u.user_id = c.coder_id " +
+				" and u.user_id = x.coder_id " +
+				" and x.image_id = i.image_id " +
+				" and i.path_id = p.path_id " +
+				" and i.image_type_id = 1 ";
 
         final String FIND_BY_ID =
                 QUERY +
@@ -98,8 +108,9 @@ public class TCUser extends SimpleUserAdapter {
             this.username = rs.getString("handle");
             //we're not releasing anyone's name, so we'll just let the field go unset.
             //this.name = rs.getString("firstName") + " " + rs.getString("lastName");
-            this.email = rs.getString("email_address");
+            this.email = rs.getString("email");
             this.creationDate = rs.getDate("create_date");
+            this.imagePath = rs.getString("image_path");
         } catch (SQLException sqle) {
             Log.error(sqle);
         } finally {

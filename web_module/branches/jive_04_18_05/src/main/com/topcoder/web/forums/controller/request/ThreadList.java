@@ -41,11 +41,11 @@ public class ThreadList extends BaseProcessor implements Pageable {
 		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
 		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		forum = forumFactory.getForum(forumID);
-		Iterator itThreads = forum.getThreads();
 		user = forumFactory.getUserManager().getUser("mktong");
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
+		Iterator itThreads = forum.getThreads(getResultFilter());
 		
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("threads", itThreads);
