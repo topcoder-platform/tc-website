@@ -88,7 +88,7 @@
 
                 <a>
 
-                  <xsl:attribute name="href">/admin/?Task=compilation&amp;Command=get_problems&amp;RoundId=<xsl:value-of select="../RoundId"/>&amp;CoderId=<xsl:value-of select="CoderId"/>&amp;ProblemId=<xsl:value-of select="ProblemId"/></xsl:attribute>
+                  <xsl:attribute name="href">/admin/contest?Task=compilation&amp;Command=get_problems&amp;RoundId=<xsl:value-of select="../RoundId"/>&amp;CoderId=<xsl:value-of select="CoderId"/>&amp;ProblemId=<xsl:value-of select="ProblemId"/></xsl:attribute>
 
                   <xsl:value-of select="ProblemId"/>
 
@@ -96,7 +96,7 @@
 
               </td>
 
-            
+
 
               <td><xsl:value-of select="ClassName"/></td>
 
@@ -138,19 +138,19 @@
 
             <xsl:if test="ProblemId=../ProblemId">
 
-              <table> 
+              <table>
 
                 <tr><td><br/><b>ProblemId: <xsl:value-of select="../ProblemId"/></b><br/><br/></td></tr>
 
-                <tr> 
+                <tr>
 
-                  <td> 
+                  <td>
 
                     <pre>
 
                       <xsl:choose>
 
-                        <xsl:when test="SubmissionText!=''"><xsl:value-of select="SubmissionText"/></xsl:when> 
+                        <xsl:when test="SubmissionText!=''"><xsl:value-of select="SubmissionText"/></xsl:when>
 
                         <xsl:otherwise><xsl:value-of select="CompilationText"/></xsl:otherwise>
 

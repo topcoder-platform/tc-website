@@ -33,7 +33,7 @@
             <tr>
               <td>
                 <a>
-                  <xsl:attribute name="href">/admin/?Task=compilation&amp;Command=get_problems&amp;RoundId=<xsl:value-of select="../RoundId"/>&amp;CoderId=<xsl:value-of select="CoderId"/></xsl:attribute>
+                  <xsl:attribute name="href">/admin/contest?Task=compilation&amp;Command=get_problems&amp;RoundId=<xsl:value-of select="../RoundId"/>&amp;CoderId=<xsl:value-of select="CoderId"/></xsl:attribute>
                   <xsl:value-of select="CoderId"/>
                 </a>
               </td>
