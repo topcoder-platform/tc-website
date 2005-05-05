@@ -43,7 +43,8 @@ public class Thread extends BaseProcessor implements Pageable {
 		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		thread = forumFactory.getForumThread(threadID);
 		Forum forum = thread.getForum();
-		user = forumFactory.getUserManager().getUser("mktong");
+		//user = forumFactory.getUserManager().getUser("mktong");
+		user = forumFactory.getUserManager().getUser(129063);
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);

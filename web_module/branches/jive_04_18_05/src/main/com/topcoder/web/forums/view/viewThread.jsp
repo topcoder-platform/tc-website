@@ -3,6 +3,7 @@
          		 com.topcoder.web.forums.ForumConstants,
          		 com.jivesoftware.forum.stats.ViewCountManager,
          		 com.jivesoftware.forum.action.util.Page,
+         		 com.topcoder.web.forums.model.TCUser,
          		 java.util.Iterator,
                  java.util.Enumeration"
 %>
@@ -89,7 +90,11 @@
 	<table cellpadding="0" cellspacing="0" class="rtTable">
 	<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
 	<tr>
-	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><img src="/i/m/radeye_mug.gif" width="55" height="61" border="0" class="rtPhoto" /><br><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
+	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+	<%  if (((TCUser)message.getUser()).getImagePath() != null) { %>
+		<img src="<%=((TCUser)message.getUser()).getImagePath()%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+	<%  } %>
+	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
 	<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>
 	</tr>
 	<tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A></td></tr>
