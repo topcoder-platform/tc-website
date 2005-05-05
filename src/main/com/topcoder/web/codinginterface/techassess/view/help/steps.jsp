@@ -96,9 +96,8 @@
                         <span class="bodySmallTitle"><strong>Step 6 - Test Set B (if presented)</strong></span><br>
                         <ul>
                             <li>Test Set B contains at least one algorithmic problem that you are asked to solve.</li>
-                            <li>You are given 60 minutes times the number of problems assigned to complete this set. For example, if there are 3 problems
-                             assigned, you have a total of 180 minutes to solve all 3 problems. You may take more than 60 minutes to solve an individual
-                             problem; however, all problems must be completed within the total allotted time.
+                            <li>You are given 60 minutes to complete each problem in this set. For example, if there are 3 problems
+                             assigned, you have a total of 180 minutes to solve all 3 problems, but you must solve each problem within 60 minutes.
                                 <ul>
                                     <li>The object of this test is to submit accurate solutions while focusing on code readability and style.</li>
                                 </ul>
