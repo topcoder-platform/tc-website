@@ -3,6 +3,19 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>05.05.05<br>12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=495563&mc=1">Compilers & testers have been updated with Java 5</A></span><br><br>
+      You are now be able to compile / test / submit code containing Java 5 features in the practice rooms and during an SRM.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/rtables/viewThread.jsp?forum=7167&thread=495563&mc=1">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>05.04.05<br>3:40 PM</td>
@@ -10,7 +23,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=050305">Using Regular Expressions</A></span><br><br>
        "A regular expression is a special string that describes a search pattern. Many of you have surely seen and used them already when typing expressions like ls(or dir) *.txt."</td>
-      <td class="newsPhoto"><img src="/i/m/Dan[Popovici]_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Dan[Popovici]</A><br>& <a class="bodyText" href="/stat?c=member_profile&amp;cr=294328">mariusmuja</a></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Dan[Popovici]_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=7465390">Dan[Popovici]</A><br>& <a class="bodyText" href="/stat?c=member_profile&amp;cr=294328">mariusmuja</a></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -249,21 +262,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tutorials&d2=complexity2">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=index">archive</A>
-   </td></tr>
- 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.11.05<br>10:10 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041105">The Design Process - Section 2: appeals phase don'ts</A></span><br><br>
-       "Over the next two weeks we'll explain the phase I believe most designers have trouble with - the appeals phase."</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=041105">full story</A>&#160;|&#160;
-         <A href="/?&t=features&c=index">archive</A>
    </td></tr>
  
  
