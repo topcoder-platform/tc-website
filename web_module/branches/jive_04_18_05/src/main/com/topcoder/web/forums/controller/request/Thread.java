@@ -49,6 +49,7 @@ public class Thread extends BaseProcessor implements Pageable {
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
 		
+		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("messages", itMessages);

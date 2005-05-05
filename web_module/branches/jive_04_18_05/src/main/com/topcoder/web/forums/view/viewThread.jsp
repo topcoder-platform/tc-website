@@ -13,6 +13,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 
+<tc-webtag:useBean id="forumFactory" name="forum" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
@@ -91,29 +92,10 @@
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 <%  if (idx >= startIdx && idx < endIdx) { %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | New way to solve problem</td></tr>
+<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
 <tr>
-<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><img src="/i/m/radeye_mug.gif" border="0" class="rtPhoto" /><br><A href="/" class="coderTextRed">radeye</A><br><A href="/">1037 posts</A></div></td>
-<td class="rtTextCell">
-Doesn't this problem permit a much simpler, O(c^2) algorithm?<br><br>
-Choosing the first point to be at 0 does not in any way reduce the space of solutions, since any quadrilateral that does not include 0 can be rotated counterclockwise until it does, and you're guaranteed to still have the same shape. So we know we can start at 0.<br><br>
-Now, just use dynamic programming to calculate a[lastpoint][numpoints] where lastpoint increases from 1 on up and numpoints is the number of points, and the a[][] contains the best (which is to say, least area) consumed by the space between the chords and the arc for those hops; numpoints goes from 2 (two points, one chord) to 4 (four points, three chords).<br><br>
-Once you have this array, run through it from 0 backwards, adding the fourth chord/arc area and minimizing the result.<br><br>
-Of course another algorithm (once you realize you can always use point 0) is O(n log n) by considering all "opposite" points of the diagonal and then using binary search to find the best point on either side. This can easily be improved to O(n) by walking the midpoints along as the diagonal point goes around the circle:
-<pre>
-p1 = 0 // fixed never changes
-p3 = 2 // the diagonally distant point
-p2 = 1
-p4 = 3
-trial() ;
-while (p2 < n) {
-   p2++ ;
-   while (p1+1 is better) increment p1 ;
-   while (p3+1 is better) increment p3 ;
-   trial() ;
-}
-</pre>
-</td>
+<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><img src="/i/m/radeye_mug.gif" width="55" height="61" border="0" class="rtPhoto" /><br><A href="/" class="coderTextRed"><%=message.getUser().getUsername()%></A><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
+<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>
 </tr>
 <tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/prevTopic.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/nextTopic.gif" class="rtButton" alt="" /></A></td></tr>
 </table>
@@ -139,11 +121,6 @@ Is it possible to do O(n) for any n points around the circle?
 I think that's pretty simmilar to what I tried during the match. The problem I ran into is that since you have to get the exact number at half price, this limits the number of items you can get with points. So then if there is a way to get more than that number with points, that solution will not be valid. So then I tried keeping track of the number of items I'd used in the dp as well as the points and it all got too complicated and slow.
 </td></tr>
 <tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/prevTopic.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/nextTopic.gif" class="rtButton" alt="" /></A></td></tr>
-</table>
-
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="/" class="rtbcLink">Algorithm Competitions</A> >> <A href="/" class="rtbcLink">Problems</A> >> <A href="/" class="rtbcLink">SRM 220</A> >> <A href="/" class="rtbcLink">Division 1 Level 1 (HiddenNumbers)</A> >> BlaBla</span>
-<td class="rtbc" align="right" nowrap="nowrap"><b><< PREV&#160;&#160;&#160;[ 1 <A href="/">2</A> <A href="/">3</A> ]&#160;&#160;&#160;<A href="/">NEXT>></A></b></td></tr>
 </table>
 
         <p><br/></p>
