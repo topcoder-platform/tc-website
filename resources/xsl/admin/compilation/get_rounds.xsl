@@ -50,7 +50,7 @@
 
                 <small>
 
-                  Choose a Round 
+                  Choose a Round
 
                 </small>
 
@@ -78,7 +78,7 @@
 
                 <a>
 
-                  <xsl:attribute name="href">/admin/?Task=compilation&amp;Command=get_coders&amp;RoundId=<xsl:value-of select="RoundId"/></xsl:attribute>
+                  <xsl:attribute name="href">/admin/contest?Task=compilation&amp;Command=get_coders&amp;RoundId=<xsl:value-of select="RoundId"/></xsl:attribute>
 
                   <xsl:value-of select="RoundId"/>
 
