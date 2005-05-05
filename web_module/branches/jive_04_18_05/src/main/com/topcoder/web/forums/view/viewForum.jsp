@@ -90,10 +90,6 @@
 <td class="rtHeader" width="10%">Views</td>
 <td class="rtHeader" align="center" colspan="2">Last Post</td>
 </tr>
-<%  int startIdx = paginator.getStart(); 
-	int endIdx = paginator.getNextPageStart(); 
-	int idx = 0;
-%>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
 	<tr>
 	<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
