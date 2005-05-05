@@ -2735,19 +2735,24 @@ public class DocumentManagerBean implements SessionBean {
         try {
             conn = dataSource.getConnection();
 
-            ps = conn.prepareStatement(
-                    "SELECT agg_review_v_id, is_completed " +
-                    "FROM agg_review " +
-                    "WHERE agg_review_id = ? AND " +
-                    "cur_version = 1");
-            ps.setLong(1, aggReview.getId());
-            rs = ps.executeQuery();
-
             long reviewVID = -1;
             boolean reviewIsCompleted = false;
-            if (rs.next()) {
-                reviewVID = rs.getLong(1);
-                reviewIsCompleted = rs.getBoolean(2);
+            try {
+                ps = conn.prepareStatement(
+                        "SELECT agg_review_v_id, is_completed " +
+                        "FROM agg_review " +
+                        "WHERE agg_review_id = ? AND " +
+                        "cur_version = 1");
+                ps.setLong(1, aggReview.getId());
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    reviewVID = rs.getLong(1);
+                    reviewIsCompleted = rs.getBoolean(2);
+                }
+            } finally {
+                Common.close(rs);
+                Common.close(ps);
             }
 
             // If review is completed and the user isn't admin/pm,
@@ -2786,21 +2791,25 @@ public class DocumentManagerBean implements SessionBean {
                         throw new InvalidEditException(errorMsg);
                     }
 
-                    ps = conn.prepareStatement(
-                            "UPDATE agg_review " +
-                            "SET cur_version = 0 " +
-                            "WHERE agg_review_id = ? AND " +
-                            "cur_version = 1");
-                    ps.setLong(1, aggReview.getId());
+                    try {
+                        ps = conn.prepareStatement(
+                                "UPDATE agg_review " +
+                                "SET cur_version = 0 " +
+                                "WHERE agg_review_id = ? AND " +
+                                "cur_version = 1");
+                        ps.setLong(1, aggReview.getId());
 
-                    int nr = ps.executeUpdate();
+                        int nr = ps.executeUpdate();
 
-                    if (nr == 0) {
-                        String errorMsg = "DM.saveAggregationReview(): Trying to save non-existing AggregationReview, aggReviewId: " +
-                                aggReview.getId();
-                        error(errorMsg);
-                        ejbContext.setRollbackOnly();
-                        throw new InvalidEditException(errorMsg);
+                        if (nr == 0) {
+                            String errorMsg = "DM.saveAggregationReview(): Trying to save non-existing AggregationReview, aggReviewId: " +
+                                    aggReview.getId();
+                            error(errorMsg);
+                            ejbContext.setRollbackOnly();
+                            throw new InvalidEditException(errorMsg);
+                        }
+                    } finally {
+                        Common.close(ps);
                     }
 
                 } else {
@@ -2828,44 +2837,51 @@ public class DocumentManagerBean implements SessionBean {
                                 e1.toString();
                         error(errorMsg);
                         throw new RuntimeException(errorMsg);
+                    } finally {
+                        Common.close(rs);
+                        Common.close(ps);
                     }
 
                     info("DM.saveAggregationReview(): Saving a new AggregationReview, id: " + aggReview.getId());
                 }
 
-                ps = conn.prepareStatement(
-                        "INSERT INTO agg_review " +
-                        "(agg_review_v_id, agg_review_id, " +
-                        "agg_approval_id, agg_review_text, " +
-                        "is_pm_reviewed, agg_worksheet_id, " +
-                        "is_completed, reviewer_id, " +
-                        "modify_user, cur_version) " + "VALUES " + "(0, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
-                ps.setLong(1, aggReview.getId());
-                if (aggReview.getStatus() == null) {
-                    ps.setNull(2, Types.DECIMAL);
-                } else {
-                    ps.setLong(2, aggReview.getStatus().getId());
-                }
-                if (Common.tooBig(aggReview.getText())) {
-                    String errorMsg = "DM.saveAggregationReview(), text-field too long!";
-                    error(errorMsg);
-                    throw new RuntimeException(errorMsg);
-                }
-                ps.setString(3, aggReview.getText());
-                ps.setBoolean(4, aggReview.isPMReviewed());
-                ps.setLong(5, aggReview.getAggregationWorksheet().getId());
-                ps.setBoolean(6, aggReview.isCompleted());
-                ps.setLong(7, aggReview.getReviewer().getId());
-                ps.setLong(8, aggReview.getRequestorId());
+                try {
+                    ps = conn.prepareStatement(
+                            "INSERT INTO agg_review " +
+                            "(agg_review_v_id, agg_review_id, " +
+                            "agg_approval_id, agg_review_text, " +
+                            "is_pm_reviewed, agg_worksheet_id, " +
+                            "is_completed, reviewer_id, " +
+                            "modify_user, cur_version) " + "VALUES " + "(0, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+                    ps.setLong(1, aggReview.getId());
+                    if (aggReview.getStatus() == null) {
+                        ps.setNull(2, Types.DECIMAL);
+                    } else {
+                        ps.setLong(2, aggReview.getStatus().getId());
+                    }
+                    if (Common.tooBig(aggReview.getText())) {
+                        String errorMsg = "DM.saveAggregationReview(), text-field too long!";
+                        error(errorMsg);
+                        throw new RuntimeException(errorMsg);
+                    }
+                    ps.setString(3, aggReview.getText());
+                    ps.setBoolean(4, aggReview.isPMReviewed());
+                    ps.setLong(5, aggReview.getAggregationWorksheet().getId());
+                    ps.setBoolean(6, aggReview.isCompleted());
+                    ps.setLong(7, aggReview.getReviewer().getId());
+                    ps.setLong(8, aggReview.getRequestorId());
 
-                int nr = ps.executeUpdate();
+                    int nr = ps.executeUpdate();
 
-                if (nr != 1) {
-                    String errorMsg = "DM.saveAggregationReview(): Could not insert AggregationReview! , aggReviewId: " +
-                            aggReview.getId();
-                    error(errorMsg);
-                    ejbContext.setRollbackOnly();
-                    throw new InvalidEditException(errorMsg);
+                    if (nr != 1) {
+                        String errorMsg = "DM.saveAggregationReview(): Could not insert AggregationReview! , aggReviewId: " +
+                                aggReview.getId();
+                        error(errorMsg);
+                        ejbContext.setRollbackOnly();
+                        throw new InvalidEditException(errorMsg);
+                    }
+                } finally {
+                    Common.close(ps);
                 }
 
             }
