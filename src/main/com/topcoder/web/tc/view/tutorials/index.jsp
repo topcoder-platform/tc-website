@@ -85,8 +85,11 @@
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=complexity1"><strong>Section 1</strong></a><br>
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=complexity2"><strong>Section 2</strong></a><br>
 				</td></tr>
+				<tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="7465390" context="algorithm"/> & <tc-webtag:handle coderId="294328" context="algorithm"/>
+					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=features&d2=050305"><strong>Using Regular Expressions</strong></a>
+				</td></tr>
 			</table>
-
         </div>
         <p><br></p>
         </td>
