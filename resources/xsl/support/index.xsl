@@ -157,7 +157,7 @@
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
                         <TR><TD CLASS="bodyText"><A NAME="java3"><B>What software does TopCoder use?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">Linux 2.4, Java 1.4.1 (build 1.4.1_04).</TD></TR>
+                        <TR><TD CLASS="bodyText">Linux 2.4, Java 5.0 (build 1.5.0_03).</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
 
                         <TR><TD CLASS="bodyText"><A NAME="java4"><B>What options are set when starting up the VM?</B></A></TD></TR>
