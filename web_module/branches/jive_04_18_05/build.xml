@@ -212,6 +212,19 @@
  	 	             <include name="com/topcoder/utilities/forumConvert/**"/>
  	 	         </javac>
  	 	     </target>
+ 	
+ 	<target name="compile_TCUser" depends="init,jar_shared">
+ 	 	 	    <javac
+ 	 	 	        srcdir="${java}"
+ 	 	 	        destdir="${classes}"
+ 	 	 	        classpathref="class.path"
+ 	 	 	        deprecation="${deprecation}"
+ 	 	 	        debug="${debug}"
+ 	 	 	        >
+ 	 	 	        <include name="com/topcoder/web/forums/model/TCUser.java"/>
+ 	 	 	        <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
+ 	 	 	    </javac>
+ 	 	 	</target>
 
      <target name="javadocs">
          <mkdir dir="${build.javadocs}"/>
@@ -238,6 +251,15 @@
                  />
          </jar>
      </target>
+ 	
+ 	 <target name="package-TCUser" depends="compile_TCUser">
+ 	     <jar jarfile="${jars.dir}/tcuser.jar">
+ 	         <fileset dir="${classes}/">
+ 	             <include name="com/topcoder/web/forums/model/TCUser.class"/>
+ 	             <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+ 	         </fileset>
+ 	     </jar>
+ 	 </target>	 	
 
      <target name="jar_shared" depends="compile_shared">
          <jar jarfile="${shared.jar}">
