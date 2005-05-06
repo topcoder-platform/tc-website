@@ -70,7 +70,11 @@ public class Compile extends Base {
             setUserMessage(response.getMessage());
             Problem p = new Problem();
             p.setProblemComponents(new ProblemComponent[]{response.getProblemComponent()});
-            setDefault(Constants.PROBLEM, new ProblemInfo(code, componentId, languageId, p, problemTypeId));
+            ProblemInfo problem = new ProblemInfo(code, componentId, languageId, p, problemTypeId);
+            problem.setStartTime(response.getOpenTime());
+            problem.setTime(response.getLength());
+
+            setDefault(Constants.PROBLEM, problem);
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
                     new String[]{Constants.MESSAGE_ID, Constants.COMPONENT_ID, Constants.PROBLEM_TYPE_ID},
