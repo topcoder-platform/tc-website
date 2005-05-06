@@ -3,7 +3,6 @@ package com.topcoder.web.common.tag;
 import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
-import com.topcoder.shared.util.DateUtil;
 import com.topcoder.web.common.DateUtils;
 
 import javax.servlet.jsp.JspException;

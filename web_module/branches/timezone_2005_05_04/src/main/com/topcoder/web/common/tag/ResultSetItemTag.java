@@ -12,6 +12,8 @@ public class ResultSetItemTag extends FormatTag {
     private int rowIndex = 0;   //default to the first row
 
     protected String getTimeZone() {
+        ResultSetContainer.ResultSetRow row = null;
+        if (row == null) row = set.getRow(rowIndex);
         return row.getStringItem(super.getTimeZone())==null?
                 super.getTimeZone():row.getStringItem(super.getTimeZone());
     }
