@@ -129,11 +129,13 @@ public class TCUserManager extends UserManagerAdapter {
     }
 
     protected User lookupUser(long userID) throws UserNotFoundException {
-        return new TCUser(userID, dataSource);
+        System.out.println("lookup by userID: + userID");
+    	return new TCUser(userID, dataSource);
     }
 
     protected User lookupUser(String username) throws UserNotFoundException {
-        return new TCUser(username, dataSource);
+    	System.out.println("lookup by username: + username");
+    	return new TCUser(username, dataSource);
     }
 
     public boolean isGetUserCountSupported() {

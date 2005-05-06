@@ -11,6 +11,7 @@ import java.util.Iterator;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.TCUserManager;
+import com.topcoder.web.forums.model.TCUser;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
@@ -49,7 +50,9 @@ public class Thread extends BaseProcessor implements Pageable {
 		//user = userManager.getUser("mktong");
 		System.out.println("userID: " + userManager.getUserID("mktong"));
 		//TCUserManager userManager = (TCUserManager)forumFactory.getUserManager();
-		user = userManager.getUser(129063);
+		TCUser sampleUser = (TCUser)userManager.getUser(129063);
+		System.out.println("image path: " + sampleUser.getImagePath());
+		//user = userManager.getUser(129063);
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
