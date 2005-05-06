@@ -13,7 +13,7 @@ public class ResultSetItemTag extends FormatTag {
 
     protected String getTimeZone() {
         ResultSetContainer.ResultSetRow row = null;
-        if (row == null) row = set.getRow(rowIndex);
+        if (this.row == null) row = set.getRow(rowIndex);
         else row = this.row;
         return row.getStringItem(super.getTimeZone())==null?
                 super.getTimeZone():row.getStringItem(super.getTimeZone());
