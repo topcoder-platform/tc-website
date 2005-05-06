@@ -67,7 +67,7 @@ public class TCUser extends SimpleUserAdapter {
      */
     private void loadFromDb(DataSource dataSource) throws UserNotFoundException {
         final String QUERY =
-        	" select  u.email " +
+        	" select u.email " +
 	        	" , u.user_id " +
 				" , u.handle " +
 				" , c.member_since " +
