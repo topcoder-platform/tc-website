@@ -129,12 +129,12 @@ public class TCUserManager extends UserManagerAdapter {
     }
 
     protected User lookupUser(long userID) throws UserNotFoundException {
-        System.out.println("lookup by userID: + userID");
+        System.out.println("lookup by userID: " + userID);
     	return new TCUser(userID, dataSource);
     }
 
     protected User lookupUser(String username) throws UserNotFoundException {
-    	System.out.println("lookup by username: + username");
+    	System.out.println("lookup by username: " + username);
     	return new TCUser(username, dataSource);
     }
 
@@ -144,5 +144,20 @@ public class TCUserManager extends UserManagerAdapter {
 
     public boolean isUsersSupported() {
         return true;
+    }
+    
+    public static void main(String[] args) {
+    	TCUserManager userManager = new TCUserManager();
+    	TCUser user = null;
+    	try {
+    		user = (TCUser)userManager.lookupUser("mktong");
+    	} catch (UserNotFoundException une) {}
+    	if (user != null) {
+    		System.out.println("ID: " + user.getID());
+    		System.out.println("Handle: " + user.getUsername());
+    		System.out.println("Image path: " + user.getImagePath());
+    	} else {
+    		System.out.println("user is null");
+    	}
     }
 }

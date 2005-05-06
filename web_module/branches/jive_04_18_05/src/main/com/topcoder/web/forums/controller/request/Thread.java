@@ -52,7 +52,7 @@ public class Thread extends BaseProcessor implements Pageable {
 		//TCUserManager userManager = (TCUserManager)forumFactory.getUserManager();
 		TCUser sampleUser = (TCUser)userManager.getUser(129063);
 		System.out.println("ID: " + sampleUser.getID());
-		System.out.println("handle: " + sampleUser.getHandle());
+		System.out.println("handle: " + sampleUser.getUsername());
 		System.out.println("image path: " + sampleUser.getImagePath());
 		//user = userManager.getUser(129063);
 		
