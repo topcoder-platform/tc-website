@@ -102,11 +102,14 @@ public class TCUser extends SimpleUserAdapter {
                 pstmt.setString(1, username);
                 System.out.println("query: " + FIND_BY_HANDLE);
             }
+            System.out.println("before execute");
             rs = pstmt.executeQuery();
+            System.out.println("after execute");
 
             if (!rs.next()) {
                 throw new UserNotFoundException();
             }
+            System.out.println("after check null");
             this.ID = rs.getLong("user_id");
             this.username = rs.getString("handle");
             //we're not releasing anyone's name, so we'll just let the field go unset.
@@ -118,6 +121,7 @@ public class TCUser extends SimpleUserAdapter {
             		" | email: " + this.email + " | creationDate: " + this.creationDate +
 					" | imagePath: " + this.imagePath);
         } catch (SQLException sqle) {
+        	System.out.println("sql error: " + sqle.getStackTrace());
             Log.error(sqle);
         } finally {
             Common.close(rs);
