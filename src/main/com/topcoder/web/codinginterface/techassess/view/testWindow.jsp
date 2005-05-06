@@ -54,11 +54,11 @@
 
 
             <tr><td colspan="2" align="center">
-                        <select name="testcase" size="1">
+                        <select name="testcase" size="1" onChange="javascript:setExample();">
                           <option value="#" selected> Select Example: </option>
                           <%
                                 for (int i=0; i<testCases.length; i++) {
-                                    %> <option onClick="Javascript:setExample(<%=i%>);">Example <%=i%></option><%
+                                    %> <option value="<%=i%>">Example <%=i%></option><%
 
                                 }
                             %>
@@ -114,7 +114,8 @@
 --%>
 
 
-            function setExample(idx) {
+            function setExample() {
+              var idx = parseInt(document.frmTesting.testcase.options[document.frmTesting.testcase.selectedIndex].value);
               switch(idx) {
                 <% for (int i=0; i<testCases.length; i++) { %>
                     case <%=i%>:
