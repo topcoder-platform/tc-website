@@ -12,9 +12,9 @@ public class ResultSetItemTag extends FormatTag {
     private int rowIndex = 0;   //default to the first row
 
     protected String getTimeZone() {
-        ResultSetContainer.ResultSetRow row = this.row==null?set.getRow(rowIndex):this.row;
-        return row.getStringItem(super.getTimeZone())==null?
-                super.getTimeZone():row.getStringItem(super.getTimeZone());
+        ResultSetContainer.ResultSetRow row = this.row == null ? set.getRow(rowIndex) : this.row;
+        return row.getStringItem(super.getTimeZone()) == null || !row.isValidColumn(super.getTimeZone()) ?
+                super.getTimeZone() : row.getStringItem(super.getTimeZone());
     }
 
     public void setRow(ResultSetContainer.ResultSetRow row) {
