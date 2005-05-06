@@ -73,6 +73,7 @@ public class Compile extends Base {
             ProblemInfo problem = new ProblemInfo(code, componentId, languageId, p, problemTypeId);
             problem.setStartTime(response.getOpenTime());
             problem.setTime(response.getLength());
+            log.debug("compile start: " + problem.getStartTime() + " length: " + problem.getTime());
 
             setDefault(Constants.PROBLEM, problem);
 
