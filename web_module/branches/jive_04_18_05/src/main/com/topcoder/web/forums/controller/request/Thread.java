@@ -15,6 +15,7 @@ import com.topcoder.web.forums.model.TCUserManager;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.User;
+import com.jivesoftware.base.UserManagerFactory;
 
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumFactory;
@@ -44,7 +45,7 @@ public class Thread extends BaseProcessor implements Pageable {
 		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		thread = forumFactory.getForumThread(threadID);
 		Forum forum = thread.getForum();
-		user = forumFactory.getUserManager().getUser("mktong");
+		user = UserManagerFactory.getInstance().getUser("mktong");
 		//TCUserManager userManager = (TCUserManager)forumFactory.getUserManager();
 		//user = userManager.getUser(129063);
 		
