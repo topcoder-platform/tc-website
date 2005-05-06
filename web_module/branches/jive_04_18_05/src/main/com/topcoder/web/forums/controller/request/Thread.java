@@ -47,11 +47,7 @@ public class Thread extends BaseProcessor implements Pageable {
 		thread = forumFactory.getForumThread(threadID);
 		Forum forum = thread.getForum();
 		TCUserManager userManager = (TCUserManager)UserManagerFactory.getInstance();
-		user = (TCUser)userManager.getUser(129063);
 		user = (TCUser)userManager.getUser("mktong");
-		System.out.println("ID: " + user.getID());
-		System.out.println("handle: " + user.getUsername());
-		System.out.println("image path: " + user.getImagePath());
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
@@ -62,6 +58,7 @@ public class Thread extends BaseProcessor implements Pageable {
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("messages", itMessages);
 		getRequest().setAttribute("user", user);
+		getRequest().setAttribute("userManager", userManager);
 		getRequest().setAttribute("paginator", paginator);
 		
 		setNextPage("/viewThread.jsp");
