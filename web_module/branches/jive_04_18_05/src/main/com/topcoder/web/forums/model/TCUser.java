@@ -66,7 +66,9 @@ public class TCUser extends SimpleUserAdapter {
      * @throws UserNotFoundException if the user could not be loaded.
      */
     private void loadFromDb(DataSource dataSource) throws UserNotFoundException {
-        final String QUERY =
+        System.out.println("datasource: " + dataSource.toString());
+    	
+    	final String QUERY =
         	" select u.email " +
 	        	" , u.user_id " +
 				" , u.handle " +
@@ -104,6 +106,7 @@ public class TCUser extends SimpleUserAdapter {
             if (!rs.next()) {
                 throw new UserNotFoundException();
             }
+            System.out.println("resultSet: " + rs.toString());
             this.ID = rs.getLong("user_id");
             this.username = rs.getString("handle");
             //we're not releasing anyone's name, so we'll just let the field go unset.

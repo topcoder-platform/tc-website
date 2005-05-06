@@ -54,6 +54,7 @@ public class Thread extends BaseProcessor implements Pageable {
 		System.out.println("ID: " + sampleUser.getID());
 		System.out.println("handle: " + sampleUser.getUsername());
 		System.out.println("image path: " + sampleUser.getImagePath());
+		System.out.println("---");
 		//user = userManager.getUser(129063);
 		
 		initPagingFields();
