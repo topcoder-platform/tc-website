@@ -17,8 +17,8 @@
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
-<tc-webtag:useBean id="user" name="user" type="com.topcoder.web.forums.TCUser" toScope="request"/>
-<tc-webtag:useBean id="userManager" name="userManager" type="com.topcoder.web.forums.TCUserManager" toScope="request"/>
+<tc-webtag:useBean id="user" name="user" type="com.topcoder.web.forums.model.TCUser" toScope="request"/>
+<tc-webtag:useBean id="userManager" name="userManager" type="com.topcoder.web.forums.model.TCUserManager" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
 <html>
@@ -64,9 +64,7 @@
 		<%  if (paginator.getPreviousPage()) { %>
 			<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
             	<< PREV</A>&#160;&#160;&#160;
-        <%  } %>
-
-		[
+        <%  } %> [
         <%  Page[] pages = paginator.getPages(5);
             for (int i=0; i<pages.length; i++) {
         %>  <%  if (pages[i] != null) { %>
@@ -77,9 +75,7 @@
 	                		<%= pages[i].getNumber() %></A>
 	                <%  } %>
             <%  } %>
-        <%  } %>
-        ]
-
+        <%  } %> ]
 		<%  if (paginator.getNextPage()) { %>
 			&#160;&#160;&#160;<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT>></A>
         <%  } %>
@@ -92,8 +88,9 @@
 	<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
 	<tr>
 	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-	<%  if (userManager.getUser(message.getUser().getID()).getImagePath() != null) { %>
-		<img src="<%=userManager.getUser(message.getUser().getID()).getImagePath()%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+	<%  TCUser tcUser = (TCUser)userManager.getUser(message.getUser().getID());
+		if (tcUser.getImagePath() != null) { %>
+		<img src="<%=tcUser.getImagePath()%>" width="55" height="61" border="0" class="rtPhoto" /><br>
 	<%  } %>
 	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
 	<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>
@@ -101,27 +98,6 @@
 	<tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A></td></tr>
 	</table>
 </tc-webtag:iterator>
-
-<table cellpadding="0" cellspacing="0" class="rtTable">
-<tr><td class="rtHeader" colspan="2">Mon, Jan 24 2005 at 1:05 PM EST | Re: New way to solve problem</td></tr>
-<tr>
-<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><img src="/i/m/n0vice_mug.gif" border="0" class="rtPhoto" /><br><A href="/" class="coderTextBlue">n0vice</A><br><A href="/">86 posts</A></div></td>
-<td class="rtTextCell">
-Cool! I wish I had thought about it during the contest.<br><br>
-Is it possible to do O(n) for any n points around the circle?
-</td></tr>
-<tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/prevTopic.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/nextTopic.gif" class="rtButton" alt="" /></A></td></tr>
-</table>
-
-<table cellpadding="0" cellspacing="0" class="rtTable">
-<tr><td class="rtHeader" colspan="2">Mon, Jan 24 2005 at 1:10 PM EST | Re: New way to solve problem</td></tr>
-<tr>
-<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><A href="/" class="coderTextGreen">uler3161</A><br><A href="/">20 posts</A></div></td>
-<td class="rtTextCell">
-I think that's pretty simmilar to what I tried during the match. The problem I ran into is that since you have to get the exact number at half price, this limits the number of items you can get with points. So then if there is a way to get more than that number with points, that solution will not be valid. So then I tried keeping track of the number of items I'd used in the dp as well as the points and it all got too complicated and slow.
-</td></tr>
-<tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/prevTopic.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/nextTopic.gif" class="rtButton" alt="" /></A></td></tr>
-</table>
 
         <p><br/></p>
         </td>
