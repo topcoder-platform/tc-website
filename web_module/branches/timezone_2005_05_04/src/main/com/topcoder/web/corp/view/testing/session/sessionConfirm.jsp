@@ -1,5 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ page import="com.topcoder.web.corp.common.Constants" %>
 <html>
 <head>
@@ -60,23 +61,23 @@ document.sessionConfirmForm.submit();
 
                 <tr>
                     <td class="testTableSubtitleOdd">Candidate:</td>
-                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
+                        <rsc:iterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
                         <% if(testSessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
-                        <input type="HIDDEN" name="cid" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" >
-                    <td class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="handle" /></td>
+                        <input type="HIDDEN" name="cid" value="<rsc:item row="<%=row%>" name="candidate_id" />" >
+                    <td class="testTableOdd"><rsc:item row="<%=row%>" name="handle" /></td>
                         <% } %>
-                        </screen:resultSetRowIterator>
+                        </rsc:iterator>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Profile:</td>
-                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getProfileList()%>">
+                        <rsc:iterator id="row" list="<%=testSessionInfo.getProfileList()%>">
                         <% if(testSessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
-                        <input type="HIDDEN" name="profileId" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" >
-                    <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td>
+                        <input type="HIDDEN" name="profileId" value="<rsc:item row="<%=row%>" name="session_profile_id" />" >
+                    <td class="testTableEven"><rsc:item row="<%=row%>" name="name" /></td>
                         <% } %>
-                        </screen:resultSetRowIterator>
+                        </rsc:iterator>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
 

@@ -15,7 +15,7 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    
+
     window.open('/corp/testing/?module=PopulateProblemDetail&roundProblemId='+id,name,cmd);
     return;
   }
@@ -42,8 +42,8 @@ function getProblemDetail(id) {
         </table>
 
           <table  border="0" cellspacing="0" cellpadding="5" width="700" align="center" class="screeningFrame">
-          
-              
+
+
               <tr>
                   <td class="screeningHeader" valign="middle" width="50%">Name</td>
                   <td class="screeningHeader" valign="middle">Email</td>
@@ -64,7 +64,7 @@ function getProblemDetail(id) {
                     String[] swfFiles = {"/i/corp/screeningRatingOdd.swf", "/i/corp/screeningRatingEven.swf"};
                 %>
 
-              <rsc:iterator list="<%=results%>" id="resultRow">
+              <rsc:item list="<%=results%>" id="resultRow">
               <tr>
                   <td class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"><rsc:item row="<%=resultRow%>" name="name"/></A></td>
                   <td class="<%=cssClasses[counter % 2]%>"><A href="mailto:<rsc:item row="<%=resultRow%>" name="email_address"/>"><rsc:item row="<%=resultRow%>" name="email_address"/></A></td>
@@ -106,7 +106,7 @@ function getProblemDetail(id) {
                   <td class="<%=cssClasses[counter % 2]%>" align=center><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"><rsc:item row="<%=resultRow%>" name="note_text"/></A></td>
                   <td class="<%=cssClasses[counter++ % 2]%>" align=center><A href="/corp/testing/?module=TestResults&referrer=SearchResults&sid=<rsc:item row="<%=resultRow%>" name="session_id"/>"><rsc:item row="<%=resultRow%>" name="problem_text"/></A></td>
               </tr>
-              </rsc:iterator>
+              </rsc:item>
         </table>
 
           <table  border="0" cellspacing="0" cellpadding="0" width="700" align="center" class="screeningFrameNB">

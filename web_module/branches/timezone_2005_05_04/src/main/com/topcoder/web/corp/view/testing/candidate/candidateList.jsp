@@ -5,6 +5,7 @@
                  com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -121,7 +122,7 @@
                     String[] swfFiles = {"/i/corp/screeningRatingOdd.swf", "/i/corp/screeningRatingEven.swf"};
                 %>
 
-                <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
+                <rsc:iterator id="row" list="<%=candidateList%>">
 
                 <%
                     String params = Constants.CANDIDATE_ID + "=" + row.getItem("user_id") + "&referrer=BuildCandidateList";
@@ -133,13 +134,13 @@
                 %>
 
                 <tr>
-                   <td width="30%" class="<%=cssClasses[counter % 2]%>"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></td>
+                   <td width="30%" class="<%=cssClasses[counter % 2]%>"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><rsc:item row="<%=row%>" name="handle" /></screen:servletLink></td>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>"><% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink><% } %></td>
-                   <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td>
-                   <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td>
+                   <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><rsc:item row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td>
+                   <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><rsc:item row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:sessionStatus row="<%=row%>" /></td>
                    <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-                   <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:servletLink processor="DownloadResume" param="<%=rparams%>"><screen:resultSetItem row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
+                   <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:servletLink processor="DownloadResume" param="<%=rparams%>"><rsc:item row="<%=row%>" name="resume_text" /> </screen:servletLink></td>
                    <% }%>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>
                     <object
@@ -172,7 +173,7 @@
                    <td width="10%" align="center" class="<%=cssClasses[counter++ % 2]%>"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td>
                 </tr>
 
-            </screen:resultSetRowIterator>
+            </rsc:iterator>
             </table>
 
             <% if (candidateList.size() > 10) { %>

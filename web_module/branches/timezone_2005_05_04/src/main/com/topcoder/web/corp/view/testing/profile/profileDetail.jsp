@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="com.topcoder.web.corp.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <html>
 <head>
 <title>Topcoder | Technical Assessment Application Management Tool</title>
@@ -54,18 +55,18 @@ function getProblemDetail(id) {
 
                 <tr>
                   <td class="bodyText"><strong>Available Languages: </strong>
-                    <screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
+                    <rsc:iterator id="row" list="<%=profile.getLanguageList()%>">
                     <% if(profile.hasLanguage(row.getItem("language_id").toString())) { %>
-                      <screen:resultSetItem row="<%=row%>" name="language_name" />&#160;
+                      <rsc:item row="<%=row%>" name="language_name" />&#160;
                     <% } %>
-                    </screen:resultSetRowIterator>
+                    </rsc:iterator>
                   </td>
                 </tr>
                 <tr>
-                   <td class="bodyText"><strong>Candidates Assigned: </strong><% if (profile.getSessionList().isEmpty()) { %>0<% } else { %><screen:resultSetItem row="<%=profile.getSessionList().getRow(0)%>" name="num_sessions" /> <% }%></td>
+                   <td class="bodyText"><strong>Candidates Assigned: </strong><% if (profile.getSessionList().isEmpty()) { %>0<% } else { %><rsc:item row="<%=profile.getSessionList().getRow(0)%>" name="num_sessions" /> <% }%></td>
                 </tr>
                 <tr>
-                   <td class="bodyText"><strong>Candidates Completed: </strong><% if (profile.getSessionList().isEmpty()) { %>0<% } else { %><screen:resultSetItem row="<%=profile.getSessionList().getRow(0)%>" name="num_complete" /> <% } %></td>
+                   <td class="bodyText"><strong>Candidates Completed: </strong><% if (profile.getSessionList().isEmpty()) { %>0<% } else { %><rsc:item row="<%=profile.getSessionList().getRow(0)%>" name="num_complete" /> <% } %></td>
                 </tr>
             </table>
 
@@ -131,7 +132,7 @@ function getProblemDetail(id) {
                 </tr>
 
                 <% boolean even = true; %>
-                <screen:resultSetRowIterator id='row' list='<%= profile.getSessionList() %>'>
+                <rsc:iterator id='row' list='<%= profile.getSessionList() %>'>
 
                 <%-- Do a table body row --%>
                 <% if(row.getItem("num_sessions").toString().equals("0")){ %>
@@ -145,16 +146,16 @@ function getProblemDetail(id) {
                     String color = (even) ? "bgcolor='#EEEEEE'" : "";
                 %>
                 <tr>
-                    <td width="20%" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
+                    <td width="20%" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><rsc:item row="<%=row%>" name="user_name" /></screen:servletLink></td>
                     <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
                     <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
-                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
-                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
+                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><rsc:item row="<%=row%>" name="submitted" /></td>
+                    <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><rsc:item row="<%=row%>" name="passed" /></td>
                     <td width="16%" align="center" CLASS="<%=even?"screeningCellOdd":"screeningCellEven"%>" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
                 </tr>
                 <% } %>
                 <% even = !even; %>
-                </screen:resultSetRowIterator>
+                </rsc:iterator>
             </table>
             <% } %>
 
