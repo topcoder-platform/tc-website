@@ -28,7 +28,7 @@ public class FormatTag extends TagSupport {
                         formatter.setFormatMethodForClass(Number.class,
                                 new NumberFormatMethod(format), true);
                     } else if (object instanceof Date) {
-                        if (timeZone!=null) object = DateUtils.getConvertedDate((Date)object, timeZone);
+                        if (getTimeZone()!=null) object = DateUtils.getConvertedDate((Date)object, getTimeZone());
                         formatter.setFormatMethodForClass(Date.class,
                                 FormatMethodFactory.getDefaultDateFormatMethod(format), true);
                     }
@@ -47,6 +47,10 @@ public class FormatTag extends TagSupport {
 
     public void setTimeZone(String timeZone) {
         this.timeZone = timeZone;
+    }
+
+    protected String getTimeZone() {
+        return timeZone;
     }
 
     public void setObject(Object object) {

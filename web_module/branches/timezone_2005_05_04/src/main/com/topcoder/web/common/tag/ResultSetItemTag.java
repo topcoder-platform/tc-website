@@ -11,6 +11,11 @@ public class ResultSetItemTag extends FormatTag {
     private String name;
     private int rowIndex = 0;   //default to the first row
 
+    protected String getTimeZone() {
+        return row.getStringItem(super.getTimeZone())==null?
+                super.getTimeZone():row.getStringItem(super.getTimeZone());
+    }
+
     public void setRow(ResultSetContainer.ResultSetRow row) {
         this.row = row;
     }
