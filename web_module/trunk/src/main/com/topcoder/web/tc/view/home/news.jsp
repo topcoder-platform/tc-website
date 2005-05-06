@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.06.05<br>1:05 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=205768&thread=495791&mc=1">Reviewer minimum requirements updated</A></span><br><br>
+      TopCoder will be implementing some changes to the minimum requirements to become a component reviewer.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/rtables/viewThread.jsp?forum=205768&thread=495791&mc=1">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.05.05<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -252,19 +264,7 @@
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.11.05<br>10:55 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=about&d2=employment_account_exec">TopCoder</A></span><br><br>
-      <A href="/tc?module=Static&d1=about&d2=employment_account_exec">TopCoder</A> is offering a position as an Employment Services Account Executive, available to <strong>ALL</strong> members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=about&d2=jobs">see all available TC jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
- 
- 
+
 </table>
 <br><br>
 
