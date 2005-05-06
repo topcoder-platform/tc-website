@@ -3,6 +3,8 @@ package com.topcoder.web.common.tag;
 import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
+import com.topcoder.shared.util.DateUtil;
+import com.topcoder.web.common.DateUtils;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -14,6 +16,7 @@ public class FormatTag extends TagSupport {
     private Object object = null;
     private String format = null;
     private String ifNull = "";
+    private String timeZone = null;
 
     public int doStartTag() throws JspException {
         try {
@@ -25,6 +28,7 @@ public class FormatTag extends TagSupport {
                         formatter.setFormatMethodForClass(Number.class,
                                 new NumberFormatMethod(format), true);
                     } else if (object instanceof Date) {
+                        if (timeZone!=null) object = DateUtils.getConvertedDate((Date)object, timeZone);
                         formatter.setFormatMethodForClass(Date.class,
                                 FormatMethodFactory.getDefaultDateFormatMethod(format), true);
                     }
@@ -39,6 +43,10 @@ public class FormatTag extends TagSupport {
             throw new JspException(e.getMessage());
         }
         return SKIP_BODY;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
     }
 
     public void setObject(Object object) {
@@ -62,6 +70,7 @@ public class FormatTag extends TagSupport {
         this.object = null;
         this.format = null;
         this.ifNull = "";
+        this.timeZone = null;
         return super.doEndTag();
     }
 
