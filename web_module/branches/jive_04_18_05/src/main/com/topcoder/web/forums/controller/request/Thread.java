@@ -45,7 +45,8 @@ public class Thread extends BaseProcessor implements Pageable {
 		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		thread = forumFactory.getForumThread(threadID);
 		Forum forum = thread.getForum();
-		user = UserManagerFactory.getInstance().getUser("mktong");
+		TCUserManager userManager = (TCUserManager)UserManagerFactory.getInstance();
+		user = userManager.getUser("mktong");
 		//TCUserManager userManager = (TCUserManager)forumFactory.getUserManager();
 		//user = userManager.getUser(129063);
 		
