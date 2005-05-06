@@ -29,6 +29,7 @@ public class ViewProblemInner extends Base {
                 if (hasDefault(Constants.PROBLEM)) {
                     getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
                     ProblemInfo problem = (ProblemInfo) getDefault(Constants.PROBLEM);
+                    log.debug("has a problem: " + problem.getTime() + " " + problem.getStartTime());
                     getRequest().setAttribute(Constants.PROBLEM, problem);
                     setDefault(Constants.LANGUAGE_ID, String.valueOf(problem.getLanguage().getId()));
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_INNER);
