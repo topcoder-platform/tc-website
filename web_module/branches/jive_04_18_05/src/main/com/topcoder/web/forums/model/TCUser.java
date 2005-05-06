@@ -115,7 +115,7 @@ public class TCUser extends SimpleUserAdapter {
             //we're not releasing anyone's name, so we'll just let the field go unset.
             //this.name = rs.getString("firstName") + " " + rs.getString("lastName");
             this.email = rs.getString("email");
-            this.creationDate = rs.getDate("create_date");
+            this.creationDate = rs.getDate("member_since");
             this.imagePath = rs.getString("image_path");
             System.out.println("ID: " + this.ID + " | username: " + this.username + 
             		" | email: " + this.email + " | creationDate: " + this.creationDate +

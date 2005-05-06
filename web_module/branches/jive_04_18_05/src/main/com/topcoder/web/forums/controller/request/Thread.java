@@ -38,7 +38,7 @@ public class Thread extends BaseProcessor implements Pageable {
 	
 	private ResultFilter resultFilter;
 	private ForumThread thread;
-	private User user;
+	private TCUser user;
 	
 	protected void businessProcessing() throws Exception {
 		threadID = Long.parseLong(getRequest().getParameter(ForumConstants.THREAD_ID));
@@ -47,15 +47,11 @@ public class Thread extends BaseProcessor implements Pageable {
 		thread = forumFactory.getForumThread(threadID);
 		Forum forum = thread.getForum();
 		TCUserManager userManager = (TCUserManager)UserManagerFactory.getInstance();
-		//user = userManager.getUser("mktong");
-		System.out.println("userID: " + userManager.getUserID("mktong"));
-		//TCUserManager userManager = (TCUserManager)forumFactory.getUserManager();
-		TCUser sampleUser = (TCUser)userManager.getUser(129063);
-		System.out.println("ID: " + sampleUser.getID());
-		System.out.println("handle: " + sampleUser.getUsername());
-		System.out.println("image path: " + sampleUser.getImagePath());
-		System.out.println("---");
-		//user = userManager.getUser(129063);
+		user = (TCUser)userManager.getUser(129063);
+		user = (TCUser)userManager.getUser("mktong");
+		System.out.println("ID: " + user.getID());
+		System.out.println("handle: " + user.getUsername());
+		System.out.println("image path: " + user.getImagePath());
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
