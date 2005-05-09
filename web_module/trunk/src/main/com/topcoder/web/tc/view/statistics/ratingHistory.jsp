@@ -36,7 +36,7 @@
 <jsp:param name="title" value="Algorithm Rating History"/>
 </jsp:include>
 
-
+ 
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
