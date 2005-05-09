@@ -1,12 +1,25 @@
+<%@  page language="java"
+    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          java.util.Map"%>
 
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
+<% ResultSetContainer rscDesData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Des_Data"); %>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider" rowspan="3">
          <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
             <tr><td class="tableTitle" colspan="2">Design Competitions</td></tr>
-            <tr><td class="ratingBox" colspan="2">Rating:<br><span class="coderYellow">1838</span></td></tr>
+            <tr><td class="ratingBox" colspan="2">Rating:<br>
+            <%if(rscDesData.getIntItem(0, "rating") != 0) {%>
+                <tc-webtags:ratingColor rating='<%=rscDesData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscDesData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
             <tr><td class="tableCatNW" colspan="2"><A href="/history">[rating history]</A><br><br></td></tr>
             <tr><td class="tableCatNW">Ranking:</td><td class="tableStatRNW">6</td></tr>
+            <tr><td class="tableCatNW">Volatility:</td><td class="tableStatRNW">6</td></tr>
             <tr><td class="tableCatNW">Competitions:</td><td class="tableStatRNW">17</td></tr>
             <tr><td class="tableCatNW">Reliability:</td><td class="tableStatRNW">6.77%</td></tr>
             <tr><td class="tableCatNW">Maximum Rating:</td><td class="tableStatRNW">1838</td></tr>
