@@ -17,15 +17,15 @@
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="tableCatNW" colspan="2"><A href="/history">[rating history]</A><br><br></td></tr>
-            <tr><td class="tableCatNW">Ranking:</td><td class="tableStatRNW">6</td></tr>
-            <tr><td class="tableCatNW">Volatility:</td><td class="tableStatRNW">6</td></tr>
-            <tr><td class="tableCatNW">Competitions:</td><td class="tableStatRNW">17</td></tr>
-            <tr><td class="tableCatNW">Reliability:</td><td class="tableStatRNW">6.77%</td></tr>
-            <tr><td class="tableCatNW">Maximum Rating:</td><td class="tableStatRNW">1838</td></tr>
-            <tr><td class="tableCatNW">Minimum Rating:</td><td class="tableStatRNW">1039</td></tr>
-            <tr><td class="tableCatNW">Earnings:</td><td class="tableStatRNW">$19745.00</td></tr>
-            <tr><td class="tableCatNW" colspan="2"><A href="/history">[earnings history]</A></td></tr>
+            <tr><td class="tableCatNW" colspan="2"><A href='/stat?c=tcs_ratings_history&pi=112&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
+            <tr><td class="tableCatNW">Ranking:</td><td class="tableStatRNW"><rsc:item name="rank" set="<%=rscDesData%>" ifNull="not ranked" /></td></tr>
+            <tr><td class="tableCatNW">Volatility:</td><td class="tableStatRNW"><rsc:item name="vol" set="<%=rscDesData%>" /></td></tr>
+            <tr><td class="tableCatNW">Competitions:</td><td class="tableStatRNW"><rsc:item name="num_ratings" set="<%=rscDesData%>" /></td></tr>
+            <tr><td class="tableCatNW">Reliability:</td><td class="tableStatRNW"><rsc:item name="reliability" set="<%=rscDesData%>" format="#.##%" ifNull="n/a"/></td></tr>
+            <tr><td class="tableCatNW">Maximum Rating:</td><td class="tableStatRNW"><rsc:item name="max_rating" set="<%=rscDesData%>" format="####"/></td></tr>
+            <tr><td class="tableCatNW">Minimum Rating:</td><td class="tableStatRNW"><rsc:item name="min_rating" set="<%=rscDesData%>" format="####"/></td></tr>
+            <tr><td class="tableCatNW">Earnings:</td><td class="tableStatRNW"><rsc:item name="earnings" set="<%=rscDesData%>" format="$#,##0.00"/></td></tr>
+            <tr><td class="tableCatNW" colspan="2"><A href='/stat?pi=112&c=component_history&cr=<%=request.getParameter("cr")%>'>[earnings history]</A></td></tr>
          </table>
       </td>
       <td width="75%" valign="top">
