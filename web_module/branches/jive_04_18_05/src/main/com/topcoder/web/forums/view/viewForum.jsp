@@ -95,21 +95,19 @@
 	<td class="rtThreadCellWrap"><A href='<%="?module=Thread&" + ForumConstants.THREAD_ID + "=" + thread.getID()%>' class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
 		<%  Paginator threadPaginator;
 			if (user != null) {
-				threadPaginator = new Paginator(new Pages(thread.getMessageCount(), user.getProperty("getJiveMessageRange")));
+				threadPaginator = new Paginator(new Pages(thread.getMessageCount(), Integer.parseInt(user.getProperty("jiveMessageRange"))));
 			} else {
 				threadPaginator = new Paginator(new Pages(thread.getMessageCount(), 15));
-			} %> [ 
+			}
+			if (threadPaginator.getNumPages() > 1) { %> [ 
 	        <%  pages = threadPaginator.getPages(5);
 	            for (int i=0; i<pages.length; i++) {
 	        %>  <%  if (pages[i] != null) { %>
-	        			<%  if (pages[i].getNumber() == threadPaginator.getPageIndex()+1) { %>
-	        					<%= pages[i].getNumber() %>
-	        			<%  } else { %>
-	            				<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkNew">
-		                		<%= pages[i].getNumber() %></A>
-		                <%  } %>
+        				<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtLinkNew">
+                		<%= pages[i].getNumber() %></A>
 	            <%  } %>
-	        <%  } %> ]</td>
+	        <%  } %> ]
+	    <%  } %></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
 	<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
 	<td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>

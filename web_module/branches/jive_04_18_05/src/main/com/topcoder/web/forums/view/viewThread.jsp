@@ -88,9 +88,10 @@
 	<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
 	<tr>
 	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-	<%  TCUser tcUser = (TCUser)userManager.getUser(message.getUser().getID());
-		if (tcUser.getImagePath() != null) { %>
-		<img src="<%=tcUser.getImagePath()%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+	<%  //TCUser tcUser = (TCUser)userManager.getUser(message.getUser().getID());
+		System.out.println("image path = " + message.getUser().getProperty("image_path"));
+		if (message.getUser().getProperty("imagePath") != null) { %>
+		<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
 	<%  } %>
 	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
 	<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>

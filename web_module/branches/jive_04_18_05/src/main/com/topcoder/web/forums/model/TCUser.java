@@ -18,14 +18,6 @@ import java.util.Date;
  */
 public class TCUser extends SimpleUserAdapter {
 	
-	/**
-	 * TC-specific fields
-	 */
-	private String imagePath;
-	public String getImagePath() {
-		return imagePath;
-	}
-	
     /**
      * Load a user by id.
      *
@@ -96,33 +88,30 @@ public class TCUser extends SimpleUserAdapter {
             if (ID > 0) {
                 pstmt = con.prepareStatement(FIND_BY_ID);
                 pstmt.setLong(1, ID);
-                System.out.println("query: " + FIND_BY_ID);
+                //System.out.println("query: " + FIND_BY_ID);
             } else {
                 pstmt = con.prepareStatement(FIND_BY_HANDLE);
                 pstmt.setString(1, username);
-                System.out.println("query: " + FIND_BY_HANDLE);
+                //System.out.println("query: " + FIND_BY_HANDLE);
             }
-            System.out.println("before execute");
             rs = pstmt.executeQuery();
-            System.out.println("after execute");
 
             if (!rs.next()) {
                 throw new UserNotFoundException();
             }
-            System.out.println("after check null");
             this.ID = rs.getLong("user_id");
             this.username = rs.getString("handle");
             //we're not releasing anyone's name, so we'll just let the field go unset.
             //this.name = rs.getString("firstName") + " " + rs.getString("lastName");
             this.email = rs.getString("email");
             this.creationDate = rs.getDate("member_since");
-            this.imagePath = rs.getString("image_path");
-            System.out.println("ID: " + this.ID + " | username: " + this.username + 
-            		" | email: " + this.email + " | creationDate: " + this.creationDate +
-					" | imagePath: " + this.imagePath);
-        } catch (SQLException sqle) {
-        	System.out.println("sql error: " + sqle.getStackTrace());
-            Log.error(sqle);
+            this.setProperty("imagePath", rs.getString("image_path"));
+            //System.out.println("ID: " + this.ID + " | username: " + this.username + 
+            //		" | email: " + this.email + " | creationDate: " + this.creationDate +
+			//		" | imagePath: " + this.getProperty("image_path"));
+        } catch (Exception e) {
+        	System.out.println(e.getStackTrace());
+            Log.error(e);
         } finally {
             Common.close(rs);
             Common.close(pstmt);
