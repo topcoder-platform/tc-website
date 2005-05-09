@@ -18,6 +18,14 @@ import java.util.Date;
  */
 public class TCUser extends SimpleUserAdapter {
 	
+	/**
+	 * TC-specific fields
+	 */
+	private String imagePath;
+	public String getImagePath() {
+		return imagePath;
+	}
+	
     /**
      * Load a user by id.
      *
@@ -105,13 +113,13 @@ public class TCUser extends SimpleUserAdapter {
             //this.name = rs.getString("firstName") + " " + rs.getString("lastName");
             this.email = rs.getString("email");
             this.creationDate = rs.getDate("member_since");
-            this.setProperty("imagePath", rs.getString("image_path"));
+            this.imagePath = rs.getString("image_path");
             //System.out.println("ID: " + this.ID + " | username: " + this.username + 
             //		" | email: " + this.email + " | creationDate: " + this.creationDate +
-			//		" | imagePath: " + this.getProperty("image_path"));
-        } catch (Exception e) {
-        	System.out.println(e.getStackTrace());
-            Log.error(e);
+			//		" | imagePath: " + this.imagePath);
+        } catch (SQLException sqle) {
+        	sqle.printStackTrace();
+            Log.error(sqle);
         } finally {
             Common.close(rs);
             Common.close(pstmt);
@@ -164,5 +172,11 @@ public class TCUser extends SimpleUserAdapter {
     public boolean isNameVisible() {
         return false;
     }
-
+    
+    public String getProperty(String name) {
+    	if (name.equals("imagePath")) {
+    		return getImagePath();
+    	}
+    	return super.getProperty(name);
+    }
 }
