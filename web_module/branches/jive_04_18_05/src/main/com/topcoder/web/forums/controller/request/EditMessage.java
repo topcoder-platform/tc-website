@@ -41,6 +41,8 @@ public class EditMessage extends BaseProcessor {
 		//	ForumMessage message = forumFactory.getMessage(getRequest().getParameter(ForumConstants.MESSAGE_ID));			
 		//}
 		
+		getRequest().setAttribute("forumFactory", forumFactory);
+		
 		setNextPage("/post.jsp");
 		setIsNextPageInContext(true);
 	}
