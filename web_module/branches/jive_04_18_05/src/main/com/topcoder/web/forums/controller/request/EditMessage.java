@@ -8,6 +8,7 @@ package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
 
@@ -26,6 +27,7 @@ public class EditMessage extends BaseProcessor {
 	protected void businessProcessing() throws Exception {
 		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
 		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
+		User user = forumFactory.getUserManager().getUser("mktong");
 		
 		// forumID, threadID, potentially messageID for edit
 		setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
@@ -42,6 +44,7 @@ public class EditMessage extends BaseProcessor {
 		//}
 		
 		getRequest().setAttribute("forumFactory", forumFactory);
+		getRequest().setAttribute("user", user);
 		
 		setNextPage("/post.jsp");
 		setIsNextPageInContext(true);
