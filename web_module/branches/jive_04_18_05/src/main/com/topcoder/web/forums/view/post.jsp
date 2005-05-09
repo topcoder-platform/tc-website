@@ -1,17 +1,30 @@
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         import="com.topcoder.web.common.BaseServlet,
+         		 com.topcoder.web.forums.ForumConstants,
+         		 com.jivesoftware.forum.stats.ViewCountManager"
+%>
+
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
+
 <html>
 <head>
 <title>TopCoder</title>
 
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
-<jsp:include page="../../script.jsp" />
+<jsp:include page="script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -19,7 +32,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
 		<td width="180">
-			<jsp:include page="../includes/global_left.jsp">
+			<jsp:include page="includes/global_left.jsp">
 				<jsp:param name="level1" value=""/>
 				<jsp:param name="level2" value=""/>
 			</jsp:include>
@@ -29,7 +42,7 @@
 <!-- Center Column Begins -->
          <td width="100%" class="rtBody">
 
-        <jsp:include page="../page_title.jsp" >
+        <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="round_table"/>
             <jsp:param name="title" value="Post a new topic"/>
         </jsp:include>
@@ -37,7 +50,11 @@
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr><td class="rtHeader" colspan="2">New Topic</td></tr>
 <tr>
-<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer"><img src="/i/m/radeye_mug.gif" border="0" class="rtPhoto" /><br><A href="/" class="coderTextRed">radeye</A><br><A href="/">1037 posts</A></div></td>
+<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+<%  if (user.getProperty("imagePath") != null) { %>
+	<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+<%  } %>
+<tc-webtag:handle coderId="<%=user.getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell">
 <form name="form1"><b>Subject:</b><br><input type="text" size="60" name="textbox1"><br><br>
 <b>Body:</b><br><textarea name="bigbox" rows="15" cols="60"></textarea></form>
@@ -53,7 +70,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="foot.jsp" />
 
 </body>
 
