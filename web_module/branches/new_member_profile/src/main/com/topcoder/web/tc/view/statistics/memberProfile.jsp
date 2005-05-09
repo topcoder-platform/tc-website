@@ -107,9 +107,9 @@ This member has not yet been rated in a competition.
 <jsp:include page="memberProfileTabDes.jsp" />
 <% } else if(tab.equals("dev")) { %>
 <jsp:include page="memberProfileTabDev.jsp" />
-<% } %>
-
-
+<% } else { %>
+This member has not been rated in any events.
+<% }%>
 <% } //close top if%>
         </td>
 <!-- Center Column Ends -->

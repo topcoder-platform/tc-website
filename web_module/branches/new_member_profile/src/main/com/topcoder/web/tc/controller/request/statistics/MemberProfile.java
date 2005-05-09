@@ -73,7 +73,9 @@ public class MemberProfile extends Base {
                 //get the selected tab
                 if(tab.equals("")) {
                     //get the higest rating
-                    if(algRating >= desRating && algRating >= devRating) {
+                    if(algRating == 0 && desRating == 0 && devRating == 0) {
+                        tab = "";
+                    } else if(algRating >= desRating && algRating >= devRating) {
                         tab = "alg";
                     } else if(desRating >= algRating && desRating >= devRating) {
                         tab = "des";
