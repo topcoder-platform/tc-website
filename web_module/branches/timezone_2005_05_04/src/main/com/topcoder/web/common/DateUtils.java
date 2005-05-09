@@ -16,24 +16,30 @@ public class DateUtils {
     private final static Logger log = Logger.getLogger(DateUtils.class);
 
     /**
-     * Adjust a date from one timezone to another
+     * Adjust a date from one timezone to another.  The date object returned
+     * will be in the toTimeZone
      * @param d
      * @param fromTimeZone
      * @param toTimeZone
      * @return
      */
     public static Date getConvertedDate(Date d, String fromTimeZone, String toTimeZone) {
-        return new Date(d.getTime()+(getOffset(d, fromTimeZone, toTimeZone)));
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
+        cal.setTime(new Date(d.getTime()+(getOffset(d, fromTimeZone, toTimeZone))));
+        return cal.getTime();
     }
 
     /**
-     * Adjust a date from the default timezone to another
+     * Adjust a date from the default timezone to another.  The date object returned
+     * will be in the toTimeZone
      * @param d
      * @param toTimeZone
      * @return
      */
     public static Date getConvertedDate(Date d, String toTimeZone) {
-        return new Date(d.getTime()+(getOffset(d, toTimeZone)));
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
+        cal.setTime(new Date(d.getTime()+(getOffset(d, toTimeZone))));
+        return cal.getTime();
     }
 
     /**
