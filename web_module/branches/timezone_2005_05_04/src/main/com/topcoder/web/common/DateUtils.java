@@ -24,6 +24,7 @@ public class DateUtils {
      * @return
      */
     public static Date getConvertedDate(Date d, String fromTimeZone, String toTimeZone) {
+        log.debug("convert to " + toTimeZone);
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
         cal.setTime(new Date(d.getTime()+(getOffset(d, fromTimeZone, toTimeZone))));
         return cal.getTime();
@@ -37,6 +38,7 @@ public class DateUtils {
      * @return
      */
     public static Date getConvertedDate(Date d, String toTimeZone) {
+        log.debug("convert to " + toTimeZone);
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
         cal.setTime(new Date(d.getTime()+(getOffset(d, toTimeZone))));
         return cal.getTime();
