@@ -10,12 +10,17 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 
+import com.topcoder.shared.util.ApplicationServer;
+
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.User;
 
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.Forum;
+
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
 
 /**
  * @author mtong
