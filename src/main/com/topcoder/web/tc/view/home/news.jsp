@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>05.09.05<br>11:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">New Algorithm, Design, and Development rating formulas</A></span><br><br>
+      We will be changing the algorithm, design, and development rating formulas on May 12th. This will include a complete re-rating starting from our first match.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.06.05<br>1:05 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=205768&thread=495791&mc=1">Reviewer minimum requirements updated</A></span><br><br>
       TopCoder will be implementing some changes to the minimum requirements to become a component reviewer.
@@ -249,18 +261,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/i/pressroom/SDT_041305.jpg" target="_blank">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.13.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.sys-con.com/story/?storyid=49134" target="_blank">LogicLibrary Checks Out TopCoder to Enable SOA</A></span><br><br>
-      "This strategic partnership is intended to bolster the collection of 'out-of-the box' content preinstalled with Logidex." [.NET Developer's Journal]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.sys-con.com/story/?storyid=49134" target="_blank">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
