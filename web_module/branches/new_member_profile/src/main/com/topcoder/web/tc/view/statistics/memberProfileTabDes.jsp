@@ -42,69 +42,69 @@
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Inquiries</td>
-               <td class="tableStatR"><rsc:item name="inquiry_count" set="<%=rscJavaData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="inquiry_count" set="<%=rscNETData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="inquiry_count" set="<%=rscTotalData%>" format="###0" /></td>
+               <td class="tableStatR"><rsc:item name="inquiry_count" set="<%=rscJavaData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="inquiry_count" set="<%=rscNETData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="inquiry_count" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Submissions</td>
-               <td class="tableStatR"><rsc:item name="submit_count" set="<%=rscJavaData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="submit_count" set="<%=rscNETData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="submit_count" set="<%=rscTotalData%>" format="###0" /></td>
+               <td class="tableStatR"><rsc:item name="submit_count" set="<%=rscJavaData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="submit_count" set="<%=rscNETData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="submit_count" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Submission Rate</td>
-               <td class="tableStatR"><rsc:item name="submit_percent" set="<%=rscJavaData%>" format="0.00%" /></td>
-               <td class="tableStatR"><rsc:item name="submit_percent" set="<%=rscNETData%>" format="0.00%" /></td>
-               <td class="tableStatR"><rsc:item name="submit_percent" set="<%=rscTotalData%>" format="0.00%" /></td>
+               <td class="tableStatR"><rsc:item name="submit_percent" set="<%=rscJavaData%>" format="0.00%" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="submit_percent" set="<%=rscNETData%>" format="0.00%" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="submit_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Passed Screening</td>
-               <td class="tableStatR"><rsc:item name="passed_screening_count" set="<%=rscJavaData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="passed_screening_count" set="<%=rscNETData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="passed_screening_count" set="<%=rscTotalData%>" format="###0" /></td>
+               <td class="tableStatR"><rsc:item name="passed_screening_count" set="<%=rscJavaData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="passed_screening_count" set="<%=rscNETData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="passed_screening_count" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Screening Success Rate</td>
-               <td class="tableStatR"><rsc:item name="passed_screening_percent" set="<%=rscJavaData%>" format="0.00%" /></td>
-               <td class="tableStatR"><rsc:item name="passed_screening_percent" set="<%=rscNETData%>" format="0.00%" /></td>
-               <td class="tableStatR"><rsc:item name="passed_screening_percent" set="<%=rscTotalData%>" format="0.00%" /></td>
+               <td class="tableStatR"><rsc:item name="passed_screening_percent" set="<%=rscJavaData%>" format="0.00%" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="passed_screening_percent" set="<%=rscNETData%>" format="0.00%" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="passed_screening_percent" set="<%=rscTotalData%>" format="0.00%" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Passed Review</td>
-               <td class="tableStatR"><rsc:item name="passed_review_count" set="<%=rscJavaData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="passed_review_count" set="<%=rscNETData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="passed_review_count" set="<%=rscTotalData%>" format="###0" /></td>
+               <td class="tableStatR"><rsc:item name="passed_review_count" set="<%=rscJavaData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="passed_review_count" set="<%=rscNETData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="passed_review_count" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Maximum Score</td>
-               <td class="tableStatR"><rsc:item name="max_score" set="<%=rscJavaData%>" format="###0.00" /></td>
-               <td class="tableStatR"><rsc:item name="max_score" set="<%=rscNETData%>" format="###0.00" /></td>
-               <td class="tableStatR"><rsc:item name="max_score" set="<%=rscTotalData%>" format="###0.00" /></td>
+               <td class="tableStatR"><rsc:item name="max_score" set="<%=rscJavaData%>" format="###0.00" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="max_score" set="<%=rscNETData%>" format="###0.00" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="max_score" set="<%=rscTotalData%>" format="###0.00" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Minimum Score</td>
-               <td class="tableStatR"><rsc:item name="min_score" set="<%=rscJavaData%>" format="###0.00" /></td>
-               <td class="tableStatR"><rsc:item name="min_score" set="<%=rscNETData%>" format="###0.00" /></td>
-               <td class="tableStatR"><rsc:item name="min_score" set="<%=rscTotalData%>" format="###0.00" /></td>
+               <td class="tableStatR"><rsc:item name="min_score" set="<%=rscJavaData%>" format="###0.00" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="min_score" set="<%=rscNETData%>" format="###0.00" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="min_score" set="<%=rscTotalData%>" format="###0.00" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Average Score</td>
-               <td class="tableStatR"><rsc:item name="avg_score" set="<%=rscJavaData%>" format="###0.00" /></td>
-               <td class="tableStatR"><rsc:item name="avg_score" set="<%=rscNETData%>" format="###0.00" /></td>
-               <td class="tableStatR"><rsc:item name="avg_score" set="<%=rscTotalData%>" format="###0.00" /></td>
+               <td class="tableStatR"><rsc:item name="avg_score" set="<%=rscJavaData%>" format="###0.00" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="avg_score" set="<%=rscNETData%>" format="###0.00" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="avg_score" set="<%=rscTotalData%>" format="###0.00" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Average Placement</td>
-               <td class="tableStatR"><rsc:item name="avg_placement" set="<%=rscJavaData%>" format="###0.00" /></td>
-               <td class="tableStatR"><rsc:item name="avg_placement" set="<%=rscNETData%>" format="###0.00" /></td>
-               <td class="tableStatR"><rsc:item name="avg_placement" set="<%=rscTotalData%>" format="###0.00" /></td>
+               <td class="tableStatR"><rsc:item name="avg_placement" set="<%=rscJavaData%>" format="###0.00" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="avg_placement" set="<%=rscNETData%>" format="###0.00" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="avg_placement" set="<%=rscTotalData%>" format="###0.00" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="tableCat" nowrap="nowrap">Wins</td>
-               <td class="tableStatR"><rsc:item name="wins" set="<%=rscJavaData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="wins" set="<%=rscNETData%>" format="###0" /></td>
-               <td class="tableStatR"><rsc:item name="wins" set="<%=rscTotalData%>" format="###0" /></td>
+               <td class="tableStatR"><rsc:item name="wins" set="<%=rscJavaData%>" format="###0" ifNull="n/a" /></td>
+               <td class="tableStatR"><rsc:item name="wins" set="<%=rscNETData%>" format="###0" ifNull="n/a"/></td>
+               <td class="tableStatR"><rsc:item name="wins" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/></td>
             </tr>
          </table>
       </td>
