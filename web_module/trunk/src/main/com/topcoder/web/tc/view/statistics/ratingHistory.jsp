@@ -90,7 +90,7 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="algorithm"/></span>
 <br>
-<span class="bodySubtitle">Algorithm Statistics</span>&#160;>&#160;<br>
+<span class="bodySubtitle">Algorithm Statistics&#160;>&#160;</span><br>
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>">Member Profile</A>
 &#160;|&#160;Rating History
 &#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=pageContext.getAttribute("coder_id")%>','800','600', 'history')">Rating History Graph</A>
