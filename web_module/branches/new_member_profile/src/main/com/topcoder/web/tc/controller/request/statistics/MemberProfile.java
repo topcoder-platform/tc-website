@@ -106,6 +106,20 @@ public class MemberProfile extends Base {
                     String key = (String) it.next();
                     result.put(key, algoData.get(key));
                 }
+            } else if(tab.equals("dev")) {
+                //load des data from Coder_Des_Data
+                r = new Request();
+                r.setContentHandle("Coder_Dev_Data");
+                r.setProperty("cr", coderId);
+                r.setProperty("pi", "113"); //design phase id
+
+                dai = getDataAccess(true);
+                Map algoData = dai.getData(r);
+                Iterator it = algoData.keySet().iterator();
+                while(it.hasNext()) {
+                    String key = (String) it.next();
+                    result.put(key, algoData.get(key));
+                }
             }
             
             getRequest().setAttribute("resultMap", result);

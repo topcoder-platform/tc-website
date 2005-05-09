@@ -102,7 +102,7 @@
 <% } else if(tab.equals("des")) { %>
 <jsp:include page="memberProfileTabDes.jsp" />
 <% } else if(tab.equals("dev")) { %>
-
+<jsp:include page="memberProfileTabDev.jsp" />
 <% } %>
 
         </td>
