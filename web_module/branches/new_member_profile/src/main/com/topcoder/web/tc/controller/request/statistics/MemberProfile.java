@@ -97,7 +97,7 @@ public class MemberProfile extends Base {
                 r = new Request();
                 r.setContentHandle("Coder_Des_Data");
                 r.setProperty("cr", coderId);
-                r.setProperty("pi", 112); //design phase id
+                r.setProperty("pi", "112"); //design phase id
 
                 dai = getDataAccess(true);
                 Map algoData = dai.getData(r);
