@@ -89,7 +89,7 @@ pageContext.setAttribute("resultRow", rsr);
                                 </TD>
                             
                                 <TD width="99%" CLASS="statText" HEIGHT="16" align="right">
-                     <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
+                     <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
                      |   
 
 <% if(srb.getProperty("pi").equals("112")) { %>

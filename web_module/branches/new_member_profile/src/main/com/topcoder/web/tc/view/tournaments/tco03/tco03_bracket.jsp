@@ -77,7 +77,7 @@
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <tr>
 <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+<td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><A HREF="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
 <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
 <td  class="<%=even?"formTextEven":"formTextOdd"%>"><font color="#CC0000"><rsc:item name="round1" row="<%=resultRow%>"/></font></td>

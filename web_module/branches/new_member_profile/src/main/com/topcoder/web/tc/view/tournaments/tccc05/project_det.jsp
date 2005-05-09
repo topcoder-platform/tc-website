@@ -72,7 +72,7 @@ else
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
                                 <% TCCC05ProjectDetail result = (TCCC05ProjectDetail)lst.get(i); %>
-                                <td class="sidebarText"><a href="/stat?c=member_profile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a></td>
+                                <td class="sidebarText"><a href="/tc?module=MemberProfile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
                                 <td class="sidebarText" align=center><%=result.getPlaced()%></td>
                                 <td class="sidebarText" align=center><%=result.getPoints()%></td>

@@ -27,10 +27,10 @@
                <tr><td class="advHeader" colspan="5" valign="middle">Original Distribution:<br><A class="topLink" href="/i/tournament/tccc05/comp_submissions/dev_distribution.zip"><img src="/i/download.gif" border="0"/></A></td></tr>
                <tr>
                   <td class="advHeader" align="right" width="40%"></td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=7360309">dmks</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=268851">gladius</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=302053">oldbig</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=286911">XuChuan</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=7360309">dmks</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=268851">gladius</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=302053">oldbig</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=286911">XuChuan</a>&#160;&#160;</td>
                </tr>
 
                 <tr>  
