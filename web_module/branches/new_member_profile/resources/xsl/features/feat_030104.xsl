@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>The Educational Component of TopCoding</strong></font><br />
                         Monday, March 1, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=290395"><strong>pmadden</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=290395"><strong>pmadden</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>

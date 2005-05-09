@@ -70,50 +70,50 @@
 												
 <IMG SRC="/i/m/Yarin_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A><br/>
+<b>Handle: </b><A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A><br/>
 <b>Rating: </b>2090<br/>
 <b>Member Since: </b>February&#160;28,&#160;2002<br/>
 <b>Total Competitions: </b>2<br/>
 </P>
 
 <P>
-TopCoder, Inc. announced today that <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> has been named the "Coder of the Week" for Single Round Match 
+TopCoder, Inc. announced today that <A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> has been named the "Coder of the Week" for Single Round Match 
 83, which took place between April 22 and 28, 2002.  
 </P>
 
 <P>
-In Single Round Match 83, <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> won Room 22 and gained 530 rating points, which broke the Division-I 
-record of 335, set by <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
+In Single Round Match 83, <A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> won Room 22 and gained 530 rating points, which broke the Division-I 
+record of 335, set by <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
  in Single Round Match 71 
 (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  
-<A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> won the room with 1226.13 final points, 
+<A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> won the room with 1226.13 final points, 
 earning 193.96 points on the Level One problem, 269.96 on the 
 Level Two problem, and 762.21 on the Level Three problem.  
 </P>
 
 <P>
 "This was only my second SRM at TopCoder and my debut in SRM 80 wasn't too successful, mainly due to my 
-inexperience with STL in C++," said <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A>.  
+inexperience with STL in C++," said <A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A>.  
 "I guess because of this, and that many coders had big problems 
 with the problem set in SRM 83, was the main reason for my big rating gain."
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> has been a TopCoder member since February 28, 2002, and is a perfect six-for-six in submissions 
+<A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A> has been a TopCoder member since February 28, 2002, and is a perfect six-for-six in submissions 
 in two overall matches.   
 </P>
 
 <P>
-"TopCoder is great fun," added <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A>.  
+"TopCoder is great fun," added <A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="coderTextYellow">Yarin</A>.  
 "It's of course an honor and a big boost for your confidence 
 to be awarded 'Coder of the Week'. I'll do my best in the future matches to show that this week was 
 no extraordinary week for me."
 </P>
 
 <P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=274885" CLASS="coderTextYellow">frenetic</A>, who had a 339-point rating gain, 
-the second highest in Division-I; <A HREF="/stat?c=member_profile&amp;cr=159549" CLASS="coderTextBlue">bhakar</A>, who used four successful challenges for 200 additional 
-points in the 'Challenge Phase' to win Room 29; and <A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="coderTextYellow">radeye</A>, who had a debut rating of 1762, which 
+Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=274885" CLASS="coderTextYellow">frenetic</A>, who had a 339-point rating gain, 
+the second highest in Division-I; <A HREF="/tc?module=MemberProfile&amp;cr=159549" CLASS="coderTextBlue">bhakar</A>, who used four successful challenges for 200 additional 
+points in the 'Challenge Phase' to win Room 29; and <A HREF="/tc?module=MemberProfile&amp;cr=277659" CLASS="coderTextYellow">radeye</A>, who had a debut rating of 1762, which 
 is the 23rd highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
 </P>
 

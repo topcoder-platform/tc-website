@@ -94,16 +94,16 @@ May 15, 2002</P>
 
 <P>
 Since the 300 and 500 were pretty easy, almost everyone got both of
-those correct.  The only exception was <A HREF="/stat?c=member_profile&amp;cr=113178" CLASS="bodyGeneric">po</A>, whose 300 point problem failed 
+those correct.  The only exception was <A HREF="/tc?module=MemberProfile&amp;cr=113178" CLASS="bodyGeneric">po</A>, whose 300 point problem failed 
 systests.  Of the three hundreds, 
-<A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
  was the quickest, submitted in
-4 minutes for 293.94 points.  <A HREF="/stat?c=member_profile&amp;cr=155275" CLASS="bodyGeneric">DjinnKahn</A>
- and <A HREF="/stat?c=member_profile&amp;cr=129672" CLASS="bodyGeneric">doeth</A>
+4 minutes for 293.94 points.  <A HREF="/tc?module=MemberProfile&amp;cr=155275" CLASS="bodyGeneric">DjinnKahn</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=129672" CLASS="bodyGeneric">doeth</A>
  were right behind him,
 with 293.22 and 292.77 points, repsectively.  The 500 point submissions 
 were all very fast, and all in about the same amount of time, with a 
-range of only 32 points.  <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> manage to come out on top, 
+range of only 32 points.  <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> manage to come out on top, 
 beating <B>DjinnKahn</B> by about 5 points.  However, <B>DjinnKahn</B> was faster on 
 the 300, and managed to beat <B>John Dethridge</B>
  by less than a point.  So, 
@@ -115,7 +115,7 @@ had moved on to stare at the 1100.
 For the next 50 minutes or so 5 of 
 the room 1 coders worked to figure out the trick to prevent the problem 
 from timing out, to no avail.  With about five minutes left, 
-<B>po</B> and <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
+<B>po</B> and <A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
 both finally submitted solution.  <B>DjinnKahn</B> did slightly better, 
 submitting with a little over 10 minutes left.  But, in the end the 
 winner, hands down, was <B>dmwright</B>, whose 1100 point problem took a little
@@ -225,7 +225,7 @@ taking a big hit and dropping 105 points.
 </TABLE>
 <P><BR/></P>
 <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

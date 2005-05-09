@@ -71,7 +71,7 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
 <IMG SRC="/i/m/SnapDragon_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="coderTextRed">SnapDragon</A><BR/>
+<B>Handle: </B><A HREF="/tc?module=MemberProfile&amp;cr=272072" CLASS="coderTextRed">SnapDragon</A><BR/>
 <B>Rating: </B>3005<BR/>
 <B>Member Since: </B>March&#160;17,&#160;2002<BR/>
 <B>Total Competitions: </B>17<BR/>
@@ -87,7 +87,7 @@ Round Match 94, has been named the "Coder of the Week" for Single Round Matches
 In Single Round Match 94, <B>SnapDragon</B> won Room 1 and increased his rating to 3005, 
 becoming just the second member ever to reach that mark.  Also, by reaching 3000 
 in 17 matches, <B>SnapDragon</B> is the quickest to reach 3000.  
-<A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A> is the only 
+<A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A> is the only 
 other TopCoder member to reach 3000.  He had a 3000 or better rating for SRM 47, 
 54-65, and 77-84, and needed 22 matches to reach that mark.
 </P>
@@ -95,10 +95,10 @@ other TopCoder member to reach 3000.  He had a 3000 or better rating for SRM 47,
 <P>
 "Well, to be honest, I've been extraordinarily lucky recently," said <B>SnapDragon</B>.  
 "I never actually expected to reach #1 on the site; I've been intimidated by 
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A>
- and <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>'s 
- speed, <A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="coderTextRed">reid</A>'s 
- credentials, and <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="coderTextRed">dmwright</A>'s 
+<A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>'s 
+ speed, <A HREF="/tc?module=MemberProfile&amp;cr=260835" CLASS="coderTextRed">reid</A>'s 
+ credentials, and <A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="coderTextRed">dmwright</A>'s 
 persistence ever since I first discovered TopCoder.  My last 5 TC matches 
 all went very well, and I keep waiting for this bubble of good fortune to burst around me. :)
 </P>
@@ -136,10 +136,10 @@ can as each contest comes up.  That's the way to have fun."
 </P>
 
 <P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=156420" CLASS="coderTextGreen">edragon</A>
+Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=156420" CLASS="coderTextGreen">edragon</A>
 , who won his 
 room in both SRM's 94 and 95 with seven total successful challenges; and 
-<A HREF="/stat?c=member_profile&amp;cr=286907" CLASS="coderTextYellow">WishingBone</A>, who had a 355-point rating gain in SRM 95, which is the fourth highest in Division-I.
+<A HREF="/tc?module=MemberProfile&amp;cr=286907" CLASS="coderTextYellow">WishingBone</A>, who had a 355-point rating gain in SRM 95, which is the fourth highest in Division-I.
 </P>
 
 

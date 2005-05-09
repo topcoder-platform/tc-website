@@ -31,7 +31,7 @@
                   &#160;&#160;Member&#160;Since:<BR/>
                   &#160;&#160;Total&#160;Competitions:<BR/></TD>
                					 <TD BACKGROUND="/i/image_bw_bg2.gif" CLASS="statText" HEIGHT="53" WIDTH="20%" ALIGN="right" VALIGN="top" NOWRAP="">
-               	  <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A><BR/>
+               	  <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A><BR/>
                	  1522<BR/>
                   January&#160;20,&#160;2002<BR/>
                   1<BR/></TD>
@@ -39,7 +39,7 @@
                					 <TD BACKGROUND="/i/image_bw_bg2.gif" CLASS="statText" WIDTH="60%" HEIGHT="53" VALIGN="top">
 <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="statText">Click here</A> to read about
 
-the impressive come-from-behind win back by <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A> in Single Round Match 77.
+the impressive come-from-behind win back by <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A> in Single Round Match 77.
 </TD>
               				</TR>
             			</TABLE>

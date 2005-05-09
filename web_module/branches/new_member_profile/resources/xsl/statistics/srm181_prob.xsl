@@ -504,7 +504,7 @@ It should be noted that this problem is in fact just the same as the problem of 
 
                         <p>
                         <img src="/i/m/antimatter_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=275071"><strong>antimatter</strong></a><br />
+                        By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=275071"><strong>antimatter</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>

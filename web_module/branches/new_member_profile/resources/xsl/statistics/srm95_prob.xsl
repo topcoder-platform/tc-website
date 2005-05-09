@@ -100,10 +100,10 @@ June 5, 2002</P>
 <P>
 The Division-I Level One problem seemed more complex than it was
 necessarily. I don't know of any clever or elegant solution, but it works
-quite nicely to just try every base dimension up to some limit. <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> picked 40 
+quite nicely to just try every base dimension up to some limit. <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> picked 40 
 for the limit on both sides - I don't know where he got
-the number, but it works. <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>
- just had it go to 1000 on each side. <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
+the number, but it works. <A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>
+ just had it go to 1000 on each side. <A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
 had it go to the number of balls, which is more elegant than mine.
 </P>
 
@@ -149,7 +149,7 @@ diagonal lines isn't my idea of fun.
 
 <P>
 Some of the calculations are a bit messy, but for the 50x50 array technique
-I suggest mine, <B>ZorbaTHut</B>'s. <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>'s solution is also interesting because
+I suggest mine, <B>ZorbaTHut</B>'s. <A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>'s solution is also interesting because
 it's so different from anything I just mentioned.
 </P>
 
@@ -170,13 +170,13 @@ letter is in a given constraint, you set the equivalent bit to 1 (since
 removing it will toggle the correctness of that constraint). Then each
 position in the array becomes min( current_position, array[ current_position
 ^ constraint ] + 1 ). At the end you look at position 0, and if it's got a
-number in it, that's your solution. <A HREF="/stat?c=member_profile&amp;cr=154754" CLASS="bodyGeneric">kv</A>'s solution is the cleanest
+number in it, that's your solution. <A HREF="/tc?module=MemberProfile&amp;cr=154754" CLASS="bodyGeneric">kv</A>'s solution is the cleanest
 implementation I can find.
 </P>
 
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

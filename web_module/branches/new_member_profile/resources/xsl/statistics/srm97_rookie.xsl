@@ -96,22 +96,22 @@ June 12, 2002</P>
 <P>
 Today yielded four rookie rooms, and I think I'm going to stop mentioning
 how high rookie coding-phase scores usually collapse, because lately they
-haven't been. After coding phase, <A HREF="/stat?c=member_profile&amp;cr=288170" CLASS="bodyGeneric">qwj</A>
+haven't been. After coding phase, <A HREF="/tc?module=MemberProfile&amp;cr=288170" CLASS="bodyGeneric">qwj</A>
  was leading the rooms with 1597.35
-points, followed by <A HREF="/stat?c=member_profile&amp;cr=283534" CLASS="bodyGeneric">HrtRulzMind</A>
- with 1222.10, <A HREF="/stat?c=member_profile&amp;cr=286113" CLASS="bodyGeneric">mlev</A>
- with 1203.06, <A HREF="/stat?c=member_profile&amp;cr=288428" CLASS="bodyGeneric">boydp</A> with
-1202.51, <A HREF="/stat?c=member_profile&amp;cr=289000" CLASS="bodyGeneric">silicon</A>
- with 1109.89, <A HREF="/stat?c=member_profile&amp;cr=289006" CLASS="bodyGeneric">snx</A>
- with 1072.96, and <A HREF="/stat?c=member_profile&amp;cr=288787" CLASS="bodyGeneric">lympanda</A>
+points, followed by <A HREF="/tc?module=MemberProfile&amp;cr=283534" CLASS="bodyGeneric">HrtRulzMind</A>
+ with 1222.10, <A HREF="/tc?module=MemberProfile&amp;cr=286113" CLASS="bodyGeneric">mlev</A>
+ with 1203.06, <A HREF="/tc?module=MemberProfile&amp;cr=288428" CLASS="bodyGeneric">boydp</A> with
+1202.51, <A HREF="/tc?module=MemberProfile&amp;cr=289000" CLASS="bodyGeneric">silicon</A>
+ with 1109.89, <A HREF="/tc?module=MemberProfile&amp;cr=289006" CLASS="bodyGeneric">snx</A>
+ with 1072.96, and <A HREF="/tc?module=MemberProfile&amp;cr=288787" CLASS="bodyGeneric">lympanda</A>
  with 1025.22,
 after which scores dropped almost 200 points.
 </P>
 
 <P>
 Challenges saw little action today - one succeeded challenge in room 64 by
-<A HREF="/stat?c=member_profile&amp;cr=288822" CLASS="bodyGeneric">banizar</A>, 
-one in room 67 by <A HREF="/stat?c=member_profile&amp;cr=288965" CLASS="bodyGeneric">LuSiD</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=288822" CLASS="bodyGeneric">banizar</A>, 
+one in room 67 by <A HREF="/tc?module=MemberProfile&amp;cr=288965" CLASS="bodyGeneric">LuSiD</A>, 
 as well as successful challenges by <B>snx</B>
 and <B>qwj</B>. Unfortunately, every other successful challenge - of which there
 were few - were invariably followed by one or more unsuccessful. Even <B>snx</B>
@@ -126,7 +126,7 @@ in the lead overall, keeping 1360.55 points from his two remaining
 submissions and successful challenge. <B>HrtRulzMind</B>, in room 64, took second,
 preserving 1222.10 points directly from coding phase. <B>boydp</B>, room 67, took
 third, duplicating the feat with a mere 20 fewer points. Despite a Level
-Three failure, <A HREF="/stat?c=member_profile&amp;cr=286113" CLASS="bodyGeneric">mlev</A>
+Three failure, <A HREF="/tc?module=MemberProfile&amp;cr=286113" CLASS="bodyGeneric">mlev</A>
  took fourth, winning Room 65 with 627.12 points.
 </P>
 
@@ -141,7 +141,7 @@ cheating. Jello's results will not be found in the match results.
 </P> -->
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

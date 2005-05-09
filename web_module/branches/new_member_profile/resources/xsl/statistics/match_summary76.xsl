@@ -107,27 +107,27 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>
 -->
 <P>
-An extremely close battle took place in Room 4, as <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> outscored <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
- by .84 points (1416.95 to 1416.11) to win the room.  <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
- actually coded the Level One and Three problems quicker than <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A>, but the difference in the match was the scoring differential of the Level Two submissions.  <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> earned 238.04 on the Level One problem, 291.45 on the Level Two problem and 887.46 on the Level Three problem, while <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+An extremely close battle took place in Room 4, as <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> outscored <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+ by .84 points (1416.95 to 1416.11) to win the room.  <A HREF="/tc?module=MemberProfile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+ actually coded the Level One and Three problems quicker than <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A>, but the difference in the match was the scoring differential of the Level Two submissions.  <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> earned 238.04 on the Level One problem, 291.45 on the Level Two problem and 887.46 on the Level Three problem, while <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
  gained 241.31 on the Level One problem, 347.32 on the Level Two problem and 827.48 on the Level Three problem.
 </P>
 
 <P>
-Although it wasn't as close as Room 4, <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
- was the winner in Room 1 by just 20.17 points (1570.58 to 1550.41) over <A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="coderTextRed">reid</A>
-.   <A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="coderTextRed">reid</A>
- was actually winning the room after the "Coding Phase", earning all 1550.41 points in that phase.  <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
- earned 246.89 points on the Level One problem, 430.57 on the Level Two problem and 843.12 on the Level Three problem for a total of 1520.58 points in the "Coding Phase".  <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
- won the room by successfully challenging the Level Two submission of malpt for 50 points.  <A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="coderTextRed">reid</A>
+Although it wasn't as close as Room 4, <A HREF="/tc?module=MemberProfile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
+ was the winner in Room 1 by just 20.17 points (1570.58 to 1550.41) over <A HREF="/tc?module=MemberProfile&amp;cr=260835" CLASS="coderTextRed">reid</A>
+.   <A HREF="/tc?module=MemberProfile&amp;cr=260835" CLASS="coderTextRed">reid</A>
+ was actually winning the room after the "Coding Phase", earning all 1550.41 points in that phase.  <A HREF="/tc?module=MemberProfile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
+ earned 246.89 points on the Level One problem, 430.57 on the Level Two problem and 843.12 on the Level Three problem for a total of 1520.58 points in the "Coding Phase".  <A HREF="/tc?module=MemberProfile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>
+ won the room by successfully challenging the Level Two submission of malpt for 50 points.  <A HREF="/tc?module=MemberProfile&amp;cr=260835" CLASS="coderTextRed">reid</A>
  gained 245.14 points on the Level One problem, 417.87 on the Level Two problem and 887.40 on the Level Three problem.
 </P>
 
 <P>
-Four coders who were seeded 10th of 10 coders in their respective rooms pulled off tremendous upset wins.  <A HREF="/stat?c=member_profile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A>
- won Room 9 with 1025.31 points, <A HREF="/stat?c=member_profile&amp;cr=268580" CLASS="coderTextBlue">Wasyuu</A>
- was the winner in Room 18 with 532.11, <A HREF="/stat?c=member_profile&amp;cr=154619" CLASS="coderTextBlue">hilfiger</A>
- was victorious in Room 23 with 1100.65, while <A HREF="/stat?c=member_profile&amp;cr=129815" CLASS="coderTextBlue">dmh2000</A>
+Four coders who were seeded 10th of 10 coders in their respective rooms pulled off tremendous upset wins.  <A HREF="/tc?module=MemberProfile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A>
+ won Room 9 with 1025.31 points, <A HREF="/tc?module=MemberProfile&amp;cr=268580" CLASS="coderTextBlue">Wasyuu</A>
+ was the winner in Room 18 with 532.11, <A HREF="/tc?module=MemberProfile&amp;cr=154619" CLASS="coderTextBlue">hilfiger</A>
+ was victorious in Room 23 with 1100.65, while <A HREF="/tc?module=MemberProfile&amp;cr=129815" CLASS="coderTextBlue">dmh2000</A>
  triumphed right next door in Room 24 with 470.01.
 </P>
                  </TD>
@@ -147,28 +147,28 @@ Four coders who were seeded 10th of 10 coders in their respective rooms pulled o
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">            
 <P>
-The top scorer in the division was <A HREF="/stat?c=member_profile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
-, who won Room 29 with 1210.52 points.  <A HREF="/stat?c=member_profile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
- earned 1160.52 points in the "Coding Phase" after answering all three problems, and then added 50 points to that total in the "Challenge Phase" with a successful challenge of the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=156822" CLASS="coderTextGreen">m_chen</A>
-.  Virtual tried to challenge the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
+The top scorer in the division was <A HREF="/tc?module=MemberProfile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
+, who won Room 29 with 1210.52 points.  <A HREF="/tc?module=MemberProfile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
+ earned 1160.52 points in the "Coding Phase" after answering all three problems, and then added 50 points to that total in the "Challenge Phase" with a successful challenge of the Level Two submission of <A HREF="/tc?module=MemberProfile&amp;cr=156822" CLASS="coderTextGreen">m_chen</A>
+.  Virtual tried to challenge the Level Two submission of <A HREF="/tc?module=MemberProfile&amp;cr=271976" CLASS="coderTextBlue">Corrinado</A>
 , but to no avail.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
- pulled off the biggest upset in the division, winning Room 48 with 633.70 final points as the 10th seed in the room.  <A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
- just edged <A HREF="/stat?c=member_profile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
-, who finished with 629.44 points.  <A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
- earned 175.63 points on the Level One problem and 408.07 on the Level Two problem for a total of 583.70 points in the "Coding Phase".  During the "Challenge Phase", <A HREF="/stat?c=member_profile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
- gained an additional 50 points with a successful challenge of the Level One submission of <A HREF="/stat?c=member_profile&amp;cr=107160" CLASS="coderTextGray">uler3161</A>
-.  <A HREF="/stat?c=member_profile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
- also had one successful challenge for 50 points, and actually earned more points on the Level Two problem, 411.17.  <A HREF="/stat?c=member_profile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ pulled off the biggest upset in the division, winning Room 48 with 633.70 final points as the 10th seed in the room.  <A HREF="/tc?module=MemberProfile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ just edged <A HREF="/tc?module=MemberProfile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
+, who finished with 629.44 points.  <A HREF="/tc?module=MemberProfile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ earned 175.63 points on the Level One problem and 408.07 on the Level Two problem for a total of 583.70 points in the "Coding Phase".  During the "Challenge Phase", <A HREF="/tc?module=MemberProfile&amp;cr=265299" CLASS="coderTextGray">HotStuff</A>
+ gained an additional 50 points with a successful challenge of the Level One submission of <A HREF="/tc?module=MemberProfile&amp;cr=107160" CLASS="coderTextGray">uler3161</A>
+.  <A HREF="/tc?module=MemberProfile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
+ also had one successful challenge for 50 points, and actually earned more points on the Level Two problem, 411.17.  <A HREF="/tc?module=MemberProfile&amp;cr=273419" CLASS="coderTextGreen">FatAlbert</A>
  fell just short, however, by earning 168.27 points on the Level One problem.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=274537" CLASS="coderTextYellow">mpb</A>
- won Room 65 with 1092.11 final points, the most of all the first-time coders.  <A HREF="/stat?c=member_profile&amp;cr=274537" CLASS="coderTextYellow">mpb</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=274537" CLASS="coderTextYellow">mpb</A>
+ won Room 65 with 1092.11 final points, the most of all the first-time coders.  <A HREF="/tc?module=MemberProfile&amp;cr=274537" CLASS="coderTextYellow">mpb</A>
  earned 192.04 points on the Level One problem, 488.68 on the Level Two problem and 411.39 on the Level Three problem.
 </P>
 

@@ -118,7 +118,7 @@
             </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
+                    <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">766.53</TD>
                 <TD CLASS="statText" ALIGN="center">1</TD>

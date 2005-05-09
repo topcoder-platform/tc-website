@@ -139,7 +139,7 @@ for each player at the end of each round reset to 0 if it was negative.</P>
 Issues:<BR/>Many of the issues involved either failing to deal with the negative reset, or resetting the round score rather than the cumulative score.</P>
 
 <IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 
 <P><B>Member Comments</B></P>
@@ -174,7 +174,7 @@ return '*';<BR/>
  
 <P>Other than that an excellent article that should be continued.</P>
  
-<P><A HREF="/stat?c=member_profile&amp;cr=280735" CLASS="bodyGeneric">Shammah</A></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=280735" CLASS="bodyGeneric">Shammah</A></P>
  
  <HR/>
  
@@ -227,7 +227,7 @@ I got the first variant from the book "The C Programming Language" by
 Brian Kernighan and Dennis Ritchie.
 </P>
 
-<A HREF="/stat?c=member_profile&amp;cr=269889" CLASS="bodyGeneric">Stefan</A>          
+<A HREF="/tc?module=MemberProfile&amp;cr=269889" CLASS="bodyGeneric">Stefan</A>          
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

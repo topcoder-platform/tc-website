@@ -108,7 +108,7 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=286907" CLASS="bodyGeneric">WishingBone</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=286907" CLASS="bodyGeneric">WishingBone</A>
  won Room 11 with 1038.64 final points, and had a rating point gain of 355, 
 which is the fourth highest ever in Division-I 
 (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gains</A>).  WishingBone earned 270.87 points 
@@ -119,29 +119,29 @@ problems, and won the room by 542.65 points.
 </P>
 
 <P>
-In Room 2, <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>
+In Room 2, <A HREF="/tc?module=MemberProfile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>
  was in fourth place after the "Coding Phase" with 1066.99 
 points, but he successfully challenged two of the three coders ahead of him, 
 and watched the other have a submission fail the system test for a 
 come-from-behind win.  During the "Coding Phase", benetin coded the 
 Level One problem for 268.22 points, the Level Two problem for 263.70, and 
 the Level Three problem for 535.07.  <B>benetin</B> challenged the Level One 
-submissions of <A HREF="/stat?c=member_profile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>
- and <A HREF="/stat?c=member_profile&amp;cr=113178" CLASS="bodyGeneric">po</A>
+submissions of <A HREF="/tc?module=MemberProfile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=113178" CLASS="bodyGeneric">po</A>
  in the "Challenge Phase" for 100 points 
 (1166.99 final points), and watched as the Level One submission of 
-<A HREF="/stat?c=member_profile&amp;cr=142795" CLASS="bodyGeneric">Joe</A> 
+<A HREF="/tc?module=MemberProfile&amp;cr=142795" CLASS="bodyGeneric">Joe</A> 
 failed the system test. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=269980" CLASS="bodyGeneric">FishSpeaker</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=269980" CLASS="bodyGeneric">FishSpeaker</A>
  found himself in sixth place after the "Coding Phase", but 
 like <B>benetin</B> in Room 2, used two successful challenges for a room win.  
 <B>FishSpeaker</B> earned 374.58 points in the "Coding Phase" by coding both 
 the Level One and Two problems.  He then successfully challenged the 
-Level One submissions of <A HREF="/stat?c=member_profile&amp;cr=274259" CLASS="bodyGeneric">TrekkyLeaper</A>
- and <A HREF="/stat?c=member_profile&amp;cr=279845" CLASS="bodyGeneric">dizzy</A>, 
+Level One submissions of <A HREF="/tc?module=MemberProfile&amp;cr=274259" CLASS="bodyGeneric">TrekkyLeaper</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=279845" CLASS="bodyGeneric">dizzy</A>, 
  who were both in front 
 of him, for 100 additional points, and the room win.
 </P>
@@ -153,41 +153,41 @@ of him, for 100 additional points, and the room win.
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=159922" CLASS="bodyGeneric">mike0625</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=159922" CLASS="bodyGeneric">mike0625</A>
  won Room 33 with 1583.39 final points, which was the highest total 
 in Division-II.  <B>mike0625</B> coded all three problems in the "Coding Phase" 
 for 1433.39 points, then added 150 additional points in the "Challenge Phase" 
 with successful challenges of the Level One submissions of 
-<A HREF="/stat?c=member_profile&amp;cr=279987" CLASS="bodyGeneric">bcurren</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=159147" CLASS="bodyGeneric">bkramer</A>, 
-and <A HREF="/stat?c=member_profile&amp;cr=153662" CLASS="bodyGeneric">weirfreak</A>. 
+<A HREF="/tc?module=MemberProfile&amp;cr=279987" CLASS="bodyGeneric">bcurren</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=159147" CLASS="bodyGeneric">bkramer</A>, 
+and <A HREF="/tc?module=MemberProfile&amp;cr=153662" CLASS="bodyGeneric">weirfreak</A>. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=286112" CLASS="bodyGeneric">mbarb</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=286112" CLASS="bodyGeneric">mbarb</A>
  won Room 28 with the second highest point total in Division-II, 1424.92 
 final points, and also had the largest rating point gain of all Division-II 
 coders for the match, 242.  <B>mbarb</B> coded all three problems for 1324.92 points 
 in the "Coding Phase", and then added 100 additional points in 
 the "Challenge Phase", with successful challenges of the Level Three 
-submissions of <A HREF="/stat?c=member_profile&amp;cr=281249" CLASS="bodyGeneric">jrladieu</A>
- and <A HREF="/stat?c=member_profile&amp;cr=112974" CLASS="bodyGeneric">sansri</A>. 
+submissions of <A HREF="/tc?module=MemberProfile&amp;cr=281249" CLASS="bodyGeneric">jrladieu</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=112974" CLASS="bodyGeneric">sansri</A>. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=156420" CLASS="bodyGeneric">edragon</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=156420" CLASS="bodyGeneric">edragon</A>
  had the most successful night in the "Challenge Phase", using four 
 successful challenges for 200 points to win Room 39.  <B>edragon</B> coded all 
 three problems in the "Coding Phase" for 1038.33 points, and found himself 
 in fifth place.  During the "Challenge Phase", <B>edragon</B> successfully 
 challenged the Level One and Three submissions of 
-<A HREF="/stat?c=member_profile&amp;cr=261244" CLASS="bodyGeneric">zakaluka</A>, the Level One 
-submission of <A HREF="/stat?c=member_profile&amp;cr=274886" CLASS="bodyGeneric">dimitrik314159</A>, 
-and the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=283868" CLASS="bodyGeneric">VelvetNight</A>. 
+<A HREF="/tc?module=MemberProfile&amp;cr=261244" CLASS="bodyGeneric">zakaluka</A>, the Level One 
+submission of <A HREF="/tc?module=MemberProfile&amp;cr=274886" CLASS="bodyGeneric">dimitrik314159</A>, 
+and the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=283868" CLASS="bodyGeneric">VelvetNight</A>. 
 </P>
 
 <P>
-Of note, <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="bodyGeneric">Yarin</A>
+Of note, <A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="bodyGeneric">Yarin</A>
  won the Ineligible Room (Room 27) for the 8th consecutive time.
 </P>
 

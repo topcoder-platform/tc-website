@@ -567,7 +567,7 @@ The sequence of door turns in the shortest path through this map is reminiscent 
 
 					 <p>
 					 <img src="/i/m/legakis_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-					 By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=287269"><strong>legakis</strong></a><br />
+					 By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=287269"><strong>legakis</strong></a><br />
 					 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 					 </p>
 				 </td>

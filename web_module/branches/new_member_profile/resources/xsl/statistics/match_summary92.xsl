@@ -108,39 +108,39 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=129815" CLASS="bodyGeneric">dmh2000</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=129815" CLASS="bodyGeneric">dmh2000</A>
  only coded the Level One problem, but it was enough to win Room 20 by 3.62 points, 
-187.47 to 183.85 over <A HREF="/stat?c=member_profile&amp;cr=262953" CLASS="bodyGeneric">MEEP!</A>
+187.47 to 183.85 over <A HREF="/tc?module=MemberProfile&amp;cr=262953" CLASS="bodyGeneric">MEEP!</A>
   &#160;<B>dmh2000</B> coded the Level One problem in 25:29, which placed 
 him fifth after the "Coding Phase".  <B>MEEP!</B> was actually in first place with 478.50 points.  
 During the "Challenge Phase", however, ethaneade successfully challenged the Level Two 
 submission of <B>MEEP!</B>, causing <B>MEEP!</B> to lose the 294.65 points earned on that problem.  
-<A HREF="/stat?c=member_profile&amp;cr=263788" CLASS="bodyGeneric">monteith</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=263788" CLASS="bodyGeneric">monteith</A>, 
 who was in third after the "Coding Phase" also lost points in the 
-"Challenge Phase", while <A HREF="/stat?c=member_profile&amp;cr=272349" CLASS="bodyGeneric">smileywiley</A>
- and <A HREF="/stat?c=member_profile&amp;cr=267180" CLASS="bodyGeneric">Ani</A>, 
+"Challenge Phase", while <A HREF="/tc?module=MemberProfile&amp;cr=272349" CLASS="bodyGeneric">smileywiley</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=267180" CLASS="bodyGeneric">Ani</A>, 
  who were in second and fourth, 
 lost all of there points in the system test. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=280198" CLASS="bodyGeneric">alanm</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=280198" CLASS="bodyGeneric">alanm</A>
  won Room 21 with 513.34 final points, and added 255 points to his rating, 
 the biggest Division-I increase of the match.  <B>alanm</B> earned 231.82 points on the 
 Level One problem, and 281.52 on the Level Two problem.  
-<A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A>
- and <A HREF="/stat?c=member_profile&amp;cr=269213" CLASS="bodyGeneric">Tek</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=269213" CLASS="bodyGeneric">Tek</A>
  both tried 
 to challenge the Level One submission of <B>alanm</B>, but to no avail. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=273414" CLASS="bodyGeneric">drcode</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=273414" CLASS="bodyGeneric">drcode</A>
  had the poorest outing in Room 19, and ended up losing 221 rating points, 
 the most in the division for the match.  <B>drcode</B> submitted code for the Level One 
 and Two problems, earning a combined 460.52 points in the "Coding Phase".  <B>drcode</B> 
 then lost 150 points with three unsuccessful challenges, and 179.35 when 
-<A HREF="/stat?c=member_profile&amp;cr=156439" CLASS="bodyGeneric">Moose</A> 
+<A HREF="/tc?module=MemberProfile&amp;cr=156439" CLASS="bodyGeneric">Moose</A> 
 successfully challenged his Level One submission in the "Challenge Phase".  
 The Level Two submission of <B>drcode</B> ended up failing the system test, 
 leaving <B>drcode</B> with -150 final points for the match.
@@ -154,15 +154,15 @@ leaving <B>drcode</B> with -150 final points for the match.
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A>
  was the top point-getter in Division-II, winning Room 28 with 
 1370.22 final points.  <B>binaryni</B> earned 241.96 points on the Level One 
 problem, 362.46 on the Level Two problem, and 615.80 on the Level 
 Three problem, for 1220.22 points after the "Coding Phase".  <B>binaryni</B> 
 then added 150 points in the "Challenge Phase" with successful challenges 
-of the Level Two submissions of <A HREF="/stat?c=member_profile&amp;cr=280986" CLASS="bodyGeneric">InsaneProdigy</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=263468" CLASS="bodyGeneric">Rakot</A>, 
-and <A HREF="/stat?c=member_profile&amp;cr=159543" CLASS="bodyGeneric">PongsriBunny</A>.  
+of the Level Two submissions of <A HREF="/tc?module=MemberProfile&amp;cr=280986" CLASS="bodyGeneric">InsaneProdigy</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=263468" CLASS="bodyGeneric">Rakot</A>, 
+and <A HREF="/tc?module=MemberProfile&amp;cr=159543" CLASS="bodyGeneric">PongsriBunny</A>.  
 <B>binaryni</B> added 219 rating points, which is the largest gain for the division in the match. 
 </P>
 
@@ -171,8 +171,8 @@ Two rooms were decided by less than one point:
 </P>
 
 <P>
-In Room 62, <A HREF="/stat?c=member_profile&amp;cr=275394" CLASS="bodyGeneric">Tazjam</A>
- outpaced <A HREF="/stat?c=member_profile&amp;cr=283493" CLASS="bodyGeneric">mozuon</A>
+In Room 62, <A HREF="/tc?module=MemberProfile&amp;cr=275394" CLASS="bodyGeneric">Tazjam</A>
+ outpaced <A HREF="/tc?module=MemberProfile&amp;cr=283493" CLASS="bodyGeneric">mozuon</A>
  234.76 to 234.40, a difference of only 
 0.36 points.  <B>Tazjam</B> submitted code for the Level One problem in 7:19, 
 while <B>mozuon</B> submitted six seconds later. 
@@ -180,12 +180,12 @@ while <B>mozuon</B> submitted six seconds later.
 
 <P>
 An even closer battle took place in Room 68, where 
-<A HREF="/stat?c=member_profile&amp;cr=276128" CLASS="bodyGeneric">WordMuncher</A> earned 
-0.22 more points than <A HREF="/stat?c=member_profile&amp;cr=286346" CLASS="bodyGeneric">Tempralisis</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=276128" CLASS="bodyGeneric">WordMuncher</A> earned 
+0.22 more points than <A HREF="/tc?module=MemberProfile&amp;cr=286346" CLASS="bodyGeneric">Tempralisis</A>
  to win the room. <B>WordMuncher</B> spent 
 19:48 on the Level One problem for 178.08 points, while <B>Tempralisis</B> 
 spent three seconds more and earned 177.86.  
-<A HREF="/stat?c=member_profile&amp;cr=271531" CLASS="bodyGeneric">VladVM</A> challenged both 
+<A HREF="/tc?module=MemberProfile&amp;cr=271531" CLASS="bodyGeneric">VladVM</A> challenged both 
 of their codes in the "Challenge Phase", but failed each time.
 </P>
 

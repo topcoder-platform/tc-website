@@ -97,12 +97,12 @@ June 5, 2002</P>
 Rookie Room was oddly small today, only filling 4 rooms with a total of 32
 people, and also surprisingly predictable, therefore this writeup is going
 to be rather small also. Coding phase ended with five scores above 1000.
-<A HREF="/stat?c=member_profile&amp;cr=287266" CLASS="bodyGeneric">jms137</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=287266" CLASS="bodyGeneric">jms137</A>
  took the lead with 1306.38 points, followed by 
- <A HREF="/stat?c=member_profile&amp;cr=287805" CLASS="bodyGeneric">good</A>
+ <A HREF="/tc?module=MemberProfile&amp;cr=287805" CLASS="bodyGeneric">good</A>
  with 1263.67
-points, <A HREF="/stat?c=member_profile&amp;cr=269495" CLASS="bodyGeneric">Ricin</A>
- with 1130.37 points, and <A HREF="/stat?c=member_profile&amp;cr=273421" CLASS="bodyGeneric">Poobslag</A>
+points, <A HREF="/tc?module=MemberProfile&amp;cr=269495" CLASS="bodyGeneric">Ricin</A>
+ with 1130.37 points, and <A HREF="/tc?module=MemberProfile&amp;cr=273421" CLASS="bodyGeneric">Poobslag</A>
 with 1123.37 points.
 </P>
 
@@ -140,10 +140,10 @@ match.
 
 <P>
 Also of note is <B>good</B>, keeping a Level One and Level Two for 593.37 points
-despite two failed challenges, and <A HREF="/stat?c=member_profile&amp;cr=287588" CLASS="bodyGeneric">Descent</A>
+despite two failed challenges, and <A HREF="/tc?module=MemberProfile&amp;cr=287588" CLASS="bodyGeneric">Descent</A>
 , holding on to 590.37 points in
-Room 66. <A HREF="/stat?c=member_profile&amp;cr=287944" CLASS="bodyGeneric">omarr</A>
- and <A HREF="/stat?c=member_profile&amp;cr=287554" CLASS="bodyGeneric">chandan</A>
+Room 66. <A HREF="/tc?module=MemberProfile&amp;cr=287944" CLASS="bodyGeneric">omarr</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=287554" CLASS="bodyGeneric">chandan</A>
  both finished with 535 points and change.
 </P>
 
@@ -154,7 +154,7 @@ cheating. Jello's results will not be found in the match results.
 </P> -->
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

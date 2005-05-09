@@ -107,34 +107,34 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>
 -->
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
 , TopCoder's top-rated member, was the winner in Room 1 with 1130.16 final points after passing the system test for 
-all three submitted problems.  <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
- was the only other coder in the room to successfully complete all three problems, and finished second with 1077.65 points.  <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
- gained 52 rating points and now has a rating of 3029.  <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
+all three submitted problems.  <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
+ was the only other coder in the room to successfully complete all three problems, and finished second with 1077.65 points.  <A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
+ gained 52 rating points and now has a rating of 3029.  <A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
  is the only TopCoder member to reach this mark.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A>
- earned the highest point total in the division, 1152.03, and won Room 2.  <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="coderTextRed">evd</A>
+ earned the highest point total in the division, 1152.03, and won Room 2.  <A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="coderTextRed">evd</A>
  completed all three problems successfully, as did 
-<A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="coderTextRed">erdos</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=156592" CLASS="coderTextRed">erdos</A>
 , who finished in second place with 1068.57 points.
 </P>
 
 <P>
-The biggest upset in the division occurred in Room 9, where <A HREF="/stat?c=member_profile&amp;cr=261035" CLASS="coderTextYellow">Aeth</A>
-, the 10th rated coder of the 10 members in the room, was the winner with 544.55 final points.  <A HREF="/stat?c=member_profile&amp;cr=159544" CLASS="coderTextYellow">dgoodman</A>
-, the eighth rated coder in the room, finished a close second with 524.16 final points.  <A HREF="/stat?c=member_profile&amp;cr=261035" CLASS="coderTextYellow">Aeth</A>
- was in fifth after the "Coding Phase", but gained 50 points in the "Challenge Phase" with a successful challenge of the Level One submission of <A HREF="/stat?c=member_profile&amp;cr=158149" CLASS="coderTextYellow">adrian</A>
+The biggest upset in the division occurred in Room 9, where <A HREF="/tc?module=MemberProfile&amp;cr=261035" CLASS="coderTextYellow">Aeth</A>
+, the 10th rated coder of the 10 members in the room, was the winner with 544.55 final points.  <A HREF="/tc?module=MemberProfile&amp;cr=159544" CLASS="coderTextYellow">dgoodman</A>
+, the eighth rated coder in the room, finished a close second with 524.16 final points.  <A HREF="/tc?module=MemberProfile&amp;cr=261035" CLASS="coderTextYellow">Aeth</A>
+ was in fifth after the "Coding Phase", but gained 50 points in the "Challenge Phase" with a successful challenge of the Level One submission of <A HREF="/tc?module=MemberProfile&amp;cr=158149" CLASS="coderTextYellow">adrian</A>
  for the room win.
 </P>
 
 <P>
-The closest battle in the division took place in Room 23, where <A HREF="/stat?c=member_profile&amp;cr=262598" CLASS="coderTextBlue">ccooper</A>
- beat <A HREF="/stat?c=member_profile&amp;cr=269078" CLASS="coderTextBlue">dzadza</A>
- by 2.61 points (428.86 to 426.25).  Both coders successfully coded the Level One and Level Two problems. <A HREF="/stat?c=member_profile&amp;cr=269078" CLASS="coderTextBlue">dzadza</A>
+The closest battle in the division took place in Room 23, where <A HREF="/tc?module=MemberProfile&amp;cr=262598" CLASS="coderTextBlue">ccooper</A>
+ beat <A HREF="/tc?module=MemberProfile&amp;cr=269078" CLASS="coderTextBlue">dzadza</A>
+ by 2.61 points (428.86 to 426.25).  Both coders successfully coded the Level One and Level Two problems. <A HREF="/tc?module=MemberProfile&amp;cr=269078" CLASS="coderTextBlue">dzadza</A>
  added a successful challenge for 50 points to make the score closer.
 </P>
 
@@ -156,23 +156,23 @@ The closest battle in the division took place in Room 23, where <A HREF="/stat?c
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">            
 <P>
-An extremely close battle took place in Room 53, where <A HREF="/stat?c=member_profile&amp;cr=271231" CLASS="coderTextGray">rden</A>
- earned 1294.88 final points to beat <A HREF="/stat?c=member_profile&amp;cr=264073" CLASS="coderTextGray">bwwei</A>
- by 1.79 points.  <A HREF="/stat?c=member_profile&amp;cr=264073" CLASS="coderTextGray">bwwei</A>
+An extremely close battle took place in Room 53, where <A HREF="/tc?module=MemberProfile&amp;cr=271231" CLASS="coderTextGray">rden</A>
+ earned 1294.88 final points to beat <A HREF="/tc?module=MemberProfile&amp;cr=264073" CLASS="coderTextGray">bwwei</A>
+ by 1.79 points.  <A HREF="/tc?module=MemberProfile&amp;cr=264073" CLASS="coderTextGray">bwwei</A>
  earned 1293.09 final points.  Both coders completed all three problems successfully.
 </P>
 
 <P>
-The top score for a first time coder was earned by <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
-, who gained 1528.15 final points and won Room 61.  <A HREF="/stat?c=member_profile&amp;cr=274018" CLASS="coderTextBlue">Alexandre</A>
- finished a close second with 1501.93 points.  <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+The top score for a first time coder was earned by <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+, who gained 1528.15 final points and won Room 61.  <A HREF="/tc?module=MemberProfile&amp;cr=274018" CLASS="coderTextBlue">Alexandre</A>
+ finished a close second with 1501.93 points.  <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
  had 1428.15 points by completing all three problems in the "Coding Phase", and then added 100 more in the "Challenge Phase" with two successful challenges.
 </P>
 
 <P>
-Division-II had three major upsets with three 10 seeds winning their rooms.  <A HREF="/stat?c=member_profile&amp;cr=266084" CLASS="coderTextGreen">stimpil</A>
- was the winner in Room 39 with 1361.27 final points.  <A HREF="/stat?c=member_profile&amp;cr=271978" CLASS="coderTextGreen">rusi</A>
- earned 1439.88 final points to win right next door in Room 40, while <A HREF="/stat?c=member_profile&amp;cr=274023" CLASS="coderTextBlue">venco</A>
+Division-II had three major upsets with three 10 seeds winning their rooms.  <A HREF="/tc?module=MemberProfile&amp;cr=266084" CLASS="coderTextGreen">stimpil</A>
+ was the winner in Room 39 with 1361.27 final points.  <A HREF="/tc?module=MemberProfile&amp;cr=271978" CLASS="coderTextGreen">rusi</A>
+ earned 1439.88 final points to win right next door in Room 40, while <A HREF="/tc?module=MemberProfile&amp;cr=274023" CLASS="coderTextBlue">venco</A>
  triumphed in Room 48 with a division-high 1651.44 final points.
 </P>
 

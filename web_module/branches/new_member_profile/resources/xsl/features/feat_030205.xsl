@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Performance and Optimization in the "Real World"</strong></font><br />
                         Wednesday, March 2, 2005</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269886"><strong>n0vice</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=269886"><strong>n0vice</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><span class="bodySubtitle">Introduction</span><br />

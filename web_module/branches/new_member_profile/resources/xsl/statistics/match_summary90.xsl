@@ -108,23 +108,23 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>
-Three 10-seeds, <A HREF="/stat?c=member_profile&amp;cr=110013" CLASS="bodyGeneric">Soli</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=268638" CLASS="bodyGeneric">elchive</A>, 
-and <A HREF="/stat?c=member_profile&amp;cr=278595" CLASS="bodyGeneric">seaniswise</A>, 
+Three 10-seeds, <A HREF="/tc?module=MemberProfile&amp;cr=110013" CLASS="bodyGeneric">Soli</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=268638" CLASS="bodyGeneric">elchive</A>, 
+and <A HREF="/tc?module=MemberProfile&amp;cr=278595" CLASS="bodyGeneric">seaniswise</A>, 
 won close battles in Room's 8, 11 and 12. 
 </P>
 
 <P>
 <B>Soli</B> won Room 8 with 577.00 final points, after coding the Level One problem for 
-240.10 points and the Level Two problem for 336.90 points.  Both <A HREF="/stat?c=member_profile&amp;cr=268907" CLASS="bodyGeneric">Trolley</A> 
-and <A HREF="/stat?c=member_profile&amp;cr=279526" CLASS="bodyGeneric">cbthiess</A> 
+240.10 points and the Level Two problem for 336.90 points.  Both <A HREF="/tc?module=MemberProfile&amp;cr=268907" CLASS="bodyGeneric">Trolley</A> 
+and <A HREF="/tc?module=MemberProfile&amp;cr=279526" CLASS="bodyGeneric">cbthiess</A> 
 tried to challenge the Level Two submission of <B>Soli</B>, but to no avail.  The room win 
 was the 14 overall for Soli, who has won $3,875 in 66 matches.
 </P>
 
 <P>
 <B>elchive</B> won Room 11 with 583.23 final points, after coding the Level One problem for 
-226.54 points, and the Level Two problem for 356.69 points. <A HREF="/stat?c=member_profile&amp;cr=283993" CLASS="bodyGeneric">NeutralParity</A> failed in 
+226.54 points, and the Level Two problem for 356.69 points. <A HREF="/tc?module=MemberProfile&amp;cr=283993" CLASS="bodyGeneric">NeutralParity</A> failed in 
 his challenge of the Level Two code of <B>elchive</B>. <B>elchive</B> has won $422 in 16 matches, 
 and has been victorious twice.
 </P>
@@ -133,7 +133,7 @@ and has been victorious twice.
 <B>seaniswise</B> won Room 12 with 540.85 final points.  <B>seaniswise</B> earned 490.85 points in 
 the "Coding Phase", 226.77 on the Level One problem, and 264.08 on the Level Two.  
 <B>seaniswise</B> added 50 points in the "Challenge Phase", with a successful challenge of 
-the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=150905" CLASS="bodyGeneric">solman</A>. 
+the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=150905" CLASS="bodyGeneric">solman</A>. 
 <B>solman</B> was in first place in the room after the "Coding Phase", but ended up finishing fourth.  
 This was the first room win for <B>seaniswise</B>, who has won $215 in eight matches.
 </P>
@@ -145,7 +145,7 @@ This was the first room win for <B>seaniswise</B>, who has won $215 in eight mat
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=158698" CLASS="bodyGeneric">Perlaze</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=158698" CLASS="bodyGeneric">Perlaze</A>
  earned the most points in Division-II, 1392.58, and won Room 25. 
 <B>Perlaze</B> coded the Level One problem in 2:03 for 248.68 points, the Level 
 Two in 5:00 for 485.06 points, and the Level Three in 23:07 for 658.84 points. 
@@ -153,20 +153,20 @@ This is the third room win for <B>Perlaze</B>, who has won $778.00 in 39 matches
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=280380" CLASS="bodyGeneric">dislyxec</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=280380" CLASS="bodyGeneric">dislyxec</A>
  used two challenges for a come-from-behind win in Room 30.  <B>dislyxec</B> 
 coded all the problems for 1106.21 points in the "Coding Phase", which placed 
 him third.  In the "Challenge Phase", <B>dislyxec</B> successfully challenged the Level 
-Three submissions of <A HREF="/stat?c=member_profile&amp;cr=274760" CLASS="bodyGeneric">Doomhammer</A>
- and <A HREF="/stat?c=member_profile&amp;cr=278630" CLASS="bodyGeneric">anniehuang</A>
+Three submissions of <A HREF="/tc?module=MemberProfile&amp;cr=274760" CLASS="bodyGeneric">Doomhammer</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=278630" CLASS="bodyGeneric">anniehuang</A>
  for 100 addtional points, and won 
 the room with 1206.21 final points.  With the room win, <B>dislyxec</B> is now three-for-three 
 in TopCoder SRM's, having won his room in SRM's 85 and 87, as well.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=155087" CLASS="bodyGeneric">carwashi</A>
- won by just 0.31 points over <A HREF="/stat?c=member_profile&amp;cr=268908" CLASS="bodyGeneric">DragonX</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=155087" CLASS="bodyGeneric">carwashi</A>
+ won by just 0.31 points over <A HREF="/tc?module=MemberProfile&amp;cr=268908" CLASS="bodyGeneric">DragonX</A>
  in Room 56, 500.27 to 499.96. <B>carwashi</B> 
 coded the Level One problem in 6:51 for 236.52 points, and the Level Two problem in 
 34:10 for 263.75 points, while <B>DragonX</B> coded the Level One problem in 14:07 for 204.18 points, 

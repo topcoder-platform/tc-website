@@ -16,34 +16,34 @@
                
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+                    <td class="statText"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=296145">srowen</a></td>
                     <td class="statText" align="center">2</td>
                     <td class="statText" align="right">95.47</td>
                 </tr>
 
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498">ThinMan</a></td>
+                    <td class="statText"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=150498">ThinMan</a></td>
                     <td class="statText" align="center">1</td>
                     <td class="statText" align="right">93.09</td>
                 </tr>
                 <tr valign="top">
                	    <td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+                    <td class="statText"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=299180">isv</a></td>
                     <td class="statText" align="center">3</td>
                     <td class="statText" align="right">91.14</td>
                 </tr>
                 
                 <tr valign="top">
                	    <td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
+                    <td class="statText"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=278342">adic</a></td>
                     <td class="statText" align="center">4</td>
                     <td class="statText" align="right">90.41</td>
                 </tr>
                 
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
+                    <td class="statText"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=268546">TangentZ</a></td>
                     <td class="statText" align="center">5</td>
                     <td class="statText" align="right">90.27</td>
                 </tr>

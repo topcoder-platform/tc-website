@@ -109,40 +109,40 @@
 -->
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="bodyGeneric">radeye</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=277659" CLASS="bodyGeneric">radeye</A>
  wins room 2 with 1583.59 points, the highest score in Division-I.  <B>radeye</B> added 50 points to 
 an already impressive score with a successful challenge of 
-<A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A>'s level two submission.  As a result, 
+<A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="bodyGeneric">evd</A>'s level two submission.  As a result, 
 <B>radeye</B> gained 177 rating points. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=262902" CLASS="bodyGeneric">ZandMaster</A>
- surprised room 3, edging past favorite <A HREF="/stat?c=member_profile&amp;cr=158067" CLASS="bodyGeneric">KurtSteinkraus</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=262902" CLASS="bodyGeneric">ZandMaster</A>
+ surprised room 3, edging past favorite <A HREF="/tc?module=MemberProfile&amp;cr=158067" CLASS="bodyGeneric">KurtSteinkraus</A>
  and winning the room with 1096.41 points. 
 </P>
 
 <P>
-In room 4, <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="bodyGeneric">kalmes</A>
+In room 4, <A HREF="/tc?module=MemberProfile&amp;cr=152476" CLASS="bodyGeneric">kalmes</A>
  turned in a 1080.65 point victory, and with a rating increase of 115 points, an 
 induction into the red rating group. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=272761" CLASS="bodyGeneric">jdev</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=272761" CLASS="bodyGeneric">jdev</A>, 
 in room 8, managed to score enough points (1092.64) to have won either room 4 or room 5.  All 
 of <B>jdev</B>'s points came from the coding phase. 
 </P>
 
 <P>
-In room 29 <A HREF="/stat?c=member_profile&amp;cr=269879" CLASS="bodyGeneric">maximuscranius</A>
+In room 29 <A HREF="/tc?module=MemberProfile&amp;cr=269879" CLASS="bodyGeneric">maximuscranius</A>
 , netting 200 points off of six challenges, wins second place in the room 
 with a final score comprised entirely of challenge points.  Interestingly, <B>maximuscranius</B> receives 
 a modest rating point boost in addition to a second place win. 
 </P>
 
 <P>
-In room 17 <A HREF="/stat?c=member_profile&amp;cr=265504" CLASS="bodyGeneric">coderlemming</A>
+In room 17 <A HREF="/tc?module=MemberProfile&amp;cr=265504" CLASS="bodyGeneric">coderlemming</A>
 , the clear favorite to win the room going into the system-testing phase was 
 demolished by the system tests, losing all points acquired during the coding phase. 
 </P>
@@ -156,7 +156,7 @@ demolished by the system tests, losing all points acquired during the coding pha
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
               
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=290274" CLASS="bodyGeneric">Min,lu</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=290274" CLASS="bodyGeneric">Min,lu</A>
 , participating as a first-timer in room 68, posted the highest score in Division-II.  
 With a final score of 1262.55, <B>Min,lu</B> surpassed the next highest Division-II point 
 total by almost 300 points - despite losing 50 points during the challenge phase.  
@@ -164,7 +164,7 @@ With a debut rating of 1845, <B>Min,lu</B> now has the 12th highest rating debut
 </P>
 
 <P>
-In room 56, <A HREF="/stat?c=member_profile&amp;cr=272084" CLASS="bodyGeneric">glenn374</A>
+In room 56, <A HREF="/tc?module=MemberProfile&amp;cr=272084" CLASS="bodyGeneric">glenn374</A>
  submitted an amazing 11 challenges during the challenge phase.  
 With nine of the challenges being successful, <B>glenn374</B> added 350 points, more then 
 doubling the 198.20 points that had been achieved during the coding phase. 
@@ -175,7 +175,7 @@ As a result of SRM 100, nine Division-II coders and 11 first-timers crossed over
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=286283" CLASS="bodyGeneric">mushina</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=286283" CLASS="bodyGeneric">mushina</A>
 , participating for the third time, posted 727.06 points in room 49 - enough 
 to both win the room and rocket up 280 rating points.
 </P>

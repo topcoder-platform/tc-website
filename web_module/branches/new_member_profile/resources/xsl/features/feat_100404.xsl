@@ -78,7 +78,7 @@ p.Code, li.Code, div.Code
                         <p><font size="4"><strong>Peer 2 Fear: Solutions for developers for designing secure P2P applications</strong></font><br />
                         Monday, October 4, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=10135324"><strong>AryanI</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=10135324"><strong>AryanI</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>

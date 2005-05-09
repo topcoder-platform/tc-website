@@ -115,7 +115,7 @@
             </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="coderTextRed">SnapDragon</A>
+                    <A HREF="/tc?module=MemberProfile&amp;cr=272072" CLASS="coderTextRed">SnapDragon</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">1140.23</TD>
                 <TD CLASS="statText" ALIGN="center">1</TD>
@@ -123,7 +123,7 @@
               </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=262936" CLASS="coderTextRed">dgarthur</A>
+                    <A HREF="/tc?module=MemberProfile&amp;cr=262936" CLASS="coderTextRed">dgarthur</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">1009.82</TD>
                 <TD CLASS="statText" ALIGN="center">16</TD>
@@ -131,7 +131,7 @@
               </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=264949" CLASS="coderTextRed">moira</A>
+                    <A HREF="/tc?module=MemberProfile&amp;cr=264949" CLASS="coderTextRed">moira</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">487.01</TD>
                 <TD CLASS="statText" ALIGN="center">59</TD>
@@ -139,7 +139,7 @@
               </TR>
               <TR>
                 <TD CLASS="statText">
-                    <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
+                    <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="coderTextRed">John Dethridge</A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right">502.94</TD>
                 <TD CLASS="statText" ALIGN="center">4</TD>

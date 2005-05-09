@@ -88,31 +88,31 @@
 May 8, 2002</P>
 <P><B>Rookie Review</B></P>
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=154075" CLASS="bodyGeneric">BlueTDimly</A>
- and <A HREF="/stat?c=member_profile&amp;cr=281146" CLASS="bodyGeneric">Cagey</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=154075" CLASS="bodyGeneric">BlueTDimly</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=281146" CLASS="bodyGeneric">Cagey</A>
  both had impressive debuts with ratings of 1525 and
-1659, respectively.  <A HREF="/stat?c=member_profile&amp;cr=281447" CLASS="bodyGeneric">Belle</A>
+1659, respectively.  <A HREF="/tc?module=MemberProfile&amp;cr=281447" CLASS="bodyGeneric">Belle</A>
  beat them both by coding all three problems
 for 1646 points, and then adding 100 points during the challenge phase,
 for the 17th highest debut rating of 1801.  However, 
-<A HREF="/stat?c=member_profile&amp;cr=277956" CLASS="bodyGeneric">kpsmith</A> won
+<A HREF="/tc?module=MemberProfile&amp;cr=277956" CLASS="bodyGeneric">kpsmith</A> won
 division 2 by a large margin, by coding all three problems for 1685.74
 points, and then adding 250 points during the challenge phase.  This
 impressive total gave <B>kpsmith</B> the 7th highest debut rating, at 1894.
-This places him in such honorable company as <A HREF="/stat?c=member_profile&amp;cr=147102" CLASS="bodyGeneric">pl31415</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="bodyGeneric">SnapDragon</A>, and 
-<A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>.
+This places him in such honorable company as <A HREF="/tc?module=MemberProfile&amp;cr=147102" CLASS="bodyGeneric">pl31415</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=272072" CLASS="bodyGeneric">SnapDragon</A>, and 
+<A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>.
 </P>
 
 <P>
-Last week's winning rookie, <A HREF="/stat?c=member_profile&amp;cr=281028" CLASS="bodyGeneric">loopy</A>, 
+Last week's winning rookie, <A HREF="/tc?module=MemberProfile&amp;cr=281028" CLASS="bodyGeneric">loopy</A>, 
 won again this week by taking room 7
 with 1014 points and increasing his rating to 1951.
 </P>
 
 
 <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

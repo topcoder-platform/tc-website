@@ -91,15 +91,15 @@ May 21, 2002</P>
 
 <P>
 In the Rookie Rooms, the coding phase ended with several surprisingly high final scores. 
-<A HREF="/stat?c=member_profile&amp;cr=285012" CLASS="bodyGeneric">zhaozhong</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=285012" CLASS="bodyGeneric">zhaozhong</A>
  led the pack with 1294.74 points, followed by 
- <A HREF="/stat?c=member_profile&amp;cr=285176" CLASS="bodyGeneric">shaq1214</A>
- and <A HREF="/stat?c=member_profile&amp;cr=282574" CLASS="bodyGeneric">maikuru</A> with 1232.23 
-and 1231.99 points, and <A HREF="/stat?c=member_profile&amp;cr=283374" CLASS="bodyGeneric">indigo9</A> 
+ <A HREF="/tc?module=MemberProfile&amp;cr=285176" CLASS="bodyGeneric">shaq1214</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=282574" CLASS="bodyGeneric">maikuru</A> with 1232.23 
+and 1231.99 points, and <A HREF="/tc?module=MemberProfile&amp;cr=283374" CLASS="bodyGeneric">indigo9</A> 
 with 1191.44 points. Other room leaders were
-<A HREF="/stat?c=member_profile&amp;cr=284751" CLASS="bodyGeneric">dspetty</A> 
-with 1097.23 points, <A HREF="/stat?c=member_profile&amp;cr=284788" CLASS="bodyGeneric">tahir</A>
- with 1153.44 points, and <A HREF="/stat?c=member_profile&amp;cr=276453" CLASS="bodyGeneric">aduzik</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=284751" CLASS="bodyGeneric">dspetty</A> 
+with 1097.23 points, <A HREF="/tc?module=MemberProfile&amp;cr=284788" CLASS="bodyGeneric">tahir</A>
+ with 1153.44 points, and <A HREF="/tc?module=MemberProfile&amp;cr=276453" CLASS="bodyGeneric">aduzik</A>
  with 1085.22 points.
 </P>
 
@@ -109,22 +109,22 @@ of a rookie who's going too fast and not checking their work. Today, however, <B
 survived two challenges, and <B>zhaozhong</B> didn't even get challenged. <B>maikuru</B> used the round 
 to gain another 50 points, <B>zhaozhong</B> paralleling that with a successful challenge of his own, 
 but <B>indigo9</B> shot past both of them with an impressive series of five challenges, all 
-successful. <A HREF="/stat?c=member_profile&amp;cr=281085" CLASS="bodyGeneric">Yrth</A>
+successful. <A HREF="/tc?module=MemberProfile&amp;cr=281085" CLASS="bodyGeneric">Yrth</A>
  in room 64 gained 50 points off a challenge for a total of 1161.78, while 
- <A HREF="/stat?c=member_profile&amp;cr=276525" CLASS="bodyGeneric">yfu</A>,
+ <A HREF="/tc?module=MemberProfile&amp;cr=276525" CLASS="bodyGeneric">yfu</A>,
 who was in the same room, brought his score to 1232.81 with two successful challenges.
 </P>
 
 <P>
 <B>zhaozhong</B> won Room 61 with 1344.74 points. 
-<A HREF="/stat?c=member_profile&amp;cr=285282" CLASS="bodyGeneric">nissha4</A> 
-won Room 62 with 562.66 points, and <A HREF="/stat?c=member_profile&amp;cr=282562" CLASS="bodyGeneric">redleaf</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=285282" CLASS="bodyGeneric">nissha4</A> 
+won Room 62 with 562.66 points, and <A HREF="/tc?module=MemberProfile&amp;cr=282562" CLASS="bodyGeneric">redleaf</A>
  won Room 63 with 1009.88 points 
 (followed by <B>maikuru</B>, left with only 698.98 points). <B>Yrth</B> was the leader of Room 64, 
-holding on to 1161.78 points, closely followed by <A HREF="/stat?c=member_profile&amp;cr=285224" CLASS="bodyGeneric">ifndef</A>
- with 1028.49 points. <A HREF="/stat?c=member_profile&amp;cr=156816" CLASS="bodyGeneric">onlycubsfan</A> 
+holding on to 1161.78 points, closely followed by <A HREF="/tc?module=MemberProfile&amp;cr=285224" CLASS="bodyGeneric">ifndef</A>
+ with 1028.49 points. <A HREF="/tc?module=MemberProfile&amp;cr=156816" CLASS="bodyGeneric">onlycubsfan</A> 
 won Room 66 with 596.42 points, making one successful and two unsuccessful challenges to 
-bring him within reach of <A HREF="/stat?c=member_profile&amp;cr=282466" CLASS="bodyGeneric">doog</A>, 
+bring him within reach of <A HREF="/tc?module=MemberProfile&amp;cr=282466" CLASS="bodyGeneric">doog</A>, 
 with 564.67 points including two successful challenges. 
 Unfortunately for <B>doog</B>, that's as far as it went.
 </P>
@@ -135,7 +135,7 @@ and supplemented that with the aforementioned five challenges, for a grand total
 </P>
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
