@@ -10,13 +10,10 @@ import java.util.Iterator;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.forums.model.TCUserManager;
-import com.topcoder.web.forums.model.TCUser;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.User;
-import com.jivesoftware.base.UserManagerFactory;
 
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumFactory;
@@ -38,7 +35,7 @@ public class Thread extends BaseProcessor implements Pageable {
 	
 	private ResultFilter resultFilter;
 	private ForumThread thread;
-	private TCUser user;
+	private User user;
 	
 	protected void businessProcessing() throws Exception {
 		threadID = Long.parseLong(getRequest().getParameter(ForumConstants.THREAD_ID));
@@ -46,8 +43,10 @@ public class Thread extends BaseProcessor implements Pageable {
 		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		thread = forumFactory.getForumThread(threadID);
 		Forum forum = thread.getForum();
-		TCUserManager userManager = (TCUserManager)UserManagerFactory.getInstance();
-		user = (TCUser)userManager.getUser("mktong");
+		user = forumFactory.getUserManager().getUser("mktong");
+		
+		//TCUserManager userManager = (TCUserManager)UserManagerFactory.getInstance();
+		//user = (TCUser)userManager.getUser("mktong");
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
@@ -57,8 +56,6 @@ public class Thread extends BaseProcessor implements Pageable {
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("messages", itMessages);
-		getRequest().setAttribute("user", user);
-		getRequest().setAttribute("userManager", userManager);
 		getRequest().setAttribute("paginator", paginator);
 		
 		setNextPage("/viewThread.jsp");

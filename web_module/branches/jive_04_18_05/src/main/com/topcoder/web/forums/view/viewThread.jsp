@@ -3,7 +3,6 @@
          		 com.topcoder.web.forums.ForumConstants,
          		 com.jivesoftware.forum.stats.ViewCountManager,
          		 com.jivesoftware.forum.action.util.Page,
-         		 com.topcoder.web.forums.model.TCUser,
          		 java.util.Iterator,
                  java.util.Enumeration"
 %>
@@ -17,8 +16,6 @@
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
-<tc-webtag:useBean id="user" name="user" type="com.topcoder.web.forums.model.TCUser" toScope="request"/>
-<tc-webtag:useBean id="userManager" name="userManager" type="com.topcoder.web.forums.model.TCUserManager" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
 <html>
@@ -88,9 +85,7 @@
 	<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
 	<tr>
 	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-	<%  //TCUser tcUser = (TCUser)userManager.getUser(message.getUser().getID());
-		System.out.println("image path = " + message.getUser().getProperty("image_path"));
-		if (message.getUser().getProperty("imagePath") != null) { %>
+	<%  if (message.getUser().getProperty("imagePath") != null) { %>
 		<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
 	<%  } %>
 	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
