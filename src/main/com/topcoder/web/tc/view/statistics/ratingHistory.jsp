@@ -15,7 +15,8 @@
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
-<script language="JavaScript" type="text/javascript" src="/js/tcscript.js"></script>
+   <jsp:include page="baseHRef.jsp" />   
+   <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
