@@ -50,78 +50,81 @@ public class MemberProfile extends Base {
             int algRating = 0;
             int desRating = 0;
             int devRating = 0;
-            
-            if(rsc.getIntItem(0, "rating") != 0) {
-                hasAlg = true;
-                algRating = rsc.getIntItem(0, "rating");
-            }
-            
-            if(rsc.getItem(0, "design_rating").getResultData() != null) {
-                hasDes = true;
-                desRating = rsc.getIntItem(0, "design_rating");
-            }
-            
-            if(rsc.getItem(0, "development_rating").getResultData() != null) {
-                hasDev = true;
-                devRating = rsc.getIntItem(0, "development_rating");
-            }
-            
-            //get the selected tab
+
             String tab = StringUtils.checkNull(getRequest().getParameter("tab"));
-            if(tab.equals("")) {
-                //get the higest rating
-                if(algRating >= desRating && algRating >= devRating) {
-                    tab = "alg";
-                } else if(desRating >= algRating && desRating >= devRating) {
-                    tab = "des";
-                } else {
-                    tab = "dev";
+            
+            if(rsc.size() != 0) {
+            
+                if(rsc.getIntItem(0, "rating") != 0) {
+                    hasAlg = true;
+                    algRating = rsc.getIntItem(0, "rating");
+                }
+
+                if(rsc.getItem(0, "design_rating").getResultData() != null) {
+                    hasDes = true;
+                    desRating = rsc.getIntItem(0, "design_rating");
+                }
+
+                if(rsc.getItem(0, "development_rating").getResultData() != null) {
+                    hasDev = true;
+                    devRating = rsc.getIntItem(0, "development_rating");
+                }
+
+                //get the selected tab
+                if(tab.equals("")) {
+                    //get the higest rating
+                    if(algRating >= desRating && algRating >= devRating) {
+                        tab = "alg";
+                    } else if(desRating >= algRating && desRating >= devRating) {
+                        tab = "des";
+                    } else {
+                        tab = "dev";
+                    }
+                }
+
+                if(tab.equals("alg")) {
+                    //load algo data from Coder_Alg_Data
+                    r = new Request();
+                    r.setContentHandle("Coder_Alg_Data");
+                    r.setProperty("cr", coderId);
+
+                    dai = getDataAccess(true);
+                    Map algoData = dai.getData(r);
+                    Iterator it = algoData.keySet().iterator();
+                    while(it.hasNext()) {
+                        String key = (String) it.next();
+                        result.put(key, algoData.get(key));
+                    }
+                } else if(tab.equals("des")) {
+                    //load des data from Coder_Des_Data
+                    r = new Request();
+                    r.setContentHandle("Coder_Des_Data");
+                    r.setProperty("cr", coderId);
+                    r.setProperty("pi", "112"); //design phase id
+
+                    dai = getDataAccess(true);
+                    Map algoData = dai.getData(r);
+                    Iterator it = algoData.keySet().iterator();
+                    while(it.hasNext()) {
+                        String key = (String) it.next();
+                        result.put(key, algoData.get(key));
+                    }
+                } else if(tab.equals("dev")) {
+                    //load des data from Coder_Des_Data
+                    r = new Request();
+                    r.setContentHandle("Coder_Dev_Data");
+                    r.setProperty("cr", coderId);
+                    r.setProperty("pi", "113"); //design phase id
+
+                    dai = getDataAccess(true);
+                    Map algoData = dai.getData(r);
+                    Iterator it = algoData.keySet().iterator();
+                    while(it.hasNext()) {
+                        String key = (String) it.next();
+                        result.put(key, algoData.get(key));
+                    }
                 }
             }
-            
-            if(tab.equals("alg")) {
-                //load algo data from Coder_Alg_Data
-                r = new Request();
-                r.setContentHandle("Coder_Alg_Data");
-                r.setProperty("cr", coderId);
-
-                dai = getDataAccess(true);
-                Map algoData = dai.getData(r);
-                Iterator it = algoData.keySet().iterator();
-                while(it.hasNext()) {
-                    String key = (String) it.next();
-                    result.put(key, algoData.get(key));
-                }
-            } else if(tab.equals("des")) {
-                //load des data from Coder_Des_Data
-                r = new Request();
-                r.setContentHandle("Coder_Des_Data");
-                r.setProperty("cr", coderId);
-                r.setProperty("pi", "112"); //design phase id
-
-                dai = getDataAccess(true);
-                Map algoData = dai.getData(r);
-                Iterator it = algoData.keySet().iterator();
-                while(it.hasNext()) {
-                    String key = (String) it.next();
-                    result.put(key, algoData.get(key));
-                }
-            } else if(tab.equals("dev")) {
-                //load des data from Coder_Des_Data
-                r = new Request();
-                r.setContentHandle("Coder_Dev_Data");
-                r.setProperty("cr", coderId);
-                r.setProperty("pi", "113"); //design phase id
-
-                dai = getDataAccess(true);
-                Map algoData = dai.getData(r);
-                Iterator it = algoData.keySet().iterator();
-                while(it.hasNext()) {
-                    String key = (String) it.next();
-                    result.put(key, algoData.get(key));
-                }
-            }
-            
             getRequest().setAttribute("resultMap", result);
             
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));

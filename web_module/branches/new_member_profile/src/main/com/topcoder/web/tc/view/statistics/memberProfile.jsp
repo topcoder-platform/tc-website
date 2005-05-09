@@ -40,6 +40,10 @@
 
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
 
+<% if(rscCoderData.size() == 0) {%>
+This member has not yet been rated in a competition.
+<% } else { %>
+
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr><td class="tableTitle" colspan="3">&#160;</td></tr>
    <tr>
@@ -105,6 +109,8 @@
 <jsp:include page="memberProfileTabDev.jsp" />
 <% } %>
 
+
+<% } //close top if%>
         </td>
 <!-- Center Column Ends -->
 
