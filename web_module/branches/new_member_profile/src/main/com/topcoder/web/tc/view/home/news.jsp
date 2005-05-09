@@ -46,7 +46,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm240_prob">SRM 240 - Problem Set & Analysis</A></span><br><br>
       This problem set gave competitors a hard time. The only problem with success rate over 50% was the division 1 easy... with 52,75%.</td>
-      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=309453">Jan_Kuipers</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=309453">Jan_Kuipers</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -96,7 +96,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=042505">The Design Process - Section 4: the wrap up</A></span><br><br>
        "In this final part of the design process series, we explore what should be done on a loss and what to expect after a win!"</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=119676">Pops</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -135,7 +135,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm239_prob">SRM 239 - Problem Set & Analysis</A></span><br><br>
       <b>tomek</b> strikes again! Out of the three coders who managed to solve all the problems, <b>tomek</b> took a comfortable lead of almost 300 points.</td>
-      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=7371063">supernova</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=7371063">supernova</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -150,7 +150,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041905">The Design Process - Section 3: appeals phase do's</A></span><br><br>
        "The purpose [now] turns to provide the reviewer with the proper reasoning and enough information to overturn their original objections."</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=119676">Pops</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -177,7 +177,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm238_prob">SRM 238 - Problem Set & Analysis</A></span><br><br>
       This SRM's early time slot seemed to enhance coder performance.  In Division 2, the medium was submitted by more than 80% of the coders, and most were correct.  The Div 1 Hard was correctly solved by 18 competitors.</td>
-      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=251317">brett1479</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=251317">brett1479</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -228,7 +228,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity2">Computational Complexity: Section 2</A></span><br><br>
        "In this part of the article we will focus on estimating the time complexity for recursive programs. In essence, this will lead to finding the order of growth for solutions of recurrence equations."</td>
-      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=8357090">misof</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/misof_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=8357090">misof</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -243,7 +243,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041105">The Design Process - Section 2: appeals phase don'ts</A></span><br><br>
        "Over the next two weeks we'll explain the phase I believe most designers have trouble with - the appeals phase."</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=119676">Pops</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -258,7 +258,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm237_prob">SRM 237 - Problem Set & Analysis</A></span><br><br>
       With the fastest time on the hard problem, <b>Eryx</b> finished first in division 1 by well over 100 points and moved up to number 3 in the overall ranking.</td>
-      <td class="newsPhoto"><img src="/i/m/legakis_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=287269">legakis</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/legakis_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=287269">legakis</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">

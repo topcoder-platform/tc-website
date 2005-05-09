@@ -68,7 +68,7 @@ if (!bEmpty) {
                 </TR>
                 <TR>
                   <TD COLSPAN="4" CLASS="statText" VALIGN="middle" HEIGHT="16">
-                    <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
+                    <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
                     |   
                     <A HREF="/stat?c=ratings_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Ratings History</A>
                   </TD>

@@ -16,7 +16,7 @@
         styleClass = "coderTextOrange";
       }
       if (u.getRating()>=0)
-        return "<A HREF=\"/stat?c=member_profile&cr="+u.getID()+"\" CLASS=\""+styleClass+"\">"+u.getUsername()+"</A>";
+        return "<A HREF=\"/tc?module=MemberProfile&cr="+u.getID()+"\" CLASS=\""+styleClass+"\">"+u.getUsername()+"</A>";
       else return "<SPAN class=\""+styleClass+"\">"+u.getUsername()+"</SPAN>";
     }
 %>

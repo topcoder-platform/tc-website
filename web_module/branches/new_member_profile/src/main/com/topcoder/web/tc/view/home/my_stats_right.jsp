@@ -12,11 +12,11 @@
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <a href="/stat?c=member_profile&cr=<rsc:item set="<%=coderInfo%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=coderInfo.getIntItem(0, "rating")%>'/>"><rsc:item set="<%=coderInfo%>" name="handle"/></a></td>
+        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <a href="/tc?module=MemberProfile&cr=<rsc:item set="<%=coderInfo%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=coderInfo.getIntItem(0, "rating")%>'/>"><rsc:item set="<%=coderInfo%>" name="handle"/></a></td>
     </tr>
 
     <tr>
-        <td align="center"><a href="<%=coderInfo.getIntItem(0, "has_image")==0?"https://"+request.getServerName()+"/Registration":"/stat?c=member_profile&cr="+coderInfo.getIntItem(0, "coder_id")%>"><img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" width="126" height="140" border="0" class="myStatsPhoto" /></a></td>
+        <td align="center"><a href="<%=coderInfo.getIntItem(0, "has_image")==0?"https://"+request.getServerName()+"/Registration":"/tc?module=MemberProfile&cr="+coderInfo.getIntItem(0, "coder_id")%>"><img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" width="126" height="140" border="0" class="myStatsPhoto" /></a></td>
     </tr>
 </table>
 
@@ -59,7 +59,7 @@
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
 <% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
     <tr>
-        <td class="statTextBig" bgcolor="#333333">Coder: <a href="/stat?c=member_profile&cr=<%=info.getUserId()%>" class="<tc:ratingStyle rating='<%=info.getRating()%>'/>"><%=info.getHandle()%></a></td>
+        <td class="statTextBig" bgcolor="#333333">Coder: <a href="/tc?module=MemberProfile&cr=<%=info.getUserId()%>" class="<tc:ratingStyle rating='<%=info.getRating()%>'/>"><%=info.getHandle()%></a></td>
     </tr>
 
     <tr>
