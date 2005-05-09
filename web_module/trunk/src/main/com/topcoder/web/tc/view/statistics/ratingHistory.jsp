@@ -13,10 +13,9 @@
  <HEAD>
    <TITLE>TopCoder Statistics - Ratings History</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="baseHRef.jsp" />   
-   <jsp:include page="../script.jsp" />
+   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
+<script language="JavaScript" type="text/javascript" src="/js/tcscript.js"></script>
  </HEAD>
  <BODY>
    <jsp:include page="../top.jsp" />
@@ -165,7 +164,7 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
 <!-- END BODY -->
 
        </TD>
-       <td WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" border="0">
+       <td WIDTH="180" VALIGN="top">
          <jsp:include page="../public_right.jsp" >
              <jsp:param name="level1" value="profile"/>
          </jsp:include>
