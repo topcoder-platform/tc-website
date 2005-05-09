@@ -93,10 +93,38 @@
 	</tr>
 	<tr><td class="rtFooter" align="right"><A href="/"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A></td></tr>
 	</table>
-</tc-webtag:iterator>
-
+</tc-webtag:iterator>       
+        
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+<tr><td class="rtbc"><A href="/forums/" class="rtbcLink">Round Tables</A> >> 
+	<A href="/forums/?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
+	<jsp:getProperty name="thread" property="name"/></td>
+<% if (paginator.getNumPages() > 1) { %>
+	<td class="rtbc" align="right"><b> 
+		<%  if (paginator.getPreviousPage()) { %>
+			<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+            	<< PREV</A>&#160;&#160;&#160;
+        <%  } %> [
+        <%  Page[] pages = paginator.getPages(5);
+            for (int i=0; i<pages.length; i++) {
+        %>  <%  if (pages[i] != null) { %>
+        			<%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+        					<%= pages[i].getNumber() %>
+        			<%  } else { %>
+            				<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+	                		<%= pages[i].getNumber() %></A>
+	                <%  } %>
+            <%  } %>
+        <%  } %> ]
+		<%  if (paginator.getNextPage()) { %>
+			&#160;&#160;&#160;<A href="/forums/?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT>></A>
+        <%  } %>
+	</b></td></tr>
+<% } %>
+</table>
         <p><br/></p>
         </td>
+        
 <!-- Center Column Ends -->
 
     </tr>
