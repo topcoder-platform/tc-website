@@ -12,6 +12,7 @@
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
 <head>
@@ -38,14 +39,22 @@
 			</jsp:include>
 		</td>
 <!-- Left Column Ends -->
- 
+
 <!-- Center Column Begins -->
          <td width="100%" class="rtBody">
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="round_table"/>
-            <jsp:param name="title" value="Post a new topic"/>
+            
+            <jsp:param name="title" value="Post a new thread"/>
         </jsp:include>
+
+<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+<tc-webtag:hiddenInput name="module"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.THREAD_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.PARENT_MESSAGE_ID%>"/>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr><td class="rtHeader" colspan="2">New Topic</td></tr>
@@ -56,12 +65,14 @@
 <%  } %>
 <tc-webtag:handle coderId="<%=user.getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell">
-<form name="form1"><b>Subject:</b><br><input type="text" size="60" name="textbox1"><br><br>
-<b>Body:</b><br><textarea name="bigbox" rows="15" cols="60"></textarea></form>
+<tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%><br/></tc-webtag:errorIterator>
+<b>Subject:</b><br><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br><br>
+<tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br/></tc-webtag:errorIterator>
+<b>Body:</b><br><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
 </td>
 </tr>
 <tr><td class="rtFooter"><A href="/"><img src="/i/roundTables/post.gif" class="rtButton" alt="" /></A><A href="/"><img src="/i/roundTables/preview.gif" class="rtButton" alt="" /></A></td></tr>
-</table>
+</table></form>
 
         <p><br/></p>
         </td>
