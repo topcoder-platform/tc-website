@@ -64,7 +64,7 @@ public class FormatTag extends TagSupport {
 
 
                 }
-                pageContext.getOut().print(formatter.format(object));
+                pageContext.getOut().print(ret.toString());
             } else {
                 pageContext.getOut().print(ifNull);
             }
