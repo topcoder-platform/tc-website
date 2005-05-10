@@ -55,7 +55,7 @@ public class FormatTag extends TagSupport {
                 ret.append(formatter.format(object));
                 if (isDate) {
                     String tz1 = new SimpleDateFormat("z").format(object);
-                    log.debug("tz1: " + tz1 + " ret " + ret);
+                    //log.debug("tz1: " + tz1 + " ret " + ret);
                     int start = ret.toString().indexOf(tz1);
                     if (start>-1) {
                         ret.replace(start, start+tz1.length(),

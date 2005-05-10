@@ -87,7 +87,7 @@ document.sessionConfirmForm.submit();
                         <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="testSessionInfo" property="beginDay" />" >
                         <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="testSessionInfo" property="beginYear" />" >
                         <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="testSessionInfo" property="beginHour" />" >
-                    <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></td>
+                    <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm a (z)" /></td>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
 
@@ -97,7 +97,7 @@ document.sessionConfirmForm.submit();
                         <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="testSessionInfo" property="endDay" />" >
                         <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="testSessionInfo" property="endYear" />" >
                         <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="testSessionInfo" property="endHour" />" >
-                    <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></td>
+                    <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm a (z)" /></td>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
 
