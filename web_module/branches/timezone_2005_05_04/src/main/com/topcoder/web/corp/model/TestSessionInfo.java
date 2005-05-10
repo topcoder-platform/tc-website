@@ -131,6 +131,7 @@ public class TestSessionInfo extends BaseModel {
      * Gets the value of <code>beginMonth</code>.
      * This should only be used for validation.  actual values
      * should be retrieved via <code>getBeginDate()</code>
+     * It'll be in timezone associated with this object
      * @return
      */
     public String getBeginMonth() {
@@ -141,6 +142,7 @@ public class TestSessionInfo extends BaseModel {
      * Gets the value of <code>beginDay</code>.
      * This should only be used for validation.  actual values
      * should be retrieved via <code>getBeginDate()</code>
+     * It'll be in timezone associated with this object
      * @return
      */
     public String getBeginDay() {
@@ -151,6 +153,7 @@ public class TestSessionInfo extends BaseModel {
      * Gets the value of <code>beginYear</code>.
      * This should only be used for validation.  actual values
      * should be retrieved via <code>getBeginDate()</code>
+     * It'll be in timezone associated with this object
      * @return
      */
     public String getBeginYear() {
@@ -161,6 +164,7 @@ public class TestSessionInfo extends BaseModel {
      * Gets the value of <code>beginHour</code>.
      * This should only be used for validation.  actual values
      * should be retrieved via <code>getBeginDate()</code>
+     * It'll be in timezone associated with this object
      * @return
      */
     public String getBeginHour() {
@@ -171,6 +175,7 @@ public class TestSessionInfo extends BaseModel {
      * Gets the value of <code>endMonth</code>.
      * This should only be used for validation.  actual values
      * should be retrieved via <code>getEndDate()</code>
+     * It'll be in timezone associated with this object
      * @return
      */
     public String getEndMonth() {
@@ -181,6 +186,7 @@ public class TestSessionInfo extends BaseModel {
      * Gets the value of <code>endDay</code>.
      * This should only be used for validation.  actual values
      * should be retrieved via <code>getEndDate()</code>
+     * It'll be in timezone associated with this object
      * @return
      */
     public String getEndDay() {
@@ -192,6 +198,7 @@ public class TestSessionInfo extends BaseModel {
      * Gets the value of <code>endYear</code>.
      * This should only be used for validation.  actual values
      * should be retrieved via <code>getEndDate()</code>
+     * It'll be in timezone associated with this object
      * @return
      */
     public String getEndYear() {
@@ -203,7 +210,7 @@ public class TestSessionInfo extends BaseModel {
      * Gets the value of <code>endHour</code>.
      * This should only be used for validation.  actual values
      * should be retrieved via <code>getEndDate()</code>
-     *
+     * It'll be in timezone associated with this object
      * @return
      */
     public String getEndHour() {
