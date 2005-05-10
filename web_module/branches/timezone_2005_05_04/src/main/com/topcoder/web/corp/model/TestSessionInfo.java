@@ -2,9 +2,11 @@ package com.topcoder.web.corp.model;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.DateUtils;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class TestSessionInfo extends BaseModel {
     private final static Logger log = Logger.getLogger(TestSessionInfo.class);
@@ -28,6 +30,7 @@ public class TestSessionInfo extends BaseModel {
     private String endHour;
     private String candidateEmail;
     private String repEmail;
+    private String timeZone = TimeZone.getDefault().getID();
     private long testSetALength = 75*60*1000;  //default to 75 minutes
     private long testSetBLength = 60*60*1000;  //default to 1 hour
 
@@ -115,17 +118,9 @@ public class TestSessionInfo extends BaseModel {
     }
 
     /**
-     * Sets the value of <code>beginMonth</code>.
-     *
-     * @param val
-     */
-    public void setBeginMonth(String val) {
-        beginMonth = val;
-    }
-
-    /**
      * Gets the value of <code>beginMonth</code>.
-     *
+     * This should only be used for validation.  actual values
+     * should be retrieved via <code>getBeginDate()</code>
      * @return
      */
     public String getBeginMonth() {
@@ -133,17 +128,9 @@ public class TestSessionInfo extends BaseModel {
     }
 
     /**
-     * Sets the value of <code>beginDay</code>.
-     *
-     * @param val
-     */
-    public void setBeginDay(String val) {
-        beginDay = val;
-    }
-
-    /**
      * Gets the value of <code>beginDay</code>.
-     *
+     * This should only be used for validation.  actual values
+     * should be retrieved via <code>getBeginDate()</code>
      * @return
      */
     public String getBeginDay() {
@@ -151,17 +138,9 @@ public class TestSessionInfo extends BaseModel {
     }
 
     /**
-     * Sets the value of <code>beginYear</code>.
-     *
-     * @param val
-     */
-    public void setBeginYear(String val) {
-        beginYear = val;
-    }
-
-    /**
      * Gets the value of <code>beginYear</code>.
-     *
+     * This should only be used for validation.  actual values
+     * should be retrieved via <code>getBeginDate()</code>
      * @return
      */
     public String getBeginYear() {
@@ -169,17 +148,9 @@ public class TestSessionInfo extends BaseModel {
     }
 
     /**
-     * Sets the value of <code>beginHour</code>.
-     *
-     * @param val
-     */
-    public void setBeginHour(String val) {
-        beginHour = val;
-    }
-
-    /**
      * Gets the value of <code>beginHour</code>.
-     *
+     * This should only be used for validation.  actual values
+     * should be retrieved via <code>getBeginDate()</code>
      * @return
      */
     public String getBeginHour() {
@@ -187,17 +158,9 @@ public class TestSessionInfo extends BaseModel {
     }
 
     /**
-     * Sets the value of <code>endMonth</code>.
-     *
-     * @param val
-     */
-    public void setEndMonth(String val) {
-        endMonth = val;
-    }
-
-    /**
      * Gets the value of <code>endMonth</code>.
-     *
+     * This should only be used for validation.  actual values
+     * should be retrieved via <code>getEndDate()</code>
      * @return
      */
     public String getEndMonth() {
@@ -205,52 +168,31 @@ public class TestSessionInfo extends BaseModel {
     }
 
     /**
-     * Sets the value of <code>endDay</code>.
-     *
-     * @param val
-     */
-    public void setEndDay(String val) {
-        endDay = val;
-    }
-
-    /**
      * Gets the value of <code>endDay</code>.
-     *
+     * This should only be used for validation.  actual values
+     * should be retrieved via <code>getEndDate()</code>
      * @return
      */
     public String getEndDay() {
         return endDay;
     }
 
-    /**
-     * Sets the value of <code>endYear</code>.
-     *
-     * @param val
-     */
-    public void setEndYear(String val) {
-        endYear = val;
-    }
 
     /**
      * Gets the value of <code>endYear</code>.
-     *
+     * This should only be used for validation.  actual values
+     * should be retrieved via <code>getEndDate()</code>
      * @return
      */
     public String getEndYear() {
         return endYear;
     }
 
-    /**
-     * Sets the value of <code>endHour</code>.
-     *
-     * @param val
-     */
-    public void setEndHour(String val) {
-        endHour = val;
-    }
 
     /**
      * Gets the value of <code>endHour</code>.
+     * This should only be used for validation.  actual values
+     * should be retrieved via <code>getEndDate()</code>
      *
      * @return
      */
@@ -332,23 +274,72 @@ public class TestSessionInfo extends BaseModel {
         this.testSetBLength = testSetBLength;
     }
 
+    public String getTimeZone() {
+        return timeZone;
+    }
 
+    /**
+     * set the begin date.  the user provides the timezone but we'll always return it in the
+     * default timezone
+     * @param year
+     * @param month
+     * @param day
+     * @param hour
+     * @param timeZone
+     */
+    public void setBeginDate(String year, String month, String day, String hour, String timeZone) {
+        this.beginYear = year;
+        this.beginMonth = month;
+        this.beginDay = day;
+        this.beginHour = hour;
+        this.timeZone = timeZone;
+    }
+
+    /**
+     * set the dend date.  the user provides the timezone but we'll always return it in the
+     * default timezone
+     * @param year
+     * @param month
+     * @param day
+     * @param hour
+     * @param timeZone
+     */
+    public void setEndDate(String year, String month, String day, String hour, String timeZone) {
+        this.endYear = year;
+        this.endMonth = month;
+        this.endDay = day;
+        this.endHour = hour;
+        this.timeZone = timeZone;
+    }
+
+    /**
+     * set the begin date.   we assume the given date
+     * is in teh default timezone
+     * @param beginDate
+     */
     public void setBeginDate(Date beginDate) {
         Calendar c = Calendar.getInstance();
         c.setTime(beginDate);
-        setBeginYear(String.valueOf(c.get(Calendar.YEAR)));
-        setBeginMonth(String.valueOf(c.get(Calendar.MONTH) + 1));
-        setBeginDay(String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
-        setBeginHour(String.valueOf(c.get(Calendar.HOUR_OF_DAY)));
+        beginYear = (String.valueOf(c.get(Calendar.YEAR)));
+        beginMonth = (String.valueOf(c.get(Calendar.MONTH) + 1));
+        beginDay = (String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
+        beginHour = (String.valueOf(c.get(Calendar.HOUR_OF_DAY)));
+        timeZone = c.getTimeZone().getID();
     }
 
+    /**
+     * set the end date.  we assume the given date
+     * is in the default timezone
+     * @param endDate
+     */
     public void setEndDate(Date endDate) {
         Calendar c = Calendar.getInstance();
         c.setTime(endDate);
-        setEndYear(String.valueOf(c.get(Calendar.YEAR)));
-        setEndMonth(String.valueOf(c.get(Calendar.MONTH) + 1));
-        setEndDay(String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
-        setEndHour(String.valueOf(c.get(Calendar.HOUR_OF_DAY)));
+        endYear = (String.valueOf(c.get(Calendar.YEAR)));
+        endMonth = (String.valueOf(c.get(Calendar.MONTH) + 1));
+        endDay = (String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
+        endHour = (String.valueOf(c.get(Calendar.HOUR_OF_DAY)));
+        timeZone = c.getTimeZone().getID();
     }
 
     public boolean isSelectedProfile(String profileId) {
@@ -359,6 +350,15 @@ public class TestSessionInfo extends BaseModel {
         return this.candidateId != null && this.candidateId.equals(candidateId);
     }
 
+    /**
+     * Given a year, month, day and hour return a date object in the default
+     * timezone
+     * @param year
+     * @param month
+     * @param day
+     * @param hour
+     * @return
+     */
     private Date formDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
         if (year == null || month == null || day == null || hour == null) {
@@ -370,7 +370,7 @@ public class TestSessionInfo extends BaseModel {
                 Integer.parseInt(day),
                 Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
-        return c.getTime();
+        return DateUtils.getConvertedDate(c.getTime(), timeZone);
     }
 
     /**
