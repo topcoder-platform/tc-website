@@ -2,11 +2,13 @@ package com.topcoder.web.common.tag;
 
 import com.topcoder.util.format.ObjectFormatMethod;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.DateUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * @author  dok
@@ -39,16 +41,12 @@ public class CalendarDateFormatMethod implements ObjectFormatMethod {
 
     public String format(Calendar cal) {
         Date d = cal.getTime();
-        return descape(df.format(d));
-    }
-
-    private String descape(String s) {
-        String ret = s;
-        for (int i = 0; i < FORMATS.length; i++) {
-            String deplacement = "'" + FORMATS[i] + "'";
-            ret = StringUtils.replace(ret, deplacement, FORMATS[i]);
-        }
-        return ret.toString();
+        String ret = df.format(d);
+        TimeZone tz = cal.getTimeZone();
+        ret = StringUtils.replace(ret, "'"+LONG_FORMAT+"'", tz.getDisplayName(true, TimeZone.LONG));
+        ret = StringUtils.replace(ret, "'"+MED_FORMAT+"'", DateUtils.getUTCOffsetString(d, tz.getID()));
+        ret = StringUtils.replace(ret, "'"+SHORT_FORMAT+"'", tz.getDisplayName(true, TimeZone.SHORT));
+        return ret;
     }
 
     private String escape(String s) {
