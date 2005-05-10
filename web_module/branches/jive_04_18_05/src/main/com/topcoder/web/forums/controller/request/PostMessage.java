@@ -49,7 +49,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		
 		TransactionManager tm = null;
 		try { 
-			tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+			tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
 		    System.out.println("transaction obtained");
 			
 			if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
