@@ -4,6 +4,7 @@ import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.DateUtils;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -14,6 +15,7 @@ import java.text.SimpleDateFormat;
 
 
 public class FormatTag extends TagSupport {
+    private final static Logger log = Logger.getLogger(FormatTag.class);
     private Object object = null;
     private String format = null;
     private String ifNull = "";
@@ -53,6 +55,7 @@ public class FormatTag extends TagSupport {
                 ret.append(formatter.format(object));
                 if (isDate) {
                     String tz1 = new SimpleDateFormat("z").format(object);
+                    log.debug("tz1: " + tz1 + " ret " + ret);
                     int start = ret.toString().indexOf(tz1);
                     if (start>-1) {
                         ret.replace(start, start+tz1.length(),
