@@ -13,6 +13,8 @@ package com.topcoder.web.tc.controller.request.statistics;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
@@ -27,6 +29,10 @@ public class MemberProfile extends Base {
     
     protected void businessProcessing() throws TCWebException {
         try {
+            //check login status
+            if(getAuthentication().getActiveUser().isAnonymous()) {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
             //step 1, get the base data used for the top section           
             if(!hasParameter("cr")) {
                 throw new TCWebException("Invalid Coder ID");
