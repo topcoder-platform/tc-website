@@ -69,10 +69,10 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			System.out.println("messageID: " + message.getID());
 			System.out.println("threadID: " + threadID);
 			
-			if (message.getSubject().trim().equals("")) {
+			if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
 				addError(ForumConstants.MESSAGE_SUBJECT, "Message subject is empty");
 			}
-			if (message.getBody().trim().equals("")) {
+			if (getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim().equals("")) {
 				addError(ForumConstants.MESSAGE_BODY, "Message body is empty");
 			}
 			
@@ -86,6 +86,10 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
                 tm.rollback();
             }
+			
+			setNextPage("/post.jsp");
+			setIsNextPageInContext(true);
+			return;
 		}		
 		
 		initPagingFields();
