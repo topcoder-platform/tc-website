@@ -78,8 +78,8 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
             <tr><td class="tableCat" colspan="2">&#160;</td></tr>
+            <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
             <tr><td class="tableCat" nowrap="nowrap">Member Since:</td><td class="tableStat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
             <tr><td class="tableCat">Country:</td><td class="tableStat" align="right"><rsc:item name="country_name" set="<%=rscCoderData%>"/></td></tr>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
@@ -97,20 +97,22 @@ This member has not yet been rated in a competition.
 
 <br>
 <!-- Tab barlinks-->
-<jsp:include page="memberProfileTabs.jsp" />
 <%
     String tab = (String)request.getAttribute("tab");
     if(tab.equals("alg")) {
 %>
+<jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabAlg.jsp" />
 <% } else if(tab.equals("des")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabDes.jsp" />
 <% } else if(tab.equals("dev")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabDev.jsp" />
 <% } else { %>
 This member has not been rated in any events.
 <% }%>
-<% } //close top if%>
+<% }%>
         </td>
 <!-- Center Column Ends -->
 
