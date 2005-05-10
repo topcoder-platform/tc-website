@@ -387,7 +387,7 @@ public class TestSessionInfo extends BaseModel {
                 Integer.parseInt(day),
                 Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
-        return DateUtils.getConvertedDate(c.getTime(), timeZone);
+        return DateUtils.getConvertedDate(c.getTime(), timeZone, TimeZone.getDefault().getID());
     }
 
     /**

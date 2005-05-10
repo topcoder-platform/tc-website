@@ -99,7 +99,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                     "Begin Time must be earlier than End Time");
             success = false;
         }
-        if (info.getEndDate().before(DateUtils.getConvertedDate(new Date(), getTimeZone()))) {
+        if (info.getEndDate().before(new Date())) {
             addError("dateCompare",
                     "End Time must be after the current time.");
             success = false;
