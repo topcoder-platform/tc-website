@@ -17,8 +17,10 @@ import com.jivesoftware.forum.ForumFactory;
  */
 public class ForumList extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
+		super.businessProcessing();
+		
 		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
-		Iterator itForums = ForumFactory.getInstance(authToken).getForums();
+		Iterator itForums = forumFactory.getForums();
 		getRequest().setAttribute("forums", itForums);
 		
 		setNextPage("/main.jsp");
