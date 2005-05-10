@@ -29,10 +29,6 @@ public class MemberProfile extends Base {
     
     protected void businessProcessing() throws TCWebException {
         try {
-            //check login status
-            if(getAuthentication().getActiveUser().isAnonymous()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-            }
             //step 1, get the base data used for the top section           
             if(!hasParameter("cr")) {
                 throw new TCWebException("Invalid Coder ID");
