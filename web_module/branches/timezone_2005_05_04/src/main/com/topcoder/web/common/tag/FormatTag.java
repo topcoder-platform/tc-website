@@ -39,7 +39,7 @@ public class FormatTag extends TagSupport {
                         cal.setTime((Date)object);
                         cal.setTimeZone(TimeZone.getTimeZone(getTimeZone()));
                         object = cal;
-                        formatter.setFormatMethodForClass(Date.class,
+                        formatter.setFormatMethodForClass(Calendar.class,
                                 new CalendarDateFormatMethod(format), true);
                     }
                 }

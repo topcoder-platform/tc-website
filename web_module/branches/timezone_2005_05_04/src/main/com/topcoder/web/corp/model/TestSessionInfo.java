@@ -45,7 +45,7 @@ public class TestSessionInfo extends BaseModel {
     /**
      * Sets the value of <code>profile</code>.
      *
-     * @param profile
+     * @param val
      */
     public void setProfileId(String val) {
         profileId = val;
