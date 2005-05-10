@@ -64,7 +64,7 @@ function getProblemDetail(id) {
                     String[] swfFiles = {"/i/corp/screeningRatingOdd.swf", "/i/corp/screeningRatingEven.swf"};
                 %>
 
-              <rsc:item list="<%=results%>" id="resultRow">
+              <rsc:item set="<%=results%>" id="resultRow">
               <tr>
                   <td class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><A href="/corp/testing/?module=PopulateCandidate&referrer=SearchResults&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>"><rsc:item row="<%=resultRow%>" name="name"/></A></td>
                   <td class="<%=cssClasses[counter % 2]%>"><A href="mailto:<rsc:item row="<%=resultRow%>" name="email_address"/>"><rsc:item row="<%=resultRow%>" name="email_address"/></A></td>
