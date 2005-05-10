@@ -92,8 +92,6 @@ function submitSession() {
 
             <screen:form name="sessionSetupForm" action="<%=sessionInfo.getServletPath()%>" method="GET">
             <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
-            <tc-webtag:hiddenInput name="<%=Constants.TIMEZONE%>"/>
-
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>

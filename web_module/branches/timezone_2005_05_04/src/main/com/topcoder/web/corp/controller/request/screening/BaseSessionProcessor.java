@@ -67,12 +67,12 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                 getRequest().getParameter(Constants.BEGIN_MONTH),
                 getRequest().getParameter(Constants.BEGIN_DAY),
                 getRequest().getParameter(Constants.BEGIN_HOUR),
-                getRequest().getParameter(Constants.TIMEZONE));
+                getTimeZone());
         info.setEndDate(getRequest().getParameter(Constants.END_YEAR),
                 getRequest().getParameter(Constants.END_MONTH),
                 getRequest().getParameter(Constants.END_DAY),
                 getRequest().getParameter(Constants.END_HOUR),
-                getRequest().getParameter(Constants.TIMEZONE));
+                getTimeZone());
         info.setCandidateEmail(getRequest().getParameter(Constants.CANDIDATE_EMAIL));
         info.setRepEmail(getRequest().getParameter(Constants.REP_EMAIL));
     }

@@ -1,7 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ page import="com.topcoder.web.corp.common.Constants" %>
+<%@ page import="com.topcoder.web.corp.common.Constants,
+                 java.util.TimeZone" %>
 <html>
 <head>
 <title>Topcoder | Technical Assessment Application Management Tool</title>
@@ -87,7 +88,7 @@ document.sessionConfirmForm.submit();
                         <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="testSessionInfo" property="beginDay" />" >
                         <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="testSessionInfo" property="beginYear" />" >
                         <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="testSessionInfo" property="beginHour" />" >
-                    <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm a z" /></td>
+                    <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm a z" timeZone="<%=testSessionInfo.getTimeZone()%>" /></td>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
 
@@ -97,7 +98,7 @@ document.sessionConfirmForm.submit();
                         <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="testSessionInfo" property="endDay" />" >
                         <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="testSessionInfo" property="endYear" />" >
                         <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="testSessionInfo" property="endHour" />" >
-                    <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm a z" /></td>
+                    <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm a z" timeZone="<%=testSessionInfo.getTimeZone()%>"/></td>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
 
