@@ -52,22 +52,23 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
 		    System.out.println("transaction obtained");
 			
+		    ForumMessage message;
 			if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
 				messageID = Long.parseLong(messageIDStr);
+				message = forumFactory.getMessage(messageID);
 			} else {
-				messageID = forum.createMessage().getID();
+				message = forum.createMessage(user);
 			} System.out.println("message obtained");
 			if (!threadIDStr.equals("")) {
 				threadID = Long.parseLong(threadIDStr);
 			} else {
-				ForumThread newThread = forum.createThread(forumFactory.getMessage(messageID));
+				ForumThread newThread = forum.createThread(message);
 				forum.addThread(newThread);
 				threadID = newThread.getID();
 			}
-			System.out.println("messageID: " + messageID);
+			System.out.println("messageID: " + message.getID());
 			System.out.println("threadID: " + threadID);
 			
-			ForumMessage message = forumFactory.getMessage(messageID);
 			if (message.getSubject().trim().equals("")) {
 				addError(ForumConstants.MESSAGE_SUBJECT, "Message subject is empty");
 			}
