@@ -12,7 +12,9 @@
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<tc-webtag:useBean id="postHeading" name="postHeading" type="java.lang.String" toScope="request"/>
+<tc-webtag:useBean id="postDesc" name="postDesc" type="java.lang.String" toScope="request"/>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
 <head>
@@ -45,19 +47,18 @@
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="round_table"/>
-            
-            <jsp:param name="title" value="Post a new thread"/>
+            <jsp:param name="title" value="<%=postDesc%>"/>
         </jsp:include>
 
-<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>">
+<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.THREAD_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.PARENT_MESSAGE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
-<tr><td class="rtHeader" colspan="2">New Topic</td></tr>
+<tr><td class="rtHeader" colspan="2"><%=postHeading%></td></tr>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (user.getProperty("imagePath") != null) { %>
@@ -65,9 +66,9 @@
 <%  } %>
 <tc-webtag:handle coderId="<%=user.getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell">
-<tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%><br/></tc-webtag:errorIterator>
-<b>Subject:</b><br><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br><br>
-<tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br/></tc-webtag:errorIterator>
+<%-- <tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%><br/></tc-webtag:errorIterator> --%>
+<b>Subject:</b><br><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br><br> 
+<%-- <tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br/></tc-webtag:errorIterator> --%>
 <b>Body:</b><br><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
 </td>
 </tr>

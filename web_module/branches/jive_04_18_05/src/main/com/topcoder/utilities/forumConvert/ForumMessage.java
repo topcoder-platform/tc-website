@@ -74,7 +74,11 @@ public class ForumMessage {
 		sb.append(messageID);
 		sb.append("\">\n");
 		sb.append("<Subject>");
-		sb.append(subject);
+		if (subject.trim().equals("")) {
+			sb.append("(no subject)");
+		} else {
+			sb.append(subject);
+		}
 		sb.append("</Subject>\n");
 		sb.append("<Body>");
 		sb.append(body);
