@@ -77,5 +77,25 @@ public class DateUtils {
         return getOffset(d, TimeZone.getDefault().getID(), toTimeZone);
     }
 
-
+    /**
+     * Returns a string in the format "UTC Sign Hours : Minutes"
+     * @param d
+     * @param timeZone
+     * @return
+     */
+    public static String getUTCOffsetString(Date d, String timeZone) {
+        int diff = DateUtils.getOffset(d, "UTC", timeZone);
+        int hours = diff / (60 * 60 * 1000);
+        int minutes = (diff % (60 * 60 * 1000)) / (60 * 1000);
+        StringBuffer ret = new StringBuffer(10);
+        ret.append("UTC ");
+        if (diff<0) ret.append("-");
+        else if (diff>0) ret.append("+");
+        if (hours<10) ret.append("0");
+        ret.append(Math.abs(hours));
+        ret.append(":");
+        if (minutes<10) ret.append("0");
+        ret.append(Math.abs(minutes));
+        return ret.toString();
+    }
 }

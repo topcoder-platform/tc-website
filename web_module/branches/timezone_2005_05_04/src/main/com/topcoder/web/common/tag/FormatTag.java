@@ -9,6 +9,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 import java.util.Date;
+import java.util.StringTokenizer;
+import java.text.SimpleDateFormat;
 
 
 public class FormatTag extends TagSupport {
@@ -20,6 +22,7 @@ public class FormatTag extends TagSupport {
     public int doStartTag() throws JspException {
         try {
             ObjectFormatter formatter = null;
+            boolean isDate = false;
             if (object != null) {
                 formatter = ObjectFormatterFactory.getEmptyFormatter();
                 if (format != null) {
@@ -27,13 +30,40 @@ public class FormatTag extends TagSupport {
                         formatter.setFormatMethodForClass(Number.class,
                                 new NumberFormatMethod(format), true);
                     } else if (object instanceof Date) {
+                        isDate = true;
                         if (getTimeZone()!=null) object = DateUtils.getConvertedDate((Date)object, getTimeZone());
                         formatter.setFormatMethodForClass(Date.class,
                                 FormatMethodFactory.getDefaultDateFormatMethod(format), true);
+                        StringTokenizer st = new StringTokenizer(format);
+
                     }
                 }
                 formatter.setFormatMethodForClass(new Object().getClass(),
-                        FormatMethodFactory.getDefaultObjectFormatMethod(), true);
+                            FormatMethodFactory.getDefaultObjectFormatMethod(), true);
+
+                /**
+                 * This chunk is an effort to provide support for z and Z in the date
+                 * formatter.  Unfortunately, the java implementation of Date does not
+                 * provide timezone information, so we need to do something on our own.
+                 * This is all i could come up with for now.  This code is really only
+                 * supporting a single z and Z, it will break if there are many z's or Z's
+                 * in the format string as it will simply replace the first.
+                 */
+                StringBuffer ret = new StringBuffer(100);
+                ret.append(formatter.format(object));
+                if (isDate) {
+                    String tz1 = new SimpleDateFormat("z").format(object);
+                    String tz2 = new SimpleDateFormat("Z").format(object);
+                    if (ret.indexOf(tz1)>-1) {
+                        ret.replace(ret.indexOf(tz1), tz1.length(),
+                                DateUtils.getUTCOffsetString(((Date)object), getTimeZone()));
+                    } else if (ret.indexOf(tz2)>-1) {
+                        ret.replace(ret.indexOf(tz2), tz2.length(),
+                                DateUtils.getUTCOffsetString(((Date)object), getTimeZone()));
+                    }
+
+
+                }
                 pageContext.getOut().print(formatter.format(object));
             } else {
                 pageContext.getOut().print(ifNull);
