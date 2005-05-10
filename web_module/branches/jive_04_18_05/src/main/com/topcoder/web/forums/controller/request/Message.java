@@ -19,6 +19,7 @@ import com.topcoder.web.forums.ForumConstants;
 public class Message extends ForumsProcessor {
 
 	protected void businessProcessing() throws Exception {
+		super.businessProcessing();
 		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
 		//ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		//User user = forumFactory.getUserManager().getUser("mktong");

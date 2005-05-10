@@ -24,6 +24,8 @@ import javax.transaction.TransactionManager;
  */
 public class PostMessage extends ForumsProcessor {	
 	protected void businessProcessing() throws Exception {
+		super.businessProcessing();
+		
 		long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
 		long threadID;
 		long messageID;

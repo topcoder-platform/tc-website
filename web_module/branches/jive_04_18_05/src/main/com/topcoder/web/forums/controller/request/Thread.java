@@ -32,6 +32,8 @@ public class Thread extends ForumsProcessor implements Pageable {
 	//private User user;
 	
 	protected void businessProcessing() throws Exception {
+		super.businessProcessing();
+		
 		threadID = Long.parseLong(getRequest().getParameter(ForumConstants.THREAD_ID));
 		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
 		//ForumFactory forumFactory = ForumFactory.getInstance(authToken);
