@@ -28,16 +28,12 @@ public class ThreadList extends ForumsProcessor implements Pageable {
 	
 	private ResultFilter resultFilter;
 	private Forum forum;
-	//private User user;
 	
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 		
 		forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
-		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
-		//ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		forum = forumFactory.getForum(forumID);
-		//user = forumFactory.getUserManager().getUser("mktong");
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);

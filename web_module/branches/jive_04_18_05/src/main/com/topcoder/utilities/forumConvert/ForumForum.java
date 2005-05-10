@@ -1,8 +1,5 @@
 /*
- * Created on Apr 19, 2005 (Eclipse)
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * Created on Apr 19, 2005
  */
 package com.topcoder.utilities.forumConvert;
 
@@ -10,9 +7,6 @@ import java.util.ArrayList;
 
 /**
  * @author mtong
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
 public class ForumForum {
 	private int forumID;

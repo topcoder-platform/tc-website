@@ -1,8 +1,5 @@
 /*
- * Created on Apr 19, 2005 (Eclipse)
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * Created on Apr 19, 2005
  */
 package com.topcoder.utilities.forumConvert;
 
@@ -30,7 +27,6 @@ import com.topcoder.utilities.RatingHistory;
 import com.jivesoftware.forum.*;
 import com.jivesoftware.base.*;
 
-// import jive
 
 /**
  * @author mtong
