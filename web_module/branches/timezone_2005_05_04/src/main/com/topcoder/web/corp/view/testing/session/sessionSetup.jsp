@@ -11,7 +11,6 @@
 
 <jsp:include page="../includes/script.jsp" />
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:useBean id="timeZone" class="java.util.TimeZone" scope="request" />
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -146,7 +145,7 @@ function submitSession() {
 
                 <tr>
                     <td class="testTableTitle" colspan="2">Begin Time</td>
-                    <td class="testTableTimezone"><%=timeZone.getDisplayName(true, TimeZone.LONG)%></td>
+                    <td class="testTableTimezone"><%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getDisplayName(true, TimeZone.LONG)%></td>
                 </tr>
 
                 <tr>
@@ -180,7 +179,7 @@ function submitSession() {
 
                 <tr>
                     <td class="testTableTitle" colspan="2">End Time</td>
-                    <td class="testTableTimezone">All times are <%=timeZone.getDisplayName(true, TimeZone.LONG)%></td>
+                    <td class="testTableTimezone">All times are <%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getDisplayName(true, TimeZone.LONG)%></td>
                 </tr>
 
                 <tr>
