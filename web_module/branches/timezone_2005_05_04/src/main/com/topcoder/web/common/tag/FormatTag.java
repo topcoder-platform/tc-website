@@ -10,10 +10,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 import java.util.Date;
-import java.util.StringTokenizer;
 import java.util.Calendar;
 import java.util.TimeZone;
-import java.text.SimpleDateFormat;
 
 
 public class FormatTag extends TagSupport {
