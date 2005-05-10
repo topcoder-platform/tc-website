@@ -63,6 +63,8 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 				forum.addThread(newThread);
 				threadID = newThread.getID();
 			}
+			System.out.println("messageID: " + messageID);
+			System.out.println("threadID: " + threadID);
 			
 			ForumMessage message = forumFactory.getMessage(messageID);
 			if (message.getSubject().trim().equals("")) {
