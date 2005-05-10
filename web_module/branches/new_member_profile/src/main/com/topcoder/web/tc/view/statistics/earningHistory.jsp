@@ -6,13 +6,15 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Earnings History</TITLE>
-   <jsp:include page="baseHRef.jsp" />   
+   <TITLE>TopCoder Statistics - Ratings History</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
    <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
@@ -25,21 +27,36 @@
                 <jsp:param name="level2" value="earnings_history"/>
             </jsp:include>
        </TD>
-       <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
+<!-- Center Column Begins -->
+<td class="statTableSpacer" width="100%" valign="top">
 
+<jsp:include page="../page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Algorithm Earnings History"/>
+</jsp:include>
 
-         <!-- BEGIN BODY -->
-         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-           <TR>
-             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-               &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Earnings History&#160;&#160;</SPAN>
-             </TD>
-             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
-           </TR>
-         </TABLE>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=request.getParameter("cr")%>' context="algorithm"/></span>
+<br>
+<span class="bodySubtitle">Algorithm Statistics&#160;>&#160;</span><br>
+<span class="bc">
+<A HREF="/tc?module=MemberProfile&cr=<%=request.getParameter("cr")%>" class="bcLink">Member Profile</A>
+&#160;|&#160;<A HREF='/stat?c=ratings_history&cr=<%=request.getParameter("cr")%>' class="bcLink">Rating History</A>
+&#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=request.getParameter("cr")%>','800','600', 'history')" class="bcLink">Rating History Graph</A>
+&#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="bcLink">Rating Distribution Graph</A>
+&#160;|&#160;Earnings History
+</span>
+<br><br>
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
+<TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
+<TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
+&#160;<SPAN CLASS="bodySubhead">&#160;&#160;Earnings History&#160;&#160;</SPAN>
+</TD>
+<TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+</TR>
+</TABLE>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
             <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR/> 
@@ -201,22 +218,19 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
          
          <p><br></p>
 
-         <!-- END BODY -->
+<!-- END BODY -->
 
        </TD>
-       <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
+       <td WIDTH="180" VALIGN="top">
          <jsp:include page="../public_right.jsp" >
              <jsp:param name="level1" value="profile"/>
          </jsp:include>
        </TD>
     <!-- Gutter -->
-    <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
-     </TR>
+    <td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" border="0"/></TD>
+    <!-- Gutter Ends -->
+     </tr>
    </TABLE>
    <jsp:include page="../foot.jsp" />
  </BODY>
 </HTML>
-
-
