@@ -91,6 +91,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
             }
 
             info.setLanguageList(getLanguageList());
+            loadTimeZoneInfo();
 
         } catch (TCWebException e) {
             throw e;

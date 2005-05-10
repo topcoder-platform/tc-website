@@ -42,15 +42,6 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
 
     }
 
-    protected void loadTimeZoneInfo() throws Exception {
-        Company company = (Company) createEJB(getInitialContext(), Company.class);
-        Contact contact = (Contact) createEJB(getInitialContext(), Contact.class);
-        String tz = company.getTimeZone(contact.getCompanyId(getUser().getId(), Constants.DATA_SOURCE));
-        setDefault(Constants.TIMEZONE, tz);
-        getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
-    }
-
-
     protected void updateSessionInfo() {
         TestSessionInfo info = getSessionInfo();
 
