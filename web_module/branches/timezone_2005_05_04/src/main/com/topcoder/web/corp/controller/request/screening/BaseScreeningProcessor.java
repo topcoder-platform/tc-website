@@ -62,16 +62,6 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
 
     abstract protected void screeningProcessing() throws TCWebException;
 
-
-
-    protected void loadTimeZoneInfo() throws Exception {
-        Company company = (Company) createEJB(getInitialContext(), Company.class);
-        Contact contact = (Contact) createEJB(getInitialContext(), Contact.class);
-        String tz = company.getTimeZone(contact.getCompanyId(getUser().getId(), Constants.DATA_SOURCE));
-        setDefault(Constants.TIMEZONE, tz);
-        getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
-    }
-
     /**
      * A helper method building the URL string for specified request processor and referrer. This method constructs an
      * relative URL in form of : <code>?module=processorName&referrer=referrerName</code>.

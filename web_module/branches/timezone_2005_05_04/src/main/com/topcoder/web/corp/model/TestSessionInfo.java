@@ -30,19 +30,28 @@ public class TestSessionInfo extends BaseModel {
     private String endHour;
     private String candidateEmail;
     private String repEmail;
-    private String timeZone = TimeZone.getDefault().getID();
+    private String timeZone;
     private long testSetALength = 75*60*1000;  //default to 75 minutes
     private long testSetBLength = 60*60*1000;  //default to 1 hour
 
     public TestSessionInfo() {
+        this(TimeZone.getDefault().getID());
+    }
+
+    /**
+     * constructor that sets the timezone as well
+     * @param timeZone
+     */
+    public TestSessionInfo(String timeZone) {
         candidateEmail = "YES";
         repEmail = "YES";
-
         Calendar c = Calendar.getInstance();
         beginMonth = endMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
         beginDay = endDay = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
         beginYear = endYear = String.valueOf(c.get(Calendar.YEAR));
         beginHour = endHour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));
+        this.timeZone = timeZone;
+
     }
 
     /**

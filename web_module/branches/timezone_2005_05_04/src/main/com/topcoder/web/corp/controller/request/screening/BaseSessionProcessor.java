@@ -9,9 +9,9 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.TestSessionInfo;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.company.Company;
 import com.topcoder.web.ejb.user.Contact;
+import com.topcoder.web.common.TCWebException;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
@@ -24,25 +24,40 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     private static int BEGIN = 0;
     private static int END = 1;
 
-    protected TestSessionInfo getSessionInfo() {
+    protected TestSessionInfo getSessionInfo() throws TCWebException {
         HttpSession session = getRequest().getSession();
         TestSessionInfo info = (TestSessionInfo)
                 session.getAttribute(Constants.SESSION_INFO);
         if (info == null) {
-            info = new TestSessionInfo();
+            info = new TestSessionInfo(getTimeZone());
             session.setAttribute(Constants.SESSION_INFO, info);
         }
 
         return info;
     }
 
+    protected void loadTimeZoneInfo() throws TCWebException {
+        String tz= getTimeZone();
+        setDefault(Constants.TIMEZONE, tz);
+        getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
+    }
+
+    protected String getTimeZone() throws TCWebException {
+        try {
+            Company company = (Company) createEJB(getInitialContext(), Company.class);
+            Contact contact = (Contact) createEJB(getInitialContext(), Contact.class);
+            return company.getTimeZone(contact.getCompanyId(getUser().getId(), Constants.DATA_SOURCE));
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
     protected void clearSessionInfo() {
         HttpSession session = getRequest().getSession();
         session.removeAttribute(Constants.SESSION_INFO);
-
     }
 
-    protected void updateSessionInfo() {
+    protected void updateSessionInfo() throws TCWebException {
         TestSessionInfo info = getSessionInfo();
 
         info.setProfileId(getRequest().getParameter(Constants.PROFILE_ID));
