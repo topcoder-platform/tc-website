@@ -47,9 +47,9 @@ public class CalendarDateFormatMethod implements ObjectFormatMethod {
         String ret = df.format(d);
         log.debug("formatted : " + ret);
         TimeZone tz = cal.getTimeZone();
-        ret = StringUtils.replace(ret, "'"+LONG_FORMAT+"'", tz.getDisplayName(true, TimeZone.LONG));
-        ret = StringUtils.replace(ret, "'"+MED_FORMAT+"'", DateUtils.getUTCOffsetString(d, tz.getID()));
-        ret = StringUtils.replace(ret, "'"+SHORT_FORMAT+"'", tz.getDisplayName(true, TimeZone.SHORT));
+        ret = StringUtils.replace(ret, LONG_FORMAT, tz.getDisplayName(true, TimeZone.LONG));
+        ret = StringUtils.replace(ret, MED_FORMAT, DateUtils.getUTCOffsetString(d, tz.getID()));
+        ret = StringUtils.replace(ret, SHORT_FORMAT, tz.getDisplayName(true, TimeZone.SHORT));
         return ret;
     }
 
