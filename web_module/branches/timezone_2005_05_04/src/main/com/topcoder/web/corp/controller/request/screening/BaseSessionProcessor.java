@@ -9,11 +9,15 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.TestSessionInfo;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.company.Company;
+import com.topcoder.web.ejb.user.Contact;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.Date;
+import java.util.TimeZone;
 
 public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     private final static Logger log = Logger.getLogger(BaseSessionProcessor.class);
@@ -38,21 +42,30 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
 
     }
 
+    protected void loadTimeZoneInfo() throws Exception {
+        Company company = (Company) createEJB(getInitialContext(), Company.class);
+        Contact contact = (Contact) createEJB(getInitialContext(), Contact.class);
+        String tz = company.getTimeZone(contact.getCompanyId(getUser().getId(), Constants.DATA_SOURCE));
+        setDefault(Constants.TIMEZONE, tz);
+        getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
+    }
+
+
     protected void updateSessionInfo() {
         TestSessionInfo info = getSessionInfo();
 
         info.setProfileId(getRequest().getParameter(Constants.PROFILE_ID));
         info.setCandidateId(getRequest().getParameter(Constants.CANDIDATE_ID));
         info.setBeginDate(getRequest().getParameter(Constants.BEGIN_MONTH),
-                            getRequest().getParameter(Constants.BEGIN_DAY),
-                            getRequest().getParameter(Constants.BEGIN_YEAR),
-                            getRequest().getParameter(Constants.BEGIN_HOUR),
-                            getRequest().getParameter(Constants.TIMEZONE));
+                getRequest().getParameter(Constants.BEGIN_DAY),
+                getRequest().getParameter(Constants.BEGIN_YEAR),
+                getRequest().getParameter(Constants.BEGIN_HOUR),
+                getRequest().getParameter(Constants.TIMEZONE));
         info.setEndDate(getRequest().getParameter(Constants.END_MONTH),
-                            getRequest().getParameter(Constants.END_DAY),
-                            getRequest().getParameter(Constants.END_YEAR),
-                            getRequest().getParameter(Constants.END_HOUR),
-                            getRequest().getParameter(Constants.TIMEZONE));
+                getRequest().getParameter(Constants.END_DAY),
+                getRequest().getParameter(Constants.END_YEAR),
+                getRequest().getParameter(Constants.END_HOUR),
+                getRequest().getParameter(Constants.TIMEZONE));
         info.setCandidateEmail(getRequest().getParameter(Constants.CANDIDATE_EMAIL));
         info.setRepEmail(getRequest().getParameter(Constants.REP_EMAIL));
     }
