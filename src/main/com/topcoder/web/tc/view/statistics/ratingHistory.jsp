@@ -178,5 +178,3 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
    <jsp:include page="../foot.jsp" />
  </BODY>
 </HTML>
-
-
