@@ -43,6 +43,10 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
 		
+		System.out.println("forumID: " + forumID);
+		System.out.println("threadIDstr: " + threadIDStr);
+		System.out.println("messageIDstr: " + messageIDStr);
+		
 		TransactionManager tm = null;
 		try { 
 			tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
