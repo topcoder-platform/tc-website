@@ -759,6 +759,13 @@
         </init-param>
 
         <init-param>
+            <param-name>timezone</param-name>
+            <param-value>tz</param-value>
+            <description></description>
+        </init-param>
+
+
+        <init-param>
             <param-name>candidate_email</param-name>
             <param-value>candidateEmailInfo</param-value>
             <description></description>

@@ -43,15 +43,16 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
 
         info.setProfileId(getRequest().getParameter(Constants.PROFILE_ID));
         info.setCandidateId(getRequest().getParameter(Constants.CANDIDATE_ID));
-        info.setBeginMonth(getRequest().getParameter(Constants.BEGIN_MONTH));
-        info.setBeginDay(getRequest().getParameter(Constants.BEGIN_DAY));
-        info.setBeginYear(getRequest().getParameter(Constants.BEGIN_YEAR));
-        info.setBeginHour(getRequest().getParameter(Constants.BEGIN_HOUR));
-        info.setEndMonth(getRequest().getParameter(Constants.END_MONTH));
-        info.setEndDay(getRequest().getParameter(Constants.END_DAY));
-        info.setEndYear(getRequest().getParameter(Constants.END_YEAR));
-        info.setEndHour(getRequest().getParameter(Constants.END_HOUR));
-        log.debug("candidate email: " + getRequest().getParameter(Constants.CANDIDATE_EMAIL));
+        info.setBeginDate(getRequest().getParameter(Constants.BEGIN_MONTH),
+                            getRequest().getParameter(Constants.BEGIN_DAY),
+                            getRequest().getParameter(Constants.BEGIN_YEAR),
+                            getRequest().getParameter(Constants.BEGIN_HOUR),
+                            getRequest().getParameter(Constants.TIMEZONE));
+        info.setEndDate(getRequest().getParameter(Constants.END_MONTH),
+                            getRequest().getParameter(Constants.END_DAY),
+                            getRequest().getParameter(Constants.END_YEAR),
+                            getRequest().getParameter(Constants.END_HOUR),
+                            getRequest().getParameter(Constants.TIMEZONE));
         info.setCandidateEmail(getRequest().getParameter(Constants.CANDIDATE_EMAIL));
         info.setRepEmail(getRequest().getParameter(Constants.REP_EMAIL));
     }
