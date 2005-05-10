@@ -1,6 +1,8 @@
-<%@ page import="com.topcoder.web.corp.common.Constants" %>
+<%@ page import="com.topcoder.web.corp.common.Constants,
+                 java.util.TimeZone" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -9,6 +11,7 @@
 
 <jsp:include page="../includes/script.jsp" />
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="timeZone" class="java.util.TimeZone" scope="request" />
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -90,6 +93,8 @@ function submitSession() {
 
             <screen:form name="sessionSetupForm" action="<%=sessionInfo.getServletPath()%>" method="GET">
             <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
+            <tc-webtag:hiddenInput name="<%=Constants.TIMEZONE%>"/>
+
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
@@ -141,7 +146,7 @@ function submitSession() {
 
                 <tr>
                     <td class="testTableTitle" colspan="2">Begin Time</td>
-                    <td class="testTableTimezone">All times are Eastern Time</td>
+                    <td class="testTableTimezone"><%=timeZone.getDisplayName(true, TimeZone.LONG)%></td>
                 </tr>
 
                 <tr>
@@ -175,7 +180,7 @@ function submitSession() {
 
                 <tr>
                     <td class="testTableTitle" colspan="2">End Time</td>
-                    <td class="testTableTimezone">All times are Eastern Time</td>
+                    <td class="testTableTimezone">All times are <%=timeZone.getDisplayName(true, TimeZone.LONG)%></td>
                 </tr>
 
                 <tr>
