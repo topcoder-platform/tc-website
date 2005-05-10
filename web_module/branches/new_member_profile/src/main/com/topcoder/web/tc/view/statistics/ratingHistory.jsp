@@ -11,7 +11,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Algorithm Rating History</TITLE>
+   <TITLE>TopCoder Statistics</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
@@ -52,7 +52,7 @@ ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 pageContext.setAttribute("resultRow", rsr);
 %>
 
-<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>			
+<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>      
 <% 
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Ratings_History");
@@ -81,9 +81,9 @@ pageContext.setAttribute("prev_sr", Integer.toString(iTemp));
 
 String sortString = "";
 if (srb.getProperty("sq")!=null){
-	sortString="&sq=" + srb.getProperty("sq");
-	sortString+="&sc=" + srb.getProperty("sc");
-	sortString+="&sd=" + srb.getProperty("sd", "desc");	
+  sortString="&sq=" + srb.getProperty("sq");
+  sortString+="&sc=" + srb.getProperty("sc");
+  sortString+="&sd=" + srb.getProperty("sd", "desc");  
 }
 String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratings_History";
 %>

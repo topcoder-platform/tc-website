@@ -11,7 +11,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Ratings History</TITLE>
+   <TITLE>TopCoder Statistics</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
@@ -59,7 +59,7 @@ if (!bEmpty) {
   pageContext.setAttribute("resultRow", rsr);
 %>
 
-		<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>			
+    <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>      
 <% 
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Earnings_History");
@@ -88,26 +88,26 @@ pageContext.setAttribute("prev_sr", Integer.toString(iTemp));
 
 String sortString = "";
 if (srb.getProperty("sq")!=null){
-	sortString="&sq=" + srb.getProperty("sq");
-	sortString+="&sc=" + srb.getProperty("sc");
-	sortString+="&sd=" + srb.getProperty("sd", "desc");	
+  sortString="&sq=" + srb.getProperty("sq");
+  sortString+="&sc=" + srb.getProperty("sc");
+  sortString+="&sd=" + srb.getProperty("sd", "desc");  
 }
 String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earnings_History";
 %>
 
-<% if (!bEmpty) { %>	
+<% if (!bEmpty) { %>  
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
    <div class="pagingBox">
       <% if (rsc2.croppedDataBefore()) { %>
       <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">&lt;&lt; previous</a>   
       <% } else { %>
-      &lt;&lt; previous	
+      &lt;&lt; previous  
       <% } %>
       &nbsp;|&nbsp;
       <% if (rsc2.croppedDataAfter()) { %>
-					<a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">next &gt;&gt;</a>
+          <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">next &gt;&gt;</a>
       <% } else { %>
-					 next &gt;&gt;					 
+           next &gt;&gt;           
       <% } %>
    </div>
    <% } else { %>
@@ -147,19 +147,19 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
    This member has no earnings history.
 <% } %>
 
-<% if (!bEmpty) { %>	
+<% if (!bEmpty) { %>  
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
    <div class="pagingBox">
       <% if (rsc2.croppedDataBefore()) { %>
       <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("prev_sr").toString() %>&er=<%=pageContext.getAttribute("prev_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">&lt;&lt; previous</a>   
       <% } else { %>
-      &lt;&lt; previous	
+      &lt;&lt; previous  
       <% } %>
       &nbsp;|&nbsp;
       <% if (rsc2.croppedDataAfter()) { %>
-					<a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">next &gt;&gt;</a>
+          <a href="/stat?c=earnings_history&cr=<%=pageContext.getAttribute("coder_id").toString() %>&sr=<%=pageContext.getAttribute("next_sr").toString() %>&er=<%=pageContext.getAttribute("next_er").toString() %>&nr=<%=pageContext.getAttribute("nr").toString() %><%=sortString%>" class="statText">next &gt;&gt;</a>
       <% } else { %>
-					 next &gt;&gt;					 
+           next &gt;&gt;           
       <% } %>
    </div>
    <% } %>
