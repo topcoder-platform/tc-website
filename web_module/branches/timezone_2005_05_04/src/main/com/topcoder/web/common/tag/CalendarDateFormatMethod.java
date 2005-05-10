@@ -3,6 +3,7 @@ package com.topcoder.web.common.tag;
 import com.topcoder.util.format.ObjectFormatMethod;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.DateUtils;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,6 +17,7 @@ import java.util.TimeZone;
  * Create Date: May 10, 2005
  */
 public class CalendarDateFormatMethod implements ObjectFormatMethod {
+    private final static Logger log = Logger.getLogger(CalendarDateFormatMethod.class);
 
     private static final String LONG_FORMAT = "zzz";
     private static final String MED_FORMAT = "zz";
@@ -37,11 +39,13 @@ public class CalendarDateFormatMethod implements ObjectFormatMethod {
     public CalendarDateFormatMethod(String format) {
         this.format = escape(format);
         df = new SimpleDateFormat(this.format);
+        log.debug("format string " + this.format);
     }
 
     public String format(Calendar cal) {
         Date d = cal.getTime();
         String ret = df.format(d);
+        log.debug("formatted : " + ret);
         TimeZone tz = cal.getTimeZone();
         ret = StringUtils.replace(ret, "'"+LONG_FORMAT+"'", tz.getDisplayName(true, TimeZone.LONG));
         ret = StringUtils.replace(ret, "'"+MED_FORMAT+"'", DateUtils.getUTCOffsetString(d, tz.getID()));
