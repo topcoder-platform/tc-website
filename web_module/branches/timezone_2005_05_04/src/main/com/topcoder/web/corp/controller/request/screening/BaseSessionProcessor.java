@@ -12,6 +12,7 @@ import com.topcoder.web.corp.model.TestSessionInfo;
 import com.topcoder.web.ejb.company.Company;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.DateUtils;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
@@ -98,8 +99,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                     "Begin Time must be earlier than End Time");
             success = false;
         }
-        Date now = new Date();
-        if (info.getEndDate().before(now)) {
+        if (info.getEndDate().before(DateUtils.getConvertedDate(new Date(), getTimeZone()))) {
             addError("dateCompare",
                     "End Time must be after the current time.");
             success = false;
