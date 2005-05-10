@@ -22,19 +22,21 @@ import com.topcoder.web.forums.ForumConstants;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class EditMessage extends BaseProcessor {
+public class Message extends BaseProcessor {
 
 	protected void businessProcessing() throws Exception {
 		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
 		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		User user = forumFactory.getUserManager().getUser("mktong");
 		
-		// forumID, threadID, potentially messageID for edit
+		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
+		
 		setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
 		setDefault(ForumConstants.THREAD_ID, getRequest().getParameter(ForumConstants.THREAD_ID));
 		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
+		setDefault(ForumConstants.POST_MODE, postMode);
 		
-		if (hasParameter(ForumConstants.MESSAGE_ID)) {
+		if (postMode.equals("Reply")) {
 			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
 			setDefault(ForumConstants.MESSAGE_SUBJECT, "Re: " + message.getSubject());
 		}
@@ -43,8 +45,29 @@ public class EditMessage extends BaseProcessor {
 		//	ForumMessage message = forumFactory.getMessage(getRequest().getParameter(ForumConstants.MESSAGE_ID));			
 		//}
 		
+		String postHeading = "";
+		String postDesc = "";
+		
+		if (postMode.equals("NewThread")) {
+			postHeading = "New Thread";
+			postDesc = "Create a new thread";
+		} else if (postMode.equals("NewMessage")) {
+			postHeading = "New Message";
+			postDesc = "Post a new message";
+		} else if (postMode.equals("Reply")) {
+			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
+			postHeading = "Re: " + message.getSubject();
+			postDesc = "Reply";
+		} else if (postMode.equals("Edit")) {
+			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
+			postHeading = "Edit: " + message.getSubject();
+			postDesc = "Edit message";
+		}
+		
 		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("user", user);
+		getRequest().setAttribute("postHeading", postHeading);
+		getRequest().setAttribute("postDesc", postDesc);
 		
 		setNextPage("/post.jsp");
 		setIsNextPageInContext(true);
