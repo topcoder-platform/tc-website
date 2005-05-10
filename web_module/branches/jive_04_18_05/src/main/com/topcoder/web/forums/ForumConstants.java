@@ -17,4 +17,6 @@ public interface ForumConstants {
 	public final static String START_IDX = "start";
 	
 	public final static String POST_MODE = "mode";
+	
+	public final static String FORUMS_DIR = "/forums/";
 }

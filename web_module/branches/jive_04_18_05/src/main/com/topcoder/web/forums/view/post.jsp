@@ -72,7 +72,7 @@
 <b>Body:</b><br><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
 </td>
 </tr>
-<tr><td class="rtFooter"><A href="/forums/?module=PostMessage"/>"><img src="/i/roundTables/post.gif" class="rtButton" alt="" /></A><A href="/forums/?module=PreviewMessage"><img src="/i/roundTables/preview.gif" class="rtButton" alt="" /></A></td></tr>
+<tr><td class="rtFooter"><A href="javascript:document.form1.module=PostMessage;document.form1.submit();"><img src="/i/roundTables/post.gif" class="rtButton" alt="" /></A><A href="/forums/?module=PreviewMessage"><img src="/i/roundTables/preview.gif" class="rtButton" alt="" /></A></td></tr>
 </table></form>
 
         <p><br/></p>
