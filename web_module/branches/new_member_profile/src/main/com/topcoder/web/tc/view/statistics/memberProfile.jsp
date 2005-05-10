@@ -99,8 +99,10 @@ This member has not yet been rated in a competition.
 <!-- Tab barlinks-->
 <%
     String tab = (String)request.getAttribute("tab");
-    if(tab.equals("alg")) {
+    if(tab.equals("")) {
 %>
+        This member has not been rated in any events.
+<%    } else if(tab.equals("alg")) {%>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabAlg.jsp" />
 <% } else if(tab.equals("des")) { %>
@@ -109,8 +111,6 @@ This member has not yet been rated in a competition.
 <% } else if(tab.equals("dev")) { %>
 <jsp:include page="memberProfileTabs.jsp" />
 <jsp:include page="memberProfileTabDev.jsp" />
-<% } else { %>
-This member has not been rated in any events.
 <% }%>
 <% }%>
         </td>
