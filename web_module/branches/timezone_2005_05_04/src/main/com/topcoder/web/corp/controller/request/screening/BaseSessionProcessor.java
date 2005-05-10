@@ -63,14 +63,14 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
 
         info.setProfileId(getRequest().getParameter(Constants.PROFILE_ID));
         info.setCandidateId(getRequest().getParameter(Constants.CANDIDATE_ID));
-        info.setBeginDate(getRequest().getParameter(Constants.BEGIN_MONTH),
+        info.setBeginDate(getRequest().getParameter(Constants.BEGIN_YEAR),
+                getRequest().getParameter(Constants.BEGIN_MONTH),
                 getRequest().getParameter(Constants.BEGIN_DAY),
-                getRequest().getParameter(Constants.BEGIN_YEAR),
                 getRequest().getParameter(Constants.BEGIN_HOUR),
                 getRequest().getParameter(Constants.TIMEZONE));
-        info.setEndDate(getRequest().getParameter(Constants.END_MONTH),
+        info.setEndDate(getRequest().getParameter(Constants.END_YEAR),
+                getRequest().getParameter(Constants.END_MONTH),
                 getRequest().getParameter(Constants.END_DAY),
-                getRequest().getParameter(Constants.END_YEAR),
                 getRequest().getParameter(Constants.END_HOUR),
                 getRequest().getParameter(Constants.TIMEZONE));
         info.setCandidateEmail(getRequest().getParameter(Constants.CANDIDATE_EMAIL));
