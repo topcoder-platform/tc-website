@@ -1,14 +1,11 @@
 /*
- * Created on Apr 29, 2005 (Eclipse)
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * Created on Apr 29, 2005
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.ForumsProcessor;
 
 import com.topcoder.shared.util.ApplicationServer;
 
@@ -24,18 +21,16 @@ import javax.transaction.TransactionManager;
 
 /**
  * @author mtong
- *
- * 
  */
-public class PostMessage extends BaseProcessor {	
+public class PostMessage extends ForumsProcessor {	
 	protected void businessProcessing() throws Exception {
 		long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
 		long threadID;
 		long messageID;
 		
-		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
-		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
-		User user = forumFactory.getUserManager().getUser("mktong");
+		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
+		//ForumFactory forumFactory = ForumFactory.getInstance(authToken);
+		//User user = forumFactory.getUserManager().getUser("mktong");
 		Forum forum = forumFactory.getForum(forumID);
 		
 		String threadIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_ID));

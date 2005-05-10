@@ -1,8 +1,5 @@
 /*
- * Created on Apr 29, 2005 (Eclipse)
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * Created on Apr 29, 2005
  */
 package com.topcoder.web.forums.controller.request;
 
@@ -12,22 +9,19 @@ import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
 
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.ForumsProcessor;
 import com.topcoder.web.forums.ForumConstants;
 
 
 /**
  * @author mtong
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
-public class Message extends BaseProcessor {
+public class Message extends ForumsProcessor {
 
 	protected void businessProcessing() throws Exception {
-		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
-		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
-		User user = forumFactory.getUserManager().getUser("mktong");
+		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
+		//ForumFactory forumFactory = ForumFactory.getInstance(authToken);
+		//User user = forumFactory.getUserManager().getUser("mktong");
 		
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
 		
@@ -39,6 +33,11 @@ public class Message extends BaseProcessor {
 		if (postMode.equals("Reply")) {
 			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
 			setDefault(ForumConstants.MESSAGE_SUBJECT, "Re: " + message.getSubject());
+		}
+		if (postMode.equals("Edit")) {
+			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
+			setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
+			setDefault(ForumConstants.MESSAGE_BODY, message.getBody());
 		}
 		
 		//if (hasParameter(ForumConstants.MESSAGE_ID)) {

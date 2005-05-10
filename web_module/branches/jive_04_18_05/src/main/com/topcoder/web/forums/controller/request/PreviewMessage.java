@@ -1,20 +1,14 @@
 /*
- * Created on Apr 29, 2005 (Eclipse)
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * Created on Apr 29, 2005
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.ForumsProcessor;
 
 /**
  * @author mtong
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
-public class PreviewMessage extends BaseProcessor {
+public class PreviewMessage extends ForumsProcessor {
 
 	
 	protected void businessProcessing() throws Exception {

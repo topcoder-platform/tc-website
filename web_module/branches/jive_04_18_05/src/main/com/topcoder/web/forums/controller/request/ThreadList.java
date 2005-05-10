@@ -1,15 +1,12 @@
 /*
- * Created on Apr 29, 2005 (Eclipse)
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * Created on Apr 29, 2005
  */
 package com.topcoder.web.forums.controller.request;
 
 import java.util.Iterator;
 
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.ForumsProcessor;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
@@ -23,25 +20,22 @@ import com.jivesoftware.forum.action.util.Paginator;
 
 /**
  * @author mtong
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
  */
-public class ThreadList extends BaseProcessor implements Pageable {
+public class ThreadList extends ForumsProcessor implements Pageable {
 	private long forumID;
 	private int start = 0;
 	private int totalItemCount;
 	
 	private ResultFilter resultFilter;
 	private Forum forum;
-	private User user;
+	//private User user;
 	
 	protected void businessProcessing() throws Exception {
 		forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
-		AuthToken authToken = AuthFactory.getAnonymousAuthToken();
-		ForumFactory forumFactory = ForumFactory.getInstance(authToken);
+		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
+		//ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		forum = forumFactory.getForum(forumID);
-		user = forumFactory.getUserManager().getUser("mktong");
+		//user = forumFactory.getUserManager().getUser("mktong");
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
