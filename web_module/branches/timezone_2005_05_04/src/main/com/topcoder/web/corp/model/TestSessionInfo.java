@@ -46,6 +46,7 @@ public class TestSessionInfo extends BaseModel {
         candidateEmail = "YES";
         repEmail = "YES";
         Calendar c = Calendar.getInstance();
+        c.setTime(DateUtils.getConvertedDate(c.getTime(), TimeZone.getDefault().getID(), timeZone));
         beginMonth = endMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
         beginDay = endDay = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
         beginYear = endYear = String.valueOf(c.get(Calendar.YEAR));
