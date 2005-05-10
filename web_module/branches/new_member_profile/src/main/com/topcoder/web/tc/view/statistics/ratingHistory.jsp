@@ -11,7 +11,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Ratings History</TITLE>
+   <TITLE>TopCoder Statistics - Algorithm Rating History</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
@@ -98,7 +98,6 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
 &#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="bcLink">Rating Distribution Graph</A>
 &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
 </span>
-<br><br>
 
 <% if (!bEmpty) { %>
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
@@ -115,6 +114,8 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
       next &gt;&gt;
       <% } %>
    </div>
+   <% } else { %>
+   <div class="pagingBox">&#160;</div>
    <% } %>
           
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">

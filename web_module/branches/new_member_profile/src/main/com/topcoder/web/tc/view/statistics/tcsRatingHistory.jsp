@@ -6,12 +6,15 @@
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Component Rating History</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+   <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
    <jsp:include page="baseHRef.jsp" />   
    <jsp:include page="../script.jsp" />
  </HEAD>
@@ -27,16 +30,49 @@
 <!-- Left nav ends -->
         </TD>
 
-<!-- Gutter begins -->
-       <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"></TD>
-<!-- Gutter ends -->
-
-        <TD CLASS="bodyText" WIDTH="99%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="15" BORDER="0"><BR/>
+<!-- Center Column Begins -->
+<td class="statTableSpacer" width="100%" valign="top">
 
 <%
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 %>
+
+<% if(srb.getProperty("pi").equals("113")){ %>
+<jsp:include page="../page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Component Development Rating History"/>
+</jsp:include>
+<% } else { %>
+<jsp:include page="../page_title.jsp" >
+<jsp:param name="image" value="statistics_w"/>
+<jsp:param name="title" value="Component Design Rating History"/>
+</jsp:include>
+<% } %>
+
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="algorithm"/></span>
+<br>
+<% if(srb.getProperty("pi").equals("113")){ %>
+
+<span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
+<span class="bc">
+<A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
+&#160;|&#160;Rating History
+&#160;|&#160;<A HREF="/stat?pi=113&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+</span>
+
+<% } else { %>
+
+<span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
+<span class="bc">
+<A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
+&#160;|&#160;Rating History
+&#160;|&#160;<A HREF="/stat?pi=112&c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+</span>
+
+<% } %>
+<br><br>
+
 <!-- BEGIN BODY -->
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
@@ -241,31 +277,20 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
            </TR>
          </TABLE>
 
-         <p><br></p>
-         <!-- END BODY -->
+<p><br></p>
+<!-- END BODY -->
 
-        </TD>
-
-<!-- Gutter begins -->
-       <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"></TD>
-<!-- Gutter ends -->
-
-        <TD width="170">
-<!-- right begins -->
-            <jsp:include page="../public_right.jsp">
-                <jsp:param name="level1" value="profile"/>
-            </jsp:include>
-<!-- right ends -->
        </TD>
-
-<!-- Gutter begins -->
-       <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-<!-- Gutter ends -->
-
-     </TR>
+       <td WIDTH="180" VALIGN="top">
+         <jsp:include page="../public_right.jsp" >
+             <jsp:param name="level1" value="profile"/>
+         </jsp:include>
+       </TD>
+    <!-- Gutter -->
+    <td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" border="0"/></TD>
+    <!-- Gutter Ends -->
+     </tr>
    </TABLE>
    <jsp:include page="../foot.jsp" />
  </BODY>
 </HTML>
-
-

@@ -45,7 +45,6 @@
 &#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="bcLink">Rating Distribution Graph</A>
 &#160;|&#160;Earnings History
 </span>
-<br><br>
 
 <bean:define id="nameColor" name="CODER_COLORS" scope="application" toScope="page"/>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
@@ -111,6 +110,8 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
 					 next &gt;&gt;					 
       <% } %>
    </div>
+   <% } else { %>
+   <div class="pagingBox">&#160;</div>
    <% } %>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
@@ -119,12 +120,12 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
          <tr><td class="tableTitle" colspan="6">Algorithm Earnings History</td></tr>
          <tr>
-            <TD CLASS="tableHeader" WIDTH="15%"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>  
-            <TD CLASS="tableHeader" WIDTH="32%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Contest</a></TD>
-            <TD CLASS="tableHeader" WIDTH="18%"><a href="<%=sSortUrl%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Round</a></TD>
-            <TD CLASS="tableHeader" WIDTH="5%"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Position</a></TD>
-            <TD CLASS="tableHeader" ALIGN="right" WIDTH="10%"><a href="<%=sSortUrl%>&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Amount</a></TD>      
-            <TD CLASS="tableHeader" ALIGN="right" WIDTH="20%"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Payment Type</a></TD>      
+            <TD CLASS="tableHeader"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>  
+            <TD CLASS="tableHeader" WIDTH="50%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Contest</a></TD>
+            <TD CLASS="tableHeader" WIDTH="30%" WIDTH="18%"><a href="<%=sSortUrl%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Round</a></TD>
+            <TD CLASS="tableHeader" WIDTH="5%" ALIGN="right"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Position</a></TD>
+            <TD CLASS="tableHeader" WIDTH="5%" ALIGN="right"><a href="<%=sSortUrl%>&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Amount</a></TD>      
+            <TD CLASS="tableHeader" WIDTH="10%" ALIGN="right" nowrap="nowrap"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Payment Type</a></TD>      
          </tr>
       <%boolean even = true;%>
       <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
@@ -132,9 +133,9 @@ String sSortUrl = "/stat?c=earnings_history&cr="+srb.getProperty("cr")+"&sq=Earn
             <TD class="<%=even?"tableStatLt":"tableStatDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
             <TD class="<%=even?"tableStatLt":"tableStatDk"%>"><A HREF="/stat?c=coder_room_stats&cr=<%=pageContext.getAttribute("coder_id").toString() %>&rd=<bean:write name="resultRow2" property='<%= "item[" + 0 /* round id */ + "]" %>'/>&rm=<bean:write name="resultRow2" property='<%= "item[" + 7 /* room id */ + "]" %>'/>" CLASS=""><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></A></TD>
             <TD class="<%=even?"tableStatLt":"tableStatDk"%>"><A HREF="/stat?c=coder_room_stats&cr=<%=pageContext.getAttribute("coder_id").toString() %>&rd=<bean:write name="resultRow2" property='<%= "item[" + 0 /* round id */ + "]" %>'/>&rm=<bean:write name="resultRow2" property='<%= "item[" + 7 /* room id */ + "]" %>'/>" CLASS=""><bean:write name="resultRow2" property='<%= "item[" + 1 /* round name */ + "]" %>'/></A></TD>
-            <TD class="<%=even?"tableStatLt":"tableStatDk"%>"><bean:write name="resultRow2" property='<%= "item[" + 5 /* finish place */ + "]" %>'/></TD>
+            <TD class="<%=even?"tableStatLt":"tableStatDk"%>" ALIGN="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* finish place */ + "]" %>'/></TD>
             <TD class="<%=even?"tableStatLt":"tableStatDk"%>" ALIGN="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
-            <TD class="<%=even?"tableStatLt":"tableStatDk"%>" ALIGN="right"><bean:write name="resultRow2" property='<%= "item[" + 8 /* payment_type_desc */ + "].resultData" %>'/></TD>
+            <TD class="<%=even?"tableStatLt":"tableStatDk"%>" ALIGN="right" nowrap="nowrap"><bean:write name="resultRow2" property='<%= "item[" + 8 /* payment_type_desc */ + "].resultData" %>'/></TD>
          </tr>
       <%even=!even;%>
       </logic:iterate>
