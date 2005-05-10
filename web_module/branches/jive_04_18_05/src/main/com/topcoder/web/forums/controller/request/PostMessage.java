@@ -80,7 +80,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			
 			tm.commit();
 		} catch (Exception e) {
-			System.out.println("EXCEPTION!!!!!!")
+			System.out.println("EXCEPTION!!!!!!");
 			e.printStackTrace();
 			if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
                 tm.rollback();
