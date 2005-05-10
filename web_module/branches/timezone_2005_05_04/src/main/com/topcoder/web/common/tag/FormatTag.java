@@ -53,8 +53,8 @@ public class FormatTag extends TagSupport {
                 ret.append(formatter.format(object));
                 if (isDate) {
                     String tz1 = new SimpleDateFormat("z").format(object);
-                    if (ret.indexOf(tz1)>-1) {
-                        ret.replace(ret.indexOf(tz1), tz1.length(),
+                    if (ret.toString().indexOf(tz1)>-1) {
+                        ret.replace(ret.toString().indexOf(tz1), tz1.length(),
                                 DateUtils.getUTCOffsetString(((Date)object), getTimeZone()));
                     }
                 }
