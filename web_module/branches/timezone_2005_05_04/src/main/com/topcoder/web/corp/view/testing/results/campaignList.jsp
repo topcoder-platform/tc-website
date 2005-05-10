@@ -63,7 +63,7 @@
                         </a>
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
-                        <rsc:item row="<%=row%>" name="most_recent_activity" format='MM/dd/yyyy hh:mm a' />
+                        <rsc:item row="<%=row%>" name="most_recent_activity" format="MM/dd/yyyy hh:mm a z" timeZone="timezone_desc" />
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
                         <rsc:item row="<%=row%>" name="candidates_num" />
