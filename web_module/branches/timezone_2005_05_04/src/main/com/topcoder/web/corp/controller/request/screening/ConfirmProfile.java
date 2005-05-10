@@ -16,7 +16,6 @@ public class ConfirmProfile extends PopulateProfileSetup {
         //validate the info
         try {
             if (!validateProfileInfo()) {
-                loadTimeZoneInfo();
                 setNextPage(Constants.PROFILE_SETUP_PAGE);
                 setIsNextPageInContext(true);
                 return;

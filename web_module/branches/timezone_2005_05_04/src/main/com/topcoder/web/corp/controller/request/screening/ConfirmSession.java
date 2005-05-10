@@ -14,6 +14,7 @@ public class ConfirmSession extends BaseSessionProcessor {
         try {
             //validate the info
             if (!validateSessionInfo()) {
+                loadTimeZoneInfo();
                 setNextPage(Constants.SESSION_SETUP_PAGE);
                 setIsNextPageInContext(true);
                 return;
