@@ -64,7 +64,7 @@
                         </a>
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
-                        <rsc:item format="MM/dd/yyyy hh:mm a (z)" row="<%=row%>" name="most_recent_activity" />
+                        <rsc:item format="MM/dd/yyyy hh:mm a z" row="<%=row%>" name="most_recent_activity" />
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" align="right">
                         <rsc:item row="<%=row%>" name="candidates_num" />
