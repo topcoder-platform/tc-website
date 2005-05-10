@@ -33,11 +33,14 @@ public class FormatTag extends TagSupport {
                         formatter.setFormatMethodForClass(Number.class,
                                 new NumberFormatMethod(format), true);
                     } else if (object instanceof Date) {
-                        if (getTimeZone()!=null)
-                            object = DateUtils.getConvertedDate((Date)object, getTimeZone());
                         Calendar cal = Calendar.getInstance();
+                        if (getTimeZone()!=null) {
+                            object = DateUtils.getConvertedDate((Date)object, getTimeZone());
+                            cal.setTimeZone(TimeZone.getTimeZone(getTimeZone()));
+                        } else {
+                            cal.setTimeZone(TimeZone.getDefault());
+                        }
                         cal.setTime((Date)object);
-                        cal.setTimeZone(TimeZone.getTimeZone(getTimeZone()));
                         object = cal;
                         formatter.setFormatMethodForClass(Calendar.class,
                                 new CalendarDateFormatMethod(format), true);
