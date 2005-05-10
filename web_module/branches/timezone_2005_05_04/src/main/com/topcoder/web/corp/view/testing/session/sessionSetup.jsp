@@ -145,7 +145,7 @@ function submitSession() {
 
                 <tr>
                     <td class="testTableTitle" colspan="2">Begin Time</td>
-                    <td class="testTableTimezone"><%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getDisplayName(true, TimeZone.LONG)%></td>
+                    <td class="testTableTimezone">All times are in <%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getDisplayName(true, TimeZone.LONG)%></td>
                 </tr>
 
                 <tr>
@@ -179,7 +179,7 @@ function submitSession() {
 
                 <tr>
                     <td class="testTableTitle" colspan="2">End Time</td>
-                    <td class="testTableTimezone">All times are <%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getDisplayName(true, TimeZone.LONG)%></td>
+                    <td class="testTableTimezone">All times are in <%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getDisplayName(true, TimeZone.LONG)%></td>
                 </tr>
 
                 <tr>
