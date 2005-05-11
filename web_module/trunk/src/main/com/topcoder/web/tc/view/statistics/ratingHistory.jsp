@@ -91,16 +91,6 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="algorithm"/></span>
 <br>
 <span class="bodySubtitle">Algorithm Statistics&#160;>&#160;</span><br>
-<A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>">Member Profile</A>
-&#160;|&#160;Rating History
-&#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=pageContext.getAttribute("coder_id")%>','800','600', 'history')">Rating History Graph</A>
-&#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')">Rating Distribution Graph</A>
-&#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= pageContext.getAttribute("coder_id") %>">Earnings History</A>
-<br><br>
-
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="algorithm"/></span>
-<br>
-<span class="bodySubtitle">Algorithm Statistics&#160;>&#160;</span><br>
 <span class="bc">
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
 &#160;|&#160;Rating History
@@ -127,7 +117,7 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
    <% } else { %>
    <div class="pagingBox">&#160;</div>
    <% } %>
-
+          
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td>               
