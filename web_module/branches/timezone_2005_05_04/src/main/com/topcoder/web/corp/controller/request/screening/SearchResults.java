@@ -135,6 +135,7 @@ public class SearchResults extends BaseScreeningProcessor {
         query.append("session_profile_problem_xref sppx, job_hit jh, job j, ");
         query.append("problem p, component cm, OUTER(component_state cs, OUTER( submission sbm)), OUTER(company_user_preference cup) ");
         query.append(", timezone_lu t ");
+        query.append(", company co ");
         query.append("where s.user_id = u.user_id ");
         query.append("and sp.session_profile_id = s.session_profile_id ");
         query.append("and e.user_id = u.user_id ");
@@ -160,7 +161,9 @@ public class SearchResults extends BaseScreeningProcessor {
         query.append("and sbm.submission_number = (select max(submission_number) from submission where component_state_id = cs.component_state_id) ");
         query.append("and cup.company_id = sp.company_id ");
         query.append("and cup.user_id = u.user_id ");
-        query.append("and ct.timezone_id = t.timezone_id ");
+        query.append("and co.timezone_id = t.timezone_id ");
+        query.append("and co.company_id = sp.company_id ");
+        query.append("and cs.company_id = sp.company_id ");
         query.append("and sp.company_id = (select company_id from contact where contact_id = ");
 
         query.append(getUser().getId());
