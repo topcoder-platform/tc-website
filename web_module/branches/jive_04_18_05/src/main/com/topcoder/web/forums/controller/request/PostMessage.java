@@ -67,6 +67,9 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			} else {
 				message = forum.createMessage(user);
 			}
+			message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
+			message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
+			
 			if (!threadIDStr.equals("")) {
 				threadID = Long.parseLong(threadIDStr);
 				thread = forum.getThread(threadID);
@@ -86,9 +89,6 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			System.out.println("messageID: " + message.getID());
 			System.out.println("threadID: " + thread.getID());
 			System.out.println("postMode: " + postMode);
-			
-			message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
-			message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
 			
 			tm.commit();
 		} catch (Exception e) {
