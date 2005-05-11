@@ -305,7 +305,7 @@ if (rscSysTest.size() > 0) {
                    <TD WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" ALIGN="right"><%= JSPUtils.htmlEncode(resultRow.getItem(1))%></TD>
                    <TD WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="right" nowrap="nowrap"><%= resultRow.getItem(4).toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem(2))+"</span>"%></TD>
+                   <TD CLASS="statText" ALIGN="right"><%= resultRow.getItem(4).toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem(2))+"</span>"%></TD>
                    <TD WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
@@ -318,7 +318,7 @@ if (rscSysTest.size() > 0) {
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><%= JSPUtils.htmlEncode(resultRow.getItem(1))%></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right" nowrap="nowrap"><%= resultRow.getItem(4).toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:   "+JSPUtils.htmlEncode(resultRow.getItem(2))+"</span>"%></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><%= resultRow.getItem(4).toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:   "+JSPUtils.htmlEncode(resultRow.getItem(2))+"</span>"%></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
