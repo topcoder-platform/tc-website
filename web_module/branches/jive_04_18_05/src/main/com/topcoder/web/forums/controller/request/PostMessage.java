@@ -139,8 +139,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
     }
     
     protected void initPagingFields() {
-    	// Set view to latest post; this may be modified in the future
-    	start = thread.getMessageCount()-1;
+    	start = 0;
     	
         resultFilter = ResultFilter.createDefaultMessageFilter();
         resultFilter.setStartIndex(getStart());
