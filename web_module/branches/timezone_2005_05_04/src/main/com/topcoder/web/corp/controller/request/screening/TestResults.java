@@ -76,7 +76,7 @@ public class TestResults extends BaseScreeningProcessor {
                 }
             }
 
-            TestSessionInfo sessionInfo = new TestSessionInfo();
+            TestSessionInfo sessionInfo = new TestSessionInfo(getTimeZone());
             sessionInfo.setBeginDate(((Date) result.getItem(0, "begin_time").getResultData()));
             sessionInfo.setEndDate(((Date) result.getItem(0, "end_time").getResultData()));
             getRequest().setAttribute("testSessionInfo", sessionInfo);
