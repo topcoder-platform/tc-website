@@ -287,7 +287,7 @@ if ( MM_FlashCanPlay ) {
                     </td>
 
                     <td valign=top width="15%"class="<%=cssClasses[counter++ % 2]%>" align=center>
-                        <rsc:item row="<%=row%>" name="create_date" />
+                        <rsc:item row="<%=row%>" name="create_date" format="MM/dd/yyyy hh:mm a z" timeZone="timezone_desc" />
                     </td>
                 </tr>
                </rsc:iterator>
