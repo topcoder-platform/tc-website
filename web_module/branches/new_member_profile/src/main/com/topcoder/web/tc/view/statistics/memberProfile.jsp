@@ -81,7 +81,7 @@ This member has not yet been rated in a competition.
             </td></tr>
             <tr><td class="cat" colspan="2">&#160;</td></tr>
             <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
-            <tr><td class="cat" nowrap="nowrap">Software Royalties:</td><td class="stat" align="right"><rsc:item name="royalties" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
+            <tr><td class="cat" nowrap="nowrap">Software Royalties:</td><td class="stat" align="right"><rsc:item name="royalties" set="<%=rscCoderData%>" format="$#,##0.00" ifNull="$0.00"/></td></tr>
             <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
             <tr><td class="cat">Country:</td><td class="stat" align="right"><rsc:item name="country_name" set="<%=rscCoderData%>"/></td></tr>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
