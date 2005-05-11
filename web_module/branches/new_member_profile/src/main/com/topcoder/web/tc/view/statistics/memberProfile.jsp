@@ -38,6 +38,7 @@
 <jsp:param name="title" value="Member Profile"/>
 </jsp:include>
 
+
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
 
 <% if(rscCoderData.size() == 0) {%>

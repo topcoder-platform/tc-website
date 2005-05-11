@@ -52,10 +52,10 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 </jsp:include>
 <% } %>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="algorithm"/></span>
-<br>
 <% if(srb.getProperty("pi").equals("113")){ %>
 
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="development"/></span>
+<br>
 <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
 <span class="bc">
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
@@ -65,6 +65,8 @@ pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 
 <% } else { %>
 
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="design"/></span>
+<br>
 <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
 <span class="bc">
 <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
@@ -164,15 +166,15 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
          <%boolean even = true;%>
          <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
          <tr>
-            <TD class="<%=even?"tableStatLt":"tableStatDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
+            <TD class="<%=even?"statLt":"statDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
             <% if (resultRow2.getIntItem("component_id")!=-1) { %>
-            <TD class="<%=even?"tableStatLt":"tableStatDk"%>"><A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* round id */ + "]" %>'/>" CLASS="tsLink"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></A></TD>
+            <TD class="<%=even?"statLt":"statDk"%>"><A HREF="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<bean:write name="resultRow2" property='<%= "item[" + 2 /* round id */ + "]" %>'/>" CLASS="tsLink"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></A></TD>
             <% } else { %>
-            <TD class="<%=even?"tableStatLt":"tableStatDk"%>"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></TD>
+            <TD class="<%=even?"statLt":"statDk"%>"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></TD>
             <% } %>
-            <TD class="<%=even?"tableStatLt":"tableStatDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* place */ + "]" %>'/></TD>
-            <TD class="<%=even?"tableStatLt":"tableStatDk"%>" align="right"><bean:write format="0.00" name="resultRow2" property='<%= "item[" + 8 /* score */ + "]" %>'/></TD>
-            <TD class="<%=even?"tableStatLt":"tableStatDk"%>" align="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
+            <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* place */ + "]" %>'/></TD>
+            <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write format="0.00" name="resultRow2" property='<%= "item[" + 8 /* score */ + "]" %>'/></TD>
+            <TD class="<%=even?"statLt":"statDk"%>" align="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
          </tr>
          <%even=!even;%>
          </logic:iterate>
