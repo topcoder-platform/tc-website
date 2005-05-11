@@ -107,26 +107,6 @@
     </tag>
 
     <tag>
-        <name>sort</name>
-        <tagclass>com.topcoder.web.common.tag.SortTag</tagclass>
-        <attribute>
-            <name>column</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>ascColumn</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>descColumn</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-
-    <tag>
         <name>problemRatingResultIterator</name>
         <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
         <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingResultInfo</teiclass>

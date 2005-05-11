@@ -5,6 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="/tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="donationInfo" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
@@ -89,13 +90,13 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
             <tr class="sidebarTitle">
                 <td width="20%" align="left">
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="5"/>"><img src="/i/tournament/crpf03/rank.gif" width="43" height="26" border="0"></a>
+                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc-webtag:sort column="5"/>"><img src="/i/tournament/crpf03/rank.gif" width="43" height="26" border="0"></a>
                 </td>
                 <td width="30%" align="left">
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="4"/>"><img src="/i/tournament/crpf03/handle.gif" width="55" height="26" border="0"></a>
+                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc-webtag:sort column="4"/>"><img src="/i/tournament/crpf03/handle.gif" width="55" height="26" border="0"></a>
                 </td>
                 <td width="50%" align="right">
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>"><img src="/i/tournament/crpf03/total_donation.gif" width="115" height="26" border="0"></a>
+                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc-webtag:sort column="1"/>"><img src="/i/tournament/crpf03/total_donation.gif" width="115" height="26" border="0"></a>
                 </td>
             </tr>
             <rsc:iterator list="<%=donationInfo%>" id="info">

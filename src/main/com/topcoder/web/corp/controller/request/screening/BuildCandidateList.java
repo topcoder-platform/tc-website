@@ -50,13 +50,18 @@ public class BuildCandidateList extends BaseScreeningProcessor {
                 endVal = startVal + (Constants.SEARCH_SCROLL_SIZE - 1);
             }
 
+            String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+            if (!(sortCol.equals("") || sortDir.equals(""))) {
+                dataRequest.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
+                dataRequest.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+                dataRequest.setProperty(DataAccessConstants.SORT_QUERY, "problem_list");
+            }
+
+
             dataRequest.setProperty(DataAccessConstants.START_RANK, String.valueOf(startVal));
             dataRequest.setProperty(DataAccessConstants.END_RANK, String.valueOf(endVal));
-
-            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-            if (!sortCol.equals("")) {
-                dataRequest.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
-            }
 
             Map map = dAccess.getData(dataRequest);
 
@@ -87,8 +92,6 @@ public class BuildCandidateList extends BaseScreeningProcessor {
                 s.addDefault(result.getColumnIndex("preference"), "desc");
                 s.addDefault(result.getColumnIndex("notes_sort"), "desc");
 
-
-                getRequest().setAttribute(DataAccessConstants.SORT_COLUMN, StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)));
                 getRequest().setAttribute(Constants.CANDIDATE_LIST_QUERY_KEY, result);
             }
 
