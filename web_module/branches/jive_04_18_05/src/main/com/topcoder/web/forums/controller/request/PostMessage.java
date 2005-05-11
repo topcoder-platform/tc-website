@@ -55,10 +55,6 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
 		
-		System.out.println("forumID: " + forumID);
-		System.out.println("threadIDstr: " + threadIDStr);
-		System.out.println("messageIDstr: " + messageIDStr);
-		
 		TransactionManager tm = null;
 		try { 
 			tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
@@ -77,6 +73,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 				if (postMode.equals("Reply")) {
 					messageID = Long.parseLong(messageIDStr);
 					ForumMessage parentMessage = forumFactory.getMessage(messageID);
+					System.out.println("parentMessageID: " + parentMessage.getID());
 					thread.addMessage(parentMessage, message);
 				} else if (postMode.equals("NewMessage")) {
 					thread.addMessage(null, message);
@@ -86,10 +83,12 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 				forum.addThread(thread);
 			}
 			
+			System.out.println("messageID: " + message.getID());
+			System.out.println("threadID: " + thread.getID());
+			System.out.println("postMode: " + postMode);
+			
 			message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
 			message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
-			
-			getRequest().setAttribute("thread", thread);
 			
 			tm.commit();
 		} catch (Exception e) {
@@ -109,6 +108,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 	
 		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
+		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("messages", itMessages);
 		getRequest().setAttribute("paginator", paginator);
 		
