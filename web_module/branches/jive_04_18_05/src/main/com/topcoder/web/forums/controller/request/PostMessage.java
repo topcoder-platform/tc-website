@@ -32,6 +32,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 	
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
+		getRequest().setAttribute("forumFactory", forumFactory);
 		
 		if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
 			addError(ForumConstants.MESSAGE_SUBJECT, "Message subject is empty");
@@ -106,7 +107,6 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		Paginator paginator = new Paginator(this);
 		Iterator itMessages = thread.getMessages(getResultFilter());
 	
-		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("messages", itMessages);
@@ -138,8 +138,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
     }
     
     protected void initPagingFields() {
-    	start = 0;
-    	
+    	start = thread.getMessageCount()-1;
         resultFilter = ResultFilter.createDefaultMessageFilter();
         resultFilter.setStartIndex(getStart());
         int messageRange = 15;
