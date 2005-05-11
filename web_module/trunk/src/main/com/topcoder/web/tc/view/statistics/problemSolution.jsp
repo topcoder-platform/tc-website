@@ -289,43 +289,37 @@ if (rscSysTest.size() > 0) {
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Test Arguments</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Success</TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">Expected Results</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Expected Results</TD>
+                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right">Success</TD>
                    <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="center">Result</TD>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
     <logic:iterate name="resultSetSysTest" id="resultRow" type="ResultSetContainer.ResultSetRow">
                  <TR>
                    <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
 <%  if (row%2==0) { %>
-                 <TR>
-                   <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(0))%></TD>
-                   <TD VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="left"><%= resultRow.getItem(4).toString().equals("1")?"Passed":"Failed"%></TD>
-                   <TD VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(1))%></TD>
-                   <TD VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(2))%></TD>
-                   <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                 <TR valign="top">
+                   <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD CLASS="statText" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(0))%></TD>
+                   <TD WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD CLASS="statText" ALIGN="right"><%= JSPUtils.htmlEncode(resultRow.getItem(1))%></TD>
+                   <TD WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD CLASS="statText" ALIGN="right" nowrap="nowrap"><%= resultRow.getItem(4).toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;"+JSPUtils.htmlEncode(resultRow.getItem(2))+"</span>"%></TD>
+                   <TD WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
 <% } else { %>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(0))%></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left"><%= resultRow.getItem(4).toString().equals("1")?"Passed":"Failed"%></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(1))%></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(2))%></TD>
-                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                 <TR valign="top">
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="left"><%= JSPUtils.htmlEncode(resultRow.getItem(0))%></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right"><%= JSPUtils.htmlEncode(resultRow.getItem(1))%></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="right" nowrap="nowrap"><%= resultRow.getItem(4).toString().equals("1")?"Passed":"<span class=bigRed>FAILED - Result:   "+JSPUtils.htmlEncode(resultRow.getItem(2))+"</span>"%></TD>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
