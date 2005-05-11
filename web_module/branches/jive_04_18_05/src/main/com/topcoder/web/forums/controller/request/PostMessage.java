@@ -9,7 +9,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.ForumsProcessor;
 
-import com.topcoder.shared.util.ApplicationServer;
+//import com.topcoder.shared.util.ApplicationServer;
 
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
@@ -18,8 +18,8 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Pageable;
 import com.jivesoftware.forum.action.util.Paginator;
 
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
+//import javax.transaction.Status;
+//import javax.transaction.TransactionManager;
 
 /**
  * @author mtong
@@ -56,53 +56,33 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
 		
-		TransactionManager tm = null;
-		try { 
-			tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
-			//tm.begin();
-			
-		    ForumMessage message;
-			if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
+		//tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
+		
+	    ForumMessage message;
+		if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
+			messageID = Long.parseLong(messageIDStr);
+			message = forumFactory.getMessage(messageID);
+		} else {
+			message = forum.createMessage(user);
+		}
+		message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
+		message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
+		
+		if (!threadIDStr.equals("")) {
+			threadID = Long.parseLong(threadIDStr);
+			thread = forum.getThread(threadID);
+			if (postMode.equals("Reply")) {
 				messageID = Long.parseLong(messageIDStr);
-				message = forumFactory.getMessage(messageID);
-			} else {
-				message = forum.createMessage(user);
+				ForumMessage parentMessage = forumFactory.getMessage(messageID);
+				System.out.println("parentMessageID: " + parentMessage.getID());
+				thread.addMessage(parentMessage, message);
+			} else if (postMode.equals("NewMessage")) {
+				thread.addMessage(null, message);
 			}
-			message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
-			message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
-			
-			if (!threadIDStr.equals("")) {
-				threadID = Long.parseLong(threadIDStr);
-				thread = forum.getThread(threadID);
-				if (postMode.equals("Reply")) {
-					messageID = Long.parseLong(messageIDStr);
-					ForumMessage parentMessage = forumFactory.getMessage(messageID);
-					System.out.println("parentMessageID: " + parentMessage.getID());
-					thread.addMessage(parentMessage, message);
-				} else if (postMode.equals("NewMessage")) {
-					thread.addMessage(null, message);
-				}
-			} else {
-				thread = forum.createThread(message);
-				forum.addThread(thread);
-			}
-			
-			System.out.println("messageID: " + message.getID());
-			System.out.println("threadID: " + thread.getID());
-			System.out.println("postMode: " + postMode);
-			
-			//tm.commit();
-		} catch (Exception e) {
-			System.out.println("EXCEPTION!!!!");
-			e.printStackTrace();
-			if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
-                tm.rollback();
-            }
-			
-			setNextPage("/post.jsp");
-			setIsNextPageInContext(true);
-			return;
-		}		
+		} else {
+			thread = forum.createThread(message);
+			forum.addThread(thread);
+		}	
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
