@@ -60,12 +60,12 @@
                 <% } %>
                         Viewing Candidate <%=request.getAttribute(DataAccessConstants.START_RANK)%> to <%=request.getAttribute(DataAccessConstants.END_RANK)%> of <%= request.getAttribute(DataAccessConstants.NUMBER_RECORDS)%><br/>
                         <%if(results.croppedDataBefore()) { %>
-                            <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getAttribute(DataAccessConstants.SORT_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getAttribute(DataAccessConstants.SORT_DIRECTION)%>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))-Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))%>" >&lt;&lt; prev</a>
+                            <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))-Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))%>" >&lt;&lt; prev</a>
                         <% } else { %>
                             &lt;&lt; prev
                         <% } %>
                       | <%if(results.croppedDataAfter()) { %>
-                           <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getAttribute(DataAccessConstants.SORT_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getAttribute(DataAccessConstants.SORT_DIRECTION)%>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))+Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))+Constants.SEARCH_SCROLL_SIZE%>" >next &gt;&gt;</a>
+                           <a href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<%=DataAccessConstants.SORT_COLUMN%>=<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>&<%=DataAccessConstants.SORT_DIRECTION%>=<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>&<%=DataAccessConstants.START_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.START_RANK))+Constants.SEARCH_SCROLL_SIZE%>&<%=DataAccessConstants.END_RANK%>=<%=Integer.parseInt((String)request.getAttribute(DataAccessConstants.END_RANK))+Constants.SEARCH_SCROLL_SIZE%>" >next &gt;&gt;</a>
                         <% } else { %>
                             next &gt;&gt;
                         <% } %>
@@ -75,40 +75,40 @@
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
                  <tr>
                    <td align="left" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<tc-webtag:sort column="1"/>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<tc-webtag:sort column="1"/>">
                             Candidate
                         </A>
                    </td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<tc-webtag:sort column="7"/>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<tc-webtag:sort column="7"/>">
                             Profile
                         </A>
                    </td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<tc-webtag:sort column="3"/>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<tc-webtag:sort column="3"/>">
                             Begin
                         </a>
                    </td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<tc-webtag:sort column="4"/>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<tc-webtag:sort column="4"/>">
                             End
                         </A>
                    </td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<tc-webtag:sort column="8"/>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<tc-webtag:sort column="8"/>">
                             Status
                         </A>
                    </td>
                    <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<tc-webtag:sort column="12"/>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<tc-webtag:sort column="12"/>">
                             Resume
                         </A>
                    </td>
                    <% } %>
                    <td align="center" class="screeningHeader">Preference Level</td>
                    <td align="center" class="screeningHeader">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList&<tc-webtag:sort column="15"/>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=BuildCandidateList<tc-webtag:sort column="15"/>">
                             Notes
                         </A>
                    </td>
