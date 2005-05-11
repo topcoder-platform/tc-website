@@ -81,7 +81,7 @@ TopCoder, Inc. announced today that <A HREF="/tc?module=MemberProfile&amp;cr=270
 </P>
 
 <P>
-In Single Round Match 79, <A HREF="/tc?module=MemberProfile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A> won Room 14 and gained 327 rating points, which is the fourth highest Division-I total (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A> won the room with 1356.25 final points, which was an amazing 818.86 more than the nearest competitor.  <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A> earned 264.55 points on the Level One problem, 327.98 on the Level Two problem, and 763.72 on the Level Three problem.  <A HREF="/stat?c=member_profile&amp;cr=151886" CLASS="coderTextBlue">kdby</A> tried to challenge the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A>, but to no avail.  
+In Single Round Match 79, <A HREF="/tc?module=MemberProfile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A> won Room 14 and gained 327 rating points, which is the fourth highest Division-I total (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  <A HREF="/tc?module=MemberProfile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A> won the room with 1356.25 final points, which was an amazing 818.86 more than the nearest competitor.  <A HREF="/tc?module=MemberProfile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A> earned 264.55 points on the Level One problem, 327.98 on the Level Two problem, and 763.72 on the Level Three problem.  <A HREF="/tc?module=MemberProfile&amp;cr=151886" CLASS="coderTextBlue">kdby</A> tried to challenge the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A>, but to no avail.  
 </P>
 
 <P>
@@ -97,7 +97,7 @@ A TopCoder member since March 8, 2002, <A HREF="/tc?module=MemberProfile&amp;cr=
 </P>
 
 <P>
-Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=275661" CLASS="coderTextGreen">yuranlu</A>, who had a 414-point rating gain in Single Round Match 79, the eighth highest in Division-II (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>); and <A HREF="/stat?c=member_profile&amp;cr=275071" CLASS="coderTextBlue">antimatter</A>, who had a debut rating of 1785 in Single Round Match 78, which is the 17th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
+Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=275661" CLASS="coderTextGreen">yuranlu</A>, who had a 414-point rating gain in Single Round Match 79, the eighth highest in Division-II (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>); and <A HREF="/tc?module=MemberProfile&amp;cr=275071" CLASS="coderTextBlue">antimatter</A>, who had a debut rating of 1785 in Single Round Match 78, which is the 17th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
 </P>
 
 

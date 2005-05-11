@@ -67,7 +67,7 @@
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">May 4</td>
-                                <td valign="middle" class="bodyText"><a class="bodyText" href="/stat?c=member_profile&amp;cr=7465390">Dan[Popovici]</a> &amp; <a class="bodyText" href="/stat?c=member_profile&amp;cr=294328">mariusmuja</a></td>
+                                <td valign="middle" class="bodyText"><a class="bodyText" href="/tc?module=MemberProfile&amp;cr=7465390">Dan[Popovici]</a> &amp; <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=294328">mariusmuja</a></td>
                                 <td valign="middle" class="bodyText"><A href="/tc?module=Static&amp;d1=features&amp;d2=050305" class="bodyText">Using Regular Expressions</A></td>
                             </tr>
 

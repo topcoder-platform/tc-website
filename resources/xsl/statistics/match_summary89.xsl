@@ -110,8 +110,8 @@
 <P>In Room 17, <A HREF="/tc?module=MemberProfile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A> was the room winner with 367.44 final points, and gained 460 rating points, 
 which is the second largest gain ever  (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gains</A>). <B>binaryni</B> 
 coded the Level One problem for 167.44 points and the Level Two problem for 288.57 in the "Coding Phase". <B>binaryni</B> then successfully challenged the Level Two submissions 
-of <A HREF="/tc?module=MemberProfile&amp;cr=157915" CLASS="bodyGeneric">Ustaad</A>, <A HREF="/stat?c=member_profile&amp;cr=280985" CLASS="bodyGeneric">yavinmoon</A>, 
-<A HREF="/tc?module=MemberProfile&amp;cr=156804" CLASS="bodyGeneric">seaniswise</A>, and <A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A> for 200 
+of <A HREF="/tc?module=MemberProfile&amp;cr=157915" CLASS="bodyGeneric">Ustaad</A>, <A HREF="/tc?module=MemberProfile&amp;cr=280985" CLASS="bodyGeneric">yavinmoon</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=156804" CLASS="bodyGeneric">seaniswise</A>, and <A HREF="/tc?module=MemberProfile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A> for 200 
 additional points in the "Challenge Phase".  The Level Two submission of <B>binaryni</B> ended up failing the system test.</P>
 
 <P><A HREF="/tc?module=MemberProfile&amp;cr=263381" CLASS="bodyGeneric">fist</A> was the winner in Room 16 with 217.38 final points, and added 350 rating points, which is the 
@@ -136,14 +136,14 @@ points with an unsuccessful challenge of the Level Two submission of <A HREF="/t
 back with a successful challenge of the Level Two submission of <A HREF="/tc?module=MemberProfile&amp;cr=160009" CLASS="bodyGeneric">Sherlockk</A>, and added another 50 with a 
 successful challenge of the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=280185" CLASS="bodyGeneric">ericc</A>.</P>
 
-<P><A HREF="/tc?module=MemberProfile&amp;cr=284107" CLASS="bodyGeneric">jder</A> finished second to <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">honda89dude</A> 
+<P><A HREF="/tc?module=MemberProfile&amp;cr=284107" CLASS="bodyGeneric">jder</A> finished second to <A HREF="/tc?module=MemberProfile&amp;cr=156804" CLASS="bodyGeneric">honda89dude</A> 
 in Room 31, but earned 464 rating points, which is the fifth largest gain. <B>jder</B> earned 245.04 points on the Level One problem, 458.19 on the Level Two problem, and 550.48 on 
 the Level Three problem.</P>
 
 <P><A HREF="/tc?module=MemberProfile&amp;cr=282715" CLASS="bodyGeneric">The Llama</A> won Room 43 with 1392.99 final points, and earned 450 rating points, which ties 
 <A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A> for the sixth largest gain. <B>NDBronson</B> added those rating points in Single Round Match 24. 
 <B>The Llama</B> earned 1292.99 points in the "Coding Phase" by submitting code for all three problems.  <B>The Llama</B> then added 150 points to that total with successful 
-challenges of the Level Three codes submitted by <A HREF="/tc?module=MemberProfile&amp;cr=251196" CLASS="bodyGeneric">rumbosoft</A>, <A HREF="/stat?c=member_profile&amp;cr=268617" CLASS="bodyGeneric">Marauder328</A>, 
+challenges of the Level Three codes submitted by <A HREF="/tc?module=MemberProfile&amp;cr=251196" CLASS="bodyGeneric">rumbosoft</A>, <A HREF="/tc?module=MemberProfile&amp;cr=268617" CLASS="bodyGeneric">Marauder328</A>, 
 and <A HREF="/tc?module=MemberProfile&amp;cr=276132" CLASS="bodyGeneric">mzuckerberg</A>. <B>The Llama</B> wasn't perfect in the "Challenge Phase", however, failing in a challenge 
 of the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=282667" CLASS="bodyGeneric">jlee</A>.</P>
           </TD>

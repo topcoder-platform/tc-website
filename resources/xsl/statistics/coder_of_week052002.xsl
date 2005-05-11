@@ -89,7 +89,7 @@
 <P>I was amazed when a friend showed me the site.  I immediately started looking forward to my first opportunity to compete.</P>
 <P>I'm regularly impressed by the quality of the people who compete here; their willingness and excitement to discuss the problems and their solutions; and their encouragement of one another at the end of the match.</P>
 <P>It feels wonderful to be selected as 'Coder of the Week'.  Coding is a big part of who I am, and it's nice to have to use that skill in a competitive environment."</P> 
-<P>Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=283374" CLASS="coderTextYellow">indigo9</A>, who had a debut rating of 1845 in SRM 90, which is the 12th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>); and <A HREF="/stat?c=member_profile&amp;cr=264169" CLASS="coderTextBlue">Ninjak</A>, who had 1557.10 final points in SRM 91, the most of any Division-II member.</P>
+<P>Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=283374" CLASS="coderTextYellow">indigo9</A>, who had a debut rating of 1845 in SRM 90, which is the 12th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>); and <A HREF="/tc?module=MemberProfile&amp;cr=264169" CLASS="coderTextBlue">Ninjak</A>, who had 1557.10 final points in SRM 91, the most of any Division-II member.</P>
 </TD>						
 						</TR>						
 					</TABLE>
