@@ -5,7 +5,8 @@
                  com.topcoder.web.corp.model.ProblemInfo,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.corp.model.SubmissionInfo,
-                 com.topcoder.shared.language.JavaLanguage" %>
+                 com.topcoder.shared.language.JavaLanguage,
+                 java.util.TimeZone" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <html>
@@ -147,12 +148,12 @@ if ( plugin ) {
             <% } %>
                 <tr>
                     <td class="bodyText">
-                        <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a z' timeZone="<%=testSessionInfo.getTimeZone()%>"/>
+                        <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a z' timeZone="<%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getID()%>"/>
                     </td>
 	        </tr>
                 <tr>
                     <td class="bodyText">
-                        <strong>End:</strong> <screen:beanWrite name='testSessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a z' timeZone="<%=testSessionInfo.getTimeZone()%>"/>
+                        <strong>End:</strong> <screen:beanWrite name='testSessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a z' timeZone="<%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getID()%>"/>
                     </td>
 	        </tr>
 	    </table>
