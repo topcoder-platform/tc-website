@@ -73,7 +73,7 @@
             </table>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr><td class="formHandleEven" colspan="4"><strong>Coder: </strong><A class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018"><font size="3"><strong>Tomson</strong></font></A></td></tr>
+                <tr><td class="formHandleEven" colspan="4"><strong>Coder: </strong><A class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=302018"><font size="3"><strong>Tomson</strong></font></A></td></tr>
 
                 <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
 
@@ -111,7 +111,7 @@
                 <tr valign="top">
                     <td class="bodyText" colspan="3">
                         <p><strong>Review Board Comment:</strong><br />
-                        "Overall it's a quality and clear design."&#151;<A href="/stat?c=member_profile&amp;cr=278595">seaniswise</A></p></td>
+                        "Overall it's a quality and clear design."&#151;<A href="/tc?module=MemberProfile&amp;cr=278595">seaniswise</A></p></td>
                 </tr>
                 
                 <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
@@ -156,7 +156,7 @@
                          <td class="projectCells" align="center"><xsl:value-of select="./place"/></td>
                          <td class="projectCells">
                             <a>
-                                <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                                <xsl:attribute name="HREF">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                                 <xsl:value-of select="user_id"/>
                             </a>
                          </td>
@@ -199,13 +199,13 @@
                          <td class="projectCells" align="center"><xsl:value-of select="./place"/></td>
                          <td class="projectCells">
                             <a>
-                                <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                                <xsl:attribute name="HREF">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                                 <xsl:value-of select="user_id"/>
                             </a>
 <!--
                                     <a class="coderTextBlue">
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat('/stat?c=member_profile&amp;cr=', ./coder_id)"/>
+                                            <xsl:value-of select="concat('/tc?module=MemberProfile&amp;cr=', ./coder_id)"/>
                                         </xsl:attribute>
                                         <strong><xsl:value-of select="./user_id"/></strong>
                                     </a>

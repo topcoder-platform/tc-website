@@ -96,17 +96,17 @@ May 15, 2002</P>
 It seems that SRM 88's Div-II problems were unusually hard, and a majority
 of the rookies ended up with 0 points.  This gave a few people the 
 ability to really distinguish themselves and start off with a great 
-rating.  <A HREF="/stat?c=member_profile&amp;cr=284161" CLASS="bodyGeneric">MarsWarhammer</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=283993" CLASS="bodyGeneric">NeutralParity</A>,  
-<A HREF="/stat?c=member_profile&amp;cr=284346" CLASS="bodyGeneric">voltron</A>, 
-and <A HREF="/stat?c=member_profile&amp;cr=284138" CLASS="bodyGeneric">jlubliner</A>
+rating.  <A HREF="/tc?module=MemberProfile&amp;cr=284161" CLASS="bodyGeneric">MarsWarhammer</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=283993" CLASS="bodyGeneric">NeutralParity</A>,  
+<A HREF="/tc?module=MemberProfile&amp;cr=284346" CLASS="bodyGeneric">voltron</A>, 
+and <A HREF="/tc?module=MemberProfile&amp;cr=284138" CLASS="bodyGeneric">jlubliner</A>
  all made 
 it to yellow with debuts of 1562, 1519, 1653, and 1671.  But beating all
-of them, and taking the division was <A HREF="/stat?c=member_profile&amp;cr=283388" CLASS="bodyGeneric">Minsk</A>
+of them, and taking the division was <A HREF="/tc?module=MemberProfile&amp;cr=283388" CLASS="bodyGeneric">Minsk</A>
 , whose division high 1370.61 
 out of 1800 gave him an impressive debut rating of 1888, which places
 him in 8th on the all time list.  This puts him directly below recent TopCoder 
-wonder, <A HREF="/stat?c=member_profile&amp;cr=277956" CLASS="bodyGeneric">kpsmith</A>
+wonder, <A HREF="/tc?module=MemberProfile&amp;cr=277956" CLASS="bodyGeneric">kpsmith</A>
 , whose rating is up to 2049 in only three contests.  
 </P>
 
@@ -118,7 +118,7 @@ up with points greater than 0.
 
 
 <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

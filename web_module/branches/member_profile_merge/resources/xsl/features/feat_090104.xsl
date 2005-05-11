@@ -78,7 +78,7 @@ p.Code, li.Code, div.Code
                         <p><font size="4"><strong>On Sentinels</strong></font><br />
                         Wednesday, September 1, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=282560"><strong>leadhyena_inran</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=282560"><strong>leadhyena_inran</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>

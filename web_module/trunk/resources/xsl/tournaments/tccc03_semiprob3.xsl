@@ -210,7 +210,7 @@
                         
 
                         <img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left"/>
-                        By <a href="/stat?c=member_profile&amp;cr=112902" class="bodyText"><strong>Logan</strong></a><br/>
+                        By <a href="/tc?module=MemberProfile&amp;cr=112902" class="bodyText"><strong>Logan</strong></a><br/>
                         <div class="smallText"><em>TopCoder Member</em></div><br />
                         <br clear="all" />
                         

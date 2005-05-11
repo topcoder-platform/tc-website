@@ -358,7 +358,7 @@ int wire(int w, int x, int y, int xx, int yy) {
                                         <DIV CLASS="smallText">
                                             <I>TopCoder Member</I>
                                             <BR/>
-                                            <A HREF="/stat?c=member_profile&amp;cr=251317" CLASS="smallText">Author Profile</A>
+                                            <A HREF="/tc?module=MemberProfile&amp;cr=251317" CLASS="smallText">Author Profile</A>
                                         </DIV>
                                         <BR CLEAR="all"/>
                                         <P>

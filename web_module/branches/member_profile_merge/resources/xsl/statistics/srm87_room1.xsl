@@ -93,7 +93,7 @@ May 9, 2002</P>
 <P><B>Room 1 Review</B></P>
 
 <P>
-I'm the winner of Room 1 (<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>), and it's finally pulling me out of a
+I'm the winner of Room 1 (<A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>), and it's finally pulling me out of a
  long slump (for now, at least), but since I'm the writer, it might be a
  little hard to avoid tooting my own horn, so to speak. Bear with me. I'll
  talk in the third person so it's not quite so unbearable.
@@ -102,15 +102,15 @@ I'm the winner of Room 1 (<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="
 <P>
  Room 1 started out with an extremely fast submission by <B>ZorbaTHut</B> on the
  Level One - 3:47, getting 294.77 points and securing the fastest Level One
- submission in Div-I. <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> submitted about a minute and a half
- later, getting 290.67 points, followed by <A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="bodyGeneric">SnapDragon</A> a minute after that
- with 287.37 points, and <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="bodyGeneric">ambrose</A>
+ submission in Div-I. <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> submitted about a minute and a half
+ later, getting 290.67 points, followed by <A HREF="/tc?module=MemberProfile&amp;cr=272072" CLASS="bodyGeneric">SnapDragon</A> a minute after that
+ with 287.37 points, and <A HREF="/tc?module=MemberProfile&amp;cr=153505" CLASS="bodyGeneric">ambrose</A>
  twenty seconds later for 285.90 points.
- <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
- and <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
+ <A HREF="/tc?module=MemberProfile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
  submitted within five seconds of each other after almost
- eight minutes of coding, getting 279.03 and 279.37 points. <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>
- and <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
+ eight minutes of coding, getting 279.03 and 279.37 points. <A HREF="/tc?module=MemberProfile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
  brought up the end, <B>evd</B> spending eleven and a half minutes for 260.29
  points.
 </P>
@@ -157,8 +157,8 @@ I'm the winner of Room 1 (<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="
  
 <P>
  By 47 minutes into the match everyone in Room One had submitted all three
- problems, with the exceptions of <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="bodyGeneric">benetin</A> and 
- <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="bodyGeneric">thekcc</A>. <B>benetin</B> was still
+ problems, with the exceptions of <A HREF="/tc?module=MemberProfile&amp;cr=156592" CLASS="bodyGeneric">benetin</A> and 
+ <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="bodyGeneric">thekcc</A>. <B>benetin</B> was still
  working on his Level Three solution, which he eventually submitted just
  before the end of the match for 438.21 points, getting second-to-last with a
  total score of 1072.04. <B>thekcc</B>, on the other hand, had opened all three
@@ -190,7 +190,7 @@ I'm the winner of Room 1 (<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="
  points, <B>Snapdragon</B> 93, and <B>John Dethridge</B> 76. <B>malpt</B> gained the fewest,
  getting only 37. The only people to lose rating were <B>dmwright</B> (dropping 4
  points from his astronomical rating of 2932, now only leading 
- <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>
+ <A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>
  by
  17 points), <B>benetin</B>
  (losing 68 points), and <B>thekcc</B>
@@ -200,7 +200,7 @@ I'm the winner of Room 1 (<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="
 </P>
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

@@ -302,7 +302,7 @@ even, the answer is simply the <TT>number of connected components - 1</TT>.
 
 
                         <img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" />
-                        By&#160;<a href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        By&#160;<a href="/tc?module=MemberProfile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <div class="smallText"><em>TopCoder Member</em></div><br clear="all" />
                                        
                         <p><br /></p>

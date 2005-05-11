@@ -75,20 +75,20 @@ anyone, and the uncertainty of what you're supposed to do and what's expected.
 
 <P>
 Simple.  They'd garner immediate attention and notoriety, which is exactly what 
-has been brought upon <A HREF="/stat?c=member_profile&amp;cr=277956" CLASS="bodyGeneric">kpsmith</A>,
+has been brought upon <A HREF="/tc?module=MemberProfile&amp;cr=277956" CLASS="bodyGeneric">kpsmith</A>,
  who in Single Round Match 86, his initial TopCoder 
 competition, earned a Division-II record 1935.74 final points.  That point total
- broke the Division-II record of <A HREF="/stat?c=member_profile&amp;cr=155069" CLASS="bodyGeneric">chi</A>,
+ broke the Division-II record of <A HREF="/tc?module=MemberProfile&amp;cr=155069" CLASS="bodyGeneric">chi</A>,
   who earned 1898.64 final points in Single Round Match 67 in February.
 </P>
 <A HREF="/stat?c=highest_totals&amp;dn=2"><IMG SRC="/i/f/feat_051502_tn3.gif" HSPACE="10" VSPACE="5" ALT="" BORDER="0"/></A>
 <P>
 The final point total of <B>kpsmith</B> is also TopCoder's all-time point record, 8.35 
-more than the 1927.39 total of <A HREF="/stat?c=member_profile&amp;cr=109965" CLASS="bodyGeneric">vulture</A>
+more than the 1927.39 total of <A HREF="/tc?module=MemberProfile&amp;cr=109965" CLASS="bodyGeneric">vulture</A>
  in Single Round Match 1, which strangely 
 enough occurred exactly one year (May 8, 2001) from the date <B>kpsmith</B> broke the 
 record (May 8, 2002).  <B>kpsmith</B> also broke the record for the most points earned 
-in a debut match, which was held by <A HREF="/stat?c=member_profile&amp;cr=112630" CLASS="bodyGeneric">Aleksey</A>,
+in a debut match, which was held by <A HREF="/tc?module=MemberProfile&amp;cr=112630" CLASS="bodyGeneric">Aleksey</A>,
  who earned 1787.55 final points in 
 the Second Round of the 2001 TopCoder Collegiate Challenge.  Lastly, <B>kpsmith</B> had 
 a debut rating of 1894, which is the seventh highest ever.
@@ -120,7 +120,7 @@ in 3:06 for 296.46 points.  He then spent 4:10 on the Level Two problem and
 earned 538.43 points, and finished the Coding Phase of the competition with 
 1685.74 points by completing the Level Three problem in 6:53 for 850.85 points.  
 That total put him in first place in Room 62, 48.97 points ahead of 
-<A HREF="/stat?c=member_profile&amp;cr=282138" CLASS="bodyGeneric">ekrips</A>.
+<A HREF="/tc?module=MemberProfile&amp;cr=282138" CLASS="bodyGeneric">ekrips</A>.
 </P>
 
 <P>
@@ -146,7 +146,7 @@ That must have been quite a chatting and thinking session, since in the next
  we all raced to that problem and challenged it as quickly as we could. 
   Alas!  I typed in one of the inputs incorrectly, including a space where 
   they were not allowed.  By the time I had correctly formatted my challenge,
-   the problem had already been challenged by someone else (<A HREF="/stat?c=member_profile&amp;cr=281606" CLASS="bodyGeneric">floris</A>)!
+   the problem had already been challenged by someone else (<A HREF="/tc?module=MemberProfile&amp;cr=281606" CLASS="bodyGeneric">floris</A>)!
 </P>
 
 <P>
@@ -162,7 +162,7 @@ one was just completely wrong and wouldn't have passed any of the example tests.
 By that time, <B>floris</B> had examined all of the Level Three problems and 
 already challenged one.  I took a quick look at the others and didn't 
 see anything blatant.  I then got lucky stumbling across a Level Two problem 
-where the coder (<A HREF="/stat?c=member_profile&amp;cr=267903" CLASS="bodyGeneric">tzesti</A>)
+where the coder (<A HREF="/tc?module=MemberProfile&amp;cr=267903" CLASS="bodyGeneric">tzesti</A>)
  had clearly misread the problem.  If anyone else 
 had gotten to it first, they would certainly have seen the problem just as
  quickly."
@@ -189,7 +189,7 @@ well under competitive pressure."
 
 <P>
 After the match, <B>kpsmith</B> logged off and went to bed, unaware of his 
-achievements.  "My friend <A HREF="/stat?c=member_profile&amp;cr=278964" CLASS="bodyGeneric">digitalbeing</A>
+achievements.  "My friend <A HREF="/tc?module=MemberProfile&amp;cr=278964" CLASS="bodyGeneric">digitalbeing</A>
  pointed it out to me the next morning.  It certainly felt good."
 </P>
 
@@ -216,12 +216,12 @@ in awe of his proficiency and professionalism:
 
 <P>
 "The guy outclassed everyone in the room that night," said 
-<A HREF="/stat?c=member_profile&amp;cr=280290" CLASS="bodyGeneric">Iconoclast</A>.
+<A HREF="/tc?module=MemberProfile&amp;cr=280290" CLASS="bodyGeneric">Iconoclast</A>.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=282277" CLASS="bodyGeneric">FoneBone</A>
- and <A HREF="/stat?c=member_profile&amp;cr=269697" CLASS="bodyGeneric">OMNI</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=282277" CLASS="bodyGeneric">FoneBone</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=269697" CLASS="bodyGeneric">OMNI</A>
  both mentioned that they were "amazed at how 
 brilliant and efficient his code was."
 </P>
@@ -308,7 +308,7 @@ since they quickly disappear and are never heard from again.  Anybody remember
 
 <P>
 Well TopCoder is not without its own one hit wonder.  In Single Round Match 20, 
-<A HREF="/stat?c=member_profile&amp;cr=152437" CLASS="bodyGeneric">oneshinevn</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=152437" CLASS="bodyGeneric">oneshinevn</A>
  won Room 13 with 1713.30 final points and a record debut rating of 2100.  
 <B>oneshinevn</B> lost 78 rating points in his next match, and even though he gained 50 of 
 those back in Single Round Match 22, four matches later <B>oneshinevn</B> was down to a 
@@ -346,7 +346,7 @@ Either way is ok with me."
 
 <P>
 <B>kpsmith</B> almost made it two-for-two in room wins, as he led Room 4 with 1385.87 
-points after the Coding Phase in Single Round Match 87.  <A HREF="/stat?c=member_profile&amp;cr=269058" CLASS="bodyGeneric">jasonw</A>
+points after the Coding Phase in Single Round Match 87.  <A HREF="/tc?module=MemberProfile&amp;cr=269058" CLASS="bodyGeneric">jasonw</A>
  successfully 
 challenged his Level Three submission during the Challenge Phase, however, 
 dropping him to sixth place.  
@@ -372,9 +372,9 @@ The next Beatles? We've asked these questions in the past.
 </P>
 
 <P>
-TopCoder is, of course, very young but a few coders, <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>,
- <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>,
- and <A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>, 
+TopCoder is, of course, very young but a few coders, <A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>,
+ <A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>,
+ and <A HREF="/tc?module=MemberProfile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>, 
 have become very well known and respected by the member community, and have achieved that 
 legendary status already.  Is <B>kpsmith</B> on the path to TopCoder greatness?  
 Well it's too early to tell, but sharing the same handle structure as <B>NDBronson</B> 

@@ -80,27 +80,27 @@
                     <td width="99%" class="bodyText"><div align="center"><img src="/i/tournament/tccc03/tccc03_brackets.gif" width="507" height="312" usemap="#tccc03_rooms" border="0"/></div></td>
 
                         <map name="tccc03_rooms">
-                            <AREA SHAPE="rect" ALT="" COORDS="391,261,498,284" HREF="/stat?c=member_profile&amp;cr=274498" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="390,234,498,256" HREF="/stat?c=member_profile&amp;cr=266571" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="390,207,498,229" HREF="/stat?c=member_profile&amp;cr=155275" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="390,179,499,202" HREF="/stat?c=member_profile&amp;cr=262936" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="390,106,498,128" HREF="/stat?c=member_profile&amp;cr=156592" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="390,79,499,101" HREF="/stat?c=member_profile&amp;cr=251183" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="389,53,498,74" HREF="/stat?c=member_profile&amp;cr=114853" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="390,25,498,48" HREF="/stat?c=member_profile&amp;cr=158837" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="268,220,377,242" HREF="/stat?c=member_profile&amp;cr=262936" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="268,66,376,88" HREF="/stat?c=member_profile&amp;cr=114853" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="199,143,307,165" HREF="/stat?c=member_profile&amp;cr=262936" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="130,220,238,242" HREF="/stat?c=member_profile&amp;cr=107835" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="129,65,239,88" HREF="/stat?c=member_profile&amp;cr=269554" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="8,261,116,283" HREF="/stat?c=member_profile&amp;cr=273112" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="7,235,117,256" HREF="/stat?c=member_profile&amp;cr=107835" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="8,207,116,228" HREF="/stat?c=member_profile&amp;cr=287496" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="8,179,116,202" HREF="/stat?c=member_profile&amp;cr=264869" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="8,107,116,129" HREF="/stat?c=member_profile&amp;cr=311051" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="9,78,117,101" HREF="/stat?c=member_profile&amp;cr=269554" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="7,52,117,73" HREF="/stat?c=member_profile&amp;cr=263379" class="statText"/>
-							<AREA SHAPE="rect" ALT="" COORDS="7,24,116,47" HREF="/stat?c=member_profile&amp;cr=153902" class="statText"/>
+                            <AREA SHAPE="rect" ALT="" COORDS="391,261,498,284" HREF="/tc?module=MemberProfile&amp;cr=274498" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="390,234,498,256" HREF="/tc?module=MemberProfile&amp;cr=266571" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="390,207,498,229" HREF="/tc?module=MemberProfile&amp;cr=155275" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="390,179,499,202" HREF="/tc?module=MemberProfile&amp;cr=262936" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="390,106,498,128" HREF="/tc?module=MemberProfile&amp;cr=156592" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="390,79,499,101" HREF="/tc?module=MemberProfile&amp;cr=251183" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="389,53,498,74" HREF="/tc?module=MemberProfile&amp;cr=114853" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="390,25,498,48" HREF="/tc?module=MemberProfile&amp;cr=158837" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="268,220,377,242" HREF="/tc?module=MemberProfile&amp;cr=262936" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="268,66,376,88" HREF="/tc?module=MemberProfile&amp;cr=114853" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="199,143,307,165" HREF="/tc?module=MemberProfile&amp;cr=262936" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="130,220,238,242" HREF="/tc?module=MemberProfile&amp;cr=107835" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="129,65,239,88" HREF="/tc?module=MemberProfile&amp;cr=269554" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="8,261,116,283" HREF="/tc?module=MemberProfile&amp;cr=273112" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="7,235,117,256" HREF="/tc?module=MemberProfile&amp;cr=107835" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="8,207,116,228" HREF="/tc?module=MemberProfile&amp;cr=287496" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="8,179,116,202" HREF="/tc?module=MemberProfile&amp;cr=264869" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="8,107,116,129" HREF="/tc?module=MemberProfile&amp;cr=311051" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="9,78,117,101" HREF="/tc?module=MemberProfile&amp;cr=269554" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="7,52,117,73" HREF="/tc?module=MemberProfile&amp;cr=263379" class="statText"/>
+							<AREA SHAPE="rect" ALT="" COORDS="7,24,116,47" HREF="/tc?module=MemberProfile&amp;cr=153902" class="statText"/>
                         </map>   
             
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>

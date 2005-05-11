@@ -198,7 +198,7 @@ where n represents the total number of line endpoints or distinct intersection p
 						</p>
 						
                         <IMG SRC="/i/m/brett1479_mug.jpg" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-						By&#160;brett1479<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=251317" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+						By&#160;brett1479<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=251317" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
                         
                         <p><br/></p>
           

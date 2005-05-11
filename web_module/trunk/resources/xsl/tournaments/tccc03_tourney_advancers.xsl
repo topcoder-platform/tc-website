@@ -81,7 +81,7 @@
                             <tr>
                               <td class="statText">
                                   <a>
-                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="HREF">/tc?module=MemberProfile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">
                                         <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                                       </xsl:attribute>

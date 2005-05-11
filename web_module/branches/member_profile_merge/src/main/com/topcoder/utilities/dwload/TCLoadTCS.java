@@ -1,26 +1,9 @@
 package com.topcoder.utilities.dwload;
 
 /**
- * TCLoadCoders.java
+ * TCLoadTCS.java
  *
- * TCLoadCoders loads coder information tables from one database to another.
- * The tables that are built by this load procedure are:
- * <ul>
- * <li>state</li>
- * <li>country</li>
- * <li>coder</li>
- * <li>skill</li>
- * <li>skill_type</li>
- * <li>coder_skill</li>
- * <li>rating</li>
- * <li>path</li>
- * <li>image</li>
- * <li>coder_image_xref</li>
- * <li>school</li>
- * <li>current_school</li>
- * </ul>
- *
- * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
+ * @author rfairfax
  * @version $Revision$
  */
 
@@ -34,9 +17,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 public class TCLoadTCS extends TCLoad {
-    private static Logger log = Logger.getLogger(TCLoadCoders.class);
+    private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
     public TCLoadTCS() {
         DEBUG = false;
@@ -96,6 +80,9 @@ public class TCLoadTCS extends TCLoad {
             doLoadUserReliability();
 
             doLoadRoyalty();
+  
+            doLoadRank(112);
+            doLoadRank(113);
 
             //fix problems with submission date
             sSQL = "update project_result " +
@@ -349,7 +336,7 @@ public class TCLoadTCS extends TCLoad {
                     "case when p.project_type_id = 1 then 112 else 113 end as phase_id, " +
                     "(select description from phase where phase_id = (case when p.project_type_id = 1 then 112 else 113 end)) as phase_desc, " +
                     "cc.root_category_id as category_id, " +
-                    "(select category_name from categories where category_id = cc.root_category_id) as category_desc, " +
+                    "(select category_name from categories where category_id = case when cc.root_category_id in (5801776,5801778) then 5801776 when cc.root_category_id in (5801777,5801779) then 5801777 else cc.root_category_id end) as category_desc, " +
                     "(select start_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as posting_date, " +
                     "(select end_date from phase_instance where phase_id = 1 and cur_version = 1 and project_id = p.project_id) as submitby_date, " +
                     "(select max(level_id) from comp_version_dates where comp_vers_id = p.comp_vers_id and phase_id = p.project_type_id + 111) as level_id, " +
@@ -357,7 +344,8 @@ public class TCLoadTCS extends TCLoad {
                     "rp.review_phase_id, " +
                     "rp.review_phase_name," +
                     "ps.project_stat_id," +
-                    "ps.project_stat_name " +
+                    "ps.project_stat_name, " +
+                    "case when cc.root_category_id in (5801778,5801779) then 1 else 0 end as custom_ind " +
                     "from project p, " +
                     "comp_versions cv, " +
                     "comp_catalog cc," +
@@ -380,7 +368,7 @@ public class TCLoadTCS extends TCLoad {
             if (rs.next()) {
                 //update record, if 0 rows affected, insert record
                 sSQL = "update project set component_name = ?,  num_registrations = ?, num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, phase_id = ?, " +
-                        "phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date = ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, status_id = ?, status_desc = ?, level_id = ? where project_id = ? ";
+                        "phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date = ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, status_id = ?, status_desc = ?, level_id = ?, custom_ind = ? where project_id = ? ";
 
                 ps2 = prepareStatement(sSQL, TARGET_DB);
                 ps2.setString(1, rs.getString("component_name"));
@@ -402,7 +390,8 @@ public class TCLoadTCS extends TCLoad {
                 ps2.setLong(17, rs.getLong("project_stat_id"));
                 ps2.setString(18, rs.getString("project_stat_name"));
                 ps2.setLong(19, rs.getLong("level_id"));
-                ps2.setLong(20, rs.getLong("project_id"));
+                ps2.setInt(20, rs.getInt("custom_ind"));
+                ps2.setLong(21, rs.getLong("project_id"));
 
                 int retVal = ps2.executeUpdate();
 
@@ -412,7 +401,7 @@ public class TCLoadTCS extends TCLoad {
                 if (retVal == 0) {
                     //need to insert
                     sSQL = "insert into project (project_id, component_name, num_registrations, num_submissions, num_valid_submissions, avg_raw_score, avg_final_score, phase_id, phase_desc, " +
-                            "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, review_phase_id, review_phase_name, status_id, status_desc, level_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                            "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, review_phase_id, review_phase_name, status_id, status_desc, level_id, custom_ind) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("project_id"));
@@ -435,6 +424,7 @@ public class TCLoadTCS extends TCLoad {
                     ps2.setLong(18, rs.getLong("project_stat_id"));
                     ps2.setString(19, rs.getString("project_stat_name"));
                     ps2.setLong(20, rs.getLong("level_id"));
+                    ps2.setInt(21, rs.getInt("custom_ind"));
 
                     ps2.execute();
 
@@ -935,6 +925,160 @@ public class TCLoadTCS extends TCLoad {
             throw new Exception("Load of 'events' table failed.\n" +
                     sqle.getMessage());
         }
+    }
+    
+    /**
+     * Get a sorted list (by rating desc) of all the active coders
+     * and their ratings.
+     * @return List containing CoderRating objects
+     * @throws Exception if something goes wrong when querying
+     */
+    private List getCurrentRatings(int phaseId) throws Exception {
+        StringBuffer query = null;
+        PreparedStatement psSel = null;
+        ResultSet rs = null;
+        List ret = null;
+
+        try {
+
+            query = new StringBuffer(100);
+            query.append(" SELECT r.user_id");
+            query.append(" ,r.rating");
+            query.append(" FROM user_rating r ");
+            if (phaseId == 112)
+                query.append(" ,  active_designers a");
+            else
+                query.append(" ,  active_developers a");
+            query.append(" WHERE ");
+            query.append(" r.rating > 0");
+            query.append(" AND a.user_id = r.user_id");
+            query.append(" AND r.phase_id = ");
+            query.append(phaseId);
+            query.append(" ORDER BY r.rating DESC");
+            psSel = prepareStatement(query.toString(), TARGET_DB);
+
+            rs = psSel.executeQuery();
+            ret = new ArrayList();
+            while (rs.next()) {
+                ret.add(new CoderRating(rs.getInt("user_id"), rs.getInt("rating")));
+            }
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'user_rating' table failed for overall rating rank.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+        }
+        return ret;
+
+    }
+    
+    private class CoderRating implements Comparable {
+        private int _coderId = 0;
+        private int _rating = 0;
+
+        CoderRating(int coderId, int rating) {
+            _coderId = coderId;
+            _rating = rating;
+        }
+
+        public int compareTo(Object other) {
+            if (((CoderRating) other).getRating() > _rating)
+                return 1;
+            else if (((CoderRating) other).getRating() < _rating)
+                return -1;
+            else
+                return 0;
+        }
+
+        int getCoderId() {
+            return _coderId;
+        }
+
+        int getRating() {
+            return _rating;
+        }
+
+        void setCoderId(int coderId) {
+            _coderId = coderId;
+        }
+
+        void setRating(int rating) {
+            _rating = rating;
+        }
+
+        public String toString() {
+            return new String(_coderId + ":" + _rating);
+        }
+    }
+
+    private void doLoadRank(int phaseId) throws Exception {
+        StringBuffer query = null;
+        PreparedStatement psDel = null;
+        PreparedStatement psSel = null;
+        PreparedStatement psIns = null;
+        ResultSet rs = null;
+        int count = 0;
+        int coderCount = 0;
+        List ratings = null;
+
+        try {
+
+            query = new StringBuffer(100);
+            query.append(" DELETE");
+            query.append(" FROM user_rank");
+            query.append(" WHERE phase_id = " + phaseId);
+            psDel = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append(" INSERT");
+            query.append(" INTO user_rank (user_id, percentile, rank, phase_id)");
+            query.append(" VALUES (?, ?, ?, " + phaseId + ")");
+            psIns = prepareStatement(query.toString(), TARGET_DB);
+
+            /* coder_rank table should be kept "up-to-date" so get the most recent stuff
+             * from the rating table
+             */
+            ratings = getCurrentRatings(phaseId);
+            coderCount = ratings.size();
+
+            // delete all the records for the overall rating rank type
+            psDel.executeUpdate();
+
+            int i = 0;
+            int rating = 0;
+            int rank = 0;
+            int size = ratings.size();
+            int tempRating = 0;
+            int tempCoderId = 0;
+            for (int j = 0; j < size; j++) {
+                i++;
+                tempRating = ((CoderRating) ratings.get(j)).getRating();
+                tempCoderId = ((CoderRating) ratings.get(j)).getCoderId();
+                if (tempRating != rating) {
+                    rating = tempRating;
+                    rank = i;
+                }
+                psIns.setInt(1, tempCoderId);
+                psIns.setFloat(2, (float) 100 * ((float) (coderCount - rank) / coderCount));
+                psIns.setInt(3, rank);
+                count += psIns.executeUpdate();
+            }
+            log.info("Records loaded for overall rating rank load: " + count);
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'user_rank' table failed for overall rating rank.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(rs);
+            close(psSel);
+            close(psIns);
+            close(psDel);
+        }
+
     }
 
 }

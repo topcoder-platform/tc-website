@@ -51,7 +51,7 @@
          </tr>
          <tr>
             <td align="left" class="bodyText" valign="top">
-               By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=277659"><strong>radeye</strong></a><br />
+               By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=277659"><strong>radeye</strong></a><br />
                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
          </tr>
@@ -81,7 +81,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=144400">tomek</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=144400">tomek</a></td>
 <td class="ccrt1o" align="right">3505</td>
 <td class="ccrt1o" align="right">226</td>
 <td class="ccrt1o" align="right">$18 782.96</td>
@@ -95,7 +95,7 @@
 <td class="ccrt3o" align="right">5.46</td>
 <td class="ccrt3o" align="right">23.56</td>
 <td class="ccrt3o" align="right">65.72</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=260835">reid</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=260835">reid</a></td>
 <td class="ccrt1e" align="right">3210</td>
 <td class="ccrt1e" align="right">307</td>
 <td class="ccrt1e" align="right">$7 413.06</td>
@@ -109,7 +109,7 @@
 <td class="ccrt3e" align="right">21.33</td>
 <td class="ccrt3e" align="right">30.49</td>
 <td class="ccrt3e" align="right">14.66</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=270505">John Dethridge</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=270505">John Dethridge</a></td>
 <td class="ccrt1o" align="right">3108</td>
 <td class="ccrt1o" align="right">468</td>
 <td class="ccrt1o" align="right">$5 060.74</td>
@@ -123,7 +123,7 @@
 <td class="ccrt3o" align="right">16.37</td>
 <td class="ccrt3o" align="right">14.84</td>
 <td class="ccrt3o" align="right">11.26</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=152347">ZorbaTHut</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=152347">ZorbaTHut</a></td>
 <td class="ccrt1e" align="right">3040</td>
 <td class="ccrt1e" align="right">255</td>
 <td class="ccrt1e" align="right">$3 060.51</td>
@@ -137,7 +137,7 @@
 <td class="ccrt3e" align="right">19.94</td>
 <td class="ccrt3e" align="right">14.17</td>
 <td class="ccrt3e" align="right">3.12</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262056">mathijs</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=262056">mathijs</a></td>
 <td class="ccrt1o" align="right">2749</td>
 <td class="ccrt1o" align="right">411</td>
 <td class="ccrt1o" align="right">$693.03</td>
@@ -151,7 +151,7 @@
 <td class="ccrt3o" align="right">4.55</td>
 <td class="ccrt3o" align="right">2.29</td>
 <td class="ccrt3o" align="right">0.65</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=311170">bladerunner</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=311170">bladerunner</a></td>
 <td class="ccrt1e" align="right">2806</td>
 <td class="ccrt1e" align="right">312</td>
 <td class="ccrt1e" align="right">$475.06</td>
@@ -165,7 +165,7 @@
 <td class="ccrt3e" align="right">3.74</td>
 <td class="ccrt3e" align="right">1.72</td>
 <td class="ccrt3e" align="right">0.31</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262936">dgarthur</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=262936">dgarthur</a></td>
 <td class="ccrt1o" align="right">2880</td>
 <td class="ccrt1o" align="right">352</td>
 <td class="ccrt1o" align="right">$854.09</td>
@@ -179,7 +179,7 @@
 <td class="ccrt3o" align="right">5.40</td>
 <td class="ccrt3o" align="right">3.16</td>
 <td class="ccrt3o" align="right">0.93</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287496">bstanescu</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=287496">bstanescu</a></td>
 <td class="ccrt1e" align="right">2748</td>
 <td class="ccrt1e" align="right">571</td>
 <td class="ccrt1e" align="right">$867.31</td>
@@ -193,7 +193,7 @@
 <td class="ccrt3e" align="right">3.75</td>
 <td class="ccrt3e" align="right">2.36</td>
 <td class="ccrt3e" align="right">1.45</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=286907">WishingBone</a></td>
 <td class="ccrt1o" align="right">2742</td>
 <td class="ccrt1o" align="right">347</td>
 <td class="ccrt1o" align="right">$473.59</td>
@@ -207,7 +207,7 @@
 <td class="ccrt3o" align="right">3.73</td>
 <td class="ccrt3o" align="right">1.60</td>
 <td class="ccrt3o" align="right">0.29</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8355516">Eryx</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8355516">Eryx</a></td>
 <td class="ccrt1e" align="right">2673</td>
 <td class="ccrt1e" align="right">369</td>
 <td class="ccrt1e" align="right">$336.82</td>
@@ -221,7 +221,7 @@
 <td class="ccrt3e" align="right">2.70</td>
 <td class="ccrt3e" align="right">1.04</td>
 <td class="ccrt3e" align="right">0.18</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=309453">Jan_Kuipers</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=309453">Jan_Kuipers</a></td>
 <td class="ccrt1o" align="right">2625</td>
 <td class="ccrt1o" align="right">303</td>
 <td class="ccrt1o" align="right">$157.95</td>
@@ -235,7 +235,7 @@
 <td class="ccrt3o" align="right">1.47</td>
 <td class="ccrt3o" align="right">0.42</td>
 <td class="ccrt3o" align="right">0.04</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=2058672">dary</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=2058672">dary</a></td>
 <td class="ccrt1e" align="right">2525</td>
 <td class="ccrt1e" align="right">341</td>
 <td class="ccrt1e" align="right">$75.70</td>
@@ -249,7 +249,7 @@
 <td class="ccrt3e" align="right">0.65</td>
 <td class="ccrt3e" align="right">0.17</td>
 <td class="ccrt3e" align="right">0.02</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287568">tjq</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=287568">tjq</a></td>
 <td class="ccrt1o" align="right">2599</td>
 <td class="ccrt1o" align="right">533</td>
 <td class="ccrt1o" align="right">$316.69</td>
@@ -263,7 +263,7 @@
 <td class="ccrt3o" align="right">1.74</td>
 <td class="ccrt3o" align="right">0.86</td>
 <td class="ccrt3o" align="right">0.37</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=345049">aneubeck</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=345049">aneubeck</a></td>
 <td class="ccrt1e" align="right">2499</td>
 <td class="ccrt1e" align="right">413</td>
 <td class="ccrt1e" align="right">$74.99</td>
@@ -277,7 +277,7 @@
 <td class="ccrt3e" align="right">0.56</td>
 <td class="ccrt3e" align="right">0.18</td>
 <td class="ccrt3e" align="right">0.03</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=307060">AdrianKuegel</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=307060">AdrianKuegel</a></td>
 <td class="ccrt1o" align="right">2505</td>
 <td class="ccrt1o" align="right">403</td>
 <td class="ccrt1o" align="right">$70.08</td>
@@ -291,7 +291,7 @@
 <td class="ccrt3o" align="right">0.53</td>
 <td class="ccrt3o" align="right">0.17</td>
 <td class="ccrt3o" align="right">0.03</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287105">lars</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=287105">lars</a></td>
 <td class="ccrt1e" align="right">2610</td>
 <td class="ccrt1e" align="right">444</td>
 <td class="ccrt1e" align="right">$214.84</td>
@@ -326,7 +326,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286911">Xu Chuan</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=286911">Xu Chuan</a></td>
 <td class="ccrt1o" align="right">2439</td>
 <td class="ccrt1o" align="right">320</td>
 <td class="ccrt1o" align="right">$19.37</td>
@@ -340,7 +340,7 @@
 <td class="ccrt3o" align="right">0.16</td>
 <td class="ccrt3o" align="right">0.03</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7428266">Klinck</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7428266">Klinck</a></td>
 <td class="ccrt1e" align="right">2451</td>
 <td class="ccrt1e" align="right">296</td>
 <td class="ccrt1e" align="right">$19.11</td>
@@ -354,7 +354,7 @@
 <td class="ccrt3e" align="right">0.16</td>
 <td class="ccrt3e" align="right">0.03</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=153902">evd</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=153902">evd</a></td>
 <td class="ccrt1o" align="right">2487</td>
 <td class="ccrt1o" align="right">336</td>
 <td class="ccrt1o" align="right">$46.99</td>
@@ -368,7 +368,7 @@
 <td class="ccrt3o" align="right">0.40</td>
 <td class="ccrt3o" align="right">0.10</td>
 <td class="ccrt3o" align="right">0.01</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=307638">Wernie</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=307638">Wernie</a></td>
 <td class="ccrt1e" align="right">2436</td>
 <td class="ccrt1e" align="right">443</td>
 <td class="ccrt1e" align="right">$70.10</td>
@@ -382,7 +382,7 @@
 <td class="ccrt3e" align="right">0.51</td>
 <td class="ccrt3e" align="right">0.16</td>
 <td class="ccrt3e" align="right">0.03</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=113178">po</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=113178">po</a></td>
 <td class="ccrt1o" align="right">2463</td>
 <td class="ccrt1o" align="right">241</td>
 <td class="ccrt1o" align="right">$12.48</td>
@@ -396,7 +396,7 @@
 <td class="ccrt3o" align="right">0.11</td>
 <td class="ccrt3o" align="right">0.02</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7311097">m00tz</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7311097">m00tz</a></td>
 <td class="ccrt1e" align="right">2402</td>
 <td class="ccrt1e" align="right">410</td>
 <td class="ccrt1e" align="right">$40.06</td>
@@ -410,7 +410,7 @@
 <td class="ccrt3e" align="right">0.30</td>
 <td class="ccrt3e" align="right">0.08</td>
 <td class="ccrt3e" align="right">0.01</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=260987">dangelo</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=260987">dangelo</a></td>
 <td class="ccrt1o" align="right">2421</td>
 <td class="ccrt1o" align="right">367</td>
 <td class="ccrt1o" align="right">$31.34</td>
@@ -424,7 +424,7 @@
 <td class="ccrt3o" align="right">0.25</td>
 <td class="ccrt3o" align="right">0.06</td>
 <td class="ccrt3o" align="right">0.01</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=251074">bmerry</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=251074">bmerry</a></td>
 <td class="ccrt1e" align="right">2467</td>
 <td class="ccrt1e" align="right">527</td>
 <td class="ccrt1e" align="right">$126.12</td>
@@ -438,7 +438,7 @@
 <td class="ccrt3e" align="right">0.77</td>
 <td class="ccrt3e" align="right">0.31</td>
 <td class="ccrt3e" align="right">0.10</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=264869">ante</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=264869">ante</a></td>
 <td class="ccrt1o" align="right">2463</td>
 <td class="ccrt1o" align="right">497</td>
 <td class="ccrt1o" align="right">$101.10</td>
@@ -452,7 +452,7 @@
 <td class="ccrt3o" align="right">0.65</td>
 <td class="ccrt3o" align="right">0.25</td>
 <td class="ccrt3o" align="right">0.07</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=310430">gepa</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=310430">gepa</a></td>
 <td class="ccrt1e" align="right">2372</td>
 <td class="ccrt1e" align="right">423</td>
 <td class="ccrt1e" align="right">$27.02</td>
@@ -466,7 +466,7 @@
 <td class="ccrt3e" align="right">0.20</td>
 <td class="ccrt3e" align="right">0.05</td>
 <td class="ccrt3e" align="right">0.01</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=308953">Mike Mirzayanov</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=308953">Mike Mirzayanov</a></td>
 <td class="ccrt1o" align="right">2384</td>
 <td class="ccrt1o" align="right">474</td>
 <td class="ccrt1o" align="right">$44.23</td>
@@ -480,7 +480,7 @@
 <td class="ccrt3o" align="right">0.30</td>
 <td class="ccrt3o" align="right">0.10</td>
 <td class="ccrt3o" align="right">0.02</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=275071">antimatter</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=275071">antimatter</a></td>
 <td class="ccrt1e" align="right">2522</td>
 <td class="ccrt1e" align="right">649</td>
 <td class="ccrt1e" align="right">$267.46</td>
@@ -494,7 +494,7 @@
 <td class="ccrt3e" align="right">1.20</td>
 <td class="ccrt3e" align="right">0.64</td>
 <td class="ccrt3e" align="right">0.39</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=261024">grotmol</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=261024">grotmol</a></td>
 <td class="ccrt1o" align="right">2446</td>
 <td class="ccrt1o" align="right">531</td>
 <td class="ccrt1o" align="right">$104.01</td>
@@ -508,7 +508,7 @@
 <td class="ccrt3o" align="right">0.62</td>
 <td class="ccrt3o" align="right">0.25</td>
 <td class="ccrt3o" align="right">0.08</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287979">Oblok</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=287979">Oblok</a></td>
 <td class="ccrt1e" align="right">2218</td>
 <td class="ccrt1e" align="right">330</td>
 <td class="ccrt1e" align="right">$1.50</td>
@@ -522,7 +522,7 @@
 <td class="ccrt3e" align="right">0.01</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=279471">haha</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=279471">haha</a></td>
 <td class="ccrt1o" align="right">2342</td>
 <td class="ccrt1o" align="right">453</td>
 <td class="ccrt1o" align="right">$28.05</td>
@@ -536,7 +536,7 @@
 <td class="ccrt3o" align="right">0.20</td>
 <td class="ccrt3o" align="right">0.06</td>
 <td class="ccrt3o" align="right">0.01</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=276749">jonderry</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=276749">jonderry</a></td>
 <td class="ccrt1e" align="right">2202</td>
 <td class="ccrt1e" align="right">296</td>
 <td class="ccrt1e" align="right">$0.71</td>
@@ -571,7 +571,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287266">jms137</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=287266">jms137</a></td>
 <td class="ccrt1o" align="right">2272</td>
 <td class="ccrt1o" align="right">417</td>
 <td class="ccrt1o" align="right">$10.90</td>
@@ -585,7 +585,7 @@
 <td class="ccrt3o" align="right">0.08</td>
 <td class="ccrt3o" align="right">0.02</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=263396">Abednego</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=263396">Abednego</a></td>
 <td class="ccrt1e" align="right">2192</td>
 <td class="ccrt1e" align="right">528</td>
 <td class="ccrt1e" align="right">$14.49</td>
@@ -599,7 +599,7 @@
 <td class="ccrt3e" align="right">0.09</td>
 <td class="ccrt3e" align="right">0.02</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=284007">Ryan</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=284007">Ryan</a></td>
 <td class="ccrt1o" align="right">2249</td>
 <td class="ccrt1o" align="right">295</td>
 <td class="ccrt1o" align="right">$1.53</td>
@@ -613,7 +613,7 @@
 <td class="ccrt3o" align="right">0.01</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=304031">Ruberik</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=304031">Ruberik</a></td>
 <td class="ccrt1e" align="right">2172</td>
 <td class="ccrt1e" align="right">471</td>
 <td class="ccrt1e" align="right">$7.58</td>
@@ -627,7 +627,7 @@
 <td class="ccrt3e" align="right">0.05</td>
 <td class="ccrt3e" align="right">0.01</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=308453">overwise</a></td>
+<tr><td class="ccrt1o"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=308453">overwise</a></td>
 <td class="ccrt1o" align="right">2259</td>
 <td class="ccrt1o" align="right">547</td>
 <td class="ccrt1o" align="right">$31.78</td>
@@ -641,7 +641,7 @@
 <td class="ccrt3o" align="right">0.19</td>
 <td class="ccrt3o" align="right">0.06</td>
 <td class="ccrt3o" align="right">0.02</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7462740">ploh</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7462740">ploh</a></td>
 <td class="ccrt1e" align="right">2218</td>
 <td class="ccrt1e" align="right">308</td>
 <td class="ccrt1e" align="right">$1.35</td>
@@ -655,7 +655,7 @@
 <td class="ccrt3e" align="right">0.01</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=310333">kalinov</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=310333">kalinov</a></td>
 <td class="ccrt1o" align="right">2079</td>
 <td class="ccrt1o" align="right">314</td>
 <td class="ccrt1o" align="right">$0.17</td>
@@ -669,7 +669,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7502813">monsoon</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7502813">monsoon</a></td>
 <td class="ccrt1e" align="right">2110</td>
 <td class="ccrt1e" align="right">292</td>
 <td class="ccrt1e" align="right">$0.17</td>
@@ -683,7 +683,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7210680">cnettel</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7210680">cnettel</a></td>
 <td class="ccrt1o" align="right">2199</td>
 <td class="ccrt1o" align="right">362</td>
 <td class="ccrt1o" align="right">$2.72</td>
@@ -697,7 +697,7 @@
 <td class="ccrt3o" align="right">0.02</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7281980">eldering</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7281980">eldering</a></td>
 <td class="ccrt1e" align="right">2085</td>
 <td class="ccrt1e" align="right">314</td>
 <td class="ccrt1e" align="right">$0.18</td>
@@ -711,7 +711,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289706">mickle</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=289706">mickle</a></td>
 <td class="ccrt1o" align="right">2111</td>
 <td class="ccrt1o" align="right">310</td>
 <td class="ccrt1o" align="right">$0.27</td>
@@ -725,7 +725,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=287864">PAKETA</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=287864">PAKETA</a></td>
 <td class="ccrt1e" align="right">2004</td>
 <td class="ccrt1e" align="right">403</td>
 <td class="ccrt1e" align="right">$0.40</td>
@@ -739,7 +739,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8398526">Tomy</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8398526">Tomy</a></td>
 <td class="ccrt1o" align="right">2075</td>
 <td class="ccrt1o" align="right">240</td>
 <td class="ccrt1o" align="right">$0.01</td>
@@ -753,7 +753,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7421158">Per</a></td>
+<tr><td class="ccrt1e"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7421158">Per</a></td>
 <td class="ccrt1e" align="right">2277</td>
 <td class="ccrt1e" align="right">566</td>
 <td class="ccrt1e" align="right">$41.01</td>
@@ -767,7 +767,7 @@
 <td class="ccrt3e" align="right">0.24</td>
 <td class="ccrt3e" align="right">0.08</td>
 <td class="ccrt3e" align="right">0.02</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=308657">skanthak</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=308657">skanthak</a></td>
 <td class="ccrt1o" align="right">2103</td>
 <td class="ccrt1o" align="right">382</td>
 <td class="ccrt1o" align="right">$1.04</td>
@@ -781,7 +781,7 @@
 <td class="ccrt3o" align="right">0.01</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=283388">Minsk</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=283388">Minsk</a></td>
 <td class="ccrt1e" align="right">2121</td>
 <td class="ccrt1e" align="right">452</td>
 <td class="ccrt1e" align="right">$3.47</td>
@@ -816,7 +816,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=263379">StefanPochmann</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=263379">StefanPochmann</a></td>
 <td class="ccrt1o" align="right">2003</td>
 <td class="ccrt1o" align="right">470</td>
 <td class="ccrt1o" align="right">$1.16</td>
@@ -830,7 +830,7 @@
 <td class="ccrt3o" align="right">0.01</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296745">pzhao</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=296745">pzhao</a></td>
 <td class="ccrt1e" align="right">2076</td>
 <td class="ccrt1e" align="right">384</td>
 <td class="ccrt1e" align="right">$0.71</td>
@@ -844,7 +844,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=307070">qsort</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=307070">qsort</a></td>
 <td class="ccrt1o" align="right">1992</td>
 <td class="ccrt1o" align="right">418</td>
 <td class="ccrt1o" align="right">$0.40</td>
@@ -858,7 +858,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7582361">zbogi</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7582361">zbogi</a></td>
 <td class="ccrt1e" align="right">2061</td>
 <td class="ccrt1e" align="right">452</td>
 <td class="ccrt1e" align="right">$1.66</td>
@@ -872,7 +872,7 @@
 <td class="ccrt3e" align="right">0.01</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=111202">ColinMacLeod</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=111202">ColinMacLeod</a></td>
 <td class="ccrt1o" align="right">2017</td>
 <td class="ccrt1o" align="right">484</td>
 <td class="ccrt1o" align="right">$1.52</td>
@@ -886,7 +886,7 @@
 <td class="ccrt3o" align="right">0.01</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786">Yi_Zhang</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=309786">Yi_Zhang</a></td>
 <td class="ccrt1e" align="right">2010</td>
 <td class="ccrt1e" align="right">363</td>
 <td class="ccrt1e" align="right">$0.17</td>
@@ -900,7 +900,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7512490">petko</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7512490">petko</a></td>
 <td class="ccrt1o" align="right">2071</td>
 <td class="ccrt1o" align="right">383</td>
 <td class="ccrt1o" align="right">$0.56</td>
@@ -914,7 +914,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=2058469">robymus</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=2058469">robymus</a></td>
 <td class="ccrt1e" align="right">1997</td>
 <td class="ccrt1e" align="right">393</td>
 <td class="ccrt1e" align="right">$0.22</td>
@@ -928,7 +928,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7358573">Kavan</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7358573">Kavan</a></td>
 <td class="ccrt1o" align="right">2020</td>
 <td class="ccrt1o" align="right">320</td>
 <td class="ccrt1o" align="right">$0.05</td>
@@ -942,7 +942,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=274018">Alexandre</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=274018">Alexandre</a></td>
 <td class="ccrt1e" align="right">2012</td>
 <td class="ccrt1e" align="right">342</td>
 <td class="ccrt1e" align="right">$0.08</td>
@@ -956,7 +956,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=269058">jasonw</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=269058">jasonw</a></td>
 <td class="ccrt1o" align="right">1935</td>
 <td class="ccrt1o" align="right">336</td>
 <td class="ccrt1o" align="right">$0.02</td>
@@ -970,7 +970,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7510875">Darkmaster</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7510875">Darkmaster</a></td>
 <td class="ccrt1e" align="right">1868</td>
 <td class="ccrt1e" align="right">360</td>
 <td class="ccrt1e" align="right">$0.01</td>
@@ -984,7 +984,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=293387">abiczo</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=293387">abiczo</a></td>
 <td class="ccrt1o" align="right">1921</td>
 <td class="ccrt1o" align="right">645</td>
 <td class="ccrt1o" align="right">$3.06</td>
@@ -998,7 +998,7 @@
 <td class="ccrt3o" align="right">0.01</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=260828">Larry</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=260828">Larry</a></td>
 <td class="ccrt1e" align="right">1927</td>
 <td class="ccrt1e" align="right">361</td>
 <td class="ccrt1e" align="right">$0.03</td>
@@ -1012,7 +1012,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=289251">ragnabot</a></td>
 <td class="ccrt1o" align="right">1810</td>
 <td class="ccrt1o" align="right">381</td>
 <td class="ccrt1o" align="right">$0.01</td>
@@ -1026,7 +1026,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309982">cyfra</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=309982">cyfra</a></td>
 <td class="ccrt1e" align="right">1953</td>
 <td class="ccrt1e" align="right">374</td>
 <td class="ccrt1e" align="right">$0.06</td>
@@ -1061,7 +1061,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=307169">Fluff</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=307169">Fluff</a></td>
 <td class="ccrt1o" align="right">1856</td>
 <td class="ccrt1o" align="right">373</td>
 <td class="ccrt1o" align="right">$0.01</td>
@@ -1075,7 +1075,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=261567">gilbert</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=261567">gilbert</a></td>
 <td class="ccrt1e" align="right">1891</td>
 <td class="ccrt1e" align="right">386</td>
 <td class="ccrt1e" align="right">$0.03</td>
@@ -1089,7 +1089,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=294034">centipede80</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=294034">centipede80</a></td>
 <td class="ccrt1o" align="right">1865</td>
 <td class="ccrt1o" align="right">268</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1103,7 +1103,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=273112">WhiteShadow</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=273112">WhiteShadow</a></td>
 <td class="ccrt1e" align="right">1778</td>
 <td class="ccrt1e" align="right">397</td>
 <td class="ccrt1e" align="right">$0.01</td>
@@ -1117,7 +1117,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=251832">dark_lord</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=251832">dark_lord</a></td>
 <td class="ccrt1o" align="right">1878</td>
 <td class="ccrt1o" align="right">259</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1131,7 +1131,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=156541">SteveStern</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=156541">SteveStern</a></td>
 <td class="ccrt1e" align="right">1818</td>
 <td class="ccrt1e" align="right">473</td>
 <td class="ccrt1e" align="right">$0.07</td>
@@ -1145,7 +1145,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=274760">Running Wild</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=274760">Running Wild</a></td>
 <td class="ccrt1o" align="right">1915</td>
 <td class="ccrt1o" align="right">329</td>
 <td class="ccrt1o" align="right">$0.01</td>
@@ -1159,7 +1159,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=346607">kalmakka</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=346607">kalmakka</a></td>
 <td class="ccrt1e" align="right">2004</td>
 <td class="ccrt1e" align="right">543</td>
 <td class="ccrt1e" align="right">$1.97</td>
@@ -1173,7 +1173,7 @@
 <td class="ccrt3e" align="right">0.01</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=266571">jburnim</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=266571">jburnim</a></td>
 <td class="ccrt1o" align="right">1814</td>
 <td class="ccrt1o" align="right">414</td>
 <td class="ccrt1o" align="right">$0.02</td>
@@ -1187,7 +1187,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8396270">lews</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8396270">lews</a></td>
 <td class="ccrt1e" align="right">1732</td>
 <td class="ccrt1e" align="right">458</td>
 <td class="ccrt1e" align="right">$0.01</td>
@@ -1201,7 +1201,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8445017">fiasco</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8445017">fiasco</a></td>
 <td class="ccrt1o" align="right">1726</td>
 <td class="ccrt1o" align="right">267</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1215,7 +1215,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8352094">UltraMilo</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8352094">UltraMilo</a></td>
 <td class="ccrt1e" align="right">1819</td>
 <td class="ccrt1e" align="right">421</td>
 <td class="ccrt1e" align="right">$0.02</td>
@@ -1229,7 +1229,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=301937">RalphFurmaniak</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=301937">RalphFurmaniak</a></td>
 <td class="ccrt1o" align="right">1954</td>
 <td class="ccrt1o" align="right">555</td>
 <td class="ccrt1o" align="right">$1.28</td>
@@ -1243,7 +1243,7 @@
 <td class="ccrt3o" align="right">0.01</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7443050">mics</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7443050">mics</a></td>
 <td class="ccrt1e" align="right">1762</td>
 <td class="ccrt1e" align="right">147</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1257,7 +1257,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8360116">freestyler</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8360116">freestyler</a></td>
 <td class="ccrt1o" align="right">1779</td>
 <td class="ccrt1o" align="right">302</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1271,7 +1271,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7584235">agh</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7584235">agh</a></td>
 <td class="ccrt1e" align="right">1838</td>
 <td class="ccrt1e" align="right">313</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1306,7 +1306,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8365685">pparys</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8365685">pparys</a></td>
 <td class="ccrt1o" align="right">1923</td>
 <td class="ccrt1o" align="right">620</td>
 <td class="ccrt1o" align="right">$1.88</td>
@@ -1320,7 +1320,7 @@
 <td class="ccrt3o" align="right">0.01</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7468628">xds</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7468628">xds</a></td>
 <td class="ccrt1e" align="right">1754</td>
 <td class="ccrt1e" align="right">302</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1334,7 +1334,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=288233">gali</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=288233">gali</a></td>
 <td class="ccrt1o" align="right">1846</td>
 <td class="ccrt1o" align="right">473</td>
 <td class="ccrt1o" align="right">$0.07</td>
@@ -1348,7 +1348,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150796">paisa</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=150796">paisa</a></td>
 <td class="ccrt1e" align="right">1825</td>
 <td class="ccrt1e" align="right">340</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1362,7 +1362,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7402883">Henry</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7402883">Henry</a></td>
 <td class="ccrt1o" align="right">1719</td>
 <td class="ccrt1o" align="right">295</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1376,7 +1376,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8474430">kupo</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8474430">kupo</a></td>
 <td class="ccrt1e" align="right">1804</td>
 <td class="ccrt1e" align="right">321</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1390,7 +1390,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=290448">BryanChen</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=290448">BryanChen</a></td>
 <td class="ccrt1o" align="right">1678</td>
 <td class="ccrt1o" align="right">288</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1404,7 +1404,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7360309">dmks</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7360309">dmks</a></td>
 <td class="ccrt1e" align="right">1820</td>
 <td class="ccrt1e" align="right">375</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1418,7 +1418,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8349097">hauser</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8349097">hauser</a></td>
 <td class="ccrt1o" align="right">1770</td>
 <td class="ccrt1o" align="right">359</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1432,7 +1432,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=349226">viktoras</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=349226">viktoras</a></td>
 <td class="ccrt1e" align="right">1706</td>
 <td class="ccrt1e" align="right">446</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1446,7 +1446,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=298761">Greyve</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=298761">Greyve</a></td>
 <td class="ccrt1o" align="right">1658</td>
 <td class="ccrt1o" align="right">340</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1460,7 +1460,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=283374">indigo9</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=283374">indigo9</a></td>
 <td class="ccrt1e" align="right">1636</td>
 <td class="ccrt1e" align="right">393</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1474,7 +1474,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=2058177">Revenger</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=2058177">Revenger</a></td>
 <td class="ccrt1o" align="right">1642</td>
 <td class="ccrt1o" align="right">440</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1488,7 +1488,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7448904">DEathkNIghtS</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7448904">DEathkNIghtS</a></td>
 <td class="ccrt1e" align="right">1627</td>
 <td class="ccrt1e" align="right">293</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1502,7 +1502,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=268851">gladius</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=268851">gladius</a></td>
 <td class="ccrt1o" align="right">1797</td>
 <td class="ccrt1o" align="right">613</td>
 <td class="ccrt1o" align="right">$0.44</td>
@@ -1516,7 +1516,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=138158">leelin</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=138158">leelin</a></td>
 <td class="ccrt1e" align="right">1613</td>
 <td class="ccrt1e" align="right">329</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1551,7 +1551,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=158447">ValD</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=158447">ValD</a></td>
 <td class="ccrt1o" align="right">1595</td>
 <td class="ccrt1o" align="right">298</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1565,7 +1565,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=303385">farsight</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=303385">farsight</a></td>
 <td class="ccrt1e" align="right">1598</td>
 <td class="ccrt1e" align="right">318</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1579,7 +1579,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8378346">FRaiser</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8378346">FRaiser</a></td>
 <td class="ccrt1o" align="right">1580</td>
 <td class="ccrt1o" align="right">310</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1593,7 +1593,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7390467">lovro</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7390467">lovro</a></td>
 <td class="ccrt1e" align="right">1777</td>
 <td class="ccrt1e" align="right">427</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1607,7 +1607,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7479678">brahe</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7479678">brahe</a></td>
 <td class="ccrt1o" align="right">1636</td>
 <td class="ccrt1o" align="right">324</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1621,7 +1621,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=310431">sean_henderson</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=310431">sean_henderson</a></td>
 <td class="ccrt1e" align="right">1572</td>
 <td class="ccrt1e" align="right">344</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1635,7 +1635,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=290481">ender_wiggin</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=290481">ender_wiggin</a></td>
 <td class="ccrt1o" align="right">1631</td>
 <td class="ccrt1o" align="right">372</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1649,7 +1649,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=156859">ivern</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=156859">ivern</a></td>
 <td class="ccrt1e" align="right">1586</td>
 <td class="ccrt1e" align="right">264</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1663,7 +1663,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7503639">blackbeltcoder4</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7503639">blackbeltcoder4</a></td>
 <td class="ccrt1o" align="right">1623</td>
 <td class="ccrt1o" align="right">304</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1677,7 +1677,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7479769">marian</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7479769">marian</a></td>
 <td class="ccrt1e" align="right">1859</td>
 <td class="ccrt1e" align="right">542</td>
 <td class="ccrt1e" align="right">$0.28</td>
@@ -1691,7 +1691,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289907">Terrax</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=289907">Terrax</a></td>
 <td class="ccrt1o" align="right">1575</td>
 <td class="ccrt1o" align="right">288</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1705,7 +1705,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7271918">thooot</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7271918">thooot</a></td>
 <td class="ccrt1e" align="right">1642</td>
 <td class="ccrt1e" align="right">320</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1719,7 +1719,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=252277">Farlox</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=252277">Farlox</a></td>
 <td class="ccrt1o" align="right">1648</td>
 <td class="ccrt1o" align="right">413</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1733,7 +1733,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7489541">saraedum2</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7489541">saraedum2</a></td>
 <td class="ccrt1e" align="right">1787</td>
 <td class="ccrt1e" align="right">380</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1747,7 +1747,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=156848">TPCoder</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=156848">TPCoder</a></td>
 <td class="ccrt1o" align="right">1634</td>
 <td class="ccrt1o" align="right">300</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1761,7 +1761,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=268904">szymcio</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=268904">szymcio</a></td>
 <td class="ccrt1e" align="right">1696</td>
 <td class="ccrt1e" align="right">490</td>
 <td class="ccrt1e" align="right">$0.01</td>
@@ -1796,7 +1796,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7371063">supernova</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7371063">supernova</a></td>
 <td class="ccrt1o" align="right">1690</td>
 <td class="ccrt1o" align="right">457</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1810,7 +1810,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7479796">acki2003</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7479796">acki2003</a></td>
 <td class="ccrt1e" align="right">1553</td>
 <td class="ccrt1e" align="right">382</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1824,7 +1824,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302085">userundefined</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=302085">userundefined</a></td>
 <td class="ccrt1o" align="right">1564</td>
 <td class="ccrt1o" align="right">380</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1838,7 +1838,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=2059300">burnpanck</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=2059300">burnpanck</a></td>
 <td class="ccrt1e" align="right">1619</td>
 <td class="ccrt1e" align="right">347</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1852,7 +1852,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154090">merolish</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=154090">merolish</a></td>
 <td class="ccrt1o" align="right">1667</td>
 <td class="ccrt1o" align="right">304</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1866,7 +1866,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7583050">juryu</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7583050">juryu</a></td>
 <td class="ccrt1e" align="right">1634</td>
 <td class="ccrt1e" align="right">256</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1880,7 +1880,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7389864">roma</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7389864">roma</a></td>
 <td class="ccrt1o" align="right">1685</td>
 <td class="ccrt1o" align="right">490</td>
 <td class="ccrt1o" align="right">$0.01</td>
@@ -1894,7 +1894,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7340263">gevak</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7340263">gevak</a></td>
 <td class="ccrt1e" align="right">1596</td>
 <td class="ccrt1e" align="right">242</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1908,7 +1908,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=159437">derelikt</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=159437">derelikt</a></td>
 <td class="ccrt1o" align="right">1540</td>
 <td class="ccrt1o" align="right">324</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1922,7 +1922,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7305703">Dumitru</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7305703">Dumitru</a></td>
 <td class="ccrt1e" align="right">1684</td>
 <td class="ccrt1e" align="right">380</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1936,7 +1936,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286112">mbarb</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=286112">mbarb</a></td>
 <td class="ccrt1o" align="right">1532</td>
 <td class="ccrt1o" align="right">248</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1950,7 +1950,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8391762">ltank</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8391762">ltank</a></td>
 <td class="ccrt1e" align="right">1672</td>
 <td class="ccrt1e" align="right">503</td>
 <td class="ccrt1e" align="right">$0.01</td>
@@ -1964,7 +1964,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8439426">obokaman</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8439426">obokaman</a></td>
 <td class="ccrt1o" align="right">1722</td>
 <td class="ccrt1o" align="right">438</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -1978,7 +1978,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7584391">Krumble</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7584391">Krumble</a></td>
 <td class="ccrt1e" align="right">1623</td>
 <td class="ccrt1e" align="right">359</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -1992,7 +1992,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302053">oldbig</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=302053">oldbig</a></td>
 <td class="ccrt1o" align="right">1636</td>
 <td class="ccrt1o" align="right">475</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2006,7 +2006,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=251289">EtherMage</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=251289">EtherMage</a></td>
 <td class="ccrt1e" align="right">1602</td>
 <td class="ccrt1e" align="right">484</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2041,7 +2041,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7233906">superjoel</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7233906">superjoel</a></td>
 <td class="ccrt1o" align="right">1579</td>
 <td class="ccrt1o" align="right">265</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2055,7 +2055,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7581406">konqueror</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7581406">konqueror</a></td>
 <td class="ccrt1e" align="right">1557</td>
 <td class="ccrt1e" align="right">264</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2069,7 +2069,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=268951">sosonel</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=268951">sosonel</a></td>
 <td class="ccrt1o" align="right">1596</td>
 <td class="ccrt1o" align="right">256</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2083,7 +2083,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=262951">db</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=262951">db</a></td>
 <td class="ccrt1e" align="right">1632</td>
 <td class="ccrt1e" align="right">426</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2097,7 +2097,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8359547">Jasko</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8359547">Jasko</a></td>
 <td class="ccrt1o" align="right">1584</td>
 <td class="ccrt1o" align="right">233</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2111,7 +2111,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=271008">ilya</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=271008">ilya</a></td>
 <td class="ccrt1e" align="right">1519</td>
 <td class="ccrt1e" align="right">311</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2125,7 +2125,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=262467">billy</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=262467">billy</a></td>
 <td class="ccrt1o" align="right">1506</td>
 <td class="ccrt1o" align="right">198</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2139,7 +2139,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8360324">GustavoBR</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8360324">GustavoBR</a></td>
 <td class="ccrt1e" align="right">1615</td>
 <td class="ccrt1e" align="right">394</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2153,7 +2153,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8349001">belzebub</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8349001">belzebub</a></td>
 <td class="ccrt1o" align="right">1598</td>
 <td class="ccrt1o" align="right">278</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2167,7 +2167,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7459080">ardiankp</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7459080">ardiankp</a></td>
 <td class="ccrt1e" align="right">1542</td>
 <td class="ccrt1e" align="right">385</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2181,7 +2181,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7584555">abi_k</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7584555">abi_k</a></td>
 <td class="ccrt1o" align="right">1459</td>
 <td class="ccrt1o" align="right">186</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2195,7 +2195,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7479088">dario</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7479088">dario</a></td>
 <td class="ccrt1e" align="right">1522</td>
 <td class="ccrt1e" align="right">248</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2209,7 +2209,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8356199">charleston</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8356199">charleston</a></td>
 <td class="ccrt1o" align="right">1505</td>
 <td class="ccrt1o" align="right">208</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2223,7 +2223,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8436401">Katya_Lazareva</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8436401">Katya_Lazareva</a></td>
 <td class="ccrt1e" align="right">1520</td>
 <td class="ccrt1e" align="right">312</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2237,7 +2237,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=309641">Dr. Gluk</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=309641">Dr. Gluk</a></td>
 <td class="ccrt1o" align="right">1478</td>
 <td class="ccrt1o" align="right">389</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2251,7 +2251,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7364110">kats</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7364110">kats</a></td>
 <td class="ccrt1e" align="right">1521</td>
 <td class="ccrt1e" align="right">421</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2286,7 +2286,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8357063">thegreensniper</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8357063">thegreensniper</a></td>
 <td class="ccrt1o" align="right">1458</td>
 <td class="ccrt1o" align="right">421</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2300,7 +2300,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7545675">cucu</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7545675">cucu</a></td>
 <td class="ccrt1e" align="right">1480</td>
 <td class="ccrt1e" align="right">302</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2314,7 +2314,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8348950">nerx</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8348950">nerx</a></td>
 <td class="ccrt1o" align="right">1506</td>
 <td class="ccrt1o" align="right">317</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2328,7 +2328,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7583175">Windrider</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7583175">Windrider</a></td>
 <td class="ccrt1e" align="right">1523</td>
 <td class="ccrt1e" align="right">370</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2342,7 +2342,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=152610">puzzlehacker</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=152610">puzzlehacker</a></td>
 <td class="ccrt1o" align="right">1434</td>
 <td class="ccrt1o" align="right">251</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2356,7 +2356,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7584238">bl</a></td>
+<tr><td class="ccrt1e"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7584238">bl</a></td>
 <td class="ccrt1e" align="right">1553</td>
 <td class="ccrt1e" align="right">452</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2370,7 +2370,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154619">hilfiger</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=154619">hilfiger</a></td>
 <td class="ccrt1o" align="right">1416</td>
 <td class="ccrt1o" align="right">489</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2384,7 +2384,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=278167">Merlin[Kyiv]</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=278167">Merlin[Kyiv]</a></td>
 <td class="ccrt1e" align="right">1460</td>
 <td class="ccrt1e" align="right">293</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2398,7 +2398,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=349303">OpenGL4Dummies</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=349303">OpenGL4Dummies</a></td>
 <td class="ccrt1o" align="right">1465</td>
 <td class="ccrt1o" align="right">302</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2412,7 +2412,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=108438">Cougar</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=108438">Cougar</a></td>
 <td class="ccrt1e" align="right">1436</td>
 <td class="ccrt1e" align="right">312</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2426,7 +2426,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=159758">entity</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=159758">entity</a></td>
 <td class="ccrt1o" align="right">1392</td>
 <td class="ccrt1o" align="right">291</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2440,7 +2440,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=276230">dimkadimon</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=276230">dimkadimon</a></td>
 <td class="ccrt1e" align="right">1415</td>
 <td class="ccrt1e" align="right">285</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2454,7 +2454,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7499769">stranger</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7499769">stranger</a></td>
 <td class="ccrt1o" align="right">1436</td>
 <td class="ccrt1o" align="right">369</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2468,7 +2468,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7268916">bsauerwine</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7268916">bsauerwine</a></td>
 <td class="ccrt1e" align="right">1450</td>
 <td class="ccrt1e" align="right">354</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2482,7 +2482,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8475204">distill</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8475204">distill</a></td>
 <td class="ccrt1o" align="right">1482</td>
 <td class="ccrt1o" align="right">335</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2496,7 +2496,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=275558">zhliu</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=275558">zhliu</a></td>
 <td class="ccrt1e" align="right">1380</td>
 <td class="ccrt1e" align="right">564</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2531,7 +2531,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=288788">Wronkyn</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=288788">Wronkyn</a></td>
 <td class="ccrt1o" align="right">1415</td>
 <td class="ccrt1o" align="right">424</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2545,7 +2545,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8459981">adrastea</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8459981">adrastea</a></td>
 <td class="ccrt1e" align="right">1413</td>
 <td class="ccrt1e" align="right">310</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2559,7 +2559,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8475177">JGoldstein</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8475177">JGoldstein</a></td>
 <td class="ccrt1o" align="right">1474</td>
 <td class="ccrt1o" align="right">339</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2573,7 +2573,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=261043">fpmc</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=261043">fpmc</a></td>
 <td class="ccrt1e" align="right">1374</td>
 <td class="ccrt1e" align="right">350</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2587,7 +2587,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=300003">nike</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=300003">nike</a></td>
 <td class="ccrt1o" align="right">1379</td>
 <td class="ccrt1o" align="right">281</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2601,7 +2601,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=297782">HappyMutant</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=297782">HappyMutant</a></td>
 <td class="ccrt1e" align="right">1391</td>
 <td class="ccrt1e" align="right">331</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2615,7 +2615,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8451367">Kovenko</a></td>
+<tr><td class="ccrt1o"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8451367">Kovenko</a></td>
 <td class="ccrt1o" align="right">1504</td>
 <td class="ccrt1o" align="right">369</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2629,7 +2629,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8460252">tomek2</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8460252">tomek2</a></td>
 <td class="ccrt1e" align="right">1430</td>
 <td class="ccrt1e" align="right">327</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2643,7 +2643,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=284243">itsouk</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=284243">itsouk</a></td>
 <td class="ccrt1o" align="right">1439</td>
 <td class="ccrt1o" align="right">450</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2657,7 +2657,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7296831">Nexius</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7296831">Nexius</a></td>
 <td class="ccrt1e" align="right">1377</td>
 <td class="ccrt1e" align="right">282</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2671,7 +2671,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=295264">ffluv</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=295264">ffluv</a></td>
 <td class="ccrt1o" align="right">1369</td>
 <td class="ccrt1o" align="right">409</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2685,7 +2685,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=275118">PolariStar</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=275118">PolariStar</a></td>
 <td class="ccrt1e" align="right">1338</td>
 <td class="ccrt1e" align="right">265</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2699,7 +2699,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7400531">mafattah</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7400531">mafattah</a></td>
 <td class="ccrt1o" align="right">1434</td>
 <td class="ccrt1o" align="right">493</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2713,7 +2713,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7452866">Im2Good</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7452866">Im2Good</a></td>
 <td class="ccrt1e" align="right">1450</td>
 <td class="ccrt1e" align="right">344</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2727,7 +2727,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7568791">bramandia</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7568791">bramandia</a></td>
 <td class="ccrt1o" align="right">1426</td>
 <td class="ccrt1o" align="right">331</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2741,7 +2741,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=299221">harisuthan</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=299221">harisuthan</a></td>
 <td class="ccrt1e" align="right">1373</td>
 <td class="ccrt1e" align="right">238</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2776,7 +2776,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7240885">psangeljg</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7240885">psangeljg</a></td>
 <td class="ccrt1o" align="right">1397</td>
 <td class="ccrt1o" align="right">323</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2790,7 +2790,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=287130">NeverMore</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=287130">NeverMore</a></td>
 <td class="ccrt1e" align="right">1342</td>
 <td class="ccrt1e" align="right">282</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2804,7 +2804,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=281156">raquib</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=281156">raquib</a></td>
 <td class="ccrt1o" align="right">1312</td>
 <td class="ccrt1o" align="right">435</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2818,7 +2818,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=293574">wrob</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=293574">wrob</a></td>
 <td class="ccrt1e" align="right">1364</td>
 <td class="ccrt1e" align="right">345</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2832,7 +2832,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7575689">rr</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7575689">rr</a></td>
 <td class="ccrt1o" align="right">1380</td>
 <td class="ccrt1o" align="right">332</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2846,7 +2846,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8395447">Ragnarok</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8395447">Ragnarok</a></td>
 <td class="ccrt1e" align="right">1356</td>
 <td class="ccrt1e" align="right">388</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2860,7 +2860,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=273416">xxfobxx</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=273416">xxfobxx</a></td>
 <td class="ccrt1o" align="right">1304</td>
 <td class="ccrt1o" align="right">231</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2874,7 +2874,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=273461">JWizard</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=273461">JWizard</a></td>
 <td class="ccrt1e" align="right">1347</td>
 <td class="ccrt1e" align="right">386</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2888,7 +2888,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8360460">Gronkowiec</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8360460">Gronkowiec</a></td>
 <td class="ccrt1o" align="right">1384</td>
 <td class="ccrt1o" align="right">358</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2902,7 +2902,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=159530">Spike</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=159530">Spike</a></td>
 <td class="ccrt1e" align="right">1326</td>
 <td class="ccrt1e" align="right">504</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2916,7 +2916,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7557537">president</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7557537">president</a></td>
 <td class="ccrt1o" align="right">1386</td>
 <td class="ccrt1o" align="right">384</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2930,7 +2930,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8356186">robert1900</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8356186">robert1900</a></td>
 <td class="ccrt1e" align="right">1386</td>
 <td class="ccrt1e" align="right">487</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2944,7 +2944,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=306712">albin</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=306712">albin</a></td>
 <td class="ccrt1o" align="right">1258</td>
 <td class="ccrt1o" align="right">228</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2958,7 +2958,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7296000">connect4</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7296000">connect4</a></td>
 <td class="ccrt1e" align="right">1264</td>
 <td class="ccrt1e" align="right">454</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -2972,7 +2972,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=348892">payam</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=348892">payam</a></td>
 <td class="ccrt1o" align="right">1457</td>
 <td class="ccrt1o" align="right">451</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -2986,7 +2986,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=344711">[UoM]Supaphly</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=344711">[UoM]Supaphly</a></td>
 <td class="ccrt1e" align="right">1323</td>
 <td class="ccrt1e" align="right">318</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -3021,7 +3021,7 @@
 <td class="ccrh3" align="right">2nd</td>
 <td class="ccrh3" align="right">Champ</td>
 </tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7453403">Tantalus</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7453403">Tantalus</a></td>
 <td class="ccrt1o" align="right">1266</td>
 <td class="ccrt1o" align="right">446</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -3035,7 +3035,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8363524">Marto</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8363524">Marto</a></td>
 <td class="ccrt1e" align="right">1289</td>
 <td class="ccrt1e" align="right">441</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -3049,7 +3049,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=297186">Avet</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=297186">Avet</a></td>
 <td class="ccrt1o" align="right">1221</td>
 <td class="ccrt1o" align="right">348</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -3063,7 +3063,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=152617">flip_da_bits</a></td>
+<tr><td class="ccrt1e"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=152617">flip_da_bits</a></td>
 <td class="ccrt1e" align="right">1201</td>
 <td class="ccrt1e" align="right">297</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -3077,7 +3077,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8377094">sun_agr</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8377094">sun_agr</a></td>
 <td class="ccrt1o" align="right">1359</td>
 <td class="ccrt1o" align="right">449</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -3091,7 +3091,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7558401">mcpeepants</a></td>
+<tr><td class="ccrt1e"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7558401">mcpeepants</a></td>
 <td class="ccrt1e" align="right">1158</td>
 <td class="ccrt1e" align="right">344</td>
 <td class="ccrt1e" align="right">$0.00</td>
@@ -3105,7 +3105,7 @@
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td>
 <td class="ccrt3e" align="right">0.00</td></tr>
-<tr><td class="ccrt1o"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8419140">Bilroy</a></td>
+<tr><td class="ccrt1o"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8419140">Bilroy</a></td>
 <td class="ccrt1o" align="right">1228</td>
 <td class="ccrt1o" align="right">482</td>
 <td class="ccrt1o" align="right">$0.00</td>
@@ -3119,7 +3119,7 @@
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td>
 <td class="ccrt3o" align="right">0.00</td></tr>
-<tr><td class="ccrt1e"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=159841">JeyK</a></td>
+<tr><td class="ccrt1e"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=159841">JeyK</a></td>
 <td class="ccrt1e" align="right">1044</td>
 <td class="ccrt1e" align="right">381</td>
 <td class="ccrt1e" align="right">$0.00</td>

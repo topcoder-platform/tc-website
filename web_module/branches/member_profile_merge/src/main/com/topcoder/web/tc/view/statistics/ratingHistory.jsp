@@ -11,7 +11,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Ratings History</TITLE>
+   <TITLE>TopCoder Statistics</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
@@ -52,7 +52,7 @@ ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
 pageContext.setAttribute("resultRow", rsr);
 %>
 
-<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>			
+<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>      
 <% 
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("Ratings_History");
@@ -81,9 +81,9 @@ pageContext.setAttribute("prev_sr", Integer.toString(iTemp));
 
 String sortString = "";
 if (srb.getProperty("sq")!=null){
-	sortString="&sq=" + srb.getProperty("sq");
-	sortString+="&sc=" + srb.getProperty("sc");
-	sortString+="&sd=" + srb.getProperty("sd", "desc");	
+  sortString="&sq=" + srb.getProperty("sq");
+  sortString+="&sc=" + srb.getProperty("sc");
+  sortString+="&sd=" + srb.getProperty("sd", "desc");  
 }
 String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratings_History";
 %>
@@ -97,6 +97,17 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
 &#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')">Rating Distribution Graph</A>
 &#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= pageContext.getAttribute("coder_id") %>">Earnings History</A>
 <br><br>
+
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=pageContext.getAttribute("coder_id").toString() %>' context="algorithm"/></span>
+<br>
+<span class="bodySubtitle">Algorithm Statistics&#160;>&#160;</span><br>
+<span class="bc">
+<A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Member Profile</A>
+&#160;|&#160;Rating History
+&#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=pageContext.getAttribute("coder_id")%>','800','600', 'history')" class="bcLink">Rating History Graph</A>
+&#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="bcLink">Rating Distribution Graph</A>
+&#160;|&#160;<A HREF="/stat?c=earnings_history&cr=<%= pageContext.getAttribute("coder_id") %>" class="bcLink">Earnings History</A>
+</span>
 
 <% if (!bEmpty) { %>
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
@@ -113,9 +124,10 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
       next &gt;&gt;
       <% } %>
    </div>
+   <% } else { %>
+   <div class="pagingBox">&#160;</div>
    <% } %>
-<% } %>
-          
+
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td>               
@@ -130,10 +142,10 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
       <%boolean even = true;%>
       <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
          <tr>
-            <td class="<%=even?"tableStatLt":"tableStatDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
-            <td class="<%=even?"tableStatLt":"tableStatDk"%>"><A HREF="/stat?c=coder_room_stats&cr=<%=pageContext.getAttribute("coder_id").toString() %>&rd=<bean:write name="resultRow2" property='<%= "item[" + 0 /* round id */ + "]" %>'/>&rm=<bean:write name="resultRow2" property='<%= "item[" + 6 /* room id */ + "]" %>'/>" class="tsLink"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></A></TD>
-            <td class="<%=even?"tableStatLt":"tableStatDk"%>"><A HREF="/stat?c=coder_room_stats&cr=<%=pageContext.getAttribute("coder_id").toString() %>&rd=<bean:write name="resultRow2" property='<%= "item[" + 0 /* round id */ + "]" %>'/>&rm=<bean:write name="resultRow2" property='<%= "item[" + 6 /* room id */ + "]" %>'/>" class="tsLink"><bean:write name="resultRow2" property='<%= "item[" + 1 /* round name */ + "]" %>'/></A></TD>
-            <td class="<%=even?"tableStatLt":"tableStatDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
+            <td class="<%=even?"statLt":"statDk"%>"><bean:write format="MM.dd.yy" name="resultRow2" property='<%= "item[" + 3 /* event date */ + "].resultData" %>'/></TD>
+            <td class="<%=even?"statLt":"statDk"%>"><A HREF="/stat?c=coder_room_stats&cr=<%=pageContext.getAttribute("coder_id").toString() %>&rd=<bean:write name="resultRow2" property='<%= "item[" + 0 /* round id */ + "]" %>'/>&rm=<bean:write name="resultRow2" property='<%= "item[" + 6 /* room id */ + "]" %>'/>" class="statLink"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></A></TD>
+            <td class="<%=even?"statLt":"statDk"%>"><A HREF="/stat?c=coder_room_stats&cr=<%=pageContext.getAttribute("coder_id").toString() %>&rd=<bean:write name="resultRow2" property='<%= "item[" + 0 /* round id */ + "]" %>'/>&rm=<bean:write name="resultRow2" property='<%= "item[" + 6 /* room id */ + "]" %>'/>" class="statLink"><bean:write name="resultRow2" property='<%= "item[" + 1 /* round name */ + "]" %>'/></A></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
          </tr>
       <%even=!even;%>
       </logic:iterate>
@@ -142,6 +154,9 @@ String sSortUrl = "/stat?c=ratings_history&cr="+srb.getProperty("cr")+"&sq=Ratin
       </TD>
    </tr>
 </TABLE>
+<% } else { %>
+   This member has no rating history.
+<% } %>
 
 <% if (!bEmpty) { %>
    <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>

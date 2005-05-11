@@ -142,7 +142,7 @@
   <TR><TD ALIGN="CENTER"><FONT SIZE="2" FACE="arial, verdana, helvetica, sans-serif" COLOR="#ffffff">64</FONT></TD><TD><FONT SIZE="2" FACE="arial, verdana, helvetica, sans-serif" COLOR="#ffff00">mortijingle</FONT></TD><TD ALIGN="CENTER"><FONT SIZE="2" FACE="arial, verdana, helvetica, sans-serif" COLOR="#ffff00">1647</FONT></TD><TD ALIGN="CENTER"><FONT SIZE="2" FACE="arial, verdana, helvetica, sans-serif" COLOR="#ffff00">512</FONT></TD><TD ALIGN="RIGHT"><FONT SIZE="2" FACE="arial, verdana, helvetica, sans-serif" COLOR="#ffff00">$534.40</FONT></TD><TD ALIGN="CENTER"><FONT SIZE="2" FACE="arial, verdana, helvetica, sans-serif" COLOR="#ffff00">3.19%</FONT></TD><TD ALIGN="CENTER"><FONT SIZE="2" FACE="arial, verdana, helvetica, sans-serif" COLOR="#ffff00">.017%</FONT></TD><TD ALIGN="CENTER"><FONT SIZE="2" FACE="arial, verdana, helvetica, sans-serif" COLOR="#ffff00">.000%</FONT></TD></TR>
 </TABLE>
 	<BR/><IMG SRC="/i/m/qubits_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;qubits<BR/><DIV><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=105922"><FONT COLOR="#FFFFFF"> Author Profile</FONT></A></DIV><BR CLEAR="all"/><BR/>
+By&#160;qubits<BR/><DIV><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=105922"><FONT COLOR="#FFFFFF"> Author Profile</FONT></A></DIV><BR CLEAR="all"/><BR/>
 				    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
                         <TR><TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;&#160;<A HREF="#top" CLASS="statText">Back to top</A></TD></TR>
                     </TABLE>

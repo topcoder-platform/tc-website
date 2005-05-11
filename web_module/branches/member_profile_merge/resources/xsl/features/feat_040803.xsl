@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>TopCoder Competitions vs. The Real World</strong></font><br />
                         Tuesday, April 8, 2003</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=303718"><strong>nicomp</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=303718"><strong>nicomp</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
                         <p>Reality Television has become extremely popular. TV networks combine groups of 'average' people, place 

@@ -24,7 +24,7 @@
 							
 				<tr valign="top">
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+					<td class="statText"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=296145">srowen</a></td>
 					<td class="statText" align="right">$936.00</td>
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
 				</tr>             
@@ -35,7 +35,7 @@
 							
 				<tr valign="top">
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=158067">KurtSteinKraus</a></td>
+					<td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=158067">KurtSteinKraus</a></td>
 					<td class="statText" align="right">$336.00</td>
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
 				</tr>             
@@ -46,7 +46,7 @@
 							
 				<tr valign="top">
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=302729">kislookhin</a></td>
+					<td class="statText"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=302729">kislookhin</a></td>
 					<td class="statText" align="right">$210.00</td>
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
 				</tr>             
@@ -57,7 +57,7 @@
 							
 				<tr valign="top">
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+					<td class="statText"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=299180">isv</a></td>
 					<td class="statText" align="right">$210.00</td>
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
 				</tr>             
@@ -68,7 +68,7 @@
 							
 				<tr valign="top">
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
-					<td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150940">orb</a></td>
+					<td class="statText"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=150940">orb</a></td>
 					<td class="statText" align="right">$210.00</td>
 					<td width="5"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
 				</tr>             

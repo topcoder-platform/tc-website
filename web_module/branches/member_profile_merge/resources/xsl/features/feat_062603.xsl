@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Simple Performance Improvement</strong></font><br />
                         Wednesday, June 26, 2003</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=271917"><strong>slowjoe</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=271917"><strong>slowjoe</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
                         <p>

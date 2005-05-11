@@ -67,22 +67,22 @@
   </TR> 
 </TABLE>
 <MAP NAME="semi02_rooms_Map">
-<AREA SHAPE="rect" ALT="" COORDS="392,262,498,282" HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="392,235,498,256" HREF="/stat?c=member_profile&amp;cr=252076" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="393,208,498,228" HREF="/stat?c=member_profile&amp;cr=142795" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="392,181,498,201" HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="391,108,499,126" HREF="/stat?c=member_profile&amp;cr=112902" CLASS="coderTextYellow"/>
-<AREA SHAPE="rect" ALT="" COORDS="392,81,499,102" HREF="/stat?c=member_profile&amp;cr=114853" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="392,52,498,75" HREF="/stat?c=member_profile&amp;cr=111202" CLASS="coderTextYellow"/>
-<AREA SHAPE="rect" ALT="" COORDS="392,27,500,46" HREF="/stat?c=member_profile&amp;cr=157974" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="10,261,116,282" HREF="/stat?c=member_profile&amp;cr=113178" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="8,235,116,257" HREF="/stat?c=member_profile&amp;cr=154089" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="8,208,117,229" HREF="/stat?c=member_profile&amp;cr=120816" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="9,182,117,201" HREF="/stat?c=member_profile&amp;cr=264869" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="8,107,116,128" HREF="/stat?c=member_profile&amp;cr=112939" CLASS="coderTextYellow"/>
-<AREA SHAPE="rect" ALT="" COORDS="9,80,115,101" HREF="/stat?c=member_profile&amp;cr=155275" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="8,53,117,74" HREF="/stat?c=member_profile&amp;cr=262935" CLASS="coderTextRed"/>
-<AREA SHAPE="rect" ALT="" COORDS="9,25,117,48" HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="392,262,498,282" HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="392,235,498,256" HREF="/tc?module=MemberProfile&amp;cr=252076" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="393,208,498,228" HREF="/tc?module=MemberProfile&amp;cr=142795" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="392,181,498,201" HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="391,108,499,126" HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="coderTextYellow"/>
+<AREA SHAPE="rect" ALT="" COORDS="392,81,499,102" HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="392,52,498,75" HREF="/tc?module=MemberProfile&amp;cr=111202" CLASS="coderTextYellow"/>
+<AREA SHAPE="rect" ALT="" COORDS="392,27,500,46" HREF="/tc?module=MemberProfile&amp;cr=157974" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="10,261,116,282" HREF="/tc?module=MemberProfile&amp;cr=113178" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="8,235,116,257" HREF="/tc?module=MemberProfile&amp;cr=154089" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="8,208,117,229" HREF="/tc?module=MemberProfile&amp;cr=120816" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="9,182,117,201" HREF="/tc?module=MemberProfile&amp;cr=264869" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="8,107,116,128" HREF="/tc?module=MemberProfile&amp;cr=112939" CLASS="coderTextYellow"/>
+<AREA SHAPE="rect" ALT="" COORDS="9,80,115,101" HREF="/tc?module=MemberProfile&amp;cr=155275" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="8,53,117,74" HREF="/tc?module=MemberProfile&amp;cr=262935" CLASS="coderTextRed"/>
+<AREA SHAPE="rect" ALT="" COORDS="9,25,117,48" HREF="/tc?module=MemberProfile&amp;cr=153505" CLASS="coderTextRed"/>
 </MAP>
 
 <!-- Semifinal breakdown by regions --> 

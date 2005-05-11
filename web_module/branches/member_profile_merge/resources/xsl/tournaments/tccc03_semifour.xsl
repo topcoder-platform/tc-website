@@ -79,7 +79,7 @@
                           </tr>
                          
                             <tr>
-                              <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=269554">Yarin</a></td>
+                              <td class="statText"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=269554">Yarin</a></td>
                               <td class="statText" align="right">508.19</td>
                               <td class="statText" align="right">2</td>
                             </tr>

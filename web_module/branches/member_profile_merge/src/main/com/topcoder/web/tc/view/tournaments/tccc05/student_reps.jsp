@@ -47,7 +47,7 @@
          </tr>
          <tr>
             <td align="left" class="bodyText" valign="top">
-               <a class="bodyText" href="/stat?c=member_profile&amp;cr=7371063"><strong>supernova</strong></a>
+               <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=7371063"><strong>supernova</strong></a>
             </td>
          </tr>
       </table>
@@ -72,7 +72,7 @@
                     </td>
                     <rsc:iterator list="<%=rsc%>" id="resultRow">
                     <tr>
-                        <td class="sidebarText"><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
+                        <td class="sidebarText"><a href="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                         <td class="sidebarText"><rsc:item name="school_name" row="<%=resultRow%>"/></td>
                         <td class="sidebarText" align=center><rsc:item name="total_count" row="<%=resultRow%>"/></td>
                         <td class="sidebarText" align=center><rsc:item name="total_comp_count" row="<%=resultRow%>"/></td>

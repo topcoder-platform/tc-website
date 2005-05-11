@@ -218,7 +218,7 @@ Note that this technique could be used for products as well, by recursing with
 x / digit instead of x - digit as the new target.</p>
 
 <IMG SRC="/i/m/schveiguy_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;schveiguy<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=273217" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;schveiguy<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=273217" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

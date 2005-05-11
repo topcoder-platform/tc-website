@@ -909,7 +909,7 @@ That's all, folks. Until the next SRM. keep on coding!
 
                         <p>
 <!--                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />-->
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=252022"><strong>AleaActaEst</strong></a><br />
+                        By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=252022"><strong>AleaActaEst</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>

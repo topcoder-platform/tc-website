@@ -546,7 +546,7 @@ href="/stat?c=problem_statement&amp;pm=2437&amp;rd=5069">IslandFerries</a></b>
 </font> 
 <A href="Javascript:openProblemRating(2437)"><img hspace="10" border="0"
 height="18" width="60" src="/i/rate_it.gif"/></A><br/>
-By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/><br/>
+By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=159052"><strong>lbackstrom</strong></a><br/><br/>
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
 <tr> 
 <td class="bodyText" style="background: #eee;"> 
@@ -661,7 +661,7 @@ it a little more expensive to calculate edges.
 
                      <p>
                      <img src="/i/m/dimkadimon_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-                     By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br />
+                     By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=276230"><strong>dimkadimon</strong></a><br />
                      <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                      </p>
                  </td>

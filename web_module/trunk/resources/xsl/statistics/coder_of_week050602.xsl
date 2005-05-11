@@ -71,7 +71,7 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
 <IMG SRC="/i/m/kpsmith_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=277956" CLASS="coderTextYellow">kpsmith</A><br/>
+<b>Handle: </b><A HREF="/tc?module=MemberProfile&amp;cr=277956" CLASS="coderTextYellow">kpsmith</A><br/>
 <b>Rating: </b>1929<br/>
 <b>Member Since: </b>April&#160;20,&#160;2002<br/>
 <b>Total Competitions: </b>2<br/>
@@ -86,12 +86,12 @@ Single Round Matches 86 and 87, which took place between May 6 and May 12, 2002.
 In Single Round Match 86, <B>kpsmith</B>, in his initial TopCoder competition, earned a 
 Division-II record 1935.74 final points 
 (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>).  
-That point total broke the Division-II record of <A HREF="/stat?c=member_profile&amp;cr=155069" CLASS="coderTextBlue">chi</A>, 
+That point total broke the Division-II record of <A HREF="/tc?module=MemberProfile&amp;cr=155069" CLASS="coderTextBlue">chi</A>, 
 who earned 1898.64 final points in 
 Single Round Match 67 in February.  The final point total of <B>kpsmith</B> is also TopCoder's 
-all-time point record, 8.35 more than the 1927.39 total of <A HREF="/stat?c=member_profile&amp;cr=109965" CLASS="coderTextYellow">vulture</A> in Single Round Match 1, 
+all-time point record, 8.35 more than the 1927.39 total of <A HREF="/tc?module=MemberProfile&amp;cr=109965" CLASS="coderTextYellow">vulture</A> in Single Round Match 1, 
 which strangely enough occurred exactly one year to the date (May 8, 2001).  <B>kpsmith</B> also 
-broke the record for the most points earned in a debut match, which was held by <A HREF="/stat?c=member_profile&amp;cr=112630" CLASS="coderTextYellow">Aleksey</A>, 
+broke the record for the most points earned in a debut match, which was held by <A HREF="/tc?module=MemberProfile&amp;cr=112630" CLASS="coderTextYellow">Aleksey</A>, 
 who earned 1787.55 final points in the Second Round of the 2001 TopCoder Collegiate Challenge.  
 Lastly, <B>kpsmith</B> had a debut rating of 1894, which is the seventh highest ever 
 (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
@@ -114,11 +114,11 @@ the game itself.  TopCoder seems to merge those two interests of mine really wel
 </P>
 
 <P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=281447" CLASS="coderTextYellow">Belle</A>, 
+Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=281447" CLASS="coderTextYellow">Belle</A>, 
 who had a 1746.01 final 
-point total in Single Round Match 86, the fifth highest in Division-II; <A HREF="/stat?c=member_profile&amp;cr=275568" CLASS="coderTextBlue">stipe</A>, who had 
+point total in Single Round Match 86, the fifth highest in Division-II; <A HREF="/tc?module=MemberProfile&amp;cr=275568" CLASS="coderTextBlue">stipe</A>, who had 
 a 1706.88 final point total in Single Round Match 86, the 10th highest in Division-II 
-debut rating of 1755, which is the 25th highest ever; and <A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="coderTextYellow">radeye</A>, who had a 301-point 
+debut rating of 1755, which is the 25th highest ever; and <A HREF="/tc?module=MemberProfile&amp;cr=277659" CLASS="coderTextYellow">radeye</A>, who had a 301-point 
 rating gain in Single Round Match 87, which is the 10th highest in Division-I 
 (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).
 </P>

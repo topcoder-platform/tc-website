@@ -104,7 +104,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                         <rsc:item row="<%=info%>" name="rank" />
                     </td>
                     <td class="tourney_subnav" >
-                        <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
+                        <a href="/tc?module=MemberProfile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
                     </td>
                     <td class="tourney_subnav" align="right">
                         $<rsc:item row="<%=info%>" name="amount" format="0.00"/>

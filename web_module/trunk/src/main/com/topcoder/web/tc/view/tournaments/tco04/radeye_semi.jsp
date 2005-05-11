@@ -56,7 +56,7 @@
          </tr>
          <tr>
             <td align="left" class="bodyText" valign="top">
-               By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=277659"><strong>radeye</strong></a><br />
+               By&#160;<a class="bodyText" href="/stat?tc?module=MemberProfile&amp;cr=277659"><strong>radeye</strong></a><br />
                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
          </tr>
@@ -83,7 +83,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=144400">tomek</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=144400">tomek</a></td>
 <td class="r1o">3373</td>
 <td class="r1o">332</td>
 <td class="r1o">$9,697.76</td>
@@ -94,7 +94,7 @@
 <td class="r3o">15.39</td>
 <td class="r3o">24.12</td>
 <td class="r3o">30.98</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=272072">SnapDragon</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=272072">SnapDragon</a></td>
 <td class="r1e">3302</td>
 <td class="r1e">345</td>
 <td class="r1e">$6,903.13</td>
@@ -105,7 +105,7 @@
 <td class="r3e">14.89</td>
 <td class="r3e">18.76</td>
 <td class="r3e">19.26</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7445961">snewman</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=7445961">snewman</a></td>
 <td class="r1o">3258</td>
 <td class="r1o">325</td>
 <td class="r1o">$5,690.82</td>
@@ -116,7 +116,7 @@
 <td class="r3o">14.21</td>
 <td class="r3o">16.54</td>
 <td class="r3o">14.27</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=260835">reid</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=260835">reid</a></td>
 <td class="r1e">3284</td>
 <td class="r1e">402</td>
 <td class="r1e">$6,444.30</td>
@@ -127,7 +127,7 @@
 <td class="r3e">13.87</td>
 <td class="r3e">16.01</td>
 <td class="r3e">18.34</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=270505">John Dethridge</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=270505">John Dethridge</a></td>
 <td class="r1o">3109</td>
 <td class="r1o">475</td>
 <td class="r1o">$3,709.96</td>
@@ -138,7 +138,7 @@
 <td class="r3o">10.30</td>
 <td class="r3o">8.64</td>
 <td class="r3o">8.52</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=275071">antimatter</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=275071">antimatter</a></td>
 <td class="r1e">2835</td>
 <td class="r1e">342</td>
 <td class="r1e">$1,101.96</td>
@@ -149,7 +149,7 @@
 <td class="r3e">3.51</td>
 <td class="r3e">1.76</td>
 <td class="r3e">0.66</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287496">bstanescu</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=287496">bstanescu</a></td>
 <td class="r1o">2888</td>
 <td class="r1o">360</td>
 <td class="r1o">$1,407.94</td>
@@ -160,7 +160,7 @@
 <td class="r3o">4.93</td>
 <td class="r3o">2.79</td>
 <td class="r3o">1.26</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262936">dgarthur</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=262936">dgarthur</a></td>
 <td class="r1e">2833</td>
 <td class="r1e">462</td>
 <td class="r1e">$1,381.46</td>
@@ -171,7 +171,7 @@
 <td class="r3e">4.19</td>
 <td class="r3e">2.41</td>
 <td class="r3e">1.45</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=279471">haha</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=279471">haha</a></td>
 <td class="r1o">2803</td>
 <td class="r1o">419</td>
 <td class="r1o">$1,099.18</td>
@@ -182,7 +182,7 @@
 <td class="r3o">3.11</td>
 <td class="r3o">1.65</td>
 <td class="r3o">0.80</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=310430">gepa</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=310430">gepa</a></td>
 <td class="r1e">2630</td>
 <td class="r1e">447</td>
 <td class="r1e">$781.40</td>
@@ -193,7 +193,7 @@
 <td class="r3e">1.42</td>
 <td class="r3e">0.60</td>
 <td class="r3e">0.25</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287266">jms137</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=287266">jms137</a></td>
 <td class="r1o">2764</td>
 <td class="r1o">342</td>
 <td class="r1o">$816.67</td>
@@ -204,7 +204,7 @@
 <td class="r3o">1.86</td>
 <td class="r3o">0.79</td>
 <td class="r3o">0.25</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=261024">grotmol</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=261024">grotmol</a></td>
 <td class="r1e">2624</td>
 <td class="r1e">678</td>
 <td class="r1e">$1,408.09</td>
@@ -215,7 +215,7 @@
 <td class="r3e">3.31</td>
 <td class="r3e">1.92</td>
 <td class="r3e">1.77</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=307060">AdrianKuegel</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=307060">AdrianKuegel</a></td>
 <td class="r1o">2595</td>
 <td class="r1o">217</td>
 <td class="r1o">$566.57</td>
@@ -226,7 +226,7 @@
 <td class="r3o">0.15</td>
 <td class="r3o">0.03</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7502813">monsoon</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=7502813">monsoon</a></td>
 <td class="r1e">2786</td>
 <td class="r1e">438</td>
 <td class="r1e">$1,122.25</td>
@@ -237,7 +237,7 @@
 <td class="r3e">3.21</td>
 <td class="r3e">1.66</td>
 <td class="r3e">0.84</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=129672">doeth</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=129672">doeth</a></td>
 <td class="r1o">2402</td>
 <td class="r1o">326</td>
 <td class="r1o">$560.08</td>
@@ -248,7 +248,7 @@
 <td class="r3o">0.08</td>
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=153505">ambrose</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=153505">ambrose</a></td>
 <td class="r1e">2503</td>
 <td class="r1e">447</td>
 <td class="r1e">$654.94</td>
@@ -277,7 +277,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7210680">cnettel</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=7210680">cnettel</a></td>
 <td class="r1o">2411</td>
 <td class="r1o">564</td>
 <td class="r1o">$719.87</td>
@@ -288,7 +288,7 @@
 <td class="r3o">0.93</td>
 <td class="r3o">0.35</td>
 <td class="r3o">0.17</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8547850">tmyklebu</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=8547850">tmyklebu</a></td>
 <td class="r1e">2369</td>
 <td class="r1e">341</td>
 <td class="r1e">$565.00</td>
@@ -299,7 +299,7 @@
 <td class="r3e">0.10</td>
 <td class="r3e">0.02</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=301937">RalphFurmaniak</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=301937">RalphFurmaniak</a></td>
 <td class="r1o">2433</td>
 <td class="r1o">472</td>
 <td class="r1o">$661.15</td>
@@ -310,7 +310,7 @@
 <td class="r3o">0.67</td>
 <td class="r3o">0.22</td>
 <td class="r3o">0.08</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7210729">ssancho2</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=7210729">ssancho2</a></td>
 <td class="r1e">2410</td>
 <td class="r1e">375</td>
 <td class="r1e">$576.31</td>
@@ -321,7 +321,7 @@
 <td class="r3e">0.19</td>
 <td class="r3e">0.04</td>
 <td class="r3e">0.01</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8365685">pparys</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=8365685">pparys</a></td>
 <td class="r1o">2608</td>
 <td class="r1o">611</td>
 <td class="r1o">$1,085.00</td>
@@ -332,7 +332,7 @@
 <td class="r3o">2.43</td>
 <td class="r3o">1.27</td>
 <td class="r3o">0.94</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8349097">hauser</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=8349097">hauser</a></td>
 <td class="r1e">2390</td>
 <td class="r1e">463</td>
 <td class="r1e">$609.93</td>
@@ -343,7 +343,7 @@
 <td class="r3e">0.38</td>
 <td class="r3e">0.11</td>
 <td class="r3e">0.03</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=158333">dvickrey</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=158333">dvickrey</a></td>
 <td class="r1o">2209</td>
 <td class="r1o">384</td>
 <td class="r1o">$556.34</td>
@@ -354,7 +354,7 @@
 <td class="r3o">0.04</td>
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=307070">qsort</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?tc?module=MemberProfile&amp;cr=307070">qsort</a></td>
 <td class="r1e">2164</td>
 <td class="r1e">499</td>
 <td class="r1e">$579.87</td>

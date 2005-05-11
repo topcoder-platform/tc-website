@@ -95,7 +95,7 @@ May 22, 2002</P>
 
 
 <P>
-SRM 91's problems were brought to you by <A HREF="/stat?c=member_profile&amp;cr=266750" CLASS="bodyGeneric">axchma</A>.
+SRM 91's problems were brought to you by <A HREF="/tc?module=MemberProfile&amp;cr=266750" CLASS="bodyGeneric">axchma</A>.
 In Division-II, there was a simple numeric problem, a problem involving computing TopCoder winnings, and a state machine problem.
 In Division-I shared the TopCoder-based problem, as well as a simulation problem and a combinatorical problem.
 </P>
@@ -350,7 +350,7 @@ the number of occurrences of a digit in a sequence of numbers.
 </P>
 
 <P>
-This is where our recurrence relation comes in.  As <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A> 
+This is where our recurrence relation comes in.  As <A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A> 
 did, we will call the function that implements
 the recurrence relation <tt>occurrences</tt>, and it will take as input a digit (which we will simply call <tt>digit</tt>)
 and the upper bound of the
@@ -410,7 +410,7 @@ the overall runtime complexity of this algorithm is the product, which is <tt>O(
 </P>
 
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
           
 <P><B>Member Comments</B></P> 
@@ -427,7 +427,7 @@ whether the opening position is a possible outcome of the prior step's
 closing position (or recursively prior on the backward step).
 </P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=119676" CLASS="bodyGeneric">Pops</A></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=119676" CLASS="bodyGeneric">Pops</A></P>
 <HR/>
 
 <P>
@@ -449,7 +449,7 @@ Div-I hard problem: It suffices to check the 1-digit, since this is
 always the first we run out of. No need to check the other digits.
 </P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=263379" CLASS="bodyGeneric">pochmann</A></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=263379" CLASS="bodyGeneric">pochmann</A></P>
 <HR/>
 
 <P>
@@ -463,7 +463,7 @@ how your state machine implementation of the div. 2 hard would look though
 this state machine idea?
 </P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=101459" CLASS="bodyGeneric">Steven</A></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=101459" CLASS="bodyGeneric">Steven</A></P>
 
           <P><BR/></P>
 					</TD>

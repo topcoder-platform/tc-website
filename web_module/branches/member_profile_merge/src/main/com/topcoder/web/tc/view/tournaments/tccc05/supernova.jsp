@@ -22,8 +22,8 @@
 		<div class=bodySpacer>
             
         <p class="bigTitle">"My TCCC05 Experience"</p>
-		<a href="/stat?c=member_profile&cr=269554"><img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
-		<p>by <a href="/stat?c=member_profile&cr=7371063">supernova</a>, <br/>
+		<a href="/tc?module=MemberProfile&cr=269554"><img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
+		<p>by <a href="/tc?module=MemberProfile&cr=7371063">supernova</a>, <br/>
 		<em>TopCoder Member</em><br />
 
 		<p>

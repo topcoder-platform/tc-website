@@ -22,7 +22,7 @@
                     <td class="statText" align="right">&#160;<xsl:value-of select="rank"/>.&#160;&#160;</td>
                     <td class="statText">
                         <a>
-                        <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                        <xsl:attribute name="HREF">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                         <xsl:attribute name="CLASS">
                         <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                         </xsl:attribute>

@@ -52,8 +52,8 @@
             
             <h2>Problem Set Analysis &amp; Opinion</h2>
 
-            <a href="/stat?c=member_profile&cr=273217"><img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" align="left" /></a>
-            <p>by <a href="/stat?c=member_profile&cr=273217">schveiguy</a>, <br/>
+            <a href="/tc?module=MemberProfile&cr=273217"><img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" align="left" /></a>
+            <p>by <a href="/tc?module=MemberProfile&cr=273217">schveiguy</a>, <br/>
             <em>TopCoder Member</em><br />
             Thursday, December 4, 2003<br/><br/></p>
 

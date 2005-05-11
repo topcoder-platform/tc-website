@@ -29,9 +29,9 @@
                <tr><td class="advHeader" colspan="4" valign="middle">Original Distribution:<br><A class="topLink" href="/i/tournament/tccc05/comp_submissions/des_distribution.zip"><img src="/i/download.gif" border="0"/></A></td></tr>
                <tr>
                   <td class="advHeader" align="right" width="40%"></td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=278342">adic</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=11797255">aubergineanode</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=289824">MPhk</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=278342">adic</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=11797255">aubergineanode</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=289824">MPhk</a>&#160;&#160;</td>
                </tr>
 
                 <tr>  

@@ -184,7 +184,7 @@ This problem is related to a well known algorithm in formal language theory that
                                         <DIV CLASS="smallText">
                                             <I>TopCoder Member</I>
                                             <BR/>
-                                            <A HREF="/stat?c=member_profile&amp;cr=251317" CLASS="smallText">Author Profile</A>
+                                            <A HREF="/tc?module=MemberProfile&amp;cr=251317" CLASS="smallText">Author Profile</A>
                                         </DIV>
                                         <BR CLEAR="all"/>
                                         <P>

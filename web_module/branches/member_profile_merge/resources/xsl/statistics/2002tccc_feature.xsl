@@ -82,7 +82,7 @@ By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 <IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
 <IMG SRC="/i/2002tccc/coder_quote2.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/> -->
 <P>
-A pump of his fists, a loud hand clap, and exclamation of "Yes!" was the reaction of <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A> when it was 
+A pump of his fists, a loud hand clap, and exclamation of "Yes!" was the reaction of <A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="bodyGeneric">evd</A> when it was 
 announced that fellow Stanford University student <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> had won the 2002 Sun Microsystems and TopCoder 
 Collegiate Challenge on Saturday April 20, at the University Park Hotel @ MIT in Cambridge, MA.
 </P>
@@ -147,7 +147,7 @@ malpt and derkuci, and a very quick system test, <A HREF="/index?t=statistics&am
 </P>
 
 <P>
-"I am very happy for <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>," said 2001 TopCoder Invitational champion and friend, <A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>.  
+"I am very happy for <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>," said 2001 TopCoder Invitational champion and friend, <A HREF="/tc?module=MemberProfile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>.  
 "He is very dedicated to these competitions and has arguably put more time and effort into TopCoder 
 than any other competitor during the last year.  This is an achievement that highlights Daniel's 
 unparalleled analytical capacity, and his ravenous competitive skills.  I felt this victory was 

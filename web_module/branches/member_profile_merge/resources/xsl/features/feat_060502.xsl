@@ -66,7 +66,7 @@ Powerball, "It's America's Game", and it's extremely popular.  And to think of i
 </P>
 
 <P><IMG SRC="/i/f/feat_060502_tn1.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
-TopCoder, although not as widely known as Powerball, is becoming pretty popular itself, averaging close to 60 new members per day, and has also been known to pay out a pretty penny to its members.  <A HREF="/stat?c=member_profile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>
+TopCoder, although not as widely known as Powerball, is becoming pretty popular itself, averaging close to 60 new members per day, and has also been known to pay out a pretty penny to its members.  <A HREF="/tc?module=MemberProfile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>
  was TopCoder's first big winner, rewarded with $100,000 for winning the 2001 TopCoder Collegiate Challenge.  Although TopCoder's $100,000 grand prize is nowhere near a reward of $50 million from Powerball, <B>qubits</B> decided the odds of TopCoder were more in his favor, as he could use his skills, rather than rely on luck, to earn a big payday.
 </P>
 
@@ -127,7 +127,7 @@ After getting through the first three online elimination rounds, <B>qubits</B> w
 </P>
 
 <P>
-"By the time the 16 semifinalists were known, my goal was to make it to the finals.  <A HREF="/stat?c=member_profile&amp;cr=112630" CLASS="bodyGeneric">Aleksey</A>
+"By the time the 16 semifinalists were known, my goal was to make it to the finals.  <A HREF="/tc?module=MemberProfile&amp;cr=112630" CLASS="bodyGeneric">Aleksey</A>
  seemed to be the strongest competitor in my room, but his performance in SRM's leading up to the finals was far less strong than his qualifying rounds."  
 </P>
 
@@ -148,7 +148,7 @@ Upon walking off the competition platform in under 30 minutes, some of the other
 </P>
 
 <P>
-During the challenge phase, I quickly picked off all of the other easy submissions.  I could taste victory as <B>Aleksey</B> challenged <A HREF="/stat?c=member_profile&amp;cr=110176" CLASS="bodyGeneric">Orbus</A>
+During the challenge phase, I quickly picked off all of the other easy submissions.  I could taste victory as <B>Aleksey</B> challenged <A HREF="/tc?module=MemberProfile&amp;cr=110176" CLASS="bodyGeneric">Orbus</A>
 ' 500-point problem, leaving me over a 1000-point lead.  That taste quickly turned bitter when I realized my 1000-point problem was flawed.  My lead mentally collapsed to 200 points and I realized I would fail if I had another bug in my 500-point solution.
 </P>
 
@@ -177,17 +177,17 @@ For the 1000-point problem, I encountered a severe compiler error that caused me
 </P>
 
 <P>
-The 250-point problem seemed like a complicated tangle of prioritized special cases.  I tried to carefully get the cases right, but <A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>
+The 250-point problem seemed like a complicated tangle of prioritized special cases.  I tried to carefully get the cases right, but <A HREF="/tc?module=MemberProfile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>
  would eventually catch me on one I missed.  I thought this would be a ripe area for challenges.
 </P>
 
 <P>
-Thus, in the challenge phase I rushed to inspecting the easy problems, declining the chance to attack <A HREF="/stat?c=member_profile&amp;cr=112441" CLASS="bodyGeneric">seacow</A>
+Thus, in the challenge phase I rushed to inspecting the easy problems, declining the chance to attack <A HREF="/tc?module=MemberProfile&amp;cr=112441" CLASS="bodyGeneric">seacow</A>
 's last-minute 1000-point submission.  However, like in the semifinals, I was able to defeat each of the other 250-point submissions, producing a 500-point swing (~200 + 3x100).  I realized I might just have a chance, so I charged forward to increase my lead.
 </P>
 
 <P>
-Then I noticed <A HREF="/stat?c=member_profile&amp;cr=109965" CLASS="bodyGeneric">vulture</A>
+Then I noticed <A HREF="/tc?module=MemberProfile&amp;cr=109965" CLASS="bodyGeneric">vulture</A>
  was using the approach I abandoned on the hard problem.  He tried to avoid the problem by omitting the last segment inspected.  I didn't notice this, though, so had I challenged with something like "DRU", his code would have succeeded.  However, a little voice inside me made the test case a bit wider (like "RRDLL"), forming a successful challenge.
 </P>
 
@@ -264,7 +264,7 @@ Along with the increased quantity of coders who have helped TopCoder increase fr
 </P>
 
 <!-- <IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/> -->
+By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/> -->
       
 <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Would you like to write a weekly feature?</A></P>
 

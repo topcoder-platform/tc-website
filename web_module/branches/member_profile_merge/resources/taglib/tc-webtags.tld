@@ -426,6 +426,27 @@
     </tag>
 
     <tag>
+        <name>ratingColor</name>
+        <tagclass>com.topcoder.web.common.tag.RatingColorTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <attribute>
+            <name>rating</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>class</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>darkBG</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
         <name>hiddenInput</name>
         <tagclass>com.topcoder.web.common.tag.HiddenInputTag</tagclass>
         <attribute>

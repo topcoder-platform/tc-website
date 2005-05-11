@@ -109,9 +109,9 @@
 -->
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=251335" CLASS="bodyGeneric">Echo</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=251335" CLASS="bodyGeneric">Echo</A>
  won Room 2 by 1.12 points over 
-<A HREF="/stat?c=member_profile&amp;cr=158067" CLASS="bodyGeneric">KurtSteinkraus</A>, 689.93 to 688.81.  
+<A HREF="/tc?module=MemberProfile&amp;cr=158067" CLASS="bodyGeneric">KurtSteinkraus</A>, 689.93 to 688.81.  
 <B>Echo</B> earned 271.38 points on the Level One problem and 418.55 on the 
 Level Three problem.  <B>KurtSteinkraus</B> earned 262.60 points on the Level 
 One problem and 426.21 on the Level Two problem.  In a strange 
@@ -119,32 +119,32 @@ occurrence, both coders added 82 rating points.
 </P>
 
 <P>
-In Room 10, <A HREF="/stat?c=member_profile&amp;cr=153724" CLASS="bodyGeneric">Vaduz</A>
+In Room 10, <A HREF="/tc?module=MemberProfile&amp;cr=153724" CLASS="bodyGeneric">Vaduz</A>
  used a successful challenge for a come-from-behind 
-474.71-473.65 win over <A HREF="/stat?c=member_profile&amp;cr=104810" CLASS="bodyGeneric">marmaros</A>.  
+474.71-473.65 win over <A HREF="/tc?module=MemberProfile&amp;cr=104810" CLASS="bodyGeneric">marmaros</A>.  
 That's a difference of just 1.06 points.  
 <B>Vaduz</B> earned 177.55 points on the Level One problem, and 247.16 on the Level 
 Two problem, for 424.71 total points in the "Coding Phase".  That point total 
 placed him seventh in the room.  <B>Vaduz</B> then added 50 points in the "Challenge Phase" 
 with a successful challenge of the Level One submission of 
-<A HREF="/stat?c=member_profile&amp;cr=282125" CLASS="bodyGeneric">markan</A>.  
+<A HREF="/tc?module=MemberProfile&amp;cr=282125" CLASS="bodyGeneric">markan</A>.  
 <B>marmaros</B> earned 221.87 points on the Level One problem and 251.78 points 
 on the Level Two problem. 
 </P>
 
 <P>
 A similar situation took place in Room 26, where 
-<A HREF="/stat?c=member_profile&amp;cr=159758" CLASS="bodyGeneric">[ucf]entity</A> used a 
+<A HREF="/tc?module=MemberProfile&amp;cr=159758" CLASS="bodyGeneric">[ucf]entity</A> used a 
 challenge for a close come-from-behind win over pozdol, 450.77-449.31.  
 That's a difference of just 1.46 points.  <B>[ucf]entity</B> earned 165.53 
 points on the Level One problem and 235.24 on the Level Two problem, 
 for a total of 400.77 points after the "Coding Phase".  That total 
 placed him fourth in the room.  During the "Challenge Phase", 
 <B>[ucf]entity</B> added 100 points with successful challenges of the 
-Level One submissions of <A HREF="/stat?c=member_profile&amp;cr=154074" CLASS="bodyGeneric">dimer0</A>
- and <A HREF="/stat?c=member_profile&amp;cr=150336" CLASS="bodyGeneric">trieuvan</A>, but then lost 50 
+Level One submissions of <A HREF="/tc?module=MemberProfile&amp;cr=154074" CLASS="bodyGeneric">dimer0</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=150336" CLASS="bodyGeneric">trieuvan</A>, but then lost 50 
 with an unsuccessful challenge of the Level One submission of 
-<A HREF="/stat?c=member_profile&amp;cr=265918" CLASS="bodyGeneric">jonboy</A>.
+<A HREF="/tc?module=MemberProfile&amp;cr=265918" CLASS="bodyGeneric">jonboy</A>.
 </P>
 
                  </TD>
@@ -155,20 +155,20 @@ with an unsuccessful challenge of the Level One submission of
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=273416" CLASS="bodyGeneric">xxfobxx</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=273416" CLASS="bodyGeneric">xxfobxx</A>
  used two successful challenges for a come-from-behind win in Room 37.  
 <B>xxfobxx</B> coded the Level One and Two problems for 542.17 points in the "Coding Phase".  
 That total placed him fourth in the room.  In the "Challenge Phase", <B>xxfobxx</B> successfully 
-challenged the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=273030" CLASS="bodyGeneric">pewloo</A>
- and the Level One submission of <A HREF="/stat?c=member_profile&amp;cr=270256" CLASS="bodyGeneric">mannix</A>. 
+challenged the Level Two submission of <A HREF="/tc?module=MemberProfile&amp;cr=273030" CLASS="bodyGeneric">pewloo</A>
+ and the Level One submission of <A HREF="/tc?module=MemberProfile&amp;cr=270256" CLASS="bodyGeneric">mannix</A>. 
 </P>
 
 <P>
 The largest rating point gain and loss in the division for the match were earned in Room 48.  
-<A HREF="/stat?c=member_profile&amp;cr=281252" CLASS="bodyGeneric">dilipdalton</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=281252" CLASS="bodyGeneric">dilipdalton</A>
  added 189 points after winning the room with 548.87 final points.  
 He earned 498.87 points in the "Coding Phase", and 50 in the "Challenge Phase".  
-<A HREF="/stat?c=member_profile&amp;cr=270914" CLASS="bodyGeneric">mercury_m</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=270914" CLASS="bodyGeneric">mercury_m</A>
  lost 444 rating points after finishing last in the room.  
 <B>mercury_m</B> earned 150.54 points in the "Coding Phase", but lost 150 points 
 with three unsuccessful challenges, and then lost the 150.54 points he earned 
@@ -176,7 +176,7 @@ on his submission when it failed the system test.  <B>mercury_m</B> finished wit
 </P>
 
 <P>
-First-time coder <A HREF="/stat?c=member_profile&amp;cr=251223" CLASS="bodyGeneric">along</A>
+First-time coder <A HREF="/tc?module=MemberProfile&amp;cr=251223" CLASS="bodyGeneric">along</A>
  earned the highest point total in the division with 
 1315.00 final points.  That was enough to win Room 67.  That point total 
 earned him a rating debut of 1832, which is the 16th highest ever.  <B>along</B> 

@@ -70,7 +70,7 @@ else
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
                                 <% TCCC05ContestDetail result = (TCCC05ContestDetail)lst.get(i); %>
-                                <td class="sidebarText" ><a href="/stat?c=member_profile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a>
+                                <td class="sidebarText" ><a href="/tc?module=MemberProfile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a>
                                 <% if(result.getIncomplete() > 0)  { 
                                     isComplete = false;%>
                                     *

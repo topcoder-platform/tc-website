@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Threads and Atomicity</strong></font><br />
                         Tuesday, May 27, 2003</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=273217"><strong>schveiguy</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
                         <p>

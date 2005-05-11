@@ -318,7 +318,7 @@
                     
                     <tr valign="middle">
                       <td align="right" class="tourney_subhead2">Champion</td>
-                      <td align="center" colspan="2" class="tourney_subhead2"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262936">dgarthur</a></td>
+                      <td align="center" colspan="2" class="tourney_subhead2"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=262936">dgarthur</a></td>
                       <td align="center" class="tourney_subhead2">Points: 1447.71</td>
                       <td align="center" class="tourney_subhead2">Seed:1</td>
                     </tr>

@@ -108,34 +108,34 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="bodyGeneric">kalmes</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=152476" CLASS="bodyGeneric">kalmes</A>
  was the top-scorer in Division-I, winning Room 4 with 1422.50 final points.  
 <B>kalmes</B> earned 237.41 points on the Level One problem, 422.74 on the Level Two problem, 
 and 762.35 on the Level Three problem.  In the "Challenge Phase", 
-<A HREF="/stat?c=member_profile&amp;cr=158258" CLASS="bodyGeneric">jerm</A> tried to challenge 
+<A HREF="/tc?module=MemberProfile&amp;cr=158258" CLASS="bodyGeneric">jerm</A> tried to challenge 
 the Level Two submission of <B>kalmes</B>, but to no avail.  This was the eighth room win for <B>kalmes</B>, 
 who has won $2,570 in 38 matches. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=274068" CLASS="bodyGeneric">Brian</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=274068" CLASS="bodyGeneric">Brian</A>
  won Room 9 with 1404.28 final points, producing a rating point gain of 318, which is 
 the 10th highest in Division-I.  <B>Brian</B> earned 1354.28 points in the "Coding Phase", coding 
 the Level One problem for 235.65 points, the Level Two problem for 399.07 points, and the 
 Level Three problem for 719.56 points.  In the "Challenge Phase", <B>Brian</B> added 50 points 
 with a successful challenge of the Level One problem of 
-<A HREF="/stat?c=member_profile&amp;cr=266162" CLASS="bodyGeneric">rashok</A>, and withstood a challenge 
-from <A HREF="/stat?c=member_profile&amp;cr=154619" CLASS="bodyGeneric">hilfiger</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=266162" CLASS="bodyGeneric">rashok</A>, and withstood a challenge 
+from <A HREF="/tc?module=MemberProfile&amp;cr=154619" CLASS="bodyGeneric">hilfiger</A>
  on his Level Three submission.  <B>Brian</B> has won his room three times in six 
 matches, for a total of $274. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=155737" CLASS="bodyGeneric">forgothowtocode</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=155737" CLASS="bodyGeneric">forgothowtocode</A>
  remembered how to code in Single Round Match 91, and won Room 20 with 
 482.99 final points.    <B>forgothowtocode</B> earned 210.68 points on the Level One problem 
-and 272.31 points on the Level Two problem.  Both <A HREF="/stat?c=member_profile&amp;cr=158149" CLASS="bodyGeneric">adrian</A>
- and <A HREF="/stat?c=member_profile&amp;cr=276525" CLASS="bodyGeneric">yfu</A>
+and 272.31 points on the Level Two problem.  Both <A HREF="/tc?module=MemberProfile&amp;cr=158149" CLASS="bodyGeneric">adrian</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=276525" CLASS="bodyGeneric">yfu</A>
  tried to challenge 
 the Level Two submissions on <B>forgothowtocode</B>, but failed.  This is the third room win 
 for <B>forgothowtocode</B>, who has won $426 in 32 matches.
@@ -148,19 +148,19 @@ for <B>forgothowtocode</B>, who has won $426 in 32 matches.
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=264169" CLASS="bodyGeneric">Ninjak</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=264169" CLASS="bodyGeneric">Ninjak</A>
  was the top-scorer in Division-II and SRM 91, earning 1557.10 final points.  
 <B>Ninjak</B> produced 1507.10 points in the "Coding Phase", coding the Level One problem 
 for 247.09 points, the Level Two problem for 437.06, and the Level Three problem for 
 822.95.  In the "Challenge Phase", <B>Ninjak</B> added 50 points with a successful challenge 
-of the Level Two code of complete.  <A HREF="/stat?c=member_profile&amp;cr=158851" CLASS="bodyGeneric">nemo_d</A>
- and <A HREF="/stat?c=member_profile&amp;cr=274858" CLASS="bodyGeneric">z-man</A>
+of the Level Two code of complete.  <A HREF="/tc?module=MemberProfile&amp;cr=158851" CLASS="bodyGeneric">nemo_d</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=274858" CLASS="bodyGeneric">z-man</A>
  tried to challenge the Level Three 
 submission of <B>Ninjak</B>, but to no avail.  <B>Ninjak</B> has won six times in 29 matches, and earned $424. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=251089" CLASS="bodyGeneric">GotMilk</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=251089" CLASS="bodyGeneric">GotMilk</A>
  got a win in Room 46, coding all three problems for 1205.59 final points.  
 <B>GotMilk</B> earned 237.03 on the Level One problem, 403.50 on the Level Two problem, 
 and 565.06 on the Level Three problem.  This was the second consecutive room win for 
@@ -168,16 +168,16 @@ and 565.06 on the Level Three problem.  This was the second consecutive room win
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=282137" CLASS="bodyGeneric">ttilling</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=282137" CLASS="bodyGeneric">ttilling</A>
  won by an impressive 902.52 points in Room 65.  <B>ttilling</B> earned 1080.89 
-final points in the match, with <A HREF="/stat?c=member_profile&amp;cr=285601" CLASS="bodyGeneric">lolbrish</A>
+final points in the match, with <A HREF="/tc?module=MemberProfile&amp;cr=285601" CLASS="bodyGeneric">lolbrish</A>
  finishing second with 178.36.  In the 
 "Coding Phase", <B>ttilling</B> coded all three problems for 1030.89 points.  <B>lolbrish</B> 
 also coded all three problems, and was actually leading the room with 1032.28 points.  
 <B>ttilling</B> then added 50 points in the "Challenge Phase" with a successful challenge of 
-the Level One submission of <A HREF="/stat?c=member_profile&amp;cr=279388" CLASS="bodyGeneric">limer619</A>, 
+the Level One submission of <A HREF="/tc?module=MemberProfile&amp;cr=279388" CLASS="bodyGeneric">limer619</A>, 
 while <B>lolbrish</B> lost 50 points with an unsuccessful 
-challenge of the Level One code of <A HREF="/stat?c=member_profile&amp;cr=266060" CLASS="bodyGeneric">mfrahman</A>. 
+challenge of the Level One code of <A HREF="/tc?module=MemberProfile&amp;cr=266060" CLASS="bodyGeneric">mfrahman</A>. 
 <B>lolbrish</B> then lost 803.92 in the system test, when the submitted Level Two and Three submissions failed.
 </P>
           </TD>

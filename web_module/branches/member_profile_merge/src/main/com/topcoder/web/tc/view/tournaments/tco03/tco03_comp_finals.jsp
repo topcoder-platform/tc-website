@@ -81,8 +81,8 @@ the Arena applet.
                   <td class="header" align="center" colspan="3">Design Finals</td>
                <tr>
                   <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="40%"></td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?c=member_profile&cr=119676" class="coderTextYellow">Pops</a>&#160;&#160;</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?c=member_profile&cr=152342" class="coderTextYellow">kyky</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?tc?module=MemberProfile&cr=119676" class="coderTextYellow">Pops</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?tc?module=MemberProfile&cr=152342" class="coderTextYellow">kyky</a>&#160;&#160;</td>
                </tr>
                <tr>
                   <td class="formTextOdd" align="left">Member since:</td>
@@ -125,8 +125,8 @@ the Arena applet.
                </tr>
                <tr>
                   <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="40%"></td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?c=member_profile&cr=277356" class="coderTextYellow">aksonov</a>&#160;&#160;</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?c=member_profile&cr=154714" class="coderTextBlue">rnielsen</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?tc?module=MemberProfile&cr=277356" class="coderTextYellow">aksonov</a>&#160;&#160;</td>
+                  <td background="/i/graybv_bg.gif" class="statTextLarge" align="right" width="30%"><A href="/stat?tc?module=MemberProfile&cr=154714" class="coderTextBlue">rnielsen</a>&#160;&#160;</td>
                </tr>
                <tr>
                   <td class="formTextOdd" align="left">Member since:</td>

@@ -30,8 +30,8 @@
 		<span class="leadPhotoCaption">Welcome to the finals reid<br/><br/></span>
 		</div>
 
-		<a href="/stat?c=member_profile&cr=287269"><img src="/i/m/legakis_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
-		<p>by <a href="/stat?c=member_profile&cr=287269">legakis</a>, <br/>
+		<a href="/stat?tc?module=MemberProfile&cr=287269"><img src="/i/m/legakis_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
+		<p>by <a href="/stat?tc?module=MemberProfile&cr=287269">legakis</a>, <br/>
 		<em>TopCoder Member</em><br />
 		Thursday, November 11, 2004<br/>
 		introduction by lbackstrom

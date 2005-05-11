@@ -91,22 +91,22 @@ May 21, 2002</P>
 
 <P>
 Room 1 started with nearly simultaneous openings of the Level One problem by 
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=274023" CLASS="bodyGeneric">venco</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=158333" CLASS="bodyGeneric">dvickrey</A>, 
-and <A HREF="/stat?c=member_profile&amp;cr=157974" CLASS="bodyGeneric">bigg_nate</A>. 
-<A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>, and
-<A HREF="/stat?c=member_profile&amp;cr=262935" CLASS="bodyGeneric">derkuci</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=274023" CLASS="bodyGeneric">venco</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=158333" CLASS="bodyGeneric">dvickrey</A>, 
+and <A HREF="/tc?module=MemberProfile&amp;cr=157974" CLASS="bodyGeneric">bigg_nate</A>. 
+<A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>, and
+<A HREF="/tc?module=MemberProfile&amp;cr=262935" CLASS="bodyGeneric">derkuci</A>
  all opened the same problem within twenty seconds, while 
- <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>
- waited almost a minute, and <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> for some reason 
+ <A HREF="/tc?module=MemberProfile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>
+ waited almost a minute, and <A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> for some reason 
 taking well over four minutes to start - an inauspicious beginning.
 </P>
 
 <P>
 Meanwhile, <B>ZorbaTHut</B> submitted the Level One after three minutes flat for 247.22 (not the best score in the competition - 
-<A HREF="/stat?c=member_profile&amp;cr=154754" CLASS="bodyGeneric">kv</A> 
+<A HREF="/tc?module=MemberProfile&amp;cr=154754" CLASS="bodyGeneric">kv</A> 
 in Room Two beat him by exactly half a minute). He was quickly followed by <B>derkuci</B> and <B>venco</B> at twenty-second intervals, 
 for 246.62 and 245.98 points respectively.
 <B>bigg_nate</B> submitted at the 4.5 minute mark for 243.71, while <B>jonmac</B> and
@@ -119,7 +119,7 @@ points. Despite <B>dmwright's</B> late start, he completed his code in five and 
 Each coder proceeded to the Level Two problem in turn, except <B>benetin</B> and
 <B>dmwright</B>, who each went straight to the Level Three problem. <B>ZorbaTHut</B> was once again the fastest submitter in 
 Room 1, getting 402.33 points for less than 15 minutes of work. Yet again though, his score was topped in a 
-different room (<A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="bodyGeneric">Yarin</A>
+different room (<A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="bodyGeneric">Yarin</A>
  in room 24, getting 426.46 points). This time it was <B>bigg_nate</B> who had the second fastest submission, 
 taking a minute longer for 391.97 points. <B>John Dethridge</B>, <B>dvickrey</B>, <B>derkuci</B>, and <B>jonmac</B> spent between seventeen and a half 
 minutes to over 20 minutes on their Level Two submissions. <B>venco</B> unfortunately couldn't repeat his performance on the Level 
@@ -175,7 +175,7 @@ losing 166 points and plummeting from his 1st-place position all the way to 4th-
 </P>
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

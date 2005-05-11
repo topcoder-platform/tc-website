@@ -71,7 +71,7 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
 <IMG SRC="/i/m/along_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=251223" CLASS="coderTextYellow">along</A><BR/>
+<B>Handle: </B><A HREF="/tc?module=MemberProfile&amp;cr=251223" CLASS="coderTextYellow">along</A><BR/>
 <B>Rating: </B>1832<BR/>
 <B>Member Since: </B>December &#160;7,&#160;2001<BR/>
 <B>Total Competitions: </B>1<BR/>
@@ -91,9 +91,9 @@ a rating of 1832, which is the 16th best debut rating ever
 He earned 236.92 points on the Level One problem, 376.99 on the Level Two problem, 
 and 551.09 on the Level Three problem, for a total of 1165.00 points in the "Coding Phase".  
 <B>along</B> then added 150 points to his total with successful challenges of the 
-Level One submissions of <A HREF="/stat?c=member_profile&amp;cr=266698" CLASS="coderTextBlue">vietchau</A>
- and <A HREF="/stat?c=member_profile&amp;cr=286590" CLASS="coderTextGray">samosa</A>, and the Level Two submission of 
-<A HREF="/stat?c=member_profile&amp;cr=267505" CLASS="coderTextGray">kidprogram</A>
+Level One submissions of <A HREF="/tc?module=MemberProfile&amp;cr=266698" CLASS="coderTextBlue">vietchau</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=286590" CLASS="coderTextGray">samosa</A>, and the Level Two submission of 
+<A HREF="/tc?module=MemberProfile&amp;cr=267505" CLASS="coderTextGray">kidprogram</A>
  in the "Challenge Phase".  <B>vietchau</B> tried to challenge the Level 
 Three submission of <B>along</B>, but failed.
 </P>
@@ -116,9 +116,9 @@ appreciates the great work the TopCoder staff has done on building such a wonder
 
 <P>
 Other members nominated for "Coder of the Week" were: 
-<A HREF="/stat?c=member_profile&amp;cr=272490" CLASS="coderTextBlue">kolanovic</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=272490" CLASS="coderTextBlue">kolanovic</A>
  and 
-<A HREF="/stat?c=member_profile&amp;cr=282718" CLASS="coderTextGreen">rustyoldman</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=282718" CLASS="coderTextGreen">rustyoldman</A>, 
 who won their rooms in both matches, and have three match consecutive win streaks.
 </P>
 
