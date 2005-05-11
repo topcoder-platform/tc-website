@@ -17,16 +17,16 @@
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="tableCatNW" colspan="2"><A HREF='/stat?c=ratings_history&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
-            <tr><td class="tableCatNW">Ranking:</td><td class="tableStatRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /></td></tr>
-            <tr><td class="tableCatNW">Volatility:</td><td class="tableStatRNW"><rsc:item name="vol" set="<%=rscAlgData%>" format="####"/></td></tr>
-            <tr><td class="tableCatNW">Maximum Rating:</td><td class="tableStatRNW"><rsc:item name="highest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
-            <tr><td class="tableCatNW">Minimum Rating:</td><td class="tableStatRNW"><rsc:item name="lowest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
-            <tr><td class="tableCatNW">Default Language:</td><td class="tableStatRNW"><rsc:item name="language_name" set="<%=rscAlgData%>" /></td></tr>
-            <tr><td class="tableCatNW">Competitions:</td><td class="tableStatRNW"><rsc:item name="num_ratings" set="<%=rscAlgData%>" /></td></tr>
-            <tr><td class="tableCatNW">Most Recent Event:</td><td class="tableStatRNW"><rsc:item name="last_round" set="<%=rscAlgData%>" /><br><rsc:item name="last_round_date" set="<%=rscAlgData%>" format="MM.dd.yy"/></td></tr>
-            <tr><td class="tableCatNW">Earnings:</td><td class="tableStatRNW"><rsc:item name="earnings" set="<%=rscAlgData%>" format="$#,##0.00"/></td></tr>
-            <tr><td class="tableCatNW" colspan="2"><A href='/stat?c=earnings_history&cr=<%=request.getParameter("cr")%>'>[earnings history]</A></td></tr>
+            <tr><td class="catNW" colspan="2"><A HREF='/stat?c=ratings_history&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
+            <tr><td class="catNW">Ranking:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /></td></tr>
+            <tr><td class="catNW">Volatility:</td><td class="statRNW"><rsc:item name="vol" set="<%=rscAlgData%>" format="####"/></td></tr>
+            <tr><td class="catNW">Maximum Rating:</td><td class="statRNW"><rsc:item name="highest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
+            <tr><td class="catNW">Minimum Rating:</td><td class="statRNW"><rsc:item name="lowest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
+            <tr><td class="catNW">Default Language:</td><td class="statRNW"><rsc:item name="language_name" set="<%=rscAlgData%>" /></td></tr>
+            <tr><td class="catNW">Competitions:</td><td class="statRNW"><rsc:item name="num_ratings" set="<%=rscAlgData%>" /></td></tr>
+            <tr><td class="catNW">Most Recent Event:</td><td class="statRNW"><rsc:item name="last_round" set="<%=rscAlgData%>" /><br><rsc:item name="last_round_date" set="<%=rscAlgData%>" format="MM.dd.yy"/></td></tr>
+            <tr><td class="catNW">Earnings:</td><td class="statRNW"><rsc:item name="earnings" set="<%=rscAlgData%>" format="$#,##0.00"/></td></tr>
+            <tr><td class="catNW" colspan="2"><A href='/stat?c=earnings_history&cr=<%=request.getParameter("cr")%>'>[earnings history]</A></td></tr>
          </table>
       </td>
       <td width="75%" valign="top">
@@ -46,19 +46,19 @@ if(!rscSummaryDiv1.isEmpty()) {
             </tr>
             <rsc:iterator id="resultRow" list="<%=rscSummaryDiv1%>">
             <tr>
-               <td class="tableCat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
+               <td class="cat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
             </tr>
             </rsc:iterator>
             <tr>
-               <td class="tableCat" nowrap="nowrap">Total</td>
-               <td class="tableStatR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv1%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv1%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv1%>" /></td>
-               <td class="tableStatR"><rsc:item name="success_percentage" set="<%=rscTotalDiv1%>" format="0.00%" /></td>
+               <td class="cat" nowrap="nowrap">Total</td>
+               <td class="statR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv1%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv1%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv1%>" /></td>
+               <td class="statR"><rsc:item name="success_percentage" set="<%=rscTotalDiv1%>" format="0.00%" /></td>
             </tr>
          </table>
 <%
@@ -78,19 +78,19 @@ if(!rscSummaryDiv2.isEmpty()) {
             </tr>
             <rsc:iterator id="resultRow" list="<%=rscSummaryDiv2%>">
             <tr>
-               <td class="tableCat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
+               <td class="cat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="problems_submitted" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
             </tr>
             </rsc:iterator>
             <tr>
-               <td class="tableCat" nowrap="nowrap">Total</td>
-               <td class="tableStatR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv2%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv2%>" /></td>
-               <td class="tableStatR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv2%>" /></td>
-               <td class="tableStatR"><rsc:item name="success_percentage" set="<%=rscTotalDiv2%>" format="0.00%" /></td>
+               <td class="cat" nowrap="nowrap">Total</td>
+               <td class="statR"><rsc:item name="problems_submitted" set="<%=rscTotalDiv2%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_challenge" set="<%=rscTotalDiv2%>" /></td>
+               <td class="statR"><rsc:item name="problems_failed_by_system_test" set="<%=rscTotalDiv2%>" /></td>
+               <td class="statR"><rsc:item name="success_percentage" set="<%=rscTotalDiv2%>" format="0.00%" /></td>
             </tr>
          </table>
 <%
@@ -109,17 +109,17 @@ if(!rscSummaryChal.isEmpty()) {
             </tr>
             <rsc:iterator id="resultRow" list="<%=rscSummaryChal%>">
             <tr>
-               <td class="tableCat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="challenges_made_failed" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" /></td>
-               <td class="tableStatR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
+               <td class="cat" nowrap="nowrap"><rsc:item name="level_desc" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="challenges_made_failed" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" /></td>
+               <td class="statR"><rsc:item name="success_percentage" row="<%=resultRow%>" format="0.00%"/></td>
             </tr>
             </rsc:iterator>
             <tr>
-               <td class="tableCat" nowrap="nowrap">Total</td>
-               <td class="tableStatR"><rsc:item name="challenges_made_failed" set="<%=rscTotalChal%>" /></td>
-               <td class="tableStatR"><rsc:item name="challenge_attempts_made" set="<%=rscTotalChal%>" /></td>
-               <td class="tableStatR"><rsc:item name="success_percentage" set="<%=rscTotalChal%>" format="0.00%" /></td>
+               <td class="cat" nowrap="nowrap">Total</td>
+               <td class="statR"><rsc:item name="challenges_made_failed" set="<%=rscTotalChal%>" /></td>
+               <td class="statR"><rsc:item name="challenge_attempts_made" set="<%=rscTotalChal%>" /></td>
+               <td class="statR"><rsc:item name="success_percentage" set="<%=rscTotalChal%>" format="0.00%" /></td>
             </tr>
          </table>
 <%

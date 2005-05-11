@@ -57,33 +57,33 @@ This member has not yet been rated in a competition.
       <td valign="top">
          <table cellpadding="0" cellspacing="0" border="0" class="statTable">
             <tr><td class="handleCell" colspan="2"><tc-webtags:handle coderId='<%=rscCoderData.getStringItem(0, "coder_id")%>'/></td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Algorithm Rating:</td><td class="tableStat" align="right">
+            <tr><td class="cat" nowrap="nowrap">Algorithm Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getIntItem(0, "rating") != 0) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "rating")%>'><rsc:item name="rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
             <%} else {%>
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Design Rating:</td><td class="tableStat" align="right">
+            <tr><td class="cat" nowrap="nowrap">Design Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "design_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "design_rating")%>'><rsc:item name="design_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
             <%} else {%>
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Development Rating:</td><td class="tableStat" align="right">
+            <tr><td class="cat" nowrap="nowrap">Development Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "development_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "development_rating")%>'><rsc:item name="development_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
             <%} else {%>
                 not rated
             <%}%>
             </td></tr>
-            <tr><td class="tableCat" colspan="2">&#160;</td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Total Earnings:</td><td class="tableStat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
-            <tr><td class="tableCat" nowrap="nowrap">Member Since:</td><td class="tableStat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
-            <tr><td class="tableCat">Country:</td><td class="tableStat" align="right"><rsc:item name="country_name" set="<%=rscCoderData%>"/></td></tr>
+            <tr><td class="cat" colspan="2">&#160;</td></tr>
+            <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right"><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></td></tr>
+            <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right"><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
+            <tr><td class="cat">Country:</td><td class="stat" align="right"><rsc:item name="country_name" set="<%=rscCoderData%>"/></td></tr>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
-            <tr><td class="tableCat">School:</td><td class="tableStat" align="right"><rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
+            <tr><td class="cat">School:</td><td class="stat" align="right"><rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
             <% }%>
          </table>
       </td>
