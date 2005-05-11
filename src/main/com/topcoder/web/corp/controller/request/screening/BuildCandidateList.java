@@ -7,6 +7,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 
@@ -51,6 +52,7 @@ public class BuildCandidateList extends BaseScreeningProcessor {
 
             dataRequest.setProperty(DataAccessConstants.START_RANK, String.valueOf(startVal));
             dataRequest.setProperty(DataAccessConstants.END_RANK, String.valueOf(endVal));
+
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             if (!sortCol.equals("")) {
                 dataRequest.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
@@ -58,6 +60,7 @@ public class BuildCandidateList extends BaseScreeningProcessor {
 
             Map map = dAccess.getData(dataRequest);
 
+            SortInfo s = new SortInfo();
             if (map != null && map.size() == 2) {
                 ResultSetContainer result =
                         (ResultSetContainer) map.get(Constants.CANDIDATE_LIST_QUERY_KEY);
@@ -76,10 +79,20 @@ public class BuildCandidateList extends BaseScreeningProcessor {
                 getRequest().setAttribute(DataAccessConstants.END_RANK, String.valueOf(endVal));
                 getRequest().setAttribute(DataAccessConstants.NUMBER_RECORDS, String.valueOf(count));
 
+                s.addDefault(result.getColumnIndex("handle"), "asc");
+                s.addDefault(result.getColumnIndex("profile_sort"), "asc");
+                s.addDefault(result.getColumnIndex("begin_time"), "desc");
+                s.addDefault(result.getColumnIndex("end_time"), "desc");
+                s.addDefault(result.getColumnIndex("status_sort"), "asc");
+                s.addDefault(result.getColumnIndex("preference"), "desc");
+                s.addDefault(result.getColumnIndex("notes_sort"), "desc");
+
+
                 getRequest().setAttribute(DataAccessConstants.SORT_COLUMN, StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)));
                 getRequest().setAttribute(Constants.CANDIDATE_LIST_QUERY_KEY, result);
             }
 
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             getRequest().setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
         } catch (TCWebException e) {
             throw e;
