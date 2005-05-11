@@ -50,6 +50,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
             usage = usageType.longValue();
 
             //maybe set attribute here?
+            loadTimeZoneInfo();
             getRequest().setAttribute(Constants.USAGE_TYPE, usageType);
 
             screeningProcessing();

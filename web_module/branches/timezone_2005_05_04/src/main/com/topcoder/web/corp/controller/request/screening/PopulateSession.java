@@ -33,7 +33,6 @@ public class PopulateSession extends BaseSessionProcessor {
                     map.get(Constants.SESSION_CANDIDATE_INFO_QUERY_KEY));
             info.setProfileList((ResultSetContainer)
                     map.get(Constants.SESSION_PROFILE_INFO_QUERY_KEY));
-            loadTimeZoneInfo();
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
