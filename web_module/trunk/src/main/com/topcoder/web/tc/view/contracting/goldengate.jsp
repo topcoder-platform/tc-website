@@ -61,12 +61,10 @@
       <li>expert-level experience with databases and database programming, including dynamic SQL programming and familiarity with database APIs</li>
       <li>the ability to write highly-modular and encapsulated code</li>
       <li>an understanding and appreciation of software performance principles</li>
-      <li>DB2 (v6.1 and above) application development experience on the IBM mainframe (OS/390 and z/OS)</li>
       <li>development experience on USS or other Unix platforms</li>
       <li>familiarity with JCL</li>
       <li>familiarity with the ISPF/PDF environment and IBM system utilities</li>
       <li>familiarity with DB2 (v6.1 and above) administration and configurations including data sharing</li>
-      <li>experience using IBM assembly language on the mainframe</li>
       <li>ability to manage and mentor developers</li>
       <li>ability to manage projects and communicate project status to upper management</li>
       </ul>
