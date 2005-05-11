@@ -35,7 +35,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm241_prob">SRM 241 - Problem Set & Analysis</A></span><br><br>
       In Division 1, <b>pparys</b> took home his first SRM victory, solving all three problems correctly.  <b>bladerunner</b> and <b>Petr</b> took the second and third slots.</td>
-      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=10407399">timmac</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=10407399">timmac</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -62,7 +62,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=050305">Using Regular Expressions</A></span><br><br>
        "A regular expression is a special string that describes a search pattern. Many of you have surely seen and used them already when typing expressions like ls(or dir) *.txt."</td>
-      <td class="newsPhoto"><img src="/i/m/Dan[Popovici]_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=7465390">Dan[Popovici]</A><br>& <a class="bodyText" href="/stat?c=member_profile&amp;cr=294328">mariusmuja</a></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Dan[Popovici]_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=7465390">Dan[Popovici]</A><br>& <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=294328">mariusmuja</a></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
