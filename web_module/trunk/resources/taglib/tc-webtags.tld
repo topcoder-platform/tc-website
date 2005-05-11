@@ -558,4 +558,26 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>sort</name>
+        <tagclass>com.topcoder.web.common.tag.SortTag</tagclass>
+        <attribute>
+            <name>column</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>ascColumn</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>descColumn</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+
 </taglib>
