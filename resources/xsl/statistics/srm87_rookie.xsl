@@ -94,10 +94,10 @@ May 9, 2002</P>
 
  <P>
 The Rookie Rooms started with mostly scores around the 300 or 400 area, but
- with a few interesting spikes. <A HREF="/stat?c=member_profile&amp;cr=281135" CLASS="bodyGeneric">Teagueboy</A>
+ with a few interesting spikes. <A HREF="/tc?module=MemberProfile&amp;cr=281135" CLASS="bodyGeneric">Teagueboy</A>
  submitted 1236.00 points of
- solutions, <A HREF="/stat?c=member_profile&amp;cr=283323" CLASS="bodyGeneric">hunsaker</A>
- 1436.28 points, and <A HREF="/stat?c=member_profile&amp;cr=282719" CLASS="bodyGeneric">Drache</A>
+ solutions, <A HREF="/tc?module=MemberProfile&amp;cr=283323" CLASS="bodyGeneric">hunsaker</A>
+ 1436.28 points, and <A HREF="/tc?module=MemberProfile&amp;cr=282719" CLASS="bodyGeneric">Drache</A>
  a surprising 1646.61 points.
  Challenge phase, however, revealed that while <B>Teagueboy</B> and <B>hunsaker</B> had
  submitted serious solutions, <B>Drache</B>'s medium and hard solutions were simply
@@ -106,11 +106,11 @@ The Rookie Rooms started with mostly scores around the 300 or 400 area, but
 </P>
  
 <P>
- The room favorite of 63, <A HREF="/stat?c=member_profile&amp;cr=278549" CLASS="bodyGeneric">itsouk</A>, 
+ The room favorite of 63, <A HREF="/tc?module=MemberProfile&amp;cr=278549" CLASS="bodyGeneric">itsouk</A>, 
  had submitted for 688.21 points, and
  managed to get another 200 points in challenge phase, succeeding on five
  challenges and failing on one. Meanwhile, 
- <A HREF="/stat?c=member_profile&amp;cr=282521" CLASS="bodyGeneric">jmayhew</A>
+ <A HREF="/tc?module=MemberProfile&amp;cr=282521" CLASS="bodyGeneric">jmayhew</A>
  in room 61 almost tripled
  his submission score of 121.31 with four successful challenges of his own.
 </P>
@@ -122,10 +122,10 @@ The Rookie Rooms started with mostly scores around the 300 or 400 area, but
 </P>
  
 <P>
- In Room 60, the room leader was <A HREF="/stat?c=member_profile&amp;cr=281014" CLASS="bodyGeneric">krogoth</A>, 
+ In Room 60, the room leader was <A HREF="/tc?module=MemberProfile&amp;cr=281014" CLASS="bodyGeneric">krogoth</A>, 
  getting 451.60 points for two
  working submissions and balancing one successful and one unsuccessful
- challenge. Room 61's winner was <A HREF="/stat?c=member_profile&amp;cr=280985" CLASS="bodyGeneric">yavinmoon</A>
+ challenge. Room 61's winner was <A HREF="/tc?module=MemberProfile&amp;cr=280985" CLASS="bodyGeneric">yavinmoon</A>
  with 458.07 points, including 50
  points for a good challenge and barely beating out <B>krogoth</B> for the leader of
  all the Rookie Rooms. Room 62's leader was momth with 307.88 points, getting
@@ -149,14 +149,14 @@ The Rookie Rooms started with mostly scores around the 300 or 400 area, but
  obviously-broken Level Three problem still successfully defended itself
  against no less than four challenges. It simply returned an empty array -
  {} - and all four first people to challenge did so with cases where the
- correct answer was the empty array! It took <A HREF="/stat?c=member_profile&amp;cr=111888" CLASS="bodyGeneric">mverrey</A>
+ correct answer was the empty array! It took <A HREF="/tc?module=MemberProfile&amp;cr=111888" CLASS="bodyGeneric">mverrey</A>
  to come up with a test
  case that did not result in a null set for the result.
 </P>
 
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

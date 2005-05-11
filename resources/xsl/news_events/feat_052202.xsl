@@ -90,14 +90,14 @@ true behavior or nature of the code."
 
 <P>
 According to <B>dok</B>, a TopCoder administrator, the obfuscation rule was created 
-in response to the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=112438" CLASS="bodyGeneric">stevevai</A>
+in response to the Level Two submission of <A HREF="/tc?module=MemberProfile&amp;cr=112438" CLASS="bodyGeneric">stevevai</A>
  in the Semifinals of the 2001 Invitational 
 (<A HREF="/stat?c=problem_solution&amp;rm=56&amp;rd=56&amp;pm=205&amp;cr=112438" CLASS="bodyGeneric">members click here to view problem statement</A>). 
 <B>dok</B> explains the obfuscation of <B>stevevai</B>: 
 "If you'll notice, there is a variable declared at the bottom, 'int l=0', 
 and at the top there is a comparison, 'if (s.length() == l)'. Well that 
 looks a lot like 'if (length == 1)'." This 'hidden' zero fooled 
-<A HREF="/stat?c=member_profile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>, 
 causing him to lose 50 points on an unsuccessful challenge of the code of <B>stevevai</B>.  
 The obfuscation rule was set up to prevent coders from writing intentionally confusing 
 code to bait others into such challenges.
@@ -116,12 +116,12 @@ drop points because a person has poor coding habits."
 
 <P>
 "Bad indentation or oddly placed brackets doesn't seem like it enough to call it 
-obfuscation," agrees <A HREF="/stat?c=member_profile&amp;cr=155375" CLASS="bodyGeneric">fbplayr78</A> , 
+obfuscation," agrees <A HREF="/tc?module=MemberProfile&amp;cr=155375" CLASS="bodyGeneric">fbplayr78</A> , 
 a coder who has direct experience with obfuscation charges. <B>fbplayr78</B> was accused for 
 a Level Two submission  in Single Round Match 86 that contained a 'hidden' if-statement like the one described in 
 the first paragraph (<A HREF="/stat?c=problem_solution&amp;rm=5315&amp;rd=4150&amp;pm=708&amp;cr=155375" CLASS="bodyGeneric">members 
 click here to view problem statement</A>).  
-<A HREF="/stat?c=member_profile&amp;cr=280238" CLASS="bodyGeneric">Darth Vader</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=280238" CLASS="bodyGeneric">Darth Vader</A>, 
 who was in the same room as <B>fbplayr78</B> in SRM 86, reported 
 the code to the administrators after viewing it in the challenge round.  The charge led to a 
 two-hour-long argument in the TopCoder lobby on what obfuscation is and how the issue of coder 
@@ -137,7 +137,7 @@ hit backspace or delete," said <B>fbplayr78</B>, when asked how the if statement
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=267455" CLASS="bodyGeneric">cocoapi</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=267455" CLASS="bodyGeneric">cocoapi</A>, 
 who was also in the room with <B>fbplayr78</B> in SRM 86, is skeptical of this explanation.  
 "It does not seem really easy to make a mistake like that and not notice it. Usually when you 
 click delete, it takes that line to the beginning of the previous line, not to the end of it 
@@ -206,7 +206,7 @@ there is no reason to write unreadable code."  Or, as <B>fbplayr78</B> puts it, 
 
 
 <IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
 
          
 <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Would you like to write a weekly feature?</A></P>

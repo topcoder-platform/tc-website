@@ -120,8 +120,8 @@ The Division-II Easy problem wasn't hard, though perhaps somewhat easier in
  seen before. Whenever you see an item set that goes from 1 to 20 elements,
  this algorithm is a good bet. Basically, you try every combination, and keep
  track of the best answer. That's it. 
- <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A> (me) did it recursively,
- while <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>
+ <A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A> (me) did it recursively,
+ while <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>
  counted from 0 to 2^20 and turned each number into a
  possible solution using its binary representation. Basically all the
  solutions fell into one category or another.
@@ -136,7 +136,7 @@ The Division-II Easy problem wasn't hard, though perhaps somewhat easier in
  point in storing a parent twice, and uniqueness is bad on the final step.)
  It's not the most elegant solution in the world, but it will easily run fast
  enough. <B>ZorbaTHut</B> built functions for "find all children" and "find all
- parents", so it may be easier to read. <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
+ parents", so it may be easier to read. <A HREF="/tc?module=MemberProfile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
  has an equivalent solution
  using Java's HashSet.
 </P>
@@ -152,7 +152,7 @@ The Division-II Easy problem wasn't hard, though perhaps somewhat easier in
 </P>
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

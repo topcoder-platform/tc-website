@@ -52,8 +52,8 @@
             
             <h2>Two for tomek, the champ returns</h2>
 
-            <a href="/stat?c=member_profile&cr=299177"><img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
-            <p>by <a href="/stat?c=member_profile&cr=299177">vorthys</a>, <br/>
+            <a href="/tc?module=MemberProfile&cr=299177"><img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
+            <p>by <a href="/tc?module=MemberProfile&cr=299177">vorthys</a>, <br/>
             <em>TopCoder Member</em><br />
             Friday, April 16, 2004<br/>
             introduction by lbackstrom

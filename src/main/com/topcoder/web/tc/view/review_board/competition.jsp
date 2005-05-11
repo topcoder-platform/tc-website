@@ -79,10 +79,10 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=273217"><img src="/i/m/schveiguy_mug.gif" alt="schveiguy" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/tc?module=MemberProfile&amp;cr=273217"><img src="/i/m/schveiguy_mug.gif" alt="schveiguy" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>                        
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=273217"><strong>schveiguy</strong></a><span class="smallText"></span>
                         graduated with a Bachelors degree in Computer Science from Worcester Polytechnic Institute 
                         and currently works as a Senior Software Developer at Network Engines in Canton, Massachusetts.
                      </td>
@@ -93,10 +93,10 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=268546"><img src="/i/m/tangentz_mug.gif" alt="tangentz" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/tc?module=MemberProfile&amp;cr=268546"><img src="/i/m/tangentz_mug.gif" alt="tangentz" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=268546"><strong>TangentZ</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=268546"><strong>TangentZ</strong></a><span class="smallText"></span>
                         received a Master of Computer Science degree from Dalhousie University.  While in 
                         school, he spent time researching artificial intelligence with a focus on neural networks.
                         </p>                       
@@ -108,10 +108,10 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158447"><img src="/i/m/vald_mug.gif" alt="vald" width="63" height="70" border="0" /></a></td>
+                    <td width="274"><a href="/tc?module=MemberProfile&amp;cr=158447"><img src="/i/m/vald_mug.gif" alt="vald" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158447"><strong>ValD</strong></a><span class="smallText"></span>
+                        <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=158447"><strong>ValD</strong></a><span class="smallText"></span>
                         currently studies at the University of Albany and plans to graduate with honors.  In his 
                         spare time, he studies optimization problems and evolution strategies.  In fact, ValD believes 
                         he may be making progress towards a new evolution model.</p>                       

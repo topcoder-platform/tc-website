@@ -78,7 +78,7 @@ p.Code, li.Code, div.Code
                         <p><font size="4"><strong>Encryption Algorithms</strong></font><br />
                         Tuesday, November 2, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=10407399"><strong>timmac</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=10407399"><strong>timmac</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p>

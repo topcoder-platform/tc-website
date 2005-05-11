@@ -290,7 +290,7 @@ the area count every time there was a fence, or only adding to it if the square 
 </P>
 
 <IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
           
 <P><B>Member Comments</B></P>
@@ -308,7 +308,7 @@ is to see the graph in the matrix.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=263379" CLASS="bodyGeneric">pochmann</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=263379" CLASS="bodyGeneric">pochmann</A>
 </P>
 
 <HR/>
@@ -339,7 +339,7 @@ areaCount++;<BR/>
 :0 !<BR/>
 </P>
  
-<P><A HREF="/stat?c=member_profile&amp;cr=280735" CLASS="bodyGeneric">Shammah</A></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=280735" CLASS="bodyGeneric">Shammah</A></P>
 
 
           <P><BR/></P>

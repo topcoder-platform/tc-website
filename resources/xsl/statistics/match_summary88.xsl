@@ -108,9 +108,9 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>
-The closest match of the night took place in Room 5. <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">Zaen</A>
+The closest match of the night took place in Room 5. <A HREF="/tc?module=MemberProfile&amp;cr=156804" CLASS="bodyGeneric">Zaen</A>
  was a 1159.03 to 1157.61 winner 
-over <A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="bodyGeneric">lbackstrom</A>.  
+over <A HREF="/tc?module=MemberProfile&amp;cr=159052" CLASS="bodyGeneric">lbackstrom</A>.  
 That's a difference of just 1.42 points.  <B>lbackstrom</B> actually earned 
 more points, 286.25 to 281.75 and 338.81 to 302.32, on the Level One and Two problems, 
 respectively.  <B>Zaen</B> won the room by earning 574.96 on the Level Three problem, which 
@@ -122,17 +122,17 @@ Two other close matches took place in Room's 6 and 11.
 </P>
 
 <P>
-In Room 6, <A HREF="/stat?c=member_profile&amp;cr=268954" CLASS="bodyGeneric">ZOOT</A>
+In Room 6, <A HREF="/tc?module=MemberProfile&amp;cr=268954" CLASS="bodyGeneric">ZOOT</A>
  earned more points on the Level Two problem to beat 
- <A HREF="/stat?c=member_profile&amp;cr=265545" CLASS="bodyGeneric">insomnia</A>
+ <A HREF="/tc?module=MemberProfile&amp;cr=265545" CLASS="bodyGeneric">insomnia</A>
 711.33 to 702.97.  <B>ZOOT</B> was behind 267.77 to 256.98 after the Level One problem, 
 but earned 454.35 on the Level Two problem, while <B>insomnia</B> earned 435.20. 
 </P>
 
 <P>
 Just behind Room 5 for the closest match of the night, 
-<A HREF="/stat?c=member_profile&amp;cr=273217" CLASS="bodyGeneric">schveiguy</A> outpaced 
-<A HREF="/stat?c=member_profile&amp;cr=160049" CLASS="bodyGeneric">FogleBird</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=273217" CLASS="bodyGeneric">schveiguy</A> outpaced 
+<A HREF="/tc?module=MemberProfile&amp;cr=160049" CLASS="bodyGeneric">FogleBird</A>
  by 1.67 points, 670.88 to 669.21, to win Room 11.  <B>FogleBird</B> actually 
 coded the Level One problem 67 seconds quicker and had a slight lead, 266.36 to 
 260.15.  <B>schveiguy</B> was 50 seconds quicker on the Level Two problem, however, 
@@ -147,7 +147,7 @@ enough for the room win.
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=283388" CLASS="bodyGeneric">Minsk</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=283388" CLASS="bodyGeneric">Minsk</A>
  had the best debut of the night and won Room 57, with a division-high 
 1370.61 final points.  <B>Minsk</B> earned 275.77 on the Level One problem, 423.47 
 on the Level Two problem, and 671.37 on the Level Three problem.  The 1888 
@@ -156,7 +156,7 @@ debut rating of <B>Minsk</B> is the eighth highest ever
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=128901" CLASS="bodyGeneric">rgmisra</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=128901" CLASS="bodyGeneric">rgmisra</A>
  won Room 47 with 1281.81 final points, and gained 422 rating points, 
 which is the eighth largest gain 
 (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="bodyGeneric">View the list of Division-II Rating Point Gain</A>). 

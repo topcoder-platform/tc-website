@@ -108,9 +108,9 @@ earned him second place in Room 1 and across Division 1. <B>reid</B> earned 1260
 the others of the existence of such a mistake during the Intermission, the challenge of his submission was snapped up by <B>SnapDragon</B>. <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">ZorbaTHut</A> 
 and <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">NDBronson</A> both failed to submit a solution for the 1000 point problem, earning them the last two places in the room. <B>NDBronson</B>, in an 
 uncharacteristically poor performance, lost his 450 point submission during the System Test Phase, due to a minor mistake.  As a result he also lost top ranking among all coders, a title now held by 
-<A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> (who did not compete tonight).</P>
+<A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> (who did not compete tonight).</P>
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

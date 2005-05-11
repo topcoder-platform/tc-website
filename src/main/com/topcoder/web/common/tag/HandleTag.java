@@ -18,7 +18,7 @@ public class HandleTag extends TagSupport {
     private boolean design = false;
     private boolean development = false;
 
-    public final static String DEFAULT_LINK = "/stat?c=member_profile&cr=";
+    public final static String DEFAULT_LINK = "/tc?module=MemberProfile&cr=";
     public final static String ALGORITHM = "algorithm";
     public final static String DESIGN = "design";
     public final static String DEVELOPMENT = "development";

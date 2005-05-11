@@ -52,8 +52,8 @@
             
             <h2>Local favorite reid advances</h2>
 
-            <a href="/stat?c=member_profile&cr=269554"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
-            <p>by <a href="/stat?c=member_profile&cr=269554">Yarin</a>, <br/>
+            <a href="/tc?module=MemberProfile&cr=269554"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
+            <p>by <a href="/tc?module=MemberProfile&cr=269554">Yarin</a>, <br/>
             <em>TopCoder Member</em><br />
             Thursday, April 15, 2004<br/>
             introduction by lbackstrom<br/><br/></p>

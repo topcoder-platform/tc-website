@@ -70,46 +70,46 @@
 												
 <IMG SRC="/i/m/seashadow_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A><br/>
+<b>Handle: </b><A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A><br/>
 <b>Rating: </b>1522<br/>
 <b>Member Since: </b>January&#160;20,&#160;2002<br/>
 <b>Total Competitions: </b>1<br/>
 </P>
 
 <P>
-TopCoder, Inc. announced today that <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+TopCoder, Inc. announced today that <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
  has been named the "Coder of the Week" for Single Round Matches 76 and 77, which took place between April 1 and 7, 2002.  
 </P>
 
 <P>
-In Single Round Match 77, <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
- used two successful challenges for a come-from-behind win in Room 61.  During the "Coding Phase", <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
- earned 243.17 points on the Level One problem, 375.67 on the Level Two problem, and 808.77 on the Level Three problem for 1428.15 points.  That total placed <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
- in fourth place, 140.70 points behind <A HREF="/stat?c=member_profile&amp;cr=274501" CLASS="coderTextBlue">lightningmonsoo</A>
-, who led the room with 1568.85.  The first move by <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
- in the "Challenge Phase", was a successful challenge of the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=251530" CLASS="coderTextGray">habib7</A>
-.  <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
- followed that up with a successful challenge of the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=274735" CLASS="coderTextGreen">saunak</A>
-.  With those additional 100 points, and the passing of all three submissions through the system test, <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+In Single Round Match 77, <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+ used two successful challenges for a come-from-behind win in Room 61.  During the "Coding Phase", <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+ earned 243.17 points on the Level One problem, 375.67 on the Level Two problem, and 808.77 on the Level Three problem for 1428.15 points.  That total placed <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+ in fourth place, 140.70 points behind <A HREF="/tc?module=MemberProfile&amp;cr=274501" CLASS="coderTextBlue">lightningmonsoo</A>
+, who led the room with 1568.85.  The first move by <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+ in the "Challenge Phase", was a successful challenge of the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=251530" CLASS="coderTextGray">habib7</A>
+.  <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+ followed that up with a successful challenge of the Level Two submission of <A HREF="/tc?module=MemberProfile&amp;cr=274735" CLASS="coderTextGreen">saunak</A>
+.  With those additional 100 points, and the passing of all three submissions through the system test, <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
  won the room with 1528.15 points.  That total was the highest of all of the first-time coders in Single Round Match 77. 
 </P>
 
 <P>
-"I was fourth in my room when I finished all the problems, with half an hour of coding time left," said <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
-.  "The only thing I could do was challenge at least three problems to get to the top.  So, I prepared some test cases in the coding phase to prepare for the challenge phase. When I opened the code of the Level Three problem of <A HREF="/stat?c=member_profile&amp;cr=251530" CLASS="coderTextGray">habib7</A>
-, I was lucky to see that he/she had done nothing except a class declaration, so I challenged it!  After that, I found a small bug in the code of <A HREF="/stat?c=member_profile&amp;cr=274735" CLASS="coderTextGreen">saunak</A>
-.  Finally, the top coder in the coding phase (<A HREF="/stat?c=member_profile&amp;cr=274501" CLASS="coderTextBlue">lightningmonsoo</A>
-) failed in system test, and the second place coder (<A HREF="/stat?c=member_profile&amp;cr=251530" CLASS="coderTextGray">habib7</A>
+"I was fourth in my room when I finished all the problems, with half an hour of coding time left," said <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+.  "The only thing I could do was challenge at least three problems to get to the top.  So, I prepared some test cases in the coding phase to prepare for the challenge phase. When I opened the code of the Level Three problem of <A HREF="/tc?module=MemberProfile&amp;cr=251530" CLASS="coderTextGray">habib7</A>
+, I was lucky to see that he/she had done nothing except a class declaration, so I challenged it!  After that, I found a small bug in the code of <A HREF="/tc?module=MemberProfile&amp;cr=274735" CLASS="coderTextGreen">saunak</A>
+.  Finally, the top coder in the coding phase (<A HREF="/tc?module=MemberProfile&amp;cr=274501" CLASS="coderTextBlue">lightningmonsoo</A>
+) failed in system test, and the second place coder (<A HREF="/tc?module=MemberProfile&amp;cr=251530" CLASS="coderTextGray">habib7</A>
 ) made another mistake in the challenge phase."
 </P>
 
 <P>
-A TopCoder member since January 30, 2002, <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+A TopCoder member since January 30, 2002, <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
  has competed once and has won a total of $100.  
 </P>
 
 <P>
-"This was a very close competition," added <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+"This was a very close competition," added <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
 .  "I hope to see more and more tough problems and tough guys in the coming competitions."
 </P>
 
@@ -118,10 +118,10 @@ A TopCoder member since January 30, 2002, <A HREF="/stat?c=member_profile&amp;cr
 </P>
 
 <P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=274023" CLASS="coderTextBlue">venco</A>
-, who had a 498-point rating gain in Single Round Match 77, the second highest in Division-II (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>); <A HREF="/stat?c=member_profile&amp;cr=267831" CLASS="coderTextBlue">nrogers</A>
-, who had a 283-point rating gain in Single Round Match 76, the 10th highest in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-II Rating Point Gain</A>); and <A HREF="/stat?c=member_profile&amp;cr=157972" CLASS="coderTextRed">obfuscator</A>
- and <A HREF="/stat?c=member_profile&amp;cr=151360" CLASS="coderTextYellow">buddh4sack</A>
+Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=274023" CLASS="coderTextBlue">venco</A>
+, who had a 498-point rating gain in Single Round Match 77, the second highest in Division-II (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>); <A HREF="/tc?module=MemberProfile&amp;cr=267831" CLASS="coderTextBlue">nrogers</A>
+, who had a 283-point rating gain in Single Round Match 76, the 10th highest in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-II Rating Point Gain</A>); and <A HREF="/tc?module=MemberProfile&amp;cr=157972" CLASS="coderTextRed">obfuscator</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=151360" CLASS="coderTextYellow">buddh4sack</A>
 , who both had come-from-behind room wins in Single Round Match 77.
 </P>
 

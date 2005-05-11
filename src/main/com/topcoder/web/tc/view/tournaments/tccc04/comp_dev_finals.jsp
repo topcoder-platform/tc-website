@@ -61,9 +61,9 @@ function openWin(url, name) {
                   <td class="header" align="center" colspan="4">Development Finals</td>
                <tr>
                   <td class="advHeader" align="right" width="40%"></td>
-                  <td class="advHeader" align="right" width="20%"><A href="/stat?c=member_profile&cr=268851">gladius</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right"width="20%"><A href="/stat?c=member_profile&cr=153089">preben</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="20%"><A href="/stat?c=member_profile&cr=7389864">roma</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="20%"><A href="/tc?module=MemberProfile&cr=268851">gladius</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right"width="20%"><A href="/tc?module=MemberProfile&cr=153089">preben</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="20%"><A href="/tc?module=MemberProfile&cr=7389864">roma</a>&#160;&#160;</td>
                </tr>
                <tr>
                   <td class="advCell" align="left">Member since:</td>

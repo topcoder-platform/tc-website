@@ -57,7 +57,7 @@
             
             <h2>Pops is tops!</h2>
 
-            <p>by <A href="/stat?c=member_profile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
+            <p>by <A href="/tc?module=MemberProfile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
             Friday, December 5, 2003</p> 
 
 <p>TCO COMPONENT DESIGN FINALS</p>
@@ -219,7 +219,7 @@ round and the reviewers unanimously named him the winner.</p>
             
             <h2>rnielsen crowned development champ</h2>
 
-            <p>by <A href="/stat?c=member_profile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
+            <p>by <A href="/tc?module=MemberProfile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
             Friday, December 5, 2003</p> 
 
 <p>TCO COMPONENT DEVELOPMENT FINALS</p>

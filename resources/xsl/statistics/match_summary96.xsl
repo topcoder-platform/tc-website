@@ -109,38 +109,38 @@
 -->
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="bodyGeneric">eduar09</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=270887" CLASS="bodyGeneric">eduar09</A>
  won Room 6 with 758.18 final points, and added 187 points to his rating, which 
 is the largest gain for the match in Division-I.  <B>eduar09</B> coded the Level One problem 
 for 263.12 points and the Level Three problem for 495.06.  <B>eduar09</B> was actually in third 
 place in the room after the "Coding Phase", but 
-<A HREF="/stat?c=member_profile&amp;cr=111202" CLASS="bodyGeneric">ColinMacLeod</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=111202" CLASS="bodyGeneric">ColinMacLeod</A>, 
 who led the room with 
 1065.56 points, had his Level Two submission successfully challenged by 
-<A HREF="/stat?c=member_profile&amp;cr=268907" CLASS="bodyGeneric">Trolley</A>, and 
-<A HREF="/stat?c=member_profile&amp;cr=155621" CLASS="bodyGeneric">Garzahd</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=268907" CLASS="bodyGeneric">Trolley</A>, and 
+<A HREF="/tc?module=MemberProfile&amp;cr=155621" CLASS="bodyGeneric">Garzahd</A>, 
 who was in second with 760.31 points, failed in his attempted challenge of 
 the Level Two submission of <B>Trolley</B>. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=267275" CLASS="bodyGeneric">magead7</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=267275" CLASS="bodyGeneric">magead7</A>
  won Room 7 with the only successful challenge in the room.  After the "Coding 
 Phase", <B>magead7</B> was in second place in the room with 602.81 points.  He trailed only 
-<A HREF="/stat?c=member_profile&amp;cr=158837" CLASS="bodyGeneric">axch</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=158837" CLASS="bodyGeneric">axch</A>, 
 who had 644.20.  <B>magead7</B> then successfully challenged the Level One submission 
-of <A HREF="/stat?c=member_profile&amp;cr=269058" CLASS="bodyGeneric">jasonw</A>
- for 50 points and the room win.  <A HREF="/stat?c=member_profile&amp;cr=158837" CLASS="bodyGeneric">axch</A>
+of <A HREF="/tc?module=MemberProfile&amp;cr=269058" CLASS="bodyGeneric">jasonw</A>
+ for 50 points and the room win.  <A HREF="/tc?module=MemberProfile&amp;cr=158837" CLASS="bodyGeneric">axch</A>
  did not attempt a challenge. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=272214" CLASS="bodyGeneric">Alx</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=272214" CLASS="bodyGeneric">Alx</A>
  used a successful challenge against the room leader to win Room 9.  <B>Alx</B> earned 
 226.12 points on the Level One problem, and 231.90 on the Level Two problem, for 
 458.02 in the "Coding Phase".  That total placed him third in the room behind 
-<A HREF="/stat?c=member_profile&amp;cr=110013" CLASS="bodyGeneric">Soli</A>, 
-who had 541.77, and <A HREF="/stat?c=member_profile&amp;cr=263874" CLASS="bodyGeneric">FatlXception</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=110013" CLASS="bodyGeneric">Soli</A>, 
+who had 541.77, and <A HREF="/tc?module=MemberProfile&amp;cr=263874" CLASS="bodyGeneric">FatlXception</A>, 
 who had 470.99.  <B>Alx</B> successfully 
 challenged the Level Two submission of <B>Soli</B> for 50 points in the "Challenge Phase", 
 moving him past <B>Soli</B> and <B>FatlXception</B>, and giving him the room win.
@@ -154,7 +154,7 @@ moving him past <B>Soli</B> and <B>FatlXception</B>, and giving him the room win
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=158698" CLASS="bodyGeneric">Perlaze</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=158698" CLASS="bodyGeneric">Perlaze</A>
  won Room 31 with the top point total in the division, 1603.58.  He earned 
 275.17 points on the Level One problem, 593.11 on the Level Two problem, and 735.30 
 on the Level Three problem.  With a 183-point increase, <B>Perlaze</B> increased his rating 
@@ -162,14 +162,14 @@ from 1110 to 1293, and changed his rating color from green to blue.
 </P>
 
 <P>
-Right next door in Room 32, <A HREF="/stat?c=member_profile&amp;cr=269495" CLASS="bodyGeneric">Ricin</A>
+Right next door in Room 32, <A HREF="/tc?module=MemberProfile&amp;cr=269495" CLASS="bodyGeneric">Ricin</A>
  earned 1324.23 final points by submitting code for 
 all three problems.  That point total helped add 197 points to his rating, which was 
 the largest rating gain in the division for the match. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=278387" CLASS="bodyGeneric">Nightshade</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=278387" CLASS="bodyGeneric">Nightshade</A>
  coded the Level One and Three problems, and had a successful challenge for 
 740.45 final points.  That total helped him win Room 56 for his first ever room win.  
 Since <B>Nightshade</B> is an ineligible coder, his winnings will be donated to charity.

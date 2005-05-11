@@ -26,10 +26,10 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%" align="center" class="formFrame">
                <tr>
                   <td class="advHeader" align="right" width="40%"></td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=278342">adic</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right"width="15%"><A href="/stat?c=member_profile&cr=277356">aksonov</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=152342">kyky</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?c=member_profile&cr=289824">MPhk</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/stat?tc?module=MemberProfile&cr=278342">adic</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right"width="15%"><A href="/stat?tc?module=MemberProfile&cr=277356">aksonov</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/stat?tc?module=MemberProfile&cr=152342">kyky</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/stat?tc?module=MemberProfile&cr=289824">MPhk</a>&#160;&#160;</td>
                </tr>
 
                 <tr>

@@ -57,7 +57,7 @@
          </tr>
          <tr>
             <td align="left" class="bodyText" valign="top">
-               By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=277659"><strong>radeye</strong></a><br />
+               By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=277659"><strong>radeye</strong></a><br />
                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
          </tr>
@@ -88,7 +88,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=144400">tomek</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=144400">tomek</a></td>
 <td class="r1o">3509</td>
 <td class="r1o">270</td>
 <td class="r1o">$14,420.74</td>
@@ -103,7 +103,7 @@
 <td class="r3o">9.32</td>
 <td class="r3o">26.83</td>
 <td class="r3o">54.89</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=260835">reid</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=260835">reid</a></td>
 <td class="r1e">3277</td>
 <td class="r1e">359</td>
 <td class="r1e">$7,709.37</td>
@@ -118,7 +118,7 @@
 <td class="r3e">20.09</td>
 <td class="r3e">24.74</td>
 <td class="r3e">18.71</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=270505">John Dethridge</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=270505">John Dethridge</a></td>
 <td class="r1o">3235</td>
 <td class="r1o">336</td>
 <td class="r1o">$6,547.25</td>
@@ -133,7 +133,7 @@
 <td class="r3o">20.61</td>
 <td class="r3o">22.28</td>
 <td class="r3o">13.87</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8355516">Eryx</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8355516">Eryx</a></td>
 <td class="r1e">3041</td>
 <td class="r1e">458</td>
 <td class="r1e">$3,063.07</td>
@@ -148,7 +148,7 @@
 <td class="r3e">11.07</td>
 <td class="r3e">8.07</td>
 <td class="r3e">5.39</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=279471">haha</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=279471">haha</a></td>
 <td class="r1o">2888</td>
 <td class="r1o">433</td>
 <td class="r1o">$1,593.52</td>
@@ -163,7 +163,7 @@
 <td class="r3o">6.42</td>
 <td class="r3o">3.69</td>
 <td class="r3o">1.69</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262936">dgarthur</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=262936">dgarthur</a></td>
 <td class="r1e">2840</td>
 <td class="r1e">435</td>
 <td class="r1e">$1,137.90</td>
@@ -178,7 +178,7 @@
 <td class="r3e">4.11</td>
 <td class="r3e">2.25</td>
 <td class="r3e">1.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287496">bstanescu</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=287496">bstanescu</a></td>
 <td class="r1o">2816</td>
 <td class="r1o">334</td>
 <td class="r1o">$837.50</td>
@@ -193,7 +193,7 @@
 <td class="r3o">2.84</td>
 <td class="r3o">1.25</td>
 <td class="r3o">0.32</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7462740">ploh</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7462740">ploh</a></td>
 <td class="r1e">2807</td>
 <td class="r1e">344</td>
 <td class="r1e">$872.32</td>
@@ -208,7 +208,7 @@
 <td class="r3e">3.14</td>
 <td class="r3e">1.38</td>
 <td class="r3e">0.35</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=309453">Jan_Kuipers</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=309453">Jan_Kuipers</a></td>
 <td class="r1o">2800</td>
 <td class="r1o">439</td>
 <td class="r1o">$999.26</td>
@@ -223,7 +223,7 @@
 <td class="r3o">3.61</td>
 <td class="r3o">1.85</td>
 <td class="r3o">0.75</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=310333">kalinov</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=310333">kalinov</a></td>
 <td class="r1e">2792</td>
 <td class="r1e">493</td>
 <td class="r1e">$1,036.88</td>
@@ -238,7 +238,7 @@
 <td class="r3e">3.57</td>
 <td class="r3e">1.93</td>
 <td class="r3e">0.97</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7479769">marian</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7479769">marian</a></td>
 <td class="r1o">2739</td>
 <td class="r1o">402</td>
 <td class="r1o">$801.15</td>
@@ -253,7 +253,7 @@
 <td class="r3o">2.61</td>
 <td class="r3o">1.12</td>
 <td class="r3o">0.32</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=275071">antimatter</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=275071">antimatter</a></td>
 <td class="r1e">2689</td>
 <td class="r1e">322</td>
 <td class="r1e">$607.56</td>
@@ -268,7 +268,7 @@
 <td class="r3e">1.48</td>
 <td class="r3e">0.46</td>
 <td class="r3e">0.07</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=310430">gepa</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=310430">gepa</a></td>
 <td class="r1o">2670</td>
 <td class="r1o">361</td>
 <td class="r1o">$571.59</td>
@@ -283,7 +283,7 @@
 <td class="r3o">1.34</td>
 <td class="r3o">0.46</td>
 <td class="r3o">0.09</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8365685">pparys</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8365685">pparys</a></td>
 <td class="r1e">2670</td>
 <td class="r1e">498</td>
 <td class="r1e">$617.46</td>
@@ -298,7 +298,7 @@
 <td class="r3e">1.62</td>
 <td class="r3e">0.76</td>
 <td class="r3e">0.33</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=262056">mathijs</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=262056">mathijs</a></td>
 <td class="r1o">2661</td>
 <td class="r1o">633</td>
 <td class="r1o">$634.65</td>
@@ -313,7 +313,7 @@
 <td class="r3o">1.57</td>
 <td class="r3o">0.86</td>
 <td class="r3o">0.62</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=286907">WishingBone</a></td>
 <td class="r1e">2630</td>
 <td class="r1e">432</td>
 <td class="r1e">$493.21</td>
@@ -350,7 +350,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7311097">m00tz</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7311097">m00tz</a></td>
 <td class="r1o">2615</td>
 <td class="r1o">303</td>
 <td class="r1o">$441.66</td>
@@ -365,7 +365,7 @@
 <td class="r3o">0.49</td>
 <td class="r3o">0.13</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=10481120">ivan_metelsky</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=10481120">ivan_metelsky</a></td>
 <td class="r1e">2538</td>
 <td class="r1e">374</td>
 <td class="r1e">$344.04</td>
@@ -380,7 +380,7 @@
 <td class="r3e">0.37</td>
 <td class="r3e">0.11</td>
 <td class="r3e">0.02</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=308453">overwise</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=308453">overwise</a></td>
 <td class="r1o">2510</td>
 <td class="r1o">337</td>
 <td class="r1o">$318.52</td>
@@ -395,7 +395,7 @@
 <td class="r3o">0.22</td>
 <td class="r3o">0.05</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=9906197">krijgertje</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=9906197">krijgertje</a></td>
 <td class="r1e">2503</td>
 <td class="r1e">368</td>
 <td class="r1e">$310.74</td>
@@ -410,7 +410,7 @@
 <td class="r3e">0.27</td>
 <td class="r3e">0.07</td>
 <td class="r3e">0.01</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=261024">grotmol</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=261024">grotmol</a></td>
 <td class="r1o">2501</td>
 <td class="r1o">549</td>
 <td class="r1o">$333.47</td>
@@ -425,7 +425,7 @@
 <td class="r3o">0.57</td>
 <td class="r3o">0.23</td>
 <td class="r3o">0.10</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=345049">aneubeck</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=345049">aneubeck</a></td>
 <td class="r1e">2497</td>
 <td class="r1e">340</td>
 <td class="r1e">$323.50</td>
@@ -440,7 +440,7 @@
 <td class="r3e">0.21</td>
 <td class="r3e">0.05</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=263396">Abednego</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=263396">Abednego</a></td>
 <td class="r1o">2490</td>
 <td class="r1o">263</td>
 <td class="r1o">$327.98</td>
@@ -455,7 +455,7 @@
 <td class="r3o">0.09</td>
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=156592">benetin</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=156592">benetin</a></td>
 <td class="r1e">2488</td>
 <td class="r1e">527</td>
 <td class="r1e">$319.20</td>
@@ -470,7 +470,7 @@
 <td class="r3e">0.50</td>
 <td class="r3e">0.19</td>
 <td class="r3e">0.07</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286911">XuChuan</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=286911">XuChuan</a></td>
 <td class="r1o">2480</td>
 <td class="r1o">418</td>
 <td class="r1o">$302.25</td>
@@ -485,7 +485,7 @@
 <td class="r3o">0.30</td>
 <td class="r3o">0.09</td>
 <td class="r3o">0.02</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=10332088">martinp534</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=10332088">martinp534</a></td>
 <td class="r1e">2461</td>
 <td class="r1e">301</td>
 <td class="r1e">$290.37</td>
@@ -500,7 +500,7 @@
 <td class="r3e">0.09</td>
 <td class="r3e">0.02</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7452866">Im2Good</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7452866">Im2Good</a></td>
 <td class="r1o">2460</td>
 <td class="r1o">414</td>
 <td class="r1o">$279.47</td>
@@ -515,7 +515,7 @@
 <td class="r3o">0.23</td>
 <td class="r3o">0.06</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7421158">Per</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7421158">Per</a></td>
 <td class="r1e">2404</td>
 <td class="r1e">406</td>
 <td class="r1e">$227.87</td>
@@ -530,7 +530,7 @@
 <td class="r3e">0.12</td>
 <td class="r3e">0.03</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=309982">cyfra</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=309982">cyfra</a></td>
 <td class="r1o">2403</td>
 <td class="r1o">455</td>
 <td class="r1o">$225.17</td>
@@ -545,7 +545,7 @@
 <td class="r3o">0.16</td>
 <td class="r3o">0.04</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=9927526">Vedensky</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=9927526">Vedensky</a></td>
 <td class="r1e">2400</td>
 <td class="r1e">308</td>
 <td class="r1e">$231.60</td>
@@ -560,7 +560,7 @@
 <td class="r3e">0.04</td>
 <td class="r3e">0.01</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8349097">hauser</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8349097">hauser</a></td>
 <td class="r1o">2400</td>
 <td class="r1o">390</td>
 <td class="r1o">$227.30</td>
@@ -575,7 +575,7 @@
 <td class="r3o">0.09</td>
 <td class="r3o">0.02</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=260987">dangelo</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=260987">dangelo</a></td>
 <td class="r1e">2395</td>
 <td class="r1e">353</td>
 <td class="r1e">$228.33</td>
@@ -612,7 +612,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=307060">AdrianKuegel</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=307060">AdrianKuegel</a></td>
 <td class="r1o">2390</td>
 <td class="r1o">449</td>
 <td class="r1o">$219.24</td>
@@ -627,7 +627,7 @@
 <td class="r3o">0.13</td>
 <td class="r3o">0.03</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8357090">misof</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8357090">misof</a></td>
 <td class="r1e">2387</td>
 <td class="r1e">473</td>
 <td class="r1e">$216.73</td>
@@ -642,7 +642,7 @@
 <td class="r3e">0.14</td>
 <td class="r3e">0.04</td>
 <td class="r3e">0.01</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=288584">LunaticFringe</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=288584">LunaticFringe</a></td>
 <td class="r1o">2380</td>
 <td class="r1o">440</td>
 <td class="r1o">$212.26</td>
@@ -657,7 +657,7 @@
 <td class="r3o">0.11</td>
 <td class="r3o">0.03</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=264869">ante</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=264869">ante</a></td>
 <td class="r1e">2378</td>
 <td class="r1e">651</td>
 <td class="r1e">$219.44</td>
@@ -672,7 +672,7 @@
 <td class="r3e">0.28</td>
 <td class="r3e">0.12</td>
 <td class="r3e">0.06</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8601171">HilbertRaum</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8601171">HilbertRaum</a></td>
 <td class="r1o">2360</td>
 <td class="r1o">460</td>
 <td class="r1o">$198.51</td>
@@ -687,7 +687,7 @@
 <td class="r3o">0.10</td>
 <td class="r3o">0.03</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7502813">monsoon</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7502813">monsoon</a></td>
 <td class="r1e">2356</td>
 <td class="r1e">350</td>
 <td class="r1e">$201.55</td>
@@ -702,7 +702,7 @@
 <td class="r3e">0.04</td>
 <td class="r3e">0.01</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=301937">RalphFurmaniak</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=301937">RalphFurmaniak</a></td>
 <td class="r1o">2356</td>
 <td class="r1o">366</td>
 <td class="r1o">$200.56</td>
@@ -717,7 +717,7 @@
 <td class="r3o">0.04</td>
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=289435">nullspace</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=289435">nullspace</a></td>
 <td class="r1e">2355</td>
 <td class="r1e">387</td>
 <td class="r1e">$198.65</td>
@@ -732,7 +732,7 @@
 <td class="r3e">0.06</td>
 <td class="r3e">0.01</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=153902">evd</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=153902">evd</a></td>
 <td class="r1o">2334</td>
 <td class="r1o">285</td>
 <td class="r1o">$189.61</td>
@@ -747,7 +747,7 @@
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=302501">PMH</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=302501">PMH</a></td>
 <td class="r1e">2313</td>
 <td class="r1e">822</td>
 <td class="r1e">$195.67</td>
@@ -762,7 +762,7 @@
 <td class="r3e">0.26</td>
 <td class="r3e">0.13</td>
 <td class="r3e">0.11</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=9958600">Zis</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=9958600">Zis</a></td>
 <td class="r1o">2311</td>
 <td class="r1o">361</td>
 <td class="r1o">$173.29</td>
@@ -777,7 +777,7 @@
 <td class="r3o">0.03</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7394165">PaulJefferys</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7394165">PaulJefferys</a></td>
 <td class="r1e">2307</td>
 <td class="r1e">230</td>
 <td class="r1e">$172.13</td>
@@ -792,7 +792,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=303644">Olexiy</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=303644">Olexiy</a></td>
 <td class="r1o">2290</td>
 <td class="r1o">426</td>
 <td class="r1o">$159.92</td>
@@ -807,7 +807,7 @@
 <td class="r3o">0.04</td>
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=308657">skanthak</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=308657">skanthak</a></td>
 <td class="r1e">2287</td>
 <td class="r1e">389</td>
 <td class="r1e">$161.81</td>
@@ -822,7 +822,7 @@
 <td class="r3e">0.03</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=346607">kalmakka</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=346607">kalmakka</a></td>
 <td class="r1o">2285</td>
 <td class="r1o">410</td>
 <td class="r1o">$160.58</td>
@@ -837,7 +837,7 @@
 <td class="r3o">0.03</td>
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=304031">Ruberik</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=304031">Ruberik</a></td>
 <td class="r1e">2281</td>
 <td class="r1e">463</td>
 <td class="r1e">$157.18</td>
@@ -874,7 +874,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8398526">Tomy</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8398526">Tomy</a></td>
 <td class="r1o">2270</td>
 <td class="r1o">370</td>
 <td class="r1o">$152.17</td>
@@ -889,7 +889,7 @@
 <td class="r3o">0.02</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7360309">dmks</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7360309">dmks</a></td>
 <td class="r1e">2259</td>
 <td class="r1e">369</td>
 <td class="r1e">$144.99</td>
@@ -904,7 +904,7 @@
 <td class="r3e">0.01</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8547850">tmyklebu</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8547850">tmyklebu</a></td>
 <td class="r1o">2241</td>
 <td class="r1o">613</td>
 <td class="r1o">$139.07</td>
@@ -919,7 +919,7 @@
 <td class="r3o">0.09</td>
 <td class="r3o">0.03</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=113178">po</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=113178">po</a></td>
 <td class="r1e">2237</td>
 <td class="r1e">285</td>
 <td class="r1e">$131.08</td>
@@ -934,7 +934,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7210680">cnettel</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7210680">cnettel</a></td>
 <td class="r1o">2236</td>
 <td class="r1o">383</td>
 <td class="r1o">$134.52</td>
@@ -949,7 +949,7 @@
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7442498">marek.cygan</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7442498">marek.cygan</a></td>
 <td class="r1e">2216</td>
 <td class="r1e">220</td>
 <td class="r1e">$112.08</td>
@@ -964,7 +964,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7485898">Andrew_Lazarev</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7485898">Andrew_Lazarev</a></td>
 <td class="r1o">2213</td>
 <td class="r1o">456</td>
 <td class="r1o">$125.40</td>
@@ -979,7 +979,7 @@
 <td class="r3o">0.02</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=7390467">lovro</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=7390467">lovro</a></td>
 <td class="r1e">2209</td>
 <td class="r1e">448</td>
 <td class="r1e">$124.14</td>
@@ -994,7 +994,7 @@
 <td class="r3e">0.02</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=8394868">rem</a></td>
+<tr><td class="rHandleo"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=8394868">rem</a></td>
 <td class="r1o">2205</td>
 <td class="r1o">291</td>
 <td class="r1o">$120.26</td>
@@ -1009,7 +1009,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=284007">Ryan</a></td>
+<tr><td class="rHandlee"><a class="coderTextRed" href="/tc?module=MemberProfile&amp;cr=284007">Ryan</a></td>
 <td class="r1e">2205</td>
 <td class="r1e">410</td>
 <td class="r1e">$124.25</td>
@@ -1024,7 +1024,7 @@
 <td class="r3e">0.01</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=307638">Wernie</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=307638">Wernie</a></td>
 <td class="r1o">2175</td>
 <td class="r1o">663</td>
 <td class="r1o">$116.87</td>
@@ -1039,7 +1039,7 @@
 <td class="r3o">0.06</td>
 <td class="r3o">0.02</td>
 <td class="r3o">0.01</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8493941">asaveljevs</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8493941">asaveljevs</a></td>
 <td class="r1e">2170</td>
 <td class="r1e">356</td>
 <td class="r1e">$106.55</td>
@@ -1054,7 +1054,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=158333">dvickrey</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=158333">dvickrey</a></td>
 <td class="r1o">2162</td>
 <td class="r1o">336</td>
 <td class="r1o">$103.14</td>
@@ -1069,7 +1069,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7264865">bogklug</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7264865">bogklug</a></td>
 <td class="r1e">2161</td>
 <td class="r1e">355</td>
 <td class="r1e">$105.27</td>
@@ -1084,7 +1084,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=268904">szymcio</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=268904">szymcio</a></td>
 <td class="r1o">2155</td>
 <td class="r1o">571</td>
 <td class="r1o">$107.99</td>
@@ -1099,7 +1099,7 @@
 <td class="r3o">0.03</td>
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11922116">lingo</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11922116">lingo</a></td>
 <td class="r1e">2102</td>
 <td class="r1e">773</td>
 <td class="r1e">$101.09</td>
@@ -1136,7 +1136,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=2058469">robymus</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=2058469">robymus</a></td>
 <td class="r1o">2082</td>
 <td class="r1o">238</td>
 <td class="r1o">$64.96</td>
@@ -1151,7 +1151,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=263379">StefanPochmann</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=263379">StefanPochmann</a></td>
 <td class="r1e">2072</td>
 <td class="r1e">397</td>
 <td class="r1e">$76.26</td>
@@ -1166,7 +1166,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786">Yi_Zhang</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=309786">Yi_Zhang</a></td>
 <td class="r1o">2068</td>
 <td class="r1o">329</td>
 <td class="r1o">$70.82</td>
@@ -1181,7 +1181,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=345006">DAle</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=345006">DAle</a></td>
 <td class="r1e">2067</td>
 <td class="r1e">336</td>
 <td class="r1e">$71.61</td>
@@ -1196,7 +1196,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=261567">gilbert</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=261567">gilbert</a></td>
 <td class="r1o">2063</td>
 <td class="r1o">336</td>
 <td class="r1o">$70.56</td>
@@ -1211,7 +1211,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7512490">petko</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7512490">petko</a></td>
 <td class="r1e">2062</td>
 <td class="r1e">396</td>
 <td class="r1e">$74.56</td>
@@ -1226,7 +1226,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286375">bjacoke001</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=286375">bjacoke001</a></td>
 <td class="r1o">2061</td>
 <td class="r1o">321</td>
 <td class="r1o">$69.90</td>
@@ -1241,7 +1241,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=347569">Savior</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=347569">Savior</a></td>
 <td class="r1e">2052</td>
 <td class="r1e">367</td>
 <td class="r1e">$70.45</td>
@@ -1256,7 +1256,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7582361">zbogi</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7582361">zbogi</a></td>
 <td class="r1o">2051</td>
 <td class="r1o">346</td>
 <td class="r1o">$69.46</td>
@@ -1271,7 +1271,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7433858">liympanda</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7433858">liympanda</a></td>
 <td class="r1e">2047</td>
 <td class="r1e">410</td>
 <td class="r1e">$72.42</td>
@@ -1286,7 +1286,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8584656">Ulan</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8584656">Ulan</a></td>
 <td class="r1o">2039</td>
 <td class="r1o">476</td>
 <td class="r1o">$73.06</td>
@@ -1301,7 +1301,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=303185">Cosmin.ro</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=303185">Cosmin.ro</a></td>
 <td class="r1e">2036</td>
 <td class="r1e">439</td>
 <td class="r1e">$71.00</td>
@@ -1316,7 +1316,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=276749">jonderry</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=276749">jonderry</a></td>
 <td class="r1o">2031</td>
 <td class="r1o">307</td>
 <td class="r1o">$61.42</td>
@@ -1331,7 +1331,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7546003">dmytro</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7546003">dmytro</a></td>
 <td class="r1e">2022</td>
 <td class="r1e">366</td>
 <td class="r1e">$63.09</td>
@@ -1346,7 +1346,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=111202">ColinMacLeod</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=111202">ColinMacLeod</a></td>
 <td class="r1o">2021</td>
 <td class="r1o">268</td>
 <td class="r1o">$54.40</td>
@@ -1361,7 +1361,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7584235">agh</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7584235">agh</a></td>
 <td class="r1e">2012</td>
 <td class="r1e">288</td>
 <td class="r1e">$53.41</td>
@@ -1398,7 +1398,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10573656">Sabur_Zaheed</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10573656">Sabur_Zaheed</a></td>
 <td class="r1o">2002</td>
 <td class="r1o">610</td>
 <td class="r1o">$68.70</td>
@@ -1413,7 +1413,7 @@
 <td class="r3o">0.01</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=268851">gladius</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=268851">gladius</a></td>
 <td class="r1e">1998</td>
 <td class="r1e">466</td>
 <td class="r1e">$61.69</td>
@@ -1428,7 +1428,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10526732">zjq</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10526732">zjq</a></td>
 <td class="r1o">1986</td>
 <td class="r1o">518</td>
 <td class="r1o">$61.23</td>
@@ -1443,7 +1443,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7584555">abi_k</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7584555">abi_k</a></td>
 <td class="r1e">1982</td>
 <td class="r1e">553</td>
 <td class="r1e">$61.91</td>
@@ -1458,7 +1458,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7462279">Jwalk</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7462279">Jwalk</a></td>
 <td class="r1o">1974</td>
 <td class="r1o">414</td>
 <td class="r1o">$53.22</td>
@@ -1473,7 +1473,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=283388">Minsk</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=283388">Minsk</a></td>
 <td class="r1e">1969</td>
 <td class="r1e">333</td>
 <td class="r1e">$46.49</td>
@@ -1488,7 +1488,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309454">bugzpodder</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=309454">bugzpodder</a></td>
 <td class="r1o">1968</td>
 <td class="r1o">399</td>
 <td class="r1o">$51.62</td>
@@ -1503,7 +1503,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7338095">tomal</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7338095">tomal</a></td>
 <td class="r1e">1965</td>
 <td class="r1e">456</td>
 <td class="r1e">$54.68</td>
@@ -1518,7 +1518,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=269058">jasonw</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=269058">jasonw</a></td>
 <td class="r1o">1963</td>
 <td class="r1o">484</td>
 <td class="r1o">$55.95</td>
@@ -1533,7 +1533,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=307070">qsort</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=307070">qsort</a></td>
 <td class="r1e">1949</td>
 <td class="r1e">750</td>
 <td class="r1e">$64.46</td>
@@ -1548,7 +1548,7 @@
 <td class="r3e">0.01</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=9964455">Crush</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=9964455">Crush</a></td>
 <td class="r1o">1948</td>
 <td class="r1o">508</td>
 <td class="r1o">$54.14</td>
@@ -1563,7 +1563,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=293387">abiczo</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=293387">abiczo</a></td>
 <td class="r1e">1943</td>
 <td class="r1e">521</td>
 <td class="r1e">$53.98</td>
@@ -1578,7 +1578,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11888018">Snail</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11888018">Snail</a></td>
 <td class="r1o">1937</td>
 <td class="r1o">341</td>
 <td class="r1o">$45.76</td>
@@ -1593,7 +1593,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7454301">paranoia</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7454301">paranoia</a></td>
 <td class="r1e">1921</td>
 <td class="r1e">777</td>
 <td class="r1e">$62.45</td>
@@ -1608,7 +1608,7 @@
 <td class="r3e">0.01</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7389864">roma</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7389864">roma</a></td>
 <td class="r1o">1919</td>
 <td class="r1o">507</td>
 <td class="r1o">$51.49</td>
@@ -1623,7 +1623,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289309">qixin99</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=289309">qixin99</a></td>
 <td class="r1e">1903</td>
 <td class="r1e">386</td>
 <td class="r1e">$41.84</td>
@@ -1660,7 +1660,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=261043">fpmc</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=261043">fpmc</a></td>
 <td class="r1o">1886</td>
 <td class="r1o">357</td>
 <td class="r1o">$36.71</td>
@@ -1675,7 +1675,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=159495">DrewHudson</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=159495">DrewHudson</a></td>
 <td class="r1e">1886</td>
 <td class="r1e">372</td>
 <td class="r1e">$38.35</td>
@@ -1690,7 +1690,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=9947660">Chicken1</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=9947660">Chicken1</a></td>
 <td class="r1o">1869</td>
 <td class="r1o">246</td>
 <td class="r1o">$25.54</td>
@@ -1705,7 +1705,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=274018">Alexandre</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=274018">Alexandre</a></td>
 <td class="r1e">1869</td>
 <td class="r1e">280</td>
 <td class="r1e">$29.19</td>
@@ -1720,7 +1720,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7281980">eldering</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7281980">eldering</a></td>
 <td class="r1o">1860</td>
 <td class="r1o">470</td>
 <td class="r1o">$40.48</td>
@@ -1735,7 +1735,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=275558">zhliu</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=275558">zhliu</a></td>
 <td class="r1e">1858</td>
 <td class="r1e">448</td>
 <td class="r1e">$39.23</td>
@@ -1750,7 +1750,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302053">oldbig</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=302053">oldbig</a></td>
 <td class="r1o">1858</td>
 <td class="r1o">589</td>
 <td class="r1o">$47.31</td>
@@ -1765,7 +1765,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7503639">blackbeltcoder4</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7503639">blackbeltcoder4</a></td>
 <td class="r1e">1855</td>
 <td class="r1e">290</td>
 <td class="r1e">$30.54</td>
@@ -1780,7 +1780,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10005564">adamg</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10005564">adamg</a></td>
 <td class="r1o">1854</td>
 <td class="r1o">346</td>
 <td class="r1o">$34.57</td>
@@ -1795,7 +1795,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7305703">Dumitru</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7305703">Dumitru</a></td>
 <td class="r1e">1854</td>
 <td class="r1e">468</td>
 <td class="r1e">$41.77</td>
@@ -1810,7 +1810,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=349303">OpenGL4Dummies</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=349303">OpenGL4Dummies</a></td>
 <td class="r1o">1848</td>
 <td class="r1o">251</td>
 <td class="r1o">$26.62</td>
@@ -1825,7 +1825,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7459080">ardiankp</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7459080">ardiankp</a></td>
 <td class="r1e">1844</td>
 <td class="r1e">388</td>
 <td class="r1e">$35.79</td>
@@ -1840,7 +1840,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8474430">kupo</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8474430">kupo</a></td>
 <td class="r1o">1842</td>
 <td class="r1o">342</td>
 <td class="r1o">$32.59</td>
@@ -1855,7 +1855,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=156541">SteveStern</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=156541">SteveStern</a></td>
 <td class="r1e">1842</td>
 <td class="r1e">353</td>
 <td class="r1e">$33.47</td>
@@ -1870,7 +1870,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=9998788">athenachu71</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=9998788">athenachu71</a></td>
 <td class="r1o">1842</td>
 <td class="r1o">580</td>
 <td class="r1o">$45.21</td>
@@ -1885,7 +1885,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7448473">danlief</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7448473">danlief</a></td>
 <td class="r1e">1838</td>
 <td class="r1e">256</td>
 <td class="r1e">$26.06</td>
@@ -1922,7 +1922,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289706">mickle</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=289706">mickle</a></td>
 <td class="r1o">1836</td>
 <td class="r1o">336</td>
 <td class="r1o">$32.12</td>
@@ -1937,7 +1937,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10116099">blekdrago</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10116099">blekdrago</a></td>
 <td class="r1e">1836</td>
 <td class="r1e">343</td>
 <td class="r1e">$32.82</td>
@@ -1952,7 +1952,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10185645">Toivoa</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10185645">Toivoa</a></td>
 <td class="r1o">1835</td>
 <td class="r1o">457</td>
 <td class="r1o">$39.42</td>
@@ -1967,7 +1967,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7296000">connect4</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7296000">connect4</a></td>
 <td class="r1e">1832</td>
 <td class="r1e">356</td>
 <td class="r1e">$33.39</td>
@@ -1982,7 +1982,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=310431">sean_henderson</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=310431">sean_henderson</a></td>
 <td class="r1o">1831</td>
 <td class="r1o">273</td>
 <td class="r1o">$27.87</td>
@@ -1997,7 +1997,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8580975">nigulh</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8580975">nigulh</a></td>
 <td class="r1e">1820</td>
 <td class="r1e">468</td>
 <td class="r1e">$37.87</td>
@@ -2012,7 +2012,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7484086">k_m</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7484086">k_m</a></td>
 <td class="r1o">1819</td>
 <td class="r1o">461</td>
 <td class="r1o">$37.58</td>
@@ -2027,7 +2027,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=260828">Larry</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=260828">Larry</a></td>
 <td class="r1e">1816</td>
 <td class="r1e">481</td>
 <td class="r1e">$38.20</td>
@@ -2042,7 +2042,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=156491">chogyonim</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=156491">chogyonim</a></td>
 <td class="r1o">1814</td>
 <td class="r1o">369</td>
 <td class="r1o">$32.16</td>
@@ -2057,7 +2057,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10454732">algorist</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10454732">algorist</a></td>
 <td class="r1e">1814</td>
 <td class="r1e">385</td>
 <td class="r1e">$33.31</td>
@@ -2072,7 +2072,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7268916">bsauerwine</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7268916">bsauerwine</a></td>
 <td class="r1o">1809</td>
 <td class="r1o">390</td>
 <td class="r1o">$34.84</td>
@@ -2087,7 +2087,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8439426">obokaman</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8439426">obokaman</a></td>
 <td class="r1e">1805</td>
 <td class="r1e">313</td>
 <td class="r1e">$29.93</td>
@@ -2102,7 +2102,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8527113">Krzysan</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8527113">Krzysan</a></td>
 <td class="r1o">1801</td>
 <td class="r1o">443</td>
 <td class="r1o">$36.77</td>
@@ -2117,7 +2117,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=287979">Oblok</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=287979">Oblok</a></td>
 <td class="r1e">1800</td>
 <td class="r1e">343</td>
 <td class="r1e">$31.51</td>
@@ -2132,7 +2132,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150796">paisa</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=150796">paisa</a></td>
 <td class="r1o">1797</td>
 <td class="r1o">258</td>
 <td class="r1o">$25.79</td>
@@ -2147,7 +2147,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=303385">farsight</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=303385">farsight</a></td>
 <td class="r1e">1794</td>
 <td class="r1e">277</td>
 <td class="r1e">$26.93</td>
@@ -2184,7 +2184,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8391762">ltank</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8391762">ltank</a></td>
 <td class="r1o">1784</td>
 <td class="r1o">266</td>
 <td class="r1o">$24.72</td>
@@ -2199,7 +2199,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11879970">icicle</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11879970">icicle</a></td>
 <td class="r1e">1782</td>
 <td class="r1e">392</td>
 <td class="r1e">$32.28</td>
@@ -2214,7 +2214,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7510875">Darkmaster</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7510875">Darkmaster</a></td>
 <td class="r1o">1778</td>
 <td class="r1o">331</td>
 <td class="r1o">$28.37</td>
@@ -2229,7 +2229,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10513872">ryanprichard</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10513872">ryanprichard</a></td>
 <td class="r1e">1772</td>
 <td class="r1e">260</td>
 <td class="r1e">$22.98</td>
@@ -2244,7 +2244,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=293685">bigbug</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=293685">bigbug</a></td>
 <td class="r1o">1765</td>
 <td class="r1o">277</td>
 <td class="r1o">$24.01</td>
@@ -2259,7 +2259,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7360300">collin</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7360300">collin</a></td>
 <td class="r1e">1763</td>
 <td class="r1e">352</td>
 <td class="r1e">$28.30</td>
@@ -2274,7 +2274,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7269319">bsdude</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7269319">bsdude</a></td>
 <td class="r1o">1757</td>
 <td class="r1o">252</td>
 <td class="r1o">$21.28</td>
@@ -2289,7 +2289,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7348444">DimaGer</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7348444">DimaGer</a></td>
 <td class="r1e">1756</td>
 <td class="r1e">420</td>
 <td class="r1e">$31.02</td>
@@ -2304,7 +2304,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154619">hilfiger</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=154619">hilfiger</a></td>
 <td class="r1o">1756</td>
 <td class="r1o">450</td>
 <td class="r1o">$32.56</td>
@@ -2319,7 +2319,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10147842">Totster</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10147842">Totster</a></td>
 <td class="r1e">1752</td>
 <td class="r1e">532</td>
 <td class="r1e">$35.64</td>
@@ -2334,7 +2334,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7401899">Wombatfreak</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7401899">Wombatfreak</a></td>
 <td class="r1o">1748</td>
 <td class="r1o">261</td>
 <td class="r1o">$20.91</td>
@@ -2349,7 +2349,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8396270">lews</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8396270">lews</a></td>
 <td class="r1e">1745</td>
 <td class="r1e">565</td>
 <td class="r1e">$36.17</td>
@@ -2364,7 +2364,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7421858">T.Friedrich</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7421858">T.Friedrich</a></td>
 <td class="r1o">1743</td>
 <td class="r1o">289</td>
 <td class="r1o">$22.16</td>
@@ -2379,7 +2379,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=158301">mmsa</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=158301">mmsa</a></td>
 <td class="r1e">1741</td>
 <td class="r1e">342</td>
 <td class="r1e">$25.15</td>
@@ -2394,7 +2394,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8436401">Katya_Lazareva</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8436401">Katya_Lazareva</a></td>
 <td class="r1o">1741</td>
 <td class="r1o">463</td>
 <td class="r1o">$31.80</td>
@@ -2409,7 +2409,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7272306">adams</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7272306">adams</a></td>
 <td class="r1e">1741</td>
 <td class="r1e">482</td>
 <td class="r1e">$32.81</td>
@@ -2446,7 +2446,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8556047">dzetkulict</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8556047">dzetkulict</a></td>
 <td class="r1o">1741</td>
 <td class="r1o">505</td>
 <td class="r1o">$33.92</td>
@@ -2461,7 +2461,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7451795">jeroen</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7451795">jeroen</a></td>
 <td class="r1e">1740</td>
 <td class="r1e">333</td>
 <td class="r1e">$25.54</td>
@@ -2476,7 +2476,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=9905812">technobug</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=9905812">technobug</a></td>
 <td class="r1o">1734</td>
 <td class="r1o">371</td>
 <td class="r1o">$26.89</td>
@@ -2491,7 +2491,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=284038">aussie</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=284038">aussie</a></td>
 <td class="r1e">1730</td>
 <td class="r1e">300</td>
 <td class="r1e">$22.56</td>
@@ -2506,7 +2506,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=283374">indigo9</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=283374">indigo9</a></td>
 <td class="r1o">1728</td>
 <td class="r1o">299</td>
 <td class="r1o">$22.40</td>
@@ -2521,7 +2521,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7233906">superjoel</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7233906">superjoel</a></td>
 <td class="r1e">1721</td>
 <td class="r1e">287</td>
 <td class="r1e">$20.90</td>
@@ -2536,7 +2536,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=297212">quake</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=297212">quake</a></td>
 <td class="r1o">1718</td>
 <td class="r1o">469</td>
 <td class="r1o">$30.09</td>
@@ -2551,7 +2551,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=307169">Fluff</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=307169">Fluff</a></td>
 <td class="r1e">1707</td>
 <td class="r1e">336</td>
 <td class="r1e">$22.18</td>
@@ -2566,7 +2566,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289907">Terrax</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=289907">Terrax</a></td>
 <td class="r1o">1703</td>
 <td class="r1o">283</td>
 <td class="r1o">$20.29</td>
@@ -2581,7 +2581,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8349001">belzebub</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8349001">belzebub</a></td>
 <td class="r1e">1700</td>
 <td class="r1e">331</td>
 <td class="r1e">$22.76</td>
@@ -2596,7 +2596,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11912240">denpoz</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11912240">denpoz</a></td>
 <td class="r1o">1695</td>
 <td class="r1o">385</td>
 <td class="r1o">$25.05</td>
@@ -2611,7 +2611,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11904663">Javi</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11904663">Javi</a></td>
 <td class="r1e">1691</td>
 <td class="r1e">420</td>
 <td class="r1e">$26.41</td>
@@ -2626,7 +2626,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7555099">Rostislav</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7555099">Rostislav</a></td>
 <td class="r1o">1691</td>
 <td class="r1o">433</td>
 <td class="r1o">$27.17</td>
@@ -2641,7 +2641,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10255172">icedragon</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10255172">icedragon</a></td>
 <td class="r1e">1685</td>
 <td class="r1e">385</td>
 <td class="r1e">$24.36</td>
@@ -2656,7 +2656,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=9923663">Mozg</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=9923663">Mozg</a></td>
 <td class="r1o">1683</td>
 <td class="r1o">402</td>
 <td class="r1o">$25.19</td>
@@ -2671,7 +2671,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8587884">kaylin</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8587884">kaylin</a></td>
 <td class="r1e">1680</td>
 <td class="r1e">283</td>
 <td class="r1e">$18.78</td>
@@ -2708,7 +2708,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11936978">bruin</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11936978">bruin</a></td>
 <td class="r1o">1675</td>
 <td class="r1o">385</td>
 <td class="r1o">$23.81</td>
@@ -2723,7 +2723,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10574077">MntlChaos</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10574077">MntlChaos</a></td>
 <td class="r1e">1671</td>
 <td class="r1e">369</td>
 <td class="r1e">$22.78</td>
@@ -2738,7 +2738,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=9962009">Tron3k</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=9962009">Tron3k</a></td>
 <td class="r1o">1664</td>
 <td class="r1o">264</td>
 <td class="r1o">$18.33</td>
@@ -2753,7 +2753,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10052926">shuniu</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10052926">shuniu</a></td>
 <td class="r1e">1657</td>
 <td class="r1e">283</td>
 <td class="r1e">$18.75</td>
@@ -2768,7 +2768,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10495238">dxtrous</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10495238">dxtrous</a></td>
 <td class="r1o">1657</td>
 <td class="r1o">385</td>
 <td class="r1o">$24.08</td>
@@ -2783,7 +2783,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=300426">abductor</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=300426">abductor</a></td>
 <td class="r1e">1646</td>
 <td class="r1e">336</td>
 <td class="r1e">$20.61</td>
@@ -2798,7 +2798,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10676764">algostorm</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10676764">algostorm</a></td>
 <td class="r1o">1646</td>
 <td class="r1o">385</td>
 <td class="r1o">$23.18</td>
@@ -2813,7 +2813,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=288581">zalenski</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=288581">zalenski</a></td>
 <td class="r1e">1645</td>
 <td class="r1e">303</td>
 <td class="r1e">$19.14</td>
@@ -2828,7 +2828,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=306131">ilham</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=306131">ilham</a></td>
 <td class="r1o">1644</td>
 <td class="r1o">246</td>
 <td class="r1o">$16.02</td>
@@ -2843,7 +2843,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7442934">villiros</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7442934">villiros</a></td>
 <td class="r1e">1640</td>
 <td class="r1e">356</td>
 <td class="r1e">$21.62</td>
@@ -2858,7 +2858,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10655149">meisterT</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10655149">meisterT</a></td>
 <td class="r1o">1636</td>
 <td class="r1o">385</td>
 <td class="r1o">$22.73</td>
@@ -2873,7 +2873,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10449922">qoqo</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10449922">qoqo</a></td>
 <td class="r1e">1630</td>
 <td class="r1e">459</td>
 <td class="r1e">$25.46</td>
@@ -2888,7 +2888,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=251591">emmpee</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=251591">emmpee</a></td>
 <td class="r1o">1628</td>
 <td class="r1o">307</td>
 <td class="r1o">$19.23</td>
@@ -2903,7 +2903,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7504169">youzai</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7504169">youzai</a></td>
 <td class="r1e">1626</td>
 <td class="r1e">313</td>
 <td class="r1e">$19.44</td>
@@ -2918,7 +2918,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10083726">Enogipe</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10083726">Enogipe</a></td>
 <td class="r1o">1625</td>
 <td class="r1o">498</td>
 <td class="r1o">$27.69</td>
@@ -2933,7 +2933,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10398672">tosomjafakt</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10398672">tosomjafakt</a></td>
 <td class="r1e">1620</td>
 <td class="r1e">479</td>
 <td class="r1e">$26.57</td>
@@ -2970,7 +2970,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8584653">cheetah</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8584653">cheetah</a></td>
 <td class="r1o">1615</td>
 <td class="r1o">322</td>
 <td class="r1o">$19.16</td>
@@ -2985,7 +2985,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10590676">Teferi</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10590676">Teferi</a></td>
 <td class="r1e">1614</td>
 <td class="r1e">347</td>
 <td class="r1e">$20.43</td>
@@ -3000,7 +3000,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7328150">spoonmijit</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7328150">spoonmijit</a></td>
 <td class="r1o">1614</td>
 <td class="r1o">349</td>
 <td class="r1o">$20.68</td>
@@ -3015,7 +3015,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=280722">Mikael.Ernholm</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=280722">Mikael.Ernholm</a></td>
 <td class="r1e">1602</td>
 <td class="r1e">311</td>
 <td class="r1e">$17.58</td>
@@ -3030,7 +3030,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=290448">BryanChen</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=290448">BryanChen</a></td>
 <td class="r1o">1601</td>
 <td class="r1o">275</td>
 <td class="r1o">$15.67</td>
@@ -3045,7 +3045,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8370707">utkarshjain</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8370707">utkarshjain</a></td>
 <td class="r1e">1599</td>
 <td class="r1e">293</td>
 <td class="r1e">$16.53</td>
@@ -3060,7 +3060,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=260967">codePony</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=260967">codePony</a></td>
 <td class="r1o">1597</td>
 <td class="r1o">283</td>
 <td class="r1o">$17.23</td>
@@ -3075,7 +3075,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8392317">prekageo</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8392317">prekageo</a></td>
 <td class="r1e">1595</td>
 <td class="r1e">251</td>
 <td class="r1e">$15.35</td>
@@ -3090,7 +3090,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=251207">RobertNix</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=251207">RobertNix</a></td>
 <td class="r1o">1595</td>
 <td class="r1o">417</td>
 <td class="r1o">$23.51</td>
@@ -3105,7 +3105,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=159437">derelikt</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=159437">derelikt</a></td>
 <td class="r1e">1592</td>
 <td class="r1e">332</td>
 <td class="r1e">$19.49</td>
@@ -3120,7 +3120,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8392846">tripleCross</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8392846">tripleCross</a></td>
 <td class="r1o">1587</td>
 <td class="r1o">311</td>
 <td class="r1o">$18.02</td>
@@ -3135,7 +3135,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11784909">nweber</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11784909">nweber</a></td>
 <td class="r1e">1578</td>
 <td class="r1e">282</td>
 <td class="r1e">$15.65</td>
@@ -3150,7 +3150,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11894617">alrikabah</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11894617">alrikabah</a></td>
 <td class="r1o">1576</td>
 <td class="r1o">385</td>
 <td class="r1o">$20.53</td>
@@ -3165,7 +3165,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11776655">koda</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11776655">koda</a></td>
 <td class="r1e">1576</td>
 <td class="r1e">415</td>
 <td class="r1e">$21.94</td>
@@ -3180,7 +3180,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278167">Merlin[Kyiv]</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=278167">Merlin[Kyiv]</a></td>
 <td class="r1o">1573</td>
 <td class="r1o">221</td>
 <td class="r1o">$11.93</td>
@@ -3195,7 +3195,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8460252">tomek2</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8460252">tomek2</a></td>
 <td class="r1e">1570</td>
 <td class="r1e">426</td>
 <td class="r1e">$21.91</td>
@@ -3232,7 +3232,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11826276">palo</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11826276">palo</a></td>
 <td class="r1o">1567</td>
 <td class="r1o">385</td>
 <td class="r1o">$20.66</td>
@@ -3247,7 +3247,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=284168">wackes</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=284168">wackes</a></td>
 <td class="r1e">1565</td>
 <td class="r1e">353</td>
 <td class="r1e">$19.10</td>
@@ -3262,7 +3262,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7360291">iforiq</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7360291">iforiq</a></td>
 <td class="r1o">1556</td>
 <td class="r1o">353</td>
 <td class="r1o">$18.30</td>
@@ -3277,7 +3277,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=9924770">Frodo_Baggins</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=9924770">Frodo_Baggins</a></td>
 <td class="r1e">1555</td>
 <td class="r1e">512</td>
 <td class="r1e">$24.71</td>
@@ -3292,7 +3292,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=308454">Mathman19</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=308454">Mathman19</a></td>
 <td class="r1o">1553</td>
 <td class="r1o">254</td>
 <td class="r1o">$13.19</td>
@@ -3307,7 +3307,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7402446">Mikhos</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7402446">Mikhos</a></td>
 <td class="r1e">1552</td>
 <td class="r1e">337</td>
 <td class="r1e">$17.33</td>
@@ -3322,7 +3322,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7574434">warmingup</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7574434">warmingup</a></td>
 <td class="r1o">1545</td>
 <td class="r1o">351</td>
 <td class="r1o">$17.37</td>
@@ -3337,7 +3337,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=274022">jimmy</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=274022">jimmy</a></td>
 <td class="r1e">1543</td>
 <td class="r1e">257</td>
 <td class="r1e">$12.59</td>
@@ -3352,7 +3352,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8496794">accek</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8496794">accek</a></td>
 <td class="r1o">1540</td>
 <td class="r1o">385</td>
 <td class="r1o">$18.54</td>
@@ -3367,7 +3367,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=301859">RangerX</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=301859">RangerX</a></td>
 <td class="r1e">1539</td>
 <td class="r1e">305</td>
 <td class="r1e">$14.78</td>
@@ -3382,7 +3382,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8518361">Vovka</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8518361">Vovka</a></td>
 <td class="r1o">1538</td>
 <td class="r1o">509</td>
 <td class="r1o">$23.14</td>
@@ -3397,7 +3397,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7443050">mics</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7443050">mics</a></td>
 <td class="r1e">1538</td>
 <td class="r1e">552</td>
 <td class="r1e">$24.72</td>
@@ -3412,7 +3412,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8378346">FRaiser</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8378346">FRaiser</a></td>
 <td class="r1o">1534</td>
 <td class="r1o">556</td>
 <td class="r1o">$24.57</td>
@@ -3427,7 +3427,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=10527541">IAC</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=10527541">IAC</a></td>
 <td class="r1e">1531</td>
 <td class="r1e">318</td>
 <td class="r1e">$14.66</td>
@@ -3442,7 +3442,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8497166">SuperRaskao</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8497166">SuperRaskao</a></td>
 <td class="r1o">1530</td>
 <td class="r1o">475</td>
 <td class="r1o">$21.37</td>
@@ -3457,7 +3457,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11899489">Jacek</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11899489">Jacek</a></td>
 <td class="r1e">1529</td>
 <td class="r1e">385</td>
 <td class="r1e">$17.65</td>
@@ -3494,7 +3494,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=292000">SmileyGirl256</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=292000">SmileyGirl256</a></td>
 <td class="r1o">1526</td>
 <td class="r1o">250</td>
 <td class="r1o">$11.06</td>
@@ -3509,7 +3509,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11947649">B_Carvalho</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11947649">B_Carvalho</a></td>
 <td class="r1e">1526</td>
 <td class="r1e">385</td>
 <td class="r1e">$17.51</td>
@@ -3524,7 +3524,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=273434">Eeyore</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=273434">Eeyore</a></td>
 <td class="r1o">1526</td>
 <td class="r1o">437</td>
 <td class="r1o">$19.75</td>
@@ -3539,7 +3539,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11798503">southwang</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11798503">southwang</a></td>
 <td class="r1e">1521</td>
 <td class="r1e">385</td>
 <td class="r1e">$17.18</td>
@@ -3554,7 +3554,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=8465929">caancel</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=8465929">caancel</a></td>
 <td class="r1o">1518</td>
 <td class="r1o">235</td>
 <td class="r1o">$12.27</td>
@@ -3569,7 +3569,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11943080">Erik</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11943080">Erik</a></td>
 <td class="r1e">1518</td>
 <td class="r1e">385</td>
 <td class="r1e">$19.15</td>
@@ -3584,7 +3584,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7453403">Tantalus</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7453403">Tantalus</a></td>
 <td class="r1o">1510</td>
 <td class="r1o">350</td>
 <td class="r1o">$17.04</td>
@@ -3599,7 +3599,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11797255">aubergineanode</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11797255">aubergineanode</a></td>
 <td class="r1e">1507</td>
 <td class="r1e">193</td>
 <td class="r1e">$9.30</td>
@@ -3614,7 +3614,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=11889892">wickedman</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=11889892">wickedman</a></td>
 <td class="r1o">1507</td>
 <td class="r1o">393</td>
 <td class="r1o">$18.64</td>
@@ -3629,7 +3629,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=7452777">CrazyScratcher</a></td>
+<tr><td class="rHandlee"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=7452777">CrazyScratcher</a></td>
 <td class="r1e">1504</td>
 <td class="r1e">282</td>
 <td class="r1e">$13.58</td>
@@ -3644,7 +3644,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=266698">vietchau</a></td>
+<tr><td class="rHandleo"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=266698">vietchau</a></td>
 <td class="r1o">1500</td>
 <td class="r1o">306</td>
 <td class="r1o">$14.40</td>
@@ -3659,7 +3659,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10197516">herbert_duarte</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10197516">herbert_duarte</a></td>
 <td class="r1e">1498</td>
 <td class="r1e">430</td>
 <td class="r1e">$19.44</td>
@@ -3674,7 +3674,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10190739">Vovik</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10190739">Vovik</a></td>
 <td class="r1o">1497</td>
 <td class="r1o">224</td>
 <td class="r1o">$10.25</td>
@@ -3689,7 +3689,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=280380">dislyxec</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=280380">dislyxec</a></td>
 <td class="r1e">1494</td>
 <td class="r1e">416</td>
 <td class="r1e">$18.61</td>
@@ -3704,7 +3704,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7447557">joelu</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7447557">joelu</a></td>
 <td class="r1o">1494</td>
 <td class="r1o">453</td>
 <td class="r1o">$19.83</td>
@@ -3719,7 +3719,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11942938">loh</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11942938">loh</a></td>
 <td class="r1e">1492</td>
 <td class="r1e">385</td>
 <td class="r1e">$17.05</td>
@@ -3756,7 +3756,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11945295">{rustam}</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11945295">{rustam}</a></td>
 <td class="r1o">1492</td>
 <td class="r1o">385</td>
 <td class="r1o">$17.07</td>
@@ -3771,7 +3771,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10569084">wdtseng</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10569084">wdtseng</a></td>
 <td class="r1e">1487</td>
 <td class="r1e">231</td>
 <td class="r1e">$9.84</td>
@@ -3786,7 +3786,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10611351">sephiroth79</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10611351">sephiroth79</a></td>
 <td class="r1o">1486</td>
 <td class="r1o">423</td>
 <td class="r1o">$18.13</td>
@@ -3801,7 +3801,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10066581">bugloaf</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10066581">bugloaf</a></td>
 <td class="r1e">1483</td>
 <td class="r1e">333</td>
 <td class="r1e">$14.25</td>
@@ -3816,7 +3816,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11947202">niemela</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11947202">niemela</a></td>
 <td class="r1o">1483</td>
 <td class="r1o">385</td>
 <td class="r1o">$16.47</td>
@@ -3831,7 +3831,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=2058097">35C4P3</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=2058097">35C4P3</a></td>
 <td class="r1e">1480</td>
 <td class="r1e">363</td>
 <td class="r1e">$15.36</td>
@@ -3846,7 +3846,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=311664">Vytenis</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=311664">Vytenis</a></td>
 <td class="r1o">1477</td>
 <td class="r1o">381</td>
 <td class="r1o">$15.89</td>
@@ -3861,7 +3861,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7545903">marojala</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7545903">marojala</a></td>
 <td class="r1e">1477</td>
 <td class="r1e">385</td>
 <td class="r1e">$16.09</td>
@@ -3876,7 +3876,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8383272">toschek</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8383272">toschek</a></td>
 <td class="r1o">1477</td>
 <td class="r1o">471</td>
 <td class="r1o">$20.04</td>
@@ -3891,7 +3891,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7364110">kats</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7364110">kats</a></td>
 <td class="r1e">1474</td>
 <td class="r1e">616</td>
 <td class="r1e">$24.61</td>
@@ -3906,7 +3906,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8436330">wjaskowski</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8436330">wjaskowski</a></td>
 <td class="r1o">1467</td>
 <td class="r1o">278</td>
 <td class="r1o">$11.74</td>
@@ -3921,7 +3921,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8392826">ppp</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8392826">ppp</a></td>
 <td class="r1e">1466</td>
 <td class="r1e">315</td>
 <td class="r1e">$13.30</td>
@@ -3936,7 +3936,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10254716">aboyner</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10254716">aboyner</a></td>
 <td class="r1o">1465</td>
 <td class="r1o">358</td>
 <td class="r1o">$15.03</td>
@@ -3951,7 +3951,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=159758">entity</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=159758">entity</a></td>
 <td class="r1e">1465</td>
 <td class="r1e">400</td>
 <td class="r1e">$16.70</td>
@@ -3966,7 +3966,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=9946038">forest</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=9946038">forest</a></td>
 <td class="r1o">1460</td>
 <td class="r1o">307</td>
 <td class="r1o">$12.61</td>
@@ -3981,7 +3981,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=265558">LehooZeher</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=265558">LehooZeher</a></td>
 <td class="r1e">1454</td>
 <td class="r1e">226</td>
 <td class="r1e">$8.65</td>
@@ -4018,7 +4018,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7540456">dexy</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7540456">dexy</a></td>
 <td class="r1o">1454</td>
 <td class="r1o">385</td>
 <td class="r1o">$15.40</td>
@@ -4033,7 +4033,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11796462">Rotsor</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11796462">Rotsor</a></td>
 <td class="r1e">1453</td>
 <td class="r1e">402</td>
 <td class="r1e">$16.01</td>
@@ -4048,7 +4048,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=262096">Mg9H</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=262096">Mg9H</a></td>
 <td class="r1o">1449</td>
 <td class="r1o">478</td>
 <td class="r1o">$18.85</td>
@@ -4063,7 +4063,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10687988">robertwb</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10687988">robertwb</a></td>
 <td class="r1e">1448</td>
 <td class="r1e">385</td>
 <td class="r1e">$15.48</td>
@@ -4078,7 +4078,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10646954">ben.hwang</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10646954">ben.hwang</a></td>
 <td class="r1o">1448</td>
 <td class="r1o">385</td>
 <td class="r1o">$15.53</td>
@@ -4093,7 +4093,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7400531">mafattah</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7400531">mafattah</a></td>
 <td class="r1e">1447</td>
 <td class="r1e">215</td>
 <td class="r1e">$8.43</td>
@@ -4108,7 +4108,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10540401">kindloaf</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10540401">kindloaf</a></td>
 <td class="r1o">1447</td>
 <td class="r1o">477</td>
 <td class="r1o">$18.79</td>
@@ -4123,7 +4123,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11914147">martin_joerg</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11914147">martin_joerg</a></td>
 <td class="r1e">1445</td>
 <td class="r1e">413</td>
 <td class="r1e">$16.40</td>
@@ -4138,7 +4138,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=309641">Dr.Gluk</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=309641">Dr.Gluk</a></td>
 <td class="r1o">1445</td>
 <td class="r1o">479</td>
 <td class="r1o">$18.76</td>
@@ -4153,7 +4153,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=9971969">rrenaud</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=9971969">rrenaud</a></td>
 <td class="r1e">1441</td>
 <td class="r1e">386</td>
 <td class="r1e">$15.17</td>
@@ -4168,7 +4168,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10429867">evlich</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10429867">evlich</a></td>
 <td class="r1o">1433</td>
 <td class="r1o">385</td>
 <td class="r1o">$14.63</td>
@@ -4183,7 +4183,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7483625">McJam</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7483625">McJam</a></td>
 <td class="r1e">1432</td>
 <td class="r1e">236</td>
 <td class="r1e">$8.52</td>
@@ -4198,7 +4198,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8524863">ZarkT</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8524863">ZarkT</a></td>
 <td class="r1o">1427</td>
 <td class="r1o">187</td>
 <td class="r1o">$6.94</td>
@@ -4213,7 +4213,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11774116">ngothanhson</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11774116">ngothanhson</a></td>
 <td class="r1e">1425</td>
 <td class="r1e">480</td>
 <td class="r1e">$17.99</td>
@@ -4228,7 +4228,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8405939">matias</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8405939">matias</a></td>
 <td class="r1o">1423</td>
 <td class="r1o">293</td>
 <td class="r1o">$11.05</td>
@@ -4243,7 +4243,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8593420">_efer_</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8593420">_efer_</a></td>
 <td class="r1e">1423</td>
 <td class="r1e">379</td>
 <td class="r1e">$14.38</td>
@@ -4280,7 +4280,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=343657">lujo</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=343657">lujo</a></td>
 <td class="r1o">1423</td>
 <td class="r1o">746</td>
 <td class="r1o">$25.82</td>
@@ -4295,7 +4295,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10596762">pure_</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10596762">pure_</a></td>
 <td class="r1e">1420</td>
 <td class="r1e">520</td>
 <td class="r1e">$19.05</td>
@@ -4310,7 +4310,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8496779">weimashizhu</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8496779">weimashizhu</a></td>
 <td class="r1o">1419</td>
 <td class="r1o">463</td>
 <td class="r1o">$17.14</td>
@@ -4325,7 +4325,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11904845">sullivan</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11904845">sullivan</a></td>
 <td class="r1e">1418</td>
 <td class="r1e">385</td>
 <td class="r1e">$14.40</td>
@@ -4340,7 +4340,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=152610">puzzlehacker</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=152610">puzzlehacker</a></td>
 <td class="r1o">1417</td>
 <td class="r1o">272</td>
 <td class="r1o">$9.96</td>
@@ -4355,7 +4355,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7351173">ggoprea</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7351173">ggoprea</a></td>
 <td class="r1e">1417</td>
 <td class="r1e">345</td>
 <td class="r1e">$12.86</td>
@@ -4370,7 +4370,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304979">sinaddcos</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=304979">sinaddcos</a></td>
 <td class="r1o">1415</td>
 <td class="r1o">355</td>
 <td class="r1o">$13.07</td>
@@ -4385,7 +4385,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=260913">jaivasanth</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=260913">jaivasanth</a></td>
 <td class="r1e">1411</td>
 <td class="r1e">353</td>
 <td class="r1e">$12.76</td>
@@ -4400,7 +4400,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=302000">Elmiguel409</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=302000">Elmiguel409</a></td>
 <td class="r1o">1411</td>
 <td class="r1o">372</td>
 <td class="r1o">$13.50</td>
@@ -4415,7 +4415,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154650">chuottui</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=154650">chuottui</a></td>
 <td class="r1e">1409</td>
 <td class="r1e">490</td>
 <td class="r1e">$17.49</td>
@@ -4430,7 +4430,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=2058210">minh_msu</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=2058210">minh_msu</a></td>
 <td class="r1o">1405</td>
 <td class="r1o">733</td>
 <td class="r1o">$24.43</td>
@@ -4445,7 +4445,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7576932">Sputnik</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7576932">Sputnik</a></td>
 <td class="r1e">1404</td>
 <td class="r1e">343</td>
 <td class="r1e">$12.10</td>
@@ -4460,7 +4460,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11941705">volki</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11941705">volki</a></td>
 <td class="r1o">1404</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.69</td>
@@ -4475,7 +4475,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=9928945">Vigothebest</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=9928945">Vigothebest</a></td>
 <td class="r1e">1403</td>
 <td class="r1e">512</td>
 <td class="r1e">$17.98</td>
@@ -4490,7 +4490,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8369955">eleusive</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8369955">eleusive</a></td>
 <td class="r1o">1399</td>
 <td class="r1o">352</td>
 <td class="r1o">$12.24</td>
@@ -4505,7 +4505,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11776259">Wavicle</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11776259">Wavicle</a></td>
 <td class="r1e">1397</td>
 <td class="r1e">408</td>
 <td class="r1e">$14.21</td>
@@ -4542,7 +4542,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10182238">TypeONegative</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10182238">TypeONegative</a></td>
 <td class="r1o">1393</td>
 <td class="r1o">334</td>
 <td class="r1o">$13.51</td>
@@ -4557,7 +4557,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8511003">Swetko</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8511003">Swetko</a></td>
 <td class="r1e">1391</td>
 <td class="r1e">314</td>
 <td class="r1e">$12.70</td>
@@ -4572,7 +4572,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8445979">AnakSibolga</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8445979">AnakSibolga</a></td>
 <td class="r1o">1387</td>
 <td class="r1o">314</td>
 <td class="r1o">$12.46</td>
@@ -4587,7 +4587,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7583175">Windrider</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7583175">Windrider</a></td>
 <td class="r1e">1385</td>
 <td class="r1e">223</td>
 <td class="r1e">$8.80</td>
@@ -4602,7 +4602,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=344711">[UoM]Supaphly</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=344711">[UoM]Supaphly</a></td>
 <td class="r1o">1384</td>
 <td class="r1o">276</td>
 <td class="r1o">$10.88</td>
@@ -4617,7 +4617,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7380147">BeCool</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7380147">BeCool</a></td>
 <td class="r1e">1379</td>
 <td class="r1e">264</td>
 <td class="r1e">$10.12</td>
@@ -4632,7 +4632,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=160388">ubergeek</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=160388">ubergeek</a></td>
 <td class="r1o">1379</td>
 <td class="r1o">323</td>
 <td class="r1o">$12.39</td>
@@ -4647,7 +4647,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=9958883">Minilek</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=9958883">Minilek</a></td>
 <td class="r1e">1376</td>
 <td class="r1e">515</td>
 <td class="r1e">$18.51</td>
@@ -4662,7 +4662,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7534412">decypher</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7534412">decypher</a></td>
 <td class="r1o">1374</td>
 <td class="r1o">325</td>
 <td class="r1o">$12.21</td>
@@ -4677,7 +4677,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=293597">coshx</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=293597">coshx</a></td>
 <td class="r1e">1370</td>
 <td class="r1e">377</td>
 <td class="r1e">$13.84</td>
@@ -4692,7 +4692,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11794164">mendez</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11794164">mendez</a></td>
 <td class="r1o">1370</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.75</td>
@@ -4707,7 +4707,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8409692">howler</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8409692">howler</a></td>
 <td class="r1e">1370</td>
 <td class="r1e">428</td>
 <td class="r1e">$15.20</td>
@@ -4722,7 +4722,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10603164">sheiech</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10603164">sheiech</a></td>
 <td class="r1o">1368</td>
 <td class="r1o">372</td>
 <td class="r1o">$13.21</td>
@@ -4737,7 +4737,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294688">Javaholic</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=294688">Javaholic</a></td>
 <td class="r1e">1368</td>
 <td class="r1e">375</td>
 <td class="r1e">$13.35</td>
@@ -4752,7 +4752,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11943003">helen_heng</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11943003">helen_heng</a></td>
 <td class="r1o">1367</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.65</td>
@@ -4767,7 +4767,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10396368">peterSK</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10396368">peterSK</a></td>
 <td class="r1e">1367</td>
 <td class="r1e">579</td>
 <td class="r1e">$19.68</td>
@@ -4804,7 +4804,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=157174">preetham</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=157174">preetham</a></td>
 <td class="r1o">1366</td>
 <td class="r1o">302</td>
 <td class="r1o">$10.66</td>
@@ -4819,7 +4819,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10584013">Sika</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10584013">Sika</a></td>
 <td class="r1e">1366</td>
 <td class="r1e">385</td>
 <td class="r1e">$13.67</td>
@@ -4834,7 +4834,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11893529">kicreb</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11893529">kicreb</a></td>
 <td class="r1o">1361</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.37</td>
@@ -4849,7 +4849,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10003678">braineater</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10003678">braineater</a></td>
 <td class="r1e">1357</td>
 <td class="r1e">276</td>
 <td class="r1e">$9.21</td>
@@ -4864,7 +4864,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7427564">tdietzel</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7427564">tdietzel</a></td>
 <td class="r1o">1357</td>
 <td class="r1o">381</td>
 <td class="r1o">$14.42</td>
@@ -4879,7 +4879,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=305695">REMmargorp</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=305695">REMmargorp</a></td>
 <td class="r1e">1355</td>
 <td class="r1e">253</td>
 <td class="r1e">$9.76</td>
@@ -4894,7 +4894,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279059">CompuSciNut</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=279059">CompuSciNut</a></td>
 <td class="r1o">1351</td>
 <td class="r1o">292</td>
 <td class="r1o">$11.01</td>
@@ -4909,7 +4909,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11872602">B6580DD</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11872602">B6580DD</a></td>
 <td class="r1e">1350</td>
 <td class="r1e">385</td>
 <td class="r1e">$14.15</td>
@@ -4924,7 +4924,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10093661">IMightBeKnown</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10093661">IMightBeKnown</a></td>
 <td class="r1o">1348</td>
 <td class="r1o">385</td>
 <td class="r1o">$14.05</td>
@@ -4939,7 +4939,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8382018">slex</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8382018">slex</a></td>
 <td class="r1e">1345</td>
 <td class="r1e">236</td>
 <td class="r1e">$8.57</td>
@@ -4954,7 +4954,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=343559">dark_erikaxel</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=343559">dark_erikaxel</a></td>
 <td class="r1o">1345</td>
 <td class="r1o">322</td>
 <td class="r1o">$11.76</td>
@@ -4969,7 +4969,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=158452">[UCF]Pawn</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=158452">[UCF]Pawn</a></td>
 <td class="r1e">1344</td>
 <td class="r1e">289</td>
 <td class="r1e">$10.52</td>
@@ -4984,7 +4984,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10458657">Philya</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10458657">Philya</a></td>
 <td class="r1o">1343</td>
 <td class="r1o">375</td>
 <td class="r1o">$13.47</td>
@@ -4999,7 +4999,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11789293">nhzp339</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11789293">nhzp339</a></td>
 <td class="r1e">1342</td>
 <td class="r1e">381</td>
 <td class="r1e">$13.60</td>
@@ -5014,7 +5014,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=267284">Calrathan</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=267284">Calrathan</a></td>
 <td class="r1o">1340</td>
 <td class="r1o">293</td>
 <td class="r1o">$10.79</td>
@@ -5029,7 +5029,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=265410">Phantom</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=265410">Phantom</a></td>
 <td class="r1e">1339</td>
 <td class="r1e">198</td>
 <td class="r1e">$7.19</td>
@@ -5066,7 +5066,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=9972047">Grk037</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=9972047">Grk037</a></td>
 <td class="r1o">1339</td>
 <td class="r1o">322</td>
 <td class="r1o">$11.74</td>
@@ -5081,7 +5081,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7361680">truelazyboy</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7361680">truelazyboy</a></td>
 <td class="r1e">1336</td>
 <td class="r1e">353</td>
 <td class="r1e">$12.64</td>
@@ -5096,7 +5096,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10504984">randombits</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10504984">randombits</a></td>
 <td class="r1o">1336</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.69</td>
@@ -5111,7 +5111,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10157606">Ying</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10157606">Ying</a></td>
 <td class="r1e">1334</td>
 <td class="r1e">298</td>
 <td class="r1e">$10.64</td>
@@ -5126,7 +5126,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11896834">codetron</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11896834">codetron</a></td>
 <td class="r1o">1332</td>
 <td class="r1o">301</td>
 <td class="r1o">$10.64</td>
@@ -5141,7 +5141,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7467120">pigworlds</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7467120">pigworlds</a></td>
 <td class="r1e">1331</td>
 <td class="r1e">405</td>
 <td class="r1e">$14.07</td>
@@ -5156,7 +5156,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11946267">palmcron</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11946267">palmcron</a></td>
 <td class="r1o">1330</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.38</td>
@@ -5171,7 +5171,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8359768">galvarr</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8359768">galvarr</a></td>
 <td class="r1e">1330</td>
 <td class="r1e">531</td>
 <td class="r1e">$17.76</td>
@@ -5186,7 +5186,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8373059">toyvo</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8373059">toyvo</a></td>
 <td class="r1o">1328</td>
 <td class="r1o">220</td>
 <td class="r1o">$8.01</td>
@@ -5201,7 +5201,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=295264">ffluv</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=295264">ffluv</a></td>
 <td class="r1e">1325</td>
 <td class="r1e">302</td>
 <td class="r1e">$10.78</td>
@@ -5216,7 +5216,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8384303">ahri</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8384303">ahri</a></td>
 <td class="r1o">1324</td>
 <td class="r1o">674</td>
 <td class="r1o">$21.47</td>
@@ -5231,7 +5231,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=252277">Farlox</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=252277">Farlox</a></td>
 <td class="r1e">1322</td>
 <td class="r1e">366</td>
 <td class="r1e">$12.80</td>
@@ -5246,7 +5246,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11844403">stanleyflc</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11844403">stanleyflc</a></td>
 <td class="r1o">1315</td>
 <td class="r1o">286</td>
 <td class="r1o">$9.75</td>
@@ -5261,7 +5261,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10432957">mrozik</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10432957">mrozik</a></td>
 <td class="r1e">1314</td>
 <td class="r1e">366</td>
 <td class="r1e">$12.41</td>
@@ -5276,7 +5276,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10600282">Mojito1</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10600282">Mojito1</a></td>
 <td class="r1o">1314</td>
 <td class="r1o">436</td>
 <td class="r1o">$14.61</td>
@@ -5291,7 +5291,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7211060">tavbert</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7211060">tavbert</a></td>
 <td class="r1e">1313</td>
 <td class="r1e">386</td>
 <td class="r1e">$13.05</td>
@@ -5328,7 +5328,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10380704">bluequark</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10380704">bluequark</a></td>
 <td class="r1o">1313</td>
 <td class="r1o">407</td>
 <td class="r1o">$13.75</td>
@@ -5343,7 +5343,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7463336">mog</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7463336">mog</a></td>
 <td class="r1e">1310</td>
 <td class="r1e">261</td>
 <td class="r1e">$8.67</td>
@@ -5358,7 +5358,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7463225">oog</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7463225">oog</a></td>
 <td class="r1o">1310</td>
 <td class="r1o">350</td>
 <td class="r1o">$11.98</td>
@@ -5373,7 +5373,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8533220">mrcoder</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8533220">mrcoder</a></td>
 <td class="r1e">1308</td>
 <td class="r1e">543</td>
 <td class="r1e">$17.60</td>
@@ -5388,7 +5388,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8362133">dhyanesh</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8362133">dhyanesh</a></td>
 <td class="r1o">1307</td>
 <td class="r1o">389</td>
 <td class="r1o">$13.13</td>
@@ -5403,7 +5403,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8472826">jakubr</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8472826">jakubr</a></td>
 <td class="r1e">1307</td>
 <td class="r1e">506</td>
 <td class="r1e">$16.64</td>
@@ -5418,7 +5418,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10470894">trapi</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10470894">trapi</a></td>
 <td class="r1o">1306</td>
 <td class="r1o">298</td>
 <td class="r1o">$10.12</td>
@@ -5433,7 +5433,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10425804">maone</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10425804">maone</a></td>
 <td class="r1e">1303</td>
 <td class="r1e">385</td>
 <td class="r1e">$12.87</td>
@@ -5448,7 +5448,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11941571">Yehua</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11941571">Yehua</a></td>
 <td class="r1o">1303</td>
 <td class="r1o">385</td>
 <td class="r1o">$12.92</td>
@@ -5463,7 +5463,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8463344">cagonzalezto</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8463344">cagonzalezto</a></td>
 <td class="r1e">1298</td>
 <td class="r1e">385</td>
 <td class="r1e">$12.67</td>
@@ -5478,7 +5478,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10535219">tec</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10535219">tec</a></td>
 <td class="r1o">1296</td>
 <td class="r1o">301</td>
 <td class="r1o">$9.78</td>
@@ -5493,7 +5493,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7445264">Mariyka</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7445264">Mariyka</a></td>
 <td class="r1e">1292</td>
 <td class="r1e">282</td>
 <td class="r1e">$8.92</td>
@@ -5508,7 +5508,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10401478">GilbertLi</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10401478">GilbertLi</a></td>
 <td class="r1o">1292</td>
 <td class="r1o">410</td>
 <td class="r1o">$14.74</td>
@@ -5523,7 +5523,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=292136">Icedawn</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=292136">Icedawn</a></td>
 <td class="r1e">1289</td>
 <td class="r1e">404</td>
 <td class="r1e">$14.40</td>
@@ -5538,7 +5538,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7366257">bh</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7366257">bh</a></td>
 <td class="r1o">1288</td>
 <td class="r1o">215</td>
 <td class="r1o">$8.02</td>
@@ -5553,7 +5553,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10305346">Aptor</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10305346">Aptor</a></td>
 <td class="r1e">1287</td>
 <td class="r1e">326</td>
 <td class="r1e">$11.90</td>
@@ -5590,7 +5590,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8567396">sempiq</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8567396">sempiq</a></td>
 <td class="r1o">1286</td>
 <td class="r1o">292</td>
 <td class="r1o">$10.69</td>
@@ -5605,7 +5605,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7396525">kkkkk</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7396525">kkkkk</a></td>
 <td class="r1e">1285</td>
 <td class="r1e">248</td>
 <td class="r1e">$9.08</td>
@@ -5620,7 +5620,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=260274">dark_shadow</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=260274">dark_shadow</a></td>
 <td class="r1o">1277</td>
 <td class="r1o">348</td>
 <td class="r1o">$12.08</td>
@@ -5635,7 +5635,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10681105">Ghafarpour</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10681105">Ghafarpour</a></td>
 <td class="r1e">1276</td>
 <td class="r1e">385</td>
 <td class="r1e">$13.18</td>
@@ -5650,7 +5650,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11947608">MrRuebli</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11947608">MrRuebli</a></td>
 <td class="r1o">1276</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.21</td>
@@ -5665,7 +5665,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8398450">tsycho</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8398450">tsycho</a></td>
 <td class="r1e">1274</td>
 <td class="r1e">258</td>
 <td class="r1e">$8.89</td>
@@ -5680,7 +5680,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11919691">Soultaker</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11919691">Soultaker</a></td>
 <td class="r1o">1274</td>
 <td class="r1o">611</td>
 <td class="r1o">$18.76</td>
@@ -5695,7 +5695,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10104354">Charles28</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10104354">Charles28</a></td>
 <td class="r1e">1272</td>
 <td class="r1e">368</td>
 <td class="r1e">$11.95</td>
@@ -5710,7 +5710,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10639161">raiq</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10639161">raiq</a></td>
 <td class="r1o">1271</td>
 <td class="r1o">385</td>
 <td class="r1o">$12.42</td>
@@ -5725,7 +5725,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=272084">glenn374</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=272084">glenn374</a></td>
 <td class="r1e">1269</td>
 <td class="r1e">297</td>
 <td class="r1e">$9.51</td>
@@ -5740,7 +5740,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8358583">dispanser</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8358583">dispanser</a></td>
 <td class="r1o">1269</td>
 <td class="r1o">317</td>
 <td class="r1o">$10.18</td>
@@ -5755,7 +5755,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10579206">cyberphoo</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10579206">cyberphoo</a></td>
 <td class="r1e">1267</td>
 <td class="r1e">310</td>
 <td class="r1e">$9.86</td>
@@ -5770,7 +5770,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11923016">Idle</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11923016">Idle</a></td>
 <td class="r1o">1267</td>
 <td class="r1o">603</td>
 <td class="r1o">$18.23</td>
@@ -5785,7 +5785,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11771960">Macsy</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11771960">Macsy</a></td>
 <td class="r1e">1265</td>
 <td class="r1e">385</td>
 <td class="r1e">$12.14</td>
@@ -5800,7 +5800,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11775463">X-KERNEL</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11775463">X-KERNEL</a></td>
 <td class="r1o">1261</td>
 <td class="r1o">388</td>
 <td class="r1o">$12.04</td>
@@ -5815,7 +5815,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10528999">xshyr</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10528999">xshyr</a></td>
 <td class="r1e">1260</td>
 <td class="r1e">327</td>
 <td class="r1e">$10.07</td>
@@ -5852,7 +5852,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8472433">bwpow</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8472433">bwpow</a></td>
 <td class="r1o">1260</td>
 <td class="r1o">330</td>
 <td class="r1o">$11.82</td>
@@ -5867,7 +5867,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=9922455">kokos</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=9922455">kokos</a></td>
 <td class="r1e">1255</td>
 <td class="r1e">276</td>
 <td class="r1e">$9.83</td>
@@ -5882,7 +5882,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=9947627">ronit_dragon</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=9947627">ronit_dragon</a></td>
 <td class="r1o">1254</td>
 <td class="r1o">258</td>
 <td class="r1o">$9.17</td>
@@ -5897,7 +5897,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10018328">frighter</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10018328">frighter</a></td>
 <td class="r1e">1254</td>
 <td class="r1e">336</td>
 <td class="r1e">$11.71</td>
@@ -5912,7 +5912,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7457264">SlyfoX</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7457264">SlyfoX</a></td>
 <td class="r1o">1254</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.16</td>
@@ -5927,7 +5927,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=277202">msuchopper</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=277202">msuchopper</a></td>
 <td class="r1e">1248</td>
 <td class="r1e">280</td>
 <td class="r1e">$9.59</td>
@@ -5942,7 +5942,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11941696">AIUBian</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11941696">AIUBian</a></td>
 <td class="r1o">1247</td>
 <td class="r1o">385</td>
 <td class="r1o">$12.80</td>
@@ -5957,7 +5957,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10690577">Woundweavr</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10690577">Woundweavr</a></td>
 <td class="r1e">1245</td>
 <td class="r1e">304</td>
 <td class="r1e">$10.23</td>
@@ -5972,7 +5972,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10495823">hammadali</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10495823">hammadali</a></td>
 <td class="r1o">1241</td>
 <td class="r1o">385</td>
 <td class="r1o">$12.52</td>
@@ -5987,7 +5987,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10468370">aylex</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10468370">aylex</a></td>
 <td class="r1e">1240</td>
 <td class="r1e">321</td>
 <td class="r1e">$10.53</td>
@@ -6002,7 +6002,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8461724">42</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8461724">42</a></td>
 <td class="r1o">1233</td>
 <td class="r1o">308</td>
 <td class="r1o">$10.63</td>
@@ -6017,7 +6017,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=346098">cyGNUs</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=346098">cyGNUs</a></td>
 <td class="r1e">1230</td>
 <td class="r1e">218</td>
 <td class="r1e">$7.62</td>
@@ -6032,7 +6032,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7325628">therealmoose</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7325628">therealmoose</a></td>
 <td class="r1o">1230</td>
 <td class="r1o">386</td>
 <td class="r1o">$12.74</td>
@@ -6047,7 +6047,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8538839">buda</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8538839">buda</a></td>
 <td class="r1e">1227</td>
 <td class="r1e">385</td>
 <td class="r1e">$12.57</td>
@@ -6062,7 +6062,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7568791">bramandia</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7568791">bramandia</a></td>
 <td class="r1o">1225</td>
 <td class="r1o">281</td>
 <td class="r1o">$9.41</td>
@@ -6077,7 +6077,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10487679">logged</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10487679">logged</a></td>
 <td class="r1e">1225</td>
 <td class="r1e">592</td>
 <td class="r1e">$17.70</td>
@@ -6114,7 +6114,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294561">luckyzeng</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=294561">luckyzeng</a></td>
 <td class="r1o">1221</td>
 <td class="r1o">258</td>
 <td class="r1o">$8.48</td>
@@ -6129,7 +6129,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10647213">chrbanx</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10647213">chrbanx</a></td>
 <td class="r1e">1221</td>
 <td class="r1e">371</td>
 <td class="r1e">$11.88</td>
@@ -6144,7 +6144,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10106097">illogician</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10106097">illogician</a></td>
 <td class="r1o">1221</td>
 <td class="r1o">385</td>
 <td class="r1o">$12.27</td>
@@ -6159,7 +6159,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7459942">toms1234</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7459942">toms1234</a></td>
 <td class="r1e">1220</td>
 <td class="r1e">249</td>
 <td class="r1e">$8.15</td>
@@ -6174,7 +6174,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=265771">csd98412</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=265771">csd98412</a></td>
 <td class="r1o">1220</td>
 <td class="r1o">280</td>
 <td class="r1o">$9.33</td>
@@ -6189,7 +6189,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8503043">LaguneXXX</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8503043">LaguneXXX</a></td>
 <td class="r1e">1220</td>
 <td class="r1e">329</td>
 <td class="r1e">$10.79</td>
@@ -6204,7 +6204,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8357063">thegreensniper</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8357063">thegreensniper</a></td>
 <td class="r1o">1216</td>
 <td class="r1o">324</td>
 <td class="r1o">$10.45</td>
@@ -6219,7 +6219,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11791897">OzWolf</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11791897">OzWolf</a></td>
 <td class="r1e">1213</td>
 <td class="r1e">385</td>
 <td class="r1e">$12.04</td>
@@ -6234,7 +6234,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10502986">demptis82</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10502986">demptis82</a></td>
 <td class="r1o">1212</td>
 <td class="r1o">385</td>
 <td class="r1o">$12.01</td>
@@ -6249,7 +6249,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10581079">ciforamalia</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10581079">ciforamalia</a></td>
 <td class="r1e">1211</td>
 <td class="r1e">385</td>
 <td class="r1e">$11.95</td>
@@ -6264,7 +6264,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=7582414">sudeep</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=7582414">sudeep</a></td>
 <td class="r1o">1209</td>
 <td class="r1o">251</td>
 <td class="r1o">$7.93</td>
@@ -6279,7 +6279,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=11942782">snoopy-okey</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=11942782">snoopy-okey</a></td>
 <td class="r1e">1208</td>
 <td class="r1e">385</td>
 <td class="r1e">$11.81</td>
@@ -6294,7 +6294,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=2057853">moh_taha_eg</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=2057853">moh_taha_eg</a></td>
 <td class="r1o">1207</td>
 <td class="r1o">265</td>
 <td class="r1o">$8.26</td>
@@ -6309,7 +6309,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8522467">lordbogy</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8522467">lordbogy</a></td>
 <td class="r1e">1207</td>
 <td class="r1e">538</td>
 <td class="r1e">$15.65</td>
@@ -6324,7 +6324,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10552957">RedSpikeyThing</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10552957">RedSpikeyThing</a></td>
 <td class="r1o">1206</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.57</td>
@@ -6339,7 +6339,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=10367862">xuanxuan</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=10367862">xuanxuan</a></td>
 <td class="r1e">1204</td>
 <td class="r1e">385</td>
 <td class="r1e">$13.52</td>
@@ -6376,7 +6376,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8438496">vfortuna</a></td>
+<tr><td class="rHandleo"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8438496">vfortuna</a></td>
 <td class="r1o">1204</td>
 <td class="r1o">511</td>
 <td class="r1o">$16.87</td>
@@ -6391,7 +6391,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=8363863">tnn</a></td>
+<tr><td class="rHandlee"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=8363863">tnn</a></td>
 <td class="r1e">1200</td>
 <td class="r1e">223</td>
 <td class="r1e">$8.33</td>
@@ -6406,7 +6406,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=294807">lualua</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=294807">lualua</a></td>
 <td class="r1o">1197</td>
 <td class="r1o">317</td>
 <td class="r1o">$11.30</td>
@@ -6421,7 +6421,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8361901">niphoton</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8361901">niphoton</a></td>
 <td class="r1e">1193</td>
 <td class="r1e">241</td>
 <td class="r1e">$8.61</td>
@@ -6436,7 +6436,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10019722">topologist</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10019722">topologist</a></td>
 <td class="r1o">1192</td>
 <td class="r1o">280</td>
 <td class="r1o">$9.88</td>
@@ -6451,7 +6451,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299798">SilverPhantom</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=299798">SilverPhantom</a></td>
 <td class="r1e">1192</td>
 <td class="r1e">314</td>
 <td class="r1e">$11.01</td>
@@ -6466,7 +6466,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10049543">darios</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10049543">darios</a></td>
 <td class="r1o">1192</td>
 <td class="r1o">316</td>
 <td class="r1o">$11.12</td>
@@ -6481,7 +6481,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8549934">pmgiant</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8549934">pmgiant</a></td>
 <td class="r1e">1191</td>
 <td class="r1e">232</td>
 <td class="r1e">$8.24</td>
@@ -6496,7 +6496,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8366122">Luo_kan</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8366122">Luo_kan</a></td>
 <td class="r1o">1190</td>
 <td class="r1o">275</td>
 <td class="r1o">$10.48</td>
@@ -6511,7 +6511,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7502215">radog</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7502215">radog</a></td>
 <td class="r1e">1189</td>
 <td class="r1e">289</td>
 <td class="r1e">$10.91</td>
@@ -6526,7 +6526,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=265973">irulet</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=265973">irulet</a></td>
 <td class="r1o">1184</td>
 <td class="r1o">241</td>
 <td class="r1o">$9.00</td>
@@ -6541,7 +6541,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10616536">proxo</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10616536">proxo</a></td>
 <td class="r1e">1183</td>
 <td class="r1e">304</td>
 <td class="r1e">$11.12</td>
@@ -6556,7 +6556,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8467543">Sauruven00</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8467543">Sauruven00</a></td>
 <td class="r1o">1181</td>
 <td class="r1o">361</td>
 <td class="r1o">$12.84</td>
@@ -6571,7 +6571,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7584429">geekmug</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7584429">geekmug</a></td>
 <td class="r1e">1177</td>
 <td class="r1e">385</td>
 <td class="r1e">$13.38</td>
@@ -6586,7 +6586,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10244237">yohney</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10244237">yohney</a></td>
 <td class="r1o">1175</td>
 <td class="r1o">267</td>
 <td class="r1o">$9.47</td>
@@ -6601,7 +6601,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7502834">bodq</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7502834">bodq</a></td>
 <td class="r1e">1172</td>
 <td class="r1e">440</td>
 <td class="r1e">$14.78</td>
@@ -6638,7 +6638,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=9923678">weimashipig</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=9923678">weimashipig</a></td>
 <td class="r1o">1171</td>
 <td class="r1o">436</td>
 <td class="r1o">$14.64</td>
@@ -6653,7 +6653,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=309647">e</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=309647">e</a></td>
 <td class="r1e">1168</td>
 <td class="r1e">270</td>
 <td class="r1e">$9.28</td>
@@ -6668,7 +6668,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7556911">v_ralev</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7556911">v_ralev</a></td>
 <td class="r1o">1164</td>
 <td class="r1o">325</td>
 <td class="r1o">$12.62</td>
@@ -6683,7 +6683,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10119301">skatou</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10119301">skatou</a></td>
 <td class="r1e">1163</td>
 <td class="r1e">172</td>
 <td class="r1e">$7.21</td>
@@ -6698,7 +6698,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7363079">yahan</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7363079">yahan</a></td>
 <td class="r1o">1162</td>
 <td class="r1o">284</td>
 <td class="r1o">$11.18</td>
@@ -6713,7 +6713,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=344559">portnoy</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=344559">portnoy</a></td>
 <td class="r1e">1152</td>
 <td class="r1e">325</td>
 <td class="r1e">$11.96</td>
@@ -6728,7 +6728,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8354170">HelioS</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8354170">HelioS</a></td>
 <td class="r1o">1151</td>
 <td class="r1o">431</td>
 <td class="r1o">$15.02</td>
@@ -6743,7 +6743,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7296831">Nexius</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7296831">Nexius</a></td>
 <td class="r1e">1150</td>
 <td class="r1e">388</td>
 <td class="r1e">$13.78</td>
@@ -6758,7 +6758,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7502828">jkraju</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7502828">jkraju</a></td>
 <td class="r1o">1149</td>
 <td class="r1o">282</td>
 <td class="r1o">$10.41</td>
@@ -6773,7 +6773,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10399422">matthew0028</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10399422">matthew0028</a></td>
 <td class="r1e">1148</td>
 <td class="r1e">249</td>
 <td class="r1e">$9.20</td>
@@ -6788,7 +6788,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=346620">dgmeat</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=346620">dgmeat</a></td>
 <td class="r1o">1148</td>
 <td class="r1o">251</td>
 <td class="r1o">$9.27</td>
@@ -6803,7 +6803,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11905680">tagesta</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11905680">tagesta</a></td>
 <td class="r1e">1146</td>
 <td class="r1e">359</td>
 <td class="r1e">$12.72</td>
@@ -6818,7 +6818,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10153590">yijia</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10153590">yijia</a></td>
 <td class="r1o">1145</td>
 <td class="r1o">168</td>
 <td class="r1o">$7.08</td>
@@ -6833,7 +6833,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8354434">Artur</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8354434">Artur</a></td>
 <td class="r1e">1143</td>
 <td class="r1e">238</td>
 <td class="r1e">$9.45</td>
@@ -6848,7 +6848,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10645995">lax</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10645995">lax</a></td>
 <td class="r1o">1143</td>
 <td class="r1o">262</td>
 <td class="r1o">$10.28</td>
@@ -6863,7 +6863,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11923699">davincicode</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11923699">davincicode</a></td>
 <td class="r1e">1142</td>
 <td class="r1e">385</td>
 <td class="r1e">$14.01</td>
@@ -6900,7 +6900,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11896646">Aegypter</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11896646">Aegypter</a></td>
 <td class="r1o">1136</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.67</td>
@@ -6915,7 +6915,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=252022">AleaActaEst</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=252022">AleaActaEst</a></td>
 <td class="r1e">1135</td>
 <td class="r1e">174</td>
 <td class="r1e">$6.76</td>
@@ -6930,7 +6930,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7582523">agusles</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7582523">agusles</a></td>
 <td class="r1o">1130</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.36</td>
@@ -6945,7 +6945,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=281156">raquib</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=281156">raquib</a></td>
 <td class="r1e">1123</td>
 <td class="r1e">314</td>
 <td class="r1e">$10.90</td>
@@ -6960,7 +6960,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7500374">moji_ii</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7500374">moji_ii</a></td>
 <td class="r1o">1123</td>
 <td class="r1o">385</td>
 <td class="r1o">$13.03</td>
@@ -6975,7 +6975,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7356052">risingdragon</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7356052">risingdragon</a></td>
 <td class="r1e">1122</td>
 <td class="r1e">421</td>
 <td class="r1e">$13.95</td>
@@ -6990,7 +6990,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10428182">Chalcedony</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10428182">Chalcedony</a></td>
 <td class="r1o">1121</td>
 <td class="r1o">318</td>
 <td class="r1o">$11.72</td>
@@ -7005,7 +7005,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=266215">ashot</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=266215">ashot</a></td>
 <td class="r1e">1118</td>
 <td class="r1e">213</td>
 <td class="r1e">$8.23</td>
@@ -7020,7 +7020,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10318424">NotImplemented</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10318424">NotImplemented</a></td>
 <td class="r1o">1114</td>
 <td class="r1o">306</td>
 <td class="r1o">$10.99</td>
@@ -7035,7 +7035,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=297237">cardonha</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=297237">cardonha</a></td>
 <td class="r1e">1112</td>
 <td class="r1e">245</td>
 <td class="r1e">$8.97</td>
@@ -7050,7 +7050,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8535434">youlin</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8535434">youlin</a></td>
 <td class="r1o">1107</td>
 <td class="r1o">261</td>
 <td class="r1o">$9.22</td>
@@ -7065,7 +7065,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=287073">kclancy</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=287073">kclancy</a></td>
 <td class="r1e">1107</td>
 <td class="r1e">312</td>
 <td class="r1e">$10.81</td>
@@ -7080,7 +7080,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=156822">m_chen</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=156822">m_chen</a></td>
 <td class="r1o">1103</td>
 <td class="r1o">312</td>
 <td class="r1o">$10.62</td>
@@ -7095,7 +7095,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=128621">sticky</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=128621">sticky</a></td>
 <td class="r1e">1098</td>
 <td class="r1e">442</td>
 <td class="r1e">$13.96</td>
@@ -7110,7 +7110,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8513659">satej</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8513659">satej</a></td>
 <td class="r1o">1093</td>
 <td class="r1o">672</td>
 <td class="r1o">$18.94</td>
@@ -7125,7 +7125,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=300361">Onko</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=300361">Onko</a></td>
 <td class="r1e">1090</td>
 <td class="r1e">260</td>
 <td class="r1e">$8.37</td>
@@ -7162,7 +7162,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=271019">Erunama</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=271019">Erunama</a></td>
 <td class="r1o">1085</td>
 <td class="r1o">372</td>
 <td class="r1o">$13.45</td>
@@ -7177,7 +7177,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7567486">alfredo57</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7567486">alfredo57</a></td>
 <td class="r1e">1081</td>
 <td class="r1e">196</td>
 <td class="r1e">$8.15</td>
@@ -7192,7 +7192,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10090995">Illidin</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10090995">Illidin</a></td>
 <td class="r1o">1078</td>
 <td class="r1o">255</td>
 <td class="r1o">$9.84</td>
@@ -7207,7 +7207,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=310936">CaptDeaf</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=310936">CaptDeaf</a></td>
 <td class="r1e">1077</td>
 <td class="r1e">297</td>
 <td class="r1e">$11.02</td>
@@ -7222,7 +7222,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8347440">gagik</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8347440">gagik</a></td>
 <td class="r1o">1073</td>
 <td class="r1o">451</td>
 <td class="r1o">$14.80</td>
@@ -7237,7 +7237,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8459166">gentryx</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8459166">gentryx</a></td>
 <td class="r1e">1057</td>
 <td class="r1e">510</td>
 <td class="r1e">$15.40</td>
@@ -7252,7 +7252,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10661041">Jarkel</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10661041">Jarkel</a></td>
 <td class="r1o">1055</td>
 <td class="r1o">362</td>
 <td class="r1o">$11.74</td>
@@ -7267,7 +7267,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8563312">grigorg</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8563312">grigorg</a></td>
 <td class="r1e">1050</td>
 <td class="r1e">211</td>
 <td class="r1e">$7.09</td>
@@ -7282,7 +7282,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=311272">Kentaro</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=311272">Kentaro</a></td>
 <td class="r1o">1038</td>
 <td class="r1o">252</td>
 <td class="r1o">$7.82</td>
@@ -7297,7 +7297,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10256475">puding</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10256475">puding</a></td>
 <td class="r1e">1038</td>
 <td class="r1e">261</td>
 <td class="r1e">$8.10</td>
@@ -7312,7 +7312,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=9971683">rafal</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=9971683">rafal</a></td>
 <td class="r1o">1033</td>
 <td class="r1o">286</td>
 <td class="r1o">$11.45</td>
@@ -7327,7 +7327,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7214041">paganel</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7214041">paganel</a></td>
 <td class="r1e">1030</td>
 <td class="r1e">224</td>
 <td class="r1e">$9.48</td>
@@ -7342,7 +7342,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8357287">kiler</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8357287">kiler</a></td>
 <td class="r1o">1017</td>
 <td class="r1o">269</td>
 <td class="r1o">$10.13</td>
@@ -7357,7 +7357,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8472476">lsdlsd0</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8472476">lsdlsd0</a></td>
 <td class="r1e">1016</td>
 <td class="r1e">274</td>
 <td class="r1e">$10.24</td>
@@ -7372,7 +7372,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10494793">[AgentSmith]</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10494793">[AgentSmith]</a></td>
 <td class="r1o">1015</td>
 <td class="r1o">294</td>
 <td class="r1o">$10.74</td>
@@ -7387,7 +7387,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=156865">stevemm81</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=156865">stevemm81</a></td>
 <td class="r1e">1014</td>
 <td class="r1e">250</td>
 <td class="r1e">$9.42</td>
@@ -7424,7 +7424,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8450035">pawel992</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8450035">pawel992</a></td>
 <td class="r1o">1012</td>
 <td class="r1o">296</td>
 <td class="r1o">$10.66</td>
@@ -7439,7 +7439,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10452889">diegocaminha</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10452889">diegocaminha</a></td>
 <td class="r1e">1012</td>
 <td class="r1e">302</td>
 <td class="r1e">$10.83</td>
@@ -7454,7 +7454,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7350758">Blitz</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7350758">Blitz</a></td>
 <td class="r1o">1009</td>
 <td class="r1o">422</td>
 <td class="r1o">$13.71</td>
@@ -7469,7 +7469,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7542532">pranav</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7542532">pranav</a></td>
 <td class="r1e">993</td>
 <td class="r1e">150</td>
 <td class="r1e">$5.08</td>
@@ -7484,7 +7484,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11869285">control</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11869285">control</a></td>
 <td class="r1o">974</td>
 <td class="r1o">319</td>
 <td class="r1o">$10.11</td>
@@ -7499,7 +7499,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7463017">Leps</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7463017">Leps</a></td>
 <td class="r1e">971</td>
 <td class="r1e">359</td>
 <td class="r1e">$10.92</td>
@@ -7514,7 +7514,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10550632">Qool</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10550632">Qool</a></td>
 <td class="r1o">961</td>
 <td class="r1o">288</td>
 <td class="r1o">$8.83</td>
@@ -7529,7 +7529,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7557537">president</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=7557537">president</a></td>
 <td class="r1e">959</td>
 <td class="r1e">482</td>
 <td class="r1e">$13.07</td>
@@ -7544,7 +7544,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10654948">Narges</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10654948">Narges</a></td>
 <td class="r1o">947</td>
 <td class="r1o">368</td>
 <td class="r1o">$10.18</td>
@@ -7559,7 +7559,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10526138">Davinator</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10526138">Davinator</a></td>
 <td class="r1e">940</td>
 <td class="r1e">270</td>
 <td class="r1e">$7.55</td>
@@ -7574,7 +7574,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11806661">ILoveYou</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11806661">ILoveYou</a></td>
 <td class="r1o">937</td>
 <td class="r1o">363</td>
 <td class="r1o">$9.68</td>
@@ -7589,7 +7589,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11787671">Protean</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11787671">Protean</a></td>
 <td class="r1e">937</td>
 <td class="r1e">412</td>
 <td class="r1e">$10.77</td>
@@ -7604,7 +7604,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=309403">eam</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=309403">eam</a></td>
 <td class="r1o">935</td>
 <td class="r1o">299</td>
 <td class="r1o">$8.09</td>
@@ -7619,7 +7619,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11789778">janjitse</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11789778">janjitse</a></td>
 <td class="r1e">928</td>
 <td class="r1e">538</td>
 <td class="r1e">$13.04</td>
@@ -7634,7 +7634,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11783219">kaiser3522</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11783219">kaiser3522</a></td>
 <td class="r1o">927</td>
 <td class="r1o">306</td>
 <td class="r1o">$10.91</td>
@@ -7649,7 +7649,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=8580993">lukaas</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=8580993">lukaas</a></td>
 <td class="r1e">925</td>
 <td class="r1e">333</td>
 <td class="r1e">$11.42</td>
@@ -7686,7 +7686,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=9915132">lord_burgos</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=9915132">lord_burgos</a></td>
 <td class="r1o">914</td>
 <td class="r1o">402</td>
 <td class="r1o">$12.40</td>
@@ -7701,7 +7701,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=10442944">wanderley</a></td>
+<tr><td class="rHandlee"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=10442944">wanderley</a></td>
 <td class="r1e">910</td>
 <td class="r1e">291</td>
 <td class="r1e">$9.81</td>
@@ -7716,7 +7716,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=11789820">Mr_Q</a></td>
+<tr><td class="rHandleo"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=11789820">Mr_Q</a></td>
 <td class="r1o">901</td>
 <td class="r1o">299</td>
 <td class="r1o">$9.61</td>
@@ -7731,7 +7731,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7465503">RaginAzn</a></td>
+<tr><td class="rHandlee"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=7465503">RaginAzn</a></td>
 <td class="r1e">899</td>
 <td class="r1e">351</td>
 <td class="r1e">$10.72</td>
@@ -7746,7 +7746,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=10400282">hano</a></td>
+<tr><td class="rHandleo"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=10400282">hano</a></td>
 <td class="r1o">893</td>
 <td class="r1o">354</td>
 <td class="r1o">$10.55</td>
@@ -7761,7 +7761,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=10399388">AliceGuang2</a></td>
+<tr><td class="rHandlee"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=10399388">AliceGuang2</a></td>
 <td class="r1e">881</td>
 <td class="r1e">392</td>
 <td class="r1e">$10.91</td>
@@ -7776,7 +7776,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=8394834">bb</a></td>
+<tr><td class="rHandleo"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=8394834">bb</a></td>
 <td class="r1o">869</td>
 <td class="r1o">242</td>
 <td class="r1o">$6.88</td>
@@ -7791,7 +7791,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7480405">McGinnis</a></td>
+<tr><td class="rHandlee"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=7480405">McGinnis</a></td>
 <td class="r1e">853</td>
 <td class="r1e">193</td>
 <td class="r1e">$4.92</td>
@@ -7806,7 +7806,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7331465">R0MANARMY</a></td>
+<tr><td class="rHandleo"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=7331465">R0MANARMY</a></td>
 <td class="r1o">832</td>
 <td class="r1o">343</td>
 <td class="r1o">$11.68</td>
@@ -7821,7 +7821,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=11843308">mihar</a></td>
+<tr><td class="rHandlee"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=11843308">mihar</a></td>
 <td class="r1e">830</td>
 <td class="r1e">232</td>
 <td class="r1e">$9.44</td>
@@ -7836,7 +7836,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=10496944">Fabi</a></td>
+<tr><td class="rHandleo"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=10496944">Fabi</a></td>
 <td class="r1o">825</td>
 <td class="r1o">267</td>
 <td class="r1o">$9.94</td>
@@ -7851,7 +7851,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=10300744">axis-K</a></td>
+<tr><td class="rHandlee"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=10300744">axis-K</a></td>
 <td class="r1e">822</td>
 <td class="r1e">295</td>
 <td class="r1e">$10.36</td>
@@ -7866,7 +7866,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=8369964">Mrmoon</a></td>
+<tr><td class="rHandleo"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=8369964">Mrmoon</a></td>
 <td class="r1o">769</td>
 <td class="r1o">346</td>
 <td class="r1o">$9.34</td>
@@ -7881,7 +7881,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=10273807">abeautifulmind</a></td>
+<tr><td class="rHandlee"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=10273807">abeautifulmind</a></td>
 <td class="r1e">769</td>
 <td class="r1e">382</td>
 <td class="r1e">$10.04</td>
@@ -7896,7 +7896,7 @@
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td>
 <td class="r3e">0.00</td></tr>
-<tr><td class="rHandleo"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=10325710">pratyush</a></td>
+<tr><td class="rHandleo"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=10325710">pratyush</a></td>
 <td class="r1o">765</td>
 <td class="r1o">384</td>
 <td class="r1o">$9.95</td>
@@ -7911,7 +7911,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=8399054">_garfield_</a></td>
+<tr><td class="rHandlee"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=8399054">_garfield_</a></td>
 <td class="r1e">727</td>
 <td class="r1e">514</td>
 <td class="r1e">$11.08</td>
@@ -7948,7 +7948,7 @@
 <td class="rH3">2nd</td>
 <td class="rH3">Champ</td>
 </tr>
-<tr><td class="rHandleo"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7383051">ankurdubey</a></td>
+<tr><td class="rHandleo"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=7383051">ankurdubey</a></td>
 <td class="r1o">718</td>
 <td class="r1o">398</td>
 <td class="r1o">$8.72</td>
@@ -7963,7 +7963,7 @@
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td>
 <td class="r3o">0.00</td></tr>
-<tr><td class="rHandlee"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=7500169">Ammon</a></td>
+<tr><td class="rHandlee"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=7500169">Ammon</a></td>
 <td class="r1e">491</td>
 <td class="r1e">449</td>
 <td class="r1e">$4.56</td>

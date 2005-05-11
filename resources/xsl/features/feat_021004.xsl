@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>The 5 Most Common Design Mistakes</strong></font><br />
                         Tuesday, February 10, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=119676"><strong>Pops</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>

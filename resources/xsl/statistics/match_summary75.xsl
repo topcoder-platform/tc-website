@@ -107,18 +107,18 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>
 -->
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A> was the Room 1 winner in Single Round Match 
-75 with 790.51 final points.  <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A> earned 241.11 
+<A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="coderTextRed">evd</A> was the Room 1 winner in Single Round Match 
+75 with 790.51 final points.  <A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="coderTextRed">evd</A> earned 241.11 
 points on the Level One problem and 399.40 points on the Level Two problem, for a total of 640.51 after the "Coding Phase".  
-<A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A> then gained 150 points in the "Challenge Phase" with successful challenges of the Level One submissions of <A HREF="/stat?c=member_profile&amp;cr=262935" CLASS="coderTextRed">derkuci</A>, <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>, and <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="coderTextRed">benetin</A>.  
+<A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="coderTextRed">evd</A> then gained 150 points in the "Challenge Phase" with successful challenges of the Level One submissions of <A HREF="/stat?c=member_profile&amp;cr=262935" CLASS="coderTextRed">derkuci</A>, <A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A>, and <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="coderTextRed">benetin</A>.  
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A> won Room 4 with a division-high 1101.30 final points.  <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A> was the only coder in the room to successfully submit code for all three problems.  <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A> earned 229.06 points on the Level One problem, 397.82 on the Level Two problem, and 424.42 on the Level Three problem, for a total of 1051.30 points during the "Coding Phase".  <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A> added 50 additional points with a successful challenge of the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=156603" CLASS="coderTextYellow">LinkII</A>.  This performance added an impressive 245 points to the rating of <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A>.
+<A HREF="/tc?module=MemberProfile&amp;cr=264961" CLASS="coderTextYellow">henchq</A> won Room 4 with a division-high 1101.30 final points.  <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A> was the only coder in the room to successfully submit code for all three problems.  <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A> earned 229.06 points on the Level One problem, 397.82 on the Level Two problem, and 424.42 on the Level Three problem, for a total of 1051.30 points during the "Coding Phase".  <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A> added 50 additional points with a successful challenge of the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=156603" CLASS="coderTextYellow">LinkII</A>.  This performance added an impressive 245 points to the rating of <A HREF="/stat?c=member_profile&amp;cr=264961" CLASS="coderTextYellow">henchq</A>.
 </P>
 
 <P>
-The biggest upset in Division-I occurred in Room 11, where <A HREF="/stat?c=member_profile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A>, who was rated 10th of the 10 coders in the room, was the winner.  <A HREF="/stat?c=member_profile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A> finished with 319.20 final points.  <A HREF="/stat?c=member_profile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A> coded the Level One problem during the "Coding Phase" for 219.20 points, and then added 100 points in the "Challenge Phase" with successful challenges of the Level Two submissions of <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="coderTextBlue">eduar09</A> and <A HREF="/stat?c=member_profile&amp;cr=273149" CLASS="coderTextBlue">Suuloti</A>. 
+The biggest upset in Division-I occurred in Room 11, where <A HREF="/tc?module=MemberProfile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A>, who was rated 10th of the 10 coders in the room, was the winner.  <A HREF="/stat?c=member_profile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A> finished with 319.20 final points.  <A HREF="/stat?c=member_profile&amp;cr=251322" CLASS="coderTextYellow">jjmoon</A> coded the Level One problem during the "Coding Phase" for 219.20 points, and then added 100 points in the "Challenge Phase" with successful challenges of the Level Two submissions of <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="coderTextBlue">eduar09</A> and <A HREF="/stat?c=member_profile&amp;cr=273149" CLASS="coderTextBlue">Suuloti</A>. 
 </P>
 
                  </TD>
@@ -138,12 +138,12 @@ The biggest upset in Division-I occurred in Room 11, where <A HREF="/stat?c=memb
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="statText">            
 <P>
-First-time coder <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="coderTextYellow">jesser</A>
- won Room 56 with a division-high 1288.94 final points, all earned in the "Coding Phase". <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="coderTextYellow">jesser</A>
- earned 247.85 points on the Level One problem, 511.95 on the Level Two problem, and 529.14 on the Level Three problem.  During the "Challenge Phase", <A HREF="/stat?c=member_profile&amp;cr=272196" CLASS="coderTextGray">geisler</A>
- and <A HREF="/stat?c=member_profile&amp;cr=273416" CLASS="coderTextGray">xxfobxx</A>
- both tried to challenge the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="coderTextYellow">jesser</A>
-, but to no avail.  The 1845 point debut rating of <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="coderTextYellow">jesser</A>
+First-time coder <A HREF="/tc?module=MemberProfile&amp;cr=273457" CLASS="coderTextYellow">jesser</A>
+ won Room 56 with a division-high 1288.94 final points, all earned in the "Coding Phase". <A HREF="/tc?module=MemberProfile&amp;cr=273457" CLASS="coderTextYellow">jesser</A>
+ earned 247.85 points on the Level One problem, 511.95 on the Level Two problem, and 529.14 on the Level Three problem.  During the "Challenge Phase", <A HREF="/tc?module=MemberProfile&amp;cr=272196" CLASS="coderTextGray">geisler</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=273416" CLASS="coderTextGray">xxfobxx</A>
+ both tried to challenge the Level Two submission of <A HREF="/tc?module=MemberProfile&amp;cr=273457" CLASS="coderTextYellow">jesser</A>
+, but to no avail.  The 1845 point debut rating of <A HREF="/tc?module=MemberProfile&amp;cr=273457" CLASS="coderTextYellow">jesser</A>
  is the 10th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
 </P>
 
@@ -152,19 +152,19 @@ Two big upsets occurred in Room 35 and Room 42, as the number 10 seeds won both 
 </P>
 
 <P>
-In Room 35, <A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
- was the winner with 601.28 final points.  <A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
- earned 643.03 points in the "Coding Phase", after submitting code for the Level One and Two problems.  <A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
- added 200 points to that total in the "Challenge Phase" with five successful challenges and one failed challenge.  The Level One submission of <A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
- then failed the system test, costing <A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
+In Room 35, <A HREF="/tc?module=MemberProfile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
+ was the winner with 601.28 final points.  <A HREF="/tc?module=MemberProfile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
+ earned 643.03 points in the "Coding Phase", after submitting code for the Level One and Two problems.  <A HREF="/tc?module=MemberProfile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
+ added 200 points to that total in the "Challenge Phase" with five successful challenges and one failed challenge.  The Level One submission of <A HREF="/tc?module=MemberProfile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
+ then failed the system test, costing <A HREF="/tc?module=MemberProfile&amp;cr=264728" CLASS="coderTextGreen">Liguo</A>
  the 241.75 points that were earned on that problem.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=160019" CLASS="coderTextGreen">ISlattery</A>
- was the winner of Room 42 with 740.60 final points.  <A HREF="/stat?c=member_profile&amp;cr=160019" CLASS="coderTextGreen">ISlattery</A>
- coded the Level One problem for 242.66 points and the Level Two problem for 547.94, for a total of 790.60 points in the "Coding Phase".  <A HREF="/stat?c=member_profile&amp;cr=160019" CLASS="coderTextGreen">ISlattery</A>
- then lost 50 points in the "Challenge Phase" when a challenge of the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=263860" CLASS="coderTextGray">Crono</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=160019" CLASS="coderTextGreen">ISlattery</A>
+ was the winner of Room 42 with 740.60 final points.  <A HREF="/tc?module=MemberProfile&amp;cr=160019" CLASS="coderTextGreen">ISlattery</A>
+ coded the Level One problem for 242.66 points and the Level Two problem for 547.94, for a total of 790.60 points in the "Coding Phase".  <A HREF="/tc?module=MemberProfile&amp;cr=160019" CLASS="coderTextGreen">ISlattery</A>
+ then lost 50 points in the "Challenge Phase" when a challenge of the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=263860" CLASS="coderTextGray">Crono</A>
  failed.
 </P>
 

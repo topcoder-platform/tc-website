@@ -321,7 +321,7 @@
                                         <DIV CLASS="smallText">
                                             <I>TopCoder Member</I>
                                             <BR/>
-                                            <A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="smallText">Author Profile</A>
+                                            <A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="smallText">Author Profile</A>
                                         </DIV>
                                         <BR CLEAR="all"/>
                                         <P>

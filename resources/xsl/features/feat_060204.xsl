@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Java for C++ coders, and vice versa</strong></font><br />
                         Tuesday, June 2, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=251184"><strong>dplass</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=251184"><strong>dplass</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>

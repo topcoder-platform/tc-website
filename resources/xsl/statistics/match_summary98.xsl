@@ -109,7 +109,7 @@
 -->
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="bodyGeneric">reid</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=260835" CLASS="bodyGeneric">reid</A>
  won Room One with 1510.98 final points, and added 89 points to his rating.  
 That increased his rating to 3064, which made him the third member to eclipse the 
 3000 rating point mark.  <B>reid</B> earned 323.70 on the Level One problem, 325.62 on the Level 
@@ -117,30 +117,30 @@ Two problem, and 861.66 on the Level Three problem.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=279471" CLASS="bodyGeneric">haha</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=279471" CLASS="bodyGeneric">haha</A>
  got the last laugh in Room 12 by earning 654.76 final points for the win.  He added 
 246 points to his rating, increasing it from 1559 to 1805.  <B>haha</B> earned 105.00 on the Level 
 One problem and 549.76 on the Level Three problem in the "Coding Phase".  He added 50 points 
 with a successful challenge of the Level One submission of 
-<A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A>, but then lost those 50 
+<A HREF="/tc?module=MemberProfile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A>, but then lost those 50 
 points with an unsuccessful challenge of the Level One submission of 
-<A HREF="/stat?c=member_profile&amp;cr=260967" CLASS="bodyGeneric">codePony</A>. 
+<A HREF="/tc?module=MemberProfile&amp;cr=260967" CLASS="bodyGeneric">codePony</A>. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=286951" CLASS="bodyGeneric">RobertLu</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=286951" CLASS="bodyGeneric">RobertLu</A>
  won Room 20 with 1113.10 final points, and added 514 rating points, which is the 
 second largest gain ever in Division-I 
 (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gains</A>).  
 He earned 1213.10 in the "Coding Phase" by coding the Level One problem for 274.69 points, 
 the Level Two problem for 265.96, and the Level Three problem for 672.45.  During a very 
 active "Challenge Phase", <B>RobertLu</B> added 50 points with a successful challenge of the Level 
-One submission of <A HREF="/stat?c=member_profile&amp;cr=262235" CLASS="bodyGeneric">darler</A>, 
+One submission of <A HREF="/tc?module=MemberProfile&amp;cr=262235" CLASS="bodyGeneric">darler</A>, 
 but lost 150 points with three unsuccessful challenges of the 
 Level One submissions of 
-<A HREF="/stat?c=member_profile&amp;cr=284386" CLASS="bodyGeneric">Goron</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=159995" CLASS="bodyGeneric">tommyv</A>, 
-and <A HREF="/stat?c=member_profile&amp;cr=288231" CLASS="bodyGeneric">skelter</A>.
+<A HREF="/tc?module=MemberProfile&amp;cr=284386" CLASS="bodyGeneric">Goron</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=159995" CLASS="bodyGeneric">tommyv</A>, 
+and <A HREF="/tc?module=MemberProfile&amp;cr=288231" CLASS="bodyGeneric">skelter</A>.
 </P>
 
 
@@ -152,31 +152,31 @@ and <A HREF="/stat?c=member_profile&amp;cr=288231" CLASS="bodyGeneric">skelter</
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=279888" CLASS="bodyGeneric">shelby</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=279888" CLASS="bodyGeneric">shelby</A>
  won Room 35 with a Division-II high 1441.31 final points.  He earned 255.76 
 points on the Level One problem, 436.91 on the Level Two problem, and 748.64 on the 
-Level Three problem.  <A HREF="/stat?c=member_profile&amp;cr=276132" CLASS="bodyGeneric">mzuckerberg</A>
- tried to challenge the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=279888" CLASS="bodyGeneric">shelby</A>, 
+Level Three problem.  <A HREF="/tc?module=MemberProfile&amp;cr=276132" CLASS="bodyGeneric">mzuckerberg</A>
+ tried to challenge the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=279888" CLASS="bodyGeneric">shelby</A>, 
 but to no avail.  <B>shelby</B> gained 211 rating points, increasing his total from 1073 to 1284, 
 and changing his rating color from green to blue. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=284374" CLASS="bodyGeneric">robd</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=284374" CLASS="bodyGeneric">robd</A>
  used two challenges for a come-from-behind win in Room 48.  <B>robd</B> earned 562.94 points 
 in the "Coding Phase", good enough for fifth place in the room.  In the "Challenge Phase" 
 <B>robd</B> added 100 points with two successful challenges of the Level Two submissions of 
-<A HREF="/stat?c=member_profile&amp;cr=285061" CLASS="bodyGeneric">mandersen</A>
- and <A HREF="/stat?c=member_profile&amp;cr=269210" CLASS="bodyGeneric">mostwanted</A>. 
+<A HREF="/tc?module=MemberProfile&amp;cr=285061" CLASS="bodyGeneric">mandersen</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=269210" CLASS="bodyGeneric">mostwanted</A>. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=276852" CLASS="bodyGeneric">micro</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=276852" CLASS="bodyGeneric">micro</A>
  won Room 54 with 1272.05 final points, and added 228 points to his rating, the most 
 for the match in Division-II.  <B>micro</B> coded all three problems for 1372.05 points in the 
 "Coding Phase", but lost 100 points with two unsuccessful challenges of the Level Two 
-submissions of <A HREF="/stat?c=member_profile&amp;cr=273136" CLASS="bodyGeneric">Scorpion1976</A>
- and <A HREF="/stat?c=member_profile&amp;cr=286067" CLASS="bodyGeneric">wonton</A>.
+submissions of <A HREF="/tc?module=MemberProfile&amp;cr=273136" CLASS="bodyGeneric">Scorpion1976</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=286067" CLASS="bodyGeneric">wonton</A>.
 </P>
 
           </TD>

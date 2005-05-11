@@ -396,7 +396,7 @@ public final class TaskDevelopment {
                         msgText.append(desRating);
                         msgText.append("\n\n").append("http://");
                         msgText.append(ApplicationServer.SERVER_NAME);
-                        msgText.append("/stat?c=member_profile&cr=");
+                        msgText.append("/tc?module=MemberProfile&cr=");
                         msgText.append(nav.getUserId());
                         msgText.append("\n");
 
@@ -500,7 +500,7 @@ public final class TaskDevelopment {
                     msgText.append(desRating);
                     msgText.append("\n\n").append("http://");
                     msgText.append(ApplicationServer.SERVER_NAME);
-                    msgText.append("/stat?c=member_profile&cr=");
+                    msgText.append("/tc?module=MemberProfile&cr=");
                     msgText.append(nav.getUserId());
                     msgText.append("\n");
 

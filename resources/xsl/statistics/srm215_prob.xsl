@@ -556,7 +556,7 @@ other than Floyd's.<br/> <center><img src="/i/srm/srm215_3.jpg" border="0" /></c
 
 					 <p>
 					 <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-					 By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
+					 By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
 					 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 					 </p>
 				 </td>

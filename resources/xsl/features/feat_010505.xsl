@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Mathematics for TopCoders</strong></font><br />
                         Wednesday, January 5, 2005</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=276230"><strong>dimkadimon</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><span class="bodySubtitle">Introduction</span><br />

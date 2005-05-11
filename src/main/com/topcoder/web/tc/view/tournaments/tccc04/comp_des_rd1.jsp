@@ -59,67 +59,67 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=302018">Tomson</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=119676">Pops</a></td>
                     <td class="advCell" align="right">84.74</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=278342">adic</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">83.46</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=251989">AdamSelene</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">80.92</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=289824">MPhk</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">80.86</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=277356">aksonov</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=296145">srowen</a></td>
                     <td class="advCell" align="right">78.33</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=251832">dark_lord</a></td>
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=251832">dark_lord</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=119676">Pops</a></td>
                     <td class="advCell" align="right">74.31</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=289251">ragnabot</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">66.69</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=309786">Yi_Zhang</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=309786">Yi_Zhang</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">64.18</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=286907">WishingBone</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">63.37</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=7463987">ShindouHikaru</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=7463987">ShindouHikaru</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">59.40</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=7436876">mastergaurav</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=7436876">mastergaurav</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">56.06</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=8347440">gagik</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=8347440">gagik</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">51.80</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=260578">danno</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=260578">danno</a></td>
                     <td class="advCell" align="left"></td>
                     <td class="advCell" align="right">50.31</td>
                 </tr>
@@ -148,7 +148,7 @@
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=6707859" target="_blank">Base64 Codec</a></td>
                     <td class="advCell" align="center">7</td>
                     <td class="advCell" align="center">1</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=278342">adic</a></td>
                     <td class="advCell" align="center">83.46</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -156,7 +156,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">2</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=277356">aksonov</a></td>
                     <td class="advCell" align="center">75.90</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -164,7 +164,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">3</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=289251">ragnabot</a></td>
                     <td class="advCell" align="center">66.69</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -172,7 +172,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">4</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=251989">AdamSelene</a></td>
                     <td class="advCell" align="center">66.52</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -180,7 +180,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">5</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=7463987">ShindouHikaru</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=7463987">ShindouHikaru</a></td>
                     <td class="advCell" align="center">59.40</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -188,7 +188,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">6</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=7436876">mastergaurav</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=7436876">mastergaurav</a></td>
                     <td class="advCell" align="center">56.06</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -196,7 +196,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">7</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=260578">danno</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=260578">danno</a></td>
                     <td class="advCell" align="center">50.31</td>
                     <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
@@ -204,7 +204,7 @@
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=5700518" target="_blank">Matrix Math Library</a></td>
                     <td class="advCell" align="center">4</td>
                     <td class="advCell" align="center">1</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=251832">dark_lord</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=251832">dark_lord</a></td>
                     <td class="advCell" align="center">74.31</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -212,7 +212,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">2</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=309786">Yi_Zhang</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=309786">Yi_Zhang</a></td>
                     <td class="advCell" align="center">64.18</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -220,7 +220,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">3</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=286907">WishingBone</a></td>
                     <td class="advCell" align="center">63.37</td>
                     <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
@@ -228,7 +228,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">4</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=8347440">gagik</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=8347440">gagik</a></td>
                     <td class="advCell" align="center">51.80</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -236,7 +236,7 @@
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=8403457" target="_blank">Sort Utility</a></td>
                     <td class="advCell" align="center">1</td>
                     <td class="advCell" align="center">1</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=251989">AdamSelene</a></td>
                     <td class="advCell" align="center">80.92</td>
                     <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
@@ -244,7 +244,7 @@
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=6601794" target="_blank">String Distance</a></td>
                     <td class="advCell" align="center">3</td>
                     <td class="advCell" align="center">1</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=302018">Tomson</a></td>
                     <td class="advCell" align="center">84.74</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -252,7 +252,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">2</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=289824">MPhk</a></td>
                     <td class="advCell" align="center">80.86</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -260,7 +260,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">3</td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=277356">aksonov</a></td>
                     <td class="advCell" align="center">78.33</td>
                     <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>

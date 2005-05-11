@@ -143,247 +143,247 @@
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=279551">scamp</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=279551">scamp</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">96.86</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+                    <td class="formHandleEven"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=299180">isv</a></td>
                     <td class="formTextEven" align="center">2</td>
                     <td class="formTextEven" align="center">96.57</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278595">seaniswise</a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=278595">seaniswise</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">95.42</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=119676">Pops</a></td>
                     <td class="formTextEven" align="center">5</td>
                     <td class="formTextEven" align="center">93.09</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=296145">srowen</a></td>
                     <td class="formTextOdd" align="center">5</td>
                     <td class="formTextOdd" align="center">89.91</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299706">cruizza</a></td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=299706">cruizza</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">89.82</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271978">rusi</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=271978">rusi</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">88.97</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=289824">MPhk</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">88.46</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754">Ken Vogel</a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=154754">Ken Vogel</a></td>
                     <td class="formTextOdd" align="center">4</td>
                     <td class="formTextOdd" align="center">88.04</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498">ThinMan</a></td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=150498">ThinMan</a></td>
                     <td class="formTextEven" align="center">5</td>
                     <td class="formTextEven" align="center">87.90</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304697">ozzie</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=304697">ozzie</a></td>
                     <td class="formTextOdd" align="center">3</td>
                     <td class="formTextOdd" align="center">87.87</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=261822">bodrius</a></td>
+                    <td class="formHandleEven"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=261822">bodrius</a></td>
                     <td class="formTextEven" align="center">4</td>
                     <td class="formTextEven" align="center">87.77</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=277356">aksonov</a></td>
                     <td class="formTextOdd" align="center">5</td>
                     <td class="formTextOdd" align="center">85.77</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=153434">bokbok</a></td>
+                    <td class="formHandleEven"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=153434">bokbok</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">85.63</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=294463">theMADscientist</a></td>
+                    <td class="formHandleOdd"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=294463">theMADscientist</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">85.05</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=273100">wf</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=273100">wf</a></td>
                     <td class="formTextEven" align="center">2</td>
                     <td class="formTextEven" align="center">84.87</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=278342">adic</a></td>
                     <td class="formTextOdd" align="center">4</td>
                     <td class="formTextOdd" align="center">83.78</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=155381">djFD</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=155381">djFD</a></td>
                     <td class="formTextEven" align="center">3</td>
                     <td class="formTextEven" align="center">83.78</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=281975">keithnigh</a></td>
+                    <td class="formHandleOdd"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=281975">keithnigh</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">82.55</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=280167">ttsuchi</a></td>
+                    <td class="formHandleEven"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=280167">ttsuchi</a></td>
                     <td class="formTextEven" align="center">7</td>
                     <td class="formTextEven" align="center">82.04</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=265522">veredox</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=265522">veredox</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">81.90</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=297731">TheCois</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=297731">TheCois</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">81.33</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=287614">argolite</a></td>
+                    <td class="formHandleOdd"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=287614">argolite</a></td>
                     <td class="formTextOdd" align="center">3</td>
                     <td class="formTextOdd" align="center">81.07</td>
                 </tr>
                 
                  <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=156618">mckavity</a></td>
+                    <td class="formHandleEven"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=156618">mckavity</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">79.35</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=304976">giginim</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=304976">giginim</a></td>
                     <td class="formTextOdd" align="center">5</td>
                     <td class="formTextOdd" align="center">78.58</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=155357">alexaukf</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=155357">alexaukf</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">77.57</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=157174">preetham</a></td>
+                    <td class="formHandleOdd"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=157174">preetham</a></td>
                     <td class="formTextOdd" align="center">3</td>
                     <td class="formTextOdd" align="center">76.86</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=294570">Saxophonist</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=294570">Saxophonist</a></td>
                     <td class="formTextEven" align="center">3</td>
                     <td class="formTextEven" align="center">74.97</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=136305">HuskerFan</a></td>
+                    <td class="formHandleOdd"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=136305">HuskerFan</a></td>
                     <td class="formTextOdd" align="center">2</td>
                     <td class="formTextOdd" align="center">73.51</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=252022">AleaActaEst</a></td>
+                    <td class="formHandleEven"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=252022">AleaActaEst</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">72.75</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=271917">slowjoe</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=271917">slowjoe</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">72.72</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=280393">lAZer</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=280393">lAZer</a></td>
                     <td class="formTextEven" align="center">2</td>
                     <td class="formTextEven" align="center">72.46</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=272311">yellow_gecko</a></td>
+                    <td class="formHandleOdd"><a class="coderTextGreen" href="/tc?module=MemberProfile&amp;cr=272311">yellow_gecko</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">72.44</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=289864">FTolToaster</a></td>
+                    <td class="formHandleEven"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=289864">FTolToaster</a></td>
                     <td class="formTextEven" align="center">2</td>
                     <td class="formTextEven" align="center">70.18</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=300664">ahoenig</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=300664">ahoenig</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">69.35</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=295413">alienisty</a></td>
+                    <td class="formHandleEven"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=295413">alienisty</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">67.29</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=263386">TemporarilyBlue</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=263386">TemporarilyBlue</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">67.21</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=260172">ddwsdl</a></td>
+                    <td class="formHandleEven"><a class="coderTextBlue" href="/tc?module=MemberProfile&amp;cr=260172">ddwsdl</a></td>
                     <td class="formTextEven" align="center">2</td>
                     <td class="formTextEven" align="center">66.90</td>
                 </tr>
                 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=343287">kameshjayaram</a></td>
+                    <td class="formHandleOdd"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=343287">kameshjayaram</a></td>
                     <td class="formTextOdd" align="center">1</td>
                     <td class="formTextOdd" align="center">65.70</td>
                 </tr>
                 
                  <tr valign="top">
-                    <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=296226">CDummy</a></td>
+                    <td class="formHandleEven"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=296226">CDummy</a></td>
                     <td class="formTextEven" align="center">1</td>
                     <td class="formTextEven" align="center">63.26</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="formHandleOdd"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=261909">RedSpectra</a></td>
+                    <td class="formHandleOdd"><a class="coderTextGray" href="/tc?module=MemberProfile&amp;cr=261909">RedSpectra</a></td>
                     <td class="formTextOdd" align="center">2</td>
                     <td class="formTextOdd" align="center">60.71</td>
                 </tr>

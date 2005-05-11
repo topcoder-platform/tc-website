@@ -108,7 +108,7 @@ public class ProfileSearch extends Base {
             query.append("  , (select unique '<a href=/tc?module=ViewNotes&uid=' || unx.user_id || '>Notes</a>' from user_note_xref unx where unx.user_id = c.coder_id)\n");
             query.append("  , (select unique '<a href=/tc?module=PlacementInfoDetail&uid=' || upi.user_id || '>Placement Info</a>' from user_preference upi where upi.user_id = c.coder_id AND upi.preference_id in (2,7))\n");
             query.append("  , '<a href=/tc?module=LegacyReport&t=profile&ha=' || u.handle || '>General Info</a>'\n");
-            query.append("  , '<a href=/stat?c=member_profile&cr=' || c.coder_id || '>Public Profile</a>'\n");
+            query.append("  , '<a href=/tc?module=MemberProfile&cr=' || c.coder_id || '>Public Profile</a>'\n");
             headers.addAll(Arrays.asList(new String[]{ "Algorithm Rating", "Design Rating", "Development Rating","","","","",""}));
             for(int i = 0; i<skills[2].size(); i++){
                 query.append("  , ");

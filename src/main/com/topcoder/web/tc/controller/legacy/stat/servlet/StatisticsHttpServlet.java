@@ -119,6 +119,11 @@ public class StatisticsHttpServlet extends HttpServlet {
     public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sQueryString = request.getQueryString();
         if (sQueryString != null) {
+            //check to redirect member profile requests to new servlet
+            if(request.getParameter("c") != null && request.getParameter("c").equals("member_profile")) {
+                response.sendRedirect("http://" + request.getServerName() + "/tc?module=MemberProfile&cr=" + request.getParameter("cr"));
+                return;
+            }
             // the next line works for Servlet.jar pre Servlet 2.3
             Map map = HttpUtils.parseQueryString(sQueryString);
             // the next line works for Servlet 2.3

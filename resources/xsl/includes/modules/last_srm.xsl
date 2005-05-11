@@ -20,7 +20,7 @@
  	<TR>
 		<TD CLASS="statText" VALIGN="top">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A>
 , TopCoder's top-rated member, was the winner in Room 1 with 1130.16 final points after passing the system test for 
 all three submitted problems.
 </P>
@@ -39,8 +39,8 @@ all three submitted problems.
  	<TR>
 		<TD CLASS="statText" VALIGN="top">
 <P>
-The top score for a first time coder was earned by <A HREF="/stat?c=member_profile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
-, who gained 1528.15 final points and won Room 61.  <A HREF="/stat?c=member_profile&amp;cr=274018" CLASS="coderTextBlue">Alexandre</A>
+The top score for a first time coder was earned by <A HREF="/tc?module=MemberProfile&amp;cr=263994" CLASS="coderTextYellow">seashadow</A>
+, who gained 1528.15 final points and won Room 61.  <A HREF="/tc?module=MemberProfile&amp;cr=274018" CLASS="coderTextBlue">Alexandre</A>
  finished a close second with 1501.93 points
 ...<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="statText">full&#160;story</A>
 </P>

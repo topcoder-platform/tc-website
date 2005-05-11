@@ -32,22 +32,22 @@
                 </tr>
                 <tr>
                     <td class="sidebarText">1st place finisher - Algorithm Competition Champion</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=144400">tomek</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=144400">tomek</a></td>
                     <td class="sidebarText" align="right">$20,000</td>
                 </tr>
                 <tr>
                     <td class="sidebarText">2nd place finisher</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=272072">SnapDragon</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=272072">SnapDragon</a></td>
                     <td class="sidebarText" align="right">$10,000</td>
                 </tr>
                 <tr>
                     <td class="sidebarText">3rd place finisher</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=260835">reid</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=260835">reid</a></td>
                     <td class="sidebarText" align="right">$5,000</td>
                 </tr>
                 <tr>
                     <td class="sidebarText">4th place finisher</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=7445961">snewman</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=7445961">snewman</a></td>
                     <td class="sidebarText" align="right">$2,500</td>
                 </tr>
             </table>
@@ -63,22 +63,22 @@
                 </tr>
                 <tr>
                     <td class="sidebarText">1st place finisher - Design Competition Champion</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=278342">adic</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=278342">adic</a></td>
                     <td class="sidebarText" align="right">$20,000</td>
                 </tr>
                 <tr>
                     <td class="sidebarText">2nd place finisher</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=152342">kyky</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=152342">kyky</a></td>
                     <td class="sidebarText" align="right">$10,000</td>
                 </tr>
                 <tr>
                     <td class="sidebarText">3rd place finisher</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=277356">aksonov</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=277356">aksonov</a></td>
                     <td class="sidebarText" align="right">$5,000</td>
                 </tr>
                 <tr>
                     <td class="sidebarText">4th place finisher</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=289824">MPhk</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=289824">MPhk</a></td>
                     <td class="sidebarText" align="right">$2,500</td>
                 </tr>
             </table>
@@ -94,17 +94,17 @@
                 </tr>
                 <tr>
                     <td class="sidebarText">1st place finisher - Development Competition Champion</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=310233">Standlove</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=310233">Standlove</a></td>
                     <td class="sidebarText" align="right">$10,000</td>
                 </tr>
                 <tr>
                     <td class="sidebarText">2nd place finisher</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=7270519">chippydip</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=7270519">chippydip</a></td>
                     <td class="sidebarText" align="right">$4,000</td>
                 </tr>
                 <tr>
                     <td class="sidebarText">3rd place finisher</td>
-                    <td class="sidebarText"><a href="/stat?c=member_profile&cr=7463987">ShindouHikaru</a></td>
+                    <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=7463987">ShindouHikaru</a></td>
                     <td class="sidebarText" align="right">$2,500</td>
                 </tr>
             </table>

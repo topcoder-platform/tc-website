@@ -72,9 +72,9 @@ trying for the fun of it.
 
 <P><IMG SRC="/i/f/feat_050802_tn1.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
 That same pattern seems to happen in TopCoder's Single Round Matches.  Coders like 
-<A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> and 
-<A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> and 
+<A HREF="/tc?module=MemberProfile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>
  have achieved legendary status per their enormous success.  The three have 
 combined to win their respective rooms over 80 times, each has made an appearance in the finals 
 of one of TopCoder's three major tournaments, with <B>jonmac</B> and 
@@ -98,19 +98,19 @@ ratings, and have been mired in Division-II for a considerable time.  Why do the
 The commonalities to that query were the challenge, the pressure, and a love of coding. 
  "I keep competing because I see myself getting better and learning how to use the more
   advanced features, and on occasion show the skills I was taught and know I have,"
-   said <A HREF="/stat?c=member_profile&amp;cr=261283" CLASS="bodyGeneric">Fuzzyb18</A>,
+   said <A HREF="/tc?module=MemberProfile&amp;cr=261283" CLASS="bodyGeneric">Fuzzyb18</A>,
     who has competed in 26 matches and has a rating of 668.  "Anything 
    that you can do to improve yourself should keep you motivated until you can do it right."
 </P>
 
 <P>
 "I just enjoy the stress of writing good code in short time," mentioned 
-<A HREF="/stat?c=member_profile&amp;cr=156742" CLASS="bodyGeneric">ahmedf</A>, who has a rating of 933 through 36 matches.
+<A HREF="/tc?module=MemberProfile&amp;cr=156742" CLASS="bodyGeneric">ahmedf</A>, who has a rating of 933 through 36 matches.
 </P>
 
 <P>
 "It's not really for the rating, but rather its more for the experience," 
-added <A HREF="/stat?c=member_profile&amp;cr=265216" CLASS="bodyGeneric">darkphantom</A>
+added <A HREF="/tc?module=MemberProfile&amp;cr=265216" CLASS="bodyGeneric">darkphantom</A>
  (870 rating in 20 matches).  "I mean I know it would be 
 nice to win some money every match, because every college kid needs money, 
 and bothering your parents is a hassle.  I'd rather tell them I won $46 last night."
@@ -143,11 +143,11 @@ TopCoder competitions are more conducive to sprinters.
 
 <P>
 "Twenty percent of the time I simply could not do the problem in time," said 
-<A HREF="/stat?c=member_profile&amp;cr=260502" CLASS="bodyGeneric">vigenere</A>, who has a 771 rating in 21 matches.
+<A HREF="/tc?module=MemberProfile&amp;cr=260502" CLASS="bodyGeneric">vigenere</A>, who has a 771 rating in 21 matches.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=151719" CLASS="bodyGeneric">bitbucket43</A>,
+<A HREF="/tc?module=MemberProfile&amp;cr=151719" CLASS="bodyGeneric">bitbucket43</A>,
  a veteran of 48 matches with a 951 rating, and edragon 
 (23 matches, 714 rating) are more like painters than sketch artists.  
 "My TopCoder rating doesn't reflect my knowledge and experience," 
@@ -158,7 +158,7 @@ That approach tends to work against me in competition."
 </P>
 
 <P>
-"I don't work as well in a quick paced environment," declared <A HREF="/stat?c=member_profile&amp;cr=156420" CLASS="bodyGeneric">edragon</A>.  
+"I don't work as well in a quick paced environment," declared <A HREF="/tc?module=MemberProfile&amp;cr=156420" CLASS="bodyGeneric">edragon</A>.  
 "I would like to have the entire problem statement analyzed, documented
  and completely understood before I go for it."
 </P>

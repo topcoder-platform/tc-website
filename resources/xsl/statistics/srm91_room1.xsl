@@ -99,20 +99,20 @@ May 22, 2002</P>
 
 <P>
 SRM 91 began in the usual manner in Room One: 
-<A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
  opted to begin work on the Level 
 2 problem, while everyone else chose to begin with the Level 1 problem. 
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>
  drew 
 first blood, coming up with a 239.34-point submission in only six minutes 
 (the highest Division-I / Level 1 score of the match). 
-This was followed shortly by <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="bodyGeneric">ambrose</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=274023" CLASS="bodyGeneric">venco</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=154754" CLASS="bodyGeneric">kv</A>, and 
-<A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A>, 
+This was followed shortly by <A HREF="/tc?module=MemberProfile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=153505" CLASS="bodyGeneric">ambrose</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=274023" CLASS="bodyGeneric">venco</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=154754" CLASS="bodyGeneric">kv</A>, and 
+<A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="bodyGeneric">evd</A>, 
 in descending order of points earned. The time at this point was 
 15 minutes into the contest, everyone had submitted the Level 1 problem except 
 <B>dmwright</B>, and everyone was working on the Level 2 problem. 
@@ -247,7 +247,7 @@ The final scores were thus:
 
 
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

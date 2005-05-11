@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>The TopCoder Design Contest #2</strong></font><br />
                         Tuesday, July 29, 2003</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=119676"><strong>Pops</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
                         <p>

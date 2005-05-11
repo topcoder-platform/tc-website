@@ -92,10 +92,10 @@ May 21, 2002</P>
 The Level One was simply to write the algorithm they described - not hard at all. One could 
 keep a "current index" for the roaster and move it forward, or simply calculate it at each point 
 with a modulus. Probably the hardest part was the formatting for the output. 
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut's</A> 
+<A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut's</A> 
 solution used the C++ sprintf() function, while 
-<A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> did the conversion by hand. 
-For Java, <A HREF="/stat?c=member_profile&amp;cr=154754" CLASS="bodyGeneric">kv's</A> solution 
+<A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A> did the conversion by hand. 
+For Java, <A HREF="/tc?module=MemberProfile&amp;cr=154754" CLASS="bodyGeneric">kv's</A> solution 
 demonstrates a clever solution - adding 256 to it, thereby forcing 
 a 0 in the second place if it's less than 16, converting it to hex, and chopping the first 
 character off. <B>kv's</B> solution was also the fastest.
@@ -107,7 +107,7 @@ program. Keep an array of everyone's score, keep track of the current "3-man", c
 and current place in the pickValues, and just do it. You could code it slightly faster if you 
 realized that "add one to everyone's score" didn't actually need to be done - since all you 
 care about is the lowest score, obviously writing that isn't going to change anything. 
-<A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="bodyGeneric">Yarin's</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="bodyGeneric">Yarin's</A>
  solution, the fastest, is also quite easy to read.
 </P>
 
@@ -157,7 +157,7 @@ to the output strings, and that was the solution.
 </P>
 
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
           
 <!-- <P><B>Member Comments</B></P> 

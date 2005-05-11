@@ -546,7 +546,7 @@ for a clean solution. <br />
 
                 <p>
                 <img src="/i/m/supernova_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-                By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=7371063"><strong>supernova</strong></a><br />
+                By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=7371063"><strong>supernova</strong></a><br />
                 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                 </p>
              </td>

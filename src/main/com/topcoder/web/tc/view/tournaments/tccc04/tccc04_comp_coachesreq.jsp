@@ -59,52 +59,52 @@
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">b0b0b0b</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=273206">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=273206">View stats</a></td>
                     <td class="sidebarText" align="center">2</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">bokbok</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=153434">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=153434">View stats</a></td>
                     <td class="sidebarText" align="center">2</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Farlox</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=252277">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=252277">View stats</a></td>
                     <td class="sidebarText" align="center">4</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">giginim</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=304976">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=304976">View stats</a></td>
                     <td class="sidebarText" align="center">5</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">isv</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=299180">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=299180">View stats</a></td>
                     <td class="sidebarText" align="center">1</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">kyky</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=152342">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=152342">View stats</a></td>
                     <td class="sidebarText" align="center">3</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">mishagam</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=299904">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=299904">View stats</a></td>
                     <td class="sidebarText" align="center">3</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">orb</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=150940">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=150940">View stats</a></td>
                     <td class="sidebarText" align="center">3</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Pops</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=119676">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=119676">View stats</a></td>
                     <td class="sidebarText" align="center">3</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">srowen</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=296145">View stats</a></td>
+                    <td class="sidebarText" align="center" nowrap="0"><a href="/tc?module=MemberProfile&cr=296145">View stats</a></td>
                     <td class="sidebarText" align="center">3</td>
                 </tr>
              </table>

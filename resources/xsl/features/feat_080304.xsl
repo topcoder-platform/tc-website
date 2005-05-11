@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Reviewing Software for Fun and Profit</strong></font><br />
                         Tuesday, August 3, 2004</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=156859"><strong>ivern</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=156859"><strong>ivern</strong></a><br />
                         <span class="smallText"><em>TopCoder Staff</em></span></p>
 
                         

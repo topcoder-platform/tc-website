@@ -88,7 +88,7 @@ else
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText" align=left><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a>
+                                <td class="sidebarText" align=left><a href="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a>
                                 <% if(resultRow.getIntItem("complete_status") == 0)  { 
                                     isComplete = false;%>
                                     *

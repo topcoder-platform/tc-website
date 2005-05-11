@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Immutable Objects</strong></font><br />
                         Thursday, July 10, 2003</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=299177"><strong>vorthys</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
                         <p>

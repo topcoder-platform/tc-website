@@ -78,7 +78,7 @@ pageContext.setAttribute("resultRow", rsr);
                                 </TD>
                             
                                 <TD width="99%" CLASS="statText" HEIGHT="16" align="right">
-                     <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
+                     <A HREF="/tc?module=MemberProfile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
                      |   
 
                      <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating</A>

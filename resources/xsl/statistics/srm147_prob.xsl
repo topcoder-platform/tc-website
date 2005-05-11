@@ -290,7 +290,7 @@ exactly how many are required.  You can look at pretty much any successful solut
                       
 
                         <img src="/i/m/lbackstrom_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
+                        By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=159052"><strong>lbackstrom</strong></a><br />
                         <div class="smallText"><em>TopCoder Member</em></div><br clear="all" />
                         
 

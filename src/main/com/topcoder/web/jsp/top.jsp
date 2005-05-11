@@ -46,7 +46,7 @@
         <td class=homeTopBar width="100%" align=right>
 <% if ( !sessionInfo.isAnonymous() ) { %>
             <strong>Hello, </strong>
-            <a href="/stat?c=member_profile&amp;cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a>
+            <a href="/tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a>
             &#160;&#160;|&#160;&#160;<a href="/tc?&amp;module=Logout" class=loginLinks>Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>

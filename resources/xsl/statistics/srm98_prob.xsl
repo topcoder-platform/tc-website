@@ -97,7 +97,7 @@ June 19, 2002</P>
             My general impression of these problems is that they were relatively easy.
             However, the resulting statistics seem to indicate that the difficulty was just right.
             Regardless, this was a fun set of problems.  My only suggestion to the author,
-            <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=266750" class="bodyGeneric">axchma</a> is to pick an easier-to-type handle if he ever again intends to
+            <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=266750" class="bodyGeneric">axchma</a> is to pick an easier-to-type handle if he ever again intends to
             use his handle in the input to a problem.
         </p>
 <B>The Problems</B>
@@ -107,7 +107,7 @@ June 19, 2002</P>
 
 <br/>
 Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=266750" class="bodyGeneric">axchma</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=266750" class="bodyGeneric">axchma</a>
 
 <br/>
 
@@ -172,7 +172,7 @@ Reference implementation:
 
 <br/>
 Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=266750" class="bodyGeneric">axchma</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=266750" class="bodyGeneric">axchma</a>
 
 <br/>
 
@@ -242,7 +242,7 @@ Reference implementation:
 
 <br/>
 Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=266750" class="bodyGeneric">axchma</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=266750" class="bodyGeneric">axchma</a>
 
 <br/>
 
@@ -315,7 +315,7 @@ Reference implementation:
 
 <br/>
 Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=266750" class="bodyGeneric">axchma</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=266750" class="bodyGeneric">axchma</a>
 
 <br/>
 
@@ -494,7 +494,7 @@ Reference implementation:
 
 <br/>
 Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=266750" class="bodyGeneric">axchma</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=266750" class="bodyGeneric">axchma</a>
 
 <br/>
 
@@ -603,7 +603,7 @@ Reference implementation:
 
 
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

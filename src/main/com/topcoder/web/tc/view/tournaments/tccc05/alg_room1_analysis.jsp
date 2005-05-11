@@ -29,8 +29,8 @@
 		<span class="leadPhotoCaption">One very happy finalist<br/><br/></span>
 		</div>
 
-		<a href="/stat?c=member_profile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
-		<p>by <a href="/stat?c=member_profile&cr=159052">lbackstrom</a>, <br/>
+		<a href="/tc?module=MemberProfile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
+		<p>by <a href="/tc?module=MemberProfile&cr=159052">lbackstrom</a>, <br/>
 		<em>TopCoder Member</em><br />
 		Thursday, March 10, 2005<br/>
 		<br/><br/>

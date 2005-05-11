@@ -71,40 +71,40 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
 <IMG SRC="/i/m/sandeepgupta_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A><br/>
+<b>Handle: </b><A HREF="/tc?module=MemberProfile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A><br/>
 <b>Rating: </b>1788<br/>
 <b>Member Since: </b>April&#160;30,&#160;2002<br/>
 <b>Total Competitions: </b>2<br/>
 </P>
 
 <P>
-TopCoder, Inc. announced today that <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+TopCoder, Inc. announced today that <A HREF="/tc?module=MemberProfile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
  has been named the "Coder of the Week" for Single 
 Round Matches 84 and 85, which took place between April 29 and May 5, 2002.  
 </P>
 
 <P>
-In Single Round Match 85, <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+In Single Round Match 85, <A HREF="/tc?module=MemberProfile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
  won Room 15 and gained 372 rating points, which is 
 the second highest total ever in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  
-<A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
  won the room with 1214.24 final points.  He earned 198.36 points on the Level One problem, 273.44 on the Level 
 Two problem, and 692.33 on the Level Three problem, for a total of 1164.24 points in the "Coding Phase", which placed him 
-second in the room behind Bender (1184.01).  <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
- successfully challenged the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=152713" CLASS="coderTextBlue">Bob9000</A> 
+second in the room behind Bender (1184.01).  <A HREF="/tc?module=MemberProfile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+ successfully challenged the Level Three submission of <A HREF="/tc?module=MemberProfile&amp;cr=152713" CLASS="coderTextBlue">Bob9000</A> 
 for 50 additional points in the "Challenge Phase", earning enough points for the room win. 
 </P>
 
 <P>
 "My attention to detail helped me write code that required little rework before submission, 
-said <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+said <A HREF="/tc?module=MemberProfile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
 .  "More importantly, my wife took care of our two-year old daughter during 
 the competition!  This was my second match since registering with TopCoder.  This time I was 
 much more comfortable with the development environment provided by the applet."
 </P>
  
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
  has been a TopCoder member since April 30, 2002, and is a perfect six-for-six in 
 submissions and three-for-three in challenges in two overall matches.   
 </P>
@@ -123,9 +123,9 @@ enough, I hope to participate in the Invitational."
 </P>
  
 <P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=279524" CLASS="coderTextYellow">currane</A>
+Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=279524" CLASS="coderTextYellow">currane</A>
 , who had a 363-point rating gain 
-in Single Round Match 84, the third highest in Division-I; and <A HREF="/stat?c=member_profile&amp;cr=279526" CLASS="coderTextYellow">cbthiess</A>
+in Single Round Match 84, the third highest in Division-I; and <A HREF="/tc?module=MemberProfile&amp;cr=279526" CLASS="coderTextYellow">cbthiess</A>
 , who had a debut rating 
 of 1755, which is the 25th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
 </P>

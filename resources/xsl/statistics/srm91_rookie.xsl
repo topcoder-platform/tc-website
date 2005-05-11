@@ -130,11 +130,11 @@ rooms.
 </P>
 
 <P>
-In Room 64, <A HREF="/stat?c=member_profile&amp;cr=284062" CLASS="bodyGeneric">JuanitoBandito</A>
+In Room 64, <A HREF="/tc?module=MemberProfile&amp;cr=284062" CLASS="bodyGeneric">JuanitoBandito</A>
  had submitted an empty class for the Level 3 problem. 
-Within a minute this was found by <A HREF="/stat?c=member_profile&amp;cr=106370" CLASS="bodyGeneric">rumil</A>
+Within a minute this was found by <A HREF="/tc?module=MemberProfile&amp;cr=106370" CLASS="bodyGeneric">rumil</A>
 , who successfully challenged it. <B>JuanitoBandito</B> 
-then attempted to challenge <A HREF="/stat?c=member_profile&amp;cr=284101" CLASS="bodyGeneric">Fuzz's</A>
+then attempted to challenge <A HREF="/tc?module=MemberProfile&amp;cr=284101" CLASS="bodyGeneric">Fuzz's</A>
  Level 2 submission, but failed, losing an additional 50 
 points. <B>Fuzz</B> then retaliated by successfully challenging <B>JuanitoBandito's</B> Level 2 submission.
  <B>JuanitoBandito</B> made the simple mistake of assuming the scores were sorted, thus leading to 
@@ -142,27 +142,27 @@ points. <B>Fuzz</B> then retaliated by successfully challenging <B>JuanitoBandit
 </P>
 
 <P>
-The only successful challenge in Room 65 was by <A HREF="/stat?c=member_profile&amp;cr=282137" CLASS="bodyGeneric">ttilling</A>
+The only successful challenge in Room 65 was by <A HREF="/tc?module=MemberProfile&amp;cr=282137" CLASS="bodyGeneric">ttilling</A>
 , who successfully challenged 
-<A HREF="/stat?c=member_profile&amp;cr=279388" CLASS="bodyGeneric">limer619's</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=279388" CLASS="bodyGeneric">limer619's</A>
  Level 1 submission, a solution that was so incorrect that it never could have 
 passed the sample test cases. There were also two unsuccessful challenges, one of which 
-were by <A HREF="/stat?c=member_profile&amp;cr=285601" CLASS="bodyGeneric">lolbrish</A>
+were by <A HREF="/tc?module=MemberProfile&amp;cr=285601" CLASS="bodyGeneric">lolbrish</A>
 , giving <B>ttilling</B> the lead in Room 65. 
 </P>
 
 <P>
-In Room 66, <A HREF="/stat?c=member_profile&amp;cr=285577" CLASS="bodyGeneric">Partorg</A>
+In Room 66, <A HREF="/tc?module=MemberProfile&amp;cr=285577" CLASS="bodyGeneric">Partorg</A>
  unsuccessfully challenged gmud's Level 2 submission. <B>Partorg's</B> 
-Level 3 submission was later annihilated by <A HREF="/stat?c=member_profile&amp;cr=285308" CLASS="bodyGeneric">SushiK</A>
+Level 3 submission was later annihilated by <A HREF="/tc?module=MemberProfile&amp;cr=285308" CLASS="bodyGeneric">SushiK</A>
  (who I presume is a Neal Stephenson fan). 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=285479" CLASS="bodyGeneric">StevoD</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=285479" CLASS="bodyGeneric">StevoD</A>
  racked up two successful challenges in Room 67, defeating 
- <A HREF="/stat?c=member_profile&amp;cr=281252" CLASS="bodyGeneric">dilipdalton</A>
- and <A HREF="/stat?c=member_profile&amp;cr=260618" CLASS="bodyGeneric">jake's</A>
+ <A HREF="/tc?module=MemberProfile&amp;cr=281252" CLASS="bodyGeneric">dilipdalton</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=260618" CLASS="bodyGeneric">jake's</A>
 Level 3 submissions, both with the same test case. <B>jake's</B> solution exhibited the dubious 
 practice of using reference equality for string comparisons in Java (e.g., str == "abc", 
 as opposed to the safer and more likely to be correct str.equals("abc")), though I'm not 
@@ -207,10 +207,10 @@ submission failed, both of <B>rumil's</B> Level 2 and Level 3 submissions failed
 giving <B>Fuzz</B> a strong lead in Room 64. In Room 65, <B>lolbrish</B> also lost his Level 2 and 
 Level 3 submissions. <B>ttilling</B> performed exceptionally well, being one of the two rookies 
 to get all three problems correct. The Level 3 submission of 
-<A HREF="/stat?c=member_profile&amp;cr=285611" CLASS="bodyGeneric">jinling</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=285611" CLASS="bodyGeneric">jinling</A>
  failed in Room 66, but 
 due to <B>Partorg's</B> lack of success during the challenge phase, <B>jinling</B> was able to hold on to 
-a slim lead of 52 points. <A HREF="/stat?c=member_profile&amp;cr=277563" CLASS="bodyGeneric">manaswini</A>
+a slim lead of 52 points. <A HREF="/tc?module=MemberProfile&amp;cr=277563" CLASS="bodyGeneric">manaswini</A>
  in Room 67 was the only other rookie to get all three problems correct. 
 </P>
 
@@ -250,7 +250,7 @@ The final scores were:
 
 
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

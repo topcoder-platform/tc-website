@@ -70,34 +70,34 @@
 												
 <IMG SRC="/i/m/ZorbaTHut_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A><br/>
+<b>Handle: </b><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A><br/>
 <b>Rating: </b>2787<br/>
 <b>Member Since: </b>August&#160;2,&#160;2001<br/>
 <b>Total Competitions: </b>47<br/>
 </P>
 
 <P>
-TopCoder, Inc. announced today that <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A> has been named the "Coder of the Week" for Single Round Matches 72 and 73, which took place between March 18 and 24, 2002.  
+TopCoder, Inc. announced today that <A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A> has been named the "Coder of the Week" for Single Round Matches 72 and 73, which took place between March 18 and 24, 2002.  
 </P>
 
 <P>
-In Single Round Match 73, <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A> won Room 1 of Division-I with a division-high 1390.45 final points, enjoyed a rating increase of 99, jumped past <A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="coderTextRed">jonmac</A> (2755) into second place overall among members, and first among collegians with a 2787 rating.  <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A> leads all coders with a 2977 rating.  
+In Single Round Match 73, <A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A> won Room 1 of Division-I with a division-high 1390.45 final points, enjoyed a rating increase of 99, jumped past <A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="coderTextRed">jonmac</A> (2755) into second place overall among members, and first among collegians with a 2787 rating.  <A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A> leads all coders with a 2977 rating.  
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A> was the Northeast Regional Champion in the 2002 Collegiate Challenge, and is one of the <A HREF="/index?t=statistics&amp;c=2002tccc_favs" CLASS="statText">favorites</A> heading to the finals.
+<A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A> was the Northeast Regional Champion in the 2002 Collegiate Challenge, and is one of the <A HREF="/index?t=statistics&amp;c=2002tccc_favs" CLASS="statText">favorites</A> heading to the finals.
 </P>
 
 <P>
-"I think I'm successful because I learn," said <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A>.  "Every time I see someone who did it a lot faster or better than me, or solved a problem I couldn't, I look at it and figure out what they did.  Then I use that.  It's been a very slow battle up to this point, but I seem to be here now."
+"I think I'm successful because I learn," said <A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A>.  "Every time I see someone who did it a lot faster or better than me, or solved a problem I couldn't, I look at it and figure out what they did.  Then I use that.  It's been a very slow battle up to this point, but I seem to be here now."
 </P>
 
 <P>
-A TopCoder member since August 2, 2001, <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A> has competed 47 times and has won a total of $9,940.  <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A>, who was a finalist in the 2001 TopCoder Invitational and finished tied for 13th, is a Physics major at Oberlin College in Ohio.
+A TopCoder member since August 2, 2001, <A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A> has competed 47 times and has won a total of $9,940.  <A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="coderTextRed">ZorbaTHut</A>, who was a finalist in the 2001 TopCoder Invitational and finished tied for 13th, is a Physics major at Oberlin College in Ohio.
 </P>
 
 <P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=112492" CLASS="coderTextGreen">ligremor</A>, who had a 402 rating point gain in Single Round Match 73, the ninth highest in Division-II (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>); and <A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="coderTextYellow">SnapDragon</A>, who had a rating debut of 1911 in Single Round Match 72, which is the fourth highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
+Other members nominated for "Coder of the Week" were: <A HREF="/tc?module=MemberProfile&amp;cr=112492" CLASS="coderTextGreen">ligremor</A>, who had a 402 rating point gain in Single Round Match 73, the ninth highest in Division-II (<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>); and <A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="coderTextYellow">SnapDragon</A>, who had a rating debut of 1911 in Single Round Match 72, which is the fourth highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
 </P>
 
 							</TD>						

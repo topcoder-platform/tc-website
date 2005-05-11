@@ -283,7 +283,7 @@ the next element.  If the queue becomes empty, then it's impossible for the play
 return -1.</p>
 
                         <p><img src="/i/m/LunaticFringe_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=288584"><strong>LunaticFringe</strong></a><br/>
+                        By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=288584"><strong>LunaticFringe</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" /></p>
 
                     </td>

@@ -53,7 +53,7 @@
          </tr>
          <tr>
             <td align="left" class="bodyText" valign="top">
-               By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=277659"><strong>radeye</strong></a><br />
+               By&#160;<a class="bodyText" href="/stat?tc?module=MemberProfile&amp;cr=277659"><strong>radeye</strong></a><br />
                <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
             </td>
          </tr>
@@ -75,7 +75,7 @@
 <td class="rh3" align="right">2nd</td>
 <td class="rh3" align="right">Champ</td>
 </tr>
-<tr><td class="rt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=144400">tomek</a></td>
+<tr><td class="rt1o"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=144400">tomek</a></td>
 <td class="rt1o" align="right">3452</td>
 <td class="rt1o" align="right">299</td>
 <td class="rt1o" align="right">$35 088.26</td>
@@ -83,7 +83,7 @@
 <td class="rt3o" align="right">9.43</td>
 <td class="rt3o" align="right">28.37</td>
 <td class="rt3o" align="right">60.26</td></tr>
-<tr><td class="rt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=269554">Yarin</a></td>
+<tr><td class="rt1e"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=269554">Yarin</a></td>
 <td class="rt1e" align="right">3117</td>
 <td class="rt1e" align="right">341</td>
 <td class="rt1e" align="right">$16 454.73</td>
@@ -91,7 +91,7 @@
 <td class="rt3e" align="right">31.48</td>
 <td class="rt3e" align="right">38.18</td>
 <td class="rt3e" align="right">17.17</td></tr>
-<tr><td class="rt1o"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287496">bstanescu</a></td>
+<tr><td class="rt1o"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=287496">bstanescu</a></td>
 <td class="rt1o" align="right">2704</td>
 <td class="rt1o" align="right">810</td>
 <td class="rt1o" align="right">$12 916.55</td>
@@ -99,7 +99,7 @@
 <td class="rt3o" align="right">16.59</td>
 <td class="rt3o" align="right">13.21</td>
 <td class="rt3o" align="right">16.65</td></tr>
-<tr><td class="rt1e"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=287568">tjq</a></td>
+<tr><td class="rt1e"><a class="coderTextRed" href="/stat?tc?module=MemberProfile&amp;cr=287568">tjq</a></td>
 <td class="rt1e" align="right">2888</td>
 <td class="rt1e" align="right">342</td>
 <td class="rt1e" align="right">$9 240.47</td>

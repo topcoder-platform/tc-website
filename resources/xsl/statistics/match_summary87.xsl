@@ -108,9 +108,9 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>
-In Room 3, <A HREF="/stat?c=member_profile&amp;cr=159177" CLASS="bodyGeneric">wybili</A>, 
+In Room 3, <A HREF="/tc?module=MemberProfile&amp;cr=159177" CLASS="bodyGeneric">wybili</A>, 
 the lowest ranked coder in the room, pulled off a big upset, 
-and won a close battle over <A HREF="/stat?c=member_profile&amp;cr=158067" CLASS="bodyGeneric">KurtSteinkraus</A>,
+and won a close battle over <A HREF="/tc?module=MemberProfile&amp;cr=158067" CLASS="bodyGeneric">KurtSteinkraus</A>,
  1325.33 to 1310.91.  <B>wybili</B> earned 
 280.12 on the Level One problem, 354.49 on the Level Two problem, and 690.72 on 
 the Level Three problem, while <B>KurtSteinkraus</B> earned 264.03, 436.17, and 610.71 
@@ -118,8 +118,8 @@ on the three problems, respectively.
 </P>
 
 <P>
-In an even closer battle, <A HREF="/stat?c=member_profile&amp;cr=251134" CLASS="bodyGeneric">plan571</A>
- beat <A HREF="/stat?c=member_profile&amp;cr=268907" CLASS="bodyGeneric">Trolley</A>
+In an even closer battle, <A HREF="/tc?module=MemberProfile&amp;cr=251134" CLASS="bodyGeneric">plan571</A>
+ beat <A HREF="/tc?module=MemberProfile&amp;cr=268907" CLASS="bodyGeneric">Trolley</A>
  by just 5.13 points, 657.23 to 
 652.10, to win Room 9.  plan571 earned 262.63 points on the Level One problem, 
 and 394.60 on the Level Two problem.  The Level Three problem was opened and 
@@ -130,15 +130,15 @@ Level Three problem as well, but didn't submit any code for it.
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="bodyGeneric">radeye</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=277659" CLASS="bodyGeneric">radeye</A>
  won Room 10 with 1443.89 final points, and gained 301 rating points, 
 which is the 10th largest Division-I gain 
 (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gain</A>).  
 <B>radeye</B> earned 1343.89 points in the "Coding Phase" 
 by gaining 273.85, 404.17, and 665.87 on the three problems, respectively.  
 <B>radeye</B> then earned 100 additional points in the "Challenge Phase", 
-by successfully challenging the Level Two submissions of <A HREF="/stat?c=member_profile&amp;cr=147031" CLASS="bodyGeneric">gaav</A>
- and <A HREF="/stat?c=member_profile&amp;cr=264682" CLASS="bodyGeneric">nave</A>.
+by successfully challenging the Level Two submissions of <A HREF="/tc?module=MemberProfile&amp;cr=147031" CLASS="bodyGeneric">gaav</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=264682" CLASS="bodyGeneric">nave</A>.
 </P>
 
                  </TD>
@@ -149,48 +149,48 @@ by successfully challenging the Level Two submissions of <A HREF="/stat?c=member
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=158782" CLASS="bodyGeneric">BCSEiny</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=158782" CLASS="bodyGeneric">BCSEiny</A>
  had the highest score in the division, winning Room 26 with 1554.37 final points.  
 <B>BCSEiny</B> earned 1454.37 points in the "Coding Phase" after submitting code for all 
 three problems, but was in second place behind green, who had 1469.91 points.  
 <B>BCSEiny</B> went for the win during the "Challenge Phase", adding an additional 
 100 points with successful challenges of the Level One submissions of 
-<A HREF="/stat?c=member_profile&amp;cr=271246" CLASS="bodyGeneric">blp</A> 
-and <A HREF="/stat?c=member_profile&amp;cr=270932" CLASS="bodyGeneric">vv</A>.
-  <A HREF="/stat?c=member_profile&amp;cr=281589" CLASS="bodyGeneric">green</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=271246" CLASS="bodyGeneric">blp</A> 
+and <A HREF="/tc?module=MemberProfile&amp;cr=270932" CLASS="bodyGeneric">vv</A>.
+  <A HREF="/tc?module=MemberProfile&amp;cr=281589" CLASS="bodyGeneric">green</A>
  was inactive during the "Challenge Phase", and finished second. 
 </P>
 
 <P>
-In Room 33, <A HREF="/stat?c=member_profile&amp;cr=271773" CLASS="bodyGeneric">heather</A>
+In Room 33, <A HREF="/tc?module=MemberProfile&amp;cr=271773" CLASS="bodyGeneric">heather</A>
  won by an impressive 586.91 points.  <B>heather</B> finished 
 with 1137.48 final points, with nonane finishing second with 550.57.  
 <B>heather</B> earned all 1137.48 points in the "Coding Phase", but was in 
-third place in the room.  <A HREF="/stat?c=member_profile&amp;cr=159781" CLASS="bodyGeneric">chegabon</A>
+third place in the room.  <A HREF="/tc?module=MemberProfile&amp;cr=159781" CLASS="bodyGeneric">chegabon</A>
  was leading with 1261.18 points, 
-and <A HREF="/stat?c=member_profile&amp;cr=260783" CLASS="bodyGeneric">nimrod</A>
+and <A HREF="/tc?module=MemberProfile&amp;cr=260783" CLASS="bodyGeneric">nimrod</A>
  was in second with 1197.19.  Both members lost a ton of 
 points during the "Challenge Phase" and system test, however.  
 <B>chegabon</B> lost the 201.32 points that were earned on the Level One 
-problem, when successfully challenged by <A HREF="/stat?c=member_profile&amp;cr=157428" CLASS="bodyGeneric">nonane</A>,
+problem, when successfully challenged by <A HREF="/tc?module=MemberProfile&amp;cr=157428" CLASS="bodyGeneric">nonane</A>,
  and then lost 576.32 
 during the system test, when the Level Three problem that was submitted 
 failed.  <B>nimrod</B> actually added 50 points in the "Challenge Phase", with 
 a successful challenge of the Level One submission of 
-<A HREF="/stat?c=member_profile&amp;cr=279175" CLASS="bodyGeneric">Graymalkin</A>, but 
+<A HREF="/tc?module=MemberProfile&amp;cr=279175" CLASS="bodyGeneric">Graymalkin</A>, but 
 then lost 857.50 points during the system test, when the Level One 
 and Three codes failed. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=262953" CLASS="bodyGeneric">MEEP!</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=262953" CLASS="bodyGeneric">MEEP!</A>
  won Room 35 with 1469.30 final points, an unbelievable 944.80
  points more than the nearest competitor.  <B>MEEP!</B> submitted code for 
  all three problems during the "Coding Phase", and had 1369.30 points.  
  <B>MEEP!</B> then added 100 additional points in the "Challenge Phase", 
  successfully challenging the Level One submissions of 
- <A HREF="/stat?c=member_profile&amp;cr=268581" CLASS="bodyGeneric">pi_boy</A>
- and <A HREF="/stat?c=member_profile&amp;cr=265344" CLASS="bodyGeneric">|v|etalhead</A>.
+ <A HREF="/tc?module=MemberProfile&amp;cr=268581" CLASS="bodyGeneric">pi_boy</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=265344" CLASS="bodyGeneric">|v|etalhead</A>.
 </P>
           </TD>
             </TR>            

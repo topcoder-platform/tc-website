@@ -92,10 +92,10 @@ The top five rated heavyweights were missing tonight, which gave a
 number of people who are usually in room 2 an opportunity to compete for
 the big money in room 1.  Everyone coded the 275 point problem with
 ease, and not one of them failed.  The 475 point problem was a different
-matter though, with only <A HREF="/stat?c=member_profile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="bodyGeneric">ambrose</A>, 
-and <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="bodyGeneric">malpt</A> submitting
-successful solutions.  <A HREF="/stat?c=member_profile&amp;cr=272072" CLASS="bodyGeneric">SnapDragon</A>
+matter though, with only <A HREF="/tc?module=MemberProfile&amp;cr=156592" CLASS="bodyGeneric">benetin</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=153505" CLASS="bodyGeneric">ambrose</A>, 
+and <A HREF="/tc?module=MemberProfile&amp;cr=120816" CLASS="bodyGeneric">malpt</A> submitting
+successful solutions.  <A HREF="/tc?module=MemberProfile&amp;cr=272072" CLASS="bodyGeneric">SnapDragon</A>
  was able to challenge three of the
 unsuccessful solutions, which allowed him to beat <B>ambrose</B> by a single
 point for second place.  People had slightly more luck with the 1000
@@ -108,16 +108,16 @@ points.
 <P>
 As far as ratings were concerned, <B>benetin</B> was the only one to come out
 with a big gain.  <B>SnapDragon</B> and <B>ambrose</B> posted moderate gains of 15 and
-34 points, respectively, and everyone else went down.  <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>,
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>, 
-<A HREF="/stat?c=member_profile&amp;cr=268947" CLASS="bodyGeneric">anr</A>, and 
-<A HREF="/stat?c=member_profile&amp;cr=157974" CLASS="bodyGeneric">bigg_nate</A> all dropped over 100 points.  
+34 points, respectively, and everyone else went down.  <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>,
+<A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=268947" CLASS="bodyGeneric">anr</A>, and 
+<A HREF="/tc?module=MemberProfile&amp;cr=157974" CLASS="bodyGeneric">bigg_nate</A> all dropped over 100 points.  
 All in all, room 1 turned in a rather mediocre performance in SRM 86, with an
 average score of 651, far below that of room 2 whose average score was 836.
 </P>
 
 <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

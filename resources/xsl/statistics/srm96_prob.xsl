@@ -96,7 +96,7 @@ June 11, 2002</P>
 <font size="2"><b>Transform</b></font>
 <BR/>
 <font size="2">Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=157578">Radgast</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=157578">Radgast</a>
 </font>
 <BR/>
 <font size="2">
@@ -183,7 +183,7 @@ June 11, 2002</P>
 </font>
 <BR/>
 <font size="2">Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=251335">Echo</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=251335">Echo</a>
 </font>
 <BR/>
 <font size="2">
@@ -295,7 +295,7 @@ June 11, 2002</P>
 </font>
 <BR/>
 <font size="2">Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=157578">Radgast</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=157578">Radgast</a>
 </font>
 <BR/>
 <font size="2">
@@ -437,7 +437,7 @@ June 11, 2002</P>
 </font>
 <BR/>
 <font size="2">Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=251335">Echo</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=251335">Echo</a>
 </font>
 <BR/>
 <font size="2">
@@ -591,7 +591,7 @@ June 11, 2002</P>
 <p>
                 The first issue is determining an appropriate upper bound for sensible values for each scalar.
                 An upper bound that is too high might cause the program to run too slow, but an upper bound that is too low
-                will cause the program to be incorrect.  The upper bound turns out to be 81, but <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=251335">Echo</a>'s proof
+                will cause the program to be incorrect.  The upper bound turns out to be 81, but <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=251335">Echo</a>'s proof
                 of this is still forthcoming (if I get a chance I'll try to prove it myself).
                 
             </p>
@@ -614,7 +614,7 @@ June 11, 2002</P>
 </font>
 <BR/>
 <font size="2">Author:
-        <a href="http://www.topcoder.com/stat?c=member_profile&amp;cr=251335">Echo</a>
+        <a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=251335">Echo</a>
 </font>
 <BR/>
 <font size="2">
@@ -696,7 +696,7 @@ June 11, 2002</P>
 
 
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

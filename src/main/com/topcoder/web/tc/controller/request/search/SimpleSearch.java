@@ -23,7 +23,7 @@ public class SimpleSearch extends Base {
             getRequest().setAttribute("memberSearch", results);
             if (results.getTotal() == 1) {
                 long userId = results.getResults().getLongItem(0, "user_id");
-                setNextPage("/stat?c=member_profile&cr=" + userId);
+                setNextPage("/tc?module=MemberProfile&cr=" + userId);
                 setIsNextPageInContext(false);
             } else {
                 setNextPage(Constants.SIMPLE_SEARCH_RESULTS);

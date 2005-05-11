@@ -84,7 +84,7 @@ disappointed, although not as much as you would think...
 </P>
 
 <P>
-Russia's <A HREF="/stat?c=member_profile&amp;cr=269088" CLASS="bodyGeneric">pan</A>
+Russia's <A HREF="/tc?module=MemberProfile&amp;cr=269088" CLASS="bodyGeneric">pan</A>
  is frustrated he can't win money, but it "doesn't spoil the great feelings 
 I'm getting from competing in TopCoder's competitions.  I really love programming and I 
 love the spirit of competition.  I always searched for a competition such as this, and 
@@ -93,15 +93,15 @@ was really excited when a friend of mine told me about TopCoder."
  
 <P><IMG SRC="/i/f/feat_052902_tn1.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/>
 "Of course I wouldn't mind earning money," said Norwegian member, 
-<A HREF="/stat?c=member_profile&amp;cr=251832" CLASS="bodyGeneric">dark_lord</A>.  "But, 
+<A HREF="/tc?module=MemberProfile&amp;cr=251832" CLASS="bodyGeneric">dark_lord</A>.  "But, 
 I keep competing at TopCoder because I'm very fond of solving problems, and TopCoder 
 is one of very few places where you can do problem-solving in a competitive environment."
 </P>
 
 <P>
 The love of coding and the willingness to learn are what keep underage American's 
-<A HREF="/stat?c=member_profile&amp;cr=274504" CLASS="bodyGeneric">brother_cheng</A>
- (Massachusetts) and <A HREF="/stat?c=member_profile&amp;cr=277851" CLASS="bodyGeneric">hay4man</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=274504" CLASS="bodyGeneric">brother_cheng</A>
+ (Massachusetts) and <A HREF="/tc?module=MemberProfile&amp;cr=277851" CLASS="bodyGeneric">hay4man</A>
  (Texas) competing.  "I love computer 
 science and have the desire to learn new programming techniques that are faster 
 and more efficient," said <B>hay4man</B>, while <B>brother_cheng</B> added, "I'm motivated to 
@@ -109,7 +109,7 @@ learn more technique in programming, and perfect my skills."
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=260274" CLASS="bodyGeneric">dark_shadow</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=260274" CLASS="bodyGeneric">dark_shadow</A>, 
 a resident of Norway, mentioned "the ability to code the programs 
 in a real-time environment, where time pressure is of the utmost importance to win 
 <IMG SRC="/i/f/feat_052902_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="5" ALIGN="left" BORDER="0"/>is what appeals to me."  He then admitted he was somewhat frustrated, although, 
@@ -118,7 +118,7 @@ people that don't have this privilege."
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=269554" CLASS="bodyGeneric">Yarin</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=269554" CLASS="bodyGeneric">Yarin</A>, 
 a recent Coder of the Week 
 (<A HREF="/index?t=statistics&amp;c=coder_of_week042202" CLASS="bodyGeneric">View the Coder of the Week feature on Yarin</A>) 
 from Sweden, summed up the thoughts of the frustrated foreign contingent by admitting, 
@@ -156,7 +156,7 @@ Some members try and get a few hours of sleep before the contest:
 
 <P>
 "I set the alarm to wake up at 2:30 or 3:30am," said 
-<A HREF="/stat?c=member_profile&amp;cr=273079" CLASS="bodyGeneric">JeromeAbela</A> of France, who 
+<A HREF="/tc?module=MemberProfile&amp;cr=273079" CLASS="bodyGeneric">JeromeAbela</A> of France, who 
 makes sure he has a glass full of Coca-Cola and music turned on, among other things, 
 to help him stay awake.  "If I'm too tired, or not motivated enough, I know I won't be able to wake up."
 </P>
@@ -199,7 +199,7 @@ be able to compete with the other members."
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=275071" CLASS="bodyGeneric">antimatter</A>, 
+<A HREF="/tc?module=MemberProfile&amp;cr=275071" CLASS="bodyGeneric">antimatter</A>, 
 an underage American member from New York, is frustrated by the seclusion of the 
 non-eligible rooms, because he constantly has to perform against some members who have much 
 higher ratings, which decreases his chance for feeling the satisfaction of winning a room and increasing his rating.
@@ -269,7 +269,7 @@ My motivation is not the money, but the love for programming and the competition
 </P>
 
 <P>
-Some share the thoughts of Germany's <A HREF="/stat?c=member_profile&amp;cr=276854" CLASS="bodyGeneric">hjdorn</A>:
+Some share the thoughts of Germany's <A HREF="/tc?module=MemberProfile&amp;cr=276854" CLASS="bodyGeneric">hjdorn</A>:
 </P>
 
 <P>
@@ -296,7 +296,7 @@ but "the account always lies ready to participate again."
 I'm guessing that only 15 of you know what the title of this section means.  That's because we have 
 15 members from Hungary, and tan&#225;cs is Hungarian for advice, with perhaps the best piece of advice 
 for underage American's and non-eligible members of other countries was offered by Hungarian member, 
-<A HREF="/stat?c=member_profile&amp;cr=273185" CLASS="bodyGeneric">mitch0</A>.
+<A HREF="/tc?module=MemberProfile&amp;cr=273185" CLASS="bodyGeneric">mitch0</A>.
 </P>
 
 <P>
@@ -387,7 +387,7 @@ what the TopCoder team, have already created, and I just enjoy it.
 </P>
 
 <!-- <IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/> -->
+By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/> -->
       
 <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Would you like to write a weekly feature?</A></P>
 

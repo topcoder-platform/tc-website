@@ -61,7 +61,7 @@ function openWin(url, name) {
             
             <h2>roma takes the development title</h2>
 
-            <p>by <a href="/stat?c=member_profile&cr=251989">AdamSelene</a>, <br/>
+            <p>by <a href="/tc?module=MemberProfile&cr=251989">AdamSelene</a>, <br/>
             <em>TopCoder Member</em><br />
             Friday, April 16, 2004<br/>
             </p>

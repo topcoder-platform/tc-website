@@ -116,6 +116,7 @@ public class Constants {
     public static String NOTE_EDIT;
     public static String CONTACT_DATE;
 
+    public static String MEMBER_PROFILE;
 
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;

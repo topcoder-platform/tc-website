@@ -58,31 +58,31 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=310233">Standlove</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=310233">Standlove</a></td>
                     <td class="advCell" align="right">84.39</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=304979">sinaddcos</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=304979">sinaddcos</a></td>
                     <td class="advCell" align="right">82.29</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=7389864">roma</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=7389864">roma</a></td>
                     <td class="advCell" align="right">81.31</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=7496435">loveislife</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=7496435">loveislife</a></td>
                     <td class="advCell" align="right">80.88</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=268851">gladius</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=268851">gladius</a></td>
                     <td class="advCell" align="right">76.90</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=153089">preben</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=153089">preben</a></td>
                     <td class="advCell" align="right">65.58</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=284038">aussie</a></td>
+                    <td class="advCell" align="left"><a href="/tc?module=MemberProfile&amp;cr=284038">aussie</a></td>
                     <td class="advCell" align="right">52.97</td>
                 </tr>
             </table>
@@ -106,7 +106,7 @@
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=8447769" target="_blank">File Upload</a></td>
                     <td class="advCell" align="center">2</td>
                     <td class="advCell" align="center"></td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=310233">Standlove</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=310233">Standlove</a></td>
                     <td class="advCell" align="center">59.34</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -114,7 +114,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center"></td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=284038">aussie</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=284038">aussie</a></td>
                     <td class="advCell" align="center">52.97</td>
                     <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
@@ -122,7 +122,7 @@
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=8444395" target="_blank">Heartbeat</a></td>
                     <td class="advCell" align="center">4</td>
                     <td class="advCell" align="center"></td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=310233">Standlove</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=310233">Standlove</a></td>
                     <td class="advCell" align="center">84.39</td>
                     <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
@@ -130,7 +130,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center"></td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=304979">sinaddcos</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=304979">sinaddcos</a></td>
                     <td class="advCell" align="center">82.29</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -138,7 +138,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center"></td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=7389864">roma</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=7389864">roma</a></td>
                     <td class="advCell" align="center">81.31</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -146,7 +146,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center"></td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=268851">gladius</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=268851">gladius</a></td>
                     <td class="advCell" align="center">76.90</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -154,7 +154,7 @@
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=8451710" target="_blank">Source Control Client</a></td>
                     <td class="advCell" align="center">2</td>
                     <td class="advCell" align="center"></td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=7496435">loveislife</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=7496435">loveislife</a></td>
                     <td class="advCell" align="center">80.88</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
@@ -162,7 +162,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center"></td>
-                    <td class="advCell"><a href="/stat?c=member_profile&amp;cr=153089">preben</a></td>
+                    <td class="advCell"><a href="/tc?module=MemberProfile&amp;cr=153089">preben</a></td>
                     <td class="advCell" align="center">65.58</td>
                     <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>

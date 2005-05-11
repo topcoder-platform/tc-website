@@ -60,63 +60,63 @@ Speaker:&#160;Jack Hughes,<I>TopCoder CEO</I><BR/>
 
 <P><B>Jack Hughes:</B> Hello all, I hope everyone is well.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=273474" CLASS="bodyGeneric">router</A>: <B>What are your long terms plans for TopCoder, and continued growth of its membership? What benefits (besides the contests) does TopCoder have for me, as a member?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=273474" CLASS="bodyGeneric">router</A>: <B>What are your long terms plans for TopCoder, and continued growth of its membership? What benefits (besides the contests) does TopCoder have for me, as a member?</B></P>
 
 <P><B>Jack Hughes:</B> Long term plans is kind of a long question.  Suffice it to say we will be doing a lot in the area of software...</P>
 
 <P><B>Jack Hughes:</B> benefits besides contests are interaction within the group software and employment opps.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=115147" CLASS="bodyGeneric">kyotov</A>: <B>How is TopCoder doing financially? Do you have success with reselling components? Is there enough interest in the sponsor society? When will be the next big event?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=115147" CLASS="bodyGeneric">kyotov</A>: <B>How is TopCoder doing financially? Do you have success with reselling components? Is there enough interest in the sponsor society? When will be the next big event?</B></P>
 
 <P><B>Jack Hughes:</B> Financially, OK.  Haven't really started selling components just yet.  Sponsors are questionable - not as much activity as I would like.  Next big event in the fall (Invitational).</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=276118" CLASS="bodyGeneric">Zeke_The_Destro</A>: <B>I also want to know if TopCoder stock will ever be offered?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=276118" CLASS="bodyGeneric">Zeke_The_Destro</A>: <B>I also want to know if TopCoder stock will ever be offered?</B></P>
 
 <P><B>Jack Hughes:</B> Not just yet, still too risky...  maybe someday.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=273428" CLASS="bodyGeneric">rbnn</A>: <B>What can we do to help TopCoder?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=273428" CLASS="bodyGeneric">rbnn</A>: <B>What can we do to help TopCoder?</B></P>
  
 <P><B>Jack Hughes:</B> Good queston ( think I'm getting softballs ;)).  Keep doing what you're doing - particpate in contests and devolpment projects.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=264986" CLASS="bodyGeneric">pozdol</A>: <B>How many more sponsors do you think you will need to sustain Topcoder indefinitely and what are the prospects of getting those sponsers?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=264986" CLASS="bodyGeneric">pozdol</A>: <B>How many more sponsors do you think you will need to sustain Topcoder indefinitely and what are the prospects of getting those sponsers?</B></P>
 
 <P><B>Jack Hughes:</B> Actually don't need that many (10 - 15).  think prospects are low - tech in a nasty decline.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=288584" CLASS="bodyGeneric">LunaticFringe</A>: <B>Do you have any plans in the future to implement support for new programming languages?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=288584" CLASS="bodyGeneric">LunaticFringe</A>: <B>Do you have any plans in the future to implement support for new programming languages?</B></P>
  
 <P><B>Jack Hughes:</B> mike says no.  Not in the near term.  I obviously have no input ;)</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=260961" CLASS="bodyGeneric">CodeWizard</A>: <B>When is TopCoder planning to extend the contests like collegiate to other countries in the communities? 
+<P><A HREF="/tc?module=MemberProfile&amp;cr=260961" CLASS="bodyGeneric">CodeWizard</A>: <B>When is TopCoder planning to extend the contests like collegiate to other countries in the communities? 
 I guess if it takes 2 more years to do that, I may well have been graduated by then. :-)</B></P>
 
 <P><B>Jack Hughes:</B> Really depends on how TC is doing financially within the states.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=288722" CLASS="bodyGeneric">tux</A>: <B>How big do you think TC will grow in the next 2 years?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=288722" CLASS="bodyGeneric">tux</A>: <B>How big do you think TC will grow in the next 2 years?</B></P>
  
 <P><B>Jack Hughes:</B> In terms of members, 30-50K, conservatively.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="bodyGeneric">Logan</A>: <B>Are there any plans to offer membership frills, such as topcoder.com email addresses, topcoder credit card 
+<P><A HREF="/tc?module=MemberProfile&amp;cr=112902" CLASS="bodyGeneric">Logan</A>: <B>Are there any plans to offer membership frills, such as topcoder.com email addresses, topcoder credit card 
 (to draw off one's winnings and other earnings), or maybe even topcoder.com web space?</B></P>
 
 <P><B>Jack Hughes:</B> If we think they are strategic or offer us the opp to make money.  Probably not credit cards, too many already.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=280198" CLASS="bodyGeneric">alanm</A>: <B>Open source software already attracts some of the best and the brightest.  How do you compete with free software?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=280198" CLASS="bodyGeneric">alanm</A>: <B>Open source software already attracts some of the best and the brightest.  How do you compete with free software?</B></P>
 
 <P><B>Jack Hughes:</B> I don't believe in free software - almost always has a 'catch' where somebody makes money, just not developers.  Only true free software advocate (!hypocrite) is Stallman - and he's nuts.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=128228" CLASS="bodyGeneric">J-Muff</A>: <B>Is TopCoder acheiving its goal of being a profitable business? If not what are the plans for ensuring TopCoders future?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=128228" CLASS="bodyGeneric">J-Muff</A>: <B>Is TopCoder acheiving its goal of being a profitable business? If not what are the plans for ensuring TopCoders future?</B></P>
 
 <P><B>Jack Hughes:</B> Not even close, although still financially stable.  I believe the value of the members will make TC successful.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=152980" CLASS="bodyGeneric">bbyard</A>: <B>Please describe employment opportunities and how they work/happen?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=152980" CLASS="bodyGeneric">bbyard</A>: <B>Please describe employment opportunities and how they work/happen?</B></P>
 
 <P><B>Jack Hughes:</B> We are still forming the approach.  Currently negotiating with corporations to help them find highly qualified developers through ratings and experience/education.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=260961" CLASS="bodyGeneric">CodeWizard</A>: <B>Do you consider yourself a good "coder" or a good "businessman"? (a Bill Gates type question)</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=260961" CLASS="bodyGeneric">CodeWizard</A>: <B>Do you consider yourself a good "coder" or a good "businessman"? (a Bill Gates type question)</B></P>
 
 <P><B>Jack Hughes:</B> Not any more.  Not Gates either.  I love software from both a technical and value perspective.  I believe software can change the world if done right, which it rarely is.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=264678" CLASS="bodyGeneric">emcee</A>: <B>Who are TC's primary investors?  Also, are there other sponsors/customers aside from Sun, Motorola, and Citrix?  
+<P><A HREF="/tc?module=MemberProfile&amp;cr=264678" CLASS="bodyGeneric">emcee</A>: <B>Who are TC's primary investors?  Also, are there other sponsors/customers aside from Sun, Motorola, and Citrix?  
 (I realize some of this information may be confidential)</B></P>
 
 <P><B>Jack Hughes:</B> Not much confidential.  Me/family primary investors.  I think you got all of the sponsors, although we are always talking to interested others.</P>
@@ -129,16 +129,16 @@ I guess if it takes 2 more years to do that, I may well have been graduated by t
  
 <P><B>Jack Hughes:</B> Citrix loves us, Motorola less impressed - think they need a much bigger audience.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=280328" CLASS="bodyGeneric">WhyDoubt</A>: <B>What can we do to let the sponsors know it is worthwhile to support TopCoder?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=280328" CLASS="bodyGeneric">WhyDoubt</A>: <B>What can we do to let the sponsors know it is worthwhile to support TopCoder?</B></P>
  
 <P><B>Jack Hughes:</B> Go to their sites and mention you heard about them from TC.  When in a position to do so, seriously evaluate their products.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=156485" CLASS="bodyGeneric">Smiley=)</A>: <B>Does the benefit of having a fairly large and talented member pool to work with 
+<P><A HREF="/tc?module=MemberProfile&amp;cr=156485" CLASS="bodyGeneric">Smiley=)</A>: <B>Does the benefit of having a fairly large and talented member pool to work with 
 (as contract developers and school representatives, for example) outweigh the costs of giving away lots of prize money every week?</B></P>
 
 <P><B>Jack Hughes:</B> Don't know yet, the model hasn't proved out financially yet.  Think it will in one form or another.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=101459" CLASS="bodyGeneric">Steven</A>: <B>Topcoder seems to be expanding to other countries fairly quickly.  Although I am in favor of this, I 
+<P><A HREF="/tc?module=MemberProfile&amp;cr=101459" CLASS="bodyGeneric">Steven</A>: <B>Topcoder seems to be expanding to other countries fairly quickly.  Although I am in favor of this, I 
 am wondering what benefits you expect to gain from expanding so quickly?</B></P>
 
 <P><B>Jack Hughes:</B> We would like to be as inclusive as possible.  We also want international exposure.</P>
@@ -164,7 +164,7 @@ am wondering what benefits you expect to gain from expanding so quickly?</B></P>
  
 <P><B>Jack Hughes:</B> Sure - send check to jhughes@tc.com</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=111202" CLASS="bodyGeneric">ColinMacLeod</A>: <B>What other countries are up next for eligiblity?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=111202" CLASS="bodyGeneric">ColinMacLeod</A>: <B>What other countries are up next for eligiblity?</B></P>
  
 <P><B>Jack Hughes:</B> Don't really know - lawyers... mike says Sweden &amp; Germany</P>
 
@@ -176,7 +176,7 @@ am wondering what benefits you expect to gain from expanding so quickly?</B></P>
 
 <P><B>Jack Hughes:</B> If you have ideas, we'd love to hear them.  We always looking for things to add and attract membership/readership.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=268951" CLASS="bodyGeneric">sosonel</A>: <B>How soon, if ever, do you expect the team competitions to launch on TopCoder?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=268951" CLASS="bodyGeneric">sosonel</A>: <B>How soon, if ever, do you expect the team competitions to launch on TopCoder?</B></P>
  
 <P><B>Jack Hughes:</B> Teams are slated for late summer/early fall - really up to the members - they're writing the system.</P>
 
@@ -185,7 +185,7 @@ Do you see any reason this model couldn't be extended to other fields (TopEngine
 
 <P><B>Jack Hughes:</B> Expensive, If t doesn't work for TC, won't work for the others.  Other than that, I thnk the model could be used for a lot of things.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=271159" CLASS="bodyGeneric">Shiro</A>: <B>With the increasing number of active members, is there any plan to change the competition format or prize distribution?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=271159" CLASS="bodyGeneric">Shiro</A>: <B>With the increasing number of active members, is there any plan to change the competition format or prize distribution?</B></P>
 
 <P><B>Jack Hughes:</B> We're always looking at it, but for the immediate future, no.</P>
 
@@ -193,11 +193,11 @@ Do you see any reason this model couldn't be extended to other fields (TopEngine
 
 <P><B>Jack Hughes:</B> We use them as teasers to try and get sponsors interested.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=136367" CLASS="bodyGeneric">timurz</A>: <B>About "software done right". What do you think about Extreme Programming?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=136367" CLASS="bodyGeneric">timurz</A>: <B>About "software done right". What do you think about Extreme Programming?</B></P>
  
 <P><B>Jack Hughes:</B> Like it myself from a programmer's perspective - used to be a big RAD fan,  too fast though, maintenance is tough.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>: <B>Last July you announced the creation of a "Member Advisory Board".  Are plans still in the works, or has this idea been dropped?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>: <B>Last July you announced the creation of a "Member Advisory Board".  Are plans still in the works, or has this idea been dropped?</B></P>
 
 <P><B>Jack Hughes:</B> So I drop the ball, qubits (of course) brings it up and the moderators ( who are supposed to be looking out for met) let it through.  Sorry, I'll get it going again.</P>
 
@@ -205,27 +205,27 @@ Do you see any reason this model couldn't be extended to other fields (TopEngine
  
 <P><B>Jack Hughes:</B> emcee: &lt;--lots of questions.  Yes, still talking.  Likelyhood on scale of 1 - 10, 4.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=273416" CLASS="bodyGeneric">xxfobxx</A>: <B>What are the long term goals of team competitions? What was the incentive for incorporating them in the future?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=273416" CLASS="bodyGeneric">xxfobxx</A>: <B>What are the long term goals of team competitions? What was the incentive for incorporating them in the future?</B></P>
 
 <P><B>Jack Hughes:</B> I think teams is a good predictor of how developers will do on real projects.  Also believe teams will attract members.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=272510" CLASS="bodyGeneric">C8H10N4O2</A>: <B>What about TC merchandise?  T-shirts!!!!</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=272510" CLASS="bodyGeneric">C8H10N4O2</A>: <B>What about TC merchandise?  T-shirts!!!!</B></P>
  
 <P><B>Jack Hughes:</B> We will.  We will.  You're going to have to pay for them, though.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=158412" CLASS="bodyGeneric">dlenharth</A>: <B>How about getting universities to offer scholarships?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=158412" CLASS="bodyGeneric">dlenharth</A>: <B>How about getting universities to offer scholarships?</B></P>
  
 <P><B>Jack Hughes:</B> Maybe.  its on the list.  can't give you a good indcation of outcome yet.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=157160" CLASS="bodyGeneric">fisher2000</A>: <B>So far how many coders from TC have been employeed by other companies?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=157160" CLASS="bodyGeneric">fisher2000</A>: <B>So far how many coders from TC have been employeed by other companies?</B></P>
 
 <P><B>Jack Hughes:</B> A few that we know have been courted because of TC participation/noteriety.  Getting paid for it though is another matter.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=277021" CLASS="bodyGeneric">PurpleBob</A>: <B>What benefits do the sponsors get from sponsoring a match (besides having their name on everything and choosing the survey question)?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=277021" CLASS="bodyGeneric">PurpleBob</A>: <B>What benefits do the sponsors get from sponsoring a match (besides having their name on everything and choosing the survey question)?</B></P>
 
 <P><B>Jack Hughes:</B> Those are pretty much it.  Sun received quite a bit of major press for the cc, though.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=158447" CLASS="bodyGeneric">ValD</A>: <B>Has the economic down-turn affected TopCoder at all?  It seems like the company is growing instead of 
+<P><A HREF="/tc?module=MemberProfile&amp;cr=158447" CLASS="bodyGeneric">ValD</A>: <B>Has the economic down-turn affected TopCoder at all?  It seems like the company is growing instead of 
 slowing down (ie. new projects, more sponsoring, and more members).</B></P>
 
 <P><B>Jack Hughes:</B> Economy, yes, sponsors are hurting.  growing, yes, but is costing not making money.</P>
@@ -239,17 +239,17 @@ figured a contest was a good way.</P>
  
 <P><B>Jack Hughes:</B> Yes, although we haven't done anything with it yet.  Don't know f there would be enough demand.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=156822" CLASS="bodyGeneric">m_chen</A>: <B>It appears that TC is selling the sponsorships in packs of 5 SRMs.  Is there a reason for this?  
+<P><A HREF="/tc?module=MemberProfile&amp;cr=156822" CLASS="bodyGeneric">m_chen</A>: <B>It appears that TC is selling the sponsorships in packs of 5 SRMs.  Is there a reason for this?  
 Why not let a company sponsor for one match?</B></P>
 
 <P><B>Jack Hughes:</B> Reduces selling costs - although we don't have a lot of takers.  we also offer a discount for the volume.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=274323" CLASS="bodyGeneric">pearl</A>: <B>What constitutes a good developer, though?  Earlier you said that software must be 'done right', 
+<P><A HREF="/tc?module=MemberProfile&amp;cr=274323" CLASS="bodyGeneric">pearl</A>: <B>What constitutes a good developer, though?  Earlier you said that software must be 'done right', 
 then sited manager-type stuff (overruns, etc.)  What, in your opinion, makes a 'good' programmer?</B></P>
 
 <P><B>Jack Hughes:</B> I believe the crtical factor determining quality, cost and timeliness of software projects is developer talent.  I do not believe all other factors combined (management, tools, technologies ,etc) have as large an impact.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=260185" CLASS="bodyGeneric">NeoTuri</A>: <B>How many competing members is too many?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=260185" CLASS="bodyGeneric">NeoTuri</A>: <B>How many competing members is too many?</B></P>
  
 <P><B>Jack Hughes:</B> We'll know when the system crashes, must be right around the corner.  Seriously, I think we have a long way to go.</P>
 
@@ -264,7 +264,7 @@ have you considered hiring coders from the member base and marketing TC as a gen
 
 <P><B>Jack Hughes:</B> Not at the moment ... we would rather do components/products.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=264986" CLASS="bodyGeneric">pozdol</A>: <B>You mentioned a while back that the prospects for getting more sponsers aren't too good.  
+<P><A HREF="/tc?module=MemberProfile&amp;cr=264986" CLASS="bodyGeneric">pozdol</A>: <B>You mentioned a while back that the prospects for getting more sponsers aren't too good.  
 If you had to guess right now, do you think it's more likely that topcoder will be a big success or that all the walls will come crashing down?</B></P>
 
 <P><B>Jack Hughes:</B> I don't think the walls will crash,  the model might change somewhat, though.</P>
@@ -284,7 +284,7 @@ in the communities? I guess if it takes 2 more years to do that, I may well have
 
 <P><B>Jack Hughes:</B> Teams will be big.  Other than that, the invitational and the CC (Collegiate Challenge) are about it for now in terms of tourneys.</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=268951" CLASS="bodyGeneric">sosonel</A>: <B>Since you want international exposure, have you considered international sponsors from the countries to which TopCoder extends?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=268951" CLASS="bodyGeneric">sosonel</A>: <B>Since you want international exposure, have you considered international sponsors from the countries to which TopCoder extends?</B></P>
 
 <P><B>Jack Hughes:</B> Haven't talked to many, you make a good point.  We probably should.  If anyone knows anyone, shoot us a line.</P>
 
@@ -293,7 +293,7 @@ who knows 1 language only (no chances of him learning any more), and (b) Not-a-p
 
 <P><B>Jack Hughes:</B> Don't agree with either.  Someone sharp can master any technology.  I think (a) could do (b).</P>
 
-<P><A HREF="/stat?c=member_profile&amp;cr=136367" CLASS="bodyGeneric">timurz</A>: <B>What do you think the share of US programmers that have heard about TC is?</B></P>
+<P><A HREF="/tc?module=MemberProfile&amp;cr=136367" CLASS="bodyGeneric">timurz</A>: <B>What do you think the share of US programmers that have heard about TC is?</B></P>
  
 <P><B>Jack Hughes:</B> If I had to guess, &lt; 10%</P>
 

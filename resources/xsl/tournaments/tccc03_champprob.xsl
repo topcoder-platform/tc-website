@@ -187,7 +187,7 @@
                         from all possible roots produces the best value.</p>
 
                         <img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left"/>
-                        By&#160;brett1479<br/><div class="smallText"><i>TopCoder Member</i><br/><a href="/stat?c=member_profile&amp;cr=251317" class="smallText">Author Profile</a></div><br clear="all"/>
+                        By&#160;brett1479<br/><div class="smallText"><i>TopCoder Member</i><br/><a href="/tc?module=MemberProfile&amp;cr=251317" class="smallText">Author Profile</a></div><br clear="all"/>
                     </td>
                 </tr>            
             </table>

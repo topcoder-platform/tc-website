@@ -94,28 +94,28 @@ July 1, 2002</P>
 <P><B>Rookie Review</B></P>
 
 <P>
-SRM 102 had 4 rooms containing first-time coders.  Room 35 was won by <A HREF="/stat?c=member_profile&amp;cr=287496" CLASS="bodyGeneric">bstanescu</A>
+SRM 102 had 4 rooms containing first-time coders.  Room 35 was won by <A HREF="/tc?module=MemberProfile&amp;cr=287496" CLASS="bodyGeneric">bstanescu</A>
  who was the only rookie to solve all three problems
-correctly.  He also successfully challenged <A HREF="/stat?c=member_profile&amp;cr=261709" CLASS="bodyGeneric">mattk</A>'s level 2 problem for a total of 1213.28 points.  This vaulted him into the middle
+correctly.  He also successfully challenged <A HREF="/tc?module=MemberProfile&amp;cr=261709" CLASS="bodyGeneric">mattk</A>'s level 2 problem for a total of 1213.28 points.  This vaulted him into the middle
 of the Yellow division with an initial rating of 1800.  This is the 23rd highest initial rating of all time.  Room 35 was also the
 most competitive of the rookie rooms: 6 out of the 10 coders in this room solved at least 2 problems.
 </P>
 
 <P>
-Besides <B>bstanescu</B>, six other rookie coders managed to get into Division-I on their first try: <A HREF="/stat?c=member_profile&amp;cr=271027" CLASS="bodyGeneric">Fyokla</A>
+Besides <B>bstanescu</B>, six other rookie coders managed to get into Division-I on their first try: <A HREF="/tc?module=MemberProfile&amp;cr=271027" CLASS="bodyGeneric">Fyokla</A>
  finished second among rookies
-with 636.09 points, giving him a rating an initial rating of 1579.  Third was <A HREF="/stat?c=member_profile&amp;cr=289265" CLASS="bodyGeneric">harry</A>
+with 636.09 points, giving him a rating an initial rating of 1579.  Third was <A HREF="/tc?module=MemberProfile&amp;cr=289265" CLASS="bodyGeneric">harry</A>
  with 634.88 points (initial rating of 1560),
-fouth was <A HREF="/stat?c=member_profile&amp;cr=278455" CLASS="bodyGeneric">jacobius</A>
- with 565.19 points (initial rating of 1353), fifth was <A HREF="/stat?c=member_profile&amp;cr=291604" CLASS="bodyGeneric">hamada</A>
+fouth was <A HREF="/tc?module=MemberProfile&amp;cr=278455" CLASS="bodyGeneric">jacobius</A>
+ with 565.19 points (initial rating of 1353), fifth was <A HREF="/tc?module=MemberProfile&amp;cr=291604" CLASS="bodyGeneric">hamada</A>
  with 551.84 points (initial rating of 1290), sixth
-was <A HREF="/stat?c=member_profile&amp;cr=158136" CLASS="bodyGeneric">drewshaver</A>
- with 546.03 points (initial rating of 1256), and seventh was <A HREF="/stat?c=member_profile&amp;cr=292059" CLASS="bodyGeneric">redpoint</A>
+was <A HREF="/tc?module=MemberProfile&amp;cr=158136" CLASS="bodyGeneric">drewshaver</A>
+ with 546.03 points (initial rating of 1256), and seventh was <A HREF="/tc?module=MemberProfile&amp;cr=292059" CLASS="bodyGeneric">redpoint</A>
  with 532.78 points (initial rating of 1242).
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=291591" CLASS="bodyGeneric">jdandr2</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=291591" CLASS="bodyGeneric">jdandr2</A>
  was able to win room 34 with 421.04 points.
 </P>
 
@@ -127,7 +127,7 @@ cheating. Jello's results will not be found in the match results.
 
 <P><BR/></P>
 <IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Penwiper<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=150527" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Penwiper<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=150527" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

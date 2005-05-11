@@ -459,7 +459,7 @@ Given n pipes separated by the distances x1, x2, x3, ..., xn (where none of the 
   Once you have the above algorithm for calculating the pressures of pipes going from one level to the next, the problem becomes quite simple. Set up a loop to start at the first level and go down to the second last level. At each pipe location in a given level, you start with knowledge of what that pipe's pressure is. Use the above algorithm to find out how much pressure that pipe contributes to each of the pipes below it. Once the loop is completed, you then simply have to return the pressure of the pipe on the last level whose zero-based index is given as an input parameter to the problem. 
   </P>
 <IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Penwiper<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=150527" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;Penwiper<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=150527" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

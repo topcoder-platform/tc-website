@@ -61,7 +61,7 @@
                         <p><font size="4"><strong>Challenging 101</strong></font><br />
                         Friday, October 24, 2003</p>
 
-                        <p>By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299709"><strong>Modulator</strong></a><br />
+                        <p>By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=299709"><strong>Modulator</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>

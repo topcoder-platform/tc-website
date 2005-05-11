@@ -32,7 +32,7 @@
                         <td width="10%" class="statText">&#160;&#160;<xsl:value-of select="change_type"/>:</td>
                         <td width="35%" class="statText" nowrap="nowrap">
                             <a>
-                            <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                            <xsl:attribute name="HREF">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                             <xsl:attribute name="CLASS">
                                 <xsl:call-template name="GetRatingClass">
                                     <xsl:with-param name="rating">

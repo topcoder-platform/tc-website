@@ -5,7 +5,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=040405">The Design Process - Section 1: some advice...</A></span><br><br>
        In part 1 of 4 of his guide to TopCoder component design competitions, Pops lays out some great hints and tips.</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=119676">Pops</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=119676">Pops</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -20,7 +20,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm236_prob">SRM 236 - Problem Set & Analysis</A></span><br><br>
       In division 1, tomek squeaked out a win, despite starting 15 minutes late, and hence regained the number 1 ranking.</td>
-      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=159052">lbackstrom</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=159052">lbackstrom</A></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">

@@ -95,16 +95,16 @@ June 5, 2002</P>
 
 <P>
 Room One started with the normal flurry of Level One openings, 
-<A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
 ignoring his usual Level Two start to join the rest of the pack. 
-<A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>,
-<A HREF="/stat?c=member_profile&amp;cr=157974" CLASS="bodyGeneric">bigg_nate</A>, 
-and <A HREF="/stat?c=member_profile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
+<A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="bodyGeneric">ZorbaTHut</A>,
+<A HREF="/tc?module=MemberProfile&amp;cr=157974" CLASS="bodyGeneric">bigg_nate</A>, 
+and <A HREF="/tc?module=MemberProfile&amp;cr=120816" CLASS="bodyGeneric">malpt</A>
  raced to be the first, all opening in under five
-seconds. <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
- and <A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
- both opened after about thirty seconds, while <A HREF="/stat?c=member_profile&amp;cr=154754" CLASS="bodyGeneric">kv</A>
-waited more than seventy seconds and <A HREF="/stat?c=member_profile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>
+seconds. <A HREF="/tc?module=MemberProfile&amp;cr=153902" CLASS="bodyGeneric">evd</A>
+ and <A HREF="/tc?module=MemberProfile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A>
+ both opened after about thirty seconds, while <A HREF="/tc?module=MemberProfile&amp;cr=154754" CLASS="bodyGeneric">kv</A>
+waited more than seventy seconds and <A HREF="/tc?module=MemberProfile&amp;cr=270505" CLASS="bodyGeneric">John Dethridge</A>
  taking nearly four
 minutes just to open the first problem.
 </P>
@@ -194,7 +194,7 @@ with only a surviving 375pt submission.
 
   
 <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

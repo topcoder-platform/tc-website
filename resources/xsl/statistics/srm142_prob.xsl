@@ -281,7 +281,7 @@ RBBRG
 
 
                         <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" />
-                        By&#160;<a href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
+                        By&#160;<a href="/tc?module=MemberProfile&amp;cr=269554"><strong>Yarin</strong></a><br/>
                         <div class="smallText"><em>TopCoder Member</em></div><br clear="all" />
                                        
                         <p><br /></p>

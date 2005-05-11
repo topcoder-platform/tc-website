@@ -135,13 +135,13 @@ starting with the longest, that the minimum will be exceeded.  Since we
 don't want to exceed the minimum if possible, we will overlap two of
 these candles so that the minimum is exactly reached.  Then, all of the
 other candles are started at the same time as the overlap and burn for
-their duration.  <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="bodyGeneric">thekcc's</A>
+their duration.  <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="bodyGeneric">thekcc's</A>
  beat everyone else by implementing this in
 fourteen minutes.
 </P>
 
 <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/tc?module=MemberProfile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>

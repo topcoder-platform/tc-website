@@ -227,7 +227,7 @@ public final class MainServlet extends BaseServlet {
             else if (requestTask.equals("statistics") && requestCommand.equals("member_profile")) {
                 //if we get a "old" version of a member_profile request, just send it off to the new version
                 String coderId = Conversion.checkNull(request.getParameter("Coder_Id"));
-                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/stat?c=member_profile&cr=" + coderId));
+                response.sendRedirect(response.encodeRedirectURL("http://" + request.getServerName() + "/tc?module=MemberProfile&cr=" + coderId));
                 return;
             }
             //************************ image ************************

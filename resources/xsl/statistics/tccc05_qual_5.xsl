@@ -257,7 +257,7 @@ for(int n = 1; n &lt; nestings; n++)
 
 
                         <p>
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=8587884"><strong>kaylin</strong></a><br />
+                        By&#160;<a class="bodyText" href="/tc?module=MemberProfile&amp;cr=8587884"><strong>kaylin</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>
                     </td>

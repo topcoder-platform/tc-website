@@ -29,7 +29,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=274023" CLASS="coderTextBlue">venco</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=274023" CLASS="coderTextBlue">venco</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1651.44</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -42,7 +42,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=268010" CLASS="coderTextBlue">cem1834</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=268010" CLASS="coderTextBlue">cem1834</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1651.01</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -55,7 +55,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=262602" CLASS="coderTextBlue">infrared</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=262602" CLASS="coderTextBlue">infrared</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1649.46</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -71,7 +71,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=156439" CLASS="coderTextBlue">Moose</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=156439" CLASS="coderTextBlue">Moose</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1639.74</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -87,7 +87,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=266149" CLASS="coderTextGreen">akhil_bansal</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=266149" CLASS="coderTextGreen">akhil_bansal</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1631.84</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -103,7 +103,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=133860" CLASS="coderTextBlue">Serpent</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=133860" CLASS="coderTextBlue">Serpent</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1614.94</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -119,7 +119,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=268529" CLASS="coderTextBlue">Ozymandias</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=268529" CLASS="coderTextBlue">Ozymandias</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1613.97</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -135,7 +135,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=251130" CLASS="coderTextBlue">wyatt</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=251130" CLASS="coderTextBlue">wyatt</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1598.37</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -151,7 +151,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=263874" CLASS="coderTextGreen">FatlXception</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=263874" CLASS="coderTextGreen">FatlXception</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1593.05</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -167,7 +167,7 @@
         </TR>
         <TR>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
-          <TD align="left" CLASS="statText"><A HREF="/stat?c=member_profile&amp;cr=273414" CLASS="coderTextGreen">drcode</A></TD>
+          <TD align="left" CLASS="statText"><A HREF="/tc?module=MemberProfile&amp;cr=273414" CLASS="coderTextGreen">drcode</A></TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
           <TD ALIGN="right" CLASS="statText">1582.82</TD>
           <TD><IMG WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
