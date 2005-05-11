@@ -62,6 +62,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		TransactionManager tm = null;
 		try { 
 			tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
+			tm.begin();
 		    System.out.println("transaction obtained");
 			
 		    ForumMessage message;
