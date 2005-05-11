@@ -37,22 +37,6 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
         return info;
     }
 
-    protected void loadTimeZoneInfo() throws TCWebException {
-        String tz= getTimeZone();
-        //setDefault(Constants.TIMEZONE, tz);
-        getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
-    }
-
-    protected String getTimeZone() throws TCWebException {
-        try {
-            Company company = (Company) createEJB(getInitialContext(), Company.class);
-            Contact contact = (Contact) createEJB(getInitialContext(), Contact.class);
-            return company.getTimeZone(contact.getCompanyId(getUser().getId(), Constants.DATA_SOURCE));
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-    }
-
     protected void clearSessionInfo() {
         HttpSession session = getRequest().getSession();
         session.removeAttribute(Constants.SESSION_INFO);
