@@ -59,7 +59,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		TransactionManager tm = null;
 		try { 
 			tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
-			tm.begin();
+			//tm.begin();
 			
 		    ForumMessage message;
 			if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
@@ -91,7 +91,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			System.out.println("threadID: " + thread.getID());
 			System.out.println("postMode: " + postMode);
 			
-			tm.commit();
+			//tm.commit();
 		} catch (Exception e) {
 			System.out.println("EXCEPTION!!!!");
 			e.printStackTrace();
