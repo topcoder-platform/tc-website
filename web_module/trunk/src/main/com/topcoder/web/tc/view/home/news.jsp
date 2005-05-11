@@ -6,6 +6,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>05.11.05<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">New Member Profiles</span><br><br>
+      Just click any handle!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>05.09.05<br>11:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">New Algorithm, Design, and Development rating formulas</A></span><br><br>
       We will be changing the algorithm, design, and development rating formulas on May 12th. This will include a complete re-rating starting from our first match.
@@ -252,19 +263,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.13.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/pressroom/SDT_041305.jpg" target="_blank">LogicLibrary, TopCoder Business Brief</A></span><br><br>
-      "Through a joint agreement, LogicLibrary will make TopCoder Software's component catalog available to the users of the Logidex asset management system." [SDT]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/pressroom/SDT_041305.jpg" target="_blank">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-
 </table>
 <br><br>
 
