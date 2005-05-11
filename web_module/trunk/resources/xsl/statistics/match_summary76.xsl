@@ -107,9 +107,9 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>
 -->
 <P>
-An extremely close battle took place in Room 4, as <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> outscored <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+An extremely close battle took place in Room 4, as <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> outscored <A HREF="/tc?module=MemberProfile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
  by .84 points (1416.95 to 1416.11) to win the room.  <A HREF="/tc?module=MemberProfile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
- actually coded the Level One and Three problems quicker than <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A>, but the difference in the match was the scoring differential of the Level Two submissions.  <A HREF="/stat?c=member_profile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> earned 238.04 on the Level One problem, 291.45 on the Level Two problem and 887.46 on the Level Three problem, while <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
+ actually coded the Level One and Three problems quicker than <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A>, but the difference in the match was the scoring differential of the Level Two submissions.  <A HREF="/tc?module=MemberProfile&amp;cr=128924" CLASS="coderTextYellow">thekcc</A> earned 238.04 on the Level One problem, 291.45 on the Level Two problem and 887.46 on the Level Three problem, while <A HREF="/tc?module=MemberProfile&amp;cr=152476" CLASS="coderTextYellow">kalmes</A>
  gained 241.31 on the Level One problem, 347.32 on the Level Two problem and 827.48 on the Level Three problem.
 </P>
 
