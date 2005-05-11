@@ -84,7 +84,7 @@ public class BuildCandidateList extends BaseScreeningProcessor {
                 getRequest().setAttribute(DataAccessConstants.END_RANK, String.valueOf(endVal));
                 getRequest().setAttribute(DataAccessConstants.NUMBER_RECORDS, String.valueOf(count));
 
-                s.addDefault(result.getColumnIndex("handle"), "asc");
+                s.addDefault(result.getColumnIndex("sort_key"), "asc");
                 s.addDefault(result.getColumnIndex("profile_sort"), "asc");
                 s.addDefault(result.getColumnIndex("begin_time"), "desc");
                 s.addDefault(result.getColumnIndex("end_time"), "desc");
