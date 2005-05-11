@@ -33,6 +33,18 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 		
+		if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
+			addError(ForumConstants.MESSAGE_SUBJECT, "Message subject is empty");
+		}
+		if (getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim().equals("")) {
+			addError(ForumConstants.MESSAGE_BODY, "Message body is empty");
+		}
+		if (hasErrors()) {
+			setNextPage("/post.jsp");
+			setIsNextPageInContext(true);
+			return;
+		}
+		
 		long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
 		long threadID;
 		long messageID;
@@ -61,22 +73,21 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			} System.out.println("message obtained");
 			if (!threadIDStr.equals("")) {
 				threadID = Long.parseLong(threadIDStr);
+				thread = forum.getThread(threadID);
+				if (postMode.equals("Reply")) {
+					messageID = Long.parseLong(messageIDStr);
+					ForumMessage parentMessage = forumFactory.getMessage(messageID);
+					thread.addMessage(parentMessage, message);
+				} else if (postMode.equals("NewMessage")) {
+					thread.addMessage(null, message);
+				}
 			} else {
-				ForumThread newThread = forum.createThread(message);
-				forum.addThread(newThread);
-				threadID = newThread.getID();
+				thread = forum.createThread(message);
+				forum.addThread(thread);
 			}
 			System.out.println("messageID: " + message.getID());
-			System.out.println("threadID: " + threadID);
+			System.out.println("threadID: " + thread.getID());
 			
-			if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
-				addError(ForumConstants.MESSAGE_SUBJECT, "Message subject is empty");
-			}
-			if (getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim().equals("")) {
-				addError(ForumConstants.MESSAGE_BODY, "Message body is empty");
-			}
-			
-			thread = forum.getThread(threadID);
 			getRequest().setAttribute("thread", thread);
 			
 			tm.commit();
