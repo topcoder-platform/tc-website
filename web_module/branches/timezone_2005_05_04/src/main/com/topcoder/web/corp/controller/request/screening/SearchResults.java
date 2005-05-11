@@ -128,7 +128,7 @@ public class SearchResults extends BaseScreeningProcessor {
         query.append("CASE WHEN (NVL(TO_CHAR(EXTEND(TODAY) +  ");
         query.append("           ((sbm.submit_time - sbm.open_time)/1000) UNITS FRACTION, ");
         query.append("           '%H:%M:%S'),'N/A')) = 'N/A' then 'details' else 'results' end as problem_text ");
-        query.append(", t.timezone_desc");
+        query.append(", t.timezone_desc ");
         query.append("from ");
         query.append("user u, session s, session_profile sp, email e, ");
         query.append("coder c, user_address_xref uax, address a, country ct, coder_type cty, ");
