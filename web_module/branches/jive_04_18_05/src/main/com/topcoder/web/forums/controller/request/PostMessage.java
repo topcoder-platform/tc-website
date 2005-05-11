@@ -63,7 +63,6 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		try { 
 			tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
 			tm.begin();
-		    System.out.println("transaction obtained");
 			
 		    ForumMessage message;
 			if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
@@ -71,7 +70,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 				message = forumFactory.getMessage(messageID);
 			} else {
 				message = forum.createMessage(user);
-			} System.out.println("message obtained");
+			}
 			if (!threadIDStr.equals("")) {
 				threadID = Long.parseLong(threadIDStr);
 				thread = forum.getThread(threadID);
@@ -86,14 +85,14 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 				thread = forum.createThread(message);
 				forum.addThread(thread);
 			}
-			System.out.println("messageID: " + message.getID());
-			System.out.println("threadID: " + thread.getID());
+			
+			message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
+			message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
 			
 			getRequest().setAttribute("thread", thread);
 			
 			tm.commit();
 		} catch (Exception e) {
-			System.out.println("EXCEPTION!!!!!!");
 			e.printStackTrace();
 			if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
                 tm.rollback();
