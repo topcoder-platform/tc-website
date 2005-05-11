@@ -23,8 +23,8 @@ public abstract class ForumsProcessor extends BaseProcessor {
      * Subclasses should do their work by implementing this method.
      */
     protected void businessProcessing() throws Exception {
-        authToken = AuthFactory.getAuthToken("tomek","password");
+        authToken = AuthFactory.getAuthToken("Yarin","password");
 		forumFactory = ForumFactory.getInstance(authToken);
-		user = forumFactory.getUserManager().getUser("tomek");
+		user = forumFactory.getUserManager().getUser("Yarin");
     }
 }

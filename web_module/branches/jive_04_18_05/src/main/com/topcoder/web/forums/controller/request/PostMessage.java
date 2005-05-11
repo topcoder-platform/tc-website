@@ -93,6 +93,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			
 			tm.commit();
 		} catch (Exception e) {
+			System.out.println("EXCEPTION!!!!");
 			e.printStackTrace();
 			if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
                 tm.rollback();
@@ -138,7 +139,8 @@ public class PostMessage extends ForumsProcessor implements Pageable {
     }
     
     protected void initPagingFields() {
-    	start = thread.getMessageCount()-1;
+    	//start = thread.getMessageCount()-1;
+    	start = 0;
         resultFilter = ResultFilter.createDefaultMessageFilter();
         resultFilter.setStartIndex(getStart());
         int messageRange = 15;

@@ -36,7 +36,7 @@ public class ForumsServlet extends BaseServlet {
      * @throws Exception
      */
     protected TCSubject getUser(long id) throws Exception {
-        return new TCSubject(132456);
+        return new TCSubject(144400);
     }
 
     protected SessionInfo createSessionInfo(TCRequest request,
