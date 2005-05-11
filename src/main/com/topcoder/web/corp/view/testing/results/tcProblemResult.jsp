@@ -61,12 +61,11 @@
 
          <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
-              <TD COLSPAN="4" CLASS="testTableTitle"><B>System Test</B></TD>
+              <TD COLSPAN="3" CLASS="testTableTitle"><B>System Test</B></TD>
            </TR>
 	        <TR>
 		       <TD ALIGN="center" CLASS="testFormHeader" >Args</TD>
 		       <TD ALIGN="center" CLASS="testFormHeader">Expected</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Received</TD>
 		       <TD ALIGN="center" CLASS="testFormHeader">Status</TD>
 	        </TR>
             <% boolean even = false; %>
@@ -74,8 +73,13 @@
 	        <TR>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="args" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="expected_result" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="received" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>">
+                       <%if(!testResult.getStringItem("status").equals("Succeeded")) {%>
+                            <span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;<screen:resultSetItem row="<%=testResult%>" name="received" /></span>
+                       <% } else { %>
+                            <screen:resultSetItem row="<%=testResult%>" name="status" />
+                        <% } %>
+		       </TD>
 	        </TR>
             <% even = !even;%>
            </screen:resultSetRowIterator>
