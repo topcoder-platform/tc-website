@@ -73,7 +73,7 @@ function getProblemDetail(id) {
                   <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" name="coder_type"/></td>
                   <td class="<%=cssClasses[counter % 2]%>" align=center nowrap=nowrap><rsc:item row="<%=resultRow%>" name="job"/></td>
                   <td class="<%=cssClasses[counter % 2]%>" align=center><A href="javascript:getProblemDetail('<rsc:item row="<%=resultRow%>" name="session_round_id"/>,<rsc:item row="<%=resultRow%>" name="problem_id"/>');"><rsc:item row="<%=resultRow%>" name="problem_name"/></A></td>
-                  <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" format="MM/dd/yyyy z" name="start_date" timeZone="timezone_desc"/></td>
+                  <td class="<%=cssClasses[counter % 2]%>" align=center nowrap=nowrap><rsc:item row="<%=resultRow%>" format="MM/dd/yyyy z" name="start_date" timeZone="timezone_desc"/></td>
                   <td class="<%=cssClasses[counter % 2]%>" align=center><rsc:item row="<%=resultRow%>" name="problem_time"/></td>
                   <td class="<%=cssClasses[counter % 2]%>" align=center>
                     <object

@@ -108,7 +108,7 @@ public class SearchResults extends BaseScreeningProcessor {
         query.append("cty.coder_type_desc as coder_type, ");
         query.append("j.job_desc as job, ");
         query.append("p.name as problem_name, ");
-        query.append("DATE(s.begin_time) as start_date, ");
+        query.append("s.begin_time as start_date, ");
         query.append("NVL(TO_CHAR(EXTEND(TODAY) + ");
         query.append("           ((sbm.submit_time - sbm.open_time)/1000) UNITS FRACTION, ");
         query.append("           '%H:%M:%S'),'N/A') as problem_time, ");

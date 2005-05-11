@@ -79,7 +79,7 @@ function getProblemDetail(id) {
                         <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><rsc:item row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
                         <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item row="<%=row%>" name="num_sessions" /></td>
                         <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item row="<%=row%>" name="num_complete" /></td>
-                        <td align="right" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a'/></td>
+                        <td align="right" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a z' timezone="timezone_desc"/></td>
                     </tr>
                     </rsc:iterator>
                 <% } %>
