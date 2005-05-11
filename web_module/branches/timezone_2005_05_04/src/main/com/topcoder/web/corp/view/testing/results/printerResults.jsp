@@ -4,7 +4,8 @@
                  java.util.List,
                  com.topcoder.web.corp.model.ProblemInfo,
                  com.topcoder.web.common.StringUtils,
-                 com.topcoder.web.corp.model.SubmissionInfo" %>
+                 com.topcoder.web.corp.model.SubmissionInfo,
+                 com.topcoder.shared.language.JavaLanguage" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <html>
@@ -353,7 +354,7 @@ if ( plugin ) {
                   <%=j==0&&(solution.isSubmitted()||solution.isCompiled())?"<h3>Test Set A</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
-		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/></td>
                   </tr>
                   <tr><td><br/></td></tr>
                   </table>
