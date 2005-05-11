@@ -181,20 +181,16 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
 
        <% } else { %>
 
-                            <TR>
-                                <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                            </TR>
 
          <TR>
-                                <TD COLSPAN="7" CLASS="statText">This member has no component history.</TD>
-                            </TR>
+            <TD COLSPAN="7" CLASS="statText">This member has no component history.</TD>
+         </TR>
          <% } %>
-                            <TR>
-                                <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                            </TR>
-                        </TABLE>
-                    </TD>
-                </TR>
+      </TABLE>
+      </TD>
+   </TR>
+</TABLE>
+
          <% if (!bEmpty) { %>
          <% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
                 <TR>
@@ -214,8 +210,6 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
                 </TR>
          <% } %>
       <% } %>
-
-            </TABLE>
 
          <p><br></p>
          <!-- END BODY -->
