@@ -39,7 +39,7 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
 
     protected void loadTimeZoneInfo() throws TCWebException {
         String tz= getTimeZone();
-        setDefault(Constants.TIMEZONE, tz);
+        //setDefault(Constants.TIMEZONE, tz);
         getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
     }
 

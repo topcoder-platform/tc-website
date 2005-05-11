@@ -24,6 +24,7 @@ public class PrinterTestResults extends TestResults {
 
         long sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
         try {
+            loadTimeZoneInfo();
             //get the problem solutions
             log.debug("set a: " + problemSetAList);
             getRequest().setAttribute("problemSolutionAList", getSubmissions(problemSetAList, sessionId,
