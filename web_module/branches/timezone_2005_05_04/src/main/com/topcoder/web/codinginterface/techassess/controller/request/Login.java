@@ -71,7 +71,7 @@ public class Login extends Base {
 
                 showProcessingPage();
 
-                ScreeningLoginResponse response = (ScreeningLoginResponse) receive(5000);
+                ScreeningLoginResponse response = (ScreeningLoginResponse) receive(10000);
 
 
                 if (response.isSuccess()) {
@@ -122,7 +122,7 @@ public class Login extends Base {
                     "When using this tool, please wait for a response before you attempt to proceed.");
         }
         if (showProcessing) showProcessingPage();
-        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
+        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(10000);
 
         if (termsResponse.getMessage()!=null) {
             //log.debug("terms are " + termsResponse.getMessage());
