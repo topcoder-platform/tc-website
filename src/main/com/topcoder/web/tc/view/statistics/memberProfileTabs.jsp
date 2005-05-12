@@ -42,19 +42,19 @@
   <% if (isRatedDes) {%>
     <% if (selectedTab.equals("des")) {%>
       <td class="tabLeftNA">&#160;</td>
-      <td class="tabIconNA"><img src="/i/stats/desIconNA.gif" alt="Des" border="0" /></td>
-      <td width="33%" class="tabTextNA">Design Statistics</td>
+      <td class="tabIconNA"><img src="/i/stats/algIconNA.gif" alt="Des" border="0" /></td>
+      <td width="33%" class="tabTextNA">Algorithm Statistics</td>
       <td valign="top"><img src="/i/stats/tabMidNAOn.gif" alt="" border="0" /></td>
     <% } else { %>
       <td class="tabLeftNA">&#160;</td>
-      <td class="tabIconNA"><img src="/i/stats/desIconNA.gif" alt="Des" border="0" /></td>
-      <td width="33%" class="tabTextNA">Design Statistics</td>
+      <td class="tabIconNA"><img src="/i/stats/algIconNA.gif" alt="Des" border="0" /></td>
+      <td width="33%" class="tabTextNA">Algorithm Statistics</td>
       <td valign="top"><img src="/i/stats/tabMidNAOff.gif" alt="" border="0" /></td>
     <% } %>
   <% } else { %>
       <td class="tabLeftNA">&#160;</td>
-      <td class="tabIconNA"><img src="/i/stats/desIconNA.gif" alt="Des" border="0" /></td>
-      <td width="33%" class="tabTextNA">Design Statistics</td>
+      <td class="tabIconNA"><img src="/i/stats/algIconNA.gif" alt="Des" border="0" /></td>
+      <td width="33%" class="tabTextNA">Algorithm Statistics</td>
       <td valign="top"><img src="/i/stats/tabMidNANA.gif" alt="" border="0" /></td>
   <% } %>
 <% } %>
