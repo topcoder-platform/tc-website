@@ -32,7 +32,8 @@ public class Logout extends Base {
 
         //build the next page before we invalidate the session
         String nextPage = buildProcessorRequestString(Constants.RP_LOGIN,
-                new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())});
+                new String[]{Constants.COMPANY_ID, Constants.SESSION_ID},
+                new String[]{String.valueOf(getCompanyId()), String.valueOf(getSessionId())});
 
         getRequest().getSession().invalidate();
 
