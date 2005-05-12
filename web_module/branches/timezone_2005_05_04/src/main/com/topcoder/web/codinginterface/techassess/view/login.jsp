@@ -59,6 +59,7 @@ function submitEnter(e) {
                             <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method=post name=loginForm target="_top">
                                 <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="<%=Constants.RP_LOGIN%>"/>
                                 <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
+                                <tc-webtag:hiddenInput name="<%=Constants.SESSION_ID%>"/>
                                 <table width="400" cellspacing=0 cellpadding=0 border=0 class=tableFrame>
                                     <% if (((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).containsKey(CodingInterfaceConstants.TERMS)) { %>
                                     <tr>
