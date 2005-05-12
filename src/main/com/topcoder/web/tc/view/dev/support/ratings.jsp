@@ -59,33 +59,25 @@
                 Where Volatility is the volatility of the coder in the competition before the competition.
                 <BR/>
                                     <BR/>
-                <B>The skill of the coder is calculated:</B>
-                <BR/>
+                  <b>Win Probability Estimation Algorithm::</b>
                                     <BR/>
-                                    <IMG ALT="skill" HEIGHT="34" WIDTH="138" SRC="/i/rating/skill.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="win probability" SRC="/i/rating/wp.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where Rating is the coder's rating before the competition.
-                <BR/>
-                                    <BR/>
-                <B>The deviation of the coder is calculated:</B>
-                <BR/>
-                                    <BR/>
-                                    <IMG ALT="deviation" HEIGHT="34" WIDTH="141" SRC="/i/rating/dev.gif" ALIGN="center" BORDER="0"/><BR/>
-                                    <BR/>
-                Where Volatility is the volatility of the coder before the competition.
+Where Rating1 &amp; Vol1 are the rating and volatility of the coder being compared to, and Rating2 &amp; Vol2 are the rating and volatility of the coder whose win probability is being calculated.  Erf is the "<A href="http://mathworld.wolfram.com/Erf.html" target="_blank">error function</A>".  
+
                 <BR/>
                                     <BR/>
                 The probability of the coder getting a higher score than another coder in the 
-                competition (WPi for i from 1 to NumCoders) is estimated.  See below for the 'Estimation Algorithm'.
+                competition (WPi for i from 1 to NumCoders) is estimated.  
                 The expected rank of the coder is calculated:
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="expected rank" HEIGHT="39" WIDTH="118" SRC="/i/rating/er.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="expected rank" SRC="/i/rating/er.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 <B>The expected performance of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="expected performance" HEIGHT="34" WIDTH="170" SRC="/i/rating/ep.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="expected performance" SRC="/i/rating/ep.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 Where <IMG ALT="inverse standard normal" HEIGHT="11" WIDTH="11" SRC="/i/rating/phi.gif" BORDER="0"/>
                 is the inverse of the standard normal function.
@@ -94,7 +86,7 @@
                 <B>The actual performance of each coder is calculated:</B>
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="expected performance" HEIGHT="34" WIDTH="170" SRC="/i/rating/ap.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="expected performance" SRC="/i/rating/ap.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 Where ARank is the actual rank of the coder in the competition based on score 
                 (1 for first place, NumCoders forlast).  If the coder tied with another coder, 
@@ -104,12 +96,12 @@
                 <B>The performed as rating of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="performed as" HEIGHT="14" WIDTH="286" SRC="/i/rating/pa.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="performed as" SRC="/i/rating/pa.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 <B>The weight of the competition for the coder is calculated:</B>
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="weight of the competition" HEIGHT="37" WIDTH="223" SRC="/i/rating/wt.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="weight of the competition" SRC="/i/rating/wt.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 Where TimesPlayed is the number of times the coder has been rated before.
                 <BR/>
@@ -127,7 +119,7 @@
                 <B>The new volatility of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
-                                    <IMG ALT="new volatility" HEIGHT="46" WIDTH="421" SRC="/i/rating/nv.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="new volatility" SRC="/i/rating/nv.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
                 <B>The new rating of the coder is calculated:</B>
                 <BR/>
@@ -137,72 +129,8 @@
                 If |NewRating - Rating| &#62; Cap the NewRating is adjusted so it is at most Cap different than Rating.
                 <BR/>
                                     <BR/>
-                                    <HR/>
                                     <BR/>
                                     <BR/>
-                <B>Estimation Algorithm:</B>
-                <BR/>
-                                    <BR/>
-Taking the difference of each coder's performance is also a normal 
-distribution.  A positive value would then indicate a win and a negative 
-value would indicate a loss.  The percentage chance that a player wins, 
-therefore, uses the standard normal cumulative disribution as follows:
-    <BR />
- &#160;&#160;&#160;&#160;        WinProbability( SkillA, DeviationA, SkillB, DeviationB)
-    <BR/>
- &#160;&#160;&#160;&#160;        Return snorm( (SkillB-SkillA) / Math.sqrt(DeviationA^2 + DeviationB^2) )
-
-<BR/>Using this model, a coder's
-performance can be turned into a percentage using the normal distribution, so that 50% represents expected
-performance and 25% represents better three days out of four, etc.  Then, to estimate the probability that the
-coder beats coder i, the range from 0% to 100% is broken into 1% blocks, and the midpoint is taken of each
-block and the corresponding performance is computed.  The win probability is the number of blocks where the
-midpoint favors coder i.  If it's a tie, the block is split between both coders.   
-                <BR/>
-                                    <BR/>
-Here is the psuedo-code function to estimate the probability of coder A beating coder B
-(<IMG ALT="inverse standard normal" HEIGHT="11" WIDTH="11" SRC="/i/rating/phi.gif" BORDER="0"/> is the inverse of the
-standard normal function):
-                <BR/>
-                                    <BR/>
-WinProbability( SkillA, DeviationA, SkillB, DeviationB)
-                <BR/>
-         Set count, a, b to 0.
-                <BR/>
-         Set fa = SkillA + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((a + .5)/100)*DeviationA
-                <BR/>
-         Set fb = SkillB + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((b + .5)/100)*DeviationB
-                <BR/>
-         While (a&#60;100)
-                <BR/>
- &#160;&#160;        If fa&#60;fb:
-                <BR/>
- &#160;&#160;&#160;&#160;         Add 100-b to count
-                <BR/>
-  &#160;&#160;&#160;&#160;        Increment a
-                <BR/>
-&#160;&#160;&#160;&#160; Set fa = SkillA + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((a + .5)/100)*DeviationA
-                <BR/>
-&#160;&#160;         If fa == fb:
-                <BR/>
-&#160;&#160;&#160;&#160;          Add 100-b-.5 to count
-                <BR/>
-&#160;&#160;&#160;&#160;          Increment a
-                <BR/>
-&#160;&#160;&#160;&#160;          Increment b
-                <BR/>
-&#160;&#160;&#160;&#160;         Set fa = SkillA + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((a + .5)/100)*DeviationA
-                <BR/>
-&#160;&#160;&#160;&#160;         Set fb = SkillB + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((b + .5)/100)*DeviationB
-                <BR/>
-&#160;&#160;         If fa&#62;fb:
-                <BR/>
-&#160;&#160;&#160;&#160;            Increment b
-                <BR/>
-&#160;&#160;&#160;&#160;            Set fb = SkillB + <!-- <SPAN STYLE="font-family:Symbol;">f</SPAN> -->f((b + .5)/100)*DeviationB
-                <BR/>
-            Return count  (count is the win probability)
-            </p>
             
 
             <p><br/></p>
