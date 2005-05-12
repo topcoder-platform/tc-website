@@ -43,10 +43,10 @@
 		<a href="Javascript:tcTime()" class="time">&#160;<strong>[Get Time]</strong></a>
 		</td>
 
-        <td class=homeTopBar width="100%" align=right>
+        <td class=homeTopBar width="100%" align=right valign="bottom">
 <% if ( !sessionInfo.isAnonymous() ) { %>
-            <strong>Hello, </strong>
-            <a href="/tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a>
+            <strong>Hello, </strong><span class="smallText">&#160;
+            <a href="/tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a></span>
             &#160;&#160;|&#160;&#160;<a href="/tc?&amp;module=Logout" class=loginLinks>Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>
