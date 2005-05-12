@@ -140,6 +140,8 @@ public class EmailInfo extends BaseModel {
             msgText.append(Constants.SESSION_ID);
             msgText.append("=");
             msgText.append(sessionInfo.getSessionId());
+            msgText.append("&cm=");
+            msgText.append(companyId);
             msgText.append("\n\n");
             msgText.append("Thank you,\n\n");
             msgText.append("Google India Staffing");
@@ -175,6 +177,8 @@ public class EmailInfo extends BaseModel {
             msgText.append(Constants.SESSION_ID);
             msgText.append("=");
             msgText.append(sessionInfo.getSessionId());
+            msgText.append("&cm=");
+            msgText.append(companyId);
             msgText.append("\n\n");
             msgText.append("Thank you,\n");
             msgText.append(repName);
