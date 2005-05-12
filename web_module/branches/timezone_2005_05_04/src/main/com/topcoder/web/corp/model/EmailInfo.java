@@ -136,8 +136,10 @@ public class EmailInfo extends BaseModel {
             msgText.append("IMPORTANT: Please note that you must complete ALL portions of the test prior to the end time shown above.\n\n");
             msgText.append("You should allow 1-2 hours to complete all portions of the test.\n\n");
             msgText.append("You may access the test here: ");
-            msgText.append("http://www.topcoder.com/techassess/techassess?module=Login&cm=");
-            msgText.append(companyId);
+            msgText.append("http://www.topcoder.com/techassess/techassess?module=Login&");
+            msgText.append(Constants.SESSION_ID);
+            msgText.append("=");
+            msgText.append(sessionInfo.getSessionId());
             msgText.append("\n\n");
             msgText.append("Thank you,\n\n");
             msgText.append("Google India Staffing");
@@ -169,8 +171,10 @@ public class EmailInfo extends BaseModel {
             msgText.append(" MINUTES TO COMPLETE ALL PORTIONS OF THE TEST.");
             msgText.append("\n\n");
             msgText.append("You may access ");
-            msgText.append("the Technical Assessment Application here: http://www.topcoder.com/techassess/techassess?module=Login&cm=");
-            msgText.append(companyId);
+            msgText.append("the Technical Assessment Application here: http://www.topcoder.com/techassess/techassess?module=Login&");
+            msgText.append(Constants.SESSION_ID);
+            msgText.append("=");
+            msgText.append(sessionInfo.getSessionId());
             msgText.append("\n\n");
             msgText.append("Thank you,\n");
             msgText.append(repName);

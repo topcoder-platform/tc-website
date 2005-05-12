@@ -17,6 +17,7 @@ public class TestSessionInfo extends BaseModel {
                       Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
                       Calendar.NOVEMBER, Calendar.DECEMBER};
     private String profileId;
+    private long sessionId;
     private String candidateId;
     private ResultSetContainer profileList;
     private ResultSetContainer candidateList;
@@ -52,6 +53,7 @@ public class TestSessionInfo extends BaseModel {
         beginYear = endYear = String.valueOf(c.get(Calendar.YEAR));
         beginHour = endHour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));
         this.timeZone = timeZone;
+        sessionId = 0;
 
     }
 
@@ -293,6 +295,14 @@ public class TestSessionInfo extends BaseModel {
 
     public String getTimeZone() {
         return timeZone;
+    }
+
+    public long getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(long sessionId) {
+        this.sessionId = sessionId;
     }
 
     /**
