@@ -50,8 +50,6 @@ public class Login extends Base {
                 } catch (NumberFormatException e) {
                     throw new NavigationException("Request missing required parameter");
                 }
-            } else {
-                throw new NavigationException("Request missing required parameter");
             }
 
             if (hasErrors()) {
