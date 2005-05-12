@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.12.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=art_051205">Interview with Jack Hughes</A></span><br><br>
+      This is an interview The Wall Street Transcript had recently with TopCoder Founder, Jack Hughes.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=news&d2=art_051205">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>05.11.05<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New Member Profiles</span><br><br>
       Just click any handle!
@@ -233,22 +245,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.19.05<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041905">The Design Process - Section 3: appeals phase do's</A></span><br><br>
-       "The purpose [now] turns to provide the reviewer with the proper reasoning and enough information to overturn their original objections."</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=119676">Pops</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=041905">full story</A>&#160;|&#160;
-         <A href="/?&t=features&c=index">archive</A>
-   </td></tr>
- 
-
 </table>
 <br><br>
 
