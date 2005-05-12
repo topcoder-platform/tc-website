@@ -369,7 +369,7 @@ public class TestSessionInfo extends BaseModel {
 
     /**
      * Given a year, month, day and hour return a date object in the default
-     * timezone
+     * timezone (ie system timezone)
      * @param year
      * @param month
      * @param day

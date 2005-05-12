@@ -9,6 +9,7 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.DateUtils;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.corp.common.Constants;
@@ -105,12 +106,12 @@ public class EmailInfo extends BaseModel {
                                 new CalendarDateFormatMethod("MM/dd/yyyy hh:mm aa zzz"), true);
 
         Calendar begin = Calendar.getInstance();
-        begin.setTime(sessionInfo.getBeginDate());
+        begin.setTime(DateUtils.getConvertedDate(sessionInfo.getBeginDate(), getCompanyTimeZone()));
         TimeZone tz = TimeZone.getTimeZone(getCompanyTimeZone());
         begin.setTimeZone(tz);
 
         Calendar end = Calendar.getInstance();
-        end.setTime(sessionInfo.getEndDate());
+        end.setTime(DateUtils.getConvertedDate(sessionInfo.getEndDate(), getCompanyTimeZone()));
         end.setTimeZone(tz);
 
         //todo yikes this is a nasty hack for google india
