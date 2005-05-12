@@ -46,7 +46,7 @@ public class Login extends Base {
             if (hasParameter(Constants.SESSION_ID)) {
                 try {
                     sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
-                    setDefault(Constants.SESSION_ID, String.valueOf(sessionId));
+                    setSessionId(sessionId);
                 } catch (NumberFormatException e) {
                     throw new NavigationException("Request missing required parameter");
                 }
@@ -77,7 +77,7 @@ public class Login extends Base {
 
                 if (response.isSuccess()) {
                     getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
-                    setSessionId(response.getSessionID());
+                    //setSessionId(response.getSessionID());
                 } else {
                     loadTerms(false);
                     addError(Constants.HANDLE, response.getMessage());
