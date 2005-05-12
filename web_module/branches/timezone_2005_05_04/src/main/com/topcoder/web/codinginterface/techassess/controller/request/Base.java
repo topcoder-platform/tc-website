@@ -163,7 +163,7 @@ public abstract class Base extends BaseProcessor {
      * @param sessionId
      */
     public final void setSessionId(long sessionId) {
-        //log.debug("session id set to " + sessionId);
+        log.debug("session id set to " + sessionId);
         if (getRequest().getSession().getAttribute("logouter") == null) {
             getRequest().getSession().setAttribute("logouter", new Logouter(sessionId, sender));
         }
