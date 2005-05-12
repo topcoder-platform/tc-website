@@ -72,24 +72,15 @@
                 Where Volatility is the volatility of the coder in the competition before the competition.
                 <BR/>
                                     <BR/>
-                <B>The skill of the coder is calculated:</B>
-                <BR/>
+                  <b>Win Probability Estimation Algorithm:</b>
                                     <BR/>
-                                    <IMG ALT="skill" HEIGHT="34" WIDTH="138" SRC="/i/rating/skill.gif" ALIGN="center" BORDER="0"/><BR/>
+                                    <IMG ALT="win probability" SRC="/i/rating/wp.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where Rating is the coder's rating before the competition.
-                <BR/>
-                                    <BR/>
-                <B>The deviation of the coder is calculated:</B>
-                <BR/>
-                                    <BR/>
-                                    <IMG ALT="deviation" HEIGHT="34" WIDTH="141" SRC="/i/rating/dev.gif" ALIGN="center" BORDER="0"/><BR/>
-                                    <BR/>
-                Where Volatility is the volatility of the coder before the competition.
+Where Rating1 &amp; Vol1 are the rating and volatility of the coder being compared to, and Rating2 &amp; Vol2 are the rating and volatility of the coder whose win probability is being calculated.  Erf is the "<A href="http://mathworld.wolfram.com/Erf.html" target="_blank">error function</A>".  
                 <BR/>
                                     <BR/>
                 The probability of the coder getting a higher score than another coder in the 
-                competition (WPi for i from 1 to NumCoders) is estimated.  See below for the 'Estimation Algorithm'.
+                competition (WPi for i from 1 to NumCoders) is estimated.  
                 The expected rank of the coder is calculated:
                 <BR/>
                                     <BR/>
@@ -150,47 +141,6 @@
                 If |NewRating - Rating| &#62; Cap the NewRating is adjusted so it is at most Cap different than Rating.
                 <BR/>
                                     <BR/>
-                                    <HR/>
-                                    <BR/>
-                                    <BR/>
-                <B>Estimation Algorithm:</B>
-                <BR/>
-                                    <BR/>
-Estimating the probability a coder gets a higher score than another coder is done by looking at either coder's 
-expected performance rating on a range of good to bad days.  Each coder's performance is modeled as a
-normal distribution with a mean (the rating) and standard deviation (the volatility).  Using this model, a coder's
-performance can be turned into a percentage using the normal distribution, so that 50% represents expected
-performance and 25% represents better three days out of four, etc.  Then, to estimate the probability that the
-coder beats coder i, the range from 0% to 100% is broken into 1% blocks, and the midpoint is taken of each
-block and the corresponding performance is computed.  The win probability is the number of blocks where the
-midpoint favors coder i.  If it's a tie, the block is split between both coders.   
-                <BR/>
-                                    <BR/>
-Here is the psuedo-code function to estimate the probability of coder A beating coder B
-(f() is the inverse of the
-standard normal function):
-                <BR/>
-                                    <BR/>
-WinProbability( SkillA, DeviationA, SkillB, DeviationB)<br />
-Set count, a, b to 0. <br />
-Set fa = SkillA + f((a + .5)/100)*DeviationA <br />
-Set fb = SkillB + f((b + .5)/100)*DeviationB <br />
-While (a&lt;100) <br />
-&#160;&#160;&#160;&#160;If fa&lt;fb: <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Add 100-b to count <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Increment a <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Set fa = SkillA + f((a + .5)/100)*DeviationA <br />
-&#160;&#160;&#160;&#160;If fa == fb: <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Add 100-b-.5 to count <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Increment a <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Increment b <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Set fa = SkillA + f((a + .5)/100)*DeviationA <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Set fb = SkillB + f((b + .5)/100)*DeviationB <br />
-&#160;&#160;&#160;&#160;If fa&gt;fb: <br />
-&#160;&#160;&#160;&#160;&#160;&#160;Increment b <br />
-&#160;&#160;&#160;&#160;&#160;&#160;If b == 100: break<br />
-&#160;&#160;&#160;&#160;&#160;&#160;Set fb = SkillB + f((b + .5)/100)*DeviationB <br />
-Return count (count is the win probability) <br />
 
                 <BR/>
 <P><BR/></P>
