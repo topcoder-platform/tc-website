@@ -53,11 +53,24 @@ public class CalendarDateFormatMethod implements ObjectFormatMethod {
         return ret;
     }
 
+    private final static int OUT = 0;
+    private final static int IN = 1;
     private String escape(String s) {
-        String ret = s;
-        for (int i = 0; i < FORMATS.length; i++) {
-            String replacement = "'" + FORMATS[i] + "'";
-            ret = StringUtils.replace(ret, FORMATS[i], replacement);
+        int state = OUT;
+        StringBuffer ret = new StringBuffer(s.length()+10);
+        for (int i=0; i<s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch=='z'&&state==OUT) {
+                ret.append('\'');
+                state = IN;
+            } else if (ch!='z'&&state==IN) {
+                ret.append('\'');
+                state = OUT;
+            }
+            ret.append(ch);
+        }
+        if (state==IN) {
+            ret.append('\'');
         }
         return ret.toString();
     }
