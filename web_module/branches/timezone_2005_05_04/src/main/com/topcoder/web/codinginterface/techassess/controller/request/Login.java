@@ -34,6 +34,17 @@ public class Login extends Base {
         setDefault(Constants.COMPANY_ID, new Long(getCompanyId()));
         setDefault(Constants.FRESH_REQUEST, String.valueOf(true));
 
+        if (hasParameter(Constants.SESSION_ID)) {
+            try {
+                sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
+                setSessionId(sessionId);
+            } catch (NumberFormatException e) {
+                throw new NavigationException("Request missing required parameter");
+            }
+        } else if (!hasParameter(Constants.SESSION_ID)&&getSessionId()<0) {
+            throw new NavigationException("Request missing required parameter");
+        }
+
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE);
             setDefault(Constants.HANDLE, handle);
@@ -42,14 +53,6 @@ public class Login extends Base {
                 password = getRequest().getParameter(Constants.PASSWORD);
             } else {
                 addError(Constants.PASSWORD, "Please enter your password");
-            }
-            if (hasParameter(Constants.SESSION_ID)) {
-                try {
-                    sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
-                    setSessionId(sessionId);
-                } catch (NumberFormatException e) {
-                    throw new NavigationException("Request missing required parameter");
-                }
             }
 
             if (hasErrors()) {
