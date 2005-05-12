@@ -22,7 +22,6 @@ public class CalendarDateFormatMethod implements ObjectFormatMethod {
     private static final String LONG_FORMAT = "zzz";
     private static final String MED_FORMAT = "zz";
     private static final String SHORT_FORMAT = "z";
-    private static final String[] FORMATS = {LONG_FORMAT, MED_FORMAT, SHORT_FORMAT};
 
     /* the NumberFormat to use to format numbers */
     private DateFormat df = null;;
