@@ -29,15 +29,13 @@ public class Login extends Base {
 
         String handle = null;
         String password = null;
-        long sessionId = 0;
 
         setDefault(Constants.COMPANY_ID, new Long(getCompanyId()));
         setDefault(Constants.FRESH_REQUEST, String.valueOf(true));
 
         if (hasParameter(Constants.SESSION_ID)) {
             try {
-                sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
-                setSessionId(sessionId);
+                setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
             } catch (NumberFormatException e) {
                 throw new NavigationException("Request missing required parameter");
             }
@@ -62,7 +60,7 @@ public class Login extends Base {
             } else {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, getCompanyId());
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
-                request.setSessionID(sessionId);
+                request.setSessionID(getSessionId());
 
                 try {
                     send(request);
