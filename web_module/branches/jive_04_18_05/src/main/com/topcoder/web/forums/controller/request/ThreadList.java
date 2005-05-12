@@ -8,15 +8,11 @@ import java.util.Iterator;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.ForumsProcessor;
 
-import com.jivesoftware.base.AuthFactory;
-import com.jivesoftware.base.AuthToken;
-import com.jivesoftware.base.User;
-
-import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Pageable;
 import com.jivesoftware.forum.action.util.Paginator;
+import com.jivesoftware.forum.stats.ViewCountManager;
 
 /**
  * @author mtong
@@ -34,6 +30,7 @@ public class ThreadList extends ForumsProcessor implements Pageable {
 		
 		forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
 		forum = forumFactory.getForum(forumID);
+		ViewCountManager.getInstance().addForumCount(forum);
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);

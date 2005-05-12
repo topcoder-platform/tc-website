@@ -8,16 +8,12 @@ import java.util.Iterator;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.ForumsProcessor;
 
-import com.jivesoftware.base.AuthFactory;
-import com.jivesoftware.base.AuthToken;
-import com.jivesoftware.base.User;
-
 import com.jivesoftware.forum.Forum;
-import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Pageable;
 import com.jivesoftware.forum.action.util.Paginator;
+import com.jivesoftware.forum.stats.ViewCountManager;
 
 /**
  * @author mtong
@@ -29,17 +25,14 @@ public class Thread extends ForumsProcessor implements Pageable {
 	
 	private ResultFilter resultFilter;
 	private ForumThread thread;
-	//private User user;
 	
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 		
 		threadID = Long.parseLong(getRequest().getParameter(ForumConstants.THREAD_ID));
-		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
-		//ForumFactory forumFactory = ForumFactory.getInstance(authToken);
 		thread = forumFactory.getForumThread(threadID);
+		ViewCountManager.getInstance().addThreadCount(thread);
 		Forum forum = thread.getForum();
-		//user = forumFactory.getUserManager().getUser("mktong");
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);

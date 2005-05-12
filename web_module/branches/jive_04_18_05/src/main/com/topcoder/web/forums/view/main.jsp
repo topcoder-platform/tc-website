@@ -55,7 +55,7 @@
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
                     <tr>
-                        <td class="rtThreadCellWrap"><A href='<%="?module=ThreadList&" + ForumConstants.FORUM_ID + "=" + forum.getID()%>' class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
+                        <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
                         	<br><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>/<jsp:getProperty name="forum" property="messageCount"/></td>
                         <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
