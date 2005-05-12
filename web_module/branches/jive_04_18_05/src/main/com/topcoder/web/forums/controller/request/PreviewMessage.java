@@ -12,7 +12,7 @@ public class PreviewMessage extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 		
-		setNextPage("/viewThread.jsp");
+		setNextPage("/preview.jsp");
 		setIsNextPageInContext(true);
 	}
 }

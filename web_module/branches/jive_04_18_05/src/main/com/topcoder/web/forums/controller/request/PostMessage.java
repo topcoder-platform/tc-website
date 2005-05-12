@@ -93,7 +93,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		getRequest().setAttribute("messages", itMessages);
 		getRequest().setAttribute("paginator", paginator);
 		
-		setNextPage("/viewThread.jsp");
+		setNextPage("/viewThreadFlat.jsp");
 		setIsNextPageInContext(true);
 	}
 	
