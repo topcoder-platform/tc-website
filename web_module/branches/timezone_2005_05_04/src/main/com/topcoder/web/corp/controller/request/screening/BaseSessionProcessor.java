@@ -9,16 +9,12 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.TestSessionInfo;
-import com.topcoder.web.ejb.company.Company;
-import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.DateUtils;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.Date;
-import java.util.TimeZone;
 
 public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     private final static Logger log = Logger.getLogger(BaseSessionProcessor.class);
@@ -99,8 +95,10 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                     Constants.SESSION_CHECK_COMMAND);
             dRequest.setProperty("spid", info.getProfileId());
             dRequest.setProperty("cid", info.getCandidateId());
+/*
             dRequest.setProperty("uid",
                     String.valueOf(getAuthentication().getUser().getId()));
+*/
             dRequest.setProperty("start", sdf.format(info.getBeginDate()));
             dRequest.setProperty("end", sdf.format(info.getEndDate()));
             log.debug("request: " + dRequest.toString());
@@ -113,15 +111,6 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
             if (rsc.size() > 0) {
                 success = false;
                 addError("dateCompare", "This session already exists.");
-            } else {
-                //if not a dupe check to see if it violates time window
-                rsc = (ResultSetContainer)
-                        map.get(Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
-                if (rsc.size() > 0) {
-                    success = false;
-                    addError("dateCompare",
-                            "The candidate is already scheduled during selected time period");
-                }
             }
         }
 
