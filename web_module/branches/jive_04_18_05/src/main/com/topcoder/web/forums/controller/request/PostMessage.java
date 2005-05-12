@@ -86,14 +86,21 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		
 		initPagingFields();
 		Paginator paginator = new Paginator(this);
-		Iterator itMessages = thread.getMessages(getResultFilter());
+		Iterator itMessages = null;
 	
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
-		getRequest().setAttribute("messages", itMessages);
 		getRequest().setAttribute("paginator", paginator);
 		
-		setNextPage("/viewThreadFlat.jsp");
+		if (user.getProperty("jiveThreadMode").equals("flat")) {
+			itMessages = thread.getMessages(getResultFilter());
+			setNextPage("/viewThreadFlat.jsp");	
+		} else if (user.getProperty("jiveThreadMode").equals("threaded")) {
+			itMessages = thread.getTreeWalker().getRecursiveMessages();
+			setNextPage("/viewThreadThreaded.jsp");	
+		}
+		
+		getRequest().setAttribute("messages", itMessages);
 		setIsNextPageInContext(true);
 	}
 	
