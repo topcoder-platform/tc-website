@@ -102,7 +102,7 @@ public class EmailInfo extends BaseModel {
 
         ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
         formatter.setFormatMethodForClass(Calendar.class,
-                                new CalendarDateFormatMethod("MM/dd/yyyy hh:mm aa z"), true);
+                                new CalendarDateFormatMethod("MM/dd/yyyy hh:mm aa zzz"), true);
 
         Calendar begin = Calendar.getInstance();
         begin.setTime(sessionInfo.getBeginDate());
