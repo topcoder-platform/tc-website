@@ -39,13 +39,13 @@ public class CalendarDateFormatMethod implements ObjectFormatMethod {
     public CalendarDateFormatMethod(String format) {
         this.format = escape(format);
         df = new SimpleDateFormat(this.format);
-        //log.debug("format string " + this.format);
+        log.debug("format string " + this.format);
     }
 
     public String format(Calendar cal) {
         Date d = cal.getTime();
         String ret = df.format(d);
-        //log.debug("formatted : " + ret);
+        log.debug("formatted : " + ret);
         TimeZone tz = cal.getTimeZone();
         ret = StringUtils.replace(ret, LONG_FORMAT, tz.getDisplayName(true, TimeZone.LONG));
         ret = StringUtils.replace(ret, MED_FORMAT, DateUtils.getUTCOffsetString(d, tz.getID()));
