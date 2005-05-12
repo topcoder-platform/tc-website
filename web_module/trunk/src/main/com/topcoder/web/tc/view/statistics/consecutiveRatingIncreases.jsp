@@ -104,7 +104,7 @@ View consecutive rating increase streaks for <A CLASS="statText" HREF="/stat?c=c
             <rsc:iterator list="<%=rsc%>" id="resultRow">
                 <tr valign="middle">
                     <td CLASS="smallFoot" align="right" height="13"><rsc:item row="<%=resultRow%>" name="rank"/>&nbsp;</td>
-                    <td><a href="/tc?module=MemberProfile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></td>
+                    <td CLASS="statText"><a href="/tc?module=MemberProfile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></td>
                     <TD CLASS="statText" ALIGN="center"><rsc:item row="<%=resultRow%>" name="length"/></TD>
                     <TD CLASS="statText" ALIGN="right" width="18%"><rsc:item row="<%=resultRow%>" name="start_contest_name"/></td>
                     <TD CLASS="statText" ALIGN="center" width="4%">&nbsp;-&nbsp;</td>
