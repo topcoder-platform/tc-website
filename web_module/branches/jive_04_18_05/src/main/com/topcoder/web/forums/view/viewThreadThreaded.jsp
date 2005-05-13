@@ -2,8 +2,7 @@
          import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
          		 com.jivesoftware.forum.action.util.Page,
-         		 java.util.Iterator,
-                 java.util.Enumeration"
+         		 java.util.*"
 %>
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -55,35 +54,21 @@
 <tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Round Tables</A> >> 
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
 	<jsp:getProperty name="thread" property="name"/></td>
-<% if (paginator.getNumPages() > 1) { %>
-	<td class="rtbc" align="right"><b> 
-		<%  if (paginator.getPreviousPage()) { %>
-			<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">
-            	<< PREV</A>&#160;&#160;&#160;
-        <%  } %> [
-        <%  Page[] pages = paginator.getPages(5);
-            for (int i=0; i<pages.length; i++) {
-        %>  <%  if (pages[i] != null) { %>
-        			<%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-        					<%= pages[i].getNumber() %>
-        			<%  } else { %>
-            				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">
-	                		<%= pages[i].getNumber() %></A>
-	                <%  } %>
-            <%  } %>
-        <%  } %> ]
-		<%  if (paginator.getNextPage()) { %>
-			&#160;&#160;&#160;<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">NEXT>></A>
-        <%  } %>
-	</b></td></tr>
-<% } %>
 </table>
 
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 <table cellpadding="0" cellspacing="0" width=100%><tr>
-	<td><img src="/images/clear.gif" width="<%=20*thread.getTreeWalker().getMessageDepth(message)%>"></td>
-	<td><table cellpadding="0" cellspacing="0" class="rtTable">
-		<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
+	<%  int depth=thread.getTreeWalker().getMessageDepth(message); 
+		int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5));
+		if (depth > 0) { %>
+			<td width=1%><img src="/images/clear.gif" width="<%=width%>" height="50"></td>
+	<%	}	%>
+	<td width=99%><table cellpadding="0" cellspacing="0" class="rtTable">
+		<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
+			<%	if (message.getParentMessage() != null) { %>
+					(in response to: <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>#<%=message.getParentMessage().getID()%>" class="rtbcLink"><%=message.getParentMessage().getUser().getUsername()%></A>)
+			<%	} %> 
+			</a></td></tr>
 		<tr>
 		<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 		<%  if (message.getUser().getProperty("imagePath") != null) { %>
@@ -101,28 +86,6 @@
 <tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Round Tables</A> >> 
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
 	<jsp:getProperty name="thread" property="name"/></td>
-<% if (paginator.getNumPages() > 1) { %>
-	<td class="rtbc" align="right"><b> 
-		<%  if (paginator.getPreviousPage()) { %>
-			<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">
-            	<< PREV</A>&#160;&#160;&#160;
-        <%  } %> [
-        <%  Page[] pages = paginator.getPages(5);
-            for (int i=0; i<pages.length; i++) {
-        %>  <%  if (pages[i] != null) { %>
-        			<%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-        					<%= pages[i].getNumber() %>
-        			<%  } else { %>
-            				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">
-	                		<%= pages[i].getNumber() %></A>
-	                <%  } %>
-            <%  } %>
-        <%  } %> ]
-		<%  if (paginator.getNextPage()) { %>
-			&#160;&#160;&#160;<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">NEXT>></A>
-        <%  } %>
-	</b></td></tr>
-<% } %>
 </table>
         <p><br/></p>
         </td>
