@@ -58,109 +58,37 @@
 
 <br><br>
 <table cellpadding="10" cellspacing="0" align="center" border="0">
-<tr><td>265<br><img src="/i/tournament/tco05/logo_submissions/265.gif" alt="" border="0" /></td></tr>
-<tr><td>264<br><img src="/i/tournament/tco05/logo_submissions/264.gif" alt="" border="0" /></td></tr>
-<tr><td>263<br><img src="/i/tournament/tco05/logo_submissions/263.gif" alt="" border="0" /></td></tr>
-<tr><td>262<br><img src="/i/tournament/tco05/logo_submissions/262.gif" alt="" border="0" /></td></tr>
-<tr><td>261<br><img src="/i/tournament/tco05/logo_submissions/261.gif" alt="" border="0" /></td></tr>
-<tr><td>260<br><img src="/i/tournament/tco05/logo_submissions/260.gif" alt="" border="0" /></td></tr>
-<tr><td>259<br><img src="/i/tournament/tco05/logo_submissions/259.gif" alt="" border="0" /></td></tr>
-<tr><td>258<br><img src="/i/tournament/tco05/logo_submissions/258.gif" alt="" border="0" /></td></tr>
-<tr><td>257<br><img src="/i/tournament/tco05/logo_submissions/257.gif" alt="" border="0" /></td></tr>
-<tr><td>256<br><img src="/i/tournament/tco05/logo_submissions/256.gif" alt="" border="0" /></td></tr>
-<tr><td>255<br><img src="/i/tournament/tco05/logo_submissions/255.gif" alt="" border="0" /></td></tr>
-<tr><td>254<br><img src="/i/tournament/tco05/logo_submissions/254.gif" alt="" border="0" /></td></tr>
-<tr><td>253<br><img src="/i/tournament/tco05/logo_submissions/253.gif" alt="" border="0" /></td></tr>
-<tr><td>252<br><img src="/i/tournament/tco05/logo_submissions/252.gif" alt="" border="0" /></td></tr>
-<tr><td>251<br><img src="/i/tournament/tco05/logo_submissions/251.gif" alt="" border="0" /></td></tr>
-<tr><td>250<br><img src="/i/tournament/tco05/logo_submissions/250.gif" alt="" border="0" /></td></tr>
-<tr><td>249<br><img src="/i/tournament/tco05/logo_submissions/249.gif" alt="" border="0" /></td></tr>
-<tr><td>248<br><img src="/i/tournament/tco05/logo_submissions/248.gif" alt="" border="0" /></td></tr>
-<tr><td>247<br><img src="/i/tournament/tco05/logo_submissions/247.gif" alt="" border="0" /></td></tr>
-<tr><td>246<br><img src="/i/tournament/tco05/logo_submissions/246.gif" alt="" border="0" /></td></tr>
-<tr><td>245<br><img src="/i/tournament/tco05/logo_submissions/245.gif" alt="" border="0" /></td></tr>
-<tr><td>244<br><img src="/i/tournament/tco05/logo_submissions/244.gif" alt="" border="0" /></td></tr>
-<tr><td>243<br><img src="/i/tournament/tco05/logo_submissions/243.gif" alt="" border="0" /></td></tr>
-<tr><td>242<br><img src="/i/tournament/tco05/logo_submissions/242.gif" alt="" border="0" /></td></tr>
-<tr><td>241<br><img src="/i/tournament/tco05/logo_submissions/241.gif" alt="" border="0" /></td></tr>
-<tr><td>240<br><img src="/i/tournament/tco05/logo_submissions/240.gif" alt="" border="0" /></td></tr>
-<tr><td>239<br><img src="/i/tournament/tco05/logo_submissions/239.gif" alt="" border="0" /></td></tr>
-<tr><td>238<br><img src="/i/tournament/tco05/logo_submissions/238.gif" alt="" border="0" /></td></tr>
-<tr><td>237<br><img src="/i/tournament/tco05/logo_submissions/237.gif" alt="" border="0" /></td></tr>
-<tr><td>236<br><img src="/i/tournament/tco05/logo_submissions/236.gif" alt="" border="0" /></td></tr>
-<tr><td>235<br><img src="/i/tournament/tco05/logo_submissions/235.gif" alt="" border="0" /></td></tr>
-<tr><td>234<br><img src="/i/tournament/tco05/logo_submissions/234.gif" alt="" border="0" /></td></tr>
+
+<script language=javascript type="text/javascript">
+for(i = 461; i >= 234; i--)
+document.writeln( "<tr><td>"+i+"<br><img src='/i/tournament/tco05/logo_submissions/"+i+".gif' alt='"+i+"' border='0' /></td></tr>" )
+</script>
+
 <tr><td>233<br><img src="/i/tournament/tco05/logo_submissions/233.jpg" alt="" border="0" /></td></tr>
-<tr><td>232<br><img src="/i/tournament/tco05/logo_submissions/232.gif" alt="" border="0" /></td></tr>
-<tr><td>231<br><img src="/i/tournament/tco05/logo_submissions/231.gif" alt="" border="0" /></td></tr>
-<tr><td>230<br><img src="/i/tournament/tco05/logo_submissions/230.gif" alt="" border="0" /></td></tr>
-<tr><td>229<br><img src="/i/tournament/tco05/logo_submissions/229.gif" alt="" border="0" /></td></tr>
-<tr><td>228<br><img src="/i/tournament/tco05/logo_submissions/228.gif" alt="" border="0" /></td></tr>
-<tr><td>227<br><img src="/i/tournament/tco05/logo_submissions/227.gif" alt="" border="0" /></td></tr>
-<tr><td>226<br><img src="/i/tournament/tco05/logo_submissions/226.gif" alt="" border="0" /></td></tr>
-<tr><td>225<br><img src="/i/tournament/tco05/logo_submissions/225.gif" alt="" border="0" /></td></tr>
-<tr><td>224<br><img src="/i/tournament/tco05/logo_submissions/224.gif" alt="" border="0" /></td></tr>
-<tr><td>223<br><img src="/i/tournament/tco05/logo_submissions/223.gif" alt="" border="0" /></td></tr>
-<tr><td>222<br><img src="/i/tournament/tco05/logo_submissions/222.gif" alt="" border="0" /></td></tr>
-<tr><td>221<br><img src="/i/tournament/tco05/logo_submissions/221.gif" alt="" border="0" /></td></tr>
-<tr><td>220<br><img src="/i/tournament/tco05/logo_submissions/220.gif" alt="" border="0" /></td></tr>
-<tr><td>219<br><img src="/i/tournament/tco05/logo_submissions/219.gif" alt="" border="0" /></td></tr>
-<tr><td>218<br><img src="/i/tournament/tco05/logo_submissions/218.gif" alt="" border="0" /></td></tr>
-<tr><td>217<br><img src="/i/tournament/tco05/logo_submissions/217.gif" alt="" border="0" /></td></tr>
-<tr><td>216<br><img src="/i/tournament/tco05/logo_submissions/216.gif" alt="" border="0" /></td></tr>
-<tr><td>215<br><img src="/i/tournament/tco05/logo_submissions/215.gif" alt="" border="0" /></td></tr>
-<tr><td>214<br><img src="/i/tournament/tco05/logo_submissions/214.gif" alt="" border="0" /></td></tr>
-<tr><td>213<br><img src="/i/tournament/tco05/logo_submissions/213.gif" alt="" border="0" /></td></tr>
-<tr><td>212<br><img src="/i/tournament/tco05/logo_submissions/212.gif" alt="" border="0" /></td></tr>
-<tr><td>211<br><img src="/i/tournament/tco05/logo_submissions/211.gif" alt="" border="0" /></td></tr>
-<tr><td>210<br><img src="/i/tournament/tco05/logo_submissions/210.gif" alt="" border="0" /></td></tr>
-<tr><td>209<br><img src="/i/tournament/tco05/logo_submissions/209.gif" alt="" border="0" /></td></tr>
-<tr><td>208<br><img src="/i/tournament/tco05/logo_submissions/208.gif" alt="" border="0" /></td></tr>
-<tr><td>207<br><img src="/i/tournament/tco05/logo_submissions/207.gif" alt="" border="0" /></td></tr>
-<tr><td>206<br><img src="/i/tournament/tco05/logo_submissions/206.gif" alt="" border="0" /></td></tr>
-<tr><td>205<br><img src="/i/tournament/tco05/logo_submissions/205.gif" alt="" border="0" /></td></tr>
-<tr><td>204<br><img src="/i/tournament/tco05/logo_submissions/204.gif" alt="" border="0" /></td></tr>
-<tr><td>203<br><img src="/i/tournament/tco05/logo_submissions/203.gif" alt="" border="0" /></td></tr>
-<tr><td>202<br><img src="/i/tournament/tco05/logo_submissions/202.gif" alt="" border="0" /></td></tr>
-<tr><td>201<br><img src="/i/tournament/tco05/logo_submissions/201.gif" alt="" border="0" /></td></tr>
-<tr><td>200<br><img src="/i/tournament/tco05/logo_submissions/200.gif" alt="" border="0" /></td></tr>
-<tr><td>199<br><img src="/i/tournament/tco05/logo_submissions/199.gif" alt="" border="0" /></td></tr>
-<tr><td>198<br><img src="/i/tournament/tco05/logo_submissions/198.gif" alt="" border="0" /></td></tr>
-<tr><td>197<br><img src="/i/tournament/tco05/logo_submissions/197.gif" alt="" border="0" /></td></tr>
-<tr><td>196<br><img src="/i/tournament/tco05/logo_submissions/196.gif" alt="" border="0" /></td></tr>
-<tr><td>195<br><img src="/i/tournament/tco05/logo_submissions/195.gif" alt="" border="0" /></td></tr>
-<tr><td>194<br><img src="/i/tournament/tco05/logo_submissions/194.gif" alt="" border="0" /></td></tr>
-<tr><td>193<br><img src="/i/tournament/tco05/logo_submissions/193.gif" alt="" border="0" /></td></tr>
-<tr><td>192<br><img src="/i/tournament/tco05/logo_submissions/192.gif" alt="" border="0" /></td></tr>
-<tr><td>191<br><img src="/i/tournament/tco05/logo_submissions/191.gif" alt="" border="0" /></td></tr>
-<tr><td>190<br><img src="/i/tournament/tco05/logo_submissions/190.gif" alt="" border="0" /></td></tr>
-<tr><td>189<br><img src="/i/tournament/tco05/logo_submissions/189.gif" alt="" border="0" /></td></tr>
-<tr><td>188<br><img src="/i/tournament/tco05/logo_submissions/188.gif" alt="" border="0" /></td></tr>
-<tr><td>187<br><img src="/i/tournament/tco05/logo_submissions/187.gif" alt="" border="0" /></td></tr>
-<tr><td>186<br><img src="/i/tournament/tco05/logo_submissions/186.gif" alt="" border="0" /></td></tr>
-<tr><td>185<br><img src="/i/tournament/tco05/logo_submissions/185.gif" alt="" border="0" /></td></tr>
-<tr><td>184<br><img src="/i/tournament/tco05/logo_submissions/184.gif" alt="" border="0" /></td></tr>
-<tr><td>183<br><img src="/i/tournament/tco05/logo_submissions/183.gif" alt="" border="0" /></td></tr>
+
+<script language=javascript type="text/javascript">
+for(i = 232; i >= 183; i--)
+document.writeln( "<tr><td>"+i+"<br><img src='/i/tournament/tco05/logo_submissions/"+i+".gif' alt='"+i+"' border='0' /></td></tr>" )
+</script>
+
 <tr><td>182<br><img src="/i/tournament/tco05/logo_submissions/182.jpg" alt="" border="0" /></td></tr>
 <tr><td>181<br><img src="/i/tournament/tco05/logo_submissions/181.jpg" alt="" border="0" /></td></tr>
-<tr><td>180<br><img src="/i/tournament/tco05/logo_submissions/180.gif" alt="" border="0" /></td></tr>
-<tr><td>179<br><img src="/i/tournament/tco05/logo_submissions/179.gif" alt="" border="0" /></td></tr>
-<tr><td>178<br><img src="/i/tournament/tco05/logo_submissions/178.gif" alt="" border="0" /></td></tr>
-<tr><td>177<br><img src="/i/tournament/tco05/logo_submissions/177.gif" alt="" border="0" /></td></tr>
-<tr><td>176<br><img src="/i/tournament/tco05/logo_submissions/176.gif" alt="" border="0" /></td></tr>
-<tr><td>175<br><img src="/i/tournament/tco05/logo_submissions/175.gif" alt="" border="0" /></td></tr>
-<tr><td>174<br><img src="/i/tournament/tco05/logo_submissions/174.gif" alt="" border="0" /></td></tr>
+
+<script language=javascript type="text/javascript">
+for(i = 180; i >= 174; i--)
+document.writeln( "<tr><td>"+i+"<br><img src='/i/tournament/tco05/logo_submissions/"+i+".gif' alt='"+i+"' border='0' /></td></tr>" )
+</script>
+
 <tr><td>173<br><img src="/i/tournament/tco05/logo_submissions/173.jpg" alt="" border="0" /></td></tr>
 <tr><td>172<br><img src="/i/tournament/tco05/logo_submissions/172.gif" alt="" border="0" /></td></tr>
 <tr><td>171<br><img src="/i/tournament/tco05/logo_submissions/171.gif" alt="" border="0" /></td></tr>
 <tr><td>170<br><img src="/i/tournament/tco05/logo_submissions/170.jpg" alt="" border="0" /></td></tr>
-<tr><td>169<br><img src="/i/tournament/tco05/logo_submissions/169.gif" alt="" border="0" /></td></tr>
-<tr><td>168<br><img src="/i/tournament/tco05/logo_submissions/168.gif" alt="" border="0" /></td></tr>
-<tr><td>167<br><img src="/i/tournament/tco05/logo_submissions/167.gif" alt="" border="0" /></td></tr>
-<tr><td>166<br><img src="/i/tournament/tco05/logo_submissions/166.gif" alt="" border="0" /></td></tr>
-<tr><td>165<br><img src="/i/tournament/tco05/logo_submissions/165.gif" alt="" border="0" /></td></tr>
-<tr><td>164<br><img src="/i/tournament/tco05/logo_submissions/164.gif" alt="" border="0" /></td></tr>
-<tr><td>163<br><img src="/i/tournament/tco05/logo_submissions/163.gif" alt="" border="0" /></td></tr>
+
+<script language=javascript type="text/javascript">
+for(i = 169; i >= 162; i--)
+document.writeln( "<tr><td>"+i+"<br><img src='/i/tournament/tco05/logo_submissions/"+i+".gif' alt='"+i+"' border='0' /></td></tr>" )
+</script>
+
 <tr><td>162<br><img src="/i/tournament/tco05/logo_submissions/162.gif" alt="" border="0" /></td></tr>
 <tr><td>161<br><img src="/i/tournament/tco05/logo_submissions/161.jpg" alt="" border="0" /></td></tr>
 <tr><td>160<br><img src="/i/tournament/tco05/logo_submissions/160.gif" alt="" border="0" /></td></tr>
@@ -168,22 +96,12 @@
 <tr><td>158<br><img src="/i/tournament/tco05/logo_submissions/158.gif" alt="" border="0" /></td></tr>
 <tr><td>157<br><img src="/i/tournament/tco05/logo_submissions/157.gif" alt="" border="0" /></td></tr>
 <tr><td>156<br><img src="/i/tournament/tco05/logo_submissions/156.jpg" alt="" border="0" /></td></tr>
-<tr><td>155<br><img src="/i/tournament/tco05/logo_submissions/155.gif" alt="" border="0" /></td></tr>
-<tr><td>154<br><img src="/i/tournament/tco05/logo_submissions/154.gif" alt="" border="0" /></td></tr>
-<tr><td>153<br><img src="/i/tournament/tco05/logo_submissions/153.gif" alt="" border="0" /></td></tr>
-<tr><td>152<br><img src="/i/tournament/tco05/logo_submissions/152.gif" alt="" border="0" /></td></tr>
-<tr><td>151<br><img src="/i/tournament/tco05/logo_submissions/151.gif" alt="" border="0" /></td></tr>
-<tr><td>150<br><img src="/i/tournament/tco05/logo_submissions/150.gif" alt="" border="0" /></td></tr>
-<tr><td>149<br><img src="/i/tournament/tco05/logo_submissions/149.gif" alt="" border="0" /></td></tr>
-<tr><td>148<br><img src="/i/tournament/tco05/logo_submissions/148.gif" alt="" border="0" /></td></tr>
-<tr><td>147<br><img src="/i/tournament/tco05/logo_submissions/147.gif" alt="" border="0" /></td></tr>
-<tr><td>146<br><img src="/i/tournament/tco05/logo_submissions/146.gif" alt="" border="0" /></td></tr>
-<tr><td>145<br><img src="/i/tournament/tco05/logo_submissions/145.gif" alt="" border="0" /></td></tr>
-<tr><td>144<br><img src="/i/tournament/tco05/logo_submissions/144.gif" alt="" border="0" /></td></tr>
-<tr><td>143<br><img src="/i/tournament/tco05/logo_submissions/143.gif" alt="" border="0" /></td></tr>
-<tr><td>142<br><img src="/i/tournament/tco05/logo_submissions/142.gif" alt="" border="0" /></td></tr>
-<tr><td>141<br><img src="/i/tournament/tco05/logo_submissions/141.gif" alt="" border="0" /></td></tr>
-<tr><td>140<br><img src="/i/tournament/tco05/logo_submissions/140.gif" alt="" border="0" /></td></tr>
+
+<script language=javascript type="text/javascript">
+for(i = 155; i >= 140; i--)
+document.writeln( "<tr><td>"+i+"<br><img src='/i/tournament/tco05/logo_submissions/"+i+".gif' alt='"+i+"' border='0' /></td></tr>" )
+</script>
+
 <tr><td>139<br><img src="/i/tournament/tco05/logo_submissions/139.jpg" alt="" border="0" /></td></tr>
 <tr><td>138<br><img src="/i/tournament/tco05/logo_submissions/138.jpg" alt="" border="0" /></td></tr>
 <tr><td>137<br><img src="/i/tournament/tco05/logo_submissions/137.jpg" alt="" border="0" /></td></tr>
