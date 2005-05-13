@@ -42,6 +42,7 @@ public class BasicData extends Base {
                 buf.append(rootTag.getXML(2));
             }
             o.write(asciiGetBytes(buf.toString()));
+            getResponse().flushBuffer();
         } else {
             throw new PermissionException(getUser(), resource);
         }
