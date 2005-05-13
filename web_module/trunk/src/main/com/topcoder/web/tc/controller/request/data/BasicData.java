@@ -26,7 +26,7 @@ public class BasicData extends Base {
         r.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
 
         DataResource resource = new DataResource(r.getContentHandle());
-        if (new TCSAuthorization(user).hasPermission(resource)) {
+        if (new TCSAuthorization(getUser()).hasPermission(resource)) {
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
             Map m = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             ResultSetContainer rsc = null;
