@@ -8,7 +8,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>05.13.05<br>11:50 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=496779&mc=1">Unused Code Checker in Arena</A></span><br><br>
-      The newest version of the applet (v5.08) adds a check at submit time that attempts to determine if your submission violates the Unused Code Rule.
+      The newest version of the TopCoder Algorithm Competition Arena (v5.08) adds a check at submit time that attempts to determine if your submission violates the Unused Code Rule.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
