@@ -56,6 +56,9 @@
    			</jsp:include>
             </div>
 
+            <span class="bodySubtitle">Sorry, the submission period is over.</span><br>
+
+<%--
             <br><br>
             <span class="bodySubtitle">Logo submission</span><br>
             Thank you for accepting the terms of the TCO05 Logo Contest. Please use the form below to attach your logo submission:
@@ -67,6 +70,7 @@
             <b>Logo:</b><br><input type="file" name="<%=Constants.LOGO%>">
             </form>
             <A href="javascript:document.logoSubmission.submit();"><img src="/i/submit.gif" alt="Submit" border="0" /></A>
+--%>
 
          </div>
 

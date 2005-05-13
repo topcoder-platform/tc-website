@@ -17,11 +17,13 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_rules">Rules</a>&#160;|&#160;
             <% } %>
 <!-- Registration tab -->
+<%--
             <% if (selectedTab.equals("submit")) {%>
                  Submit your design&#160;|&#160;
             <% } else { %>
                   <a href="/tc?module=TCO05LogoTerms">Submit your design</a>&#160;|&#160;
             <% } %>
+--%>
 <!-- Registration tab -->
             <% if (selectedTab.equals("submissions")) {%>
                  View submissions
