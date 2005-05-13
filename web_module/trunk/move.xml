@@ -8,10 +8,54 @@
         <delete dir="src"/>
         <delete dir="resources"/>
         <delete dir="build"/>
+        <delete dir="../shared/src"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build.xml" target="deploy"/>
+
+        <ant antfile="build.xml" target="package-Jive"/>
+        <jar destfile="./lib/bin/classes.jar" update="true">
+            <fileset dir="./build/classes">
+                <include name="com/topcoder/common/**"/>
+                <include name="com/topcoder/ejb/**"/>
+                <include name="com/topcoder/security/**"/>
+                <include name="com/topcoder/util/**"/>
+                <include name="com/topcoder/utilities/**"/>
+                <include name="com/topcoder/web/**"/>
+            </fileset>
+        </jar>
+
+        <jar destfile="topcoder.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/**"/>
+                <include name="build/ejb_wars/**"/>
+                <include name="resources/xsl/**"/>
+                <include name="resources/taglib/**"/>
+                <include name="resources/tc/**"/>
+                <include name="resources/state/**"/>
+                <include name="resources/corp/**"/>
+                <include name="resources/email/**"/>
+                <include name="resources/privatelabel/**"/>
+                <include name="resources/TC.properties"/>
+                <include name="resources/PrivateLabel.properties"/>
+                <include name="move.xml"/>
+                <include name="lib/bin/Jive.jar"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/classes.jar"/>
+            </fileset>
+        </jar>
 
     </target>
 
     <target name="package-cache" depends="">
+
 
     </target>
 
