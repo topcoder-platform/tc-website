@@ -44,11 +44,11 @@ public class ResultSetContainerConverter {
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it= rsc.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow)it.next();
-            hd.startElement("", "", "ResultRow", emptyAtts);
+            hd.startElement("", "", "row", emptyAtts);
             for (int i=0; i<rsc.getColumnCount(); i++) {
                 addElement(hd, rsc.getColumnName(i), row.getStringItem(i), emptyAtts);
             }
-            hd.endElement("", "", "ResultRow");
+            hd.endElement("", "", "row");
         }
 
         hd.endElement("", "", name);
