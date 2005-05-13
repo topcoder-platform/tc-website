@@ -32,7 +32,7 @@ public class BasicData extends Base {
             ResultSetContainer rsc = null;
             String key = null;
             RecordTag rootTag = new RecordTag("RootElement");
-            StringBuffer buf = new StringBuffer(10000);
+            StringBuffer buf = new StringBuffer(30000);
             ServletOutputStream o = getResponse().getOutputStream();
             getResponse().setContentType("text/xml");
             for(Iterator it = m.keySet().iterator(); it.hasNext();) {
