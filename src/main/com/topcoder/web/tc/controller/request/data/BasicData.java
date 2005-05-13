@@ -30,17 +30,17 @@ public class BasicData extends Base {
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
             Map m = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             ResultSetContainer rsc = null;
-            String key = null;
             RecordTag rootTag = new RecordTag("RootElement");
             StringBuffer buf = new StringBuffer(30000);
-            ServletOutputStream o = getResponse().getOutputStream();
-            getResponse().setContentType("text/xml");
+            String key = null;
             for(Iterator it = m.keySet().iterator(); it.hasNext();) {
                 key = (String)it.next();
                 rsc = (ResultSetContainer)m.get(key);
                 rootTag.addTag(rsc.getTag(key, "ResultRow"));
-                buf.append(rootTag.getXML(2));
             }
+            buf.append(rootTag.getXML(2));
+            ServletOutputStream o = getResponse().getOutputStream();
+            getResponse().setContentType("text/xml");
             o.write(asciiGetBytes(buf.toString()));
             getResponse().flushBuffer();
         } else {
