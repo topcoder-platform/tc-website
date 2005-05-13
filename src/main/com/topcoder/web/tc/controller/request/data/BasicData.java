@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.data;
 
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ResultSetContainerConverter;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.model.DataResource;
 import com.topcoder.web.tc.controller.request.Base;
@@ -30,31 +31,20 @@ public class BasicData extends Base {
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
             Map m = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r);
             ResultSetContainer rsc = null;
-            RecordTag rootTag = new RecordTag("RootElement");
-            StringBuffer buf = new StringBuffer(30000);
             String key = null;
-            for(Iterator it = m.keySet().iterator(); it.hasNext();) {
+            Iterator it = m.keySet().iterator();
+            //we're just giving them one thing at a time so the command should only have
+            //one query associated with it.
+            if (it.hasNext()) {
                 key = (String)it.next();
                 rsc = (ResultSetContainer)m.get(key);
-                rootTag.addTag(rsc.getTag(key, "ResultRow"));
+                ResultSetContainerConverter.writeXML(rsc, r.getContentHandle(), getResponse().getOutputStream());
             }
-            buf.append(rootTag.getXML(2));
-            ServletOutputStream o = getResponse().getOutputStream();
             getResponse().setContentType("text/xml");
-            o.write(asciiGetBytes(buf.toString()));
             getResponse().flushBuffer();
         } else {
             throw new PermissionException(getUser(), resource);
         }
-    }
-
-    private byte[] asciiGetBytes(String s) {
-        int size = s.length();
-        byte[] result = new byte[size];
-        for (int i = 0; i < size; i++) {
-            result[i] = (byte) s.charAt(i);
-        }
-        return result;
     }
 
 }
