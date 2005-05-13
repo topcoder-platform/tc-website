@@ -1,0 +1,28 @@
+<!--
+    This build script provides targets to assist in the
+    moving of code to a production environment
+ -->
+<project name="topcoder" default="" basedir=".">
+
+    <target name="package-topcoder" depends="">
+        <delete dir="src"/>
+        <delete dir="resources"/>
+        <delete dir="build"/>
+
+    </target>
+
+    <target name="package-cache" depends="">
+
+    </target>
+
+    <target name="package-techassess" depends="">
+
+    </target>
+
+    <target name="package-software" depends="">
+
+    </target>
+
+
+</project>
+
