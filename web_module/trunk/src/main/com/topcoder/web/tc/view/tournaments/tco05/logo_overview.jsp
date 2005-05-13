@@ -66,10 +66,10 @@
             <br><br>
             <b>The Theme</b><br>
             Design a logo that will fit into the 2005 TopCoder Open theme: a high-speed race.  TopCoder contestants can be compared to the likes of racing cars, screaming airplanes, and thundering horses. Think of speed and accuracy, combined with all the pressure it takes to reach the end FIRST. Think of movement, noise, blurred colors and shapes. Thoughts and calculations careening through minds at warp speed. Yeah, we need a logo for that!
+<%--
             <br><br>
             <b>Not a TopCoder member yet?</b><br>
             <A href="/Registration">Register here</A>
-<%--
             <br><br>
             <b>Ready to submit your design?</b><br>
             <A href="/tc?module=TCO05LogoTerms">Submit now</A>
