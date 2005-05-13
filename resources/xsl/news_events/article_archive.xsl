@@ -61,6 +61,8 @@
 <!-- 2005  -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+                            <tr><td class="newsText"><A href="/tc?module=Static&amp;d1=news&amp;d2=art_051205">Interview with Jack Hughes</A> [April 22 - The Wall Street Transcript]</td></tr>
+
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_04_08_05">Code Warriors</A> [April 8 - Chronicle of Higher Education]</td></tr>
 
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_04_22_05">How Google Searches - For Talent</A> [April 22 - BusinessWeek]</td></tr>
