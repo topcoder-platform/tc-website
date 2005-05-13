@@ -60,7 +60,7 @@
 <table cellpadding="10" cellspacing="0" align="center" border="0">
 
 <script language=javascript type="text/javascript">
-for(i = 461; i >= 234; i--)
+for(i = 528; i >= 234; i--)
 document.writeln( "<tr><td>"+i+"<br><img src='/i/tournament/tco05/logo_submissions/"+i+".gif' alt='"+i+"' border='0' /></td></tr>" )
 </script>
 
