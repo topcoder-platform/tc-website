@@ -60,5 +60,45 @@ A:active {
     font-weight: bold;
 }
 
+#container {
+    margin: 0 auto;
+    margin-bottom: 600px;
+}
+
+#mainContent {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#tableOfContents {
+    border-style: solid;
+    border-width: 0px 0px 5px 0px;
+}
+
+#detail {
+}
+
+#detail li.tier1 {
+    padding-bottom: 10px;
+}
+
+#detail ul.tier1 {
+    padding-bottom: 10px;
+}
+
+#detail li.tier2 {
+    padding-bottom: 10px;
+}
+
+#detail ul.tier2 {
+    padding-bottom: 10px;
+}
+
+
+#detail .input {
+    font-weight: bold;
+}
+
+
 
 </style>
