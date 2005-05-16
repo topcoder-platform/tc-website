@@ -20,7 +20,7 @@ if (o!=null) {
         <%
                 for (int i=0; i<problems.size(); i++) {
                     %> psEndTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTime()+((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
-                    %> psIds[<%=i%>] = 'problemSetTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
+                    %> psIds[<%=i%>] = 'problemSetTimerCID<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>PTID<%=((ProblemSetInfo)problems.get(i)).getTypeId()%>'; <%
                     %> psTypes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTypeId()%>; <%
                     %> psStartTimes[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getStartTime()%>; <%
                 }
