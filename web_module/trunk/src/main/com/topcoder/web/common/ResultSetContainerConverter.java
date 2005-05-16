@@ -33,7 +33,7 @@ public class ResultSetContainerConverter {
         TransformerHandler hd = tf.newTransformerHandler();
         Transformer serializer = hd.getTransformer();
         serializer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
-//        serializer.setOutputProperty(OutputKeys.INDENT, "no");
+        serializer.setOutputProperty(OutputKeys.INDENT, "no");
         hd.setResult(streamResult);
         hd.startDocument();
 
