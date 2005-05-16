@@ -3,8 +3,6 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import java.util.Iterator;
-
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.ForumsProcessor;
@@ -14,9 +12,6 @@ import com.topcoder.web.forums.ForumsProcessor;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumMessage;
-import com.jivesoftware.forum.ResultFilter;
-import com.jivesoftware.forum.action.util.Pageable;
-import com.jivesoftware.forum.action.util.Paginator;
 
 //import javax.transaction.Status;
 //import javax.transaction.TransactionManager;
@@ -24,15 +19,9 @@ import com.jivesoftware.forum.action.util.Paginator;
 /**
  * @author mtong
  */
-public class PostMessage extends ForumsProcessor implements Pageable {
-	private int start = 0;
-	private int totalItemCount;
-	private ResultFilter resultFilter;
-	private ForumThread thread;
-	
+public class PostMessage extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
-		getRequest().setAttribute("forumFactory", forumFactory);
 		
 		if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
 			addError(ForumConstants.MESSAGE_SUBJECT, "Message subject is empty");
@@ -59,6 +48,7 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 		//tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
 		
 	    ForumMessage message;
+	    ForumThread thread;
 		if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
 			messageID = Long.parseLong(messageIDStr);
 			message = forumFactory.getMessage(messageID);
@@ -84,65 +74,9 @@ public class PostMessage extends ForumsProcessor implements Pageable {
 			forum.addThread(thread);
 		}	
 		
-		initPagingFields();
-		Paginator paginator = new Paginator(this);
-		Iterator itMessages = null;
-	
-		getRequest().setAttribute("forum", forum);
-		getRequest().setAttribute("thread", thread);
-		getRequest().setAttribute("paginator", paginator);
-		
-		/*
-		if (user.getProperty("jiveThreadMode").equals("flat")) {
-			itMessages = thread.getMessages(getResultFilter());
-			setNextPage("/viewThreadFlat.jsp");	
-		} else if (user.getProperty("jiveThreadMode").equals("threaded")) {
-			itMessages = thread.getTreeWalker().getRecursiveMessages();
-			setNextPage("/viewThreadThreaded.jsp");	
-		}
-		*/
-		
-		getRequest().setAttribute("messages", itMessages);
-		setNextPage("/forums/?module=Thread&" + ForumConstants.THREAD_ID + "=" +
-				thread.getID() + "&mc=" + thread.getMessageCount() + "#" + message.getID());
+		//setNextPage("?module=Thread&" + ForumConstants.THREAD_ID + "=" +
+		//		thread.getID() + "&mc=" + thread.getMessageCount() + "#" + message.getID());
+		setNextPage("?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID());
 		setIsNextPageInContext(false);
 	}
-	
-	public int getStart() {
-		if (start == -1) {
-            initPagingFields();
-        }
-        return start;
-	}
-     
-    public int getTotalItemCount() {
-    	if (totalItemCount == -1) {
-            initPagingFields();
-        }
-        return totalItemCount;
-    }
-    
-    public ResultFilter getResultFilter() {
-    	if (resultFilter == null) {
-            initPagingFields();
-        }
-        return resultFilter;
-    }
-    
-    protected void initPagingFields() {
-    	//start = thread.getMessageCount()-1;
-    	start = 0;
-        resultFilter = ResultFilter.createDefaultMessageFilter();
-        resultFilter.setStartIndex(getStart());
-        int messageRange = 15;
-        if (user != null) {
-            try {
-                messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
-            } catch (Exception ignored) {}
-        }
-        resultFilter.setNumResults(messageRange);
-
-        // Compute the total # of items (messages in this case)
-        totalItemCount = thread.getMessageCount(getResultFilter());
-    }
 }
