@@ -3,10 +3,6 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.jivesoftware.base.AuthFactory;
-import com.jivesoftware.base.AuthToken;
-import com.jivesoftware.base.User;
-import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
 
 import com.topcoder.web.forums.ForumsProcessor;
@@ -16,13 +12,10 @@ import com.topcoder.web.forums.ForumConstants;
 /**
  * @author mtong
  */
-public class Message extends ForumsProcessor {
+public class Post extends ForumsProcessor {
 
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
-		//AuthToken authToken = AuthFactory.getAnonymousAuthToken();
-		//ForumFactory forumFactory = ForumFactory.getInstance(authToken);
-		//User user = forumFactory.getUserManager().getUser("mktong");
 		
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
 		

@@ -92,22 +92,27 @@
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
 	<tr>
 	<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-	<td class="rtThreadCellWrap"><A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
-		<%  Paginator threadPaginator;
-			if (user != null) {
-				threadPaginator = new Paginator(new Pages(thread.getMessageCount(), Integer.parseInt(user.getProperty("jiveMessageRange"))));
-			} else {
-				threadPaginator = new Paginator(new Pages(thread.getMessageCount(), 15));
-			}
-			if (threadPaginator.getNumPages() > 1) { %> [ 
-	        <%  pages = threadPaginator.getPages(5);
-	            for (int i=0; i<pages.length; i++) {
-	        %>  <%  if (pages[i] != null) { %>
-        				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew">
-                		<%= pages[i].getNumber() %></A>
-	            <%  } %>
-	        <%  } %> ]
-	    <%  } %></td>
+	<td class="rtThreadCellWrap">
+		<%	if (user.getProperty("jiveThreadMode").equals("flat")) { %>
+				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+		<%	    Paginator threadPaginator;
+				if (user != null) {
+					threadPaginator = new Paginator(new Pages(thread.getMessageCount(), Integer.parseInt(user.getProperty("jiveMessageRange"))));
+				} else {
+					threadPaginator = new Paginator(new Pages(thread.getMessageCount(), 15));
+				}
+				if (threadPaginator.getNumPages() > 1) { %> [ 
+		        <%  pages = threadPaginator.getPages(5);
+		            for (int i=0; i<pages.length; i++) {
+		        %>  <%  if (pages[i] != null) { %>
+	        				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew">
+	                		<%= pages[i].getNumber() %></A>
+		            <%  } %>
+		        <%  } %> ]
+		    <%  } %>
+		<%  } else { %>
+			<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+		<%  } %></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
 	<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
 	<td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>

@@ -56,7 +56,7 @@
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
 	<jsp:getProperty name="thread" property="name"/></td>
 <% if (paginator.getNumPages() > 1) { %>
-	<td class="rtbc" align="right"><b> 
+	<td class="rtbc" align="right" width=20%><b> 
 		<%  if (paginator.getPreviousPage()) { %>
 			<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">
             	<< PREV</A>&#160;&#160;&#160;
@@ -81,14 +81,18 @@
 
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 	<table cellpadding="0" cellspacing="0" class="rtTable">
-	<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/></td></tr>
+	<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
+		<%	if (message.getParentMessage() != null) { %>
+				(in response to: <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><%=message.getParentMessage().getUser().getUsername()%></A>)
+		<%	} %>
+	</td></tr>
 	<tr>
 	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 	<%  if (message.getUser().getProperty("imagePath") != null) { %>
 		<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
 	<%  } %>
 	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
-	<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>
+	<td class="rtTextCell"><a name=<jsp:getProperty name="message" property="ID"/>><jsp:getProperty name="message" property="body"/></a></td>
 	</tr>
 	<tr><td class="rtFooter" align="right"><A href="?module=Message&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A></td></tr>
 	</table>
