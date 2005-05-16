@@ -66,6 +66,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
     protected void loadTimeZoneInfo() throws TCWebException {
         String tz= getTimeZone();
         //setDefault(Constants.TIMEZONE, tz);
+        if (log.isDebugEnabled()) log.debug("timezone is " + tz);
         getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
     }
 
