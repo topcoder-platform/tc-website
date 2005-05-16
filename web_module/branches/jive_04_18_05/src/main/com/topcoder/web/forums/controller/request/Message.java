@@ -37,7 +37,7 @@ public class Message extends ForumsProcessor {
 			filter.setSortOrder(ResultFilter.ASCENDING);
 			Iterator messageIter = thread.getMessages(filter);			
 			while (messageIter.hasNext()) {
-			    if (((ForumMessage)messageIter.next()).getID() == message.getID()) {
+			    if (((ForumMessage)messageIter.next()).getID() == messageID) {
 			    	break;
 			    }
 			    messageIdx++;
@@ -45,9 +45,10 @@ public class Message extends ForumsProcessor {
 			
 			long messageRange = Long.parseLong(user.getProperty("jiveMessageRange"));
 			long startIdx = (messageIdx/messageRange)*messageRange;
-			urlNext.append("&").append(ForumConstants.START_IDX).append("=").append(startIdx); 
+			urlNext.append("&").append(ForumConstants.START_IDX).append("=").append(startIdx);
 		}
 		urlNext.append("&mc=").append(thread.getMessageCount());
+		urlNext.append("#").append(messageID);
 		
 		setNextPage(urlNext.toString());
 		setIsNextPageInContext(false);

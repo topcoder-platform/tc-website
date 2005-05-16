@@ -44,7 +44,7 @@
 <!-- Left Column Ends -->
  
 <!-- Center Column Begins -->
-         <td width="100%" class="rtBody">
+        <td width="100%" class="rtBody">
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="round_table"/>
@@ -81,18 +81,18 @@
 
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 	<table cellpadding="0" cellspacing="0" class="rtTable">
-	<tr><td class="rtHeader" colspan="2"><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
+	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
 		<%	if (message.getParentMessage() != null) { %>
-				(in response to: <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><%=message.getParentMessage().getUser().getUsername()%></A>)
+				(in response to: <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink"><%=message.getParentMessage().getUser().getUsername()%></A>)
 		<%	} %>
-	</td></tr>
+	</a></td></tr>
 	<tr>
 	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 	<%  if (message.getUser().getProperty("imagePath") != null) { %>
 		<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
 	<%  } %>
 	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
-	<td class="rtTextCell"><a name=<jsp:getProperty name="message" property="ID"/>><jsp:getProperty name="message" property="body"/></a></td>
+	<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>
 	</tr>
 	<tr><td class="rtFooter" align="right"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>"><img src="/i/roundTables/reply.gif" class="rtButton" alt="" /></A></td></tr>
 	</table>

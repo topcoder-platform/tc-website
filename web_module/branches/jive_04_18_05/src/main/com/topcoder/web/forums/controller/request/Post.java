@@ -8,7 +8,6 @@ import com.jivesoftware.forum.ForumMessage;
 import com.topcoder.web.forums.ForumsProcessor;
 import com.topcoder.web.forums.ForumConstants;
 
-
 /**
  * @author mtong
  */
@@ -24,12 +23,20 @@ public class Post extends ForumsProcessor {
 		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		setDefault(ForumConstants.POST_MODE, postMode);
 		
+		ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
+		String replySubject = message.getSubject();
+		String editSubject = message.getSubject();
+		if (!replySubject.startsWith("Re: ")) {
+			replySubject = "Re: " + replySubject;
+		}
+		if (!editSubject.startsWith("Edit: ")) {
+			editSubject = "Edit: " + editSubject;
+		}
+		
 		if (postMode.equals("Reply")) {
-			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
-			setDefault(ForumConstants.MESSAGE_SUBJECT, "Re: " + message.getSubject());
+			setDefault(ForumConstants.MESSAGE_SUBJECT, replySubject);
 		}
 		if (postMode.equals("Edit")) {
-			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
 			setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
 			setDefault(ForumConstants.MESSAGE_BODY, message.getBody());
 		}
@@ -48,12 +55,10 @@ public class Post extends ForumsProcessor {
 			postHeading = "New Message";
 			postDesc = "Post a new message";
 		} else if (postMode.equals("Reply")) {
-			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
-			postHeading = "Re: " + message.getSubject();
+			postHeading = replySubject;
 			postDesc = "Reply";
 		} else if (postMode.equals("Edit")) {
-			ForumMessage message = forumFactory.getMessage(Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID)));
-			postHeading = "Edit: " + message.getSubject();
+			postHeading = editSubject;
 			postDesc = "Edit message";
 		}
 		
