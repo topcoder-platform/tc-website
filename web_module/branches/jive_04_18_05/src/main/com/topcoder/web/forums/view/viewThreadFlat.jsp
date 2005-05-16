@@ -103,7 +103,7 @@
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
 	<jsp:getProperty name="thread" property="name"/></td>
 <% if (paginator.getNumPages() > 1) { %>
-	<td class="rtbc" align="right"><b> 
+	<td class="rtbc" align="right" width=20%><b> 
 		<%  if (paginator.getPreviousPage()) { %>
 			<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">
             	<< PREV</A>&#160;&#160;&#160;
