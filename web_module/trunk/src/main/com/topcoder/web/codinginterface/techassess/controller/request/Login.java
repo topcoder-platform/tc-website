@@ -7,8 +7,13 @@ import com.topcoder.shared.netCommon.screening.response.ScreeningTermsResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.messaging.TimeExpiredException;
 import com.topcoder.shared.messaging.TimeOutException;
+import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.QueryDataAccess;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.CodingInterfaceConstants;
@@ -16,6 +21,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * User: dok
@@ -24,6 +30,16 @@ import java.io.IOException;
 public class Login extends Base {
 
     protected static Logger log = Logger.getLogger(Login.class);
+
+    private static final String QUERY = "select s.session_id" +
+                                " from session s" +
+                                 " , user u" +
+                            "      , session_profile sp" +
+                             " where s.user_id = u.user_id" +
+                            "    and sp.session_profile_id = s.session_profile_id" +
+                            "    and current between s.begin_time and s.end_time" +
+                            "    and sp.company_id= @cid@" +
+                            "    and u.handle = 'gpaul@topcoder.com'";
 
     protected void techAssessProcessing() throws Exception {
 
@@ -35,6 +51,27 @@ public class Login extends Base {
 
         if (hasParameter(Constants.SESSION_ID)) {
             try {
+                if (!hasParameter(Constants.SESSION_ID)) {
+                    try {
+                        getSessionId();
+                    } catch (Exception e) {
+                        //look up the session in the db.  this is a temp hoke, remove this once old session have expired.
+                        QueryRequest q = new QueryRequest();
+                        q.addQuery("main", QUERY);
+                        q.setProperty("main@cid@", String.valueOf(getCompanyId()));
+                        QueryDataAccess qda = new QueryDataAccess(DBMS.SCREENING_OLTP_DATASOURCE_NAME);
+                        Map m = qda.getData(q);
+                        ResultSetContainer rsc = (ResultSetContainer)m.get("main");
+                        if (rsc.isEmpty()) {
+                            addError(Constants.HANDLE, "Sorry you do not have an active session at this time.");
+                        } else {
+                            log.debug("got session " + rsc.getLongItem(0, "session_id"));
+                            setSessionId(rsc.getLongItem(0, "session_id"));
+                        }
+
+                    }
+
+                }
                 setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
             } catch (NumberFormatException e) {
                 throw new NavigationException("Request missing required parameter");
