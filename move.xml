@@ -31,7 +31,7 @@
         <jar destfile="topcoder.jar" update="true">
             <fileset dir=".">
                 <include name="build/ejb_jars/**"/>
-                <include name="build/ejb_wars/**"/>
+                <include name="build/wars/**"/>
                 <include name="resources/xsl/**"/>
                 <include name="resources/taglib/**"/>
                 <include name="resources/tc/**"/>
