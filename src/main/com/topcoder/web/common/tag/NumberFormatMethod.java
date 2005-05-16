@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class NumberFormatMethod implements ObjectFormatMethod {
-    /* the SimpleDateFormat to use to format numbers */
+    /* the NumberFormat to use to format numbers */
     private NumberFormat nf;
 
     /* the default format */

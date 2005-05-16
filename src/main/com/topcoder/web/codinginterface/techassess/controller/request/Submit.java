@@ -77,7 +77,7 @@ public class Submit extends Base {
 
             showProcessingPage();
 
-            ScreeningSubmitResponse response = (ScreeningSubmitResponse) receive(5000);
+            ScreeningSubmitResponse response = (ScreeningSubmitResponse) receive(10000);
 
             if (response.getStatus() == ScreeningSubmitResponse.SUCCESS) {
                 //go to the problem set

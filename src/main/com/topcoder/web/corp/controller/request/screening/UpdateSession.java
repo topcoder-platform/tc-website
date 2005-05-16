@@ -81,6 +81,7 @@ public class UpdateSession extends BaseSessionProcessor {
                                     requestor.getId());
 
 
+                    info.setSessionId(sessionId);
                     //now get info for segments
                     Request dataRequest = new Request();
                     dataRequest.setProperty(DataAccessConstants.COMMAND,

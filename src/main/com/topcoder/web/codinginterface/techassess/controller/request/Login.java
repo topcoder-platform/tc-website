@@ -33,6 +33,16 @@ public class Login extends Base {
         setDefault(Constants.COMPANY_ID, new Long(getCompanyId()));
         setDefault(Constants.FRESH_REQUEST, String.valueOf(true));
 
+        if (hasParameter(Constants.SESSION_ID)) {
+            try {
+                setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
+            } catch (NumberFormatException e) {
+                throw new NavigationException("Request missing required parameter");
+            }
+        } else if (!hasParameter(Constants.SESSION_ID)&&getSessionId()<0) {
+            throw new NavigationException("Request missing required parameter");
+        }
+
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE);
             setDefault(Constants.HANDLE, handle);
@@ -50,6 +60,7 @@ public class Login extends Base {
             } else {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, getCompanyId());
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
+                request.setSessionID(getSessionId());
 
                 try {
                     send(request);
@@ -60,12 +71,12 @@ public class Login extends Base {
 
                 showProcessingPage();
 
-                ScreeningLoginResponse response = (ScreeningLoginResponse) receive(5000);
+                ScreeningLoginResponse response = (ScreeningLoginResponse) receive(10000);
 
 
                 if (response.isSuccess()) {
                     getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
-                    setSessionId(response.getSessionID());
+                    //setSessionId(response.getSessionID());
                 } else {
                     loadTerms(false);
                     addError(Constants.HANDLE, response.getMessage());
@@ -111,7 +122,7 @@ public class Login extends Base {
                     "When using this tool, please wait for a response before you attempt to proceed.");
         }
         if (showProcessing) showProcessingPage();
-        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(5000);
+        ScreeningTermsResponse termsResponse = (ScreeningTermsResponse) receive(10000);
 
         if (termsResponse.getMessage()!=null) {
             //log.debug("terms are " + termsResponse.getMessage());

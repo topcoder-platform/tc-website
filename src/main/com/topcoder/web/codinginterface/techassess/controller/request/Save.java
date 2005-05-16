@@ -69,7 +69,7 @@ public class Save extends Base {
 
             showProcessingPage();
 
-            ScreeningSaveResponse response = (ScreeningSaveResponse) receive(5000);
+            ScreeningSaveResponse response = (ScreeningSaveResponse) receive(10000);
 
             setUserMessage(response.getMessage());
 

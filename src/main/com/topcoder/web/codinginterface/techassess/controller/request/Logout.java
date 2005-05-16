@@ -28,25 +28,14 @@ public class Logout extends Base {
                     "When using this tool, please wait for a response before you attempt to proceed.");
         }
 
-/*
-        SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-        showProcessingPage(info.getServletPath()+"?"+Constants.MODULE+"="+Constants.RP_LOGOUT_RESPONSE+
-                "&"+Constants.MESSAGE_ID+"="+getMessageId());
-*/
-
-        //todo do we need to wait for this really?
-        //ScreeningLogoutResponse response = (ScreeningLogoutResponse)receive(5000);
-        //log.debug("got response");
-
         getAuthentication().logout();
 
         //build the next page before we invalidate the session
         String nextPage = buildProcessorRequestString(Constants.RP_LOGIN,
-                new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())});
+                new String[]{Constants.COMPANY_ID, Constants.SESSION_ID},
+                new String[]{String.valueOf(getCompanyId()), String.valueOf(getSessionId())});
 
         getRequest().getSession().invalidate();
-
-        //log.debug("i'm hoping we'll go to " + nextPage);
 
         setNextPage(nextPage);
         setIsNextPageInContext(false);

@@ -170,6 +170,11 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>timeZone</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
 
     </tag>
 
@@ -401,54 +406,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    <tag>
-        <name>resultSetRowIterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            Tag to iterate through a ResultSetContainer
-        </info>
-        <attribute>
-            <name>id</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>list</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
 
-    <tag>
-        <name>resultSetItem</name>
-        <tagclass>com.topcoder.web.common.tag.ResultSetItemTag</tagclass>
-        <bodycontent>empty</bodycontent>
-        <info>
-            Tag to get the value of a ResultSetContainer.ResultSetRow
-        </info>
-        <attribute>
-            <name>row</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>name</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>format</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>ifNull</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
 
     <tag>
         <name>format</name>
@@ -469,6 +427,11 @@
         </attribute>
         <attribute>
             <name>ifNull</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>timeZone</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>

@@ -53,7 +53,7 @@ public class ViewProblem extends Base {
 
             showProcessingPage();
 
-            ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse) receive(5000);
+            ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse) receive(10000);
 
             ProblemInfo problem = new ProblemInfo(StringUtils.checkNull(response.getCode()), componentId,
                     response.getLanguageID().intValue(), response.getProblem(), problemTypeId);

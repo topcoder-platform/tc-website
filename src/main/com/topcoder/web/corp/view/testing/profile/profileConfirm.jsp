@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="com.topcoder.web.corp.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <html>
 <head>
 <title>Topcoder | Technical Assessment Application Management Tool</title>
@@ -89,12 +90,12 @@ function submitUpdate() {
                 <tr>
                     <td class="testTableSubtitleEven"><strong>Problem Set:</strong></td>
                 <% if (profile.hasTestSetA()) { %>
-                <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
+                <rsc:iterator id="row" list="<%=profile.getProblemSetList()%>"><%
                 if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
-                    %><INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
-                    <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td><%
+                    %><INPUT type="HIDDEN" name="testSetA" value="<rsc:item row="<%=row%>" name="round_id" />" >
+                    <td class="testTableEven"><rsc:item row="<%=row%>" name="name" /></td><%
                 } %>
-                </screen:resultSetRowIterator>
+                </rsc:iterator>
                 <% } else { %>
                   <INPUT type="HIDDEN" name="testSetA" value="<%=Constants.NO_TEST_SET_A%>" >
                   <td class="testTableEven">No Test Set A</td>
@@ -168,16 +169,16 @@ function submitUpdate() {
                     <td class="testTableTitle" colspan="6">Available Languages</td>
                 </tr>
 
-                <screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
+                <rsc:iterator id="row" list="<%=profile.getLanguageList()%>">
                 <% if(profile.hasLanguage(row.getItem("language_id").toString())) { %>
-                    <input type="HIDDEN" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />">
+                    <input type="HIDDEN" name="language" value="<rsc:item row="<%=row%>" name="language_id" />">
                 <tr>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td class="testTableOdd" colspan="4"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
+                    <td class="testTableOdd" colspan="4"><rsc:item row="<%=row%>" name="language_name" /></td>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 <% } %>
-                </screen:resultSetRowIterator>
+                </rsc:iterator>
 
                 <tr><td colspan="6"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>

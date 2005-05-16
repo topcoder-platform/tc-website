@@ -59,6 +59,7 @@ public class Constants {
     public static String END_DAY;
     public static String END_YEAR;
     public static String END_HOUR;
+    public static String TIMEZONE;
     public static String CANDIDATE_EMAIL;
     public static String REP_EMAIL;
     public static String NOTE_TEXT;

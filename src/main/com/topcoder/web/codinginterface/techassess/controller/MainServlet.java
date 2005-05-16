@@ -38,10 +38,6 @@ public class MainServlet extends BaseServlet {
     private static WebQueueResponseManager receiver = null;
 
 
-    //todo have to check if the user currently has a synchronous
-    //todo request pending, throw out new request in that case
-
-
     public void init(ServletConfig config) throws ServletException {
         log.debug("loading up the techassess servlet");
         super.init(config);

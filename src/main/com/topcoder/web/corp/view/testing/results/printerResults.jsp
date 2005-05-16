@@ -4,8 +4,11 @@
                  java.util.List,
                  com.topcoder.web.corp.model.ProblemInfo,
                  com.topcoder.web.common.StringUtils,
-                 com.topcoder.web.corp.model.SubmissionInfo" %>
+                 com.topcoder.web.corp.model.SubmissionInfo,
+                 com.topcoder.shared.language.JavaLanguage,
+                 java.util.TimeZone" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <html>
 <head>
 <title>Topcoder | Technical Assessment Application Management Tool</title>
@@ -145,12 +148,12 @@ if ( plugin ) {
             <% } %>
                 <tr>
                     <td class="bodyText">
-                        <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
+                        <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a z' timeZone="<%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getID()%>"/>
                     </td>
 	        </tr>
                 <tr>
                     <td class="bodyText">
-                        <strong>End:</strong> <screen:beanWrite name='testSessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a'/>
+                        <strong>End:</strong> <screen:beanWrite name='testSessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a z' timeZone="<%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getID()%>"/>
                     </td>
 	        </tr>
 	    </table>
@@ -176,19 +179,19 @@ if ( plugin ) {
 		       <td width="15%" align="center" class="screeningHeader">Time</td>
                 </tr>
 
-                <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
+                <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
                 <tr>
-		       <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="problem_name" /></td>
-		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
-		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></td>
-		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></td>
-		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></td>
-		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</td>
-		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
-		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
+		       <td class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="problem_name" /></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="language_name" /></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="status_desc" /></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_succeeded" /></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_failed" /></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="pct_passed" />%</td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="elapsed" /></td>
                 </tr>
                 <% even = !even; %>
-                </screen:resultSetRowIterator>
+                </rsc:iterator>
             </table>
 
 
@@ -213,21 +216,21 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="bodyText" colspan='10'>No statistics available for this round.</TD>
 	             </TR>
                 <% } else{ even = false; %>
-                   <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
+                   <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
 	             <TR>
-		       <TD CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="name" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="level_desc" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="submissions" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_pct" />%</TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="correct" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_pct_correct" />%</TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="overall_pct_correct" />%</TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="avg_points" format="#.##"/></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="time_elapsed" /></TD>
+		       <TD CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="division_desc" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="level_desc" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="submissions" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="submit_pct" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="correct" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="submit_pct_correct" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="overall_pct_correct" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_points" format="#.##"/></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="time_elapsed" /></TD>
 	             </TR>
                      <% even = !even; %>
-                   </screen:resultSetRowIterator>
+                   </rsc:iterator>
                 <% } %>
          </table>
 
@@ -248,18 +251,18 @@ if ( plugin ) {
 		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Avg. Time</B></TD>
 	        </TR>
                 <% { even = false; %>
-                   <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBStats()%>">
+                   <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetBStats()%>">
 	             <TR>
-		       <TD CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="name" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="submission_count" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="submission_percent" />%</TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_correct" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_correct_percent" />%</TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="overall_correct_percent" />%</TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="avg_time" /></TD>
+		       <TD CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="submission_count" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="submission_percent" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_correct" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="submit_correct_percent" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="overall_correct_percent" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_time" /></TD>
 	             </TR>
                      <% even = !even; %>
-                   </screen:resultSetRowIterator>
+                   </rsc:iterator>
                 <% } %>
 	        </table>
 
@@ -288,23 +291,23 @@ if ( plugin ) {
                        <% } %>
 	        </TR>
                 <% { even = false; %>
-                   <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
+                   <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
 	             <TR>
-		       <TD CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="problem_name" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
+		       <TD CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="problem_name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="language_name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="status_desc" /></TD>
 		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_succeeded" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_failed" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="pct_passed" />%</TD>
 		       <% } %>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="elapsed" /></TD>
 		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%</td>
 		       <% } %>
 	             </TR>
                      <% even = !even; %>
-                   </screen:resultSetRowIterator>
+                   </rsc:iterator>
                 <% } %>
 	        </table>
     <% } // getProblemSetBCount() > 0 %>
@@ -323,14 +326,14 @@ if ( plugin ) {
                 </tr>
 
                 <% even = false; %>
-                <screen:resultSetRowIterator id="row" list="<%=notes%>">
+                <rsc:iterator id="row" list="<%=notes%>">
                 <tr>
                     <td <% if(even){ %>class="screeningCellEven"<% } else { %>class="screeningCellOdd"<% } %>><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
-                    <td align="center" <% if(even){ %>class="screeningCellEven"<% } else { %>class="screeningCellOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
-                    <td align="center" <% if(even){ %>class="screeningCellEven"<% } else { %>class="screeningCellOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="create_date" /></td>
+                    <td align="center" <% if(even){ %>class="screeningCellEven"<% } else { %>class="screeningCellOdd"<% } %>><rsc:item row="<%=row%>" name="created_by" /></td>
+                    <td align="center" <% if(even){ %>class="screeningCellEven"<% } else { %>class="screeningCellOdd"<% } %>><rsc:item row="<%=row%>" name="create_date" /></td>
                 </tr>
                 <% even = !even; %>
-                </screen:resultSetRowIterator>
+                </rsc:iterator>
               </table>
 
             <% } %>
@@ -352,7 +355,7 @@ if ( plugin ) {
                   <%=j==0&&(solution.isSubmitted()||solution.isCompiled())?"<h3>Test Set A</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
-		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/></td>
                   </tr>
                   <tr><td><br/></td></tr>
                   </table>
@@ -377,7 +380,7 @@ if ( plugin ) {
                   <%=j==0&&(solution.isSubmitted()||solution.isCompiled())?"<h3>Test Set B</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
-		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/></td>
                   </tr>
                   <tr><td><br/></td></tr>
                   </table>

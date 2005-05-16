@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
                  com.topcoder.web.common.StringUtils" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <HTML>
 <HEAD>
 
@@ -188,16 +189,16 @@ if ( plugin ) {
                <TD ALIGN="center" CLASS="screeningHeader">Processing Time (ms)</TD>
 	        </TR>
             <% boolean even = false; %>
-           <screen:resultSetRowIterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
+           <rsc:iterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
 	        <TR>
 		       <TD ALIGN="left" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("args").getResultData())%></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("expected_result").getResultData())%></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%=StringUtils.htmlEncode((String)testResult.getItem("received").getResultData())%></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
-               <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="processing_time" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=testResult%>" name="status" /></TD>
+               <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=testResult%>" name="processing_time" /></TD>
 	        </TR>
             <% even = !even; %>
-           </screen:resultSetRowIterator>
+           </rsc:iterator>
            <% if(submissionInfo.getTestResults().isEmpty()){ %>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd" colspan="5">
@@ -219,18 +220,18 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="screeningHeader">Difficulty</TD>
 		       <TD ALIGN="center" CLASS="screeningHeader">Algorithmic Categories</TD>
 	        </TR>
-           <screen:resultSetRowIterator id="solution" list="<%= submissionInfo.getTopTCSolutions() %>">
+           <rsc:iterator id="solution" list="<%= submissionInfo.getTopTCSolutions() %>">
 	        <TR>
 		       <TD ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd">
-                           <A HREF="JavaScript:getTCProblemResults('<screen:resultSetItem row="<%=solution%>" name="coder_id" />','<screen:resultSetItem row="<%=solution%>" name="round_id" />','<screen:resultSetItem row="<%=solution%>" name="problem_id" />')" CLASS="screeningCellOdd">
-                               <screen:resultSetItem row="<%=solution%>" name="final_points" />
+                           <A HREF="JavaScript:getTCProblemResults('<rsc:item row="<%=solution%>" name="coder_id" />','<rsc:item row="<%=solution%>" name="round_id" />','<rsc:item row="<%=solution%>" name="problem_id" />')" CLASS="screeningCellOdd">
+                               <rsc:item row="<%=solution%>" name="final_points" />
                            </A>
                        </TD>
-		       <TD ALIGN="center" CLASS="screeningCellOdd"><screen:resultSetItem row="<%=solution%>" name="division_desc" /></TD>
-		       <TD ALIGN="center" CLASS="screeningCellOdd"><screen:resultSetItem row="<%=solution%>" name="level_desc" /></TD>
+		       <TD ALIGN="center" CLASS="screeningCellOdd"><rsc:item row="<%=solution%>" name="division_desc" /></TD>
+		       <TD ALIGN="center" CLASS="screeningCellOdd"><rsc:item row="<%=solution%>" name="level_desc" /></TD>
 		       <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
 	        </TR>
-           </screen:resultSetRowIterator>
+           </rsc:iterator>
            <% if(submissionInfo.getTopTCSolutions().isEmpty()){ %>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="screeningCellOdd" colspan='5'>

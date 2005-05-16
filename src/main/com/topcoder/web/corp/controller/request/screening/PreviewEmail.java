@@ -18,6 +18,8 @@ public class PreviewEmail extends BaseSessionProcessor {
             sInfo.setRepEmail(getRequest().getParameter(Constants.REP_EMAIL));
             info =
                     EmailInfo.createEmailInfo(sInfo, getUser());
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
             updateSessionInfo();
             info = new EmailInfo();

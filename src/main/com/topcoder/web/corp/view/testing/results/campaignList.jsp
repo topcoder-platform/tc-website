@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.corp.common.Constants, java.util.List"%>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -29,10 +30,10 @@
                 <tr valign="top">
                     <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
-                        <screen:resultSetRowIterator id="row"
+                        <rsc:iterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.COMPANY_INFO)%>">
-                        <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
-                        </screen:resultSetRowIterator>
+                        <rsc:item row="<%=row%>" name="company_name" /><br/>
+                        </rsc:iterator>
                         </p>
                     </td>
                 </tr>
@@ -53,28 +54,28 @@
                     int counter = 0;
                     String[] cssClasses = {"screeningCellOdd", "screeningCellEven"};
                 %>
-                <screen:resultSetRowIterator id="row"
+                <rsc:iterator id="row"
                         list="<%=(List) request.getAttribute(Constants.COMPANY_CAMPAIGNS_LIST)%>">
                 <tr>
                     <td class="<%=cssClasses[counter % 2]%>" nowrap="nowrap">
-                        <a href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />">
-                            <screen:resultSetItem row="<%=row%>" name="campaign_name" />
+                        <a href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<rsc:item row="<%=row%>" name="campaign_id" />">
+                            <rsc:item row="<%=row%>" name="campaign_name" />
                         </a>
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
-                        <screen:resultSetItem row="<%=row%>" name="most_recent_activity" format='MM/dd/yyyy hh:mm a' />
+                        <rsc:item row="<%=row%>" name="most_recent_activity" format="MM/dd/yyyy hh:mm a z" timeZone="timezone_desc" />
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" align="center">
-                        <screen:resultSetItem row="<%=row%>" name="candidates_num" />
+                        <rsc:item row="<%=row%>" name="candidates_num" />
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" nowrap=nowrap align=center>
-                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_LIST_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
+                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_LIST_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<rsc:item row="<%=row%>" name="campaign_id" />'>view</A>
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap=nowrap align=center>
-                        <A href='?<%=Constants.MODULE_KEY%>=Demographics&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
+                        <A href='?<%=Constants.MODULE_KEY%>=Demographics&<%=Constants.CAMPAIGN_ID%>=<rsc:item row="<%=row%>" name="campaign_id" />'>view</A>
                     </td>
                 </tr>
-                </screen:resultSetRowIterator>
+                </rsc:iterator>
             </table>
 
             <p><br></p>

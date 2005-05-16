@@ -9,6 +9,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.TestSessionInfo;
+import com.topcoder.web.common.TCWebException;
 
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
@@ -20,12 +21,12 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     private static int BEGIN = 0;
     private static int END = 1;
 
-    protected TestSessionInfo getSessionInfo() {
+    protected TestSessionInfo getSessionInfo() throws TCWebException {
         HttpSession session = getRequest().getSession();
         TestSessionInfo info = (TestSessionInfo)
                 session.getAttribute(Constants.SESSION_INFO);
         if (info == null) {
-            info = new TestSessionInfo();
+            info = new TestSessionInfo(getTimeZone());
             session.setAttribute(Constants.SESSION_INFO, info);
         }
 
@@ -35,23 +36,23 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
     protected void clearSessionInfo() {
         HttpSession session = getRequest().getSession();
         session.removeAttribute(Constants.SESSION_INFO);
-
     }
 
-    protected void updateSessionInfo() {
+    protected void updateSessionInfo() throws TCWebException {
         TestSessionInfo info = getSessionInfo();
 
         info.setProfileId(getRequest().getParameter(Constants.PROFILE_ID));
         info.setCandidateId(getRequest().getParameter(Constants.CANDIDATE_ID));
-        info.setBeginMonth(getRequest().getParameter(Constants.BEGIN_MONTH));
-        info.setBeginDay(getRequest().getParameter(Constants.BEGIN_DAY));
-        info.setBeginYear(getRequest().getParameter(Constants.BEGIN_YEAR));
-        info.setBeginHour(getRequest().getParameter(Constants.BEGIN_HOUR));
-        info.setEndMonth(getRequest().getParameter(Constants.END_MONTH));
-        info.setEndDay(getRequest().getParameter(Constants.END_DAY));
-        info.setEndYear(getRequest().getParameter(Constants.END_YEAR));
-        info.setEndHour(getRequest().getParameter(Constants.END_HOUR));
-        log.debug("candidate email: " + getRequest().getParameter(Constants.CANDIDATE_EMAIL));
+        info.setBeginDate(getRequest().getParameter(Constants.BEGIN_YEAR),
+                getRequest().getParameter(Constants.BEGIN_MONTH),
+                getRequest().getParameter(Constants.BEGIN_DAY),
+                getRequest().getParameter(Constants.BEGIN_HOUR),
+                getTimeZone());
+        info.setEndDate(getRequest().getParameter(Constants.END_YEAR),
+                getRequest().getParameter(Constants.END_MONTH),
+                getRequest().getParameter(Constants.END_DAY),
+                getRequest().getParameter(Constants.END_HOUR),
+                getTimeZone());
         info.setCandidateEmail(getRequest().getParameter(Constants.CANDIDATE_EMAIL));
         info.setRepEmail(getRequest().getParameter(Constants.REP_EMAIL));
     }
@@ -78,8 +79,9 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                     "Begin Time must be earlier than End Time");
             success = false;
         }
-        Date now = new Date();
-        if (info.getEndDate().before(now)) {
+        log.debug("begin: " + info.getBeginDate());
+        log.debug("end: " + info.getEndDate());
+        if (info.getEndDate().before(new Date())) {
             addError("dateCompare",
                     "End Time must be after the current time.");
             success = false;
@@ -93,8 +95,10 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
                     Constants.SESSION_CHECK_COMMAND);
             dRequest.setProperty("spid", info.getProfileId());
             dRequest.setProperty("cid", info.getCandidateId());
+/*
             dRequest.setProperty("uid",
                     String.valueOf(getAuthentication().getUser().getId()));
+*/
             dRequest.setProperty("start", sdf.format(info.getBeginDate()));
             dRequest.setProperty("end", sdf.format(info.getEndDate()));
             log.debug("request: " + dRequest.toString());
@@ -107,15 +111,6 @@ public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
             if (rsc.size() > 0) {
                 success = false;
                 addError("dateCompare", "This session already exists.");
-            } else {
-                //if not a dupe check to see if it violates time window
-                rsc = (ResultSetContainer)
-                        map.get(Constants.SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY);
-                if (rsc.size() > 0) {
-                    success = false;
-                    addError("dateCompare",
-                            "The candidate is already scheduled during selected time period");
-                }
             }
         }
 

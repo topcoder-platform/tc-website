@@ -220,6 +220,14 @@ public final class StringUtils {
         return s.indexOf(c) > -1;
     }
 
+    /**
+     * Change all occurrances of <code>changeFrom</code> in <code>original</code>
+     * to <code>changeTo</code>
+     * @param original
+     * @param changeFrom
+     * @param changeTo
+     * @return
+     */
     public static String replace(String original, String changeFrom, String changeTo) {
         if (original == null) {
             throw new IllegalArgumentException("the original string was null");

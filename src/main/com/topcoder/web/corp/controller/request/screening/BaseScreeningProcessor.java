@@ -10,8 +10,11 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.Util;
+import com.topcoder.web.ejb.company.Company;
+import com.topcoder.web.ejb.user.Contact;
 
 import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * Processor that does usage type processing
@@ -47,6 +50,7 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
             usage = usageType.longValue();
 
             //maybe set attribute here?
+            loadTimeZoneInfo();
             getRequest().setAttribute(Constants.USAGE_TYPE, usageType);
 
             screeningProcessing();
@@ -58,6 +62,25 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
     }
 
     abstract protected void screeningProcessing() throws TCWebException;
+
+    protected void loadTimeZoneInfo() throws TCWebException {
+        String tz= getTimeZone();
+        //setDefault(Constants.TIMEZONE, tz);
+        getRequest().setAttribute(Constants.TIMEZONE, TimeZone.getTimeZone(tz));
+    }
+
+    protected String getTimeZone() throws TCWebException {
+        try {
+            Company company = (Company) createEJB(getInitialContext(), Company.class);
+            Contact contact = (Contact) createEJB(getInitialContext(), Contact.class);
+            return company.getTimeZone(contact.getCompanyId(getUser().getId(), Constants.DATA_SOURCE));
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+
+
 
     /**
      * A helper method building the URL string for specified request processor and referrer. This method constructs an

@@ -16,24 +16,32 @@ public class DateUtils {
     private final static Logger log = Logger.getLogger(DateUtils.class);
 
     /**
-     * Adjust a date from one timezone to another
+     * Adjust a date from one timezone to another.  The date object returned
+     * will be in the toTimeZone
      * @param d
      * @param fromTimeZone
      * @param toTimeZone
      * @return
      */
     public static Date getConvertedDate(Date d, String fromTimeZone, String toTimeZone) {
-        return new Date(d.getTime()+(getOffset(d, fromTimeZone, toTimeZone)));
+        //log.debug("convert to " + toTimeZone);
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
+        cal.setTime(new Date(d.getTime()+(getOffset(d, fromTimeZone, toTimeZone))));
+        return cal.getTime();
     }
 
     /**
-     * Adjust a date from the default timezone to another
+     * Adjust a date from the default timezone to another.  The date object returned
+     * will be in the toTimeZone
      * @param d
      * @param toTimeZone
      * @return
      */
     public static Date getConvertedDate(Date d, String toTimeZone) {
-        return new Date(d.getTime()+(getOffset(d, toTimeZone)));
+        //log.debug("convert to " + toTimeZone);
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(toTimeZone));
+        cal.setTime(new Date(d.getTime()+(getOffset(d, toTimeZone))));
+        return cal.getTime();
     }
 
     /**
@@ -69,5 +77,25 @@ public class DateUtils {
         return getOffset(d, TimeZone.getDefault().getID(), toTimeZone);
     }
 
-
+    /**
+     * Returns a string in the format "UTC Sign Hours : Minutes"
+     * @param d
+     * @param timeZone
+     * @return
+     */
+    public static String getUTCOffsetString(Date d, String timeZone) {
+        int diff = DateUtils.getOffset(d, "UTC", timeZone);
+        int hours = diff / (60 * 60 * 1000);
+        int minutes = (diff % (60 * 60 * 1000)) / (60 * 1000);
+        StringBuffer ret = new StringBuffer(10);
+        ret.append("UTC ");
+        if (diff<0) ret.append("-");
+        else if (diff>0) ret.append("+");
+        if (hours<10) ret.append("0");
+        ret.append(Math.abs(hours));
+        ret.append(":");
+        if (minutes<10) ret.append("0");
+        ret.append(Math.abs(minutes));
+        return ret.toString();
+    }
 }

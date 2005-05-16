@@ -10,12 +10,17 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.DateUtils;
+import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.ScreeningException;
+import com.topcoder.util.format.ObjectFormatter;
+import com.topcoder.util.format.ObjectFormatterFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Map;
+import java.util.TimeZone;
+import java.util.Calendar;
 
 public class EmailInfo extends BaseModel {
     private static DataAccess access;
@@ -30,6 +35,7 @@ public class EmailInfo extends BaseModel {
     private String companyName;
     private String repName;
     private String repAddress;
+    private String companyTimeZone;
 
     private static final String REP_FROM_ADDRESS = "tct@topcoder.com";
     private static Logger log = Logger.getLogger(EmailInfo.class);
@@ -42,6 +48,7 @@ public class EmailInfo extends BaseModel {
         repName = "Rep Name";
         companyName = "Rep's Company";
         repAddress = "rep@somecompany.com";
+        companyTimeZone = TimeZone.getDefault().getID();
     }
 
     /**
@@ -92,8 +99,20 @@ public class EmailInfo extends BaseModel {
         long hours = (total)/(60*60*1000);
         long minutes = (total-(hours*(60*60*1000)))/(60*1000);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
+
+        ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
+        formatter.setFormatMethodForClass(Calendar.class,
+                                new CalendarDateFormatMethod("MM/dd/yyyy hh:mm aa zzz"), true);
+
+        Calendar begin = Calendar.getInstance();
+        begin.setTime(DateUtils.getConvertedDate(sessionInfo.getBeginDate(), getCompanyTimeZone()));
+        TimeZone tz = TimeZone.getTimeZone(getCompanyTimeZone());
+        begin.setTimeZone(tz);
+
+        Calendar end = Calendar.getInstance();
+        end.setTime(DateUtils.getConvertedDate(sessionInfo.getEndDate(), getCompanyTimeZone()));
+        end.setTimeZone(tz);
 
         //todo yikes this is a nasty hack for google india
         if (companyId == 8039) {
@@ -103,11 +122,11 @@ public class EmailInfo extends BaseModel {
             msgText.append("http://www.topcoder.com/techassess/techassess?module=Static&d1=help&d2=index\n\n");
             msgText.append("The following session has been scheduled for you:\n\n");
             msgText.append("Begin: ");
-            msgText.append(sdf.format(DateUtils.getConvertedDate(sessionInfo.getBeginDate(), "IST")));
-            msgText.append(" IST\n");
+            msgText.append(formatter.format(begin));
+            msgText.append("\n");
             msgText.append("End: ");
-            msgText.append(sdf.format(DateUtils.getConvertedDate(sessionInfo.getEndDate(), "IST")));
-            msgText.append(" IST\n");
+            msgText.append(formatter.format(end));
+            msgText.append("\n");
             msgText.append("Login:  ");
             msgText.append(candidateHandle);
             msgText.append("\n");
@@ -117,7 +136,11 @@ public class EmailInfo extends BaseModel {
             msgText.append("IMPORTANT: Please note that you must complete ALL portions of the test prior to the end time shown above.\n\n");
             msgText.append("You should allow 1-2 hours to complete all portions of the test.\n\n");
             msgText.append("You may access the test here: ");
-            msgText.append("http://www.topcoder.com/techassess/techassess?module=Login&cm=");
+            msgText.append("http://www.topcoder.com/techassess/techassess?module=Login&");
+            msgText.append(Constants.SESSION_ID);
+            msgText.append("=");
+            msgText.append(sessionInfo.getSessionId());
+            msgText.append("&cm=");
             msgText.append(companyId);
             msgText.append("\n\n");
             msgText.append("Thank you,\n\n");
@@ -133,11 +156,11 @@ public class EmailInfo extends BaseModel {
             msgText.append("The following session has been scheduled for you:");
             msgText.append("\n\n");
             msgText.append("Begin: ");
-            msgText.append(sdf.format(sessionInfo.getBeginDate()));
-            msgText.append(" Eastern Time\n");
+            msgText.append(formatter.format(begin));
+            msgText.append("\n");
             msgText.append("End: ");
-            msgText.append(sdf.format(sessionInfo.getEndDate()));
-            msgText.append(" Eastern Time\n");
+            msgText.append(formatter.format(end));
+            msgText.append("\n");
             msgText.append("Login:  ");
             msgText.append(candidateHandle);
             msgText.append("\n");
@@ -150,7 +173,11 @@ public class EmailInfo extends BaseModel {
             msgText.append(" MINUTES TO COMPLETE ALL PORTIONS OF THE TEST.");
             msgText.append("\n\n");
             msgText.append("You may access ");
-            msgText.append("the Technical Assessment Application here: http://www.topcoder.com/techassess/techassess?module=Login&cm=");
+            msgText.append("the Technical Assessment Application here: http://www.topcoder.com/techassess/techassess?module=Login&");
+            msgText.append(Constants.SESSION_ID);
+            msgText.append("=");
+            msgText.append(sessionInfo.getSessionId());
+            msgText.append("&cm=");
             msgText.append(companyId);
             msgText.append("\n\n");
             msgText.append("Thank you,\n");
@@ -335,6 +362,15 @@ public class EmailInfo extends BaseModel {
         this.repSubject = repSubject;
     }
 
+    public String getCompanyTimeZone() {
+        return companyTimeZone;
+    }
+
+    public void setCompanyTimeZone(String companyTimeZone) {
+        this.companyTimeZone = companyTimeZone;
+    }
+
+
     public void sendEmail() throws Exception {
         if (sessionInfo.useCandidateEmail()) {
             log.debug("send candidate emali to: " + candidateAddress);
@@ -417,6 +453,7 @@ public class EmailInfo extends BaseModel {
 
         emailInfo.setSubject("Invitation to Private Candidate Technical Assessment");
         emailInfo.setRepSubject("Technical Assessment scheduled for " + emailInfo.getCandidateHandle());
+        emailInfo.setCompanyTimeZone(info.getTimeZone());
 
         return emailInfo;
     }

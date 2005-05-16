@@ -6,7 +6,6 @@ import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
-import javax.naming.Context;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -75,7 +74,6 @@ public class CompanyBean extends BaseEJB {
     public String getName(long companyId) {
         log.debug("getName called...company_id: " + companyId);
 
-        Context ctx = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -104,7 +102,6 @@ public class CompanyBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
 
         return (ret);
@@ -120,7 +117,6 @@ public class CompanyBean extends BaseEJB {
     public long getPrimaryContactId(long companyId) {
         log.debug("getPrimaryContactId called...company_id: " + companyId);
 
-        Context ctx = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -149,7 +145,6 @@ public class CompanyBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
 
         return (ret);
@@ -165,7 +160,6 @@ public class CompanyBean extends BaseEJB {
     public String getNewUserStatus(long companyId) {
         log.debug("getNewUserStatus called...company_id: " + companyId);
 
-        Context ctx = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -194,11 +188,47 @@ public class CompanyBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
 
         return (ret);
     }
+
+    public String getTimeZone(long companyId) throws EJBException {
+        log.debug("getTimeZone called...company_id: " + companyId);
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        String ret = null;
+
+        try {
+            conn = DBMS.getConnection(DATA_SOURCE);
+
+            ps = conn.prepareStatement("SELECT t.timezone_desc FROM " +
+                    "company c, timezone_lu t WHERE company_id = ? and t.timezone_id = c.timezone_id");
+            ps.setLong(1, companyId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getString("timezone_desc");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting getTimeZone " +
+                    "for company_id: " + companyId);
+        } catch (Exception e) {
+            throw new EJBException("Exception getting getTimeZone for" +
+                    " company_id: " + companyId + "\n" +
+                    e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+
+        return (ret);
+    }
+
 
 
     /**
@@ -211,7 +241,6 @@ public class CompanyBean extends BaseEJB {
         log.debug("setName called...companyId: " + companyId + " name: " +
                 name);
 
-        Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
 
@@ -240,7 +269,6 @@ public class CompanyBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
@@ -254,7 +282,6 @@ public class CompanyBean extends BaseEJB {
         log.debug("setPrimaryContactId called...companyId: " + companyId +
                 " primaryContactId: " + primaryContactId);
 
-        Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
 
@@ -286,7 +313,6 @@ public class CompanyBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
@@ -300,7 +326,6 @@ public class CompanyBean extends BaseEJB {
         log.debug("setNewUserStatus called...companyId: " + companyId +
                 " newUserStatus: " + newUserStatus);
 
-        Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
 
@@ -332,7 +357,6 @@ public class CompanyBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
