@@ -9,11 +9,16 @@ import java.io.Serializable;
 
 
 /**
+ * Provides a way to asynchronously receive messages from a queue including the ability
+ * to wait for a specified period of time only, and then quit.
  * User: dok
  * Date: Dec 15, 2004
  * Time: 4:26:15 PM
  */
 public class WebResponsePool extends ResponsePool {
+    private static final String SPACE =
+            "                                                  " +
+            "                                                  ";  //100 spaces
 
     private int DEFAULT_PRINT_WAIT = 500;
     public WebResponsePool() {
@@ -24,6 +29,20 @@ public class WebResponsePool extends ResponsePool {
         super(waitTime);
     }
 
+    /**
+     * Polls the response pool for <code>timeoutLength</code> milliseconds for
+     * a message associated with the <cocde>correlationId</code> while polling
+     * it periodically writes some text to the response object to be sure that
+     * client browsers stay alive.
+     *
+     * If it is found, the response is removed from the pool and returned.
+     * @param timeoutLength
+     * @param correlationId
+     * @param response
+     * @return
+     * @throws TimeOutException
+     */
+
     public synchronized Serializable get(int timeoutLength, String correlationId, TCResponse response) throws TimeOutException {
         long startTime = System.currentTimeMillis();
         long endTime = startTime + timeoutLength;
@@ -31,13 +50,13 @@ public class WebResponsePool extends ResponsePool {
         while (System.currentTimeMillis() < endTime) {
 
             if (responseMap.containsKey(correlationId)) {
-                return (Serializable) responseMap.get(correlationId);
+                return get(correlationId);
             } else {
                 try {
                     //print something out to the client every DEFAULT_PRINT_WAIT so that it doesn't time out
                     long curr = System.currentTimeMillis();
                     if ((lastPrint+DEFAULT_PRINT_WAIT)<curr) {
-                        response.getWriter().print("                   ");
+                        response.getWriter().print(SPACE);
                         response.getWriter().flush();
                         lastPrint =curr;
                     }
@@ -49,7 +68,8 @@ public class WebResponsePool extends ResponsePool {
                 }
             }
         }
-        dropList.add(correlationId);
+        //get it and ignore it cuz we don't care
+        get(correlationId);
         throw new TimeOutException();
     }
 
