@@ -6,6 +6,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.16.05<br>9:25 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm242_prob">SRM 242 - Problem Set & Analysis</A></span><br><br>
+      In division 1, <b>Petr</b> was in the lead after the coding phase, and remained  first despite an unsuccessful challenge. The system tests did not change anything in the top 5, so <b>Petr</b> won the match.</td>
+      <td class="newsPhoto"><img src="/i/m/gepa_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=310430">gepa</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm242_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>05.13.05<br>11:50 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=496779&mc=1">Unused Code Checker in Arena</A></span><br><br>
       The newest version of the TopCoder Algorithm Competition Arena (v5.08) adds a check at submit time that attempts to determine if your submission violates the Unused Code Rule.
@@ -229,18 +244,6 @@
          <A href="/?&t=features&c=index">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.22.05<br>12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_04_22_05">How Google Searches - For Talent</A></span><br><br>
-      " 'It's a dog-eat-dog world,' says Robert Hughes, president of TopCoder Inc., the Glastonbury (Conn.) testing company that runs the Code Jams. 'Wherever the best talent is, Google wants them.' " [BusinessWeek]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=art_04_22_05">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 
