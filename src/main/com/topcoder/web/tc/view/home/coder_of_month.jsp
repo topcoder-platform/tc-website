@@ -24,20 +24,20 @@
     </tr>
     <tr>
         <td class="formHandleEven">SRM 240</td>
-        <td class="formHandleEven" align="right">2521</td>
+        <td class="formHandleEven" align="right">2444</td>
         <td rowspan="4" align="center" valign="middle"><img src="/i/m/visualage_mug.gif" alt="" border="0" class="myStatsPhoto"/></td>
     </tr>
     <tr>
         <td class="formHandleEven">SRM 239</td>
-        <td class="formHandleEven" align="right">2434</td>
+        <td class="formHandleEven" align="right">2365</td>
     </tr>
     <tr>
         <td class="formHandleEven">SRM 238</td>
-        <td class="formHandleEven" align="right">2311</td>
+        <td class="formHandleEven" align="right">2252</td>
     </tr>
     <tr>
         <td class="formHandleEven">SRM 237</td>
-        <td class="formHandleEven" align="right">2140</td>
+        <td class="formHandleEven" align="right">2095</td>
     </tr>
     <tr><td class="formHandleEven" colspan="3"><tc-webtag:handle coderId="299979"/> also got one first place, two second places, and a third place in component development during April.</td></tr>
 </table>
