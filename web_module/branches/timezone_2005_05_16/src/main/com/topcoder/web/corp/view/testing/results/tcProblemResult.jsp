@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="com.topcoder.web.corp.common.Constants,
                  com.topcoder.web.common.StringUtils" %>
-<%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <HTML>
 <HEAD>
 <title>Topcoder&#160;&#160;|&#160;&#160;Technical Assessment Application Management Tool</title>
@@ -69,20 +69,20 @@
 		       <TD ALIGN="center" CLASS="testFormHeader">Status</TD>
 	        </TR>
             <% boolean even = false; %>
-           <screen:resultSetRowIterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
+           <rsc:iterator id="testResult" list="<%= submissionInfo.getTestResults() %>">
 	        <TR>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="args" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=testResult%>" name="expected_result" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><rsc:item row="<%=testResult%>" name="args" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><rsc:item row="<%=testResult%>" name="expected_result" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>">
                        <%if(!testResult.getStringItem("status").equals("Succeeded")) {%>
-                            <span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;<screen:resultSetItem row="<%=testResult%>" name="received" /></span>
+                            <span class=bigRed>FAILED - Result:&#160;&#160;&#160;&#160;<rsc:item row="<%=testResult%>" name="received" /></span>
                        <% } else { %>
-                            <screen:resultSetItem row="<%=testResult%>" name="status" />
+                            <rsc:item row="<%=testResult%>" name="status" />
                         <% } %>
 		       </TD>
 	        </TR>
             <% even = !even;%>
-           </screen:resultSetRowIterator>
+           </rsc:iterator>
          </table>
             <p><br></p>
         </td>

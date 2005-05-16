@@ -3,6 +3,7 @@
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.common.BaseServlet" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <HTML>
 <HEAD>
@@ -183,14 +184,14 @@ if ( MM_FlashCanPlay ) {
                 <% if (candidateInfo.getNoteList().isEmpty()) { %>
                   <td colspan="3" align="center" class="testTableOdd">There are currently no notes for this candidate.</td>
                 <% } else { boolean even = true; %>
-                <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
+                <rsc:iterator id="row" list="<%=candidateInfo.getNoteList()%>">
                 <tr>
                     <td <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><%=StringUtils.htmlEncode((String)row.getItem("text").getResultData())%></td>
-                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><screen:resultSetItem row="<%=row%>" name="created_by" /></td>
-                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><strong><screen:resultSetItem row="<%=row%>" name="create_date" /></strong></td>
+                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><rsc:item row="<%=row%>" name="created_by" /></td>
+                    <td align="center" <% if(even){ %>class="testTableEven"<% } else { %>class="testTableOdd"<% } %>><strong><rsc:item row="<%=row%>" name="create_date" /></strong></td>
                 </tr>
                 <% even = !even; %>
-                </screen:resultSetRowIterator>
+                </rsc:iterator>
                 <% } %>
             </table>
 

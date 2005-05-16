@@ -3,17 +3,23 @@ package com.topcoder.web.common.tag;
 import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
+import com.topcoder.web.common.DateUtils;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 
 public class FormatTag extends TagSupport {
+    private final static Logger log = Logger.getLogger(FormatTag.class);
     private Object object = null;
     private String format = null;
     private String ifNull = "";
+    private String timeZone = null;
 
     public int doStartTag() throws JspException {
         try {
@@ -25,12 +31,22 @@ public class FormatTag extends TagSupport {
                         formatter.setFormatMethodForClass(Number.class,
                                 new NumberFormatMethod(format), true);
                     } else if (object instanceof Date) {
-                        formatter.setFormatMethodForClass(Date.class,
-                                FormatMethodFactory.getDefaultDateFormatMethod(format), true);
+                        Calendar cal = Calendar.getInstance();
+                        if (getTimeZone()!=null) {
+                            object = DateUtils.getConvertedDate((Date)object, getTimeZone());
+                            cal.setTimeZone(TimeZone.getTimeZone(getTimeZone()));
+                        } else {
+                            cal.setTimeZone(TimeZone.getDefault());
+                        }
+                        cal.setTime((Date)object);
+                        object = cal;
+                        formatter.setFormatMethodForClass(Calendar.class,
+                                new CalendarDateFormatMethod(format), true);
                     }
                 }
                 formatter.setFormatMethodForClass(new Object().getClass(),
-                        FormatMethodFactory.getDefaultObjectFormatMethod(), true);
+                            FormatMethodFactory.getDefaultObjectFormatMethod(), true);
+
                 pageContext.getOut().print(formatter.format(object));
             } else {
                 pageContext.getOut().print(ifNull);
@@ -39,6 +55,14 @@ public class FormatTag extends TagSupport {
             throw new JspException(e.getMessage());
         }
         return SKIP_BODY;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    protected String getTimeZone() {
+        return timeZone;
     }
 
     public void setObject(Object object) {
@@ -62,6 +86,7 @@ public class FormatTag extends TagSupport {
         this.object = null;
         this.format = null;
         this.ifNull = "";
+        this.timeZone = null;
         return super.doEndTag();
     }
 

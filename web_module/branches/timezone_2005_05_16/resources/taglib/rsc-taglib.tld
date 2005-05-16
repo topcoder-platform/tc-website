@@ -57,6 +57,11 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
+            <name>timeZone</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>rowIndex</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
