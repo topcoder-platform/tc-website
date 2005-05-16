@@ -1,5 +1,8 @@
-<%@ page import="com.topcoder.web.corp.common.Constants" %>
+<%@ page import="com.topcoder.web.corp.common.Constants,
+                 java.util.TimeZone" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -96,13 +99,13 @@ function submitSession() {
                     <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableOdd">
                         <select name ="profileId">
-                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getProfileList()%>">
+                        <rsc:iterator id="row" list="<%=testSessionInfo.getProfileList()%>">
                         <% if(testSessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
-                            <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
+                            <option class="dropdown" value="<rsc:item row="<%=row%>" name="session_profile_id" />" SELECTED><rsc:item row="<%=row%>" name="name" /></option>
                         <% } else { %>
-                            <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
+                            <option class="dropdown" value="<rsc:item row="<%=row%>" name="session_profile_id" />"><rsc:item row="<%=row%>" name="name" /></option>
                         <% } %>
-                        </screen:resultSetRowIterator>
+                        </rsc:iterator>
                         </select>
                     </td>
                     <td class="testTableOdd">&#160;<a name="profile"></a><a href="JavaScript:submitProfile()">Create a New Test Profile</a></td>
@@ -119,13 +122,13 @@ function submitSession() {
                     <td class="testTableOdd">&#160;</td>
                     <td class="testTableOdd">
                         <select name="cid">
-                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
+                        <rsc:iterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
                         <% if(testSessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
-                            <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
+                            <option class="dropdown" value="<rsc:item row="<%=row%>" name="candidate_id" />" SELECTED><rsc:item row="<%=row%>" name="handle" /></option>
                         <% } else { %>
-                            <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
+                            <option class="dropdown" value="<rsc:item row="<%=row%>" name="candidate_id" />"><rsc:item row="<%=row%>" name="handle" /></option>
                         <% } %>
-                        </screen:resultSetRowIterator>
+                        </rsc:iterator>
                         </select>
                     </td>
                     <% if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
@@ -140,7 +143,7 @@ function submitSession() {
 
                 <tr>
                     <td class="testTableTitle" colspan="2">Begin Time</td>
-                    <td class="testTableTimezone">All times are Eastern Time</td>
+                    <td class="testTableTimezone">All times are in <%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getDisplayName(true, TimeZone.LONG)%></td>
                 </tr>
 
                 <tr>
@@ -174,7 +177,7 @@ function submitSession() {
 
                 <tr>
                     <td class="testTableTitle" colspan="2">End Time</td>
-                    <td class="testTableTimezone">All times are Eastern Time</td>
+                    <td class="testTableTimezone">All times are in <%=((TimeZone)request.getAttribute(Constants.TIMEZONE)).getDisplayName(true, TimeZone.LONG)%></td>
                 </tr>
 
                 <tr>

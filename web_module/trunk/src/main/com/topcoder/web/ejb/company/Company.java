@@ -42,6 +42,7 @@ public interface Company extends EJBObject {
     String getNewUserStatus(long companyId)
             throws RemoteException, EJBException;
 
+    String getTimeZone(long companyId) throws RemoteException, EJBException;
 
     /**
      *
@@ -66,6 +67,7 @@ public interface Company extends EJBObject {
      */
     void setNewUserStatus(long companyId, String status)
             throws RemoteException, EJBException;
+
 
 
 }

@@ -1,6 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<%@ page import="com.topcoder.web.corp.common.Constants" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ page import="com.topcoder.web.corp.common.Constants,
+                 java.util.TimeZone" %>
 <html>
 <head>
 <title>Topcoder | Technical Assessment Application Management Tool</title>
@@ -60,23 +62,23 @@ document.sessionConfirmForm.submit();
 
                 <tr>
                     <td class="testTableSubtitleOdd">Candidate:</td>
-                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
+                        <rsc:iterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
                         <% if(testSessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
-                        <input type="HIDDEN" name="cid" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" >
-                    <td class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="handle" /></td>
+                        <input type="HIDDEN" name="cid" value="<rsc:item row="<%=row%>" name="candidate_id" />" >
+                    <td class="testTableOdd"><rsc:item row="<%=row%>" name="handle" /></td>
                         <% } %>
-                        </screen:resultSetRowIterator>
+                        </rsc:iterator>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Profile:</td>
-                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getProfileList()%>">
+                        <rsc:iterator id="row" list="<%=testSessionInfo.getProfileList()%>">
                         <% if(testSessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
-                        <input type="HIDDEN" name="profileId" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" >
-                    <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td>
+                        <input type="HIDDEN" name="profileId" value="<rsc:item row="<%=row%>" name="session_profile_id" />" >
+                    <td class="testTableEven"><rsc:item row="<%=row%>" name="name" /></td>
                         <% } %>
-                        </screen:resultSetRowIterator>
+                        </rsc:iterator>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
 
@@ -86,7 +88,7 @@ document.sessionConfirmForm.submit();
                         <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="testSessionInfo" property="beginDay" />" >
                         <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="testSessionInfo" property="beginYear" />" >
                         <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="testSessionInfo" property="beginHour" />" >
-                    <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></td>
+                    <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm a z" timeZone="<%=testSessionInfo.getTimeZone()%>" /></td>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
 
@@ -96,7 +98,7 @@ document.sessionConfirmForm.submit();
                         <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="testSessionInfo" property="endDay" />" >
                         <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="testSessionInfo" property="endYear" />" >
                         <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="testSessionInfo" property="endHour" />" >
-                    <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></td>
+                    <td class="testTableEven"><screen:beanWrite name="testSessionInfo" property="endDate" format="MM/dd/yyyy hh:mm a z" timeZone="<%=testSessionInfo.getTimeZone()%>"/></td>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
 

@@ -4,6 +4,7 @@
                  com.topcoder.web.corp.model.TestSessionInfo,
                  java.util.Date" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <html>
 <head>
 <title>Topcoder | Technical Assessment Application Management Tool</title>
@@ -70,17 +71,17 @@ function getProblemDetail(id) {
                         String cparam = null;
                     %>
 
-                    <screen:resultSetRowIterator id='row' list='<%= profileList %>'>
+                    <rsc:iterator id='row' list='<%= profileList %>'>
                     <% i++;
                        cparam = Constants.PROFILE_ID + '=' + row.getItem("session_profile_id");
                     %>
                     <tr>
-                        <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
-                        <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></td>
-                        <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="num_complete" /></td>
-                        <td align="right" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a'/></td>
+                        <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><rsc:item row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
+                        <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item row="<%=row%>" name="num_sessions" /></td>
+                        <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item row="<%=row%>" name="num_complete" /></td>
+                        <td align="right" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><rsc:item row="<%=row%>" name="create_date" format='MM/dd/yyyy z' timezone="timezone_desc"/></td>
                     </tr>
-                    </screen:resultSetRowIterator>
+                    </rsc:iterator>
                 <% } %>
             </table>
             <p><br></p>

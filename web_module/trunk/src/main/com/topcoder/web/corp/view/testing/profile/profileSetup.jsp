@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.corp.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -110,13 +111,13 @@ function submitConfirm() {
                     <td class="testTableSubtitleEven">Problem Set</td>
                     <td class="testTableEven">
                         <select name="<%=Constants.TEST_SET_A%>" onChange="submitReload()">
-                            <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
+                            <rsc:iterator id="row" list="<%=profile.getProblemSetList()%>"><%
                             if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
-                                %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option><%
+                                %><option value="<rsc:item row="<%=row%>" name="round_id" />" SELECTED><rsc:item row="<%=row%>" name="name" /></option><%
                             } else {
-                                %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option><%
+                                %><option value="<rsc:item row="<%=row%>" name="round_id" />"><rsc:item row="<%=row%>" name="name" /></option><%
                             } %>
-                            </screen:resultSetRowIterator>
+                            </rsc:iterator>
                             <option value="<%=Constants.NO_TEST_SET_A%>" <%=profile.isSelectedTestSetA(String.valueOf(Constants.NO_TEST_SET_A))?"SELECTED":""%> name="round_id">No Test Set A</option>
                         </select>
                     <td class="errorTextEven">&#160;</td>
@@ -195,9 +196,9 @@ function submitConfirm() {
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td colspan="5" align="center">
                         <select name="testSetBAdd" class="dropdown" size="10" multiple="true">
-                            <screen:resultSetRowIterator id="row" list="<%=profile.getCompanyProblemList()%>">
-                            <option value="<screen:resultSetItem row="<%=row%>" name="round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
-                            </screen:resultSetRowIterator>
+                            <rsc:iterator id="row" list="<%=profile.getCompanyProblemList()%>">
+                            <option value="<rsc:item row="<%=row%>" name="round_id" />,<rsc:item row="<%=row%>" name="problem_id" />"><rsc:item row="<%=row%>" name="name" /></option>
+                            </rsc:iterator>
                         </select>
                     </td>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
@@ -215,19 +216,19 @@ function submitConfirm() {
                     <td class="testTableTitle" colspan="7">Available Languages</td>
                 </tr>
 
-                <screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
+                <rsc:iterator id="row" list="<%=profile.getLanguageList()%>">
                 <tr>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td class="testTableOdd" colspan="5">
                         <% if(profile.hasLanguage(row.getItem("language_id").toString())) { %>
-                        <input type="checkbox" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />" CHECKED>&#160;<screen:resultSetItem row="<%=row%>" name="language_name" />
+                        <input type="checkbox" name="language" value="<rsc:item row="<%=row%>" name="language_id" />" CHECKED>&#160;<rsc:item row="<%=row%>" name="language_name" />
                         <% } else { %>
-                        <input type="checkbox" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />" >&#160;<screen:resultSetItem row="<%=row%>" name="language_name" />
+                        <input type="checkbox" name="language" value="<rsc:item row="<%=row%>" name="language_id" />" >&#160;<rsc:item row="<%=row%>" name="language_name" />
                         <% } %>
                     </td>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
-                </screen:resultSetRowIterator>
+                </rsc:iterator>
 
                 <tr>
                     <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>

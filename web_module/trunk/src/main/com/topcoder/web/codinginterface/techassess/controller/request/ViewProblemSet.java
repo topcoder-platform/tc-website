@@ -54,7 +54,7 @@ public class ViewProblemSet extends Base {
             //need the problem type id in there so that one can hit refresh and have it work on the response.
             showProcessingPage();
 
-            ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse) receive(5000);
+            ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse) receive(10000);
 
             ScreeningProblemSet[] problemSets = response.getProblemSets();
             ArrayList problemList = new ArrayList();

@@ -41,7 +41,7 @@ public class Index extends Base {
 
             showProcessingPage();
 
-            ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse) receive(5000);
+            ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse) receive(10000);
 
 
             ScreeningProblemSet[] serverSets = response.getProblemSets();
