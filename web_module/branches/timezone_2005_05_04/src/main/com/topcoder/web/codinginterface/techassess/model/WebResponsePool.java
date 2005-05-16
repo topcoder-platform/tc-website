@@ -49,7 +49,7 @@ public class WebResponsePool extends ResponsePool {
         long lastPrint = 0;
         while (System.currentTimeMillis() < endTime) {
 
-            if (responseMap.containsKey(correlationId)) {
+            if (pool.exists(correlationId)) {
                 return get(correlationId);
             } else {
                 try {
