@@ -54,6 +54,8 @@
                         <ul>
                             <li><a href="#misc1">How do I put company branding in the TopCoder competition arena?</a></li>
                             <li><a href="#misc2">How do I put company branding in the Technical Assessment tool?</a></li>
+                            <li><a href="#misc2">How do I kick someone out for cheating?</a></li>
+                            <li><a href="#misc2">How do I kick someone out for having a duplicate account?</a></li>
                         </ul>
                     </ul>
                 </div>

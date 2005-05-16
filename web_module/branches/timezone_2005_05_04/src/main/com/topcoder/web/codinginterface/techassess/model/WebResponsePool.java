@@ -47,8 +47,8 @@ public class WebResponsePool extends ResponsePool {
         long startTime = System.currentTimeMillis();
         long endTime = startTime + timeoutLength;
         long lastPrint = 0;
+        waitList.add(correlationId);
         while (System.currentTimeMillis() < endTime) {
-
             if (pool.exists(correlationId)) {
                 return get(correlationId);
             } else {
