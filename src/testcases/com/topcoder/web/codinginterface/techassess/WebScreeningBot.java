@@ -113,7 +113,7 @@ public class WebScreeningBot {
     public void runTests() {
         WebConversation wc = new WebConversation();
         //get the login page
-        WebRequest wr = new GetMethodWebRequest("http://www.topcoder.com/techassess/techassess?module=Login&cm=" + COMPANY_ID + "&sid=17122");
+        WebRequest wr = new GetMethodWebRequest("http://www.topcoder.com/techassess/techassess?module=Login&cm=" + COMPANY_ID + "&sid=27464");
         WebResponse resp = null;
         try {
             resp = wc.getResponse(wr);
