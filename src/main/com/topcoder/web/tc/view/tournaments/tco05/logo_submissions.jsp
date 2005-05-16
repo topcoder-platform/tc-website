@@ -60,15 +60,9 @@
 <table cellpadding="10" cellspacing="0" align="center" border="0">
 
 <script language=javascript type="text/javascript">
-for(i = 570; i >= 242; i--)
+for(i = 570; i >= 234; i--)
 document.writeln( "<tr><td>"+i+"<br><img src='/i/tournament/tco05/logo_submissions/"+i+".gif' alt='"+i+"' border='0' /></td></tr>" )
 </script>
-
-<script language=javascript type="text/javascript">
-for(i = 240; i >= 234; i--)
-document.writeln( "<tr><td>"+i+"<br><img src='/i/tournament/tco05/logo_submissions/"+i+".gif' alt='"+i+"' border='0' /></td></tr>" )
-</script>
-
 <tr><td>233<br><img src="/i/tournament/tco05/logo_submissions/233.jpg" alt="" border="0" /></td></tr>
 
 <script language=javascript type="text/javascript">
