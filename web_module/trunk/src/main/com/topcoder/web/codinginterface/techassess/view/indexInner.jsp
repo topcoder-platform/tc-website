@@ -71,7 +71,7 @@
                       <td class=tableTextOdd align=center><jsp:getProperty name="problem" property="completedCount"/>/<jsp:getProperty name="problem" property="problemCount"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="description"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="status"/></td>
-                      <td class=tableTextOdd align=right><span id="problemSetTimerCID<%=((ProblemSetInfo)problem).getProblems()[0].getComponentID()%>PTID<%=((ProblemSetInfo)problems.get(0)).getTypeId()%>">Initializing</span></td>
+                      <td class=tableTextOdd align=right><span id="problemSetTimerCID<%=((ProblemSetInfo)problem).getProblems()[0].getComponentID()%>PTID<%=((ProblemSetInfo)problem).getTypeId()%>">Initializing</span></td>
                    </tr>
                </tc-webtag:listIterator>
             </table>
