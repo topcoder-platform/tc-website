@@ -9,6 +9,7 @@
         <delete dir="resources"/>
         <delete dir="build"/>
         <delete dir="../shared/src"/>
+        <delete file="topcoder.jar"/>
 
         <cvs command="update -Pd" package="src"/>
         <cvs command="update -Pd" package="resources"/>
