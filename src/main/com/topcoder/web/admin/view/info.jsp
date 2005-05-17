@@ -33,7 +33,7 @@
                                 <li><a href="#cache1">How do I do a production move for the cache?</a></li>
                                 <li><a href="#cache2">How do I bounce the cache?</a></li>
                                 <li><a href="#cache3">What is dependant on the cache?</a></li>
-                                <li><a href="#cache4">What is dependant on the/a cache?</a></li>
+                                <li><a href="#cache4">What is dependant on a cache?</a></li>
                                 <li><a href="#cache5">How do I remove objects from the cache?</a></li>
                                 <li><a href="#cache6">How do I clear the cache?</a></li>
                             </ul>
