@@ -22,6 +22,7 @@ import java.util.Set;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.UnauthorizedException;
 
 /**
  * @author mtong
@@ -53,11 +54,15 @@ public class ForumsServlet extends BaseServlet {
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 		    //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-		    AuthToken authToken = AuthFactory.getAuthToken(request, response);
-		    if (authToken.isAnonymous()) {
+		    try {
+			    AuthToken authToken = AuthFactory.getAuthToken(request, response);
+			    if (authToken.isAnonymous()) {
+			    	user = getUser(SimpleUser.createGuest().getId());
+			    } else {
+			    	user = getUser(authToken.getUserID());
+			    }
+		    } catch (UnauthorizedException ue) {
 		    	user = getUser(SimpleUser.createGuest().getId());
-		    } else {
-		    	user = getUser(authToken.getUserID());
 		    }
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
