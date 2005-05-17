@@ -24,6 +24,7 @@
                             <li><a href="#main7">How do I take down a member photo?</a></li>
                             <li><a href="#main8">How do I build the code for www.topcoder.com?</a></li>
                             <li><a href="#main9">How do I add a report to the internal reporting site?</a></li>
+                            <li><a href="#main10">How do I load information into the warehouse?</a></li>
                         </ul>
                         <li><a href="#cache">The Cache</a></li>
                         <ul>
@@ -202,7 +203,7 @@
                                             select c.activation_code || ' | [ ' || u.handle || ' | ' || u.user_id<br />
                                               from user u, coder c<br />
                                              where c.coder_id = u.user_id<br />
-                                               and u.user_id in (&lt;user_id list&gt;);<br />
+                                               and u.user_id in (&lt;user_id list&gt;);
                                         </p>
                                     </li>
                                     <li>
@@ -212,7 +213,7 @@
                                         <p class="input">
                                             select max(image_id)+1<br />
                                               from image<br />
-                                             where image_id < 10000;<br />
+                                             where image_id &lt; 10000;
                                         </p>
                                     </li>
                                     <li>
@@ -223,29 +224,72 @@
                                                    ' values (xxx, ''' || handle || '_big.jpg'', 1, 1);--', user_id, handle<br />
                                               from user<br />
                                              where user_id in (&lt;user_id list&gt;)<br />
-                                             order by user_id;<br />
+                                             order by user_id;
                                         </p>
-
                                     </li>
                                     <li>
-
-                                update coder_image_xref set display_flag = 0 where image_type_id = 1 and coder_id in (286348,311193,306786,344417,289824,156642,277536,308953)
-
-
-select 'insert into coder_image_xref (coder_id, image_id, display_flag) values (' || user_id || ', xxx, 1);--', user_id, handle
-from user where user_id in (268546,
-159925,
-271976,
-267086)
-order by user_id;
-
+                                        If the graphic designer had to change any of the file names, that should have been
+                                        communicated to you.  At this point, you'll want to adjust each of the insert statements
+                                        that you just generated to have to correct file name.  Likely it's just what was
+                                        generated with a 2 appended before the extension.
                                     </li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
+                                    <li>
+                                        Generate the insert statement for the coder_image_xref table
+                                        <p class="input">
+                                            select 'insert into coder_image_xref (coder_id, image_id, display_flag) ' ||<br />
+                                                   'values (' || user_id || ', xxx, 1);--', user_id, handle<br />
+                                              from user<br />
+                                             where user_id in (&lt;user_id list&gt;)<br />
+                                             order by user_id;
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Adjust to insert statements by replacing the xxx's with image_ids.  The statements
+                                        are in the same order as the ones you generated for image's, so you can just work
+                                        your way down incrementing by one each time.
+                                    </li>
+                                    <li>
+                                        Execute to following to make sure after you insert all the new images, no one
+                                        has more than one set to display at the same time.
+                                        <p class="input">
+                                            update coder_image_xref set display_flag = 0<br />
+                                             where image_type_id = 1<br />
+                                               and coder_id in (&lt;user_id list&gt;);
+                                        </p>
+                                    </li>
+                                    <li>Execute all the insert statements for image</li>
+                                    <li>Execute all the insert statements for coder_image_xref</li>
+                                    <li>
+                                        Load the image information into the data warehouse by running the coder load.
+                                        You can see how to run the warehouse load <a href="#main10">here</a>, but in this
+                                        case you only need to load coders.
+                                    </li>
+                                    <li>
+                                        Using the key "member_profile" <a href="#cache6">refresh the cache</a>
+                                    </li>
+                                    <li>
+                                        Load <a href="http://www.topcoder.com">our site</a> and search for every coder
+                                        you just put an image up for and make sure it worked.
+                                    </li>
                                 </ol>
                             </li>
-                            <li class="tier2"><a name="main7"></a>How do I take down a member photo?</li>
+                            <li class="tier2">
+                                <a name="main7"></a>How do I take down a member photo?
+                                <ol>
+                                    <li>
+                                        Execute the following sql statement in both the transactional and data warehouse
+                                        databases
+                                        <p class="input">
+                                            update coder_image_xref set display_flag = 0<br />
+                                             where image_type_id = 1<br />
+                                               and coder_id in (&lt;user_id&gt;);
+                                        </p>
+                                    </li>
+                                    <li>
+                                        Using the key &lt;user_id&gt; <a href="#cache6">refresh the cache</a>
+                                    </li>
+                                </ol>
+                            </li>
                             <li class="tier2"><a name="main8"></a>How do I build the code for www.topcoder.com?
                                 <ol>
                                     <li>Be sure you build on the same OS as it was last built on, or you'll have to deal with <a href="#main4">marshalling/serialization errors</a></li>
@@ -283,6 +327,8 @@ order by user_id;
                             <li class="tier2"><a name="cache3"></a>What is dependant on the cache?</li>
                             <li class="tier2"><a name="cache4"></a>What is dependant on the/a cache?</li>
                             <li class="tier2"><a name="cache5"></a>What is dependant on the cache?</li>
+                            <li class="tier2"><a name="cache6"></a>How do I remove objects from the cache?</li>
+
                         </ul>
                         <li class="tier1"><a name="software"></a>TopCoder Software</li>
                         <ul class="tier2">
