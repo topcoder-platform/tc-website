@@ -46,6 +46,9 @@ public class Login extends Base {
                 throw new NavigationException("Request missing required parameter");
             }
         } else {
+            if (hasParameter(Constants.HANDLE)) {
+
+
                 try {
                     getSessionId();
                 } catch (Exception e) {
@@ -74,6 +77,9 @@ public class Login extends Base {
                     }
 
                 }
+
+            }
+
 
         }
 /*
