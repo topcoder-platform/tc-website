@@ -62,11 +62,8 @@ public class ForumsServlet extends BaseServlet {
 			    	user = getUser(authToken.getUserID());
 			    }
 		    } catch (UnauthorizedException ue) {
-		    	try {
-		    		user = getUser(SimpleUser.createGuest().getId()); 
-		    	} catch (Exception e) { // should be removed
-		    		e.printStackTrace();
-		    	}
+		    	user = new TCSubject(-1); 
+		    	//user = getUser(SimpleUser.createGuest().getId());
 		    }
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
