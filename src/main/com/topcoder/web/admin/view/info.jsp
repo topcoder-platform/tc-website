@@ -24,8 +24,7 @@
                                 <li><a href="#main6">How do I put up new member photos?</a></li>
                                 <li><a href="#main7">How do I take down a member photo?</a></li>
                                 <li><a href="#main8">How do I build the code for www.topcoder.com?</a></li>
-                                <li><a href="#main9">How do I add a report to the internal reporting site?</a></li>
-                                <li><a href="#main10">How do I load information into the warehouse?</a></li>
+                                <li><a href="#main9">How do I load information into the warehouse after a round?</a></li>
                             </ul>
                         </li>
                         <li>
@@ -279,7 +278,7 @@
                                         <li>Execute all the insert statements for coder_image_xref</li>
                                         <li>
                                             Load the image information into the data warehouse by running the coder load.
-                                            You can see how to run the warehouse load <a href="#main10">here</a>, but in this
+                                            You can see how to run the warehouse load <a href="#main9">here</a>, but in this
                                             case you only need to load coders.
                                         </li>
                                         <li>
@@ -326,6 +325,32 @@
                                             delete old files, get the latest from cvs, build it and jar it up so that it can
                                             be moved to the production servers.
                                         </li>
+                                    </ol>
+                                </li>
+                                <li class="tier2"><a name="main8"></a>How do I load information into the warehouse after a round?
+                                    <ol>
+                                        <li>Telnet to 192.168.14.51 and login as coder</li>
+                                        <li><span class="input">cd /usr/web/scripts/dwload</span></li>
+                                        <li>
+                                            <span class="input">vi loadaggregate.xml</span> and change the roundid
+                                            parameter to the round you are loading
+                                        </li>
+                                        <li>
+                                            <span class="input">vi loadround.xml</span> and change the roundid
+                                            parameter to the round you are loading
+                                        </li>
+                                        <li>
+                                            <span class="input">vi loadrank.xml</span> and change the roundid
+                                            parameter to the round you are loading
+                                        </li>
+                                        <li><span class="input">./loadround.sh</span> and wait for it to complete, it will tell you</li>
+                                        <li><span class="input">./loadaggregate.sh</span> and wait for it to complete, it will tell you</li>
+                                        <li>
+                                            <span class="input">./loadcoders.sh</span> and wait for it to complete, you
+                                            can check it with <span class="input">tail -f coder_load.log</span>
+                                        </li>
+                                        <li><span class="input">./loadrank.sh</span> and wait for it to complete, it will tell you</li>
+                                        <li><a href="#cache6">clear all cached data</a> so that the site will get the latest</li>
                                     </ol>
                                 </li>
                             </ul>
