@@ -219,7 +219,8 @@
                                         This query will generate the insert statements for the image table.  You'll just have
                                         to replace the xxx's with the id's you are manually coming up with.
                                         <p class="input">
-                                            select 'insert into image (image_id, file_name, image_type_id, path_id) values (xxx, ''' || handle || '_big.jpg'', 1, 1);--', user_id, handle<br />
+                                            select 'insert into image (image_id, file_name, image_type_id, path_id) ' ||<br />
+                                                   ' values (xxx, ''' || handle || '_big.jpg'', 1, 1);--', user_id, handle<br />
                                               from user<br />
                                              where user_id in (&lt;user_id list&gt;)<br />
                                              order by user_id;<br />
