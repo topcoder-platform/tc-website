@@ -226,6 +226,19 @@
  	 	 	    </javac>
  	 	 	</target>
 
+ 	<target name="compile_TCAuth" depends="init,jar_shared">
+ 		 	 	<javac
+ 		 	 	 	srcdir="${java}"
+ 		 	 	 	destdir="${classes}"
+ 		 	 	 	classpathref="class.path"
+ 		 	 	 	deprecation="${deprecation}"
+ 		 	 	 	debug="${debug}"
+ 		 	 	 	>
+ 		 	 	 	<include name="com/topcoder/web/forums/model/TCAuthFactory.java"/>
+ 		 	 	 	<include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
+ 		 	 	 </javac>
+ 		 	</target>
+ 	
      <target name="javadocs">
          <mkdir dir="${build.javadocs}"/>
          <javadoc
@@ -259,7 +272,16 @@
  	             <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
  	         </fileset>
  	     </jar>
- 	 </target>	 	
+ 	 </target>
+ 	
+ 	<target name="package-TCAuth" depends="compile_TCAuth">
+ 	 	 <jar jarfile="${jars.dir}/tcauth.jar">
+ 	 	     <fileset dir="${classes}/">
+ 	 	         <include name="com/topcoder/web/forums/model/TCAuthFactory.class"/>
+ 	 	         <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
+ 	 	     </fileset>
+ 	 	 </jar>
+     </target>	 
 
      <target name="jar_shared" depends="compile_shared">
          <jar jarfile="${shared.jar}">
@@ -1391,7 +1413,21 @@
  	 	         </java>
  	 	     </target>
 
+ 	
+ 	<target name="run-ForumUserPropertiesConverter" depends="compile_forumData">
+ 	 	 	         <java classname="com.topcoder.utilities.forumConvert.ForumUserPropertiesConverter" fork="true">
+ 	 	 	         	<classpath>
+ 	 	 	         	     <pathelement location="${classes}"/>
+ 	 	 	         	     <pathelement location="${resources}"/>
+ 	 	 	         		 <fileset dir="${jars.dir}">
+ 	 	 	         		 	<include name="**/*.jar"/>
+ 	 	 	         		 </fileset>
+ 	 	 	         		 <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+ 	 	 	         	</classpath>
+ 	 	 	         </java>
+ 	 	 	     </target>
 
+	
      <target name="comp_price" depends="compile">
          <java classname="com.topcoder.web.tc.model.SoftwareComponent" fork="false">
              <classpath>
