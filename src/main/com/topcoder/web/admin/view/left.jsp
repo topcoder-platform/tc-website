@@ -25,4 +25,9 @@
                 <a href="/query/query">Query Tool</a>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a href="/admin/?module=Static&d1=info">HELP!</a>
+            </td>
+        </tr>
 </table>
