@@ -142,7 +142,7 @@
                              <a>
                                  <xsl:attribute name="href">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                                  <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
-                                 <xsl:value-of select="user_id"/>
+                                 <xsl:value-of select="user_id"/> <xsl:value-of select="rating"/>
                              </a>
                          </td>
                          <td class="projectCells" align="center"><xsl:value-of select="./score"/></td>
