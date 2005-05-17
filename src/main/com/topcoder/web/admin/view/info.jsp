@@ -327,7 +327,7 @@
                                         </li>
                                     </ol>
                                 </li>
-                                <li class="tier2"><a name="main8"></a>How do I load information into the warehouse after a round?
+                                <li class="tier2"><a name="main9"></a>How do I load information into the warehouse after a round?
                                     <ol>
                                         <li>Telnet to 192.168.14.51 and login as coder</li>
                                         <li><span class="input">cd /usr/web/scripts/dwload</span></li>
