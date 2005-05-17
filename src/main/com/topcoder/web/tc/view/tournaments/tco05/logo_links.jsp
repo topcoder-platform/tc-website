@@ -24,9 +24,16 @@
                   <a href="/tc?module=TCO05LogoTerms">Submit your design</a>&#160;|&#160;
             <% } %>
 --%>
-<!-- Registration tab -->
+<!-- View Submissions tab -->
             <% if (selectedTab.equals("submissions")) {%>
-                 View submissions
+                 View submissions&#160;|&#160;
             <% } else { %>
-                  <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_submissions">View submissions</a>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_submissions">View submissions</a>&#160;|&#160;
+            <% } %>
+
+<!-- Finalists tab -->
+            <% if (selectedTab.equals("finalists")) {%>
+                 Finalists
+            <% } else { %>
+                  <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists">Finalists</a>
             <% } %>
