@@ -6,6 +6,7 @@ package com.topcoder.web.forums;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.User;
+import com.jivesoftware.base.UserManager;
 
 import com.jivesoftware.forum.ForumFactory;
 
@@ -25,6 +26,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         authToken = AuthFactory.getAuthToken("tomek","password");
 		forumFactory = ForumFactory.getInstance(authToken);
-		user = forumFactory.getUserManager().getUser("tomek");
+		UserManager userManager = forumFactory.getUserManager();
+		user = userManager.getUser(authToken.getUserID());
     }
 }

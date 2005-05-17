@@ -64,9 +64,8 @@ public class ForumsServlet extends BaseServlet {
 		    } catch (UnauthorizedException ue) {
 		    	try {
 		    		user = getUser(SimpleUser.createGuest().getId()); 
-		    	} catch (Exception e) {
+		    	} catch (Exception e) { // should be removed
 		    		e.printStackTrace();
-		    		user = new TCSubject(144400);
 		    	}
 		    }
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
