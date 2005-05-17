@@ -114,12 +114,13 @@
                             </li>
                             <li class="tier2">
                                 <a name="main3"></a>How do I delete a forum post?
-                                If the message is the first message in a thread, then you'll need to delete the message,
-                                the thread, and update the forum so that the most recent message is correct.
-
-                                If the message not the first message in a thread, then you'll need to delete the message,
-                                and if it's the most recent post, you should update the thread and forum so that they are correct.
-
+                                <p>
+                                    If the message is the first message in a thread, then you'll need to delete the message,
+                                    the thread, and update the forum so that the most recent message is correct.<br />
+                                    <br />
+                                    If the message not the first message in a thread, then you'll need to delete the message,
+                                    and if it's the most recent post, you should update the thread and forum so that they are correct.
+                                </p>
                                 <ol>
                                     <li>
                                         Delete a thread - <span class="input">delete from jivethread where threadid =
@@ -138,11 +139,13 @@
                             </li>
                             <li class="tier2">
                                 <a name="main4"></a>What do I do if I'm getting marshalling/serialization errors on jive filter objects?
-                                In all likelihood, this means that the machine you build the code on is not the same (same OS) as the
-                                machine the code was last built on.  Jive filter objects are stored in the database, so the objects
-                                that are currently stored in the database are not the same as the objects you have put on the file system.
-                                This means that you will have to remove the objects from the database, and recreate them.  Also, keep in
-                                mind to use the same machine to build the code in the future.
+                                <p>
+                                    In all likelihood, this means that the machine you build the code on is not the same (same OS) as the
+                                    machine the code was last built on.  Jive filter objects are stored in the database, so the objects
+                                    that are currently stored in the database are not the same as the objects you have put on the file system.
+                                    This means that you will have to remove the objects from the database, and recreate them.  Also, keep in
+                                    mind to use the same machine to build the code in the future.
+                                </p>
                                 <ol>
                                     <li>Delete the existing filters with <span class="input">delete from jivefilter</span></li>
                                     <li>
@@ -172,9 +175,11 @@
                             </li>
                             <li class="tier2">
                                 <a name="main5"></a>What do I do if I'm getting marshalling errors on ResultSetContainer objects?
-                                This means that there is a difference between the ResultSetContainer object that the cache has
-                                and the ResultSetContainer object that the application server has.  The solution is the match them
-                                up by updating the classes in the cache's classpath and restarting it.
+                                <p>
+                                    This means that there is a difference between the ResultSetContainer object that the cache has
+                                    and the ResultSetContainer object that the application server has.  The solution is the match them
+                                    up by updating the classes in the cache's classpath and restarting it.
+                                </p>
                                 <ol>
                                     <li>You need the current code, if you don't have it, <a href="#main8">build it</a></li>
                                     <li>
