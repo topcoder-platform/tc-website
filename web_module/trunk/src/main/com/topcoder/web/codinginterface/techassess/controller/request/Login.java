@@ -51,34 +51,36 @@ public class Login extends Base {
 
         if (hasParameter(Constants.SESSION_ID)) {
             try {
-                if (!hasParameter(Constants.SESSION_ID)) {
-                    try {
-                        getSessionId();
-                    } catch (Exception e) {
-                        //look up the session in the db.  this is a temp hoke, remove this once old session have expired.
-                        QueryRequest q = new QueryRequest();
-                        q.addQuery("main", QUERY);
-                        q.setProperty("main@cid@", String.valueOf(getCompanyId()));
-                        QueryDataAccess qda = new QueryDataAccess(DBMS.SCREENING_OLTP_DATASOURCE_NAME);
-                        Map m = qda.getData(q);
-                        ResultSetContainer rsc = (ResultSetContainer)m.get("main");
-                        if (rsc.isEmpty()) {
-                            addError(Constants.HANDLE, "Sorry you do not have an active session at this time.");
-                        } else {
-                            log.debug("got session " + rsc.getLongItem(0, "session_id"));
-                            setSessionId(rsc.getLongItem(0, "session_id"));
-                        }
-
-                    }
-
-                }
                 setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
             } catch (NumberFormatException e) {
                 throw new NavigationException("Request missing required parameter");
             }
+        } else {
+                try {
+                    getSessionId();
+                } catch (Exception e) {
+                    //look up the session in the db.  this is a temp hoke, remove this once old session have expired.
+                    QueryRequest q = new QueryRequest();
+                    q.addQuery("main", QUERY);
+                    q.setProperty("main@cid@", String.valueOf(getCompanyId()));
+                    QueryDataAccess qda = new QueryDataAccess(DBMS.SCREENING_OLTP_DATASOURCE_NAME);
+                    Map m = qda.getData(q);
+                    ResultSetContainer rsc = (ResultSetContainer)m.get("main");
+                    if (rsc.isEmpty()) {
+                        addError(Constants.HANDLE, "Sorry you do not have an active session at this time.");
+                    } else {
+                        log.debug("got session " + rsc.getLongItem(0, "session_id"));
+                        setSessionId(rsc.getLongItem(0, "session_id"));
+                    }
+
+                }
+
+        }
+/*
         } else if (!hasParameter(Constants.SESSION_ID)&&getSessionId()<0) {
             throw new NavigationException("Request missing required parameter");
         }
+*/
 
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE);
