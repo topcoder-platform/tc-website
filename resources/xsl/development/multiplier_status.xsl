@@ -206,7 +206,13 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="projectCells" align="center"><xsl:value-of select="./user_id"/></td>
+                            <td class="projectCells" align="center">
+                                <a>
+                                    <xsl:attribute name="href">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                                    <xsl:attribute name="class"><xsl:call-template name="GetRatingClassDark"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
+                                    <xsl:value-of select="user_id"/>
+                                </a>
+                            </td>
                             <td class="projectCells" align="center">
                             <xsl:choose>
                                 <xsl:when test="./rating != ''">
