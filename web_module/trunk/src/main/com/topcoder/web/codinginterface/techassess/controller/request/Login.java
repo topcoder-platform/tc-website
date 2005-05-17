@@ -31,16 +31,6 @@ public class Login extends Base {
 
     protected static Logger log = Logger.getLogger(Login.class);
 
-    private static final String QUERY = "select s.session_id" +
-                                " from session s" +
-                                 " , user u" +
-                            "      , session_profile sp" +
-                             " where s.user_id = u.user_id" +
-                            "    and sp.session_profile_id = s.session_profile_id" +
-                            "    and current between s.begin_time and s.end_time" +
-                            "    and sp.company_id= @cid@" +
-                            "    and u.handle = 'gpaul@topcoder.com'";
-
     protected void techAssessProcessing() throws Exception {
 
         String handle = null;
@@ -72,7 +62,7 @@ public class Login extends Base {
                     buf.append("    and current between s.begin_time and s.end_time");
                     buf.append("    and sp.company_id=").append(getCompanyId());
                     buf.append("    and u.handle = '").append(getRequest().getParameter(Constants.HANDLE)).append("'");
-                    q.addQuery("main", QUERY);
+                    q.addQuery("main", buf.toString());
                     QueryDataAccess qda = new QueryDataAccess(DBMS.SCREENING_OLTP_DATASOURCE_NAME);
                     Map m = qda.getData(q);
                     ResultSetContainer rsc = (ResultSetContainer)m.get("main");
