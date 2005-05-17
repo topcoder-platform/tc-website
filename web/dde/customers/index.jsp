@@ -1,4 +1,5 @@
-<%@ page import="javax.naming.*" %>
+<%@ page import="javax.naming.*,
+                 com.topcoder.dde.util.ApplicationServer" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -63,7 +64,7 @@
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">ABB, a leading power and automation technology enabler, needed a modern, user-friendly HTML interface that would allow users in its engineering and systems business units to access data on its mainframe legacy system. The Project Management Dashboard application delivered by TopCoder Software limited the amount of custom code built to 42 percent that of more traditional development models.<br><br>
                     <A href="http://www.abb.com/" target="_blank">homepage</A>&#160;|&#160;
-                    <A href="http://www.topcoder.com/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/abb_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                    <A href="<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/abb_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -78,7 +79,7 @@
                     <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">A national financial institution needed database management functionality delivered across a variety of platforms as part of an Information Quality Management initiative. TopCoder Software devised an IQM solution that allows users to intuitively navigate through data.<br><br>
-                    <A href="http://www.topcoder.com/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/fin_services_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                    <A href="<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/fin_services_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
@@ -94,7 +95,7 @@
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">The world-renowned Salk Institute, a private, non-profit, research organization dedicated to fundamental research in biology and its relation to health, wanted to make an extremely large amount of gene data resulting from years of research on the topic of spinal cord injury available to the scientific community. TopCoder Software devised a solution that enables users to access project data through an HTML-based interface.<br><br>
                     <A href="http://www.salk.edu/" target="_blank">homepage</A>&#160;|&#160;
-                     <A href="http://www.topcoder.com/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/salk_institute_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
+                     <A href="<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/salk_institute_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                     </td>
                 </tr>
             </table>
@@ -109,7 +110,7 @@
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
                     <td width="99%" class="bodyText">StageStores, Inc. brings nationally recognized brand name apparel, accessories, cosmetics and footwear for the entire family to small and mid-size towns and communities with over 520 stores in 27 states.<br><br>
                     <A href="http://www.stagestores.com/" target="_blank">homepage</A>&#160;|&#160;
-                     <A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=homepage" target="_blank">case study</A>
+                     <A href="<%=ApplicationServer.TC_SERVER%>/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=homepage" target="_blank">case study</A>
                      </td>
                 </tr>
             </table>
