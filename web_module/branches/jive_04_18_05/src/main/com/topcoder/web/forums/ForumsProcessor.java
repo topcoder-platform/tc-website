@@ -11,6 +11,7 @@ import com.jivesoftware.base.UserManager;
 import com.jivesoftware.forum.ForumFactory;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.forums.model.TCAuthFactory;
 
 /**
  * @author mtong
@@ -24,7 +25,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
      * Subclasses should do their work by implementing this method.
      */
     protected void businessProcessing() throws Exception {
-        authToken = AuthFactory.getAuthToken("tomek","password");
+        authToken = TCAuthFactory.getAuthToken("tomek","password");
 		forumFactory = ForumFactory.getInstance(authToken);
 		UserManager userManager = forumFactory.getUserManager();
 		user = userManager.getUser(authToken.getUserID());
