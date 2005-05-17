@@ -2,11 +2,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../top.xsl" />
     <xsl:import href="../script.xsl" />
-    <xsl:import href="../includes/body_top.xsl" />  
+    <xsl:import href="../includes/modules/rating.xsl"/>
+    <xsl:import href="../includes/body_top.xsl" />
     <xsl:import href="../foot.xsl" />
-    <xsl:import href="../includes/modules/stats_intro.xsl" />  
-  <xsl:import href="../includes/global_left.xsl"/>  
-    <xsl:import href="../includes/dev/public_dev_right.xsl" />     
+    <xsl:import href="../includes/modules/stats_intro.xsl" />
+    <xsl:import href="../includes/global_left.xsl"/>
+    <xsl:import href="../includes/dev/public_dev_right.xsl" />
     <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
     <xsl:template match="/">
 
@@ -16,11 +17,11 @@
 <html>
 <head>
 
-    <xsl:call-template name="Preload" />      
+    <xsl:call-template name="Preload" />
 
  <title>This Week's TopCoder Software Development Project Winners</title>
 
-    <xsl:call-template name="CSS" />      
+    <xsl:call-template name="CSS" />
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
@@ -57,13 +58,13 @@
             </xsl:call-template>
 
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
-            
+
 <!-- Featured Winner Begins -->
 <!--
             <div align="center">
-            
+
             <img src="/i/development/title_thisweekswinners.gif" alt="This Week's Component Project Winners" width="510" height="55" border="0" />
-            
+
             </div>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
@@ -113,12 +114,12 @@
                         <p><strong>Review Board Comment:</strong><br />
                         "Overall it's a quality and clear design."&#151;<A href="/tc?module=MemberProfile&amp;cr=278595">seaniswise</A></p></td>
                 </tr>
-                
+
                 <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
             </table>
 -->
    <!-- Featured Winner Ends -->
-    
+
             <br/>
 
     <!-- Design Winners Begins -->
@@ -143,31 +144,32 @@
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/component_winners/winner">
-                       
+
                    <xsl:if test="./phase_id=$design-phase" >
                        <tr valign="middle">
                           <td class="projectCells">
                               <a>
                                   <xsl:attribute name="href">
-                                      <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/> 
+                                      <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                   </xsl:attribute><xsl:value-of select="./component_name"/>
                               </a>
                           </td>
                          <td class="projectCells" align="center"><xsl:value-of select="./place"/></td>
                          <td class="projectCells">
                             <a>
-                                <xsl:attribute name="HREF">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                                <xsl:attribute name="href">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                                <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
                                 <xsl:value-of select="user_id"/>
                             </a>
                          </td>
                          <td class="projectCells" align="center"><xsl:value-of select="./score"/></td>
                          <td class="projectCells" align="right"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
                      </tr>
-                   </xsl:if> 
+                   </xsl:if>
                 </xsl:for-each>
 
             </table>
-            
+
             <br/>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
@@ -186,35 +188,28 @@
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/component_winners/winner">
-                       
+
                    <xsl:if test="./phase_id=$dev-phase" >
                        <tr valign="middle">
                           <td class="projectCells">
                               <a>
                                   <xsl:attribute name="href">
-                                      <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/> 
+                                      <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                   </xsl:attribute><xsl:value-of select="./component_name"/>
                               </a>
                           </td>
                          <td class="projectCells" align="center"><xsl:value-of select="./place"/></td>
                          <td class="projectCells">
-                            <a>
-                                <xsl:attribute name="HREF">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                                <xsl:value-of select="user_id"/>
-                            </a>
-<!--
-                                    <a class="coderTextBlue">
-                                        <xsl:attribute name="href">
-                                            <xsl:value-of select="concat('/tc?module=MemberProfile&amp;cr=', ./coder_id)"/>
-                                        </xsl:attribute>
-                                        <strong><xsl:value-of select="./user_id"/></strong>
-                                    </a>
--->
+                             <a>
+                                 <xsl:attribute name="href">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
+                                 <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
+                                 <xsl:value-of select="user_id"/>
+                             </a>
                          </td>
                          <td class="projectCells" align="center"><xsl:value-of select="./score"/></td>
                          <td class="projectCells" align="right"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
                      </tr>
-                   </xsl:if> 
+                   </xsl:if>
                 </xsl:for-each>
 
 
@@ -232,15 +227,15 @@
 
 <!-- Right Column Begins -->
         <td width="244">
-            <xsl:call-template name="public_dev_right" />        
+            <xsl:call-template name="public_dev_right" />
         </td>
 <!-- Right Column Ends -->
-    
+
     </tr>
 </table>
 
 <!-- Footer Begins -->
-        <xsl:call-template name="Foot" /> 
+        <xsl:call-template name="Foot" />
 <!-- Footer Endss -->
 
 </body>
