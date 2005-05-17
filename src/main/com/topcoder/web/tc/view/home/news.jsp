@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>05.17.05<br>2:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">New job opening at TopCoder</A></span><br><br>
+      <A href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">TopCoder</A> is offering a position as an <strong>Algorithm Problem Coordinator</strong>, available to <strong>ALL</strong> members.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=about&d2=jobs">see all available TC jobs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.17.05<br>11:55 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">oldbig scores a perfect 100 in a Component Development Contest</A></span><br><br>
       <tc-webtag:handle coderId="302053" context="development"/> recently nailed a perfect score on <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">XML Splitter</A>.  This is the first 100 in a Component Development Contest in over 2 years.
@@ -229,18 +241,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>04.28.05<br>10:45 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_04_08_05">Code Warriors</A></span><br><br>
-      "Young computer programmers battle for fame, money, and the love of algorithms. " [Chronicle of Higher Education]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=art_04_08_05">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 </table>
