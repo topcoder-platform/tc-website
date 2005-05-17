@@ -198,32 +198,32 @@
                                         is who they say they are.  Use the following query to get a list of activation codes
                                         and compare them to the subject of each email to be sure no one submits a photo as
                                         someone else.
-                                        <code class="input">
-                                            select c.activation_code || ' | [ ' || u.handle || ' | ' || u.user_id
-                                              from user u, coder c
-                                             where c.coder_id = u.user_id
-                                               and u.user_id in (&lt;user_id list&gt;);
-                                        </code>
+                                        <p class="input">
+                                            select c.activation_code || ' | [ ' || u.handle || ' | ' || u.user_id<br />
+                                              from user u, coder c<br />
+                                             where c.coder_id = u.user_id<br />
+                                               and u.user_id in (&lt;user_id list&gt;);<br />
+                                        </p>
                                     </li>
                                     <li>
                                         Now you need to insert records into the image table for each of new member photos.
                                         There is no sequence for this, so you have to create the id's by hand.  Use the following
                                         query to figure out what id to start with.
-                                        <code class="input">
-                                            select max(image_id)+1
-                                              from image
-                                             where image_id < 10000;
-                                        </code>
+                                        <p class="input">
+                                            select max(image_id)+1<br />
+                                              from image<br />
+                                             where image_id < 10000;<br />
+                                        </p>
                                     </li>
                                     <li>
                                         This query will generate the insert statements for the image table.  You'll just have
                                         to replace the xxx's with the id's you are manually coming up with.
-                                        <code class="input">
-                                            select 'insert into image (image_id, file_name, image_type_id, path_id) values (xxx, ''' || handle || '_big.jpg'', 1, 1);--', user_id, handle
-                                              from user
-                                             where user_id in (&lt;user_id list&gt;)
-                                             order by user_id;
-                                        </code>
+                                        <p class="input">
+                                            select 'insert into image (image_id, file_name, image_type_id, path_id) values (xxx, ''' || handle || '_big.jpg'', 1, 1);--', user_id, handle<br />
+                                              from user<br />
+                                             where user_id in (&lt;user_id list&gt;)<br />
+                                             order by user_id;<br />
+                                        </p>
 
                                     </li>
                                     <li>
