@@ -183,7 +183,7 @@
                                         build to the cache server.  In that case, use the instructions for the link above
                                         starting with the moving of files, skip the actual build.
                                     </li>
-                                    <li><a href="#cache2">Bounce the cache</span></li>
+                                    <li><a href="#cache2">Bounce the cache</a></li>
                                 </ol>
                             </li>
                             <li class="tier2">
@@ -292,12 +292,24 @@
                             </li>
                             <li class="tier2"><a name="main8"></a>How do I build the code for www.topcoder.com?
                                 <ol>
-                                    <li>Be sure you build on the same OS as it was last built on, or you'll have to deal with <a href="#main4">marshalling/serialization errors</a></li>
+                                    <li>
+                                        Be sure you build on the same OS and Java version as it was last built on, or you'll have to deal
+                                        with <a href="#main4">marshalling/serialization errors</a>
+                                    </li>
+                                    <li>
+                                        You'll need the web source tree, I'll assume you can check that out.  Be sure you
+                                        have this in a seperate place so that it's not contaminated with some code you're
+                                        currently working on.  Also, having a seperate spot for this build will mean that
+                                        you can see what code is running in prod at the current time.
+                                    </li>
+                                    <li><span class="input">cd web</span></li>
+                                    <li>
+                                        <span class="input">ant -f move.xml package-topcoder</span> This ant target will
+                                        delete old files, get the latest from cvs, build it and jar it up so that it can
+                                        be moved to the production servers.
+                                    </li>
                                 </ol>
                             </li>
-                            <li class="tier2"><a name="main9"></a>How do I add a report to the internal reporting site?</li>
-
-
                         </ul>
                         <li class="tier1"><a name="cache"></a>The Cache</li>
                         <ul class="tier2">
@@ -361,3 +373,7 @@
 
     </body>
 </html>
+
+
+
+
