@@ -19,7 +19,7 @@
 
     <xsl:call-template name="Preload" />
 
- <title>This Week's TopCoder Software Development Project Winners</title>
+ <title>Recent Project Winners</title>
 
     <xsl:call-template name="CSS" />
 
