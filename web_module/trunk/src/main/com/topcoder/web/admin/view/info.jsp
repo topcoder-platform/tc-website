@@ -185,7 +185,65 @@
                                     <li><a href="#cache2">Bounce the cache</span></li>
                                 </ol>
                             </li>
-                            <li class="tier2"><a name="main6"></a>How do I put up new member photos?</li>
+                            <li class="tier2">
+                                <a name="main6"></a>How do I put up new member photos?
+                                <ol>
+                                    <li>
+                                        Get the list of email subject lines from the Graphics Design team member
+                                        currently assigned to the task.
+                                    </li>
+                                    <li>In informixoltp database</li>
+                                    <li>
+                                        When someone submits their member photo, the subject helps determine that the person
+                                        is who they say they are.  Use the following query to get a list of activation codes
+                                        and compare them to the subject of each email to be sure no one submits a photo as
+                                        someone else.
+                                        <code class="input">
+                                            select c.activation_code || ' | [ ' || u.handle || ' | ' || u.user_id
+                                              from user u, coder c
+                                             where c.coder_id = u.user_id
+                                               and u.user_id in (&lt;user_id list&gt;);
+                                        </code>
+                                    </li>
+                                    <li>
+                                        Now you need to insert records into the image table for each of new member photos.
+                                        There is no sequence for this, so you have to create the id's by hand.  Use the following
+                                        query to figure out what id to start with.
+                                        <code class="input">
+                                            select max(image_id)+1
+                                              from image
+                                             where image_id < 10000;
+                                        </code>
+                                    </li>
+                                    <li>
+                                        This query will generate the insert statements for the image table.  You'll just have
+                                        to replace the xxx's with the id's you are manually coming up with.
+                                        <code class="input">
+                                            select 'insert into image (image_id, file_name, image_type_id, path_id) values (xxx, ''' || handle || '_big.jpg'', 1, 1);--', user_id, handle
+                                              from user
+                                             where user_id in (&lt;user_id list&gt;)
+                                             order by user_id;
+                                        </code>
+
+                                    </li>
+                                    <li>
+
+                                update coder_image_xref set display_flag = 0 where image_type_id = 1 and coder_id in (286348,311193,306786,344417,289824,156642,277536,308953)
+
+
+select 'insert into coder_image_xref (coder_id, image_id, display_flag) values (' || user_id || ', xxx, 1);--', user_id, handle
+from user where user_id in (268546,
+159925,
+271976,
+267086)
+order by user_id;
+
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ol>
+                            </li>
                             <li class="tier2"><a name="main7"></a>How do I take down a member photo?</li>
                             <li class="tier2"><a name="main8"></a>How do I build the code for www.topcoder.com?
                                 <ol>
