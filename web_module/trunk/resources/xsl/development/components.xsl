@@ -59,67 +59,6 @@
 
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
 
-<!-- Featured Winner Begins -->
-<!--
-            <div align="center">
-
-            <img src="/i/development/title_thisweekswinners.gif" alt="This Week's Component Project Winners" width="510" height="55" border="0" />
-
-            </div>
-
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999"><font size="3">Featured Winner</font></td>
-                </tr>
-            </table>
-
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr><td class="formHandleEven" colspan="4"><strong>Coder: </strong><A class="coderTextYellow" href="/tc?module=MemberProfile&amp;cr=302018"><font size="3"><strong>Tomson</strong></font></A></td></tr>
-
-                <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
-
-                <tr valign="top">
-                    <td class="bodyText" rowspan="7" width="1"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
-                    <td class="bodyText" width="50%">Developer Level:</td>
-                    <td class="bodyText" align="right" width="40%"><strong>I</strong></td>
-                    <td class="bodyText" width="1"></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="bodyText">Rating:</td>
-                    <td class="bodyText" align="right"><A href="/stat?c=ratings_history&amp;cr=302018"><strong>1638</strong></A></td>
-                    <td class="bodyText"></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="bodyText">Total Earnings for All Component Projects*:</td>
-                    <td class="bodyText" align="right"><strong>$726.50</strong></td>
-                    <td class="bodyText"></td>
-                </tr>
-
-                 <tr valign="top">
-                    <td class="bodyText">Project Name:</td>
-                    <td class="bodyText" align="right"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7324513"><strong>CSS Style Object</strong></A></td>
-                    <td class="bodyText"></td>
-                </tr>
-
-               <tr valign="top">
-                    <td class="bodyText">Review Board Score for this Project:</td>
-                    <td class="bodyText" align="right"><strong>86.7</strong></td>
-                    <td class="bodyText"></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="bodyText" colspan="3">
-                        <p><strong>Review Board Comment:</strong><br />
-                        "Overall it's a quality and clear design."&#151;<A href="/tc?module=MemberProfile&amp;cr=278595">seaniswise</A></p></td>
-                </tr>
-
-                <tr valign="top"><td class="bodyText" colspan="4"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td></tr>
-            </table>
--->
-   <!-- Featured Winner Ends -->
-
             <br/>
 
     <!-- Design Winners Begins -->
