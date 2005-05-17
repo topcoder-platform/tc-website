@@ -97,7 +97,7 @@
                          <td class="projectCells">
                             <a>
                                 <xsl:attribute name="href">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                                <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
+                                <xsl:attribute name="class"><xsl:call-template name="GetRatingClassDark"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
                                 <xsl:value-of select="user_id"/>
                             </a>
                          </td>
@@ -141,7 +141,7 @@
                          <td class="projectCells">
                              <a>
                                  <xsl:attribute name="href">tc?module=MemberProfile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                                 <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
+                                 <xsl:attribute name="class"><xsl:call-template name="GetRatingClassDark"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
                                  <xsl:value-of select="user_id"/>
                              </a>
                          </td>
