@@ -91,7 +91,7 @@
 	<%  if (message.getUser().getProperty("imagePath") != null) { %>
 		<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
 	<%  } %>
-	<span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
+	<tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
 	<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td>
 	</tr>
 	<tr><td class="rtFooter" align="right">
