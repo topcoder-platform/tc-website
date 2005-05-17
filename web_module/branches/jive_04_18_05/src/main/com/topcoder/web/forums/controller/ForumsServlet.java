@@ -28,15 +28,11 @@ public class ForumsServlet extends BaseServlet {
         return true;
     }
 
-
-    /**
-     * todo Temp hack, implement this with something meaningful or change the base to improve this dependency
-     * @param id
-     * @return
-     * @throws Exception
-     */
     protected TCSubject getUser(long id) throws Exception {
-        return new TCSubject(144400);
+        // pull from Jive token, or create from user information?
+    	// where are Jive exceptions thrown if permission is not allowed?
+    	// Yarin = 269554
+    	return new TCSubject(144400);
     }
 
     protected SessionInfo createSessionInfo(TCRequest request,

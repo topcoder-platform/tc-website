@@ -329,8 +329,8 @@ public class ForumConverter {
     
     private String parse(String s) {
     	if (s == null) return null;
-		s = s.replaceAll("<pre>", "[code]");
-		s = s.replaceAll("</pre>", "[/code]");
+		s = s.replaceAll("<[pP][rR][eE]>", "[code]");
+		s = s.replaceAll("</[pP][rR][eE]>", "[/code]");
 		s = s.replaceAll("&", "&amp;");
 		s = s.replaceAll("<", "&lt;"); 
 		s = s.replaceAll(">", "&gt;");

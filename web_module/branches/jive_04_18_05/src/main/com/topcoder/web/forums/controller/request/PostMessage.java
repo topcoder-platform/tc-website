@@ -64,7 +64,6 @@ public class PostMessage extends ForumsProcessor {
 			if (postMode.equals("Reply")) {
 				messageID = Long.parseLong(messageIDStr);
 				ForumMessage parentMessage = forumFactory.getMessage(messageID);
-				System.out.println("parentMessageID: " + parentMessage.getID());
 				thread.addMessage(parentMessage, message);
 			} else if (postMode.equals("NewMessage")) {
 				thread.addMessage(null, message);

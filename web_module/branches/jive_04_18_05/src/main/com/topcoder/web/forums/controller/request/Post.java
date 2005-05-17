@@ -51,9 +51,6 @@ public class Post extends ForumsProcessor {
 		if (postMode.equals("NewThread")) {
 			postHeading = "New Thread";
 			postDesc = "Create a new thread";
-		} else if (postMode.equals("NewMessage")) {
-			postHeading = "New Message";
-			postDesc = "Post a new message";
 		} else if (postMode.equals("Reply")) {
 			postHeading = replySubject;
 			postDesc = "Reply";
