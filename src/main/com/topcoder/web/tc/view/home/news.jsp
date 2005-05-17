@@ -1,8 +1,22 @@
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <br><br>
 <table border="0" cellspacing="0" cellpadding="0" width="525">
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.17.05<br>11:55 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">oldbig scores a perfect 100 in a Component Development Contest</A></span><br><br>
+      <tc-webtag:handle coderId="302053" context="development"/> recently nailed a perfect score on <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">XML Splitter</A>.  This is the first 100 in a Component Development Contest in over 2 years.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">component details</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -22,8 +36,8 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm242_prob">SRM 242 - Problem Set & Analysis</A></span><br><br>
-      In division 1, <b>Petr</b> was in the lead after the coding phase, and remained  first despite an unsuccessful challenge. The system tests did not change anything in the top 5, so <b>Petr</b> won the match.</td>
-      <td class="newsPhoto"><img src="/i/m/gepa_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=310430">gepa</A></td></tr></table>
+      In division 1, <tc-webtag:handle coderId="10574855" context="algorithm"/> was in the lead after the coding phase, and remained  first despite an unsuccessful challenge. The system tests did not change anything in the top 5, so <tc-webtag:handle coderId="10574855" context="algorithm"/> won the match.</td>
+      <td class="newsPhoto"><img src="/i/m/gepa_mug.gif" /><br>by <tc-webtag:handle coderId="310430" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -107,8 +121,8 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm241_prob">SRM 241 - Problem Set & Analysis</A></span><br><br>
-      In Division 1, <b>pparys</b> took home his first SRM victory, solving all three problems correctly.  <b>bladerunner</b> and <b>Petr</b> took the second and third slots.</td>
-      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=10407399">timmac</A></td></tr></table>
+      In Division 1, <tc-webtag:handle coderId="8365685" context="algorithm"/> took home his first SRM victory, solving all three problems correctly.  <tc-webtag:handle coderId="311170" context="algorithm"/> and <tc-webtag:handle coderId="10574855" context="algorithm"/> took the second and third slots.</td>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -147,7 +161,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=050305">Using Regular Expressions</A></span><br><br>
        "A regular expression is a special string that describes a search pattern. Many of you have surely seen and used them already when typing expressions like ls(or dir) *.txt."</td>
-      <td class="newsPhoto"><img src="/i/m/Dan[Popovici]_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=7465390">Dan[Popovici]</A><br>& <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=294328">mariusmuja</a></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Dan[Popovici]_mug.gif" /><br>by <tc-webtag:handle coderId="7465390" context="algorithm"/><br>& <tc-webtag:handle coderId="294328" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -198,7 +212,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm240_prob">SRM 240 - Problem Set & Analysis</A></span><br><br>
       This problem set gave competitors a hard time. The only problem with success rate over 50% was the division 1 easy... with 52,75%.</td>
-      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=309453">Jan_Kuipers</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_mug.gif" /><br>by <tc-webtag:handle coderId="309453" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -227,18 +241,6 @@
    <tr><td class="newsLinksCell">
          <A href="/?&t=news_events&c=art_04_08_05">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>04.25.05<br>11:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/JohnDethridge.mov">John Dethridge on the TCCC05</A></span><br><br>
-      John Dethridge talks about TopCoder finalists, and the difference between Algortihm Competitions and Component Competitions.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tccc05/onsite_movies/JohnDethridge.mov">watch movie</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
 
 </table>
