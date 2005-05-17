@@ -32,7 +32,8 @@
                             <li><a href="#cache2">How do I bounce the cache?</a></li>
                             <li><a href="#cache3">What is dependant on the cache?</a></li>
                             <li><a href="#cache4">What is dependant on the/a cache?</a></li>
-                            <li><a href="#cache5">What is dependant on the cache?</a></li>
+                            <li><a href="#cache5">How do I remove objects from the cache?</a></li>
+                            <li><a href="#cache6">How do I clear the cache?</a></li>
                         </ul>
                         <li><a href="#software">TopCoder Software</a></li>
                         <ul>
@@ -270,7 +271,7 @@
                                         case you only need to load coders.
                                     </li>
                                     <li>
-                                        Using the key "member_profile" <a href="#cache6">refresh the cache</a>
+                                        Using the key "member_profile" <a href="#cache5">refresh the cache</a>
                                     </li>
                                     <li>
                                         Load <a href="http://www.topcoder.com">our site</a> and search for every coder
@@ -291,7 +292,7 @@
                                         </p>
                                     </li>
                                     <li>
-                                        Using the key &lt;user_id&gt; <a href="#cache6">refresh the cache</a>
+                                        Using the key &lt;user_id&gt; <a href="#cache5">refresh the cache</a>
                                     </li>
                                 </ol>
                             </li>
@@ -341,12 +342,59 @@
                                     <li><span class="input">./runcache.sh start</span></li>
                                 </ol>
                             </li>
-                            <li class="tier2"><a name="cache3"></a>What is dependant on the cache?</li>
-                            <li class="tier2"><a name="cache4"></a>What is dependant on the/a cache?</li>
-                            <li class="tier2"><a name="cache5"></a>What is dependant on the cache?</li>
-                            <li class="tier2"><a name="cache6"></a>How do I remove objects from the cache?</li>
-
+                            <li class="tier2">
+                                <a name="cache3"></a>What is dependant on the cache?
+                                <p>
+                                    Generally "the cache" refers to the distributed cache that runs on 192.168.12.61.
+                                    There are a number of different parts of our system that depend on it.
+                                    www.topcoder.com uses it to cache statistics, user information that would usually
+                                    be looked up by the security tool, round table users (until we replace them with jive 4.x),
+                                    graph images and more.  software.topcoder.com uses the cache for it's homepage list
+                                    of top downloads.
+                                </p>
+                            </li>
+                            <li class="tier2">
+                                <a name="cache4"></a>What is dependant on a cache?
+                                <p>
+                                    We also have a distributed cache instance running for the technical assessment tool.
+                                    This is used by both the candidate interface code and the server side processor.
+                                    It can be bounced similarly to "the cache" as indicated <a href="#cache2">href</a>
+                                    but it is running on 192.168.10.57
+                                </p>
+                            </li>
+                            <li class="tier2">
+                                <a name="cache5"></a>How do I remove objects from the cache?
+                                <ol>
+                                    <li>Telnet to 192.168.12.51 and login as apps</li>
+                                    <li>
+                                        <span class="input">java com.topcoder.shared.distCache.SimpleClient removelike &lt;key&gt;</span>
+                                        where &lt;key&gt; is some part of the key used to store an object in the cache.
+                                        <p>
+                                            For example, if you wanted to refresh the site so that the system would go
+                                            to the database the next time a user loaded any coder's member profile you would
+                                            execute <span class="input">java com.topcoder.shared.distCache.SimpleClient removelike member_profile</span>
+                                            because the data for the member profile page is stored with a key that contains
+                                            the string "member_profile".  You could remove nearly all the data about a particular
+                                            coder by executing <span class="input">java com.topcoder.shared.distCache.SimpleClient removelike &lt;user_id&gt;</span>
+                                            because data that is stored on a per-user basis is likely to have their user_id
+                                            as part of the key in the cache.
+                                        </p>
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ol>
+                            </li>
+                            <li class="tier2">
+                                <a name="cache6"></a>How do I clear the cache?
+                                <ol>
+                                    <li>Telnet to 192.168.12.51 and login as apps</li>
+                                    <li><span class="input">java com.topcoder.shared.distCache.SimpleClient clear</span></li>
+                                </ol>
+                            </li>
                         </ul>
+
+
                         <li class="tier1"><a name="software"></a>TopCoder Software</li>
                         <ul class="tier2">
                             <li class="tier2"><a name="software1"></a>How do I do a production move for the www.topcodersoftware.com?</li>
