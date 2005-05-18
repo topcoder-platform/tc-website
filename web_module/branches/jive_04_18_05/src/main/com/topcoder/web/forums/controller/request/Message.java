@@ -6,13 +6,9 @@ package com.topcoder.web.forums.controller.request;
 import java.util.Iterator;
 
 import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.forums.ForumsProcessor;
 
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumMessage;
-import com.jivesoftware.forum.ResultFilter;
-
-import com.jivesoftware.base.JiveConstants;
 
 /**
  * @author mtong

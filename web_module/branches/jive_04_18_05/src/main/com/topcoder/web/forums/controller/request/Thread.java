@@ -6,7 +6,6 @@ package com.topcoder.web.forums.controller.request;
 import java.util.Iterator;
 
 import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.forums.ForumsProcessor;
 
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
@@ -53,7 +52,8 @@ public class Thread extends ForumsProcessor implements Pageable {
 		} else if (user.getProperty("jiveThreadMode").equals("tree")) {
 			itMessages = thread.getTreeWalker().getRecursiveMessages();
 			setNextPage("/viewThreadTree.jsp");
-		} else {
+		} else {  // set to default
+			itMessages = thread.getMessages(getResultFilter());
 			setNextPage("/viewThreadFlat.jsp");	
 		}
 		

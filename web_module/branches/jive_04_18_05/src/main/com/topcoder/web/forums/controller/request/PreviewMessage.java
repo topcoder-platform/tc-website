@@ -3,8 +3,6 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.topcoder.web.forums.ForumsProcessor;
-
 /**
  * @author mtong
  */

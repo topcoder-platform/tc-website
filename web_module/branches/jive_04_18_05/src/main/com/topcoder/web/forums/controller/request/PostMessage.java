@@ -5,7 +5,6 @@ package com.topcoder.web.forums.controller.request;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.forums.ForumsProcessor;
 
 //import com.topcoder.shared.util.ApplicationServer;
 

@@ -5,7 +5,6 @@ package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.forum.ForumMessage;
 
-import com.topcoder.web.forums.ForumsProcessor;
 import com.topcoder.web.forums.ForumConstants;
 
 /**

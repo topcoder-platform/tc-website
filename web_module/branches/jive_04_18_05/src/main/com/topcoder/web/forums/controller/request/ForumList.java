@@ -5,8 +5,6 @@ package com.topcoder.web.forums.controller.request;
 
 import java.util.Iterator;
 
-import com.topcoder.web.forums.ForumsProcessor;
-
 import com.jivesoftware.forum.ResultFilter;
 
 
