@@ -5,6 +5,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <% ResultSetContainer rscAlgData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Alg_Data"); %>
+<% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider" >
@@ -20,7 +21,9 @@
             <tr><td class="catNW" colspan="2"><A HREF='/stat?c=ratings_history&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
             <tr><td class="catNW">Overall Rank/Percentile:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "rank")!=null) { %>/<rsc:item name="percentile" set="<%=rscAlgData%>" format="0.00"/><% } %></td></tr>
             <tr><td class="catNW">Country Rank/Percentile:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "country_rank")!=null) { %>/<rsc:item name="country_percentile" set="<%=rscAlgData%>" format="0.00"/><% } %></td></tr>
-            <tr><td class="catNW">School Rank/Percentile:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "school_rank")!=null) { %>/<rsc:item name="school_percentile" set="<%=rscAlgData%>" format="0.00"/><% } %></td></tr>
+            <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
+                <tr><td class="catNW">School Rank/Percentile:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "school_rank")!=null) { %>/<rsc:item name="school_percentile" set="<%=rscAlgData%>" format="0.00"/><% } %></td></tr>
+            <% }%>
             <tr><td class="catNW">Volatility:</td><td class="statRNW"><rsc:item name="vol" set="<%=rscAlgData%>" format="####"/></td></tr>
             <tr><td class="catNW">Maximum Rating:</td><td class="statRNW"><rsc:item name="highest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
             <tr><td class="catNW">Minimum Rating:</td><td class="statRNW"><rsc:item name="lowest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
