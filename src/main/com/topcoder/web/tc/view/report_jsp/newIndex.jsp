@@ -103,7 +103,7 @@
       
       Technical Assessment
       <UL>
-        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=technical_assessment_session_status&"+Constants.DB_KEY+"="+Query.TRANSACTIONAL%>">Technical Assessment Session Status</A></LI>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=technical_assessment_session_status&"+Constants.DB_KEY+"=SCREENING_OLTP"%>">Technical Assessment Session Status</A></LI>
       </UL>
 
   </body>
