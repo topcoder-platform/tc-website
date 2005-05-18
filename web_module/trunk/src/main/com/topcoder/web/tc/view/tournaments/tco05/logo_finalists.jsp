@@ -55,7 +55,8 @@
    			</jsp:include>
             </div>
 
-
+<br><br>
+<div align="center"><A href="/tc?&module=ViewSurvey&sid=209">Vote for your favorite!</A></div>
 <br><br>
 <table cellpadding="10" cellspacing="0" align="center" border="0">
 <tr><td>A<br><img src="/i/tournament/tco05/logo_submissions/085.gif" alt="" border="0" /><br><hr></td></tr>
