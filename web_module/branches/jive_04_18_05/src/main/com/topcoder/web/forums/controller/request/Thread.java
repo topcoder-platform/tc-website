@@ -38,6 +38,7 @@ public class Thread extends ForumsProcessor implements Pageable {
 		Paginator paginator = new Paginator(this);
 		Iterator itMessages = null; 
 		
+		getRequest().setAttribute("user", user);
 		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
