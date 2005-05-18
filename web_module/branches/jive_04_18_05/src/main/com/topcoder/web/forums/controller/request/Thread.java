@@ -50,6 +50,11 @@ public class Thread extends ForumsProcessor implements Pageable {
 		} else if (user.getProperty("jiveThreadMode").equals("threaded")) {
 			itMessages = thread.getTreeWalker().getRecursiveMessages();
 			setNextPage("/viewThreadThreaded.jsp");	
+		} else if (user.getProperty("jiveThreadMode").equals("tree")) {
+			itMessages = thread.getTreeWalker().getRecursiveMessages();
+			setNextPage("/viewThreadTree.jsp");
+		} else {
+			setNextPage("/viewThreadFlat.jsp");	
 		}
 		
 		getRequest().setAttribute("messages", itMessages);

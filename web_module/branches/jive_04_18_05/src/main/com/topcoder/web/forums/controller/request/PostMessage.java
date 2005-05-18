@@ -36,8 +36,8 @@ public class PostMessage extends ForumsProcessor {
 		}
 		
 		long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
-		long threadID;
-		long messageID;
+		long threadID = -1;
+		long messageID = -1;
 		
 		Forum forum = forumFactory.getForum(forumID);
 		

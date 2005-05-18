@@ -8,6 +8,8 @@ import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
 
+import com.topcoder.web.forums.controller.request.ForumsProcessor;
+
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.security.TCSubject;
@@ -28,7 +30,6 @@ import com.jivesoftware.base.UnauthorizedException;
  * @author mtong
  */
 public class ForumsServlet extends BaseServlet {
-	public static final String AUTH_TOKEN_KEY = "authToken";
 	private final static Logger log = Logger.getLogger(ForumsServlet.class);
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
@@ -58,18 +59,12 @@ public class ForumsServlet extends BaseServlet {
 		    authentication = createAuthentication(tcRequest, tcResponse);
 		    try {
 			    authToken = AuthFactory.getAuthToken(request, response);
-			    if (authToken.isAnonymous()) {
-			    	user = getUser(SimpleUser.createGuest().getId());
-			    } else {
-			    	user = getUser(authToken.getUserID());
-			    }
 		    } catch (UnauthorizedException ue) {
 		    	authToken = AuthFactory.getAnonymousAuthToken();
-		    	user = getUser(SimpleUser.createGuest().getId());
 		    }
+	    	user = getUser(authToken.getUserID());
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
-		    tcRequest.setAttribute(AUTH_TOKEN_KEY, authToken);
 		    //todo perhaps this should be configurable...so implementing classes
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
@@ -103,7 +98,7 @@ public class ForumsServlet extends BaseServlet {
 		            try {
 		                SimpleResource resource = new SimpleResource(processorName);
 		                if (hasPermission(authentication, resource)) {
-		                    rp = callProcess(processorName, tcRequest, tcResponse, authentication);
+		                    rp = callProcess(processorName, tcRequest, tcResponse, authentication, authToken);
 		                } else {
 		                    throw new PermissionException(authentication.getActiveUser(), resource);
 		                }
@@ -144,6 +139,19 @@ public class ForumsServlet extends BaseServlet {
 		    out.println("</body></html>");
 		    out.flush();
 		}
+	}
+    
+    protected RequestProcessor callProcess(String processorName, TCRequest request, TCResponse response,
+            WebAuthentication authentication, AuthToken authToken) throws Exception {
+		ForumsProcessor rp = null;
+		
+		rp = (ForumsProcessor)Class.forName(processorName).newInstance();
+		rp.setRequest(request);
+		rp.setResponse(response);
+		rp.setAuthentication(authentication);
+		rp.setAuthToken(authToken);
+		rp.process();
+		return rp;
 	}
 
     protected SessionInfo createSessionInfo(TCRequest request,
