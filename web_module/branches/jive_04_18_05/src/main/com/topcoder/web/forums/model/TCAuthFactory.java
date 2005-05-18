@@ -38,7 +38,6 @@ public class TCAuthFactory extends AuthFactory {
      */
     public static AuthToken getAuthToken(HttpServletRequest httpServletRequest,
                                          HttpServletResponse httpServletResponse) throws UnauthorizedException {
-        System.out.println("*** CUSTOM AUTH FACTORY CALLED ***");
     	WebAuthentication auth = null;
         try {
             auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),

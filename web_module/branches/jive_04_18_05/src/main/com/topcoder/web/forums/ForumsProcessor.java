@@ -6,12 +6,15 @@ package com.topcoder.web.forums;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.User;
-import com.jivesoftware.base.UserManager;
+import com.jivesoftware.base.UnauthorizedException;
 
 import com.jivesoftware.forum.ForumFactory;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.forums.model.TCAuthFactory;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.forums.controller.ForumsServlet;
+
+import com.topcoder.shared.security.SimpleResource;
 
 /**
  * @author mtong
@@ -25,9 +28,9 @@ public abstract class ForumsProcessor extends BaseProcessor {
      * Subclasses should do their work by implementing this method.
      */
     protected void businessProcessing() throws Exception {
-        authToken = TCAuthFactory.getAuthToken("tomek","password");
-		forumFactory = ForumFactory.getInstance(authToken);
-		UserManager userManager = forumFactory.getUserManager();
-		user = userManager.getUser(authToken.getUserID());
+    	authToken = (AuthToken)getRequest().getAttribute(ForumsServlet.AUTH_TOKEN_KEY);
+    	forumFactory = ForumFactory.getInstance(authToken);
+    	user = forumFactory.getUserManager().getUser(authToken.getUserID());
+    	//throw new PermissionException(getUser(), new SimpleResource("JiveForums"));
     }
 }

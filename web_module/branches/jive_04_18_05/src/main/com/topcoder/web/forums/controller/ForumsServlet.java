@@ -28,6 +28,7 @@ import com.jivesoftware.base.UnauthorizedException;
  * @author mtong
  */
 public class ForumsServlet extends BaseServlet {
+	public static final String AUTH_TOKEN_KEY = "authToken";
 	private final static Logger log = Logger.getLogger(ForumsServlet.class);
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
@@ -49,24 +50,26 @@ public class ForumsServlet extends BaseServlet {
 		
 		try {
 			TCSubject user = null;
+			AuthToken authToken = null;
 		
 		    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 		    //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
 		    try {
-			    AuthToken authToken = AuthFactory.getAuthToken(request, response);
+			    authToken = AuthFactory.getAuthToken(request, response);
 			    if (authToken.isAnonymous()) {
 			    	user = getUser(SimpleUser.createGuest().getId());
 			    } else {
 			    	user = getUser(authToken.getUserID());
 			    }
 		    } catch (UnauthorizedException ue) {
-		    	user = new TCSubject(-1); 
-		    	//user = getUser(SimpleUser.createGuest().getId());
+		    	authToken = AuthFactory.getAnonymousAuthToken();
+		    	user = getUser(SimpleUser.createGuest().getId());
 		    }
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
+		    tcRequest.setAttribute(AUTH_TOKEN_KEY, authToken);
 		    //todo perhaps this should be configurable...so implementing classes
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
