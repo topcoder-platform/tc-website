@@ -1,0 +1,3 @@
+<jboss-app>
+  <loader-repository>com.topcoder:loader=OnlineReview.ear</loader-repository>
+</jboss-app>
