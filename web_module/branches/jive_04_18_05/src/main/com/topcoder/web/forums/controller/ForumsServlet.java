@@ -5,7 +5,6 @@ package com.topcoder.web.forums.controller;
 
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
