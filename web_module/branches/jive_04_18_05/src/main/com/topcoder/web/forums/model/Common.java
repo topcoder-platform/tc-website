@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
  * Time: 3:26:35 PM
  */
 class Common {
-    public static String DATASOURCE = "java:InformixDS";
+    public static String DATASOURCE = "java:JiveDS";
 
 
     public static final void close(Context ctx) {
