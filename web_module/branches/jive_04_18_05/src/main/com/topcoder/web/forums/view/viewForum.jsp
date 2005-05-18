@@ -85,8 +85,8 @@
 <tr>
 <td class="rtHeader" width="70%">Topic</td>
 <td class="rtHeader" width="10%">Author</td>
-<td class="rtHeader" width="10%">Replies</td>
-<td class="rtHeader" width="10%">Views</td>
+<td class="rtHeader" width="10%" align="right">Replies</td>
+<td class="rtHeader" width="10%" align="right">Views</td>
 <td class="rtHeader" align="center" colspan="2">Last Post</td>
 </tr>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
@@ -114,8 +114,8 @@
 			<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
 		<%  } %></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
-	<td class="rtThreadCell"><%=thread.getMessageCount()-1%></td>
-	<td class="rtThreadCell"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
+	<td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%></td>
+	<td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
 	<td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
 	</tr>
