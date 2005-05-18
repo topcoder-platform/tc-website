@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.18.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=209">Vote for the TCO05 logo</A></span><br><br>
+      We've selected the 5 finalists, and now it's your turn to pick the winner.  Results announced May 25.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=209">vote</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>05.17.05<br>2:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">New job opening at TopCoder</A></span><br><br>
       <A href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">TopCoder</A> is offering a position as an <strong>Algorithm Problem Coordinator</strong>, available to <strong>ALL</strong> members.
@@ -232,17 +244,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>04.29.05<br>3:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">TCS to post Design and Development projects on Wednesdays</span><br><br>
-      TCS will be switching from its current posting schedule on Tuesdays and Thursdays to posting all component projects on Wednesdays starting May 11.  This will allow competitors to evaluate whether they want to participate in design or development before they sign up for a project and to streamline the component timeline.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 
