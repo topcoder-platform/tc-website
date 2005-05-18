@@ -15,7 +15,6 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.security.TCSubject;
 
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.forums.model.TCAuthFactory;
 import com.topcoder.web.forums.model.TCAuthToken;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +24,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
 
+import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 
 import com.jivesoftware.base.UnauthorizedException;
