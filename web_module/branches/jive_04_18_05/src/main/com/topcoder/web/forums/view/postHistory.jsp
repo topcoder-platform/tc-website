@@ -1,9 +1,8 @@
-<%@  page language="java"  %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
 <title>TopCoder</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
 <jsp:include page="../script.jsp" />
@@ -18,7 +17,7 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
-   
+
 <!-- Left Column Begins-->
 		<td width="180">
 			<jsp:include page="../includes/global_left.jsp">
@@ -43,8 +42,8 @@
 
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc" align="right"><strong> 
-[ 
+<tr><td class="rtbc" align="right"><strong>
+[
 1
 <A href="/" class="rtbcLink">2</A>
 <A href="/" class="rtbcLink">3</A>

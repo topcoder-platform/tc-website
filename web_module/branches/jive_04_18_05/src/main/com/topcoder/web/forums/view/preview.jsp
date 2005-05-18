@@ -1,9 +1,8 @@
-<%@  page language="java"  %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
 <title>TopCoder</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
 <jsp:include page="../script.jsp" />
@@ -18,7 +17,7 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
-   
+
 <!-- Left Column Begins-->
       <td width="180">
          <jsp:include page="../includes/global_left.jsp">
@@ -66,8 +65,8 @@
       <span class="bodyText"><a href="/stat?c=member_profile&cr=144400" class="coderTextRed">tomek</a></span><br><A href="/">204 posts</A></div>
       </td>
       <td class="rtTextCell">
-         <b>Subject:</b><br><input type="text" name="subject" size="60" value="Re: SRM 230 - Pascal1s triangle" ><br><br> 
-      
+         <b>Subject:</b><br><input type="text" name="subject" size="60" value="Re: SRM 230 - Pascal1s triangle" ><br><br>
+
 <b>Body:</b><br><TEXTAREA COLS="60" ROWS="15" NAME="body" >I did know it... and to be honest, this was my first idea on how to solve the problem.
 
 Luckily, it was immediately followed by the second one: "Hey, this is the 500, not the 1000! Stop it riiiight there and look for a brute force solution that involves less thinking."
