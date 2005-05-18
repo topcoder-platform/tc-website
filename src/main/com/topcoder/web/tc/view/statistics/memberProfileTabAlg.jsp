@@ -18,14 +18,16 @@
             <%}%>
             </td></tr>
             <tr><td class="catNW" colspan="2"><A HREF='/stat?c=ratings_history&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
-            <tr><td class="catNW">Ranking:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /></td></tr>
+            <tr><td class="catNW">Overall Rank/Percentile:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "rank")!=null) { %>/<rsc:item name="percentile" set="<%=rscAlgData%>" format="0.00"/><% } %></td></tr>
+            <tr><td class="catNW">Country Rank/Percentile:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "country_rank")!=null) { %>/<rsc:item name="country_percentile" set="<%=rscAlgData%>" format="0.00"/><% } %></td></tr>
+            <tr><td class="catNW">School Rank/Percentile:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscAlgData%>" ifNull="not ranked" /><% if (rscAlgData.getStringItem(0, "school_rank")!=null) { %>/<rsc:item name="school_percentile" set="<%=rscAlgData%>" format="0.00"/><% } %></td></tr>
             <tr><td class="catNW">Volatility:</td><td class="statRNW"><rsc:item name="vol" set="<%=rscAlgData%>" format="####"/></td></tr>
             <tr><td class="catNW">Maximum Rating:</td><td class="statRNW"><rsc:item name="highest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
             <tr><td class="catNW">Minimum Rating:</td><td class="statRNW"><rsc:item name="lowest_rating" set="<%=rscAlgData%>" format="####"/></td></tr>
             <tr><td class="catNW">Default Language:</td><td class="statRNW"><rsc:item name="language_name" set="<%=rscAlgData%>" /></td></tr>
             <tr><td class="catNW">Competitions:</td><td class="statRNW"><rsc:item name="num_ratings" set="<%=rscAlgData%>" /></td></tr>
             <tr><td class="catNW">Most Recent Event:</td><td class="statRNW"><rsc:item name="last_round" set="<%=rscAlgData%>" /><br><rsc:item name="last_round_date" set="<%=rscAlgData%>" format="MM.dd.yy"/></td></tr>
-            <tr><td class="catNW">Earnings:</td><td class="statRNW"><rsc:item name="earnings" set="<%=rscAlgData%>" format="$#,##0.00"/></td></tr>
+            <tr><td class="catNW">Earnings:</td><td class="statRNW"><rsc:item name="earnings" set="<%=rscAlgData%>" format="$#,##0.00" ifNull="$0.00"/></td></tr>
             <tr><td class="catNW" colspan="2"><A href='/stat?c=earnings_history&cr=<%=request.getParameter("cr")%>'>[earnings history]</A></td></tr>
          </table>
       </td>
