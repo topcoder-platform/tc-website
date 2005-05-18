@@ -31,11 +31,7 @@ public class Message extends ForumsProcessor {
 		urlNext.append("?module=Thread&").append(ForumConstants.THREAD_ID).append("=").append(thread.getID());
 		if (user.getProperty("jiveThreadMode").equals("flat")) {
 			long messageIdx = 0;
-			
-			ResultFilter filter = new ResultFilter();
-			filter.setSortField(JiveConstants.MODIFICATION_DATE);
-			filter.setSortOrder(ResultFilter.ASCENDING);
-			Iterator messageIter = thread.getMessages(filter);			
+			Iterator messageIter = thread.getMessages();			
 			while (messageIter.hasNext()) {
 			    if (((ForumMessage)messageIter.next()).getID() == messageID) {
 			    	break;
