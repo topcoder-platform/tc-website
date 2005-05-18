@@ -874,6 +874,7 @@ public class TCLoadRank extends TCLoad {
      * @throws Exception if something goes wrong when querying
      */
     private List getCoderRatingsForRound() throws Exception {
+        //todo switch this to use rating history
         log.debug("getCoderRatingsForRound called...");
         PreparedStatement ps = null;
         StringBuffer query = null;
