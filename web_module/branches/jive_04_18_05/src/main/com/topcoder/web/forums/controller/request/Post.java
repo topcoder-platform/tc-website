@@ -60,6 +60,9 @@ public class Post extends ForumsProcessor {
 		}
 		
 		getRequest().setAttribute("forumFactory", forumFactory);
+		getRequest().setAttribute("forum", message.getForum());
+		getRequest().setAttribute("thread", message.getForumThread());
+		getRequest().setAttribute("message", message);
 		getRequest().setAttribute("user", user);
 		getRequest().setAttribute("postHeading", postHeading);
 		getRequest().setAttribute("postDesc", postDesc);
