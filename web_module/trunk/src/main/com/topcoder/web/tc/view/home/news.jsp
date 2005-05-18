@@ -20,6 +20,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.18.05<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm243_prob">SRM 243 - Problem Set & Analysis</A></span><br><br>
+<tc-webtag:handle coderId="8355516" context="algorithm"/> won this match easily, with high scores on two of the problems.  Almost 90
+points behind, <tc-webtag:handle coderId="10574855" context="algorithm"/> took second place, and got his target after only 6 matches,
+beating the record held by <tc-webtag:handle coderId="7445961" context="algorithm"/> of 8 matches.</td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm243_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>05.17.05<br>2:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">New job opening at TopCoder</A></span><br><br>
       <A href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">TopCoder</A> is offering a position as an <strong>Algorithm Problem Coordinator</strong>, available to <strong>ALL</strong> members.
@@ -229,21 +246,6 @@
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.02.05<br>9:15 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm240_prob">SRM 240 - Problem Set & Analysis</A></span><br><br>
-      This problem set gave competitors a hard time. The only problem with success rate over 50% was the division 1 easy... with 52,75%.</td>
-      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_mug.gif" /><br>by <tc-webtag:handle coderId="309453" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm240_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 </table>
 <br><br>
 
