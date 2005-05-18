@@ -10,9 +10,6 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.shared.security.SimpleUser;
 
-import javax.sql.DataSource;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -45,8 +42,7 @@ public class TCAuthFactory extends AuthFactory {
         } catch (Exception e) {
             Log.error(e);
         }
-        if (auth.getActiveUser().isAnonymous()) throw new UnauthorizedException();
-        else return new TCAuthToken(auth.getActiveUser().getId());
+        return new TCAuthToken(auth.getActiveUser().getId());
     }
 
 

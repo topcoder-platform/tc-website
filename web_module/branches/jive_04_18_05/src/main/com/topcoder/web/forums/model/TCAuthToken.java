@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class TCAuthToken implements AuthToken, Serializable {
 
-    private User u;
+    private User u = null;
 
     /**
      * Constucts a new auth token with the specified userID.

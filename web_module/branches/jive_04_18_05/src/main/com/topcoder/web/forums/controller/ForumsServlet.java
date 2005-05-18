@@ -27,8 +27,6 @@ import java.util.Set;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 
-import com.jivesoftware.base.UnauthorizedException;
-
 /**
  * @author mtong
  */
@@ -44,43 +42,40 @@ public class ForumsServlet extends BaseServlet {
     	// Yarin = 269554
     	//return new TCSubject(144400);
     	//AuthFactory.getAuthToken()
-    
+
     protected void process(HttpServletRequest request, HttpServletResponse response)
     	throws IOException {
-    	
+
 		RequestProcessor rp = null;
 		WebAuthentication authentication = null;
 		SessionInfo info = null;
-		
+
 		try {
 			TCSubject user = null;
-			AuthToken authToken = null;
-		
+
 		    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 		    //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-		    try {
-			    authToken = AuthFactory.getAuthToken(request, response);
-		    } catch (UnauthorizedException ue) {
-		    	authToken = AuthFactory.getAnonymousAuthToken();
-		    }
-		    if (authToken instanceof TCAuthToken) {
-		    	log.debug("*** Uses custom auth ***");
-		    	log.debug("*** Uses custom auth ***");
-		    	log.debug("*** Uses custom auth ***");
-		    } else {
-		    	log.debug("*** Does not use custom auth ***");
-		    	log.debug("*** Does not use custom auth ***");
-		    	log.debug("*** Does not use custom auth ***");
-		    }
+			AuthToken authToken = AuthFactory.getAuthToken(request, response);
+            if (log.isDebugEnabled()) {
+                if (authToken instanceof TCAuthToken) {
+                    log.debug("*** Uses custom auth ***");
+                    log.debug("*** Uses custom auth ***");
+                    log.debug("*** Uses custom auth ***");
+                } else {
+                    log.debug("*** Does not use custom auth ***");
+                    log.debug("*** Does not use custom auth ***");
+                    log.debug("*** Does not use custom auth ***");
+                }
+            }
 	    	user = getUser(authToken.getUserID());
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
 		    //todo perhaps this should be configurable...so implementing classes
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-		
+
 		    StringBuffer loginfo = new StringBuffer(100);
 		    loginfo.append("[**** ");
 		    loginfo.append(info.getHandle());
@@ -92,20 +87,20 @@ public class ForumsServlet extends BaseServlet {
 		    loginfo.append(info.getRequestString());
 		    loginfo.append(" ****]");
 		    log.info(loginfo);
-		
+
 		    try {
 		        try {
 		            String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
 		            if (cmd.equals(""))
 		                cmd = StringUtils.checkNull(tcRequest.getParameter(MODULE));
-		
+
 		            if (cmd.equals(""))
 		                cmd = DEFAULT_PROCESSOR;
 		            if (!isLegalCommand(cmd))
 		                throw new NavigationException();
-		
+
 		            String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
-		
+
 		            log.debug("creating request processor for " + processorName);
 		            try {
 		                SimpleResource resource = new SimpleResource(processorName);
@@ -134,7 +129,7 @@ public class ForumsServlet extends BaseServlet {
 		    } catch (Exception e) {
 		        handleException(request, response, e);
 		    }
-		
+
 		    /* things are extremely broken, or perhaps some of the response
 		     * buffer had already been flushed when an error was thrown,
 		     * and the forward to error page failed.  in any event, make
@@ -152,11 +147,11 @@ public class ForumsServlet extends BaseServlet {
 		    out.flush();
 		}
 	}
-    
+
     protected RequestProcessor callProcess(String processorName, TCRequest request, TCResponse response,
             WebAuthentication authentication, AuthToken authToken) throws Exception {
 		ForumsProcessor rp = null;
-		
+
 		rp = (ForumsProcessor)Class.forName(processorName).newInstance();
 		rp.setRequest(request);
 		rp.setResponse(response);
