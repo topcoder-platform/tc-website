@@ -13,7 +13,9 @@ import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.security.TCSubject;
+
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.forums.model.TCAuthFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,8 +24,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
 
-import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
+
 import com.jivesoftware.base.UnauthorizedException;
 
 /**
@@ -58,9 +60,9 @@ public class ForumsServlet extends BaseServlet {
 		    //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
 		    try {
-			    authToken = AuthFactory.getAuthToken(request, response);
+			    authToken = TCAuthFactory.getAuthToken(request, response);
 		    } catch (UnauthorizedException ue) {
-		    	authToken = AuthFactory.getAnonymousAuthToken();
+		    	authToken = TCAuthFactory.getAnonymousAuthToken();
 		    }
 	    	user = getUser(authToken.getUserID());
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
