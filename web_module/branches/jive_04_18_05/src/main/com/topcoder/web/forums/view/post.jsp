@@ -70,9 +70,9 @@
 <%  } %>
 <tc-webtag:handle coderId="<%=user.getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell">
-<%-- <tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%><br/></tc-webtag:errorIterator> --%>
+<tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%><br/></tc-webtag:errorIterator>
 <b>Subject:</b><br><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br><br>
-<%-- <tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br/></tc-webtag:errorIterator> --%>
+<tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%><br/></tc-webtag:errorIterator>
 <b>Body:</b><br><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
 </td>
 </tr>
