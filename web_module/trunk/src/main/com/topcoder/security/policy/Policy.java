@@ -46,23 +46,30 @@ public class Policy {
             return false;
         }
 
-        //If the user has the permission, this query will return a count of >=1
-        String query = "SELECT count (*) FROM security_roles, security_perms "
-                + "WHERE security_roles.role_id IN ( " + roleIds + " ) "
-                + "AND security_roles.role_id = security_perms.role_id "
-                + "AND security_perms.permission = ?";
+        final String permQuery = "SELECT x.role_id " +
+                                  " FROM user_role_xref x, security_perms p" +
+                                 " WHERE x.login_id = ?" +
+                                   " and p.role_id = x.role_id" +
+                                   " and p.permission = ?" +
+                                 " UNION SELECT grx.role_id" +
+                                  " FROM user_group_xref ugx, group_role_xref grx, security_perms p" +
+                                 " WHERE ugx.login_id = ?" +
+                                   " AND ugx.group_id = grx.group_id" +
+                                   " and grx.role_id = p.role_id" +
+                                   " and p.permission = ?";
 
         ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
             conn = Util.getConnection(ctx, dataSource);
-            ps = conn.prepareStatement(query);
-            ps.setString(1, permission.getName());
+            ps = conn.prepareStatement(permQuery);
+            ps.setLong(1, subject.getUserId());
+            ps.setString(2, permission.getName());
+            ps.setLong(3, subject.getUserId());
+            ps.setString(4, permission.getName());
             rs = ps.executeQuery();
-            rs.next();
-            int numMatch = rs.getInt(1);
-            return numMatch > 0 ? true : false;
+            return rs.next();
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
         } finally {
