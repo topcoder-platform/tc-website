@@ -17,7 +17,7 @@ import java.util.Date;
  * Time: 12:04:35 PM
  */
 public class TCUser extends SimpleUserAdapter {
-	
+
 	/**
 	 * TC-specific fields
 	 */
@@ -25,7 +25,7 @@ public class TCUser extends SimpleUserAdapter {
 	public String getImagePath() {
 		return imagePath;
 	}
-	
+
     /**
      * Load a user by id.
      *
@@ -35,7 +35,7 @@ public class TCUser extends SimpleUserAdapter {
      * @throws UserNotFoundException if the user could not be loaded.
      */
     public TCUser(long id, DataSource dataSource) throws UserNotFoundException {
-        if (id < 1) {
+        if (id < 1 && id != -1) {// if they're our anonymous user then, they're ok
             throw new UserNotFoundException();
         }
         this.ID = id;
@@ -66,7 +66,7 @@ public class TCUser extends SimpleUserAdapter {
      * @throws UserNotFoundException if the user could not be loaded.
      */
     private void loadFromDb(DataSource dataSource) throws UserNotFoundException {
-    	
+
     	final String QUERY =
         	" select u.email " +
 	        	" , u.user_id " +
@@ -114,7 +114,7 @@ public class TCUser extends SimpleUserAdapter {
             this.email = rs.getString("email");
             this.creationDate = rs.getDate("member_since");
             this.imagePath = rs.getString("image_path");
-            //System.out.println("ID: " + this.ID + " | username: " + this.username + 
+            //System.out.println("ID: " + this.ID + " | username: " + this.username +
             //		" | email: " + this.email + " | creationDate: " + this.creationDate +
 			//		" | imagePath: " + this.imagePath);
         } catch (SQLException sqle) {
@@ -172,7 +172,7 @@ public class TCUser extends SimpleUserAdapter {
     public boolean isNameVisible() {
         return false;
     }
-    
+
     public String getProperty(String name) {
     	if (name.equals("imagePath")) {
     		return getImagePath();
