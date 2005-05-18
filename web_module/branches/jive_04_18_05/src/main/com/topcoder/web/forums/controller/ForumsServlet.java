@@ -16,6 +16,7 @@ import com.topcoder.security.TCSubject;
 
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.forums.model.TCAuthFactory;
+import com.topcoder.web.forums.model.TCAuthToken;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,9 +61,18 @@ public class ForumsServlet extends BaseServlet {
 		    //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
 		    try {
-			    authToken = TCAuthFactory.getAuthToken(request, response);
+			    authToken = AuthFactory.getAuthToken(request, response);
 		    } catch (UnauthorizedException ue) {
-		    	authToken = TCAuthFactory.getAnonymousAuthToken();
+		    	authToken = AuthFactory.getAnonymousAuthToken();
+		    }
+		    if (authToken instanceof TCAuthToken) {
+		    	log.debug("*** Uses custom auth ***");
+		    	log.debug("*** Uses custom auth ***");
+		    	log.debug("*** Uses custom auth ***");
+		    } else {
+		    	log.debug("*** Does not use custom auth ***");
+		    	log.debug("*** Does not use custom auth ***");
+		    	log.debug("*** Does not use custom auth ***");
 		    }
 	    	user = getUser(authToken.getUserID());
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());

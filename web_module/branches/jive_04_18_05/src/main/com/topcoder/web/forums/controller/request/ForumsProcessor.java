@@ -3,16 +3,13 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.User;
-import com.jivesoftware.base.UnauthorizedException;
 
 import com.jivesoftware.forum.ForumFactory;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.forums.controller.ForumsServlet;
 
 import com.topcoder.shared.security.SimpleResource;
 
