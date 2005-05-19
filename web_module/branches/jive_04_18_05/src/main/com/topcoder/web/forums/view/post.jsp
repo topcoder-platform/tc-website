@@ -100,7 +100,7 @@
 </td>
 </tr>
 <tr><td class="rtFooter"><A href="javascript:document.form1.module.value='PostMessage';document.form1.submit();"><img src="/i/roundTables/post.gif" class="rtButton" alt="" /></A><A href="javascript:document.form1.module.value='PreviewMessage';document.form1.submit();"><img src="/i/roundTables/preview.gif" class="rtButton" alt="" /></A></td></tr>
-</table></form>
+</form></table>
 
         <p><br/></p>
         </td>

@@ -11,6 +11,7 @@
 <tc-webtag:useBean id="message" name="message" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="postMode" name="postMode" type="java.lang.String" toScope="request"/>
+<tc-webtag:useBean id="subject" name="subject" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
@@ -76,33 +77,31 @@
 
 <span class="bodySubtitle">Edit Message</span><br>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-   <tr>
-      <td class="rtHeader" colspan="2"><a name=56640>Feb 11, 2005 at 5:20 PM EST | Re: SRM 230 - Pascal1s triangle
-      (response to <A href="/" class="rtLinkNew">post</A> by <A href="/" class="coderTextYellow">ilham</A>)
-      </a>
-      </td>
-   </tr>
-   <tr>
-      <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-      <span class="bodyText"><a href="/stat?c=member_profile&cr=144400" class="coderTextRed">tomek</a></span><br><A href="/">204 posts</A></div>
-      </td>
-      <td class="rtTextCell100">
-         <b>Subject:</b><br><input type="text" name="subject" size="60" value="Re: SRM 230 - Pascal1s triangle" ><br><br>
+<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<tc-webtag:hiddenInput name="module"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.THREAD_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
-<b>Body:</b><br><TEXTAREA COLS="60" ROWS="15" NAME="body" >I did know it... and to be honest, this was my first idea on how to solve the problem.
+<tr><td class="rtHeader" colspan="2"><%=subject%></td></tr>
+<tr>
+<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+<%  if (user.getProperty("imagePath") != null) { %>
+	<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+<%  } %>
+<tc-webtag:handle coderId="<%=user.getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
+<td class="rtTextCell100">
+<tc-webtag:errorIterator id="errSubject" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=errSubject%></tc-webtag:errorIterator><br/>
+<b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br/><br/>
+<font color="red"><tc-webtag:errorIterator id="errBody" name="<%=ForumConstants.MESSAGE_BODY%>"><%=errBody%></tc-webtag:errorIterator><br/></font>
+<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
+</td>
+</tr>
+<tr><td class="rtFooter"><A href="javascript:document.form1.module.value='PostMessage';document.form1.submit();"><img src="/i/roundTables/post.gif" class="rtButton" alt="" /></A><A href="javascript:document.form1.module.value='PreviewMessage';document.form1.submit();"><img src="/i/roundTables/preview.gif" class="rtButton" alt="" /></A></td></tr>
+</form></table>
 
-Luckily, it was immediately followed by the second one: "Hey, this is the 500, not the 1000! Stop it riiiight there and look for a brute force solution that involves less thinking."
-
-Still, I do think that this is a possible way of solving the problem -- and most probably the time will be only (poly)logarithmic in the row number if implemented well.
-
-Ah well, maybe I'll just submit it as a 1000 sometimes :-P</TEXTAREA>
-      </td>
-   </tr>
-   <tr>
-      <td class="rtFooter"><A href=""><img src="/i/roundTables/post.gif" class="rtButton" alt="" /></A><A href=""><img src="/i/roundTables/preview.gif" class="rtButton" alt="" /></A></td>
-   </tr>
-</table>
-
+<p><br/></p>
 </td>
 <!-- Center Column Ends -->
 

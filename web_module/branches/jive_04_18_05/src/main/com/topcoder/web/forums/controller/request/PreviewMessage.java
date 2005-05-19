@@ -60,6 +60,8 @@ public class PreviewMessage extends ForumsProcessor {
             return;
 		}
 		
+        getRequest().setAttribute("subject", subject);
+        
 		setNextPage("/preview.jsp");
 		setIsNextPageInContext(true);
 	}
