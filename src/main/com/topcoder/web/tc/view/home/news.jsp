@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.19.05<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">Purdue computer programmer making his mark in competitions</A></span><br><br>
+      "Tomasz Czajka, 23-year-old Purdue doctoral candidate, has already improved software for Microsoft and performed research for IBM. This summer he's headed to California to intern with a smaller company named Google." [Boiler Station]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.18.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=209">Vote for the TCO05 logo</A></span><br><br>
       We've selected the 5 finalists, and now it's your turn to pick the winner.  Results announced May 25.
@@ -232,18 +244,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
    <tr><td class="newsLinksCell">
          <A href="/pl/?&module=Static&d1=javaone05&d2=overview">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.02.05<br>10:25 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_05_02_05">TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference</A></span><br><br>
-      "TopCoder today announced that they are again teaming up with Sun Microsystems, Inc. (Nasdaq: SUNW) to host the JavaOne Coding Challenge at the tenth annual 2005 JavaOne conference, scheduled for June 27 - 30th at Moscone Center in San Francisco."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=news_events&c=pr_05_02_05">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 </table>
