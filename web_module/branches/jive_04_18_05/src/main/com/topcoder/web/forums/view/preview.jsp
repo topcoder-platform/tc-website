@@ -9,9 +9,9 @@
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="message" name="message" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
+<tc-webtag:useBean id="parentMessage" name="parentMessage" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="postMode" name="postMode" type="java.lang.String" toScope="request"/>
-<tc-webtag:useBean id="subject" name="subject" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
@@ -73,6 +73,23 @@
       <span class="bodyText"><a href="/stat?c=member_profile&cr=8357090" class="coderTextRed">myHandle</a></span><br><A href="/">18 posts</A></div></td>
       <td class="rtTextCell100">I did know it... and to be honest, this was my first idea on how to solve the problem. <br><br>Luckily, it was immediately followed by the second one: "Hey, this is the 500, not the 1000! Stop it riiiight there and look for a brute force solution that involves less thinking."<br><br>Still, I do think that this is a possible way of solving the problem -- and most probably the time will be only (poly)logarithmic in the row number if implemented well.<br><br>Ah well, maybe I'll just submit it as a 1000 sometimes :-P</td>
    </tr>
+</table>
+
+<span class="bodySubtitle">Message Preview</span><br>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
+		<%	if (parentMessage != null) { %>
+				(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
+		<%	} %>
+	</a></td></tr>
+	<tr>
+	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+	<%  if (user.getProperty("imagePath") != null) { %>
+		<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+	<%  } %>
+	<span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
+	<td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td>
+	</tr>
 </table>
 
 <span class="bodySubtitle">Edit Message</span><br>

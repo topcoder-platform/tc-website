@@ -46,6 +46,11 @@ public class PreviewMessage extends ForumsProcessor {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
             getRequest().setAttribute("thread", message.getForumThread());
             getRequest().setAttribute("message", message);
+            if (postMode.equals("Reply")) {
+            	getRequest().setAttribute("parentMessage", message);
+            } else {
+            	getRequest().setAttribute("parentMessage", null);
+            }
         }
         
 		if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
@@ -59,8 +64,12 @@ public class PreviewMessage extends ForumsProcessor {
             setIsNextPageInContext(true);
             return;
 		}
+        
+        ForumMessage message = forum.createMessage(user);
+        message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
+        message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
 		
-        getRequest().setAttribute("subject", subject);
+        getRequest().setAttribute("message", message);        
         
 		setNextPage("/preview.jsp");
 		setIsNextPageInContext(true);
