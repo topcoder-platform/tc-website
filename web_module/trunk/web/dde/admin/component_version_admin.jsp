@@ -1431,7 +1431,7 @@ if (action != null) {
 <input type="hidden" name="comp" value="<%= lngComponent %>">
 <input type="hidden" name="ver" value="<%= ver.getVersion() %>">
                 <tr valign="top">
-                    <td class="forumText"><input class="adminSearchForm" type="text" size="25" maxlength="64" name="txtDocumentName" value=""></input></td>
+                    <td class="forumText"><input class="adminSearchForm" type="text" size="25" maxlength="128" name="txtDocumentName" value=""></input></td>
                     <td class="forumText">
                     <select name="selDocType">
                         <option value="0">Requirement Specification</option>
