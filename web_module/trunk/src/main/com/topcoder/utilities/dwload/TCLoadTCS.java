@@ -580,7 +580,7 @@ public class TCLoadTCS extends TCLoad {
                     //log.debug("after result insert");
 
                 }
-                printLoadProgress(count, "project result");
+                //printLoadProgress(count, "project result");
             }
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
 
@@ -682,7 +682,7 @@ public class TCLoadTCS extends TCLoad {
                         //log.debug("after submission insert");
                     }
                     count++;
-                    printLoadProgress(count, "submission review");
+                    //printLoadProgress(count, "submission review");
                 }
             }
 
