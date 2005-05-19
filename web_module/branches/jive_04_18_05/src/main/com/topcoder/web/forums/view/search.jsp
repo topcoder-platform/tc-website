@@ -46,7 +46,7 @@
       <td class="rtTextCell100" width="100%">
          <input name="q" size="50" maxlength="100" value="" id="terms" type="text">
          <input value="Search" onclick="" type="submit">
-         <a href="">Search Tips</a>
+         &#160;<a href="" class="rtLinkNew">Search Tips</a>
       </td>
    </tr>
    <tr>
