@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.19.05<br>4:25 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7218">Video Game Survey</A></span><br><br>
+      A couple of questions about the next generation of video game platforms.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=7218">vote</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.19.05<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">Purdue computer programmer making his mark in competitions</A></span><br><br>
       "Tomasz Czajka, 23-year-old Purdue doctoral candidate, has already improved software for Microsoft and performed research for IBM. This summer he's headed to California to intern with a smaller company named Google." [Boiler Station]
@@ -232,18 +244,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
    <tr><td class="newsLinksCell">
          <A href="/tc?&module=ViewSurvey&sid=6539">view survey</A>&#160;|&#160;
          <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.02.05<br>10:25 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pl/?&module=Static&d1=javaone05&d2=overview">Announcing the 2005 JavaOne<sup>SM</sup> Coding Challenge</A></span><br><br>
-      Sun Microsystems has again teamed up with TopCoder to bring the JavaOne<sup>SM</sup> Coding Challenge to conference attendees.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/pl/?&module=Static&d1=javaone05&d2=overview">details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 </table>
