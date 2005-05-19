@@ -19,4 +19,9 @@ public interface ForumConstants {
 	public final static String POST_MODE = "mode";
 	
 	public final static String FORUMS_DIR = "/forums/";
+    
+    public final static String ERR_EMPTY_MESSAGE_SUBJECT =
+        "Error: Please include a message subject.";
+    public final static String ERR_EMPTY_MESSAGE_BODY =
+        "Error: Please include a message body.";
 }

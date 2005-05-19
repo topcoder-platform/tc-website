@@ -35,10 +35,10 @@ public class PostMessage extends ForumsProcessor {
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         
 		if (subject.equals("")) {
-			addError(ForumConstants.MESSAGE_SUBJECT, "Message subject is empty");
+			addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
 		}
 		if (body.equals("")) {
-			addError(ForumConstants.MESSAGE_BODY, "Message body is empty");
+			addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
 		}
 		if (hasErrors()) {
 			setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
