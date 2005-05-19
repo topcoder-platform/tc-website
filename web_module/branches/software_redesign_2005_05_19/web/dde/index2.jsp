@@ -84,8 +84,9 @@
 
             </table>
 
-<!-- Customers begins -->
-<!-- Customers ends -->
+<!-- Featured Customers begins -->
+			<jsp:include page="/includes/customers_featured.jsp" flush="true" />
+<!-- Featured Customers ends -->
 
 <!-- Press Highlights begins -->
             <jsp:include page="/includes/press_highlights.jsp" flush="true" />
