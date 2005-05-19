@@ -93,10 +93,10 @@
 <%  } %>
 <tc-webtag:handle coderId="<%=user.getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell100">
-<font color="red"><tc-webtag:errorIterator id="errSubject" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=errSubject%></tc-webtag:errorIterator><br/></font>
-<b>Subject:</b><br><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br><br>
+<tc-webtag:errorIterator id="errSubject" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=errSubject%></tc-webtag:errorIterator><br/>
+<b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br/><br/>
 <font color="red"><tc-webtag:errorIterator id="errBody" name="<%=ForumConstants.MESSAGE_BODY%>"><%=errBody%></tc-webtag:errorIterator><br/></font>
-<b>Body:</b><br><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
+<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
 </td>
 </tr>
 <tr><td class="rtFooter"><A href="javascript:document.form1.module.value='PostMessage';document.form1.submit();"><img src="/i/roundTables/post.gif" class="rtButton" alt="" /></A><A href="javascript:document.form1.module.value='PreviewMessage';document.form1.submit();"><img src="/i/roundTables/preview.gif" class="rtButton" alt="" /></A></td></tr>
