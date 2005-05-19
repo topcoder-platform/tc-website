@@ -29,9 +29,12 @@ public class IteratorTag extends BodyTagSupport {
 
     public void setCollection(Collection collection) {
         // if the collection is null, use an empty list
-        if (collection == null) this.collection = new ArrayList();
-        else this.collection = collection;
-        this.iterator = collection.iterator();
+        if (collection == null) {
+            this.collection = new ArrayList();
+        } else {
+            this.collection = collection;
+        }
+        this.iterator = this.collection.iterator();
     }
 
     public void setIterator(Iterator iterator) {
