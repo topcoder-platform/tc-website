@@ -29,6 +29,7 @@ public class PostMessage extends ForumsProcessor {
 			addError(ForumConstants.MESSAGE_BODY, "Message body is empty");
 		}
 		if (hasErrors()) {
+			getRequest().setAttribute("forumFactory", forumFactory);				
 			setNextPage("/post.jsp");
 			setIsNextPageInContext(true);
 			return;
