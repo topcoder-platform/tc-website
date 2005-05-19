@@ -60,6 +60,7 @@ public class PostMessage extends ForumsProcessor {
 			getRequest().setAttribute("forumFactory", forumFactory);
 			getRequest().setAttribute("user", user);
 			getRequest().setAttribute("forum", forum);
+            getRequest().setAttribute("postMode", postMode);
 			
 			setNextPage("/post.jsp");
 			setIsNextPageInContext(true);
