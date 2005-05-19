@@ -75,7 +75,7 @@
 			<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
 		<%  } %>
 		<span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br><A href="/"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
-		<td class="rtTextCell"><jsp:getProperty name="message" property="body"/></td></tr>
+		<td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td></tr>
 		<tr><td class="rtFooter" align="right">
 		<%  if (message.getUser().equals(user)) { %>
     		<A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>"><img src="/i/roundTables/edit.gif" class="rtButton" alt="Edit" /></A>
