@@ -68,13 +68,14 @@
         <td width="99%" align="center">
             <table border="0" cellpadding="0" cellspacing="10" width="530">
                 <tr>
-                    <td align="left" colspan="3">
-                        <a href="/applications/index.jsp"><img src="images/promos/promo_home_1.gif" alt="" width="270" height="63" border="0" /><br/>
-                        <img src="images/promos/promo_home_2.jpg" alt="" width="247" height="166" border="0" /></a><br/>
-                        <img src="/images/clear.gif" alt="" width="10" height="10" border="0" /><br/>
+                    <td align="left" colspan="2" width="270">
+                        <a href="/applications/index.jsp"><img src="images/promos/promo_home_1.gif" alt="" width="270" height="63" border="0" /></a><br/>
                         <strong>Using our member base of thousands of highly-skilled developers from all over the world, our competition-based
                         methodology, and our catalogs of re-usable components, TopCoder delivers high-quality software at a lower cost than the competition.
                         <a href="/applications/index.jsp">Learn more</a></strong>
+                    </td>
+                    <td align="left" width="260">
+                        <a href="/applications/index.jsp"><img src="images/promos/promo_home_2.jpg" alt="" width="247" height="166" border="0" /></a>
                     </td>
                 </tr>
 
