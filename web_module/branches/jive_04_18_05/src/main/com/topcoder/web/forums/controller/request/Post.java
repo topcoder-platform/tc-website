@@ -54,6 +54,7 @@ public class Post extends ForumsProcessor {
 		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("user", user);
         getRequest().setAttribute("forum", forumFactory.getForum(forumID));
+        getRequest().setAttribute("postMode", postMode);
 		
 		setNextPage("/post.jsp");
 		setIsNextPageInContext(true);
