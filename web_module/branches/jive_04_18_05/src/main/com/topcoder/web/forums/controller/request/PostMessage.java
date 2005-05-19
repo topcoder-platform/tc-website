@@ -31,11 +31,13 @@ public class PostMessage extends ForumsProcessor {
 		String threadIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_ID));
 		String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-		
-		if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
+		String subject = getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim();
+        String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
+        
+		if (subject.equals("")) {
 			addError(ForumConstants.MESSAGE_SUBJECT, "Message subject is empty");
 		}
-		if (getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim().equals("")) {
+		if (body.equals("")) {
 			addError(ForumConstants.MESSAGE_BODY, "Message body is empty");
 		}
 		if (hasErrors()) {
@@ -43,7 +45,8 @@ public class PostMessage extends ForumsProcessor {
 			setDefault(ForumConstants.THREAD_ID, getRequest().getParameter(ForumConstants.THREAD_ID));
 			setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
 			setDefault(ForumConstants.POST_MODE, postMode);
-			// set defaults for subject, body
+			setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
+            setDefault(ForumConstants.MESSAGE_BODY, body);
             
             if (threadIDStr.equals("") || messageIDStr.equals("")) {
                 getRequest().setAttribute("thread", null);

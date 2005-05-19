@@ -35,6 +35,9 @@
 
 
 <!-- Center Column Begins -->
+<%  String postHeading = "Message Preview";
+	String postDesc = "Message Preview"; %>
+
         <td width="100%" class="rtBody">
 
             <jsp:include page="page_title.jsp" >

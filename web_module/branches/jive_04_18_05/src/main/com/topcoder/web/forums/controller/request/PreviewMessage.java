@@ -20,6 +20,13 @@ public class PreviewMessage extends ForumsProcessor {
 		}
 		if (hasErrors()) {
 			getRequest().setAttribute("forumFactory", forumFactory);
+			getRequest().setAttribute("user", user);
+			getRequest().setAttribute("forum", getRequest().getParameter(ForumConstants.FORUM_ID));
+			getRequest().setAttribute("thread", getRequest().getParameter(ForumConstants.THREAD_ID));
+			getRequest().setAttribute("message", getRequest().getParameter(ForumConstants.MESSAGE_ID));
+			getRequest().setAttribute("postHeading", "Message Preview");
+			getRequest().setAttribute("postDesc", "Message Preview");
+			
 			setNextPage("/post.jsp");
 			setIsNextPageInContext(true);
 			return;

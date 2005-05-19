@@ -9,8 +9,6 @@
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
-<tc-webtag:useBean id="postHeading" name="postHeading" type="java.lang.String" toScope="request"/>
-<tc-webtag:useBean id="postDesc" name="postDesc" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
@@ -40,6 +38,19 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
+<%  String postHeading = "";
+	String postDesc = "";
+	if (postMode.equals("NewThread")) {
+		postHeading = "New Thread";
+		postDesc = "Create a new thread";
+	} else if (postMode.equals("Reply")) {
+		postHeading = replySubject;
+		postDesc = "Reply";
+	} else if (postMode.equals("Edit")) {
+		postHeading = editSubject;
+		postDesc = "Edit message";
+	} %>
+
          <td width="100%" class="rtBody">
 
         <jsp:include page="page_title.jsp" >
@@ -50,8 +61,10 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Round Tables</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
-	<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A></td>
-</table>
+	<%  if (thread != null) { %>
+		<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
+	<%  } %>
+</td></table>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
