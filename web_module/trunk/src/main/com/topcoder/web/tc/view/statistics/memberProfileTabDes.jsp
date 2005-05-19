@@ -78,9 +78,9 @@
             </tr>
             <tr>
                <td class="catLt" nowrap="nowrap">Review Success Rate</td>
-               <td class="statLt" align="right"></td>
-               <td class="statLt" align="right"></td>
-               <td class="statLt" align="right"></td>
+               <td class="statLt" align="right"><rsc:item name="review_percent" set="<%=rscJavaData%>" format="###0" ifNull="n/a" /></td>
+               <td class="statLt" align="right"><rsc:item name="review_percent" set="<%=rscNETData%>" format="###0" ifNull="n/a"/></td>
+               <td class="statLt" align="right"><rsc:item name="review_percent" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/></td>
             </tr>
             <tr>
                <td class="catDk" nowrap="nowrap">Maximum Score</td>
@@ -114,9 +114,9 @@
             </tr>
             <tr>
                <td class="catLt" nowrap="nowrap">Win Percentage</td>
-               <td class="statLt" align="right"></td>
-               <td class="statLt" align="right"></td>
-               <td class="statLt" align="right"></td>
+               <td class="statLt" align="right"><rsc:item name="win_percent" set="<%=rscJavaData%>" format="###0" ifNull="n/a" /></td>
+               <td class="statLt" align="right"><rsc:item name="win_percent" set="<%=rscNETData%>" format="###0" ifNull="n/a"/></td>
+               <td class="statLt" align="right"><rsc:item name="win_percent" set="<%=rscTotalData%>" format="###0" ifNull="n/a"/></td>
             </tr>
          </table>
       </td>
