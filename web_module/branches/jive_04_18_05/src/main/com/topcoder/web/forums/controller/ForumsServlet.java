@@ -56,7 +56,8 @@ public class ForumsServlet extends BaseServlet {
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 		    //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-			AuthToken authToken = AuthFactory.getAuthToken(request, response);
+			//AuthToken authToken = AuthFactory.getAuthToken(request, response);
+		    AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
                     log.debug("*** Uses custom auth ***");
