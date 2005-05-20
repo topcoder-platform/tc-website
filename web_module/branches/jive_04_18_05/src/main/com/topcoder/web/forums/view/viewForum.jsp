@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
-         		 com.topcoder.web.forums.model.Pages,
+         		 com.topcoder.web.forums.model.Paging,
          		 com.jivesoftware.forum.stats.ViewCountManager,
          		 com.jivesoftware.forum.action.util.Page,
          		 com.jivesoftware.forum.action.util.Paginator,
@@ -66,7 +66,7 @@
             for (int i=0; i<pages.length; i++) {
         %>  <%  if (pages[i] != null) { %>
         			<%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-        					<span class="rtbcCurrPage"><%= <%= pages[i].getNumber() %></span>
+        					<span class="rtbcCurrPage"><%= pages[i].getNumber() %></span>
         			<%  } else { %>
             				<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink">
 	                		<%= pages[i].getNumber() %></A>
@@ -96,9 +96,9 @@
 				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
 		<%	    Paginator threadPaginator;
 				if (user != null) {
-					threadPaginator = new Paginator(new Pages(thread.getMessageCount(), Integer.parseInt(user.getProperty("jiveMessageRange"))));
+					threadPaginator = new Paginator(new Paging(thread.getMessageCount(), Integer.parseInt(user.getProperty("jiveMessageRange"))));
 				} else {
-					threadPaginator = new Paginator(new Pages(thread.getMessageCount(), 15));
+					threadPaginator = new Paginator(new Paging(thread.getMessageCount(), 15));
 				}
 				if (threadPaginator.getNumPages() > 1) { %> [
 		        <%  pages = threadPaginator.getPages(5);
