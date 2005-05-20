@@ -14,6 +14,7 @@ public interface ForumConstants {
 	
 	public final static String MESSAGE_SUBJECT = "subject";
 	public final static String MESSAGE_BODY = "body";
+    public final static int MESSAGE_BODY_MAX_LENGTH = 8000;
 	
 	public final static String START_IDX = "start";
 	
@@ -25,4 +26,6 @@ public interface ForumConstants {
         "Error: Please include a message subject.";
     public final static String ERR_EMPTY_MESSAGE_BODY =
         "Error: Please include a message body.";
+    public final static String ERR_LONG_MESSAGE_BODY =
+        "Error: Message body exceeds " + MESSAGE_BODY_MAX_LENGTH + " characters.";    
 }

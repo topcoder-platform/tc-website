@@ -40,6 +40,9 @@ public class PostMessage extends ForumsProcessor {
 		if (body.equals("")) {
 			addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
 		}
+        if (body.length() > ForumConstants.MESSAGE_BODY_MAX_LENGTH) {
+        	addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
+        }
 		if (hasErrors()) {
 			setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
 			setDefault(ForumConstants.THREAD_ID, getRequest().getParameter(ForumConstants.THREAD_ID));

@@ -59,6 +59,9 @@ public class PreviewMessage extends ForumsProcessor {
 		if (getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim().equals("")) {
 			addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
 		}
+        if (body.length() > ForumConstants.MESSAGE_BODY_MAX_LENGTH) {
+            addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
+        }
 		if (hasErrors()) {
             setNextPage("/post.jsp");
             setIsNextPageInContext(true);
