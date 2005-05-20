@@ -9,13 +9,7 @@
             <table width="530" border="0" cellspacing="0" cellpadding="4">
                <tr><td valign="top">
                			<A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/abb_casestudy.pdf&refer=homepage" target="blank"><img src="/images/abb_cspromo.gif" alt="ABB Case Study" width="171" height="151" border="0" /></A>
-                		<A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/fin_services_casestudy.pdf&refer=homepage" target="blank"><img src="/images/fin_cspromo.gif" alt="FIN Case Study" width="171" height="151" border="0" /></A>      
                 		<A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/salk_institute_casestudy.pdf&refer=homepage" target="blank"><img src="/images/salk_cspromo.gif" alt="Salk Case Study" width="171" height="151" border="0" /></A>
-                	</td>
-                </tr>
-                
-               <tr><td valign="top">      
-                		<A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/Gift_Card_Case_Study.pdf&refer=homepage" target="blank"><img src="/images/stage_casestudy_promo.gif" alt="Stage Case Study" width="171" height="151" border="0" /></A>
                 		<A href="http://www.topcoder.com/?t=sponsor&c=link&link=/i/downloads/cbdi_journal.pdf&refer=homepage" target="blank"><img src="/images/cbdi_journal.gif" alt="CBDI Journal" width="171" height="151" border="0" /></A>
                 	</td>
                 </tr>

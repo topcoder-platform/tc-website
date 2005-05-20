@@ -69,10 +69,10 @@
             <table border="0" cellpadding="0" cellspacing="10" width="530">
                 <tr>
                     <td align="left">
-                        <br/><a href="/applications/index.jsp"><img src="images/promos/promo_home_1.gif" alt="" width="270" height="63" border="0" /></a><br/><br/>
-                        <strong>Using our member base of thousands of highly-skilled developers from all over the world, our competition-based
+                        <br/><a href="/applications/index.jsp"><img src="images/promos/promo_home_1.gif" alt="" width="267" height="59" border="0" /></a><br/><br/>
+                        Using our member base of thousands of highly-skilled developers from all over the world, our competition-based
                         methodology, and our catalogs of re-usable components, TopCoder delivers high-quality software at a lower cost than the competition.
-                        <a href="/applications/index.jsp">Learn more</a></strong>
+                        <strong><a href="/applications/index.jsp">Learn more</a></strong>
                     </td>
                     <td align="left">
                         <a href="/applications/index.jsp"><img src="images/promos/promo_home_2.jpg" alt="" width="247" height="175" border="0" /></a>
