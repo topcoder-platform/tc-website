@@ -37,7 +37,12 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public void setIterator(Iterator iterator) {
-    	this.iterator = iterator;
+        if (iterator==null) {
+            this.iterator = new ArrayList().iterator();
+        } else {
+            this.iterator = iterator;
+        }
+
     }
 
     public void setType(String type) {
@@ -46,19 +51,19 @@ public class IteratorTag extends BodyTagSupport {
 
     public int doStartTag() throws JspException {
         //log.debug("doStartTag() called, collection = " + collection + " iterator = " + iterator);
-        return EVAL_BODY_TAG;
+        return iterator.hasNext() ? EVAL_BODY_TAG : SKIP_BODY;
     }
 
     public void doInitBody() throws JspException {
         //log.debug("doInitBody() called, collection = " + collection + " iterator = " + iterator);
-        if (iterator!=null&&iterator.hasNext()) {
+        if (iterator.hasNext()) {
             pageContext.setAttribute(getId(), iterator.next());
         }
     }
 
     public int doAfterBody() throws JspException {
         //log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
-        if (iterator!=null&&iterator.hasNext()) {
+        if (iterator.hasNext()) {
             pageContext.setAttribute(getId(), iterator.next());
             //log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
             return EVAL_BODY_TAG;
