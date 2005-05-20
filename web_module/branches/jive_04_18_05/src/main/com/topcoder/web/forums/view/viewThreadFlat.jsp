@@ -49,14 +49,13 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <td nowrap="nowrap">
+   <td nowrap="nowrap" valign="top">
    Search
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
    <input value="Search" onclick="" type="submit">
    &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
    </td>
-   <td align="right" nowrap="nowrap">
-   <A href="/" class="rtbcLink">Watch this Thread</A>&#160;&#160;|&#160;&#160;
+   <td align="right" nowrap="nowrap" valign="top">
    <A href="/" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;
    <A href="/" class="rtbcLink">User Settings</A>
    </td>
