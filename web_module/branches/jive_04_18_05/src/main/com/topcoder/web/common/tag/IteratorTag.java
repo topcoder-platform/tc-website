@@ -5,7 +5,6 @@ import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
-import javax.servlet.jsp.tagext.BodyContent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
