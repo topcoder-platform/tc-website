@@ -50,9 +50,9 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td nowrap="nowrap" valign="top">
-   Search
+   <A href="/" class="rtbcLink">Search</A>
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
-   <input value="Search" onclick="" type="submit">
+   <input value="Go" onclick="" type="submit">
    &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
@@ -100,7 +100,7 @@
 		<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
 	<%  } %>
 	<span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
-	<td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td>
+	<td class="rtTextCell" width="100%"><jsp:getProperty name="message" property="body"/></td>
 	</tr>
 	<tr><td class="rtFooter" align="right">
 	<%  if (message.getUser().equals(user)) { %>
