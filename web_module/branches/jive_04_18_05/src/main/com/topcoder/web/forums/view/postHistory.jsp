@@ -1,6 +1,8 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
-         		 com.jivesoftware.forum.stats.ViewCountManager"
+         		 com.jivesoftware.forum.stats.ViewCountManager,
+         		 com.jivesoftware.forum.action.util.Page,
+         		 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -46,9 +48,9 @@
                 <jsp:param name="title" value="Forum Post History"/>
             </jsp:include>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId="<%=user.getID()%>"/>(<%=forumFactory.getUserMessageCount(user)%>posts)</span>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId="<%=user.getID()%>"/></span>
 <br>
-<span class="bodySubtitle">Forum Post History</span><br>
+<span class="bodySubtitle">Forum Post History</span> (<%=forumFactory.getUserMessageCount(user)%>posts)<br>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <% if (paginator.getNumPages() > 1) { %>
@@ -61,7 +63,7 @@
             for (int i=0; i<pages.length; i++) {
         %>  <%  if (pages[i] != null) { %>
         			<%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-        					<span class="rtbcCurrPage"><%= <%= pages[i].getNumber() %></span>
+        					<span class="rtbcCurrPage"><%= pages[i].getNumber() %></span>
         			<%  } else { %>
             				<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
 	                		<%= pages[i].getNumber() %></A>

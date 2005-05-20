@@ -41,7 +41,7 @@ public class History extends ForumsProcessor {
         
         Paging paging = new Paging(resultFilter, totalItemCount);
         Paginator paginator = new Paginator(paging);
-        Iterator itMessages = forumFactory.getUserMessages(user);
+        Iterator itMessages = forumFactory.getUserMessages(user, resultFilter);
         
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("user", user);
