@@ -50,16 +50,17 @@
 
     </target>
 
-    <target name="package-cache" depends="">
-
-
-    </target>
-
     <target name="package-techassess" depends="">
+
 
     </target>
 
     <target name="package-software" depends="">
+        <cvs command="update -Pd"/>
+
+        <ant antfile="build_or.xml" target="clean"/>
+        <ant antfile="build_or.xml" target="dist"/>
+        <ant antfile="build_dde.xml" target="dist"/>
 
     </target>
 
