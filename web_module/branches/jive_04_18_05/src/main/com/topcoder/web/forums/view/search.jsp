@@ -43,7 +43,7 @@
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Search Terms:</strong></td>
-      <td class="rtTextCell100" width="100%">
+      <td class="rtTextCell100">
          <input name="q" size="50" maxlength="100" value="" id="terms" type="text">
          <input value="Search" onclick="" type="submit">
          &#160;<a href="" class="rtLinkNew">Search Tips</a>
@@ -51,7 +51,7 @@
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
-      <td class="rtTextCell100" width="100%">
+      <td class="rtTextCell100">
 <select size="1" name="objID" id="objID01">
 <option value="">All Categories</option>
 <option value="f50">&#160;Evolving Strategy</option>
@@ -68,7 +68,7 @@
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Date Range:</strong></td>
-      <td class="rtTextCell100" width="100%">
+      <td class="rtTextCell100">
 <select size="1" name="dateRange" id="daterange01">
 <option value="all" selected="selected">All</option>
 <option value="yesterday">&#160;Yesterday - 5/18/05</option>
@@ -82,14 +82,14 @@
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Handle:</strong></td>
-      <td class="rtTextCell100" width="100%">
+      <td class="rtTextCell100">
          <input name="userID" size="20" maxlength="50" id="username01" value="" type="text" />
          (Leave field blank to search all users)
       </td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Results Per Page:</strong></td>
-      <td class="rtTextCell100" width="100%">
+      <td class="rtTextCell100">
 <select size="1" name="dateRange" id="daterange01">
 <option value="10" selected="selected">10</option>
 <option value="15">15</option>
