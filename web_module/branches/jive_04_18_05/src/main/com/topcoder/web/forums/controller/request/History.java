@@ -35,6 +35,7 @@ public class History extends ForumsProcessor {
         }
         
         ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
+        resultFilter.setSortOrder(ResultFilter.DESCENDING);
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(range);
         int totalItemCount = forumFactory.getUserMessageCount(user, resultFilter);

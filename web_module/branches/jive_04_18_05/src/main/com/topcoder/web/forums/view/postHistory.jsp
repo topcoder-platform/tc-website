@@ -50,7 +50,7 @@
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId="<%=user.getID()%>"/></span>
 <br>
-<span class="bodySubtitle">Forum Post History</span> (<%=forumFactory.getUserMessageCount(user)%>posts)<br>
+<span class="bodySubtitle">Forum Post History (<%=forumFactory.getUserMessageCount(user)%> posts)</span>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <% if (paginator.getNumPages() > 1) { %>
@@ -79,89 +79,23 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="40%">Topic</td>
-        <td class="rtHeader" width="40%">Forum</td>
+        <td class="rtHeader" width="50%">Topic</td>
+        <td class="rtHeader" width="30%">Forum</td>
         <td class="rtHeader" width="20%">Date</td>
         <td class="rtHeader" align="right">Replies</td>
     </tr>
 	<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 	<tr>
-      	<td class="rtThreadCellWrap"><A href="" class="rtLinkNew"><jsp:getProperty name="message" property="subject"/></A></td>
-      	<td class="rtThreadCell"><A href="" class="rtLinkNew"><%=message.getForum().getName()%></A></td>
+      	<td class="rtThreadCellWrap"><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A>
+      	<%	if (message.getParentMessage() != null) { %>
+				(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
+		<%	} %></td>
+      	<td class="rtThreadCell"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=message.getForum().getID()%>&mc=<%=message.getForum().getMessageCount()%>" class="rtbcLink"><%=message.getForum().getName()%></A></td>
       	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/></strong></td>
       	<td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
     </tr>
 	</tc-webtag:iterator>        
 </table>
-
-            <table cellpadding="0" cellspacing="0" class="rtTable">
-                <tr>
-                    <td class="rtHeader" width="40%">Topic</td>
-                    <td class="rtHeader" width="40%">Forum</td>
-                    <td class="rtHeader" width="20%">Date</td>
-                    <td class="rtHeader" align="right">Replies</td>
-                </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think dok is dandy</A></td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A> (response to <A href="/" class="rtLinkNew">post</A> by <A href="/" class="coderTextYellow">ilham</A>)</td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A></td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A></td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A></td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A></td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A></td>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A></td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A></td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-               <tr>
-                  <td class="rtThreadCellWrap"><A href="" class="rtLinkNew">I think TopCoder is dandy</A></td>
-                  <td class="rtThreadCell"><A href="" class="rtLinkNew">Algorithm Competition Discussion</A></td>
-                  <td class="rtThreadCell"><strong>May 16, 2005 3:58 PM</strong></td>
-                  <td class="rtThreadCell" align="right">5</td>
-               </tr>
-            </table>
             <p>A topic with a <strong>bold title</strong> indicates it either has a new thread or has a thread with new postings.</p>
         </td>
 <!-- Center Column Ends -->
