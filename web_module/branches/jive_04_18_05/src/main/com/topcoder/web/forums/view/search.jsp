@@ -1,17 +1,24 @@
+<%@ page import="com.topcoder.web.common.BaseServlet,
+         		 com.topcoder.web.forums.ForumConstants,
+         		 com.jivesoftware.forum.action.util.Page,
+         		 java.util.*"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <html>
 <head>
 <title>TopCoder</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
-<jsp:include page="../script.jsp" />
+<jsp:include page="script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../top.jsp" >
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -20,7 +27,7 @@
 
 <!-- Left Column Begins-->
       <td width="180">
-         <jsp:include page="../includes/global_left.jsp">
+         <jsp:include page="includes/global_left.jsp">
             <jsp:param name="level1" value=""/>
             <jsp:param name="level2" value=""/>
          </jsp:include>
@@ -31,7 +38,7 @@
 <!-- Center Column Begins -->
         <td width="100%" class="rtBody">
 
-            <jsp:include page="../page_title.jsp" >
+            <jsp:include page="page_title.jsp" >
                 <jsp:param name="image" value="forums"/>
                 <jsp:param name="title" value="Forum Search"/>
             </jsp:include>
@@ -105,7 +112,7 @@
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="foot.jsp" />
 
 </body>
 

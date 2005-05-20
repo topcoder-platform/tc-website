@@ -6,36 +6,46 @@ package com.topcoder.web.forums.controller.request;
 import java.util.Iterator;
 
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.model.Paging;
 
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ResultFilter;
-import com.jivesoftware.forum.action.util.Pageable;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
 
 /**
  * @author mtong
  */
-public class Thread extends ForumsProcessor implements Pageable {
-	private long threadID;
-	private int start = 0;
-	private int totalItemCount;
-	
-	private ResultFilter resultFilter;
-	private ForumThread thread;
+public class Thread extends ForumsProcessor {
 	
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 		
-		threadID = Long.parseLong(getRequest().getParameter(ForumConstants.THREAD_ID));
-		thread = forumFactory.getForumThread(threadID);
-		ViewCountManager.getInstance().addThreadCount(thread);
-		Forum forum = thread.getForum();
-		
-		initPagingFields();
-		Paginator paginator = new Paginator(this);
-		Iterator itMessages = null; 
+        long threadID = Long.parseLong(getRequest().getParameter(ForumConstants.THREAD_ID));
+        ForumThread thread = forumFactory.getForumThread(threadID);
+        ViewCountManager.getInstance().addThreadCount(thread);
+        Forum forum = thread.getForum();
+        
+        int startIdx = 0;
+        if (getRequest().getParameter(ForumConstants.START_IDX) != null) {
+            startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
+        }
+        int messageRange = 15;
+        if (user != null) {
+            try {
+                messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
+            } catch (Exception ignored) {}
+        }
+        
+        ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
+        resultFilter.setStartIndex(startIdx);
+        resultFilter.setNumResults(messageRange);
+        int totalItemCount = thread.getMessageCount(resultFilter);
+        
+        Paging paging = new Paging(resultFilter, totalItemCount);
+        Paginator paginator = new Paginator(paging);
+        Iterator itMessages = null; 
 		
 		getRequest().setAttribute("user", user);
 		getRequest().setAttribute("forumFactory", forumFactory);
@@ -44,7 +54,7 @@ public class Thread extends ForumsProcessor implements Pageable {
 		getRequest().setAttribute("paginator", paginator);
 		
 		if (user.getProperty("jiveThreadMode").equals("flat")) {
-			itMessages = thread.getMessages(getResultFilter());
+			itMessages = thread.getMessages(resultFilter);
 			setNextPage("/viewThreadFlat.jsp");	
 		} else if (user.getProperty("jiveThreadMode").equals("threaded")) {
 			itMessages = thread.getTreeWalker().getRecursiveMessages();
@@ -53,50 +63,11 @@ public class Thread extends ForumsProcessor implements Pageable {
 			itMessages = thread.getTreeWalker().getRecursiveMessages();
 			setNextPage("/viewThreadTree.jsp");
 		} else {  // set to default
-			itMessages = thread.getMessages(getResultFilter());
+			itMessages = thread.getMessages(resultFilter);
 			setNextPage("/viewThreadFlat.jsp");	
 		}
 		
 		getRequest().setAttribute("messages", itMessages);
 		setIsNextPageInContext(true);
 	}
-	
-	public int getStart() {
-		if (start == -1) {
-            initPagingFields();
-        }
-        return start;
-	}
-     
-    public int getTotalItemCount() {
-    	if (totalItemCount == -1) {
-            initPagingFields();
-        }
-        return totalItemCount;
-    }
-    
-    public ResultFilter getResultFilter() {
-    	if (resultFilter == null) {
-            initPagingFields();
-        }
-        return resultFilter;
-    }
-    
-    protected void initPagingFields() {
-		if (getRequest().getParameter(ForumConstants.START_IDX) != null) {
-			start = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
-		}
-        resultFilter = ResultFilter.createDefaultMessageFilter();
-        resultFilter.setStartIndex(getStart());
-        int messageRange = 15;
-        if (user != null) {
-            try {
-                messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
-            } catch (Exception ignored) {}
-        }
-        resultFilter.setNumResults(messageRange);
-
-        // Compute the total # of items (messages in this case)
-        totalItemCount = thread.getMessageCount(getResultFilter());
-    }
 }
