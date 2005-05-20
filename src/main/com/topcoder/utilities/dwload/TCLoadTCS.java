@@ -1114,7 +1114,7 @@ public class TCLoadTCS extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'user_rating' table failed for overall rating rank.\n" +
+            throw new Exception("Getting list of ratings failed.\n" +
                     sqle.getMessage());
         } finally {
             close(rs);
