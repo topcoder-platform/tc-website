@@ -48,7 +48,7 @@ Search
 <A href="/" class="rtLinkNew">User Settings</A>
 </div>
 
-
+<div style="clear:both;">
 <span class="bodySubtitle">User Settings</span><br>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
@@ -150,9 +150,10 @@ Search
    </tr>
    </tr>
 </table>
-
 <div align="right">
 <A href="/"><img src="/i/roundTables/save.gif" alt="Save" border="0" /></A>
+</div>
+
 </div>
 
 <p><br></p>
