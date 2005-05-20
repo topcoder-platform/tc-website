@@ -79,9 +79,9 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="50%">Topic</td>
-        <td class="rtHeader" width="30%">Forum</td>
-        <td class="rtHeader" width="20%">Date</td>
+        <td class="rtHeader" width="100%">Topic</td>
+        <td class="rtHeader">Forum</td>
+        <td class="rtHeader">Date</td>
         <td class="rtHeader" align="right">Replies</td>
     </tr>
 	<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
