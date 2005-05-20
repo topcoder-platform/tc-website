@@ -89,10 +89,9 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><A href="/" class="rtbcLink">Post New Thread</A> | View: 
-<select size="1" name="view" id="view01">
-<option value="flat" selected="selected">Flat</option>
-<option value="threaded">Threaded</option>
-<option value="tree">Tree</option>
+<b>Flat</b>&#160;|
+<A href="/" class="rtbcLink">Threaded</A>&#160;|
+<A href="/" class="rtbcLink">Tree</A>&#160;
 </select></tr>
 </table>
 

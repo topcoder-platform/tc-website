@@ -52,6 +52,14 @@
 	<jsp:getProperty name="thread" property="name"/></td>
 </table>
 
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+<tr><A href="/" class="rtbcLink">Post New Thread</A> | View: 
+<A href="/" class="rtbcLink">Flat</A>&#160;|
+<b>Threaded</b>&#160;|
+<A href="/" class="rtbcLink">Tree</A>&#160;
+</select></tr>
+</table>
+
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 <table cellpadding="0" cellspacing="0" width=100%><tr>
 	<%  int depth=thread.getTreeWalker().getMessageDepth(message);
