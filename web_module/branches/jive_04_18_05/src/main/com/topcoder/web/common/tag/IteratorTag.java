@@ -56,22 +56,17 @@ public class IteratorTag extends BodyTagSupport {
             pageContext.setAttribute(getId(), iterator.next());
         }
     }
-    public void setBodyContent(BodyContent bodyContent) {
-        log.debug("setBodyContent() called..");
-        super.setBodyContent(bodyContent);
-    }
 
     public int doAfterBody() throws JspException {
         //log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
-        Object temp = null;
-        if (iterator.hasNext()) {
-            temp = iterator.next();
-            pageContext.setAttribute(getId(), temp);
+        if (iterator!=null&&iterator.hasNext()) {
+            pageContext.setAttribute(getId(), iterator.next());
             //log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
             return EVAL_BODY_TAG;
         } else {
             try {
                 if (bodyContent != null) {
+                    log.debug("previous out: " + getPreviousOut());
                     bodyContent.writeOut(getPreviousOut());
                 }
             } catch (IOException e) {
