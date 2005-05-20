@@ -51,20 +51,46 @@
 <span class="bodySubtitle">Forum Post History</span><br>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc" align="right"><strong>
-[
-1
-<A href="/" class="rtbcLink">2</A>
-<A href="/" class="rtbcLink">3</A>
-<A href="/" class="rtbcLink">4</A>
-<A href="/" class="rtbcLink">5</A>
-]
-&#160;&#160;&#160;<A href="/" class="rtbcLink">NEXT>></A>
-</strong></td></tr>
+<% if (paginator.getNumPages() > 1) { %>
+	<td class="rtbc" align="right" width=20%><b>
+		<%  if (paginator.getPreviousPage()) { %>
+			<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+            	<< PREV</A>&#160;&#160;&#160;
+        <%  } %> [
+        <%  Page[] pages = paginator.getPages(5);
+            for (int i=0; i<pages.length; i++) {
+        %>  <%  if (pages[i] != null) { %>
+        			<%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+        					<span class="rtbcCurrPage"><%= <%= pages[i].getNumber() %></span>
+        			<%  } else { %>
+            				<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+	                		<%= pages[i].getNumber() %></A>
+	                <%  } %>
+            <%  } %>
+        <%  } %> ]
+		<%  if (paginator.getNextPage()) { %>
+			&#160;&#160;&#160;<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT>></A>
+        <%  } %>
+	</b></td></tr>
+<% } %>
 </table>
 
-<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-</tc-webtag:iterator>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+    <tr>
+        <td class="rtHeader" width="40%">Topic</td>
+        <td class="rtHeader" width="40%">Forum</td>
+        <td class="rtHeader" width="20%">Date</td>
+        <td class="rtHeader" align="right">Replies</td>
+    </tr>
+	<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+	<tr>
+      	<td class="rtThreadCellWrap"><A href="" class="rtLinkNew"><jsp:getProperty name="message" property="subject"/></A></td>
+      	<td class="rtThreadCell"><A href="" class="rtLinkNew"><%=message.getForum().getName()%></A></td>
+      	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/></strong></td>
+      	<td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
+    </tr>
+	</tc-webtag:iterator>        
+</table>
 
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
