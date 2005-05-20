@@ -8,7 +8,7 @@
 
 <html>
 <head>
-<title>TopCoder</title>
+<title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
