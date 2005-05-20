@@ -5,8 +5,6 @@ package com.topcoder.web.forums.controller.request;
 
 import java.util.Iterator;
 
-import com.jivesoftware.forum.ResultFilter;
-
 
 /**
  * @author mtong
@@ -15,7 +13,7 @@ public class ForumList extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 		
-		Iterator itForums = forumFactory.getForums(new ResultFilter());
+		Iterator itForums = forumFactory.getForums();
 		getRequest().setAttribute("forums", itForums);
 		
 		setNextPage("/main.jsp");

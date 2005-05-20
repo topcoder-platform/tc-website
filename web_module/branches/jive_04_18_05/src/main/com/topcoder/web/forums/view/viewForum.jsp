@@ -2,6 +2,7 @@
          		 com.topcoder.web.forums.ForumConstants,
          		 com.topcoder.web.forums.model.Paging,
          		 com.jivesoftware.forum.stats.ViewCountManager,
+         		 com.jivesoftware.forum.ResultFilter,
          		 com.jivesoftware.forum.action.util.Page,
          		 com.jivesoftware.forum.action.util.Paginator,
          		 java.util.Iterator,
@@ -95,11 +96,17 @@
 		<%	if (user.getProperty("jiveThreadMode").equals("flat")) { %>
 				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
 		<%	    Paginator threadPaginator;
-				if (user != null) {
-					threadPaginator = new Paginator(new Paging(thread.getMessageCount(), Integer.parseInt(user.getProperty("jiveMessageRange"))));
-				} else {
-					threadPaginator = new Paginator(new Paging(thread.getMessageCount(), 15));
-				}
+				ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
+				resultFilter.setStartIndex(0);
+				int range = 15;
+        		if (user != null) {
+            		try {
+                		range = Integer.parseInt(user.getProperty("jiveMessageRange"));
+            		} catch (Exception ignored) {}
+        		}
+        		resultFilter.setNumResults(range);
+				threadPaginator = new Paginator(new Paging(resultFilter, thread.getMessageCount()));
+
 				if (threadPaginator.getNumPages() > 1) { %> [
 		        <%  pages = threadPaginator.getPages(5);
 		            for (int i=0; i<pages.length; i++) {

@@ -1,17 +1,27 @@
+<%@ page import="com.topcoder.web.common.BaseServlet,
+         		 com.topcoder.web.forums.ForumConstants,
+         		 com.jivesoftware.forum.stats.ViewCountManager"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+<tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
+<tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
+
 <html>
 <head>
 <title>TopCoder</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
-<jsp:include page="../script.jsp" />
+<jsp:include page="script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../top.jsp" >
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -20,7 +30,7 @@
 
 <!-- Left Column Begins-->
 		<td width="180">
-			<jsp:include page="../includes/global_left.jsp">
+			<jsp:include page="includes/global_left.jsp">
 				<jsp:param name="level1" value=""/>
 				<jsp:param name="level2" value=""/>
 			</jsp:include>
@@ -31,15 +41,14 @@
 <!-- Center Column Begins -->
         <td width="100%" class="rtBody">
 
-            <jsp:include page="../page_title.jsp" >
+            <jsp:include page="page_title.jsp" >
                 <jsp:param name="image" value="forums"/>
                 <jsp:param name="title" value="Forum Post History"/>
             </jsp:include>
 
-<span class="bigHandle">Coder:&#160;<A href="/" class="coderTextGreen">mSWAE</A></span>
+<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId="<%=user.getID()%>"/>(<%=forumFactory.getUserMessageCount(user)%>posts)</span>
 <br>
 <span class="bodySubtitle">Forum Post History</span><br>
-
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td class="rtbc" align="right"><strong>
@@ -53,6 +62,10 @@
 &#160;&#160;&#160;<A href="/" class="rtbcLink">NEXT>></A>
 </strong></td></tr>
 </table>
+
+<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+</tc-webtag:iterator>
+
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
                     <td class="rtHeader" width="40%">Topic</td>
@@ -128,7 +141,7 @@
     </tr>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="foot.jsp" />
 
 </body>
 
