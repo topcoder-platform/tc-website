@@ -96,7 +96,6 @@
     </tr>
 	</tc-webtag:iterator>        
 </table>
-            <p>A topic with a <strong>bold title</strong> indicates it either has a new thread or has a thread with new postings.</p>
         </td>
 <!-- Center Column Ends -->
 

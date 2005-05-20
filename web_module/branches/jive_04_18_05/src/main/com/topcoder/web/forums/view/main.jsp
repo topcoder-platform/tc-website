@@ -44,7 +44,7 @@
 
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
-                    <td class="rtHeader" width="80%">Topic</td>
+                    <td class="rtHeader" width="80%">Forum</td>
                     <td class="rtHeader" width="20%">T./M.</td>
                     <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
