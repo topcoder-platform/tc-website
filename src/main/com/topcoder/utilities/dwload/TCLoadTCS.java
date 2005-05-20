@@ -1245,8 +1245,8 @@ public class TCLoadTCS extends TCLoad {
             for (int i = 0; i < list.size(); i++) {
                 cr = (CoderRating) list.get(i);
                 if (cr.getPhaseId() == phaseId) {
-                    if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && cr.isActive() ||
-                            rankTypeId != ACTIVE_RATING_RANK_TYPE_ID)) {
+                    if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && cr.isActive()) ||
+                            rankTypeId != ACTIVE_RATING_RANK_TYPE_ID) {
                         ratings.add(cr);
                     }
                 }
@@ -1339,8 +1339,8 @@ public class TCLoadTCS extends TCLoad {
             for (int i = 0; i < list.size(); i++) {
                 temp = (CoderRating) list.get(i);
                 if (phaseId == temp.getPhaseId() && temp.getSchoolId() > 0) {
-                    if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive() ||
-                        rankTypeId != ACTIVE_RATING_RANK_TYPE_ID)) {
+                    if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive()) ||
+                        rankTypeId != ACTIVE_RATING_RANK_TYPE_ID) {
                         tempId = new Long(temp.getSchoolId());
                         if (schools.containsKey(tempId)) {
                             tempList = (List) schools.get(tempId);
@@ -1441,8 +1441,8 @@ public class TCLoadTCS extends TCLoad {
             for (int i = 0; i < list.size(); i++) {
                 temp = (CoderRating) list.get(i);
                 if (temp.getPhaseId() == phaseId) {
-                    if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive() ||
-                            rankTypeId != ACTIVE_RATING_RANK_TYPE_ID)) {
+                    if ((rankTypeId == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive()) ||
+                            rankTypeId != ACTIVE_RATING_RANK_TYPE_ID) {
                         tempCode = temp.getCountryCode();
                         if (countries.containsKey(tempCode)) {
                             tempList = (List) countries.get(tempCode);
