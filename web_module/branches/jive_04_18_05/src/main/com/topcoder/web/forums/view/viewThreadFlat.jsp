@@ -61,7 +61,7 @@
             for (int i=0; i<pages.length; i++) {
         %>  <%  if (pages[i] != null) { %>
         			<%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-        					<span class="rtbcCurrPage"><%= <%= pages[i].getNumber() %></span>
+        					<span class="rtbcCurrPage"><%= pages[i].getNumber() %></span>
         			<%  } else { %>
             				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">
 	                		<%= pages[i].getNumber() %></A>
