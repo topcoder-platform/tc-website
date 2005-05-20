@@ -38,7 +38,7 @@
         <td width="100%" class="rtBody">
 
             <jsp:include page="page_title.jsp" >
-                <jsp:param name="image" value="round_table"/>
+                <jsp:param name="image" value="forums"/>
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
 
