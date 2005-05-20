@@ -87,39 +87,6 @@ Search
       </td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Time Zone:</strong></td>
-      <td class="rtTextCell100">
-<select size="1" name="objID" id="objID01">
-<option value="" selected="selected">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-<option value="">(GMT-4:00)Eastern Time(US & Canada)</option>
-</select>
-      </td>
-   </tr>
-   <tr>
       <td class="rtHeader" colspan="2">Watch Preferences</td>
    </tr>
    <tr>

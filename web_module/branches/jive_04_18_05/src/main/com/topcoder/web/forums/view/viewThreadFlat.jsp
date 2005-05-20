@@ -53,7 +53,7 @@
    Search
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
    <input value="Search" onclick="" type="submit">
-   &#160;<a href="" class="rtbcLink">Search Tips</a>
+   &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap">
    <A href="/" class="rtbcLink">Watch this Thread</A>&#160;&#160;|&#160;&#160;
