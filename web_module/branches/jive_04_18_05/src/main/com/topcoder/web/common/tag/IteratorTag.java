@@ -70,7 +70,6 @@ public class IteratorTag extends BodyTagSupport {
         } else {
             try {
                 if (bodyContent != null) {
-                    log.debug("body: " + bodyContent.toString());
                     bodyContent.writeOut(getPreviousOut());
                 }
             } catch (IOException e) {
