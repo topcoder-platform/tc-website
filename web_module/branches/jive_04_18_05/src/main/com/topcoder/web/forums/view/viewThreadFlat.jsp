@@ -50,7 +50,7 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td nowrap="nowrap" valign="top">
-   <A href="/" class="rtbcLink">Search: </A>
+   <A href="/" class="rtbcLink">Search:</A>&#160;
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
    <input value="Go" onclick="" type="submit">
    &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
@@ -91,8 +91,8 @@
 <tr><A href="/" class="rtbcLink">Post New Thread</A> | View: 
 <select size="1" name="view" id="view01">
 <option value="flat" selected="selected">Flat</option>
-<option value="threaded">&#160;Threaded</option>
-<option value="tree">&#160;Tree</option>
+<option value="threaded">Threaded</option>
+<option value="tree">Tree</option>
 </select></tr>
 </table>
 
