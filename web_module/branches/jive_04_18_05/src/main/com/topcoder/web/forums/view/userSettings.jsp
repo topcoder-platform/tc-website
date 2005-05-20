@@ -36,6 +36,19 @@
                 <jsp:param name="title" value="User Settings"/>
             </jsp:include>
 
+<div class="topLinksL">
+Search
+<input name="q" size="20" maxlength="100" value="" id="terms" type="text">
+<input value="Search" onclick="" type="submit">
+&#160;<a href="" class="rtLinkNew">Search Tips</a>
+</div>
+<div class="topLinksR">
+<A href="/" class="rtLinkNew">Watch this Thread</A>&#160;&#160;|&#160;&#160;
+<A href="/" class="rtLinkNew">My Watches</A>&#160;&#160;|&#160;&#160;
+<A href="/" class="rtLinkNew">User Settings</A>
+</div>
+
+
 <span class="bodySubtitle">User Settings</span><br>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
