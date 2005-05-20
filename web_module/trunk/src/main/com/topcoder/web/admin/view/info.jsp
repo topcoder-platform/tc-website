@@ -43,6 +43,7 @@
                             <ul>
                                 <li><a href="#software1">How do I do a production move for the www.topcodersoftware.com?</a></li>
                                 <li><a href="#software2">What do I do if I'm getting marshalling errors on ResultSetContainer objects?</a></li>
+                                <li><a href="#software3">How do I build the code for www.topcodersoftware.com?</a></li>
                             </ul>
                         </li>
                         <li>
@@ -50,6 +51,11 @@
                             <ul>
                                 <li><a href="#techass1">How do I do a production move for the www.topcoder.com/techassess/techassess?</a></li>
                                 <li><a href="#techass2">How do I bounce the Technical Assessment tool?</a></li>
+                                <li><a href="#techass3">How do I bounce the Application Server?</a></li>
+                                <li><a href="#techass4">How do I bounce the Procesor?</a></li>
+                                <li><a href="#techass5">How do I bounce the Testers?</a></li>
+                                <li><a href="#techass6">How do I bounce the Compilers?</a></li>
+                                <li><a href="#techass7">How do I bounce the Cache?</a></li>
                             </ul>
                         </li>
                         <li>
@@ -436,21 +442,113 @@
 
                         <li class="tier1"><a name="software"></a>TopCoder Software
                             <ul class="tier2">
-                                <li class="tier2"><a name="software1"></a>How do I do a production move for the www.topcodersoftware.com?</li>
-                                <li class="tier2"><a name="software2"></a>What do I do if I'm getting marshalling errors on ResultSetContainer objects?</li>
+                                <li class="tier2">
+                                    <a name="software1"></a>How do I do a production move for the www.topcodersoftware.com?
+                                    <ol>
+                                        <li>Telnet to 192.168.10.151 and login as apps</li>
+                                        <li><span class="input">cd stage</span></li>
+                                        <li>
+                                            Backup what is currently deployed so that you have a copy in case there is a problem
+                                            <span class="input">cp dde.ear dde.ear.&lt;yyyymmdd&gt;</span>
+                                        </li>
+                                        <li>On the box where you build the code, <span class="input">cd ./build/dist</span></li>
+                                        <li>ftp the dde.ear file to 192.168.10.151 in the ~/stage directory</li>
+                                        <li>On .151 in ~/stage deploy the ear by executing <span class="input">cp dde.ear $JBOSS_HOME/server/default/deploy</span></li>
+                                        <li>Bring down the jboss instance
+                                            <ul>
+                                                <li>
+                                                    <span class="input">/usr/ucb/ps augxww | grep java | jboss.Main</span>
+                                                    locate the correct process id to kill
+                                                </li>
+                                                <li><span class="input">kill -9 &lt;pid&gt;</span> to kill the jboss process</li>
+                                            </ul>
+                                        </li>
+                                        <li>Move to the jboss directory with <span class="input">jbb</span></li>
+                                        <li>Start jboss with <span class="input">./run.sh</span></li>
+                                    </ol>
+                                </li>
+                                <li class="tier2">
+                                    <a name="software2"></a>What do I do if I'm getting marshalling errors on ResultSetContainer objects?
+                                    <p>
+                                        This means that there is a difference between the ResultSetContainer object that the cache has
+                                        and the ResultSetContainer object that the application server has.  In this case, it's likely that the
+                                        application server is out of date, so you'll need to match it up with the cache.
+                                    </p>
+                                    <ol>
+                                        <li>Telnet to 192.168.10.151 as apps</li>
+                                        <li><span class="input">cd $JBOSS_HOME/server/default/lib</span></li>
+                                        <li>
+                                            get the current shared.jar from the cache server by ftping it from
+                                            192.168.12.61 in the ~/web/lib/bin directory
+                                        </li>
+                                        <li>Restart the application server, you can pick out the details <a href="#software1">href</a></li>
+                                    </ol>
+                                </li>
+                                <li class="tier2">
+                                    <a name="software3"></a>How do I build the code for www.topcodesoftware.com?
+                                    <ol>
+                                        <li>
+                                            You'll need the web source tree, I'll assume you can check that out.  Be sure you
+                                            have this in a seperate place so that it's not contaminated with some code you're
+                                            currently working on.  Also, having a seperate spot for this build will mean that
+                                            you can see what code is running in prod at the current time.
+                                        </li>
+                                        <li><span class="input">cd web</span></li>
+                                        <li>
+                                            <span class="input">ant -f move.xml package-software</span> This ant target will
+                                            delete old files, get the latest from cvs, build it so that it can
+                                            be moved to the production server.
+                                        </li>
+
+                                    </ol>
+                                </li>
                             </ul>
                         </li>
                         <li class="tier1"><a name="techass"></a>The Technical Assessment System
+                            <p>
+                                The Technical Assessment System is composed of a number of pieces.  The application server
+                                contains the EJB's that are called by the processor(s).  It also takes care of the front
+                                end jsp/servlet layer.  The processor layer takes care of all the business logic.  It puts
+                                items on testing/compiler queues, makes EJB calls to persist data to the database etc.
+                                There are of course, testers and compilers.  Finally, there is a distributed cache that is
+                                used by both the processor layer and the servlet layer.
+                            </p>
                             <ul class="tier2">
-                                <li class="tier2"><a name="techass1"></a>How do I do a production move for the www.topcoder.com/techassess/techassess?</li>
-                                <li class="tier2"><a name="techass2"></a>How do I bounce the Technical Assessment tool?</li>
+                                <li class="tier2">
+                                    <a name="techass1"></a>How do I do a production move for the www.topcoder.com/techassess/techassess?
+                                </li>
+                                <li class="tier2"><a name="techass2"></a>How do I bounce the Technical Assessment tool?
+                                    <p>To fully bounce the Technical Assessment Tool you have to bounce all of the following</p>
+                                    <ol>
+                                        <li><a href="#techass3">Bounce the Application Server</a></li>
+                                        <li><a href="#techass4">Bounce the Processor</a></li>
+                                        <li><a href="#techass5">Bounce the Testers</a></li>
+                                        <li><a href="#techass6">Bounce the Compilers</a></li>
+                                    </ol>
+                                </li>
+                                <li class="tier2">
+                                    <a name="techass3"></a>How do I bounce the Application Server?
+                                </li>
+                                <li class="tier2">
+                                    <a name="techass4"></a>How do I bounce the Processor?
+                                </li>
+                                <li class="tier2">
+                                    <a name="techass5"></a>How do I bounce the Testers?
+                                </li>
+                                <li class="tier2">
+                                    <a name="techass6"></a>How do I bounce the Compilers?
+                                </li>
+                                <li class="tier2">
+                                    <a name="techass7"></a>How do I bounce the Cache?
+                                </li>
+
                             </ul>
                         </li>
                         <li class="tier1"><a name="email"></a>The Mass Email System
                             <ul class="tier2">
                                 <li class="tier2"><a name="email1"></a>Can I please have some general guidelines?</li>
                                 <li class="tier2"><a name="email2"></a>Why aren't emails going out?</li>
-                                <li class="tier2"><a name="email3"></a>Why does my email not work?</li>
+                                <li class="tier2"><a name="email3"></a>Why does my mass email not work?</li>
                             </ul>
                         </li>
                         <li class="tier1"><a name="misc"></a>Misc.
