@@ -48,7 +48,7 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Round Tables</A> >>
+<tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
 	<jsp:getProperty name="thread" property="name"/></td>
 <% if (paginator.getNumPages() > 1) { %>
@@ -100,7 +100,7 @@
 </tc-webtag:iterator>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Round Tables</A> >>
+<tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
 	<jsp:getProperty name="thread" property="name"/></td>
 <% if (paginator.getNumPages() > 1) { %>

@@ -54,7 +54,7 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Round Tables</A> >>
+<tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>
 	<jsp:getProperty name="forum" property="name"/></td>
 <% Page[] pages; %>
 <% if (paginator.getNumPages() > 1) { %>
