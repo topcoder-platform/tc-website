@@ -33,9 +33,11 @@ public class TCLoadRank extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadRank.class);
     private static final int OVERALL_RATING_RANK_TYPE_ID = 1;
     private static final int ACTIVE_RATING_RANK_TYPE_ID = 2;
+/*
     private static final int SRM_ROUND_TYPE = 1;
     private static final int TOURNAMENT_ROUND_TYPE = 2;
     private static final int AVERAGE_RATING_RANK_TYPE_ID = 1;
+*/
 
     /**
      * Constructor. Set our usage message here.
@@ -58,7 +60,6 @@ public class TCLoadRank extends TCLoad {
             Boolean tmpBool;
             roundId = retrieveIntParam("roundid", params, false, true).intValue();
 
-            //TODO get the rank type constants from xml
             tmpBool = retrieveBooleanParam("fullload", params, true);
             if (tmpBool != null) {
                 FULL_LOAD = tmpBool.booleanValue();
@@ -80,20 +81,23 @@ public class TCLoadRank extends TCLoad {
         log.debug("performLoad called...");
         try {
 
-            loadRatingRank(OVERALL_RATING_RANK_TYPE_ID);
+            long start = System.currentTimeMillis();
+            List l = getCurrentRatings();
+            log.info("got " + l.size() + " records in " + (System.currentTimeMillis()-start) + " milliseconds");
+            loadRatingRank(OVERALL_RATING_RANK_TYPE_ID, l);
 
-            loadOverallRatingRankHistory();
+            loadOverallRatingRankHistory(l);
 
-            loadRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
+            loadRatingRank(ACTIVE_RATING_RANK_TYPE_ID, l);
 
 
-            loadCountryRatingRank(OVERALL_RATING_RANK_TYPE_ID);
-            loadStateRatingRank(OVERALL_RATING_RANK_TYPE_ID);
-            loadSchoolRatingRank(OVERALL_RATING_RANK_TYPE_ID);
+            loadCountryRatingRank(OVERALL_RATING_RANK_TYPE_ID, l);
+            loadStateRatingRank(OVERALL_RATING_RANK_TYPE_ID, l);
+            loadSchoolRatingRank(OVERALL_RATING_RANK_TYPE_ID, l);
 
-            loadCountryRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
-            loadStateRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
-            loadSchoolRatingRank(ACTIVE_RATING_RANK_TYPE_ID);
+            loadCountryRatingRank(ACTIVE_RATING_RANK_TYPE_ID, l);
+            loadStateRatingRank(ACTIVE_RATING_RANK_TYPE_ID, l);
+            loadSchoolRatingRank(ACTIVE_RATING_RANK_TYPE_ID, l);
 //            loadAgeGroupAvgRatingRank();
 
 
@@ -109,7 +113,7 @@ public class TCLoadRank extends TCLoad {
      * Loads the coder_rank table with information about
      * overall rating rank.
      */
-    private void loadRatingRank(int rankType) throws Exception {
+    private void loadRatingRank(int rankType, List list) throws Exception {
         log.debug("loadRatingRank called...");
         StringBuffer query = null;
         PreparedStatement psDel = null;
@@ -118,7 +122,6 @@ public class TCLoadRank extends TCLoad {
         ResultSet rs = null;
         int count = 0;
         int coderCount = 0;
-        List ratings = null;
 
         try {
 
@@ -137,7 +140,18 @@ public class TCLoadRank extends TCLoad {
             /* coder_rank table should be kept "up-to-date" so get the most recent stuff
              * from the rating table
              */
-            ratings = getCurrentCoderRatings(rankType == ACTIVE_RATING_RANK_TYPE_ID);
+            //ratings = getCurrentCoderRatings(rankType == ACTIVE_RATING_RANK_TYPE_ID);
+
+            ArrayList ratings = new ArrayList(list.size());
+            CoderRating cr = null;
+            for (int i = 0; i < list.size(); i++) {
+                cr = (CoderRating) list.get(i);
+                    if ((rankType == ACTIVE_RATING_RANK_TYPE_ID && cr.isActive()) ||
+                            rankType != ACTIVE_RATING_RANK_TYPE_ID) {
+                        ratings.add(cr);
+                    }
+            }
+            Collections.sort(ratings);
             coderCount = ratings.size();
 
             // delete all the records for the overall rating rank type
@@ -148,7 +162,7 @@ public class TCLoadRank extends TCLoad {
             int rank = 0;
             int size = ratings.size();
             int tempRating = 0;
-            int tempCoderId = 0;
+            long tempCoderId = 0;
             for (int j = 0; j < size; j++) {
                 i++;
                 tempRating = ((CoderRating) ratings.get(j)).getRating();
@@ -157,7 +171,7 @@ public class TCLoadRank extends TCLoad {
                     rating = tempRating;
                     rank = i;
                 }
-                psIns.setInt(1, tempCoderId);
+                psIns.setLong(1, tempCoderId);
                 psIns.setFloat(2, (float) 100 * ((float) (coderCount - rank) / coderCount));
                 psIns.setInt(3, rank);
                 count += psIns.executeUpdate();
@@ -182,7 +196,7 @@ public class TCLoadRank extends TCLoad {
      * Loads the coder_rank_history table with information about
      * overall rating rank.
      */
-    private void loadOverallRatingRankHistory() throws Exception {
+    private void loadOverallRatingRankHistory(List list) throws Exception {
         log.debug("loadOverallRatingRankHistory called...");
         StringBuffer query = null;
         PreparedStatement psDel = null;
@@ -216,7 +230,7 @@ public class TCLoadRank extends TCLoad {
              * of the given round
              */
             if (roundId == getMostRecentRound()) {
-                ratings = getCurrentCoderRatings(false);
+                ratings = list;
             } else {
                 ratings = getCoderRatingsForRound();
             }
@@ -230,7 +244,7 @@ public class TCLoadRank extends TCLoad {
             int rank = 0;
             int size = ratings.size();
             int tempRating = 0;
-            int tempCoderId = 0;
+            long tempCoderId = 0;
             for (int j = 0; j < size; j++) {
                 i++;
                 tempRating = ((CoderRating) ratings.get(j)).getRating();
@@ -239,7 +253,7 @@ public class TCLoadRank extends TCLoad {
                     rating = tempRating;
                     rank = i;
                 }
-                psIns.setInt(1, tempCoderId);
+                psIns.setLong(1, tempCoderId);
                 psIns.setInt(2, roundId);
                 psIns.setFloat(3, (float) 100 * ((float) (coderCount - rank) / coderCount));
                 psIns.setInt(4, rank);
@@ -266,16 +280,17 @@ public class TCLoadRank extends TCLoad {
      * Loads the country_coder_rank table with information about
      * rating rank within a country.
      */
-    private void loadCountryRatingRank(int rankType) throws Exception {
+    private void loadCountryRatingRank(int rankType, List list) throws Exception {
         log.debug("loadCountryRatingRank called...");
         StringBuffer query = null;
         PreparedStatement psDel = null;
-        PreparedStatement psSel = null;
+        //PreparedStatement psSel = null;
         PreparedStatement psIns = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         int count = 0;
         int coderCount = 0;
         List ratings = null;
+        CoderRating curr = null;
 
         try {
 
@@ -291,27 +306,36 @@ public class TCLoadRank extends TCLoad {
             query.append(" VALUES (?, ?, ?, ?, ?, ?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            query = new StringBuffer(100);
-            query.append(" SELECT distinct c.comp_country_code");
-            query.append(" FROM coder c");
-            query.append(" , rating r");
-            if (rankType == ACTIVE_RATING_RANK_TYPE_ID)
-                query.append(" , active_members a");
-            query.append(" WHERE c.status = 'A'");
-            query.append(" AND r.rating > 0");
-            query.append(" AND c.coder_id = r.coder_id");
-            if (rankType == ACTIVE_RATING_RANK_TYPE_ID)
-                query.append(" AND a.coder_id = c.coder_id");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-
             // delete all the records from the country ranking table
             psDel.executeUpdate();
 
-            rs = psSel.executeQuery();
-            String countryCode = null;
-            while (rs.next()) {
-                countryCode = rs.getString("comp_country_code");
-                ratings = getCurrentCoderCountryRatings(countryCode, rankType == ACTIVE_RATING_RANK_TYPE_ID);
+
+            HashMap countries = new HashMap();
+            String tempCode = null;
+            List tempList = null;
+            CoderRating temp = null;
+
+            for (int i = 0; i < list.size(); i++) {
+                temp = (CoderRating) list.get(i);
+                    if ((rankType == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive()) ||
+                            rankType != ACTIVE_RATING_RANK_TYPE_ID) {
+                        tempCode = temp.getCountryCode();
+                        if (countries.containsKey(tempCode)) {
+                            tempList = (List) countries.get(tempCode);
+                        } else {
+                            tempList = new ArrayList(100);
+                        }
+                        tempList.add(list.get(i));
+                        countries.put(tempCode, tempList);
+                        tempList = null;
+                    }
+            }
+
+
+
+            for (Iterator it = countries.entrySet().iterator(); it.hasNext();) {
+                ratings = (List) ((Map.Entry) it.next()).getValue();
+                Collections.sort(ratings);
                 coderCount = ratings.size();
 
                 int i = 0;
@@ -319,20 +343,21 @@ public class TCLoadRank extends TCLoad {
                 int rank = 0;
                 int size = ratings.size();
                 int tempRating = 0;
-                int tempCoderId = 0;
+                long tempCoderId = 0;
                 for (int j = 0; j < size; j++) {
                     i++;
                     tempRating = ((CoderRating) ratings.get(j)).getRating();
                     tempCoderId = ((CoderRating) ratings.get(j)).getCoderId();
+                    curr = (CoderRating) ratings.get(j);
                     if (tempRating != rating) {
                         rating = tempRating;
                         rank = i;
                     }
-                    psIns.setInt(1, tempCoderId);
+                    psIns.setLong(1, tempCoderId);
                     psIns.setFloat(2, (float) 100 * ((float) (coderCount - rank) / coderCount));
                     psIns.setInt(3, rank);
                     psIns.setInt(4, j + 1);
-                    psIns.setString(5, countryCode);
+                    psIns.setString(5, curr.getCountryCode());
                     psIns.setInt(6, rankType);
                     count += psIns.executeUpdate();
                     printLoadProgress(count, "country coder rating rank");
@@ -342,11 +367,9 @@ public class TCLoadRank extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'country_coder_rank' table failed for country coder rating rank.\n" +
+            throw new Exception("Load of 'country_coder_rank' table failed for " + curr.toString() + ".\n" +
                     sqle.getMessage());
         } finally {
-            close(rs);
-            close(psSel);
             close(psIns);
             close(psDel);
         }
@@ -358,16 +381,17 @@ public class TCLoadRank extends TCLoad {
      * Loads the state_coder_rank table with information about
      * rating rank within a state.
      */
-    private void loadStateRatingRank(int rankType) throws Exception {
+    private void loadStateRatingRank(int rankType, List list) throws Exception {
         log.debug("loadStateRatingRank called...");
         StringBuffer query = null;
         PreparedStatement psDel = null;
-        PreparedStatement psSel = null;
+        //PreparedStatement psSel = null;
         PreparedStatement psIns = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         int count = 0;
         int coderCount = 0;
         List ratings = null;
+        CoderRating curr = null;
 
         try {
 
@@ -383,27 +407,40 @@ public class TCLoadRank extends TCLoad {
             query.append(" VALUES (?, ?, ?, ?, ?, ?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            query = new StringBuffer(100);
-            query.append(" SELECT distinct c.state_code");
-            query.append(" FROM coder c");
-            query.append(" , rating r");
-            if (rankType == ACTIVE_RATING_RANK_TYPE_ID)
-                query.append(" , active_members a");
-            query.append(" WHERE c.status = 'A'");
-            query.append(" AND r.rating > 0");
-            query.append(" AND c.coder_id = r.coder_id");
-            if (rankType == ACTIVE_RATING_RANK_TYPE_ID)
-                query.append(" AND a.coder_id = c.coder_id");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             // delete all the records from the country ranking table
             psDel.executeUpdate();
 
-            rs = psSel.executeQuery();
-            String stateCode = null;
-            while (rs.next()) {
-                stateCode = rs.getString("state_code");
-                ratings = getCurrentCoderStateRatings(stateCode, rankType == ACTIVE_RATING_RANK_TYPE_ID);
+
+
+            HashMap states = new HashMap();
+            String tempCode = null;
+            List tempList = null;
+            CoderRating temp = null;
+
+            for (int i = 0; i < list.size(); i++) {
+                temp = (CoderRating) list.get(i);
+                    if ((rankType == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive()) ||
+                            rankType != ACTIVE_RATING_RANK_TYPE_ID) {
+                        tempCode = temp.getStateCode();
+                        if (tempCode!=null && !tempCode.trim().equals("")) {
+                            if (states.containsKey(tempCode)) {
+                                tempList = (List) states.get(tempCode);
+                            } else {
+                                tempList = new ArrayList(100);
+                            }
+                            tempList.add(list.get(i));
+                            states.put(tempCode, tempList);
+                            tempList = null;
+                        }
+                    }
+            }
+
+
+
+            for (Iterator it = states.entrySet().iterator(); it.hasNext();) {
+                ratings = (List) ((Map.Entry) it.next()).getValue();
+                Collections.sort(ratings);
                 coderCount = ratings.size();
 
                 int i = 0;
@@ -411,20 +448,21 @@ public class TCLoadRank extends TCLoad {
                 int rank = 0;
                 int size = ratings.size();
                 int tempRating = 0;
-                int tempCoderId = 0;
+                long tempCoderId = 0;
                 for (int j = 0; j < size; j++) {
                     i++;
                     tempRating = ((CoderRating) ratings.get(j)).getRating();
                     tempCoderId = ((CoderRating) ratings.get(j)).getCoderId();
+                    curr = ((CoderRating) ratings.get(j));
                     if (tempRating != rating) {
                         rating = tempRating;
                         rank = i;
                     }
-                    psIns.setInt(1, tempCoderId);
+                    psIns.setLong(1, tempCoderId);
                     psIns.setFloat(2, (float) 100 * ((float) (coderCount - rank) / coderCount));
                     psIns.setInt(3, rank);
                     psIns.setInt(4, j + 1);
-                    psIns.setString(5, stateCode);
+                    psIns.setString(5, curr.getStateCode());
                     psIns.setInt(6, rankType);
                     count += psIns.executeUpdate();
                     printLoadProgress(count, "state coder rating rank");
@@ -434,11 +472,13 @@ public class TCLoadRank extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'state_coder_rank' table failed for state coder rating rank.\n" +
+            throw new Exception("Load of 'state_coder_rank' table failed for state coder rating rank for " + curr.toString() + ".\n" +
                     sqle.getMessage());
         } finally {
+/*
             close(rs);
             close(psSel);
+*/
             close(psIns);
             close(psDel);
         }
@@ -450,16 +490,17 @@ public class TCLoadRank extends TCLoad {
      * Loads the school_coder_rank table with information about
      * rating rank within a school.
      */
-    private void loadSchoolRatingRank(int rankType) throws Exception {
+    private void loadSchoolRatingRank(int rankType, List list) throws Exception {
         log.debug("loadSchoolRatingRank called...");
         StringBuffer query = null;
         PreparedStatement psDel = null;
-        PreparedStatement psSel = null;
+        //PreparedStatement psSel = null;
         PreparedStatement psIns = null;
-        ResultSet rs = null;
+        //ResultSet rs = null;
         int count = 0;
         int coderCount = 0;
         List ratings = null;
+        CoderRating curr = null;
 
         try {
 
@@ -475,31 +516,38 @@ public class TCLoadRank extends TCLoad {
             query.append(" VALUES (?, ?, ?, ?, ?, ?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            query = new StringBuffer(100);
-            query.append(" SELECT distinct s.school_id");
-            query.append(" FROM coder c");
-            query.append(" , rating r");
-            if (rankType == ACTIVE_RATING_RANK_TYPE_ID)
-                query.append(" , active_members a");
-            query.append(" , current_school cs");
-            query.append(" , school s");
-            query.append(" WHERE c.status = 'A'");
-            query.append(" AND r.rating > 0");
-            query.append(" and cs.coder_id = c.coder_id");
-            query.append(" and cs.school_id = s.school_id");
-            query.append(" AND c.coder_id = r.coder_id");
-            if (rankType == ACTIVE_RATING_RANK_TYPE_ID)
-                query.append(" AND a.coder_id = c.coder_id");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             // delete all the records from the country ranking table
             psDel.executeUpdate();
 
-            rs = psSel.executeQuery();
-            long schoolId = 0;
-            while (rs.next()) {
-                schoolId = rs.getLong("school_id");
-                ratings = getCurrentCoderSchoolRatings(schoolId, rankType == ACTIVE_RATING_RANK_TYPE_ID);
+
+
+            HashMap schools = new HashMap();
+            Long tempId = null;
+            List tempList = null;
+            CoderRating temp = null;
+
+            for (int i = 0; i < list.size(); i++) {
+                temp = (CoderRating) list.get(i);
+                    if ((rankType == ACTIVE_RATING_RANK_TYPE_ID && temp.isActive()) ||
+                        rankType != ACTIVE_RATING_RANK_TYPE_ID) {
+                        if (temp.getSchoolId()>0) {
+                            tempId = new Long(temp.getSchoolId());
+                            if (schools.containsKey(tempId)) {
+                                tempList = (List) schools.get(tempId);
+                            } else {
+                                tempList = new ArrayList(10);
+                            }
+                            tempList.add(list.get(i));
+                            schools.put(tempId, tempList);
+                            tempList = null;
+                        }
+                    }
+            }
+
+            for (Iterator it = schools.entrySet().iterator(); it.hasNext();) {
+                ratings = (List) ((Map.Entry) it.next()).getValue();
+                Collections.sort(ratings);
                 coderCount = ratings.size();
 
                 int i = 0;
@@ -507,20 +555,21 @@ public class TCLoadRank extends TCLoad {
                 int rank = 0;
                 int size = ratings.size();
                 int tempRating = 0;
-                int tempCoderId = 0;
+                long tempCoderId = 0;
                 for (int j = 0; j < size; j++) {
                     i++;
                     tempRating = ((CoderRating) ratings.get(j)).getRating();
                     tempCoderId = ((CoderRating) ratings.get(j)).getCoderId();
+                    curr = (CoderRating) ratings.get(j);
                     if (tempRating != rating) {
                         rating = tempRating;
                         rank = i;
                     }
-                    psIns.setInt(1, tempCoderId);
+                    psIns.setLong(1, tempCoderId);
                     psIns.setFloat(2, (float) 100 * ((float) (coderCount - rank) / coderCount));
                     psIns.setInt(3, rank);
                     psIns.setInt(4, j + 1);
-                    psIns.setLong(5, schoolId);
+                    psIns.setLong(5, curr.getSchoolId());
                     psIns.setInt(6, rankType);
                     count += psIns.executeUpdate();
                     printLoadProgress(count, "school coder rating rank");
@@ -530,11 +579,13 @@ public class TCLoadRank extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'school_coder_rank' table failed for school coder rating rank.\n" +
+            throw new Exception("Load of 'school_coder_rank' table failed for " + curr.toString() + ".\n" +
                     sqle.getMessage());
         } finally {
+/*
             close(rs);
             close(psSel);
+*/
             close(psIns);
             close(psDel);
         }
@@ -543,181 +594,49 @@ public class TCLoadRank extends TCLoad {
 
 
 
-    /**
-     * Loads the school_rank table with information about
-     * average rating
-     */
-/*
-    private void loadSchoolAvgRatingRank() throws Exception {
-        log.debug("loadSchoolAvgRatingRank called...");
+    private List getCurrentRatings() throws Exception {
         StringBuffer query = null;
-        PreparedStatement psDel = null;
         PreparedStatement psSel = null;
-        PreparedStatement psIns = null;
         ResultSet rs = null;
-        int count = 0;
-        int schoolCount = 0;
-        List ratings = null;
+        List ret = null;
+
         try {
-            query = new StringBuffer(100);
-            query.append( " DELETE");
-            query.append(   " FROM school_rank");
-            query.append(  " WHERE schook_rank_type_id = " + AVERAGE_RATING_RANK_TYPE_ID);
-            psDel = prepareStatement(query.toString(), TARGET_DB);
 
-            query = new StringBuffer(100);
-            query.append( " INSERT");
-            query.append(   " INTO school_rank (school_id, percentile, rank, school_rank_type_id)");
-            query.append( " VALUES (?, ?, ?, " + AVERAGE_RATING_RANK_TYPE_ID);
-            psIns = prepareStatement(query.toString(), TARGET_DB);
+            query = new StringBuffer(200);
+            query.append(" select r.coder_id");
+            query.append(" , r.rating");
+            query.append(" , cs.school_id");
+            query.append(" , c.coder_type_id");
+            query.append(" , c.country_code");
+            query.append(" , c.state_code");
+            query.append(" , case when exists (select '1' from active_members a where a.coder_id = c.coder_id) then 1 else 0 end as active");
+            query.append(" from rating r");
+            query.append(" , outer current_school cs");
+            query.append(" , coder c");
+            query.append(" where r.coder_id = cs.coder_id");
+            query.append(" and r.coder_id = c.coder_id");
+            query.append(" and c.status = 'A'");
+            query.append(" and r.num_ratings > 0");
 
-            psDel.executeUpdate();
+            psSel = prepareStatement(query.toString(), TARGET_DB);
 
-            ratings = getCurrentSchoolAvgRatings();
-
-            int i=0;
-            float rating = 0;
-            int rank = 0;
-            int size = ratings.size();
-            float tempRating = 0;
-            int tempSchoolId = 0;
-            for (int j=0; j<size; j++) {
-                i++;
-                tempRating = ((SchoolAvgRating)ratings.get(j)).getRating();
-                tempSchoolId = ((SchoolAvgRating)ratings.get(j)).getSchoolId();
-                if (tempRating != rating) {
-                    rating = tempRating;
-                    rank = i;
+            rs = psSel.executeQuery();
+            ret = new ArrayList();
+            while (rs.next()) {
+                //pros
+                if (rs.getInt("coder_type_id") == 2) {
+                    ret.add(new CoderRating(rs.getLong("coder_id"), rs.getInt("rating"),
+                        0, rs.getInt("active")==1, rs.getString("country_code"), rs.getString("state_code")));
+                } else {
+                    ret.add(new CoderRating(rs.getLong("coder_id"), rs.getInt("rating"),
+                        rs.getInt("school_id"), rs.getInt("active")==1, rs.getString("country_code"), rs.getString("state_code")));
                 }
-                psIns.setInt(1, tempSchoolId);
-                psIns.setFloat(2, (float)100*((float)(schoolCount-rank)/schoolCount));
-                psIns.setInt(3, rank);
-                count += psIns.executeUpdate();
-                printLoadProgress(count, "school average rating rank");
             }
-            log.info("Records loaded for school average rating rank: " + count);
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of school_rank table failed for average rating rank.\n" +
-                sqle.getMessage());
-        } finally {
-            close(rs);
-            close(psSel);
-            close(psIns);
-            close(psDel);
-        }
-    }
-*/
 
-
-    /******* utility methods ********/
-
-
-    /**
-     * Get a sorted list (by avg. rating desc) of all the schools
-     * with rated members.
-     * @return List containing SchoolAvgRating objects
-     * @throws Exception if something goes wrong when querying
-     */
-/*
-    private List getCurrentSchoolAvgRatings() throws Exception {
-        log.debug("getCurrentSchoolAvgRatings called...");
-        StringBuffer query = null;
-        PreparedStatement psSel = null;
-        ResultSet rs = null;
-        List ret = null;
-
-        try {
-            query.append( " SELECT school_id ");
-            query.append(        " ,CASE WHEN rated_count=0 THEN 0 ELSE sum_rating/rated_count END AS avg_rating ");
-            query.append(   " FROM TABLE(MULTISET(");
-            query.append(          " SELECT sc.school_id");
-            query.append(                 " ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count");
-            query.append(                 " ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating");
-            query.append(            " FROM user u");
-            query.append(                 " ,coder c");
-            query.append(                 " ,current_school cs");
-            query.append(                 " ,rating cr");
-            query.append(                 " ,state s");
-            query.append(                 " ,school sc");
-            query.append(                 " ,region_state rs");
-            query.append(                 " ,region r");
-            query.append(           " WHERE u.user_id = c.coder_id");
-            query.append(           " AND cr.coder_id = c.coder_id");
-            query.append(           " AND cs.coder_id = c.coder_id");
-            query.append(           " AND cs.school_id = sc.school_id");
-            query.append(           " AND sc.state_code = s.state_code");
-            query.append(           " AND s.state_code = rs.state_code");
-            query.append(           " AND rs.region_code = r.region_code");
-            query.append(           " AND rs.user_type_id = 1");
-            query.append(           " AND u.status = 'A'");
-            query.append(           " AND email NOT LIKE '%topcoder.com%'");
-            query.append(           " AND u.user_id NOT IN (SELECT user_id");
-            query.append(                                   " FROM group_user");
-            query.append(                                  " WHERE group_id = 13)");
-            query.append(                                  " GROUP BY sc.school_id))");
-            query.append(  " WHERE rated_count > 0");
-            query.append(  " ORDER BY 2 DESC");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-
-            rs = psSel.executeQuery();
-            ret = new ArrayList();
-            while (rs.next()) {
-                ret.add(new SchoolAvgRating(rs.getInt("school_id"), rs.getFloat("avg_rating")));
-            }
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of school_rank table failed for average rating rank.\n" +
-                sqle.getMessage());
-        } finally {
-            close(rs);
-            close(psSel);
-        }
-        return ret;
-    }
-*/
-
-
-    /**
-     * Get a sorted list (by rating desc) of all the active coders
-     * and their ratings.
-     * @return List containing CoderRating objects
-     * @throws Exception if something goes wrong when querying
-     */
-    private List getCurrentCoderRatings(boolean activeOnly) throws Exception {
-        log.debug("getCurrentCoderRatings called...");
-        StringBuffer query = null;
-        PreparedStatement psSel = null;
-        ResultSet rs = null;
-        List ret = null;
-
-        try {
-
-            query = new StringBuffer(100);
-            query.append(" SELECT c.coder_id");
-            query.append(" ,r.rating");
-            query.append(" FROM coder c");
-            query.append(" ,rating r");
-            if (activeOnly)
-                query.append(" ,  active_members a");
-            query.append(" WHERE c.status = 'A'");
-            query.append(" AND r.rating > 0");
-            query.append(" AND c.coder_id = r.coder_id");
-            if (activeOnly)
-                query.append(" AND a.coder_id = c.coder_id");
-            query.append(" ORDER BY r.rating DESC");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-
-            rs = psSel.executeQuery();
-            ret = new ArrayList();
-            while (rs.next()) {
-                ret.add(new CoderRating(rs.getInt("coder_id"), rs.getInt("rating")));
-            }
-
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'coder_rank' table failed for overall rating rank.\n" +
+            throw new Exception("Get list of current ratings failed.\n" +
                     sqle.getMessage());
         } finally {
             close(rs);
@@ -728,143 +647,9 @@ public class TCLoadRank extends TCLoad {
     }
 
 
-    /**
-     * Get a sorted list (by rating desc) of all the active coders
-     * and their ratings from a particular country
-     * @return List containing CoderRating objects
-     * @throws Exception if something goes wrong when querying
-     */
-    private List getCurrentCoderCountryRatings(String countryCode, boolean activeOnly) throws Exception {
-        log.debug("getCurrentCoderCountryRatings called...");
-        StringBuffer query = null;
-        PreparedStatement psSel = null;
-        ResultSet rs = null;
-        List ret = null;
-
-        try {
-
-            query = new StringBuffer(100);
-            query.append(" SELECT c.coder_id");
-            query.append(" ,r.rating");
-            query.append(" FROM coder c");
-            query.append(" ,rating r");
-            if (activeOnly)
-                query.append(" ,active_members a");
-            query.append(" WHERE c.status = 'A'");
-            query.append(" AND r.rating > 0");
-            query.append(" AND c.coder_id = r.coder_id");
-            if (activeOnly)
-                query.append(" AND a.coder_id = c.coder_id");
-            query.append(" AND c.comp_country_code = ?");
-            query.append(" ORDER BY r.rating DESC");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-            psSel.setString(1, countryCode);
-
-            rs = psSel.executeQuery();
-            ret = new ArrayList();
-            while (rs.next()) {
-                ret.add(new CoderRating(rs.getInt("coder_id"), rs.getInt("rating")));
-            }
-
-        } finally {
-            close(rs);
-            close(psSel);
-        }
-        return ret;
-
-    }
 
 
-    /**
-     * Get a sorted list (by rating desc) of all the active coders
-     * and their ratings from a particular state
-     * @return List containing CoderRating objects
-     * @throws Exception if something goes wrong when querying
-     */
-    private List getCurrentCoderStateRatings(String stateCode, boolean activeOnly) throws Exception {
-        log.debug("getCurrentCoderStateRatings called...");
-        StringBuffer query = null;
-        PreparedStatement psSel = null;
-        ResultSet rs = null;
-        List ret = null;
 
-        try {
-
-            query = new StringBuffer(100);
-            query.append(" SELECT c.coder_id");
-            query.append(" ,r.rating");
-            query.append(" FROM coder c");
-            query.append(" ,rating r");
-            if (activeOnly)
-                query.append(" ,active_members a");
-            query.append(" WHERE c.status = 'A'");
-            query.append(" AND r.rating > 0");
-            query.append(" AND c.coder_id = r.coder_id");
-            if (activeOnly)
-                query.append(" AND a.coder_id = c.coder_id");
-            query.append(" AND c.state_code = ?");
-            query.append(" ORDER BY r.rating DESC");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-            psSel.setString(1, stateCode);
-
-            rs = psSel.executeQuery();
-            ret = new ArrayList();
-            while (rs.next()) {
-                ret.add(new CoderRating(rs.getInt("coder_id"), rs.getInt("rating")));
-            }
-
-        } finally {
-            close(rs);
-            close(psSel);
-        }
-        return ret;
-
-    }
-
-
-    private List getCurrentCoderSchoolRatings(long schoolId, boolean activeOnly) throws Exception {
-        log.debug("getCurrentCoderSchoolRatings called...");
-        StringBuffer query = null;
-        PreparedStatement psSel = null;
-        ResultSet rs = null;
-        List ret = null;
-
-        try {
-
-            query = new StringBuffer(100);
-            query.append(" SELECT c.coder_id");
-            query.append(" ,r.rating");
-            query.append(" FROM coder c");
-            query.append(" , rating r");
-            if (activeOnly)
-                query.append(" , active_members a");
-            query.append(" , current_school cs");
-            query.append(" , school s");
-            query.append(" WHERE c.status = 'A'");
-            query.append(" AND r.rating > 0");
-            query.append(" and cs.coder_id = c.coder_id");
-            query.append(" and cs.school_id = s.school_id");
-            query.append(" AND c.coder_id = r.coder_id");
-            query.append(" AND cs.school_id = ?");
-            if (activeOnly)
-                query.append(" AND a.coder_id = c.coder_id");
-            query.append(" ORDER BY r.rating DESC");
-            psSel = prepareStatement(query.toString(), SOURCE_DB);
-            psSel.setLong(1, schoolId);
-
-            rs = psSel.executeQuery();
-            ret = new ArrayList();
-            while (rs.next()) {
-                ret.add(new CoderRating(rs.getInt("coder_id"), rs.getInt("rating")));
-            }
-
-        } finally {
-            close(rs);
-            close(psSel);
-        }
-        return ret;
-
-    }
 
 
     /**
@@ -874,112 +659,28 @@ public class TCLoadRank extends TCLoad {
      * @throws Exception if something goes wrong when querying
      */
     private List getCoderRatingsForRound() throws Exception {
-        //todo switch this to use rating history
         log.debug("getCoderRatingsForRound called...");
         PreparedStatement ps = null;
         StringBuffer query = null;
         ResultSet rs = null;
         List ret = null;
-        List rounds = null;
-        long startTime = System.currentTimeMillis();
 
         try {
             query = new StringBuffer(100);
-            query.append(" SELECT round_id");
-            query.append(" ,calendar_id");
-            query.append(" FROM round");
-            query.append(" WHERE calendar_id <= (SELECT calendar_id");
-            query.append(" FROM round");
-            query.append(" WHERE round_id = ?)");
-            query.append(" AND round_type_id in (?,?)");
-            query.append(" ORDER BY calendar_id");
+            query.append(" select rh.rating, rh.coder_id");
+            query.append(" from rating_history rh");
+            query.append(" where rh.round_id = ?");
+            query.append(" order by rh.rating desc");
             ps = prepareStatement(query.toString(), SOURCE_DB);
             ps.setInt(1, roundId);
-            ps.setInt(2, SRM_ROUND_TYPE);
-            ps.setInt(3, TOURNAMENT_ROUND_TYPE);
             rs = ps.executeQuery();
-            rounds = new ArrayList();
+            ret = new ArrayList(15000);
             while (rs.next()) {
-                rounds.add(new Integer(rs.getInt("round_id")));
-            }
-
-            close(rs);
-
-            query = new StringBuffer(100);
-            query.append(" SELECT rr.coder_id");
-            query.append("  ,rr.new_rating");
-            query.append(" FROM room_result rr");
-            query.append(" ,coder c");
-            query.append(" WHERE rr.round_id = ?");
-            query.append(" AND rr.attended = 'Y'");
-            query.append(" AND rr.coder_id = c.coder_id");
-            query.append(" AND c.status = 'A'");
-            ps = prepareStatement(query.toString(), SOURCE_DB);
-
-            HashMap tempHash = new HashMap();
-            for (int i = 0; i < rounds.size(); i++) {
-                ps.setInt(1, ((Integer) rounds.get(i)).intValue());
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    tempHash.put(new Integer(rs.getInt("coder_id")), new Integer(rs.getInt("new_rating")));
-                }
-                close(rs);
-            }
-            ret = new ArrayList(tempHash.size());
-            Iterator it = tempHash.entrySet().iterator();
-            Map.Entry entry = null;
-            while (it.hasNext()) {
-                entry = (Map.Entry) it.next();
-                int coderId = ((Integer) entry.getKey()).intValue();
-                int rating = ((Integer) entry.getValue()).intValue();
-                ret.add(new CoderRating(coderId, rating));
-            }
-
-            Collections.sort(ret);
-
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Getting most recent round failed.\n" +
-                    sqle.getMessage());
-        } finally {
-            close(rs);
-            close(ps);
-        }
-        long endTime = System.currentTimeMillis();
-        log.info("TIME IN METHOD: " + (endTime - startTime) + " milliseconds");
-        return ret;
-    }
-
-
-    /**
-     * Gets the number of active coders that have a rating.
-     * @return the number of active rated coders.
-     * @throws Exception
-     */
-/*
-    private int getActiveRatedCoderCount() throws Exception {
-        log.debug("getActiveRatedCoderCount called...");
-        PreparedStatement ps = null;
-        StringBuffer query = null;
-        ResultSet rs = null;
-        int ret = 0;
-
-        try {
-            query = new StringBuffer();
-            query.append(" SELECT count(*) AS count");
-            query.append(  " FROM coder c");
-            query.append(       " ,rating r");
-            query.append( " WHERE c.status = 'A'");
-            query.append(   " AND r.rating > 0");
-            query.append(   " AND c.coder_id = r.coder_id");
-            ps = prepareStatement(query.toString(), SOURCE_DB);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                ret = rs.getInt("count");
+                ret.add(new CoderRating(rs.getLong("coder_id"), rs.getInt("rating"), 0, false, null, null));
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Getting most recent round failed.\n" +
+            throw new Exception("Getting ratings for round failed.\n" +
                     sqle.getMessage());
         } finally {
             close(rs);
@@ -987,7 +688,8 @@ public class TCLoadRank extends TCLoad {
         }
         return ret;
     }
-*/
+
+
     /**
      * Gets the most recent round in the source
      * db.  If there are no rounds in the source
@@ -1027,60 +729,83 @@ public class TCLoadRank extends TCLoad {
     }
 
     private class CoderRating implements Comparable {
-        private int _coderId = 0;
-        private int _rating = 0;
+        private long coderId = 0;
+        private int rating = 0;
+        private long schoolId = 0;
+        private boolean active = false;
+        private String countryCode = null;
+        private String stateCode = null;
 
-        CoderRating(int coderId, int rating) {
-            _coderId = coderId;
-            _rating = rating;
+        CoderRating(long coderId, int rating, long schoolId, boolean active, String countryCode, String stateCode) {
+            this.coderId = coderId;
+            this.rating = rating;
+            this.schoolId = schoolId;
+            this.active = active;
+            this.countryCode = countryCode;
+            this.stateCode = stateCode;
         }
 
         public int compareTo(Object other) {
-            if (((CoderRating) other).getRating() > _rating)
+            if (((CoderRating) other).getRating() > rating)
                 return 1;
-            else if (((CoderRating) other).getRating() < _rating)
+            else if (((CoderRating) other).getRating() < rating)
                 return -1;
             else
                 return 0;
         }
 
-        int getCoderId() {
-            return _coderId;
+        long getCoderId() {
+            return coderId;
         }
 
         int getRating() {
-            return _rating;
+            return rating;
         }
 
-        void setCoderId(int coderId) {
-            _coderId = coderId;
+        void setCoderId(long coderId) {
+            this.coderId = coderId;
         }
 
         void setRating(int rating) {
-            _rating = rating;
+            this.rating = rating;
+        }
+
+        long getSchoolId() {
+            return schoolId;
+        }
+
+        void setSchoolId(long schoolId) {
+            this.schoolId = schoolId;
+        }
+
+        boolean isActive() {
+            return active;
+        }
+
+        void setActive(boolean active) {
+            this.active = active;
+        }
+
+        String getStateCode() {
+            return stateCode;
+        }
+
+         void setStateCode(String stateCode) {
+            this.stateCode = stateCode;
+        }
+
+        String getCountryCode() {
+            return countryCode;
+        }
+
+        void setCountryCode(String countryCode) {
+            this.countryCode = countryCode;
         }
 
         public String toString() {
-            return new String(_coderId + ":" + _rating);
+            return new String(coderId + ":" + rating + ":" + schoolId + ":" + active + ":" + stateCode);
         }
     }
-
-
-/*
-    private class SchoolAvgRating {
-        private int _schoolId = 0;
-        private float _rating = 0;
-        SchoolAvgRating(int schoolId, float rating) {
-            _schoolId = schoolId;
-            _rating = rating;
-        }
-        int getSchoolId() {return _schoolId;}
-        float getRating() {return _rating;}
-        void setSchoolId(int schoolId) {_schoolId = schoolId;}
-        void setRating(float rating) {_rating = rating;}
-        public String toString() { return new String(_schoolId+":"+_rating); }
-    }
-*/
 
 
 }
