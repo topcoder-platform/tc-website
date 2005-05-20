@@ -56,8 +56,7 @@
    &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
-   <A href="/" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;
-   <A href="/" class="rtbcLink">User Settings</A>
+   <A href="/" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">User Settings</A>
    </td>
 </tr>
 <tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>

@@ -5,6 +5,7 @@ package com.topcoder.web.forums.controller.request;
 
 import java.util.Iterator;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
@@ -53,19 +54,35 @@ public class Thread extends ForumsProcessor {
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("paginator", paginator);
 		
-		if (user.getProperty("jiveThreadMode").equals("flat")) {
-			itMessages = thread.getMessages(resultFilter);
-			setNextPage("/viewThreadFlat.jsp");	
-		} else if (user.getProperty("jiveThreadMode").equals("threaded")) {
-			itMessages = thread.getTreeWalker().getRecursiveMessages();
-			setNextPage("/viewThreadThreaded.jsp");	
-		} else if (user.getProperty("jiveThreadMode").equals("tree")) {
-			itMessages = thread.getTreeWalker().getRecursiveMessages();
-			setNextPage("/viewThreadTree.jsp");
-		} else {  // set to default
-			itMessages = thread.getMessages(resultFilter);
-			setNextPage("/viewThreadFlat.jsp");	
-		}
+        // Use the setting chosen on the page if selected, or the user's default
+        // preference otherwise.
+        String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
+        if (!threadView.equals("")) {
+            if (threadView.equals("flat")) {
+                itMessages = thread.getMessages(resultFilter);
+                setNextPage("/viewThreadFlat.jsp"); 
+            } else if (threadView.equals("threaded")) {
+                itMessages = thread.getTreeWalker().getRecursiveMessages();
+                setNextPage("/viewThreadThreaded.jsp"); 
+            } else if (threadView.equals("tree")) {
+                itMessages = thread.getTreeWalker().getRecursiveMessages();
+                setNextPage("/viewThreadTree.jsp");
+            }
+        } else {
+            if (user.getProperty("jiveThreadMode").equals("flat")) {
+                itMessages = thread.getMessages(resultFilter);
+                setNextPage("/viewThreadFlat.jsp"); 
+            } else if (user.getProperty("jiveThreadMode").equals("threaded")) {
+                itMessages = thread.getTreeWalker().getRecursiveMessages();
+                setNextPage("/viewThreadThreaded.jsp"); 
+            } else if (user.getProperty("jiveThreadMode").equals("tree")) {
+                itMessages = thread.getTreeWalker().getRecursiveMessages();
+                setNextPage("/viewThreadTree.jsp");
+            } else {  // set to default
+                itMessages = thread.getMessages(resultFilter);
+                setNextPage("/viewThreadFlat.jsp"); 
+            }   
+        }
 		
 		getRequest().setAttribute("messages", itMessages);
 		setIsNextPageInContext(true);
