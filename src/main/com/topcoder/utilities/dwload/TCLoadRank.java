@@ -607,7 +607,7 @@ public class TCLoadRank extends TCLoad {
             query.append(" , r.rating");
             query.append(" , cs.school_id");
             query.append(" , c.coder_type_id");
-            query.append(" , c.country_code");
+            query.append(" , c.comp_country_code as country_code");
             query.append(" , c.state_code");
             query.append(" , case when exists (select '1' from active_members a where a.coder_id = c.coder_id) then 1 else 0 end as active");
             query.append(" from rating r");
