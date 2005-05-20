@@ -19,7 +19,7 @@
 
 <html>
 <head>
-<title>TopCoder</title>
+<title>TopCoder Forums</title>
 
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
