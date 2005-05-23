@@ -7,7 +7,8 @@
             </table>
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
-                              
+            	<tr><td class="prHead"><A href="http://www.topcoder.com/tc?module=Static&d1=news&d2=art_051205"> Read the Wall Street Transcript's Interview with Jack Hughes</A> [April 22]</td></tr>
+            
                 <tr><td class="prHead"><A href="http://www.topcoder.com/i/pressroom/SDT_041305.jpg"> LogicLibrary, TopCoder Business Brief</A> [April 13]</td></tr>    
                            
                 <tr><td class="prHead"><A href="http://www.sys-con.com/story/?storyid=49134"> LogicLibrary Checks Out TopCoder to Enable SOA</A> [April 9]</td></tr>    
