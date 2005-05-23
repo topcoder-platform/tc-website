@@ -99,6 +99,10 @@ A:active {
     font-weight: bold;
 }
 
+#leftNav {
+    width: 200px;
+}
+
 
 
 </style>

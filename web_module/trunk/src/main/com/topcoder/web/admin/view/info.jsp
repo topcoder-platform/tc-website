@@ -7,9 +7,7 @@
     <body>
         <div id="container">
             <jsp:include page="top.jsp"/>
-
-            <div id="leftNav">
-            </div>
+            <jsp:include page="left.jsp"/>
 
             <div id="mainContent">
                 <div id="tableOfContents">
@@ -84,6 +82,7 @@
                                 <li><a href="#misc12">How do I create a query in the query system?</a></li>
                                 <li><a href="#misc13">How do I modify a query in the query system?</a></li>
                                 <li><a href="#misc14">How do I deactivate bad email addresses?</a></li>
+
                             </ul>
                         </li>
                     </ul>
@@ -749,6 +748,19 @@
                             <ul class="tier2">
                                 <li class="tier2"><a name="misc1"></a>How do I put company branding in the TopCoder competition arena?</li>
                                 <li class="tier2"><a name="misc2"></a>How do I put company branding in the Technical Assessment tool?</li>
+                                <li class="tier2"><a name="#misc3"></a>How do I kick someone out for cheating?</li>
+                                <li class="tier2"><a name="misc4"></a>How do I kick someone out for having a duplicate account?</li>
+                                <li class="tier2"><a name="misc5"></a>How do I clear private data from the dev database after a data load?</li>
+                                <li class="tier2"><a name="misc6"></a>How do I make someone an admin?</li>
+                                <li class="tier2"><a name="misc7"></a>How do I give someone cvs access?</li>
+                                <li class="tier2"><a name="misc8"></a>What do I do if someone complains school information isn't correct (for ranking etc.)?</li>
+                                <li class="tier2"><a name="misc9"></a>How do I find out someone's password that is encrypted in the database?</li>
+                                <li class="tier2"><a name="misc10"></a>How do I set someone's password that is encrypted in the database?</li>
+                                <li class="tier2"><a name="misc11"></a>How do I check for cheaters?</li>
+                                <li class="tier2"><a name="misc12"></a>How do I create a query in the query system?</li>
+                                <li class="tier2"><a name="misc13"></a>How do I modify a query in the query system?</li>
+                                <li class="tier2"><a name="misc14"></a>How do I deactivate bad email addresses?</li>
+
                             </ul>
                         </li>
                     </ul>
