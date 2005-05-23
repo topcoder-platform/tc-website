@@ -105,7 +105,7 @@ A:active {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    height: 100px;
+    height: 25px;
 }
 
 
