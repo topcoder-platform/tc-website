@@ -92,14 +92,6 @@
 <% } %>
 </table>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><A href="/" class="rtbcLink">Post New Thread</A> | View: 
-<b>Flat</b>&#160;|
-<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;|
-<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=tree" class="rtbcLink">Tree</A>&#160;
-</select></tr>
-</table>
-
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
    <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr><td class="rtHeader" colspan="2">

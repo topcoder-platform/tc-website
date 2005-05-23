@@ -47,17 +47,26 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
+<tr>
+   <td nowrap="nowrap" valign="top">
+   <A href="/" class="rtbcLink">Search:</A>&#160;
+   <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
+   <input value="Go" onclick="" type="submit">
+   &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
+   </td>
+   <td align="right" nowrap="nowrap" valign="top">
+   <A href="/" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;
+   <A href="/" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;
+   <A href="/" class="rtbcLink">User Settings</A><br>
+   View: 
+   <A href="/" class="rtbcLink">Flat</A>&#160;|
+   <strong>Threaded</strong>&#160;|
+   <A href="/" class="rtbcLink">Tree</A>&#160;
+   </td>
+</tr>
 <tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
 	<jsp:getProperty name="thread" property="name"/></td>
-</table>
-
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><A href="/" class="rtbcLink">Post New Thread</A> | View: 
-<A href="/" class="rtbcLink">Flat</A>&#160;|
-<b>Threaded</b>&#160;|
-<A href="/" class="rtbcLink">Tree</A>&#160;
-</select></tr>
 </table>
 
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
