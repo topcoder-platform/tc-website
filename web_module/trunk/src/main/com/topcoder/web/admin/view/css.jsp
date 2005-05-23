@@ -7,12 +7,6 @@ td {
     font-family: Arial, Helvetica, Verdana, sans-serif;
 }
 
-.title {
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
-}
-
 .header {
     color: #000;
     font-size: 14px;
@@ -66,6 +60,7 @@ A:active {
 }
 
 #mainContent {
+    position: absolute;
     left: 200px;
     margin-right: 100px;
 }
@@ -103,6 +98,11 @@ A:active {
     width: 200px;
 }
 
+#top {
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
 
 
 </style>
