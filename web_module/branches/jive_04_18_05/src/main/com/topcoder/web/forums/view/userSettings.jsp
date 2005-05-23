@@ -51,7 +51,7 @@
 &#160;<a href="" class="rtLinkNew">Search Tips</a>
 </div>
 <div class="topLinksR">
-<A href="/" class="rtLinkNew">Post History</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtLinkNew">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b>
+<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
 </div>
 
 <div style="clear:both;">
