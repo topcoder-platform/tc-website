@@ -149,13 +149,13 @@
       <td class="rtTextCell100">
          <select name="watchFrequency">
          	<option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>" 
-       			selected=<%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == selectedWatchFrequency.intValue()) ? "selected" : ""%>>Immediately (default)</option>
+       			selected="<%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == selectedWatchFrequency.intValue()) ? "selected" : "" %>">Immediately (default)</option>
          	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_DAY %>" 
-       			selected=<%= (UserSettingsAction.FREQUENCY_ONCE_A_DAY == selectedWatchFrequency.intValue()) ? "selected" : ""%>>Once per day</option>
+       			selected="<%= (UserSettingsAction.FREQUENCY_ONCE_A_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>">Once per day</option>
          	<option value="<%= UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY %>" 
-       			selected=<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : ""%>>Every other day</option>
+       			selected="<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>">Every other day</option>
          	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>" 
-       			selected=<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : ""%>>Once per week</option>
+       			selected="<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : "" %>">Once per week</option>
          </select>
          (<%= user.getEmail() %>)
       </td>
