@@ -2911,6 +2911,7 @@ public class ProjectTrackerBean implements SessionBean {
                 "   AND p.cur_version = 1" +
                 "   AND sb.cur_version = 1" +
                 "   AND sb.submission_type = 1" +
+                "   AND sb.is_removed = 0" +
                 "   AND pi.cur_version = 1" +
                 "   AND sb.project_id = p.project_id" +
                 "   AND sb.submission_id = s.submission_id" +
