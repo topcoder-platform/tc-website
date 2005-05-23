@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.23.05<br>11:15 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7219">Bluetooth Devices Survey</A></span><br><br>
+      How many Bluetooth devices do you own?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=7219">vote</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.19.05<br>4:25 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7218">Video Game Survey</A></span><br><br>
       A couple of questions about the next generation of video game platforms.
@@ -234,18 +246,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
          <A href="/?&t=features&c=index">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.02.05<br>3:35 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=6539">Radio frequency identification (RFID) survey</A></span><br><br>
-      Which of the following best describes your experience with radio frequency identification (RFID) technology?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=6539">view survey</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
 </table>
 <br><br>
 
