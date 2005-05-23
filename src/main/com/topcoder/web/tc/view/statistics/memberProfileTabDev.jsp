@@ -8,6 +8,7 @@
 <% ResultSetContainer rscJavaData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Component_Submission_Details_Java"); %>
 <% ResultSetContainer rscNETData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Component_Submission_Details_NET"); %>
 <% ResultSetContainer rscTotalData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Component_Submission_Details_Total"); %>
+<% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data"); %>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider" rowspan="3">
@@ -21,7 +22,11 @@
             <%}%>
             </td></tr>
             <tr><td class="catNW" colspan="2"><A href='/stat?c=tcs_ratings_history&pi=113&cr=<%=request.getParameter("cr")%>'>[rating history]</A><br><br></td></tr>
-            <tr><td class="catNW">Ranking:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscDevData%>" ifNull="not ranked" /></td></tr>
+            <tr><td class="catNW">Rank:</td><td class="statRNW"><rsc:item name="rank" set="<%=rscDevData%>" ifNull="not ranked" /></td></tr>
+            <tr><td class="catNW">Country Rank:</td><td class="statRNW"><rsc:item name="country_rank" set="<%=rscDevData%>" ifNull="not ranked" /><% if (rscDevData.getStringItem(0, "country_rank")!=null) { %> of <rsc:item name="num_country_ranked" set="<%=rscDevData%>"/><% } %></td></tr>
+            <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
+                <tr><td class="catNW">School Rank:</td><td class="statRNW"><rsc:item name="school_rank" set="<%=rscDevData%>" ifNull="not ranked" /><% if (rscDevData.getStringItem(0, "school_rank")!=null) { %> of <rsc:item name="num_school_ranked" set="<%=rscDevData%>"/><% } %></td></tr>
+            <% }%>
             <tr><td class="catNW">Volatility:</td><td class="statRNW"><rsc:item name="vol" set="<%=rscDevData%>" format="####" /></td></tr>
             <tr><td class="catNW">Competitions:</td><td class="statRNW"><rsc:item name="num_ratings" set="<%=rscDevData%>" format="####" /></td></tr>
             <tr><td class="catNW">Reliability:</td><td class="statRNW"><rsc:item name="reliability" set="<%=rscDevData%>" format="#.##%" ifNull="n/a"/></td></tr>
