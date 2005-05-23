@@ -21,6 +21,7 @@ public class ForumList extends ForumsProcessor {
         
 		Iterator itForums = forumFactory.getForums(resultFilter);
 		getRequest().setAttribute("forums", itForums);
+        getRequest().setAttribute("user", user);
 		
 		setNextPage("/main.jsp");
 		setIsNextPageInContext(true);

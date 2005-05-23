@@ -6,6 +6,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
+
 <html>
 <head>
 <title>TopCoder Forums</title>
@@ -41,6 +43,19 @@
                 <jsp:param name="image" value="forums"/>
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
+
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+<tr>
+   <td nowrap="nowrap" valign="top">
+   <A href="/" class="rtbcLink">Search:</A>&#160;
+   <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
+   <input value="Go" onclick="" type="submit">
+   &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
+   </td>
+   <td align="right" nowrap="nowrap" valign="top">
+   <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID">" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   </td>
+</tr>
 
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>

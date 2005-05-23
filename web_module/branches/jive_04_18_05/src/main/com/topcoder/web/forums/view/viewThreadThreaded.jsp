@@ -55,11 +55,11 @@
    &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
-   <A href="/" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">User Settings</A><br>
+   <A href="/" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">Watch Thread</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">User Settings</A><br>
    View: 
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=flat" class="rtbcLink">Flat</A>&#160;|
    <strong>Threaded</strong>&#160;|
-   <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=tree" class="rtbcLink">Tree</A>&#160;
+   <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=tree" class="rtbcLink">Tree</A>
    </td>
 </tr>
 
