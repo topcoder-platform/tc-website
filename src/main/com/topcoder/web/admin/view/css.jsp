@@ -62,7 +62,9 @@ A:active {
 #mainContent {
     position: absolute;
     left: 200px;
+    top: 100px;
     margin-right: 100px;
+
 }
 
 #tableOfContents {
@@ -102,6 +104,8 @@ A:active {
     color: #000;
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
+    height: 100px;
 }
 
 
