@@ -64,7 +64,8 @@
                                 <li><a href="#email1">Can I please have some general guidelines?</a></li>
                                 <li><a href="#email2">Why aren't emails going out?</a></li>
                                 <li><a href="#email3">Why does my email not work?</a></li>
-                                <li><a href="#email4">What is the key information for the new placement email?</a></li>
+                                <li><a href="#email4">How do I send the new placement email?</a></li>
+                                <li><a href="#email5">How do I send the next match email?</a></li>
                             </ul>
                         </li>
                         <li>
@@ -72,8 +73,11 @@
                             <ul>
                                 <li><a href="#misc1">How do I put company branding in the TopCoder competition arena?</a></li>
                                 <li><a href="#misc2">How do I put company branding in the Technical Assessment tool?</a></li>
-                                <li><a href="#misc2">How do I kick someone out for cheating?</a></li>
-                                <li><a href="#misc2">How do I kick someone out for having a duplicate account?</a></li>
+                                <li><a href="#misc3">How do I kick someone out for cheating?</a></li>
+                                <li><a href="#misc4">How do I kick someone out for having a duplicate account?</a></li>
+                                <li><a href="#misc5">How do I clear private data from the dev database after a data load?</a></li>
+                                <li><a href="#misc6">How do I make someone an admin?</a></li>
+                                <li><a href="#misc6">How do I give someone cvs access?</a></li>
                             </ul>
                         </li>
                     </ul>
