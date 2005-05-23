@@ -62,7 +62,7 @@ A:active {
 #mainContent {
     position: absolute;
     left: 200px;
-    top: 100px;
+    top: 25px;
     margin-right: 100px;
 
 }
