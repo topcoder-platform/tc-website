@@ -94,6 +94,17 @@ function find(n) {
 
 <!-- 2005 TCCC ends -->
 
+<!-- 2005 TCO begins -->
+<% } else if (level1.equals("tco05")) { %>
+
+            <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+         
+            <jsp:include page="../calendar.jsp" />
+
+            <p><br/></p>
+
+<!-- 2005 TCI ends -->
+
 <!-- Microsoft begins -->
 <% } else if (level1.equals("microsoft")) { %>
 
