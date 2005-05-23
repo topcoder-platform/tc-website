@@ -61,9 +61,9 @@
                         <li>
                             <a href="#email">The Mass Email System</a>
                             <ul>
-                                <li><a href="#email1">Can I please have some general guidelines?</a></li>
-                                <li><a href="#email2">Why aren't emails going out?</a></li>
-                                <li><a href="#email3">Why does my email not work?</a></li>
+                                <li><a href="#email1">Huh?</a></li>
+                                <li><a href="#email1">How do I set up an email?</a></li>
+                                <li><a href="#email3">Why aren't emails going out?</a></li>
                                 <li><a href="#email4">How do I send the new placement email?</a></li>
                                 <li><a href="#email5">How do I send the next match email?</a></li>
                             </ul>
@@ -82,6 +82,9 @@
                                 <li><a href="#misc9">How do I find out someone's password that is encrypted in the database?</a></li>
                                 <li><a href="#misc10">How do I set someone's password that is encrypted in the database?</a></li>
                                 <li><a href="#misc11">How do I check for cheaters?</a></li>
+                                <li><a href="#misc12">How do I create a query in the query system?</a></li>
+                                <li><a href="#misc13">How do I modify a query in the query system?</a></li>
+                                <li><a href="#misc14">How do I deactivate bad email addresses?</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -584,9 +587,172 @@
                         </li>
                         <li class="tier1"><a name="email"></a>The Mass Email System
                             <ul class="tier2">
-                                <li class="tier2"><a name="email1"></a>Can I please have some general guidelines?</li>
-                                <li class="tier2"><a name="email2"></a>Why aren't emails going out?</li>
-                                <li class="tier2"><a name="email3"></a>Why does my mass email not work?</li>
+                                <li class="tier2"><a name="email1"></a>Huh?
+                                    <p>
+                                        The Mass Email System is used to send email to the member base.  It is fairly
+                                        flexible in terms of email content and recipients.  The content can be determined on a
+                                        per-mailing basis and one can make adjustments to the content on a per-recipient
+                                        basis using xsl.  The recipient list can be set via either a database query
+                                        or with a static user entered list.
+                                    </p>
+                                </li>
+                                <li class="tier2"><a name="email2"></a>How do I set up an email??
+                                    <ol>
+                                        <li>
+                                            Go to <a href="http://wwww.topcoder.com/tc">TopCoder</a> and login, you'll
+                                            have to be an admin and logged in to set up an email.
+                                        </li>
+                                        <li>
+                                            Load the <a href="http://www.topcoder.com/email/emailServlet">Email Tool</a> I
+                                            recommend you do this in IE as I believe mozilla doesn't like some of the
+                                            javascript.
+                                        </li>
+                                        <li>
+                                            Create an email template (this is the content that you'll sent to the recipients
+                                            <ul>
+                                                <li>Click "Email Templates"</li>
+                                                <li>Click "create a new message template"</li>
+                                                <li>Enter a name for your template</li>
+                                                <li>Choose a group for you template</li>
+                                                <li>
+                                                    Enter your template text.  The email content should have been provided
+                                                    to you using one of the templates available on the corporate drive.
+                                                    Those templates include the necessary xsl code to make everything work.
+                                                </li>
+                                                <li>Click "create"</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            If you haven't created the distribution list yet, and it doesn't exist, you'll
+                                            need to create it.  You do this by either <a href="#main12">creating a command</a>
+                                            in the query tool or setting up a static address list.
+                                            There are a few things that are extremely important when writing a query.
+                                            <ol>
+                                                <li>You should use the "email_user" view, not the user table</li>
+                                                <li>
+                                                    You must constrain on status='A' in your query.  People that are
+                                                    not active must not get email
+                                                </li>
+                                                <li>
+                                                    In all likelihood, you need to constrain on coder_notify.  Only those
+                                                    that have signed up for you email should get it.
+                                                </li>
+                                                <li>
+                                                    You have to alias the email address to "email_address" in order for
+                                                    it to work, see below for an example.
+                                                </li>
+                                                <li>Your command must belong to the command group "Email"</li>
+                                            </ol>
+                                            Here's an example query:
+                                            <p>
+                                                SELECT u.email AS email_address<br />
+                                                     , u.handle<br />
+                                                  FROM email_user u<br />
+                                                     , coder_notify n<br />
+                                                 WHERE u.user_id = n.coder_id<br />
+                                                   AND u.status = 'A'<br />
+                                                   AND n.notify_id = 1
+                                            </p>
+                                            <p>Creating a static address list</p>
+                                            <ul>
+                                                <li>On the main menu, click "Mailing Lists"</li>
+                                                <li>Click "create new mailing list"</li>
+                                                <li>Enter a name for you list</li>
+                                                <li>Choose a group for your list</li>
+                                                <li>
+                                                    Enter any additional fields you might need.  Our emails
+                                                    generally address the recipient by handle, so you may need to add
+                                                    a handle field
+                                                </li>
+                                                <li>Click "create"</li>
+                                                <li>
+                                                    Now you add records to your list.  You can do that in single entry
+                                                    mode or bulk entry.  It's pretty straight forward.  You just need
+                                                    to fill in data for the necessary fields.
+                                                </li>
+                                                <li>click "done" when you are</li>
+                                            </ul>
+                                        </li>
+                                        <li>On the main menu, click "Scheduled Jobs".  We're going to actually set up the job now.</li>
+                                        <li>You're now looking at upcoming and recent jobs.  Click "schedule new job".</li>
+                                        <li>
+                                            Enter the name that will be displayed on the email recipient's system as the sender.
+                                            Example: "TopCoder Competition"
+                                        </li>
+                                        <li>
+                                            Enter the email address that the email will come from.
+                                            Example: competitions@topcoder.com
+                                            competition@topcoder.com is a good address to use because bounce backs
+                                            will get reported and will will disable those accounts which helps us
+                                            avoid getting put into spam lists etc.
+                                        </li>
+                                        <li>Enter the subject of your email</li>
+                                        <li>
+                                            Choose a start time, this is when the email will go out.  Give yourself some
+                                            time to receive the test email and check it over to be sure everything is perfect.
+                                            I would recommend giving yourself more than an hour.
+                                        </li>
+                                        <li>
+                                            Choose an end time.  This is when the system will stop trying to send your
+                                            email.  Make this a day after your start time.  That will be plenty.
+                                        </li>
+                                        <li>Uncheck "Schedule Reminder"</li>
+                                        <li>Uncheck "Schedule Report"</li>
+                                        <li>
+                                            Click either "choose static address list" or "choose predefined query" depending
+                                            on what you have set up to use.
+                                        </li>
+                                        <li>Choose your list</li>
+                                        <li>Choose your template</li>
+                                        <li>
+                                            Choose your test list.  This is the list of people that will get a test email
+                                            you can create your own by creating a static address list in the "test" group.
+                                            This list should include all the people that need to proof read your email.
+                                        </li>
+                                        <li>
+                                            You're done.  Wait for you test email and check it over.  If there is a problem
+                                            cancel the job, and you can start the process again.
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="tier2"><a name="email3"></a>Why aren't emails going out?
+                                    <p>
+                                        If you've scheduled an email and it attempted to go out, but there were errors
+                                        the most likely cause is having bad characters in your template.  If there are any
+                                        &amp; characters in the template, you need to "escape" them.  You should also be
+                                        sure you don't have any characters that aren't part of basic ascii.  To escape a
+                                        chunk of text put it within the following &lt;![CDATA[&lt;your text here&gt;]]&gt;.
+                                        Likely cuprits are urls.
+                                    </p>
+                                </li>
+                                <li>
+                                    <a name="email4"></a>How do I send the new placement email?
+                                    <p>
+                                        See <a href="#email1">this</a> for details on setting up a job.  The relevant
+                                        information is:
+                                        <ul>
+                                            <li>Sender: TopCoder Employment Services</li>
+                                            <li>Email: competitions@topcoder.com</li>
+                                            <li>Subject: TopCoder Employment Opportunities</li>
+                                            <li>Query: new_placement_people</li>
+                                            <li>Template:  placement message for new participants</li>
+                                        </ul>
+                                    </p>
+                                </li>
+                                <li>
+                                    <a name="#email5"></a>How do I send the next match email?
+                                    <p>
+                                        See <a href="#email1">this</a> for details on setting up a job.  The relevant
+                                        information is:
+                                        <ul>
+                                            <li>Sender: TopCoder Competitions</li>
+                                            <li>Email: competitions@topcoder.com</li>
+                                            <li>Subject: &lt;mike will tell you&gt;</li>
+                                            <li>Query: Next Competition</li>
+                                            <li>Template:   SRM Match Notification</li>
+                                        </ul>
+                                    </p>
+                                </li>
                             </ul>
                         </li>
                         <li class="tier1"><a name="misc"></a>Misc.
