@@ -39,18 +39,10 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
-<!-- Upcoming Tournaments begins 
+<!-- Upcoming Tournaments begins -->
 
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
-            </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
--->
-<!-- Past Tournaments begins -->
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="header">Past Private Label Events</td></tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -69,7 +61,13 @@
                 </tr>
             </table>
 
-                <hr width="100%" size="1" noshade="noshade" />
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+<!-- Past Tournaments begins -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="header">Past Private Label Events</td></tr>
+            </table>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
