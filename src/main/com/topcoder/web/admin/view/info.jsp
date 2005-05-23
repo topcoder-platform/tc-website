@@ -61,8 +61,7 @@
                         <li>
                             <a href="#email">The Mass Email System</a>
                             <ul>
-                                <li><a href="#email1">Huh?</a></li>
-                                <li><a href="#email1">How do I set up an email?</a></li>
+                                <li><a href="#email2">How do I set up an email?</a></li>
                                 <li><a href="#email3">Why aren't emails going out?</a></li>
                                 <li><a href="#email4">How do I send the new placement email?</a></li>
                                 <li><a href="#email5">How do I send the next match email?</a></li>
@@ -587,15 +586,6 @@
                         </li>
                         <li class="tier1"><a name="email"></a>The Mass Email System
                             <ul class="tier2">
-                                <li class="tier2"><a name="email1"></a>Huh?
-                                    <p>
-                                        The Mass Email System is used to send email to the member base.  It is fairly
-                                        flexible in terms of email content and recipients.  The content can be determined on a
-                                        per-mailing basis and one can make adjustments to the content on a per-recipient
-                                        basis using xsl.  The recipient list can be set via either a database query
-                                        or with a static user entered list.
-                                    </p>
-                                </li>
                                 <li class="tier2"><a name="email2"></a>How do I set up an email??
                                     <ol>
                                         <li>
