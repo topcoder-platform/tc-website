@@ -66,7 +66,7 @@ A:active {
 }
 
 #mainContent {
-    margin-left: 100px;
+    left: 200px;
     margin-right: 100px;
 }
 
