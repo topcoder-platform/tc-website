@@ -718,7 +718,7 @@
                                 <li>
                                     <a name="email4"></a>How do I send the new placement email?
                                     <p>
-                                        See <a href="#email1">this</a> for details on setting up a job.  The relevant
+                                        See <a href="#email2">this</a> for details on setting up a job.  The relevant
                                         information is:
                                         <ul>
                                             <li>Sender: TopCoder Employment Services</li>
@@ -730,9 +730,9 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <a name="#email5"></a>How do I send the next match email?
+                                    <a name="email5"></a>How do I send the next match email?
                                     <p>
-                                        See <a href="#email1">this</a> for details on setting up a job.  The relevant
+                                        See <a href="#email2">this</a> for details on setting up a job.  The relevant
                                         information is:
                                         <ul>
                                             <li>Sender: TopCoder Competitions</li>
