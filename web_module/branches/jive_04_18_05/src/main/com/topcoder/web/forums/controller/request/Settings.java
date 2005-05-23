@@ -87,7 +87,7 @@ public class Settings extends ForumsProcessor {
         
         getRequest().setAttribute("user", user);
         getRequest().setAttribute("status", status);
-        getRequest().setAttribute("watchFrequency", new Integer(watchFrequency));
+        getRequest().setAttribute("selectedWatchFrequency", new Integer(watchFrequency));
 		
 		setNextPage("/userSettings.jsp");
 		setIsNextPageInContext(true);
