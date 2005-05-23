@@ -2896,7 +2896,7 @@ public class ProjectTrackerBean implements SessionBean {
                 "and sb1.is_removed = 0 " +
                 "and sb1.project_id = p.project_id " +
                 "and sb1.submitter_id = sb.submitter_id " +
-                "and not exists (select * from scorecard sc2, submission sb2 where sc2.scorecard_type = 2 " +
+                "and not exists (select '1' from scorecard sc2, submission sb2 where sc2.scorecard_type = 2 " +
                 "and sc2.cur_version = 1 and sc2.submission_id = sb2.submission_id " +
                 "and sb2.submission_type = 1 " +
                 "and sb2.cur_version = 1 " +
