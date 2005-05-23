@@ -77,7 +77,11 @@
                                 <li><a href="#misc4">How do I kick someone out for having a duplicate account?</a></li>
                                 <li><a href="#misc5">How do I clear private data from the dev database after a data load?</a></li>
                                 <li><a href="#misc6">How do I make someone an admin?</a></li>
-                                <li><a href="#misc6">How do I give someone cvs access?</a></li>
+                                <li><a href="#misc7">How do I give someone cvs access?</a></li>
+                                <li><a href="#misc8">What do I do if someone complains school information isn't correct (for ranking etc.)?</a></li>
+                                <li><a href="#misc9">How do I find out someone's password that is encrypted in the database?</a></li>
+                                <li><a href="#misc10">How do I set someone's password that is encrypted in the database?</a></li>
+                                <li><a href="#misc11">How do I check for cheaters?</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -428,9 +432,6 @@
                                                 as part of the key in the cache.
                                             </p>
                                         </li>
-                                        <li></li>
-                                        <li></li>
-                                        <li></li>
                                     </ol>
                                 </li>
                                 <li class="tier2">
@@ -524,28 +525,61 @@
                                 <li class="tier2"><a name="techass2"></a>How do I bounce the Technical Assessment tool?
                                     <p>To fully bounce the Technical Assessment Tool you have to bounce all of the following</p>
                                     <ol>
-                                        <li><a href="#techass3">Bounce the Application Server</a></li>
-                                        <li><a href="#techass4">Bounce the Processor</a></li>
-                                        <li><a href="#techass5">Bounce the Testers</a></li>
-                                        <li><a href="#techass6">Bounce the Compilers</a></li>
+                                        <li><a href="#techass3">The Application Server</a></li>
+                                        <li><a href="#techass4">The Processor</a></li>
+                                        <li><a href="#techass5">The Testers</a></li>
+                                        <li><a href="#techass6">The Compilers</a></li>
                                     </ol>
                                 </li>
                                 <li class="tier2">
                                     <a name="techass3"></a>How do I bounce the Application Server?
+                                    <ol>
+                                        <li>Telnet to 192.168.10.57 and login as apps</li>
+                                        <li><span class="input">jbb</span> to get to the jboss directory</li>
+                                        <li>
+                                            <span class="input">/usr/ucb/ps augxww | grep java | grep jboss.Main</span>
+                                            to figure out which process needs killin'
+                                        </li>
+                                        <li><span class="input">kill -9 &lt;pid&gt;</span></li>
+                                        <li><span class="input">./start.sh</span></li>
+                                    </ol>
                                 </li>
                                 <li class="tier2">
                                     <a name="techass4"></a>How do I bounce the Processor?
+                                    <ol>
+                                        <li>Telnet to 192.168.10.57 and login as apps</li>
+                                        <li><span class="input">gts</span> to get to the scripts directory</li>
+                                        <li>
+                                            <span class="input">/usr/ucb/ps augwwx | grep java | grep ScreeningProcessorMain</span>
+                                            to figure out which process needs killin'
+                                        </li>
+                                        <li><span class="input">kill -9 &lt;pid&gt;</span></li>
+                                        <li><span class="input">./runScreeningProcessor.sh</span></li>
+                                    </ol>
                                 </li>
                                 <li class="tier2">
                                     <a name="techass5"></a>How do I bounce the Testers?
+                                    <ol>
+                                        <li>ask <a href="mailto:rfairfax@topcoder.com">rfairfax@topcoder.com</a></li>
+                                        <li>ask him to fill out this FAQ response with the details</li>
+                                    </ol>
                                 </li>
                                 <li class="tier2">
                                     <a name="techass6"></a>How do I bounce the Compilers?
+                                    <ol>
+                                        <li>ask <a href="mailto:rfairfax@topcoder.com">rfairfax@topcoder.com</a></li>
+                                        <li>ask him to fill out this FAQ response with the details</li>
+                                    </ol>
                                 </li>
                                 <li class="tier2">
                                     <a name="techass7"></a>How do I bounce the Cache?
+                                    <ol>
+                                        <li>Telnet to 192.168.10.57 and login as apps</li>
+                                        <li><span class="input">cd ~/web/scripts</span> to get to the scripts directory</li>
+                                        <li><span class="input">./runcache.sh stop</span> to stop the cache</li>
+                                        <li><span class="input">./runcache.sh start</span> to start it back up</li>
+                                    </ol>
                                 </li>
-
                             </ul>
                         </li>
                         <li class="tier1"><a name="email"></a>The Mass Email System
