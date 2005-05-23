@@ -63,22 +63,17 @@
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=onsite_schedule"><img src="/i/tournament/tco05/tabs/L2_joinusOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 <%--
---%>
 				<% if (tabLev2.equals("onsite_events")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos"><img src="/i/tournament/tco05/tabs/L2_onsiteeventsOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos"><img src="/i/tournament/tco05/tabs/L2_onsiteeventsOff.gif" alt="" border=0 /></A></td>
-				<% } %>
-				<% if (tabLev2.equals("student_reps")) {%>
-					<td class=nav><A href="/tc?module=tco05StudentReps"><img src="/i/tournament/tco05/tabs/L2_studentrepsOn.gif" alt="" border=0 /></A></td>
-				<% } else { %>
-					<td class=nav><A href="/tc?module=tco05StudentReps"><img src="/i/tournament/tco05/tabs/L2_studentrepsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 				<% if (tabLev2.equals("sponsors")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/tournament/tco05/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/tournament/tco05/tabs/L2_sponsorsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+--%>
 
 				<% } else if (tabLev1.equals("algorithm")) { %>
 				<% if (tabLev2.equals("details")) {%>
@@ -86,6 +81,7 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_description"><img src="/i/tournament/tco05/tabs/L2_detailsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+<%--
 				<% if (tabLev2.equals("advancers")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket"><img src="/i/tournament/tco05/tabs/L2_advancersOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
@@ -96,7 +92,6 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis"><img src="/i/tournament/tco05/tabs/L2_summaryOff.gif" alt="" border=0 /></A></td>
 				<% } %>
-<%--
 --%>
 				<% } else if (tabLev1.equals("component")) { %>
 				<% if (tabLev2.equals("details")) {%>
