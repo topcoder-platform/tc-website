@@ -33,7 +33,8 @@ public class Settings extends ForumsProcessor {
         if (isGuest()) {
         	throw new PermissionException(getUser(), new SimpleResource("Forums - Settings")); 
         }
-         
+        
+        int watchFrequency = -1;
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
         if (status.equals("save")) {
             int threadsPerPage = Integer.parseInt(getRequest().getParameter("threadsPerPage"));
@@ -41,7 +42,7 @@ public class Settings extends ForumsProcessor {
             String threadMode = getRequest().getParameter("threadMode");
             String autoWatchNewTopics = getRequest().getParameter("autoWatchNewTopics");
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
-            int watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
+            watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
             
             if (threadsPerPage <= maxThreadsPerPage) {
             	user.setProperty(("jiveThreadRange"), String.valueOf(threadsPerPage));
@@ -76,10 +77,17 @@ public class Settings extends ForumsProcessor {
                 // update timer in the database
                 forumFactory.getWatchManager().setBatchTimer(user, newTimer);
             }
+        } else {
+            watchFrequency = UserSettingsAction.FREQUENCY_IMMEDIATELY;
+            CronTimer timer = forumFactory.getWatchManager().getBatchTimer(user);
+            if (timer != null) {
+                watchFrequency = determineWatchFrequency(timer);
+            }
         }
         
         getRequest().setAttribute("user", user);
         getRequest().setAttribute("status", status);
+        getRequest().setAttribute("watchFrequency", new Integer(watchFrequency));
 		
 		setNextPage("/userSettings.jsp");
 		setIsNextPageInContext(true);

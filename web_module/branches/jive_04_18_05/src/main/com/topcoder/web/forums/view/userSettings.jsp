@@ -8,6 +8,7 @@
 
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="status" name="status" type="java.lang.String" toScope="request"/>
+<tc-webtag:useBean id="watchFrequency" name="watchFrequency" type="java.lang.Integer" toScope="request"/>
 
 <html>
 <head>
@@ -147,10 +148,14 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
       <td class="rtTextCell100">
          <select name="watchFrequency">
-         	<option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>" selected="selected">Immediately (default)</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_DAY %>">Once per day</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY %>">Every other day</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>">Once per week</option>
+         	<option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>" 
+       			selected=<%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == watchFrequency.intValue()) ? "selected" : ""%>>Immediately (default)</option>
+         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_DAY %>" 
+       			selected=<%= (UserSettingsAction.FREQUENCY_ONCE_A_DAY == watchFrequency.intValue()) ? "selected" : ""%>>Once per day</option>
+         	<option value="<%= UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY %>" 
+       			selected=<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == watchFrequency.intValue()) ? "selected" : ""%>>Every other day</option>
+         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>" 
+       			selected=<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == watchFrequency.intValue()) ? "selected" : ""%>>Once per week</option>
          </select>
          (<%= user.getEmail() %>)
       </td>
