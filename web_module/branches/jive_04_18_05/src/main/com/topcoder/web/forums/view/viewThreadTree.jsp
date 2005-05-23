@@ -71,7 +71,8 @@
 </tr>
 <tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >> 
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
-	<jsp:getProperty name="thread" property="name"/></td>
+<jsp:getProperty name="thread" property="name"/></td>
+</tr>
 </table>
 
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
