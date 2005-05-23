@@ -1,5 +1,7 @@
 package com.topcoder.web.common;
 
+import com.topcoder.shared.util.StringUtil;
+
 import java.math.BigInteger;
 import java.util.Random;
 
@@ -229,35 +231,7 @@ public final class StringUtils {
      * @return
      */
     public static String replace(String original, String changeFrom, String changeTo) {
-        if (original == null) {
-            throw new IllegalArgumentException("the original string was null");
-        } else if (changeFrom == null) {
-            throw new IllegalArgumentException("the changeFrom string was null");
-        } else if (changeTo == null) {
-            throw new IllegalArgumentException("the changeTo string was null");
-        } else if (changeFrom.length() == 0) {
-            throw new IllegalArgumentException("the changeFrom string was empty");
-        }
-
-        int dif = changeTo.length() - changeFrom.length();
-        StringBuffer ret = new StringBuffer(original.length() + (dif > 0 ? dif * 5 : 0));
-        for (int i = 0; i < original.length(); i++) {
-            if (i <= original.length() - changeFrom.length()) {
-                if (original.substring(i, i + changeFrom.length()).equals(changeFrom)) {
-//                    System.out.println("if1: " + i);
-                    ret.append(changeTo);
-                    i += (changeFrom.length() - 1);
-                } else {
-//                    System.out.println("else1: " + i);
-                    ret.append(original.charAt(i));
-                }
-            } else {
-//                System.out.println("else2: " + i);
-                ret.append(original.charAt(i));
-            }
-        }
-
-        return ret.toString();
+        return StringUtil.replace(original, changeFrom, changeTo);
     }
 
 
