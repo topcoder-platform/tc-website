@@ -68,24 +68,25 @@
         <td width="99%" align="center">
             <table border="0" cellpadding="0" cellspacing="10" width="530">
                 <tr>
-                    <td align="left" colspan="3">
-                        <a href="/applications/index.jsp"><img src="images/promos/promo_home_A.gif" alt="" width="530" height="76" border="0" /><br/>
-                        <img src="images/promos/promo_home_B.jpg" alt="" width="530" height="217" border="0" /></a><br/>
-                        <img src="/images/clear.gif" alt="" width="10" height="10" border="0" /><br/>
-                        <strong>Using our member base of thousands of highly-skilled developers from all over the world, our competition-based
+                    <td align="left">
+                        <br/><a href="/applications/index.jsp"><img src="images/promos/promo_home_1.gif" alt="" width="267" height="59" border="0" /></a><br/><br/>
+                        Using our member base of thousands of highly-skilled developers from all over the world, our competition-based
                         methodology, and our catalogs of re-usable components, TopCoder delivers high-quality software at a lower cost than the competition.
-                        <a href="/applications/index.jsp">Learn more</a></strong>
+                        <strong><a href="/applications/index.jsp">Learn more</a></strong>
+                    </td>
+                    <td align="left">
+                        <a href="/applications/index.jsp"><img src="images/promos/promo_home_2.jpg" alt="" width="247" height="175" border="0" /></a>
                     </td>
                 </tr>
 
 <!-- Small promos begins -->
-            <jsp:include page="/includes/small_promos.jsp" flush="true" />
 <!-- Small promos ends -->
 
             </table>
 
-<!-- Customers begins -->
-<!-- Customers ends -->
+<!-- Featured Customers begins -->
+			<jsp:include page="/includes/customers_featured.jsp" flush="true" />
+<!-- Featured Customers ends -->
 
 <!-- Press Highlights begins -->
             <jsp:include page="/includes/press_highlights.jsp" flush="true" />
