@@ -12,7 +12,7 @@ public class Watches extends ForumsProcessor {
         
         getRequest().setAttribute("user", user);
 		
-		setNextPage("/userSettings.jsp");
+		setNextPage("/watches.jsp");
 		setIsNextPageInContext(true);
 	}
 }

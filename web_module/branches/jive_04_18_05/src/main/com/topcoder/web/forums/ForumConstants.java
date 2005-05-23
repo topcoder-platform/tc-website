@@ -21,6 +21,8 @@ public interface ForumConstants {
 	public final static String START_IDX = "start";
 	
 	public final static String POST_MODE = "mode";
+    
+    public final static String SETTINGS_STATUS = "status";
 	
 	public final static String FORUMS_DIR = "/forums/";
     
@@ -29,5 +31,9 @@ public interface ForumConstants {
     public final static String ERR_EMPTY_MESSAGE_BODY =
         "Error: Please include a message body.";
     public final static String ERR_LONG_MESSAGE_BODY =
-        "Error: Message body exceeds " + MESSAGE_BODY_MAX_LENGTH + " characters.";    
+        "Error: Message body exceeds " + MESSAGE_BODY_MAX_LENGTH + " characters.";
+    public final static String ERR_THREAD_RANGE_EXCEEDED =
+        "Error: Thread view range exceeded.";
+    public final static String ERR_MESSAGE_RANGE_EXCEEDED =
+        "Error: Message view range exceeded.";
 }

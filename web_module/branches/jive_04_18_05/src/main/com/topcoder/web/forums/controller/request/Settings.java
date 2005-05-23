@@ -3,16 +3,137 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import java.text.ParseException;
+
+import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.base.Log;
+import com.jivesoftware.util.CronTimer;
+import com.jivesoftware.forum.action.UserSettingsAction;
+
+import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.shared.security.SimpleResource;
+
 /**
  * @author mtong
+ * 
+ * Manages and saves user settings. Much of the functionality is replicated from Jive's 
+ * UserSettingsAction.
  */
 public class Settings extends ForumsProcessor {
+    private int maxThreadsPerPage =
+            JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", 100);
+    private int maxMessagesPerPage =
+            JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", 100);
+    
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
+        if (isGuest()) {
+        	throw new PermissionException(getUser(), new SimpleResource("Forums - Settings")); 
+        }
+         
+        String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
+        if (status.equals("save")) {
+            int threadsPerPage = Integer.parseInt(getRequest().getParameter("threadsPerPage"));
+            int messagesPerPage = Integer.parseInt(getRequest().getParameter("messagesPerPage"));
+            String threadMode = getRequest().getParameter("threadMode");
+            String autoWatchNewTopics = getRequest().getParameter("autoWatchNewTopics");
+            String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
+            int watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
+            
+            if (threadsPerPage <= maxThreadsPerPage) {
+            	user.setProperty(("jiveThreadRange"), String.valueOf(threadsPerPage));
+            } else {
+            	addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
+                status = "error";
+            }
+            if (messagesPerPage <= maxMessagesPerPage) {
+            	user.setProperty(("jiveMessageRange"), String.valueOf(messagesPerPage));
+            } else {
+                addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
+                status = "error";
+            }
+            user.setProperty(("jiveThreadMode"), threadMode);
+            user.setProperty(("jiveAutoWatchNewTopics"), autoWatchNewTopics);
+            user.setProperty(("jiveAutoWatchReplies"), autoWatchReplies);
+            
+            CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
+            if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
+                // We've received a request to create a new batch timer
+                current = createCronTimer(watchFrequency);
+                // update timer in the database
+                forumFactory.getWatchManager().setBatchTimer(user, current);
+            }
+            else if (determineWatchFrequency(current) != watchFrequency) {
+                CronTimer newTimer = null;
+
+                if (watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
+                    newTimer = createCronTimer(watchFrequency);
+                }
+
+                // update timer in the database
+                forumFactory.getWatchManager().setBatchTimer(user, newTimer);
+            }
+        }
         
         getRequest().setAttribute("user", user);
+        getRequest().setAttribute("status", status);
 		
 		setNextPage("/userSettings.jsp");
 		setIsNextPageInContext(true);
 	}
+    
+    private int determineWatchFrequency(CronTimer timer) {
+        // determine watch frequency
+        if (timer == null) {
+            return UserSettingsAction.FREQUENCY_IMMEDIATELY;
+        }
+        else if (timer.getNextFireTimeAfter(timer.getNextFireTime()).getTime() -
+                timer.getNextFireTime().getTime() == JiveConstants.DAY) {
+            return UserSettingsAction.FREQUENCY_ONCE_A_DAY;
+        }
+        else if (timer.getNextFireTimeAfter(timer.getNextFireTime()).getTime() -
+                timer.getNextFireTime().getTime() == 2 * JiveConstants.DAY) {
+            return UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY;
+        }
+        else if (timer.getNextFireTimeAfter(timer.getNextFireTime()).getTime() -
+                timer.getNextFireTime().getTime() == JiveConstants.WEEK) {
+            return UserSettingsAction.FREQUENCY_ONCE_A_WEEK;
+        }
+        else {
+            // unknown
+            Log.warn("Unknown watch frequency for user " + user.getUsername() +
+                    ": " + timer.getCronExpression());
+            return UserSettingsAction.FREQUENCY_IMMEDIATELY;
+        }
+    }
+    
+    private CronTimer createCronTimer(int watchFrequency) {
+        try {
+            int minute = (int) (Math.random() * 60);
+            // 3 am by default, configurable
+            int hour = (JiveGlobals.getJiveProperty("watches.email.digest.time") == null)
+                    ? 3
+                    : Integer.parseInt(JiveGlobals.getJiveProperty("watches.email.digest.time"));
+            String day = (JiveGlobals.getJiveProperty("watches.email.digest.day") == null)
+                    ? "SUN"
+                    : JiveGlobals.getJiveProperty("watches.email.digest.day");
+
+            if (watchFrequency == UserSettingsAction.FREQUENCY_ONCE_A_DAY) {
+                return new CronTimer("0 " + minute + " " + hour + " ? * *");
+            }
+            else if (watchFrequency == UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY) {
+                return new CronTimer("0 " + minute + " " + hour + " */2 * ?");
+            }
+            else if (watchFrequency == UserSettingsAction.FREQUENCY_ONCE_A_WEEK) {
+                return new CronTimer("0 " + minute + " " + hour + " ? * " + day);
+            }
+        }
+        catch (ParseException e) {
+            Log.error(e);
+        }
+        return null;
+    }
 }

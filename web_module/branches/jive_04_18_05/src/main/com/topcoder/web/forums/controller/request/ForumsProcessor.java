@@ -27,10 +27,14 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
     	forumFactory = ForumFactory.getInstance(authToken);
     	user = forumFactory.getUserManager().getUser(authToken.getUserID());
-    	//throw new PermissionException(getUser(), new SimpleResource("JiveForums"));
+    	//throw new PermissionException(getUser(), new SimpleResource("Forums"));
     }
     
     public void setAuthToken(AuthToken authToken) {
     	this.authToken = authToken;
+    }
+    
+    public boolean isGuest() {
+    	return authToken.isAnonymous();
     }
 }
