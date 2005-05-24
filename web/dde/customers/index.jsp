@@ -73,7 +73,7 @@
              <hr width="100%" size="1px" noshade>
             <br><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Case Studies</td></tr></table>
-<!-- ING begins -->
+<!-- financial institution begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
@@ -84,7 +84,7 @@
                 </tr>
             </table>
 
-<!-- ING ends -->
+<!-- financial institution ends -->
 
              <hr width="100%" size="1px" noshade>
 
