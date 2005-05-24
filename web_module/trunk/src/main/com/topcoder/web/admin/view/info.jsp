@@ -1034,7 +1034,7 @@
                                     </p>
                                     <ol>
                                         <li>Make sure you are logged in to www.topcoder.com/tc</li>
-                                        <li><a href="http://www.topcoder.com/query/query">Load the query tool</a></li>
+                                        <li><a href="http://www.topcoder.com/query/query" target="_blank">Load the query tool</a></li>
                                         <li>Choose the database that you would like to contain your query</li>
                                         <li>Click "New Query"</li>
                                         <li>
