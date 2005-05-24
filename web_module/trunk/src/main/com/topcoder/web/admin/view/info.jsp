@@ -713,6 +713,21 @@
                                         chunk of text put it within the following &lt;![CDATA[&lt;your text here&gt;]]&gt;.
                                         Likely cuprits are urls.
                                     </p>
+                                    <p>
+                                        If that's not the problem, then perhaps the email scheduler has crapped out.
+                                        In this case, you'll want to restart it.
+                                        <ol>
+                                            <li>Telnet to 192.168.12.51 and login as apps</li>
+                                            <li><span class="input">cd web/scripts/email</span></li>
+                                            <li><span class="input">/usr/ucb/ps augxww | grep java | grep EmailJobScheduler</span></li>
+                                            <li>
+                                                If it's alive, this probably isn't the problem, but you shoud look at the log in
+                                                this directory to see if anything is up.
+                                            </li>
+                                            <li>If it's not alive, then start it.  <span class="input">./emailEngine.sh</span></li>
+                                            <li>Rinse and repeat on 192.168.12.52</li>
+                                        </ol>
+                                    </p>
                                 </li>
                                 <li>
                                     <a name="email4"></a>How do I send the new placement email?
