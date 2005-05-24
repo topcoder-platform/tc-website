@@ -178,7 +178,7 @@
                                         <li>
                                             Create the filters on each of the forums using the jive admin tool (this is gonna be fun)
                                             <ul>
-                                                <li>Load <a href="http://www.topcoder.com/jive/skins/admin/index.jsp">the jive admin site</a></span></li>
+                                                <li>Load <a href="http://www.topcoder.com/jive/skins/admin/index.jsp" target="_blank">the jive admin site</a></span></li>
                                                 <li>
                                                     The first login prompt that pops up is for weblogic, login as system, you can get the
                                                     password from 192.168.12.51 in ~/weblogic_apps/weblogic.properties
@@ -300,7 +300,7 @@
                                             Using the key "member_profile" <a href="#cache5">refresh the cache</a>
                                         </li>
                                         <li>
-                                            Load <a href="http://www.topcoder.com">our site</a> and search for every coder
+                                            Load <a href="http://www.topcoder.com" target="_blank">our site</a> and search for every coder
                                             you just put an image up for and make sure it worked.
                                         </li>
                                     </ol>
@@ -588,11 +588,11 @@
                                 <li class="tier2"><a name="email2"></a>How do I set up an email??
                                     <ol>
                                         <li>
-                                            Go to <a href="http://wwww.topcoder.com/tc">TopCoder</a> and login, you'll
+                                            Go to <a href="http://wwww.topcoder.com/tc" target="_blank">TopCoder</a> and login, you'll
                                             have to be an admin and logged in to set up an email.
                                         </li>
                                         <li>
-                                            Load the <a href="http://www.topcoder.com/email/emailServlet">Email Tool</a> I
+                                            Load the <a href="http://www.topcoder.com/email/emailServlet" target="_blank">Email Tool</a> I
                                             recommend you do this in IE as I believe mozilla doesn't like some of the
                                             javascript.
                                         </li>
