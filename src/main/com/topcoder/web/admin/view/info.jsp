@@ -1071,7 +1071,7 @@
                                 </li>
                                 <li class="tier2"><a name="misc13"></a>How do I modify a query in the query system?
                                     <p>
-                                        Check <a href="#misc12">this</a> out, I bet you can figure it out.
+                                        Check <a href="#misc12">here</a>, I bet you can figure it out.
                                     </p>
                                 </li>
                                 <li class="tier2"><a name="misc14"></a>How do I deactivate bad email addresses?
