@@ -1162,24 +1162,24 @@
                                 <li class="tier2">
                                     <a name="misc16"></a>How do I figure out the basic Coder of the Month?
                                     <p>
-                                        The following query finds the people with the highest average rating gain.
+                                        The following query finds the people with the highest average rating gain.<br />
                                         <span class="input">
-                                            select sum(case when rr.old_rating > 0 then rr.new_rating-rr.old_rating else 0 end)
-                                                 /sum(case when rr.old_rating > 0 then 1 else 0 end)
-                                                 , c.coder_id
-                                                 , count(*)
-                                                 , c.handle
-                                              from room_result rr
-                                                 , coder c
-                                                 , round r
-                                                 , calendar cal
-                                             where cal.month_numeric = &lt;month&gt;
-                                               and cal.year = &lt;year&gt;
-                                               and rr.coder_id = c.coder_id
-                                               and cal.calendar_id = r.calendar_id
-                                             and r.round_id =rr.round_id
-                                             group by c.coder_id, c.handle
-                                            having count(*) > 2
+                                            select sum(case when rr.old_rating > 0 then rr.new_rating-rr.old_rating else 0 end)<br />
+                                                 /sum(case when rr.old_rating > 0 then 1 else 0 end)<br />
+                                                 , c.coder_id<br />
+                                                 , count(*)<br />
+                                                 , c.handle<br />
+                                              from room_result rr<br />
+                                                 , coder c<br />
+                                                 , round r<br />
+                                                 , calendar cal<br />
+                                             where cal.month_numeric = &lt;month&gt;<br />
+                                               and cal.year = &lt;year&gt;<br />
+                                               and rr.coder_id = c.coder_id<br />
+                                               and cal.calendar_id = r.calendar_id<br />
+                                             and r.round_id =rr.round_id<br />
+                                             group by c.coder_id, c.handle<br />
+                                            having count(*) > 2<br />
                                              order by 1 desc
                                         </span>
                                     </p>
