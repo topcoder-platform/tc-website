@@ -131,7 +131,7 @@ Both the design and development competitions will have five (5) weeks of online 
       <td class="sidebarText">10.12.2005 4:00PM</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText" colspan="4">All times listed as Eastern Daylight Time</td>
+      <td class="sidebarText" colspan="4">*All times listed as Eastern Daylight Time</td>
    </tr>
 </table>
 <br><br>
