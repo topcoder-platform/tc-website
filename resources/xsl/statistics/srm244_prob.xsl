@@ -393,7 +393,27 @@ height="18" width="60" src="/i/rate_it.gif"/></A><br /> Used as: Division One - 
 </table></blockquote>
 
 <p>
-### PROBLEM WRITEUP GOES HERE
+This problem is a bit tricky to figure out, but once you do, the coding is
+trivial.  To figure out how to do it, imagine that you only had to hit one edge
+of the box, and then travel to the other point.  It should be obvious that if we
+reflect the second point over that edge, it will be the same distance from
+whatever point on the edge we travel to first.  Now, we all know that the
+shortest path between two points is a straight line, so it is best to draw a
+straight line from the starting point to the reflected point, and wherever that
+hits, that is where you should travel to on the edge.  Now, since there are four
+edges, we just have to reflect the end point over all of them.  For each
+parallel pair of edges, there are two ways to reflect the point (we can pick
+either edge for the first reflection).  This gives us four possible positions
+for the final 4-time reflected point.  We simply pick the shortest one, and
+that's it.  If you work it out on paper a bit, you'll see that reflecting twice
+either adds or subtracts twice the distance between the parallel edges, giving
+us the following solution:
+<pre>
+	double ret = Double.POSITIVE_INFINITY;
+    for (int i = -2; i &lt;= 2; i+=4) for (int j = -2; j &lt;= 2; j+=4) 
+        ret = Math.min(ret,dist(x0,y0,x1+i*a,y1+j*b));
+	return ret;
+</pre>
 </p>
 
 <font size="+2">
@@ -445,7 +465,47 @@ height="18" width="60" src="/i/rate_it.gif"/></A><br /> Used as: Division One - 
 </table></blockquote>
 
 <p>
-### PROBLEM WRITEUP GOES HERE
+The hard part of this problem is in determining if a game is valid or not.  If
+we know its valid, its easy to figure out which of the other return values is
+correct.  A lot of people tried to figure out if the game was valid by using
+heuristics, but this is dangerous at best, and you are very likely to get it
+wrong by doing this.<br/><br/>
+A safer solution is to reconstruct a game that could give the input 
+board state.  You can do this either forward or backwards, and neither is much
+harder than the other.  Let's consider the forward approach.  We start with an
+empty board, which we represent by {0,0,0,0,0,0,0}, the number of pieces in each
+column.  Now, we check the board, and see which of the columns could have been
+'X's first move.  Lets say that there is an 'X' in the bottom of the first and
+third columns, then we recurse with {1,0,0,0,0,0,0} and {0,0,1,0,0,0,0}, the two
+possibilities for the number of filled rows after one move.  We continue
+branching like this on all possible moves, modifying the number of pieces in a
+column by 1 such that the moves match the board we are given.  Eventually we
+will either try all possibilities without success (in which case the board is
+invalid), or else we will find a valid way to get to the given board position.
+Of course, along the way, we have to be careful that we don't create four in a
+row on a non-final move, but that's easy to do.  Finally, you have to memoize so
+that you don't expand a board position more than once.  To do this, just cache
+each board position as you expand them, and if you reach a position that has
+already been expanded, just immediately return false.
+<pre>
+    boolean recurse(int[] columns, int turn){
+        if(cache.contains(columns))return false;
+        if(columns is end board)return true;
+        if(columns contains connect four)return false;
+        cache.add(columns);
+        for(int i = 0; i&lt;7; i++){
+            if(columns[i]!=6 &amp;&amp; board[i][5-columns[i]] == marker(turn)){
+                columns[i]++;
+                if(recurse(columns,1-turn))return true;
+                columns[i]--;
+            }
+        }
+        return false;
+    }
+</pre>
+Since each column can have between 0 and 6 pieces in it, and there are 7
+columns, the state space is 7<sup>7</sup> = 823543.  This is small enough that
+it can be fully explored without much trouble.
 </p>
 
 
