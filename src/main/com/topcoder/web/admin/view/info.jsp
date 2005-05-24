@@ -711,7 +711,7 @@
                                         &amp; characters in the template, you need to "escape" them.  You should also be
                                         sure you don't have any characters that aren't part of basic ascii.  To escape a
                                         chunk of text put it within the following &lt;![CDATA[&lt;your text here&gt;]]&gt;.
-                                        Likely cuprits are urls.
+                                        Likely culsprits are urls.
                                     </p>
                                     <p>
                                         If that's not the problem, then perhaps the email scheduler has crapped out.
