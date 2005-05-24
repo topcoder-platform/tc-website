@@ -48,18 +48,18 @@
       <td class="rtHeader" colspan="2">Search Forum Content</td>
    </tr>
    <tr>
-      <td class="rtTextCell" nowrap="nowrap"><strong>Search Terms:</strong></td>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Query:</strong></td>
       <td class="rtTextCell100">
          <input name="q" size="50" maxlength="100" value="" id="terms" type="text">
          <input value="Search" onclick="" type="submit">
-         &#160;<a href="" class="rtLinkNew">Search Tips</a>
+         &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtLinkNew">Search Tips</a>
       </td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
       <td class="rtTextCell100">
 <select size="1" name="objID" id="objID01">
-<option value="">All Categories</option>
+<option value="all">All Categories</option>
 <option value="f50">&#160;Evolving Strategy</option>
 <option value="f51">&#160;Bugs, Suggestions and General Feedback</option>
 <option value="f52">&#160;Algorithm Competition Discussion</option>

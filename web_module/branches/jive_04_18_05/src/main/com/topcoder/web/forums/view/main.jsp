@@ -49,7 +49,7 @@
    <td nowrap="nowrap" valign="top">
    <A href="?module=Search" class="rtbcLink">Search:</A>&#160;
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
-   <input value="Go" onclick="" type="submit">
+   <input value="Search" onclick="" type="submit">
    &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">

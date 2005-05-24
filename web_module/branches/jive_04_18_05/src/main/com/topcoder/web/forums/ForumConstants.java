@@ -36,4 +36,6 @@ public interface ForumConstants {
         "Error: Thread view range exceeded.";
     public final static String ERR_MESSAGE_RANGE_EXCEEDED =
         "Error: Message view range exceeded.";
+    public final static String ERR_MESSAGE_HISTORY_RANGE_EXCEEDED =
+        "Error: Message view range for post history exceeded.";
 }

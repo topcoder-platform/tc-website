@@ -39,6 +39,7 @@ public class Settings extends ForumsProcessor {
         if (status.equals("save")) {
             int threadsPerPage = Integer.parseInt(getRequest().getParameter("threadsPerPage"));
             int messagesPerPage = Integer.parseInt(getRequest().getParameter("messagesPerPage"));
+            int messagesPerHistoryPage = Integer.parseInt(getRequest().getParameter("messagesPerHistoryPage"));
             String threadMode = getRequest().getParameter("threadMode");
             String autoWatchNewTopics = getRequest().getParameter("autoWatchNewTopics");
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
@@ -56,6 +57,13 @@ public class Settings extends ForumsProcessor {
                 addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
                 status = "error";
             }
+            if (messagesPerHistoryPage <= maxMessagesPerPage) {
+                user.setProperty(("jiveHistoryRange"), String.valueOf(messagesPerHistoryPage));
+            } else {
+                addError(ForumConstants.SETTINGS_STATUS, ForumConstants. ERR_MESSAGE_HISTORY_RANGE_EXCEEDED);
+                status = "error";
+            }
+            
             user.setProperty(("jiveThreadMode"), threadMode);
             user.setProperty(("jiveAutoWatchNewTopics"), autoWatchNewTopics);
             user.setProperty(("jiveAutoWatchReplies"), autoWatchReplies);

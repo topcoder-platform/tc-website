@@ -9,6 +9,7 @@
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="status" name="status" type="java.lang.String" toScope="request"/>
 <tc-webtag:useBean id="selectedWatchFrequency" name="selectedWatchFrequency" type="java.lang.Integer" toScope="request"/>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <html>
 <head>
@@ -51,15 +52,18 @@
 <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A><br>
 </div>
 
-<%  if (status.equals("save")) { %>
-		<span class="rtTextCell">Settings updated successfully.</span><br/>
-<%	} else if (status.equals("error")) { %>
-		<span class="rtTextCell">Settings updated with errors:</span><br/>
-		<tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/>
+<%  if (status.equals("save")) { %><br/><br/>
+<span class="rtHeader"><font color="green">Settings updated successfully.</font></span><br/><br/>
+<%	} else if (status.equals("error")) { %><br/><br/>
+<span class="rtHeader"><font color="red">Settings updated with errors:</font></span>
+<tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>
 
 <div style="clear:both;">
 <span class="bodySubtitle">User Settings</span><br>
+<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+<tc-webtag:hiddenInput name="module"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
       <td class="rtHeader" colspan="2">General Settings</td>
@@ -91,6 +95,25 @@
 					<option value="<%=messageCounts[i]%>" selected><%=messageCounts[i]%></option>
 			<%	} else { %>
 					<option value="<%=messageCounts[i]%>"><%=messageCounts[i]%></option>
+			<%	}
+			} %>
+		</select>
+      </td>
+   </tr>
+   <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History Page:</strong></td>
+      <td class="rtTextCell100">
+		<select size="1" name="messagesPerHistoryPage">
+		<%  int[] historyCounts = { 10, 15, 25, 50, 100 };
+			int historyRange = historyCounts[0];
+			try {
+				historyRange = Integer.parseInt(user.getProperty("jiveHistoryRange"));
+			} catch (Exception e) {}
+			for (int i=0; i<historyCounts.length; i++) {
+				if (historyCounts[i] == historyRange) { %>
+					<option value="<%=historyCounts[i]%>" selected><%=historyCounts[i]%></option>
+			<%	} else { %>
+					<option value="<%=historyCounts[i]%>"><%=historyCounts[i]%></option>
 			<%	}
 			} %>
 		</select>
@@ -157,8 +180,8 @@
    </tr>
 </table>
 <div align="right">
-<A href="?module=Settings&status=save"><img src="/i/roundTables/save.gif" alt="Save" border="0" /></A>
-</div>
+<A href="javascript:document.form1.module.value='Settings';document.form1.<%=ForumConstants.SETTINGS_STATUS%>.value='save';document.form1.submit();"><img src="/i/roundTables/save.gif" alt="Save" border="0" /></A>
+</div></form>
 
 </div>
 
