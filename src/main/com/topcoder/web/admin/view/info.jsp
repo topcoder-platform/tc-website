@@ -1079,16 +1079,16 @@
                                         <li>In common_oltp</li>
                                         <li>
                                             <span class="input">
-                                                select 'update email set status_id = 3 where lower(address) = ''' || lower(to_address) || ''';'
-                                                , 'update email_bounce_log set processed_ind = 1 where processed_ind = 0 ' ||
-                                                  'and lower(to_address) = ''' || lower(to_address) || ''';--'
-                                                , count(*)
-                                                    from email_bounce_log
-                                                    where processed_ind = 0
-                                                and bounce_type <> 'NB'
-                                                group by 1,2
-                                                having count(*) > 4
-                                                order by 3 desc
+                                                select 'update email set status_id = 3 where lower(address) = ''' || lower(to_address) || ''';'<br />
+                                                , 'update email_bounce_log set processed_ind = 1 where processed_ind = 0 ' ||<br />
+                                                  'and lower(to_address) = ''' || lower(to_address) || ''';--'<br />
+                                                , count(*)<br />
+                                                    from email_bounce_log<br />
+                                                    where processed_ind = 0<br />
+                                                and bounce_type <> 'NB'<br />
+                                                group by 1,2<br />
+                                                having count(*) > 4<br />
+                                                order by 3 desc<br />
                                             </span>
                                         </li>
                                         <li>Execute the queries that the prior query generated.</li>
