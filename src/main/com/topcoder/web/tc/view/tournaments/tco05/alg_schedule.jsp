@@ -165,7 +165,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
    <tr valign="top">
       <td class="sidebarText"><strong>Championship Round</strong></td>
       <td class="sidebarText">
-         <strong>Friday, March 11th<br />
+         <strong>Friday, October 14th<br />
          Compete: 2:30 PM PDT<br /></strong>
       </td>
       <td class="sidebarText"><strong>8</strong></td>
