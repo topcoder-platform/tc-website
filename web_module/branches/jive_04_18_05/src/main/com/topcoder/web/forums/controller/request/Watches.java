@@ -26,11 +26,6 @@ public class Watches extends ForumsProcessor {
         }
         
         WatchManager watchManager = forumFactory.getWatchManager();
-        Iterator itThreads = watchManager.getAllWatches(user, JiveConstants.THREAD);
-        
-        getRequest().setAttribute("user", user);
-        getRequest().setAttribute("watchManager", watchManager);
-        getRequest().setAttribute("threads", itThreads);
         
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
 		if (status.equals("update")) {
@@ -51,6 +46,11 @@ public class Watches extends ForumsProcessor {
                 }
             }
         }
+        
+        Iterator itThreads = watchManager.getAllWatches(user, JiveConstants.THREAD);
+        getRequest().setAttribute("user", user);
+        getRequest().setAttribute("watchManager", watchManager);
+        getRequest().setAttribute("threads", itThreads);
         
 		setNextPage("/watches.jsp");
 		setIsNextPageInContext(true);
