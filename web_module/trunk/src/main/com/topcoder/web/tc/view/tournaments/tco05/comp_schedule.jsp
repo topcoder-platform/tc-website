@@ -27,8 +27,8 @@
    <tr valign="top">
       <td class="sidebarText" width="25%">Registration</td>
       <td class="sidebarText" width="75%">
-         OPENS: Monday, June 13, 2005 at 9:00 AM EST<br /><br/>
-         CLOSES: Wednesday, June 29, 2005 at 9:00 AM EST
+         OPENS: Monday, June 13, 2005 at 9:00 AM EDT<br /><br/>
+         CLOSES: Wednesday, June 29, 2005 at 9:00 AM EDT
       </td>
    </tr>
 </table>
