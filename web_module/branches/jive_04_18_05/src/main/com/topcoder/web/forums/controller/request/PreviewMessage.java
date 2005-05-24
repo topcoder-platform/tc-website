@@ -10,6 +10,8 @@ import com.topcoder.web.forums.ForumConstants;
 
 /**
  * @author mtong
+ * 
+ * Displays a preview of the user's message, notifying the user if errors exist.
  */
 public class PreviewMessage extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {

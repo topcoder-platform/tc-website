@@ -17,6 +17,9 @@ import com.jivesoftware.forum.stats.ViewCountManager;
 
 /**
  * @author mtong
+ * 
+ * Processor containing logic to display the appropriate view of a thread (flat/hierarchical, 
+ * paginated, etc.), depending on the user's preferences.
  */
 public class Thread extends ForumsProcessor {
 	

@@ -10,6 +10,9 @@ import com.topcoder.web.forums.ForumConstants;
 
 /**
  * @author mtong
+ * 
+ * Provides logic to work with a message after a user decides to create a new thread, or edit/reply 
+ * to an existing message.
  */
 public class Post extends ForumsProcessor {
 

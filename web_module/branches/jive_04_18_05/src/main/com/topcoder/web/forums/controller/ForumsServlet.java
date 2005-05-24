@@ -28,6 +28,8 @@ import com.jivesoftware.base.AuthToken;
 
 /**
  * @author mtong
+ * 
+ * Provides session and authentication information to the forum's processors.
  */
 public class ForumsServlet extends BaseServlet {
 	private final static Logger log = Logger.getLogger(ForumsServlet.class);

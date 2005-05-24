@@ -10,6 +10,8 @@ import com.jivesoftware.base.JiveConstants;
 
 /**
  * @author mtong
+ * 
+ * Provides the root list of forums.
  */
 public class ForumList extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {

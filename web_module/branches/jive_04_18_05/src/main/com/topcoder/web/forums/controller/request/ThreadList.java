@@ -15,6 +15,8 @@ import com.jivesoftware.forum.stats.ViewCountManager;
 
 /**
  * @author mtong
+ * 
+ * Processor for viewing a forum (list of threads).
  */
 public class ThreadList extends ForumsProcessor {	
 	protected void businessProcessing() throws Exception {

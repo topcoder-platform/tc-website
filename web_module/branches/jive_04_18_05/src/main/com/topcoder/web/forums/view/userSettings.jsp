@@ -48,13 +48,7 @@
             </jsp:include>
 
 <div class="topLinksL">
-<A href="/" class="rtbcLink">Search:</A>&#160;
-<input name="q" size="20" maxlength="100" value="" id="terms" type="text">
-<input value="Search" onclick="" type="submit">
-&#160;<a href="" class="rtLinkNew">Search Tips</a>
-</div>
-<div class="topLinksR">
-<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A><br>
 </div>
 
 <%  if (status.equals("save")) { %>
@@ -78,7 +72,7 @@
 			int threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
 			for (int i=0; i<threadCounts.length; i++) {
 				if (threadCounts[i] == threadRange) { %>
-					<option value="<%=threadCounts[i]%>" selected="selected"><%=threadCounts[i]%></option>
+					<option value="<%=threadCounts[i]%>" selected><%=threadCounts[i]%></option>
 			<%	} else { %>
 					<option value="<%=threadCounts[i]%>"><%=threadCounts[i]%></option>
 			<%	}
@@ -94,7 +88,7 @@
 			int messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
 			for (int i=0; i<messageCounts.length; i++) {
 				if (messageCounts[i] == messageRange) { %>
-					<option value="<%=messageCounts[i]%>" selected="selected"><%=messageCounts[i]%></option>
+					<option value="<%=messageCounts[i]%>" selected><%=messageCounts[i]%></option>
 			<%	} else { %>
 					<option value="<%=messageCounts[i]%>"><%=messageCounts[i]%></option>
 			<%	}
@@ -110,7 +104,7 @@
 			String currentMode = user.getProperty("jiveThreadMode");
 			for (int i=0; i<threadModes.length; i++) {
 				if (threadModes[i][0].equals(currentMode)) { %>
-					<option value="<%=threadModes[i][0]%>" selected="selected"><%=threadModes[i][1]%></option>
+					<option value="<%=threadModes[i][0]%>" selected><%=threadModes[i][1]%></option>
 			<%	} else { %>
 					<option value="<%=threadModes[i][0]%>"><%=threadModes[i][1]%></option>
 			<%	}
@@ -125,11 +119,11 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
       <td class="rtTextCell100">
 <input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio" 
-	checked=<%= (user.getProperty("jiveAutoWatchNewTopics").equals("true")) ? "checked" : ""%>>
+	<%= (user.getProperty("jiveAutoWatchNewTopics").equals("true")) ? "checked" : ""%>>
 <label for="autoWatchNewTopicsYes">Yes</label>
 &#160;
 <input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio" 
-	checked=<%= (user.getProperty("jiveAutoWatchNewTopics").equals("true")) ? "" : "checked"%>>
+	<%= (user.getProperty("jiveAutoWatchNewTopics").equals("false")) ? "checked" : ""%>>
 <label for="autoWatchNewTopicsNo">No</label>
       </td>
    </tr>
@@ -137,25 +131,25 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
       <td class="rtTextCell100">
 <input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio" 
-	checked=<%= (user.getProperty("jiveAutoWatchReplies").equals("true")) ? "checked" : ""%>>
+	<%= (user.getProperty("jiveAutoWatchReplies").equals("true")) ? "checked" : ""%>>
 <label for="autoWatchRepliesYes">Yes</label>
 &#160;
 <input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio" 
-	checked=<%= (user.getProperty("jiveAutoWatchReplies").equals("true")) ? "" : "checked"%>>
+	<%= (user.getProperty("jiveAutoWatchReplies").equals("false")) ? "checked" : ""%>>
 <label for="autoWatchRepliesNo">No</label>
       </td>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
       <td class="rtTextCell100">
-         <select name="watchFrequency">
+         <select size=1 name="watchFrequency">
          	<option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>" 
-       			selected="<%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == selectedWatchFrequency.intValue()) ? "selected" : "" %>">Immediately (default)</option>
+       			<%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Immediately (default)</option>
          	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_DAY %>" 
-       			selected="<%= (UserSettingsAction.FREQUENCY_ONCE_A_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>">Once per day</option>
+       			<%= (UserSettingsAction.FREQUENCY_ONCE_A_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per day</option>
          	<option value="<%= UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY %>" 
-       			selected="<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>">Every other day</option>
+       			<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Every other day</option>
          	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>" 
-       			selected="<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : "" %>">Once per week</option>
+       			<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per week</option>
          </select>
          (<%= user.getEmail() %>)
       </td>
@@ -163,7 +157,7 @@
    </tr>
 </table>
 <div align="right">
-<A href="/?module=Settings&status=save"><img src="/i/roundTables/save.gif" alt="Save" border="0" /></A>
+<A href="?module=Settings&status=save"><img src="/i/roundTables/save.gif" alt="Save" border="0" /></A>
 </div>
 
 </div>

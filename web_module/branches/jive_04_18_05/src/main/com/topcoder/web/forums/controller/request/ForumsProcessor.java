@@ -15,6 +15,8 @@ import com.topcoder.shared.security.SimpleResource;
 
 /**
  * @author mtong
+ * 
+ * Base class for forum-related processors, providing message and user data.
  */
 public abstract class ForumsProcessor extends BaseProcessor {
     protected AuthToken authToken;

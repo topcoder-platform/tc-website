@@ -17,6 +17,8 @@ import com.jivesoftware.forum.ForumMessage;
 
 /**
  * @author mtong
+ * 
+ * Posts a message and redirects the user its place in the forum, or returns to post.jsp if errors exist.
  */
 public class PostMessage extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {

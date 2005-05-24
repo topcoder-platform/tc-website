@@ -12,9 +12,10 @@ import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
 
-
 /**
  * @author mtong
+ * 
+ * Processor providing data related to a user's forum post history.
  */
 public class History extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {

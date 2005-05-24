@@ -13,7 +13,7 @@ import com.jivesoftware.forum.ForumMessage;
 /**
  * @author mtong
  * 
- * Redirects the message request to the appropriate Thread page.
+ * Given a message ID, redirects the message request to the appropriate Thread view.
  */ 
 public class Message extends ForumsProcessor {	
 	protected void businessProcessing() throws Exception {
