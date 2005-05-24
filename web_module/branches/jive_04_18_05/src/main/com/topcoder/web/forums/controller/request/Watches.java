@@ -12,15 +12,12 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 
-import com.topcoder.shared.util.logging.Logger;
-
 /**
  * @author mtong
  * 
  * Forwards to the user's personal watchlist page.
  */
 public class Watches extends ForumsProcessor {
-    private final static Logger log = Logger.getLogger(Watches.class);
     
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
@@ -41,8 +38,7 @@ public class Watches extends ForumsProcessor {
             while (threads.hasNext()) {
             	ForumThread thread = (ForumThread)(threads.next());
                 String saveThread = StringUtils.checkNull(getRequest().getParameter("saveThread"+thread.getID()));
-                log.debug("Watchlist save: ID - " + thread.getID() + ", parameter - " + saveThread);
-                boolean expirable = saveThread.equals(String.valueOf(thread.getID()));
+                boolean expirable = !(saveThread.equals(String.valueOf(thread.getID())));
                 watchManager.getWatch(user, thread).setExpirable(expirable);                
             }
         } else if (status.equals("delete")) {
@@ -50,7 +46,6 @@ public class Watches extends ForumsProcessor {
             while (threads.hasNext()) {
                 ForumThread thread = (ForumThread)(threads.next());
                 String deleteThread = StringUtils.checkNull(getRequest().getParameter("deleteThread"+thread.getID()));
-                log.debug("Watchlist delete: ID - " + thread.getID() + ", parameter - " + deleteThread);
                 if (deleteThread.equals(String.valueOf(thread.getID()))) {
                 	watchManager.deleteWatch(watchManager.getWatch(user, thread));
                 }
