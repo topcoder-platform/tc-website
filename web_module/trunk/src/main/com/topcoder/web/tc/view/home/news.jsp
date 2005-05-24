@@ -8,6 +8,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.24.05<br>5:50 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm244_prob">SRM 244 - Problem Set & Analysis</A></span><br><br>
+In Division 1, the not-too-hard but subtle problem set made the match quite exciting and unpredictable until the dust settled after the system test. Congratulations to <tc-webtag:handle coderId="8357090" context="algorithm"/> for his victory with a wide margin,</td>
+      <td class="newsPhoto">by <tc-webtag:handle coderId="10487679" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm244_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.23.05<br>11:15 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7219">Bluetooth Devices Survey</A></span><br><br>
       How many Bluetooth devices do you own?
@@ -231,21 +246,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>05.04.05<br>3:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=050305">Using Regular Expressions</A></span><br><br>
-       "A regular expression is a special string that describes a search pattern. Many of you have surely seen and used them already when typing expressions like ls(or dir) *.txt."</td>
-      <td class="newsPhoto"><img src="/i/m/Dan[Popovici]_mug.gif" /><br>by <tc-webtag:handle coderId="7465390" context="algorithm"/><br>& <tc-webtag:handle coderId="294328" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=050305">full story</A>&#160;|&#160;
-         <A href="/?&t=features&c=index">archive</A>
-   </td></tr>
- 
 </table>
 <br><br>
 
