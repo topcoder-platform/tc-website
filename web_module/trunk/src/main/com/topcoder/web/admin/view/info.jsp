@@ -1159,6 +1159,31 @@
                                     </p>
 
                                 </li>
+                                <li class="tier2">
+                                    <a name="misc16"></a>How do I figure out the basic Coder of the Month?
+                                    <p>
+                                        The following query finds the people with the highest average rating gain.
+                                        <span class="input">
+                                            select sum(case when rr.old_rating > 0 then rr.new_rating-rr.old_rating else 0 end)
+                                                 /sum(case when rr.old_rating > 0 then 1 else 0 end)
+                                                 , c.coder_id
+                                                 , count(*)
+                                                 , c.handle
+                                              from room_result rr
+                                                 , coder c
+                                                 , round r
+                                                 , calendar cal
+                                             where cal.month_numeric = &lt;month&gt;
+                                               and cal.year = &lt;year&gt;
+                                               and rr.coder_id = c.coder_id
+                                               and cal.calendar_id = r.calendar_id
+                                             and r.round_id =rr.round_id
+                                             group by c.coder_id, c.handle
+                                            having count(*) > 2
+                                             order by 1 desc
+                                        </span>
+                                    </p>
+                                </li>
 
                             </ul>
                         </li>
