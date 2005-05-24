@@ -74,15 +74,14 @@
                                 <li><a href="#misc4">How do I kick someone out for having a duplicate account?</a></li>
                                 <li><a href="#misc5">How do I clear private data from the dev database after a data load?</a></li>
                                 <li><a href="#misc6">How do I make someone an admin?</a></li>
-                                <li><a href="#misc7">How do I give someone cvs access?</a></li>
                                 <li><a href="#misc8">What do I do if someone complains school information isn't correct (for ranking etc.)?</a></li>
                                 <li><a href="#misc9">How do I find out someone's password that is encrypted in the database?</a></li>
                                 <li><a href="#misc10">How do I set someone's password that is encrypted in the database?</a></li>
-                                <li><a href="#misc11">How do I check for cheaters?</a></li>
                                 <li><a href="#misc12">How do I create a query in the query system?</a></li>
                                 <li><a href="#misc13">How do I modify a query in the query system?</a></li>
                                 <li><a href="#misc14">How do I deactivate bad email addresses?</a></li>
                                 <li><a href="#misc15">How do I clear out problem data from the dev database after a data load?</a></li>
+                                <li><a href="#misc16">How do I figure out the basic Coder of the Month?</a></li>
 
                             </ul>
                         </li>
@@ -901,6 +900,13 @@
                                 </li>
                                 <li class="tier2">
                                     <a name="misc4"></a>How do I kick someone out for having a duplicate account?
+                                    <p>
+                                        If you have N accounts that are duplicates and only 1 of those accounts has
+                                        competed, simple execute the sql below.  If more than one accounts have competed
+                                        then you have to decide which accounts get wacked.  In general, you should
+                                        keep the account with the most rated events and wack the others.  If there is a
+                                        tie, then keep the older account and wack the newer.
+                                    </p>
                                     <p class="input">
                                        update informixltp:user set status = '5' where user_id = &lt;user_id&gt;;<br />
                                        update common_oltp:user set status = '5' where user_id = &lt;user_id&gt;;
@@ -958,20 +964,143 @@
                                     </p>
                                 </li>
                                 <li class="tier2">
-                                    <a name="misc7"></a>How do I give someone cvs access?
+                                    <a name="misc8"></a>What do I do if someone complains school information isn't correct (for ranking etc.)?
+                                    <p>
+                                        Most likely, this means that the school in question needs to be normalized.  During
+                                        registration, if the user doesn't enter the exactly correct school name, then
+                                        a new school record gets created for them.  Occasionally, we need to go through
+                                        and make all the people who are associated with a school record that is not *the*
+                                        record for the school join the crowd.
+                                    </p>
+                                    <ol>
+                                        <li>
+                                            You can root out all the school records that are extra by executing a query like
+                                            <span class="input">select * from school where lower(name) like '%xxx%'</span>
+                                            in the informixoltp database where 'xxx' is a substring of the correct school name.
+                                            You can proceeed like that to figure out all the school
+                                            records that should be normalized.  The correct school will be the one with the lowest
+                                            school_id, it will also have a user_id=0 if we've ever normalized for this school
+                                            before.  user_id=0 basically means that the school is system generated or approved
+                                            by TopCoder.
+                                        </li>
+                                        <li>
+                                            Once you know *the* school, and have your list of school_id's
+                                            you can run the following <span class="input">update current_school set school_id = &lt;school_id&gt;
+                                            where school_id in (&lt;school_id_list&gt;);</span>
+                                        </li>
+                                        <li>
+                                            School information is also stored in the demographic_response tables.  You can
+                                            also normalize this data.  You can figure out which coder's should be normalized
+                                            by running <span class="input">select * from demographic_response where demographic_question_id = 20
+                                            and demographic_response like '%xxx%''</span> where 'xxx' is a substring of the correct
+                                            school name.  This will give you a list of users that can be updated with <span class="input">
+                                            update current_school set school_id = &lt;school_id&gt; and coder_id in (&lt;user_id_list&gt;);</span>
+                                            school_id is *the* school.
+                                        </li>
+                                        <li>
+                                            Once you have updated the current school records, you need to load the warehouse
+                                            with the data.  You only need to run the coder load, you can see details <a href="#main9">here</a>.
+
+                                        </li>
+                                        <li>After the warehouse has been updated, you need to <a href="#cache6">clear the cache</a>.</li>
+                                    </ol>
                                 </li>
-                                <li class="tier2"><a name="misc8"></a>What do I do if someone complains school information isn't correct (for ranking etc.)?</li>
-                                <li class="tier2"><a name="misc9"></a>How do I find out someone's password that is encrypted in the database?</li>
-                                <li class="tier2"><a name="misc10"></a>How do I set someone's password that is encrypted in the database?</li>
-                                <li class="tier2"><a name="misc11"></a>How do I check for cheaters?</li>
-                                <li class="tier2"><a name="misc12"></a>How do I create a query in the query system?</li>
-                                <li class="tier2"><a name="misc13"></a>How do I modify a query in the query system?</li>
-                                <li class="tier2"><a name="misc14"></a>How do I deactivate bad email addresses?</li>
+                                <li class="tier2"><a name="misc9"></a>How do I find out someone's password that is encrypted in the database?
+                                    <ol>
+                                        <li>Telnet to 192.168.12.52 and login as apps</li>
+                                        <li><span class="input">./pass.sh &lt;handle&gt;</li>
+                                    </ol>
+                                </li>
+                                <li class="tier2"><a name="misc10"></a>How do I set someone's password that is encrypted in the database?
+                                    <ol>
+                                        <li>Telnet to 192.168.12.52 and login as apps</li>
+                                        <li><span class="input">./setpass.sh &lt;handle&gt; &lt;new_password&lt;</li>
+                                        <li>
+                                            If this user is a topcoder member, then you'll need to update their user
+                                            record in informixoltp as well.  <span class="input">update user set password =
+                                            &lt;password&gt; where user_id = &lt;user_id&gt;;
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="tier2"><a name="misc12"></a>How do I create a query in the query system?
+                                    <p>
+                                        The query tool contains queries which one can execute programatically and fetch
+                                        the results.  One can associate a number of queries with a single command.
+                                        In this way, if you have a single page that needs a number of different datasets
+                                        you can associate all the relevant queries with a single command.  When the command
+                                        is executed, you will get the results from each of your queries in seperate
+                                        ResultSetContainer objects.  See the codebase for examples, this is used
+                                        throughout the web site middle tier code.
+                                    </p>
+                                    <ol>
+                                        <li>Make sure you are logged in to www.topcoder.com/tc</li>
+                                        <li><a href="http://www.topcoder.com/query/query">Load the query tool</a></li>
+                                        <li>Choose the database that you would like to contain your query</li>
+                                        <li>Click "New Query"</li>
+                                        <li>
+                                            Enter a name for your query.  You will use this name to programatically reference
+                                            the results of this query.
+                                        </li>
+                                        <li>
+                                            If you would like to have ranking information added to your results, choose
+                                            true for ranking
+                                        </li>
+                                        <li>
+                                            If you choose true for ranking, you will have to tell the system which column
+                                            you would like to rank.  For example if you would like to rank coders by
+                                            rating, you would enter the index of the rating column.  This is a 1-based
+                                            index.
+                                        </li>
+                                        <li>Enter the text of the query.</li>
+                                        <li>Click "save"</li>
+                                        <li>If your query takes any input, click "edit query input"</li>
+                                        <li>Add whatever inputs your query takes.</li>
+                                        <li>
+                                            If any of your query parameters are optional, set them as such and add
+                                            a default value.
+                                        </li>
+                                        <li>Set sort values.  They need to be unique, you should just count from 1 up</li>
+                                        <li>Click "save"</li>
+                                        <li>Click "New Command"</li>
+                                        <li>Enter a name for your command</li>
+                                        <li>Select the appropriate command group</li>
+                                        <li>Click "save"</li>
+                                        <li>Click "edit command query"</li>
+                                        <li>Associate the query(s) with your new command</li>
+                                    </ol>
+                                </li>
+                                <li class="tier2"><a name="misc13"></a>How do I modify a query in the query system?
+                                    <p>
+                                        Check <a href="#misc12">this</a> out, I bet you can figure it out.
+                                    </p>
+                                </li>
+                                <li class="tier2"><a name="misc14"></a>How do I deactivate bad email addresses?
+                                    <ol>
+                                        <li>In common_oltp</li>
+                                        <li>
+                                            <span class="input">
+                                                select 'update email set status_id = 3 where lower(address) = ''' || lower(to_address) || ''';'
+                                                , 'update email_bounce_log set processed_ind = 1 where processed_ind = 0 ' ||
+                                                  'and lower(to_address) = ''' || lower(to_address) || ''';--'
+                                                , count(*)
+                                                    from email_bounce_log
+                                                    where processed_ind = 0
+                                                and bounce_type <> 'NB'
+                                                group by 1,2
+                                                having count(*) > 4
+                                                order by 3 desc
+                                            </span>
+                                        </li>
+                                        <li>Execute the queries that the prior query generated.</li>
+                                    </ol>
+                                </li>
                                 <li class="tier2">
                                     <a name="misc15"></a>How do I clear out problem data from the dev database after a data load?
-                                    Prior to running any of the following, get a list of solution_id's.  You will need to plug this
-                                    in to the 5th query.  <span class="input">select solution_id || ',' from problem_solution
-                                    where problem_id in (select problem_id from problem where status_id < 90)</span>
+                                    <p>
+                                        Prior to running any of the following, get a list of solution_id's.  You will need to plug this
+                                        in to the 5th query.  <span class="input">select solution_id || ',' from problem_solution
+                                        where problem_id in (select problem_id from problem where status_id < 90)</span>
+                                    </p>
                                     <p class="input">
                                         delete from solution_history where solution_id in (select solution_id from
                                         problem_solution where problem_id in (select problem_id from problem where status_id < 90));<br />
