@@ -85,7 +85,7 @@ public class WebScreeningBot {
                 em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("mktong@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("javier-topcoder-alarm@ivern.org", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
 
