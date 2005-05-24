@@ -57,6 +57,9 @@
 
     <target name="package-software" depends="">
         <cvs command="update -Pd"/>
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
 
         <ant antfile="build_or.xml" target="clean"/>
         <ant antfile="build_or.xml" target="dist"/>
