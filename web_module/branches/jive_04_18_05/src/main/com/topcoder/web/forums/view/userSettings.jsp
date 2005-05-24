@@ -48,8 +48,8 @@
                 <jsp:param name="title" value="User Settings"/>
             </jsp:include>
 
-<div class="topLinksL">
-<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A><br>
+<div class="topLinksR">
+<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
 </div>
 
 <%  if (status.equals("save")) { %><br/><br/>
@@ -59,7 +59,6 @@
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>
 
-<div style="clear:both;">
 <span class="bodySubtitle">User Settings</span><br>
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module"/>
@@ -182,8 +181,6 @@
 <div align="right">
 <A href="javascript:document.form1.module.value='Settings';document.form1.<%=ForumConstants.SETTINGS_STATUS%>.value='save';document.form1.submit();"><img src="/i/roundTables/save.gif" alt="Save" border="0" /></A>
 </div></form>
-
-</div>
 
 <p><br></p>
 

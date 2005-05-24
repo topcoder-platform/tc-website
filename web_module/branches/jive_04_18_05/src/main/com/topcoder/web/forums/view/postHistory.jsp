@@ -48,6 +48,10 @@
                 <jsp:param name="title" value="Forum Post History"/>
             </jsp:include>
 
+<div class="topLinksR">
+<b>Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+</div>
+
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId="<%=user.getID()%>"/></span>
 <br>
 <span class="bodySubtitle">Forum Post History (<%=forumFactory.getUserMessageCount(user)%> posts)</span>
