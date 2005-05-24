@@ -82,6 +82,7 @@
                                 <li><a href="#misc12">How do I create a query in the query system?</a></li>
                                 <li><a href="#misc13">How do I modify a query in the query system?</a></li>
                                 <li><a href="#misc14">How do I deactivate bad email addresses?</a></li>
+                                <li><a href="#misc15">How do I clear out problem data from the dev database after a data load?</a></li>
 
                             </ul>
                         </li>
@@ -746,13 +747,219 @@
                         </li>
                         <li class="tier1"><a name="misc"></a>Misc.
                             <ul class="tier2">
-                                <li class="tier2"><a name="misc1"></a>How do I put company branding in the TopCoder competition arena?</li>
-                                <li class="tier2"><a name="misc2"></a>How do I put company branding in the Technical Assessment tool?</li>
-                                <li class="tier2"><a name="#misc3"></a>How do I kick someone out for cheating?</li>
-                                <li class="tier2"><a name="misc4"></a>How do I kick someone out for having a duplicate account?</li>
-                                <li class="tier2"><a name="misc5"></a>How do I clear private data from the dev database after a data load?</li>
-                                <li class="tier2"><a name="misc6"></a>How do I make someone an admin?</li>
-                                <li class="tier2"><a name="misc7"></a>How do I give someone cvs access?</li>
+                                <li class="tier2">
+                                    <a name="misc1"></a>How do I put company branding in the TopCoder competition arena?
+                                    <ol>
+                                        <li>
+                                            There are 5 seperate images that the applet uses to for sponsor logos.  Each
+                                            Each of them have to be created by a graphics design staff member.  Once you have
+                                            the images, you can proceed.
+                                        </li>
+                                        <li>
+                                            Each of the files should be named similar to the following example, if they are
+                                            not, please do so.<br />
+                                            companyname_CodingFrame.gif<br />
+                                            companyname_WatchRoom.gif<br />
+                                            companyname_Lobby.gif<br />
+                                            companyname_Login.gif<br />
+                                            companyname_ScoreBoard.gif
+                                        </li>
+                                        <li>ftp the files to 192.168.12.51 and 192.168.12.52 in the ~/web/images/sponsor directory</li>
+                                        <li>check the images into cvs they go in the web module.</li>
+                                        <li>Now it's time to create records for the images in the informixoltp database.
+                                            <ul>
+                                                <li>
+                                                    Your insert statements will look like the following:
+                                                    <p class="input">
+                                                        insert into image (image_id, file_name, image_type_id, path_id) values (xxx, 'companyname_CodingFrame.gif', 4, 4);<br />
+                                                        insert into image (image_id, file_name, image_type_id, path_id) values (xxx, 'companyname_WatchRoom.gif', 5, 4);<br />
+                                                        insert into image (image_id, file_name, image_type_id, path_id) values (xxx, 'companyname_Lobby.gif', 2, 4);<br />
+                                                        insert into image (image_id, file_name, image_type_id, path_id) values (xxx, 'companyname_Login.gif', 7, 4);<br />
+                                                        insert into image (image_id, file_name, image_type_id, path_id) values (xxx, 'companyname_ScoreBoard.gif', 3, 4);
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    You'll need to replace the "xxx" in the insert statements with actual
+                                                    image_id values.  You can figure out the next image id to use by executing
+                                                    the following in the informixoltp datbase <span class="input">
+                                                    select max(image_id)+1 from image where image_id &lt; 10000</span>
+                                                </li>
+                                                <li>execute those insert statements</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            Next, you need to associate the images with the TopCoder company record.  You do
+                                            this by executing the following in the informixoltp database:
+                                            <p class="input">
+                                                delete from company_image_xref where company_id = 1;<br />
+                                                insert into company_image_xref values (1, xxx, 1);<br />
+                                                insert into company_image_xref values (1, xxx, 1);<br />
+                                                insert into company_image_xref values (1, xxx, 1);<br />
+                                                insert into company_image_xref values (1, xxx, 1);<br />
+                                                insert into company_image_xref values (1, xxx, 1);
+                                            </p>
+                                            Where "xxx" is the image_id's you used for the insert statements.
+                                        </li>
+                                        <li>Finally, <a href="#cache5">refresh the cache</a> with key "sponsor_image"</li>
+                                        <li>Login to the competition arena and check that the images are there.</li>
+                                    </ol>
+                                    <p>
+                                        If you need to set there to be no sponsor, then use the following in the informixoltp database.<br />
+                                        <span class="input">
+                                            delete from company_image_xref where company_id = 1;<br />
+                                            insert into company_image_xref values (1, 1882, 1);<br />
+                                            insert into company_image_xref values (1, 1883, 1);<br />
+                                            insert into company_image_xref values (1, 1884, 1);<br />
+                                            insert into company_image_xref values (1, 1885, 1);<br />
+                                            insert into company_image_xref values (1, 1886, 1);
+                                        </span>
+                                    </p>
+                                </li>
+                                <li class="tier2">
+                                    <a name="misc2"></a>How do I put company branding in the Technical Assessment tool?
+                                    <ol>
+                                        <li>
+                                            There is only one logo image for the testing tool.  You'll need to have a
+                                            graphics design staff member create it for you.
+                                        </li>
+                                        <li>
+                                            We've been much less regimented in the naming for these logos, but they
+                                            should (at a minimum) contain the name of the company.
+                                        </li>
+                                        <li>ftp the files to 192.168.12.51 and 192.168.12.52 in the ~/web/images/testing directory</li>
+                                        <li>Check the image in to cvs in the web module.</li>
+                                        <li>
+                                            Insert a record for this image in the informixoltp database:
+                                            <p class="input">
+                                                insert into image (image_id, file_name, image_type_id, path_id, height, width) values
+                                                (xxx, 'companyname_Logo.gif', 12, 18, 85, 325);
+                                            </p>
+                                        </li>
+                                        <li>
+                                            You can figure out what to put in for "xxx" by executing the following in the
+                                            informixoltp database:
+                                            <p class="input">
+                                                select max(image_id)+1 from image where image_id < 10000;
+                                            </p>
+                                        </li>
+                                        <li>Finally, <a href="#cache5">refresh the cache</a> with key "sponsor_image"</li>
+                                        <li>
+                                            Login to the technical assessment tool (for a session under the company you're
+                                            working with and check that the images are there.
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="tier2">
+                                    <a name="#misc3"></a>How do I kick someone out for cheating?
+                                    <ol>
+                                        <li>
+                                            If you've found this dirty scoundrel immediately following a match then you need
+                                            to take them out of the match with the following procedure:
+                                            <ul>
+                                                <li>
+                                                    In the informixoltp database <span class="input">update room_result set
+                                                    rated_flag = 0, point_total = 0, placed = 20, division_placed = 500,
+                                                    new_rating = old_rating, attended = 'N', advanced = 'N' where coder_id = &lt;coder_id&gt;
+                                                    and round_id = &lt;round_id&gt;;</span>
+                                                </li>
+                                                <li>
+                                                    Have the contest administrator restore ratings in the admin tool and
+                                                    re-run ratings
+                                                </li>
+                                                <li>
+                                                    Then you need to set them attended again so that they show up in the
+                                                    database.  In informixoltp <span class="input">update room_result
+                                                    set attended = 'N' where coder_id = &lt;coder_id&gt;
+                                                    and round_id = &lt;round_id&gt;;</span>
+                                                </li>
+                                                <li>Run the warehouse load for this round</li>
+                                                <li>
+                                                    Create user achievement records in the common_oltp database:
+                                                    <p class="input">
+                                                        insert into user_achievement (user_id, achievement_date, achievement_type_id, description)
+                                                        values (&lt;user_id&gt;, mdy(mm,dd,yyyy), 2, 'xxx');
+                                                    </p>
+                                                    The achievement date should be the date of the contest.  The description should follow
+                                                    the format of what is currently in the database.  It shoud explain what the violoation
+                                                    was and who was involved.
+                                                </li>
+                                                <li>
+                                                    Email mike and let me know who need to be emailed about having been kicked out.
+                                                    If mike decides to suspend them, that information should be added to their
+                                                    user achievement record.
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            Deactivate their account with the following queries:
+                                            <p class="input">
+                                                update informixltp:user set status = '6' where user_id = &lt;user_id&gt;;<br />
+                                                update common_oltp:user set status = '6' where user_id = &lt;user_id&gt;;
+                                            </p>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="tier2">
+                                    <a name="misc4"></a>How do I kick someone out for having a duplicate account?
+                                    <p class="input">
+                                       update informixltp:user set status = '5' where user_id = &lt;user_id&gt;;<br />
+                                       update common_oltp:user set status = '5' where user_id = &lt;user_id&gt;;
+                                    </p>
+                                </li>
+                                <li class="tier2">
+                                    <a name="misc5"></a>How do I clear private data from the dev database after a data load?
+                                    <ul>
+                                        <li>For informixoltp:
+                                            <p class="input">
+                                                update user set email = 'foo@fooonyou.com', password = 'password';<br />
+                                                update coder set address1 = '123 foo street'
+                                                , address2 = 'foo town', first_name = 'first foo'
+                                                , last_name = 'last foo',
+                                                home_phone = '999 888 777',
+                                                work_phone= '999 888 777',
+                                                middle_name= 'middle foo',
+                                                activation_code= '988737'
+                                                where first_name != 'first foo';<br />
+                                                update coder set city='foo city', zip='666', state_code = 'CT';<br />
+                                                delete from audit_coder;
+                                            </p>
+                                            You also need to clear out <a href="#misc15">problem data</a>
+                                        </li>
+                                        <li>For common_oltp:
+                                            <p class="input">
+                                                update email set address  = 'foo@fooonyou.com' where 1=1;<br />
+                                                update address set address1 = '123 foo street', address2 = 'foo town',
+                                                city='foo city', state_code = 'CT', zip='00000', country_code = '840' where 1=1;<br />
+                                                update user set first_name = 'first foo', last_name = 'last foo',
+                                                activation_code= '988737', password='password' where 1=1;<br />
+                                                update contact set title ='foo title' where 1=1;<br />
+                                                update phone set phone_number='5551212' where 1=1;<br />
+                                                update company set company_name = 'foo company' where 1=1;<br />
+                                                delete from user_note_xref;<br />
+                                                delete from note;<br />
+                                                update security_user set password = '3aP9HbGId8UQhwHEid8pew==';
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tier2">
+                                    <a name="misc6"></a>How do I make someone an admin?
+                                    <p class="input">
+                                        insert into common_oltp:user_role_xref values (&lt;user_role_id&gt;, &lt;user_id&gt;, 1, 132456);<br />
+                                        insert into common_oltp:user_group_xref values (&lt;user_group_id&gt;, &lt;user_id&gt;, 2000115, 132456);<br />
+                                        update informixoltp:rating set rating =-1 where coder_id = &lt;user_id&gt;;<br />
+                                        insert into informixoltp:group_user values (13, &lt;user_id&gt;);
+                                    </p>
+                                    <p>
+                                        You can figure out the user_role_id with <span class="input">select
+                                        max(user_role_id)+1 from common_oltp:user_role_xref where user_role_id < 1000</span>
+                                        You can figure out the user_group_id with <span class="input">select max(user_group_id)+1
+                                        from user_group_xref where user_group_id < 100</span>
+                                    </p>
+                                </li>
+                                <li class="tier2">
+                                    <a name="misc7"></a>How do I give someone cvs access?
+                                </li>
                                 <li class="tier2"><a name="misc8"></a>What do I do if someone complains school information isn't correct (for ranking etc.)?</li>
                                 <li class="tier2"><a name="misc9"></a>How do I find out someone's password that is encrypted in the database?</li>
                                 <li class="tier2"><a name="misc10"></a>How do I set someone's password that is encrypted in the database?</li>
@@ -760,6 +967,69 @@
                                 <li class="tier2"><a name="misc12"></a>How do I create a query in the query system?</li>
                                 <li class="tier2"><a name="misc13"></a>How do I modify a query in the query system?</li>
                                 <li class="tier2"><a name="misc14"></a>How do I deactivate bad email addresses?</li>
+                                <li class="tier2">
+                                    <a name="misc15"></a>How do I clear out problem data from the dev database after a data load?
+                                    Prior to running any of the following, get a list of solution_id's.  You will need to plug this
+                                    in to the 5th query.  <span class="input">select solution_id || ',' from problem_solution
+                                    where problem_id in (select problem_id from problem where status_id < 90)</span>
+                                    <p class="input">
+                                        delete from solution_history where solution_id in (select solution_id from
+                                        problem_solution where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from component_solution_xref where solution_id in (select solution_id from
+                                        problem_solution where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from solution_class_file where solution_id in (select solution_id from
+                                        problem_solution where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from problem_solution where problem_id in (select problem_id from problem
+                                        where status_id < 90);<br />
+                                        delete from solution where solution_id in (&lt;solution_id list&gt;);<br />
+                                        delete from round_component where component_id in (select component_id from
+                                        component where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from challenge where component_id in (select component_id from component
+                                        where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from system_test_result where test_case_id in (select test_case_id from
+                                        system_test_case where component_id  in (select component_id from component where
+                                        problem_id in (select problem_id from problem where status_id < 90)));<br />
+                                        delete from system_test_case where component_id in (select component_id from
+                                        component where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from problem_statement_history where problem_id  in (select problem_id
+                                        from problem where status_id < 90);<br />
+                                        delete from correspondence_read_xref;<br />
+                                        update correspondence set reply_id = null;<br />
+                                        delete from correspondence;<br />
+                                        delete from mpsqas_chat_history  where problem_id in (select problem_id from
+                                        problem where status_id < 90);<br />
+                                        delete from component_user_xref where component_id  in (select component_id from
+                                        component where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from compilation where component_state_id in (select component_state_id
+                                        from component_state where component_id in (select component_id from component
+                                        where problem_id in (select problem_id from problem where status_id < 90)));<br />
+                                        delete from submission_class_file where component_state_id in (select component_state_id
+                                        from component_state where component_id in (select component_id from component
+                                        where problem_id in (select problem_id from problem where status_id < 90)));<br />
+                                        delete from submission where component_state_id in (select component_state_id from
+                                        component_state where component_id in (select component_id from component where
+                                        problem_id in (select problem_id from problem where status_id < 90)));<br />
+                                        delete from compilation_class_file where component_state_id in (select component_state_id
+                                        from component_state where component_id in (select component_id from component where
+                                        problem_id in (select problem_id from problem where status_id < 90)));<br />
+                                        delete from component_state where component_id in (select component_id from component
+                                        where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from broadcast where component_id in (select component_id from component
+                                        where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from component_web_service_xref where component_id in (select component_id
+                                        from component where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from component_category_xref where component_id in (select component_id from
+                                        component where problem_id in (select problem_id from problem where status_id < 90));<br />
+                                        delete from component where problem_id in (select problem_id from problem where status_id < 90);<br />
+                                        delete from problem_user_request where problem_id  in (select problem_id from
+                                        problem where status_id < 90);<br />
+                                        delete from problem_payment where problem_id in (select problem_id from problem where status_id < 90);<br />
+                                        delete from problem_web_service_xref where problem_id in (select problem_id from problem where status_id < 90);<br />
+                                        delete from problem_rating where problem_id in (select problem_id from problem where status_id < 90);<br />
+                                        delete from problem where status_id < 90;
+                                    </p>
+
+                                </li>
 
                             </ul>
                         </li>
