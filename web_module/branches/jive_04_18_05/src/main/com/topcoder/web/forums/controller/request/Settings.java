@@ -24,9 +24,9 @@ import com.topcoder.shared.security.SimpleResource;
  */
 public class Settings extends ForumsProcessor {
     private int maxThreadsPerPage =
-            JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", 100);
+            JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", ForumConstants.DEFAULT_MAX_THREADS_PER_PAGE);
     private int maxMessagesPerPage =
-            JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", 100);
+            JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.DEFAULT_MAX_MESSAGES_PER_PAGE);
     
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();

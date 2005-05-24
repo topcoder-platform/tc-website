@@ -27,6 +27,10 @@ public interface ForumConstants {
 	
 	public final static String FORUMS_DIR = "/forums/";
     
+    public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
+    public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
+    public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
+    
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =
         "Error: Please include a message subject.";
     public final static String ERR_EMPTY_MESSAGE_BODY =
