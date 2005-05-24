@@ -81,7 +81,7 @@ The dates and times of the online rounds of competition are as follows:
 <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
    <tr>
       <td width="50%" class="sidebarTitle">Round of Competition</td>
-		<td width="50%" class="sidebarTitle">Date and Time * (all Eastern Standard Time)</td>
+		<td width="50%" class="sidebarTitle">Date and Time * (all Eastern Daylight Time)</td>
 	</tr>
 	<tr>
       <td width="50%" class="sidebarText">Online Round #1</td>
@@ -183,7 +183,7 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
 <table width="550" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
    <tr>
       <td width="50%" class="sidebarTitle">Competitor(s)
-      <td width="50%" class="sidebarTitle">Prize
+      <td width="50%" class="sidebarTitle" align="center">Prize
    </tr>
    <tr>
       <td class="sidebarText"><b>1st place finisher* - Algorithm Competition Champion</b></td>
@@ -274,8 +274,8 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
       </td>
    </tr>
    <tr>
-      <td class="sidebarText">Up to 750 competitors who compete in Online Round #1
-      <td class="sidebarText">Limited edition 2005 TopCoder Open t-shirt
+      <td class="sidebarText" nowrap="nowrap">Up to 750 competitors who compete in Online Round #1
+      <td class="sidebarText" align="center">Limited edition 2005 TopCoder Open t-shirt
    </tr>
    <tr>
       <td class="sidebarText" colspan=2>* Prize will be awarded at the conclusion of the Championship Round.  Winner must be present at the onsite rounds to receive prize.

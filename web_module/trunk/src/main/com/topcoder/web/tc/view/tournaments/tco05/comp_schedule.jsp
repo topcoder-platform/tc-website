@@ -37,9 +37,9 @@
 <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
    <tr>
       <td class="sidebarTitle" width="25%">Round</td>
-      <td class="sidebarTitle" width="25%">All Projects Posted</td>
+      <td class="sidebarTitle" width="25%">All Projects Posted*</td>
       <td class="sidebarTitle" width="25%" align="center">Registration Period</td>
-      <td class="sidebarTitle" width="25%">Submission Deadline</td>
+      <td class="sidebarTitle" width="25%">Submission Deadline*</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 1</td>
@@ -82,6 +82,9 @@
       <td class="sidebarText">N/A</td>
       <td class="sidebarText" align="center">N/A</td>
       <td class="sidebarText">10.12.2005 4:00PM</td>
+   </tr>
+   <tr valign="top">
+      <td class="sidebarText" colspan="4">All times listed as Eastern Daylight Time</td>
    </tr>
 </table>
 
