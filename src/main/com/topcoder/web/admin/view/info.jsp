@@ -849,7 +849,7 @@
                                     </ol>
                                 </li>
                                 <li class="tier2">
-                                    <a name="#misc3"></a>How do I kick someone out for cheating?
+                                    <a name="misc3"></a>How do I kick someone out for cheating?
                                     <ol>
                                         <li>
                                             If you've found this dirty scoundrel immediately following a match then you need
