@@ -86,7 +86,7 @@ public class TCUser extends SimpleUserAdapter {
 
         final String FIND_BY_HANDLE =
                 QUERY +
-                   " and u.handle = ? ";
+                   " and u.handle_lower = ? ";
 
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -99,7 +99,7 @@ public class TCUser extends SimpleUserAdapter {
                 //System.out.println("query: " + FIND_BY_ID);
             } else {
                 pstmt = con.prepareStatement(FIND_BY_HANDLE);
-                pstmt.setString(1, username);
+                pstmt.setString(1, username.toLowerCase());
                 //System.out.println("query: " + FIND_BY_HANDLE);
             }
             rs = pstmt.executeQuery();
