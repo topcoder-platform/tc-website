@@ -49,13 +49,13 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td nowrap="nowrap" valign="top">
-   <A href="/" class="rtbcLink">Search:</A>&#160;
+   <A href="?module=Search" class="rtbcLink">Search:</A>&#160;
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
-   <input value="Go" onclick="" type="submit">
-   &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
+   <input value="Search" onclick="" type="submit">
+   &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
-   <A href="/" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">Watch Thread</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">User Settings</A><br>
+   <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    View: 
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=flat" class="rtbcLink">Flat</A>&#160;|
    <strong>Threaded</strong>&#160;|
@@ -79,7 +79,7 @@
 	<td width=99%><table cellpadding="0" cellspacing="0" class="rtTable">
 		<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
 			<%	if (message.getParentMessage() != null) { %>
-					(response to <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>#<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
+					(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
 			<%	} %>
 		</a></td></tr>
 		<tr><td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">

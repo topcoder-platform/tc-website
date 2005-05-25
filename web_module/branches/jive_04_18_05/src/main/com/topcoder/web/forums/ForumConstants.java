@@ -12,7 +12,7 @@ public interface ForumConstants {
 	public final static String MESSAGE_ID = "messageID";
     public final static String USER_ID = "userID";
 	
-    public final static String THREAD_VIEW = "threadView";
+    public final static String THREAD_VIEW = "view";
     
 	public final static String MESSAGE_SUBJECT = "subject";
 	public final static String MESSAGE_BODY = "body";
@@ -24,6 +24,10 @@ public interface ForumConstants {
     
     public final static String SETTINGS_STATUS = "status";
     public final static String WATCHLIST_STATUS = "status";
+    
+    public final static String WATCH_TYPE = "type";
+    public final static String WATCH_ID = "ID";
+    public final static String WATCH_COMMAND = "cmd";
 	
 	public final static String FORUMS_DIR = "/forums/";
     
