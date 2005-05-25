@@ -64,7 +64,7 @@ public class ProfileSearch extends Base {
     
     private String buildQuery(TCRequest request, List headers){
         boolean cs = "on".equals(request.getParameter("casesensitive"));
-        ArrayList skillsHeader = new ArrayList();
+        ArrayList skillsHeaders = new ArrayList();
         List[] skills = buildSkillsQuery(request, skillsHeaders);
         boolean skill = skills[0].size() > 0;
         List[] demo = buildDemoQuery(request);
