@@ -613,7 +613,7 @@
                                         </li>
                                         <li>
                                             If you haven't created the distribution list yet, and it doesn't exist, you'll
-                                            need to create it.  You do this by either <a href="#main12">creating a command</a>
+                                            need to create it.  You do this by either <a href="#misc12">creating a command</a>
                                             in the query tool or setting up a static address list.
                                             There are a few things that are extremely important when writing a query.
                                             <ol>
