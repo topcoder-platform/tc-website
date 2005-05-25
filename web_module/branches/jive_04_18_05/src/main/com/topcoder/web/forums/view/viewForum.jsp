@@ -54,14 +54,16 @@
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr>
-   <td nowrap="nowrap" valign="top">
+<tr valign="top">
+   <td nowrap="nowrap">
    <A href="/" class="rtbcLink">Search</A>
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
    <input value="Go" onclick="" type="submit">
    &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
    </td>
-   <td align="right" nowrap="nowrap" valign="top">
+   <td align="right" nowrap="nowrap">
+   <A href="/" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;
+   <A href="/" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;
    <A href="/" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;
    <A href="/" class="rtbcLink">User Settings</A>
    </td>
