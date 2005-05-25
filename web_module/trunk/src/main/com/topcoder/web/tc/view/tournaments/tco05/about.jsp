@@ -42,8 +42,6 @@ This year's TopCoder Open promises to include challenging problems, exciting com
 <ul>
 <li>Registration for the TopCoder Component Competition begins June 13, 2005.</li>
 <li>The Component Competition starts June 29, 2005.</li>
-</ul>
-<ul>
 <li>Registration for the TopCoder Algorithm Competition begins August 1, 2005.</li>
 <li>The Algorithm Competition starts August 16, 2005.</li>
 </ul>
