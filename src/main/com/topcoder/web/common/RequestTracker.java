@@ -4,6 +4,7 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.StringUtil;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.InitialContext;
@@ -210,7 +211,17 @@ public class RequestTracker {
             buf.append(r.getContextPath());
             buf.append(r.getServletPath());
             String query = r.getQueryString();
-            buf.append((query == null) ? ("") : ("?" + query));
+            if (query==null) {
+                if (r.getMethod().equals("POST")) {
+                    //just a little hack to pick up some extra info on posts
+                    String module = StringUtils.checkNull(r.getParameter("module"));
+                    if (!"".equals(module)) {
+                        buf.append("?module=").append(module);
+                    }
+                }
+            } else {
+                buf.append("?").append(query);
+            }
             this.url = buf.toString();
             this.time = System.currentTimeMillis();
             this.sessionId = r.getSession().getId();
