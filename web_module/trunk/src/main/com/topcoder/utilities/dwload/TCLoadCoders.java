@@ -105,6 +105,7 @@ public class TCLoadCoders extends TCLoad {
 
         String tempKey = null;
 
+        int count = 0;
         ArrayList list = client.getKeys();
         boolean found = false;
         for (int i=0; i<coders.size(); i++) {
@@ -114,9 +115,11 @@ public class TCLoadCoders extends TCLoad {
                 if (tempKey.indexOf(coders.get(i).toString())>=0) {
                     client.remove(tempKey);
                     found = true;
+                    count++;
                 }
             }
         }
+        log.info(count + " records cleared from the cache");
     }
 
     private void getLastUpdateTime() throws Exception {
