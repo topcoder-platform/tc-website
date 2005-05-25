@@ -617,6 +617,8 @@
                                             in the query tool or setting up a static address list.
                                             There are a few things that are extremely important when writing a query.
                                             <ol>
+                                                <li>Your command must be created in the Transactional database</li>
+                                                <li>Your command must belong to the command group "Email"</li>
                                                 <li>You should use the "email_user" view, not the user table</li>
                                                 <li>
                                                     You must constrain on status='A' in your query.  People that are
@@ -630,7 +632,6 @@
                                                     You have to alias the email address to "email_address" in order for
                                                     it to work, see below for an example.
                                                 </li>
-                                                <li>Your command must belong to the command group "Email"</li>
                                             </ol>
                                             Here's an example query:
                                             <p>
