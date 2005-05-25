@@ -32,9 +32,7 @@ public class Post extends ForumsProcessor {
 		setDefault(ForumConstants.POST_MODE, postMode);
 		
         Forum forum = forumFactory.getForum(forumID);
-        if (postMode.equals("New")) {
-            setNextPage("/postNew.jsp");
-        } else {
+        if (!messageIDStr.equals("") && !threadIDStr.equals("")) {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
             String replySubject = message.getSubject();
             String editSubject = message.getSubject();
@@ -54,7 +52,6 @@ public class Post extends ForumsProcessor {
             }
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());
-            setNextPage("/post.jsp");
         }
 	
 		getRequest().setAttribute("forumFactory", forumFactory);
@@ -62,6 +59,7 @@ public class Post extends ForumsProcessor {
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
 		
+        setNextPage("/post.jsp");
 		setIsNextPageInContext(true);
 	}
 }

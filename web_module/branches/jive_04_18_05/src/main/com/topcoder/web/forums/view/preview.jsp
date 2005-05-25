@@ -9,12 +9,13 @@
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
-<tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="message" name="message" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
-<tc-webtag:useBean id="parentMessage" name="parentMessage" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="postMode" name="postMode" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
+<%  ForumMessage parentMessage = (ForumMessage)request.getAttribute("parentMessage");
+	ForumThread thread = (ForumThread)request.getAttribute("thread"); %>
 
 <html>
 <head>
@@ -56,10 +57,13 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
+		<%	if (thread != null) { %>
 		>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
-</td></table>
+		<%	} %>
+		>> <jsp:getProperty name="message" property="subject"/>
+</td></tr></table>
 
-<span class="bodySubtitle">Message Preview</span><br>
+<br/><span class="bodySubtitle">Message Preview</span><br>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
 		<%	if (parentMessage != null) { %>

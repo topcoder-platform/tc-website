@@ -1,17 +1,20 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
-         		 com.jivesoftware.forum.stats.ViewCountManager"
+         		 com.jivesoftware.forum.stats.ViewCountManager,
+         		 com.jivesoftware.forum.ForumMessage,
+         		 com.jivesoftware.forum.ForumThread"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
-<tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
-<tc-webtag:useBean id="message" name="message" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="postMode" name="postMode" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
+<%  ForumMessage message = (ForumMessage)request.getAttribute("message");
+	ForumThread thread = (ForumThread)request.getAttribute("thread"); %>
 
 <html>
 <head>
@@ -43,7 +46,10 @@
 <%  String postHeading = "";
 	String postDesc = "";
 	
-	if (postMode.equals("Reply")) {
+	if (postMode.equals("New")) {
+		postHeading = "New Thread";
+		postDesc = "Create a new thread";
+	} else if (postMode.equals("Reply")) {
 		String replySubject = message.getSubject();
 		if (!replySubject.startsWith("Re: ")) {
         	replySubject = "Re: " + replySubject;
@@ -59,7 +65,7 @@
 		postDesc = "Edit message";
 	} %>
 
-         <td width="100%" class="rtBody">
+        <td width="100%" class="rtBody">
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="forums"/>
@@ -69,8 +75,10 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Round Tables</A> >>
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
-		>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A> >>
-		<%=postHeading%>
+		<%	if (thread != null) { %>
+			>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
+		<%	} %>	
+		>> <%=postHeading%>
 </td></table>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">

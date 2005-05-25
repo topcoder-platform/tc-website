@@ -53,13 +53,10 @@ public class PostMessage extends ForumsProcessor {
 			setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
             setDefault(ForumConstants.MESSAGE_BODY, body);
             
-            if (postMode.equals("New")) {
-                setNextPage("/postNew.jsp");
-            } else {
+            if (!messageIDStr.equals("") && !threadIDStr.equals("")) {
                 ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
                 getRequest().setAttribute("thread", message.getForumThread());
                 getRequest().setAttribute("message", message);
-                setNextPage("/post.jsp");
             }
 			
 			getRequest().setAttribute("forumFactory", forumFactory);
@@ -67,6 +64,7 @@ public class PostMessage extends ForumsProcessor {
 			getRequest().setAttribute("forum", forum);
             getRequest().setAttribute("postMode", postMode);
 			
+            setNextPage("/post.jsp");
 			setIsNextPageInContext(true);
 			return;
 		}
@@ -91,8 +89,6 @@ public class PostMessage extends ForumsProcessor {
 				messageID = Long.parseLong(messageIDStr);
 				ForumMessage parentMessage = forumFactory.getMessage(messageID);
 				thread.addMessage(parentMessage, message);
-			} else if (postMode.equals("NewMessage")) {
-				thread.addMessage(null, message);
 			}
 		} else {
 			thread = forum.createThread(message);

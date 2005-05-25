@@ -41,45 +41,39 @@ public class PreviewMessage extends ForumsProcessor {
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, body);
         
-        if (postMode.equals("New")) {
-            setNextPage("/previewNew.jsp");
-        } else {
+        if (!messageIDStr.equals("") && !threadIDStr.equals("")) {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
             getRequest().setAttribute("thread", message.getForumThread());
-            getRequest().setAttribute("message", message);
+            getRequest().setAttribute("message", message);  // message for validation
             if (postMode.equals("Reply")) {
             	getRequest().setAttribute("parentMessage", message);
             } else {
             	getRequest().setAttribute("parentMessage", null);
             }
-            setNextPage("/preview.jsp");
         }
         
-		if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
+		if (subject.equals("")) {
 			addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
 		}
-		if (getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim().equals("")) {
+		if (body.equals("")) {
 			addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
 		}
         if (body.length() > ForumConstants.MESSAGE_BODY_MAX_LENGTH) {
             addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
         }
 		if (hasErrors()) {
-            if (postMode.equals("New")) {
-            	setNextPage("/postNew.jsp");
-            } else {
-            	setNextPage("/post.jsp");
-            }
+            setNextPage("/post.jsp");
             setIsNextPageInContext(true);
             return;
 		}
         
-        ForumMessage message = forum.createMessage(user);
-        message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
-        message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
+        ForumMessage message = forum.createMessage(user);   // message for preview
+        message.setSubject(subject);
+        message.setBody(body);
 		
         getRequest().setAttribute("message", message);        
         
+        setNextPage("/preview.jsp");
 		setIsNextPageInContext(true);
 	}
 }
