@@ -26,12 +26,16 @@ package com.topcoder.utilities.dwload;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Hashtable;
+import java.util.List;
+import java.util.ArrayList;
 
 public class TCLoadCoders extends TCLoad {
     private static Logger log = Logger.getLogger(TCLoadCoders.class);
@@ -64,7 +68,7 @@ public class TCLoadCoders extends TCLoad {
 
             loadCountry();
 
-            loadCoder();
+            List coders = loadCoder();
 
             // Need to load skill_type first due to referential integrity in skill
             loadSkillType();
@@ -85,12 +89,33 @@ public class TCLoadCoders extends TCLoad {
 
             loadCurrentSchool();
 
+            clearCache(coders);
+
             setLastUpdateTime();
 
             log.info("SUCCESS: Coders load ran successfully.");
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
             throw ex;
+        }
+    }
+
+    private void clearCache(List coders) throws Exception {
+        CacheClient client = CacheClientFactory.createCacheClient();
+
+        String tempKey = null;
+
+        ArrayList list = client.getKeys();
+        boolean found = false;
+        for (int i=0; i<coders.size(); i++) {
+            found = false;
+            for (int j=0; j<list.size()&&!found; j++) {
+                tempKey = (String)list.get(i);
+                if (tempKey.indexOf(coders.get(i).toString())>=0) {
+                    client.remove(tempKey);
+                    found = true;
+                }
+            }
         }
     }
 
@@ -270,7 +295,7 @@ public class TCLoadCoders extends TCLoad {
      * This method loads the 'coder' table of the data warehouse. It holds
      * information on a particular coder like address, real name, handle, etc.
      */
-    private void loadCoder() throws Exception {
+    private List loadCoder() throws Exception {
         PreparedStatement psSel = null;
         PreparedStatement psIns = null;
         PreparedStatement psUpd = null;
@@ -281,6 +306,8 @@ public class TCLoadCoders extends TCLoad {
         ResultSet rs2 = null;
         int count = 0;
         int retVal = 0;
+
+        ArrayList ret = new ArrayList(100);
 
         try {
             // Our select statement
@@ -431,6 +458,7 @@ public class TCLoadCoders extends TCLoad {
 
             while (rs.next()) {
                 int coder_id = rs.getInt(1);
+                ret.add(new Long(coder_id));
                 psSel2.clearParameters();
                 psSel2.setInt(1, coder_id);
                 rs2 = psSel2.executeQuery();
@@ -541,6 +569,7 @@ public class TCLoadCoders extends TCLoad {
             close(psIns);
             close(psSel2);
         }
+        return ret;
     }
 
     /**
