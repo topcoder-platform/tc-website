@@ -56,14 +56,12 @@
             </div>
 
 <br><br>
-<div align="center"><A href="/tc?&module=ViewSurvey&sid=209">Vote for your favorite!</A></div>
-<br><br>
 <table cellpadding="10" cellspacing="0" align="center" border="0">
-<tr><td>A<br><img src="/i/tournament/tco05/logo_submissions/085.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>B<br><img src="/i/tournament/tco05/logo_submissions/089.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>C<br><img src="/i/tournament/tco05/logo_submissions/090.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>D<br><img src="/i/tournament/tco05/logo_submissions/437.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>E<br><img src="/i/tournament/tco05/logo_submissions/498.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>A: 235 votes<br><img src="/i/tournament/tco05/logo_submissions/085.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>B: 56 votes<br><img src="/i/tournament/tco05/logo_submissions/089.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>C: 235 votes<br><img src="/i/tournament/tco05/logo_submissions/090.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>D: 130 votes<br><img src="/i/tournament/tco05/logo_submissions/437.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>E: 89 votes<br><img src="/i/tournament/tco05/logo_submissions/498.gif" alt="" border="0" /><br><hr></td></tr>
 </table>
          </div>
 
