@@ -20,13 +20,15 @@ public class Message extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 		
+        String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
 		long messageID = Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		ForumMessage message = forumFactory.getMessage(messageID);
 		ForumThread thread = message.getForumThread();
 		
 		StringBuffer urlNext = new StringBuffer();
 		urlNext.append("?module=Thread&").append(ForumConstants.THREAD_ID).append("=").append(thread.getID());
-		if (user.getProperty("jiveThreadMode").equals("flat")) {
+		if (threadView.equals("flat") || 
+                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat"))) {
 			long messageIdx = 0;
 			Iterator messageIter = thread.getMessages();			
 			while (messageIter.hasNext()) {
@@ -41,7 +43,7 @@ public class Message extends ForumsProcessor {
 			urlNext.append("&").append(ForumConstants.START_IDX).append("=").append(startIdx);
 		}
 		urlNext.append("&mc=").append(thread.getMessageCount());
-        String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
+        
         if (!threadView.equals("")) {
             urlNext.append("&").append(ForumConstants.THREAD_VIEW).append("=").append(threadView);
         }
