@@ -5,10 +5,8 @@ package com.topcoder.web.forums.controller.request;
 
 import java.util.Iterator;
 
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.forums.controller.ForumsServlet;
 import com.topcoder.web.forums.model.Paging;
 
 import com.jivesoftware.forum.Forum;
@@ -24,7 +22,6 @@ import com.jivesoftware.forum.stats.ViewCountManager;
  * paginated, etc.), depending on the user's preferences.
  */
 public class Thread extends ForumsProcessor {
-	private final static Logger log = Logger.getLogger(Thread.class);
     
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
@@ -59,11 +56,9 @@ public class Thread extends ForumsProcessor {
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("paginator", paginator);
-		
+        
         // Use the setting chosen on the page if selected, or the user's default
         // preference otherwise.
-        
-        log.debug("*** *** " + ForumConstants.THREAD_VIEW);
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
         if (!threadView.equals("")) {
             if (threadView.equals("flat")) {

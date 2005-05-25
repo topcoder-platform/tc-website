@@ -3,7 +3,6 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import java.util.Iterator;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.WatchManager;
 import com.jivesoftware.forum.ForumThread;

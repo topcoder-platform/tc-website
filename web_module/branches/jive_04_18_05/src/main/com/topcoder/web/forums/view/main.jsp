@@ -74,7 +74,7 @@
                     </tr>
                 </tc-webtag:iterator>
             </table>
-            <p>A topic with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</p>
+            <p>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</p>
         </td>
 <!-- Center Column Ends -->
 

@@ -6,6 +6,7 @@ package com.topcoder.web.forums.controller.request;
 import java.util.Iterator;
 
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.common.StringUtils;
 
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumMessage;
@@ -40,6 +41,10 @@ public class Message extends ForumsProcessor {
 			urlNext.append("&").append(ForumConstants.START_IDX).append("=").append(startIdx);
 		}
 		urlNext.append("&mc=").append(thread.getMessageCount());
+        String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
+        if (!threadView.equals("")) {
+            urlNext.append("&").append(ForumConstants.THREAD_VIEW).append("=").append(threadView);
+        }
 		urlNext.append("#").append(messageID);
 		
 		setNextPage(urlNext.toString());

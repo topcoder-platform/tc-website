@@ -83,7 +83,7 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="100%">Topic</td>
+        <td class="rtHeader" width="100%">Post</td>
         <td class="rtHeader">Forum</td>
         <td class="rtHeader">Date</td>
         <td class="rtHeader" align="right">Replies</td>

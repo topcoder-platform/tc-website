@@ -52,9 +52,9 @@
 <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
 </div>
 
-<%  if (status.equals("save")) { %><br/><br/>
+<%  if (status.equals("save")) { %>
 <span class="rtHeader"><font color="green">Settings updated successfully.</font></span><br/><br/>
-<%	} else if (status.equals("error")) { %><br/><br/>
+<%	} else if (status.equals("error")) { %>
 <span class="rtHeader"><font color="red">Settings updated with errors:</font></span>
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>

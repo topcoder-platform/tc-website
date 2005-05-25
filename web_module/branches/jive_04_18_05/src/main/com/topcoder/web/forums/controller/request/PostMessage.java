@@ -71,8 +71,8 @@ public class PostMessage extends ForumsProcessor {
 		
 		//tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
 		
-	    ForumMessage message;
-	    ForumThread thread;
+	    ForumMessage message = null;
+	    ForumThread thread = null;
 		if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
 			messageID = Long.parseLong(messageIDStr);
 			message = forumFactory.getMessage(messageID);
