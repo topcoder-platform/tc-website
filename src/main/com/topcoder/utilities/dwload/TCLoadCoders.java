@@ -110,7 +110,7 @@ public class TCLoadCoders extends TCLoad {
         for (int i=0; i<coders.size(); i++) {
             found = false;
             for (int j=0; j<list.size()&&!found; j++) {
-                tempKey = (String)list.get(i);
+                tempKey = (String)list.get(j);
                 if (tempKey.indexOf(coders.get(i).toString())>=0) {
                     client.remove(tempKey);
                     found = true;
