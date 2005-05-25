@@ -302,7 +302,7 @@ public class WebScreeningBot {
                 return;
             }
             
-            for(int i = 0; i < links.length; i++) {
+            /*for(int i = 0; i < links.length; i++) {
                 if(links[i].getURLString().indexOf("Logout") != -1) {
                     exampleLink = links[i];
                     break;
@@ -314,7 +314,7 @@ public class WebScreeningBot {
                 return;
             }
             exampleLink.click();
-            
+            */
         } catch(Exception e) {
             e.printStackTrace();
             error("Exception", e.getMessage());
