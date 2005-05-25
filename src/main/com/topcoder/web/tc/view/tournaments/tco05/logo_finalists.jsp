@@ -5,6 +5,8 @@
 <title>2005 TopCoder Open - Logo Design Contest</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 
 <style type="text/css">
 .pageSpacer
@@ -56,12 +58,12 @@
             </div>
 
 <br><br>
-<table cellpadding="10" cellspacing="0" align="center" border="0">
-<tr><td>A: 235 votes<br><img src="/i/tournament/tco05/logo_submissions/085.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>B: 56 votes<br><img src="/i/tournament/tco05/logo_submissions/089.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>C: 235 votes<br><img src="/i/tournament/tco05/logo_submissions/090.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>D: 130 votes<br><img src="/i/tournament/tco05/logo_submissions/437.gif" alt="" border="0" /><br><hr></td></tr>
-<tr><td>E: 89 votes<br><img src="/i/tournament/tco05/logo_submissions/498.gif" alt="" border="0" /><br><hr></td></tr>
+<table cellpadding="10" cellspacing="0" align="center" border="0" class="bodyText">
+<tr><td>A - <tc-webtag:handle coderId="14947661"/>: 335 votes<br><br><img src="/i/tournament/tco05/logo_submissions/085.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>B - <tc-webtag:handle coderId="14946338"/>: 90 votes<br><br><img src="/i/tournament/tco05/logo_submissions/089.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>C - <tc-webtag:handle coderId="14947701"/>: 288 votes<br><br><img src="/i/tournament/tco05/logo_submissions/090.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>D - <tc-webtag:handle coderId="15047259"/>: 169 votes<br><br><img src="/i/tournament/tco05/logo_submissions/437.gif" alt="" border="0" /><br><hr></td></tr>
+<tr><td>E - <tc-webtag:handle coderId="13372886"/>: 140 votes<br><br><img src="/i/tournament/tco05/logo_submissions/498.gif" alt="" border="0" /><br><hr></td></tr>
 </table>
          </div>
 
