@@ -626,7 +626,7 @@
                                                 </li>
                                                 <li>
                                                     In all likelihood, you need to constrain on coder_notify.  Only those
-                                                    that have signed up for you email should get it.
+                                                    that have signed up for your email should get it.
                                                 </li>
                                                 <li>
                                                     You have to alias the email address to "email_address" in order for
