@@ -1084,6 +1084,7 @@ public class TCLoadTCS extends TCLoad {
             query.append(" , coder c");
             query.append(" where ur.user_id = cs.coder_id");
             query.append(" and ur.user_id = c.coder_id");
+            query.append(" and c.status = 'A'");
 
             psSel = prepareStatement(query.toString(), TARGET_DB);
 
