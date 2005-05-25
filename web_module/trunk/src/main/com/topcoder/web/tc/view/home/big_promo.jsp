@@ -1,1 +1,1 @@
-<a href="/tc?&module=ViewSurvey&sid=209"><IMG SRC="/i/home/promos/tco05_logo_contest_vote.gif" BORDER="0" ALT="" /></a><br/>
+<a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists"><IMG SRC="/i/home/promos/tco05_logo_contest_winner.gif" BORDER="0" ALT="" /></a><br/>
