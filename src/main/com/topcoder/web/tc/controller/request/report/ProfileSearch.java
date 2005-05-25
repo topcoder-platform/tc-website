@@ -64,7 +64,8 @@ public class ProfileSearch extends Base {
     
     private String buildQuery(TCRequest request, List headers){
         boolean cs = "on".equals(request.getParameter("casesensitive"));
-        List[] skills = buildSkillsQuery(request, headers);
+        ArrayList skillsHeader = new ArrayList();
+        List[] skills = buildSkillsQuery(request, skillsHeaders);
         boolean skill = skills[0].size() > 0;
         List[] demo = buildDemoQuery(request);
         List tables, constraints;
@@ -105,11 +106,11 @@ public class ProfileSearch extends Base {
             query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
             query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
             query.append("  , (select '<a href=/tc?module=DownloadResume&uid=' || res2.coder_id || '>Resume</a>' from resume res2 where res2.coder_id = c.coder_id)\n");
-            query.append("  , (select unique '<a href=/tc?module=ViewNotes&uid=' || unx.user_id || '>Notes</a>' from user_note_xref unx where unx.user_id = c.coder_id)\n");
+            query.append("  , (select '<a href=/tc?module=ViewNotes&uid=' || c.coder_id || '>' || max(modify_date) || '</a>' from user_note_xref unx where unx.user_id = c.coder_id)\n");
             query.append("  , (select unique '<a href=/tc?module=PlacementInfoDetail&uid=' || upi.user_id || '>Placement Info</a>' from user_preference upi where upi.user_id = c.coder_id AND upi.preference_id in (2,7))\n");
             query.append("  , '<a href=/tc?module=LegacyReport&t=profile&ha=' || u.handle || '>General Info</a>'\n");
             query.append("  , '<a href=/tc?module=MemberProfile&cr=' || c.coder_id || '>Public Profile</a>'\n");
-            headers.addAll(Arrays.asList(new String[]{ "Algorithm Rating", "Design Rating", "Development Rating","","","","",""}));
+            headers.addAll(Arrays.asList(new String[]{ "Algorithm Rating", "Design Rating", "Development Rating","","Notes","","",""}));
             for(int i = 0; i<skills[2].size(); i++){
                 query.append("  , ");
                 query.append((String)skills[2].get(i));
@@ -189,6 +190,7 @@ public class ProfileSearch extends Base {
         query.append(sc);
         if(so == 1 && sc < 7 || so == -1 && sc >= 7)query.append(" ASC\n");
         else query.append(" DESC\n");
+        headers.addAll(skillsHeaders);
         return query.toString();
     }
     private List[] buildDemoQuery(TCRequest request){
