@@ -4,6 +4,8 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.Forum;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
@@ -29,9 +31,9 @@ public class Post extends ForumsProcessor {
 		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		setDefault(ForumConstants.POST_MODE, postMode);
 		
-        if (threadIDStr.equals("") || messageIDStr.equals("")) {
-            getRequest().setAttribute("thread", null);
-            getRequest().setAttribute("message", null);
+        Forum forum = forumFactory.getForum(forumID);
+        if (postMode.equals("New")) {
+            setNextPage("/postNew.jsp");
         } else {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
             String replySubject = message.getSubject();
@@ -50,16 +52,16 @@ public class Post extends ForumsProcessor {
                 setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
                 setDefault(ForumConstants.MESSAGE_BODY, message.getBody());
             }
-            getRequest().setAttribute("thread", message.getForumThread());
             getRequest().setAttribute("message", message);
+            getRequest().setAttribute("thread", message.getForumThread());
+            setNextPage("/post.jsp");
         }
 	
 		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("user", user);
-        getRequest().setAttribute("forum", forumFactory.getForum(forumID));
+        getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
 		
-		setNextPage("/post.jsp");
 		setIsNextPageInContext(true);
 	}
 }

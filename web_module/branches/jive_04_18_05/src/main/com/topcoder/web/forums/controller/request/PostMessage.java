@@ -27,14 +27,14 @@ public class PostMessage extends ForumsProcessor {
 		long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
 		long threadID = -1;
 		long messageID = -1;
-		
-		Forum forum = forumFactory.getForum(forumID);
-		
-		String threadIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_ID));
-		String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        
+        String threadIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_ID));
+        String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
 		String subject = getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim();
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
+        
+        Forum forum = forumFactory.getForum(forumID);
         
 		if (subject.equals("")) {
 			addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
@@ -53,13 +53,13 @@ public class PostMessage extends ForumsProcessor {
 			setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
             setDefault(ForumConstants.MESSAGE_BODY, body);
             
-            if (threadIDStr.equals("") || messageIDStr.equals("")) {
-                getRequest().setAttribute("thread", null);
-                getRequest().setAttribute("message", null);
+            if (postMode.equals("New")) {
+                setNextPage("/postNew.jsp");
             } else {
                 ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
                 getRequest().setAttribute("thread", message.getForumThread());
                 getRequest().setAttribute("message", message);
+                setNextPage("/post.jsp");
             }
 			
 			getRequest().setAttribute("forumFactory", forumFactory);
@@ -67,7 +67,6 @@ public class PostMessage extends ForumsProcessor {
 			getRequest().setAttribute("forum", forum);
             getRequest().setAttribute("postMode", postMode);
 			
-			setNextPage("/post.jsp");
 			setIsNextPageInContext(true);
 			return;
 		}

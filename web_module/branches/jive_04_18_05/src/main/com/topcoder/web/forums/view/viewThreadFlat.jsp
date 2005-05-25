@@ -50,13 +50,13 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td nowrap="nowrap" valign="top">
-   <A href="/" class="rtbcLink">Search:</A>&#160;
+   <A href="?module=Search" class="rtbcLink">Search:</A>&#160;
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
-   <input value="Go" onclick="" type="submit">
-   &#160;<a href="" class="rtbcLink">Search Tips</a><br><br>
+   <input value="Search" onclick="" type="submit">
+   &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
-   <A href="/" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">Watch Thread</A>&#160;&#160;|&#160;&#160;<A href="/" class="rtbcLink">User Settings</A><br>
+   <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    View: 
    <strong>Flat</strong>&#160;|
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;|
@@ -86,9 +86,9 @@
       <%  if (paginator.getNextPage()) { %>
          &#160;&#160;&#160;<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">NEXT>></A>
         <%  } %>
-   </b></td></tr>
+   </b></td>
 <% } %>
-</table>
+</tr></table>
 
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
    <table cellpadding="0" cellspacing="0" class="rtTable">

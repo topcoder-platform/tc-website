@@ -41,9 +41,8 @@ public class PreviewMessage extends ForumsProcessor {
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, body);
         
-        if (threadIDStr.equals("") || messageIDStr.equals("")) {
-            getRequest().setAttribute("thread", null);
-            getRequest().setAttribute("message", null);
+        if (postMode.equals("New")) {
+            setNextPage("/previewNew.jsp");
         } else {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
             getRequest().setAttribute("thread", message.getForumThread());
@@ -53,6 +52,7 @@ public class PreviewMessage extends ForumsProcessor {
             } else {
             	getRequest().setAttribute("parentMessage", null);
             }
+            setNextPage("/preview.jsp");
         }
         
 		if (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim().equals("")) {
@@ -65,7 +65,11 @@ public class PreviewMessage extends ForumsProcessor {
             addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
         }
 		if (hasErrors()) {
-            setNextPage("/post.jsp");
+            if (postMode.equals("New")) {
+            	setNextPage("/postNew.jsp");
+            } else {
+            	setNextPage("/post.jsp");
+            }
             setIsNextPageInContext(true);
             return;
 		}
@@ -76,7 +80,6 @@ public class PreviewMessage extends ForumsProcessor {
 		
         getRequest().setAttribute("message", message);        
         
-		setNextPage("/preview.jsp");
 		setIsNextPageInContext(true);
 	}
 }

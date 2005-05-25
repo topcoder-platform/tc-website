@@ -19,8 +19,7 @@ import com.topcoder.shared.security.SimpleResource;
 /**
  * @author mtong
  * 
- * Manages and saves user settings. Much of the functionality is replicated from Jive's 
- * UserSettingsAction.
+ * Manages and saves user settings. Some functionality is replicated from Jive's UserSettingsAction.
  */
 public class Settings extends ForumsProcessor {
     private int maxThreadsPerPage =
