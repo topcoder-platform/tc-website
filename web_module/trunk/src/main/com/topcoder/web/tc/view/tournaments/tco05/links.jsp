@@ -68,12 +68,12 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=photos"><img src="/i/tournament/tco05/tabs/L2_onsiteeventsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
-				<% if (tabLev2.equals("sponsors")) {%>
-					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/tournament/tco05/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
-				<% } else { %>
-					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/tournament/tco05/tabs/L2_sponsorsOff.gif" alt="" border=0 /></A></td>
-				<% } %>
 --%>
+				<% if (tabLev2.equals("sponsors")) {%>
+					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><img src="/i/tournament/tco05/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
+				<% } else { %>
+					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><img src="/i/tournament/tco05/tabs/L2_sponsorsOff.gif" alt="" border=0 /></A></td>
+				<% } %>
 
 				<% } else if (tabLev1.equals("algorithm")) { %>
 				<% if (tabLev2.equals("details")) {%>
@@ -138,9 +138,7 @@
 <%--
 --%>
 					<% } else if (tabLev2.equals("sponsors")) {%>
-						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><% if (tabLev3.equals("yahoo")) {%><img src="/i/tournament/tco05/tabs/L3_yahooOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_yahooOff.gif" border=0 /><% } %></a></td>
-						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=motorola"><% if (tabLev3.equals("motorola")) {%><img src="/i/tournament/tco05/tabs/L3_motorolaOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_motorolaOff.gif" border=0 /><% } %></a></td>
-						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nvidia"><% if (tabLev3.equals("nvidia")) {%><img src="/i/tournament/tco05/tabs/L3_nvidiaOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_nvidiaOff.gif" border=0 /><% } %></a></td>
+						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><% if (tabLev3.equals("sun")) {%><img src="/i/tournament/tco05/tabs/L3_sunOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_sunOff.gif" border=0 /><% } %></a></td>
 					<% } else {%>
 						<td class=subNavBG><img src="/i/clear.gif" height="35" width="1" border=0/></td>
 					<% } %>
