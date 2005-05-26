@@ -23,7 +23,7 @@
             
 <div align="center"><img src="/i/tournament/tco05/yahoo_logo.gif" alt="Sun" border="0" /></div>
 <br><br>
-Yahoo! is excited to sponsor the TopCoder Collegiate Challenge and support the drive, intensity and innovative spirit of TopCoder members. We know a lot about you and we’re impressed (to say the least). We hope you’ll get to know a bit about us too.
+Yahoo! is excited to sponsor the TopCoder Open and support the drive, intensity and innovative spirit of TopCoder members. We know a lot about you and we’re impressed (to say the least). We hope you’ll get to know a bit about us too.
 <br><br>               
 <span class="bodySubtitle">Why Yahoo!?</span>
 
