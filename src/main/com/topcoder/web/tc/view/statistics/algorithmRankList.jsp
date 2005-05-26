@@ -80,7 +80,7 @@ function submitEnter(e) {
                  <tr>
                    <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                    <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" width="20%" height="18">
-                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0"/>" class="statText"><b>Rank</b></a>
+                    <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>" class="statText"><b>Rank</b></a>
                    </td>
                    <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="left" width="48%">
 				   Handle
