@@ -66,6 +66,9 @@ function submitEnter(e) {
              <td valign="top" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><BR>
             <form name="coderRankForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
                <tc-webtag:hiddenInput name="<%=Constants.COUNTRY_CODE%>"/>
+               <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+               <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+               <tc-webtag:hiddenInput name="<%=Constants.COUNTRY_CODE%>"/>
                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgoRank"/>
                <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                  <tr>
