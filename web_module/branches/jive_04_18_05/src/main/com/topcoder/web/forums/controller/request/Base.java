@@ -6,7 +6,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 
-abstract public class Base extends BaseProcessor {
+abstract public class Base extends ForumsProcessor {
 
 
     public DataAccessInt getDataAccess() throws Exception {
