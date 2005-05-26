@@ -32,7 +32,7 @@ public class AlgoRank extends Base {
         }
         setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
 
-        if ("".equals(startRank)) {
+        if ("".equals(startRank)||Integer.parseInt(startRank)<=0) {
             startRank = "1";
         }
         setDefault(DataAccessConstants.START_RANK, startRank);
