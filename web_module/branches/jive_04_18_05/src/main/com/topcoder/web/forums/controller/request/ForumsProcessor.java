@@ -10,8 +10,10 @@ import com.jivesoftware.forum.ForumFactory;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.forums.controller.ForumsServlet;
 
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * @author mtong
@@ -23,12 +25,15 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected ForumFactory forumFactory;
     protected User user;
     
+    private final static Logger log = Logger.getLogger(ForumsProcessor.class);
+    
     /**
      * Subclasses should do their work by implementing this method.
      */
     protected void businessProcessing() throws Exception {
     	forumFactory = ForumFactory.getInstance(authToken);
     	user = forumFactory.getUserManager().getUser(authToken.getUserID());
+        log.debug("*** Obtaining user: " + user.getName() + " | Email: " + user.getEmail());
     	//throw new PermissionException(getUser(), new SimpleResource("Forums"));
     }
     
