@@ -107,7 +107,7 @@
 	<tr>
 	<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	<td class="rtThreadCellWrap">
-		<%	if (authToken.isAnonymous() || user.getProperty("jiveThreadMode").equals("flat")) { %>
+		<%	if ((authToken.isAnonymous() && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
 				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
 		<%	    Paginator threadPaginator;
 				ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();

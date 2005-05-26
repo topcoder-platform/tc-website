@@ -35,6 +35,8 @@ public interface ForumConstants {
     public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
     public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
     
+    public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
+    
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =
         "Error: Please include a message subject.";
     public final static String ERR_EMPTY_MESSAGE_BODY =

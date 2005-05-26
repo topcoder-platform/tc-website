@@ -51,7 +51,6 @@ public class Thread extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = null; 
 		
-		getRequest().setAttribute("user", user);
 		getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
@@ -60,15 +59,15 @@ public class Thread extends ForumsProcessor {
         // Use the setting chosen on the page if selected, or the user's default
         // preference otherwise.
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
-        if (threadView.equals("flat") ||
+        if (threadView.equals("flat") || (authToken.isAnonymous() && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) ||
                 (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat"))) {
             itMessages = thread.getMessages(resultFilter);
             setNextPage("/viewThreadFlat.jsp"); 
-        } else if (threadView.equals("threaded") ||
+        } else if (threadView.equals("threaded") || (authToken.isAnonymous() && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("threaded")) ||
                 (threadView.equals("") && user.getProperty("jiveThreadMode").equals("threaded"))) {
             itMessages = thread.getTreeWalker().getRecursiveMessages();
             setNextPage("/viewThreadThreaded.jsp"); 
-        } else if (threadView.equals("tree") ||
+        } else if (threadView.equals("tree") || (authToken.isAnonymous() && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("tree")) ||
                 (threadView.equals("") && user.getProperty("jiveThreadMode").equals("tree"))) {
             String messageID = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
             if (!messageID.equals("")) {
