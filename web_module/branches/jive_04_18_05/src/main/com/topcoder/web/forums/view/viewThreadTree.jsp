@@ -114,38 +114,32 @@
    <%  } %>
    <span class="bodyText"><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/></span><br><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=forumFactory.getUserMessageCount(activeMessage.getUser())%> posts</A></div></td>
    <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/>
-
    </td></tr>
 </table>
 
-<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-<table cellpadding="0" cellspacing="0" width=100%><tr>
-	<%  int depth=thread.getTreeWalker().getMessageDepth(message); 
-		int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5));
-		if (depth > 0) { %>
-			<td width=1%><img src="/images/clear.gif" width="<%=width%>" height="50"></td>
-	<%	}	%>
-	<td width=99%><table cellpadding="0" cellspacing="0" class="rtTable">
-		<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
-			<%	if (message.getParentMessage() != null) { %>
-					(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
-			<%	} %>
-		</a></td></tr>
-		<tr><td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-		<%  if (message.getUser().getProperty("imagePath") != null) { %>
-			<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
-		<%  } %>
-		<span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
-		<td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td></tr>
-		<tr><td class="rtFooter" align="right">
-		<%  if (message.getUser().equals(user)) { %>
-    		<A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>"><img src="/i/roundTables/edit.gif" class="rtButton" alt="Edit" /></A>
-    	<%	} %>
-		<A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>"><img src="/i/roundTables/reply.gif" class="rtButton" alt="Reply" /></A>
-		</td></tr>
-	</table></td>
-</tr></table>
-</tc-webtag:iterator>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+    <tr>
+        <td class="rtHeader" width="100%">Subject</td>
+        <td class="rtHeader">Author</td>
+        <td class="rtHeader">Date</td>
+    </tr>
+	<tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+	<tr>
+		<td class="rtThreadCellWrap">
+		<%  boolean active = message.getID() == activeMessage.getID();
+			int depth=thread.getTreeWalker().getMessageDepth(message); 
+			int width=Math.min(depth*10, 500);
+		if (depth > 0) { %><img src="/images/clear.gif" width="<%=width%>" height="1"/><% } %>
+		<% if (active) { %>
+			<b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></b></td>
+		<% } else { %>
+			<A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></td>
+		<% } %>
+      	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+      	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/></strong></td>
+    </tr>
+	</tc-webtag:iterator>        
+</table>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >> 
