@@ -15,7 +15,7 @@ import com.topcoder.web.common.BaseProcessor;
  * 
  * Base class for forum-related processors, providing message and user data.
  */
-public abstract class ForumsProcessor extends Base {
+public abstract class ForumsProcessor extends BaseProcessor {
     protected AuthToken authToken;
     protected ForumFactory forumFactory;
     protected User user;
