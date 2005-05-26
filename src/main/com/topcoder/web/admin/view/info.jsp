@@ -82,6 +82,7 @@
                                 <li><a href="#misc14">How do I deactivate bad email addresses?</a></li>
                                 <li><a href="#misc15">How do I clear out problem data from the dev database after a data load?</a></li>
                                 <li><a href="#misc16">How do I figure out the basic Coder of the Month?</a></li>
+                                <li><a href="#misc17">How do I track hits to particular links on the website?</a></li>
 
                             </ul>
                         </li>
@@ -1200,6 +1201,22 @@
                                              order by 1 desc
                                         </span>
                                     </p>
+                                </li>
+                                <li class="tier2">
+                                    <a name="misc17"></a>How do I track hits to particular links on the site?
+                                    <ol>
+                                        <p>
+                                            Create the link similar to the following<br />
+                                            &lt;a href="http://www.topcoder.com/?t=sponsor&c=link&link=&lt;link&gt;&refer=&lt;id&lt;"&gt;&lt;text&gt;&lt/a&gt;<br />
+                                            &lt;link&gt; is the link you would like to track.  It's where the user will be taken if they click this.<br />
+                                            &lt;id&gt; is an identifier so that you can tell where the person click on it.
+                                            For example, lets say you have a number of links to www.topcoder.com, using the id
+                                            you can identify which links where actually clicked.  Keep in mind that the system does
+                                            not track clicks by people in the topcoder office network, so if you're looking for
+                                            the results, you're out of luck.  You can see the results
+                                            <a href="http://www.topcoder.com/tc?module=LegacyReport&t=report_result&report_id=15" target="_blank">here</a>.
+                                        </p>
+                                    </ol>
                                 </li>
 
                             </ul>
