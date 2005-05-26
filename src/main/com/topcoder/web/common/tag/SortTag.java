@@ -7,12 +7,8 @@ import com.topcoder.web.common.model.SortInfo;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
-import javax.servlet.http.HttpUtils;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Iterator;
+import java.util.Enumeration;
 
 public class SortTag extends TagSupport {
 
@@ -77,17 +73,19 @@ public class SortTag extends TagSupport {
         buf.append("=");
         buf.append(sortDir);
         if (includeParams) {
-            Hashtable h = HttpUtils.parseQueryString(((HttpServletRequest)pageContext.getRequest()).getQueryString());
-            Map.Entry me = null;
-            for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
-                me = (Map.Entry) it.next();
+            Enumeration e = pageContext.getRequest().getParameterNames();
+            String key = null;
+            Object value = null;
+            for (; e.hasMoreElements();) {
+                key = (String)e.nextElement();
+                value = pageContext.getRequest().getParameterValues(key);
                 String[] sArray = null;
-                if (me.getValue() instanceof String) {
-                    add(buf, me.getKey().toString(), me.getValue().toString());
-                } else if (me.getValue().getClass().isArray()) {
-                    sArray = (String[]) me.getValue();
+                if (value instanceof String) {
+                    add(buf, key, value.toString());
+                } else if (value.getClass().isArray()) {
+                    sArray = (String[]) value;
                     for (int i = 0; i < sArray.length; i++) {
-                        add(buf, me.getKey().toString(), sArray[i]);
+                        add(buf, key, sArray[i]);
                     }
                 }
             }
