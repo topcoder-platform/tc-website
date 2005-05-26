@@ -24,11 +24,11 @@ public class HandleTag extends TagSupport {
     public final static String DEVELOPMENT = "development";
 
     private static final String[] lightStyles =
-            {"coderTextOrange", "coderTextBlack", "coderTextGray",
+            {"coderTextOrange", "coderTextWhite", "coderTextGray",
              "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     private static final String[] darkStyles =
-            {"coderTextOrange", "coderTextWhite", "coderTextGray",
+            {"coderTextOrange", "coderTextBlack", "coderTextGray",
              "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     public void setCoderId(long coderId) {
