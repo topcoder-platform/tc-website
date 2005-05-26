@@ -73,6 +73,8 @@ public class Thread extends ForumsProcessor {
             String messageID = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
             if (!messageID.equals("")) {
             	getRequest().setAttribute("activeMessage", thread.getMessage(Long.parseLong(messageID)));
+            } else {
+            	getRequest().setAttribute("activeMessage", thread.getRootMessage());
             }
             itMessages = thread.getTreeWalker().getRecursiveMessages();
             setNextPage("/viewThreadTree.jsp"); 
