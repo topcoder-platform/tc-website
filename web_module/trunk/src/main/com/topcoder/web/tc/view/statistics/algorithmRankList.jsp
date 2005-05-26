@@ -81,7 +81,7 @@ function submitEnter(e) {
                        <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
                        &#160;starting with &#160;
                        <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onkeypress="submitEnter(event)"/>
-                       <a href="javascript:submitForm();" class="statText">&#160;[ submit ]</a>
+                       <a href="javascript:document.coderRankForm.submit();" class="statText">&#160;[ submit ]</a>
                    </td>
                  </tr>
                </table>
