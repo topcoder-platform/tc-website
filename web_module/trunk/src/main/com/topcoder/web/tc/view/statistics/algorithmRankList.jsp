@@ -96,7 +96,7 @@ function submitEnter(e) {
                        <td valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                        <td class="statText" height="13"><rsc:item name="rank" row="<%=resultRow%>"/></td>
                        <td class="statText" valign="middle" align="left">
-                        <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="algorithm"/>
+                        <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="algorithm" darkBG="true" />
                        </td>
                        <td class="statText" valign="middle" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
                        <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
