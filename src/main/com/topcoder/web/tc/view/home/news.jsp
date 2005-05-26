@@ -278,8 +278,8 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_employment">Employment Opportunities</A></td>
    </tr>
    <tr class="bodyText">
-      <td><A href="/tc?module=Static&d1=tutorials&d2=index"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /></A></td>
-      <td><A href="/tc?module=Static&d1=tutorials&d2=index">Educational Content</A></td>
+      <td><A href="/tc?module=Static&d1=tutorials&d2=alg_index"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /></A></td>
+      <td><A href="/tc?module=Static&d1=tutorials&d2=alg_index">Educational Content</A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /></A></td>
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_movies">Movies</A></td>
    </tr>
