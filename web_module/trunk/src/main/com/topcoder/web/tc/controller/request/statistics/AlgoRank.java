@@ -27,6 +27,8 @@ public class AlgoRank extends Base {
 
         if ("".equals(numRecords)) {
             numRecords = "50";
+        } else if (Integer.parseInt(numRecords)>200) {
+            numRecords="200";
         }
         setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
 

@@ -4,7 +4,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<% ResultSetContainer list = (ResultSetContainer)request.getAttribute("list"); %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+ <% ResultSetContainer list = (ResultSetContainer)request.getAttribute("list"); %>
 <html>
  <head>
    <title>TopCoder Statistics - Coder Rankings</title>
@@ -48,8 +49,9 @@ function submitEnter(e) {
          <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
            <tr>
              <td valign="top" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><BR>
-            <form name="coderRankForm" action="/stat" method="get">
+            <form name="coderRankForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
                <tc-webtag:hiddenInput name="<%=Constants.COUNTRY_CODE%>"/>
+               <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgoRank"/>
                <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                  <tr>
                    <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
