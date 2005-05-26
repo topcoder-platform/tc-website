@@ -36,7 +36,7 @@
                
 						<p class="regmiddle">Early Bird TopCoder Professional discount:</p>
 
-						<p class="regmiddle">Join Us and SAVE $300 at the JavaOne<sup>SM</sup> Conference in San Francisco!</p>
+						<p class="regmiddle">Join Us and SAVE $200 at the JavaOne<sup>SM</sup> Conference in San Francisco!</p>
 
 						<p class="regmiddle">Come join us at the JavaOne Conference taking place June 27-June 30, 
 						2005, at Moscone Center in San Francisco. As the power behind the Coding Challenge at the Conference, 
