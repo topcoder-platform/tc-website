@@ -18,7 +18,7 @@ public class AlgoRank extends Base {
 
     public void businessProcessing() throws Exception {
         String countryCode = StringUtils.checkNull(getRequest().getParameter(Constants.COUNTRY_CODE));
-        String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
+//        String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
 
         Request r = new Request();
         ResultSetContainer ret = null;
@@ -29,11 +29,11 @@ public class AlgoRank extends Base {
             }
             r.setProperty(Constants.COUNTRY_CODE, countryCode);
             ret = (ResultSetContainer)getDataAccess().getData(r).get("country_algo_coder_rank");
-        } else if (!"".equals(schoolId)) {
+        }/* else if (!"".equals(schoolId)) {
             r.setContentHandle("school_algo_coder_rank");
             r.setProperty(Constants.SCHOOL_ID, schoolId);
             ret = (ResultSetContainer)getDataAccess().getData(r).get("school_algo_coder_rank");
-        } else {
+        }*/ else {
             r.setContentHandle("coder_ratings");
             ret = (ResultSetContainer)getDataAccess().getData(r).get("Coder_Ratings");
         }
