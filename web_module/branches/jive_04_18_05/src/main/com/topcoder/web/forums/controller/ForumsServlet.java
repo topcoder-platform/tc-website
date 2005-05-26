@@ -14,6 +14,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.security.TCSubject;
 
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.forums.model.TCAuthFactory;
 import com.topcoder.web.forums.model.TCAuthToken;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +59,7 @@ public class ForumsServlet extends BaseServlet {
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 		    //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-			AuthToken authToken = AuthFactory.getAuthToken(request, response);
+			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);
 		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
