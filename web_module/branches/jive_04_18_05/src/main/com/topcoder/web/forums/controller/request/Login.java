@@ -12,7 +12,6 @@ import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
 
 import java.util.Arrays;
