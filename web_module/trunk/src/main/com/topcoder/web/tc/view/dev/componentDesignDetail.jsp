@@ -183,15 +183,20 @@
                     <td class="projectHeaders" align="left">Eligibility</td>
                 </tr>
             </table>
-                        <p class="noSpListTitle">
-                        You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
-
-                        <ul class="noSpList">
-                            <li>A US Citizen </li>
-                            <li>A Lawful Permanent Resident of the US</li>
-                            <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li>
-                            <li>A Non-US resident authorized to perform services as an independent contractor.</li>
-                        </ul>
+<p class="noSpListTitle">
+You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.
+<br><br>
+If you reside in the United States, you must be either:
+<ul class="noSpList">
+<li>A US Citizen</li>
+<li>A Lawful Permanent Resident of the US</li>
+<li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li>
+</ul>
+If you do not reside in the United States:
+<ul class="noSpList">
+<li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not need to do anything to become authorized)</li>
+</ul>
+</p>
 
 <%-- Timeline --%>
             <table cellspacing="0" class="formFrame" align="center" width="530">
