@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.statistics;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -24,6 +25,19 @@ public class AlgoRank extends Base {
 //        String schoolId = StringUtils.checkNull(getRequest().getParameter(Constants.SCHOOL_ID));
         String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+
+        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+        if (!(sortCol.equals("") || sortDir.equals(""))) {
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
+            r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
+        }
+
+        SortInfo s = new SortInfo();
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
+
 
         if ("".equals(numRecords)) {
             numRecords = "50";
@@ -48,6 +62,7 @@ public class AlgoRank extends Base {
                 throw new NavigationException("Sorry, You entered an invalid request parameter");
             }
             r.setProperty(Constants.COUNTRY_CODE, countryCode);
+            r.setProperty(DataAccessConstants.SORT_QUERY, "country_algo_coder_rank");
             ret = (ResultSetContainer)getDataAccess().getData(r).get("country_algo_coder_rank");
             setDefault(Constants.COUNTRY_CODE, countryCode);
         }/* else if (!"".equals(schoolId)) {
@@ -56,6 +71,7 @@ public class AlgoRank extends Base {
             ret = (ResultSetContainer)getDataAccess().getData(r).get("school_algo_coder_rank");
         }*/ else {
             r.setContentHandle("coder_ratings");
+            r.setProperty(DataAccessConstants.SORT_QUERY, "Coder_Ratings");
             ret = (ResultSetContainer)getDataAccess().getData(r).get("Coder_Ratings");
         }
 
