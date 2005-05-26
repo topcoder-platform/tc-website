@@ -21,7 +21,7 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-<span class="bigTitle">How to get to the TCCC05</span>
+<span class="bigTitle">How to get to the TCO05</span>
 <br><br>
 <strong>By Car:</strong>
 The Santa Clara Marriott is conveniently located only minutes off Highway 101 in Santa Clara, CA.  View driving directions. (link to directions page)
