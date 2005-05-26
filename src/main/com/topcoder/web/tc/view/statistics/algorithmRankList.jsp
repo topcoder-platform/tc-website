@@ -116,9 +116,6 @@ function submitEnter(e) {
 			   </form>
              </td>
            </tr>
-           <tr>
-             <td valign="top" bgcolor="#001B35" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-           </tr>
          </table>
 
          <p><br></p>
