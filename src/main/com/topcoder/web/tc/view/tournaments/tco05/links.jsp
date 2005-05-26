@@ -139,6 +139,7 @@
 --%>
 					<% } else if (tabLev2.equals("sponsors")) {%>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><% if (tabLev3.equals("sun")) {%><img src="/i/tournament/tco05/tabs/L3_sunOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_sunOff.gif" border=0 /><% } %></a></td>
+						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><% if (tabLev3.equals("yahoo")) {%><img src="/i/tournament/tco05/tabs/L3_yahooOn.gif" border=0 /><% } else { %><img src="/i/tournament/tco05/tabs/L3_yahooOff.gif" border=0 /><% } %></a></td>
 					<% } else {%>
 						<td class=subNavBG><img src="/i/clear.gif" height="35" width="1" border=0/></td>
 					<% } %>
