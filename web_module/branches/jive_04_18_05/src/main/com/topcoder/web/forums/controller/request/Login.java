@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.request.authentication;
+package com.topcoder.web.forums.controller.request;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
