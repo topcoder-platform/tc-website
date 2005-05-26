@@ -21,6 +21,21 @@ function submitEnter(e) {
      return false;
     } else return true;
   }
+  function next() {
+    var myForm = document.coderRankForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value=myForm.<%=DataAccessConstants.START_RANK%>.value+myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value;
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+    myForm.submit();
+  }
+  function previous() {
+    var myForm = document.coderRankForm;
+    myForm.<%=DataAccessConstants.START_RANK%>.value=myForm.<%=DataAccessConstants.START_RANK%>.value-myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value;
+    myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+    myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+    myForm.submit();
+  }
+
 </script>
  </head>
  <body>
@@ -53,6 +68,11 @@ function submitEnter(e) {
                <tc-webtag:hiddenInput name="<%=Constants.COUNTRY_CODE%>"/>
                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AlgoRank"/>
                <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+                 <tr>
+                    <td background="/i/steel_blue_bg.gif" class="statText" height="16" colspan="5" align="center">
+                        <%=(list.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
+                        | <%=(list.croppedDataAfter()?"<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>":"next &gt;&gt;")%>                    </td>
+                 </tr>
                  <tr>
                    <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                    <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" width="20%" height="18">Rank</td>
