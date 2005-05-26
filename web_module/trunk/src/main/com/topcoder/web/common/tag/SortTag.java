@@ -3,13 +3,12 @@ package com.topcoder.web.common.tag;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.model.SortInfo;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.http.HttpUtils;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Map;
@@ -78,8 +77,7 @@ public class SortTag extends TagSupport {
         buf.append("=");
         buf.append(sortDir);
         if (includeParams) {
-            SessionInfo info = (SessionInfo) pageContext.getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-            Hashtable h = HttpUtils.parseQueryString(info.getQueryString());
+            Hashtable h = HttpUtils.parseQueryString(((HttpServletRequest)pageContext.getRequest()).getQueryString());
             Map.Entry me = null;
             for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
                 me = (Map.Entry) it.next();
