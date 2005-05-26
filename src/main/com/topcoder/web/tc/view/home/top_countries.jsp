@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <% ResultSetContainer countries = (ResultSetContainer)request.getAttribute("Country_Avg_Rating");%>
 
@@ -19,7 +20,9 @@
     <rsc:iterator list="<%=countries%>" id="resultRow">
         <tr>
             <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
-            <td align="left" class="formHandleEven"><strong><rsc:item name="name" row="<%=resultRow%>"/></strong></td>
+            <td align="left" class="formHandleEven">
+                <a href="/tc?module=AlgoRank&<%=Constants.COUNTRY_CODE%>=<rsc:item name="country_code" row="<%=resultRow%>"/>"><strong><rsc:item name="name" row="<%=resultRow%>"/></strong></a>
+            </td>
             <td align="right" class="formHandleEven"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
         </tr>
         <% even = !even;%>
