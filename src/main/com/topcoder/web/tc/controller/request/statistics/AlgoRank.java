@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.tc.Constants;
