@@ -201,7 +201,20 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tutorials&amp;d2=index</xsl:attribute>Algorithm Tutorials</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index</xsl:attribute>Algorithm Tutorials</A>
+                    </td>
+                </tr>
+
+<!-- Comp Tutorials -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='alg_tutorials'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tutorials&amp;d2=comp_index</xsl:attribute>Component Tutorials</A>
                     </td>
                 </tr>
 
