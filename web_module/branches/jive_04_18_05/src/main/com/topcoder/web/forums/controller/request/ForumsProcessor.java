@@ -33,7 +33,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
     	forumFactory = ForumFactory.getInstance(authToken);
     	user = forumFactory.getUserManager().getUser(authToken.getUserID());
-        log.debug("*** Obtaining user: " + user.getName() + " | Email: " + user.getEmail());
+        log.debug("*** Obtaining user: " + user.getUsername() + " | Email: " + user.getEmail());
     	//throw new PermissionException(getUser(), new SimpleResource("Forums"));
     }
     

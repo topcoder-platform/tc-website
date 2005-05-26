@@ -41,9 +41,12 @@ public class Message extends ForumsProcessor {
 			long messageRange = Long.parseLong(user.getProperty("jiveMessageRange"));
 			long startIdx = (messageIdx/messageRange)*messageRange;
 			urlNext.append("&").append(ForumConstants.START_IDX).append("=").append(startIdx);
-		}
-		urlNext.append("&mc=").append(thread.getMessageCount());
+		} else if (threadView.equals("tree") || 
+                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("tree"))) { 
+            urlNext.append("&").append(ForumConstants.MESSAGE_ID).append("=").append(messageID);
+        }
         
+		urlNext.append("&mc=").append(thread.getMessageCount());
         if (!threadView.equals("")) {
             urlNext.append("&").append(ForumConstants.THREAD_VIEW).append("=").append(threadView);
         }

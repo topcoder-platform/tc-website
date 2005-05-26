@@ -60,31 +60,22 @@ public class Thread extends ForumsProcessor {
         // Use the setting chosen on the page if selected, or the user's default
         // preference otherwise.
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
-        if (!threadView.equals("")) {
-            if (threadView.equals("flat")) {
-                itMessages = thread.getMessages(resultFilter);
-                setNextPage("/viewThreadFlat.jsp"); 
-            } else if (threadView.equals("threaded")) {
-                itMessages = thread.getTreeWalker().getRecursiveMessages();
-                setNextPage("/viewThreadThreaded.jsp"); 
-            } else if (threadView.equals("tree")) {
-                itMessages = thread.getTreeWalker().getRecursiveMessages();
-                setNextPage("/viewThreadTree.jsp");
+        if (threadView.equals("flat") ||
+                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat"))) {
+            itMessages = thread.getMessages(resultFilter);
+            setNextPage("/viewThreadFlat.jsp"); 
+        } else if (threadView.equals("threaded") ||
+                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("threaded"))) {
+            itMessages = thread.getTreeWalker().getRecursiveMessages();
+            setNextPage("/viewThreadThreaded.jsp"); 
+        } else if (threadView.equals("tree") ||
+                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("tree"))) {
+            String messageID = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+            if (!messageID.equals("")) {
+            	getRequest().setAttribute("activeMessage", thread.getMessage(Long.parseLong(messageID)));
             }
-        } else {
-            if (user.getProperty("jiveThreadMode").equals("flat")) {
-                itMessages = thread.getMessages(resultFilter);
-                setNextPage("/viewThreadFlat.jsp"); 
-            } else if (user.getProperty("jiveThreadMode").equals("threaded")) {
-                itMessages = thread.getTreeWalker().getRecursiveMessages();
-                setNextPage("/viewThreadThreaded.jsp"); 
-            } else if (user.getProperty("jiveThreadMode").equals("tree")) {
-                itMessages = thread.getTreeWalker().getRecursiveMessages();
-                setNextPage("/viewThreadTree.jsp");
-            } else {  // set to default
-                itMessages = thread.getMessages(resultFilter);
-                setNextPage("/viewThreadFlat.jsp"); 
-            }   
+            itMessages = thread.getTreeWalker().getRecursiveMessages();
+            setNextPage("/viewThreadTree.jsp"); 
         }
 		
 		getRequest().setAttribute("messages", itMessages);
