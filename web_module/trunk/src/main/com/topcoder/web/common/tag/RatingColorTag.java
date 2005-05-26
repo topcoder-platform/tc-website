@@ -26,11 +26,11 @@ public class RatingColorTag extends BodyTagSupport {
     private boolean darkBG = true;
 
     private static final String[] lightStyles =
-            {"coderTextOrange", "coderTextBlack", "coderTextGray",
+            {"coderTextOrange", "coderTextWhite", "coderTextGray",
              "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     private static final String[] darkStyles =
-            {"coderTextOrange", "coderTextWhite", "coderTextGray",
+            {"coderTextOrange", "coderTextBlack", "coderTextGray",
              "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     public void setRating(int rating) {
@@ -51,7 +51,7 @@ public class RatingColorTag extends BodyTagSupport {
 
     public int doStartTag() throws JspException {
 
-        try { 
+        try {
             //check for css override
             boolean bCSSOverride = false;
             if (cssclass != null && !cssclass.equals("")) {
@@ -75,7 +75,7 @@ public class RatingColorTag extends BodyTagSupport {
         }
         return EVAL_BODY_TAG;
     }
-    
+
     public int doAfterBody() throws JspException {
         try {
             if (bodyContent != null) {
@@ -86,7 +86,7 @@ public class RatingColorTag extends BodyTagSupport {
         }
         return SKIP_BODY;
     }
-    
+
     public int doEndTag() throws JspException {
         try {
             pageContext.getOut().print("</span>");
