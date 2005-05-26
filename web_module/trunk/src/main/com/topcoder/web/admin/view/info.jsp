@@ -944,6 +944,7 @@
                                                 where first_name != 'first foo';<br />
                                                 update coder set city='foo city', zip='666', state_code = 'CT';<br />
                                                 delete from audit_coder;
+                                                delete from resume;
                                             </p>
                                             You also need to clear out <a href="#misc15">problem data</a>
                                         </li>
