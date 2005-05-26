@@ -4,6 +4,8 @@
 
 <jsp:useBean id="memberList" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
 
@@ -88,7 +90,8 @@
                         <div align="center">
                         <a href="/tc?module=MemberProfile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><img src="<rsc:item row="<%=resultRow%>" name="image_path" ifNull="/i/m/nophoto.jpg"/>" alt="<rsc:item row="<%=resultRow%>" name="handle"/>" width="126" height="140" border="0"  class="myStatsPhoto"/></a>
                         <br/>
-                        <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=<rsc:item row="<%=resultRow%>" name="user_id"/>"><strong><rsc:item row="<%=resultRow%>" name="handle"/></strong></a>
+                        <span class="bodyText"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="development"/></span>
+
                         </div>
                      <% if (i<3) { %>
                           </td>
