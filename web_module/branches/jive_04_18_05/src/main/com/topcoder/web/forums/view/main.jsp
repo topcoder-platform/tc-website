@@ -6,7 +6,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
+<tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 
 <html>
 <head>
@@ -53,7 +53,7 @@
    &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
-   <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="authToken" property="userID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    </td>
 </tr>
 </table>

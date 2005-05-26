@@ -25,7 +25,11 @@ public abstract class ForumsProcessor extends BaseProcessor {
      */
     protected void businessProcessing() throws Exception {
     	forumFactory = ForumFactory.getInstance(authToken);
-    	user = forumFactory.getUserManager().getUser(authToken.getUserID());
+        if (authToken.isAnonymous()) {
+        	user = null;
+        } else {
+        	user = forumFactory.getUserManager().getUser(authToken.getUserID());
+        }
     	//throw new PermissionException(getUser(), new SimpleResource("Forums"));
     }
     
