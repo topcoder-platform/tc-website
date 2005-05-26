@@ -59,16 +59,10 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
       <td class="rtTextCell100">
 <select size="1" name="objID" id="objID01">
-<option value="all">All Categories</option>
-<option value="f50">&#160;Evolving Strategy</option>
-<option value="f51">&#160;Bugs, Suggestions and General Feedback</option>
-<option value="f52">&#160;Algorithm Competition Discussion</option>
-<option value="f53">&#160;TopCoder Arena Plugins Discussion</option>
-<option value="f54">&#160;Component Competition Discussion</option>
-<option value="f55">&#160;General Discussion</option>
-<option value="f56">&#160;Getting Started</option>
-<option value="f57">&#160;Employment Discussion</option>
-<option value="f58">&#160;Component Review Board</option>
+<option value="all">All Forums</option>
+<tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
+<option value="f<jsp:getProperty name="forum" property="ID"/>">&#160;<jsp:getProperty name="forum" property="name"/></option>
+</tc-webtag:iterator>
 </select>
       </td>
    </tr>
