@@ -1,33 +1,18 @@
 package com.topcoder.web.common.tag;
 
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 
 import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
-public class SortTag extends TagSupport {
-
-    private static Logger log = Logger.getLogger(SortTag.class);
-
-    protected int column = -1;
-    protected int ascColumn = -1;
-    protected int descColumn = -1;
-
-    public void setColumn(int column) {
-        this.column = column;
-    }
-
-    public void setAscColumn(int ascColumn) {
-        this.ascColumn = ascColumn;
-    }
-
-    public void setDescColumn(int descColumn) {
-        this.descColumn = descColumn;
-    }
+/**
+ * @author  dok
+ * @version  $Revision$ $Date$
+ * Create Date: May 26, 2005
+ */
+public class SortInputTag extends SortTag {
 
     public int doStartTag() throws JspException {
         String currCol = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
@@ -58,14 +43,14 @@ public class SortTag extends TagSupport {
         }
 
         StringBuffer buf = new StringBuffer(100);
-        buf.append("&");
-        buf.append(DataAccessConstants.SORT_COLUMN);
-        buf.append("=");
+        buf.append("<input type=\"hidden\" name=\"").append(DataAccessConstants.SORT_COLUMN).append("\"");
+        buf.append(" value=");
         buf.append(finalColumn);
-        buf.append("&");
-        buf.append(DataAccessConstants.SORT_DIRECTION);
-        buf.append("=");
+        buf.append(" />\n");
+        buf.append("<input type=\"hidden\" name=\"").append(DataAccessConstants.SORT_DIRECTION).append("\"");
+        buf.append(" value=");
         buf.append(sortDir);
+        buf.append(" />");
 
         try {
             pageContext.getOut().print(buf.toString());
@@ -75,16 +60,5 @@ public class SortTag extends TagSupport {
         return SKIP_BODY;
     }
 
-    /**
-     * Just in case the app server is caching tag (jboss!!!)
-     * we have to clear out all the instance variables at the
-     * end of execution
-     */
-    public int doEndTag() throws JspException {
-        this.column = -1;
-        this.ascColumn = -1;
-        this.descColumn = -1;
-        return super.doEndTag();
-    }
 
 }

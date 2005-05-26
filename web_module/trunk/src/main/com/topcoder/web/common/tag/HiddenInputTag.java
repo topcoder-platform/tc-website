@@ -18,7 +18,7 @@ public class HiddenInputTag extends BaseTag {
         if (value != null) {
             ret.append("value=\"").append(value).append("\" ");
         }
-        ret.append(">");
+        ret.append("/>");
         try {
             pageContext.getOut().print(ret.toString());
         } catch (java.io.IOException ioe) {
