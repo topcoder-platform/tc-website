@@ -97,9 +97,11 @@ public class ForumsServlet extends BaseServlet {
 		                cmd = DEFAULT_PROCESSOR;
 		            if (!isLegalCommand(cmd))
 		                throw new NavigationException();
-                    log.debug("=== command: " + cmd);
-
-		            String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
+                    
+                    String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
+                    if (cmd.equals("Login")) {
+                    	processorName = "com.topcoder.web.tc.controller.request.authentication.Login";
+                    }
 
 		            log.debug("creating request processor for " + processorName);
 		            try {
