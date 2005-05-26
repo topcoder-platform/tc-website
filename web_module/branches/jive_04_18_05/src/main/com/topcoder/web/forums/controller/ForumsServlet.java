@@ -64,11 +64,7 @@ public class ForumsServlet extends BaseServlet {
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
                     log.debug("*** Uses custom auth ***");
-                    log.debug("*** Uses custom auth ***");
-                    log.debug("*** Uses custom auth ***");
                 } else {
-                    log.debug("*** Does not use custom auth ***");
-                    log.debug("*** Does not use custom auth ***");
                     log.debug("*** Does not use custom auth ***");
                 }
             }

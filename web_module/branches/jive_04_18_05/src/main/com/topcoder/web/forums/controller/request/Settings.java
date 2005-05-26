@@ -14,7 +14,7 @@ import com.jivesoftware.forum.action.UserSettingsAction;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.ClassResource;
 
 /**
  * @author mtong
@@ -30,7 +30,7 @@ public class Settings extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
         if (isGuest()) {
-        	throw new PermissionException(getUser(), new SimpleResource("Forums - Settings")); 
+        	throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         
         int watchFrequency = -1;

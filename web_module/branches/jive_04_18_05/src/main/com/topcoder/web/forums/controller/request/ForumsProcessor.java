@@ -30,7 +30,8 @@ public abstract class ForumsProcessor extends BaseProcessor {
         } else {
         	user = forumFactory.getUserManager().getUser(authToken.getUserID());
         }
-    	//throw new PermissionException(getUser(), new SimpleResource("Forums"));
+        getRequest().setAttribute("authToken", authToken);
+        getRequest().setAttribute("user", user);
     }
     
     public void setAuthToken(AuthToken authToken) {

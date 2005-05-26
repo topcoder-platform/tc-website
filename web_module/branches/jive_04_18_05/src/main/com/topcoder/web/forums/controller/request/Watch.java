@@ -7,7 +7,7 @@ import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.WatchManager;
 import com.jivesoftware.forum.ForumThread;
 
-import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
@@ -22,7 +22,7 @@ public class Watch extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
         if (isGuest()) {
-            throw new PermissionException(getUser(), new SimpleResource("Forums - Watch")); 
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         
         WatchManager watchManager = forumFactory.getWatchManager();

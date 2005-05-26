@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
          		 com.topcoder.web.forums.model.Paging,
+         		 com.jivesoftware.base.User,
          		 com.jivesoftware.forum.stats.ViewCountManager,
          		 com.jivesoftware.forum.ResultFilter,
          		 com.jivesoftware.forum.action.util.Page,
@@ -15,9 +16,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 
+<tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
-<tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
+
+<%	User user = (User)request.getAttribute("user"); %>
 
 <html>
 <head>
@@ -62,7 +65,7 @@
    &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
-   <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   <A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="authToken" property="userID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    </td>
 </tr>
 <tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>
@@ -104,7 +107,7 @@
 	<tr>
 	<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	<td class="rtThreadCellWrap">
-		<%	if (user.getProperty("jiveThreadMode").equals("flat")) { %>
+		<%	if (authToken.isAnonymous() || user.getProperty("jiveThreadMode").equals("flat")) { %>
 				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
 		<%	    Paginator threadPaginator;
 				ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();

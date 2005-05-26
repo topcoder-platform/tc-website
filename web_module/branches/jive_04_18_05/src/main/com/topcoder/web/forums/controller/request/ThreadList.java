@@ -48,7 +48,6 @@ public class ThreadList extends ForumsProcessor {
 		
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("threads", itThreads);
-		getRequest().setAttribute("user", user);
 		getRequest().setAttribute("paginator", paginator);
 		
 		setNextPage("/viewForum.jsp");
