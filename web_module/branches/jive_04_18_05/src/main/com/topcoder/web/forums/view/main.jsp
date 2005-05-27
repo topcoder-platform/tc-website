@@ -50,10 +50,10 @@
    <A href="?module=Search" class="rtbcLink">Search:</A>&#160;
    <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
    <input value="Search" onclick="" type="submit">
-   &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br><br>
+   &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br/><br/>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
-   <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="authToken" property="userID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+   <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="authToken" property="userID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
    </td>
 </tr>
 </table>
@@ -66,7 +66,7 @@
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
                     <tr>
                         <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
-                        	<br><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
+                        	<br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="forum" property="messageCount"/></td>
                         <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
                         <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>

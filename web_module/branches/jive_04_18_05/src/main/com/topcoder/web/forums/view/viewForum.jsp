@@ -141,7 +141,7 @@
 	</tr>
 </tc-webtag:iterator>
 </table>
-<br><br>
+<br/><br/>
 A thread with a <b>bold title</b> indicates it is either a new thread or has new postings.
 
         <p><br/></p>

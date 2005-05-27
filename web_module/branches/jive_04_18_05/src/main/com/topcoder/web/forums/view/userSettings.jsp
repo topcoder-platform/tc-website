@@ -182,7 +182,7 @@
 <A href="javascript:document.form1.module.value='Settings';document.form1.<%=ForumConstants.SETTINGS_STATUS%>.value='save';document.form1.submit();"><img src="/i/roundTables/save.gif" alt="Save" border="0" /></A>
 </div></form>
 
-<p><br></p>
+<p><br/></p>
 
 </td>
 <!-- Center Column Ends -->

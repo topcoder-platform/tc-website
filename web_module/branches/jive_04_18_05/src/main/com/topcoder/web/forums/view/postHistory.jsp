@@ -49,11 +49,11 @@
             </jsp:include>
 
 <div class="topLinksR">
-<b>Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+<b>Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
 </div>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId="<%=user.getID()%>"/></span>
-<br>
+<br/>
 <span class="bodySubtitle">Forum Post History (<%=forumFactory.getUserMessageCount(user)%> posts)</span>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">

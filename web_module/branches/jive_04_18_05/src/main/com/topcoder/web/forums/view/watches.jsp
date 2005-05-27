@@ -49,10 +49,10 @@
             </jsp:include>
             
 <div class="topLinksR">
-<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<b>My Watches</b>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<b>My Watches</b>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
 </div>
 
-<span class="bodySubtitle">Watched Threads: <%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%></span><br>
+<span class="bodySubtitle">Watched Threads: <%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%></span><br/>
 All watch updates will be emailed to your email address: <b><jsp:getProperty name="user" property="email"/></b>.
 Watches on content that hasn't been updated for more than 90 days will be automatically removed from your list. 
 To prevent any watch from being automatically deleted, toggle the "save" option. 
@@ -92,7 +92,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 </div>
 
 </form>
-<p><br></p>
+<p><br/></p>
 
 </td>
 <!-- Center Column Ends -->

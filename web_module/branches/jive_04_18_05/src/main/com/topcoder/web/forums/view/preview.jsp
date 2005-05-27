@@ -63,7 +63,7 @@
 		>> <jsp:getProperty name="message" property="subject"/>
 </td></tr></table>
 
-<br/><span class="bodySubtitle">Message Preview</span><br>
+<br/><span class="bodySubtitle">Message Preview</span><br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
 		<%	if (parentMessage != null) { %>
@@ -73,14 +73,14 @@
 	<tr>
 	<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 	<%  if (user.getProperty("imagePath") != null) { %>
-		<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+		<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 	<%  } %>
-	<span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
+	<span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 	<td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td>
 	</tr>
 </table>
 
-<span class="bodySubtitle">Edit Message</span><br>
+<span class="bodySubtitle">Edit Message</span><br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module"/>
@@ -93,9 +93,9 @@
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (user.getProperty("imagePath") != null) { %>
-	<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+	<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 <%  } %>
-<tc-webtag:handle coderId="<%=user.getID()%>"/><br><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
+<tc-webtag:handle coderId="<%=user.getID()%>"/><br/><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell100">
 <tc-webtag:errorIterator id="errSubject" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=errSubject%></tc-webtag:errorIterator><br/>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br/><br/>
