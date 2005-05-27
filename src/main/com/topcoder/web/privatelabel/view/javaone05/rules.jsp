@@ -151,7 +151,7 @@ All contestants will only be allowed to win once during the competitions.  All c
 <strong>Conditions of Participation</strong><br/>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder and Sun Microsystems, which are final, binding and conclusive in all matters.
 <br><br>
-<span class="bigRed">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
+<span class="bigRed">Contestants are expressly prohibited from violating any third party intellectual property rights and/or from copying, misappropriating, lying, stealing, cheating or engaging in unlawful or unsportsmanlike conduct during the Coding Challenge.  Submissions must not contain any viruses or destructive properties. All ideas for any code and/or challenge submitted must be the contestant's own original work.</span>
 <br><br>
 All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designees and shall be final and binding in all respects.
 <br><br>
@@ -166,7 +166,7 @@ The tournament is void in whole or in part where prohibited by law.
 <br><br>
 A list of tournament winners will be available on the web site at <A href="/javaone2005">www.topcoder.com/javaone2005</A> and will be displayed for at least 3 months after the end of the tournament.
 <br><br>
-This tournament is brought to you by Sun Microsystems, Inc. (<A href="http://www.sun.com">http://www.sun.com</A>), 901 San Antonio Road, Palo Alto, CA 94303 and TopCoder, Inc. (<A href="/">http://www.topcoder.com</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
+This tournament is brought to you by Sun Microsystems, Inc. (<A href="http://www.sun.com">http://www.sun.com</A>), 4150 Network Circle, Santa Clara, CA 95054 and its affiliated companies and TopCoder, Inc. (<A href="/">http://www.topcoder.com</A>) 703 Hebron Avenue, Glastonbury, CT 06033.
 
 </div>
                </td>
