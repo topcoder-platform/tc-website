@@ -35,7 +35,7 @@ public class Search extends ForumsProcessor {
             String queryTerms = getRequest().getParameter("queryTerms");
             String searchScope = getRequest().getParameter("searchScope");
             String dateRange = getRequest().getParameter("dateRange");
-            String userID = StringUtils.checkNull(getRequest().getParameter("userID"));
+            String userHandle = StringUtils.checkNull(getRequest().getParameter("userHandle"));
             int resultSize = Integer.parseInt(getRequest().getParameter("resultSize"));
                 
             int startIdx = 0;
@@ -63,7 +63,7 @@ public class Search extends ForumsProcessor {
             }
             
             if (!userID.equals("")) {
-            	query.filterOnUser(forumFactory.getUserManager().getUser(userID));
+            	query.filterOnUser(forumFactory.getUserManager().getUser(userHandle));
             }
             
             ResultFilter pageFilter = new ResultFilter();

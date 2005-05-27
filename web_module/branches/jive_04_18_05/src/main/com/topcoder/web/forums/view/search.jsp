@@ -106,7 +106,7 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Handle:</strong></td>
       <td class="rtTextCell100">
-         <input name="userID" size="20" maxlength="50" id="username01" value="" type="text" />&#160;
+         <input name="userHandle" size="20" maxlength="50" id="username01" value="" type="text" />&#160;
          (Leave field blank to search all users)
       </td>
    </tr>

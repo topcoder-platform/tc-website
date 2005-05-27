@@ -27,7 +27,7 @@ public class Watch extends ForumsProcessor {
         
         WatchManager watchManager = forumFactory.getWatchManager();
         int type = Integer.parseInt(getRequest().getParameter(ForumConstants.WATCH_TYPE));
-        int id = Integer.parseInt(getRequest().getParameter(ForumConstants.WATCH_ID));
+        long id = Long.parseLong(getRequest().getParameter(ForumConstants.WATCH_ID));
         String cmd = getRequest().getParameter(ForumConstants.WATCH_COMMAND);
         StringBuffer nextPage = new StringBuffer();
         
