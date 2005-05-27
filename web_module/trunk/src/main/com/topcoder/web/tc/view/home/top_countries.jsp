@@ -21,7 +21,7 @@
         <tr>
             <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
             <td align="left" class="formHandleEven">
-                <a href="/tc?module=AlgoRank&<%=Constants.COUNTRY_CODE%>=<rsc:item name="country_code" row="<%=resultRow%>"/>"><strong><rsc:item name="name" row="<%=resultRow%>"/></strong></a>
+                <a href="/tc?module=AlgoRank&<%=Constants.COUNTRY_CODE%>=<rsc:item name="country_code" row="<%=resultRow%>"/>" class="statTextBig"><rsc:item name="name" row="<%=resultRow%>"/></a>
             </td>
             <td align="right" class="formHandleEven"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
         </tr>
