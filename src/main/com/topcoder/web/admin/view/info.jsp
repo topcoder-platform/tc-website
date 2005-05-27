@@ -608,6 +608,12 @@
                                                     Enter your template text.  The email content should have been provided
                                                     to you using one of the templates available on the corporate drive.
                                                     Those templates include the necessary xsl code to make everything work.
+                                                    Often times, m$ will add extra bad characters to the content, to solve
+                                                    this, I recommend you paste the template to a basic non-microsoft editor
+                                                    (like gvim) and this will either fix the characters that are bad, or
+                                                    allow you to see which need fixing.  You can then copy from this editor
+                                                    to the text area.  Some of the characters to watch for are ' " and -
+                                                    m$ converts them to something odd.
                                                 </li>
                                                 <li>Click "create"</li>
                                             </ul>
