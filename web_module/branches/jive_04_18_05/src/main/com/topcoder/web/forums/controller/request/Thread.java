@@ -32,7 +32,7 @@ public class Thread extends ForumsProcessor {
         Forum forum = thread.getForum();
         
         int startIdx = 0;
-        if (getRequest().getParameter(ForumConstants.START_IDX) != null) {
+        if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
         }
         int messageRange = 15;

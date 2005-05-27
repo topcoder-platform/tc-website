@@ -58,6 +58,9 @@ public class PreviewMessage extends ForumsProcessor {
 		if (body.equals("")) {
 			addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
 		}
+        if (subject.length() > ForumConstants.MESSAGE_SUBJECT_MAX_LENGTH) {
+            addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_LONG_MESSAGE_SUBJECT);
+        }
         if (body.length() > ForumConstants.MESSAGE_BODY_MAX_LENGTH) {
             addError(ForumConstants.MESSAGE_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
         }

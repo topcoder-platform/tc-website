@@ -5,6 +5,7 @@ package com.topcoder.web.forums.controller.request;
 
 import java.util.Iterator;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
@@ -27,7 +28,7 @@ public class ThreadList extends ForumsProcessor {
 		ViewCountManager.getInstance().addForumCount(forum);
         
         int startIdx = 0;
-        if (getRequest().getParameter(ForumConstants.START_IDX) != null) {
+        if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
         }
         int threadRange = 15;
