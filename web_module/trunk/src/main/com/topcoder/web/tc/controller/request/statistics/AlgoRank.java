@@ -55,6 +55,8 @@ public class AlgoRank extends Base {
         r.setProperty(DataAccessConstants.END_RANK,
                 String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
 
+        log.debug("RYAN:" + String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
+        
         ResultSetContainer ret = null;
         if (!"".equals(countryCode)) {
             r.setContentHandle("country_algo_coder_rank");
