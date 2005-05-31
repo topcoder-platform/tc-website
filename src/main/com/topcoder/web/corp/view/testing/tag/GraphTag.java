@@ -11,6 +11,7 @@
 package com.topcoder.web.corp.view.testing.tag;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
@@ -20,48 +21,75 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class GraphTag extends TagSupport {
     
-    private static int GRAPH_AREA_HEIGHT = 300; //in pixels
-    private static int Y_AXIS_SECTIONS = 6;
-    private static String[] Y_AXIS_LABELS = new String[] { "6", "5", "4", "3", "2", "1" };
-    private static int Y_UNIT_SIZE = 1;
+    private int graphAreaHeight = 300;
+    
+    public void setGraphAreaHeight(int v) {
+        graphAreaHeight = v;
+    }
+    
+    private int barWidth = 25;
+    
+    public void setBarWidth(int v) {
+        barWidth = v;
+    }
+    
+    private List yAxisLabels = null;
+    
+    public void setYAxisLabels(List l) {
+        yAxisLabels = l;
+    }
+        
+    private int yAxisSections = 0;
+    private int yUnitSize = 1;
             
     private static int X_AXIS_SECTIONS = 6;
     
     private static String[] X_AXIS_LABELS = new String[] { "1", "2", "3", "4", "5", "6" };
     
     private static int[] BAR_VALUES = new int[] { 1,2,3,4,5,6 };
-    
-    private static int BAR_WIDTH = 25; // in pixels
-    
+
     public int doStartTag() throws JspException {
+        //initialize / calc some values
+        yAxisSections = yAxisLabels.size();
+        //find max value for y_unit_size
+        int max = 0;
+        for(int i = 0; i < X_AXIS_SECTIONS; i++) {
+            if(BAR_VALUES[i] > max)
+                max = BAR_VALUES[i];
+        }
+        
+        yUnitSize = max / yAxisSections;
+        if(yUnitSize < 1)
+            yUnitSize = 1;
+        
         StringBuffer buffer = new StringBuffer("");
         
         //draw the start of the table
         buffer.append("<table style='border:1px black solid;' cellspacing=0 cellpading=0>");
         
         //draw out labels / bars
-        for(int i = 0; i < Y_AXIS_SECTIONS; i++) {
+        for(int i = 0; i < yAxisSections; i++) {
             buffer.append("<tr>");
-            buffer.append("<td valign=center style='height:" + (GRAPH_AREA_HEIGHT / Y_AXIS_SECTIONS) + "px'>");
-            buffer.append(Y_AXIS_LABELS[i]);
+            buffer.append("<td valign=center style='height:" + (graphAreaHeight / yAxisSections) + "px'>");
+            buffer.append((String)yAxisLabels.get(i));
             buffer.append("</td>");
             
             if(i==0) {
                 //draw out bars
                 //divider
-                buffer.append("<td style='height:" + GRAPH_AREA_HEIGHT + "px' rowspan='" + Y_AXIS_SECTIONS + "'><div style='width:1px;background:black;height:100%;'></div></td>");
+                buffer.append("<td style='height:" + graphAreaHeight + "px' rowspan='" + yAxisSections + "'><div style='width:1px;background:black;height:100%;'></div></td>");
                 
                 for(int j = 0; j < X_AXIS_SECTIONS; j++) {
-                    buffer.append("<td valign='bottom' rowspan='" + Y_AXIS_SECTIONS + "' style='height:" + GRAPH_AREA_HEIGHT + "px' align=center>");
+                    buffer.append("<td valign='bottom' rowspan='" + yAxisSections + "' style='height:" + graphAreaHeight + "px' align=center>");
                     //calc height based on value
                     int h = 0;
                     if(BAR_VALUES[j] != 0) {
-                        h = BAR_VALUES[j] * (GRAPH_AREA_HEIGHT / Y_AXIS_SECTIONS) - ((GRAPH_AREA_HEIGHT / Y_AXIS_SECTIONS) / 2);
+                        h = (BAR_VALUES[j] / yUnitSize) * (graphAreaHeight / yAxisSections) - ((graphAreaHeight / yAxisSections) / 2);
                     }
-                    buffer.append("<div style='background:blue; width:" + BAR_WIDTH + "px;height:" + h + "px'></div>");
+                    buffer.append("<div style='background:blue; width:" + barWidth + "px;height:" + h + "px'></div>");
                     buffer.append("</td>");
                     
-                    buffer.append("<td valign='bottom' rowspan='" + Y_AXIS_SECTIONS + "' style='height:" + GRAPH_AREA_HEIGHT + "px' align=center>");
+                    buffer.append("<td valign='bottom' rowspan='" + yAxisSections + "' style='height:" + graphAreaHeight + "px' align=center>");
                     buffer.append("&nbsp;");
                     buffer.append("</td>");
                 }
@@ -75,7 +103,7 @@ public class GraphTag extends TagSupport {
         buffer.append("<td>");
         buffer.append("&nbsp;");
         buffer.append("</td>");                            
-        buffer.append("<td colspan=" + (Y_AXIS_SECTIONS * 2) + ">");
+        buffer.append("<td colspan=" + (yAxisSections * 2) + ">");
         buffer.append("<div style='height:1px;width=100%;background:black;'></div>");
         buffer.append("</td>");
         buffer.append("</tr>");
