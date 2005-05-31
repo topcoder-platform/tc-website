@@ -62,7 +62,7 @@ public class Search extends ForumsProcessor {
                 query.setAfterDate(calendar.getTime());
             }
             
-            if (!userID.equals("")) {
+            if (!userHandle.equals("")) {
             	query.filterOnUser(forumFactory.getUserManager().getUser(userHandle));
             }
             
