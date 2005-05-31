@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
+				 com.topcoder.web.common.BaseProcessor,
          		 com.topcoder.web.forums.ForumConstants,
          		 java.util.*,
          		 java.text.SimpleDateFormat"
@@ -7,6 +8,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
+<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
 <html>
 <head>
@@ -59,15 +62,17 @@
          <input name="queryTerms" size="50" maxlength="100" value="" id="terms" type="text">
          <A href="javascript:document.form1.module.value='Search';document.form1.<%=ForumConstants.SEARCH_STATUS%>.value='save';document.form1.submit();"><input value="Search" onclick="" type="submit"></A>
          &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtLinkNew">Search Tips</a>
+         <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></font><% } %>
       </td>
    </tr>
+   
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
       <td class="rtTextCell100">
 <select size="1" name="searchScope" id="searchScope01">
 <option value="all">All Forums</option>
 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
-<option value="f<jsp:getProperty name="forum" property="ID"/>">&mdash;&#160;<jsp:getProperty name="forum" property="name"/></option>
+<option value="f<jsp:getProperty name="forum" property="ID"/>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
 </tc-webtag:iterator>
 </select>
       </td>
@@ -94,12 +99,12 @@
 	%>
 <select size="1" name="dateRange" id="dateRange01">
 <option value="all" selected="selected">All</option>
-<option value="<%=dateYesterday%>">&#160;Yesterday - <%=dateYesterday%></option>
-<option value="<%=dateLast7Days%>">&#160;Last 7 Days - <%=dateLast7Days%></option>
-<option value="<%=dateLast30Days%>">&#160;Last 30 Days - <%=dateLast30Days%></option>
-<option value="<%=dateLast90Days%>">&#160;Last 90 Days - <%=dateLast90Days%></option>
-<option value="<%=dateThisYear%>">&#160;This Year - <%=dateThisYear%></option>
-<option value="<%=dateLastYear%>">&#160;Last Year - <%=dateLastYear%></option>
+<option value="<%=dateYesterday%>">&#149;&#160;Yesterday (<%=dateYesterday%>)</option>
+<option value="<%=dateLast7Days%>">&#149;&#160;Last 7 Days (<%=dateLast7Days%>)</option>
+<option value="<%=dateLast30Days%>">&#149;&#160;Last 30 Days (<%=dateLast30Days%>)</option>
+<option value="<%=dateLast90Days%>">&#149;&#160;Last 90 Days (<%=dateLast90Days%>)</option>
+<option value="<%=dateThisYear%>">&#149;&#160;This Year (<%=dateThisYear%>)</option>
+<option value="<%=dateLastYear%>">&#149;&#160;Last Year (<%=dateLastYear%>)</option>
 </select>
       </td>
    </tr>

@@ -27,6 +27,8 @@ public interface ForumConstants {
     public final static String WATCHLIST_STATUS = "status";
     public final static String SEARCH_STATUS = "status";
     
+    public final static String SEARCH_QUERY = "query";
+    
     public final static String WATCH_TYPE = "type";
     public final static String WATCH_ID = "ID";
     public final static String WATCH_COMMAND = "cmd";
@@ -40,9 +42,9 @@ public interface ForumConstants {
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =
-        "Error: Please include a message subject.";
+        "Please include a message subject.";
     public final static String ERR_EMPTY_MESSAGE_BODY =
-        "Error: Please include a message body.";
+        "Please include a message body.";
     public final static String ERR_LONG_MESSAGE_SUBJECT =
         "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =
@@ -53,4 +55,6 @@ public interface ForumConstants {
         "Error: Message view range exceeded.";
     public final static String ERR_MESSAGE_HISTORY_RANGE_EXCEEDED =
         "Error: Message view range for post history exceeded.";
+    public final static String ERR_NO_SEARCH_TERMS = 
+        "Please enter some search terms.";
 }

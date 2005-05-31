@@ -30,6 +30,8 @@ public class Search extends ForumsProcessor {
         resultFilter.setSortOrder(ResultFilter.ASCENDING);
         Iterator itForums = forumFactory.getForums(resultFilter);
         
+        getRequest().setAttribute("forums", itForums);
+        
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_STATUS));
         if (status.equals("save")) {
             String queryTerms = getRequest().getParameter("queryTerms");
@@ -37,10 +39,19 @@ public class Search extends ForumsProcessor {
             String dateRange = getRequest().getParameter("dateRange");
             String userHandle = StringUtils.checkNull(getRequest().getParameter("userHandle"));
             int resultSize = Integer.parseInt(getRequest().getParameter("resultSize"));
-                
+            
             int startIdx = 0;
             if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals("")) {
                 startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
+            }
+            
+            if (queryTerms.length() <= 0) {
+                addError(ForumConstants.SEARCH_QUERY, ForumConstants.ERR_NO_SEARCH_TERMS);
+            }
+            if (hasErrors()) {                
+                setNextPage("/search.jsp");
+                setIsNextPageInContext(true);
+                return;
             }
             
             Query query = null;
@@ -80,8 +91,6 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("results", itResults);
             getRequest().setAttribute("paginator", paginator);
         }
-        
-        getRequest().setAttribute("forums", itForums);
         
 		setNextPage("/search.jsp");
 		setIsNextPageInContext(true);

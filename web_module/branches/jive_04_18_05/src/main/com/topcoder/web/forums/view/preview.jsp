@@ -1,8 +1,10 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
+				 com.topcoder.web.common.BaseProcessor,
          		 com.topcoder.web.forums.ForumConstants,
          		 com.jivesoftware.forum.stats.ViewCountManager,
          		 com.jivesoftware.forum.ForumMessage,
-         		 com.jivesoftware.forum.ForumThread"
+         		 com.jivesoftware.forum.ForumThread,
+         		 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -15,7 +17,8 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage parentMessage = (ForumMessage)request.getAttribute("parentMessage");
-	ForumThread thread = (ForumThread)request.getAttribute("thread"); %>
+	ForumThread thread = (ForumThread)request.getAttribute("thread"); 
+	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
 <html>
 <head>
@@ -97,9 +100,9 @@
 <%  } %>
 <tc-webtag:handle coderId="<%=user.getID()%>"/><br/><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell100">
-<tc-webtag:errorIterator id="errSubject" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=errSubject%></tc-webtag:errorIterator><br/>
+<% if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><font color="red"><tc-webtag:errorIterator id="errSubject" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></font><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br/><br/>
-<font color="red"><tc-webtag:errorIterator id="errBody" name="<%=ForumConstants.MESSAGE_BODY%>"><%=errBody%></tc-webtag:errorIterator><br/></font>
+<% if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><font color="red"><tc-webtag:errorIterator id="errBody" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></font><% } %>
 <b>Body:</b><br/><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
 </td>
 </tr>
