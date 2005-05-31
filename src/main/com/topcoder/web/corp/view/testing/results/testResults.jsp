@@ -286,6 +286,11 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="overall_correct_percent" />%</TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_time" /></TD>
 	             </TR>
+	             <tr>
+                        <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
+                            <screen:graph />
+                        </td>
+                     </tr>
                      <% even = !even; %>
                    </rsc:iterator>
                 <% } %>
