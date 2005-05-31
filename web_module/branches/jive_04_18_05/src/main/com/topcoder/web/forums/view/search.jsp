@@ -60,7 +60,7 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Query:</strong></td>
       <td class="rtTextCell100">
          <input name="queryTerms" size="50" maxlength="100" value="" id="terms" type="text">
-         <A href="javascript:document.form1.module.value='Search';document.form1.<%=ForumConstants.SEARCH_STATUS%>.value='save';document.form1.submit();">search</A>
+         <input name="Search" value="Search" type="submit" alt="Search" onclick="javascript:document.form1.module.value='Search';document.form1.<%=ForumConstants.SEARCH_STATUS%>.value='save'">
          &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtLinkNew">Search Tips</a>
          <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></font><% } %>
       </td>

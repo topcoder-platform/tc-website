@@ -5,6 +5,8 @@ package com.topcoder.web.forums.controller.request;
 
 import java.util.Iterator;
 
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
@@ -20,6 +22,9 @@ import com.jivesoftware.forum.action.util.Paginator;
 public class History extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
+        if (isGuest()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
 		
         long userID = Long.parseLong(getRequest().getParameter(ForumConstants.USER_ID));
         User user = forumFactory.getUserManager().getUser(userID);

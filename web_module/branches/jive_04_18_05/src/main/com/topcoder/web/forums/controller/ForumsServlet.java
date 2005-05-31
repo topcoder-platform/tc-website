@@ -39,12 +39,6 @@ public class ForumsServlet extends BaseServlet {
         return true;
     }
 
-        // pull from Jive token, or create from user information?
-    	// where are Jive exceptions thrown if permission is not allowed?
-    	// Yarin = 269554
-    	//return new TCSubject(144400);
-    	//AuthFactory.getAuthToken()
-
     protected void process(HttpServletRequest request, HttpServletResponse response)
     	throws IOException {
 
@@ -55,6 +49,8 @@ public class ForumsServlet extends BaseServlet {
 		try {
 			TCSubject user = null;
 
+            // if a cookie exists, populate authToken
+            
 		    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 		    //set up security objects and session info
@@ -149,7 +145,6 @@ public class ForumsServlet extends BaseServlet {
     
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
         /* forward to the login page, with a message and a way back */
-        log.debug("*** LOGIN_SERVLET: " + LOGIN_SERVLET);
         fetchRegularPage(request, response, LOGIN_SERVLET + "?module=Login&nextPage=" + info.getRequestString(), false);
         
         /*

@@ -7,6 +7,8 @@ import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.Forum;
 
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 
@@ -20,6 +22,9 @@ public class Post extends ForumsProcessor {
 
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
+        if (isGuest()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
 		
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));

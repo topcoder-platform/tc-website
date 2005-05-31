@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 
@@ -23,7 +25,10 @@ import com.jivesoftware.forum.ForumMessage;
 public class PostMessage extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
-		
+		if (isGuest()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+        
 		long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
 		long threadID = -1;
 		long messageID = -1;
