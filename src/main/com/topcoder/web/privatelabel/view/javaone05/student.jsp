@@ -29,9 +29,6 @@
                <td valign="top" >
                  <table border="0" width="100%" cellpadding="7" cellspacing="0"><tr><td valign="top"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0" /></td>
                  <td align="right" valign="top"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0" /></a></td></tr></table>
-                    <p class="regmiddle">   
-                       <a href="/pl/?&module=Static&d1=javaone05&d2=earlybird"><b>Early Bird Discount</b></a>&#160;&#160;|&#160;&#160;
-                        <b>Student Discount</b></p>
                <p class ="regmiddle"><strong><font size="4">Student Discount</font></strong></p>
                
                   <p class="regmiddle">JavaOne<sup>SM</sup> Conference: TopCoder students and professors SAVE over $1000 with Academic Pricing!</p>
