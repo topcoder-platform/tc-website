@@ -51,8 +51,8 @@ public class AlgoRank extends Base {
         }
         setDefault(DataAccessConstants.START_RANK, startRank);
 
-        r.setProperty("country_algo_coder_rank" + DataAccessConstants.START_RANK, startRank);
-        r.setProperty("country_algo_coder_rank" + DataAccessConstants.END_RANK,
+        r.setProperty(DataAccessConstants.START_RANK, startRank);
+        r.setProperty(DataAccessConstants.END_RANK,
             String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
 
         ResultSetContainer ret = null;
