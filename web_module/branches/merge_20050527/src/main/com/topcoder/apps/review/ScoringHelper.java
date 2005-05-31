@@ -26,7 +26,7 @@ public class ScoringHelper {
     /**
      * The maximum scores for a subjective evaluation.
      */
-    private static final int MAX_SUBJECTIVE_SCORE = 4;
+    public static final int MAX_SUBJECTIVE_SCORE = 4;
 
     /**
      * Populates a MathMatrix for a given abstract scorecard.

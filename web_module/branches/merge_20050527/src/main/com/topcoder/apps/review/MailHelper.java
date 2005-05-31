@@ -6,6 +6,8 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.document.Appeal;
 import com.topcoder.apps.review.document.InitialSubmission;
 import com.topcoder.apps.review.document.ScorecardQuestion;
+import com.topcoder.apps.review.document.SubjectiveScorecardQuestion;
+import com.topcoder.apps.review.document.TestCaseScorecardQuestion;
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.file.render.RecordTag;
 import com.topcoder.file.render.ValueTag;
@@ -278,7 +280,9 @@ class MailHelper {
      */
     static void appealResolved(Project project, Appeal appeal) throws Exception {
         XMLDocument xmlDocument = new XMLDocument("MAILDATA");
+        
         ScorecardQuestion question = appeal.getQuestion();
+        
         xmlDocument.addTag(new ValueTag("PROJECT_NAME", project.getName()));
         xmlDocument.addTag(new ValueTag("QUESTION_TEXT", question.getQuestionText()));
         xmlDocument.addTag(new ValueTag("APPEAL_TEXT", appeal.getAppealText()));
@@ -287,8 +291,24 @@ class MailHelper {
                 question.getScorecardSection().getSectionGroup().getSequenceLocation() + "." +
                 question.getScorecardSection().getSequenceLocation() + "." +
                 question.getSequenceLocation()));
+        
+        int score, max;
+        if (question instanceof SubjectiveScorecardQuestion) {
+            score = (int) question.getEvaluation().getValue();
+            max = ScoringHelper.MAX_SUBJECTIVE_SCORE;
+        } else {
+            score = ((TestCaseScorecardQuestion) question).getTotalPass();
+            max = ((TestCaseScorecardQuestion) question).getTotalTests();
+        }
+        
+        xmlDocument.addTag(new ValueTag("SCORE", score));
+        xmlDocument.addTag(new ValueTag("MAX_SCORE", max));
+        
+        xmlDocument.addTag(new ValueTag("PROJECT_ID", project.getId()));
+        
         String bodyText = formatBody(xmlDocument, ConfigHelper.getAppealResolvedXSL());
-        sendMail(project.getProjectManager(), appeal.getAppealer(), "Appeal resolved", bodyText);
+        
+        sendMail(project.getProjectManager(), appeal.getAppealer(), "Appeal resolved for " + project.getName(), bodyText);
     }
 
     /**
