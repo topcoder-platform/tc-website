@@ -73,6 +73,7 @@
 						<img src="/images/catalog/dotnet_logo.jpg" border=0/><br/>
 						<hr noshade="noshade" size="1" width="100%">
 						<b><A href="/components/appSuite.jsp?appSuiteID=nas_eCommerce">eCommerce</A></b><br/>
+						<b><A href="/components/appSuite.jsp?appSuiteID=nas_DocumentManagement">Document Management</A></b><br/>
 					</td>
 				</tr>
 			</table>
