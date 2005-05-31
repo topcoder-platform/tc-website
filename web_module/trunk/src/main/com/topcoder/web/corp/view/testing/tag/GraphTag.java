@@ -79,7 +79,7 @@ public class GraphTag extends TagSupport {
         for(int i = 0; i < yAxisSections; i++) {
             buffer.append("<tr>");
             buffer.append("<td valign=center style='height:" + (graphAreaHeight / yAxisSections) + "px'>");
-            buffer.append(yUnitSize * (i+1));
+            buffer.append(yUnitSize * (yAxisSections - i));
             buffer.append("</td>");
             
             if(i==0) {
