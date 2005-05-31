@@ -56,7 +56,7 @@ function submitEnter(e) {
              <td width="11" height="26" align="left" valign="bottom"><img width="11" height="26" border="0" src="/i/steelblue_top_left1.gif"></td>
              <td valign="bottom" width="180" align="left"><img width="180" height="26" border="0" src="/i/header_statistics.gif"></td>
              <td class="bodyTextBold" valign="middle" width="100%">
-               &#160;<SPAN class="bodySubhead">&#160;&#160;Coder Rankings&#160;&#160; - United States</SPAN>
+               &#160;<SPAN class="bodySubhead">&#160;&#160;Coder Rankings&#160;&#160; <%if(request.getAttribute("countryName") != null) {%> - <%=request.getAttribute("countryName")%><%}%></SPAN>
              </td>
              <td valign="top" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="26" border="0"></td>
            </tr>

@@ -7,6 +7,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import java.util.Map;
 
 /**
  * @author  dok
@@ -63,9 +64,13 @@ public class AlgoRank extends Base {
             }
             r.setProperty(Constants.COUNTRY_CODE, countryCode);
             r.setProperty(DataAccessConstants.SORT_QUERY, "country_algo_coder_rank");
+        
+            Map m = getDataAccess().getData(r);
             
-            ret = (ResultSetContainer)getDataAccess().getData(r).get("country_algo_coder_rank");
+            ret = (ResultSetContainer)m.get("country_algo_coder_rank");
+            String countryName = ((ResultSetContainer)m.get("country_info")).getStringItem(1, "country_name");
             setDefault(Constants.COUNTRY_CODE, countryCode);
+            setDefault("countryName", countryName);
         }/* else if (!"".equals(schoolId)) {
             r.setContentHandle("school_algo_coder_rank");
             r.setProperty(Constants.SCHOOL_ID, schoolId);
