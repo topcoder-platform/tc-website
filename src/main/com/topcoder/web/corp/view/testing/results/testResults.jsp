@@ -293,7 +293,7 @@ if ( plugin ) {
                                     <td>
                                         1
                                     </td>
-                                    <td rowspan="6"> LINE HERE </td>
+                                    <td rowspan="6"><div style="width:1px;background:black;height:100%;"></div> </td>
                                     <td valign="bottom" rowspan="6">
                                         Bar 1
                                     </td>
@@ -365,6 +365,9 @@ if ( plugin ) {
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
                                     <td>
                                         &nbsp;
                                     </td>
