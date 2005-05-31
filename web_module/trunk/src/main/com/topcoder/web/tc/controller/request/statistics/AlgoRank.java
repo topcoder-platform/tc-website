@@ -70,7 +70,7 @@ public class AlgoRank extends Base {
             ret = (ResultSetContainer)m.get("country_algo_coder_rank");
             String countryName = ((ResultSetContainer)m.get("country_info")).getStringItem(0, "country_name");
             setDefault(Constants.COUNTRY_CODE, countryCode);
-            setDefault("countryName", countryName);
+            getRequest().setAttribute("countryName", countryName);
         }/* else if (!"".equals(schoolId)) {
             r.setContentHandle("school_algo_coder_rank");
             r.setProperty(Constants.SCHOOL_ID, schoolId);

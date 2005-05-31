@@ -6,7 +6,7 @@
                 <tr valign="middle">
                     <td class="statTextBig" width="1%" nowrap="0">&#160;Top <xsl:value-of select="count(/TC/HOME/TopDiv1RankedCoders/Coder)"/> Coders</td>
                     <td class="statTextBig" width="15"><A href="javascript:infoWindow('/tc?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topRatedCoders')" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A></td>
-                    <td class="statTextBig" align="right" width="99%"><a href="/stat?c=coder_ratings" class="statTextBig">View all coders</a>&#160;</td>              
+                    <td class="statTextBig" align="right" width="99%"><a href="/tc?module=AlgoRank" class="statTextBig">View all coders</a>&#160;</td>              
                 </tr>
             </table>
                 
