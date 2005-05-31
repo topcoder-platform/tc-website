@@ -358,10 +358,10 @@ if ( plugin ) {
                                 </tr>
                                 <tr>
                                     <td>
-                                        Corner
+                                        &nbsp;
                                     </td>
                                     <td colspan=12>
-                                    LINE
+                                    <div style="height:1px;width=100%;background:black;"></div>
                                     </td>
                                 </tr>
                                 <tr>
