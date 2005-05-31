@@ -487,4 +487,12 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    <tag>
+        <name>graph</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.GraphTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag for generating html graphs
+        </info>
+    </tag>
 </taglib>
