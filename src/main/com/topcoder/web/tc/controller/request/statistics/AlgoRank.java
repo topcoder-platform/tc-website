@@ -51,12 +51,10 @@ public class AlgoRank extends Base {
         }
         setDefault(DataAccessConstants.START_RANK, startRank);
 
-        r.setProperty(DataAccessConstants.START_RANK, startRank);
-        r.setProperty(DataAccessConstants.END_RANK,
-                String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
+        r.setProperty("country_algo_coder_rank" + DataAccessConstants.START_RANK, startRank);
+        r.setProperty("country_algo_coder_rank" + DataAccessConstants.END_RANK,
+            String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
 
-        log.debug("RYAN:" + String.valueOf(Integer.parseInt(startRank)+Integer.parseInt(numRecords)-1));
-        
         ResultSetContainer ret = null;
         if (!"".equals(countryCode)) {
             r.setContentHandle("country_algo_coder_rank");
@@ -65,6 +63,7 @@ public class AlgoRank extends Base {
             }
             r.setProperty(Constants.COUNTRY_CODE, countryCode);
             r.setProperty(DataAccessConstants.SORT_QUERY, "country_algo_coder_rank");
+            
             ret = (ResultSetContainer)getDataAccess().getData(r).get("country_algo_coder_rank");
             setDefault(Constants.COUNTRY_CODE, countryCode);
         }/* else if (!"".equals(schoolId)) {
