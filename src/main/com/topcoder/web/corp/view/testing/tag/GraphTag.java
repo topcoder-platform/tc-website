@@ -32,14 +32,13 @@ public class GraphTag extends TagSupport {
     public void setBarWidth(int v) {
         barWidth = v;
     }
-    
-    private List yAxisLabels = null;
-    
-    public void setYAxisLabels(List l) {
-        yAxisLabels = l;
-    }
-        
+            
     private int yAxisSections = 0;
+    
+    public void setYAxisSections(int v) {
+        yAxisSections = v;
+    }
+    
     private int yUnitSize = 1;
     
     private List xAxisLabels = null;
@@ -59,7 +58,6 @@ public class GraphTag extends TagSupport {
     public int doStartTag() throws JspException {
         //initialize / calc some values
         xAxisSections = xAxisLabels.size();
-        yAxisSections = yAxisLabels.size();
         //find max value for y_unit_size
         int max = 0;
         for(int i = 0; i < xAxisSections; i++) {
@@ -81,7 +79,7 @@ public class GraphTag extends TagSupport {
         for(int i = 0; i < yAxisSections; i++) {
             buffer.append("<tr>");
             buffer.append("<td valign=center style='height:" + (graphAreaHeight / yAxisSections) + "px'>");
-            buffer.append((String)yAxisLabels.get(i));
+            buffer.append(yUnitSize * (i+1));
             buffer.append("</td>");
             
             if(i==0) {
