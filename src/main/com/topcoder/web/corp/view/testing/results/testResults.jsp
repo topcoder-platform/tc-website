@@ -286,6 +286,128 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="overall_correct_percent" />%</TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_time" /></TD>
 	             </TR>
+	             <tr>
+                        <td colspan="7" class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
+                            <table style="width:400px;height:400px;border:1px black solid;" cellspacing=0 cellpading=0>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td rowspan="6"> LINE HERE </td>
+                                    <td valign="bottom" rowspan="6">
+                                        Bar 1
+                                    </td>
+                                    <td valign="bottom" rowspan="6" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" rowspan="6">
+                                        Bar 2
+                                    </td>
+                                    <td valign="bottom" rowspan="6" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" rowspan="6">
+                                        Bar 3
+                                    </td>
+                                    <td valign="bottom" rowspan="6" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" rowspan="6">
+                                        Bar 4
+                                    </td>
+                                    <td valign="bottom" rowspan="6" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" rowspan="6">
+                                        Bar 5
+                                    </td>
+                                    <td valign="bottom" rowspan="6" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" rowspan="6">
+                                        Bar 6
+                                    </td>
+                                    <td valign="bottom" rowspan="6" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        2
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        3
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        4
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        5
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        6
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Corner
+                                    </td>
+                                    <td colspan=12>
+                                    LINE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" >
+                                        Label1
+                                    </td>
+                                    <td valign="bottom" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" >
+                                        Label2
+                                    </td>
+                                    <td valign="bottom" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" >
+                                        Label3
+                                    </td>
+                                    <td valign="bottom" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" >
+                                        Label4
+                                    </td>
+                                    <td valign="bottom" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" >
+                                        Label5
+                                    </td>
+                                    <td valign="bottom" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                    <td valign="bottom" >
+                                        Label6
+                                    </td>
+                                    <td valign="bottom" style="width:10px">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+	             </tr>
                      <% even = !even; %>
                    </rsc:iterator>
                 <% } %>
