@@ -20,7 +20,7 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class GraphTag extends TagSupport {
     
-    private static int GRAPH_AREA_HEIGHT = 180; //in pixels
+    private static int GRAPH_AREA_HEIGHT = 300; //in pixels
     private static int Y_AXIS_SECTIONS = 6;
     private static String[] Y_AXIS_LABELS = new String[] { "6", "5", "4", "3", "2", "1" };
     private static int Y_UNIT_SIZE = 1;
