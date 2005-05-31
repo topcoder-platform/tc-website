@@ -78,7 +78,7 @@
 
 <!-- Coder Rankings -->
                 <tr>
-                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_ratings</xsl:attribute>Coder Rankings</A></td>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc&amp;module=AlgoRank</xsl:attribute>Coder Rankings</A></td>
                 </tr>
 
 <!-- Problem Archive -->
