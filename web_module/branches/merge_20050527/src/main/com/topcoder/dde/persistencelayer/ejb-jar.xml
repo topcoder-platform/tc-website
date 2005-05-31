@@ -2289,6 +2289,14 @@
                 <ejb-name>DDEDocTypesEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <method>
+                <ejb-name>DDECategoriesEJB</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>DDECompCatalogEJB</ejb-name>
+                <method-name>*</method-name>
+            </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
