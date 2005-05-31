@@ -149,6 +149,7 @@ public class ForumsServlet extends BaseServlet {
     
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
         /* forward to the login page, with a message and a way back */
+        log.debug("*** LOGIN_SERVLET: " + LOGIN_SERVLET);
         fetchRegularPage(request, response, LOGIN_SERVLET + "?module=Login&nextPage=" + info.getRequestString(), false);
         
         /*
