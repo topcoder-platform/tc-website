@@ -52,7 +52,6 @@
 			<span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 			</p>
 
-<p>
 <span class="outline1"><a href="#introduction">Introduction</a></span><br/>
 <span class="outline1"><a href="#vectors">Vectors</a></span><br/>
 <span class="outline2"><a href="#vector_addition">Vector Addition</a></span><br/>
