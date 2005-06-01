@@ -155,6 +155,7 @@ public class GraphTag extends TagSupport {
                     if(b != 0) {
                         h = (int)Math.floor((b / yUnitSize) * (graphAreaHeight / yAxisSections) );
                     }
+                    buffer.append("<div>" + ((Integer)barValues.get(j)).intValue() + "</div>");
                     buffer.append("<div style='background:blue; width:" + barWidth + "px;height:" + h + "px'></div>");
                     buffer.append("</td>");
                     
