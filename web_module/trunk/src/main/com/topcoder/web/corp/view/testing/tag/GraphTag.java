@@ -116,7 +116,7 @@ public class GraphTag extends TagSupport {
         buffer.append("<td>");
         buffer.append("&nbsp;");
         buffer.append("</td>");                            
-        buffer.append("<td colspan=" + (xAxisSections * 2) + ">");
+        buffer.append("<td colspan=" + ((xAxisSections * 2)-1) + ">");
         buffer.append("<div style='height:1px;width=100%;background:black;'></div>");
         buffer.append("</td>");
         buffer.append("</tr>");

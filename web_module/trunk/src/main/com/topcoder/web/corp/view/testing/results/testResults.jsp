@@ -288,6 +288,11 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_time" /></TD>
 	             </TR>
 	             <tr>
+                        <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>" align=center>
+                            Submission Times
+                        </td>
+	             </tr>
+	             <tr>
                         <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                         <% GraphData gd = (GraphData) testResultsInfo.getProblemSetBGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
                             <screen:graph graphAreaHeight="300" barWidth="30" yAxisSections="5" 
