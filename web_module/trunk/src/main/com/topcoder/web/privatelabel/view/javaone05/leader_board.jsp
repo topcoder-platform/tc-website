@@ -12,7 +12,7 @@
 <html>
 <head>
 
-<title>2004 JavaOne Coding Challenge</title>
+<title>2005 JavaOne Coding Challenge</title>
 
  <STYLE TYPE="text/css">
  <!--
