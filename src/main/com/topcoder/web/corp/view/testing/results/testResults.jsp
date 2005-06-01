@@ -261,7 +261,7 @@ if ( plugin ) {
                       <td colspan=10 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                    <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
                         <% GraphData gd = (GraphData) testResultsInfo.getProblemSetAGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="30" title='<%="Submission Times for " + row.getStringItem("name") %>' annotation="<%=gd.getAnnotation()%>" 
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name") %>' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
                    </rsc:iterator>
