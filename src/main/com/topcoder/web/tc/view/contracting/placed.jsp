@@ -1,0 +1,91 @@
+<%@  page language="java"  %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>TopCoder Employment Opportunities</title>
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+<jsp:include page="../script.jsp" />
+</head>
+
+<body>
+
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+<!-- Left Column Begins-->
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="level1" value="my_home"/>
+                <jsp:param name="level2" value="employmentOpps"/>
+            </jsp:include>
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->
+        <td class="cardCell" width="100%" align="center">
+
+        <div class="myTCBody">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="employmentOpps"/>
+            <jsp:param name="title" value="&#160;"/>
+        </jsp:include>
+
+         The following members recently got placed by TopCoder Employment Opportunities.
+
+<br><br>
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
+   <tr>
+      <td class="title" colspan="6">Recently Placed TopCoder Members</td>
+   </tr>
+   <tr>
+      <td class="header">Date</td>
+      <td class="header">Member Skill</td>
+      <td class="headerR">Compensation</td>
+      <td class="header">Industry</td>
+      <td class="header">State</td>
+      <td class="header">Country</td>
+   </tr>
+   <tr class="light">
+      <td class="value">2/3/2005</td>
+      <td class="value"><span class="coderTextBlue">Blue</span></td>
+      <td class="valueR">$80/hour</td>
+      <td class="value">Financial</td>
+      <td class="value">NY</td>
+      <td class="value">United States</td>
+   </tr>
+   <tr class="dark">
+      <td class="value">1/5/2005</td>
+      <td class="value"><span class="coderTextYellow">Yellow</span></td>
+      <td class="valueR">$95,000/year</td>
+      <td class="value">Internet</td>
+      <td class="value">CA</td>
+      <td class="value">United States</td>
+   </tr>
+</table>
+
+        <p><br></p>
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+         <td width="170">
+            <jsp:include page="../public_right.jsp">
+               <jsp:param name="level1" value="privatelabel"/>
+            </jsp:include>
+         </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<jsp:include page="../foot.jsp" />
+
+</body>
+
+</html>

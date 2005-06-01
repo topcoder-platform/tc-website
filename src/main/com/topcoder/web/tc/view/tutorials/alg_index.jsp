@@ -48,6 +48,10 @@
 					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=dissectProblem"><strong>How To Dissect a TopCoder Problem Statement</strong></a>
 				</td></tr>
 				<tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="7305703" context="algorithm"/>
+					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=findSolution"><strong>How to Find a Solution</strong></a>
+				</td></tr>
+				<tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="282560" context="algorithm"/>
 					</td><td class="bodyText" nowrap=nowrap><strong>Planning an Approach to a TopCoder Problem:</strong><br>
 					&#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=planApproach1"><strong>Section 1</strong></a><br>

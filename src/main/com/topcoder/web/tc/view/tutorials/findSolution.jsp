@@ -44,7 +44,7 @@
 
          <div class="tutorBodyFull">
             
-            <h2>Dynamic Programming: From novice to advanced</h2>
+            <h2>How to Find a Solution</h2>
 
          <p>
          <img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
