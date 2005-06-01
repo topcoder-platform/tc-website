@@ -59,8 +59,8 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Query:</strong></td>
       <td class="rtTextCell100">
-         <input name="queryTerms" size="50" maxlength="100" value="" id="terms" type="text">
-         <input name="Search" value="Search" type="submit" alt="Search" onclick="javascript:document.form1.module.value='Search';document.form1.<%=ForumConstants.SEARCH_STATUS%>.value='save'">
+         <input name="<%=ForumConstants.SEARCH_QUERY%>" size="50" maxlength="100" value="" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
+         <input name="Search" value="Search" type="submit" alt="Search" onclick="javascript:document.form1.module.value='Search';document.form1.<%=ForumConstants.SEARCH_STATUS%>.value='search'">
          &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtLinkNew">Search Tips</a>
          <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></font><% } %>
       </td>
@@ -69,7 +69,7 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
       <td class="rtTextCell100">
-<select size="1" name="searchScope" id="searchScope01">
+<select size="1" name="<%=ForumConstants.SEARCH_SCOPE%>" id="<%=ForumConstants.SEARCH_SCOPE%>">
 <option value="all">All Forums</option>
 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
 <option value="f<jsp:getProperty name="forum" property="ID"/>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
@@ -97,7 +97,7 @@
 	calendar.add(Calendar.YEAR, -1);
 	String dateLastYear = yearFormatter.format(calendar.getTime());
 	%>
-<select size="1" name="dateRange" id="dateRange01">
+<select size="1" name="<%=ForumConstants.SEARCH_DATE_RANGE%>" id="<%=ForumConstants.SEARCH_DATE_RANGE%>">
 <option value="all" selected="selected">All</option>
 <option value="<%=dateYesterday%>">&#149;&#160;Yesterday (<%=dateYesterday%>)</option>
 <option value="<%=dateLast7Days%>">&#149;&#160;Last 7 Days (<%=dateLast7Days%>)</option>
@@ -111,18 +111,22 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Handle:</strong></td>
       <td class="rtTextCell100">
-         <input name="userHandle" size="20" maxlength="50" id="username01" value="" type="text" />&#160;
+         <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="" type="text" />&#160;
          (Leave field blank to search all users)
       </td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Results Per Page:</strong></td>
       <td class="rtTextCell100">
-<select size="1" name="resultSize" id="resultSize01">
-<option value="10" selected="selected">10</option>
-<option value="20">20</option>
-<option value="30">30</option>
-<option value="50">50</option>
+<select size="1" name="<%=ForumConstants.SEARCH_RESULT_SIZE%>" id="<%=ForumConstants.SEARCH_RESULT_SIZE%>">
+<%  int[] resultSizes = { 10, 20, 30, 50 };
+	for (int i=0; i<resultSizes.length; i++) {
+		if (resultSizes[i] == ForumConstants.DEFAULT_SEARCH_RESULT_SIZE) { %>
+			<option value="<%=resultSizes[i]%>" selected><%=resultSizes[i]%></option>
+	<%	} else { %>
+			<option value="<%=resultSizes[i]%>"><%=resultSizes[i]%></option>
+	<%	}
+	} %>
 </select>
       </td>
    </tr>

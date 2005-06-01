@@ -33,13 +33,16 @@ public class Search extends ForumsProcessor {
         getRequest().setAttribute("forums", itForums);
         
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_STATUS));
-        if (status.equals("save")) {
-            String queryTerms = getRequest().getParameter("queryTerms");
-            String searchScope = getRequest().getParameter("searchScope");
-            String dateRange = getRequest().getParameter("dateRange");
-            String userHandle = StringUtils.checkNull(getRequest().getParameter("userHandle"));
-            int resultSize = Integer.parseInt(getRequest().getParameter("resultSize"));
+        if (status.equals("search")) {
+            String queryTerms = getRequest().getParameter(ForumConstants.SEARCH_QUERY);
+            String searchScope = getRequest().getParameter(ForumConstants.SEARCH_SCOPE);
+            String dateRange = getRequest().getParameter(ForumConstants.SEARCH_DATE_RANGE);
+            String userHandle = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_HANDLE));
             
+            int resultSize = ForumConstants.DEFAULT_SEARCH_RESULT_SIZE;
+            if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_RESULT_SIZE)).equals("")) {
+                resultSize = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_RESULT_SIZE));
+            }
             int startIdx = 0;
             if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals("")) {
                 startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));

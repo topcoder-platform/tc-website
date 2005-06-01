@@ -24,11 +24,15 @@ public interface ForumConstants {
 	public final static String POST_MODE = "mode";
     
     public final static String SETTINGS_STATUS = "status";
-    public final static String WATCHLIST_STATUS = "status";
+    
     public final static String SEARCH_STATUS = "status";
-    
     public final static String SEARCH_QUERY = "query";
+    public final static String SEARCH_SCOPE = "scope";
+    public final static String SEARCH_DATE_RANGE = "dateRange";
+    public final static String SEARCH_HANDLE = "handle";
+    public final static String SEARCH_RESULT_SIZE = "resultSize";
     
+    public final static String WATCHLIST_STATUS = "status";
     public final static String WATCH_TYPE = "type";
     public final static String WATCH_ID = "ID";
     public final static String WATCH_COMMAND = "cmd";
@@ -38,6 +42,7 @@ public interface ForumConstants {
     public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
     public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
     public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
+    public final static int DEFAULT_SEARCH_RESULT_SIZE = 20;
     
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     

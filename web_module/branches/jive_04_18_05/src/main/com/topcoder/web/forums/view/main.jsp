@@ -46,15 +46,21 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <td nowrap="nowrap" valign="top">
-   <A href="?module=Search" class="rtbcLink">Search:</A>&#160;
-   <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
-   <input value="Search" onclick="" type="submit">
-   &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br/><br/>
-   </td>
-   <td align="right" nowrap="nowrap" valign="top">
-   <A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="authToken" property="userID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
-   </td>
+   	<td nowrap="nowrap" valign="top">
+	   	<form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+		<tc-webtag:hiddenInput name="module"/>
+		<tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_STATUS%>"/>
+		<tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_SCOPE%>" value="all"/>
+		<tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_DATE_RANGE%>" value="all"/>
+	   	<A href="?module=Search" class="rtbcLink">Search:</A>&#160;
+	   	<input name="<%=ForumConstants.SEARCH_QUERY%>" size="20" maxlength="100" value="" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
+	   	<input name="Search" value="Search" type="submit" alt="Search" onclick="javascript:document.form1.module.value='Search';document.form1.<%=ForumConstants.SEARCH_STATUS%>.value='search'">
+	   	&#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br/><br/>
+	   	</form>
+   	</td>
+   	<td align="right" nowrap="nowrap" valign="top">
+   		<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="authToken" property="userID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+   	</td>
 </tr>
 </table>
             <table cellpadding="0" cellspacing="0" class="rtTable">
