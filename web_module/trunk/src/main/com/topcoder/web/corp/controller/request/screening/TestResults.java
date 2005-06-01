@@ -126,6 +126,8 @@ public class TestResults extends BaseScreeningProcessor {
                     gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j));
                 }
                 
+                gd.setAnnotation(histogramData.getIntItem(0, "annotation"));
+                
                 graphData.put(String.valueOf(rscB.getLongItem(i, "problem_id")), gd);
             }
 
