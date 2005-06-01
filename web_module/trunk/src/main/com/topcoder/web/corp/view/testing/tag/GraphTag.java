@@ -39,7 +39,7 @@ public class GraphTag extends TagSupport {
         yAxisSections = v;
     }
     
-    private double yUnitSize = 1;
+    private int yUnitSize = 1;
     
     private List xAxisLabels = null;
     
@@ -66,9 +66,13 @@ public class GraphTag extends TagSupport {
                 max = b;
         }
         
-        yUnitSize = (max * 1.0) / yAxisSections;
+        yUnitSize = max / yAxisSections;
         if(yUnitSize < 1)
             yUnitSize = 1;
+        
+        while((yUnitSize * yAxisSections) < max) {
+            yUnitSize++;
+        }
         
         StringBuffer buffer = new StringBuffer("");
         
