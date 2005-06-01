@@ -10,6 +10,7 @@
 
 package com.topcoder.web.corp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,8 +23,8 @@ public class GraphData implements java.io.Serializable {
     public GraphData() {
     }
     
-    private List headers;
-    private List data;
+    private List headers = new ArrayList();
+    private List data = new ArrayList();
     
     public List getHeaders() {
         return headers;
@@ -32,12 +33,9 @@ public class GraphData implements java.io.Serializable {
     public List getData() {
         return data;
     }
-    
-    public void setHeaders(List l) {
-        headers = l;
-    }
-    
-    public void setData(List l) {
-        data = l;
+
+    public void addItem(String header, int value) {
+        headers.add(header);
+        data.add(new Integer(value));
     }
 }
