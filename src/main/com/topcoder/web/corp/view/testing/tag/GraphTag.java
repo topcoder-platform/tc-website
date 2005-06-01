@@ -160,25 +160,6 @@ public class GraphTag extends TagSupport {
         buffer.append("</td>");
         buffer.append("</tr>");
         
-        //labels
-        buffer.append("<tr>");
-        buffer.append("<td>");
-        buffer.append("&nbsp;");
-        buffer.append("</td>");
-        buffer.append("<td>");
-        buffer.append("&nbsp;");
-        buffer.append("</td>");
-        
-        for(int i = 0; i < xAxisSections; i++) {
-            buffer.append("<td valign='bottom' align='center' >");
-            buffer.append((String)colors.get(i));
-            buffer.append("</td>");
-            buffer.append("<td valign='bottom' style='width:10px'>");
-            buffer.append("&nbsp;");
-            buffer.append("</td>");
-        }
-        
-        buffer.append("</tr>");
         
         buffer.append("</table>");
 
