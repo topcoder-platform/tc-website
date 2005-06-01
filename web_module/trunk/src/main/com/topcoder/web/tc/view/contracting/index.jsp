@@ -60,6 +60,8 @@ return false;
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=csfb"><img src="/i/contracting/csfb_logo.gif" alt="CSFB" border=0/></A>
                <hr noshade="noshade" size="1" />
+               <A href="/tc?module=Static&d1=contracting&d2=gentiva"><img src="/i/contracting/gentiva_logo.gif" alt="Gentiva" border=0/></A>
+               <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=goldengate"><img src="/i/contracting/goldengate_logo.gif" alt="Golden Gate" border=0/></A>
                <hr noshade="noshade" size="1" />
                <i>Click one of the<br>companies above for more info<br>on their job openings,<br>and be sure to check out <br>the careers available at<br>
