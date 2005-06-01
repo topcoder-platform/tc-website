@@ -86,19 +86,13 @@ public class GraphTag extends TagSupport {
         //draw title
         if(!title.equals("")) {
             buffer.append("<tr>");
-            buffer.append("<td align=center colspan='" + (2 + (xAxisSections * 2)) + "'>");
+            buffer.append("<td align=center colspan='" + ((xAxisSections * 2)) + "'>");
             buffer.append(title);
             buffer.append("</td>");
             buffer.append("</tr>");
         }
         if(annotation != -1) {
             buffer.append("<tr>");
-            buffer.append("<td>");
-            buffer.append("&nbsp;");
-            buffer.append("</td>");
-            buffer.append("<td>");
-            buffer.append("&nbsp;");
-            buffer.append("</td>");
             for(int i = 0; i < xAxisSections; i++) {
                 if(i == annotation) {
                     buffer.append("<td align=center>");
@@ -123,13 +117,9 @@ public class GraphTag extends TagSupport {
         
         //draw out labels / bars
         buffer.append("<tr>");
-        buffer.append("<td valign=top style='height:" + (graphAreaHeight) + "px'>");
-        buffer.append("&nbsp;");
-        buffer.append("</td>");
 
         //draw out bars
         //divider
-        buffer.append("<td style='height:" + graphAreaHeight + "px' ><div style='width:1px;background:black;height:100%;'></div></td>");
 
         for(int j = 0; j < xAxisSections; j++) {
             buffer.append("<td valign='bottom' style='height:" + graphAreaHeight + "px' align=center>");
@@ -149,17 +139,7 @@ public class GraphTag extends TagSupport {
         }
 
         buffer.append("</tr>");
-        
-        //corner / bottom bar
-        buffer.append("<tr>");
-        buffer.append("<td>");
-        buffer.append("&nbsp;");
-        buffer.append("</td>");                            
-        buffer.append("<td colspan=" + ((xAxisSections * 2)) + ">");
-        buffer.append("<div style='height:1px;width=100%;background:black;'></div>");
-        buffer.append("</td>");
-        buffer.append("</tr>");
-        
+                
         
         buffer.append("</table>");
 
