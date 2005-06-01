@@ -8,7 +8,7 @@
 <title>Technical Assessment Environment</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
-
+<meta http-equiv="refresh" content="0; url=http://www.topcoder.com/techassess/techassess?module=Login&cm=<%=request.getParameter("company")%>" />
 </head>
 
 <body id="testApplet" onLoad="focus()">
@@ -45,7 +45,9 @@
 
     <tr>
         <td background="/i/testBodyLeft.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
-        <td width="100%" align="center">
+        <td width="100%" align="center" class="bodyText">
+            The Technical Assessment Tool has moved.  Please click <a href="http://www.topcoder.com/techassess/techassess?module=Login&cm=<%=request.getParameter("company")%>">here</a> to be taken to the new URL.
+        <!--
             <table border="0" cellpadding="0" cellspacing="0" width="50%" align="center">
                 <tr>
                     <td class="bodyText">
@@ -121,6 +123,7 @@
                     </td>
                 </tr>
             </table>
+            -->
         </td>
         <td  background="/i/testBodyRight.gif" width="10"><img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
     </tr>
