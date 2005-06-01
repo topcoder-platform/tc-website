@@ -95,7 +95,7 @@ public class GraphTag extends TagSupport {
                     buffer.append("<td valign='bottom' rowspan='" + yAxisSections + "' style='height:" + graphAreaHeight + "px' align=center>");
                     //calc height based on value
                     int h = 0;
-                    int b = ((Integer)barValues.get(j)).intValue();
+                    double b = ((Integer)barValues.get(j)).doubleValue();
                     if(b != 0) {
                         h = (int)Math.floor((b / yUnitSize) * (graphAreaHeight / yAxisSections) - ((graphAreaHeight / yAxisSections) / 2));
                     }
