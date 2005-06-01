@@ -106,7 +106,7 @@
 <b>Body:</b><br/><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
 </td>
 </tr>
-<tr><td class="rtFooter"><A href="javascript:document.form1.module.value='PostMessage';document.form1.submit();"><img src="/i/roundTables/post.gif" class="rtButton" alt="" /></A><A href="javascript:document.form1.module.value='PreviewMessage';document.form1.submit();"><img src="/i/roundTables/preview.gif" class="rtButton" alt="" /></A></td></tr>
+<tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
 </form></table>
 
 <p><br/></p>

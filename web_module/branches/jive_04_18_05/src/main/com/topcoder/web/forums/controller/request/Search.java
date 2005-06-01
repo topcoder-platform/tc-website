@@ -11,6 +11,9 @@ import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.User;
+import com.jivesoftware.base.UserNotFoundException;
+
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.Query;
 import com.jivesoftware.forum.Forum;
@@ -38,6 +41,7 @@ public class Search extends ForumsProcessor {
             String searchScope = getRequest().getParameter(ForumConstants.SEARCH_SCOPE);
             String dateRange = getRequest().getParameter(ForumConstants.SEARCH_DATE_RANGE);
             String userHandle = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_HANDLE));
+            User user = null;
             
             int resultSize = ForumConstants.DEFAULT_SEARCH_RESULT_SIZE;
             if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_RESULT_SIZE)).equals("")) {
@@ -50,6 +54,13 @@ public class Search extends ForumsProcessor {
             
             if (queryTerms.length() <= 0) {
                 addError(ForumConstants.SEARCH_QUERY, ForumConstants.ERR_NO_SEARCH_TERMS);
+            }
+            if (!userHandle.equals("")) {
+                try {
+                	user = forumFactory.getUserManager().getUser(userHandle);
+                } catch (UserNotFoundException une) {
+                	addError(ForumConstants.SEARCH_HANDLE, ForumConstants.ERR_NO_SEARCH_HANDLE);
+                }
             }
             if (hasErrors()) {                
                 setNextPage("/search.jsp");
@@ -77,7 +88,7 @@ public class Search extends ForumsProcessor {
             }
             
             if (!userHandle.equals("")) {
-            	query.filterOnUser(forumFactory.getUserManager().getUser(userHandle));
+            	query.filterOnUser(user);
             }
             
             ResultFilter pageFilter = new ResultFilter();

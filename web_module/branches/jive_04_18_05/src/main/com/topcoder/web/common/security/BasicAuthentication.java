@@ -130,7 +130,7 @@ public class BasicAuthentication implements WebAuthentication {
          * they're anonymous
          */
         User u = getUserFromPersistor();
-
+        
         if (u == null) {
             u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
             if (u == null) {

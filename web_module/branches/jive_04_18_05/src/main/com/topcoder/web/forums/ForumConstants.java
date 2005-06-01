@@ -62,4 +62,6 @@ public interface ForumConstants {
         "Error: Message view range for post history exceeded.";
     public final static String ERR_NO_SEARCH_TERMS = 
         "Please enter some search terms.";
+    public final static String ERR_NO_SEARCH_HANDLE = 
+        "No user exists with the specified handle.";
 }

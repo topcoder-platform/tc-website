@@ -50,14 +50,12 @@ public class ForumsServlet extends BaseServlet {
 
 		try {
 			TCSubject user = null;
-
-            // if a cookie exists, populate authToken
             
 		    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 		    //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);
+			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
 		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
@@ -66,8 +64,7 @@ public class ForumsServlet extends BaseServlet {
                     log.debug("*** Does not use custom auth ***");
                 }
             }
-	    	user = getUser(authToken.getUserID());
-            log.info("authToken userID: " + user.getUserId());
+	    	user = getUser(authToken.getUserID());    // userID is -1 when logged in - why?
             
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
@@ -77,7 +74,11 @@ public class ForumsServlet extends BaseServlet {
 
             User uu = ((BasicAuthentication)authentication).checkCookie();
             StringBuffer logInfoUU = new StringBuffer(100);
-            logInfoUU.append("[************* ").append(uu.getUserName()).append(" ***************]");
+            if (uu != null) {
+            	logInfoUU.append("[************* ").append(uu.getUserName()).append(" ***************]");
+            } else {
+                logInfoUU.append("[************* ").append("null").append(" ***************]");
+            }
             log.info(logInfoUU);
             
 		    StringBuffer loginfo = new StringBuffer(100);
