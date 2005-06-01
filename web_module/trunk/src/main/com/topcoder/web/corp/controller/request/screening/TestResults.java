@@ -97,6 +97,7 @@ public class TestResults extends BaseScreeningProcessor {
 
             ResultSetContainer rscB = (ResultSetContainer) map.get("testSetBResults");
             Map percents = new HashMap();
+            Map graphData = new HashMap();
             for (int i = 0; i < tinfo.getProblemSetBCount(); i++) {
                 dAccess = Util.getDataAccess();
                 //get percentile info
@@ -109,8 +110,26 @@ public class TestResults extends BaseScreeningProcessor {
 
                 percents.put(String.valueOf(rscB.getLongItem(i, "problem_id")), new Double(((ResultSetContainer) m2.get("candidate_percentile")).getDoubleItem(0, "percentile")));
 
+                dr2 = new Request();
+                dr2.setContentHandle("set_b_histogram_data");
+                dr2.setProperty("sid", String.valueOf(tinfo.getSessionId()));
+                dr2.setProperty("pid", String.valueOf(rscB.getLongItem(i, "problem_id")));
+                m2 = dAccess.getData(dr2);
+                
+                ResultSetContainer histogramData = (ResultSetContainer)m2.get("set_b_histogram_data");
+                
+                GraphData gd = new GraphData();
+                
+                int c = 0;
+                c = histogramData.getColumnCount() / 2;
+                for(int j = 1; j <= c; j++) {
+                    gd.addItem(histogramData.getStringItem(0, "bucket" + j + "label"), histogramData.getIntItem(0, "bucket" + j));
+                }
+                
+                graphData.put(String.valueOf(rscB.getLongItem(i, "problem_id")), gd);
             }
 
+            tinfo.setProblemSetBGraphData(graphData);
             tinfo.setProblemSetBPercentiles(percents);
 
             //lookup stats
