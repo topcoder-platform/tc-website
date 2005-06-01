@@ -23,19 +23,19 @@ public class GraphData implements java.io.Serializable {
     public GraphData() {
     }
     
-    private List headers = new ArrayList();
+    private List colors = new ArrayList();
     private List data = new ArrayList();
     
-    public List getHeaders() {
-        return headers;
+    public List getColors() {
+        return colors;
     }
     
     public List getData() {
         return data;
     }
 
-    public void addItem(String header, int value) {
-        headers.add(header);
+    public void addItem(String color, int value) {
+        colors.add(color);
         data.add(new Integer(value));
     }
 }
