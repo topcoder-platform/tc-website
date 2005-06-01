@@ -67,17 +67,15 @@ public class ForumsServlet extends BaseServlet {
                 }
             }
 	    	user = getUser(authToken.getUserID());
+            log.info("authToken userID: " + user.getUserId());
+            
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
 		    //todo perhaps this should be configurable...so implementing classes
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
-            User u = ((BasicAuthentication)authentication).getUser();
             User uu = ((BasicAuthentication)authentication).checkCookie();
-            StringBuffer logInfoU = new StringBuffer(100);
-            logInfoU.append("[************* ").append(u.getUserName()).append(" ***************]");
-            log.info(logInfoU);
             StringBuffer logInfoUU = new StringBuffer(100);
             logInfoUU.append("[************* ").append(uu.getUserName()).append(" ***************]");
             log.info(logInfoUU);
