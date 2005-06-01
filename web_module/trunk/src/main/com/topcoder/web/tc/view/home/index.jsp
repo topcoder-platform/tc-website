@@ -35,7 +35,7 @@
          </tr>
          <tr>
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
-            <td class="BIGPromoBox"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists"><img src="/i/home/promos/tco05_logo_contest_winner.gif" border="0" alt=""/></A></td>
+            <td class="BIGPromoBox"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/home/promos/tco05.gif" border="0" alt=""/></A></td>
             <td width="50%" class="homeLogo">&#160;</td>
          </tr>            
       </table>
@@ -133,7 +133,7 @@
 <%-- Right Column --%>
       <td class=homeRightCol>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/i/tournament/tccc05/onsite_movies/JohnDethridge.mov"><img src="/i/home/promos/tccc05Dethridge.jpg" border=0 /></A></td></tr>
+         <tr><td class=homeBigPromo><A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov"><img src="/i/home/promos/reviewBoardMovie.jpg" border=0 /></A></td></tr>
       </table>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>

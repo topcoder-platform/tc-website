@@ -8,6 +8,45 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.01.05<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about">Announcing the 2005 TopCoder Open</A></span><br><br>
+      $150,000 in prizes and TWICE the number of onsite competitors!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about">details</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.01.05<br>9:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=findSolution">How to Find a Solution</A></span><br><br>
+       With many TopCoder problems, the solutions may be found instantly just by reading their descriptions.</td>
+      <td class="newsPhoto"><img src="/i/m/Dumitru_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=7305703">Dumitru</A></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=findSolution">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>06.01.05<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">The TopCoder Review Board</A></span><br><br>
+      See the TopCoder Review Board at work.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.25.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists">kristofferrouge is the TCO05 Logo Contest Winner</A></span><br><br>
       Congratulations to <tc-webtag:handle coderId="14947661"/>, winner of the TCO05 Logo Contest!
@@ -205,45 +244,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
    <tr><td class="newsLinksCell">
          <A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.06.05<br>1:05 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=205768&thread=495791&mc=1">Reviewer minimum requirements updated</A></span><br><br>
-      TopCoder will be implementing some changes to the minimum requirements to become a component reviewer.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/rtables/viewThread.jsp?forum=205768&thread=495791&mc=1">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.05.05<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm241_prob">SRM 241 - Problem Set & Analysis</A></span><br><br>
-      In Division 1, <tc-webtag:handle coderId="8365685" context="algorithm"/> took home his first SRM victory, solving all three problems correctly.  <tc-webtag:handle coderId="311170" context="algorithm"/> and <tc-webtag:handle coderId="10574855" context="algorithm"/> took the second and third slots.</td>
-      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm241_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>05.05.05<br>12:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=495563&mc=1">Compilers & testers have been updated with Java 5</A></span><br><br>
-      You are now be able to compile / test / submit code containing Java 5 features in the practice rooms and during an SRM.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/rtables/viewThread.jsp?forum=7167&thread=495563&mc=1">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 </table>

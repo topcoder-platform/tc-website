@@ -90,14 +90,14 @@
 
 <%------------------MOVIE--------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.28.05<br>9:50 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">Steven Skiena's TCCC05 Presentation: <A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 1</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena2.mov">Part 2</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena3.mov">Part 3</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena4.mov">Part 4</A></span><br><br>
-      Listen to the entire presentation by TCCC05 speaker, Steven Skiena.
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>06.01.05<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">The TopCoder Review Board</A></span><br><br>
+      See the TopCoder Review Board at work.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tccc05/onsite_movies/skiena1.mov">Part 1</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena2.mov">Part 2</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena3.mov">Part 3</A>&#160;|&#160;<A href="/i/tournament/tccc05/onsite_movies/skiena4.mov">Part 4</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+         <A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
 
 <%------------------ALGORITHM COMPETITION--------------------------------------%>
