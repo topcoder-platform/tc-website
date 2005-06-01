@@ -297,6 +297,83 @@ if ( plugin ) {
                      </tr>
                      <% even = !even; %>
                    </rsc:iterator>
+                   <tr>
+                    <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
+                        <table style="border: 1px solid black;" cellspacing=0 cellpadding=0>
+                            <tr>
+                                <td colspan=3 align=center>
+                                    Legend
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=right>
+                                    <div style="width:20px; height:10px;background:red"></div>
+                                </td>
+                                <td style="width:10px;">
+                                &nbsp;
+                                </td>
+                                <td align=left>
+                                    0 to 10 minutes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=right>
+                                    <div style="width:20px; height:10px;background:yellow"></div>
+                                </td>
+                                <td style="width:10px;">
+                                &nbsp;
+                                </td>
+                                <td align=left>
+                                    10 to 20 minutes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=right>
+                                    <div style="width:20px; height:10px;background:blue"></div>
+                                </td>
+                                <td style="width:10px;">
+                                &nbsp;
+                                </td>
+                                <td align=left>
+                                    20 to 30 minutes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=right>
+                                    <div style="width:20px; height:10px;background:green"></div>
+                                </td>
+                                <td style="width:10px;">
+                                &nbsp;
+                                </td>
+                                <td align=left>
+                                    30 to 40 minutes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=right>
+                                    <div style="width:20px; height:10px;background:grey"></div>
+                                </td>
+                                <td style="width:10px;">
+                                &nbsp;
+                                </td>
+                                <td align=left>
+                                    40 to 50 minutes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=right>
+                                    <div style="width:20px; height:10px;background:black"></div>
+                                </td>
+                                <td style="width:10px;">
+                                &nbsp;
+                                </td>
+                                <td align=left>
+                                    50 to 60 minutes
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                   </tr>
                 <% } %>
 	        </table>
 	        <p></p>
