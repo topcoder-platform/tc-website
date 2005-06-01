@@ -1,5 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="com.topcoder.web.corp.common.Constants,
+                 com.topcoder.web.corp.model.GraphData,
                  java.util.TimeZone" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -288,9 +289,10 @@ if ( plugin ) {
 	             </TR>
 	             <tr>
                         <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
+                        <% GraphData gd = (GraphData) testResultsInfo.getProblemSetBGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
                             <screen:graph graphAreaHeight="300" barWidth="30" yAxisSections="5" 
-                                xAxisLabels='<%=java.util.Arrays.asList(new String[] {"X 1","X 2","X 3","X 4","X 5","X 6"})%>'
-                                barValues='<%=java.util.Arrays.asList(new Integer[] {new Integer(2),new Integer(4),new Integer(6),new Integer(8),new Integer(10),new Integer(12)})%>'/>
+                                xAxisLabels='<%=gd.getHeaders()%>'
+                                barValues='<%=gd.getData()%>'/>
                         </td>
                      </tr>
                      <% even = !even; %>
