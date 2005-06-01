@@ -21,6 +21,18 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class GraphTag extends TagSupport {
     
+    private String title = "";
+    
+    public void setTitle(String s) {
+        title = s;
+    }
+    
+    private int annotation = -1;
+    
+    public void setAnnotation(int i ) {
+        annotation = i;
+    }
+    
     private int graphAreaHeight = 300;
     
     public void setGraphAreaHeight(int v) {
@@ -79,6 +91,40 @@ public class GraphTag extends TagSupport {
         //draw the start of the table
         buffer.append("<table style='border:1px black solid;' cellspacing=0 cellpading=0>");
         
+        //draw title
+        if(!title.equals("")) {
+            buffer.append("<tr>");
+            buffer.append("<td align=center colspan='" + (2 + (xAxisSections * 2)) + "'>");
+            buffer.append(title);
+            buffer.append("</td>");
+            buffer.append("</tr>");
+        }
+        if(annotation != -1) {
+            buffer.append("<tr>");
+            buffer.append("<td>");
+            buffer.append("&nbsp;");
+            buffer.append("</td>");
+            buffer.append("<td>");
+            buffer.append("&nbsp;");
+            buffer.append("</td>");
+            for(int i = 0; i < xAxisSections; i++) {
+                if(i == annotation) {
+                    buffer.append("<td align=center>");
+                    buffer.append("|<br>V");
+                    buffer.append("</td>");
+                } else {
+                    buffer.append("<td>");
+                    buffer.append("&nbsp;");
+                    buffer.append("</td>");
+                }
+                
+                buffer.append("<td>");
+                buffer.append("&nbsp;");
+                buffer.append("</td>");
+            }
+            buffer.append("</tr>");
+        }
+        
         //draw out labels / bars
         for(int i = 0; i < yAxisSections; i++) {
             buffer.append("<tr>");
@@ -116,7 +162,7 @@ public class GraphTag extends TagSupport {
         buffer.append("<td>");
         buffer.append("&nbsp;");
         buffer.append("</td>");                            
-        buffer.append("<td colspan=" + ((xAxisSections * 2)-1) + ">");
+        buffer.append("<td colspan=" + ((xAxisSections * 2)) + ">");
         buffer.append("<div style='height:1px;width=100%;background:black;'></div>");
         buffer.append("</td>");
         buffer.append("</tr>");
