@@ -53,10 +53,10 @@ public class GraphTag extends TagSupport {
                 
     private int yUnitSize = 1;
     
-    private List xAxisLabels = null;
+    private List colors = null;
     
-    public void setXAxisLabels(List l) {
-        xAxisLabels = l;
+    public void setColors(List l) {
+        colors = l;
     }
             
     private int xAxisSections = 0;
@@ -69,7 +69,7 @@ public class GraphTag extends TagSupport {
     
     public int doStartTag() throws JspException {
         //initialize / calc some values
-        xAxisSections = xAxisLabels.size();
+        xAxisSections = colors.size();
         //find max value for y_unit_size
         int max = 0;
         for(int i = 0; i < xAxisSections; i++) {
@@ -140,7 +140,7 @@ public class GraphTag extends TagSupport {
                 h = (int)Math.floor((b / max) * (graphAreaHeight) );
             }
             buffer.append("<div>" + ((Integer)barValues.get(j)).intValue() + "</div>");
-            buffer.append("<div style='background:blue; width:" + barWidth + "px;height:" + h + "px'></div>");
+            buffer.append("<div style='background:" + (String)colors.get(j) + "; width:" + barWidth + "px;height:" + h + "px'></div>");
             buffer.append("</td>");
 
             buffer.append("<td valign='bottom' style='height:" + graphAreaHeight + "px' align=center>");
@@ -171,7 +171,7 @@ public class GraphTag extends TagSupport {
         
         for(int i = 0; i < xAxisSections; i++) {
             buffer.append("<td valign='bottom' align='center' >");
-            buffer.append((String)xAxisLabels.get(i));
+            buffer.append((String)colors.get(i));
             buffer.append("</td>");
             buffer.append("<td valign='bottom' style='width:10px'>");
             buffer.append("&nbsp;");
