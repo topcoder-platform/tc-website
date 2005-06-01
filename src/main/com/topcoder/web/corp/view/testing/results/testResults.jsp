@@ -290,7 +290,7 @@ if ( plugin ) {
 	             <tr>
                         <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                         <% GraphData gd = (GraphData) testResultsInfo.getProblemSetBGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="300" barWidth="30" yAxisSections="5" title="Submission Times" annotation="5"  annotationText="Candidate's Time"
+                            <screen:graph graphAreaHeight="150" barWidth="30" yAxisSections="5" title="Submission Times" annotation="5"  annotationText="Candidate's Time"
                                 xAxisLabels='<%=gd.getHeaders()%>'
                                 barValues='<%=gd.getData()%>'/>
                         </td>
