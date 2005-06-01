@@ -39,7 +39,7 @@ public class GraphTag extends TagSupport {
         yAxisSections = v;
     }
     
-    private int yUnitSize = 1;
+    private double yUnitSize = 1;
     
     private List xAxisLabels = null;
     
@@ -66,7 +66,7 @@ public class GraphTag extends TagSupport {
                 max = b;
         }
         
-        yUnitSize = max / yAxisSections;
+        yUnitSize = (max * 1.0) / yAxisSections;
         if(yUnitSize < 1)
             yUnitSize = 1;
         
@@ -93,7 +93,7 @@ public class GraphTag extends TagSupport {
                     int h = 0;
                     int b = ((Integer)barValues.get(j)).intValue();
                     if(b != 0) {
-                        h = (b / yUnitSize) * (graphAreaHeight / yAxisSections) - ((graphAreaHeight / yAxisSections) / 2);
+                        h = (int)Math.floor((b / yUnitSize) * (graphAreaHeight / yAxisSections) - ((graphAreaHeight / yAxisSections) / 2));
                     }
                     buffer.append("<div style='background:blue; width:" + barWidth + "px;height:" + h + "px'></div>");
                     buffer.append("</td>");
