@@ -129,6 +129,9 @@ public class GraphTag extends TagSupport {
             if(b != 0) {
                 h = (int)Math.floor((b / max) * (graphAreaHeight) );
             }
+            if(h==0) {
+                h = 2; //always draw something
+            }
             buffer.append("<div>" + ((Integer)barValues.get(j)).intValue() + "</div>");
             buffer.append("<div style='background:" + (String)colors.get(j) + "; width:" + barWidth + "px;height:" + h + "px'></div>");
             buffer.append("</td>");
