@@ -27,6 +27,12 @@ public class GraphTag extends TagSupport {
         title = s;
     }
     
+    private String annotationText = "";
+    
+    public void setAnnotationText(String s) {
+        annotationText = s;
+    }
+    
     private int annotation = -1;
     
     public void setAnnotation(int i ) {
@@ -110,6 +116,10 @@ public class GraphTag extends TagSupport {
             for(int i = 0; i < xAxisSections; i++) {
                 if(i == annotation) {
                     buffer.append("<td align=center>");
+                    if(!annotationText.equals("")) {
+                        buffer.append(annotationText);
+                        buffer.append("<br>");
+                    }
                     buffer.append("|<br>V");
                     buffer.append("</td>");
                 } else {
