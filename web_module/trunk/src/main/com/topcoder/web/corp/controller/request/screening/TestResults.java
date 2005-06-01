@@ -123,7 +123,7 @@ public class TestResults extends BaseScreeningProcessor {
                 int c = 0;
                 c = histogramData.getColumnCount() / 2;
                 for(int j = 1; j <= c; j++) {
-                    gd.addItem(histogramData.getStringItem(0, "bucket" + j + "label"), histogramData.getIntItem(0, "bucket" + j));
+                    gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j));
                 }
                 
                 graphData.put(String.valueOf(rscB.getLongItem(i, "problem_id")), gd);
