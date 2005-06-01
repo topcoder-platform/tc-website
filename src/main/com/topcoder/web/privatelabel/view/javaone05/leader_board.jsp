@@ -148,12 +148,12 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("recent_set_b");
     <body>
             <table border=0 cellspacing=0 width="100%" align=center>
                 <tr>
-                    <td align="left" valign="middle"><img src="/i/events/javaone04/javaone04_logo.gif" width="166" height="80" border="0"/></td>
-                    <td align="center" valign="middle"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0"/></td>
-                    <td align="right" valign="middle"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></td>
+                    <td align="left" valign="middle"><img src="/i/events/javaone05/javaone05_logo.gif" width="166" height="80" border="0"/></td>
+                    <td align="center" valign="middle"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0"/></td>
+                    <td align="right" valign="middle"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0"/></td>
                 </tr>
                 <tr>
-                    <td align="left" valign="middle" colspan="3"><img src="/i/events/javaone04/purple_dot.gif" width="100%" height="25" border="0"></td>
+                    <td align="left" valign="middle" colspan="3"><img src="/i/events/javaone05/purple_dot.gif" width="100%" height="25" border="0"></td>
                 </tr>
             </table>
 
