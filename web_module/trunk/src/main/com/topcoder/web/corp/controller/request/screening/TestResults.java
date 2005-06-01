@@ -52,6 +52,8 @@ public class TestResults extends BaseScreeningProcessor {
             problemSetAList = new ArrayList();
             pinfo.setTestSetAList(problemSetAList);
             if (pinfo.hasTestSetA()) {
+                Map graphData = new HashMap();
+                
                 String roundId = result.getItem(0, "contest_round_id").toString();
                 String divisionId = result.getItem(0, "contest_division_id").toString();
                 DataAccessInt dwAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
@@ -63,7 +65,30 @@ public class TestResults extends BaseScreeningProcessor {
                 if (map == null)
                     throw new ScreeningException("getData failed!");
                 tinfo.setProblemSetAResults((ResultSetContainer) map.get("testSetAResults"));
-                tinfo.setProblemSetATCStats((ResultSetContainer) dwMap.get("roundProblemStats"));
+                
+                ResultSetContainer stats = (ResultSetContainer) dwMap.get("roundProblemStats");
+                for(int i = 0; i < stats.size(); i++) {
+                    dr = new Request();
+                    dr.setContentHandle("set_a_histogram_data");
+                    dr.setProperty("rd", roundId);
+                    dr.setProperty("dn", divisionId);
+                    dr.setProperty("pm", String.valueOf(stats.getLongItem(i, "problem_id")));
+                    
+                    Map graphStats = dwAccess.getData(dr);
+                    ResultSetContainer histogramData = (ResultSetContainer)graphStats.get("set_a_histogram_data");
+                    
+                    GraphData gd = new GraphData();
+                    
+                    int c = 0;
+                    c = histogramData.getColumnCount() / 2;
+                    for(int j = 1; j <= c; j++) {
+                        gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j));
+                    }
+                    
+                    graphData.put(String.valueOf(stats.getLongItem(i, "problem_id")), gd);
+                }
+                tinfo.setProblemSetATCStats(stats);
+                tinfo.setProblemSetAGraphData(graphData);
                 pinfo.setTestSetAName(result.getItem(0, "session_round_name").toString());
 
                 ResultSetContainer dwResult = (ResultSetContainer) map.get("testSetAResults");

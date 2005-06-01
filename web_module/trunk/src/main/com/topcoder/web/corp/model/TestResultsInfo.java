@@ -23,6 +23,7 @@ public class TestResultsInfo implements java.io.Serializable {
 
     private Map problemSetBPercentile;
     
+    private Map problemSetAGraphData;
     private Map problemSetBGraphData;
 
     /** Holds value of property sessionId. */
@@ -40,6 +41,14 @@ public class TestResultsInfo implements java.io.Serializable {
 
     public void setProblemSetBStats(ResultSetContainer rsc) {
         problemSetBStats = rsc;
+    }
+    
+    public Map getProblemSetAGraphData() {
+        return problemSetAGraphData;
+    }
+
+    public void setProblemSetAGraphData(Map a) {
+        problemSetAGraphData = a;
     }
     
     public Map getProblemSetBGraphData() {
