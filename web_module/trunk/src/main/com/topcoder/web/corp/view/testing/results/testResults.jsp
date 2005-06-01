@@ -288,7 +288,7 @@ if ( plugin ) {
 	             </TR>
 	             <tr>
                         <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
-                            <screen:graph graphAreaHeight="300" barWidth="30" yAxisSections="10" 
+                            <screen:graph graphAreaHeight="500" barWidth="30" yAxisSections="10" 
                                 xAxisLabels='<%=java.util.Arrays.asList(new String[] {"X 1","X 2","X 3","X 4","X 5","X 6"})%>'
                                 barValues='<%=java.util.Arrays.asList(new Integer[] {new Integer(2),new Integer(4),new Integer(6),new Integer(8),new Integer(10),new Integer(12)})%>'/>
                         </td>
