@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.01.05 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about">Announcing the 2005 TopCoder Open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.25.05 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists">kristofferrouge is the TCO05 Logo Contest Winner!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.18.05 10:00 AM - </td><td width="100%"><A href="/tc?&module=ViewSurvey&sid=209">Vote for the TCO05 logo</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.02.05 10:25 AM - </td><td width="100%"><A href="/pl/?&module=Static&d1=javaone05&d2=overview">Announcing the 2005 JavaOne<sup>SM</sup> Coding Challenge</A></td></tr>
