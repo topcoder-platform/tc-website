@@ -266,7 +266,7 @@ In order for onsite finalists to receive their onsite cash prize, they must firs
 <br><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to Sun Microsystems, Inc. for recruiting purposes. Such information shall include the information contained in your TopCoder member profile and your competition statistics.
 <br><br>
-Contestants must not cheat. All ideas for any code solution submitted, including but not limited to design ideas and source code, must be the contestant's alone.
+Contestants must not cheat. All ideas for any code solution submitted, including but not limited to design ideas and source code, must be the contestant's alone. Any attempt to intentionally affect your rating(s) negatively in order to obtain an advantage over other TopCoder competitors is grounds for immediate account termination.
 <br><br>
 All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 <br><br>
