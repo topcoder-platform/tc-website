@@ -117,7 +117,11 @@ public class UpdateSession extends BaseSessionProcessor {
 
                     long testSetBSegment = Long.parseLong(row.getItem("count").toString()) *
                             Long.parseLong(Constants.TEST_SET_B_SEGMENT_INTERVAL);
-                    segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_B_ID), testSetBSegment);
+                    
+                    //if set b length == 0, don't create the segment
+                    if(testSetBSegment > 0)
+                        segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_B_ID), testSetBSegment);
+                    
                     info.setTestSetBLength(testSetBSegment);
 
                     //if we got through all that, then send the email
