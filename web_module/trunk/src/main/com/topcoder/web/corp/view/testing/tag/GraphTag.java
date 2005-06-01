@@ -50,13 +50,7 @@ public class GraphTag extends TagSupport {
     public void setBarWidth(int v) {
         barWidth = v;
     }
-            
-    private int yAxisSections = 0;
-    
-    public void setYAxisSections(int v) {
-        yAxisSections = v;
-    }
-    
+                
     private int yUnitSize = 1;
     
     private List xAxisLabels = null;
@@ -82,14 +76,6 @@ public class GraphTag extends TagSupport {
             int b = ((Integer)barValues.get(i)).intValue();
             if(b > max)
                 max = b;
-        }
-        
-        yUnitSize = max / yAxisSections;
-        if(yUnitSize < 1)
-            yUnitSize = 1;
-        
-        while((yUnitSize * yAxisSections) < max) {
-            yUnitSize++;
         }
         
         StringBuffer buffer = new StringBuffer("");
@@ -136,37 +122,33 @@ public class GraphTag extends TagSupport {
         }
         
         //draw out labels / bars
-        for(int i = 0; i < yAxisSections; i++) {
-            buffer.append("<tr>");
-            buffer.append("<td valign=top style='height:" + (graphAreaHeight / yAxisSections) + "px'>");
-            buffer.append(yUnitSize * (yAxisSections - i));
-            buffer.append("</td>");
-            
-            if(i==0) {
-                //draw out bars
-                //divider
-                buffer.append("<td style='height:" + graphAreaHeight + "px' rowspan='" + yAxisSections + "'><div style='width:1px;background:black;height:100%;'></div></td>");
-                
-                for(int j = 0; j < xAxisSections; j++) {
-                    buffer.append("<td valign='bottom' rowspan='" + yAxisSections + "' style='height:" + graphAreaHeight + "px' align=center>");
-                    //calc height based on value
-                    int h = 0;
-                    double b = ((Integer)barValues.get(j)).doubleValue();
-                    if(b != 0) {
-                        h = (int)Math.floor((b / yUnitSize) * (graphAreaHeight / yAxisSections) );
-                    }
-                    buffer.append("<div>" + ((Integer)barValues.get(j)).intValue() + "</div>");
-                    buffer.append("<div style='background:blue; width:" + barWidth + "px;height:" + h + "px'></div>");
-                    buffer.append("</td>");
-                    
-                    buffer.append("<td valign='bottom' rowspan='" + yAxisSections + "' style='height:" + graphAreaHeight + "px' align=center>");
-                    buffer.append("&nbsp;");
-                    buffer.append("</td>");
-                }
+        buffer.append("<tr>");
+        buffer.append("<td valign=top style='height:" + (graphAreaHeight) + "px'>");
+        buffer.append("&nbsp;");
+        buffer.append("</td>");
+
+        //draw out bars
+        //divider
+        buffer.append("<td style='height:" + graphAreaHeight + "px' ><div style='width:1px;background:black;height:100%;'></div></td>");
+
+        for(int j = 0; j < xAxisSections; j++) {
+            buffer.append("<td valign='bottom' style='height:" + graphAreaHeight + "px' align=center>");
+            //calc height based on value
+            int h = 0;
+            double b = ((Integer)barValues.get(j)).doubleValue();
+            if(b != 0) {
+                h = (int)Math.floor((b / max) * (graphAreaHeight) );
             }
-            
-            buffer.append("</tr>");
+            buffer.append("<div>" + ((Integer)barValues.get(j)).intValue() + "</div>");
+            buffer.append("<div style='background:blue; width:" + barWidth + "px;height:" + h + "px'></div>");
+            buffer.append("</td>");
+
+            buffer.append("<td valign='bottom' style='height:" + graphAreaHeight + "px' align=center>");
+            buffer.append("&nbsp;");
+            buffer.append("</td>");
         }
+
+        buffer.append("</tr>");
         
         //corner / bottom bar
         buffer.append("<tr>");

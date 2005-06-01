@@ -505,11 +505,6 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>yAxisSections</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
             <name>xAxisLabels</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
