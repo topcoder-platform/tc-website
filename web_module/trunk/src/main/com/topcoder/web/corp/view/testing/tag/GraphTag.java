@@ -81,7 +81,7 @@ public class GraphTag extends TagSupport {
         StringBuffer buffer = new StringBuffer("");
         
         //draw the start of the table
-        buffer.append("<table style='border:1px black solid;' cellspacing=0 cellpading=0>");
+        buffer.append("<table align='left' style='border:1px black solid;' cellspacing=0 cellpading=0>");
         
         //draw title
         if(!title.equals("")) {

@@ -257,16 +257,16 @@ if ( plugin ) {
 	             </TR>
                      <% even = !even; %>
                    </rsc:iterator>
+                   <tr>
+                      <td colspan=10 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                    <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
-                    <tr>
-                        <td colspan=10 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                         <% GraphData gd = (GraphData) testResultsInfo.getProblemSetAGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
                             <screen:graph graphAreaHeight="150" barWidth="30" title='<%="Submission Times for " + row.getStringItem("name") %>' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
-                        </td>
-                     </tr>
                    </rsc:iterator>
+                      </td>
+                 </tr>
                 <% } %>
          </table>
          <p></p>
