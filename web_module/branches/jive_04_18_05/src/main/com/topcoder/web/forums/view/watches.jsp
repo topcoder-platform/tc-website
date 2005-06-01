@@ -57,7 +57,7 @@ All watch updates will be emailed to your email address: <b><jsp:getProperty nam
 Watches on content that hasn't been updated for more than 90 days will be automatically removed from your list. 
 To prevent any watch from being automatically deleted, toggle the "save" option. 
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
-<tc-webtag:hiddenInput name="module"/>
+<tc-webtag:hiddenInput name="module" value="Watches"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCHLIST_STATUS%>"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr>
@@ -87,8 +87,8 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 </table>
 
 <div align="right">
-<A href="javascript:document.form1.module.value='Watches';document.form1.<%=ForumConstants.WATCHLIST_STATUS%>.value='update';document.form1.submit();"><img src="/i/roundTables/update.gif" alt="Update" border="0" /></A>
-<A href="javascript:document.form1.module.value='Watches';document.form1.<%=ForumConstants.WATCHLIST_STATUS%>.value='delete';document.form1.submit();"><img src="/i/roundTables/delete.gif" alt="Delete" border="0" /></A>
+<input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form1.<%=ForumConstants.WATCHLIST_STATUS%>.value='update'" />
+<input type="image" src="/i/roundTables/delete.gif" alt="Delete" onclick="form1.<%=ForumConstants.WATCHLIST_STATUS%>.value='delete'" />
 </div>
 
 </form>

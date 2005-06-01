@@ -61,8 +61,8 @@
 
 <span class="bodySubtitle">User Settings</span><br>
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
-<tc-webtag:hiddenInput name="module"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>"/>
+<tc-webtag:hiddenInput name="module" value="Settings"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>" value="save"/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
       <td class="rtHeader" colspan="2">General Settings</td>
@@ -179,7 +179,7 @@
    </tr>
 </table>
 <div align="right">
-<A href="javascript:document.form1.module.value='Settings';document.form1.<%=ForumConstants.SETTINGS_STATUS%>.value='save';document.form1.submit();"><img src="/i/roundTables/save.gif" alt="Save" border="0" /></A>
+<input type="image" src="/i/roundTables/save.gif" alt="Save" />
 </div></form>
 
 <p><br/></p>

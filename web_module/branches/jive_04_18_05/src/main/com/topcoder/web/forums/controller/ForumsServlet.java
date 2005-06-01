@@ -5,12 +5,14 @@ package com.topcoder.web.forums.controller;
 
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.security.TCSubject;
 
 import com.topcoder.web.common.model.CoderSessionInfo;
@@ -71,6 +73,15 @@ public class ForumsServlet extends BaseServlet {
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
+            User u = ((BasicAuthentication)authentication).getUser();
+            User uu = ((BasicAuthentication)authentication).checkCookie();
+            StringBuffer logInfoU = new StringBuffer(100);
+            logInfoU.append("[************* ").append(u.getUserName()).append(" ***************]");
+            log.info(logInfoU);
+            StringBuffer logInfoUU = new StringBuffer(100);
+            logInfoUU.append("[************* ").append(uu.getUserName()).append(" ***************]");
+            log.info(logInfoUU);
+            
 		    StringBuffer loginfo = new StringBuffer(100);
 		    loginfo.append("[**** ");
 		    loginfo.append(info.getHandle());
