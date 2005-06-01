@@ -82,7 +82,7 @@ public class GraphTag extends TagSupport {
         //draw out labels / bars
         for(int i = 0; i < yAxisSections; i++) {
             buffer.append("<tr>");
-            buffer.append("<td valign=center style='height:" + (graphAreaHeight / yAxisSections) + "px'>");
+            buffer.append("<td valign=top style='height:" + (graphAreaHeight / yAxisSections) + "px'>");
             buffer.append(yUnitSize * (yAxisSections - i));
             buffer.append("</td>");
             
@@ -97,7 +97,7 @@ public class GraphTag extends TagSupport {
                     int h = 0;
                     double b = ((Integer)barValues.get(j)).doubleValue();
                     if(b != 0) {
-                        h = (int)Math.floor((b / yUnitSize) * (graphAreaHeight / yAxisSections) - ((graphAreaHeight / yAxisSections) / 2));
+                        h = (int)Math.floor((b / yUnitSize) * (graphAreaHeight / yAxisSections) );
                     }
                     buffer.append("<div style='background:blue; width:" + barWidth + "px;height:" + h + "px'></div>");
                     buffer.append("</td>");
