@@ -12,7 +12,7 @@
 
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">May:&#160;<tc-webtag:handle coderId="299979"/></td>
+        <td class="statTextBig" bgcolor="#333333">May:&#160;<tc-webtag:handle coderId="10574855"/></td>
     </tr>
 </table>
 
@@ -23,23 +23,22 @@
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText"></td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 240</td>
-        <td class="formHandleEven" align="right">2444</td>
-        <td rowspan="4" align="center" valign="middle"><img src="/i/m/visualage_mug.gif" alt="" border="0" class="myStatsPhoto"/></td>
+        <td class="formHandleEven">SRM 244</td>
+        <td class="formHandleEven" align="right">3020</td>
+        <td rowspan="4" align="center" valign="middle"><img src="/i/m/petr_mug.gif" alt="" border="0" class="myStatsPhoto"/></td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 239</td>
-        <td class="formHandleEven" align="right">2365</td>
+        <td class="formHandleEven">SRM 243</td>
+        <td class="formHandleEven" align="right">3000</td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 238</td>
-        <td class="formHandleEven" align="right">2252</td>
+        <td class="formHandleEven">SRM 242</td>
+        <td class="formHandleEven" align="right">2876</td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 237</td>
-        <td class="formHandleEven" align="right">2095</td>
+        <td class="formHandleEven">SRM 241</td>
+        <td class="formHandleEven" align="right">2676</td>
     </tr>
-    <tr><td class="formHandleEven" colspan="3"><tc-webtag:handle coderId="299979"/> also got one first place, two second places, and a third place in component development during April.</td></tr>
 </table>
 
 <table width="180" border="0" cellspacing="0" cellpadding="0">
