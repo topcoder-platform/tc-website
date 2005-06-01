@@ -94,7 +94,7 @@ public class GraphTag extends TagSupport {
         if(annotation != -1) {
             buffer.append("<tr>");
             for(int i = 0; i < xAxisSections; i++) {
-                if(i == annotation) {
+                if(i == (annotation-1)) {
                     buffer.append("<td align=center>");
                     if(!annotationText.equals("")) {
                         buffer.append(annotationText);
