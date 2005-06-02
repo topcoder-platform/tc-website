@@ -248,7 +248,7 @@ if ( plugin ) {
                 <% } else{ even = false; %>
                    <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
 	             <TR>
-		       <TD ALIGN="left" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>">&#160;<rsc:item row="<%=row%>" name="name" /></TD>
+		       <TD ALIGN="left" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><strong>&#160;<rsc:item row="<%=row%>" name="name" /></strong></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="division_desc" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="level_desc" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="submissions" /></TD>
@@ -259,8 +259,9 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_points" format="#.##"/></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="time_elapsed" /></TD>
 	             </TR>
+                     <% even = !even; %>
 	             <tr>
-                      <td colspan=10 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
+                      <td colspan="10" align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                       <% GraphData gd = (GraphData) testResultsInfo.getProblemSetAGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
                             <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of TopCoder Members' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
@@ -399,6 +400,7 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_time" /></TD>
 	             </TR>
 	             <tr>
+                     <% even = !even; %>
                         <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                         <% GraphData gd = (GraphData) testResultsInfo.getProblemSetBGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
                             <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of Candidate Pool' annotation="<%=gd.getAnnotation()%>" 

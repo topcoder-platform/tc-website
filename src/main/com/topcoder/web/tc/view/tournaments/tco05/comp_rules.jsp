@@ -231,7 +231,7 @@ All contestants who submit components that pass screening during at least one we
       <td class="sidebarText">$750 each</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">First previously unrated participant to win a component during the online rounds of the CDDC</td>
+      <td class="sidebarText">First previously unrated participant to win a component during the online rounds of the CDDC***</td>
       <td class="sidebarText">$2,000</td>
       <td class="sidebarText">$1,000</td>
    </tr>
@@ -241,7 +241,7 @@ All contestants who submit components that pass screening during at least one we
       <td class="sidebarText">$1,000</td>
    </tr>
    <tr valign="top">
-      <td class="sidebarText">Participant who submits the most passing submissions during the online rounds of the CDDC</td>
+      <td class="sidebarText">Participant who submits the most passing submissions (review score of 70 or higher) during the online rounds of the CDDC</td>
       <td class="sidebarText">$1,500</td>
       <td class="sidebarText">$1,000</td>
    </tr>
@@ -256,6 +256,9 @@ All contestants who submit components that pass screening during at least one we
    <tr valign="top">
       <td class="sidebarText" colspan ="3">** To calculate the rating change, TopCoder will subtract each participant's rating after all TCO online rounds have finished (including final fixes) from each participant's rating at the time the first TCO online round was posted.  The calculation will be performed only after all components that affect the final rating have been completed.  This includes all components posted at or before the last TCO online round is posted, regardless of whether the components are related to the TCO.  The participant with the highest positive rating difference will be awarded the prize.  If no participant has a positive rating increase during the course of the online rounds of the TCO, no prize money for this criteria will be awarded. In order to qualify for this prize, the participant must have a rating in the appropriate category (design or development) before the start of the first TCO online round.</td>
    </tr>
+   <tr valign="top">
+      <td class="sidebarText" colspan ="3">*** If two previously unrated participants tie for this prize by submitting and winning during the same round, the one that submitted first will be the winner.  If a participant makes several submissions for the same project, their time of submission will be taken to be the time of their last submission.</td>
+   </tr>
 </table>
 <br><br>
 In order for onsite finalists to receive their onsite cash prize, they must first complete all TCO-related work for all online rounds and the Championship Round, including final fixes.
@@ -264,7 +267,7 @@ In order for onsite finalists to receive their onsite cash prize, they must firs
 <a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Conditions of Participation</span>
 <br><br>
-By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to Sun Microsystems, Inc. for recruiting purposes. Such information shall include the information contained in your TopCoder member profile and your competition statistics.
+By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to Sun Microsystems, Inc. for Java Studio Creator promotional purposes. Such information shall include the information contained in your TopCoder member profile and your competition statistics.
 <br><br>
 Contestants must not cheat. All ideas for any code solution submitted, including but not limited to design ideas and source code, must be the contestant's alone. Any attempt to intentionally affect your rating(s) negatively in order to obtain an advantage over other TopCoder competitors is grounds for immediate account termination.
 <br><br>
