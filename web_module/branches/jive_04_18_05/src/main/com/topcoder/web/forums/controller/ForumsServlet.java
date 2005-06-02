@@ -37,11 +37,6 @@ import com.jivesoftware.base.AuthToken;
  */
 public class ForumsServlet extends BaseServlet {
 	private final static Logger log = Logger.getLogger(ForumsServlet.class);
-	
-    protected WebAuthentication createAuthentication(TCRequest request,
-            TCResponse response) throws Exception {
-    	return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.FORUMS_SITE);
-    }
     
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
