@@ -84,7 +84,7 @@
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=flat" class="rtbcLink">Flat</A>&#160;|
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;|
    <strong>Tree</strong>
-   <% if (errors.get(ForumConstants.DEFAULT_MAX_THREAD_WATCHES) != null) { %><br/><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.DEFAULT_MAX_THREAD_WATCHES%>"><%=err%></tc-webtag:errorIterator></font><% } %>
+   <% if (errors.get(ForumConstants.WATCH_THREAD) != null) { %><br/><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.WATCH_THREAD%>"><%=err%></tc-webtag:errorIterator></font><% } %>
    </td>
 </tr>
 
