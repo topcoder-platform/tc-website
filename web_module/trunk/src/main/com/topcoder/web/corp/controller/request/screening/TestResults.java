@@ -54,6 +54,7 @@ public class TestResults extends BaseScreeningProcessor {
             pinfo.setTestSetAList(problemSetAList);
             if (pinfo.hasTestSetA()) {
                 Map graphData = new HashMap();
+                Map graphDataCompany = new HashMap();
                 Map percents = new HashMap();
                 
                 String roundId = result.getItem(0, "contest_round_id").toString();
@@ -108,9 +109,7 @@ public class TestResults extends BaseScreeningProcessor {
                     if(annotation.size() != 0) {
                         gd.setAnnotation(annotation.getIntItem(0, "bucket"));
                     }
-                    
-                    log.debug("BUCKET IS:" + gd.getAnnotation());
-                    
+                                        
                     graphData.put(String.valueOf(stats.getLongItem(i, "problem_id")), gd);
                     
                     //get percentiles
@@ -123,9 +122,30 @@ public class TestResults extends BaseScreeningProcessor {
                     ResultSetContainer percentData = (ResultSetContainer)percentStats.get("candidate_percentile");
                     percents.put(String.valueOf(stats.getLongItem(i, "problem_id")), new Double(((ResultSetContainer) percentStats.get("candidate_percentile")).getDoubleItem(0, "percentile")));
                     
+                    //company graph data
+                    Request dr2 = new Request();
+                    dr2.setContentHandle("set_b_histogram_data");
+                    dr2.setProperty("sid", String.valueOf(tinfo.getSessionId()));
+                    dr2.setProperty("pid", String.valueOf(stats.getLongItem(i, "problem_id")));
+                    Map m2 = dAccess.getData(dr2);
+
+                    histogramData = (ResultSetContainer)m2.get("set_b_histogram_data");
+
+                    gd = new GraphData();
+
+                    c = 0;
+                    c = histogramData.getColumnCount() / 2;
+                    for(int j = 1; j <= c; j++) {
+                        gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j));
+                    }
+
+                    gd.setAnnotation(histogramData.getIntItem(0, "annotation"));
+
+                    graphDataCompany.put(String.valueOf(stats.getLongItem(i, "problem_id")), gd);
                 }
                 tinfo.setProblemSetATCStats(stats);
                 tinfo.setProblemSetAGraphData(graphData);
+                tinfo.setProblemSetAGraphDataCompany(graphDataCompany);
                 tinfo.setProblemSetAPercentiles(percents);
                 pinfo.setTestSetAName(result.getItem(0, "session_round_name").toString());
 

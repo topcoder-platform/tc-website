@@ -259,18 +259,53 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_points" format="#.##"/></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="time_elapsed" /></TD>
 	             </TR>
-                     <% even = !even; %>
-                   </rsc:iterator>
-                   <tr>
+	             <tr>
                       <td colspan=10 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
-                   <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
-                        <% GraphData gd = (GraphData) testResultsInfo.getProblemSetAGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name") %>' annotation="<%=gd.getAnnotation()%>" 
+                      <% GraphData gd = (GraphData) testResultsInfo.getProblemSetAGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name") + " (TC)" %>' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
-                   </rsc:iterator>
+                      <% gd = (GraphData) testResultsInfo.getProblemSetAGraphDataCompany().get(String.valueOf( row.getLongItem("problem_id") ));%>
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name")%>' annotation="<%=gd.getAnnotation()%>" 
+                                colors='<%=gd.getColors()%>'
+                                barValues='<%=gd.getData()%>'/>
+                                    <table class="graphLegend" cellspacing="0" cellpadding="0">
+   <tr>
+      <td class="title" colspan='7'>Legend</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#C99; width: 20px; height:10px' /></td>
+      <td class="label">0 to 10 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#9C9; width: 20px; height:10px' /></td>
+      <td class="label">10 to 20 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#99C; width: 20px; height:10px' /></td>
+      <td class="label">20 to 30 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#CC9; width: 20px; height:10px' /></td>
+      <td class="label">30 to 40 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#9CC; width: 20px; height:10px' /></td>
+      <td class="label">40 to 50 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#C96; width: 20px; height:10px' /></td>
+      <td class="label">50 to 60 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#999; width: 20px; height:10px' /></td>
+      <td class="label">60 to 70 minutes</td>
+   </tr>
+</table>
                       </td>
-                 </tr>
+	             </tr>
+                     <% even = !even; %>
+                   </rsc:iterator>
                 <% } %>
          </table>
          <p></p>
