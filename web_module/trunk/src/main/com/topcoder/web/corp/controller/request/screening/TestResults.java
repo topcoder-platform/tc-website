@@ -124,12 +124,12 @@ public class TestResults extends BaseScreeningProcessor {
                     
                     //company graph data
                     Request dr2 = new Request();
-                    dr2.setContentHandle("set_b_histogram_data");
+                    dr2.setContentHandle("set_a_histogram_data");
                     dr2.setProperty("sid", String.valueOf(tinfo.getSessionId()));
                     dr2.setProperty("pid", String.valueOf(stats.getLongItem(i, "problem_id")));
                     Map m2 = dAccess.getData(dr2);
 
-                    histogramData = (ResultSetContainer)m2.get("set_b_histogram_data");
+                    histogramData = (ResultSetContainer)m2.get("set_a_histogram_data");
 
                     gd = new GraphData();
 

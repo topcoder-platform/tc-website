@@ -269,39 +269,39 @@ if ( plugin ) {
                             <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of Candidate Pool' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
-                                    <table class="graphLegend" cellspacing="0" cellpadding="0">
-   <tr>
-      <td class="title" colspan='7'>Legend</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#C99; width: 20px; height:10px' /></td>
-      <td class="label">0 to 10 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#9C9; width: 20px; height:10px' /></td>
-      <td class="label">10 to 20 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#99C; width: 20px; height:10px' /></td>
-      <td class="label">20 to 30 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#CC9; width: 20px; height:10px' /></td>
-      <td class="label">30 to 40 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#9CC; width: 20px; height:10px' /></td>
-      <td class="label">40 to 50 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#C96; width: 20px; height:10px' /></td>
-      <td class="label">50 to 60 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#999; width: 20px; height:10px' /></td>
-      <td class="label">60 to 70 minutes</td>
-   </tr>
-</table>
+                            <table class="graphLegend" cellspacing="0" cellpadding="0">
+                               <tr>
+                                  <td class="title" colspan='7'>Legend</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#C99; width: 20px; height:10px' /></td>
+                                  <td class="label">0 to 10 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#9C9; width: 20px; height:10px' /></td>
+                                  <td class="label">10 to 20 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#99C; width: 20px; height:10px' /></td>
+                                  <td class="label">20 to 30 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#CC9; width: 20px; height:10px' /></td>
+                                  <td class="label">30 to 40 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#9CC; width: 20px; height:10px' /></td>
+                                  <td class="label">40 to 50 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#C96; width: 20px; height:10px' /></td>
+                                  <td class="label">50 to 60 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#999; width: 20px; height:10px' /></td>
+                                  <td class="label">60 to 75 minutes</td>
+                               </tr>
+                            </table>
                       </td>
 	             </tr>
                      <% even = !even; %>
@@ -336,19 +336,46 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="overall_correct_percent" />%</TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_time" /></TD>
 	             </TR>
-                      <% even = !even; %>
-	             </rsc:iterator>
-	             
 	             <tr>
                         <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
-                        <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetBStats()%>">
                         <% GraphData gd = (GraphData) testResultsInfo.getProblemSetBGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name") %>' annotation="<%=gd.getAnnotation()%>" 
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='Distribution of Candidate Pool' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
-                        </rsc:iterator>
+                            <table class="graphLegend" cellspacing="0" cellpadding="0">
+                               <tr>
+                                  <td class="title" colspan='7'>Legend</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#C99; width: 20px; height:10px' /></td>
+                                  <td class="label">0 to 10 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#9C9; width: 20px; height:10px' /></td>
+                                  <td class="label">10 to 20 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#99C; width: 20px; height:10px' /></td>
+                                  <td class="label">20 to 30 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#CC9; width: 20px; height:10px' /></td>
+                                  <td class="label">30 to 40 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#9CC; width: 20px; height:10px' /></td>
+                                  <td class="label">40 to 50 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td><div class="bar" style='background:#C96; width: 20px; height:10px' /></td>
+                                  <td class="label">50 to 60 minutes</td>
+                               </tr>
+                            </table>
+
                         </td>
-                     </tr>
+	             </tr>
+                      <% even = !even; %>
+	             </rsc:iterator>
                      <% even = !even; %>
                 <% } %>
 	        </table>
@@ -415,39 +442,6 @@ if ( plugin ) {
                    </rsc:iterator>
 	        </table>
     <% } // getProblemSetBCount() > 0 %>
-    <table class="graphLegend" cellspacing="0" cellpadding="0">
-   <tr>
-      <td class="title" colspan='7'>Legend</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#C99; width: 20px; height:10px' /></td>
-      <td class="label">0 to 10 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#9C9; width: 20px; height:10px' /></td>
-      <td class="label">10 to 20 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#99C; width: 20px; height:10px' /></td>
-      <td class="label">20 to 30 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#CC9; width: 20px; height:10px' /></td>
-      <td class="label">30 to 40 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#9CC; width: 20px; height:10px' /></td>
-      <td class="label">40 to 50 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#C96; width: 20px; height:10px' /></td>
-      <td class="label">50 to 60 minutes</td>
-   </tr>
-   <tr>
-      <td><div class="bar" style='background:#999; width: 20px; height:10px' /></td>
-      <td class="label">60 to 70 minutes</td>
-   </tr>
-</table>
 <% } else { //isSessionComplete %>
   <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
