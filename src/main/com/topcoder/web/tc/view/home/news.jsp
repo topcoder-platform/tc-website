@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.02.05<br>7:50 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc">Top 10 Countries Now Linkable</A></span><br><br>
+      On the Competition Homepage (this page) the "Top 10 Countries" are now linkable to a list of all the Algorithm competitors that made that country a Top 10. 
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc">view</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.02.05<br>9:25 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7220">Preferred Employer Survey</A></span><br><br>
       Assuming you were looking for a programming job and the compensation were equal, which of the following companies would you most prefer to work at?
@@ -237,17 +249,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
    <tr><td class="newsLinksCell">
          <A href="/rtables/viewThread.jsp?forum=7167&thread=496779&mc=1">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>05.12.05<br>5:50 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Ratings have been updated</span><br><br>
-      Algorithm, Design, and Development Ratings have been updated to reflect the new rating formulas.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
