@@ -129,6 +129,7 @@ public class BasicAuthentication implements WebAuthentication {
          * requests in the persistor.  if they're not in the cookie either, then
          * they're anonymous
          */
+        log.debug("==============getActiveUser called==========");
         User u = getUserFromPersistor();
         if (u != null) {
             log.debug("### User obtained from getUserFromPersistor: " + u.getId());   
