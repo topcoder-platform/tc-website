@@ -97,7 +97,16 @@ public class TestResults extends BaseScreeningProcessor {
                     }
                     
                     //get annotation
+                    dr = new Request();
+                    dr.setContentHandle("set_a_histogram_annotation");
+                    dr.setProperty("sid", String.valueOf(tinfo.getSessionId()));
+                    dr.setProperty("pid", String.valueOf(stats.getLongItem(i, "problem_id")));
                     
+                    Map annotationMap = dwAccess.getData(dr);
+                    ResultSetContainer annotation = (ResultSetContainer)annotationMap.get("set_a_histogram_annotation");
+                    if(annotation.size() != 0) {
+                        gd.setAnnotation(annotation.getIntItem(0, "bucket"));
+                    }
                     
                     graphData.put(String.valueOf(stats.getLongItem(i, "problem_id")), gd);
                     
