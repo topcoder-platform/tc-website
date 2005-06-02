@@ -10,6 +10,8 @@
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:include page="../includes/script.jsp" />
+<link type="text/css" rel="stylesheet" href="/css/corpStyle.css"/>
+<link type="text/css" rel="stylesheet" href="/css/graphs.css"/>
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -170,7 +172,7 @@ if ( plugin ) {
         <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <tr>
-		       <td colspan="11" class="screeningTitle">Test Set A Results:</td>
+		       <td colspan="12" class="screeningTitle">Test Set A Results:</td>
 	        </tr>
 
 	        <tr>
