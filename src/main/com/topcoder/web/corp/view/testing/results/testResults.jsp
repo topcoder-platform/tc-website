@@ -311,8 +311,8 @@ if ( plugin ) {
                             <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name") %>' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
-                        </td>
                         </rsc:iterator>
+                        </td>
                      </tr>
                      <% even = !even; %>
                         </table>
