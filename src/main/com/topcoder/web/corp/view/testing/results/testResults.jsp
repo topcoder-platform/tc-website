@@ -311,7 +311,69 @@ if ( plugin ) {
          <p></p>
     <% } //has test set a %>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
-            <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+            
+            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
+	        <TR>
+	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+		       <TD COLSPAN="8" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
+		<% } else { %>
+                       <TD COLSPAN="11" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
+		<% } %>
+	        </TR>
+	        <TR>
+		       <TD ALIGN="left" WIDTH="10%" CLASS="screeningHeader"><B>Problem</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Language</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Status</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B># Compiles</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B># Tests</B></TD>
+		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Test Passed</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Test Failed</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>% Test Passed</B></TD>
+		       <% } %>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Time</B></TD>
+                <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">Percentile</TD>
+		<% } %>
+               <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">&#160;</TD>
+	        </TR>
+                <% even = false; %>
+                   <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
+                     <%
+                        String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
+                                         Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
+                                         Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
+                                         Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
+                        boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
+                        boolean isCompiled = row.getItem("is_compiled").toString().equals("1");
+                        boolean isSystemTested = row.getItem("is_system_tested").toString().equals("1");
+                     %>
+	             <TR>
+		       <TD ALIGN="left" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>">&#160;<A HREF="JavaScript:getProblemDetail('<rsc:item row="<%=row%>" name="session_round_id" />,<rsc:item row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><rsc:item row="<%=row%>" name="problem_name" /></A></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="language_name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="status_desc" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="compile_count" ifNull="0"/></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="test_count" ifNull="0"/></TD>
+		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_succeeded" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_failed" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="pct_passed" />%</TD>
+		       <% } %>
+		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="elapsed" /></TD>
+               <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
+		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+		       <%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%
+		       <% } %>
+               </td>
+               <% if (isSystemTested && (isSubmitted || isCompiled)) { %>
+		         <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
+               <% } %>
+	             </TR>
+                     <% even = !even; %>
+                   </rsc:iterator>
+	        </table>
+	        
+	        <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
                        <TD COLSPAN="7" VALIGN="top" CLASS="screeningTitle">Problem Statistics:</TD>
@@ -381,66 +443,6 @@ if ( plugin ) {
 	        </table>
 	        <p></p>
             <% } %>
-            <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
-	        <TR>
-	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-		       <TD COLSPAN="8" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
-		<% } else { %>
-                       <TD COLSPAN="11" VALIGN="top" CLASS="screeningTitle">Test Set B Results:</TD>
-		<% } %>
-	        </TR>
-	        <TR>
-		       <TD ALIGN="left" WIDTH="10%" CLASS="screeningHeader"><B>Problem</B></TD>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Language</B></TD>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Status</B></TD>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B># Compiles</B></TD>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B># Tests</B></TD>
-		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Test Passed</B></TD>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Test Failed</B></TD>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>% Test Passed</B></TD>
-		       <% } %>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader"><B>Time</B></TD>
-                <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">Percentile</TD>
-		<% } %>
-               <TD ALIGN="center" WIDTH="10%" CLASS="screeningHeader">&#160;</TD>
-	        </TR>
-                <% even = false; %>
-                   <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
-                     <%
-                        String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
-                                         Constants.ROUND_ID + '=' + row.getItem("session_round_id") + '&' +
-                                         Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
-                                         Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
-                        boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
-                        boolean isCompiled = row.getItem("is_compiled").toString().equals("1");
-                        boolean isSystemTested = row.getItem("is_system_tested").toString().equals("1");
-                     %>
-	             <TR>
-		       <TD ALIGN="left" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>">&#160;<A HREF="JavaScript:getProblemDetail('<rsc:item row="<%=row%>" name="session_round_id" />,<rsc:item row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><rsc:item row="<%=row%>" name="problem_name" /></A></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="language_name" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="status_desc" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="compile_count" ifNull="0"/></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="test_count" ifNull="0"/></TD>
-		       <%if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_succeeded" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_failed" /></TD>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="pct_passed" />%</TD>
-		       <% } %>
-		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="elapsed" /></TD>
-               <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
-		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-		       <%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%
-		       <% } %>
-               </td>
-               <% if (isSystemTested && (isSubmitted || isCompiled)) { %>
-		         <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
-               <% } %>
-	             </TR>
-                     <% even = !even; %>
-                   </rsc:iterator>
-	        </table>
     <% } // getProblemSetBCount() > 0 %>
 <% } else { //isSessionComplete %>
   <% if (profileInfo.hasTestSetA()) { %>
