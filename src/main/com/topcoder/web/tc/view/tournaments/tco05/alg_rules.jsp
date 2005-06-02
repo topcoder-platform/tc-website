@@ -286,7 +286,7 @@ The tournament will award prizes to up to 750 competitors and $75,000 in cash pr
 <a name="conditions"></a>
 <a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Conditions of Participation</span><br><br>
-By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to Sun Microsystems, Inc. for recruiting purposes. Such information shall include the information contained in your TopCoder member profile and your competition statistics.
+By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  Also, by participating in this tournament, you consent to providing certain information to Sun Microsystems, Inc. for Java Studio Creator promotional purposes. Such information shall include the information contained in your TopCoder member profile and your competition statistics.
 <br><br>
 <span class="bigRed">Contestants must not cheat. All ideas for any code and/or challenge submitted must be the contestant's alone.</span>
 <br><br>
