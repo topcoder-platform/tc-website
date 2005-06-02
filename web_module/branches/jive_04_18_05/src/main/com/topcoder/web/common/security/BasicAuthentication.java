@@ -141,7 +141,9 @@ public class BasicAuthentication implements WebAuthentication {
                 } else {
                     //log.debug("*** they were in cookie ***");
                 }
-                persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
+                if (u.getId() != guest.getId()) {
+                    persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);	
+                }
             } else {
                 //log.debug("*** they were stale ***");
             }
