@@ -177,7 +177,7 @@
                             
                             <li>Proposals that do not pass** the screening are sent back to the designer with the Design Screening Score card.</li>
                             
-                            <li>The top 5 proposals that pass** the screening will be reviewed in greater detail by all members of the Architecture Review Board.</li>
+                            <li>The proposals that pass** the screening will be reviewed in greater detail by all members of the Architecture Review Board.</li>
                             
                             <li>Each Architecture Review Board member reviews all passing proposals and scores them using the Design Review Score card.  The 
                             Design Review Score card consists of a series of subjective questions that require both a score and comments to explain the score.</li>
