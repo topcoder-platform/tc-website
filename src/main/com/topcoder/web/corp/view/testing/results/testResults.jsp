@@ -315,9 +315,6 @@ if ( plugin ) {
                         </td>
                      </tr>
                      <% even = !even; %>
-                        </table>
-                    </td>
-                   </tr>
                 <% } %>
 	        </table>
 	        <p></p>
