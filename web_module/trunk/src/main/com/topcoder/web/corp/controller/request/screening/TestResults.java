@@ -53,6 +53,7 @@ public class TestResults extends BaseScreeningProcessor {
             pinfo.setTestSetAList(problemSetAList);
             if (pinfo.hasTestSetA()) {
                 Map graphData = new HashMap();
+                Map percents = new HashMap();
                 
                 String roundId = result.getItem(0, "contest_round_id").toString();
                 String divisionId = result.getItem(0, "contest_division_id").toString();
@@ -64,7 +65,8 @@ public class TestResults extends BaseScreeningProcessor {
                 Map dwMap = dwAccess.getData(dr);
                 if (map == null)
                     throw new ScreeningException("getData failed!");
-                tinfo.setProblemSetAResults((ResultSetContainer) map.get("testSetAResults"));
+                ResultSetContainer testAResults = (ResultSetContainer) map.get("testSetAResults");
+                tinfo.setProblemSetAResults(testAResults);
                 
                 ResultSetContainer stats = (ResultSetContainer) dwMap.get("roundProblemStats");
                 for(int i = 0; i < stats.size(); i++) {
@@ -85,10 +87,34 @@ public class TestResults extends BaseScreeningProcessor {
                         gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j));
                     }
                     
+                    //find the corresponding row in testSetAResults
+                    int x = 0;
+                    for(int j = 0; j < testAResults.size(); j++) {
+                        if(stats.getLongItem(i, "problem_id") == testAResults.getLongItem(j, "problem_id")) {
+                            x = j;
+                            break;
+                        }
+                    }
+                    
+                    //get annotation
+                    
+                    
                     graphData.put(String.valueOf(stats.getLongItem(i, "problem_id")), gd);
+                    
+                    //get percentiles
+                    dr = new Request();
+                    dr.setContentHandle("candidate_percentile");
+                    dr.setProperty("tm", String.valueOf(testAResults.getLongItem(x, "total_time")));
+                    dr.setProperty("pm", String.valueOf(stats.getLongItem(i, "problem_id")));
+                    
+                    Map percentStats = dwAccess.getData(dr);
+                    ResultSetContainer percentData = (ResultSetContainer)percentStats.get("candidate_percentile");
+                    percents.put(String.valueOf(stats.getLongItem(i, "problem_id")), new Double(((ResultSetContainer) percentStats.get("candidate_percentile")).getDoubleItem(0, "percentile")));
+                    
                 }
                 tinfo.setProblemSetATCStats(stats);
                 tinfo.setProblemSetAGraphData(graphData);
+                tinfo.setProblemSetAPercentiles(percents);
                 pinfo.setTestSetAName(result.getItem(0, "session_round_name").toString());
 
                 ResultSetContainer dwResult = (ResultSetContainer) map.get("testSetAResults");

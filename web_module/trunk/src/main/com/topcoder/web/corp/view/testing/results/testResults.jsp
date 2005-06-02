@@ -183,6 +183,7 @@ if ( plugin ) {
 		       <td width="11%" align="center" class="screeningHeader">Test Failed</td>
 		       <td width="11%" align="center" class="screeningHeader">% Test Passed</td>
 		       <td width="11%" align="center" class="screeningHeader">Points</td>
+		       <td width="11%" align="center" class="screeningHeader">Percentile</td>
 		       <td width="11%" align="center" class="screeningHeader">Time</td>
 		       <td width="11%" align="center" class="screeningHeader">&#160;</td>
                 </tr>
@@ -208,6 +209,7 @@ if ( plugin ) {
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="num_failed" /></td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="pct_passed" />%</td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
+		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><%= testResultsInfo.getProblemSetAPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %>%</td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="elapsed" /></td>
 		       <td align="center" class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                  <% if (isSystemTested && (isSubmitted || isCompiled)) {%>
