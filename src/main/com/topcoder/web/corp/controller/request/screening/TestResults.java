@@ -108,6 +108,8 @@ public class TestResults extends BaseScreeningProcessor {
                         gd.setAnnotation(annotation.getIntItem(0, "bucket"));
                     }
                     
+                    log.debug("BUCKET IS:" + gd.getAnnotation());
+                    
                     graphData.put(String.valueOf(stats.getLongItem(i, "problem_id")), gd);
                     
                     //get percentiles
