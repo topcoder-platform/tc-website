@@ -262,11 +262,11 @@ if ( plugin ) {
 	             <tr>
                       <td colspan=10 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
                       <% GraphData gd = (GraphData) testResultsInfo.getProblemSetAGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name") + " (TC)" %>' annotation="<%=gd.getAnnotation()%>" 
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='Performance Distrobution of TopCoder Members' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
                       <% gd = (GraphData) testResultsInfo.getProblemSetAGraphDataCompany().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name")%>' annotation="<%=gd.getAnnotation()%>" 
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='Performance Distrobution of Candidate Pool' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
                                     <table class="graphLegend" cellspacing="0" cellpadding="0">
