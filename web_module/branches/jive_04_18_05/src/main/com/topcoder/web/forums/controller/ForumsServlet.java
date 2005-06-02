@@ -53,11 +53,19 @@ public class ForumsServlet extends BaseServlet {
             
 		    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-		    
-            // add user persistor to response here?
-            
+          
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
+            User uu = ((BasicAuthentication)authentication).checkCookie();
+            if (uu != null) {
+                if (!authentication.getActiveUser().equals(uu)) {
+                	authentication.login(uu);
+                }
+            } else {
+            	if (!authentication.getActiveUser().equals(uu)) {
+                    authentication.logout();
+                }
+            }
 			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
 		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
@@ -68,15 +76,13 @@ public class ForumsServlet extends BaseServlet {
                 }
             }
 	    	user = getUser(authToken.getUserID());    // userID is -1 when logged in - why?
-            //authentication.login()
             
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
 		    //todo perhaps this should be configurable...so implementing classes
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-
-            User uu = ((BasicAuthentication)authentication).checkCookie();
+       
             StringBuffer logInfoUU = new StringBuffer(100);
             if (uu != null) {
             	logInfoUU.append("[************* ").append(uu.getUserName()).append(" ***************]");
