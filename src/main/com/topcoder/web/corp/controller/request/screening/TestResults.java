@@ -47,6 +47,7 @@ public class TestResults extends BaseScreeningProcessor {
             }
             ResultSetContainer result = (ResultSetContainer) map.get("sessionInfo");
             TestResultsInfo tinfo = new TestResultsInfo();
+            tinfo.setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
             ProfileInfo pinfo = new ProfileInfo();
             pinfo.setHasTestSetA(result.getItem(0, "session_round_id").getResultData() != null);
             problemSetAList = new ArrayList();
@@ -149,7 +150,6 @@ public class TestResults extends BaseScreeningProcessor {
             cinfo.setPreference(result.getIntItem(0, "preference_level"));
             getRequest().setAttribute("candidateInfo", cinfo);
 
-            tinfo.setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
             Date curr = (Date) result.getItem(0, "current_time").getResultData();
             Date maxEnd = (Date) result.getItem(0, "max_end_time").getResultData();
             Date end = (Date) result.getItem(0, "end_time").getResultData();
