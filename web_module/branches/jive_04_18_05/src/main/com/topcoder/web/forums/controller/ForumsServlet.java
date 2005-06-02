@@ -55,7 +55,7 @@ public class ForumsServlet extends BaseServlet {
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
           
             //set up security objects and session info
-		    //authentication = createAuthentication(tcRequest, tcResponse);
+		    authentication = createAuthentication(tcRequest, tcResponse);
             /*
             User uu = ((BasicAuthentication)authentication).checkCookie();
             StringBuffer logInfoUU = new StringBuffer(100);
