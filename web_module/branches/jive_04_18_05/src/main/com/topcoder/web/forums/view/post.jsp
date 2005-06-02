@@ -19,6 +19,11 @@
 	ForumThread thread = (ForumThread)request.getAttribute("thread"); 
 	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
+<script type="text/javascript">
+function noenter() {
+  return !(window.event && window.event.keyCode == 13); }
+</script>
+
 <html>
 <head>
 <title>TopCoder Forums</title>
@@ -101,7 +106,7 @@
 <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell100">
 <% if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></font><% } %>
-<b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>"/><br/><br/>
+<b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" onKeyPress="return noenter()"/><br/><br/>
 <% if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></font><% } %>
 <b>Body:</b><br/><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>"/>
 </td>

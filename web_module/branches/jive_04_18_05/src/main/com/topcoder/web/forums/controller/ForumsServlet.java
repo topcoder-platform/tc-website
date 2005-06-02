@@ -53,7 +53,10 @@ public class ForumsServlet extends BaseServlet {
             
 		    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-		    //set up security objects and session info
+		    
+            // add user persistor to response here?
+            
+            //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
 			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
 		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
@@ -65,6 +68,7 @@ public class ForumsServlet extends BaseServlet {
                 }
             }
 	    	user = getUser(authToken.getUserID());    // userID is -1 when logged in - why?
+            //authentication.login()
             
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
