@@ -301,90 +301,20 @@ if ( plugin ) {
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="overall_correct_percent" />%</TD>
 		       <TD ALIGN="center" CLASS="<%=even?"screeningCellEven":"screeningCellOdd"%>"><rsc:item row="<%=row%>" name="avg_time" /></TD>
 	             </TR>
+                      <% even = !even; %>
+	             </rsc:iterator>
+	             
 	             <tr>
                         <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
+                        <rsc:iterator id="row" list="<%=testResultsInfo.getProblemSetBStats()%>">
                         <% GraphData gd = (GraphData) testResultsInfo.getProblemSetBGraphData().get(String.valueOf( row.getLongItem("problem_id") ));%>
-                            <screen:graph graphAreaHeight="150" barWidth="30" title='<%="Submission Times for " + row.getStringItem("name") %>' annotation="<%=gd.getAnnotation()%>" 
+                            <screen:graph graphAreaHeight="150" barWidth="20" title='<%="Submission Times for " + row.getStringItem("name") %>' annotation="<%=gd.getAnnotation()%>" 
                                 colors='<%=gd.getColors()%>'
                                 barValues='<%=gd.getData()%>'/>
                         </td>
+                        </rsc:iterator>
                      </tr>
                      <% even = !even; %>
-                   </rsc:iterator>
-                   <tr>
-                    <td colspan=7 class="<%=even?"screeningCellEven":"screeningCellOdd"%>">
-                        <table style="border: 1px solid black;" cellspacing=0 cellpadding=0>
-                            <tr>
-                                <td colspan=3 align=center>
-                                    Legend
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align=right>
-                                    <div style="width:20px; height:10px;background:red"></div>
-                                </td>
-                                <td style="width:10px;">
-                                &nbsp;
-                                </td>
-                                <td align=left>
-                                    0 to 10 minutes
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align=right>
-                                    <div style="width:20px; height:10px;background:yellow"></div>
-                                </td>
-                                <td style="width:10px;">
-                                &nbsp;
-                                </td>
-                                <td align=left>
-                                    10 to 20 minutes
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align=right>
-                                    <div style="width:20px; height:10px;background:blue"></div>
-                                </td>
-                                <td style="width:10px;">
-                                &nbsp;
-                                </td>
-                                <td align=left>
-                                    20 to 30 minutes
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align=right>
-                                    <div style="width:20px; height:10px;background:green"></div>
-                                </td>
-                                <td style="width:10px;">
-                                &nbsp;
-                                </td>
-                                <td align=left>
-                                    30 to 40 minutes
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align=right>
-                                    <div style="width:20px; height:10px;background:grey"></div>
-                                </td>
-                                <td style="width:10px;">
-                                &nbsp;
-                                </td>
-                                <td align=left>
-                                    40 to 50 minutes
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align=right>
-                                    <div style="width:20px; height:10px;background:black"></div>
-                                </td>
-                                <td style="width:10px;">
-                                &nbsp;
-                                </td>
-                                <td align=left>
-                                    50 to 60 minutes
-                                </td>
-                            </tr>
                         </table>
                     </td>
                    </tr>
@@ -497,6 +427,39 @@ if ( plugin ) {
             </screen:problemInfoIterator>
          </table>
 <% } // getProblemSetBCount() > 0 %>
+<table class="graphLegend" cellspacing="0" cellpadding="0">
+   <tr>
+      <td class="title" colspan='7'>Legend</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#C99; width: 20px; height:10px' /></td>
+      <td class="label">0 to 10 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#9C9; width: 20px; height:10px' /></td>
+      <td class="label">10 to 20 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#99C; width: 20px; height:10px' /></td>
+      <td class="label">20 to 30 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#CC9; width: 20px; height:10px' /></td>
+      <td class="label">30 to 40 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#9CC; width: 20px; height:10px' /></td>
+      <td class="label">40 to 50 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#C96; width: 20px; height:10px' /></td>
+      <td class="label">50 to 60 minutes</td>
+   </tr>
+   <tr>
+      <td><div class="bar" style='background:#999; width: 20px; height:10px' /></td>
+      <td class="label">60 to 70 minutes</td>
+   </tr>
+</table>
 <% } // !isSessionComplete() %>
 
          <p><br/></p>
