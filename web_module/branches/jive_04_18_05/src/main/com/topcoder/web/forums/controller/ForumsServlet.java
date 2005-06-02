@@ -55,8 +55,17 @@ public class ForumsServlet extends BaseServlet {
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
           
             //set up security objects and session info
-		    authentication = createAuthentication(tcRequest, tcResponse);
+		    //authentication = createAuthentication(tcRequest, tcResponse);
+            /*
             User uu = ((BasicAuthentication)authentication).checkCookie();
+            StringBuffer logInfoUU = new StringBuffer(100);
+            if (uu != null) {
+                logInfoUU.append("[************* ").append(uu.getUserName()).append(" ***************]");
+            } else {
+                logInfoUU.append("[************* ").append("null").append(" ***************]");
+            }
+            log.info(logInfoUU);
+            */
             /*
             if (uu != null) {
                 if (!authentication.getActiveUser().equals(uu)) {
@@ -68,8 +77,8 @@ public class ForumsServlet extends BaseServlet {
                 }
             }
             */
-			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
-		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
+			//AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
+		    AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
                     log.debug("*** Uses custom auth ***");
@@ -84,14 +93,6 @@ public class ForumsServlet extends BaseServlet {
 		    //todo perhaps this should be configurable...so implementing classes
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-       
-            StringBuffer logInfoUU = new StringBuffer(100);
-            if (uu != null) {
-            	logInfoUU.append("[************* ").append(uu.getUserName()).append(" ***************]");
-            } else {
-                logInfoUU.append("[************* ").append("null").append(" ***************]");
-            }
-            log.info(logInfoUU);
             
 		    StringBuffer loginfo = new StringBuffer(100);
 		    loginfo.append("[**** ");
