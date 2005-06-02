@@ -8,6 +8,33 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.02.05<br>9:25 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7220">Preferred Employer Survey</A></span><br><br>
+      Assuming you were looking for a programming job and the compensation were equal, which of the following companies would you most prefer to work at?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=7220">vote</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.02.05<br>8:55 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm245_prob">SRM 245 - Problem Set & Analysis</A></span><br><br>
+With a convincing win in only his eighth match, <tc-webtag:handle coderId="10574855" context="algorithm"/> rocketed to 4th place in the Top 10 list, only one point out of 3rd.</td>
+      <td class="newsPhoto"><img src="/i/m/vorthys_mug.gif" /><br>by <tc-webtag:handle coderId="299177" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm245_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.01.05<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=contracting&d2=gentiva">Gentiva</A></span><br><br>
       <A href="/tc?module=Static&d1=contracting&d2=gentiva">Gentiva</A> is offering a position as a Technical Team Lead, available to <strong>ALL</strong> members.
@@ -222,32 +249,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.12.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=art_051205">Interview with Jack Hughes</A></span><br><br>
-      This is an interview The Wall Street Transcript had recently with TopCoder Founder, Jack Hughes.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=news&d2=art_051205">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>05.11.05<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New Member Profiles</span><br><br>
-      Just click any handle!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-</table>
-<br><br>
 
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
    <tr>
