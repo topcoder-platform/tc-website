@@ -265,8 +265,6 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     private User getUserFromPersistor() {
-        log.debug("*** getUserFromPersistor: " + request.getSession().getId() + " ***");
-        log.debug("*** request: " + request.toString() + " ***");
         return (User) persistor.getObject(request.getSession().getId() + USER_PERSISTOR_KEY);
     }
 
@@ -278,8 +276,6 @@ public class BasicAuthentication implements WebAuthentication {
      * @param user
      */
     protected void setUserInPersistor(User user) {
-        log.debug("*** setUserInPersistor: " + request.getSession().getId() + " ***");
-        log.debug("*** request: " + request.toString() + " ***");
         persistor.setObject(request.getSession().getId() + USER_PERSISTOR_KEY, user);
     }
 

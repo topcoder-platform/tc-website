@@ -57,6 +57,7 @@ public class ForumsServlet extends BaseServlet {
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
             User uu = ((BasicAuthentication)authentication).checkCookie();
+            /*
             if (uu != null) {
                 if (!authentication.getActiveUser().equals(uu)) {
                 	authentication.login(uu);
@@ -66,6 +67,7 @@ public class ForumsServlet extends BaseServlet {
                     authentication.logout();
                 }
             }
+            */
 			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
 		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
