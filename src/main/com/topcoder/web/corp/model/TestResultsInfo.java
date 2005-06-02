@@ -22,6 +22,7 @@ public class TestResultsInfo implements java.io.Serializable {
     private ResultSetContainer problemSetBStats;
 
     private Map problemSetBPercentile;
+    private Map problemSetAPercentile;
     
     private Map problemSetAGraphData;
     private Map problemSetBGraphData;
@@ -65,6 +66,14 @@ public class TestResultsInfo implements java.io.Serializable {
 
     public void setProblemSetBPercentiles(Map a) {
         problemSetBPercentile = a;
+    }
+    
+    public Map getProblemSetAPrecentiles() {
+        return problemSetAPercentile;
+    }
+
+    public void setProblemSetAPercentiles(Map a) {
+        problemSetAPercentile = a;
     }
 
     /** Getter for property problemSetAResults.
