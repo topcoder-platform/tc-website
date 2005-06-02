@@ -81,37 +81,14 @@ public class GraphTag extends TagSupport {
         StringBuffer buffer = new StringBuffer("");
         
         //draw the start of the table
-        buffer.append("<table align='left' style='border:1px black solid;' cellspacing=0 cellpading=0>");
+        buffer.append("<table class='graph' cellspacing=0 cellpading=0>");
         
         //draw title
         if(!title.equals("")) {
             buffer.append("<tr>");
-            buffer.append("<td align=center colspan='" + ((xAxisSections * 2)) + "'>");
+            buffer.append("<td class='title' colspan='" + ((xAxisSections)) + "'>");
             buffer.append(title);
             buffer.append("</td>");
-            buffer.append("</tr>");
-        }
-        if(annotation != -1) {
-            buffer.append("<tr>");
-            for(int i = 0; i < xAxisSections; i++) {
-                if(i == (annotation-1)) {
-                    buffer.append("<td align=center>");
-                    if(!annotationText.equals("")) {
-                        buffer.append(annotationText);
-                        buffer.append("<br>");
-                    }
-                    buffer.append("|<br>V");
-                    buffer.append("</td>");
-                } else {
-                    buffer.append("<td>");
-                    buffer.append("&nbsp;");
-                    buffer.append("</td>");
-                }
-                
-                buffer.append("<td>");
-                buffer.append("&nbsp;");
-                buffer.append("</td>");
-            }
             buffer.append("</tr>");
         }
         
@@ -122,7 +99,7 @@ public class GraphTag extends TagSupport {
         //divider
 
         for(int j = 0; j < xAxisSections; j++) {
-            buffer.append("<td valign='bottom' style='height:" + graphAreaHeight + "px' align=center>");
+            buffer.append("<td class='bucket'>");
             //calc height based on value
             int h = 0;
             double b = ((Integer)barValues.get(j)).doubleValue();
@@ -132,8 +109,13 @@ public class GraphTag extends TagSupport {
             if(h==0) {
                 h = 2; //always draw something
             }
-            buffer.append("<div>" + ((Integer)barValues.get(j)).intValue() + "</div>");
-            buffer.append("<div style='background:" + (String)colors.get(j) + "; width:" + barWidth + "px;height:" + h + "px'></div>");
+            
+            if(annotation == j) {
+                buffer.append("<img src='/i/corp/arrow.gif' alt='' border='0'/>");
+            }
+            
+            buffer.append("<div class='label'>" + ((Integer)barValues.get(j)).intValue() + "</div>");
+            buffer.append("<div class='bar' style='background:" + (String)colors.get(j) + "; width:" + barWidth + "px;height:" + h + "px'></div>");
             buffer.append("</td>");
 
             buffer.append("<td valign='bottom' style='height:" + graphAreaHeight + "px' align=center>");
