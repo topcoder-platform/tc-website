@@ -64,7 +64,7 @@ With a convincing win in only his eighth match, <tc-webtag:handle coderId="10574
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=findSolution">How to Find a Solution</A></span><br><br>
        With many TopCoder problems, the solutions may be found instantly just by reading their descriptions.</td>
-      <td class="newsPhoto"><img src="/i/m/Dumitru_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=7305703">Dumitru</A></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Dumitru_mug.gif" /><br>by <tc-webtag:handle coderId="7305703" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
