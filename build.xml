@@ -130,6 +130,7 @@
                  name="com/topcoder/security/**"
                  unless="jdk1.4+"
                  />
+             <include name="com/coolservlets/**" />
              <include name="com/topcoder/common/**"/>
              <include name="com/topcoder/ejb/**"/>
              <include name="com/topcoder/security/**"/>
