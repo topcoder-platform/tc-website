@@ -116,7 +116,7 @@ public class TestResults extends BaseScreeningProcessor {
                     dr.setProperty("tm", String.valueOf(testAResults.getLongItem(x, "total_time")));
                     dr.setProperty("pm", String.valueOf(stats.getLongItem(i, "problem_id")));
                     
-                    Map percentStats = dwAccess.getData(dr);
+                    Map percentStats = dAccess.getData(dr);
                     ResultSetContainer percentData = (ResultSetContainer)percentStats.get("candidate_percentile");
                     percents.put(String.valueOf(stats.getLongItem(i, "problem_id")), new Double(((ResultSetContainer) percentStats.get("candidate_percentile")).getDoubleItem(0, "percentile")));
                     
