@@ -102,7 +102,7 @@ public class TestResults extends BaseScreeningProcessor {
                     dr.setProperty("sid", String.valueOf(tinfo.getSessionId()));
                     dr.setProperty("pid", String.valueOf(stats.getLongItem(i, "problem_id")));
                     
-                    Map annotationMap = dwAccess.getData(dr);
+                    Map annotationMap = dAccess.getData(dr);
                     ResultSetContainer annotation = (ResultSetContainer)annotationMap.get("set_a_histogram_annotation");
                     if(annotation.size() != 0) {
                         gd.setAnnotation(annotation.getIntItem(0, "bucket"));
@@ -116,7 +116,7 @@ public class TestResults extends BaseScreeningProcessor {
                     dr.setProperty("tm", String.valueOf(testAResults.getLongItem(x, "total_time")));
                     dr.setProperty("pm", String.valueOf(stats.getLongItem(i, "problem_id")));
                     
-                    Map percentStats = dAccess.getData(dr);
+                    Map percentStats = dwAccess.getData(dr);
                     ResultSetContainer percentData = (ResultSetContainer)percentStats.get("candidate_percentile");
                     percents.put(String.valueOf(stats.getLongItem(i, "problem_id")), new Double(((ResultSetContainer) percentStats.get("candidate_percentile")).getDoubleItem(0, "percentile")));
                     
