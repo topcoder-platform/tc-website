@@ -38,6 +38,7 @@ public class BasicAuthentication implements WebAuthentication {
     protected Resource defaultCookiePath;
 
     public static final Resource CORP_SITE = new SimpleResource("corp");
+    public static final Resource FORUMS_SITE = new SimpleResource("forums");
     public static final Resource MAIN_SITE = new SimpleResource("main");
     public static final Resource HS_SITE = new SimpleResource("hs");
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("pl");
@@ -137,16 +138,16 @@ public class BasicAuthentication implements WebAuthentication {
                 u = checkCookie();
                 if (u == null) {
                     u = guest;
-                    log.debug("*** made up a guest ***");
+                    //log.debug("*** made up a guest ***");
                 } else {
-                    log.debug("*** they were in cookie ***");
+                    //log.debug("*** they were in cookie ***");
                 }
                 persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
             } else {
-                log.debug("*** they were stale ***");
+                //log.debug("*** they were stale ***");
             }
         } else {
-            log.debug("*** they were live***");
+            //log.debug("*** they were live***");
         }
         return u;
     }
@@ -239,7 +240,7 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     /** Check each cookie in the request header for a cookie set above. */
-    public User checkCookie() {
+    private User checkCookie() {
         log.debug("checkCookie called...");
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {

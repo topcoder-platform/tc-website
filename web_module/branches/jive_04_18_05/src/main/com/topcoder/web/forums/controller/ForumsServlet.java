@@ -11,6 +11,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.security.TCSubject;
@@ -36,7 +37,12 @@ import com.jivesoftware.base.AuthToken;
  */
 public class ForumsServlet extends BaseServlet {
 	private final static Logger log = Logger.getLogger(ForumsServlet.class);
-
+	
+    protected WebAuthentication createAuthentication(TCRequest request,
+            TCResponse response) throws Exception {
+    	return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.FORUMS_SITE);
+    }
+    
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
     }
@@ -56,29 +62,8 @@ public class ForumsServlet extends BaseServlet {
           
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-            /*
-            User uu = ((BasicAuthentication)authentication).checkCookie();
-            StringBuffer logInfoUU = new StringBuffer(100);
-            if (uu != null) {
-                logInfoUU.append("[************* ").append(uu.getUserName()).append(" ***************]");
-            } else {
-                logInfoUU.append("[************* ").append("null").append(" ***************]");
-            }
-            log.info(logInfoUU);
-            */
-            /*
-            if (uu != null) {
-                if (!authentication.getActiveUser().equals(uu)) {
-                	authentication.login(uu);
-                }
-            } else {
-            	if (!authentication.getActiveUser().equals(uu)) {
-                    authentication.logout();
-                }
-            }
-            */
-			//AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
-		    AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
+			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
+		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
                     log.debug("*** Uses custom auth ***");
