@@ -123,7 +123,7 @@ public class BasicAuthentication implements WebAuthentication {
         /*
          * check if they're logged in.  accessing the current persistor implementation
          * is quicker than accessing the cookie because of the hash.  if they are
-         * not logged in, hope is not lost, we may have cached them in the persitor
+         * not logged in, hope is not lost, we may have cached them in the persistor
          * before as being "identified", in this case, use that.  if that too is not
          * there, we're forced to go to the cookie, but cache that for subsequence
          * requests in the persistor.  if they're not in the cookie either, then
@@ -135,7 +135,7 @@ public class BasicAuthentication implements WebAuthentication {
             log.debug("### User obtained from getUserFromPersistor: " + u.getId());   
         }
         
-        if (u == null) {
+        if (u == null || u.getId() == guest.getId()) {
             u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
             if (u != null) {
                 log.debug("### User obtained from first persistor.getObject call: " + u.getId());   
