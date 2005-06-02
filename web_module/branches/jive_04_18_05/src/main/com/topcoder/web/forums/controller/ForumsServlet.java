@@ -54,9 +54,10 @@ public class ForumsServlet extends BaseServlet {
             
 		    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-          
+            
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
+            log.debug("@@@@@@@@ Active user ID: " + authentication.getActiveUser().getId());
 			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
 		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
