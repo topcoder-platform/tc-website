@@ -13,6 +13,7 @@ public interface ForumConstants {
     public final static String USER_ID = "userID";
 	
     public final static String THREAD_VIEW = "view";
+    public final static String THREAD_ERROR = "error";
     
 	public final static String MESSAGE_SUBJECT = "subject";
 	public final static String MESSAGE_BODY = "body";
@@ -36,12 +37,13 @@ public interface ForumConstants {
     public final static String WATCH_TYPE = "type";
     public final static String WATCH_ID = "ID";
     public final static String WATCH_COMMAND = "cmd";
+    public final static String WATCH_THREAD = "watchThread";
 	
 	public final static String FORUMS_DIR = "/forums/";
     
     public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
     public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
-    public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
+    public final static int DEFAULT_MAX_THREAD_WATCHES = 2;
     public final static int DEFAULT_SEARCH_RESULT_SIZE = 20;
     
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
@@ -60,6 +62,9 @@ public interface ForumConstants {
         "Error: Message view range exceeded.";
     public final static String ERR_MESSAGE_HISTORY_RANGE_EXCEEDED =
         "Error: Message view range for post history exceeded.";
+    public final static String ERR_THREAD_WATCHES_EXCEEDED =
+        "A maximum of " + DEFAULT_MAX_THREAD_WATCHES + " threads can be watched. " +
+        "Delete some watches in \"My Watches\" to free additional space.";
     public final static String ERR_NO_SEARCH_TERMS = 
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE = 

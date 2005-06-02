@@ -26,6 +26,11 @@ public class Thread extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 		
+        String error = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_ERROR));
+        if (error.equals(ForumConstants.WATCH_THREAD)) {
+            addError(ForumConstants.WATCH_THREAD, ForumConstants.ERR_THREAD_WATCHES_EXCEEDED);
+        }
+        
         long threadID = Long.parseLong(getRequest().getParameter(ForumConstants.THREAD_ID));
         ForumThread thread = forumFactory.getForumThread(threadID);
         ViewCountManager.getInstance().addThreadCount(thread);

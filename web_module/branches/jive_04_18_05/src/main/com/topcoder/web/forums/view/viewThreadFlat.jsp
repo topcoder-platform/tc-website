@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
+				com.topcoder.web.common.BaseProcessor,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.common.StringUtils,
                 com.jivesoftware.base.User,
@@ -6,8 +7,7 @@
                 com.jivesoftware.forum.action.util.Page,
                 com.jivesoftware.forum.WatchManager,
 				com.jivesoftware.forum.Watch,
-                java.util.Iterator,
-                java.util.Enumeration"
+                java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -18,6 +18,7 @@
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
+<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 <%	User user = (User)request.getAttribute("user");
 	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW)); %>
 
@@ -82,8 +83,10 @@
    <strong>Flat</strong>&#160;|
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;|
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=tree" class="rtbcLink">Tree</A>
+   <% if (errors.get(ForumConstants.DEFAULT_MAX_THREAD_WATCHES) != null) { %><br/><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.DEFAULT_MAX_THREAD_WATCHES%>"><%=err%></tc-webtag:errorIterator></font><% } %>
    </td>
 </tr>
+
 <tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
    <jsp:getProperty name="thread" property="name"/></td>

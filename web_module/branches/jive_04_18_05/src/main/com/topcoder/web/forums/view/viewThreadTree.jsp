@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
+				 com.topcoder.web.common.BaseProcessor,
          		 com.topcoder.web.forums.ForumConstants,
          		 com.topcoder.web.common.StringUtils,
          		 com.jivesoftware.base.User,
@@ -18,6 +19,7 @@
 <tc-webtag:useBean id="activeMessage" name="activeMessage" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
+<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 <%	User user = (User)request.getAttribute("user");
 	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW)); %>
 
@@ -82,6 +84,7 @@
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=flat" class="rtbcLink">Flat</A>&#160;|
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;|
    <strong>Tree</strong>
+   <% if (errors.get(ForumConstants.DEFAULT_MAX_THREAD_WATCHES) != null) { %><br/><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.DEFAULT_MAX_THREAD_WATCHES%>"><%=err%></tc-webtag:errorIterator></font><% } %>
    </td>
 </tr>
 
