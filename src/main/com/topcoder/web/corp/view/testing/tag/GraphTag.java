@@ -118,9 +118,6 @@ public class GraphTag extends TagSupport {
             buffer.append("<div class='bar' style='background:" + (String)colors.get(j) + "; width:" + barWidth + "px;height:" + h + "px'></div>");
             buffer.append("</td>");
 
-            buffer.append("<td valign='bottom' style='height:" + graphAreaHeight + "px' align=center>");
-            buffer.append("&nbsp;");
-            buffer.append("</td>");
         }
 
         buffer.append("</tr>");
