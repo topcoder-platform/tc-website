@@ -126,13 +126,19 @@ public class BasicAuthentication implements WebAuthentication {
          * not logged in, hope is not lost, we may have cached them in the persitor
          * before as being "identified", in this case, use that.  if that too is not
          * there, we're forced to go to the cookie, but cache that for subsequence
-         * requests in the persitor.  if they're not in the cookie either, then
+         * requests in the persistor.  if they're not in the cookie either, then
          * they're anonymous
          */
         User u = getUserFromPersistor();
+        if (u != null) {
+            log.debug("### User obtained from getUserFromPersistor: " + u.getId());   
+        }
         
         if (u == null) {
             u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
+            if (u != null) {
+                log.debug("### User obtained from first persistor.getObject call: " + u.getId());   
+            }
             if (u == null) {
                 u = checkCookie();
                 if (u == null) {
@@ -141,9 +147,7 @@ public class BasicAuthentication implements WebAuthentication {
                 } else {
                     //log.debug("*** they were in cookie ***");
                 }
-                if (u.getId() != guest.getId()) {
-                    persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);	
-                }
+                persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
             } else {
                 //log.debug("*** they were stale ***");
             }
