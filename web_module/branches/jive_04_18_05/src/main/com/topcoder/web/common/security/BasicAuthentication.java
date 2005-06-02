@@ -135,12 +135,12 @@ public class BasicAuthentication implements WebAuthentication {
             log.debug("### User obtained from getUserFromPersistor: " + u.getId());   
         }
         
-        if (u == null || u.getId() == guest.getId()) {
+        if (u == null) {
             u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
             if (u != null) {
                 log.debug("### User obtained from first persistor.getObject call: " + u.getId());   
             }
-            if (u == null) {
+            if (u == null || u.getId() == guest.getId()) {
                 u = checkCookie();
                 if (u == null) {
                     u = guest;
