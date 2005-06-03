@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.forums.controller.request.Login,
-                 com.topcoder.web.tc.Constants" 
+		 import="com.topcoder.web.common.BaseServlet,
+         		 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
                  
@@ -20,7 +19,7 @@
 <html>
 <head>
 <title>TopCoder | Login</title>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <jsp:include page="script.jsp" />
 
 <SCRIPT type="text/javascript">
@@ -80,7 +79,6 @@ function submitEnter(e) {
                 <tr valign="middle">
                   <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="SecureAbsoluteServletPath"/>">
                     <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
                     <td class="bodyText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
