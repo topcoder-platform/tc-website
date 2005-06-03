@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.03.05<br>10:50 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">SRM calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></span><br><br>
+      The calendar now includes SRMs up to 264 and TCO05 dates. 
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=schedule&c=aug_05">August</A>&#160;|&#160;<A href="/index?t=schedule&c=sep_05">September</A>&#160;|&#160;<A href="/index?t=schedule&c=oct_05">October</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.02.05<br>7:50 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc">Top 10 Countries Now Linkable</A></span><br><br>
       On the Competition Homepage (this page) the "Top 10 Countries" are now linkable to a list of all the Algorithm competitors that made that country a Top 10. 
@@ -222,33 +234,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
    <tr><td class="newsLinksCell">
          <A href="/tc?&module=ViewSurvey&sid=7217">view survey</A>&#160;|&#160;
          <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.16.05<br>9:25 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm242_prob">SRM 242 - Problem Set & Analysis</A></span><br><br>
-      In division 1, <tc-webtag:handle coderId="10574855" context="algorithm"/> was in the lead after the coding phase, and remained  first despite an unsuccessful challenge. The system tests did not change anything in the top 5, so <tc-webtag:handle coderId="10574855" context="algorithm"/> won the match.</td>
-      <td class="newsPhoto"><img src="/i/m/gepa_mug.gif" /><br>by <tc-webtag:handle coderId="310430" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm242_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>05.13.05<br>11:50 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=496779&mc=1">Unused Code Checker in Arena</A></span><br><br>
-      The newest version of the TopCoder Algorithm Competition Arena (v5.08) adds a check at submit time that attempts to determine if your submission violates the Unused Code Rule.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/rtables/viewThread.jsp?forum=7167&thread=496779&mc=1">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
