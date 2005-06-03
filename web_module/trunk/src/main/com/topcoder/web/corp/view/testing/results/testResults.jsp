@@ -374,7 +374,6 @@ if ( plugin ) {
                    </rsc:iterator>
 	        </table>
 	        
-	        <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrame">
 	        <TR>
                        <TD COLSPAN="7" VALIGN="top" CLASS="screeningTitle">Problem Statistics:</TD>
@@ -444,7 +443,6 @@ if ( plugin ) {
                 <% } %>
 	        </table>
 	        <p></p>
-            <% } %>
     <% } // getProblemSetBCount() > 0 %>
 <% } else { //isSessionComplete %>
   <% if (profileInfo.hasTestSetA()) { %>
