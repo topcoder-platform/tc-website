@@ -45,6 +45,7 @@ public class Login extends ForumsProcessor {
                         long userId = getUserId(username);
                         if (userId < 0)
                             throw new LoginException("Incorrect handle");
+                        /*
                         char status = getStatus(userId);
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status) > 0) {
@@ -78,7 +79,7 @@ public class Login extends ForumsProcessor {
                                 throw new NavigationException("Invalid account status");
                             }
                         }
-
+                        */
                     } catch (LoginException e) {
                         /* the login failed, so tell them what happened */
                         getRequest().setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
