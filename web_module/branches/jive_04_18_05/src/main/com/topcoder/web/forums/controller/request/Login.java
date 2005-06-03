@@ -55,7 +55,7 @@ public class Login extends ForumsProcessor {
                             //    setNextPage(Constants.EMAIL_ACTIVATE);
                             //    setIsNextPageInContext(true);
                             //    return;
-                            //} else {
+                            //} else { */
                                 //log.debug("user active");
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                                 log.debug("successful login, going to " + dest);
@@ -65,7 +65,7 @@ public class Login extends ForumsProcessor {
                                 //doLegacyCrap(getRequest());
                                 return;
                             //}
-                        } else {
+                       /* } else {
                             getAuthentication().logout();
                             if (Arrays.binarySearch(Activate.INACTIVE_STATI, status) > 0) {
                                 log.debug("user inactive");
