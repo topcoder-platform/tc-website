@@ -1078,7 +1078,7 @@ public class TCLoadTCS extends TCLoad {
             query.append(" then 1 else 0 end as active_des");
             query.append(" , cs.school_id");
             query.append(" , c.coder_type_id");
-            query.append(" , c.country_code");
+            query.append(" , c.comp_country_code");
             query.append(" from user_rating ur");
             query.append(" , outer current_school cs");
             query.append(" , coder c");
@@ -1095,19 +1095,19 @@ public class TCLoadTCS extends TCLoad {
                 if (rs.getInt("coder_type_id") == 2) {
                     if (rs.getInt("phase_id") == 113) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
-                                rs.getInt("active_dev") == 1, rs.getInt("phase_id"), rs.getString("country_code")));
+                                rs.getInt("active_dev") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     } else {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
-                                rs.getInt("active_des") == 1, rs.getInt("phase_id"), rs.getString("country_code")));
+                                rs.getInt("active_des") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
                 } else {
                     //students
                     if (rs.getInt("phase_id") == 113) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
-                                rs.getInt("active_dev") == 1, rs.getInt("phase_id"), rs.getString("country_code")));
+                                rs.getInt("active_dev") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     } else {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
-                                rs.getInt("active_des") == 1, rs.getInt("phase_id"), rs.getString("country_code")));
+                                rs.getInt("active_des") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
                 }
             }
