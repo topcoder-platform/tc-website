@@ -213,7 +213,7 @@
                                     Online Round #3<br/>
                                     Registration: 6:30PM - 9:25PM ET<br/>
                                     Compete: 9:30PM<br/>
-                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A><br /><br />
                                     <strong>Component Competition</strong><br/>
                                     Online Championship Round Deadline: 9:00 AM ET<br/>
                                     <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
