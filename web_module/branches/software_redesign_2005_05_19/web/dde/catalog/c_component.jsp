@@ -194,8 +194,7 @@
 <!-- Middle Column begins -->
         <td width="99%">
             <table border="0" cellpadding="0" cellspacing="15" width="100%">
-                <tr><td class="normal" colspan="2"><img src="/images/headCompCatalogShort.gif" alt="Component Catalogs" width="241" height="32" border="0" /></td></tr>
-                <tr><td class="subhead" colspan="2"><%= catalogName %> Catalog</td></tr>
+                <tr><td class="normal" colspan="2"><img src="/images/catalog/catpg_title.gif" alt="Component Catalogs" width="134" height="32" border="0" /></td></tr>
                 <tr>
                     <td colspan="2">
                         <table cellspacing="0" cellpadding="0" border="0">
@@ -203,13 +202,13 @@
                                 <%
                                     switch (refCatalog) {
                                         case 0:
-                                            %><td><img src="/images/javaSm.gif" alt="" border="0" /></td><%
+                                            %><td><img src="/images/catalog/catpg_java_logo.gif" alt="" border="0" /></td><%
                                             break;
                                         case 1:
-                                            %><td><img src="/images/dotnetSm.gif" alt="" border="0" /></td><%
+                                            %><td><img src="/images/catalog/catpg_dotnet_logo.gif" alt="" border="0" /></td><%
                                             break;
                                         case 2:
-                                            %><td><img src="/images/flashSm.gif" alt="" border="0" /></td><%
+                                            %><td><img src="/images/catalog/catpg_flash_logo.gif" alt="" border="0" /></td><%
                                             break;
                                         default:
                                             %><td></td><%
@@ -223,7 +222,13 @@
                         </table>
                     </td>
                 </tr>
-
+<!-- Status Bar -->
+                <tr valign="top">
+					<td class="display" colspan="2"><strong>Status: </strong><font class="small">Click on an icon to view project schedules for each phase.</font><br /><br />
+					<img src="/images/catalog/catpg_status_spec.gif" alt="" border="0" /><img src="/images/catalog/catpg_status_desarch.gif" alt="" border="0" /><img src="/images/catalog/catpg_status_devtest.gif" alt="" border="0" /><img src="/images/catalog/catpg_status_complete.gif" alt="" border="1" /><br />
+					</td>
+				</tr>
+<!-- Overview, Functionality -->
                 <tr valign="top">
                     <td width="50%" class="display">
                         <p><strong>Overview</strong><br />
@@ -284,22 +289,50 @@
                         </p>
 
                         <%  }  %>
-
+					
 <!-- Authors -->
                         <% if (teamMemberRoles.length > 0) { %>
 
-                        <p><strong>Authors</strong><br />
-
-                        <%  for (int i=0; i < teamMemberRoles.length - 1; i++) { %>
-                            <%= teamMemberRoles[i].getUsername() %>,&nbsp;
-                        <%   }  %>
-                            <%= teamMemberRoles[teamMemberRoles.length-1].getUsername() %>
-
-                        </p>
-
-                        <%  }  %>
+                        <strong>Authors</strong>
+                   <table cellspacing="0" cellpadding="0" border="0">
+                   		<tr valign="top">
+                   			<td width="50%">
+		                        <font class="small">Designers:</font><br />
+		
+			                        <%  for (int i=0; i < teamMemberRoles.length - 1; i++) { %>
+			                            <%= teamMemberRoles[i].getUsername() %>,&nbsp;
+			                        <%   }  %>
+			                            <%= teamMemberRoles[teamMemberRoles.length-1].getUsername() %>
+			
+			                       
+			
+			                        <%  }  %>
+			                <br /><br />
+	                   		</td>
+	                   		<td width="50%">
+                       			<font class="small">Design Review Board: <br />
+                       			Add names!
+                       			</font>
+                   	   		</td>
+                   	   	</tr>
+                   	   	<tr valign="top">
+                   	   		<td>
+                   	   			<font class="small">Developers: <br />
+                   	   			Add names!
+                   	   			</font>
+                   	   		</td>
+                   	   		<td>
+                   	   			<font class="small">Dev Review Board: <br />
+                   	   			Add names!
+                   	   			</font>
+                   	   		</td>
+                   	   	</tr>
+                   </table>
 
                         <p><strong>Availability</strong><br />
+                        Version <%= versionInfo.getVersionLabel() %><br />
+                        <img src="/images/catalog/catpg_download.jpg" alt="" border="0" /><br />
+                        
 
 <%  String strAvailability;
     switch( (int)versionInfo.getPhase() ) {
@@ -319,115 +352,24 @@
     }
 %>
                         <%= strAvailability %></p>
+                        
 
                     </td>
                 </tr>
-            </table>
-        </td>
-<!-- Middle Column ends -->
-
-<!-- Gutter 2 begins -->
-<!-- Gutter removed due to cellspacing in middle column table -->
-<!-- Gutter 2 ends -->
-
-<!-- Right Column begins -->
-        <td width="170">
-            <table border="0" cellpadding="0" cellspacing="0">
-                <tr><td height="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td></tr>
-            </table>
-
-<!-- Forums for This Component -->
-           <table border="0" cellpadding="0" cellspacing="0" width="100%">
-<!-- Current Forums begin -->
-                <tr><td><img src="/images/headCurrentForums.gif" alt="Current Forums" width="170" height="18" border="0" /></td></tr>
-                <tr><td><hr width="170" size="1" noshade="noshade" /></td></tr>
-                <tr>
-                    <td width="100%">
-                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
-<%  if (activeCollab != null) { %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= activeCollab.getId() %>">Customer Forum</a></td></tr>
-<%  } else { %>
-                            <tr><td class="rightColOff">No active customer forum</td></tr>
-
-<%  } if (activeSpec != null) { %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= activeSpec.getId() %>">Developer Forum</a></td></tr>
-<%  } else { %>
-                            <tr><td class="rightColOff">No active developer forum</td></tr>
-<%  } %>
-
-                            <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
-                            <tr><td class="small">Participation in current forums requires user login and may require authorization</td></tr>
-
-                            <tr><td width="170"><img src="/images/clear.gif" alt="" width="170" height="1" border="0" /></td></tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr><td><hr width="170" size="1" noshade="noshade" /></td></tr>
-                <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-<!-- Current Forums end -->
-
-<!-- Previous Forums begin -->
-<%  if (hasPreviousForums) { %>
-                <tr><td><img src="/images/headPreviousForums.gif" alt="Previous Forums" width="170" height="18" border="0" /></td></tr>
-                <tr><td><hr width="170" size="1" noshade="noshade" /></td></tr>
-                <tr>
-                    <td width="100%">
-                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
-<%  for (int i=0; i < versions.length; i++) {
-            if (collaborations[i] != null) {  %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= collaborations[i].getId() %>">Customer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
-            <%  }  if (specifications[i] != null) {  %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= specifications[i].getId() %>">Developer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
-            <%  }
-}  %>
-                            <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
-                            <tr><td class="small">Previous forums are read only</td></tr>
-
-                            <tr><td width="170"><img src="/images/clear.gif" alt="" width="170" height="1" border="0" /></td></tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr><td><hr width="170" size="1" noshade="noshade" /></td></tr>
-                <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-<% } %>
-<!-- Previous Forums end -->
-            </table>
-
-<!-- Base Components Included -->
-            <table border="0" cellpadding="0" cellspacing="0">
-                <tr><td><img src="/images/headBaseCompIncl.gif" alt="Base Components Included" width="170" height="18" border="0" /></td></tr>
-                <tr><td><hr width="170" size="1" noshade="noshade" /></td></tr>
-                <tr>
-                    <td>
-                        <table border="0" cellpadding="0" cellspacing="0">
-<%  if (summaries.length == 0) {
-%>
-                            <tr valign="top">
-                                <td class="rightColOff">This component is a Base Component</td>
-                            </tr>
-<%  } else {
-        for (int i=0; i < summaries.length; i++) {
-%>
-                            <tr valign="top">
-                                <td class="rightColDisplay"><a href="/catalog/c_component.jsp?comp=<%= summaries[i].getComponentId() %>"><%= summaries[i].getName() %></a></td>
-                            </tr>
-<%      }
-    }
-%>
-                        </table>
-                    </td>
-                </tr>
-                <tr><td><hr width="170" size="1" noshade="noshade" /></td></tr>
-                <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-            </table>
-
+                
+            	<tr>
 <!-- Documentation-->
-            <table border="0" cellpadding="0" cellspacing="0">
-                <tr><td><img src="/images/headDocumentation.gif" alt="Documentation" width="170" height="18" border="0" /></td></tr>
-                <tr><td><hr width="170" size="1" noshade="noshade" /></td></tr>
+            <table border="0" cellpadding="0" cellspacing="15" width="100%">
+                <tr><td><img src="/images/catalog/catpg_document.gif" alt="Documentation" width="116" height="13" border="0" />
+                		<font class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat 5</a> is required to view some TopCoder Software documentation.<br />
+						<hr width="100%" size="1" noshade="noshade" />
+					</td>
+				</tr>
                 <tr>
                     <td>
                         <table border="0" cellpadding="0" cellspacing="0">
+                        <tr><td class="display"><strong>Class Diagrams</strong></td></tr>
+                        
 <%  if (documents.length == 0) {
 %>
                             <tr valign="top">
@@ -458,10 +400,123 @@
                         </table>
                     </td>
                 </tr>
-                <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
-                <tr><td class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat 5</a> is required to view some TopCoder Software documentation.</td></tr>
-                <tr><td><hr width="170" size="1" noshade="noshade" /></td></tr>
-                <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
+            </table>
+            
+<!-- Component Hierarchy -->
+            <table border="0" cellpadding="0" cellspacing="15" width="100%">
+                <tr><td><img src="/images/catalog/catpg_comphier.gif" alt="Component Hierarchy" width="161" height="17" border="0" /><br />
+                		<hr width="100%" size="1" noshade="noshade" />
+                	</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0">
+<%  if (summaries.length == 0) {
+%>
+                            <tr valign="top">
+                                <td class="rightColOff">This component is a Base Component</td>
+                            </tr>
+<%  } else {
+        for (int i=0; i < summaries.length; i++) {
+%>
+                            <tr valign="top">
+                                <td class="rightColDisplay"><a href="/catalog/c_component.jsp?comp=<%= summaries[i].getComponentId() %>"><%= summaries[i].getName() %></a></td>
+                            </tr>
+<%      }
+    }
+%>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            
+<!-- Enhancements -->
+            <table border="0" cellpadding="0" cellspacing="15" width="100%">
+                <tr><td><img src="/images/catalog/catpg_enhance.gif" alt="Enhancements" width="113" height="13" border="0" /><br />
+                		<hr width="100%" size="1" noshade="noshade" />
+                	</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="top">
+                                <td class="rightColOff">Needs content</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            
+<!-- Forums for This Component -->
+           <table border="0" cellpadding="0" cellspacing="15" width="100%">
+<!-- Current Forums begin -->
+                <tr><td><img src="/images/catalog/catpg_cforums.gif" alt="Current Forums" width="121" height="13" border="0" />
+                		<font class="small">Participation in current forums requires user login and may require authorization</font><br />
+						<hr width="100%" size="1" noshade="noshade" /><br />
+
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+<%  if (activeCollab != null) { %>
+                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= activeCollab.getId() %>">Customer Forum</a></td></tr>
+<%  } else { %>
+                            <tr><td class="rightColOff">No active customer forum</td></tr>
+
+<%  } if (activeSpec != null) { %>
+                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= activeSpec.getId() %>">Developer Forum</a></td></tr>
+<%  } else { %>
+                            <tr><td class="rightColOff">No active developer forum</td></tr>
+<%  } %>
+
+                            <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+
+                            <tr><td width="170"><img src="/images/clear.gif" alt="" width="170" height="1" border="0" /></td></tr>
+                        </table>
+                    </td>
+                </tr>
+<!-- Current Forums end -->
+
+<!-- Previous Forums begin -->
+<%  if (hasPreviousForums) { %>
+                <tr><td><img src="/images/catalog/catpg_pforums.gif" alt="Previous Forums" width="129" height="13" border="0" />
+                		<font class="small">Previous forums are read only</font><br />
+						<hr width="100%" size="1" noshade="noshade" />
+					</td>
+				</tr>
+                <tr>
+                    <td width="100%">
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+<%  for (int i=0; i < versions.length; i++) {
+            if (collaborations[i] != null) {  %>
+                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= collaborations[i].getId() %>">Customer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
+            <%  }  if (specifications[i] != null) {  %>
+                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= specifications[i].getId() %>">Developer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
+            <%  }
+}  %>
+                            <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
+                            <tr><td width="170"><img src="/images/clear.gif" alt="" width="170" height="1" border="0" /></td></tr>
+                        </table>
+                    </td>
+                </tr>
+<% } %>
+<!-- Previous Forums end -->
+            </table>
+
+        </td>
+<!-- Middle Column ends -->
+
+<!-- Gutter 2 begins -->
+<!-- Gutter removed due to cellspacing in middle column table -->
+<!-- Gutter 2 ends -->
+
+<!-- Right Column begins -->
+        <td width="170">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr><td height="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td></tr>
+                <tr><td>        
+                <jsp:include page="/includes/topDownloads.jsp" />
+        		<jsp:include page="/includes/right.jsp" >
+            		<jsp:param name="level1" value="index"/>
+        		</jsp:include>
+        		</td></tr>
             </table>
         </td>
 <!--Right Column ends -->
