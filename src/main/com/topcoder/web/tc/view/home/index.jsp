@@ -145,9 +145,11 @@
             <td class=homeText><br/>
             <b>6/01</b> - SRM 245 - 9:00 PM<br/><br/>
             <b>6/09</b> - SRM 246 - 1:00 PM<br/><br/>
+            <b>6/13</b> - TCO05 Component Registration Opens - 9:00 AM<br/><br/>
             <b>6/18</b> - SRM 247 - 12:00 PM<br/><br/>
             <b>6/21</b> - SRM 248 - 9:00 PM<br/><br/>
             <b>6/29</b> - SRM 249 - 9:00 PM<br/><br/>
+            <b>6/29</b> - TCO05 Component Registration Closes & Week 1 Projects Posted - 9:00 AM<br/><br/>
             </td>
          </tr>
          <tr>

@@ -8,14 +8,14 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.03.05<br>10:50 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">SRM calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></span><br><br>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.03.05<br>4:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Event calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></span><br><br>
       The calendar now includes SRMs up to 264 and TCO05 dates. 
       </td>
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/index?t=schedule&c=aug_05">August</A>&#160;|&#160;<A href="/index?t=schedule&c=sep_05">September</A>&#160;|&#160;<A href="/index?t=schedule&c=oct_05">October</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
