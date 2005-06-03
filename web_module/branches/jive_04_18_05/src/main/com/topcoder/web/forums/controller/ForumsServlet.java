@@ -122,6 +122,7 @@ public class ForumsServlet extends BaseServlet {
 		            }
 		        }
 		        if (!response.isCommitted()) {
+                    log.debug("###@@@ fetchRegularPage: " + rp.getNextPage()); 
 		            fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
 		            return;
 		        }
@@ -157,6 +158,7 @@ public class ForumsServlet extends BaseServlet {
         request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
 
         request.setAttribute(MODULE, LOGIN_PROCESSOR);
+        log.debug("###@@@ handleLogin: " + info.getServletPath());        
         fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
     }
 
