@@ -23,9 +23,9 @@ import java.util.Arrays;
 
 public class Activate extends Base {
 
-    static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
-    static final char[] UNACTIVE_STATI = {'U', '2'};
-    static final char[] ACTIVE_STATI = {'1', 'A'};
+    public static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
+    public static final char[] UNACTIVE_STATI = {'U', '2'};
+    public static final char[] ACTIVE_STATI = {'1', 'A'};
 
     static {
         //sort them so that one can use Arrays.binarySearch to figure out if a particular

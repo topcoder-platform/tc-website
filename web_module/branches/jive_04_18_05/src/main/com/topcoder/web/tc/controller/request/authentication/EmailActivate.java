@@ -15,7 +15,7 @@ import com.topcoder.web.tc.controller.request.Base;
  */
 public class EmailActivate extends Base {
 
-    static final int ACTIVE_STATUS = 1;
+    public static final int ACTIVE_STATUS = 1;
 
     protected void businessProcessing() throws TCWebException {
 
