@@ -116,7 +116,7 @@ Both the design and development competitions will have five (5) weeks of online 
       <td class="sidebarText">Week 5</td>
       <td class="sidebarText">07.27.2005 9:00AM</td>
       <td class="sidebarText" align="center">24 Hours</td>
-      <td class="sidebarText">08.01.2005 9:00AM</td>
+      <td class="sidebarText">08.03.2005 9:00AM</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online portion)</td>
