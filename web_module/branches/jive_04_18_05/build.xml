@@ -197,6 +197,7 @@
 	         	 <include name="com/topcoder/security/**/*"/>
  	         	 <include name="com/topcoder/common/web/data/**"/>
  	         	 <include name="com/topcoder/web/tc/**"/>
+ 	         	 <include name="com/topcoder/web/ejb/**"/>
  	         	 <include name="com/topcoder/ejb/**"/>
  	         </javac>
  	     </target>
@@ -1221,6 +1222,7 @@
  		            <classes dir="${classes}">
  		                <include name="com/topcoder/common/**/*.class"/>
  		                <include name="com/topcoder/web/common/**/*.class" />
+ 		            	<include name="com/topcoder/web/ejb/**/*.class" />
  		            	<include name="com/topcoder/web/forums/**/*.class" />
  		            	<include name="com/topcoder/web/tc/**/*.class" />
  		            </classes>

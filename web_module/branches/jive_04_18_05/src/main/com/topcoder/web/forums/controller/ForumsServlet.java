@@ -156,7 +156,7 @@ public class ForumsServlet extends BaseServlet {
         log.debug("going to " + info.getRequestString() + " on success login");
         request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
            
-        //request.setAttribute(MODULE, LOGIN_PROCESSOR);
+        request.setAttribute(MODULE, LOGIN_PROCESSOR);
         fetchRegularPage(request, response, "/login.jsp", true);
         //fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
     }
