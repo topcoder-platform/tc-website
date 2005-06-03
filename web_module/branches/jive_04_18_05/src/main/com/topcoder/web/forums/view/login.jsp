@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
 		 import="com.topcoder.web.common.BaseServlet,
+		 		 com.topcoder.web.forums.controller.request.Login,
          		 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -72,13 +73,14 @@ function submitEnter(e) {
                         and we can send it to you via email.</p>
 
                         <p><b>New to TopCoder?</b><br/>
-                        <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="ServerName"/>/Registration">Register now.</A>
+                        <A class="bodyText" href="https://172.16.20.20/Registration">Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
                     </td>
                 </tr>
                 <tr valign="middle">
-                  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="SecureAbsoluteServletPath"/>">
-                    <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
+                  <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
+                    <tc-webtag:hiddenInput name="module" value="Login"/>
+					<tc-webtag:hiddenInput name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>"/>
                     <td class="bodyText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>

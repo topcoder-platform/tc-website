@@ -26,8 +26,14 @@ public class History extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 		
-        long userID = Long.parseLong(getRequest().getParameter(ForumConstants.USER_ID));
-        User user = forumFactory.getUserManager().getUser(userID);
+        String userIDStr = getRequest().getParameter(ForumConstants.USER_ID);
+        long userID = -1;
+        if (userIDStr.equals("")) { // return history for user currently logged in
+            userID = user.getID();
+        } else {
+            userID = Long.parseLong(userIDStr);
+        }
+        User historyUser = forumFactory.getUserManager().getUser(userID);
         int startIdx = 0;
         if (getRequest().getParameter(ForumConstants.START_IDX) != null) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
@@ -44,14 +50,14 @@ public class History extends ForumsProcessor {
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(range);
-        int totalItemCount = forumFactory.getUserMessageCount(user, resultFilter);
+        int totalItemCount = forumFactory.getUserMessageCount(historyUser, resultFilter);
         
         Paging paging = new Paging(resultFilter, totalItemCount);
         Paginator paginator = new Paginator(paging);
-        Iterator itMessages = forumFactory.getUserMessages(user, resultFilter);
+        Iterator itMessages = forumFactory.getUserMessages(historyUser, resultFilter);
         
         getRequest().setAttribute("forumFactory", forumFactory);
-        getRequest().setAttribute("user", user);
+        getRequest().setAttribute("user", historyUser);
         getRequest().setAttribute("messages", itMessages);
         getRequest().setAttribute("paginator", paginator);
 		
