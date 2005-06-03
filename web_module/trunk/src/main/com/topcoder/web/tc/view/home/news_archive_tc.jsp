@@ -35,6 +35,7 @@
         </jsp:include>
 
             <table border=0 cellpadding=2 cellspacing=0 width="100%">
+            <tr class="bodyText"><td nowrap="nowrap">06.03.05 4:00 PM&#160;-&#160</td><td width="100%">Event calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">05.12.05 5:50 PM&#160;-&#160</td><td width="100%">Ratings have been updated</td></tr>
             <tr class="bodyText"><td nowrap="nowrap">05.11.05 6:00 PM&#160;-&#160</td><td width="100%">New Member Profiles</td></tr>
             <tr class="bodyText"><td nowrap="nowrap">05.09.05 11:20 AM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">New Algorithm, Design, and Development rating formulas</A></td></tr>
