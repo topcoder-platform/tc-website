@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
 		 import="com.topcoder.web.common.BaseServlet,
-		 		 com.topcoder.web.forums.controller.request.Login,
+		 		 com.topcoder.web.forums.controller.request.*,
          		 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -112,6 +112,7 @@ function submitEnter(e) {
                     <script>
                       document.frmLogin.<%=username.equals("")?Login.USER_NAME:Login.PASSWORD%>.focus();
                     </script>
+                    <input name="Login" value="Login" type="submit" alt="Login" onclick="">
 
                     </td>
                   </form>
