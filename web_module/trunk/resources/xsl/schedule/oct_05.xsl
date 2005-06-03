@@ -127,7 +127,7 @@
                                 <td id="calendar">12</td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">13</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     Semifinals<br/>
                                     &#160;<br />
                                     &#160;<br />
@@ -137,7 +137,7 @@
                                     </td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">14</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     WildCard &amp; Finals<br/>
                                     &#160;<br />
                                     &#160;<br />
