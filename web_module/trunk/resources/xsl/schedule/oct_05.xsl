@@ -60,7 +60,7 @@
 
                         <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#999999">
                             <tr valign="middle"><form name="selectform">
-                                <td class="statTextLarge" width="99%"><font size="3">&#160;July 2005</font></td>
+                                <td class="statTextLarge" width="99%"><font size="3">&#160;October 2005</font></td>
                                 <td align="right" width="1%">
 <!-- Calendar Pulldown Begins -->	
                         <xsl:call-template name="calendar_view_pulldown"/>
@@ -81,6 +81,11 @@
                             </tr>
                           
                             <tr> 
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">
                                     &#160;<br />
                                     &#160;<br />
@@ -88,82 +93,97 @@
                                     &#160;<br />
                                     &#160;<br />
                                     &#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendar">1</td>
-                                <td id="calendar">2</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">1</span><br />
+                                    <strong>Match 261</strong><br />
+                                    Register: 9:00&#160;AM<br />
+                                    Compete: 12:00&#160;PM<br />
+                                    Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=yahoo">Yahoo!</A><br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=7999&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
                             
                             <tr> 
+                                <td id="calendar">2</td>
                                 <td id="calendar">3</td>
                                 <td id="calendar">4</td>
-                                <td id="calendar">5</td>
-                                <td id="calendar">6</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">7</span><br />
-                                    <strong>Match 250</strong><br />
-                                    Register: 8:00&#160;AM<br />
-                                    Compete: 11:00&#160;AM<br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=7225&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">8</td>
-                                <td id="calendar">9</td>
-                            </tr>
-                            
-                            <tr> 
-                                <td id="calendar">10</td>
-                                <td id="calendar">11</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">12</span><br />
-                                    <strong>Match 251</strong><br />
+                                    <span id="calendarSRMDate">5</span><br />
+                                    <strong>Match 262</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun">Sun</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=7226&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">13</td>
-                                <td id="calendar">14</td>
-                                <td id="calendar">15</td>
-                                <td id="calendar">16</td>
+                                    <A href="/?RoundId=8000&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">6</td>
+                                <td id="calendar">7</td>
+                                <td id="calendar">8</td>
                             </tr>
                             
                             <tr> 
+                                <td id="calendar">9</td>
+                                <td id="calendar">10</td>
+                                <td id="calendar">11</td>
+                                <td id="calendar">12</td>
+                                <td id="calendarTCO05">
+                                    <span id="calendarTCO05Date">13</span><br/>
+                                    <strong>2005 TopCoder Open</strong><br/>
+                                    Semifinals<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A>
+                                    </td>
+                                <td id="calendarTCO05">
+                                    <span id="calendarTCO05Date">14</span><br/>
+                                    <strong>2005 TopCoder Open</strong><br/>
+                                    WildCard &amp; Finals<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A>
+                                    </td>
+                                <td id="calendar">15</td>
+                            </tr>
+                            
+                            <tr> 
+                                <td id="calendar">16</td>
                                 <td id="calendar">17</td>
-                                <td id="calendar">18</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">18</span><br />
+                                    <strong>Match 263</strong><br />
+                                    Register: 8:00&#160;AM<br />
+                                    Compete: 11:00&#160;AM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=8001&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
                                 <td id="calendar">21</td>
                                 <td id="calendar">22</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">23</span><br />
-                                    <strong>Match 252</strong><br />
-                                    Register: 9:00&#160;AM<br />
-                                    Compete: 12:00&#160;PM<br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=7227&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
                             
                             <tr> 
+                                <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                                 <td id="calendar">25</td>
-                                <td id="calendar">26</td>
-                                <td id="calendar">27</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">28</span><br />
-                                    <strong>Match 253</strong><br />
+                                    <span id="calendarSRMDate">26</span><br />
+                                    <strong>Match 264</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
+                                    Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun">Sun</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=7228&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=8002&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">27</td>
+                                <td id="calendar">28</td>
                                 <td id="calendar">29</td>
-                                <td id="calendar">30</td>
                             </tr>
 
                             <tr> 
+                                <td id="calendar">30</td>
                                 <td id="calendar">31</td>
-                                <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">&#160;</td>
