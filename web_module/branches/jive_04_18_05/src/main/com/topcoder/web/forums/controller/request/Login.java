@@ -48,22 +48,22 @@ public class Login extends ForumsProcessor {
                         char status = getStatus(userId);
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status) > 0) {
-                            if (getEmailStatus(userId) != EmailActivate.ACTIVE_STATUS) {
-                                getAuthentication().logout();
-                                log.debug("inactive email");
-                                setNextPage(Constants.EMAIL_ACTIVATE);
-                                setIsNextPageInContext(true);
-                                return;
-                            } else {
-                                log.debug("user active");
+                            //if (getEmailStatus(userId) != EmailActivate.ACTIVE_STATUS) {
+                            //    getAuthentication().logout();
+                            //    log.debug("inactive email");
+                            //    setNextPage(Constants.EMAIL_ACTIVATE);
+                            //    setIsNextPageInContext(true);
+                            //    return;
+                            //} else {
+                                //log.debug("user active");
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
-                                log.debug("on successfull login, going to " + dest);
+                                log.debug("successful login, going to " + dest);
                                 setNextPage(dest);
                                 setIsNextPageInContext(false);
                                 getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
-                                doLegacyCrap(getRequest());
+                                //doLegacyCrap(getRequest());
                                 return;
-                            }
+                            //}
                         } else {
                             getAuthentication().logout();
                             if (Arrays.binarySearch(Activate.INACTIVE_STATI, status) > 0) {
@@ -95,7 +95,7 @@ public class Login extends ForumsProcessor {
         }
 
 
-        setNextPage(Constants.LOGIN);
+        setNextPage("/login.jsp");
         setIsNextPageInContext(true);
     }
 
