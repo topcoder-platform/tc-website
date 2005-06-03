@@ -102,7 +102,7 @@
                                 <td id="calendar">6</td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">7</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     Online Round #4<br/>
                                     Registration: 6:30PM - 9:25PM ET<br/>
                                     Compete: 9:30PM<br/>

@@ -90,7 +90,7 @@
                                     &#160;</td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">1</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     Registration Opens: 9:00 AM ET<br/>
                                     &#160;<br />
                                     &#160;<br />
@@ -104,7 +104,14 @@
                                     Compete: 11:00&#160;AM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=7992&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">3</td>
+                                <td id="calendarTCO05">
+                                    <span id="calendarTCO05Date">3</span><br/>
+                                    <strong>2005 TopCoder Open Component Competition</strong><br/>
+                                    Week 5 Submission Deadline: 9:00 AM ET<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+                                    </td>
                                 <td id="calendar">4</td>
                                 <td id="calendar">5</td>
                                 <td id="calendar">6</td>
@@ -132,7 +139,7 @@
                                 <td id="calendar">15</td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">16</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     Registration Closes: 9:00 AM ET<br/>
                                     Qualification Round<br/>
                                     START: 12:00 PM ET (noon)<br/>
@@ -143,7 +150,7 @@
                                     </td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">17</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     Qualification Round<br/>
                                     END: 12:00 PM ET (noon)<br/>
                                     &#160;<br />
@@ -155,7 +162,7 @@
                                 <td id="calendar">19</td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">20</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     Online Round #1<br/>
                                     Registration: 9:00AM - 11:55AM ET<br/>
                                     Compete: 12:00 PM(noon)<br/>
@@ -171,13 +178,14 @@
                                 <td id="calendar">23</td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">24</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     Online Round #2<br/>
                                     Registration: 6:30PM - 9:25PM ET<br/>
                                     Compete: 9:30PM<br/>
-                                    &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
-                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A><br /><br />
+                                    <strong>Component Competition</strong><br/>
+                                    Online Championship Round Projects Posted: 9:00 AM ET<br/>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
                                     </td>
                                 <td id="calendar">25</td>
                                 <td id="calendar">26</td>
@@ -189,7 +197,6 @@
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=7994&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
-                            
                             <tr> 
                                 <td id="calendar">28</td>
                                 <td id="calendar">29</td>
@@ -202,13 +209,14 @@
                                     <A href="/?RoundId=7995&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">31</span><br/>
-                                    <strong>2005 TopCoder Open</strong><br/>
+                                    <strong>2005 TopCoder Open Algorithm Competition</strong><br/>
                                     Online Round #3<br/>
                                     Registration: 6:30PM - 9:25PM ET<br/>
                                     Compete: 9:30PM<br/>
-                                    &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=alg_schedule">Details</A>
+                                    <strong>Component Competition</strong><br/>
+                                    Online Championship Round Deadline: 9:00 AM ET<br/>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
                                     </td>
                                 <td id="calendarBlank">&#160;</td>
                                 <td id="calendarBlank">&#160;</td>
