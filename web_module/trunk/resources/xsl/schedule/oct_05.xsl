@@ -124,7 +124,14 @@
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
                                 <td id="calendar">11</td>
-                                <td id="calendar">12</td>
+                                <td id="calendarTCO05">
+                                    <span id="calendarTCO05Date">3</span><br/>
+                                    <strong>2005 TopCoder Open Component Competition</strong><br/>
+                                    Championship Round Submission Deadline: 4:00 PM ET<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+                                    </td>
                                 <td id="calendarTCO05">
                                     <span id="calendarTCO05Date">13</span><br/>
                                     <strong>2005 TopCoder Open Algorithm Competition</strong><br/>

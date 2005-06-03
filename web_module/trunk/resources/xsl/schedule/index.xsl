@@ -127,7 +127,15 @@
                             
                             <tr> 
                                 <td id="calendar">12</td>
-                                <td id="calendar">13</td>
+                                <td id="calendarTCO05">
+                                    <span id="calendarTCO05Date">13</span><br/>
+                                    <strong>2005 TopCoder Open Component Competition</strong><br/>
+                                    Registration Opens: 9:00 AM ET<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+                                    </td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
                                 <td id="calendar">16</td>
@@ -158,19 +166,25 @@
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">26</td>
-                                <td id="calendar">27</td>
-                                <td id="calendar">28</td>
+                                <td id="calendar" rowspan="2">26</td>
+                                <td id="calendar" rowspan="2">27</td>
+                                <td id="calendar" rowspan="2">28</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">29</span><br />
                                     <strong>Match 249</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=7224&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">30</td>
-                                <td id="calendarBlank">&#160;</td>
-                                <td id="calendarBlank">&#160;</td>
+                                    <A href="/?RoundId=7224&amp;t=schedule&amp;c=srm">Details</A></td>
+                                <td id="calendar" rowspan="2">30</td>
+                                <td id="calendarBlank" rowspan="2">&#160;</td>
+                                <td id="calendarBlank" rowspan="2">&#160;</td>
+                            </tr>
+                            <tr> 
+                                <td id="calendarTCO05">
+                                    <strong>2005 TopCoder Open Component Competition</strong><br/>
+                                    Registration Closes &amp; Week 1 Projects Posted: 9:00 AM ET<br/>
+                                    <A class="calendarTCO05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">Details</A>
+                                    </td>
                             </tr>
                         </table>
                         <p><br/></p>
