@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- Sourcing Mag -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank"><img src="/i/pressroom/sourcingmag_logo.gif" alt="Sourcing Mag" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">How To Hire Best-of-Breed Programmers for Your Project</A></strong></font><br />
+						   TopCoder Software literally calls on the services of thousands of programmers all around the world for its development work -- and only the best results end up getting used in the code they provide to their clients. They believe their approach saves clients money and time. How do they pull it off? <span class="prHead"> [June 2 - Sourcing Mag]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Boiler Station -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
