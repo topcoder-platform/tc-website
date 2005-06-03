@@ -12,14 +12,12 @@ import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.controller.request.authentication.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
 
 import java.util.Arrays;
 
-public class Login extends Base {
-
+public class Login extends ForumsProcessor {
 
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";

@@ -8,14 +8,14 @@ import com.jivesoftware.base.User;
 
 import com.jivesoftware.forum.ForumFactory;
 
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.tc.controller.request.Base;
 
 /**
  * @author mtong
  * 
  * Base class for forum-related processors, providing message and user data.
  */
-public abstract class ForumsProcessor extends BaseProcessor {
+public abstract class ForumsProcessor extends Base {
     protected AuthToken authToken;
     protected ForumFactory forumFactory;
     protected User user;
