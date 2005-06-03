@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.03.05<br>5:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">How To Hire Best-of-Breed Programmers for Your Project</A></span><br><br>
+      "TopCoder Software literally calls on the services of thousands of programmers all around the world for its development work -- and only the best results end up getting used in the code they provide to their clients. They believe their approach saves clients money and time. How do they pull it off?" [Sourcing Mag]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.03.05<br>4:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Event calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></span><br><br>
       The calendar now includes SRMs up to 264 and TCO05 dates. 
@@ -222,18 +234,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
    <tr><td class="newsLinksCell">
          <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">component details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.16.05<br>5:05 PM</td>
-     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7217">Programming language survey</A></span><br><br>
-      Which of the following programming languages do you consider yourself to be proficient with?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=7217">view survey</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">

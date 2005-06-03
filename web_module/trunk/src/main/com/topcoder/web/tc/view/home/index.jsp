@@ -159,12 +159,12 @@
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
+            How To Hire Best-of-Breed Programmers for Your Project<A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank"> ...more</A><br/>[June 2 - Sourcing Mag]<br/><br/>
             Purdue computer programmer making his mark in competitions<A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank"> ...more</A><br/>[May 16 - Boiler Station]<br/><br/>
             Interview with Jack Hughes<A href="/tc?module=Static&d1=news&d2=art_051205"> ...more</A><br/>[April 22 - The Wall Street Transcript]<br/><br/>
             TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference<A href="/?&t=news_events&c=pr_05_02_05"> ...more</A><br/>[May 2]<br/><br/>
             Code Warriors<A href="/?&t=news_events&c=art_04_08_05"> ...more</A><br/>[April 8 - Chronicle of Higher Education]<br/><br/>
             How Google Searches - For Talent<A href="/?&t=news_events&c=art_04_22_05"> ...more</A><br/>[April 22 - BusinessWeek]<br/><br/>
-            LogicLibrary, TopCoder Business Brief<A href="/i/pressroom/SDT_041305.jpg" target="_blank"> ...more</A><br/>[April 13 - SDT]<br/><br/>
             </td>
          </tr>
       </table>
