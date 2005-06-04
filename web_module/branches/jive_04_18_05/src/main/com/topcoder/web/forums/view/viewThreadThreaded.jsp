@@ -70,12 +70,7 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-   <td nowrap="nowrap" valign="top">
-   <A href="?module=Search" class="rtbcLink">Search:</A>&#160;
-   <input name="q" size="20" maxlength="100" value="" id="terms" type="text">
-   <input value="Search" onclick="" type="submit">
-   &#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a><br/><br/>
-   </td>
+   <jsp:include page="searchHeader.jsp" ></jsp:include>
    <td align="right" nowrap="nowrap" valign="top">
    <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<jsp:getProperty name="thread" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
    class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
