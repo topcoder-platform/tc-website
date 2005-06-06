@@ -62,7 +62,8 @@ public class Login extends ForumsProcessor {
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                                 log.debug("successful login, going to " + dest);
                                 authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
-                                StringBuffer nextPage = new StringBuffer("/tc?module=Login&nextPage=").append("dest");
+                                StringBuffer nextPage = new StringBuffer("/tc?module=Login");
+                                nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
                                 nextPage.append("&").append(PASSWORD).append("=").append(password);
                                 if (!rememberUser.equals("")) {
