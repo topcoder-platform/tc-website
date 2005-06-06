@@ -1,12 +1,15 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
-         		 java.util.Iterator,
+                 com.jivesoftware.base.User,
+           		 java.util.Iterator,
                  java.util.Enumeration"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
+
+<%  User user = (User)request.getAttribute("user"); %>
 
 <html>
 <head>
@@ -52,6 +55,19 @@
    	<td align="right" nowrap="nowrap" valign="top">
    		<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
    	</td>
+</tr>
+<tr>
+    <td class="rtbc">
+        You are logged in as: 
+        <% if (user != null) { %>
+            <%= user.getUsername() %>
+        <% } else { %>
+            anonymous
+        <% } %>
+    </td>
+    <td align="left">
+        <A href="?module=Logout" class="rtbcLink">Logout</A>
+    </td>
 </tr>
 </table>
             <table cellpadding="0" cellspacing="0" class="rtTable">
