@@ -302,6 +302,10 @@ if ( plugin ) {
                                   <td><div class="bar" style='background:#999; width: 20px; height:10px' /></td>
                                   <td class="label">60 to 75 minutes</td>
                                </tr>
+                               <tr>
+                                  <td align="center"><img src="/i/corp/arrow.gif" alt="" border="0"></td>
+                                  <td class="label">Candidate's Time</td>
+                               </tr>
                             </table>
                       </td>
 	             </tr>
@@ -432,6 +436,10 @@ if ( plugin ) {
                                <tr>
                                   <td><div class="bar" style='background:#C96; width: 20px; height:10px' /></td>
                                   <td class="label">50 to 60 minutes</td>
+                               </tr>
+                               <tr>
+                                  <td align="center"><img src="/i/corp/arrow.gif" alt="" border="0"></td>
+                                  <td class="label">Candidate's Time</td>
                                </tr>
                             </table>
 
