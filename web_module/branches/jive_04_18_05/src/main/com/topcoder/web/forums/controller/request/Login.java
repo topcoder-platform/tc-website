@@ -63,8 +63,7 @@ public class Login extends ForumsProcessor {
                                 log.debug("successful login, going to " + dest);
                                 setNextPage(dest);
                                 setIsNextPageInContext(false);
-                                AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
-                                log.debug("******* user: " + authToken.getUserID());
+                                authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                                 //getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
                                 //doLegacyCrap(getRequest());
                                 return;

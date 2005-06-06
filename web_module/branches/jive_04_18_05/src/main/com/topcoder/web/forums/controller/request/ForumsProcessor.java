@@ -10,12 +10,17 @@ import com.jivesoftware.forum.ForumFactory;
 
 import com.topcoder.web.tc.controller.request.Base;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author mtong
  * 
  * Base class for forum-related processors, providing message and user data.
  */
 public abstract class ForumsProcessor extends Base {
+    protected HttpServletRequest httpRequest;
+    protected HttpServletResponse httpResponse;
     protected AuthToken authToken;
     protected ForumFactory forumFactory;
     protected User user;
@@ -32,6 +37,22 @@ public abstract class ForumsProcessor extends Base {
         }
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
+    }
+    
+    public HttpServletRequest getHttpRequest() {
+        return httpRequest;
+    }
+    
+    public void setHttpRequest(HttpServletRequest httpRequest) {
+        this.httpRequest = httpRequest;
+    }
+    
+    public HttpServletResponse getHttpResponse() {
+        return httpResponse;
+    }
+    
+    public void setHttpResponse(HttpServletResponse httpResponse) {
+        this.httpResponse = httpResponse;
     }
     
     public void setAuthToken(AuthToken authToken) {

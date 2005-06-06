@@ -58,8 +58,9 @@ public class ForumsServlet extends BaseServlet {
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
             //log.debug("@@@@@@@@ Active user ID: " + authentication.getActiveUser().getId());
-			AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
-		    //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
+			//AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
+		    AuthToken authToken = AuthFactory.getAuthToken(request, response);
+            //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
                     log.debug("*** Uses custom auth ***");
@@ -104,7 +105,7 @@ public class ForumsServlet extends BaseServlet {
 		            try {
 		                SimpleResource resource = new SimpleResource(processorName);
 		                if (hasPermission(authentication, resource)) {
-		                    rp = callProcess(processorName, tcRequest, tcResponse, authentication, authToken);
+		                    rp = callProcess(processorName, request, response, tcRequest, tcResponse, authentication, authToken);
 		                } else {
 		                    throw new PermissionException(authentication.getActiveUser(), resource);
 		                }
@@ -161,11 +162,14 @@ public class ForumsServlet extends BaseServlet {
         //fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
     }
 
-    protected RequestProcessor callProcess(String processorName, TCRequest request, TCResponse response,
+    protected RequestProcessor callProcess(String processorName, HttpServletRequest httpRequest,
+            HttpServletResponse httpResponse, TCRequest request, TCResponse response,
             WebAuthentication authentication, AuthToken authToken) throws Exception {
 		ForumsProcessor rp = null;
 
 		rp = (ForumsProcessor)Class.forName(processorName).newInstance();
+        rp.setHttpRequest(httpRequest);
+        rp.setHttpResponse(httpResponse);
 		rp.setRequest(request);
 		rp.setResponse(response);
 		rp.setAuthentication(authentication);
