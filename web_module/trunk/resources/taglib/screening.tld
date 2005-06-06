@@ -530,4 +530,22 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    <tag>
+        <name>legend</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.LegendTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag for generating html graph legends
+        </info>
+        <attribute>
+            <name>colors</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>text</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 </taglib>
