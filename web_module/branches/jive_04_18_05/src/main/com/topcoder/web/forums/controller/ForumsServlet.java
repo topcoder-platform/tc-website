@@ -29,6 +29,7 @@ import java.util.Set;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.UnauthorizedException;
 
 /**
  * @author mtong
@@ -59,7 +60,10 @@ public class ForumsServlet extends BaseServlet {
 		    authentication = createAuthentication(tcRequest, tcResponse);
             //log.debug("@@@@@@@@ Active user ID: " + authentication.getActiveUser().getId());
 			//AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
-		    AuthToken authToken = AuthFactory.getAuthToken(request, response);
+		    AuthToken authToken = AuthFactory.getAnonymousAuthToken();
+            try {
+		        authToken = AuthFactory.getAuthToken(request, response);
+            } catch (UnauthorizedException uae) {}
             //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
