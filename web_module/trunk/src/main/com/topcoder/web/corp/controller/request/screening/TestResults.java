@@ -84,9 +84,9 @@ public class TestResults extends BaseScreeningProcessor {
                     GraphData gd = new GraphData();
                     
                     int c = 0;
-                    c = histogramData.getColumnCount() / 2;
+                    c = histogramData.getColumnCount() / 3;
                     for(int j = 1; j <= c; j++) {
-                        gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j));
+                        gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j),histogramData.getStringItem(0, "bucket" + j + "label"));
                     }
                     
                     //find the corresponding row in testSetAResults
@@ -136,7 +136,7 @@ public class TestResults extends BaseScreeningProcessor {
                     c = 0;
                     c = histogramData.getColumnCount() / 2;
                     for(int j = 1; j <= c; j++) {
-                        gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j));
+                        gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j),"");
                     }
 
                     gd.setAnnotation(histogramData.getIntItem(0, "annotation"));
@@ -205,7 +205,7 @@ public class TestResults extends BaseScreeningProcessor {
                 int c = 0;
                 c = histogramData.getColumnCount() / 2;
                 for(int j = 1; j <= c; j++) {
-                    gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j));
+                    gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j),"");
                 }
                 
                 gd.setAnnotation(histogramData.getIntItem(0, "annotation"));
