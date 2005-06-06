@@ -25,10 +25,15 @@ public class GraphData implements java.io.Serializable {
     
     private List colors = new ArrayList();
     private List data = new ArrayList();
+    private List legend = new ArrayList();
     private int annotation = -1;
     
     public List getColors() {
         return colors;
+    }
+    
+    public List getLegend() {
+        return legend;
     }
     
     public List getData() {
@@ -43,8 +48,9 @@ public class GraphData implements java.io.Serializable {
         annotation = i;
     }
 
-    public void addItem(String color, int value) {
+    public void addItem(String color, int value, String l) {
         colors.add(color);
         data.add(new Integer(value));
+        legend.add(l);
     }
 }
