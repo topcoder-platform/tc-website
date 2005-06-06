@@ -16,6 +16,7 @@ import com.topcoder.web.tc.controller.request.authentication.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.UnauthorizedException;
 
 import java.util.Arrays;
 
@@ -61,7 +62,15 @@ public class Login extends ForumsProcessor {
                                 //log.debug("user active");
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                                 log.debug("successful login, going to " + dest);
-                                authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
+                                try {
+                                    authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
+                                } catch (UnauthorizedException ue) {
+                                    getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Handle or password incorrect.");
+                                    getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, dest);
+                                    setNextPage("/login.jsp");
+                                    setIsNextPageInContext(true);
+                                    return;
+                                }
                                 StringBuffer nextPage = new StringBuffer("/tc?module=Login");
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);

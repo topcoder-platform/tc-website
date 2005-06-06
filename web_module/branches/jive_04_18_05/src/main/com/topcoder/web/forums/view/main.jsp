@@ -20,7 +20,7 @@
 
 <body>
 
-<jsp:include page="top.jsp" >
+<jsp:include page="top_forums.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
