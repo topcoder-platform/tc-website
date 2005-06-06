@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
@@ -26,7 +27,7 @@ public class History extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 		
-        String userIDStr = getRequest().getParameter(ForumConstants.USER_ID);
+        String userIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.USER_ID));
         long userID = -1;
         if (userIDStr.equals("")) { // return history for user currently logged in
             userID = user.getID();
