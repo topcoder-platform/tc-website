@@ -113,7 +113,6 @@ function submitEnter(e) {
                     <script>
                       document.frmLogin.<%=username.equals("")?Login.USER_NAME:Login.PASSWORD%>.focus();
                     </script>
-                    <input name="Login" value="Login" type="submit" alt="Login" onclick="">
 
                     </td>
                   </form>

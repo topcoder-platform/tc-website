@@ -14,6 +14,8 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.authentication.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.jivesoftware.base.AuthFactory;
+import com.jivesoftware.base.AuthToken;
 
 import java.util.Arrays;
 
@@ -61,7 +63,9 @@ public class Login extends ForumsProcessor {
                                 log.debug("successful login, going to " + dest);
                                 setNextPage(dest);
                                 setIsNextPageInContext(false);
-                                getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
+                                AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
+                                log.debug("******* user: " + authToken.getUserID());
+                                //getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
                                 //doLegacyCrap(getRequest());
                                 return;
                             //}
