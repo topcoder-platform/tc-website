@@ -7,8 +7,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
-
 <%  User user = (User)request.getAttribute("user"); %>
 
 <html>
