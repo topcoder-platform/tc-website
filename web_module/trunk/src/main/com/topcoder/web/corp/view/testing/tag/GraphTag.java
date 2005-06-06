@@ -99,7 +99,7 @@ public class GraphTag extends TagSupport {
         //divider
 
         for(int j = 0; j < xAxisSections; j++) {
-            buffer.append("<td class='bucket'>");
+            buffer.append("<td class='bucket' style='height:" + (40 + graphAreaHeight) + "px;'>");
             //calc height based on value
             int h = 0;
             double b = ((Integer)barValues.get(j)).doubleValue();
