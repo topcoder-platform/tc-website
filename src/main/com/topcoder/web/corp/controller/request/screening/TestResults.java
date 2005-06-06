@@ -134,7 +134,7 @@ public class TestResults extends BaseScreeningProcessor {
                     gd = new GraphData();
 
                     c = 0;
-                    c = histogramData.getColumnCount() / 2;
+                    c = histogramData.getColumnCount() / 3;
                     for(int j = 1; j <= c; j++) {
                         gd.addItem(histogramData.getStringItem(0, "bucket" + j + "color"), histogramData.getIntItem(0, "bucket" + j),"");
                     }
