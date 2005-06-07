@@ -14,7 +14,7 @@ public class Logout extends ForumsProcessor {
     protected void businessProcessing() throws TCWebException {
         AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
         
-        setNextPage("?module=ForumList");
+        setNextPage("/tc?module=Logout");
         setIsNextPageInContext(false);
     }
 }

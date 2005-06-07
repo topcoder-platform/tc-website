@@ -61,16 +61,17 @@ public class Login extends ForumsProcessor {
                             //} else { */
                                 //log.debug("user active");
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
-                                log.debug("successful login, going to " + dest);
                                 try {
                                     authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                                 } catch (UnauthorizedException ue) {
+                                    log.debug("login failed for: " + dest);
                                     getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Handle or password incorrect.");
                                     getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, dest);
                                     setNextPage("/login.jsp");
                                     setIsNextPageInContext(true);
                                     return;
                                 }
+                                log.debug("successful login, going to " + dest);
                                 StringBuffer nextPage = new StringBuffer("/tc?module=Login");
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
@@ -78,6 +79,7 @@ public class Login extends ForumsProcessor {
                                 if (!rememberUser.equals("")) {
                                     nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
                                 }
+                                
                                 setNextPage(nextPage.toString());
                                 setIsNextPageInContext(false);
                                 //getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
