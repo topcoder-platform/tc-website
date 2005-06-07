@@ -21,7 +21,7 @@
 		<td valign="top" align="center">
 		<div class="bodySpacer">
             
-<div align="center"><img src="/i/tournament/tco05/yahoo_logo.gif" alt="Sun" border="0" /></div>
+<div align="center"><img src="/i/tournament/tco05/yahoo_logo.gif" alt="Yahoo!" border="0" /></div>
 <br><br>
 Your application has been received.
 <br><br>               
