@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.Util;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -18,7 +19,6 @@ import com.topcoder.web.common.model.CoderSessionInfo;
 import java.util.Arrays;
 
 public class Login extends Base {
-
 
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
@@ -57,10 +57,17 @@ public class Login extends Base {
                                 return;
                             } else {
                                 log.debug("user active");
-                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
-                                log.debug("on successfull login, going to " + dest);
-                                setNextPage(dest);
+                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));                                                    
+                                StringBuffer nextPage = new StringBuffer("/forums?module=Login");
+                                nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
+                                nextPage.append("&").append(USER_NAME).append("=").append(username);
+                                nextPage.append("&").append(PASSWORD).append("=").append(Util.encodePassword(password, "users"));
+                                if (!rememberUser.equals("")) {
+                                    nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
+                                }
+                                setNextPage(nextPage.toString());
                                 setIsNextPageInContext(false);
+                                log.debug("on successful login, going to " + nextPage.toString());
                                 getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
                                 doLegacyCrap(getRequest());
                                 return;

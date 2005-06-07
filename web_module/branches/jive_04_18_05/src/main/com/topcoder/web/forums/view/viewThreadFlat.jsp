@@ -45,7 +45,7 @@
 
 <body>
 
-<jsp:include page="top_forums.jsp" >
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -61,7 +61,7 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" class="rtBody">
+        <td width="99%" class="rtBody">
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="forums"/>
