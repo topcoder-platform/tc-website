@@ -4,7 +4,7 @@
 <jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.util.TCO05AlgorithmTerms" scope="request" />
 <%  Calendar now = Calendar.getInstance();
     now.setTime(new Date());
-    //if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.after(algoTerms.getBeginning())&&now.before(algoTerms.getEnd()))) {
+    if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))||(now.after(algoTerms.getBeginning())&&now.before(algoTerms.getEnd()))) {
 %>
 
     <table border="0" cellspacing="0" cellpadding="0" width="180">
@@ -41,7 +41,7 @@
             </td>
         </tr>
     </table>
-<% //} %>
+<% } %>
 
 
 
