@@ -61,6 +61,8 @@
 <!-- 2005  -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+                            <tr><td class="newsText"><A href="http://www.roanoke.com/business%5C24837.html" target="_blank">Geeks for Charity holds code to help New River charities</A> [June 4 - Roanoke.com]</td></tr>
+
                             <tr><td class="newsText"><A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">How To Hire Best-of-Breed Programmers for Your Project</A> [June 2 - Sourcing Mag]</td></tr>
 
                             <tr><td class="newsText"><A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">Purdue computer programmer making his mark in competitions</A> [May 16 - Boiler Station]</td></tr>
