@@ -186,7 +186,7 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = ro.calendar_id) AS last_competed");
         searchQuery.append(" , CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         searchQuery.append(" , co.country_name");
-        searchQuery.append(" , CASE WHEN c.coder_type_id = 1 then 'N/A' else s.name end as school_name ");
+        searchQuery.append(" , CASE WHEN c.coder_type_id = 2 then 'N/A' else s.name end as school_name ");
         searchQuery.append(" , desr.rating as design_rating");
         searchQuery.append(" , devr.rating as dev_rating ");
         searchQuery.append(queryBottom.toString());
