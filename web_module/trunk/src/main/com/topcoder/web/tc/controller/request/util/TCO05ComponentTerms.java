@@ -19,7 +19,7 @@ import java.util.Calendar;
  */
 public class TCO05ComponentTerms extends TCO05AlgorithmTerms {
 
-    public Calendar getStart() {
+    public Calendar getBeginning() {
         Calendar start = Calendar.getInstance();
         start.set(2005, Calendar.MAY, 13,9,0);
         return start;
