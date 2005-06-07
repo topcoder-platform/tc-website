@@ -5,20 +5,16 @@ package com.topcoder.web.forums.controller;
 
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
+import com.topcoder.web.forums.model.TCAuthToken;
 
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.security.TCSubject;
-
 import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.forums.model.TCAuthFactory;
-import com.topcoder.web.forums.model.TCAuthToken;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.security.TCSubject;
+import com.topcoder.web.tc.controller.request.authentication.Login;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -154,8 +150,10 @@ public class ForumsServlet extends BaseServlet {
     
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
         /* forward to the login page, with a message and a way back */
-        fetchRegularPage(request, response, LOGIN_SERVLET + "?module=Login&" + BaseServlet.NEXT_PAGE_KEY + 
-                "=" + info.getRequestString(), false);
+        StringBuffer nextPage = new StringBuffer(LOGIN_SERVLET).append("?module=Login");
+        nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(info.getRequestString());
+        nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
+        fetchRegularPage(request, response, nextPage.toString(), false);
                 
         //request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
         //        "and password.");
