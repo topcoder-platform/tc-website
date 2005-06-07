@@ -74,7 +74,7 @@
                    <TR>
                      <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                      <TD CLASS="statText" HEIGHT="13"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><a href="/tc?module=AlgoRank&<%=Constants.COUNTRY_CODE%>=<rsc:item name="country_code" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></a></TD>
+                     <TD CLASS="statText" HEIGHT="13" ALIGN="left"><a class="statTextBig" href="/tc?module=AlgoRank&<%=Constants.COUNTRY_CODE%>=<rsc:item name="country_code" row="<%=resultRow%>"/>"><rsc:item name="name" row="<%=resultRow%>"/></a></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="rated_count" row="<%=resultRow%>"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="avg_rating" row="<%=resultRow%>"/></TD>
                      <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
