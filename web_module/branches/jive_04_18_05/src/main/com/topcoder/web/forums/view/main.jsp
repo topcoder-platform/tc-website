@@ -54,19 +54,6 @@
    		<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
    	</td>
 </tr>
-<tr>
-    <td class="rtbc">
-        You are logged in as: 
-        <% if (user != null) { %>
-            <%= user.getUsername() %>
-        <% } else { %>
-            anonymous
-        <% } %>
-    </td>
-    <td align="left">
-        <A href="?module=Logout" class="rtbcLink">Logout</A>
-    </td>
-</tr>
 </table>
             <table cellpadding="0" cellspacing="0" class="rtTable">
                 <tr>
