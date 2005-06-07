@@ -119,6 +119,7 @@
                                     <strong>Match 246</strong><br />
                                     Register: 10:00&#160;AM<br />
                                     Compete: 1:00&#160;PM<br />
+                                    Sponsored by: <A href="/tc?module=Static&amp;d1=contracting&amp;d2=index">TC Employment Services</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=7221&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">10</td>
