@@ -18,7 +18,8 @@ public class Login extends ForumsProcessor {
 
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
-        String password = Util.decodePassword(getRequest().getParameter(PASSWORD), "users");
+        //String password = Util.decodePassword(getRequest().getParameter(PASSWORD), "users");
+        String password = getRequest().getParameter(PASSWORD);
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         

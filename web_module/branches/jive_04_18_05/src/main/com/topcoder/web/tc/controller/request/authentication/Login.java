@@ -65,7 +65,8 @@ public class Login extends Base {
                                 StringBuffer nextPage = new StringBuffer("/forums?module=Login");
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
-                                nextPage.append("&").append(PASSWORD).append("=").append(Util.encodePassword(password, "users"));
+                                //nextPage.append("&").append(PASSWORD).append("=").append(Util.encodePassword(password, "users"));
+                                nextPage.append("&").append(PASSWORD).append("=").append(password);
                                 if (!rememberUser.equals("")) {
                                     nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
                                 }
