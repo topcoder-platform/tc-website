@@ -21,13 +21,13 @@ public class TCO05ComponentTerms extends TCO05AlgorithmTerms {
 
     public Calendar getStart() {
         Calendar start = Calendar.getInstance();
-        start.set(2005, Calendar.JUNE, 13,9,0);
+        start.set(2005, Calendar.MAY, 13,9,0);
         return start;
     }
     
     public Calendar getEnd() {
         Calendar end = Calendar.getInstance();
-        end.set(2005, Calendar.MAY, 29, 9, 0);
+        end.set(2005, Calendar.JUNE, 29, 9, 0);
         return end;
     }
 
