@@ -82,7 +82,7 @@ public class ForumUserPropertiesConverter {
         	int rows_deleted = ps_delete.executeUpdate();
         	System.out.println(rows_deleted + " properties deleted");
         	
-        	System.out.println("Inserting user properties... ")
+        	System.out.println("Inserting user properties... ");
         	rs_user = ps_user.executeQuery();
         	while (rs_user.next()) {
         		ps_insert = con.prepareStatement(q_insert);
