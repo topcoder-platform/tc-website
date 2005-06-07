@@ -99,6 +99,7 @@ public class Constants {
     public static String TCCC04_TERMS;
     public static String TCO04_TERMS;
     public static String TCCC05_TERMS;
+    public static String TCO05_TERMS;
 
     public static String CARD_PREVIEW;
     public static String CARD_INSTRUCTIONS;
