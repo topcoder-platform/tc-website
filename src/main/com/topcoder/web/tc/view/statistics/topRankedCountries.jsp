@@ -1,6 +1,6 @@
 <%@ page
   language="java"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.web.tc.Constants,
           java.util.Map"
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
