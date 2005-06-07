@@ -33,7 +33,7 @@
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
                     <jsp:include page="../page_title.jsp" >
                         <jsp:param name="image" value="press_room"/>
-                        <jsp:param name="title" value="Press Release"/>
+                        <jsp:param name="title" value="Article"/>
                     </jsp:include>
                         <div align="center">
                         <p><span class="bodyTitle">Interview with Jack Hughes</span><br />
