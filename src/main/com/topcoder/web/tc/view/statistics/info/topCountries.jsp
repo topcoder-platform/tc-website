@@ -24,7 +24,7 @@
       <tr>
          <td>
             <p class="bodyText">
-            Country rankings are based on an aggregation of the TopCoder members within in a particular
+            Country rankings are based on an aggregation of the TopCoder members within a particular
             country that have competed within the last 180 days, in other words, those that are "active".
             </p>
 
