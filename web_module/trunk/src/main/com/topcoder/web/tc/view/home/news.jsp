@@ -8,6 +8,30 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.07.05<br>10:50 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=pr_060705">Caliper Hires TCS to Enhance Platform & Services</A></span><br><br>
+      "Leading Personality Assessment Firm Employs TopCoder's Reusable Component-Based Methodology to Support IT Functions Across the Enterprise."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=news&d2=pr_060705">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.07.05<br>10:50 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.roanoke.com/business%5C24837.html" target="_blank">Geeks for Charity holds code to help New River charities</A></span><br><br>
+      "If Brett Malone's plan works, some New River Valley organizations could benefit from a different kind of technology boom." [Roanoke.com]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://www.roanoke.com/business%5C24837.html" target="_blank">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.03.05<br>5:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">How To Hire Best-of-Breed Programmers for Your Project</A></span><br><br>
       "TopCoder Software literally calls on the services of thousands of programmers all around the world for its development work -- and only the best results end up getting used in the code they provide to their clients. They believe their approach saves clients money and time. How do they pull it off?" [Sourcing Mag]
@@ -212,30 +236,6 @@ beating the record held by <tc-webtag:handle coderId="7445961" context="algorith
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>05.17.05<br>2:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">New job opening at TopCoder</A></span><br><br>
-      <A href="/tc?module=Static&d1=about&d2=alg_prob_coordinator">TopCoder</A> is offering a position as an <strong>Algorithm Problem Coordinator</strong>, available to <strong>ALL</strong> members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=about&d2=jobs">see all available TC jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>05.17.05<br>11:55 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">oldbig scores a perfect 100 in a Component Development Contest</A></span><br><br>
-      <tc-webtag:handle coderId="302053" context="development"/> recently nailed a perfect score on <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">XML Splitter</A>.  This is the first 100 in a Component Development Contest in over 2 years.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">component details</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
    <tr>
       <td class="sidebarTitle" colspan="4">News Archives</td>
