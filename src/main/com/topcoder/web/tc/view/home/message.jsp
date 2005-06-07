@@ -13,8 +13,8 @@
     </table>
     <table cellspacing="0" cellpadding="0" class="messageBoxFrame">
         <tr>
-            <td class="tccc05Message" align=center>
-            <img src="/i/tournament/tccc05/message.gif" border=0 /><br/><br/>
+            <td class="tco05Message" align=center>
+            <img src="/i/tournament/tco05/message.gif" border=0 /><br/><br/>
             <% if (algoTerms.isRegistered()) { %>
                     You are registered for the TCO Algorithm Competition.<br/>
             <% } else { %>
