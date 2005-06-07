@@ -15,12 +15,12 @@
         <tr>
             <td class="tco05Message" align=center>
             <img src="/i/tournament/tco05/message.gif" border=0 /><br/><br/>
-            <% if (algoTerms.isRegistered()) { %>
+           <% if (algoTerms.isRegistered()) { %>
                     You are registered for the TCO Algorithm Competition.<br/>
             <% } else { %>
             <% if ((now.after(algoTerms.getBeginning())&&now.before(algoTerms.getEnd()))) { %>
               <% if (algoTerms.isEligible()) { %>
-                 You are not registered for the TCO Algorithm Competition, click <a class="tco05MessageLink" href="/tc?module=TCO05AlgorithmTerms">here</a> to register.<br/>
+                 You are not registered for the <strong>TCO Algorithm Competition</strong>, click <a href="/tc?module=TCO05AlgorithmTerms">here</a> to register.<br/>
             <%   } else { %>
                    Sorry, you are not eligible to register for the TCO.
             <%   }
@@ -32,7 +32,7 @@
 
             <% if ((now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd()))) { %>
             <%   if (compTerms.isEligible()) { %>
-                   You are not registered for the TCO Component Competition, click <a class="tco05MessageLink" href="/tc?module=TCO05ComponentTerms">here</a> to register.
+                   You are not registered for the <strong>TCO Component Competition</strong>, click <a href="/tc?module=TCO05ComponentTerms">here</a> to register.
             <%   } else { %>
                    Sorry, you are not eligible to register for the TCO.
             <%   }
