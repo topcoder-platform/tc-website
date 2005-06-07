@@ -139,6 +139,9 @@ public class Constants {
     public static int TCCC05_EVENT_ID;
     public static int TCCC05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCCC05_COMPONENT_TERMS_OF_USE_ID;
+    public static int TCO05_EVENT_ID;
+    public static int TCO05_ALGORITHM_TERMS_OF_USE_ID;
+    public static int TCO05_COMPONENT_TERMS_OF_USE_ID;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
