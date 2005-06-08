@@ -1,5 +1,6 @@
 <%@ page import="javax.naming.*,
-                 com.topcoder.servlet.request.FileUpload" %>
+                 com.topcoder.servlet.request.FileUpload,
+                 com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -150,6 +151,7 @@
 <head>
     <title>Catalogs of Java and .NET Components at TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
+    <link rel="stylesheet" type="text/css" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
 
