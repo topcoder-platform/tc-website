@@ -23,7 +23,7 @@
             
 <div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
 <br><br>
-<A href="https://softwarereg.sun.com/registration/developer/en_US/login?create=1"><img src="/i/tournament/tco05/sun_duke.gif" alt="Sun" border="0" align="right"/></A>
+<A href="https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank"><img src="/i/tournament/tco05/sun_duke.gif" alt="Sun" border="0" align="right"/></A>
 The Sun&#153; Developer Network, Sun Microsystem's premier developer community, is proud to sponsor the 2005 TopCoder Open.
 <br><br>
 Sun has a long history of supporting the Java development community. For example, consider the JavaOne(SM) conference, Java.Net, java.sun.com, and Sun's contributions to open source as evidence of Sun's commitment to developer productivity and coding excellence.
