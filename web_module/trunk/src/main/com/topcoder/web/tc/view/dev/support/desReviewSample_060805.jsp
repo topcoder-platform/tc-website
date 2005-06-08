@@ -2330,7 +2330,7 @@ reasoning for assigning anything but a perfect score in this category.
                         
 
                         <td>
-                            <input name="submit" value="Save and Mark as Complete" onclick="set(this.form,'finish', -1, -1)" class="submitButton" type="submit">
+                            <input name="submit" value="Save and Mark as Complete" onclick="" class="submitButton" type="submit">
                         </td>
                     </tr>
                 </tbody></table>
