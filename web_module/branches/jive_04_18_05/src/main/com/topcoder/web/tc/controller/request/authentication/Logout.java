@@ -25,7 +25,10 @@ public class Logout extends Base {
 
         getRequest().getSession().invalidate();
         
-        String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));                                                    
+        String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+        if (dest.equals("")) {
+            dest = "http://" + info.getServerName() + "/tc";
+        }
         StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Logout");
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
         setNextPage(nextPage.toString());
