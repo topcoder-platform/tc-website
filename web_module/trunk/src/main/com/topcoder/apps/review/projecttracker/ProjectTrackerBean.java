@@ -2874,21 +2874,6 @@ public class ProjectTrackerBean implements SessionBean {
                 "        pi.end_date," +
                 "        p.project_id, " +
                 "       ROUND(sum(s.score)/3,2) score," +
-                "   case when sb.submitter_id =  (" +
-                "   select sub.submitter_id" +
-                "   from submission sub " +
-                "   where sub.project_id = p.project_id" +
-                "   and sub.cur_version = 1" +
-                "   and sub.is_removed = 0" +
-                "   and sub.submission_type = 1" +
-                "   and not exists (select submitter_id from submission" +
-                "   where project_id = sub.project_id and" +
-                "   submitter_id <> sub.submitter_id and " +
-                "   submission_date < sub.submission_date " +
-                "   and is_removed = 0" +
-                "   and submission_type = 1 " +
-                "   and cur_version = 1)" +
-                "   ) then 1 else 0 end multiplier, " +
                 "(select count(*) from scorecard sc, submission sb1 where sc.scorecard_type = 2 " +
                 "and sc.cur_version = 1 and sc.submission_id = sb1.submission_id " +
                 "and sb1.submission_type = 1 " +
@@ -2905,7 +2890,11 @@ public class ProjectTrackerBean implements SessionBean {
                 "and sb2.submitter_id <> sb.submitter_id " +
                 "and sc2.author_id = sc.author_id " +
                 "and sc2.score > sc.score " +
-                ")) as wincount " +
+                "and (select sum(score)/3 from scorecard where scorecard.submission_id = sc2.submission_id " +
+                "and scorecard.cur_version = 1 and scorecard.scorecard_type = 2) = (select sum(score)/3 from scorecard where scorecard.submission_id = sc.submission_id " +
+                "and scorecard.cur_version = 1 and scorecard.scorecard_type = 2) " +
+                ")) as wincount," +
+                "sum(s.score)/3 as raw_score " +
                 "  FROM scorecard s , project p, comp_version_dates cvd," +
                 "       submission sb, phase_instance pi" +
                 " WHERE s.scorecard_type = 2" +
@@ -2933,8 +2922,8 @@ public class ProjectTrackerBean implements SessionBean {
                 "          sb.submitter_id, " +
                 "          pi.end_date," +
                 "          p.project_id," +
-                "          11 " +
-                " ORDER BY score desc, 11 desc";
+                "          10 " +
+                " ORDER BY 11 desc, 10 desc";
         final String insertScores = "update project_result set " +
                 "            final_score = ?," +
                 "            placed = ?," +
