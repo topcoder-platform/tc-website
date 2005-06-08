@@ -225,7 +225,7 @@
 <!-- Status Bar -->
                 <tr valign="top">
 					<td class="display" colspan="2"><strong>Status: </strong><font class="small">Click on an icon to view project schedules for each phase.</font><br /><br />
-					<img src="/images/catalog/catpg_status_spec.gif" alt="" border="0" /><img src="/images/catalog/catpg_status_desarch.gif" alt="" border="0" /><img src="/images/catalog/catpg_status_devtest.gif" alt="" border="0" /><img src="/images/catalog/catpg_status_complete.gif" alt="" border="1" /><br />
+					<img src="/images/catalog/catpg_status_spec.gif" alt="" border="<%=(versionInfo.getPhase() == ComponentVersionInfo.COLLABORATION ? 1 : 0)%>" /><img src="/images/catalog/catpg_status_desarch.gif" alt="" border="<%=(versionInfo.getPhase() == ComponentVersionInfo.SPECIFICATION ? 1 : 0)%>" /><img src="/images/catalog/catpg_status_devtest.gif" alt="" border="<%=(versionInfo.getPhase() == ComponentVersionInfo.DEVELOPMENT ? 1 : 0)%>" /><img src="/images/catalog/catpg_status_complete.gif" alt="" border="<%=(versionInfo.getPhase() == ComponentVersionInfo.COMPLETED  ? 1 : 0)%>" /><br />
 					</td>
 				</tr>
 <!-- Overview, Functionality -->
@@ -297,38 +297,36 @@
                    <table cellspacing="0" cellpadding="0" border="0">
                    		<tr valign="top">
                    			<td width="50%">
-		                        <font class="small">Designers:</font><br />
-		
-			                        <%  for (int i=0; i < teamMemberRoles.length - 1; i++) { %>
-			                            <%= teamMemberRoles[i].getUsername() %>,&nbsp;
-			                        <%   }  %>
-			                            <%= teamMemberRoles[teamMemberRoles.length-1].getUsername() %>
-			
-			                       
-			
-			                        <%  }  %>
-			                <br /><br />
+		                        <font class="small">Designers:</font> <br />
+                                                <%boolean first = true;%>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%>,&nbsp;<%}%><%= teamMemberRoles[i].getUsername()%><%  }  }  %>
+
 	                   		</td>
+	                   		<td width="10px">&nbsp;</td>
 	                   		<td width="50%">
-                       			<font class="small">Design Review Board: <br />
-                       			Add names!
+                       			<font class="small">Design Review Board:</font> <br />
+                       			<% first = true;%>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%>,&nbsp;<%}%><%= teamMemberRoles[i].getUsername()%><%  }  }  %>
                        			</font>
                    	   		</td>
                    	   	</tr>
                    	   	<tr valign="top">
                    	   		<td>
-                   	   			<font class="small">Developers: <br />
-                   	   			Add names!
+                   	   			<font class="small">Developers:</font> <br />
+                   	   			<% first = true;%>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%>,&nbsp;<%}%><%= teamMemberRoles[i].getUsername()%><%  }  }  %>
                    	   			</font>
                    	   		</td>
+                   	   		<td width="10px">&nbsp;</td>
                    	   		<td>
-                   	   			<font class="small">Dev Review Board: <br />
-                   	   			Add names!
+                   	   			<font class="small">Dev Review Board:</font> <br />
+                   	   			<% first = true;%>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%>,&nbsp;<%}%><%= teamMemberRoles[i].getUsername()%><%  }  }  %>
                    	   			</font>
                    	   		</td>
                    	   	</tr>
                    </table>
-
+                        <%  }  %>
                         <p><strong>Availability</strong><br />
                         Version <%= versionInfo.getVersionLabel() %><br />
                         <img src="/images/catalog/catpg_download.jpg" alt="" border="0" /><br />
