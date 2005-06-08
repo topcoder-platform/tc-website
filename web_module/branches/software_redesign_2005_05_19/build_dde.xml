@@ -204,10 +204,10 @@
             deprecation="true">
             <include name="com/topcoder/dde/**" />
             <include name="com/topcoder/util/**" />
-            <include name="com/topcoder/web/common/**" />
-            <include name="com/topcoder/web/common/tag/HandleTag**" />
-            <exclude name="com/topcoder/web/common/render/**" />
-            <exclude name="com/topcoder/web/common/tag/**" />
+            <include name="com/topcoder/web/common/*" />
+            <include name="com/topcoder/web/common/tag/HandleTag.java" />
+            <include name="com/topcoder/web/common/model/**" />
+            <include name="com/topcoder/web/common/security/**" />
         </javac>
     </target>
 
