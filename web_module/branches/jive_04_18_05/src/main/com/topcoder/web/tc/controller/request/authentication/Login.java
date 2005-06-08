@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.Util;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -53,7 +52,7 @@ public class Login extends Base {
                     try {
                         long userId = getUserId(username);
                         if (userId < 0)
-                            throw new LoginException("Incorrect handle");
+                            throw new LoginException("Incorrect handle.");
                         char status = getStatus(userId);
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status) > 0) {
@@ -69,8 +68,7 @@ public class Login extends Base {
                                 StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Login");
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
-                                //nextPage.append("&").append(PASSWORD).append("=").append(Util.encodePassword(password, "users"));
-                                nextPage.append("&").append(PASSWORD).append("=").append(password);
+                                nextPage.append("&").append(PASSWORD).append("=").append(com.jivesoftware.util.StringUtils.hash(password));
                                 if (!rememberUser.equals("")) {
                                     nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
                                 }

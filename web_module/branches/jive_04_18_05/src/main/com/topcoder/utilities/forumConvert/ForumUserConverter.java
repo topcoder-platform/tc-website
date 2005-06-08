@@ -4,7 +4,6 @@
 package com.topcoder.utilities.forumConvert;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,8 +11,6 @@ import java.sql.SQLException;
 
 import javax.naming.Context;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.DateUtil;
 import com.topcoder.shared.util.logging.Logger;
 
 import com.jivesoftware.util.StringUtils;
