@@ -23,60 +23,27 @@
             
 <div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
 <br><br>
-The Sun<sup>SM</sup> Developer Network, Sun Microsystem's premier developer community, is proud to sponsor the 2005 TopCoder Open and be part of the passion and innovation shown by TopCoder members in this competition.
+<A href="https://softwarereg.sun.com/registration/developer/en_US/login?create=1"><img src="/i/tournament/tco05/sun_duke.gif" alt="Sun" border="0" align="right"/></A>
+The Sun&#153; Developer Network, Sun Microsystem's premier developer community, is proud to sponsor the 2005 TopCoder Open.
 <br><br>
-To improve your development  productivity, Sun  Developer Network  would like to introduce Sun Java&#153; Studio Creator, the premier 100% Java&#153;-based IDE that sets the standard for web application development with the Java programming language. Creator's IDE lets you drag-and-drop JavaServer&#153; Faces components onto pages, graphically bind data to components, visually layout page navigation, and more!
+Sun has a long history of supporting the Java development community. For example, consider the JavaOne(SM) conference, Java.Net, java.sun.com, and Sun's contributions to open source as evidence of Sun's commitment to developer productivity and coding excellence.
 <br><br>
-The soon to be released Java Studio Creator 2 brings with it new and exciting features, many of which resulted from customer feedback since the product was launched at the 2004 JavaOne<sup>SM</sup> conference.
+Sun shares the passion for innovation, which is demonstrated by TopCoder's members in the TopCoder Open.
 <br><br>
-To help deliver Creator 2 functionality that meets your development  needs, Sun is launching the Java Studio Creator 2 Early Access program exclusively to Sun Developer Network members.  By joining this Program you will have the opportunity to evaluate the new features of the IDE and provide us your feedback. 
+One series of this year's TopCoder Open will focus upon JavaServer Faces component development. 
 <br><br>
-The program will allow you to preview the following features:
-<ul>
-<li>Sun Java Web User Interface Components</li>
-   <ul>
-   <li>New, powerful JavaServer Faces components</li>
-   <li>Huge step forward in terms of functionality and look/feel</li>
-   </ul>
-<li>JSR-168 Portlet Support</li>
-   <ul>
-   <li>Support for portlet project type</li>
-   <li>Lets you build JSR-168 compliant portlets using JavaServer Faces and Creator design-time</li>
-   </ul>
-<li>Built on NetBeans 4.1</li>
-<li>Data Provider</li>
-   <ul>
-   <li>Lets you bind components to practically anything</li>
-   <li>Enables component binding competitive to ADO.NET</li>
-   </ul>
-<li>Style Sheet Editor</li>
-   <ul>
-   <li>Lets you visually make changes to CSS</li>
-   </ul>
-<li>Remote Deployment</li>
-<li>EJB support</li>
-<li>Version Control Integration</li>
-<li>Refactoring</li>
-</ul>
-These capabilities work with Sun Application Server 8.1 PE UR2, which is installed and pre-configured for your immediate use.
+One of Sun's most exciting new products is Sun Java&#153; Studio Creator, which is a 100% Java&#153;-based IDE focused on visual drag-and-drop web application development using JavaServer Faces components.
 <br><br>
-<span class="bodySubtitle">Early Access Program Benefits:</span><br>
-As a Sun Java Studio Creator Early 2 Access participant, you gain access to the pre-release version of the product.  You  will also be a key contributor in testing features and reporting bugs and problems through our  feedback tools.
+Developing and using third-party JavaServer faces components in Java&#153; Studio Creator is possible today and will be even better in the soon to be released Java Studio Creator 2, which brings with it many other new and exciting features, several of which resulted from customer feedback since the product was launched at the 2004 JavaOne(SM) conference.
 <br><br>
-We welcome your comments and feedback regarding the quality and performance of the software. Your input will be used to influence future product direction and content.
-<br><br>
-Accepted applicants who provide timely feedback during this Program will be awarded with one free license to the new version of Java Studio Creator 2.
-<br><br>
-In addition, for the top three EA participants who go "above & beyond" the call of duty by submitting substantial feedback during the program, we have set aside a few valuable gifts to show our appreciation for your efforts!  Stay tuned for more details.
-<br><br>
-You will be provided with support during the Program to assist you with any problems that you encounter.  Also, you will be able to file comments and bugs via our website. As with any Early Access Program, there may be bugs in the software and we cannot guarantee a fix or patch for specific bugs, but keep your feedback coming in!
-<br><br>
-To qualify for the Creator 2 Early Access Program, please join the Sun Developer  Network by clicking <A href="https://softwarereg.sun.com/registration/developer/en_US/login?create=1">here</A>.
-<br><br>
+Sun recommends that all TopCoder participants do the following:
+<ol>
+<li>Learn more about Java&#153; Studio Creator 2 and participate in the Early Access Program: <A href="https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank">JOIN NOW!</A></li>
+<li>Build your JavaServer Faces components using the Java&#153; Studio Creator Design-Time APIs. To learn about the APIs please <A href="http://developers.sun.com/prodtech/javatools/jscreator/reference/apis/index.html" target="_blank">click here</A>.</li>
+</ol>
 Stay tuned here for information on the Creator 2 Early Access Program launch date.
 <br><br>
 Let the Coding begin!
-
         </div>
 		</td>
         

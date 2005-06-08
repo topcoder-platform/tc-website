@@ -80,7 +80,7 @@
 
          <tr>
             <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-            <td class=homeTitle><A href="/tc?module=Static&d1=contracting&d2=index" class=homeTitleLink>Looking for your next Gig?</A></td>
+            <td class=homeTitle><A href="/tc?module=Static&d1=contracting&d2=index" class=homeTitleLink>Employment Opportunities</A></td>
          </tr>
          <tr>
             <td class=homeArrow>&#160;</td>
