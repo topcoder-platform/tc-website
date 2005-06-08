@@ -7,6 +7,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
+<%@ taglib uri="/WEB-INF/dde.tld" prefix="dde" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
@@ -299,7 +300,7 @@
                    			<td width="50%">
 		                        <font class="small">Designers:</font> <br />
                                                 <%boolean first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%>,&nbsp;<%}%><%= teamMemberRoles[i].getUsername()%><%  }  }  %>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
 
 	                   		</td>
 	                   		<td width="10px">&nbsp;</td>
