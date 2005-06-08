@@ -300,7 +300,7 @@
                    <table cellspacing="0" cellpadding="0" border="0">
                    		<tr valign="top">
                    			<td width="50%">
-		                        <font class="small">Designers:</font> <br />
+		                        <font class="small">Designer(s):</font> <br />
                                                 <%boolean first = true;%>
 			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
 
@@ -315,7 +315,7 @@
                    	   	</tr>
                    	   	<tr valign="top">
                    	   		<td>
-                   	   			<font class="small">Developers:</font> <br />
+                   	   			<font class="small">Developer(s):</font> <br />
                    	   			<% first = true;%>
 			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
                    	   			</font>
