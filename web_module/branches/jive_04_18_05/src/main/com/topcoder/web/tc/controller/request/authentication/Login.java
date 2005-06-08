@@ -32,6 +32,10 @@ public class Login extends Base {
         /* may be null */
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
+        // hack would be to parse out server name from //.../ in next page
+        // find server name from sessionInfo
+        SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
         log.debug("rememberUser: " + rememberUser);
@@ -62,7 +66,7 @@ public class Login extends Base {
                             } else {
                                 log.debug("user active");
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));                                                    
-                                StringBuffer nextPage = new StringBuffer("/forums?module=Login");
+                                StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Login");
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
                                 //nextPage.append("&").append(PASSWORD).append("=").append(Util.encodePassword(password, "users"));
