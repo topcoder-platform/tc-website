@@ -9,6 +9,7 @@ import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
@@ -68,7 +69,7 @@ public class Login extends Base {
                                 StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Login");
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
-                                nextPage.append("&").append(PASSWORD).append("=").append(com.jivesoftware.util.StringUtils.hash(password));
+                                nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
                                 if (!rememberUser.equals("")) {
                                     nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
                                 }

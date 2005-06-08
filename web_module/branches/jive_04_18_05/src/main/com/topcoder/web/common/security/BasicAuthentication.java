@@ -213,6 +213,17 @@ public class BasicAuthentication implements WebAuthentication {
             hex.append(Integer.toHexString(raw[i] & 0xff));
         return hex.toString();
     }
+    
+    /** Compute a one-way hash of a password, similar to how a userid/password combination is hashed. */
+    public String hashPassword(String password) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] plain = (Constants.hash_secret + password).getBytes();
+        byte[] raw = md.digest(plain);
+        StringBuffer hex = new StringBuffer();
+        for (int i = 0; i < raw.length; i++)
+            hex.append(Integer.toHexString(raw[i] & 0xff));
+        return hex.toString();
+    }
 
     /**
      * Put a cookie in the response which will allow the user to be recognized

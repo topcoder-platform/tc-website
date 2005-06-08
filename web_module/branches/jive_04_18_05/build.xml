@@ -1291,10 +1291,6 @@
              <webinf dir="${resources}/tc">
                  <include name="jboss-web.xml"/>
              </webinf>
-         	 <lib dir="${jive.dir}">
-         	 	 <include name="jivebase.jar"/>
-         	 	 <include name="jiveforums.jar"/>
-         	 </lib>
              <lib dir="${struts.dir}">
                  <include name="*.jar"/>
              </lib>

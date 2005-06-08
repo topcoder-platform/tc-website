@@ -4,6 +4,7 @@ import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.shared.util.DBMS;
 
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.ejb.user.User;
 
 import com.jivesoftware.base.AuthFactory;
@@ -30,7 +31,7 @@ public class Login extends ForumsProcessor {
         }
         
         try {
-            if (com.jivesoftware.util.StringUtils.hash(password).equals(hashedPassword)) {
+            if (((BasicAuthentication)getAuthentication()).hashPassword(password).equals(hashedPassword)) {
                 com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
                 authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
             } else {
