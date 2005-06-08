@@ -44,6 +44,7 @@ Sun recommends that all TopCoder participants do the following:
 Stay tuned here for information on the Creator 2 Early Access Program launch date.
 <br><br>
 Let the Coding begin!
+
         </div>
 		</td>
         
