@@ -187,7 +187,7 @@ public class TestResults extends BaseScreeningProcessor {
                 dr2.setContentHandle("candidate_percentile");
                 dr2.setProperty("sid", String.valueOf(tinfo.getSessionId()));
                 dr2.setProperty("pid", String.valueOf(rscB.getLongItem(i, "problem_id")));
-                dr2.setProperty("tm", String.valueOf(rscB.getLongItem(i, "total_time")));
+                dr2.setProperty("pts", String.valueOf(rscB.getItem(i, "points").getResultData() == null ? "0" : rscB.getStringItem(i, "points")));
                 Map m2 = dAccess.getData(dr2);
 
                 percents.put(String.valueOf(rscB.getLongItem(i, "problem_id")), new Double(((ResultSetContainer) m2.get("candidate_percentile")).getDoubleItem(0, "percentile")));
