@@ -309,7 +309,7 @@
 	                   		<td width="50%">
                        			<font class="small">Design Review Board:</font> <br />
                        			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%>,&nbsp;<%}%><%= teamMemberRoles[i].getUsername()%><%  }  }  %>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
                        			</font>
                    	   		</td>
                    	   	</tr>
@@ -317,14 +317,14 @@
                    	   		<td>
                    	   			<font class="small">Developers:</font> <br />
                    	   			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%>,&nbsp;<%}%><%= teamMemberRoles[i].getUsername()%><%  }  }  %>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
                    	   			</font>
                    	   		</td>
                    	   		<td width="10px">&nbsp;</td>
                    	   		<td>
                    	   			<font class="small">Dev Review Board:</font> <br />
                    	   			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%>,&nbsp;<%}%><%= teamMemberRoles[i].getUsername()%><%  }  }  %>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
                    	   			</font>
                    	   		</td>
                    	   	</tr>
