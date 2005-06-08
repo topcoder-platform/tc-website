@@ -29,12 +29,6 @@ public abstract class ForumsProcessor extends Base {
      * Subclasses should do their work by implementing this method.
      */
     protected void businessProcessing() throws Exception {
-    	forumFactory = ForumFactory.getInstance(authToken);
-        if (authToken.isAnonymous()) {
-        	user = null;
-        } else {
-        	user = forumFactory.getUserManager().getUser(authToken.getUserID());
-        }
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
     }
@@ -57,6 +51,14 @@ public abstract class ForumsProcessor extends Base {
     
     public void setAuthToken(AuthToken authToken) {
     	this.authToken = authToken;
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
+    public void setForumFactory(ForumFactory forumFactory) {
+        this.forumFactory = forumFactory;
     }
     
     public boolean isGuest() {

@@ -8,7 +8,6 @@ import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
-import com.topcoder.web.forums.model.TCAuthToken;
 
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
@@ -26,6 +25,7 @@ import java.util.Set;
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
+import com.jivesoftware.forum.ForumFactory;
 
 /**
  * @author mtong
@@ -54,20 +54,17 @@ public class ForumsServlet extends BaseServlet {
             
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-            //log.debug("@@@@@@@@ Active user ID: " + authentication.getActiveUser().getId());
-			//AuthToken authToken = TCAuthFactory.getAuthToken(request, response);     // calls BA.getActiveUser()
 		    AuthToken authToken = AuthFactory.getAnonymousAuthToken();
             try {
 		        authToken = AuthFactory.getAuthToken(request, response);
             } catch (UnauthorizedException uae) {}
-            //AuthToken authToken = AuthFactory.getAuthToken("tomek","password");
-            if (log.isDebugEnabled()) {
+            /*if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
                     log.debug("*** Uses custom auth ***");
                 } else {
                     log.debug("*** Does not use custom auth ***");
                 }
-            }
+            }*/
 	    	user = getUser(authToken.getUserID());
             
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
@@ -76,9 +73,15 @@ public class ForumsServlet extends BaseServlet {
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
             
+            com.jivesoftware.base.User forumUser = null;
+            ForumFactory forumFactory = ForumFactory.getInstance(authToken);
+            if (!authToken.isAnonymous()) {
+                forumUser = forumFactory.getUserManager().getUser(authToken.getUserID());
+            }
+            
 		    StringBuffer loginfo = new StringBuffer(100);
 		    loginfo.append("[**** ");
-		    loginfo.append(info.getHandle());
+            loginfo.append((forumUser == null) ? "anonymous" : forumUser.getUsername());
 		    loginfo.append(" **** ");
 		    loginfo.append(request.getRemoteAddr());
 		    loginfo.append(" **** ");
@@ -105,7 +108,7 @@ public class ForumsServlet extends BaseServlet {
 		            try {
 		                SimpleResource resource = new SimpleResource(processorName);
 		                if (hasPermission(authentication, resource)) {
-		                    rp = callProcess(processorName, request, response, tcRequest, tcResponse, authentication, authToken);
+		                    rp = callProcess(processorName, request, response, tcRequest, tcResponse, authentication, authToken, forumUser, forumFactory);
 		                } else {
 		                    throw new PermissionException(authentication.getActiveUser(), resource);
 		                }
@@ -167,7 +170,8 @@ public class ForumsServlet extends BaseServlet {
 
     protected RequestProcessor callProcess(String processorName, HttpServletRequest httpRequest,
             HttpServletResponse httpResponse, TCRequest request, TCResponse response,
-            WebAuthentication authentication, AuthToken authToken) throws Exception {
+            WebAuthentication authentication, AuthToken authToken, com.jivesoftware.base.User user, 
+            ForumFactory factory) throws Exception {
 		ForumsProcessor rp = null;
 
 		rp = (ForumsProcessor)Class.forName(processorName).newInstance();
@@ -177,6 +181,8 @@ public class ForumsServlet extends BaseServlet {
 		rp.setResponse(response);
 		rp.setAuthentication(authentication);
 		rp.setAuthToken(authToken);
+        rp.setUser(user);
+        rp.setForumFactory(factory);
 		rp.process();
 		return rp;
 	}
