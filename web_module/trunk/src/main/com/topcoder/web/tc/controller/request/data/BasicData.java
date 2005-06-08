@@ -35,12 +35,15 @@ public class BasicData extends Base {
             Iterator it = m.keySet().iterator();
             //we're just giving them one thing at a time so the command should only have
             //one query associated with it.
+            
+            getResponse().setContentType("text/xml");
+            
             if (it.hasNext()) {
                 key = (String)it.next();
                 rsc = (ResultSetContainer)m.get(key);
                 ResultSetContainerConverter.writeXML(rsc, r.getContentHandle(), getResponse().getOutputStream());
             }
-            getResponse().setContentType("text/xml");
+            
             getResponse().flushBuffer();
         } else {
             throw new PermissionException(getUser(), resource);
