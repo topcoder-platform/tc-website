@@ -115,7 +115,7 @@ public class TestResults extends BaseScreeningProcessor {
                     //get percentiles
                     dr = new Request();
                     dr.setContentHandle("candidate_percentile");
-                    dr.setProperty("pts", String.valueOf(testAResults.getLongItem(x, "points")));
+                    dr.setProperty("pts", String.valueOf(testAResults.getDoubleItem(x, "points")));
                     dr.setProperty("pm", String.valueOf(stats.getLongItem(i, "problem_id")));
                     
                     Map percentStats = dwAccess.getData(dr);
