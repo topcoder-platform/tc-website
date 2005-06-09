@@ -399,7 +399,7 @@
                     <td>
                         <table border="0" cellpadding="0" cellspacing="0">
                         <tr><td class="display">
-                            <table border="0" cellpadding="0" cellspacing="0">
+                            <table border="0" cellpadding="0" cellspacing="2">
                                 <tr>
                                     <td class="display" valign="top">
                                         <strong>Class Diagrams</strong><br/>
