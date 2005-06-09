@@ -31,9 +31,6 @@ public class Login extends ForumsProcessor {
         }
         
         try {
-            log.debug("***||| password: " + password);
-            log.debug("***||| hashed password: " + ((BasicAuthentication)getAuthentication()).hashPassword(password));
-            log.debug("***||| hashed password from request: " + hashedPassword);
             if (((BasicAuthentication)getAuthentication()).hashPassword(password).equals(hashedPassword)) {
                 com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
                 authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
@@ -57,10 +54,10 @@ public class Login extends ForumsProcessor {
     
     private String getPassword(long userID) throws Exception {
         Request r = new Request();
-        r.setContentHandle("userid_to_password");
+        r.setContentHandle("user_to_password");
         r.setProperty("uid", ""+userID);
         java.util.Map map = getDataAccess().getData(r);
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("userid_to_password");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("user_to_password");
         if (rsc.isEmpty())
             return "";
         else
