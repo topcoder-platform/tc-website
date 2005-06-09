@@ -14,6 +14,8 @@
 
         <td class="topNav" nowrap="0"><A class="topLink" href="/?t=development&amp;c=index">Development</A></td>
 
+        <td class="topNav" nowrap="0"><A class="topLink" href="/tc?module=Static&amp;d1=contracting&amp;d2=index">Employment Opportunities</A></td>
+
         <td class="topNav" width="49%">&#160;</td>
     </tr>
 </table>
