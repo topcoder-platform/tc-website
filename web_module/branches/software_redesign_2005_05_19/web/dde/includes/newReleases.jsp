@@ -5,9 +5,9 @@
                  java.util.Iterator"%>
 <%
     Request r = new Request();
-    r.setContentHandle("top_downloads");
+    r.setContentHandle("recent_components");
     DataAccessInt dai = new CachedDataAccess(60*60*1000, "java:InformixDS");
-    ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("top_downloads");
+    ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("recent_components");
 %>
 
 
@@ -26,7 +26,7 @@
         %>
             <tr>
                 <td class="topsText"><A href="/catalog/c_component.jsp?comp=<%=row.getLongItem("component_id")%>&ver=<%=row.getIntItem("version")%>"><%=row.getStringItem("component_name")%></A></td>
-                <td class="topsText" align="right"><%=row.getIntItem("num_downloads")%></td>
+                <td class="topsText" align="right"><%=row.getStringItem("date")%></td>
             </tr>
         <%
             }
