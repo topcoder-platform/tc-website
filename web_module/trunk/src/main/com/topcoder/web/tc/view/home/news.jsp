@@ -231,18 +231,6 @@ In Division 1, the not-too-hard but subtle problem set made the match quite exci
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.18.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=209">Vote for the TCO05 logo</A></span><br><br>
-      We've selected the 5 finalists, and now it's your turn to pick the winner.  Results announced May 25.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=209">vote</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
    <tr>
       <td class="sidebarTitle" colspan="4">News Archives</td>
