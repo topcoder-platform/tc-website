@@ -11,6 +11,14 @@
 
 <%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
+<script type="text/javascript">
+function noenter(e)
+{
+  var k = (window.event)? event.keyCode: e.which;
+  return !(k == 13);
+}
+</script>
+
 <html>
 <head>
 <title>TopCoder Forums</title>
@@ -111,7 +119,7 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Handle:</strong></td>
       <td class="rtTextCell100">
-         <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="" type="text" />&#160;
+         <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="" type="text" onKeyPress="return noenter(event)"/>&#160;
          (Leave field blank to search all users)
          <% if (errors.get(ForumConstants.SEARCH_HANDLE) != null) { %><br/><font color="red"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_HANDLE%>"><%=err%></tc-webtag:errorIterator></font><% } %>
       </td>
