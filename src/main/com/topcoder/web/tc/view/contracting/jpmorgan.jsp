@@ -72,7 +72,7 @@
       <br><br>
       Hands on position writing code, but also needs a firm grasp of higher math, excellent communication skills required. Very good understanding of distributed computing required, with multithreading experience preferred. Some experience with code optimization/performance tuning and algorithms would be great. This person would develop software solutions for distributing analytics as well as optimize the speed of the analytics.
       <br><br>
-      <a href="/tc?module=JobHit&jid=274&jt=4">Register for this position here!</a>
+      <a href="/">Register for this position here!</a>
 		<br/><br/>
 
       <hr noshade="noshade" size="1" />
@@ -81,7 +81,7 @@
       <br><br>
       Individual with development/ build and deployment expertise with some scripting skills, make file and source code control (subversion), some Python or similar experience a plus also. Large software library experience a big plus.
       <br><br>
-      <a href="/tc?module=JobHit&jid=274&jt=4">Register for this position here!</a>
+      <a href="/">Register for this position here!</a>
 		<br/><br/>
 
       <hr noshade="noshade" size="1" />
@@ -90,7 +90,7 @@
       <br><br>
       Must have very good C++ skills, strong math background and problem solving, finance background would be a plus as well. Experience writing financial analytics software would also be a plus.
       <br><br>
-      <a href="/tc?module=JobHit&jid=274&jt=4">Register for this position here!</a>
+      <a href="/">Register for this position here!</a>
 		<br/><br/>
 
       <hr noshade="noshade" size="1" />
