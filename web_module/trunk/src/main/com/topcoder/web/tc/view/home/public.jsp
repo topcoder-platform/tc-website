@@ -61,16 +61,6 @@
                <tr><td><img src="/i/home_right_bottom.gif" width="180" height="20" border="0" /></td></tr>
            </table>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-               <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
-               <tr><td><img src="/i/home/right_list_top.gif" alt="" width="180" height="11" border="0"></td></tr>
-               <tr><td><img src="/i/home/header_recent_placements.gif" alt="Recent Placements" border="0" /></td></tr>
-               <tr><td><jsp:include page="recently_placed.jsp" /></td></tr>
-               <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
-               <tr><td><img src="/i/home_right_bottom.gif" width="180" height="20" border="0" /></td></tr>
-           </table>
-
-
             <p><br/></p>
          </td>
 <!-- Right Column Ends -->
