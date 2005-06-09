@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.09.05<br>8:55 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo!</A></span><br><br>
+      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo!</A> is offering various engineering positions, available to <strong>ALL</strong> members.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.08.05<br>11:40 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=244237&thread=500228&mc=1">More data feeds for accessing TopCoder statistics</A></span><br><br>
       We've added two more data feeds for people that want to use our statistics in their programs.
@@ -205,18 +217,6 @@ In Division 1, the not-too-hard but subtle problem set made the match quite exci
    <tr><td class="newsLinksCell">
          <A href="/tc?&module=ViewSurvey&sid=7218">vote</A>&#160;|&#160;
          <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>05.19.05<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">Purdue computer programmer making his mark in competitions</A></span><br><br>
-      "Tomasz Czajka, 23-year-old Purdue doctoral candidate, has already improved software for Microsoft and performed research for IBM. This summer he's headed to California to intern with a smaller company named Google." [Boiler Station]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
