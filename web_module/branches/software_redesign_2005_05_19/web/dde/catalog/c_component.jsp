@@ -537,6 +537,7 @@
                                            } %>
                                     </td>
                                 </tr>
+                                <tr><td><br></td></tr>
                                 <tr>
                                     <td class="display" valign="top">
                                         <strong>Other</strong><br/>
@@ -554,7 +555,6 @@
                                         &nbsp;
                                     </td>
                                 </tr>
-                                <tr><td><br></td></tr>
                                 <tr>
                                     <td class="rightColOff" valign="top">
                                         <%  if (docOther.length == 0) {%>
