@@ -64,7 +64,7 @@ return false;
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=goldengate"><img src="/i/contracting/goldengate_logo.gif" alt="Golden Gate" border=0/></A>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=jpmorgan"><img src="/i/contracting/jpmorgan_logo.gif" alt="JP Morgan" border=0/></A>
+               <A href="/tc?module=Static&d1=contracting&d2=jpmorgan"><img src="/i/contracting/jpmorgan_logo.gif" alt="JP Morgan" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/contracting/yahoo_logo.gif" alt="Yahoo!" border=0/></A>
                <hr noshade="noshade" size="1" />
