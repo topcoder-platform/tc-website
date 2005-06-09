@@ -1,11 +1,11 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.ejb.user.User;
 
 import com.jivesoftware.base.AuthFactory;
 
@@ -52,10 +52,14 @@ public class Login extends ForumsProcessor {
         return;
     }
     
-    private String getPassword(long userId) throws Exception {
-        String password;
-        User user = (User) createEJB(getInitialContext(), User.class);
-        password = user.getPassword(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        return password;
+    private String getPassword(long userID) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("userid_to_password");
+        r.setProperty("uid", ""+userID);
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("password");
+        if (rsc.isEmpty())
+            return "";
+        else
+            return rsc.getStringItem(0, "password");
     }
 }
