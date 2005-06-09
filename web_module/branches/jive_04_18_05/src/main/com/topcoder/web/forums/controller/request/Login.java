@@ -57,8 +57,7 @@ public class Login extends ForumsProcessor {
         r.setContentHandle("userid_to_password");
         r.setProperty("uid", ""+userID);
         java.util.Map map = getDataAccess().getData(r);
-        log.debug("***||| map obtained |||***");
-        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("password");
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("userid_to_password");
         if (rsc.isEmpty())
             return "";
         else
