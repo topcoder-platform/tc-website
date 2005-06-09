@@ -17,7 +17,7 @@
     <tr><td class="topsTitle" colspan="2">Newly Released Components*</td></tr>
     <tr>
         <td class="topsTitle">Name</td>
-        <td class="topsTitle" align="right">Month/Day</td>
+        <td class="topsTitle" align="right">Date</td>
     </tr>
         <%
             ResultSetContainer.ResultSetRow row = null;
