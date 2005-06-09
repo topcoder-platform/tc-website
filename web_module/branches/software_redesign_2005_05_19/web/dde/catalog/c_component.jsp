@@ -418,16 +418,16 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="rightColOff" align="top">
+                                    <td class="rightColOff" valign="top">
                                         <%  if (docClassDiagrams.length == 0) {%>
                                         None available at this time
                                         <% } else {
                                             String url = lngComponent+"/"+versionInfo.getVersionId() + "/";
                                             for (int i=0; i < docClassDiagrams.length; i++) {%>
                                                 <%if (docClassDiagrams[i].getId() < 0) {%>
-                                            <a href="<%=docClassDiagrams[i].getURL()%>" target="_blank" ><%=docClassDiagrams[i].getName()%></a>
+                                            <a href="<%=docClassDiagrams[i].getURL()%>" target="_blank" ><%=docClassDiagrams[i].getName()%></a><br/>
                                                 <% } else {%>
-                                            <a href="/catalog/document?id=<%=docClassDiagrams[i].getId()%>" target="_blank" ><%=docClassDiagrams[i].getName()%></a>
+                                            <a href="/catalog/document?id=<%=docClassDiagrams[i].getId()%>" target="_blank" ><%=docClassDiagrams[i].getName()%></a><br/>
                                                 <% } %>
                                             <% }
                                            } %>
@@ -435,16 +435,16 @@
                                     <td class="rightColOff" align="top" width="10px">
                                         &nbsp;
                                     </td>
-                                    <td class="rightColOff" align="top">
+                                    <td class="rightColOff" valign="top">
                                         <%  if (docUseCases.length == 0) {%>
                                         None available at this time
                                         <% } else {
                                             String url = lngComponent+"/"+versionInfo.getVersionId() + "/";
                                             for (int i=0; i < docUseCases.length; i++) {%>
                                                 <%if (docUseCases[i].getId() < 0) {%>
-                                            <a href="<%=docUseCases[i].getURL()%>" target="_blank" ><%=docUseCases[i].getName()%></a>
+                                            <a href="<%=docUseCases[i].getURL()%>" target="_blank" ><%=docUseCases[i].getName()%></a><br/>
                                                 <% } else {%>
-                                            <a href="/catalog/document?id=<%=docUseCases[i].getId()%>" target="_blank" ><%=docUseCases[i].getName()%></a>
+                                            <a href="/catalog/document?id=<%=docUseCases[i].getId()%>" target="_blank" ><%=docUseCases[i].getName()%></a><br/>
                                                 <% } %>
                                             <% }
                                            } %>
@@ -452,16 +452,16 @@
                                     <td class="rightColOff" align="top" width="10px">
                                         &nbsp;
                                     </td>
-                                    <td class="rightColOff" align="top">
+                                    <td class="rightColOff" valign="top">
                                         <%  if (docSequenceDiagrams.length == 0) {%>
                                         None available at this time
                                         <% } else {
                                             String url = lngComponent+"/"+versionInfo.getVersionId() + "/";
                                             for (int i=0; i < docSequenceDiagrams.length; i++) {%>
                                                 <%if (docSequenceDiagrams[i].getId() < 0) {%>
-                                            <a href="<%=docSequenceDiagrams[i].getURL()%>" target="_blank" ><%=docSequenceDiagrams[i].getName()%></a>
+                                            <a href="<%=docSequenceDiagrams[i].getURL()%>" target="_blank" ><%=docSequenceDiagrams[i].getName()%></a><br/>
                                                 <% } else {%>
-                                            <a href="/catalog/document?id=<%=docSequenceDiagrams[i].getId()%>" target="_blank" ><%=docSequenceDiagrams[i].getName()%></a>
+                                            <a href="/catalog/document?id=<%=docSequenceDiagrams[i].getId()%>" target="_blank" ><%=docSequenceDiagrams[i].getName()%></a><br/>
                                                 <% } %>
                                             <% }
                                            } %>
@@ -485,35 +485,35 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="rightColOff" align="top">
+                                    <td class="rightColOff" valign="top">
                                         <%  if (docRequirements.length == 0) {%>
                                         None available at this time
                                         <% } else {
                                             String url = lngComponent+"/"+versionInfo.getVersionId() + "/";
                                             for (int i=0; i < docRequirements.length; i++) {%>
                                                 <%if (docRequirements[i].getId() < 0) {%>
-                                            <a href="<%=docRequirements[i].getURL()%>" target="_blank" ><%=docRequirements[i].getName()%></a>
+                                            <a href="<%=docRequirements[i].getURL()%>" target="_blank" ><%=docRequirements[i].getName()%></a><br/>
                                                 <% } else {%>
-                                            <a href="/catalog/document?id=<%=docRequirements[i].getId()%>" target="_blank" ><%=docRequirements[i].getName()%></a>
+                                            <a href="/catalog/document?id=<%=docRequirements[i].getId()%>" target="_blank" ><%=docRequirements[i].getName()%></a><br/>
                                                 <% } %>
                                             <% }
                                            } %>
                                     </td>
-                                    <td class="rightColOff" align="top" width="10px">
+                                    <td class="rightColOff" valign="top" width="10px">
                                         &nbsp;
                                     </td>
-                                    <td class="rightColOff" align="top">
+                                    <td class="rightColOff" valign="top">
                                         <%  if (docJavaDocs.length == 0) {%>
                                         None available at this time
                                         <% } else {
                                             String url = lngComponent+"/"+versionInfo.getVersionId() + "/";
                                             for (int i=0; i < docJavaDocs.length; i++) {%>
                                             <%if (docJavaDocs[i].getType() == Document.JAVADOCS) {%>
-                                            <a href="<%= "/catalog/javadoc/"+url+"index.html" %>" target="_blank"><%=docJavaDocs[i].getName()%></a>
+                                            <a href="<%= "/catalog/javadoc/"+url+"index.html" %>" target="_blank"><%=docJavaDocs[i].getName()%></a><br/>
                                              <%} else if (docJavaDocs[i].getId() < 0) {%>
-                                            <a href="<%=docJavaDocs[i].getURL()%>" target="_blank" ><%=docJavaDocs[i].getName()%></a>
+                                            <a href="<%=docJavaDocs[i].getURL()%>" target="_blank" ><%=docJavaDocs[i].getName()%></a><br/>
                                                 <% } else {%>
-                                            <a href="/catalog/document?id=<%=docJavaDocs[i].getId()%>" target="_blank" ><%=docJavaDocs[i].getName()%></a>
+                                            <a href="/catalog/document?id=<%=docJavaDocs[i].getId()%>" target="_blank" ><%=docJavaDocs[i].getName()%></a><br/>
                                                 <% } %>
                                             <% }
                                            } %>
@@ -521,16 +521,16 @@
                                     <td class="rightColOff" align="top" width="10px">
                                         &nbsp;
                                     </td>
-                                    <td class="rightColOff" align="top">
-                                        <%  if (colScorecards.length == 0) {%>
+                                    <td class="rightColOff" valign="top">
+                                        <%  if (docScorecards.length == 0) {%>
                                         None available at this time
                                         <% } else {
                                             String url = lngComponent+"/"+versionInfo.getVersionId() + "/";
                                             for (int i=0; i < docScorecards.length; i++) {%>
                                                 <%if (docScorecards[i].getId() < 0) {%>
-                                            <a href="<%=docScorecards[i].getURL()%>" target="_blank" ><%=docScorecards[i].getName()%></a>
+                                            <a href="<%=docScorecards[i].getURL()%>" target="_blank" ><%=docScorecards[i].getName()%></a><br/>
                                                 <% } else {%>
-                                            <a href="/catalog/document?id=<%=docScorecards[i].getId()%>" target="_blank" ><%=docScorecards[i].getName()%></a>
+                                            <a href="/catalog/document?id=<%=docScorecards[i].getId()%>" target="_blank" ><%=docScorecards[i].getName()%></a><br/>
                                                 <% } %>
                                             <% }
                                            } %>
@@ -554,16 +554,16 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="rightColOff" align="top">
+                                    <td class="rightColOff" valign="top">
                                         <%  if (docOther.length == 0) {%>
                                         None available at this time
                                         <% } else {
                                             String url = lngComponent+"/"+versionInfo.getVersionId() + "/";
                                             for (int i=0; i < docOther.length; i++) {%>
                                                 <%if (docOther[i].getId() < 0) {%>
-                                            <a href="<%=docOther[i].getURL()%>" target="_blank" ><%=docOther[i].getName()%></a>
+                                            <a href="<%=docOther[i].getURL()%>" target="_blank" ><%=docOther[i].getName()%></a><br/>
                                                 <% } else {%>
-                                            <a href="/catalog/document?id=<%=docOther[i].getId()%>" target="_blank" ><%=docOther[i].getName()%></a>
+                                            <a href="/catalog/document?id=<%=docOther[i].getId()%>" target="_blank" ><%=docOther[i].getName()%></a><br/>
                                                 <% } %>
                                             <% }
                                            } %>
