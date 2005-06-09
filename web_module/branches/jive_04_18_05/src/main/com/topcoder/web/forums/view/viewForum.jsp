@@ -65,7 +65,7 @@
    		<A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>" class="rtbcLink">Post New Thread</A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>
    	</td>
 </tr>
-<tr><td class="rtbc"><A href="" class="rtbcLink">Round Tables</A> >>
+<tr><td class="rtbc"><A href="/forums" class="rtbcLink">Forums</A> >>
 	<jsp:getProperty name="forum" property="name"/></td>
 <% Page[] pages; %>
 <% if (paginator.getNumPages() > 1) { %>

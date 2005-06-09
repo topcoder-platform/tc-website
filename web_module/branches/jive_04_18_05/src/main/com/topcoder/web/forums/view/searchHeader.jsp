@@ -12,5 +12,5 @@
 <A href="?module=Search" class="rtbcLink">Search:</A>&#160;
 <input name="<%=ForumConstants.SEARCH_QUERY%>" size="20" maxlength="100" value="" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
 <input name="Search" value="Search" type="submit" alt="Search" onclick="">
-&#160;<a href="#" onclick="openWin('searchTips.jsp','st',300,400);" class="rtbcLink">Search Tips</a>
+&#160;<a href="#" onclick="openWin('searchTips.jsp','st',600,400);" class="rtbcLink">Search Tips</a>
 </form>
