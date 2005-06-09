@@ -66,7 +66,7 @@
 
 <!-- Middle Column begins -->
         <td width="99%" align="center">
-            <table border="0" cellpadding="0" cellspacing="10" width="530">
+            <table border="1" cellpadding="0" cellspacing="10" width="530">
                 <tr>
                     <td align="left">
                         <br/><a href="/applications/index.jsp"><img src="images/promos/promo_home_1.gif" alt="" width="267" height="59" border="0" /></a><br/><br/>
