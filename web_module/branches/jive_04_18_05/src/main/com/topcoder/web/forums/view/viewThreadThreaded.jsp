@@ -91,13 +91,12 @@
 </table>
 
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-<table cellpadding="0" cellspacing="0" width=100%><tr>
 	<%  int depth=thread.getTreeWalker().getMessageDepth(message);
 		int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5));
 		if (depth > 0) { %>
-			<td width=1%><img src="/images/clear.gif" width="<%=width%>" height="50"></td>
-	<%	}	%>
-	<td width=99%><table cellpadding="0" cellspacing="0" class="rtTable">
+<div style="padding:0px 0px 0px <%=width%>px;">
+<%	}	%>
+<table cellpadding="0" cellspacing="0" class="rtTable">
 		<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
 			<%	if (message.getParentMessage() != null) { %>
 					(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=message.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/>)
@@ -115,8 +114,8 @@
     	<%	} %>
 		<A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/>"><img src="/i/roundTables/reply.gif" class="rtButton" alt="Reply" /></A>
 		</td></tr>
-	</table></td>
-</tr></table>
+</table>
+</div>
 </tc-webtag:iterator>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
