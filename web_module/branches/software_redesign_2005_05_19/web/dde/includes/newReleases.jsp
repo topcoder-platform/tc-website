@@ -14,7 +14,7 @@
 <table cellspacing="0" cellpadding="0" width="170">
     <tr><td colspan="2"><img src="/images/clear.gif" width="1" height="6" border="0" alt=""></td></tr>
     <tr><td colspan="2" align="right"><img src="/images/right_nav_top.gif" border="0" alt=""></td></tr>
-    <tr><td class="topsTitle" colspan="2">New Releases*</td></tr>
+    <tr><td class="topsTitle" colspan="2">Most Recently Released Components*</td></tr>
     <tr>
         <td class="topsTitle">Name</td>
         <td class="topsTitle" align="right">Date</td>
