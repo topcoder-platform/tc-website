@@ -17,7 +17,7 @@
     <tr><td class="topsTitle" colspan="2">Newly Released Components*</td></tr>
     <tr>
         <td class="topsTitle">Name</td>
-        <td class="topsTitle" align="right">Date</td>
+        <td class="topsTitle" align="right">Month/Day</td>
     </tr>
         <%
             ResultSetContainer.ResultSetRow row = null;
@@ -33,4 +33,4 @@
         %>
     <tr><td colspan="2"><img src="/images/right_nav_btm.gif" border="0" alt=""></td></tr>
 </table>
-<div align="right" class="small">*over the last 60 days</div>
+<div align="right" class="small">*over the last 30 days</div>
