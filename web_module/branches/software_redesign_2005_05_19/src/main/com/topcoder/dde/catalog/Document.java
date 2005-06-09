@@ -55,6 +55,8 @@ public class Document implements Serializable {
     /** The status constant used to indicate a screen shot image thumbnail */
     public static final long SCREEN_SHOT_THUMBNAIL = 9L;
 
+    public static final long SEQUENCE_DIAGRAM = 15L;
+    
     public static final long JAVADOCS = 23L;
 
     private long id;
