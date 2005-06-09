@@ -93,21 +93,15 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr><td class="rtHeader" colspan="2">
-   <div align="right" style="float: left;">
    <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="activeMessage" property="subject"/>
       <%  if (activeMessage.getParentMessage() != null) { %>
       		(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/>)
       <%  } %>
    </a>
-   </div>
-
-   <div align="right" style="float: right;">
+   &#160;&#160;|&#160;&#160;<A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Reply</A>
    <%  if (activeMessage.getUser().equals(user)) { %>
-   			<A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>"><img src="/i/roundTables/edit.gif" class="rtButton" alt="Edit" /></A>
+   &#160;&#160;|&#160;&#160;<A href="?module=Post&<%=ForumConstants.POST_MODE%>=Edit&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>" class="rtbcLink">Edit</A>
    <%  } %>
-   <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="activeMessage" property="ID"/>"><img src="/i/roundTables/reply.gif" class="rtButton" alt="Reply" /></A>
-   </div>
-
    </td></tr>
    <tr>
    <td class="rtPosterCell"><div class="rtPosterSpacer">
