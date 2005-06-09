@@ -467,7 +467,7 @@
                                            } %>
                                     </td>
                                 </tr>
-                                <tr><td><br><br></td></tr>
+                                <tr><td><br></td></tr>
                                 <tr>
                                     <td class="display" valign="top">
                                         <strong>Requirements</strong><br/>
@@ -554,6 +554,7 @@
                                         &nbsp;
                                     </td>
                                 </tr>
+                                <tr><td><br></td></tr>
                                 <tr>
                                     <td class="rightColOff" valign="top">
                                         <%  if (docOther.length == 0) {%>
