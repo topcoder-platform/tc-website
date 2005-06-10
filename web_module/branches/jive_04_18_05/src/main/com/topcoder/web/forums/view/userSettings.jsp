@@ -53,7 +53,7 @@
 </div>
 
 <%  if (status.equals("save")) { %>
-<span class="bigRed">Settings updated successfully.</span><br/><br/>
+<span class="rtHeader"><font color="green">Settings updated successfully.</font></span><br/><br/>
 <%	} else if (status.equals("error")) { %>
 <span class="rtHeader"><span class="bigRed">Settings updated with errors:</span></span>
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>

@@ -49,7 +49,7 @@
             </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-   <tr>
+   <tr> 
       <td nowrap="nowrap" valign="top">&#160;</td>
       <td align="right" nowrap="nowrap" valign="top">
       <b>Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
@@ -57,7 +57,7 @@
    </tr>
    <tr>
       <td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
-      Forum Post History - <span class="bigHandle"><tc-webtag:handle coderId="<%=historyUser.getID()%>"/></span> (<%=forumFactory.getUserMessageCount(historyUser)%> posts)</td>
+      Post History >> <span class="bigHandle"><tc-webtag:handle coderId="<%=historyUser.getID()%>"/></span> (<%=forumFactory.getUserMessageCount(historyUser)%> posts)</td>
 
 <% if (paginator.getNumPages() > 1) { %>
 	<td class="rtbc" align="right" width=20%><b>
@@ -102,6 +102,7 @@
     </tr>
 	</tc-webtag:iterator>        
 </table>
+
         </td>
 <!-- Center Column Ends -->
 
