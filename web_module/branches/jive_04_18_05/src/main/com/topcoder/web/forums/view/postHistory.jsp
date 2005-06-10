@@ -60,7 +60,7 @@
       Post History >> <span class="bigHandle"><tc-webtag:handle coderId="<%=historyUser.getID()%>"/></span> (<%=forumFactory.getUserMessageCount(historyUser)%> posts)</td>
 
 <% if (paginator.getNumPages() > 1) { %>
-	<td class="rtbc" align="right" width=20%><b>
+	<td class="rtbc" align="right" width=20% nowrap><b>
 		<%  if (paginator.getPreviousPage()) { %>
 			<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="historyUser" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
             	<< PREV</A>&#160;&#160;&#160;
