@@ -8,6 +8,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.10.05<br>9:25 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm246_prob">SRM 246 - Problem Set & Analysis</A></span><br><br>
+      This problem set was pretty easy. Some coders completed their work in 20 minutes.</td>
+      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_mug.gif" /><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm246_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.09.05<br>6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=jpmorgan">JP Morgan</A></span><br><br>
       <A href="/tc?module=Static&d1=contracting&d2=jpmorgan">JP Morgan</A> is offering several positions, available to <strong>ALL</strong> members.
@@ -219,18 +234,9 @@ In Division 1, the not-too-hard but subtle problem set made the match quite exci
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>05.19.05<br>4:25 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7218">Video Game Survey</A></span><br><br>
-      A couple of questions about the next generation of video game platforms.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=7218">vote</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
 
+</table>
+<br><br>
 <table align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" width="525">
    <tr>
       <td class="sidebarTitle" colspan="4">News Archives</td>
