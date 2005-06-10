@@ -84,16 +84,15 @@ function openWin(url, name, w, h) {
 
 <h2>Match summary</h2>
 
-<p>This problem set was pretty easy. Some coders have completed their work in 20 minutes.  
+<p>This problem set was pretty easy. Some coders completed their work in 20 minutes.  
 There was a long list of contestants with 
-a complete set of problems after 40 minutes and at the end of the contest 86.15% of coders have submitted the hardest task.
-But only 36.18% of div1-hard solutions were correct. <b>Im2Good</b>, who have
-made 12 successful challenges, won this match and became <i>highest point total</i> champion (this 
-title didn't update since 05.08.01). <b>misof</b> and <b>jdmetz</b> took the second and third places.
+a complete set of problems after 40 minutes and at the end of the contest 86.15% of coders had submitted the hardest task.
+But only 36.18% of div1-hard solutions were correct. <b>Im2Good</b>, who made 12 successful challenges, won this match and became the <A href="/stat?&amp;c=highest_totals&amp;dn=1">Highest Match Total</A> champion (a
+title that hasn't changed since 05.08.01). <b>misof</b> and <b>jdmetz</b> took second and third.
 </p>
 <p>
 In the division 2, <b>korntest</b> was first, followed by <b>p45c4l</b> and <b>titid_gede</b> who took 
-the second and third places.
+second and third.
 </p>
 
 <H1>
@@ -148,7 +147,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 </table></blockquote>
 
 <p>
-<p>The most elegant solution for this problem uses regular-expressions. There is a sample Java code:</p>
+<p>The most elegant solution for this problem uses regular-expressions. Here is a sample Java submission:</p>
 <pre>
 for (int i = 0; i &lt; numbers.length; i++) 
     numbers[i] = numbers[i].replaceAll(" ","").replaceAll("[^0-9]",".");
@@ -205,7 +204,7 @@ Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
 
 <p>
 <p>There are at most 19 split points. We can try all of them and choose one with the smallest A value (if any). 
-There is a sample Java code:</p>
+Here is a sample Java submission:</p>
 <pre>
 for (int i = 1; i &lt; conglutination.length(); i++) {
     int A = strToInt(conglutination.substring(0,i)); 
@@ -316,7 +315,7 @@ Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 <p>There are only 1000 different buttons and we can test all of them. If we know the digits 
 on the button how many clicks are required for typing the sequence? The secret is easy: if the next 
 three digits in the sequence equals to the corresponding button's digits, we should 
-click three-digit button. The result will be optimal. There is a sample Java code:</p>
+click three-digit button. The result will be optimal. Here is a sample Java submission:</p>
 <pre>
 //merge sequence into char array s
 ...
@@ -343,7 +342,7 @@ for (char ch1='0';ch1&lt;='9';ch1++)
         }
 return ans;
 </pre>
-<p>Some coders (for example Im2Good, misof, John Dethridge...) used a dynamic programming for obtaining 
+<p>Some coders (for example Im2Good, John Dethridge...) used dynamic programming to obtain 
 the required amount of clicks. This solution is also correct.</p>
 
 </p>
@@ -396,9 +395,9 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
 </table></blockquote>
 
 <p>
-<p>For solving this problem we should manually round value of &#928;. Note contains several 
+<p>For solving this problem we should manually round the value of &#928;. Note contains several 
 first &#928; value digits and this amount is enough for solving this problem. 
-There is a sample Java code:</p>
+Here is a sample Java submission:</p>
 <pre>        
 byte[] pi = "3.141592653589793238462643383279".getBytes();
 if (pi[precision + 2] &gt; '4')
@@ -467,8 +466,8 @@ a numerator A of the closest fraction can be easily found using the following fo
 <pre>
 A = round(B * sqrt(N))
 </pre>
-<p>After that we can compare obtained fraction with the currently best fraction and update it if 
-needed. Where is a trick? The trick in the phrase "we can compare obtained fraction with the currently 
+<p>After that we can compare the obtained fraction with the currently best fraction and update it if 
+needed. Where is the trick? The trick in the phrase "we can compare obtained fraction with the currently 
 best fraction" because we can't do it in a usual way:</p>
 <pre>
 if (abs(A<sub>1</sub>/B<sub>1</sub> - sqrt(N)) &lt; abs(A<sub>2</sub>/B<sub>2</sub> - sqrt(N)))
