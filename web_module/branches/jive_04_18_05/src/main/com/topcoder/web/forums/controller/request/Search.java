@@ -103,6 +103,7 @@ public class Search extends ForumsProcessor {
             Paginator paginator = new Paginator(paging);
             Iterator itResults = query.getResults(startIdx, resultSize);
             
+            getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
             getRequest().setAttribute("searchScope", searchScope);
             getRequest().setAttribute("results", itResults);
