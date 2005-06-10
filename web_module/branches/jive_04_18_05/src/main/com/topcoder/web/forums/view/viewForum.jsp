@@ -86,7 +86,7 @@
             <%  } %>
         <%  } %> ]
 		<%  if (paginator.getNextPage()) { %>
-			&#160;&#160;&#160;<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink">NEXT>></A>
+			&#160;&#160;&#160;<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink">NEXT >></A>
         <%  } %>
 	</b></td></tr>
 <% } %>

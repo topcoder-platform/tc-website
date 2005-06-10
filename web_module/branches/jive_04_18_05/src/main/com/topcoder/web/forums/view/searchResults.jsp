@@ -1,3 +1,50 @@
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.BaseProcessor,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.forum.action.util.Page,
+                 java.util.*,
+                 java.text.SimpleDateFormat"
+%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+    <tr>
+        <td class="rtbc">Search Results</td>
+        <% Page[] pages; %>
+        <% if (paginator.getNumPages() > 1) { %>
+	    <td class="rtbc" align="right"><b>
+	        <%  if (paginator.getPreviousPage()) { %>
+	            <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=search&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<tc-webtag:beanWrite name="query" property="afterDate" format="M/d/yy"/>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+	                << PREV</A>&#160;&#160;&#160;
+	        <%  } %> [
+	        <%  pages = paginator.getPages(5);
+	            for (int i=0; i<pages.length; i++) {
+	        %>  <%  if (pages[i] != null) { %>
+	                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+	                            <span class="currentPage"><%= pages[i].getNumber() %></span>
+	                    <%  } else { %>
+                                <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=search&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<tc-webtag:beanWrite name="query" property="afterDate" format="M/d/yy"/>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+	                            <%= pages[i].getNumber() %></A>
+	                    <%  } %>
+	            <%  } %>
+	        <%  } %> ]
+	        <%  if (paginator.getNextPage()) { %>
+	            &#160;&#160;&#160;<A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=search&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<tc-webtag:beanWrite name="query" property="afterDate" format="M/d/yy"/>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+	        <%  } %>
+        </b></td>
+   </tr>
+<% } %>
+</table>
+<table cellpadding="0" cellspacing="0" class="rtTable">
+   <tr>
+      <td class="rtHeader" width="70%">Message</td>
+      <td class="rtHeader" width="10%">Author</td>
+      <td class="rtHeader" width="10%" align="right">Replies</td>
+      <td class="rtHeader" width="10%" align="right">Views</td>
+      <td class="rtHeader" align="center" colspan="2">Last Post</td>
+   </tr>
+</table>
+
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
    <tr>
       <td class="rtbc">Search Results</td>
@@ -13,7 +60,7 @@
 </table>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr>
-      <td class="rtHeader" width="70%">Thread</td>
+      <td class="rtHeader" width="70%">Message</td>
       <td class="rtHeader" width="10%">Author</td>
       <td class="rtHeader" width="10%" align="right">Replies</td>
       <td class="rtHeader" width="10%" align="right">Views</td>

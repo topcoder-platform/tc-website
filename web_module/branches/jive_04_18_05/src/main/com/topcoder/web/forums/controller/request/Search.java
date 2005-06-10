@@ -76,6 +76,7 @@ public class Search extends ForumsProcessor {
                 Forum forum = forumFactory.getForum(forumID);
                 query = forum.createQuery();
             }
+            query.setQueryString(queryTerms);
             
             if (!dateRange.equals("all")) {
             	Calendar calendar = Calendar.getInstance();
@@ -102,6 +103,8 @@ public class Search extends ForumsProcessor {
             Paginator paginator = new Paginator(paging);
             Iterator itResults = query.getResults(startIdx, resultSize);
             
+            getRequest().setAttribute("query", query);
+            getRequest().setAttribute("searchScope", searchScope);
             getRequest().setAttribute("results", itResults);
             getRequest().setAttribute("paginator", paginator);
         }
