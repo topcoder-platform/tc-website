@@ -141,7 +141,7 @@ function noenter(e)
    </tr>
 </form>
 </table>
-
+<br><br>
 <jsp:include page="searchResults.jsp" />
 
 </td>
