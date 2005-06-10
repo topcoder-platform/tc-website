@@ -58,7 +58,7 @@ public class History extends ForumsProcessor {
         Iterator itMessages = forumFactory.getUserMessages(historyUser, resultFilter);
         
         getRequest().setAttribute("forumFactory", forumFactory);
-        getRequest().setAttribute("user", historyUser);
+        getRequest().setAttribute("historyUser", historyUser);
         getRequest().setAttribute("messages", itMessages);
         getRequest().setAttribute("paginator", paginator);
 		
