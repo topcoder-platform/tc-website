@@ -142,6 +142,8 @@ function noenter(e)
 </form>
 </table>
 
+<jsp:include page="searchResults.jsp" />
+
 </td>
 <!-- Center Column Ends -->
 
