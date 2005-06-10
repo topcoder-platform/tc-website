@@ -49,7 +49,7 @@
             </jsp:include>
 
 <div class="topLinksR">
-<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
+<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
 </div>
 
 <%  if (status.equals("save")) { %>

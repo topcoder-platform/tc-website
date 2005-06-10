@@ -49,7 +49,7 @@
             </jsp:include>
             
 <div class="topLinksR">
-<A href="?module=History&<%=ForumConstants.USER_ID%>=<jsp:getProperty name="user" property="ID"/>" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<b>My Watches</b>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<b>My Watches</b>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
 </div>
 
 <span class="bodySubtitle">Watched Threads: <%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%></span><br/>
