@@ -56,13 +56,13 @@ function noenter(e)
                 <jsp:param name="title" value="Forum Search"/>
             </jsp:include>
 
-<span class="rtbc"><a href="" class="rtbcLink">Forums</a> &gt;&gt;	Search</span>
+<span class="rtbc"><a href="" class="rtbcLink">Forums</a> &gt;&gt;	Advanced Search</span>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Search"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_STATUS%>" value="search"/>
    <tr>
-      <td class="rtHeader" colspan="2">Search Forum Content</td>
+      <td class="rtHeader" colspan="2">Search Criteria</td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Query:</strong></td>
