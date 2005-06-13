@@ -66,6 +66,8 @@ return false;
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=jpmorgan"><img src="/i/contracting/jpmorgan_logo.gif" alt="JP Morgan" border=0/></A>
                <hr noshade="noshade" size="1" />
+               <A href="/tc?module=Static&d1=contracting&d2=smsac"><img src="/i/contracting/smsac_logo.gif" alt="SMS.AC" border=0/></A>
+               <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/contracting/yahoo_logo.gif" alt="Yahoo!" border=0/></A>
                <hr noshade="noshade" size="1" />
                <i>Click one of the<br>companies above for more info<br>on their job openings,<br>and be sure to check out <br>the careers available at<br>
