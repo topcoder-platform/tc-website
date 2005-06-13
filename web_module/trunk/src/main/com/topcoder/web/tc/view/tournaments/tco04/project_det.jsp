@@ -74,7 +74,7 @@ else
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><a href="/stat?tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
+                                <td class="sidebarText"><a href="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="submit_timestamp" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><rsc:item name="placed" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><rsc:item name="final_score" format="0.00" row="<%=resultRow%>"/></td>

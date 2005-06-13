@@ -26,9 +26,9 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%" align="center" class="formFrame">
                <tr>
                   <td class="advHeader" align="right" width="40%"></td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?tc?module=MemberProfile&cr=7270519">chippydip</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right"width="15%"><A href="/stat?tc?module=MemberProfile&cr=7463987">ShindouHikaru</a>&#160;&#160;</td>
-                  <td class="advHeader" align="right" width="15%"><A href="/stat?tc?module=MemberProfile&cr=310233">Standlove</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=7270519">chippydip</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right"width="15%"><A href="/tc?module=MemberProfile&cr=7463987">ShindouHikaru</a>&#160;&#160;</td>
+                  <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=310233">Standlove</a>&#160;&#160;</td>
                </tr>
 
                 <tr>  
