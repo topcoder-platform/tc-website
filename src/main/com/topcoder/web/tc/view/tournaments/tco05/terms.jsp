@@ -31,7 +31,7 @@
 
 			<p align="left">To complete your registration for the 2005 TopCoder Open you must <b>read and agree to</b> the terms listed below.</p>
 
-			<p align="center"><textarea name="terms" rows="20" cols="60" readonly wrap="off"><%=request.getAttribute("terms")%></textarea></p>
+			<p align="center"><textarea name="terms" rows="20" cols="85" readonly wrap="on"><%=request.getAttribute("terms")%></textarea></p>
 
 			<p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=<%=agreeProcessor%>">I agree</a> to these terms and wish to participate in the 2005 TopCoder Open.
 
