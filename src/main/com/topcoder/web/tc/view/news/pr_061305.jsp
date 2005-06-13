@@ -36,7 +36,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                         <div align="center">
-                        <p><span class="bodyTitle">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform &amp; Services</span><br />
+                        <p><span class="bodyTitle">TopCoder Announces Registration for 2005 TopCoder Open Programming Tournament</span><br />
                         <span class="bodySubTitle"><em>October World Championship of Competitive Coding Stakes $150,000 In Prizes for Programmers Across Algorithm, Design and Development Categories </em></span></p>
                         </p>
                         </div>
