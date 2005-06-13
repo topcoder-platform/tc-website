@@ -61,13 +61,6 @@
 
             <br/>
 
-            <table border=0 cellpadding=5 cellspacing=0 width="100%">
-                <tr>
-                    <td class="bodyText" valign=top width=150><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/my_home/employmentOpps.gif" border=0/></A></td>
-                    <td class="bodyText" valign=top>Register <A href="/tc?module=Static&d1=contracting&d2=index">here</A> to enroll in TopCoder Employment Opportunities.  Whether you're looking for just a couple days of work or a full-time permanent position, TopCoder can help set you up with work that matches both your skills and availability.</td>
-                </tr>
-            </table>
-
         </div>
         <p><br/></p>
         </td>
