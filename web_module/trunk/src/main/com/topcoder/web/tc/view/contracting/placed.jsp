@@ -18,8 +18,8 @@
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
-                <jsp:param name="level1" value="my_home"/>
-                <jsp:param name="level2" value="employmentOpps"/>
+                <jsp:param name="level1" value="employment"/>
+                <jsp:param name="level2" value="openings"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,7 +42,7 @@
    </tr>
    <tr>
       <td class="header">Date</td>
-      <td class="header">Member Skill</td>
+      <td class="header">Member</td>
       <td class="headerR">Compensation</td>
       <td class="header">Industry</td>
       <td class="header">State</td>
@@ -73,14 +73,11 @@
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+               <jsp:param name="level1" value="employmentOpps"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
 
-<!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
     </tr>
 </table>
 
