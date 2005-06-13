@@ -45,7 +45,7 @@ public class Search extends ForumsProcessor {
         calendar.add(Calendar.DAY_OF_MONTH, -60);
         dates.put(ForumConstants.SEARCH_DATE_LAST_90_DAYS, calendar.getTime());
         calendar.add(Calendar.DAY_OF_MONTH, 90);
-        calendar.set(calendar.get(Calendar.YEAR), 1, 1);
+        calendar.set(calendar.get(Calendar.YEAR), Calendar.JANUARY, 1);
         dates.put(ForumConstants.SEARCH_DATE_THIS_YEAR, calendar.getTime());
         calendar.add(Calendar.YEAR, -1);
         dates.put(ForumConstants.SEARCH_DATE_LAST_YEAR, calendar.getTime());

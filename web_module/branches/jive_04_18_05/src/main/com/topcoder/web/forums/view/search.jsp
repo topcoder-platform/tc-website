@@ -100,7 +100,7 @@ function noenter(e)
 <option value="all" selected="selected">All</option>
 <%  SimpleDateFormat formatter = new SimpleDateFormat("M/d/yy");
     for (int i=0; i<ForumConstants.SEARCH_DATES.length; i++) { %>
-        <option value="<%=ForumConstants.SEARCH_DATES[i]%>">&#149;&#160;<%=ForumConstants.SEARCH_DATE_LABELS[i]%> (<%=formatter.format((Date)dates[i])%>)</option>
+        <option value="<%=ForumConstants.SEARCH_DATES[i]%>">&#149;&#160;<%=ForumConstants.SEARCH_DATE_LABELS[i]%> (<%=formatter.format((Date)dates.get(ForumConstants.SEARCH_DATES[i]))%>)</option>
 <%  } %>
 </select>
       </td>
