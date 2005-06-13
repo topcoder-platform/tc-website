@@ -63,6 +63,18 @@
             </table>
 <%-- TopCoder Info ends *************************** --%>
 
+<%-- Employment Opportunities *************************** --%>
+<% } else if (level1.equals("employment")) { %>
+            <table width="180" cellspacing="0" cellpadding="0" border="0">
+                <tr><td id="leftNavTitle" >Employment Opportunities:</td></tr>
+                <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
+<%-- Emp Opps Home --%>
+                <tr><td id="<%=level2.equals("openings")?"leftNavSelect":"leftNav"%>"><a href="/tc?module=Static&d1=contracting&d2=index" class="<%=level2.equals("openings")?"leftOn":"left"%>"><img alt="" src="/images/<%=level2.equals("openings")?"clear":"nav_arrow_right"%>.gif" border="0"/>Job Openings</a></td></tr>
+<%-- Registration --%>
+                <tr><td id="<%=level2.equals("registration")?"leftNavSelect":"leftNav"%>"><a href="/tc?module=ContractingPreferences" class="<%=level2.equals("registration")?"leftOn":"left"%>"><img alt="" src="/images/<%=level2.equals("registration")?"clear":"nav_arrow_right"%>.gif" border="0"/>Registration</a></td></tr>
+            </table>
+
+
 <%-- Development *************************** --%>
 <% } else if (level1.equals("development")) { %>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
@@ -75,7 +87,6 @@
                         <tr><td id="<%=level2.equals("profile")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/Registration">Update My Profile</A></td></tr>
                         <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReferrals">Referrals</A></td></tr>
                         <tr><td id="<%=level2.equals("card")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=card&d2=description">Cards / Badges</A></td></tr>
-                        <tr><td id="<%=level2.equals("employmentOpps")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=contracting&d2=index">Employment Opportunities</A></td></tr>
                         <tr><td id="<%=level2.equals("pacts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</A></td></tr>
                     <% } %>
                 <% } %>
@@ -120,7 +131,6 @@
                         <tr><td id="<%=level2.equals("profile")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/Registration">Update My Profile</A></td></tr>
                         <tr><td id="<%=level2.equals("referrals")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=ViewReferrals">Referrals</A></td></tr>
                         <tr><td id="<%=level2.equals("card")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=card&d2=description">Cards / Badges</A></td></tr>
-                        <tr><td id="<%=level2.equals("employmentOpps")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=contracting&d2=index">Employment Opportunities</A></td></tr>
                         <tr><td id="<%=level2.equals("pacts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</A></td></tr>
                     <% } %>
                 <% } %>
