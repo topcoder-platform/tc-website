@@ -1,11 +1,19 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.action.util.Page,
+                 com.jivesoftware.forum.Query,
                  java.util.*,
                  java.text.SimpleDateFormat"
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
+<%  Paginator paginator = (Paginator)request.getAttribute("paginator");
+    Query query = (Query)request.getAttribute("query");
+    String searchScope = (String)request.getAttribute("searchScope"); 
+    String dateRange = (String)request.getAttribute("dateRange");
+    String status = (String)request.getAttribute("status"); %>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
@@ -14,7 +22,7 @@
         <% if (paginator.getNumPages() > 1) { %>
 	    <td class="rtbc" align="right"><b>
 	        <%  if (paginator.getPreviousPage()) { %>
-	            <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=search&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<tc-webtag:beanWrite name="query" property="afterDate" format="M/d/yy"/>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+	            <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
 	                << PREV</A>&#160;&#160;&#160;
 	        <%  } %> [
 	        <%  pages = paginator.getPages(5);
@@ -23,13 +31,13 @@
 	                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
 	                            <span class="currentPage"><%= pages[i].getNumber() %></span>
 	                    <%  } else { %>
-                                <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=search&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<tc-webtag:beanWrite name="query" property="afterDate" format="M/d/yy"/>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                                <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
 	                            <%= pages[i].getNumber() %></A>
 	                    <%  } %>
 	            <%  } %>
 	        <%  } %> ]
 	        <%  if (paginator.getNextPage()) { %>
-	            &#160;&#160;&#160;<A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=search&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<tc-webtag:beanWrite name="query" property="afterDate" format="M/d/yy"/>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+	            &#160;&#160;&#160;<A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
 	        <%  } %>
         </b></td>
    </tr>

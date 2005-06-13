@@ -33,6 +33,20 @@ public interface ForumConstants {
     public final static String SEARCH_HANDLE = "handle";
     public final static String SEARCH_RESULT_SIZE = "resultSize";
     
+    public final static String SEARCH_DATE_YESTERDAY = "dateYesterday";
+    public final static String SEARCH_DATE_LAST_7_DAYS = "dateLast7Days";
+    public final static String SEARCH_DATE_LAST_30_DAYS = "dateLast30Days";
+    public final static String SEARCH_DATE_LAST_90_DAYS = "dateLast90Days";
+    public final static String SEARCH_DATE_THIS_YEAR = "dateThisYear";
+    public final static String SEARCH_DATE_LAST_YEAR = "dateLastYear";
+    public final static String[] SEARCH_DATES = {
+            SEARCH_DATE_YESTERDAY, SEARCH_DATE_LAST_7_DAYS, SEARCH_DATE_LAST_30_DAYS,
+            SEARCH_DATE_LAST_90_DAYS, SEARCH_DATE_THIS_YEAR, SEARCH_DATE_LAST_YEAR
+    };
+    public final static String[] SEARCH_DATE_LABELS = {
+            "Yesterday", "Last 7 Days", "Last 30 Days", "Last 90 Days", "This Year", "Last Year"
+    };
+        
     public final static String WATCHLIST_STATUS = "status";
     public final static String WATCH_TYPE = "type";
     public final static String WATCH_ID = "ID";

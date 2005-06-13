@@ -4,17 +4,19 @@
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.Query,
          		 java.util.*,
-         		 java.text.SimpleDateFormat"
+                 java.text.SimpleDateFormat"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/> 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     Paginator paginator = (Paginator)request.getAttribute("paginator");
     Query query = (Query)request.getAttribute("query");
-    String searchScope = (String)request.getAttribute("searchScope"); 
+    String searchScope = (String)request.getAttribute("searchScope");
+    String dateRange = (String)request.getAttribute("dateRange");
     String status = (String)request.getAttribute("status"); %>
 
 <script type="text/javascript">
@@ -94,31 +96,12 @@ function noenter(e)
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Date Range:</strong></td>
       <td class="rtTextCell100">
-<%	Calendar calendar = Calendar.getInstance();
-	calendar.setTime(new Date());
-	SimpleDateFormat formatter = new SimpleDateFormat("M/d/yy"); 
-	SimpleDateFormat yearFormatter = new SimpleDateFormat("1/1/yy");
-	calendar.add(Calendar.DAY_OF_MONTH, -1);
-	String dateYesterday = formatter.format(calendar.getTime());
-	calendar.add(Calendar.DAY_OF_MONTH, -6);
-	String dateLast7Days = formatter.format(calendar.getTime());
-	calendar.add(Calendar.DAY_OF_MONTH, -23);
-	String dateLast30Days = formatter.format(calendar.getTime());
-	calendar.add(Calendar.DAY_OF_MONTH, -60);
-	String dateLast90Days = formatter.format(calendar.getTime());
-	calendar.add(Calendar.DAY_OF_MONTH, 90);
-	String dateThisYear = yearFormatter.format(calendar.getTime());
-	calendar.add(Calendar.YEAR, -1);
-	String dateLastYear = yearFormatter.format(calendar.getTime());
-	%>
 <select size="1" name="<%=ForumConstants.SEARCH_DATE_RANGE%>" id="<%=ForumConstants.SEARCH_DATE_RANGE%>">
 <option value="all" selected="selected">All</option>
-<option value="<%=dateYesterday%>">&#149;&#160;Yesterday (<%=dateYesterday%>)</option>
-<option value="<%=dateLast7Days%>">&#149;&#160;Last 7 Days (<%=dateLast7Days%>)</option>
-<option value="<%=dateLast30Days%>">&#149;&#160;Last 30 Days (<%=dateLast30Days%>)</option>
-<option value="<%=dateLast90Days%>">&#149;&#160;Last 90 Days (<%=dateLast90Days%>)</option>
-<option value="<%=dateThisYear%>">&#149;&#160;This Year (<%=dateThisYear%>)</option>
-<option value="<%=dateLastYear%>">&#149;&#160;Last Year (<%=dateLastYear%>)</option>
+<%  SimpleDateFormat formatter = new SimpleDateFormat("M/d/yy");
+    for (int i=0; i<ForumConstants.SEARCH_DATES.length; i++) { %>
+        <option value="<%=ForumConstants.SEARCH_DATES[i]%>">&#149;&#160;<%=ForumConstants.SEARCH_DATE_LABELS[i]%> (<%=formatter.format((Date)dates[i])%>)</option>
+<%  } %>
 </select>
       </td>
    </tr>
@@ -148,8 +131,14 @@ function noenter(e)
 </form>
 </table>
 <br><br>
-<% if (status != null) { %>
-    <jsp:include page="searchResults.jsp" />
+<% if ("search".equals(status)) { %>
+    <jsp:include page="searchResults.jsp">
+        <jsp:param name="paginator" value="<%=paginator%>"/>
+        <jsp:param name="query" value="<%=query%>"/>
+        <jsp:param name="searchScope" value="<%=searchScope%>"/>
+        <jsp:param name="dateRange" value="<%=dateRange%>"/>
+        <jsp:param name="status" value="<%=status%>"/>
+    </jsp:include>
 <% } %>
 
 </td>

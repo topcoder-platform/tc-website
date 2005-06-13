@@ -3,8 +3,8 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import java.util.Iterator;
-import java.util.Calendar;
+import java.util.*;
+import java.text.SimpleDateFormat;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
@@ -33,7 +33,25 @@ public class Search extends ForumsProcessor {
         resultFilter.setSortOrder(ResultFilter.ASCENDING);
         Iterator itForums = forumFactory.getForums(resultFilter);
         
+        HashMap dates = new HashMap();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        dates.put(ForumConstants.SEARCH_DATE_YESTERDAY, calendar.getTime());
+        calendar.add(Calendar.DAY_OF_MONTH, -6);
+        dates.put(ForumConstants.SEARCH_DATE_LAST_7_DAYS, calendar.getTime());
+        calendar.add(Calendar.DAY_OF_MONTH, -23);
+        dates.put(ForumConstants.SEARCH_DATE_LAST_30_DAYS, calendar.getTime());
+        calendar.add(Calendar.DAY_OF_MONTH, -60);
+        dates.put(ForumConstants.SEARCH_DATE_LAST_90_DAYS, calendar.getTime());
+        calendar.add(Calendar.DAY_OF_MONTH, 90);
+        calendar.set(calendar.get(Calendar.YEAR), 1, 1);
+        dates.put(ForumConstants.SEARCH_DATE_THIS_YEAR, calendar.getTime());
+        calendar.add(Calendar.YEAR, -1);
+        dates.put(ForumConstants.SEARCH_DATE_LAST_YEAR, calendar.getTime());
+        
         getRequest().setAttribute("forums", itForums);
+        getRequest().setAttribute("dates", dates);
         
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_STATUS));
         if (status.equals("search")) {
@@ -79,13 +97,7 @@ public class Search extends ForumsProcessor {
             query.setQueryString(queryTerms);
             
             if (!dateRange.equals("all")) {
-            	Calendar calendar = Calendar.getInstance();
-                String[] dateValues = dateRange.split("/");	
-                int month = Integer.parseInt(dateValues[0]);
-                int day = Integer.parseInt(dateValues[1]);
-                int year = Integer.parseInt(dateValues[2]);
-                calendar.set(year, month, day);
-                query.setAfterDate(calendar.getTime());
+                query.setAfterDate((Date)dates.get(dateRange));
             }
             
             if (!userHandle.equals("")) {
@@ -105,6 +117,7 @@ public class Search extends ForumsProcessor {
             
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
+            getRequest().setAttribute("dateRange", dateRange);
             getRequest().setAttribute("searchScope", searchScope);
             getRequest().setAttribute("results", itResults);
             getRequest().setAttribute("paginator", paginator);
