@@ -20,7 +20,6 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class=bodySpacer>
-            
 <span class="bigTitle">Description of the Component Design and Development Competition</span>
 <br><br>
 We're inviting the top 16 finalists - 8 designers and 8 developers - to join us in Santa Clara, CA at the Finals of the Component Competition.
@@ -47,12 +46,12 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_rule
 <span class="bigTitle">How to Register for the Component Competition</span>
 <br><br>
 <strong>Already a TopCoder Member?</strong><br>
-Click <A href="/">here</A> to register for the TCO Component Design and Development Competition.
+Click <A href="/tc?module=TCO05ComponentTerms">here</A> to register for the TCO Component Design and Development Competition.
 <br><br>
 <strong>Not Yet a TopCoder Member?</strong><br>
 Click <A href="/reg/index.jsp">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
-Click <A href="/">here</A> to register for the TCO Component Design and Development Competition
+Click <A href="/tc?module=TCO05ComponentTerms">here</A> to register for the TCO Component Design and Development Competition
         </div>
 		</td>
         
