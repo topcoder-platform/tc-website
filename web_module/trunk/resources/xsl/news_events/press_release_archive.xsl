@@ -62,6 +62,8 @@
 <!-- 2005 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
                             
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_061305">TopCoder Announces Registration for 2005 TopCoder Open Programming Tournament</A> [June 13]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_060705">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform &amp; Services</A> [June 7]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_02_05">TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference</A> [May 2]<br/></td></tr>
