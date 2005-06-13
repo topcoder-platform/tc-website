@@ -76,7 +76,7 @@ else
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
                                 <% TCO04OverallResult result = (TCO04OverallResult)lst.get(i); %>
-                                <td class="sidebarText" ><a href="/stat?tc?module=MemberProfile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a>
+                                <td class="sidebarText" ><a href="/tc?module=MemberProfile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a>
                                 <% if(result.isPending())  { 
                                     isComplete = false;%>
                                     *
