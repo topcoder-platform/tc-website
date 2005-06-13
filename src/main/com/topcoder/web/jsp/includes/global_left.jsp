@@ -68,6 +68,10 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle" >Employment Opportunities:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
+<%-- My Home --%>
+                <% if (!info.isAnonymous() || level1.equals("my_home")) { %>
+                    <tr><td id="<%=level1.equals("my_home")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=my_home&d2=index" class="<%=level1.equals("my_home")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("my_home")?"bottom":"right"%>.gif" border="0"/>$HOME</a></td></tr>
+                <% } %>
 <%-- Emp Opps Home --%>
                 <tr><td id="<%=level2.equals("openings")?"leftNavSelect":"leftNav"%>"><a href="/tc?module=Static&d1=contracting&d2=index" class="<%=level2.equals("openings")?"leftOn":"left"%>"><img alt="" src="/images/<%=level2.equals("openings")?"clear":"nav_arrow_right"%>.gif" border="0"/>Job Openings</a></td></tr>
 <%-- Registration --%>
