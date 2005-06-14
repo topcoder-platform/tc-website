@@ -120,11 +120,9 @@ public class Search extends ForumsProcessor {
             if (displayPerThread) {
                 itResults = query.getResultsByThread(startIdx, resultSize);
                 totalItemCount = query.getResultByThreadCount();
-                log.debug("###tic: " + totalItemCount);
             } else {
                 itResults = query.getResults(startIdx, resultSize);
                 totalItemCount = query.getResultCount();
-                log.debug("@@@tic: " + totalItemCount);
             }
             
             Paging paging = new Paging(pageFilter, totalItemCount);

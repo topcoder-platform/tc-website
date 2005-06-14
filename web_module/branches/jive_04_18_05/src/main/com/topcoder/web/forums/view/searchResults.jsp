@@ -22,12 +22,15 @@
     Iterator results = (Iterator)request.getAttribute("results"); 
     
     int numResults = paginator.getPageable().getResultFilter().getNumResults(); 
-    SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy h:mm a"); %>
+    SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy h:mm a"); 
+    boolean displayPerThread
+        = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread",true); 
+    int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); %>
 
-<%  if (query.getResultCount() > 0) { %>
+<%  if (resultCount > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(query.getResultCount(),numResults*(paginator.getPageIndex()+1))%> of <%=query.getResultCount()%>)</td>
+        <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(resultCount,numResults*(paginator.getPageIndex()+1))%> of <%=resultCount%>)</td>
         <% Page[] pages; %>
         <% if (paginator.getNumPages() > 1) { %>
 	    <td class="rtbc" align="right"><b>
