@@ -26,6 +26,9 @@ import com.jivesoftware.forum.action.util.Paginator;
  * Forwards to the search page.
  */
 public class Search extends ForumsProcessor {
+    private boolean displayPerThread
+        = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread",true);
+    
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
         
@@ -117,7 +120,13 @@ public class Search extends ForumsProcessor {
             
             Paging paging = new Paging(pageFilter, totalItemCount);
             Paginator paginator = new Paginator(paging);
-            Iterator itResults = query.getResults(startIdx, resultSize);
+            Iterator itResults = null;
+            
+            if (displayPerThread) {
+                itResults = query.getResultsByThread(startIdx, resultSize);
+            } else {
+                itResults = query.getResults(startIdx, resultSize);
+            }
             
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
