@@ -63,6 +63,7 @@ public class Search extends ForumsProcessor {
             String searchScope = getRequest().getParameter(ForumConstants.SEARCH_SCOPE);
             String dateRange = getRequest().getParameter(ForumConstants.SEARCH_DATE_RANGE);
             String userHandle = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_HANDLE));
+            String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_SORT_FIELD));
             User user = null;
             
             int resultSize = ForumConstants.DEFAULT_SEARCH_RESULT_SIZE;
@@ -108,7 +109,11 @@ public class Search extends ForumsProcessor {
             	query.filterOnUser(user);
             }
             
-            query.setSortField(Query.RELEVANCE);
+            if (sortField.equals("") || Integer.parseInt(sortField) == Query.RELEVANCE) {
+                query.setSortField(Query.RELEVANCE);   
+            } else if (Integer.parseInt(sortField) == Query.DATE) {
+                query.setSortField(Query.DATE);
+            }
             query.setSortOrder(ResultFilter.DESCENDING);
             
             ResultFilter pageFilter = new ResultFilter();

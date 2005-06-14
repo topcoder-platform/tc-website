@@ -25,17 +25,29 @@
     SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy h:mm a"); 
     boolean displayPerThread
         = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread",true); 
-    int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); %>
+    int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
+    
+    StringBuffer linkBuffer = new StringBuffer("?module=Search");
+    linkBuffer.append("&").append(ForumConstants.SEARCH_STATUS).append("=").append(status);
+    linkBuffer.append("&").append(ForumConstants.SEARCH_QUERY).append("=").append(StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding()));
+    linkBuffer.append("&").append(ForumConstants.SEARCH_SCOPE).append("=").append(searchScope);
+    linkBuffer.append("&").append(ForumConstants.SEARCH_DATE_RANGE).append("=").append(dateRange);
+    if (query.getFilteredUser() != null) { 
+        linkBuffer.append("&").append(ForumConstants.SEARCH_HANDLE).append("=").append(query.getFilteredUser().getUsername());
+    }
+    linkBuffer.append("&").append(ForumConstants.SEARCH_RESULT_SIZE).append("=").append(numResults);
+    linkBuffer.append("&").append(ForumConstants.SEARCH_SORT_FIELD).append("=").append(query.getSortField());
+    String link = linkBuffer.toString(); %>
 
 <%  if (resultCount > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(resultCount,numResults*(paginator.getPageIndex()+1))%> of <%=resultCount%>)</td>
+        <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(resultCount,numResults*(paginator.getPageIndex()+1))%> of <%=resultCount%>) <a href="<%=link%>" class="rtbcLink">(sort by date)</a></td>
         <% Page[] pages; %>
         <% if (paginator.getNumPages() > 1) { %>
 	    <td class="rtbc" align="right"><b>
 	        <%  if (paginator.getPreviousPage()) { %>
-	            <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<%=StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding())%>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=numResults%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+	            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
 	                << PREV</A>&#160;&#160;&#160;
 	        <%  } %> [
 	        <%  pages = paginator.getPages(5);
@@ -44,17 +56,17 @@
 	                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
 	                            <span class="currentPage"><%= pages[i].getNumber() %></span>
 	                    <%  } else { %>
-                                <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<%=StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding())%>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=numResults%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
 	                            <%= pages[i].getNumber() %></A>
 	                    <%  } %>
 	            <%  } %>
 	        <%  } %> ]
 	        <%  if (paginator.getNextPage()) { %>
-	            &#160;&#160;&#160;<A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<%=StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding())%>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=numResults%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+	            &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
 	        <%  } %>
         </b></td>
-   </tr>
-<%  } %>
+    </tr>
+    <%  } %>
 </table>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
@@ -76,6 +88,34 @@
         </tr>
    </tc-webtag:iterator>
 </table>
+
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+    <tr>
+        <% if (paginator.getNumPages() > 1) { %>
+        <td class="rtbc" align="right"><b>
+            <%  if (paginator.getPreviousPage()) { %>
+                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+                    << PREV</A>&#160;&#160;&#160;
+            <%  } %> [
+            <%  pages = paginator.getPages(5);
+                for (int i=0; i<pages.length; i++) {
+            %>  <%  if (pages[i] != null) { %>
+                        <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+                                <span class="currentPage"><%= pages[i].getNumber() %></span>
+                        <%  } else { %>
+                                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                                <%= pages[i].getNumber() %></A>
+                        <%  } %>
+                <%  } %>
+            <%  } %> ]
+            <%  if (paginator.getNextPage()) { %>
+                &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+            <%  } %>
+        </b></td>
+    </tr>
+    <%  } %>
+</table>
+
 <%  } else { %>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
