@@ -66,7 +66,7 @@ function noenter(e)
                 <jsp:param name="title" value="Forum Search"/>
             </jsp:include>
 
-<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> << Search</span>
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Search</span>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Search"/>
@@ -127,7 +127,7 @@ function noenter(e)
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Handle:</strong></td>
       <td class="rtTextCell100">
-         <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="<%if (query != null && query.getFilteredUser() != null){%><%=query.getFilteredUser().getUsername()%><%}%>" type="text" onKeyPress="return noenter(event)"/>&#160;
+         <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="<%if (query != null && query.getFilteredUser() != null){%><%=query.getFilteredUser().getUsername()%><%}%>" type="text"/>&#160;
          (Leave field blank to search all users)
          <% if (errors.get(ForumConstants.SEARCH_HANDLE) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_HANDLE%>"><%=err%></tc-webtag:errorIterator></span><% } %>
       </td>

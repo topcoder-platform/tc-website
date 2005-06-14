@@ -109,7 +109,7 @@ public class Search extends ForumsProcessor {
             pageFilter.setStartIndex(startIdx);
             pageFilter.setNumResults(resultSize);
             pageFilter.setSortField(Query.RELEVANCE);
-            pageFilter.setSortOrder(ResultFilter.DESCENDING);
+            pageFilter.setSortOrder(ResultFilter.ASCENDING);
             int totalItemCount = query.getResultCount();
             
             Paging paging = new Paging(pageFilter, totalItemCount);
