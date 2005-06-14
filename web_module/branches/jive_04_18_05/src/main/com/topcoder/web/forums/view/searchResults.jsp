@@ -1,9 +1,14 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
+                 com.jivesoftware.base.JiveGlobals,
+                 com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.Query,
+                 com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.util.StringUtils,
                  java.util.*,
                  java.text.SimpleDateFormat"
 %>
@@ -13,16 +18,21 @@
     Query query = (Query)request.getAttribute("query");
     String searchScope = (String)request.getAttribute("searchScope"); 
     String dateRange = (String)request.getAttribute("dateRange");
-    String status = (String)request.getAttribute("status"); %>
+    String status = (String)request.getAttribute("status"); 
+    Iterator results = (Iterator)request.getAttribute("results"); 
+    
+    int numResults = paginator.getPageable().getResultFilter().getNumResults(); 
+    SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy h:mm a"); %>
 
+<%  if (query.getResultCount() > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td class="rtbc">Search Results</td>
+        <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(query.getResultCount(),numResults*(paginator.getPageIndex()+1))%> of <%=query.getResultCount()%>)</td>
         <% Page[] pages; %>
         <% if (paginator.getNumPages() > 1) { %>
 	    <td class="rtbc" align="right"><b>
 	        <%  if (paginator.getPreviousPage()) { %>
-	            <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
+	            <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<%=StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding())%>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=numResults%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
 	                << PREV</A>&#160;&#160;&#160;
 	        <%  } %> [
 	        <%  pages = paginator.getPages(5);
@@ -31,191 +41,42 @@
 	                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
 	                            <span class="currentPage"><%= pages[i].getNumber() %></span>
 	                    <%  } else { %>
-                                <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                                <A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<%=StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding())%>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=numResults%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
 	                            <%= pages[i].getNumber() %></A>
 	                    <%  } %>
 	            <%  } %>
 	        <%  } %> ]
 	        <%  if (paginator.getNextPage()) { %>
-	            &#160;&#160;&#160;<A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<jsp:getProperty name="query" property="queryString"/>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=paginator.getPageable().getResultFilter().getNumResults()%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
+	            &#160;&#160;&#160;<A href="?module=Search&<%=ForumConstants.SEARCH_STATUS%>=<%=status%>&<%=ForumConstants.SEARCH_QUERY%>=<%=StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding())%>&<%=ForumConstants.SEARCH_SCOPE%>=<%=searchScope%>&<%=ForumConstants.SEARCH_DATE_RANGE%>=<%=dateRange%><% if (query.getFilteredUser() != null) { %>&<%=ForumConstants.SEARCH_HANDLE%>=<%=query.getFilteredUser().getUsername()%><% } %>&<%=ForumConstants.SEARCH_RESULT_SIZE%>=<%=numResults%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
 	        <%  } %>
         </b></td>
    </tr>
-<% } %>
-</table>
-<table cellpadding="0" cellspacing="0" class="rtTable">
-   <tr>
-      <td class="rtHeader" width="70%">Message</td>
-      <td class="rtHeader" width="10%">Author</td>
-      <td class="rtHeader" width="10%" align="right">Replies</td>
-      <td class="rtHeader" width="10%" align="right">Views</td>
-      <td class="rtHeader" align="center" colspan="2">Last Post</td>
-   </tr>
+<%  } %>
 </table>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-   <tr>
-      <td class="rtbc">Search Results</td>
-   	<td class="rtbc" align="right"><b>
-		 [
-      <span class="currentPage">1</span>
-      <a href="" class="rtbcLink">2</a>
-      <a href="" class="rtbcLink">3</a>
-      <a href="" class="rtbcLink">4</a>
-      <a href="" class="rtbcLink">5</a>
-      &nbsp;&nbsp;&nbsp;<a href="?module=ThreadList&amp;forumID=55&amp;start=15&amp;mc=2986" class="rtbcLink">NEXT&gt;&gt;</a>
-	</b></td></tr>
-</table>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-   <tr>
-      <td class="rtHeader" width="70%">Message</td>
-      <td class="rtHeader" width="10%">Author</td>
-      <td class="rtHeader" width="10%" align="right">Replies</td>
-      <td class="rtHeader" width="10%" align="right">Views</td>
-      <td class="rtHeader" align="center" colspan="2">Last Post</td>
-   </tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
-   <tr>
-   	<td class="rtThreadCellWrap"><a href="?module=Thread&amp;threadID=8859&amp;start=0&amp;mc=5" class="rtLinkNew">Link List</a></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=10575801" class="coderTextBlack">bytesurfer</a></td>
-   	<td class="rtThreadCell" align="right">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell" align="right">10&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   	<td class="rtThreadCell"><b>Jun 10, 2005 2:35 PM</b></td>
-   	<td class="rtThreadCell"><a href="/stat?c=member_profile&amp;cr=144400" class="coderTextRed">tomek</a></td>
-	</tr>
+    <tr>
+        <td class="rtHeader" width="70%">Message</td>
+        <td class="rtHeader" width="10%">Author</td>
+        <td class="rtHeader" width="10%" align="right">Replies</td>
+        <td class="rtHeader" width="10%" align="right">Views</td>
+        <td class="rtHeader" align="center">Date</td>
+    </tr>
+    <tc-webtag:iterator id="result" type="com.jivesoftware.forum.QueryResult" iterator='<%=results%>'>
+        <%  ForumMessage message = result.getMessage(); %>
+        <tr>
+            <td class="rtThreadCellWrap"><a href="?module=Message&messageID=<%=message.getID()%>" class="rtLinkNew"><%=message.getSubject()%></a><br><div class="rtDescIndent"><%=ForumsUtil.getMessageBodyPreview(message, query.getQueryString())%></div></td>
+            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+            <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
+            <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(message.getForumThread())%></td>
+		    <td class="rtThreadCell"><b><%=formatter.format(message.getModificationDate())%></b></td>
+        </tr>
+   </tc-webtag:iterator>
 </table>
+<%  } else { %>
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+    <tr>
+        <td class="rtbc">No search results for "<%=query.getQueryString()%>". Please try a less restrictive search.</td>
+    </tr>
+</table>
+<%  } %>

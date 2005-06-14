@@ -11,6 +11,7 @@ import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserNotFoundException;
 
@@ -27,7 +28,7 @@ import com.jivesoftware.forum.action.util.Paginator;
 public class Search extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
-		
+        
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.FORUM_NAME);
         resultFilter.setSortOrder(ResultFilter.ASCENDING);

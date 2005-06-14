@@ -3,6 +3,7 @@
          		 com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.Query,
+                 com.jivesoftware.util.StringUtils,
          		 java.util.*,
                  java.text.SimpleDateFormat"
 %>
@@ -17,7 +18,8 @@
     Query query = (Query)request.getAttribute("query");
     String searchScope = (String)request.getAttribute("searchScope");
     String dateRange = (String)request.getAttribute("dateRange");
-    String status = (String)request.getAttribute("status"); %>
+    String status = (String)request.getAttribute("status"); 
+    Iterator results = (Iterator)request.getAttribute("results"); %>
 
 <script type="text/javascript">
 function noenter(e)
@@ -64,7 +66,7 @@ function noenter(e)
                 <jsp:param name="title" value="Forum Search"/>
             </jsp:include>
 
-<span class="rtbc"><a href="" class="rtbcLink">Forums</a> &gt;&gt;	Advanced Search</span>
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> << Search</span>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Search"/>
@@ -75,7 +77,7 @@ function noenter(e)
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Query:</strong></td>
       <td class="rtTextCell100">
-         <input name="<%=ForumConstants.SEARCH_QUERY%>" size="50" maxlength="100" value="" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
+         <input name="<%=ForumConstants.SEARCH_QUERY%>" size="50" maxlength="100" value="<%if (query != null) {%><%=StringUtils.escapeHTMLTags(query.getQueryString())%><%}%>" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
          <input name="Search" value="Search" type="submit" alt="Search" onclick="">
          &#160;<a href="#" onclick="openWin('searchTips.jsp','st',600,400);" class="rtLinkNew">Search Tips</a>
          <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
@@ -86,9 +88,18 @@ function noenter(e)
       <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
       <td class="rtTextCell100">
 <select size="1" name="<%=ForumConstants.SEARCH_SCOPE%>" id="<%=ForumConstants.SEARCH_SCOPE%>">
-<option value="all">All Forums</option>
+<%  if (searchScope == null || searchScope.equals("all")) { %>
+        <option value="all" selected>All Forums</option>
+<%  } else { %>
+        <option value="all">All Forums</option>
+<%  } %>
 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
-<option value="f<jsp:getProperty name="forum" property="ID"/>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+<%  String searchScopeValue = "f" + forum.getID();
+    if (searchScope != null && searchScope.equals(searchScopeValue)) { %>
+        <option value="<%=searchScopeValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+    <%  } else { %>
+        <option value="<%=searchScopeValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+    <%  } %>
 </tc-webtag:iterator>
 </select>
       </td>
@@ -97,10 +108,18 @@ function noenter(e)
       <td class="rtTextCell" nowrap="nowrap"><strong>Date Range:</strong></td>
       <td class="rtTextCell100">
 <select size="1" name="<%=ForumConstants.SEARCH_DATE_RANGE%>" id="<%=ForumConstants.SEARCH_DATE_RANGE%>">
-<option value="all" selected="selected">All</option>
+<%  if (dateRange == null || dateRange.equals("all")) { %>
+        <option value="all" selected>All</option>
+<%  } else { %>
+        <option value="all">All</option>
+<%  } %>
 <%  SimpleDateFormat formatter = new SimpleDateFormat("M/d/yy");
     for (int i=0; i<ForumConstants.SEARCH_DATES.length; i++) { %>
-        <option value="<%=ForumConstants.SEARCH_DATES[i]%>">&#149;&#160;<%=ForumConstants.SEARCH_DATE_LABELS[i]%> (<%=formatter.format((Date)dates.get(ForumConstants.SEARCH_DATES[i]))%>)</option>
+        <%  if (dateRange != null && dateRange.equals(ForumConstants.SEARCH_DATES[i])) { %>
+                <option value="<%=ForumConstants.SEARCH_DATES[i]%>" selected>&#149;&#160;<%=ForumConstants.SEARCH_DATE_LABELS[i]%> (<%=formatter.format((Date)dates.get(ForumConstants.SEARCH_DATES[i]))%>)</option>
+        <%  } else { %>
+                <option value="<%=ForumConstants.SEARCH_DATES[i]%>">&#149;&#160;<%=ForumConstants.SEARCH_DATE_LABELS[i]%> (<%=formatter.format((Date)dates.get(ForumConstants.SEARCH_DATES[i]))%>)</option>
+        <%  } %>
 <%  } %>
 </select>
       </td>
@@ -108,7 +127,7 @@ function noenter(e)
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Handle:</strong></td>
       <td class="rtTextCell100">
-         <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="" type="text" onKeyPress="return noenter(event)"/>&#160;
+         <input name="<%=ForumConstants.SEARCH_HANDLE%>" size="20" maxlength="50" id="<%=ForumConstants.SEARCH_HANDLE%>" value="<%if (query != null && query.getFilteredUser() != null){%><%=query.getFilteredUser().getUsername()%><%}%>" type="text" onKeyPress="return noenter(event)"/>&#160;
          (Leave field blank to search all users)
          <% if (errors.get(ForumConstants.SEARCH_HANDLE) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_HANDLE%>"><%=err%></tc-webtag:errorIterator></span><% } %>
       </td>
@@ -119,7 +138,8 @@ function noenter(e)
 <select size="1" name="<%=ForumConstants.SEARCH_RESULT_SIZE%>" id="<%=ForumConstants.SEARCH_RESULT_SIZE%>">
 <%  int[] resultSizes = { 10, 20, 30, 50 };
 	for (int i=0; i<resultSizes.length; i++) {
-		if (resultSizes[i] == ForumConstants.DEFAULT_SEARCH_RESULT_SIZE) { %>
+		if ((query != null && paginator.getPageable().getResultFilter().getNumResults() == resultSizes[i]) || 
+            (query == null && resultSizes[i] == ForumConstants.DEFAULT_SEARCH_RESULT_SIZE)) { %>
 			<option value="<%=resultSizes[i]%>" selected><%=resultSizes[i]%></option>
 	<%	} else { %>
 			<option value="<%=resultSizes[i]%>"><%=resultSizes[i]%></option>
@@ -130,7 +150,7 @@ function noenter(e)
    </tr>
 </form>
 </table>
-<br><br>
+<br>
 <% if ("search".equals(status)) { %>
     <jsp:include page="searchResults.jsp">
         <jsp:param name="paginator" value="<%=paginator%>"/>
@@ -138,6 +158,7 @@ function noenter(e)
         <jsp:param name="searchScope" value="<%=searchScope%>"/>
         <jsp:param name="dateRange" value="<%=dateRange%>"/>
         <jsp:param name="status" value="<%=status%>"/>
+        <jsp:param name="results" value="<%=results%>"/>
     </jsp:include>
 <% } %>
 
