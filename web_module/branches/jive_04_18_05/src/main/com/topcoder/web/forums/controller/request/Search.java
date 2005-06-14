@@ -114,21 +114,19 @@ public class Search extends ForumsProcessor {
             ResultFilter pageFilter = new ResultFilter();
             pageFilter.setStartIndex(startIdx);
             pageFilter.setNumResults(resultSize);
-            //pageFilter.setSortField(Query.RELEVANCE);
-            //pageFilter.setSortOrder(ResultFilter.DESCENDING);
-            int totalItemCount = query.getResultCount();
-            log.debug("===@@@ totalItemCount: " + totalItemCount);
-            log.debug("===@@@ resultSize: " + resultSize);
+            
+            Iterator itResults = null;
+            int totalItemCount = 0;
+            if (displayPerThread) {
+                itResults = query.getResultsByThread(startIdx, resultSize);
+                totalItemCount = query.getResultByThreadCount();
+            } else {
+                itResults = query.getResults(startIdx, resultSize);
+                totalItemCount = query.getResultCount();
+            }
             
             Paging paging = new Paging(pageFilter, totalItemCount);
             Paginator paginator = new Paginator(paging);
-            Iterator itResults = null;
-            
-            if (displayPerThread) {
-                itResults = query.getResultsByThread(startIdx, resultSize);
-            } else {
-                itResults = query.getResults(startIdx, resultSize);
-            }
             
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
