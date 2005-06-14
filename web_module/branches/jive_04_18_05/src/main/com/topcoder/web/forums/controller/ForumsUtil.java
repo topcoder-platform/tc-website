@@ -27,7 +27,7 @@ public class ForumsUtil {
      * @return the message's subject where the search term(s) appear.
      * @deprecated Use {@link #getHighlightedText(QueryResult)} instead
      */
-    public String getMessageSubjectPreview(ForumMessage message, String q) {
+    public static String getMessageSubjectPreview(ForumMessage message, String q) {
         if (message != null && q != null) {
             String[] queryWords = StringUtils.toLowerCaseWordArray(q);
             String subject = message.getUnfilteredSubject().trim();
