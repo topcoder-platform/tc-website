@@ -23,6 +23,86 @@ public class ForumsUtil {
         = JiveGlobals.getJiveBooleanProperty("search.filterHTMLEnabled",true);
     
     /**
+     * Returns the message's subject where the search term(s) appear.
+     * @return the message's subject where the search term(s) appear.
+     * @deprecated Use {@link #getHighlightedText(QueryResult)} instead
+     */
+    public String getMessageSubjectPreview(ForumMessage message, String q) {
+        if (message != null && q != null) {
+            String[] queryWords = StringUtils.toLowerCaseWordArray(q);
+            String subject = message.getUnfilteredSubject().trim();
+            if (filterHTMLEnabled) {
+                subject = StringUtils.stripTags(subject, true);
+            }
+
+            subject = StringUtils.highlightWords(subject, queryWords, "<b>", "</b>");
+
+            // we special case the profanity filter since we want to filter that from the
+            // output
+            try {
+                DbForumFactory factory = DbForumFactory.getInstance();
+                DbForumMessage dbMessage = (DbForumMessage) factory.getMessage(message.getID());
+                FilterManager manager = dbMessage.getForumThread().getForum().getFilterManager();
+                Filter[] filters = manager.getFilters();
+                boolean found = false;
+                for (int i = 0; i < filters.length; i++) {
+                    if (filters[i] instanceof Profanity) {
+                        Profanity f = (Profanity) filters[i];
+                        subject = f.doFilter(subject);
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    // check up the tree recursively
+                    ForumCategory cat = dbMessage.getForumThread().getForum().getForumCategory();
+                    if (cat != null && !found) {
+                        manager = cat.getFilterManager();
+                        filters = manager.getFilters();
+                        for (int i = 0; i < filters.length; i++) {
+                            if (filters[i] instanceof Profanity) {
+                                Profanity f = (Profanity) filters[i];
+                                subject = f.doFilter(subject);
+                                found = true;
+                                break;
+                            }
+                        }
+
+                        if (!found) {
+                            cat = cat.getParentCategory();
+                        }
+                    }
+
+                    // check global filters
+                    if (!found) {
+                        manager = DbForumFactory.getInstance().getFilterManager();
+                        filters = manager.getFilters();
+                        for (int i = 0; i < filters.length; i++) {
+                            if (filters[i] instanceof Profanity) {
+                                Profanity f = (Profanity) filters[i];
+                                subject = f.doFilter(subject);
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e) {
+                Log.error(e);
+            }
+
+            return subject;
+        }
+        else if (message != null) {
+             return message.getSubject().trim();
+        }
+
+        return "";
+    }
+    
+    /**
      * Returns a snippet of the message's body where the search term(s) appear.
      * @return a snippet of the message's body where the search term(s) appear.
      * @deprecated Use {@link #getHighlightedText(QueryResult)} instead
