@@ -36,13 +36,24 @@
         linkBuffer.append("&").append(ForumConstants.SEARCH_HANDLE).append("=").append(query.getFilteredUser().getUsername());
     }
     linkBuffer.append("&").append(ForumConstants.SEARCH_RESULT_SIZE).append("=").append(numResults);
+    
+    String sortFieldLink = linkBuffer.toString();
+    String sortFieldLabel = "";
+    if (query.getSortField() == Query.RELEVANCE) {
+        sortFieldLink += "&" + ForumConstants.SEARCH_SORT_FIELD + "=" + Query.DATE;
+        sortFieldLabel = "sort by date";
+    } else {
+        sortFieldLink += "&" + ForumConstants.SEARCH_SORT_FIELD + "=" + Query.RELEVANCE;
+        sortFieldLabel = "sort by relevance";
+    }
+    
     linkBuffer.append("&").append(ForumConstants.SEARCH_SORT_FIELD).append("=").append(query.getSortField());
     String link = linkBuffer.toString(); %>
 
 <%  if (resultCount > 0) { %>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(resultCount,numResults*(paginator.getPageIndex()+1))%> of <%=resultCount%>) <a href="<%=link%>" class="rtbcLink">(sort by date)</a></td>
+        <td class="rtbc">Search Results (<%=numResults*paginator.getPageIndex()+1%> - <%=Math.min(resultCount,numResults*(paginator.getPageIndex()+1))%> of <%=resultCount%>) <a href="<%=sortFieldLink%>" class="rtbcLink">(<%=sortFieldLabel%>)</a></td>
         <% Page[] pages; %>
         <% if (paginator.getNumPages() > 1) { %>
 	    <td class="rtbc" align="right"><b>
