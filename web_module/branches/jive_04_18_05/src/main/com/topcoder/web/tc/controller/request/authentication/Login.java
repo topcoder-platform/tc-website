@@ -67,12 +67,12 @@ public class Login extends Base {
                                 log.debug("user active");
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));                                                    
                                 StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Login");
-                                nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
                                 nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
                                 if (!rememberUser.equals("")) {
                                     nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
                                 }
+                                nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 setNextPage(nextPage.toString());
                                 setIsNextPageInContext(false);
                                 log.debug("on successful login, going to " + nextPage.toString());

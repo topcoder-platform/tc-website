@@ -26,9 +26,7 @@ public class Login extends ForumsProcessor {
         
         String queryString = getRequest().getQueryString();
         int destStartIdx = queryString.indexOf("http://");
-        int destEndIdx = queryString.indexOf("&username=");
-        String dest = (destEndIdx == -1) ? queryString.substring(destStartIdx) : 
-                queryString.substring(destStartIdx, destEndIdx);
+        String dest = queryString.substring(destStartIdx);
         
         try {
             password = getPassword(forumFactory.getUserManager().getUserID(username));
