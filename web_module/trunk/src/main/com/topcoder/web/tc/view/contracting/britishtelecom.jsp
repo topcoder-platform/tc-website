@@ -56,7 +56,7 @@ Our 30 millions + users span over 200 countries. Your work and ideas affects eac
 <li>Team player with excellent communications skills</li>
 </ul>
 
-      <a href="/tc?module=JobHit&jid=296&jt=4">Register for this position here!</a>
+      <a href="">Register for this position here!</a>
 		<br/><br/>
         <p><br></p>
         </td>
