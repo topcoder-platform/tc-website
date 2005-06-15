@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.15.05<br>10:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1">Computer programmer wins big</A></span><br><br>
+      "It's not often a student is awarded $13,000 U.S. for seven hours of work. Gary Linscott, ArtSci '05, took home the cash as the top prize winner in the 2005 TopCoder Collegiate Challenge." [Queen's University - The Journal]
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.13.05<br>10:50 AM</td>
       <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=smsac">SMS.ac</A></span><br><br>
       <A href="/tc?module=Static&d1=contracting&d2=smsac">SMS.ac</A> is looking for .NET Software Developers.
@@ -219,21 +231,6 @@ With a convincing win in only his eighth match, <tc-webtag:handle coderId="10574
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>05.24.05<br>5:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm244_prob">SRM 244 - Problem Set & Analysis</A></span><br><br>
-In Division 1, the not-too-hard but subtle problem set made the match quite exciting and unpredictable until the dust settled after the system test. Congratulations to <tc-webtag:handle coderId="8357090" context="algorithm"/> for his victory with a wide margin,</td>
-      <td class="newsPhoto">by <tc-webtag:handle coderId="10487679" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm244_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 
 </table>
 <br><br>
