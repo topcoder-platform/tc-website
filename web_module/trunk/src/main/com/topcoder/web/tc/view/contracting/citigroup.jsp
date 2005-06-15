@@ -39,24 +39,37 @@
 		</div>
 
 <p>
-<span class="bodySubtitle">.NET Software Developers</span>
+<span class="bodySubtitle">Join Our Team</span>
 <br><br>
-You will work closely with the technology team to meet corporate objectives. This is an ideal position for someone who can work effectively in a small group and independently in a fast paced environment. You will be following a .NET framework utilizing C# and ASP.NET for all web based application development. The applications you will be developing / enhancing includes smsFlirt, smsClubs, smsChannels, MobilePartner and many more future applications. This is the ideal position for someone who is strong in traditional ASP, but also has working knowledge of .NET / with C#. Additional work will focus on wireless application development (including WAP and BREW technologies). Some of the focus will be on developing a WAP based website and additional work will be focused on creating applications for the handset. All developers will work closely with marketing and business development in improving these applications and adding better functionality. You will have a hand in not only the programming, but also in the look and feel of the applications. You will also have the opportunity to lead projects from start to finish. 
+Working at Citigroup gives employees the chance to create an exciting and wide-ranging career in one of the world's leading organizations. Our belief in employee ownership offers a unique experience in entrepreneurialism on a global scale, and an unparalleled geographic footprint enables our employees to work with and learn from a diverse group of colleagues whose insight, integrity, and commitment set the standard for success in our industry.
 <br><br>
-The work environment adheres to the engineers that want to have a say in all aspects of the product life cycle. If you are looking for a 9-5 where you can sit quietly and code exactly what you are told to, this is not the place for you. We are looking for intelligent, creative programmers that embrace challenges and obstacles with confident determination and resolve. 
+<strong>What We Value:</strong>
 <br><br>
-Our 30 millions + users span over 200 countries. Your work and ideas affects each of them as fast as you can create it. SMS.ac is changing the world everyday and already our engineers are pioneering the technology that is molding the direction of the wireless data space. Leave your own mark on the world.
+<strong>Integrity</strong>: We do the right thing. 
 <br><br>
-<strong>Requirements:</strong>
+<strong>Excellence</strong>: We deliver superior products and services to our clients and take pride in the quality of our work. 
+<br><br>
+<strong>Respect</strong>: We treat people with respect. 
+<br><br>
+<strong>Teamwork</strong>: We work together to get the job done. 
+<br><br>
+<strong>Ownership</strong>: We act like owners and take responsibility for our actions. 
+<br><br>
+<strong>Leadership</strong>: We believe in leadership by example, in the office and in the community.
+<br><br>
+As a company that does business in more than 100 countries, with 98 percent of our employees native to the locations where they work, Citigroup is one of the most diverse organizations in the world. This diversity has been a source of strength for Citigroup's employees, for our clients, and for the communities where we live and work.
+<br><br>
+<strong>Types of Job Skills Desired:</strong>
 <ul>
-<li>BS/MS in Computer Science or Electrical Engineering</li>
-<li>1+ year experience with .NET framework (ASP.NET or C#)</li>
-<li>Experience with WAP, J2ME, BREW and wireless application development a plus</li>
-<li>SQL experience a plus</li>
-<li>Team player with excellent communications skills</li>
+<li>People that can solve complex problems and implement this vision in a small team environment.
+<li>Dedicated, self-motivated individuals, who are passionate about technology.
+<li>Employees who can to implement cutting edge grid computing, artificial intelligence, and advanced numerical optimization techniques.
+<li>Someone who can tackle numerous intellectual and technical challenges.
+<li>People with superior knowledge, passion, and accomplishment in his/her area of expertise.
 </ul>
 
-      <a href="/tc?module=JobHit&jid=296&jt=4">Register for this position here!</a>
+      <a href="">Register for this position here!</a>
+      <%--<a href="/tc?module=JobHit&jid=297&jt=4">Register for this position here!</a>--%>
 		<br/><br/>
         <p><br></p>
         </td>
