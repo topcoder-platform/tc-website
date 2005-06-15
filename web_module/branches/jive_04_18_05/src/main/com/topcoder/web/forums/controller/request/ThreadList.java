@@ -31,7 +31,7 @@ public class ThreadList extends ForumsProcessor {
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
         }
-        int threadRange = 15;
+        int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
         if (user != null) {
             try {
                 threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));

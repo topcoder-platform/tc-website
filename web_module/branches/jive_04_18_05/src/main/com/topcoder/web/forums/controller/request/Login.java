@@ -24,6 +24,8 @@ public class Login extends ForumsProcessor {
         String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         String password = "";
         
+        log.debug("###dest: " + dest);
+        
         try {
             password = getPassword(forumFactory.getUserManager().getUserID(username));
         } catch (Exception e) {

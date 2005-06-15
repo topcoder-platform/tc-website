@@ -61,6 +61,7 @@ public interface ForumConstants {
     public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
     public final static int DEFAULT_SEARCH_RESULT_SIZE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
+    public final static int DEFAULT_THREAD_RANGE = 15;
     
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     
