@@ -52,6 +52,7 @@ function arena() {
         <% } %>
 
 <!-- Applications begins -->
+<!--
                 <tr><td id="<%=level2.equals("applications")?"leftNavOn":"leftNav"%>"><img src="images/nav_arrow_<%=level2.equals("applications")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/?t=development&c=app_projects" class="<%=level2.equals("applications")?"leftOn":"left"%>">Applications</a></td></tr>
 
         <% if ((level2.equals("applications"))) { %>
@@ -59,6 +60,7 @@ function arena() {
                 <tr><td id="<%=level3.equals("app_meth")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/?&t=development&c=app_meth" class="leftOn">Development Methodology</a></td></tr>
                 <tr><td id="<%=level3.equals("app_sample_docs")?"leftSubnavOn":"leftSubnav"%>"><a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=appDocumentation" class="leftOn">Documentation</a></td></tr>
         <% } %>
+-->
 
 <!-- Contests begins -->
                 <tr>
