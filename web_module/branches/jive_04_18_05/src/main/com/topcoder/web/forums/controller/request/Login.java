@@ -21,16 +21,13 @@ public class Login extends ForumsProcessor {
         String username = getRequest().getParameter(USER_NAME);
         String hashedPassword = getRequest().getParameter(PASSWORD);
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
-        String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+        //String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         String password = "";
         
-        log.debug("###dest: " + dest);
-        log.debug("###query string: " + getRequest().getQueryString());
         String queryString = getRequest().getQueryString();
-        int destStartIdx = queryString.indexOf("&nextPage=") + "&nextPage=".length();
+        int destStartIdx = queryString.indexOf("http://");
         int destEndIdx = queryString.indexOf("&username=");
-        dest = queryString.substring(destStartIdx, destEndIdx);
-        log.debug("###dest (new): " + dest);
+        String dest = queryString.substring(destStartIdx, destEndIdx);
         
         try {
             password = getPassword(forumFactory.getUserManager().getUserID(username));
