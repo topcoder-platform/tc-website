@@ -30,7 +30,7 @@ public class Message extends ForumsProcessor {
 		if (threadView.equals("flat") || 
                 (threadView.equals("") && authToken.isAnonymous() && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) ||
                 (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat"))) {
-			long messageIdx = 0;
+			int messageIdx = 0;
 			Iterator messageIter = thread.getMessages();			
 			while (messageIter.hasNext()) {
 			    if (((ForumMessage)messageIter.next()).getID() == messageID) {
@@ -39,8 +39,13 @@ public class Message extends ForumsProcessor {
 			    messageIdx++;
 			}
 			
-			long messageRange = Long.parseLong(user.getProperty("jiveMessageRange"));
-			long startIdx = (messageIdx/messageRange)*messageRange;
+            int messageRange = ForumConstants.DEFAULT_MESSAGE_RANGE;
+            if (user != null) {
+                try {
+                    messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
+                } catch (Exception ignored) {}
+            }
+			int startIdx = (messageIdx/messageRange)*messageRange;
 			urlNext.append("&").append(ForumConstants.START_IDX).append("=").append(startIdx);
 		} else if (threadView.equals("tree") || 
                 (threadView.equals("") && authToken.isAnonymous() && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("tree")) ||

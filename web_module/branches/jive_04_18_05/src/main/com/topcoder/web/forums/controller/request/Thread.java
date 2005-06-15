@@ -40,7 +40,7 @@ public class Thread extends ForumsProcessor {
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
         }
-        int messageRange = 15;
+        int messageRange = ForumConstants.DEFAULT_MESSAGE_RANGE;
         if (user != null) {
             try {
                 messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
