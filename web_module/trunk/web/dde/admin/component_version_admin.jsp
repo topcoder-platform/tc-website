@@ -1080,28 +1080,30 @@ if (action != null) {
 
                 System.out.println("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
-                System.out.println("lalala");
+System.out.println("lalala");
                 String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForum(Forum.SPECIFICATION).getId();
-
+System.out.println("lalala2");
                 StringBuffer buffer = new StringBuffer();
                 String category = "";
                 try {
                    // Locate the base category for the component.
                     LocalDDECompCatalog cat = catalogHome.findByPrimaryKey(new Long(component.getId()));
+                    System.out.println("lalala3");
                     LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(cat.getRootCategory()));
+                    System.out.println("lalala4");
                     category = categories.getName();
                 } catch (FinderException e) {
                     throw new CatalogException(e.toString());
 
                 }
-System.out.println("lalala2");
+
                 buffer.append(category);
                 buffer.append(" ");
                 buffer.append(component.getName());
                 buffer.append(" ");
                 buffer.append(ver.getVersionLabel());
                 buffer.append(" - Forum Post");
-System.out.println("lalala3");
+
                 // Locate the Notification bean
                 System.out.println("Locating the Notification EJB ...");
                 Object objNotification = CONTEXT.lookup(NotificationHome.EJB_REF_NAME);
