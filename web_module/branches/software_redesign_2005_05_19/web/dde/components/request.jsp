@@ -139,7 +139,7 @@
             <div align="center">
             <img src="/images/clear.gif" alt="" width="530" height="15" border="0"/>
             <table border="1" cellpadding="20" cellspacing="0" width="440" background="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
-                <tr><td class="registerTitle">Describe the component you need</td></tr>
+                <tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
 <!-- Component Name Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
