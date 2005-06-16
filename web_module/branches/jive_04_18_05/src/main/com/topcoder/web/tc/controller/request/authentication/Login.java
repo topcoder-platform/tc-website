@@ -73,6 +73,11 @@ public class Login extends Base {
                                     nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
                                 }
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
+                                
+                                log.debug("#######dest: " + dest);
+                                log.debug("#######query string: " + getRequest().getQueryString());
+                                log.debug("#######next page: " + nextPage.toString());
+                                
                                 setNextPage(nextPage.toString());
                                 setIsNextPageInContext(false);
                                 log.debug("on successful login, going to " + nextPage.toString());
