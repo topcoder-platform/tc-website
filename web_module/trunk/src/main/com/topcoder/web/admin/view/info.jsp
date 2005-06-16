@@ -464,7 +464,7 @@
                                         <li>Bring down the jboss instance
                                             <ul>
                                                 <li>
-                                                    <span class="input">/usr/ucb/ps augxww | grep java | jboss.Main</span>
+                                                    <span class="input">/usr/ucb/ps augxww | grep java | grep jboss.Main</span>
                                                     locate the correct process id to kill
                                                 </li>
                                                 <li><span class="input">kill -9 &lt;pid&gt;</span> to kill the jboss process</li>
