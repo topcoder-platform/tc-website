@@ -40,7 +40,7 @@ public class History extends ForumsProcessor {
             startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
         }
         
-        int range = 10;
+        int range = ForumConstants.DEFAULT_HISTORY_RANGE;
         if (user != null) {
             try {
                 range = Integer.parseInt(user.getProperty("jiveHistoryRange"));
