@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN' 'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+
+<ejb-jar>
+    <enterprise-beans>
+        <session>
+            <ejb-name>Rating</ejb-name>
+            <home>com.topcoder.web.ejb.rating.RatingHome</home>
+            <remote>com.topcoder.web.ejb.rating.Rating</remote>
+            <ejb-class>com.topcoder.web.ejb.rating.RatingBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>Rating</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
