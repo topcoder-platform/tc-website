@@ -24,7 +24,7 @@ public class Index extends Base{
             request.setAttribute(Constants.LONG_CONTEST_INDEX_KEY, m);
             ResultSetContainer problems = (ResultSetContainer)m.get("long_problems");
             log.debug(problems);
-            setNextPage(Constants.JSP_ADDR + Constants.INDEX_JSP);
+            setNextPage(Constants.INDEX_JSP);
             setIsNextPageInContext(true);
         }catch(Exception e){
             e.printStackTrace();
