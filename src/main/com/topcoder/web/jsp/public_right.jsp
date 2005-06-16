@@ -103,6 +103,10 @@ function find(n) {
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
+            <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa"><img src="/i/tournament/tco05/nsa_right.gif" alt="NSA" border="0" /></a><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
             <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/tournament/tco05/yahoo_right.gif" alt="Yahoo" border="0" /></a><br />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
@@ -221,6 +225,21 @@ function find(n) {
             <p><br/></p>
 
 <!-- Review Board ends -->
+
+<!-- Employment Opportunities begins -->
+<% } else if (level1.equals("employmentOpps")) { %>
+
+            <img src="/i/clear.gif" alt="" width="170" height="15" border="0"><br/>
+
+            <jsp:include page="calendar.jsp"/>
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <jsp:include page="contracting/placed_right.jsp"/>
+
+            <p><br/></p>
+
+<!-- Employment Opportunities ends -->
 
     <% } else { %>
 
