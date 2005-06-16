@@ -143,8 +143,8 @@
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
                 </tr>
-             </table>
-             <table border="0" cellpadding="20" cellspacing="0" width="440" bgcolor="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
+             
+             <table border="0" cellpadding="20" cellspacing="0" width="440" bgcolor="#CCCCCC">
 <!-- Component Name Field -->
 				<tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
                 <tr>
@@ -152,13 +152,13 @@
                         <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="80" maxlength="50"></td>
                 </tr>
              </table>
-             <table border="0" cellpadding="0" cellspacing="0" width="440" bgcolor="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
+             <table border="0" cellpadding="0" cellspacing="0" width="440" bgcolor="#CCCCCC">
 <!-- Description Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("desc").getError()%></td>
                 </tr>
              </table>
-             <table border="0" cellpadding="20" cellspacing="0" width="440" bgcolor="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
+             
 <!-- Description Field -->
 				<tr><td class="catalogIndexHeader">Describe the Component</td></tr>
                 <tr>
