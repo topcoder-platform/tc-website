@@ -142,10 +142,9 @@
             <tr><td>
             <table border="0" cellpadding="10" cellspacing="0" bgcolor="#cccccc"><form name="frmCompRequest" action="<%=page_name%>" method="post">
 <!-- Component Name Field -->
-				<tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
+				<tr><td class="catalogIndexHeader"><%=fieldsRequest.get("name").getLabel()%> a New or Existing Component</td></tr>
                 <tr>
-                    <td class="small"><%=fieldsRequest.get("name").getLabel()%><br/>
-                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="84" maxlength="50"></td>
+                    <td><input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="84" maxlength="50"></td>
                 </tr>
 <!-- Component Name Error Text -->
                 <tr>
