@@ -10,15 +10,18 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 
 public class Index extends Base{
+    protected static final Logger log = Logger.getLogger(Index.class);
+
     protected void businessProcessing() throws TCWebException {
         try{
             TCRequest request = getRequest();
             Request r = new Request();
-            r.setContentHandle("profile_search");
-            DataAccessInt dataAccess = getDataAccess(true);
+            r.setContentHandle("long_problems");
+            DataAccessInt dataAccess = getDataAccess(false);
             Map m = dataAccess.getData(r);
             request.setAttribute(Constants.LONG_CONTEST_INDEX_KEY, m);
             ResultSetContainer problems = (ResultSetContainer)m.get("long_problems");
+            log.debug(problems);
             setNextPage(Constants.JSP_ADDR + Constants.INDEX_JSP);
         }catch(Exception e){
             e.printStackTrace();
