@@ -1077,6 +1077,13 @@ if (action != null) {
                 LocalDDECategoriesHome categoriesHome
                     = (LocalDDECategoriesHome) CONTEXT.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
 
+                if (catalogHome == null) {
+                    System.out.println("catalogHome is null");
+                }
+                
+                if (categoriesHome == null) {
+                    System.out.println("categoriesHome is null");
+                }
 
                 System.out.println("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
