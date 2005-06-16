@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <!DOCTYPE web-app
-  PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
-  "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+  PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+  "http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
 
 <web-app>
 
     <!-- Action Servlet Configuration -->
     <servlet>
-  	    <servlet-name>CatalogDownload</servlet-name>
-  	    <servlet-class>com.topcoder.dde.servlet.DDEComponentDownload</servlet-class>
+            <servlet-name>CatalogDownload</servlet-name>
+            <servlet-class>com.topcoder.dde.servlet.DDEComponentDownload</servlet-class>
     </servlet>
     <servlet>
-  	    <servlet-name>CatalogDocument</servlet-name>
-  	    <servlet-class>com.topcoder.dde.servlet.DDEDocumentDownload</servlet-class>
+            <servlet-name>CatalogDocument</servlet-name>
+            <servlet-class>com.topcoder.dde.servlet.DDEDocumentDownload</servlet-class>
     </servlet>
     <servlet>
-  	    <servlet-name>ForumAttachment</servlet-name>
-  	    <servlet-class>com.topcoder.dde.servlet.DDEForumAttachmentDownload</servlet-class>
+            <servlet-name>ForumAttachment</servlet-name>
+            <servlet-class>com.topcoder.dde.servlet.DDEForumAttachmentDownload</servlet-class>
     </servlet>
     <servlet>
-  	    <servlet-name>JavadocViewing</servlet-name>
-  	    <servlet-class>com.topcoder.dde.servlet.JavadocServlet</servlet-class>
+            <servlet-name>JavadocViewing</servlet-name>
+            <servlet-class>com.topcoder.dde.servlet.JavadocServlet</servlet-class>
     </servlet>
     <servlet>
-  	    <servlet-name>SubmissionDownload</servlet-name>
-  	    <servlet-class>com.topcoder.dde.servlet.DDESubmissionDownload</servlet-class>
+            <servlet-name>SubmissionDownload</servlet-name>
+            <servlet-class>com.topcoder.dde.servlet.DDESubmissionDownload</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>tcs</servlet-name>
@@ -98,6 +98,7 @@
         <url-pattern>/tcs</url-pattern>
     </servlet-mapping>
 
+
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>
@@ -114,8 +115,12 @@
         <location>/attention/pagenotfound.html</location>
     </error-page>
 
-
-
-
+    <ejb-local-ref>
+        <ejb-ref-name>ejb/DDEDocTypesEJB</ejb-ref-name>
+        <ejb-ref-type>Entity</ejb-ref-type>
+        <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypesHome</local-home>
+        <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes</local>
+        <ejb-link>DDEDocTypesEJB</ejb-link>
+    </ejb-local-ref>
 
 </web-app>

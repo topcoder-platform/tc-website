@@ -3,12 +3,13 @@ package com.topcoder.dde.persistencelayer.interfaces;
 import javax.ejb.CreateException;
 import javax.ejb.EJBLocalHome;
 import javax.ejb.FinderException;
+import java.util.Collection;
 
 /**
  * The local home interface representing the CMP bean for the doc_types table.
  *
- * @version     1.0
- * @author      Timur Zambalayev
+ * @version     1.1 04/26/2005
+ * @author      Timur Zambalayev, isv
  */
 public interface LocalDDEDocTypesHome extends EJBLocalHome {
 
@@ -36,5 +37,14 @@ public interface LocalDDEDocTypesHome extends EJBLocalHome {
      * @throws CreateException      an application level error occurred during the create operation.
      */
     LocalDDEDocTypes create(long key, String description, long statusId) throws CreateException;
+
+    /**
+     * <p>Gets a Collection of all instances of LocalDDEDocTypes representing the document types which are currently
+     * active (not deleted).</p>
+     *
+     * @return a <code>Collection</code> of local interfaces (LocalDDEDocTypes) representing active document types.
+     * @throws FinderException if an application level error occurred during the find operation.
+     */
+    Collection findAllActive() throws FinderException;
 
 }

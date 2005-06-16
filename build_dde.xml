@@ -108,6 +108,7 @@
     <property name="base_exception.jar" value="${tcslibdir}/tcs/base_exception/1.0/base_exception.jar"/>
     <property name="logging_wrapper.jar" value="${tcslibdir}/tcs/logging_wrapper/1.0/logging_wrapper.jar"/>
     <property name="refreshable_cache.jar" value="${tcslibdir}/tcs/refreshable_cache/1.0/refreshable_cache.jar"/>
+    <property name="file_class.jar" value="${jardir}/tcs/file_class/1.0/file_class.jar"/>
 
     <property name="review-persistence.jar" value="${onlinereview.jars.dir}/persistence.jar"/>
     <property name="onlinereview.war" value="${onlinereview.jars.dir}/review.war"/>
@@ -173,7 +174,8 @@
         <pathelement location="${upload.jar}"/>
         <pathelement location="${onlinereview.jars.dir}/persistence.jar"/>
         <pathelement location="${base_exception.jar}"/>
-        
+        <pathelement location="${file_class.jar}"/>
+
         <pathelement location="${workdays.jar}" />
         <pathelement location="${typesafeenum.jar}" />
         <pathelement location="${projectphases.jar}" />
@@ -313,8 +315,9 @@
               todir="${webdir}/WEB-INF/classes/com/topcoder/dde/util/"/>
 
         <copy file="${emailaddressvalidator.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${file_class.jar}" todir="${dist.jars.dir}"/>
         <war warfile="${dde.war}" webxml="web.xml">
-            <lib dir="${dist.jars.dir}" includes="email_address_validator.jar"/>
+            <lib dir="${dist.jars.dir}" includes="email_address_validator.jar,file_class.jar"/>
             <fileset dir="${webdir}/dde">
                 <exclude name="CVS/**/*"/>
                 <exclude name="online_review/**/*"/>
@@ -336,6 +339,7 @@
         <copy file="${refreshable_cache.jar}" todir="${dist.jars.dir}"/>
         <copy file="${object_formatter.jar}" todir="${dist.jars.dir}"/>
         <copy file="${xerces.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${file_class.jar}" todir="${dist.jars.dir}"/>
 
         <copy file="${emailengine.jar}" todir="${dist.jars.dir}"/>
         <copy file="${upload.jar}" todir="${dist.jars.dir}"/>
