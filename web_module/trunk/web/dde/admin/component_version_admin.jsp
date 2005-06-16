@@ -1084,6 +1084,10 @@ if (action != null) {
                 if (categoriesHome == null) {
                     System.out.println("categoriesHome is null");
                 }
+                
+                if (component == null) {
+                    System.out.println("component is null");
+                }
 
                 System.out.println("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
@@ -1124,7 +1128,7 @@ System.out.println("lalala2");
             } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
                 strError = "User '" + strUsername + "' was not found.";
             } catch (Exception e) {
-                System.err.println(e);
+                e.printStackTrace();
                 strError = "An error occurred while assigning notification event to user : " + e;
             }
         }
