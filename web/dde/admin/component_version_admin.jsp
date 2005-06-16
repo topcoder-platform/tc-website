@@ -1080,6 +1080,7 @@ if (action != null) {
 
                 System.out.println("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
+                System.out.println("lalala");
                 String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForum(Forum.SPECIFICATION).getId();
 
                 StringBuffer buffer = new StringBuffer();
@@ -1093,14 +1094,14 @@ if (action != null) {
                     throw new CatalogException(e.toString());
 
                 }
-
+System.out.println("lalala2");
                 buffer.append(category);
                 buffer.append(" ");
                 buffer.append(component.getName());
                 buffer.append(" ");
                 buffer.append(ver.getVersionLabel());
                 buffer.append(" - Forum Post");
-
+System.out.println("lalala3");
                 // Locate the Notification bean
                 System.out.println("Locating the Notification EJB ...");
                 Object objNotification = CONTEXT.lookup(NotificationHome.EJB_REF_NAME);
