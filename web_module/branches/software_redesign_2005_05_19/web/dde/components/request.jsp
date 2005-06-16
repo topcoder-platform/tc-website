@@ -148,7 +148,7 @@
 				<tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
                 <tr>
                     <td class="registerLabel"><%=fieldsRequest.get("name").getLabel()%><br/>
-                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="100" maxlength="50"></td>
+                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="80" maxlength="50"></td>
                 </tr>
 
 <!-- Description Error Text -->
@@ -160,14 +160,14 @@
 				<tr><td class="catalogIndexHeader">Describe the Component</td></tr>
                 <tr>
                     <td class="registerLabel"><%=fieldsRequest.get("desc").getLabel()%><br/>
-                        <textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="40" rows="6"></textarea></td>
+                        <textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
 
 <!-- Comment Field -->
 				<tr><td class="catalogIndexHeader">Describe Your Suggestions</td></tr>
                 <tr>
                     <td class="registerLabel"><%= fieldsRequest.get("comments").getLabel() %><br/>
-                        <textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="40" rows="6"></textarea></td>
+                        <textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
 
                 <tr>
