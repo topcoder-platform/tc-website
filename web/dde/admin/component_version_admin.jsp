@@ -8,7 +8,11 @@
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes,
                  com.topcoder.file.TCSFile,
                  com.topcoder.dde.notification.NotificationHome,
-                 com.topcoder.dde.notification.Notification" %>
+                 com.topcoder.dde.notification.Notification,
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog,
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories,
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome,
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
