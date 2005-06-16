@@ -112,7 +112,7 @@ public class Search extends ForumsProcessor {
                 query.setAfterDate((Date)dates.get(dateRange));
             }
             
-            if (!userHandle.equals("")) {
+            if (user instanceof User) {
             	query.filterOnUser(user);
             }
             

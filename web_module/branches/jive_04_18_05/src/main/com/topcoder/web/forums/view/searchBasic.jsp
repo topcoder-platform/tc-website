@@ -71,7 +71,6 @@ function noenter(e)
 <tr>
     <td nowrap="nowrap" valign="top">
        <jsp:include page="searchHeader.jsp" >
-            <jsp:param name="errors" value="<%=errors%>"/>
             <jsp:param name="queryTerms" value="<%=query.getQueryString()%>"/>
        </jsp:include>
     </td>   
@@ -79,14 +78,7 @@ function noenter(e)
 </table>
 
 <% if ("search".equals(status)) { %>
-    <jsp:include page="searchResults.jsp">
-        <jsp:param name="paginator" value="<%=paginator%>"/>
-        <jsp:param name="query" value="<%=query%>"/>
-        <jsp:param name="searchScope" value="<%=searchScope%>"/>
-        <jsp:param name="dateRange" value="<%=dateRange%>"/>
-        <jsp:param name="status" value="<%=status%>"/>
-        <jsp:param name="results" value="<%=results%>"/>
-    </jsp:include>
+    <jsp:include page="searchResults.jsp"></jsp:include>
 <% } %>
 
 </td>
