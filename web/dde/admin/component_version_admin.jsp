@@ -147,10 +147,7 @@ iterator = null;
 docType = null;
 
 // A general info for current component
-ComponentInfo component = componentManager.getComponentInfo();
-if (component == null) {
-    System.out.println("WARNING: component is null");
-}
+ComponentInfo component = null;
 
 long lngComponent = 0;
 long lngVersion = 0;
@@ -194,6 +191,7 @@ if (request.getMethod().equals("POST")) {
                     UploadedFile uf = (UploadedFile) fileUploads.next();
                     String fileName = uf.getRemoteFileName();
 
+                    component = componentManager.getComponentInfo();
                     String componentName = component.getName().replace(' ', '_');
 
                     // Check if that's an archive with bundled documentation files
@@ -1088,7 +1086,9 @@ if (action != null) {
                 StringBuffer buffer = new StringBuffer();
                 String category = "";
                 try {
-                   // Locate the base category for the component.
+                    component = componentManager.getComponentInfo();
+
+                    // Locate the base category for the component.
                     LocalDDECompCatalog cat = catalogHome.findByPrimaryKey(new Long(component.getId()));
                     LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(cat.getRootCategory()));
                     category = categories.getName();
