@@ -1,8 +1,14 @@
 <%@ page import="javax.naming.*,
+                 javax.ejb.FinderException,
                  com.topcoder.dde.submission.Submission,
                  com.topcoder.dde.submission.Submitter,
                  com.topcoder.dde.submission.Submitters,
-                 com.topcoder.dde.submission.Utility" %>
+                 com.topcoder.dde.submission.Utility,
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypesHome,
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes,
+                 com.topcoder.file.TCSFile,
+                 com.topcoder.dde.notification.NotificationHome,
+                 com.topcoder.dde.notification.Notification" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -47,7 +53,65 @@
 		}
 
 </script>
+<%!
+public Object[] parseDocumentNameAndType(String componentName, String fileName, Map docTypesMap) {
+
+    // Set the default values for document name and document type
+    String name = "Other (misc)";
+    long lngType = 6;
+
+    // Parse the document name and document type from file name
+    if (fileName.startsWith(componentName + "_")) {
+
+        // Strip out the component name from the file name
+        fileName = fileName.substring(componentName.length() + 1);
+
+        // Strip out the filename extension
+        fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+
+        // Iterate over each existing document type and check if the file corresponds to that type
+        String docTypeName;
+        Long docTypeId;
+        Iterator iterator = docTypesMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            docTypeId = (Long) iterator.next();
+            docTypeName = ((String) docTypesMap.get(docTypeId)).replace(' ', '_');
+
+            // If the file corresponds to current document type then try to parse the name of the
+            // document which is expected to follow after the type
+            if (fileName.startsWith(docTypeName)) {
+                lngType = docTypeId.longValue();
+                name = docTypeName;
+
+                // Strip out the document type
+                fileName = fileName.substring(docTypeName.length()).trim();
+
+                // If something has left then that's the document name
+                if (fileName.length() > 0) {
+                    name += " - " + fileName.trim();
+                }
+            }
+        }
+    } else if (fileName.equalsIgnoreCase("javadocs.jar")) {
+        lngType = Document.JAVADOCS;
+        name = "Javadocs";
+    } else if (fileName.toLowerCase().startsWith("xml_docs")
+               && fileName.toLowerCase().endsWith(".jar")) {
+        lngType = Document.JAVADOCS;
+        name = "XML Documentation";
+    }
+
+    name = name.replace('_', ' ').trim();
+
+    return new Object[] {name, new Long(lngType)};
+}
+
+%>
+
 <%
+
+
+
 Object objTechTypes = CONTEXT.lookup("CatalogEJB");
 CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 Catalog catalog = home.create();
@@ -57,6 +121,29 @@ Collection colTechnology = catalog.getTechnologies();
 Object objComponentMgr = CONTEXT.lookup("ComponentManagerEJB");
 ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(objComponentMgr, ComponentManagerHome.class);
 ComponentManager componentManager = null;
+
+// Obtain a reference to Doc Types CMP EJB
+Object objDocTypes = CONTEXT.lookup(LocalDDEDocTypesHome.EJB_REF_NAME);
+LocalDDEDocTypesHome docTypesHome = (LocalDDEDocTypesHome) PortableRemoteObject.narrow(objDocTypes, LocalDDEDocTypesHome.class);
+
+// Get the list of existing active document types and build a hash table to perform look-up
+LocalDDEDocTypes docType;
+Collection docTypes = docTypesHome.findAllActive();
+Map docTypesMap = new TreeMap();
+Iterator iterator = docTypes.iterator();
+while (iterator.hasNext()) {
+    docType = (LocalDDEDocTypes) iterator.next();
+    docTypesMap.put(docType.getPrimaryKey(), docType.getDescription());
+}
+
+// Free unused resources
+docTypes.clear();
+docTypes = null;
+iterator = null;
+docType = null;
+
+// A general info for current component
+ComponentInfo component = null;
 
 long lngComponent = 0;
 long lngVersion = 0;
@@ -89,22 +176,101 @@ if (request.getMethod().equals("POST")) {
         dir += componentManager.getVersionInfo().getVersionId() + "/";
         //Create the directories if they do not already exist.
 
-
         if (action != null) {
+
             // Documents
             if (action.equals("Add Document")) {
-                String name = fu.getParameter("txtDocumentName");
-                String type = fu.getParameter("selDocType");
-                long lngType = -1;
-                try {
-                    lngType = Long.parseLong(type);
-                } catch (Exception ignore) {}
-                if (name.trim().length() == 0) {
-                    strError += "Name cannot be blank.<BR>";
-                } else {
-                    if (fileUploads.hasNext()) {
-                        UploadedFile uf = (UploadedFile)fileUploads.next();
-                        String url = dir + uf.getRemoteFileName();
+
+                if (fileUploads.hasNext()) {
+                    UploadedFile uf = (UploadedFile) fileUploads.next();
+                    String fileName = uf.getRemoteFileName();
+
+                    // Get the component details
+                    component = componentManager.getComponentInfo();
+                    String componentName = component.getName().replace(' ', '_');
+
+                    // Check if that's an archive with bundled documentation files
+                    if (fileName.equals(componentName.toLowerCase() + "_docs.jar")) {
+                        // Generate the name for temporary directory and create that directory
+                        TCSFile tmpDir = new TCSFile(rootDir, "tmp" + System.currentTimeMillis());
+                        while (tmpDir.exists()) {
+                            tmpDir = new TCSFile(rootDir, "tmp" + System.currentTimeMillis());
+                        }
+                        tmpDir.mkdirs();
+
+                        // Upload file to temporary directory
+                        File url = new File(tmpDir, uf.getRemoteFileName());
+                        FileOutputStream fos = new FileOutputStream(url);
+
+                        InputStream is = uf.getInputStream();
+                        int b = is.read();
+                        while (b != -1) {
+                            fos.write(b);
+                            b = is.read();
+                        }
+                        fos.close();
+                        is.close();
+
+                        // Extract the documents from archive
+                        System.err.println("Executing: jar -xf " + url.getAbsolutePath() + " in " + tmpDir.getAbsolutePath());
+                        Process process = Runtime.getRuntime().exec("jar -xf " + url.getAbsolutePath(), new String[0], tmpDir);
+                        process.waitFor();
+
+                        // Delete the uploaded documentation archive
+                        url.delete();
+
+                        File componentDir = new File(rootDir, dir);
+                        componentDir.mkdirs();
+
+                        // Register documents to component and move the files to appropriate directory
+                        File[] docFiles = tmpDir.listFiles();
+                        for (int i = 0; i < docFiles.length; i++) {
+                            if (docFiles[i].isDirectory()) {
+                                continue;
+                            }
+
+                            File targetDocFile = new File(componentDir, docFiles[i].getName());
+
+                            // Check if the target file already exists, if so then report an error
+                            if (targetDocFile.exists()) {
+                                strError += "The file " + targetDocFile.getName() + " already exists<BR>";
+                            } else {
+                                // Otherwise move the documentation file from temporary directory to component directory
+                                // and register document to component
+                                docFiles[i].renameTo(targetDocFile);
+
+                                // Parse the name and type of the document
+                                Object[] nameType = parseDocumentNameAndType(componentName,
+                                                                             targetDocFile.getName(),
+                                                                             docTypesMap);
+
+                                // Extract the Javadocs
+                                if (((Long) nameType[1]).longValue() == Document.JAVADOCS) {
+                                    File jDocDir = new File(targetDocFile.getParent(),"javadoc");
+                                    jDocDir.mkdir();
+                                    System.err.println("Executing: jar -xf " + targetDocFile.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
+                                    Runtime.getRuntime().exec("jar -xf " + targetDocFile.getAbsolutePath(), new String[0], jDocDir).waitFor();
+                                }
+
+                                // Create document and register it to component
+                                Document document = new Document((String) nameType[0],
+                                                                 dir + docFiles[i].getName(),
+                                                                 ((Long) nameType[1]).longValue());
+                                componentManager.addDocument(document);
+                            }
+                        }
+
+                        // Delete temporary directory
+                        tmpDir.deleteTree();
+
+                    } else {
+                        // Get the name and type of the document
+                        Object[] nameType = parseDocumentNameAndType(componentName, fileName, docTypesMap);
+                        String name = (String) nameType[0];
+                        long lngType = ((Long) nameType[1]).longValue();
+
+                        // Upload file
+                        String url = dir + uf.getRemoteFileName();;
                         InputStream is = uf.getInputStream();
                         new File(rootDir + dir).mkdirs();
                         File f = new File(rootDir + url);
@@ -117,6 +283,8 @@ if (request.getMethod().equals("POST")) {
                             }
                             fos.close();
                             is.close();
+
+                            // Extract the Javadocs
                             if (lngType == Document.JAVADOCS) {
                                 File jDocDir = new File(f.getParent(),"javadoc");
                                 jDocDir.mkdir();
@@ -124,10 +292,12 @@ if (request.getMethod().equals("POST")) {
                                 Runtime.getRuntime().exec("jar -xf "+f.getAbsolutePath(), new String[0], jDocDir);
 //                                sun.tools.jar.Main.main(new String[]{"-xf",f.getAbsolutePath(),"-C",jDocDir.getAbsolutePath()});
                             }
-                            com.topcoder.dde.catalog.Document document = new com.topcoder.dde.catalog.Document(name, url, Long.parseLong(type));
+
+                            // Add document to component
+                            com.topcoder.dde.catalog.Document document = new com.topcoder.dde.catalog.Document(name, url, lngType);
                             componentManager.addDocument(document);
                         } else {
-                            strError += "File: " + f.getName() + " already exists";
+                            strError += "File: " + f.getName() + " already exists<BR>";
                         }
                     }
                 }
@@ -163,7 +333,7 @@ if (request.getMethod().equals("POST")) {
                         document.setURL(url);
                         componentManager.updateDocument(document);
                     } else {
-                        strError += "File: " + f.getName() + " already exists.  ";
+                        strError += "File: " + f.getName() + " already exists.<BR>";
                     }
                 }
             }
@@ -192,7 +362,7 @@ if (request.getMethod().equals("POST")) {
                             Download download = new Download(desc, url);
                             componentManager.addDownload(download);
                         } else {
-                            strError += "File: " + f.getName() + " already exists.  ";
+                            strError += "File: " + f.getName() + " already exists.<BR> ";
                         }
                     }
                 }
@@ -221,7 +391,45 @@ if (request.getMethod().equals("POST")) {
                         download.setURL(url);
                         componentManager.updateDownload(download);
                     } else {
-                        strError += "File: " + f.getName() + " already exists.  ";
+                        strError += "File: " + f.getName() + " already exists.<BR>";
+                    }
+                }
+            }
+
+            // Handle "Update Document" requests
+            if (action.equalsIgnoreCase("Update Document")) {
+                String name = fu.getParameter("txtDocumentName");
+                String type = fu.getParameter("selDocType");
+                String strDocId = fu.getParameter("lngDocument");
+
+                long lngType = -1;
+                try {
+                    lngType = Long.parseLong(type);
+                    if (!docTypesMap.containsKey(new Long(lngType))) {
+                        strError += "Non-existing document type ID - " + type + "<BR>";
+                        lngType = -1;
+                    }
+                } catch (Exception ignore) {
+                    strError += "Invalid document type ID - " + type + "<BR>";
+                }
+
+                long lngDocId = -1;
+                try {
+                    lngDocId = Long.parseLong(strDocId);
+                } catch (Exception ignore) {
+                    strError += "Invalid document ID - " + strDocId + "<BR>";
+                }
+
+                if (name == null || name.trim().length() == 0) {
+                    strError += "Name cannot be blank.<BR>";
+                } else if (lngType != -1 && lngDocId != -1) {
+                    com.topcoder.dde.catalog.Document document = catalog.getDocument(lngDocId);
+
+                    // Update the document only if the document name or type have been really modified
+                    if (document.getType() != lngType || !name.equals(document.getName())) {
+                        document.setType(lngType);
+                        document.setName(name);
+                        componentManager.updateDocument(document);
                     }
                 }
             }
@@ -285,8 +493,6 @@ String screeningCompleteDateComment = "";
 String finalSubmissionDateComment = "";
 //GT Added this to allow for public forums;
 String publicForum = "";
-ComponentInfo component = null;
-component = componentManager.getComponentInfo();
 if (lngVersion > 0) {
     ver = componentManager.getVersionInfo();
 
@@ -538,7 +744,7 @@ if (action != null) {
             if (e.getMessage().startsWith("Online Review:")) {
                 strError += e.getMessage();
             } else {
-                strError += "An error occurred while updating version info.";
+                strError += "An error occurred while updating version info.<BR>";
             }
             ver = componentManager.getVersionInfo();
         }
@@ -711,7 +917,7 @@ if (action != null) {
         } catch (GeneralSecurityException gse) {
             strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
         } catch (Exception e) {
-            strError += "Principal user could not be found.";
+            strError += "Principal user could not be found.<BR>";
         }
     }
 
@@ -750,7 +956,7 @@ if (action != null) {
         } catch (GeneralSecurityException gse) {
             strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
         } catch (Exception e) {
-            strError += "Principal user could not be found.";
+            strError += "Principal user could not be found.<BR>";
         }
     }
 
@@ -787,7 +993,7 @@ if (action != null) {
         } catch (GeneralSecurityException gse) {
             strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
         } catch (Exception e) {
-            strError += "Principal user could not be found.";
+            strError += "Principal user could not be found.<BR>";
         }
     }
 
@@ -852,6 +1058,62 @@ if (action != null) {
         long reviewId = Long.parseLong(strReview);
         componentManager.removeReview(reviewId);
         //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
+    }
+    
+    if (action.equals("Assign Forum Post Notification Event")) {
+        String strUsername = request.getParameter("txtTCHandle");
+        if (strUsername == null || strUsername.trim().length() == 0) {
+            strError = "User handle must not be empty.";
+        } else {
+            try {
+                System.out.println("Locating entity EJBs...");
+                LocalDDECompCatalogHome catalogHome
+                    = (LocalDDECompCatalogHome) CONTEXT.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
+
+                LocalDDECategoriesHome categoriesHome
+                    = (LocalDDECategoriesHome) CONTEXT.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
+
+
+                System.out.println("Locating the user for handle '" + strUsername + "' ...");
+                User user = USER_MANAGER.getUser(strUsername);
+                String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForum(Forum.SPECIFICATION).getId();
+
+                StringBuffer buffer = new StringBuffer();
+                String category = "";
+                try {
+                   // Locate the base category for the component.
+                    LocalDDECompCatalog cat = catalogHome.findByPrimaryKey(new Long(component.getId()));
+                    LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(cat.getRootCategory()));
+                    category = categories.getName();
+                } catch (FinderException e) {
+                    throw new CatalogException(e.toString());
+
+                }
+
+                buffer.append(category);
+                buffer.append(" ");
+                buffer.append(component.getName());
+                buffer.append(" ");
+                buffer.append(ver.getVersionLabel());
+                buffer.append(" - Forum Post");
+
+                // Locate the Notification bean
+                System.out.println("Locating the Notification EJB ...");
+                Object objNotification = CONTEXT.lookup(NotificationHome.EJB_REF_NAME);
+                NotificationHome notificationHome = (NotificationHome) PortableRemoteObject.narrow(objNotification, NotificationHome.class);
+                Notification notification = notificationHome.create();
+
+                // Assign notification event
+                System.out.println("Assigning notification event '" + event + "' to user " + user.getId());
+                notification.createNotification(event, user.getId(), Notification.FORUM_POST_TYPE_ID, buffer.toString());
+
+            } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
+                strError = "User '" + strUsername + "' was not found.";
+            } catch (Exception e) {
+                System.err.println(e);
+                strError = "An error occurred while assigning notification event to user : " + e;
+            }
+        }
     }
 
     // Team Member Role
@@ -1404,6 +1666,10 @@ if (action != null) {
                 </tr>
 
 	<%
+        Long docTypeId;
+        String selected;
+        String docTypeName;
+
 		com.topcoder.dde.catalog.Document documents[] = (com.topcoder.dde.catalog.Document[])componentManager.getDocuments().toArray(new com.topcoder.dde.catalog.Document[0]);
 		for (int i=0; i < documents.length; i++) {
 	%>
@@ -1412,8 +1678,28 @@ if (action != null) {
 <input type="hidden" name="ver" value="<%= ver.getVersion() %>">
 <input type="hidden" name="lngDocument" value="<%= documents[i].getId() %>">
                 <tr valign="top">
-                    <td class="forumText"><%= documents[i].getName() %></td>
-                    <td class="forumText"><%= documents[i].getType() %></td>
+                    <td class="forumText">
+                       <input type="text" name="txtDocumentName" value="<%=documents[i].getName()%>" size="25" />
+                    </td>
+                    <td class="forumText">
+                        <select name="selDocType">
+                            <%
+                                // Bill the drop-down list of available document types
+                                iterator = docTypesMap.keySet().iterator();
+                                while (iterator.hasNext()) {
+                                    docTypeId = (Long) iterator.next();
+                                    docTypeName = (String) docTypesMap.get(docTypeId);
+                                    selected = "";
+                                    if (docTypeId.longValue() == documents[i].getType()) {
+                                        selected = "selected";
+                                    }
+                            %>
+                            <option value="<%=docTypeId%>" <%=selected%>><%=docTypeName%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                    </td>
                     <td class="forumText">
                         <A HREF="/pages/c_component_doc.jsp?path=<%= documents[i].getURL() %>"><%= documents[i].getURL() %></A>
                     </td>
@@ -1421,7 +1707,9 @@ if (action != null) {
                         <input type="file" name="file1" value="" maxlength="250" size="25">
                         <BR>
                         <input type="submit" class="adminButton" name="a" value="Upload Document">
-                        <strong><a href="component_version_admin.jsp?comp=<%= lngComponent %>&ver=<%= lngVersion %>&document=<%= documents[i].getId() %>&a=DeleteDocument">Delete Document</a></strong>
+                        <input type="submit" class="adminButton" name="a" value="Update Document">
+                        <br>
+                        <strong><a href="component_version_admin.jsp?comp=<%=lngComponent%>&ver=<%=lngVersion%>&document=<%=documents[i].getId()%>&a=DeleteDocument">Delete Document</a></strong>
                     </td>
                 </tr>
 </form>
@@ -1431,6 +1719,7 @@ if (action != null) {
 <input type="hidden" name="comp" value="<%= lngComponent %>">
 <input type="hidden" name="ver" value="<%= ver.getVersion() %>">
                 <tr valign="top">
+                <%--
                     <td class="forumText"><input class="adminSearchForm" type="text" size="25" maxlength="128" name="txtDocumentName" value=""></input></td>
                     <td class="forumText">
                     <select name="selDocType">
@@ -1454,9 +1743,10 @@ if (action != null) {
                         <option value="22">Aggregated Scorecard</option>
                         <option value="23">Javadocs</option>
                     </select></td>
-                    <td class="forumText">&nbsp;<!--input class="adminSearchForm" type="text" size="25" maxlength="64" name="txtDocumentURL" value=""></input--></td>
-                    <td class="forumTextCenter">
-                        <input type="file" name="file1" value="" maxlength="250" size="25">
+                --%>
+                    <td class="forumText" colspan="2">&nbsp;<!--input class="adminSearchForm" type="text" size="25" maxlength="64" name="txtDocumentURL" value=""></input--></td>
+                    <td class="forumTextCenter" colspan="2">
+                        <input type="file" name="file1" value="" maxlength="250" size="50">
                         <input class="adminButton" type="submit" name="a" value="Add Document"></input>
                     </td>
                 </tr>
@@ -1735,6 +2025,24 @@ if (action != null) {
                 </tr>
             </table>
 
+<!-- Notifications begins -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                <tr><td class="adminSubhead">Notifications</td></tr>
+            </table>
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+                <tr valign="top">
+                    <td>TC handle</td>
+                    <td>
+                        <input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
+                    </td>
+                    <td>
+                        <input class="adminButton" type="submit" name="a" value="Assign Forum Post Notification Event">
+                    </td>
+                </tr>
+            </table>
+<!-- Notifications ends -->
+            
         </td>
 </form>
 <!-- Middle Column ends -->
