@@ -112,7 +112,7 @@
                                     </td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">8</span><br />
-                                    <strong>Match 258</strong><br />
+                                    <strong>Match 261</strong><br />
                                     Register: 8:00&#160;AM<br />
                                     Compete: 11:00&#160;AM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -127,7 +127,7 @@
                                 <td id="calendar">13</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">14</span><br />
-                                    <strong>Match 259</strong><br />
+                                    <strong>Match 262</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun">Sun</A><br />
@@ -143,7 +143,7 @@
                                 <td id="calendar">19</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">20</span><br />
-                                    <strong>Match 260</strong><br />
+                                    <strong>Match 263</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -157,7 +157,13 @@
                             <tr> 
                                 <td id="calendar">25</td>
                                 <td id="calendar">26</td>
-                                <td id="calendar">27</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">27</span><br />
+                                    <strong>Match 264</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=8007&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">28</td>
                                 <td id="calendar">29</td>
                                 <td id="calendar">30</td>
