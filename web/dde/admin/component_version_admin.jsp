@@ -148,7 +148,9 @@ docType = null;
 
 // A general info for current component
 ComponentInfo component = componentManager.getComponentInfo();
-if (component == null) { System.out.println("WARNING: component is null"):
+if (component == null) {
+    System.out.println("WARNING: component is null");
+}
 
 long lngComponent = 0;
 long lngVersion = 0;
