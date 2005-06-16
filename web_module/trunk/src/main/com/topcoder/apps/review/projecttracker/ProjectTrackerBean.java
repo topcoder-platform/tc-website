@@ -302,7 +302,7 @@ public class ProjectTrackerBean implements SessionBean {
             c = dataSource.getConnection();
 
             // Find projectId with compVersId and projectType
-            ps = c.prepareStatement("SELECT project_id FROM project WHERE cur_version = 1 "
+            ps = c.prepareStatement("SELECT MAX(project_id) FROM project WHERE cur_version = 1 "
                     + "AND comp_vers_id = ? and project_type_id = ?");
             ps.setLong(1, compVersId);
             ps.setLong(2, projectType);
