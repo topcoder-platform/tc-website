@@ -66,15 +66,18 @@ function noenter(e)
                 <jsp:param name="title" value="Forum Search"/>
             </jsp:include>
 
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Search</span><br><br>
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
     <td nowrap="nowrap" valign="top">
-       <jsp:include page="searchHeader.jsp" ></jsp:include>
+       <jsp:include page="searchHeader.jsp" >
+            <jsp:param name="errors" value="<%=errors%>"/>
+            <jsp:param name="queryTerms" value="<%=StringUtils.escapeHTMLTags(query.getQueryString())%>"/>
+       </jsp:include>
     </td>   
 </tr>
 </table>
 
-<br>
 <% if ("search".equals(status)) { %>
     <jsp:include page="searchResults.jsp">
         <jsp:param name="paginator" value="<%=paginator%>"/>

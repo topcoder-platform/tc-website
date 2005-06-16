@@ -19,15 +19,19 @@
     String searchScope = (String)request.getAttribute("searchScope"); 
     String dateRange = (String)request.getAttribute("dateRange");
     String status = (String)request.getAttribute("status"); 
+    String mode = (String)request.getAttribute("mode"); 
     Iterator results = (Iterator)request.getAttribute("results"); 
     
     int numResults = paginator.getPageable().getResultFilter().getNumResults(); 
     SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy h:mm a"); 
     boolean displayPerThread
-        = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread",true); 
+        = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
     int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
     
     StringBuffer linkBuffer = new StringBuffer("?module=Search");
+    if (mode != null) {
+        linkBuffer.append("&").append(ForumConstants.SEARCH_MODE).append("=").append(mode);
+    }
     linkBuffer.append("&").append(ForumConstants.SEARCH_STATUS).append("=").append(status);
     linkBuffer.append("&").append(ForumConstants.SEARCH_QUERY).append("=").append(StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding()));
     linkBuffer.append("&").append(ForumConstants.SEARCH_SCOPE).append("=").append(searchScope);

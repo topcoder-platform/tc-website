@@ -19,6 +19,7 @@
     String searchScope = (String)request.getAttribute("searchScope");
     String dateRange = (String)request.getAttribute("dateRange");
     String status = (String)request.getAttribute("status"); 
+    String mode = (String)request.getAttribute("mode");
     Iterator results = (Iterator)request.getAttribute("results"); %>
 
 <script type="text/javascript">
@@ -158,6 +159,7 @@ function noenter(e)
         <jsp:param name="searchScope" value="<%=searchScope%>"/>
         <jsp:param name="dateRange" value="<%=dateRange%>"/>
         <jsp:param name="status" value="<%=status%>"/>
+        <jsp:param name="mode" value="<%=mode%>"/>
         <jsp:param name="results" value="<%=results%>"/>
     </jsp:include>
 <% } %>

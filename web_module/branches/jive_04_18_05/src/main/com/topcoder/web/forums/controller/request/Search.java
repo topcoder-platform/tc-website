@@ -59,6 +59,14 @@ public class Search extends ForumsProcessor {
         
         String mode = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_MODE));
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_STATUS));
+        
+        if (mode.equals(ForumConstants.SEARCH_MODE_BASIC)) {
+            setNextPage("/searchBasic.jsp");
+        } else {
+            setNextPage("/search.jsp");
+        }
+        setIsNextPageInContext(true);
+        
         if (status.equals("search")) {
             String queryTerms = getRequest().getParameter(ForumConstants.SEARCH_QUERY);
             String searchScope = getRequest().getParameter(ForumConstants.SEARCH_SCOPE);
@@ -87,8 +95,6 @@ public class Search extends ForumsProcessor {
                 }
             }
             if (hasErrors()) {                
-                setNextPage("/search.jsp");
-                setIsNextPageInContext(true);
                 return;
             }
             
@@ -140,13 +146,7 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("searchScope", searchScope);
             getRequest().setAttribute("results", itResults);
             getRequest().setAttribute("paginator", paginator);
+            getRequest().setAttribute("mode", mode);
         }
-        
-        if (mode.equals("basic")) {
-            setNextPage("/searchBasic.jsp");
-        } else {
-            setNextPage("/search.jsp");
-        }
-		setIsNextPageInContext(true);
 	}
 }

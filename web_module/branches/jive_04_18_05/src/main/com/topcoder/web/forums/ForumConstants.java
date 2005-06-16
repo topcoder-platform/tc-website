@@ -7,6 +7,8 @@ package com.topcoder.web.forums;
  * @author mtong
  */
 public interface ForumConstants {
+    public final static String FORUMS_DIR = "/forums/";
+    
 	public final static String FORUM_ID = "forumID";
 	public final static String THREAD_ID = "threadID";
 	public final static String MESSAGE_ID = "messageID";
@@ -26,6 +28,7 @@ public interface ForumConstants {
     
     public final static String SETTINGS_STATUS = "status";
     
+    // Search
     public final static String SEARCH_STATUS = "status";
     public final static String SEARCH_QUERY = "query";
     public final static String SEARCH_SCOPE = "scope";
@@ -34,6 +37,7 @@ public interface ForumConstants {
     public final static String SEARCH_RESULT_SIZE = "resultSize";
     public final static String SEARCH_SORT_FIELD = "sort";
     public final static String SEARCH_MODE = "mode";
+    public final static String SEARCH_MODE_BASIC = "basic";
     
     public final static String SEARCH_DATE_YESTERDAY = "dateYesterday";
     public final static String SEARCH_DATE_LAST_7_DAYS = "dateLast7Days";
@@ -48,24 +52,24 @@ public interface ForumConstants {
     public final static String[] SEARCH_DATE_LABELS = {
             "Yesterday", "Last 7 Days", "Last 30 Days", "Last 90 Days", "This Year", "Last Year"
     };
-        
+
+    // Watches
     public final static String WATCHLIST_STATUS = "status";
     public final static String WATCH_TYPE = "type";
     public final static String WATCH_ID = "ID";
     public final static String WATCH_COMMAND = "cmd";
     public final static String WATCH_THREAD = "watchThread";
-	
-	public final static String FORUMS_DIR = "/forums/";
     
+    // Defaults
     public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
     public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
     public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
     public final static int DEFAULT_SEARCH_RESULT_SIZE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
-    public final static int DEFAULT_THREAD_RANGE = 15;
-    
+    public final static int DEFAULT_THREAD_RANGE = 15;    
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     
+    // Error messages
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =
         "Please include a message subject.";
     public final static String ERR_EMPTY_MESSAGE_BODY =
