@@ -58,10 +58,8 @@ return false;
                <td align="center" class="bodyText">
                <A href="/tc?module=ContractingPreferences"><img src="/i/contracting/register.gif" alt="Register here" border=0/></A>
                <hr noshade="noshade" size="1" />
-<%--
                <A href="/tc?module=Static&d1=contracting&d2=citigroup"><img src="/i/contracting/citigroup_logo.gif" alt="Citigroup" border=0/></A>
                <hr noshade="noshade" size="1" />
---%>
                <A href="/tc?module=Static&d1=contracting&d2=csfb"><img src="/i/contracting/csfb_logo.gif" alt="CSFB" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=gentiva"><img src="/i/contracting/gentiva_logo.gif" alt="Gentiva" border=0/></A>

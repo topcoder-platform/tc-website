@@ -68,8 +68,7 @@ As a company that does business in more than 100 countries, with 98 percent of o
 <li>People with superior knowledge, passion, and accomplishment in his/her area of expertise.
 </ul>
 
-      <a href="">Register for this position here!</a>
-      <%--<a href="/tc?module=JobHit&jid=297&jt=4">Register for this position here!</a>--%>
+      <a href="/tc?module=JobHit&jid=297&jt=4">Register for this position here!</a>
 		<br/><br/>
         <p><br></p>
         </td>
