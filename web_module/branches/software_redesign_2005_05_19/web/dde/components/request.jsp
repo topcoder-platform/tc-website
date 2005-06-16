@@ -138,7 +138,7 @@
 
             <div align="center">
             <img src="/images/clear.gif" alt="" width="530" height="15" border="0"/>
-            <table border="1" cellpadding="20" cellspacing="0" width="440" color="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
+            <table border="1" cellpadding="20" cellspacing="0" width="440" bgcolor="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
 <!-- Component Name Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
@@ -164,7 +164,7 @@
                 </tr>
 
 <!-- Comment Field -->
-				<tr><td class="catalogIndexHeader">Describe Your Suggestions</td></tr>
+				<tr><td class="catalogIndexHeader">Write Your Suggestions</td></tr>
                 <tr>
                     <td class="registerLabel"><%= fieldsRequest.get("comments").getLabel() %><br/>
                         <textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="80" rows="6"></textarea></td>
