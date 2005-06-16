@@ -71,7 +71,6 @@
 
     </servlet>
 
-
     <!-- Action Servlet Mapping -->
     <servlet-mapping>
         <servlet-name>SubmissionDownload</servlet-name>
@@ -98,7 +97,6 @@
         <url-pattern>/tcs</url-pattern>
     </servlet-mapping>
 
-
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>
@@ -121,6 +119,22 @@
         <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypesHome</local-home>
         <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes</local>
         <ejb-link>DDEDocTypesEJB</ejb-link>
+    </ejb-local-ref>
+    
+    <ejb-local-ref>
+        <ejb-ref-name>ejb/DDECompCatalogEJB</ejb-ref-name>
+        <ejb-ref-type>Entity</ejb-ref-type>
+        <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome</local-home>
+        <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog</local>
+        <ejb-link>DDECompCatalogEJB</ejb-link>
+    </ejb-local-ref>
+
+    <ejb-local-ref>
+        <ejb-ref-name>ejb/DDECategoriesEJB</ejb-ref-name>
+        <ejb-ref-type>Entity</ejb-ref-type>
+        <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome</local-home>
+        <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories</local>
+        <ejb-link>DDECategoriesEJB</ejb-link>
     </ejb-local-ref>
 
 </web-app>
