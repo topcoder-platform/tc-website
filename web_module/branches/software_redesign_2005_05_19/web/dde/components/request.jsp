@@ -145,7 +145,7 @@
 				<tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
                 <tr>
                     <td class="small"><%=fieldsRequest.get("name").getLabel()%><br/>
-                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="80" maxlength="50"></td>
+                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="90" maxlength="50"></td>
                 </tr>
 <!-- Component Name Error Text -->
                 <tr>
@@ -162,7 +162,7 @@
                     <td class="registerError"><%=fieldsRequest.get("desc").getError()%></td>
                 </tr>
 <!-- Comment Field -->
-				<tr><td class="catalogIndexHeader">Write Your Suggestions</td></tr>
+				<tr><td class="catalogIndexHeader">Comments or Suggestions</td></tr>
                 <tr>
                     <td class="small"><%= fieldsRequest.get("comments").getLabel() %><br/>
                         <textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="80" rows="6"></textarea></td>
