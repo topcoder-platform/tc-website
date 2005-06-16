@@ -7,11 +7,11 @@
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/struts-logic.tld" prefix="logic" %>
 <%
     Map m = null;
     ResultSetContainer.ResultSetRow p;
-    m = (Map)request.getAttribute(Constants.REPORT_PROFILE_SEARCH_KEY);
+    m = (Map)request.getAttribute(Constants.LONG_CONTEST_INDEX_KEY);
     ResultSetContainer problems = (ResultSetContainer)m.get("long_problems");
 %>
 <table>
