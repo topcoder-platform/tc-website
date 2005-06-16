@@ -181,7 +181,9 @@ if (request.getMethod().equals("POST")) {
         //Create the directories if they do not already exist.
 
         if (action != null) {
-
+            // Get the component details
+            component = componentManager.getComponentInfo();
+            
             // Documents
             if (action.equals("Add Document")) {
 
@@ -189,8 +191,6 @@ if (request.getMethod().equals("POST")) {
                     UploadedFile uf = (UploadedFile) fileUploads.next();
                     String fileName = uf.getRemoteFileName();
 
-                    // Get the component details
-                    component = componentManager.getComponentInfo();
                     String componentName = component.getName().replace(' ', '_');
 
                     // Check if that's an archive with bundled documentation files
@@ -1077,35 +1077,20 @@ if (action != null) {
                 LocalDDECategoriesHome categoriesHome
                     = (LocalDDECategoriesHome) CONTEXT.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
 
-                if (catalogHome == null) {
-                    System.out.println("catalogHome is null");
-                }
-                
-                if (categoriesHome == null) {
-                    System.out.println("categoriesHome is null");
-                }
-                
-                if (component == null) {
-                    System.out.println("component is null");
-                }
-
                 System.out.println("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
-System.out.println("lalala");
+
                 String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForum(Forum.SPECIFICATION).getId();
-System.out.println("lalala2");
+
                 StringBuffer buffer = new StringBuffer();
                 String category = "";
                 try {
                    // Locate the base category for the component.
                     LocalDDECompCatalog cat = catalogHome.findByPrimaryKey(new Long(component.getId()));
-                    System.out.println("lalala3");
                     LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(cat.getRootCategory()));
-                    System.out.println("lalala4");
                     category = categories.getName();
                 } catch (FinderException e) {
                     throw new CatalogException(e.toString());
-
                 }
 
                 buffer.append(category);
