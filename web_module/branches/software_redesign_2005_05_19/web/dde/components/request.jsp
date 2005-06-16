@@ -138,8 +138,7 @@
 
             <div align="center">
             <img src="/images/clear.gif" alt="" width="530" height="15" border="0"/>
-            <table border="1" cellpadding="20" cellspacing="0" width="440" background="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
-                <tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
+            <table border="1" cellpadding="20" cellspacing="0" width="440" background color="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
 <!-- Component Name Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
@@ -148,8 +147,8 @@
 <!-- Component Name Field -->
 				<tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
                 <tr>
-                    <td class="registerLabel">Name a New or Existing Component<%=fieldsRequest.get("name").getLabel()%><br/>
-                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="40" maxlength="440"></td>
+                    <td class="registerLabel"><%=fieldsRequest.get("name").getLabel()%><br/>
+                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="440" maxlength="440"></td>
                 </tr>
 
 <!-- Description Error Text -->
@@ -158,12 +157,14 @@
                 </tr>
 
 <!-- Description Field -->
+				<tr><td class="catalogIndexHeader">Describe the Component</td></tr>
                 <tr>
                     <td class="registerLabel"><%=fieldsRequest.get("desc").getLabel()%><br/>
                         <textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="40" rows="6"></textarea></td>
                 </tr>
 
 <!-- Comment Field -->
+				<tr><td class="catalogIndexHeader">Describe Your Suggestions</td></tr>
                 <tr>
                     <td class="registerLabel"><%= fieldsRequest.get("comments").getLabel() %><br/>
                         <textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="40" rows="6"></textarea></td>
