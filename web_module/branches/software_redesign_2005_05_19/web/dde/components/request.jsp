@@ -148,7 +148,7 @@
 				<tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
                 <tr>
                     <td class="registerLabel"><%=fieldsRequest.get("name").getLabel()%><br/>
-                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="440" maxlength="440"></td>
+                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="100" maxlength="50"></td>
                 </tr>
 
 <!-- Description Error Text -->
