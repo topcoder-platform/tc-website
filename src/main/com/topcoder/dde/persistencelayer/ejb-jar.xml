@@ -2151,6 +2151,7 @@
                 </relationship-role-source>
             </ejb-relationship-role>
         </ejb-relation>
+
     </relationships>
     <assembly-descriptor>
         <container-transaction>
@@ -2162,10 +2163,12 @@
                 <ejb-name>DDEStatusEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+<!--
             <method>
                 <ejb-name>DDECompCatalogEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+-->
             <method>
                 <ejb-name>DDECompVersionsEJB</ejb-name>
                 <method-name>*</method-name>
@@ -2208,10 +2211,12 @@
                 <ejb-name>DDECompDocumentationEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+<!--
             <method>
                 <ejb-name>DDECategoriesEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+-->            
             <method>
                 <ejb-name>DDECompCategoriesEJB</ejb-name>
                 <method-name>*</method-name>
@@ -2289,8 +2294,15 @@
                 <ejb-name>DDEDocTypesEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <method>
+                <ejb-name>DDECategoriesEJB</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <method>
+                <ejb-name>DDECompCatalogEJB</ejb-name>
+                <method-name>*</method-name>
+            </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
-        
     </assembly-descriptor>
 </ejb-jar>
