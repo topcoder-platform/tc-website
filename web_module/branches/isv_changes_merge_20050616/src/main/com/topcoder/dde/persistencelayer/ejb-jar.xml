@@ -761,6 +761,13 @@
                 <local>com.topcoder.util.idgenerator.bean.LocalIdGen</local>
                 <ejb-link>IdGenEJB</ejb-link>
             </ejb-local-ref>
+            <query>
+                <query-method>
+                    <method-name>findAllActive</method-name>
+                    <method-params></method-params>
+                </query-method>
+                <ejb-ql>SELECT OBJECT(d) FROM DDEDocTypes d WHERE d.statusId > 0</ejb-ql>
+            </query>
         </entity>
         <entity>
             <ejb-name>DDECompTechnologyEJB</ejb-name>
@@ -2187,10 +2194,12 @@
                 <ejb-name>DDETechnologyTypesEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+<!--
             <method>
                 <ejb-name>DDEDocTypesEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
+-->
             <method>
                 <ejb-name>DDECompTechnologyEJB</ejb-name>
                 <method-name>*</method-name>
@@ -2275,5 +2284,13 @@
             <trans-attribute>Mandatory</trans-attribute>
         </container-transaction>
 
+        <container-transaction>
+            <method>
+                <ejb-name>DDEDocTypesEJB</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+        
     </assembly-descriptor>
 </ejb-jar>
