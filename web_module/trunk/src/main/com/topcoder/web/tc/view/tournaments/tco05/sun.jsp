@@ -23,7 +23,7 @@
             
 <div align="center"><img src="/i/tournament/tco05/sun_logo.gif" alt="Sun" border="0" /></div>
 <br><br>
-<A href="https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank"><img src="/i/tournament/tco05/sun_duke.gif" alt="Sun" border="0" align="right"/></A>
+<A href="http://www.topcoder.com/?t=sponsor&refer=sun&c=link&link=https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank"><img src="/i/tournament/tco05/sun_duke.gif" alt="Sun" border="0" align="right"/></A>
 The Sun&#153; Developer Network, Sun Microsystem's premier developer community, is proud to sponsor the 2005 TopCoder Open.
 <br><br>
 Sun has a long history of supporting the Java development community. For example, consider the JavaOne(SM) conference, Java.Net, java.sun.com, and Sun's contributions to open source as evidence of Sun's commitment to developer productivity and coding excellence.
@@ -38,8 +38,8 @@ Developing and using third-party JavaServer faces components in Java&#153; Studi
 <br><br>
 Sun recommends that all TopCoder participants do the following:
 <ol>
-<li>Learn more about Java&#153; Studio Creator 2 and participate in the Early Access Program: <A href="https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank">JOIN NOW!</A></li>
-<li>Build your JavaServer Faces components using the Java&#153; Studio Creator Design-Time APIs. To learn about the APIs please <A href="http://developers.sun.com/prodtech/javatools/jscreator/reference/apis/index.html" target="_blank">click here</A>.</li>
+<li>Learn more about Java&#153; Studio Creator 2 and participate in the Early Access Program: <A href="http://www.topcoder.com/?t=sponsor&refer=sun&c=link&link=https://softwarereg.sun.com/registration/developer/en_US/login?create=1" target="_blank">JOIN NOW!</A></li>
+<li>Build your JavaServer Faces components using the Java&#153; Studio Creator Design-Time APIs. To learn about the APIs please <A href="http://www.topcoder.com/?t=sponsor&refer=sun&c=link&link=http://developers.sun.com/prodtech/javatools/jscreator/reference/apis/index.html" target="_blank">click here</A>.</li>
 </ol>
 Stay tuned here for information on the Creator 2 Early Access Program launch date.
 <br><br>
