@@ -8,6 +8,42 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.16.05<br>3:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Citigroup giving away SRM cash prizes on <A href="/?RoundId=7223&t=schedule&c=srm">6/21</A>, <A href="/?RoundId=8004&t=schedule&c=srm">7/19</A>, and <A href="/?RoundId=8005&t=schedule&c=srm">8/8</A></span><br><br>
+      Compete on any of these SRM's for a chance to win cash prizes.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?RoundId=7223&t=schedule&c=srm">6/21 SRM</A>&#160;|&#160;<A href="/?RoundId=8004&t=schedule&c=srm">7/19 SRM</A>&#160;|&#160;<A href="/?RoundId=8005&t=schedule&c=srm">8/8 SRM</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.16.05<br>3:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A></span><br><br>
+      <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A> is looking for TC members to join their team.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.16.05<br>3:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=schedule&c=index">Calendar updated with new SRMs</A></span><br><br>
+      The TopCoder events calendar has been updated to reflect added SRMs and new sponsorships.  The dates are: 7/19, 7/26, 8/8, and 9/27.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?&t=schedule&c=index">view</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.15.05<br>10:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1">Computer programmer wins big</A></span><br><br>
       "It's not often a student is awarded $13,000 U.S. for seven hours of work. Gary Linscott, ArtSci '05, took home the cash as the top prize winner in the 2005 TopCoder Collegiate Challenge." [Queen's University - The Journal]
@@ -191,46 +227,6 @@ With a convincing win in only his eighth match, <tc-webtag:handle coderId="10574
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about">details</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.01.05<br>9:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=findSolution">How to Find a Solution</A></span><br><br>
-       With many TopCoder problems, the solutions may be found instantly just by reading their descriptions.</td>
-      <td class="newsPhoto"><img src="/i/m/Dumitru_mug.gif" /><br>by <tc-webtag:handle coderId="7305703" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=findSolution">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>06.01.05<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">The TopCoder Review Board</A></span><br><br>
-      See the TopCoder Review Board at work.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov">watch movie</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>05.25.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists">kristofferrouge is the TCO05 Logo Contest Winner</A></span><br><br>
-      Congratulations to <tc-webtag:handle coderId="14947661"/>, winner of the TCO05 Logo Contest!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_finalists">results</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
