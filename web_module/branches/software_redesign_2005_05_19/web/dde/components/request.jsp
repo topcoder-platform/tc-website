@@ -131,9 +131,9 @@
         <td width="99%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-                <tr><td class="normal"><img src="/images/suggest/suggestcomp_title.gif" alt="Suggest a Component" width="245" height="32" border="0" /><br/>
+                <tr><td class="normal"><img src="/images/suggest/suggestcomp_title.gif" alt="Suggest a Component" width="245" height="32" border="0" /><br/><br/>
                 If you did not find a component that meets your needs, please send us a suggestion. You may suggest enhancements on an existing component or ask
-                us to create an entirely new one.</td></tr>
+                us to create an entirely new one.<br/><br/></td></tr>
             </table>
 
             <div align="center">
