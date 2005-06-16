@@ -99,8 +99,7 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
     } else if (fileName.equalsIgnoreCase("javadocs.jar")) {
         lngType = Document.JAVADOCS;
         name = "Javadocs";
-    } else if (fileName.toLowerCase().startsWith("xml_docs")
-               && fileName.toLowerCase().endsWith(".jar")) {
+    } else if (fileName.equalsIgnoreCase("msdndocs.zip")) {
         lngType = Document.JAVADOCS;
         name = "XML Documentation";
     }
@@ -195,7 +194,9 @@ if (request.getMethod().equals("POST")) {
                     String componentName = component.getName().replace(' ', '_');
 
                     // Check if that's an archive with bundled documentation files
-                    if (fileName.equals(componentName.toLowerCase() + "_docs.jar")) {
+                    if (fileName.equals(componentName.toLowerCase() + "_docs.jar")
+                            || fileName.equals(componentName.toLowerCase() + "_docs.zip")) {
+
                         // Generate the name for temporary directory and create that directory
                         TCSFile tmpDir = new TCSFile(rootDir, "tmp" + System.currentTimeMillis());
                         while (tmpDir.exists()) {
@@ -251,7 +252,7 @@ if (request.getMethod().equals("POST")) {
 
                                 // Extract the Javadocs
                                 if (((Long) nameType[1]).longValue() == Document.JAVADOCS) {
-                                    File jDocDir = new File(targetDocFile.getParent(),"javadoc");
+                                    File jDocDir = new File(targetDocFile.getParent(), "javadoc");
                                     jDocDir.mkdir();
                                     System.err.println("Executing: jar -xf " + targetDocFile.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
                                     Runtime.getRuntime().exec("jar -xf " + targetDocFile.getAbsolutePath(), new String[0], jDocDir).waitFor();
@@ -291,10 +292,10 @@ if (request.getMethod().equals("POST")) {
 
                             // Extract the Javadocs
                             if (lngType == Document.JAVADOCS) {
-                                File jDocDir = new File(f.getParent(),"javadoc");
+                                File jDocDir = new File(f.getParent(), "javadoc");
                                 jDocDir.mkdir();
-                                System.err.println("Executing: jar -xf "+f.getAbsolutePath()+" in "+jDocDir.getAbsolutePath());
-                                Runtime.getRuntime().exec("jar -xf "+f.getAbsolutePath(), new String[0], jDocDir);
+                                System.err.println("Executing: jar -xf " + f.getAbsolutePath() + " in " + jDocDir.getAbsolutePath());
+                                Runtime.getRuntime().exec("jar -xf " + f.getAbsolutePath(), new String[0], jDocDir);
 //                                sun.tools.jar.Main.main(new String[]{"-xf",f.getAbsolutePath(),"-C",jDocDir.getAbsolutePath()});
                             }
 
@@ -680,66 +681,65 @@ if (action != null) {
                 if(estimatedDevDate != null && !estimatedDevDate.equals("")){
                    verDateInfo.setEstimatedDevDate(dateFormat.parse(estimatedDevDate));
                 }
+                
                 verDateInfo.setPrice(phasePrice);
                 verDateInfo.setStatusId(Long.parseLong(strPostingStatus));
                 verDateInfo.setLevelId(levelId);
 
-        verDateInfo.setAggregationCompleteDateComment(aggregationCompleteDateComment);
-        verDateInfo.setPhaseCompleteDateComment(phaseCompleteDateComment);
-        verDateInfo.setProductionDateComment(productionDateComment);
-        verDateInfo.setReviewCompleteDateComment(reviewCompleteDateComment);
-        verDateInfo.setWinnerAnnouncedDateComment(null);
-        verDateInfo.setInitialSubmissionDateComment(initialSubmissionDateComment);
-        verDateInfo.setScreeningCompleteDateComment(screeningCompleteDateComment);
-        verDateInfo.setFinalSubmissionDateComment(finalSubmissionDateComment);
+                verDateInfo.setAggregationCompleteDateComment(aggregationCompleteDateComment);
+                verDateInfo.setPhaseCompleteDateComment(phaseCompleteDateComment);
+                verDateInfo.setProductionDateComment(productionDateComment);
+                verDateInfo.setReviewCompleteDateComment(reviewCompleteDateComment);
+                verDateInfo.setWinnerAnnouncedDateComment(null);
+                verDateInfo.setInitialSubmissionDateComment(initialSubmissionDateComment);
+                verDateInfo.setScreeningCompleteDateComment(screeningCompleteDateComment);
+                verDateInfo.setFinalSubmissionDateComment(finalSubmissionDateComment);
 
-        	    if(estimatedDevDate != null && !estimatedDevDate.equals("")){
+                if (estimatedDevDate != null && !estimatedDevDate.equals("")) {
                     verDateInfo.setEstimatedDevDate(dateFormat.parse(estimatedDevDate));
-        		}
-        		else{
-        		    verDateInfo.setEstimatedDevDate(null);
-        	    }
-        	    if(screeningCompleteDate != null && !screeningCompleteDate.equals("")){
+                } else {
+                    verDateInfo.setEstimatedDevDate(null);
+                }
+                
+                if(screeningCompleteDate != null && !screeningCompleteDate.equals("")) {
                     verDateInfo.setScreeningCompleteDate(dateFormat.parse(screeningCompleteDate));
-        		}
-        		else{
-        		    verDateInfo.setScreeningCompleteDate(null);
-        	    }
+                } else {
+                    verDateInfo.setScreeningCompleteDate(null);
+                }
 
-        	    if(phaseCompleteDate != null && !phaseCompleteDate.equals("")){
+                if (phaseCompleteDate != null && !phaseCompleteDate.equals("")) {
                     verDateInfo.setPhaseCompleteDate(dateFormat.parse(phaseCompleteDate));
-        		}
-        		else{
-        		    verDateInfo.setPhaseCompleteDate(null);
-        	    }
-        	    if(productionDate != null && !productionDate.equals("") ){
+                } else {
+                    verDateInfo.setPhaseCompleteDate(null);
+                }
+                
+                if (productionDate != null && !productionDate.equals("")) {
                     verDateInfo.setProductionDate(dateFormat.parse(productionDate));
-        		}
-        		else{
-        		    verDateInfo.setProductionDate(null);
-        	    }
+                } else {
+                    verDateInfo.setProductionDate(null);
+                }
 
-        	    if(reviewCompleteDate != null && !reviewCompleteDate.equals("")){
+                if (reviewCompleteDate != null && !reviewCompleteDate.equals("")) {
                     verDateInfo.setReviewCompleteDate(dateFormat.parse(reviewCompleteDate));
-        		}
-        		else{
-        		    verDateInfo.setReviewCompleteDate(null);
-        	    }
+                } else {
+                    verDateInfo.setReviewCompleteDate(null);
+                }
 
-        	    if(aggregationCompleteDate != null && !aggregationCompleteDate.equals("") ){
+                if (aggregationCompleteDate != null && !aggregationCompleteDate.equals("")) {
                     verDateInfo.setAggregationCompleteDate(dateFormat.parse(aggregationCompleteDate));
                     verDateInfo.setWinnerAnnouncedDate(dateFormat.parse(aggregationCompleteDate));
-        		}
-        		else{
-        		    verDateInfo.setAggregationCompleteDate(null);
-        	    }
+                } else {
+                    verDateInfo.setAggregationCompleteDate(null);
+                }
 
                 componentManager.updateVersionDatesInfo(verDateInfo);
             }
+            
             strMessage += "Version info was saved.";
             colVerTechs = componentManager.getTechnologies();
             iterVerTechs = colVerTechs.iterator();
             technologies.clear();
+            
             while (iterVerTechs.hasNext()) {
                 Technology tech = (Technology)iterVerTechs.next();
                 technologies.put("" + tech.getId(), "hit");
