@@ -29,6 +29,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String SUBMISSION_JSP;
     public static String COMPILE_MESSAGE;
     public static String COMPILE_STATUS;
+    public static String LANGUAGES;
 
     static {
         initialize();
