@@ -14,7 +14,7 @@ import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.messaging.WebResponsePool;
-import com.topcoder.web.codinginterface.techassess.controller.request.Base;
+import com.topcoder.web.codinginterface.longcontest.controller.request.Base;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
