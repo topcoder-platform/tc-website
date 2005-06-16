@@ -8,6 +8,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.util.logging.Logger;
+
 
 public class Index extends Base{
     protected static final Logger log = Logger.getLogger(Index.class);
