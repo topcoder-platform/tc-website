@@ -72,7 +72,7 @@ function noenter(e)
     <td nowrap="nowrap" valign="top">
        <jsp:include page="searchHeader.jsp" >
             <jsp:param name="errors" value="<%=errors%>"/>
-            <jsp:param name="queryTerms" value="<%=StringUtils.escapeHTMLTags(query.getQueryString())%>"/>
+            <jsp:param name="queryTerms" value="<%=query.getQueryString()%>"/>
        </jsp:include>
     </td>   
 </tr>

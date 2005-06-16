@@ -95,7 +95,7 @@ public class Search extends ForumsProcessor {
                 }
             }
             if (hasErrors()) {                
-                return;
+                status = "error";
             }
             
             Query query = null;
