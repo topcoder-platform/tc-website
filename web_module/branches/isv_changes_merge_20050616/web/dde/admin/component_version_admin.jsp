@@ -1,11 +1,14 @@
 <%@ page import="javax.naming.*,
+                 javax.ejb.FinderException,
                  com.topcoder.dde.submission.Submission,
                  com.topcoder.dde.submission.Submitter,
                  com.topcoder.dde.submission.Submitters,
                  com.topcoder.dde.submission.Utility,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypesHome,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes,
-                 com.topcoder.file.TCSFile" %>
+                 com.topcoder.file.TCSFile,
+                 com.topcoder.dde.notification.NotificationHome,
+                 com.topcoder.dde.notification.Notification" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -1056,6 +1059,62 @@ if (action != null) {
         componentManager.removeReview(reviewId);
         //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
     }
+    
+    if (action.equals("Assign Forum Post Notification Event")) {
+        String strUsername = request.getParameter("txtTCHandle");
+        if (strUsername == null || strUsername.trim().length() == 0) {
+            strError = "User handle must not be empty.";
+        } else {
+            try {
+                System.out.println("Locating entity EJBs...");
+                LocalDDECompCatalogHome catalogHome
+                    = (LocalDDECompCatalogHome) CONTEXT.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
+
+                LocalDDECategoriesHome categoriesHome
+                    = (LocalDDECategoriesHome) CONTEXT.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
+
+
+                System.out.println("Locating the user for handle '" + strUsername + "' ...");
+                User user = USER_MANAGER.getUser(strUsername);
+                String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForum(Forum.SPECIFICATION).getId();
+
+                StringBuffer buffer = new StringBuffer();
+                String category = "";
+                try {
+                   // Locate the base category for the component.
+                    LocalDDECompCatalog cat = catalogHome.findByPrimaryKey(new Long(component.getId()));
+                    LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(cat.getRootCategory()));
+                    category = categories.getName();
+                } catch (FinderException e) {
+                    throw new CatalogException(e.toString());
+
+                }
+
+                buffer.append(category);
+                buffer.append(" ");
+                buffer.append(component.getName());
+                buffer.append(" ");
+                buffer.append(ver.getVersionLabel());
+                buffer.append(" - Forum Post");
+
+                // Locate the Notification bean
+                System.out.println("Locating the Notification EJB ...");
+                Object objNotification = CONTEXT.lookup(NotificationHome.EJB_REF_NAME);
+                NotificationHome notificationHome = (NotificationHome) PortableRemoteObject.narrow(objNotification, NotificationHome.class);
+                Notification notification = notificationHome.create();
+
+                // Assign notification event
+                System.out.println("Assigning notification event '" + event + "' to user " + user.getId());
+                notification.createNotification(event, user.getId(), Notification.FORUM_POST_TYPE_ID, buffer.toString());
+
+            } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
+                strError = "User '" + strUsername + "' was not found.";
+            } catch (Exception e) {
+                System.err.println(e);
+                strError = "An error occurred while assigning notification event to user : " + e;
+            }
+        }
+    }
 
     // Team Member Role
     if (action.equals("Add Role")) {
@@ -1966,6 +2025,24 @@ if (action != null) {
                 </tr>
             </table>
 
+<!-- Notifications begins -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                <tr><td class="adminSubhead">Notifications</td></tr>
+            </table>
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+                <tr valign="top">
+                    <td>TC handle</td>
+                    <td>
+                        <input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
+                    </td>
+                    <td>
+                        <input class="adminButton" type="submit" name="a" value="Assign Forum Post Notification Event">
+                    </td>
+                </tr>
+            </table>
+<!-- Notifications ends -->
+            
         </td>
 </form>
 <!-- Middle Column ends -->
