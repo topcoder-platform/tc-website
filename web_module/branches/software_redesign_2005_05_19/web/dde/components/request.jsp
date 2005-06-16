@@ -138,7 +138,7 @@
 
             <div align="center">
             <img src="/images/clear.gif" alt="" width="530" height="15" border="0"/>
-            <table border="0" cellpadding="0" cellspacing="10" width="440" bgcolor="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
+            <table border="0" cellpadding="10" cellspacing="0" width="440" bgcolor="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
 <!-- Component Name Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
@@ -146,7 +146,7 @@
 <!-- Component Name Field -->
 				<tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
                 <tr>
-                    <td class="small"><%=fieldsRequest.get("name").getLabel()%><br/>
+                    <td class="catalogIndexHeader"><%=fieldsRequest.get("name").getLabel()%> a New or Existing Component<br/>
                         <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="80" maxlength="50"></td>
                 </tr>
 <!-- Description Error Text -->
