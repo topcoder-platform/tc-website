@@ -25,6 +25,7 @@ public class Index extends Base{
             ResultSetContainer problems = (ResultSetContainer)m.get("long_problems");
             log.debug(problems);
             setNextPage(Constants.JSP_ADDR + Constants.INDEX_JSP);
+            setIsNextPageInContext(true);
         }catch(Exception e){
             e.printStackTrace();
             throw new TCWebException("Error retrieving page.");
