@@ -131,27 +131,23 @@
         <td width="99%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-                <tr><td class="normal"><img src="/images/suggest/suggestcomp_title.gif" alt="Suggest a Component" width="245" height="32" border="0" /><br />
+                <tr><td class="normal"><img src="/images/suggest/suggestcomp_title.gif" alt="Suggest a Component" width="245" height="32" border="0" /><br/>
                 If you did not find a component that meets your needs, please send us a suggestion. You may suggest enhancements on an existing component or ask
                 us to create an entirely new one.</td></tr>
             </table>
 
             <div align="center">
             <img src="/images/clear.gif" alt="" width="530" height="15" border="0"/>
-            <table border="0" cellpadding="10" cellspacing="0" width="440" bgcolor="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
-<!-- Component Name Error Text -->
-                <tr>
-                    <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
-                </tr>
+            <table border="0" cellpadding="10" cellspacing="0" width="460" bgcolor="#CCCCCC"><form name="frmCompRequest" action="<%=page_name%>" method="post">
 <!-- Component Name Field -->
 				<tr><td class="catalogIndexHeader">Name a New or Existing Component</td></tr>
                 <tr>
-                    <td class="catalogIndexHeader"><%=fieldsRequest.get("name").getLabel()%> a New or Existing Component<br/>
+                    <td class="small"><%=fieldsRequest.get("name").getLabel()%><br/>
                         <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="80" maxlength="50"></td>
                 </tr>
-<!-- Description Error Text -->
+<!-- Component Name Error Text -->
                 <tr>
-                    <td class="registerError"><%=fieldsRequest.get("desc").getError()%></td>
+                    <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
                 </tr>
 <!-- Description Field -->
 				<tr><td class="catalogIndexHeader">Describe the Component</td></tr>
@@ -159,7 +155,10 @@
                     <td class="small"><%=fieldsRequest.get("desc").getLabel()%><br/>
                         <textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
-
+<!-- Description Error Text -->
+                <tr>
+                    <td class="registerError"><%=fieldsRequest.get("desc").getError()%></td>
+                </tr>
 <!-- Comment Field -->
 				<tr><td class="catalogIndexHeader">Write Your Suggestions</td></tr>
                 <tr>
