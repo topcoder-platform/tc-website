@@ -138,7 +138,7 @@
 
             <div align="center">
             <img src="/images/clear.gif" alt="" width="530" height="15" border="0"/>
-            <table border="1" cellpadding="0" cellspacing="0" width="460" bgcolor="#CCCCCC">
+            <table border="1" cellpadding="0" cellspacing="0" width="460" bgcolor="#CCCCCC" bordercolor="#000000">
             <tr><td>
             <table border="0" cellpadding="10" cellspacing="0"><form name="frmCompRequest" action="<%=page_name%>" method="post">
 <!-- Component Name Field -->
