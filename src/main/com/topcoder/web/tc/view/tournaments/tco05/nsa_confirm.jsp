@@ -25,7 +25,7 @@
 <br><br>
 By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.
 <br><br>
-<A href="">Submit</A>.
+<A href="/tc?module=JobHit&jid=298&jt=1">Submit</A>.
         </div>
 		</td>
         
