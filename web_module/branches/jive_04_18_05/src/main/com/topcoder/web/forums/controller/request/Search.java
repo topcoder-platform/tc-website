@@ -57,6 +57,7 @@ public class Search extends ForumsProcessor {
         getRequest().setAttribute("forums", itForums);
         getRequest().setAttribute("dates", dates);
         
+        String mode = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_MODE));
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_STATUS));
         if (status.equals("search")) {
             String queryTerms = getRequest().getParameter(ForumConstants.SEARCH_QUERY);
@@ -141,7 +142,11 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("paginator", paginator);
         }
         
-		setNextPage("/search.jsp");
+        if (mode.equals("basic")) {
+            setNextPage("/searchBasic.jsp");
+        } else {
+            setNextPage("/search.jsp");
+        }
 		setIsNextPageInContext(true);
 	}
 }

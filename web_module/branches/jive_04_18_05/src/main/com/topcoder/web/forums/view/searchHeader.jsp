@@ -9,6 +9,7 @@
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_STATUS%>" value="search"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_SCOPE%>" value="all"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_DATE_RANGE%>" value="all"/>
+<tc-webtag:hiddenInput name="<%=ForumConstants.SEARCH_MODE%>" value="basic"/>
 <input name="<%=ForumConstants.SEARCH_QUERY%>" size="20" maxlength="100" value="" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
 <input name="Search" value="Search" type="submit" alt="Search" onclick="">
 &#160;

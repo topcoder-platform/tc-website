@@ -24,6 +24,8 @@ public class Login extends ForumsProcessor {
         //String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         String password = "";
         
+        log.debug("@#@#@#@#NEXT_PAGE_KEY: " + StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)));
+        
         String queryString = getRequest().getQueryString();
         int destStartIdx = queryString.indexOf("http://");
         String dest = queryString.substring(destStartIdx);

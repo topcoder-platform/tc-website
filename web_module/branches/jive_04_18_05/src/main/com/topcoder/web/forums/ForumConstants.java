@@ -33,6 +33,7 @@ public interface ForumConstants {
     public final static String SEARCH_HANDLE = "handle";
     public final static String SEARCH_RESULT_SIZE = "resultSize";
     public final static String SEARCH_SORT_FIELD = "sort";
+    public final static String SEARCH_MODE = "mode";
     
     public final static String SEARCH_DATE_YESTERDAY = "dateYesterday";
     public final static String SEARCH_DATE_LAST_7_DAYS = "dateLast7Days";
