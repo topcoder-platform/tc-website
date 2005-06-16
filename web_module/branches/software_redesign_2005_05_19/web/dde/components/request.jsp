@@ -151,20 +151,18 @@
                     <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
                 </tr>
 <!-- Description Field -->
-				<tr><td class="catalogIndexHeader">Describe the Component</td></tr>
+				<tr><td class="catalogIndexHeader"><%=fieldsRequest.get("desc").getLabel()%> of the Component</td></tr>
                 <tr>
-                    <td class="small"><%=fieldsRequest.get("desc").getLabel()%><br/>
-                        <textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="80" rows="6"></textarea></td>
+                    <td><textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
 <!-- Description Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("desc").getError()%></td>
                 </tr>
 <!-- Comment Field -->
-				<tr><td class="catalogIndexHeader">Comments or Suggestions</td></tr>
+				<tr><td class="catalogIndexHeader"><%= fieldsRequest.get("comments").getLabel() %> or Suggestions</td></tr>
                 <tr>
-                    <td class="small"><%= fieldsRequest.get("comments").getLabel() %><br/>
-                        <textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="80" rows="6"></textarea></td>
+                    <td><textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
 
                 <tr>
