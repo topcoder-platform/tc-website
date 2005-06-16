@@ -50,7 +50,7 @@
     </xsl:variable>
     
     <xsl:choose>
-        <xsl:when test="$roundId='7223'">
+        <xsl:when test="$roundId='7223'  or $roundId='8004' or $roundId='8005'">
             <table bgcolor = "#ffffff" cellspacing="0" cellpadding="10" border="0" width="619">
                   <tr>
                     <td><img src="/i/clear.gif" width="100" height="1" /></td>
