@@ -252,7 +252,7 @@ public abstract class Base extends BaseProcessor {
         return dAccess;
     }
     protected User getUser() {
-        return auth.getActiveUser();
+        return getAuthentication().getActiveUser();
     }
 
 }
