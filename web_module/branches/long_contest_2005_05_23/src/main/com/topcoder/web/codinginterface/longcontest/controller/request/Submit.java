@@ -83,9 +83,6 @@ public class Submit extends Base {
         	showProcessingPage("Compiling...");
 
             LongCompileResponse res = receive(30*1000,uid,pid);
-            synchronized(waiting){
-        	    waiting.remove(new Long(uid));
-            }
         //send errors and stuff
             getRequest().getSession().setAttribute(Constants.CODE, code);
             getRequest().getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
@@ -100,6 +97,8 @@ public class Submit extends Base {
         	e.printStackTrace();
             throw new TCWebException("An error occurred while compiling your code");
         }
-
+        synchronized(waiting){
+    	    waiting.remove(new Long(uid));
+        }
     }
 }
