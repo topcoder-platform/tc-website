@@ -155,8 +155,6 @@ public class ForumsServlet extends BaseServlet {
         /* forward to the login page, with a message and a way back */
         StringBuffer nextPage = new StringBuffer(LOGIN_SERVLET).append("?module=Login");
         
-        log.debug("########RS: " + info.getRequestString());
-        
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(info.getRequestString());
         nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
         fetchRegularPage(request, response, nextPage.toString(), false);

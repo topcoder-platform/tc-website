@@ -156,7 +156,7 @@
 <label for="autoWatchNewTopicsYes">Yes</label>
 &#160;
 <input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio" 
-	<%= ("false".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
+	<%= (user.getProperty("jiveAutoWatchNewTopics") == null || "false".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
 <label for="autoWatchNewTopicsNo">No</label>
       </td>
    </tr>
@@ -168,7 +168,7 @@
 <label for="autoWatchRepliesYes">Yes</label>
 &#160;
 <input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio" 
-	<%= ("false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
+	<%= (user.getProperty("jiveAutoWatchReplies") == null || "false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
 <label for="autoWatchRepliesNo">No</label>
       </td>
    <tr>

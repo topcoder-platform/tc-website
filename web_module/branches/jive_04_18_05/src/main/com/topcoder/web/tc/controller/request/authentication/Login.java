@@ -74,9 +74,6 @@ public class Login extends Base {
                                 }
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                 
-                                log.debug("#######dest: " + dest);
-                                log.debug("#######query string: " + getRequest().getQueryString());
-                                
                                 setNextPage(nextPage.toString());
                                 setIsNextPageInContext(false);
                                 log.debug("on successful login, going to " + nextPage.toString());
@@ -114,14 +111,14 @@ public class Login extends Base {
             getAuthentication().logout();
         }
 
-        log.debug("!!!!!!infoRS: " + info.getRequestString());
-        log.debug("!!!!!!NPK: " + getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
-        //if (!dest.equals("")) {
-        //    getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, dest);
-        //}
+        int nextPageIdx = info.getRequestString().indexOf("nextPage=");
+        if (nextPageIdx != -1) {
+            String nextPage = info.getRequestString().substring(nextPageIdx+"nextPage=".length());
+            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextPage);
+        }
         setNextPage(Constants.LOGIN);
         setIsNextPageInContext(true);
     }
