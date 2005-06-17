@@ -114,11 +114,9 @@ public class Login extends Base {
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
-        int nextPageIdx = info.getRequestString().indexOf("nextPage=");
-        log.debug("!!!!!!!! here");
+        int nextPageIdx = info.getRequestString().indexOf("nextpage=");
         if (nextPageIdx != -1) {
-            String nextPage = info.getRequestString().substring(nextPageIdx+"nextPage=".length());
-            log.debug("!!!!!!!!!!next page: " + nextPage);
+            String nextPage = info.getRequestString().substring(nextPageIdx+"nextpage=".length());
             getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextPage);
         }
         setNextPage(Constants.LOGIN);
