@@ -35,8 +35,7 @@ public class Login extends Base {
         // hack would be to parse out server name from //.../ in next page
         // find server name from sessionInfo
         SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-        
-        String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));  
+         
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
         log.debug("rememberUser: " + rememberUser);
@@ -65,7 +64,8 @@ public class Login extends Base {
                                 setIsNextPageInContext(true);
                                 return;
                             } else {
-                                log.debug("user active");                                                
+                                log.debug("user active");           
+                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)); 
                                 StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Login");
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
                                 nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
@@ -114,13 +114,14 @@ public class Login extends Base {
             getAuthentication().logout();
         }
 
-        log.debug("!!!!!!dest: " + dest);
+        log.debug("!!!!!!infoRS: " + info.getRequestString());
+        log.debug("!!!!!!NPK: " + getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
-        if (!dest.equals("")) {
-            getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, dest);
-        }
+        //if (!dest.equals("")) {
+        //    getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, dest);
+        //}
         setNextPage(Constants.LOGIN);
         setIsNextPageInContext(true);
     }
