@@ -106,7 +106,7 @@ public class MainServlet extends BaseServlet {
         request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
 
         request.setAttribute(MODULE, LOGIN_PROCESSOR);
-        fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, false);
+        getServletContext().getContext(LOGIN_SERVLET).getRequestDispatcher(response.encodeURL(LOGIN_SERVLET)).forward(request, response);
     }
 
 }
