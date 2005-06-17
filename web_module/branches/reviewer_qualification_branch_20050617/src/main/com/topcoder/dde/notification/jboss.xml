@@ -1,0 +1,14 @@
+<jboss>
+    <enterprise-beans>
+	    <session>
+	      <depends>jboss.jca:service=LocalTxCM,name=InformixDS</depends>
+	      <ejb-name>Notification</ejb-name>
+	      <ejb-ref>
+		 <ejb-ref-name>security/Policy</ejb-ref-name>
+		 <jndi-name>security/Policy</jndi-name>
+	      </ejb-ref>
+	      <jndi-name>com.topcoder.dde.notification.NotificationHome</jndi-name>
+	      <local-jndi-name>com.topcoder.dde.notification.NotificationLocalHome</local-jndi-name>
+	    </session>        
+    </enterprise-beans>
+</jboss>
