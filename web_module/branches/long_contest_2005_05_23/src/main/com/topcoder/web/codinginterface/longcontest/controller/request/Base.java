@@ -65,12 +65,6 @@ public abstract class Base extends BaseProcessor {
         this.sender = sender;
     }
 
-    protected User getUser() {
-        if (user == null)
-            user = getAuthentication().getUser();
-        return user;
-    }
-
     protected void send(LongCompileRequest sub) throws TCWebException, ServerBusyException {
         HashMap hm = new HashMap();
         hm.put("pendingAction", new Integer(ServicesConstants.LONG_COMPILE_ACTION));
@@ -257,7 +251,5 @@ public abstract class Base extends BaseProcessor {
             dAccess = new DataAccess(datasource);
         return dAccess;
     }
-
-
 }
 

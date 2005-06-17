@@ -62,7 +62,8 @@ public class Submit extends Base {
         }
         String code = StringUtils.checkNull(getRequest().getParameter(Constants.CODE));
         if(code.length()==0){
-            setNextPage(Constants.JSP_ADDR + Constants.SUBMISSION_JSP);
+            setNextPage(Constants.SUBMISSION_JSP);
+            setIsNextPageInContext(true);
             return;
         }
         try {
