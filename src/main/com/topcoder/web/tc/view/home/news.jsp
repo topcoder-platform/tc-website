@@ -8,7 +8,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.16.05<br>3:20 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.17.05<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Citigroup giving away SRM cash prizes on <A href="/?RoundId=7223&t=schedule&c=srm">6/21</A>, <A href="/?RoundId=8004&t=schedule&c=srm">7/19</A>, and <A href="/?RoundId=8005&t=schedule&c=srm">8/8</A></span><br><br>
       Compete on any of these SRM's for a chance to win cash prizes.
       </td>
@@ -20,7 +20,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.16.05<br>3:20 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.17.05<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A></span><br><br>
       <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A> is looking for TC members to join their team.
       </td>
@@ -32,7 +32,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.16.05<br>3:20 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.17.05<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=schedule&c=index">Calendar updated with new SRMs</A></span><br><br>
       The TopCoder events calendar has been updated to reflect added SRMs and new sponsorships.  The dates are: 7/19, 7/26, 8/8, and 9/27.
       </td>
