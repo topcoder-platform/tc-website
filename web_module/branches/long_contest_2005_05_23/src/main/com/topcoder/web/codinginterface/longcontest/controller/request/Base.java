@@ -251,5 +251,9 @@ public abstract class Base extends BaseProcessor {
             dAccess = new DataAccess(datasource);
         return dAccess;
     }
+    protected User getUser() {
+        return auth.getActiveUser();
+    }
+
 }
 
