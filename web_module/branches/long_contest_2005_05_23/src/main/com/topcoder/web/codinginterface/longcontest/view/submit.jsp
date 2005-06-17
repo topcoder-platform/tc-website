@@ -10,7 +10,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <html>
 <head>
-Submit
+<title>Submit</title>
 </head>
 <body>
 <form action="/longcontest/longcontest?module=Submit" method="POST">
@@ -18,6 +18,7 @@ Submit
 <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
 <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
 <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="3">Java<br/>
+<input type="submit"/>
 <textarea name="code">
 <%=request.getSession().getAttribute(Constants.CODE)%>
 </textarea>

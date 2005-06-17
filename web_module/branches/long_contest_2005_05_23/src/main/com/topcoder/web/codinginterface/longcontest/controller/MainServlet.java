@@ -19,19 +19,21 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
 /**
- * User: dok
- * Date: Dec 1, 2004
+ * User: lars
  */
 public class MainServlet extends BaseServlet {
 
