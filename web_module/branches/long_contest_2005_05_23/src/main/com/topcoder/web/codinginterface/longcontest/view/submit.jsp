@@ -17,7 +17,7 @@
 <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
 <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
 <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
-<input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="3">Java<br/>
+<input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="1">Java<br/>
 <input type="submit"/>
 <textarea name="code">
 <%=request.getSession().getAttribute(Constants.CODE)%>

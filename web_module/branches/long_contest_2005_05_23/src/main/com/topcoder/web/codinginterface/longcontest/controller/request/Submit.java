@@ -76,29 +76,35 @@ public class Submit extends Base {
         synchronized(waiting){
             if(!waiting.add(new Long(uid)))throw new TCWebException("A submit request is already being processed.");
         }
-        
+
         send(lcr);
 
         try{
-        	showProcessingPage("Compiling...");
+            showProcessingPage("Compiling...");
 
             LongCompileResponse res = receive(30*1000,uid,pid);
-        //send errors and stuff
+            //send errors and stuff
             getRequest().getSession().setAttribute(Constants.CODE, code);
             getRequest().getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
             getRequest().getSession().setAttribute(Constants.COMPILE_MESSAGE, res.getCompileError());
-            
+
             closeProcessingPage(buildProcessorRequestString("Submit",
-                    new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
-                    new String[]{String.valueOf(rid),String.valueOf(cid),String.valueOf(pid),String.valueOf(language)}));
+                        new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
+                        new String[]{String.valueOf(rid),String.valueOf(cid),String.valueOf(pid),String.valueOf(language)}));
         }catch(TimeOutException e){
+            synchronized(waiting){
+                waiting.remove(new Long(uid));
+            }
             throw new TCWebException("Your code compilation timed out.");
         }catch(IOException e){
-        	e.printStackTrace();
+            synchronized(waiting){
+                waiting.remove(new Long(uid));
+            }
+            e.printStackTrace();
             throw new TCWebException("An error occurred while compiling your code");
         }
         synchronized(waiting){
-    	    waiting.remove(new Long(uid));
+            waiting.remove(new Long(uid));
         }
     }
 }
