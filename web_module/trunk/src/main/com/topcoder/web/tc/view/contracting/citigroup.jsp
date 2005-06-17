@@ -41,22 +41,6 @@
 <p>
 <span class="bodySubtitle">Join Our Team</span>
 <br><br>
-Working at Citigroup gives employees the chance to create an exciting and wide-ranging career in one of the world's leading organizations. Our belief in employee ownership offers a unique experience in entrepreneurialism on a global scale, and an unparalleled geographic footprint enables our employees to work with and learn from a diverse group of colleagues whose insight, integrity, and commitment set the standard for success in our industry.
-<br><br>
-<strong>What We Value:</strong>
-<br><br>
-<strong>Integrity</strong>: We do the right thing. 
-<br><br>
-<strong>Excellence</strong>: We deliver superior products and services to our clients and take pride in the quality of our work. 
-<br><br>
-<strong>Respect</strong>: We treat people with respect. 
-<br><br>
-<strong>Teamwork</strong>: We work together to get the job done. 
-<br><br>
-<strong>Ownership</strong>: We act like owners and take responsibility for our actions. 
-<br><br>
-<strong>Leadership</strong>: We believe in leadership by example, in the office and in the community.
-<br><br>
 Citigroup's Equity Derivative division is looking to hire top talent to solve some of the most computationally and mathematically challenging problems around.
 <ul>
 <li>Automated proprietary trading algorithms require real time statistical analysis of 500,000 securities with 100,000 updates of input data per second.  To excel in this high frequency environment, one needs to implement cutting edge grid computing, artificial intelligence, and advanced numerical optimization techniques.</li>
