@@ -57,18 +57,16 @@ Working at Citigroup gives employees the chance to create an exciting and wide-r
 <br><br>
 <strong>Leadership</strong>: We believe in leadership by example, in the office and in the community.
 <br><br>
-As a company that does business in more than 100 countries, with 98 percent of our employees native to the locations where they work, Citigroup is one of the most diverse organizations in the world. This diversity has been a source of strength for Citigroup's employees, for our clients, and for the communities where we live and work.
-<br><br>
-<strong>Types of Job Skills Desired:</strong>
+Citigroup's Equity Derivative division is looking to hire top talent to solve some of the most computationally and mathematically challenging problems around.
 <ul>
-<li>People that can solve complex problems and implement this vision in a small team environment.
-<li>Dedicated, self-motivated individuals, who are passionate about technology.
-<li>Employees who can to implement cutting edge grid computing, artificial intelligence, and advanced numerical optimization techniques.
-<li>Someone who can tackle numerous intellectual and technical challenges.
-<li>People with superior knowledge, passion, and accomplishment in his/her area of expertise.
-</ul>
+<li>Automated proprietary trading algorithms require real time statistical analysis of 500,000 securities with 100,000 updates of input data per second.  To excel in this high frequency environment, one needs to implement cutting edge grid computing, artificial intelligence, and advanced numerical optimization techniques.</li>
+<li>Risk management systems require sophisticated distributed computing to price complex exotic derivative securities in real-time.</li>
+<li>Trading System design requires minimal latency, high throughput, and mind boggling uptime.</li>
+</ul> 
 
-      <a href="/tc?module=JobHit&jid=297&jt=4">Register for this position here!</a>
+Our proprietary trading and risk analysis software is the lifeblood of our business.  Knowledge of finance is not important - a sharp mind and a love of complex problems is what matters. Nestled inside the world's largest financial company - we are a tight knit and dedicated group.  We want to find like minded candidates at all levels of experience to join our team.
+<br><br>
+      <a href="/tc?module=JobHit&jid=297&jt=4">Apply now to be contacted by Citigroup!</a>
 		<br/><br/>
         <p><br></p>
         </td>
