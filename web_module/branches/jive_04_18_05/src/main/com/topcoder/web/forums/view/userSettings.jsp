@@ -55,10 +55,8 @@
 <A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
 </div>
 
-<%  if (status.equals("save")) { %>
-<span class="rtHeader"><font color="green">Settings updated successfully.</font></span><br/><br/>
-<%	} else if (status.equals("error")) { %>
-<span class="rtHeader"><span class="bigRed">Settings updated with errors:</span></span>
+<%	if (status.equals("error")) { %>
+<br><br><span class="rtHeader"><span class="bigRed">Settings updated with errors:</span></span>
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>
 

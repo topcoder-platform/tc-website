@@ -22,8 +22,18 @@
 <script type="text/javascript">
 function noenter(e)
 {
-  var k = (window.event)? event.keyCode: e.which;
-  return !(k == 13);
+    var k = (window.event)? event.keyCode: e.which;
+    return !(k == 13);
+}
+
+function toggle(targetId) 
+{
+    target = document.all(targetId);
+    if (target.style.display == "none") {
+        target.style.display="";
+    } else {
+        target.style.display="none";
+    }
 }
 </script>
 
@@ -90,7 +100,9 @@ function noenter(e)
 			>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
 		<%	} %>	
 		>> <%=postHeading%>
-</td></table>
+</td>
+<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td></table>
+<br><div id="Options" style="display: none">Allowed tags: &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;pre&gt;. Syntax highlighting is applied to text within [code][/code] blocks.</div>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
