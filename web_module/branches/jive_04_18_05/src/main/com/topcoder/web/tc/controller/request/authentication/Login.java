@@ -114,6 +114,7 @@ public class Login extends Base {
             getAuthentication().logout();
         }
 
+        log.debug("!!!!!!dest: " + dest);
         if (loginStatus.equals(STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
