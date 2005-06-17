@@ -176,6 +176,7 @@
                                     <strong>Match 249</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
+                                    Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=yahoo">Yahoo!</A><br />
                                     <A href="/?RoundId=7224&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar" rowspan="2">30</td>
                                 <td id="calendarBlank" rowspan="2">&#160;</td>
