@@ -1,4 +1,4 @@
-<META HTTP-EQUIV="refresh" content="5;url=/pl/?&module=Static&d1=javaone05&d2=slide_win">
+<META HTTP-EQUIV="refresh" content="7;url=/pl/?&module=Static&d1=javaone05&d2=slide_win">
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
