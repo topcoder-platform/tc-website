@@ -48,17 +48,16 @@
                 <jsp:param name="title" value="Forum Post History"/>
             </jsp:include>
 
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-   <tr> 
-      <td nowrap="nowrap" valign="top">&#160;</td>
-      <td align="right" nowrap="nowrap" valign="top">
-      <b>Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
-      </td>
-   </tr>
-   <tr>
-      <td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
-      Post History >> <span class="bigHandle"><tc-webtag:handle coderId="<%=historyUser.getID()%>"/></span> (<%=forumFactory.getUserMessageCount(historyUser)%> posts)</td>
+<div class="topLinksL">
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Post History >> <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=forumFactory.getUserMessageCount(historyUser)%> posts) </span><br><br>
+</div>            
+<div class="topLinksR">
+<b>Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+</div>
 
+<br><br>
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+   <tr>
 <% if (paginator.getNumPages() > 1) { %>
 	<td class="rtbc" align="right" width=20% nowrap="nowrap"><b>
 		<%  if (paginator.getPreviousPage()) { %>

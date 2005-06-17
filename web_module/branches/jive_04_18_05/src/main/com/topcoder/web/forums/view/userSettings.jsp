@@ -48,6 +48,9 @@
                 <jsp:param name="title" value="User Settings"/>
             </jsp:include>
 
+<div class="topLinksL">
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> User Settings</span><br><br>
+</div>
 <div class="topLinksR">
 <A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
 </div>
@@ -59,7 +62,6 @@
 <tc-webtag:errorIterator id="errSettings" name="<%=ForumConstants.SETTINGS_STATUS%>"><%=errSettings%></tc-webtag:errorIterator><br/><br/>
 <%  } %>
 
-<span class="bodySubtitle">User Settings</span><br>
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module" value="Settings"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.SETTINGS_STATUS%>" value="save"/>
@@ -72,7 +74,10 @@
       <td class="rtTextCell100">
 		<select size="1" name="threadsPerPage">
 		<%  int[] threadCounts = { 10, 15, 25, 50 };
-			int threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
+			int threadRange = ForumConstants.DEFAULT_THREAD_RANGE;
+            try {
+                threadRange = Integer.parseInt(user.getProperty("jiveThreadRange"));
+            } catch (Exception ignored) {}
 			for (int i=0; i<threadCounts.length; i++) {
 				if (threadCounts[i] == threadRange) { %>
 					<option value="<%=threadCounts[i]%>" selected><%=threadCounts[i]%></option>
@@ -88,7 +93,10 @@
       <td class="rtTextCell100">
 		<select size="1" name="messagesPerPage">
 		<%  int[] messageCounts = { 10, 15, 25, 50 };
-			int messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
+			int messageRange = ForumConstants.DEFAULT_MESSAGE_RANGE;
+            try {
+                Integer.parseInt(user.getProperty("jiveMessageRange"));
+            } catch (Exception ignored) {}
 			for (int i=0; i<messageCounts.length; i++) {
 				if (messageCounts[i] == messageRange) { %>
 					<option value="<%=messageCounts[i]%>" selected><%=messageCounts[i]%></option>
@@ -104,10 +112,10 @@
       <td class="rtTextCell100">
 		<select size="1" name="messagesPerHistoryPage">
 		<%  int[] historyCounts = { 10, 15, 25, 50, 100 };
-			int historyRange = historyCounts[0];
+			int historyRange = ForumConstants.DEFAULT_HISTORY_RANGE;
 			try {
 				historyRange = Integer.parseInt(user.getProperty("jiveHistoryRange"));
-			} catch (Exception e) {}
+			} catch (Exception ignored) {}
 			for (int i=0; i<historyCounts.length; i++) {
 				if (historyCounts[i] == historyRange) { %>
 					<option value="<%=historyCounts[i]%>" selected><%=historyCounts[i]%></option>
@@ -123,7 +131,10 @@
       <td class="rtTextCell100">
 		<select size="1" name="threadMode">
 		<%  String[][] threadModes = {{"flat","Flat"},{"threaded","Threaded"},{"tree","Tree"}};
-			String currentMode = user.getProperty("jiveThreadMode");
+			String currentMode = ForumConstants.DEFAULT_GUEST_THREAD_VIEW;
+            try {
+                currentMode = user.getProperty("jiveThreadMode");
+            } catch (Exception ignored) {}
 			for (int i=0; i<threadModes.length; i++) {
 				if (threadModes[i][0].equals(currentMode)) { %>
 					<option value="<%=threadModes[i][0]%>" selected><%=threadModes[i][1]%></option>
@@ -141,11 +152,11 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
       <td class="rtTextCell100">
 <input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio" 
-	<%= (user.getProperty("jiveAutoWatchNewTopics").equals("true")) ? "checked" : ""%>>
+	<%= ("true".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
 <label for="autoWatchNewTopicsYes">Yes</label>
 &#160;
 <input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio" 
-	<%= (user.getProperty("jiveAutoWatchNewTopics").equals("false")) ? "checked" : ""%>>
+	<%= ("false".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
 <label for="autoWatchNewTopicsNo">No</label>
       </td>
    </tr>
@@ -153,11 +164,11 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
       <td class="rtTextCell100">
 <input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio" 
-	<%= (user.getProperty("jiveAutoWatchReplies").equals("true")) ? "checked" : ""%>>
+	<%= ("true".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
 <label for="autoWatchRepliesYes">Yes</label>
 &#160;
 <input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio" 
-	<%= (user.getProperty("jiveAutoWatchReplies").equals("false")) ? "checked" : ""%>>
+	<%= ("false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
 <label for="autoWatchRepliesNo">No</label>
       </td>
    <tr>

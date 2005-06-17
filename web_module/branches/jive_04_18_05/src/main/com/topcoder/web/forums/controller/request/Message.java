@@ -28,7 +28,7 @@ public class Message extends ForumsProcessor {
 		StringBuffer urlNext = new StringBuffer();
 		urlNext.append("?module=Thread&").append(ForumConstants.THREAD_ID).append("=").append(thread.getID());
 		if (threadView.equals("flat") || 
-                (threadView.equals("") && authToken.isAnonymous() && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) ||
+                (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) ||
                 (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat"))) {
 			int messageIdx = 0;
 			Iterator messageIter = thread.getMessages();			
@@ -48,7 +48,7 @@ public class Message extends ForumsProcessor {
 			int startIdx = (messageIdx/messageRange)*messageRange;
 			urlNext.append("&").append(ForumConstants.START_IDX).append("=").append(startIdx);
 		} else if (threadView.equals("tree") || 
-                (threadView.equals("") && authToken.isAnonymous() && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("tree")) ||
+                (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("tree")) ||
                 (threadView.equals("") && user.getProperty("jiveThreadMode").equals("tree"))) { 
             urlNext.append("&").append(ForumConstants.MESSAGE_ID).append("=").append(messageID);
         }
