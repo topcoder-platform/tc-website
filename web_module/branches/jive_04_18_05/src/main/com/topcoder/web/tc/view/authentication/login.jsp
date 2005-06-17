@@ -62,6 +62,8 @@ function submitEnter(e) {
 <!-- Center Column begins -->
         <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
 
+            nextPage: <%=nextPage%>
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                <tr valign="top">
                     <td class="bodyText" width="100%">
