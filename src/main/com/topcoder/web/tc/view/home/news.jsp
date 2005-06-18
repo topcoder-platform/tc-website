@@ -9,7 +9,7 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.17.05<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Citigroup giving away SRM cash prizes on <A href="/?RoundId=7223&t=schedule&c=srm">6/21</A>, <A href="/?RoundId=8004&t=schedule&c=srm">7/19</A>, and <A href="/?RoundId=8005&t=schedule&c=srm">8/8</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle">Prize money returns to SRMs, Citigroup to sponsor matches on <A href="/?RoundId=7223&t=schedule&c=srm">6/21</A>, <A href="/?RoundId=8004&t=schedule&c=srm">7/19</A>, and <A href="/?RoundId=8005&t=schedule&c=srm">8/8</A></span><br><br>
       Compete on any of these SRM's for a chance to win cash prizes.
       </td>
    </tr>
