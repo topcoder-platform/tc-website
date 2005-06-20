@@ -60,6 +60,10 @@ public interface ForumConstants {
     public final static String WATCH_COMMAND = "cmd";
     public final static String WATCH_THREAD = "watchThread";
     
+    public final static String WATCHES_UPDATE = "update";
+    public final static String WATCHES_SAVE_THREAD = "save";
+    public final static String WATCHES_DELETE_THREAD = "delete";
+    
     // Defaults
     public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
     public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;

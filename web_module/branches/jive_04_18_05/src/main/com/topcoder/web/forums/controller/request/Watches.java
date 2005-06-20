@@ -28,21 +28,16 @@ public class Watches extends ForumsProcessor {
         WatchManager watchManager = forumFactory.getWatchManager();
         
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
-		if (status.equals("update")) {
+		if (status.equals(ForumConstants.WATCHES_UPDATE)) {
 			Iterator threads = watchManager.getAllWatches(user, JiveConstants.THREAD);
             while (threads.hasNext()) {
             	ForumThread thread = (ForumThread)(threads.next());
-                String saveThread = StringUtils.checkNull(getRequest().getParameter("saveThread"+thread.getID()));
+                String saveThread = StringUtils.checkNull(getRequest().getParameter(ForumConstants.WATCHES_SAVE_THREAD+thread.getID()));
+                String deleteThread = StringUtils.checkNull(getRequest().getParameter(ForumConstants.WATCHES_DELETE_THREAD+thread.getID()));
                 boolean expirable = !(saveThread.equals(String.valueOf(thread.getID())));
-                watchManager.getWatch(user, thread).setExpirable(expirable);                
-            }
-        } else if (status.equals("delete")) {
-            Iterator threads = watchManager.getAllWatches(user, JiveConstants.THREAD);
-            while (threads.hasNext()) {
-                ForumThread thread = (ForumThread)(threads.next());
-                String deleteThread = StringUtils.checkNull(getRequest().getParameter("deleteThread"+thread.getID()));
-                if (deleteThread.equals(String.valueOf(thread.getID()))) {
-                	watchManager.deleteWatch(watchManager.getWatch(user, thread));
+                watchManager.getWatch(user, thread).setExpirable(expirable);
+                if (deleteThread.equals(String.valueOf(thread.getID())) && !saveThread.equals(String.valueOf(thread.getID()))) {
+                    watchManager.deleteWatch(watchManager.getWatch(user, thread));
                 }
             }
         }

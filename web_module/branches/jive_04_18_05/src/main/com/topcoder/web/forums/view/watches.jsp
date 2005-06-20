@@ -82,16 +82,15 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 	<td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
 	<td class="rtThreadCell"><b><tc-webtag:beanWrite name="latestMessage" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=latestMessage.getUser().getID()%>"/></td>
-	<td class="rtThreadCell" align="center"><input name="saveThread<jsp:getProperty name="thread" property="ID"/>" value="<jsp:getProperty name="thread" property="ID"/>" type="checkbox" 
+	<td class="rtThreadCell" align="center"><input name="<%=ForumConstants.WATCHES_SAVE_THREAD%><jsp:getProperty name="thread" property="ID"/>" value="<jsp:getProperty name="thread" property="ID"/>" type="checkbox" 
 		<%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> /></td>
-	<td class="rtThreadCell" align="center"><input name="deleteThread<jsp:getProperty name="thread" property="ID"/>" value="<jsp:getProperty name="thread" property="ID"/>" type="checkbox" /></td>
+	<td class="rtThreadCell" align="center"><input name="<%=ForumConstants.WATCHES_DELETE_THREAD%><jsp:getProperty name="thread" property="ID"/>" value="<jsp:getProperty name="thread" property="ID"/>" type="checkbox" /></td>
 </tr>
 </tc-webtag:iterator>
 </table>
 
 <div align="right">
-<input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form1.<%=ForumConstants.WATCHLIST_STATUS%>.value='update'" />
-<input type="image" src="/i/roundTables/delete.gif" alt="Delete" onclick="form1.<%=ForumConstants.WATCHLIST_STATUS%>.value='delete'" />
+<input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form1.<%=ForumConstants.WATCHLIST_STATUS%>.value='<%=ForumConstants.WATCHES_UPDATE%>'" />
 </div>
 
 </form>

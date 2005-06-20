@@ -28,7 +28,7 @@ function noenter(e)
 
 function toggle(targetId) 
 {
-    target = document.all(targetId);
+    target = document.getElementById(targetId);
     if (target.style.display == "none") {
         target.style.display="";
     } else {
