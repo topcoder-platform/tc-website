@@ -92,7 +92,6 @@ Division 2 had a much easier set with high success rates.  As in division 1, a T
 <H1>
 The Problems
 </H1>
-</p>
 
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=4610&amp;rd=7222"
@@ -100,7 +99,7 @@ name="4610">TriangleType</a></b>
 </font>
 <A href="Javascript:openProblemRating(4610)"><img hspace="10" border="0"
 height=
-"18" width="60" src="/i/rate_it.gif"/></A><br>
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -146,7 +145,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 
 <p>
 First, you need to sort the three dimensions so that you can apply the
-formulas in the notes, using x, y and z where x &le; y &le; z.  Once you
+formulas in the notes, using x, y and z where x &#8804; y &#8804; z.  Once you
 do this, you pretty much just need to make sure that you spell the return values
 correctly.
 </p>
@@ -157,7 +156,7 @@ name="4522">FracCount</a></b>
 </font>
 <A href="Javascript:openProblemRating(4522)"><img hspace="10" border="0"
 height=
-"18" width="60" src="/i/rate_it.gif"/></A><br>
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -229,7 +228,7 @@ name="4521">Speller</a></b>
 </font>
 <A href="Javascript:openProblemRating(4521)"><img hspace="10" border="0"
 height=
-"18" width="60" src="/i/rate_it.gif"/></A><br>
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -289,7 +288,7 @@ name="4495">Musical</a></b>
 </font>
 <A href="Javascript:openProblemRating(4495)"><img hspace="10" border="0"
 height=
-"18" width="60" src="/i/rate_it.gif"/></A><br>
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -355,7 +354,7 @@ name="875">WordTrain</a></b>
 </font>
 <A href="Javascript:openProblemRating(875)"><img hspace="10" border="0"
 height="
-18" width="60" src="/i/rate_it.gif"/></A><br>
+18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -436,7 +435,7 @@ name="3487">Necklaces</a></b>
 </font>
 <A href="Javascript:openProblemRating(3487)"><img hspace="10" border="0"
 height=
-"18" width="60" src="/i/rate_it.gif"/></A><br>
+"18" width="60" src="/i/rate_it.gif"/></A><br />
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
@@ -506,40 +505,40 @@ public int inequity(int n, int[] gems){
     int ret = Integer.MAX_VALUE;
     for(int x = 0; x&lt;gems.length; x++){
         int min = 0;
-        <font color=blue>//precompute the sum of gems[0..a] for each a</font>
+        <font color="blue">//precompute the sum of gems[0..a] for each a</font>
         for(int a = 1; a&lt;v.length; a++)v[a] = v[a-1] + gems[a-1];
         for(int y = 0; y&lt;gems.length ;y++){
             min+=gems[y];
-            <font color=blue>//gems[0..y] forms the segment with smallest sum, min</font>
+            <font color="blue">//gems[0..y] forms the segment with smallest sum, min</font>
             int[][] dp = new int[n+1][gems.length+1];
             dp[1][y+1] = min;
-            <font color=blue>//dp[1][y+1] represents the best and only way
+            <font color="blue">//dp[1][y+1] represents the best and only way
             //to arrange the first y gems in one segment</font>
         
-            <font color=blue>//now loop over j -- add segments</font>
+            <font color="blue">//now loop over j -- add segments</font>
             for(int j = 2; j&lt;=n; j++){
-                <font color=blue>//loop over i -- the number of gems used to make j segments</font>
+                <font color="blue">//loop over i -- the number of gems used to make j segments</font>
                 for(int i = y+1; i&lt;=gems.length; i++){
-                    <font color=blue>//loop over k -- the number of gems used to make j-1 segments</font>
+                    <font color="blue">//loop over k -- the number of gems used to make j-1 segments</font>
                     for(int k = y+1; k&lt;i; k++){
-                        <font color=blue>//first make sure that the gems from k+1 to i form a valid
+                        <font color="blue">//first make sure that the gems from k+1 to i form a valid
                         //segment and that it is possible to make j-1 segments with k gems</font>
                         if(v[i]-v[k] &lt; min || dp[j-1][k] == 0)continue;
                         int t = Math.max(dp[j-1][k],v[i]-v[k]);
-                        <font color=blue>//t holds a possible value for dp[j][i]</font>
+                        <font color="blue">//t holds a possible value for dp[j][i]</font>
                         if(dp[j][i] == 0 || t &lt; dp[j][i]){
                             dp[j][i] = t;
                         }
                     }
                 }
             }
-            <font color=blue>//If it was possible to make n segments using this 
+            <font color="blue">//If it was possible to make n segments using this 
             //initial segment, minimize the return value</font>
             if(dp[n][gems.length]!=0){
                 ret = Math.min(ret,dp[n][gems.length]-min);
             }
         }
-        <font color=blue>//rotate the gems array 1 position to keep things simple</font>
+        <font color="blue">//rotate the gems array 1 position to keep things simple</font>
         int t = gems[0];
         for(int a = 0; a+1&lt;gems.length; a++)gems[a] = gems[a+1];
         gems[gems.length-1] = t;
