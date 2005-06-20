@@ -189,14 +189,18 @@ public class ReviewBoardTask {
         queryString.append(" AND ru.status_id = 100 ");
         queryString.append(QUERY_TAIL);
         
+        PreparedStatement slackerQuery = null;
+        PreparedStatement deactivate = null;
+        ResultSet slackers = null;
+        
         try {
-            PreparedStatement slackerQuery = connection.prepareStatement(queryString.toString());
-            PreparedStatement deactivate = connection.prepareStatement(DEACTIVATE_REVIEWER);
+            slackerQuery = connection.prepareStatement(queryString.toString());
+            deactivate = connection.prepareStatement(DEACTIVATE_REVIEWER);
             
             slackerQuery.setDouble(1, minimumQualifyingScore);
             slackerQuery.setInt(2, temporaryDeactivationThreshold);
             
-            ResultSet slackers = slackerQuery.executeQuery();
+            slackers = slackerQuery.executeQuery();
             
             deactivate.setLong(1, 110);
             
@@ -214,12 +218,13 @@ public class ReviewBoardTask {
                 
                 sendEmail(handle, address, temporaryDeactivationEmailTemplate);
             }
-            
+        } catch (SQLException e) {
+            log.error("Error found while temporarily deactivating reviewers.", e);
+            e.printStackTrace();
+        } finally {
             close(slackers);
             close(slackerQuery);
             close(deactivate);
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
     
@@ -233,14 +238,18 @@ public class ReviewBoardTask {
         queryString.append(" AND ru.status_id IN (100, 110) ");
         queryString.append(QUERY_TAIL);
         
+        PreparedStatement slackerQuery = null;
+        PreparedStatement deactivate = null;
+        ResultSet slackers = null;
+        
         try {
-            PreparedStatement slackerQuery = connection.prepareStatement(queryString.toString());
-            PreparedStatement deactivate = connection.prepareStatement(DEACTIVATE_REVIEWER);
+            slackerQuery = connection.prepareStatement(queryString.toString());
+            deactivate = connection.prepareStatement(DEACTIVATE_REVIEWER);
             
             slackerQuery.setDouble(1, minimumQualifyingScore);
             slackerQuery.setInt(2, permanentDeactivationThreshold);
             
-            ResultSet slackers = slackerQuery.executeQuery();
+            slackers = slackerQuery.executeQuery();
             
             deactivate.setLong(1, 120);
             
@@ -258,12 +267,13 @@ public class ReviewBoardTask {
                 
                 sendEmail(handle, address, permanentDeactivationEmailTemplate);
             }
-            
+        } catch (SQLException e) {
+            log.error("Error found while permanently deactivating reviewers.", e);
+            e.printStackTrace();
+        } finally {
             close(slackers);
             close(slackerQuery);
             close(deactivate);
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
     
@@ -284,7 +294,7 @@ public class ReviewBoardTask {
             
             emailEngine.send(tem);
         } catch (Exception e) {
-            log.error("Error sending email to " + handle + " (" + address + ").");
+            log.error("Error sending email to " + handle + " (" + address + ").", e);
             e.printStackTrace();
         }
     }
