@@ -76,6 +76,8 @@ public class ReviewBoardTask {
             "   AND e.email_type_id = 1                                                " +
             "   AND ru.phase_id = ph.phase_id                                          ";
     
+    // All the center of the query should do is check for a specific ru.status_id
+    
     /** Tail end of the slacker query. */
     private static final String QUERY_TAIL =
             "GROUP BY 1, 2, 3, 4                                                       " +
@@ -290,7 +292,7 @@ public class ReviewBoardTask {
             tem.setFromAddress(emailFromAddress, emailFromName);
             tem.addToAddress(address, TCSEmailMessage.TO);
             tem.setSubject(emailSubject);
-            tem.setBody(generateEmailBody(handle, template));
+            tem.setBody(generateEmailBody(template, handle));
             
             emailEngine.send(tem);
         } catch (Exception e) {
@@ -299,7 +301,17 @@ public class ReviewBoardTask {
         }
     }
     
-    private String generateEmailBody(String handle, Template template)
+    /**
+     * 
+     * @param template 
+     * @param handle 
+     * @throws com.topcoder.util.config.ConfigManagerException 
+     * @throws com.topcoder.util.file.InvalidConfigException 
+     * @throws com.topcoder.util.file.TemplateDataFormatException 
+     * @throws com.topcoder.util.file.TemplateFormatException 
+     * @return 
+     */
+    private String generateEmailBody(Template template, String handle)
             throws ConfigManagerException, InvalidConfigException, TemplateDataFormatException, TemplateFormatException {
         
         DocumentGenerator dg = DocumentGenerator.getInstance();
