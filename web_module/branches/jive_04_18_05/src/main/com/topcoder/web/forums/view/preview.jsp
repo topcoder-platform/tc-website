@@ -90,12 +90,12 @@ function AllowTabCharacter() {
 		<%	if (thread != null) { %>
 		>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
 		<%	} %>
-		>> <jsp:getProperty name="message" property="subject"/>
+		>> <jsp:getProperty name="message" property="unfilteredSubject"/>
 </td></tr></table>
 
 <br/><span class="bodySubtitle">Message Preview</span><br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
-	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
+	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="unfilteredSubject"/>
 		<%	if (parentMessage != null) { %>
 				(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
 		<%	} %>
@@ -119,7 +119,7 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
-<tr><td class="rtHeader" colspan="2"><jsp:getProperty name="message" property="subject"/></td></tr>
+<tr><td class="rtHeader" colspan="2"><jsp:getProperty name="message" property="unfilteredSubject"/></td></tr>
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (user.getProperty("imagePath") != null) { %>

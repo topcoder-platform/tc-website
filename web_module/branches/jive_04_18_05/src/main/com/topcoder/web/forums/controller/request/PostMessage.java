@@ -82,7 +82,6 @@ public class PostMessage extends ForumsProcessor {
 			message = forum.createMessage(user);
 		}
 		message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
-        message.setSubject(message.getUnfilteredSubject());
 		message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
 		
 		if (!threadIDStr.equals("")) {
