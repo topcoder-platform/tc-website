@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.20.05<br>11:10 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7222">Preferred SRM IDE survey</A></span><br><br>
+      Which of the following IDEs do you use during a TopCoder match?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=7222">vote</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.20.05<br>9:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -219,18 +231,6 @@ With a convincing win in only his eighth match, <tc-webtag:handle coderId="10574
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.01.05<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=contracting&d2=gentiva">Gentiva</A></span><br><br>
-      <A href="/tc?module=Static&d1=contracting&d2=gentiva">Gentiva</A> is offering a position as a Technical Team Lead, available to <strong>ALL</strong> members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
