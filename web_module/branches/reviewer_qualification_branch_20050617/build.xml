@@ -54,6 +54,10 @@
          <pathelement location="${jars.dir}/idgenerator.jar"/>
          <pathelement location="${jars.dir}/upload.jar"/>
          <pathelement location="${jars.dir}/tcsUtil.jar"/>
+         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+         <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
+         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+         <pathelement location="${jars.dir}/tcs/document_generator/2.0/document_generator.jar" />
 
          <!-- TCS Other -->
          <pathelement location="${jars.dir}/tcs/catalog.jar"/>
@@ -1245,6 +1249,18 @@
          <antcall target="war-tc"/>
      </target>
 
+     <target name="reviewBoardTask" depends="compile">
+        <java classname="com.topcoder.utilities.rboardtask.ReviewBoardTask" fork="no">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+     </target>
 
      <target name="moveQueries" depends="compile">
          <java classname="com.topcoder.utilities.querymover.QueryMover" fork="no">

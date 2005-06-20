@@ -27,6 +27,18 @@
             <Value>80.0</Value>
         </Property>
         
+        <Property name="email_from_address">
+            <Value>service@topcodersoftware.com</Value>
+        </Property>
+        
+        <Property name="email_from_name">
+            <Value>TopCoder Software Service</Value>
+        </Property>
+        
+        <Property name="email_subject">
+            <Value>TCS Review Board Deactivation Notice</Value>
+        </Property>
+        
         <Property name="temporary_deactivation_template">
             <Value>/export/home/apps/temporary_deactivation.txt</Value>
         </Property>

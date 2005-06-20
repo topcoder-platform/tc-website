@@ -17,7 +17,6 @@ import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
-import com.topcoder.util.config.Property;
 import com.topcoder.util.config.UnknownNamespaceException;
 import com.topcoder.util.file.DocumentGenerator;
 import com.topcoder.util.file.InvalidConfigException;
@@ -86,17 +85,14 @@ public class ReviewBoardTask {
     private static final String DEACTIVATE_REVIEWER =
             "UPDATE rboard_user SET status_id = ? WHERE user_id = ?";
     
-    /** */
-    private Template temporaryDeactivationEmailTemplate = null;
-    
-    /** */
-    private Template permanentDeactivationEmailTemplate = null;
-    
     /** Cached static logger instance. */
     private static Logger log = Logger.getLogger(ReviewBoardTask.class);
     
     /** Cached DB Connection Factory instance. */
     private DBConnectionFactory dbConnectionFactory = null;
+
+    /** Cached Email Engine instance. */
+    private EmailEngine emailEngine = null;
     
     /** Number of months since the last qualifying submission before a reviewer is temporarily suspended from the review board. */
     private int temporaryDeactivationThreshold;
@@ -106,9 +102,21 @@ public class ReviewBoardTask {
     
     /** Minimum score required for a submission to qualify. */
     private double minimumQualifyingScore;
+
+    /** */
+    private String emailFromAddress = null;
     
-    /** Cached Email Engine instance. */
-    private EmailEngine emailEngine = null;
+    /** */
+    private String emailFromName = null;
+    
+    /** */
+    private String emailSubject = null;
+    
+    /** */
+    private Template temporaryDeactivationEmailTemplate = null;
+    
+    /** */
+    private Template permanentDeactivationEmailTemplate = null;
     
     /**
      * Default constructor.
@@ -120,6 +128,21 @@ public class ReviewBoardTask {
         temporaryDeactivationThreshold = getIntProperty(config, "temporary_deactivation_threshold", 3);
         permanentDeactivationThreshold = getIntProperty(config, "permanent_deactivation_threshold", 6);
         minimumQualifyingScore = getDoubleProperty(config, "minimum_qualifying_score", 80.0);
+        emailFromAddress = getStringProperty(config, "email_from_address", "service@topcodersoftware.com");
+        emailFromName = getStringProperty(config, "email_from_name", "TopCoder Software Service");
+        emailSubject = getStringProperty(config, "email_subject", "TCS Review Board Deactivation Notice");
+
+        // Read the email templates, fail if there's an error.
+        try {
+            DocumentGenerator dg = DocumentGenerator.getInstance();
+            temporaryDeactivationEmailTemplate =
+                    dg.getTemplate(config.getString(DOCUMENT_GENERATOR_NAMESPACE, "temporary_deactivation_template"));
+            permanentDeactivationEmailTemplate =
+                    dg.parseTemplate(config.getString(DOCUMENT_GENERATOR_NAMESPACE, "permanent_deactivation_template"));
+        } catch (Exception e) {
+            log.fatal("Error parsing email templates.", e);
+            throw new RuntimeException(e);
+        }
         
         try {
             dbConnectionFactory = new DBConnectionFactoryImpl(DB_CONNECTION_FACTORY_NAMESPACE);
@@ -132,17 +155,6 @@ public class ReviewBoardTask {
         }
         
         emailEngine = new EmailEngine();
-        
-        try {
-            DocumentGenerator dg = DocumentGenerator.getInstance();
-            temporaryDeactivationEmailTemplate =
-                    dg.getTemplate(config.getString(DOCUMENT_GENERATOR_NAMESPACE, "temporary_deactivation_template"));
-            permanentDeactivationEmailTemplate =
-                    dg.parseTemplate(config.getString(DOCUMENT_GENERATOR_NAMESPACE, "permanent_deactivation_template"));
-        } catch (Exception e) {
-            log.fatal("Error parsing email templates.", e);
-            throw new RuntimeException(e);
-        }
     }
     
     /**
@@ -198,9 +210,9 @@ public class ReviewBoardTask {
                 
                 deactivate.setLong(2, userId);
                 
-                //deactivate.executeUpdate();
+                deactivate.executeUpdate();
                 
-                //sendEmail(handle, address, temporaryDeactivationEmailTemplate);
+                sendEmail(handle, address, temporaryDeactivationEmailTemplate);
             }
             
             close(slackers);
@@ -242,9 +254,9 @@ public class ReviewBoardTask {
                 
                 deactivate.setLong(2, userId);
                 
-                //deactivate.executeUpdate();
+                deactivate.executeUpdate();
                 
-                //sendEmail(handle, address, permanentDeactivationEmailTemplate);
+                sendEmail(handle, address, permanentDeactivationEmailTemplate);
             }
             
             close(slackers);
@@ -265,9 +277,9 @@ public class ReviewBoardTask {
         try {
             TCSEmailMessage tem = new TCSEmailMessage();
             
-            tem.setFromAddress("service@topcodersoftware.com", "TopCoder Software Service");
+            tem.setFromAddress(emailFromAddress, emailFromName);
             tem.addToAddress(address, TCSEmailMessage.TO);
-            tem.setSubject("TCS Review Board Deactivation Notice");
+            tem.setSubject(emailSubject);
             tem.setBody(generateEmailBody(handle, template));
             
             emailEngine.send(tem);
@@ -322,9 +334,9 @@ public class ReviewBoardTask {
      */
     protected int getIntProperty(ConfigManager config, String key, int defaultValue) {
         try {
-            Property property = config.getPropertyObject(RBOARD_TASK_NAMESPACE, key);
+            Object property = config.getProperty(RBOARD_TASK_NAMESPACE, key);
             if (property != null) {
-                return Integer.parseInt(property.getValue());
+                return Integer.parseInt((String) property);
             } else {
                 log.warn("Property " + key + " not found in the configuration, using default value (" + defaultValue + ").");
                 return defaultValue;
@@ -344,9 +356,31 @@ public class ReviewBoardTask {
      */
     protected double getDoubleProperty(ConfigManager config, String key, double defaultValue) {
         try {
-            Property property = config.getPropertyObject(RBOARD_TASK_NAMESPACE, key);
+            Object property = config.getProperty(RBOARD_TASK_NAMESPACE, key);
             if (property != null) {
-                return Double.parseDouble(property.getValue());
+                return Double.parseDouble((String) property);
+            } else {
+                log.warn("Property " + key + " not found in the configuration, using default value (" + defaultValue + ").");
+                return defaultValue;
+            }
+        } catch (UnknownNamespaceException une) {
+            log.fatal("Could not load configuration namespace: " + RBOARD_TASK_NAMESPACE, une);
+            throw new RuntimeException(une);
+        }
+    }
+    
+    /**
+     *
+     * @param config
+     * @param key
+     * @param defaultValue
+     * @return
+     */
+    protected String getStringProperty(ConfigManager config, String key, String defaultValue) {
+        try {
+            Object property = config.getProperty(RBOARD_TASK_NAMESPACE, key);
+            if (property != null) {
+                return (String) property;
             } else {
                 log.warn("Property " + key + " not found in the configuration, using default value (" + defaultValue + ").");
                 return defaultValue;
