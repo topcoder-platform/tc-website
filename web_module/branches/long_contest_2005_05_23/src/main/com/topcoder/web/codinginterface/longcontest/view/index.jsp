@@ -17,17 +17,16 @@
 <HTML>
  <HEAD>
    <TITLE>TopCoder Statistics - Problem Statement</TITLE>
-   <jsp:include page="baseHRef.jsp" />
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="../script.jsp" />
+   <jsp:include page="script.jsp" />
  </HEAD>
  <body text="#FFFFFF">
-   <jsp:include page="../top.jsp" />
+   <jsp:include page="top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
-            <jsp:include page="../includes/global_left.jsp">
+            <jsp:include page="includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
             </jsp:include>
        </TD>
@@ -50,14 +49,14 @@
        </TD>
        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
        <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
-         <jsp:include page="../public_right.jsp" />
+         <jsp:include page="public_right.jsp" />
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
      </TR>
    </TABLE>
-   <jsp:include page="../foot.jsp" />
+   <jsp:include page="foot.jsp" />
  </BODY>
 </HTML>
 
