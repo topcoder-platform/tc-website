@@ -261,7 +261,6 @@
                             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18 years of age,  and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the Quebec province of Canada, or anywhere else where this contest is prohibited by applicable law.</li>
                             <li><a href="/?t=support&amp;c=ratings_cal">Rating changes</a> go into effect in next participated rated event</li>
                             <li>For a complete guide to competing in a Single Round Match, read the <a href="/tc?module=Static&amp;d1=help&amp;d2=index">Algorithm Competition Guide</a></li>
-                            <li>In the event that any member who is ineligible to receive prizes places in a position in which they would receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</li>
                       </UL>
                       <B>Eligibility:</B>
                       <UL>
