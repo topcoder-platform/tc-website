@@ -44,12 +44,13 @@ public class ReviewBoardTask {
     /** Namespace to use for the DB Connection Factory configuration. */
     private final static String DB_CONNECTION_FACTORY_NAMESPACE = "com.topcoder.db.connectionfactory.DBConnectionFactoryImpl";
     
-    /** */
+    /** Namespace to use for the Document Generator configuration. */
     private static final String DOCUMENT_GENERATOR_NAMESPACE = "com.topcoder.util.file.DocumentGenerator";
     
     /** Head of the slacker query. */
     private static final String QUERY_HEAD =
-            "SELECT ph.description                                                     " +
+            "SELECT ru.phase_id                                                        " +
+            "     , ph.description                                                     " +
             "     , u.handle                                                           " +
             "     , u.user_id                                                          " +
             "     , e.address                                                          " +
@@ -80,12 +81,11 @@ public class ReviewBoardTask {
     
     /** Tail end of the slacker query. */
     private static final String QUERY_TAIL =
-            "GROUP BY 1, 2, 3, 4                                                       " +
-            "ORDER BY 1, 2                                                             ";
+            "GROUP BY 1, 2, 3, 4, 5                                                    ";
     
     /** Query to deactivate a specified reviewer. */
     private static final String DEACTIVATE_REVIEWER =
-            "UPDATE rboard_user SET status_id = ? WHERE user_id = ?";
+            "UPDATE rboard_user SET status_id = ? WHERE user_id = ? AND phase_id = ?";
     
     /** Cached static logger instance. */
     private static Logger log = Logger.getLogger(ReviewBoardTask.class);
@@ -207,18 +207,20 @@ public class ReviewBoardTask {
             deactivate.setLong(1, 110);
             
             while (slackers.next()) {
-                String phase = slackers.getString("description");
+                int phaseId = slackers.getInt("phase_id");
+                String phaseName = slackers.getString("description");
                 String handle = slackers.getString("handle");
                 long userId = slackers.getLong("user_id");
                 String address = slackers.getString("address");
                 
-                log.info("Temporarily deactivating reviewer " + handle + "(" + userId + ").");
+                log.info("Temporarily deactivating reviewer " + handle + "(" + userId + ") for the " + phaseName + " phase.");
                 
                 deactivate.setLong(2, userId);
+                deactivate.setLong(3, phaseId);
                 
                 deactivate.executeUpdate();
                 
-                sendEmail(handle, address, temporaryDeactivationEmailTemplate);
+                sendEmail(permanentDeactivationEmailTemplate, handle, address, phaseName);
             }
         } catch (SQLException e) {
             log.error("Error found while temporarily deactivating reviewers.", e);
@@ -256,18 +258,20 @@ public class ReviewBoardTask {
             deactivate.setLong(1, 120);
             
             while (slackers.next()) {
-                String phase = slackers.getString("description");
+                int phaseId = slackers.getInt("phase_id");
+                String phaseName = slackers.getString("description");
                 String handle = slackers.getString("handle");
                 long userId = slackers.getLong("user_id");
                 String address = slackers.getString("address");
                 
-                log.info("Permanently deactivating reviewer " + handle + "(" + userId + ").");
+                log.info("Permanently deactivating reviewer " + handle + "(" + userId + ") for the " + phaseName + " phase.");
                 
                 deactivate.setLong(2, userId);
+                deactivate.setLong(3, phaseId);
                 
                 deactivate.executeUpdate();
                 
-                sendEmail(handle, address, permanentDeactivationEmailTemplate);
+                sendEmail(permanentDeactivationEmailTemplate, handle, address, phaseName);
             }
         } catch (SQLException e) {
             log.error("Error found while permanently deactivating reviewers.", e);
@@ -280,19 +284,20 @@ public class ReviewBoardTask {
     }
     
     /**
-     *
-     * @param handle
-     * @param address
-     * @param template
+     * 
+     * @param template 
+     * @param handle 
+     * @param address 
+     * @param phaseName 
      */
-    private void sendEmail(String handle, String address, Template template) {
+    private void sendEmail(Template template, String handle, String address, String phaseName) {
         try {
             TCSEmailMessage tem = new TCSEmailMessage();
             
             tem.setFromAddress(emailFromAddress, emailFromName);
             tem.addToAddress(address, TCSEmailMessage.TO);
             tem.setSubject(emailSubject);
-            tem.setBody(generateEmailBody(template, handle));
+            tem.setBody(generateEmailBody(template, handle, phaseName));
             
             emailEngine.send(tem);
         } catch (Exception e) {
@@ -300,18 +305,19 @@ public class ReviewBoardTask {
             e.printStackTrace();
         }
     }
-    
+
     /**
      * 
      * @param template 
      * @param handle 
+     * @param phaseName 
      * @throws com.topcoder.util.config.ConfigManagerException 
      * @throws com.topcoder.util.file.InvalidConfigException 
      * @throws com.topcoder.util.file.TemplateDataFormatException 
      * @throws com.topcoder.util.file.TemplateFormatException 
      * @return 
      */
-    private String generateEmailBody(Template template, String handle)
+    private String generateEmailBody(Template template, String handle, String phaseName)
             throws ConfigManagerException, InvalidConfigException, TemplateDataFormatException, TemplateFormatException {
         
         DocumentGenerator dg = DocumentGenerator.getInstance();
@@ -323,6 +329,8 @@ public class ReviewBoardTask {
                 Field f = (Field) nodes[i];
                 if (f.getName().equals("HANDLE")) {
                     f.setValue(handle);
+                } else if (f.getName().equals("PHASE_NAME")) {
+                    f.setValue(phaseName);
                 }
             }
         }
