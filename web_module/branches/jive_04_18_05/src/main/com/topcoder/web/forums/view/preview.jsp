@@ -26,6 +26,25 @@ function noenter(e)
   var k = (window.event)? event.keyCode: e.which;
   return !(k == 13);
 }
+
+// IE only
+function AllowTabCharacter() {   
+    if (event != null) {      
+        if (event.srcElement) {         
+            if (event.srcElement.value) {            
+                if (event.keyCode == 9) {  // tab character               
+                    if (document.selection != null) {             
+                        document.selection.createRange().text = '\t';                  
+                        event.returnValue = false;               
+                    } else {                  
+                        event.srcElement.value += '\t';                  
+                        return false;         
+                    }            
+                }          
+            }      
+        }   
+    }
+}         
 </script>
 
 <html>
@@ -111,7 +130,7 @@ function noenter(e)
 <% if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" onKeyPress="return noenter(event)"/><br/><br/>
 <% if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
-<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>" onkeydown="return catchTab(this,event)"/>
+<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
 </td>
 </tr>
 <tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>

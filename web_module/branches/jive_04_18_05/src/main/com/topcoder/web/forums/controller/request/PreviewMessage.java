@@ -77,6 +77,7 @@ public class PreviewMessage extends ForumsProcessor {
         
         ForumMessage message = forum.createMessage(user);   // message for preview
         message.setSubject(subject);
+        message.setSubject(message.getUnfilteredSubject());
         message.setBody(body);
 		
         getRequest().setAttribute("message", message);        

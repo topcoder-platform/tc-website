@@ -8,14 +8,10 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 
-//import com.topcoder.shared.util.ApplicationServer;
-
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ForumMessage;
 
-//import javax.transaction.Status;
-//import javax.transaction.TransactionManager;
 
 /**
  * @author mtong
@@ -77,8 +73,6 @@ public class PostMessage extends ForumsProcessor {
 			return;
 		}
 		
-		//tm = (TransactionManager) getInitialContext().lookup("java:/TransactionManager");
-		
 	    ForumMessage message = null;
 	    ForumThread thread = null;
 		if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
@@ -88,6 +82,7 @@ public class PostMessage extends ForumsProcessor {
 			message = forum.createMessage(user);
 		}
 		message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
+        message.setSubject(message.getUnfilteredSubject());
 		message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
 		
 		if (!threadIDStr.equals("")) {
@@ -103,8 +98,6 @@ public class PostMessage extends ForumsProcessor {
 			forum.addThread(thread);
 		}	
 		
-		//setNextPage("?module=Thread&" + ForumConstants.THREAD_ID + "=" +
-		//		thread.getID() + "&mc=" + thread.getMessageCount() + "#" + message.getID());
 		setNextPage("?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID());
 		setIsNextPageInContext(false);
 	}

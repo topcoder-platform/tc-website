@@ -36,61 +36,24 @@ function toggle(targetId)
     }
 }
 
-function setSelectionRange(input, selectionStart, selectionEnd) {
-  if (input.setSelectionRange) {
-    input.focus();
-    input.setSelectionRange(selectionStart, selectionEnd);
-  }
-  else if (input.createTextRange) {
-    var range = input.createTextRange();
-    range.collapse(true);
-    range.moveEnd('character', selectionEnd);
-    range.moveStart('character', selectionStart);
-    range.select();
-  }
-}
-
-function replaceSelection (input, replaceString) {
-    if (input.setSelectionRange) {
-        var selectionStart = input.selectionStart;
-        var selectionEnd = input.selectionEnd;
-        input.value = input.value.substring(0, selectionStart)+ replaceString + input.value.substring(selectionEnd);
-    
-        if (selectionStart != selectionEnd){ 
-            setSelectionRange(input, selectionStart, selectionStart +   replaceString.length);
-        }else{
-            setSelectionRange(input, selectionStart + replaceString.length, selectionStart + replaceString.length);
-        }
-
-    }else if (document.selection) {
-        var range = document.selection.createRange();
-
-        if (range.parentElement() == input) {
-            var isCollapsed = range.text == '';
-            range.text = replaceString;
-
-             if (!isCollapsed)  {
-                range.moveStart('character', -replaceString.length);
-                range.select();
-            }
-        }
+// IE only
+function AllowTabCharacter() {   
+    if (event != null) {      
+        if (event.srcElement) {         
+            if (event.srcElement.value) {            
+                if (event.keyCode == 9) {  // tab character               
+                    if (document.selection != null) {             
+                        document.selection.createRange().text = '\t';                  
+                        event.returnValue = false;               
+                    } else {                  
+                        event.srcElement.value += '\t';                  
+                        return false;         
+                    }            
+                }          
+            }      
+        }   
     }
-}
-
-
-function catchTab(item,e){
-    if(navigator.userAgent.match("Gecko")){
-        c=e.which;
-    }else{
-        c=e.keyCode;
-    }
-    if(c==9){
-        replaceSelection(item,String.fromCharCode(9));
-        setTimeout("document.getElementById('"+item.id+"').focus();",0);    
-        return false;
-    }
-            
-}
+}   
 </script>
 
 <html>
@@ -179,7 +142,7 @@ function catchTab(item,e){
 <% if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" onKeyPress="return noenter(event)"/><br/><br/>
 <% if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
-<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="60" name="<%=ForumConstants.MESSAGE_BODY%>" onkeydown="return catchTab(this,event)"/>
+<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
 </td>
 </tr>
 <tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
