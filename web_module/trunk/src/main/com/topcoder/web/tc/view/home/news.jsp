@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.20.05<br>3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to SRMs</A></span><br><br>
+      "$5,000 Purse at Stake During Select Matches as TopCoder Opens Sponsorship of Highly Popular Single Round Series"
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=news&d2=pr_062005">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.20.05<br>11:10 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7222">Preferred SRM IDE survey</A></span><br><br>
       Which of the following IDEs do you use during a TopCoder match?
@@ -216,21 +228,6 @@
          <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.02.05<br>8:55 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm245_prob">SRM 245 - Problem Set & Analysis</A></span><br><br>
-With a convincing win in only his eighth match, <tc-webtag:handle coderId="10574855" context="algorithm"/> rocketed to 4th place in the Top 10 list, only one point out of 3rd.</td>
-      <td class="newsPhoto"><img src="/i/m/vorthys_mug.gif" /><br>by <tc-webtag:handle coderId="299177" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm245_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 
 </table>
 <br><br>
