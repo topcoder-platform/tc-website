@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : ReviewBoardTask.xml
+    Created on : June 3, 2005, 5:26 PM
+    Author     : ivern
+    Description:
+        Configuration file for Review Board Task.
+-->
+
+<CMConfig>
+    <Config name="com.topcoder.utilities.rboardtask.ReviewBoardTask">
+        <Property name="temporary_deactivation_threshold">
+            <Value>3</Value>
+        </Property>
+        <Property name="permanent_deactivation_threshold">
+            <Value>6</Value>
+        </Property>
+    </Config>
+</CMConfig>
