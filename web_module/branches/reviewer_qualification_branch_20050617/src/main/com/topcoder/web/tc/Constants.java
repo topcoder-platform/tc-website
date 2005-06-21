@@ -168,10 +168,10 @@ public class Constants {
     /** Review board status for permanently deactivated reviewers. */
     public static int PERMANENTLY_DEACTIVATED_REVIEWER;
     
-    /** Number of months of inactivity before a reviewer becomes temporarily deactivated. */
+    /** Number of months since the last qualifying submission before a reviewer becomes temporarily deactivated. */
     public static int TEMPORARY_DEACTIVATION_THRESHOLD;
     
-    /** Number of months of inactivity before a reviewer becomes permanently deactivated. */
+    /** Number of months since the last qualifying submission before a reviewer becomes permanently deactivated. */
     public static int PERMANENT_DEACTIVATION_THRESHOLD;
     
     /** Minimum score for a submission to count towards reviewer qualification. */

@@ -210,7 +210,8 @@ public class RBoardUserBean extends BaseEJB {
             
             ps.setLong(1, userId);
             ps.setDouble(2, Constants.MINIMUM_QUALIFYING_SCORE);
-            ps.setLong(3, Constants.TEMPORARY_DEACTIVATION_THRESHOLD);
+            ps.setLong(3, Math.min(Constants.TEMPORARY_DEACTIVATION_THRESHOLD,
+                                   Constants.PERMANENT_DEACTIVATION_THRESHOLD));
             ps.setInt(4, phaseId - 111);
         
             rs = ps.executeQuery();

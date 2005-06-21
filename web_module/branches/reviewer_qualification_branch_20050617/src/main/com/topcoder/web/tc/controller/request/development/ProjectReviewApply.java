@@ -66,6 +66,9 @@ public class ProjectReviewApply extends Base {
                     }
                 }
 
+                // Verify that the reviewer meets the current qualification requirements.  Check their status first, and if necessary
+                // check their qualifications as well to make sure that nobody slips in between the time they become disqualified and
+                // the next status update.
                 if (status == Constants.TEMPORARILY_DEACTIVATED_REVIEWER || status == Constants.PERMANENTLY_DEACTIVATED_REVIEWER
                         || !rbu.isQualified(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                     throw new NavigationException("Sorry, you have been deactivated from the review board due to no longer meeting "
