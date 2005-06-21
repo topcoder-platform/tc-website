@@ -263,7 +263,7 @@
                 </tr>
 <!-- Status Bar -->
                 <tr valign="top">
-					<td class="display" colspan="2"><strong>Status: </strong><font class="small">Click on an icon to view project schedules for each phase.</font><br /><br />
+					<td class="display" colspan="2"><strong>Status: </strong><br /><br />
 					<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.COLLABORATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_spec.gif" alt="Specification" border="0"/></td>
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.SPECIFICATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_desarch.gif" alt="Design & Architecture" />
@@ -403,7 +403,7 @@
 <!-- Documentation-->
             <table border="0" cellpadding="0" cellspacing="15" width="100%">
                 <tr><td><img src="/images/catalog/catpg_document.gif" alt="Documentation" width="116" height="13" border="0" />
-                		<font class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat 5</a> is required to view some TopCoder Software documentation.<br />
+                		<font class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat</a> is required to view TopCoder Software specification documentation.<br />
 						<hr width="100%" size="1" noshade="noshade" />
 					</td>
 				</tr>
@@ -543,8 +543,9 @@
                                                 <% } else {%>
                                             <a href="/catalog/document?id=<%=docOther[i].getId()%>" target="_blank" ><%=docOther[i].getName()%></a><br/>
                                                 <% } %>
-                                            <% }
-                                           } %>
+                                            <% }%>
+                                            
+                                           <%} %>
                                     </td>
                                 </tr>
                             </table>
@@ -601,7 +602,7 @@
                     <td>
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="top">
-                                <td class="rightColOff">Needs content</td>
+                                <td class="rightColDisplay">Request an <a href="components/request.jsp">enhancement</a>.</td>
                             </tr>
                         </table>
                     </td>
@@ -674,6 +675,7 @@
                 <tr><td height="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td></tr>
                 <tr><td>        
                 <jsp:include page="/includes/topDownloads.jsp" />
+                <jsp:include page="/includes/newReleases.jsp" />
         		<jsp:include page="/includes/right.jsp" >
             		<jsp:param name="level1" value="index"/>
         		</jsp:include>

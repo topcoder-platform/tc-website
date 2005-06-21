@@ -1070,12 +1070,12 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 if (isAggregated(1, compVersId)) {
                     list.add(new Document("Aggregate Design Scorecard",
                             "/review/publicaggregation.do?id=" + getProjectId(1, compVersId),
-                            Document.OTHER));
+                            Document.SCORECARD));
                 }
                 if (isAggregated(2, compVersId)) {
                     list.add(new Document("Aggregate Development Scorecard",
                             "/review/publicaggregation.do?id=" + getProjectId(2, compVersId),
-                            Document.OTHER));
+                            Document.SCORECARD));
                 }
 
                 docs = (Document[]) list.toArray(new Document[0]);
