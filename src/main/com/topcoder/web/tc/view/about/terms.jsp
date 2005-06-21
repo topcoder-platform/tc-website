@@ -199,9 +199,6 @@ You waive any and all moral rights, including, without limitation, any rights ar
 Act 2000 applicable to European Union residents, and all rights of a similar nature in any jurisdiction in any material, including source 
 code, which you post, upload or otherwise send to TopCoder or it's website, such waivers being in favor of TopCoder.
 <br/><br/>
-You are allowed to register only once and you must provide true and accurate registration information. You are prohibited from misrepresenting 
-your registration information or tampering with the registration process.
-<br/><br/>
 You are also prohibited from posting or otherwise uploading to our Web site:  any material that infringes on any copyright,
 trademark or other proprietary rights of another (including publicity and privacy rights); material that is obscene,
 offensive, libelous, pornographic, threatening, abusive, contains illegal content, or is otherwise objectionable, that
@@ -221,6 +218,9 @@ the right to remove any postings or other uploaded materials in response to comp
 defamation or to otherwise review or edit such materials as appropriate, in our sole discretion and without notice.
 <br/><br/><br/>
 <b>OTHER RESTRICTIONS ON CONDUCT</b><br/>
+You are allowed to register only once and you must provide true and accurate registration information. You are prohibited from misrepresenting 
+your registration information or tampering with the registration process.
+<br/><br/>
 You agree not to disrupt, modify or interfere with the functioning of our Web site or any services provided on or through
 our Web site or with any associated software, hardware or servers in any way and you agree not to impede or interfere with
 others' use of our Web site. This includes your agreement that you will not cheat; that the idea for the code and/or challenge(s) submitted by you is 
