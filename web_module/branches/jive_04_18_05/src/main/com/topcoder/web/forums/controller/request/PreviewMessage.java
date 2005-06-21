@@ -76,7 +76,7 @@ public class PreviewMessage extends ForumsProcessor {
 		}
         
         ForumMessage message = forum.createMessage(user);   // message for preview
-        message.setSubject(com.jivesoftware.util.StringUtils.stripTags(subject, true));
+        message.setSubject(com.jivesoftware.util.StringUtils.escapeHTMLTags(subject));
         message.setBody(body);
 		
         getRequest().setAttribute("message", message);        
