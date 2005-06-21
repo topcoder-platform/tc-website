@@ -74,7 +74,6 @@ public class RBoardUserBean extends BaseEJB {
                     "'rboard_user'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
-
     }
 
     public void setCanReviewDotNet(String dataSource, long userId, int phaseId, boolean canReviewDotNet) {
@@ -89,7 +88,6 @@ public class RBoardUserBean extends BaseEJB {
                     "'rboard_user'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
-
     }
 
     public void setCanReviewFlash(String dataSource, long userId, int phaseId, boolean canReviewFlash) {
@@ -104,7 +102,6 @@ public class RBoardUserBean extends BaseEJB {
                     "'rboard_user'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
-
     }
 
     public void setCanReviewApplication(String dataSource, long userId, int phaseId, boolean canReviewApplication) {
@@ -119,9 +116,28 @@ public class RBoardUserBean extends BaseEJB {
                     "'rboard_user'. Updated " + ret + ", " +
                     "should have updated 1."));
         }
-
     }
 
+    /**
+     * Sets whether a reviewer is exempt from the qualifications requirements.
+     * 
+     * @param dataSource Data source to use.
+     * @param userId User Id of the reviewer.
+     * @param phaseId Phase.
+     * @param isExempt <code>true</code> if the reviewer should be exempt, <code>false</code> otherwise.
+     */
+    public void setIsExempt(String dataSource, long userId, int phaseId, boolean isExempt) {
+        int ret = update("rboard_user",
+                new String[]{"exempt_ind"},
+                new String[]{isExempt ? "1" : "0"},
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " + "'rboard_user'. Updated "
+                    + ret + ", " + "should have updated 1."));
+        }
+    }
 
     public int getStatus(String dataSource, long userId, int phaseId) {
         return selectInt("rboard_user",
@@ -173,9 +189,26 @@ public class RBoardUserBean extends BaseEJB {
                 dataSource).intValue() == 1;
 
     }
+    
+    /**
+     * Returns whether a reviewer is exempt from the qualification requirements.
+     *
+     * @param dataSource Data source to use.
+     * @param userId User Id of the reviewer.
+     * @param phaseId Phase.
+     * @return <code>true</code> if the reviewer is exempt, <code>false</code> otherwise.
+     */
+    public boolean isExempt(String dataSource, long userId, int phaseId) {
+        return selectInt("rboard_user",
+                "exempt_ind",
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource).intValue() == 1;
+    }
         
     /**
      * Returns whether a particular reviewer is currently qualified to work in a specified phase.
+     * Exempt reviewers are always qualified.
      *
      * @param dataSource Data source to use.
      * @param userId User Id of the reviewer.
@@ -204,6 +237,10 @@ public class RBoardUserBean extends BaseEJB {
         ResultSet rs = null;
         
         try {
+            if (isExempt(dataSource, userId, phaseId)) {
+                return true;
+            }
+            
             conn = DBMS.getConnection(dataSource);
             
             ps = conn.prepareStatement(QUERY);

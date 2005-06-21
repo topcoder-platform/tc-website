@@ -70,6 +70,7 @@ public class ReviewBoardTask {
             "                             AND pi.project_id = p.project_id             " +
             "                             AND p.cur_version = 1                        " +
             "                             AND ru.phase_id = p.project_type_id + 111)   " +
+            "   AND ru.exempt_ind = 0                                                  " +
             "   AND ru.user_id = u.user_id                                             " +
             "   AND ru.user_id = e.user_id                                             " +
             "   AND e.primary_ind = 1                                                  " +
@@ -244,14 +245,14 @@ public class ReviewBoardTask {
                 String handle = slackers.getString("handle");
                 long userId = slackers.getLong("user_id");
                 String address = slackers.getString("address");
-                
+
                 log.info("Temporarily deactivating reviewer " + handle + "(" + userId + ") for the " + phaseName + " phase.");
-                
+
                 deactivate.setLong(2, userId);
                 deactivate.setLong(3, phaseId);
-                
+
                 deactivate.executeUpdate();
-                
+
                 sendEmail(permanentDeactivationEmailTemplate, handle, address, phaseName);
             }
         } catch (SQLException e) {
@@ -297,12 +298,12 @@ public class ReviewBoardTask {
                 String address = slackers.getString("address");
                 
                 log.info("Permanently deactivating reviewer " + handle + "(" + userId + ") for the " + phaseName + " phase.");
-                
+
                 deactivate.setLong(2, userId);
                 deactivate.setLong(3, phaseId);
-                
+
                 deactivate.executeUpdate();
-                
+
                 sendEmail(permanentDeactivationEmailTemplate, handle, address, phaseName);
             }
         } catch (SQLException e) {
