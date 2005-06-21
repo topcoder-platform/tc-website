@@ -93,6 +93,10 @@
                <tc-webtag:handle coderId="7465390" context="algorithm"/> & <tc-webtag:handle coderId="294328" context="algorithm"/>
 					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=features&d2=050305"><strong>Using Regular Expressions</strong></a>
 				</td></tr>
+				<tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="7371063" context="algorithm"/>
+					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=probabilities"><strong>Understanding Probabilities</strong></a>
+				</td></tr>
 			</table>
         </div>
         <p><br></p>
