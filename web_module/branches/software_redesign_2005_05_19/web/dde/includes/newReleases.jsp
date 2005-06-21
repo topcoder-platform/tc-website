@@ -33,4 +33,4 @@
         %>
     <tr><td colspan="2"><img src="/images/right_nav_btm.gif" border="0" alt=""></td></tr>
 </table>
-<div align="right" class="small">*over the last 30 days</div>
+<div align="right" class="small">*most recent 15 components</div>
