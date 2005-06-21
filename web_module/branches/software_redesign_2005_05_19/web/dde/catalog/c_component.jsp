@@ -182,6 +182,13 @@
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <link rel="stylesheet" type="text/css" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+
+<STYLE TYPE="text/css">
+.statusIconOff, .statusIconOn{ width: 25%; text-align: center; }
+.statusIconOff{ border-bottom:  1px solid #000000; }
+.statusIconOn{ border:  1px solid #000000; }
+</STYLE>
+
 </head>
 
 <body class="body">
@@ -257,7 +264,12 @@
 <!-- Status Bar -->
                 <tr valign="top">
 					<td class="display" colspan="2"><strong>Status: </strong><font class="small">Click on an icon to view project schedules for each phase.</font><br /><br />
-					<img src="/images/catalog/catpg_status_spec.gif" alt="" border="<%=(versionInfo.getPhase() == ComponentVersionInfo.COLLABORATION ? 1 : 0)%>" /><img src="/images/catalog/catpg_status_desarch.gif" alt="" border="<%=(versionInfo.getPhase() == ComponentVersionInfo.SPECIFICATION ? 1 : 0)%>" /><img src="/images/catalog/catpg_status_devtest.gif" alt="" border="<%=(versionInfo.getPhase() == ComponentVersionInfo.DEVELOPMENT ? 1 : 0)%>" /><img src="/images/catalog/catpg_status_complete.gif" alt="" border="<%=(versionInfo.getPhase() == ComponentVersionInfo.COMPLETED  ? 1 : 0)%>" /><br />
+					<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+               <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.COLLABORATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_spec.gif" alt="Specification" border="0"/></td>
+               <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.SPECIFICATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_desarch.gif" alt="Design & Architecture" />
+               <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.DEVELOPMENT ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_devtest.gif" alt="Development & Testing" />
+               <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.COMPLETED  ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_complete.gif" alt="Complete" /><br />
+               </tr></table>
 					</td>
 				</tr>
 <!-- Overview, Functionality -->
@@ -351,7 +363,7 @@
                    	   		</td>
                    	   		<td width="10px">&nbsp;</td>
                    	   		<td>
-                   	   			<font class="small">Dev Review Board:</font> <br />
+                   	   			<font class="small">Development Review Board:</font> <br />
                    	   			<% first = true;%>
 			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
                    	   			</font>
@@ -361,7 +373,7 @@
                         <%  }  %>
                         <p><strong>Availability</strong><br />
                         Version <%= versionInfo.getVersionLabel() %><br />
-                        <img src="/images/catalog/catpg_download.jpg" alt="" border="0" /><br />
+                        
                         
 
 <%  String strAvailability;
@@ -377,7 +389,7 @@
         break;
     default:
     case (int)ComponentVersionInfo.COMPLETED:
-        strAvailability = "<strong><a href=\"c_component_download.jsp?comp=" + componentInfo.getId() + "&ver=" + versionInfo.getVersion() + "\">Download Now</a></strong>";
+        strAvailability = "<strong><a href=\"c_component_download.jsp?comp=" + componentInfo.getId() + "&ver=" + versionInfo.getVersion() + "\"><img src='/images/catalog/catpg_download.jpg' alt='' border='0' /></a></strong>";
         break;
     }
 %>
@@ -401,19 +413,13 @@
                         <tr><td class="display">
                             <table border="0" cellpadding="0" cellspacing="2">
                                 <tr>
-                                    <td class="display" valign="top">
+                                    <td class="display" valign="top" width="33%">
                                         <strong>Class Diagrams</strong><br/>
                                     </td>
-                                    <td class="display" valign="top" width="10px">
-                                        &nbsp;
-                                    </td>
-                                    <td class="display" valign="top">
+                                    <td class="display" valign="top" width="33%">
                                         <strong>Use Case Diagrams</strong><br/>
                                     </td>
-                                    <td class="display" valign="top" width="10px">
-                                        &nbsp;
-                                    </td>
-                                    <td class="display" valign="top">
+                                    <td class="display" valign="top" width="33%">
                                         <strong>Sequence Diagrams</strong><br/>
                                     </td>
                                 </tr>
@@ -432,9 +438,6 @@
                                             <% }
                                            } %>
                                     </td>
-                                    <td class="rightColOff" align="top" width="10px">
-                                        &nbsp;
-                                    </td>
                                     <td class="rightColOff" valign="top">
                                         <%  if (docUseCases.length == 0) {%>
                                         None available at this time
@@ -448,9 +451,6 @@
                                                 <% } %>
                                             <% }
                                            } %>
-                                    </td>
-                                    <td class="rightColOff" align="top" width="10px">
-                                        &nbsp;
                                     </td>
                                     <td class="rightColOff" valign="top">
                                         <%  if (docSequenceDiagrams.length == 0) {%>
@@ -472,14 +472,8 @@
                                     <td class="display" valign="top">
                                         <strong>Requirements</strong><br/>
                                     </td>
-                                    <td class="display" valign="top" width="10px">
-                                        &nbsp;
-                                    </td>
                                     <td class="display" valign="top">
                                         <strong>Developer Documentation</strong><br/>
-                                    </td>
-                                    <td class="display" valign="top" width="10px">
-                                        &nbsp;
                                     </td>
                                     <td class="display" valign="top">
                                         <strong>Scorecards</strong><br/>
@@ -500,9 +494,6 @@
                                             <% }
                                            } %>
                                     </td>
-                                    <td class="rightColOff" valign="top" width="10px">
-                                        &nbsp;
-                                    </td>
                                     <td class="rightColOff" valign="top">
                                         <%  if (docJavaDocs.length == 0) {%>
                                         None available at this time
@@ -518,9 +509,6 @@
                                                 <% } %>
                                             <% }
                                            } %>
-                                    </td>
-                                    <td class="rightColOff" align="top" width="10px">
-                                        &nbsp;
                                     </td>
                                     <td class="rightColOff" valign="top">
                                         <%  if (docScorecards.length == 0) {%>
@@ -539,24 +527,12 @@
                                 </tr>
                                 <tr><td><br></td></tr>
                                 <tr>
-                                    <td class="display" valign="top">
+                                    <td class="display" valign="top" colspan="3">
                                         <strong>Other</strong><br/>
-                                    </td>
-                                    <td class="display" valign="top" width="10px">
-                                        &nbsp;
-                                    </td>
-                                    <td class="display" valign="top">
-                                        &nbsp;
-                                    </td>
-                                    <td class="display" valign="top" width="10px">
-                                        &nbsp;
-                                    </td>
-                                    <td class="display" valign="top">
-                                        &nbsp;
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="rightColOff" valign="top">
+                                    <td class="rightColOff" valign="top" colspan="3">
                                         <%  if (docOther.length == 0) {%>
                                         None available at this time
                                         <% } else {
@@ -569,18 +545,6 @@
                                                 <% } %>
                                             <% }
                                            } %>
-                                    </td>
-                                    <td class="rightColOff" align="top" width="10px">
-                                        &nbsp;
-                                    </td>
-                                    <td class="rightColOff" align="top">
-                                        &nbsp;
-                                    </td>
-                                    <td class="rightColOff" align="top" width="10px">
-                                        &nbsp;
-                                    </td>
-                                    <td class="rightColOff" align="top">
-                                        &nbsp;
                                     </td>
                                 </tr>
                             </table>
