@@ -175,9 +175,9 @@ public class ReviewBoardTask {
             log.fatal("Error creating a connection to the database", dbce);
             throw new RuntimeException(dbce);
         }
-        
-        performTemporaryDeactivations(connection);
+
         performPermanentDeactivations(connection);
+        performTemporaryDeactivations(connection);
         
         close(connection);
         
@@ -291,16 +291,16 @@ public class ReviewBoardTask {
      * @param template 
      * @param handle 
      * @param address 
-     * @param phaseName 
+     * @param phase 
      */
-    private void sendEmail(Template template, String handle, String address, String phaseName) {
+    private void sendEmail(Template template, String handle, String address, String phase) {
         try {
             TCSEmailMessage tem = new TCSEmailMessage();
             
             tem.setFromAddress(emailFromAddress, emailFromName);
             tem.addToAddress(address, TCSEmailMessage.TO);
             tem.setSubject(emailSubject);
-            tem.setBody(generateEmailBody(template, handle, phaseName));
+            tem.setBody(generateEmailBody(template, handle, phase, emailFromName));
             
             emailEngine.send(tem);
         } catch (Exception e) {
@@ -311,16 +311,17 @@ public class ReviewBoardTask {
 
     /**
      * 
-     * @param template 
-     * @param handle 
-     * @param phaseName 
+     * @param template Document Generator template to use.
+     * @param handle Reviewer's handle.
+     * @param phase Project phase.
+     * @param sender Sender name (for the signature).
      * @throws com.topcoder.util.config.ConfigManagerException 
      * @throws com.topcoder.util.file.InvalidConfigException 
      * @throws com.topcoder.util.file.TemplateDataFormatException 
      * @throws com.topcoder.util.file.TemplateFormatException 
-     * @return 
+     * @return Generated email body.
      */
-    private String generateEmailBody(Template template, String handle, String phaseName)
+    private String generateEmailBody(Template template, String handle, String phase, String sender)
             throws ConfigManagerException, InvalidConfigException, TemplateDataFormatException, TemplateFormatException {
         
         DocumentGenerator dg = DocumentGenerator.getInstance();
@@ -330,10 +331,18 @@ public class ReviewBoardTask {
         for (int i = 0; i < nodes.length; ++i) {
             if (nodes[i] instanceof Field) {
                 Field f = (Field) nodes[i];
-                if (f.getName().equals("HANDLE")) {
+                if (f.getName().equals("REVIEWER_HANDLE")) {
                     f.setValue(handle);
-                } else if (f.getName().equals("PHASE_NAME")) {
-                    f.setValue(phaseName);
+                } else if (f.getName().equals("PROJECT_PHASE")) {
+                    f.setValue(phase);
+                } else if (f.getName().equals("MINIMUM_SCORE")) {
+                    f.setValue("" + minimumQualifyingScore);
+                } else if (f.getName().equals("TEMP_THRESHOLD")) {
+                    f.setValue("" + temporaryDeactivationThreshold);
+                } else if (f.getName().equals("PERM_THRESHOLD")) {
+                    f.setValue("" + permanentDeactivationThreshold);
+                } else if (f.getName().equals("SENDER_NAME")) {
+                    f.setValue(sender);
                 }
             }
         }
