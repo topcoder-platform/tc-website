@@ -103,7 +103,6 @@ public class RBoardApplicationBean extends BaseEJB {
 
         Connection conn = null;
         PreparedStatement ps = null;
-        InitialContext ctx = null;
         ResultSet rs = null;
         Timestamp ret = null;
         try {
@@ -122,7 +121,6 @@ public class RBoardApplicationBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
         return ret;
     }
