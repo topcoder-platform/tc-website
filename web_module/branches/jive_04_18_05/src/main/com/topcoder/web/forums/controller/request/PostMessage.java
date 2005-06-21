@@ -81,7 +81,8 @@ public class PostMessage extends ForumsProcessor {
 		} else {
 			message = forum.createMessage(user);
 		}
-		message.setSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
+		message.setSubject(com.jivesoftware.util.StringUtils.stripTags(
+                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT), true));
 		message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
 		
 		if (!threadIDStr.equals("")) {
