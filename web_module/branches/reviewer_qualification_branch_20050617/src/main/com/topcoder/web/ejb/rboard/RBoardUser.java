@@ -38,5 +38,5 @@ public interface RBoardUser extends EJBObject {
 
     boolean canReviewApplication(String dataSource, long userId, int phaseId) throws RemoteException;
 
-
+    boolean isQualified(String dataSource, long userId, int phaseId) throws RemoteException;
 }

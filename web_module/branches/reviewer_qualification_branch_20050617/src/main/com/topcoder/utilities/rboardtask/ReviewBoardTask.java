@@ -1,6 +1,8 @@
 /*
  * ReviewBoardTask.java
  *
+ * IF YOU MODIFY THE QUALIFICATION QUERY, MAKE SURE YOU UPDATE RBoardUserBean ACCORDINGLY!
+ *
  * Copyright (c) 2005 TopCoder, Inc.  All rights reserved.
  * Created on June 17, 2005, 4:59 PM
  */
@@ -59,7 +61,7 @@ public class ReviewBoardTask {
             "     , user u                                                             " +
             "     , phase ph                                                           " +
             "     , common_oltp:email e                                                " +
-            " WHERE ru.user_id NOT IN (SELECT user_id                                  " +
+            " WHERE ru.user_id NOT IN (SELECT pr.user_id                               " +
             "                            FROM project_result pr                        " +
             "                               , phase_instance pi                        " +
             "                               , project p                                " +
@@ -187,7 +189,7 @@ public class ReviewBoardTask {
      * @param connection The <code>Connection</code> to use.
      */
     private void performTemporaryDeactivations(Connection connection) {
-        StringBuffer queryString = new StringBuffer();
+        StringBuffer queryString = new StringBuffer(2500);
         queryString.append(QUERY_HEAD);
         queryString.append(" AND ru.status_id = 100 ");
         queryString.append(QUERY_TAIL);
@@ -238,7 +240,7 @@ public class ReviewBoardTask {
      * @param connection The <code>Connection</code> to use.
      */
     private void performPermanentDeactivations(Connection connection) {
-        StringBuffer queryString = new StringBuffer();
+        StringBuffer queryString = new StringBuffer(2500);
         queryString.append(QUERY_HEAD);
         queryString.append(" AND ru.status_id IN (100, 110) ");
         queryString.append(QUERY_TAIL);

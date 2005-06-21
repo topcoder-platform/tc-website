@@ -6,6 +6,8 @@
     Author     : ivern
     Description:
         Configuration file for Review Board Task.
+        
+    IF YOU MODIFY THIS FILE, MAKE SURE YOU UPDATE TC.properties ACCORDINGLY!
 -->
 
 <CMConfig>

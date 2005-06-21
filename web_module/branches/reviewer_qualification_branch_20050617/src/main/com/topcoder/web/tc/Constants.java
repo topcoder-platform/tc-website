@@ -160,9 +160,14 @@ public class Constants {
     public static int MAX_UNRATED_INQUIRIES;
     public static int REVIEWER_TERMS_ID;
     public static int TOURNAMENT_COMPONENT;
+    
+    /* Reviewer stuff. */
     public static int ACTIVE_REVIEWER;
     public static int TEMPORARILY_DEACTIVATED_REVIEWER;
     public static int PERMANENTLY_DEACTIVATED_REVIEWER;
+    public static int TEMPORARY_DEACTIVATION_THRESHOLD;
+    public static int PERMANENT_DEACTIVATION_THRESHOLD;
+    public static double MINIMUM_QUALIFYING_SCORE;
 
     /* job posting stuff */
     public static String JOB_HIT_TYPE_PARAM;
@@ -247,6 +252,11 @@ public class Constants {
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
                         try {
                             f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase()));
+                        } catch (MissingResourceException ignore) {
+                        }
+                    } else if (f[i].getType().getName().equals("double")) {
+                        try {
+                            f[i].setDouble(null, bundle.getDoubleProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
                     } else {
