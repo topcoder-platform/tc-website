@@ -73,12 +73,14 @@ public class Search extends ForumsProcessor {
             String dateRange = getRequest().getParameter(ForumConstants.SEARCH_DATE_RANGE);
             String userHandle = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_HANDLE));
             String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_SORT_FIELD));
-            User user = null;
+            User sortUser = null;
             
             int resultSize = ForumConstants.DEFAULT_SEARCH_RANGE;
-            try {
-                resultSize = Integer.parseInt(user.getProperty("jiveSearchRange"));
-            } catch (Exception ignored) {}
+            if (user != null) {
+                try {
+                    resultSize = Integer.parseInt(user.getProperty("jiveSearchRange"));
+                } catch (Exception ignored) {}
+            }
             if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_RESULT_SIZE)).equals("")) {
                 resultSize = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_RESULT_SIZE));
             }
@@ -92,7 +94,7 @@ public class Search extends ForumsProcessor {
             }
             if (!userHandle.equals("")) {
                 try {
-                	user = forumFactory.getUserManager().getUser(userHandle);
+                	sortUser = forumFactory.getUserManager().getUser(userHandle);
                 } catch (UserNotFoundException une) {
                 	addError(ForumConstants.SEARCH_HANDLE, ForumConstants.ERR_NO_SEARCH_HANDLE);
                 }
@@ -115,8 +117,8 @@ public class Search extends ForumsProcessor {
                 query.setAfterDate((Date)dates.get(dateRange));
             }
             
-            if (user instanceof User) {
-            	query.filterOnUser(user);
+            if (sortUser instanceof User) {
+            	query.filterOnUser(sortUser);
             }
             
             if (sortField.equals("") || Integer.parseInt(sortField) == Query.RELEVANCE) {
