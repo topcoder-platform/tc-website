@@ -101,7 +101,6 @@ public class Settings extends ForumsProcessor {
             }
         }
         
-        getRequest().setAttribute("user", user);
         getRequest().setAttribute("status", status);
         getRequest().setAttribute("selectedWatchFrequency", new Integer(watchFrequency));
 		

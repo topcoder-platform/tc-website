@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
 				 com.topcoder.web.common.BaseProcessor,
          		 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.base.User,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.util.StringUtils,
@@ -13,7 +14,8 @@
 <tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/> 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
+<%	User user = (User)request.getAttribute("user");
+    HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
     Paginator paginator = (Paginator)request.getAttribute("paginator");
     Query query = (Query)request.getAttribute("query");
     String searchScope = (String)request.getAttribute("searchScope");
