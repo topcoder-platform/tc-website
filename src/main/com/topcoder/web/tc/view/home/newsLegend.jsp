@@ -1,16 +1,16 @@
 <%----------------EDUCATIONAL CONTENT-------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>04.04.05<br>2:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.21.05<br>11:15 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=040405">The Design Process - Section 1: some advice...</A></span><br><br>
-       In part 1 of 4 of his guide to TopCoder component design competitions, Pops lays out some great hints and tips.</td>
-      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <A href="/tc?module=MemberProfile&cr=119676">Pops</A></td></tr></table>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=probabilities">Understanding Probabilities</A></span><br><br>
+       While it's easy to recognize a problem that deals with probability computations, the solution may not be obvious at all.</td>
+      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=040405">full story</A>&#160;|&#160;
-         <A href="/?&t=features&c=index">archive</A>
+         <A href="/tc?module=Static&d1=tutorials&d2=probabilities">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
 <%------------------PROBLEM ANALYSIS--------------------------------------%>
