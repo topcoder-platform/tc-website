@@ -109,7 +109,7 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Messages per Post History Page:</strong></td>
       <td class="rtTextCell100">
 		<select size="1" name="messagesPerHistoryPage">
-		<%  int[] historyCounts = { 10, 15, 25, 50, 100 };
+		<%  int[] historyCounts = { 10, 15, 25, 50 };
 			int historyRange = ForumConstants.DEFAULT_HISTORY_RANGE;
 			try {
 				historyRange = Integer.parseInt(user.getProperty("jiveHistoryRange"));

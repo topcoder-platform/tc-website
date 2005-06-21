@@ -67,6 +67,7 @@ public interface ForumConstants {
     // Defaults
     public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
     public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
+    public final static int DEFAULT_MAX_SEARCH_RESULTS_PER_PAGE = 100;
     public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
     public final static int DEFAULT_SEARCH_RANGE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
@@ -89,6 +90,8 @@ public interface ForumConstants {
         "Error: Message view range exceeded.";
     public final static String ERR_MESSAGE_HISTORY_RANGE_EXCEEDED =
         "Error: Message view range for post history exceeded.";
+    public final static String ERR_SEARCH_RANGE_EXCEEDED =
+        "Error: Search result view range exceeded.";
     public final static String ERR_THREAD_WATCHES_EXCEEDED =
         "A maximum of " + DEFAULT_MAX_THREAD_WATCHES + " threads can be watched. " +
         "Delete some watches in \"My Watches\" to free additional space.";

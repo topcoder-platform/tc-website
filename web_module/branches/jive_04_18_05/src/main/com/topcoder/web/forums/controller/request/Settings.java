@@ -26,6 +26,8 @@ public class Settings extends ForumsProcessor {
             JiveGlobals.getJiveIntProperty("skin.default.maxThreadsPerPage", ForumConstants.DEFAULT_MAX_THREADS_PER_PAGE);
     private int maxMessagesPerPage =
             JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.DEFAULT_MAX_MESSAGES_PER_PAGE);
+    private int maxSearchResultsPerPage =
+        JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.DEFAULT_MAX_SEARCH_RESULTS_PER_PAGE);
     
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
@@ -39,6 +41,7 @@ public class Settings extends ForumsProcessor {
             int threadsPerPage = Integer.parseInt(getRequest().getParameter("threadsPerPage"));
             int messagesPerPage = Integer.parseInt(getRequest().getParameter("messagesPerPage"));
             int messagesPerHistoryPage = Integer.parseInt(getRequest().getParameter("messagesPerHistoryPage"));
+            int resultsPerSearchPage = Integer.parseInt(getRequest().getParameter("resultsPerSearchPage"));
             String threadMode = getRequest().getParameter("threadMode");
             String autoWatchNewTopics = getRequest().getParameter("autoWatchNewTopics");
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
@@ -59,7 +62,13 @@ public class Settings extends ForumsProcessor {
             if (messagesPerHistoryPage <= maxMessagesPerPage) {
                 user.setProperty(("jiveHistoryRange"), String.valueOf(messagesPerHistoryPage));
             } else {
-                addError(ForumConstants.SETTINGS_STATUS, ForumConstants. ERR_MESSAGE_HISTORY_RANGE_EXCEEDED);
+                addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_MESSAGE_HISTORY_RANGE_EXCEEDED);
+                status = "error";
+            }
+            if (resultsPerSearchPage <= maxSearchResultsPerPage) {
+                user.setProperty(("jiveSearchRange"), String.valueOf(resultsPerSearchPage));
+            } else {
+                addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
                 status = "error";
             }
             
