@@ -7,8 +7,6 @@ import java.lang.reflect.Field;
 import java.util.MissingResourceException;
 
 public class Constants {
-
-
     private static TCResourceBundle bundle = new TCResourceBundle("TC");
     private static boolean isInitialized = false;
     private static Logger log = Logger.getLogger(Constants.class);
@@ -161,12 +159,22 @@ public class Constants {
     public static int REVIEWER_TERMS_ID;
     public static int TOURNAMENT_COMPONENT;
     
-    /* Reviewer stuff. */
+    /** Review board status for active reviewers. */
     public static int ACTIVE_REVIEWER;
+    
+    /** Review board status for temporarily deactivated reviewers. */
     public static int TEMPORARILY_DEACTIVATED_REVIEWER;
+    
+    /** Review board status for permanently deactivated reviewers. */
     public static int PERMANENTLY_DEACTIVATED_REVIEWER;
+    
+    /** Number of months of inactivity before a reviewer becomes temporarily deactivated. */
     public static int TEMPORARY_DEACTIVATION_THRESHOLD;
+    
+    /** Number of months of inactivity before a reviewer becomes permanently deactivated. */
     public static int PERMANENT_DEACTIVATION_THRESHOLD;
+    
+    /** Minimum score for a submission to count towards reviewer qualification. */
     public static double MINIMUM_QUALIFYING_SCORE;
 
     /* job posting stuff */
@@ -235,11 +243,16 @@ public class Constants {
         initialize();
     }
 
+    /**
+     * Default constructor.
+     */
     private Constants() {
     }
 
+    /**
+     * Loads all the fields with values from the resource bundle.
+     */
     public static void initialize() {
-
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
@@ -276,10 +289,21 @@ public class Constants {
         isInitialized = true;
     }
 
+    /**
+     * Checks whether the constants have been initialized.
+     *
+     * @return <code>true</code> if the constants have been initialized, <code>false</code> otherwise.
+     */
     public static boolean isInitialized() {
         return isInitialized;
     }
 
+    /**
+     * Checks whether a field is on the ignore list.
+     *
+     * @param name Field name to check.
+     * @return <code>true</code> if the field is on the ignore list, <code>false</code> otherwise.
+     */
     private static boolean ignore(String name) {
         boolean found = false;
         for (int i = 0; i < ignoreList.length && !found; i++) {
