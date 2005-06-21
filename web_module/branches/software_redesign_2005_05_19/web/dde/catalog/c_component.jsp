@@ -411,7 +411,7 @@
                     <td>
                         <table border="0" cellpadding="0" cellspacing="0">
                         <tr><td class="display">
-                            <table border="0" cellpadding="0" cellspacing="2">
+                            <table border="0" cellpadding="0" cellspacing="2" width="100%">
                                 <tr>
                                     <td class="display" valign="top" width="33%">
                                         <strong>Class Diagrams</strong><br/>
