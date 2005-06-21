@@ -66,6 +66,11 @@ public class ProjectReviewApply extends Base {
                     }
                 }
 
+                if (status == Constants.TEMPORARILY_DEACTIVATED_REVIEWER || status == Constants.PERMANENTLY_DEACTIVATED_REVIEWER) {
+                    throw new NavigationException("Sorry, you have been deactivated from the review board due to no longer meeting "
+                            + "the minimum requirements.");
+                }
+                
                 if (status != Constants.ACTIVE_REVIEWER) {
                     throw new NavigationException("Sorry, you are not authorized to perform reviews at this time.");
                 }

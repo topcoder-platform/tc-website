@@ -161,6 +161,8 @@ public class Constants {
     public static int REVIEWER_TERMS_ID;
     public static int TOURNAMENT_COMPONENT;
     public static int ACTIVE_REVIEWER;
+    public static int TEMPORARILY_DEACTIVATED_REVIEWER;
+    public static int PERMANENTLY_DEACTIVATED_REVIEWER;
 
     /* job posting stuff */
     public static String JOB_HIT_TYPE_PARAM;
