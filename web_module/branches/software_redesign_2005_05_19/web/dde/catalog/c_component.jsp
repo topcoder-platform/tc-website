@@ -571,6 +571,14 @@
                                 <td class="rightColOff">This component is a Base Component</td>
                             </tr>
 <%  } else {
+        %>
+                            <tr valign="top">
+                                <td class="rightColDisplay">
+                                    <embed width="100%" height="200" type="image/svg+xml" src="/catalog/svg?id=<%=versionInfo.getVersionId()%>" >
+                                    <embed width="100%" height="200" type="image/svg+xml" src="http://172.16.20.20/i/tcs/dependency/dependency_<%=versionInfo.getVersionId()%>.svg" >
+                                </td>
+                            </tr>        
+        <%
         for (int i=0; i < summaries.length; i++) {
 %>
                             <tr valign="top">
