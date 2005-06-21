@@ -65,16 +65,6 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
 
-                                    <A HREF="#7" CLASS="bodyText">How are room assignments done? Will people with similar ratings be assigned to the same room?</A>
-
-                            </TD>
-                        </TR>
-                        <TR>
-                            <TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-                        </TR>
-                        <TR>
-                            <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-
                                     <A HREF="#9" CLASS="bodyText">
                 Occasionally, when navigating between rooms, I lose my cursor/focus, or stranger
                 it may have two blinking cursors, but I can't type anything?
@@ -165,16 +155,6 @@
       ratings. <A HREF="/index?t=support&amp;c=ratings" CLASS="bodyText">Click here to see a detailed description of the rating process.</A>
 
                                     <BR/>
-                                    <A HREF="#top" CLASS="bodyText">[back to top]</A>
-                                    <BR/>
-                                    <BR/>
-
-                                        <A NAME="7" CLASS="bodyText"><B>How are room assignments done? Will people with similar ratings be assigned to the same room?</B></A>
-
-                                    <BR/>
-
-      Actually, it's the other way around. There are two divisions of rooms: those with ratings 1200 and above, and
-      those will ratings below 1200. All rooms in a division will have roughly the same average room rating. <BR/>
                                     <A HREF="#top" CLASS="bodyText">[back to top]</A>
                                     <BR/>
                                     <BR/>
