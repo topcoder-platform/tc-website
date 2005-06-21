@@ -47,11 +47,8 @@ public class ReviewBoardTask {
     /** Namespace to use for the DB Connection Factory configuration. */
     private final static String DB_CONNECTION_FACTORY_NAMESPACE = "com.topcoder.db.connectionfactory.DBConnectionFactoryImpl";
     
-    /** Namespace to use for the Document Generator configuration. */
-    private static final String DOCUMENT_GENERATOR_NAMESPACE = "com.topcoder.util.file.DocumentGenerator";
-    
     /** Head of the slacker query. */
-    private static final String QUERY_HEAD =
+    private static final String SLACKER_QUERY_HEAD =
             "SELECT ru.phase_id                                                        " +
             "     , ph.description                                                     " +
             "     , u.handle                                                           " +
@@ -83,13 +80,36 @@ public class ReviewBoardTask {
     // All the center of the query should do is check for a specific ru.status_id
     
     /** Tail end of the slacker query. */
-    private static final String QUERY_TAIL =
+    private static final String SLACKER_QUERY_TAIL =
             "GROUP BY 1, 2, 3, 4, 5                                                    ";
     
-    /** Query to deactivate a specified reviewer. */
-    private static final String DEACTIVATE_REVIEWER =
-            "UPDATE rboard_user SET status_id = ? WHERE user_id = ? AND phase_id = ?";
+    /** Query to see which reviewers should be reactivated. */
+    private static final String REACTIVATE_QUERY =
+            "SELECT ru.phase_id                              " +
+            "     , ph.description                           " +
+            "     , u.handle                                 " +
+            "     , u.user_id                                " +
+            "     , e.address                                " +
+            "  FROM project_result pr                        " +
+            "     , phase_instance pi                        " +
+            "     , rboard_user ru                           " +
+            "     , user u                                   " +
+            "     , phase ph                                 " +
+            " WHERE pr.final_score >= ?                      " +
+            "   AND pr.project_id = pi.project_id            " +
+            "   AND pi.phase_id = 1                          " +
+            "   AND pi.cur_version = 1                       " +
+            "   AND pi.start_date >= CURRENT - ? UNITS MONTH " +
+            "   AND pr.user_id = ru.user_id                  " +
+            "   AND ru.status_id = 110                       " + // TODO: Eliminate this magic number.
+            "   AND pr.user_id = u.user_id                   " +
+            "   AND ru.phase_id = ph.phase_id                " +
+            "GROUP BY 1, 2, 3, 4, 5                          ";
     
+    /** Query to update a specific reviewer's status. */
+    private static final String UPDATE_REVIEWER_STATUS =
+            "UPDATE rboard_user SET status_id = ? WHERE user_id = ? AND phase_id = ?";
+
     /** Cached static logger instance. */
     private static Logger log = Logger.getLogger(ReviewBoardTask.class);
     
@@ -123,6 +143,9 @@ public class ReviewBoardTask {
     /** */
     private Template permanentDeactivationEmailTemplate = null;
     
+    /** */
+    private Template reactivationEmailTemplate = null;
+    
     /**
      * Default constructor.
      */
@@ -141,9 +164,11 @@ public class ReviewBoardTask {
         try {
             DocumentGenerator dg = DocumentGenerator.getInstance();
             temporaryDeactivationEmailTemplate =
-                    dg.getTemplate(config.getString(DOCUMENT_GENERATOR_NAMESPACE, "temporary_deactivation_template"));
+                    dg.getTemplate(config.getString(RBOARD_TASK_NAMESPACE, "temporary_deactivation_template"));
             permanentDeactivationEmailTemplate =
-                    dg.parseTemplate(config.getString(DOCUMENT_GENERATOR_NAMESPACE, "permanent_deactivation_template"));
+                    dg.parseTemplate(config.getString(RBOARD_TASK_NAMESPACE, "permanent_deactivation_template"));
+            reactivationEmailTemplate =
+                    dg.parseTemplate(config.getString(RBOARD_TASK_NAMESPACE, "reactivation_template"));
         } catch (Exception e) {
             log.fatal("Error parsing email templates.", e);
             throw new RuntimeException(e);
@@ -164,8 +189,8 @@ public class ReviewBoardTask {
     
     /**
      */
-    public void deactivateSlackers() {
-        log.info("ReviewBoardTask.deactivateSlackers() starting.");
+    public void performDeactivationsAndReactivations() {
+        log.info("ReviewBoardTask.performDeactivationsAndReactivations() starting.");
         
         Connection connection = null;
         
@@ -176,12 +201,16 @@ public class ReviewBoardTask {
             throw new RuntimeException(dbce);
         }
 
+        // Deactivate slackers.
         performPermanentDeactivations(connection);
         performTemporaryDeactivations(connection);
         
+        // Reactivate temporarily deactivated reviewers who now qualify again.
+        performReactivations(connection);
+        
         close(connection);
         
-        log.info("ReviewBoardTask.deactivateSlackers() completed.");
+        log.info("ReviewBoardTask.performDeactivationsAndReactivations() completed.");
     }
     
     /**
@@ -190,9 +219,9 @@ public class ReviewBoardTask {
      */
     private void performTemporaryDeactivations(Connection connection) {
         StringBuffer queryString = new StringBuffer(2500);
-        queryString.append(QUERY_HEAD);
+        queryString.append(SLACKER_QUERY_HEAD);
         queryString.append(" AND ru.status_id = 100 ");
-        queryString.append(QUERY_TAIL);
+        queryString.append(SLACKER_QUERY_TAIL);
         
         PreparedStatement slackerQuery = null;
         PreparedStatement deactivate = null;
@@ -200,7 +229,7 @@ public class ReviewBoardTask {
         
         try {
             slackerQuery = connection.prepareStatement(queryString.toString());
-            deactivate = connection.prepareStatement(DEACTIVATE_REVIEWER);
+            deactivate = connection.prepareStatement(UPDATE_REVIEWER_STATUS);
             
             slackerQuery.setDouble(1, minimumQualifyingScore);
             slackerQuery.setInt(2, temporaryDeactivationThreshold);
@@ -241,9 +270,9 @@ public class ReviewBoardTask {
      */
     private void performPermanentDeactivations(Connection connection) {
         StringBuffer queryString = new StringBuffer(2500);
-        queryString.append(QUERY_HEAD);
+        queryString.append(SLACKER_QUERY_HEAD);
         queryString.append(" AND ru.status_id IN (100, 110) ");
-        queryString.append(QUERY_TAIL);
+        queryString.append(SLACKER_QUERY_TAIL);
         
         PreparedStatement slackerQuery = null;
         PreparedStatement deactivate = null;
@@ -251,7 +280,7 @@ public class ReviewBoardTask {
         
         try {
             slackerQuery = connection.prepareStatement(queryString.toString());
-            deactivate = connection.prepareStatement(DEACTIVATE_REVIEWER);
+            deactivate = connection.prepareStatement(UPDATE_REVIEWER_STATUS);
             
             slackerQuery.setDouble(1, minimumQualifyingScore);
             slackerQuery.setInt(2, permanentDeactivationThreshold);
@@ -287,11 +316,58 @@ public class ReviewBoardTask {
     }
     
     /**
-     * 
-     * @param template 
-     * @param handle 
-     * @param address 
-     * @param phase 
+     *
+     * @param connection The <code>Connection</code> to use.
+     */
+    private void performReactivations(Connection connection) {
+        PreparedStatement reactivateQuery = null;
+        PreparedStatement reactivate = null;
+        ResultSet reviewers = null;
+        
+        try {
+            reactivateQuery = connection.prepareStatement(REACTIVATE_QUERY);
+            reactivate = connection.prepareStatement(UPDATE_REVIEWER_STATUS);
+            
+            reactivateQuery.setDouble(1, minimumQualifyingScore);
+            reactivateQuery.setInt(2, temporaryDeactivationThreshold);
+            
+            reviewers = reactivateQuery.executeQuery();
+            
+            reactivate.setLong(1, 100);
+            
+            while (reviewers.next()) {
+                int phaseId = reviewers.getInt("phase_id");
+                String phaseName = reviewers.getString("description");
+                String handle = reviewers.getString("handle");
+                long userId = reviewers.getLong("user_id");
+                String address = reviewers.getString("address");
+                
+                log.info("Reactivating reviewer " + handle + "(" + userId + ") for the " + phaseName + " phase.");
+                
+                reactivate.setLong(2, userId);
+                reactivate.setLong(3, phaseId);
+                
+                reactivate.executeUpdate();
+                
+                sendEmail(reactivationEmailTemplate, handle, address, phaseName);
+            }
+        } catch (SQLException e) {
+            log.error("Error found while reactivating reviewers.", e);
+            e.printStackTrace();
+        } finally {
+            close(reviewers);
+            close(reactivateQuery);
+            close(reactivate);
+        }
+    }
+    
+    /**
+     * Sends an email out to a deactivated reviewer, using the specified Document Generator template.
+     *
+     * @param template Document Generator template to use.
+     * @param handle Reviewer's handle.
+     * @param address Reviewer's email address.
+     * @param phase Project phase.
      */
     private void sendEmail(Template template, String handle, String address, String phase) {
         try {
@@ -310,15 +386,16 @@ public class ReviewBoardTask {
     }
 
     /**
-     * 
+     * Utility function to generate the text of an email body using Document Generator.
+     *
      * @param template Document Generator template to use.
      * @param handle Reviewer's handle.
      * @param phase Project phase.
      * @param sender Sender name (for the signature).
-     * @throws com.topcoder.util.config.ConfigManagerException 
-     * @throws com.topcoder.util.file.InvalidConfigException 
-     * @throws com.topcoder.util.file.TemplateDataFormatException 
-     * @throws com.topcoder.util.file.TemplateFormatException 
+     * @throws com.topcoder.util.config.ConfigManagerException If thrown by Document Generator.
+     * @throws com.topcoder.util.file.InvalidConfigException If thrown by Document Generator.
+     * @throws com.topcoder.util.file.TemplateDataFormatException If thrown by Document Generator.
+     * @throws com.topcoder.util.file.TemplateFormatException If thrown by Document Generator.
      * @return Generated email body.
      */
     private String generateEmailBody(Template template, String handle, String phase, String sender)
@@ -357,7 +434,7 @@ public class ReviewBoardTask {
     private static void main(String[] args) {
         try {
             ReviewBoardTask rbt = new ReviewBoardTask();
-            rbt.deactivateSlackers();
+            rbt.performDeactivationsAndReactivations();
         } catch (Exception e) {
             log.fatal("Error encountered.", e);
             e.printStackTrace();

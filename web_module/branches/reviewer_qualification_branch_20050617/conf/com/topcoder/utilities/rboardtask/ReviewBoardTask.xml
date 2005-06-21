@@ -48,5 +48,9 @@
         <Property name="permanent_deactivation_template">
             <Value>/export/home/apps/permanent_deactivation.txt</Value>
         </Property>
+        
+        <Property name="reactivation_template">
+            <Value>/export/home/apps/reactivation.txt</Value>
+        </Property>
     </Config>
 </CMConfig>
