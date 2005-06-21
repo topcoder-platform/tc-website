@@ -66,9 +66,8 @@ public class ProjectReviewApply extends Base {
                     }
                 }
 
-                if (status == Constants.TEMPORARILY_DEACTIVATED_REVIEWER
-                        || status == Constants.PERMANENTLY_DEACTIVATED_REVIEWER
-                        || ! rbu.isQualified(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                if (status == Constants.TEMPORARILY_DEACTIVATED_REVIEWER || status == Constants.PERMANENTLY_DEACTIVATED_REVIEWER
+                        || !rbu.isQualified(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                     throw new NavigationException("Sorry, you have been deactivated from the review board due to no longer meeting "
                             + "the minimum requirements.");
                 }
