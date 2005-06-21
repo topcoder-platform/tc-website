@@ -75,7 +75,10 @@ public class Search extends ForumsProcessor {
             String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_SORT_FIELD));
             User user = null;
             
-            int resultSize = ForumConstants.DEFAULT_SEARCH_RESULT_SIZE;
+            int resultSize = ForumConstants.DEFAULT_SEARCH_RANGE;
+            try {
+                resultSize = Integer.parseInt(user.getProperty("jiveSearchRange"));
+            } catch (Exception ignored) {}
             if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_RESULT_SIZE)).equals("")) {
                 resultSize = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_RESULT_SIZE));
             }

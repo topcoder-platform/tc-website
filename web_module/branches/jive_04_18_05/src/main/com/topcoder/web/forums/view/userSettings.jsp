@@ -125,6 +125,25 @@
       </td>
    </tr>
    <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Results per Search Page:</strong></td>
+      <td class="rtTextCell100">
+        <select size="1" name="resultsPerSearchPage">
+        <%  int[] searchCounts = { 10, 20, 30, 50 };
+            int searchRange = ForumConstants.DEFAULT_SEARCH_RANGE;
+            try {
+                searchRange = Integer.parseInt(user.getProperty("jiveSearchRange"));
+            } catch (Exception ignored) {}
+            for (int i=0; i<searchCounts.length; i++) {
+                if (searchCounts[i] == searchRange) { %>
+                    <option value="<%=searchCounts[i]%>" selected><%=searchCounts[i]%></option>
+            <%  } else { %>
+                    <option value="<%=searchCounts[i]%>"><%=searchCounts[i]%></option>
+            <%  }
+            } %>
+        </select>
+      </td>
+   </tr>
+   <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Thread Page View:</strong></td>
       <td class="rtTextCell100">
 		<select size="1" name="threadMode">

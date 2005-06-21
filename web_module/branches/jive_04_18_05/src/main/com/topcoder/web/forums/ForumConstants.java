@@ -68,7 +68,7 @@ public interface ForumConstants {
     public final static int DEFAULT_MAX_THREADS_PER_PAGE = 100;
     public final static int DEFAULT_MAX_MESSAGES_PER_PAGE = 100;
     public final static int DEFAULT_MAX_THREAD_WATCHES = 200;
-    public final static int DEFAULT_SEARCH_RESULT_SIZE = 20;
+    public final static int DEFAULT_SEARCH_RANGE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
     public final static int DEFAULT_THREAD_RANGE = 15;  
     public final static int DEFAULT_HISTORY_RANGE = 10;
