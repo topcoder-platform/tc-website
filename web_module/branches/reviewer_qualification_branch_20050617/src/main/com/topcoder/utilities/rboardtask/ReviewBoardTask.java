@@ -336,11 +336,11 @@ public class ReviewBoardTask {
                 } else if (f.getName().equals("PROJECT_PHASE")) {
                     f.setValue(phase);
                 } else if (f.getName().equals("MINIMUM_SCORE")) {
-                    f.setValue("" + minimumQualifyingScore);
+                    f.setValue(Double.toString(minimumQualifyingScore));
                 } else if (f.getName().equals("TEMP_THRESHOLD")) {
-                    f.setValue("" + temporaryDeactivationThreshold);
+                    f.setValue(Integer.toString(temporaryDeactivationThreshold));
                 } else if (f.getName().equals("PERM_THRESHOLD")) {
-                    f.setValue("" + permanentDeactivationThreshold);
+                    f.setValue(Integer.toString(permanentDeactivationThreshold));
                 } else if (f.getName().equals("SENDER_NAME")) {
                     f.setValue(sender);
                 }
