@@ -192,7 +192,7 @@ This problem looked daunting to some people, but for those who figured it out, i
       <li>As for the <strong>fifth nesting</strong>, we can only call random(0), which produces an error. The whole process is described in the picture to the right.</li>
       </ul>
       </td>
-      <td class="bodyText" valign="top" align="center"><img src="/i/education/probabilities/05.gif" alt="" border="0" align="right"/>
+      <td class="bodyText" valign="top" align="center"><img src="/i/education/probabilities/05.gif" alt="" border="0"/><br>
       <strong>NestedRandomness for N = 4</strong></td></tr>
 </table>
 <br><br>
