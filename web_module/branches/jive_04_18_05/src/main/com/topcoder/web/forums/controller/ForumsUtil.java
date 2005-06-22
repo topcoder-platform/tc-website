@@ -13,7 +13,6 @@ import com.jivesoftware.base.Log;
 import com.jivesoftware.base.filter.Profanity;
 
 import com.jivesoftware.forum.ForumCategory;
-import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
