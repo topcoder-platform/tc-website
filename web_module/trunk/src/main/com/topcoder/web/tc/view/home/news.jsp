@@ -8,6 +8,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.22.05<br>9:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm248_prob">SRM 248 - Problem Set & Analysis</A></span><br><br>
+      Turnout was high for SRM 248, as for the first time in a couple of years, there was money up for grabs in a TopCoder SRM! This match broke the previous record of most reds in an SRM.</td>
+      <td class="newsPhoto"><img src="/i/m/NeverMore_mug.gif" /><br>by <tc-webtag:handle coderId="287130" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm248_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.21.05<br>11:15 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -218,19 +233,6 @@
          <A href="/index?t=schedule&c=aug_05">August</A>&#160;|&#160;<A href="/index?t=schedule&c=sep_05">September</A>&#160;|&#160;<A href="/index?t=schedule&c=oct_05">October</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.02.05<br>7:50 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc">Top 10 Countries Now Linkable</A></span><br><br>
-      On the Competition Homepage (this page) the "Top 10 Countries" are now linkable to a list of all the Algorithm competitors that made that country a Top 10. 
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc">view</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
