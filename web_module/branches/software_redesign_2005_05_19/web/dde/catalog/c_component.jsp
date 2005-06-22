@@ -264,7 +264,7 @@
 <!-- Status Bar -->
                 <tr valign="top">
 					<td class="display" colspan="2"><strong>Status: </strong><br /><br />
-					<table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-bottom: 15px"><tr>
+					<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.COLLABORATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_spec.gif" alt="Specification" border="0"/></td>
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.SPECIFICATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_desarch.gif" alt="Design & Architecture" />
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.DEVELOPMENT ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_devtest.gif" alt="Development & Testing" />
@@ -338,7 +338,7 @@
                         <% if (teamMemberRoles.length > 0) { %>
 
                         <strong>Authors</strong>
-                   <table cellspacing="0" cellpadding="0" border="0">
+                   <table cellspacing="0" cellpadding="0" border="0" style="padding-bottom: 15px">
                    		<tr valign="top">
                    			<td width="50%">
 		                        <font class="small">Designer(s):</font> <br />
@@ -401,7 +401,7 @@
                 
             	<tr>
 <!-- Documentation-->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td><img src="/images/catalog/catpg_document.gif" alt="Documentation" width="116" height="13" border="0" />
                 		<font class="small"><a href="http://www.adobe.com/products/acrobat/readstep.html" target="_blank">Adobe Acrobat</a> is required to view TopCoder Software specification documentation.<br />
 						<hr width="100%" size="1" noshade="noshade" />
