@@ -233,10 +233,10 @@
 <!-- Middle Column begins -->
         <td width="99%" style="padding: 15px">
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
-                <tr><td class="normal" colspan="2"><img src="/images/catalog/catpg_title.gif" alt="Component Catalogs" width="134" height="32" border="0" /></td></tr>
+                <tr><td class="normal" colspan="2" style="padding-bottom: 15px"><img src="/images/catalog/catpg_title.gif" alt="Component Catalogs" width="134" height="32" border="0" /></td></tr>
                 <tr>
                     <td colspan="2">
-                        <table cellspacing="0" cellpadding="0" border="0">
+                        <table cellspacing="0" cellpadding="0" border="0" style="padding-bottom: 15px">
                             <tr valign="middle">
                                 <%
                                     switch (refCatalog) {
@@ -274,7 +274,7 @@
 				</tr>
 <!-- Overview, Functionality -->
                 <tr valign="top">
-                    <td width="50%" class="display">
+                    <td width="50%" class="display" style="padding-right: 15px">
                         <p><strong>Overview</strong><br />
 
                         <%  BufferedReader reader = new BufferedReader(new StringReader(componentInfo.getDescription()));
@@ -338,35 +338,36 @@
                         <% if (teamMemberRoles.length > 0) { %>
 
                         <strong>Authors</strong>
-                   <table cellspacing="0" cellpadding="0" border="0" style="padding-bottom: 15px">
+                   <table cellspacing="0" cellpadding="0" border="0" width="100%">
                    		<tr valign="top">
-                   			<td width="50%">
-		                        <font class="small">Designer(s):</font> <br />
+                   			<td width="50%" style="padding-right: 10px">
+		                        <font class="small">Designer(s):</font><hr width="100%" size="1" noshade="noshade" />
                                                 <%boolean first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
-
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 5) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
+                              <br><br>
 	                   		</td>
-	                   		<td width="10px">&nbsp;</td>
 	                   		<td width="50%">
-                       			<font class="small">Design Review Board:</font> <br />
+                       			<font class="small">Design Review Board:</font><hr width="100%" size="1" noshade="noshade" />
                        			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 6) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="design"/><%  }  }  %>
                        			</font>
+                              <br><br>
                    	   		</td>
                    	   	</tr>
                    	   	<tr valign="top">
-                   	   		<td>
-                   	   			<font class="small">Developer(s):</font> <br />
+                   	   		<td style="padding-right: 10px">
+                   	   			<font class="small">Developer(s):</font><hr width="100%" size="1" noshade="noshade" />
                    	   			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 7) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
                    	   			</font>
+                              <br><br>
                    	   		</td>
-                   	   		<td width="10px">&nbsp;</td>
                    	   		<td>
-                   	   			<font class="small">Development Review Board:</font> <br />
+                   	   			<font class="small">Development Review Board:</font><hr width="100%" size="1" noshade="noshade" />
                    	   			<% first = true;%>
-			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%>,&nbsp;<%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
+			                        <%  for (int i=0; i < teamMemberRoles.length; i++) { if( teamMemberRoles[i].getRoleId() == 8) { if(first) { first = false; } else {%><br><%}%><dde:handle coderId='<%= teamMemberRoles[i].getUserId()%>' context="development"/><%  }  }  %>
                    	   			</font>
+                              <br><br>
                    	   		</td>
                    	   	</tr>
                    </table>
@@ -550,7 +551,7 @@
             </table>
             
 <!-- Component Hierarchy -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td><img src="/images/catalog/catpg_comphier.gif" alt="Component Hierarchy" width="161" height="17" border="0" /><br />
                 		<hr width="100%" size="1" noshade="noshade" />
                 	</td>
@@ -585,7 +586,7 @@
             </table>
             
 <!-- Enhancements -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td><img src="/images/catalog/catpg_enhance.gif" alt="Enhancements" width="113" height="13" border="0" /><br />
                 		<hr width="100%" size="1" noshade="noshade" />
                 	</td>
@@ -602,7 +603,7 @@
             </table>
             
 <!-- Forums for This Component -->
-           <table border="0" cellpadding="0" cellspacing="0" width="100%">
+           <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
 <!-- Current Forums begin -->
                 <tr><td><img src="/images/catalog/catpg_cforums.gif" alt="Current Forums" width="121" height="13" border="0" />
                 		<font class="small">Participation in current forums requires user login and may require authorization</font><br />
