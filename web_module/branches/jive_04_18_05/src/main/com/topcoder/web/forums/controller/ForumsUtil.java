@@ -3,14 +3,21 @@
  */
 package com.topcoder.web.forums.controller;
 
+import java.util.Iterator;
+
 import com.jivesoftware.base.Filter;
 import com.jivesoftware.base.FilterManager;
+import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.filter.Profanity;
+
 import com.jivesoftware.forum.ForumCategory;
+import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
+import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
@@ -21,6 +28,34 @@ import com.jivesoftware.util.StringUtils;
 public class ForumsUtil {
     private static boolean filterHTMLEnabled
         = JiveGlobals.getJiveBooleanProperty("search.filterHTMLEnabled",true);
+    
+    //  use until Jive fixes its version of Forum.getLatestMessage()
+    public static ForumMessage getLatestMessage(Forum forum) {
+        ForumMessage lastPost = null;
+        ResultFilter filter = new ResultFilter();
+        filter.setSortOrder(ResultFilter.DESCENDING);
+        filter.setSortField(JiveConstants.MODIFICATION_DATE);
+        filter.setNumResults(1);
+        Iterator messages = forum.getMessages(filter);
+        if (messages.hasNext()) {
+            lastPost = (ForumMessage)messages.next();
+        }
+        return lastPost;
+    }
+    
+    // use until Jive fixes its version of ForumThread.getLatestMessage()
+    public static ForumMessage getLatestMessage(ForumThread thread) {
+        ForumMessage lastPost = null;
+        ResultFilter filter = new ResultFilter();
+        filter.setSortOrder(ResultFilter.DESCENDING);
+        filter.setSortField(JiveConstants.MODIFICATION_DATE);
+        filter.setNumResults(1);
+        Iterator messages = thread.getMessages(filter);
+        if (messages.hasNext()) {
+            lastPost = (ForumMessage)messages.next();
+        }
+        return lastPost;
+    }
     
     /**
      * Returns the message's subject where the search term(s) appear.

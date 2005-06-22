@@ -1,8 +1,10 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
          		 com.topcoder.web.forums.model.Paging,
          		 com.jivesoftware.base.User,
          		 com.jivesoftware.forum.stats.ViewCountManager,
+                 com.jivesoftware.forum.ForumMessage,
          		 com.jivesoftware.forum.ResultFilter,
          		 com.jivesoftware.forum.action.util.Page,
          		 com.jivesoftware.forum.action.util.Paginator,
@@ -101,8 +103,9 @@
 <td class="rtHeader" align="center" colspan="2">Last Post</td>
 </tr>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
-	<tr>
-	<tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+    <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); %>
+    <tr>    
+    <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	<td class="rtThreadCellWrap">
 		<%	if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
 				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
@@ -133,8 +136,8 @@
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
 	<td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
 	<td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
-	<td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
-	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+	<td class="rtThreadCell"><b><tc-webtag:beanWrite name="thread" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
+	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
 	</tr>
 </tc-webtag:iterator>
 </table>

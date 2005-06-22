@@ -1,13 +1,17 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.base.User,
+                 com.jivesoftware.forum.ForumMessage,
            		 java.util.Iterator,
-                 java.util.Enumeration"
+                 java.util.Enumeration,
+                 java.text.SimpleDateFormat"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<%  User user = (User)request.getAttribute("user"); %>
+<%  User user = (User)request.getAttribute("user"); 
+    SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy h:mm a"); %>
 
 <html>
 <head>
@@ -66,10 +70,11 @@
                         <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
                         	<br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="forum" property="messageCount"/></td>
-                        <% if (forum.getMessageCount() > 0) { %> 
+                        <% if (forum.getMessageCount() > 0) { %>
+                            <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(forum); %> 
 	                        <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
-	                        <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
-	                   		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
+	                        <td class="rtThreadCell"><b><%=formatter.format(lastPost.getModificationDate())%></b></td>
+	                   		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
                         <% } else { %>
                             <td class="rtThreadCell"></td>
                             <td class="rtThreadCell"></td>
