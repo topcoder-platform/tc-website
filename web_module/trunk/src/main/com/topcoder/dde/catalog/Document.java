@@ -30,6 +30,8 @@ public class Document implements Serializable {
 
     /** The status constant used to indicate a component specification document */
     public static final long COMPONENT_SPECIFICATION = 1L;
+    
+    public static final long REQUIREMENT_SPECIFICATION = 0L;
 
     /** The status constant used to indicate a use case diagram */
     public static final long USE_CASE_DIAGRAM = 2L;
@@ -55,6 +57,10 @@ public class Document implements Serializable {
     /** The status constant used to indicate a screen shot image thumbnail */
     public static final long SCREEN_SHOT_THUMBNAIL = 9L;
 
+    public static final long SEQUENCE_DIAGRAM = 15L;
+    
+    public static final long SCORECARD = 22L;
+    
     public static final long JAVADOCS = 23L;
 
     private long id;

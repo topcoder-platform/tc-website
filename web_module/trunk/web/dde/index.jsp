@@ -107,6 +107,11 @@
         <jsp:include page="/includes/right.jsp" >
             <jsp:param name="level1" value="index"/>
         </jsp:include>
+        
+        <jsp:include page="/includes/newReleases.jsp" />
+        <jsp:include page="/includes/right.jsp" >
+            <jsp:param name="level1" value="index"/>
+        </jsp:include>
         </td>
 <!--Right Column ends -->
 

@@ -16,8 +16,12 @@
             <servlet-class>com.topcoder.dde.servlet.DDEDocumentDownload</servlet-class>
     </servlet>
     <servlet>
-            <servlet-name>ForumAttachment</servlet-name>
-            <servlet-class>com.topcoder.dde.servlet.DDEForumAttachmentDownload</servlet-class>
+  	    <servlet-name>SVGDocument</servlet-name>
+  	    <servlet-class>com.topcoder.dde.servlet.DDESVGDownload</servlet-class>
+    </servlet>
+    <servlet>
+  	    <servlet-name>ForumAttachment</servlet-name>
+  	    <servlet-class>com.topcoder.dde.servlet.DDEForumAttachmentDownload</servlet-class>
     </servlet>
     <servlet>
             <servlet-name>JavadocViewing</servlet-name>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>CatalogDocument</servlet-name>
         <url-pattern>/catalog/document</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SVGDocument</servlet-name>
+        <url-pattern>/catalog/svg</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ForumAttachment</servlet-name>
