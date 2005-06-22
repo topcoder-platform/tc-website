@@ -1,13 +1,7 @@
 package com.topcoder.web.tc.controller.request.statistics;
-
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import java.util.Map;
+import com.topcoder.shared.util.DBMS;
 
 /**
  * @author  dok
@@ -22,7 +16,7 @@ public class RecentPlacements extends Base {
         ResultSetContainer ret = null;
 
         r.setContentHandle("recent_placement_full");
-        ret = (ResultSetContainer)getDataAccess(true).getData(r).get("recent_placement_full");
+        ret = (ResultSetContainer)getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r).get("recent_placement_full");
 
         getRequest().setAttribute("list", ret);
         setNextPage("/contracting/placed.jsp");
