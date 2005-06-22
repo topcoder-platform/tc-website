@@ -59,15 +59,15 @@ function AllowTabCharacter() {
 function tagCounter(field) {
     var cnt=0;
     var idx;
-    //for (idx=0; idx<field.length; idx++) {
-    //    if (field.substring(idx, idx+=4) == "/pre") {
-    //        if (cnt>0) { cnt--; } idx+=3; continue;
-    //    }
-    //    if (field.substring(idx, idx+3) == "pre") {
-    //        cnt++; idx+=2; continue;
-    //    } 
-    //}
-    document.getElementById("Warning").style.display = (field.value.length > 0) ? "none" : "";
+    //for (idx=0; idx<field.value.length; idx++) {
+    //    if (field.value.substring(idx, idx+=6) == "</pre>") {
+     //       if (cnt>0) { cnt--; } idx+=5; continue;
+      //  }
+       // if (field.value.substring(idx, idx+5) == "<pre>") {
+       //     cnt++; idx+=4; continue;
+       // } 
+   // }
+    document.getElementById("Warning").style.display = (field.value.indexOf("<pre>") > 0) ? "" : "none";
 }         
 </script>
 
