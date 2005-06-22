@@ -7,6 +7,6 @@
 <tr><td width="164" class="leftnav_item"><a href="/pl/?&module=Static&d1=javaone05&d2=prizes">Prizes</a></td></tr>
 <tr><td width="164" class="leftnav_item"><a href="/pl/?&module=Static&d1=javaone05&d2=schedule">Schedule</a></td></tr>
 <tr><td width="164" class="leftnav_item"><a href="/pl/?&module=Static&d1=javaone05&d2=practice">Practice Arena</a></td></tr>
-<tr><td width="164" class="leftnav_item"><a href="http://java.sun.com/javaone/sf/registration.jsp" target="_blank">Register for JavaOne</a></td></tr>
+<tr><td width="164" class="leftnav_item"><a href="http://www.topcoder.com/?t=sponsor&c=link&refer=javaone&link=http://java.sun.com/javaone/sf/registration.jsp" target="_blank">Register for JavaOne</a></td></tr>
 <tr><td width="164" class="leftnav_item"><a href="/pl/?&module=Static&d1=javaone05&d2=student">JavaOne Discounts</a></td></tr>
 </table>
