@@ -8,6 +8,7 @@ public class TextAreaTag extends BaseTag {
     private String text = null;
     private String onChange = null;
     private String onKeyDown = null;
+    private String onKeyUp = null;
     private boolean readOnly = false;
     private String styleClass = null;
 
@@ -32,6 +33,9 @@ public class TextAreaTag extends BaseTag {
         }
         if (onKeyDown != null) {
             ret.append("ONKEYDOWN=\"").append(onKeyDown).append("\" ");
+        }
+        if (onKeyUp != null) {
+            ret.append("ONKEYUP=\"").append(onKeyUp).append("\" ");
         }
         if (styleClass != null) {
             ret.append("CLASS=\"").append(styleClass).append("\" ");
@@ -79,6 +83,10 @@ public class TextAreaTag extends BaseTag {
     public void setOnKeyDown(String onKeyDown) {
         this.onKeyDown = onKeyDown;
     }
+    
+    public void setOnKeyUp(String onKeyUp) {
+        this.onKeyUp = onKeyUp;
+    }
 
     public void setReadOnly(boolean readOnly) {
         this.readOnly = readOnly;
@@ -95,6 +103,7 @@ public class TextAreaTag extends BaseTag {
         this.text = null;
         this.onChange = null;
         this.onKeyDown = null;
+        this.onKeyUp = null;
         this.readOnly = false;
         this.styleClass = null;
     }

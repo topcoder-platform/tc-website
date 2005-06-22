@@ -27,6 +27,16 @@ function noenter(e)
   return !(k == 13);
 }
 
+function toggle(targetId) 
+{
+    target = document.getElementById(targetId);
+    if (target.style.display == "none") {
+        target.style.display="";
+    } else {
+        target.style.display="none";
+    }
+}
+
 // IE only
 function AllowTabCharacter() {   
     if (event != null) {      
@@ -44,6 +54,20 @@ function AllowTabCharacter() {
             }      
         }   
     }
+}
+
+function tagCounter(field) {
+    var cnt=0;
+    var idx;
+    //for (idx=0; idx<field.length; idx++) {
+    //    if (field.substring(idx, idx+=4) == "/pre") {
+    //        if (cnt>0) { cnt--; } idx+=3; continue;
+    //    }
+    //    if (field.substring(idx, idx+3) == "pre") {
+    //        cnt++; idx+=2; continue;
+    //    } 
+    //}
+    document.getElementById("Warning").style.display = (field.value.length > 0) ? "none" : "";
 }         
 </script>
 
@@ -130,11 +154,12 @@ function AllowTabCharacter() {
 <% if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" onKeyPress="return noenter(event)"/><br/><br/>
 <% if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
-<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="AllowTabCharacter()"/>
+<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="tagCounter(document.form1.body);AllowTabCharacter()"/>
 </td>
 </tr>
 <tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
 </form></table>
+<div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt; tags is not closed.</div>
 
 <p><br/></p>
 </td>
