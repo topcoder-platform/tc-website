@@ -231,8 +231,8 @@
 %>
 
 <!-- Middle Column begins -->
-        <td width="99%" style="padding: 15px 15px 15px 15px">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <td width="99%" style="padding: 15px">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
                 <tr><td class="normal" colspan="2"><img src="/images/catalog/catpg_title.gif" alt="Component Catalogs" width="134" height="32" border="0" /></td></tr>
                 <tr>
                     <td colspan="2">
@@ -264,7 +264,7 @@
 <!-- Status Bar -->
                 <tr valign="top">
 					<td class="display" colspan="2"><strong>Status: </strong><br /><br />
-					<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+					<table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-bottom: 15px"><tr>
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.COLLABORATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_spec.gif" alt="Specification" border="0"/></td>
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.SPECIFICATION ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_desarch.gif" alt="Design & Architecture" />
                <td class="<%=(versionInfo.getPhase() == ComponentVersionInfo.DEVELOPMENT ? "statusIconOn" : "statusIconOff" )%>"><img src="/images/catalog/catpg_status_devtest.gif" alt="Development & Testing" />
