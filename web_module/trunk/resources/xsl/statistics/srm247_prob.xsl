@@ -213,7 +213,7 @@ greatest common denominator of the numerator and denominator is 1.
     int cnt = 0;
     for(int i = 2; ; i++)for(int j = 1; j&lt;i; j++){
         if(gcd(i,j) == 1)cnt++;
-        if(i==numerator &amp;&amp; j == denominator)return cnt;
+        if(j==numerator &amp;&amp; i == denominator)return cnt;
     }
 </pre>
 The gcd function can be written quite concisely as:
