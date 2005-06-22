@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.22.05<br>12:55 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat">Citigroup Employment Opportunities chat session</A></span><br><br>
+      Citigroup recently spoke to the members in the arena just prior to a recent SRM.  See what they had to say about working for Citigroup.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=citigroup_chat">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.22.05<br>9:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -220,18 +232,6 @@
    <tr><td class="newsLinksCell">
          <A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.03.05<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Event calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></span><br><br>
-      The calendar now includes SRMs up to 264 and TCO05 dates. 
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=schedule&c=aug_05">August</A>&#160;|&#160;<A href="/index?t=schedule&c=sep_05">September</A>&#160;|&#160;<A href="/index?t=schedule&c=oct_05">October</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 </table>
