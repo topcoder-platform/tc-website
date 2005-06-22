@@ -1,4 +1,10 @@
-<%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+                 com.topcoder.web.tc.Constants" %>
+
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+ <% ResultSetContainer list = (ResultSetContainer)request.getAttribute("list"); %>
+ 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -48,7 +54,10 @@
       <td class="header">State</td>
       <td class="header">Country</td>
    </tr>
-   <tr class="light">
+   <%boolean even = false;%>
+   <rsc:iterator list="<%=list%>" id="resultRow">
+   
+   <tr class="<%=(even ? "dark" : "light")%>">
       <td class="value">2/3/2005</td>
       <td class="value"><span class="coderTextBlue">Blue</span></td>
       <td class="valueR">$80/hour</td>
@@ -56,14 +65,8 @@
       <td class="value">NY</td>
       <td class="value">United States</td>
    </tr>
-   <tr class="dark">
-      <td class="value">1/5/2005</td>
-      <td class="value"><span class="coderTextYellow">Yellow</span></td>
-      <td class="valueR">$95,000/year</td>
-      <td class="value">Internet</td>
-      <td class="value">CA</td>
-      <td class="value">United States</td>
-   </tr>
+   <%even = !even;%>
+   </rsc:iterator>
 </table>
 
         <p><br></p>
