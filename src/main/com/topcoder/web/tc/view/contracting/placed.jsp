@@ -59,7 +59,7 @@
    
    <tr class="<%=(even ? "dark" : "light")%>">
       <td class="value"><rsc:item name="placement_date" format="MM/dd/yyyy" row="<%=resultRow%>"/></td>
-      <td class="value"><span class="coderTextBlue"><rsc:item name="rating_color" row="<%=resultRow%>"/></span></td>
+      <td class="value"><tc-webtag:ratingColor rating='<%=resultRow.getIntItem("member_rating")%>'><rsc:item name="rating_color" row="<%=resultRow%>"/></tc-webtag:ratingColor></td>
       <td class="valueR"><rsc:item name="compensation" row="<%=resultRow%>"/></td>
       <td class="value"><rsc:item name="industry" row="<%=resultRow%>"/></td>
       <td class="value"><rsc:item name="state" row="<%=resultRow%>"/></td>
