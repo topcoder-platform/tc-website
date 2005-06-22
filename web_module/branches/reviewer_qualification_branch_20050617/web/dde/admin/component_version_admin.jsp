@@ -860,25 +860,33 @@ if (action != null) {
     }
     if (action.equals(">>")) {
         // Add dependency
-        String strDependency = request.getParameter("selMasterDependency");
-        debug.addMsg("component version admin", "adding dependency " + strDependency);
-        if (strDependency != null) {
-            try {
-                componentManager.addDependency(Long.parseLong(strDependency));
-            } catch (Exception e) {
-                debug.addMsg("component version admin", "error: " + e.getMessage());
+        String[] strDependencies = request.getParameterValues("selMasterDependency");
+        try {
+            for (int i = 0; i < strDependencies.length; i++) {
+                debug.addMsg("component version admin", "adding dependency " + strDependencies[i]);
+                componentManager.addDependency(Long.parseLong(strDependencies[i]));
             }
+            strMessage += "Added dependencies";
+        } catch (RemoteException re) {
+            strError += "RemoteException occurred while adding dependency: " + re.getMessage();
+        } catch (SQLException e) {
+            strError += "SQLException occurred while adding dependency: " + e.getMessage();
         }
     }
 
     if (action.equals("<<")) {
         // Remove dependency
-        String strDependency = request.getParameter("selVersionDependency");
-        debug.addMsg("component version admin", "removing dependency " + strDependency);
+        String[] strDependencies = request.getParameterValues("selVersionDependency");
         try {
-        componentManager.removeDependency(Long.parseLong(strDependency));
-        } catch (Exception e) {
-            debug.addMsg("component version admin", "error: " + e.getMessage());
+            for (int i = 0; i < strDependencies.length; i++) {
+                debug.addMsg("component version admin", "removing dependency " + strDependencies[i]);
+                componentManager.removeDependency(Long.parseLong(strDependencies[i]));
+            }
+            strMessage += "Removed dependencies";
+        } catch (RemoteException re) {
+            strError += "RemoteException occurred while removing dependency: " + re.getMessage();
+        } catch (SQLException e) {
+            strError += "SQLException occurred while removing dependency: " + e.getMessage();
         }
     }
 
