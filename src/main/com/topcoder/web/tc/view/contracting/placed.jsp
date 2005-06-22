@@ -58,12 +58,12 @@
    <rsc:iterator list="<%=list%>" id="resultRow">
    
    <tr class="<%=(even ? "dark" : "light")%>">
-      <td class="value">2/3/2005</td>
+      <td class="value"><rsc:item name="placement_date" format="mm/DD/YYYY" row="<%=resultRow%>"/></td>
       <td class="value"><span class="coderTextBlue">Blue</span></td>
-      <td class="valueR">$80/hour</td>
-      <td class="value">Financial</td>
-      <td class="value">NY</td>
-      <td class="value">United States</td>
+      <td class="valueR"><rsc:item name="compensation" row="<%=resultRow%>"/></td>
+      <td class="value"><rsc:item name="industry" row="<%=resultRow%>"/></td>
+      <td class="value"><rsc:item name="state" row="<%=resultRow%>"/></td>
+      <td class="value"><rsc:item name="country_name" row="<%=resultRow%>"/></td>
    </tr>
    <%even = !even;%>
    </rsc:iterator>
