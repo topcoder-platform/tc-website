@@ -23,6 +23,9 @@
     <property name="configdir" value="conf" />
     <property name="javadocdir" value="${docsdir}/javadoc" />
 
+    <property name="resourcesdir" value="resources" />
+    <property name="taglibdir" value="${resourcesdir}/taglib" />
+    
     <property name="builddir" value="build" />
     <property name="build_classdir" value="${builddir}/classes" />
     <property name="build_testclassdir" value="${builddir}/testClasses" />
@@ -203,9 +206,10 @@
             deprecation="true">
             <include name="com/topcoder/dde/**" />
             <include name="com/topcoder/util/**" />
-            <include name="com/topcoder/web/common/**" />
-            <exclude name="com/topcoder/web/common/render/**" />
-            <exclude name="com/topcoder/web/common/tag/**" />
+            <include name="com/topcoder/web/common/*" />
+            <include name="com/topcoder/web/common/tag/HandleTag.java" />
+            <include name="com/topcoder/web/common/model/**" />
+            <include name="com/topcoder/web/common/security/**" />
         </javac>
     </target>
 
@@ -328,6 +332,9 @@
                 <include name="com/topcoder/dde/util/**"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
             </classes>
+            <webinf dir="${taglibdir}">
+                <include name="dde.tld"/>
+            </webinf>
         </war>
 
         <copy file="${review-persistence.jar}" todir="${dist.jars.dir}"/>
