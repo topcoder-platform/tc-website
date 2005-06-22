@@ -29,20 +29,6 @@ public class ForumsUtil {
     private static boolean filterHTMLEnabled
         = JiveGlobals.getJiveBooleanProperty("search.filterHTMLEnabled",true);
     
-    //  use until Jive fixes its version of Forum.getLatestMessage()
-    public static ForumMessage getLatestMessage(Forum forum) {
-        ForumMessage lastPost = null;
-        ResultFilter filter = new ResultFilter();
-        filter.setSortOrder(ResultFilter.DESCENDING);
-        filter.setSortField(JiveConstants.MODIFICATION_DATE);
-        filter.setNumResults(1);
-        Iterator messages = forum.getMessages(filter);
-        if (messages.hasNext()) {
-            lastPost = (ForumMessage)messages.next();
-        }
-        return lastPost;
-    }
-    
     // use until Jive fixes its version of ForumThread.getLatestMessage()
     public static ForumMessage getLatestMessage(ForumThread thread) {
         ForumMessage lastPost = null;
