@@ -595,7 +595,7 @@
                     <td>
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr valign="top">
-                                <td class="rightColDisplay">Request an <a href="components/request.jsp">enhancement</a>.</td>
+                                <td class="rightColDisplay">Request an <a href="/components/request.jsp">enhancement</a>.</td>
                             </tr>
                         </table>
                     </td>
