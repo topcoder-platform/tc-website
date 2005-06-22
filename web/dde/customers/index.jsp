@@ -257,6 +257,8 @@
                 </tr>
             </table>
 <!-- Praxair ends -->
+	
+			<hr width="100%" size="1px" noshade>
 
 <!-- Rodale begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">

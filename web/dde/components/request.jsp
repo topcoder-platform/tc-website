@@ -131,46 +131,45 @@
         <td width="99%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-                <tr><td class="normal"><img src="/images/headComponents.gif" alt="Components" width="545" height="32" border="0" /></td></tr>
-                <tr><td class="subhead">Suggest a Component</td></tr>
+                <tr><td class="normal"><img src="/images/suggest/suggestcomp_title.gif" alt="Suggest a Component" width="245" height="32" border="0" /><br/><br/>
+                If you did not find a component that meets your needs, please send us a suggestion. You may suggest enhancements on an existing component or ask
+                us to create an entirely new one.<br/><br/></td></tr>
             </table>
 
             <div align="center">
             <img src="/images/clear.gif" alt="" width="530" height="15" border="0"/>
-            <table border="0" cellpadding="0" cellspacing="0"><form name="frmCompRequest" action="<%=page_name%>" method="post">
-                <tr><td class="registerTitle">Describe the component you need</td></tr>
+            <table border="1" cellpadding="0" cellspacing="0" width="460">
+            <tr><td>
+            <table border="0" cellpadding="10" cellspacing="0" bgcolor="#cccccc"><form name="frmCompRequest" action="<%=page_name%>" method="post">
+<!-- Component Name Field -->
+				<tr><td class="catalogIndexHeader"><%=fieldsRequest.get("name").getLabel()%> a New or Existing Component</td></tr>
+                <tr>
+                    <td><input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="84" maxlength="50"></td>
+                </tr>
 <!-- Component Name Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("name").getError()%></td>
                 </tr>
-
-<!-- Component Name Field -->
+<!-- Description Field -->
+				<tr><td class="catalogIndexHeader"><%=fieldsRequest.get("desc").getLabel()%> of the Component</td></tr>
                 <tr>
-                    <td class="registerLabel"><%=fieldsRequest.get("name").getLabel()%><br/>
-                        <input type="text" class="registerElement" name="<%=fieldsRequest.get("name").getName()%>" value="" size="40" maxlength="50"></td>
+                    <td><textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
-
 <!-- Description Error Text -->
                 <tr>
                     <td class="registerError"><%=fieldsRequest.get("desc").getError()%></td>
                 </tr>
-
-<!-- Description Field -->
-                <tr>
-                    <td class="registerLabel"><%=fieldsRequest.get("desc").getLabel()%><br/>
-                        <textarea class="registerElement" name="<%=fieldsRequest.get("desc").getName()%>" value="" cols="40" rows="6"></textarea></td>
-                </tr>
-
 <!-- Comment Field -->
+				<tr><td class="catalogIndexHeader"><%= fieldsRequest.get("comments").getLabel() %> or Suggestions</td></tr>
                 <tr>
-                    <td class="registerLabel"><%= fieldsRequest.get("comments").getLabel() %><br/>
-                        <textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="40" rows="6"></textarea></td>
+                    <td><textarea class="registerElement" name="<%=fieldsRequest.get("comments").getName()%>" value="" cols="80" rows="6"></textarea></td>
                 </tr>
 
                 <tr>
                     <td align="center"><input type="reset" name="clear" value="&nbsp;Clear Fields&nbsp;"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /><input type="submit" name="a" value="Send Suggestion"></input></td>
                 </tr>
             </form></table>
+            </td></tr></table>
             </div>
 
             <p><br/></p>
