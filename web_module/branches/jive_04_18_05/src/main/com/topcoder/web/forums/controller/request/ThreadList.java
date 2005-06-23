@@ -9,6 +9,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
+import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
@@ -47,6 +48,10 @@ public class ThreadList extends ForumsProcessor {
         }
         if (!sortOrder.equals("")) {
             resultFilter.setSortOrder(Integer.parseInt(sortOrder));
+        } else {
+            if (resultFilter.getSortField() == JiveConstants.THREAD_NAME) {
+                resultFilter.setSortOrder(ResultFilter.ASCENDING);
+            }
         }
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(threadRange);

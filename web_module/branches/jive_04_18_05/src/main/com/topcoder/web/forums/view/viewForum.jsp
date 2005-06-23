@@ -2,6 +2,7 @@
          		 com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
          		 com.topcoder.web.forums.model.Paging,
+                 com.jivesoftware.base.JiveConstants,
          		 com.jivesoftware.base.User,
          		 com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.forum.ForumMessage,
@@ -30,11 +31,32 @@
     linkBuffer.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
     linkBuffer.append("&").append(ForumConstants.MESSAGE_COUNT).append("=").append(forum.getMessageCount());
 
+    StringBuffer threadLinkBuffer = new StringBuffer(linkBuffer.toString());
+    StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
+    threadLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.THREAD_NAME);
+    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFCATION_DATE);
+    if (Integer.parseInt(sortField) == JiveConstants.THREAD_NAME) {
+        if (Integer.parseInt(sortOrder) == ResultFilter.ASCENDING) {
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (Integer.parseInt(sortOrder) == ResultFilter.DESCENDING) {
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        }
+    }
+    if (Integer.parseInt(sortField) == JiveConstants.MODIFICATION_DATE) {
+        if (Integer.parseInt(sortOrder) == ResultFilter.ASCENDING) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
+        } else if (Integer.parseInt(sortOrder) == ResultFilter.DESCENDING) {
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        }
+    }
+    String threadLink = threadLinkBuffer.toString();
+    String dateLink = dateLinkBuffer.toString();
+
     if (!sortField.equals("")) {
-        linkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(forum.getSortField());
+        linkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(sortField);
     }
     if (!sortOrder.equals("")) {
-        linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(forum.getSortOrder());
+        linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
     }
     String link = linkBuffer.toString();    
 %>
@@ -111,11 +133,11 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <tr>
-<td class="rtHeader" width="70%">Thread</td>
+<td class="rtHeader" width="70%"><a href="<%=threadLink%>" class="rtbcLink">Thread</a></td>
 <td class="rtHeader" width="10%">Author</td>
 <td class="rtHeader" width="10%" align="right">Replies</td>
 <td class="rtHeader" width="10%" align="right">Views</td>
-<td class="rtHeader" align="center" colspan="2">Last Post</td>
+<td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
 </tr>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
     <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); %>
