@@ -44,6 +44,7 @@ public class ThreadList extends ForumsProcessor {
         ResultFilter resultFilter = ResultFilter.createDefaultThreadFilter();
         if (!sortField.equals("")) {
             resultFilter.setSortField(Integer.parseInt(sortField));
+        }
         if (!sortOrder.equals("")) {
             resultFilter.setSortOrder(Integer.parseInt(sortOrder));
         }

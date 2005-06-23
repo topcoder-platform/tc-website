@@ -67,8 +67,6 @@ function tagCounter(field) {
             cnt++; idx+=4; continue;
         } 
     }
-    // document.getElementById("Warning").style.display = (field.value.indexOf("</pre>") >= 0) ? "" : "none";
-    // document.getElementById("Warning").style.display = (field.value.substring(0,6) == "</pre>") ? "" : "none";
     document.getElementById("Warning").style.display = (cnt > 0) ? "" : "none";
 }         
 </script>
@@ -161,7 +159,7 @@ function tagCounter(field) {
 </tr>
 <tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
 </form></table>
-<div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt; tags is not closed.</div>
+<font color="red"><div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt; tags is not closed.</div></font>
 
 <p><br/></p>
 </td>
