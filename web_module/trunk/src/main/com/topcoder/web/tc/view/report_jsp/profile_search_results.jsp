@@ -87,7 +87,11 @@
     </tc:counter>
     </tr>
     <rsc:iterator list="<%=results%>" id="resultRow">
-        <% String bg = "true".equals(resultRow.getStringItem(results.getColumnCount()-1)) ? " BGCOLOR=\"#CCCCFF\"" : "";%>
+        <% String bg = "";
+            if("blue".equals(resultRow.getStringItem(results.getColumnCount()-1))) {
+                bg = " BGCOLOR=\"#CCCCFF\"";
+            }
+        %>
         <tr<%=bg%>>
             <tc:counter min="0" max="<%=results.getColumnCount()-2%>" id="i">
                 <td nowrap>
