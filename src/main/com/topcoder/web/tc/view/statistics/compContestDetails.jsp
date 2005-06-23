@@ -85,18 +85,22 @@
       </td>
       <td width="75%" valign="top">
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         <tr><td class="tableTitle" colspan="7">
+         <tr><td class="tableTitle" colspan="9">
          Competitors
          </td></tr>
          <tr>
-            <TD CLASS="tableHeader">Handle</TD>
-            <TD CLASS="tableHeader" align="center">Date inquired</TD>
-            <TD CLASS="tableHeader" align="center">Date submitted</TD>
-            <TD CLASS="tableHeader" align="center">Passed</TD>
-            <TD CLASS="tableHeader" align="right">Initial Score</TD>
-            <TD CLASS="tableHeader" align="right">Final Score</TD>
-            <TD CLASS="tableHeader" align="center">&#160;</TD>
+            <TD CLASS="tableHeader" rowspan="2">Handle</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center">Date inquired</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center">Date submitted</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center">Passed</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="right">Initial Score</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="right">Final Score</TD>
+            <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
          </tr>
+         <tr>
+            <TD CLASS="tableHeader" align="center">WishingBone</TD>
+            <TD CLASS="tableHeader" align="center">isv</TD>
+            <TD CLASS="tableHeader" align="center">mishagam</TD>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
@@ -104,7 +108,9 @@
             <TD class="statLt" align="center">Y</TD>
             <TD class="statLt" align="right">80.00</TD>
             <TD class="statLt" align="right">90.00</TD>
-            <TD class="statLt" align="center"><A href="">scorecard</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
