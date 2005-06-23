@@ -94,6 +94,11 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
+            <name>onKeyUp</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>class</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
