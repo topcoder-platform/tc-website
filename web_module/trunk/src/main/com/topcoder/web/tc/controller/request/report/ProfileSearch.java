@@ -144,7 +144,7 @@ public class ProfileSearch extends Base {
                 query.append((String)skills[2].get(i));
                 query.append('\n');
             }
-            query.append("  , case when c.contact_date > current then 'blue' end\n");
+            query.append("  , case when e.status_id = 3 then 'green' when YEAR(c.contact_date) = 2099 then 'green' when YEAR(c.contact_date) = 2050 then 'red' when c.contact_date > current then 'blue' end\n");
         }
         query.append("  FROM");
         if(comp != null && comp.length() > 0){
@@ -157,6 +157,7 @@ public class ProfileSearch extends Base {
         query.append("    coder c,\n");
         query.append("    user u,\n");
         query.append("    rating r,\n");
+        query.append("    email e,\n");
 
 
         if("on".equals(request.getParameter("resume"))){
@@ -181,6 +182,8 @@ public class ProfileSearch extends Base {
         query.append("    AND u.status = 'A'\n");
         query.append("    AND cry.country_code = c.country_code\n");
         query.append("    AND st.state_code = NVL(c.state_code,'')\n");
+        query.append("    AND e.user_id = u.user_id\n");
+        query.append("    AND e.primary_ind = 1\n");
         if(comp != null && comp.length() > 0){
             query.append("    AND drc.coder_id = c.coder_id\n");
             query.append("    AND drc.demographic_question_id = 15\n");
