@@ -92,6 +92,10 @@
                 bg = "";
             } else if("blue".equals(resultRow.getStringItem(results.getColumnCount()-1).trim())) {
                 bg = " BGCOLOR=\"#CCCCFF\"";
+            } else if("green".equals(resultRow.getStringItem(results.getColumnCount()-1).trim())) {
+                bg = " BGCOLOR=\"#CCFFCC\"";
+            } else if("red".equals(resultRow.getStringItem(results.getColumnCount()-1).trim())) {
+                bg = " BGCOLOR=\"#FFCCCC\"";
             }
         %>
         <tr<%=bg%>>
