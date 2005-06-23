@@ -93,9 +93,9 @@ public class ProfileSearch extends Base {
                 query.append("sum(case when cry.country_code in ('840','124') and r.rating > 0 \n");
                 query.append("then 1 else 0 end) as rated_northamerica_count, \n");
                 query.append("sum(case when cry.country_code in ('840','124') and c.coder_type_id \n");
-                query.append("= 1 then 1 else 0 end) as pro_northamerica_count, \n");
+                query.append("= 2 then 1 else 0 end) as pro_northamerica_count, \n");
                 query.append("sum(case when cry.country_code in ('840','124') and r.rating > 0 and \n");
-                query.append("c.coder_type_id = 1 then 1 else 0 end) as rated_pro_northamerica_count, '' \n");
+                query.append("c.coder_type_id = 2 then 1 else 0 end) as rated_pro_northamerica_count, '' \n");
             }else{
                 //query.append("SELECT COUNT(*), 'false'\n");
                 query.append("SELECT COUNT(*)as total_count, \n");
@@ -106,9 +106,9 @@ public class ProfileSearch extends Base {
                 query.append("sum(case when cry.country_code in ('840','124') and r.rating > 0 \n");
                 query.append("then 1 else 0 end) as rated_northamerica_count, \n");
                 query.append("sum(case when cry.country_code in ('840','124') and c.coder_type_id \n");
-                query.append("= 1 then 1 else 0 end) as pro_northamerica_count, \n");
+                query.append("= 2 then 1 else 0 end) as pro_northamerica_count, \n");
                 query.append("sum(case when cry.country_code in ('840','124') and r.rating > 0 and \n");
-                query.append("c.coder_type_id = 1 then 1 else 0 end) as rated_pro_northamerica_count, '' \n");
+                query.append("c.coder_type_id = 2 then 1 else 0 end) as rated_pro_northamerica_count, '' \n");
             }
         }else{
             query.append("SELECT");
