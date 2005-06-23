@@ -144,7 +144,7 @@ public class ProfileSearch extends Base {
                 query.append((String)skills[2].get(i));
                 query.append('\n');
             }
-            query.append("  , case when e.status_id = 3 then 'green' when YEAR(c.contact_date) = 2099 then 'green' when YEAR(c.contact_date) = 2050 then 'red' when c.contact_date > current then 'blue' end\n");
+        query.append("  , case when e.status_id = 3 then 'green' when YEAR(c.contact_date) = 2999 then 'green' when YEAR(c.contact_date) = 2500 then 'red' when c.contact_date > current then 'blue' end\n");
         }
         query.append("  FROM");
         if(comp != null && comp.length() > 0){
