@@ -231,8 +231,10 @@ function find(n) {
 
             <img src="/i/clear.gif" alt="" width="170" height="15" border="0"><br/>
             <jsp:include page="calendar.jsp"/>
+<%--
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             <jsp:include page="contracting/placed_right.jsp"/>
+--%>
             <p><br/></p>
 
 <!-- Employment Opportunities ends -->
