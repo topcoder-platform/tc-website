@@ -566,11 +566,11 @@
                             </tr>
 <%  } else {
         %>
-                            <tr valign="top">
+<%--                            <tr valign="top">
                                 <td class="rightColDisplay">
                                     <embed width="100%" height="200" type="image/svg+xml" src="/catalog/svg?id=<%=versionInfo.getVersionId()%>" >
                                 </td>
-                            </tr>        
+                            </tr>       --%>
         <%
         for (int i=0; i < summaries.length; i++) {
 %>
