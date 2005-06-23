@@ -104,9 +104,6 @@
                     <%=resultRow.getStringItem(Integer.parseInt(i))%>&nbsp;
                 </td>
             </tc:counter>
-            <td>
-            <%=resultRow.getStringItem(results.getColumnCount()-1)%>
-            </td>
         </tr>
     </rsc:iterator>
     </table>
