@@ -34,20 +34,28 @@
     StringBuffer threadLinkBuffer = new StringBuffer(linkBuffer.toString());
     StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
     threadLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.THREAD_NAME);
-    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFCATION_DATE);
-    if (Integer.parseInt(sortField) == JiveConstants.THREAD_NAME) {
-        if (Integer.parseInt(sortOrder) == ResultFilter.ASCENDING) {
+    dateLinkBuffer.append("&").append(ForumConstants.SORT_FIELD).append("=").append(JiveConstants.MODIFICATION_DATE);
+    if (sortField.equals(String.valueOf(JiveConstants.THREAD_NAME))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
             threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
-        } else if (Integer.parseInt(sortOrder) == ResultFilter.DESCENDING) {
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
+            threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
             threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
         }
+    } else {  // default
+        threadLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
     }
-    if (Integer.parseInt(sortField) == JiveConstants.MODIFICATION_DATE) {
-        if (Integer.parseInt(sortOrder) == ResultFilter.ASCENDING) {
+    if (sortField.equals(String.valueOf(JiveConstants.MODIFICATION_DATE))) {
+        if (sortOrder.equals(String.valueOf(ResultFilter.ASCENDING))) {
             dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
-        } else if (Integer.parseInt(sortOrder) == ResultFilter.DESCENDING) {
+        } else if (sortOrder.equals(String.valueOf(ResultFilter.DESCENDING))) {
             dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.ASCENDING);
+        } else {  // default
+            dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
         }
+    } else {  // default
+        dateLinkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(ResultFilter.DESCENDING);
     }
     String threadLink = threadLinkBuffer.toString();
     String dateLink = dateLinkBuffer.toString();
