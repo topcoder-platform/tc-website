@@ -95,7 +95,7 @@ public class ProfileSearch extends Base {
                 query.append("sum(case when cry.country_code in ('840','124') and c.coder_type_id \n");
                 query.append("= 1 then 1 else 0 end) as pro_northamerica_count, \n");
                 query.append("sum(case when cry.country_code in ('840','124') and r.rating > 0 and \n");
-                query.append("c.coder_type_id = 1 then 1 else 0 end) as rated_pro_northamerica_count, 'false' \n");
+                query.append("c.coder_type_id = 1 then 1 else 0 end) as rated_pro_northamerica_count, '' \n");
             }else{
                 //query.append("SELECT COUNT(*), 'false'\n");
                 query.append("SELECT COUNT(*)as total_count, \n");
@@ -108,7 +108,7 @@ public class ProfileSearch extends Base {
                 query.append("sum(case when cry.country_code in ('840','124') and c.coder_type_id \n");
                 query.append("= 1 then 1 else 0 end) as pro_northamerica_count, \n");
                 query.append("sum(case when cry.country_code in ('840','124') and r.rating > 0 and \n");
-                query.append("c.coder_type_id = 1 then 1 else 0 end) as rated_pro_northamerica_count, 'false' \n");
+                query.append("c.coder_type_id = 1 then 1 else 0 end) as rated_pro_northamerica_count, '' \n");
             }
         }else{
             query.append("SELECT");
@@ -144,7 +144,7 @@ public class ProfileSearch extends Base {
                 query.append((String)skills[2].get(i));
                 query.append('\n');
             }
-            query.append("  , c.contact_date > current\n");
+            query.append("  , case when c.contact_date > current then 'blue' end\n");
         }
         query.append("  FROM");
         if(comp != null && comp.length() > 0){
