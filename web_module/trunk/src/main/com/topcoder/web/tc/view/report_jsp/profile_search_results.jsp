@@ -88,7 +88,7 @@
     </tr>
     <rsc:iterator list="<%=results%>" id="resultRow">
         <% String bg = "";
-            if("blue".equals(resultRow.getStringItem(results.getColumnCount()-1)).trim()) {
+            if("blue".equals(resultRow.getStringItem(results.getColumnCount()-1).trim())) {
                 bg = " BGCOLOR=\"#CCCCFF\"";
             }
         %>
