@@ -171,11 +171,19 @@
                 </tr>
                 <tr>
 					<td class="projectCells" valign="top">
-					<strong>TopCoder Software ant build global properties</strong><br/>
+					<strong>TopCoder Software Ant Build Global Properties</strong><br/>
 					The ant build files distributed with the design and development distributions will use this file to override certain parts of the build.xml. This file can be modified to suit your local environment, the build file TopCoder distributes should not be modified. If you think it needs to be, contact your project manager. Keep in mind that the reviewers will be using the build.xml that was distributed.
 					</td>
 					<td class="projectCells" valign="top" align="center">06.16.2004</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/topcoder_global.properties">topcoder_global.properties</A></td>
+				</tr>
+                <tr>
+					<td class="projectCells" valign="top">
+					<strong>TopCoder Software NAnt Build Global Properties</strong><br/>
+					The NAnt build files distributed with the design and development distributions will use this file to override certain parts of the default.build. This file can be modified to suit your local environment, the build file TopCoder distributes should not be modified. If you think it needs to be, contact your project manager. Keep in mind that the reviewers will be using the default.build that was distributed.
+					</td>
+					<td class="projectCells" valign="top" align="center">06.23.2005</td>
+					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/topcoder_global.build">topcoder_global.build</A></td>
 				</tr>
                 <tr>
 					<td class="projectCells" valign="top">

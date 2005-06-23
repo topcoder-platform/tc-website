@@ -37,7 +37,7 @@
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
             <td class="BIGPromoBox" align="center">
             <a href="/tc?module=TCO05ComponentTerms"><IMG SRC="/i/home/promos/tco05_comp_reg.gif" BORDER="0" ALT="Component Registration Open" /></a><br/>
-            <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="TCO05" /></a><br/></td>
+            <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="JavaOne05" /></a><br/></td>
             <td width="50%" class="homeLogo">&#160;</td>
          </tr>            
       </table>
@@ -135,12 +135,12 @@
 <%-- Right Column --%>
       <td class=homeRightCol>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/i/tournament/tccc05/onsite_movies/reviewBoard.mov"><img src="/i/home/promos/reviewBoardMovie.jpg" border=0 /></A></td></tr>
+         <tr><td class=homeBigPromo><A href="/pl/?&module=Static&d1=javaone05&d2=overview" target="_blank"><img src="/i/home/promos/javaone05_sm.gif" border=0 /></A></td></tr>
       </table>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
             <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-            <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>June  Events:</A></td>
+            <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>June Events:</A></td>
          </tr>
          <tr>
             <td class=homeArrow>&#160;</td>
