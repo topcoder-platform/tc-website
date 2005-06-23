@@ -38,7 +38,15 @@ public class ThreadList extends ForumsProcessor {
             } catch (Exception ignored) {}
         }
         
+        String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_FIELD));
+        String sortOrder = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_ORDER));
+        
         ResultFilter resultFilter = ResultFilter.createDefaultThreadFilter();
+        if (!sortField.equals("")) {
+            resultFilter.setSortField(Integer.parseInt(sortField));
+        if (!sortOrder.equals("")) {
+            resultFilter.setSortOrder(Integer.parseInt(sortOrder));
+        }
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(threadRange);
         int totalItemCount = forum.getThreadCount(resultFilter);
@@ -50,6 +58,8 @@ public class ThreadList extends ForumsProcessor {
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("threads", itThreads);
 		getRequest().setAttribute("paginator", paginator);
+        getRequest().setAttribute("sortField", sortField);
+        getRequest().setAttribute("sortOrder", sortOrder);
 		
 		setNextPage("/viewForum.jsp");
 		setIsNextPageInContext(true);

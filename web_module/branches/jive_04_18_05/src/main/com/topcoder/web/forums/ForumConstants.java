@@ -21,12 +21,16 @@ public interface ForumConstants {
 	public final static String MESSAGE_BODY = "body";
     public final static int MESSAGE_SUBJECT_MAX_LENGTH = 800;
     public final static int MESSAGE_BODY_MAX_LENGTH = 8000;
+    public final static String MESSAGE_COUNT = "mc";
 	
 	public final static String START_IDX = "start";
 	
 	public final static String POST_MODE = "mode";
     
     public final static String SETTINGS_STATUS = "status";
+    
+    public final static String SORT_FIELD = "sortField";
+    public final static String SORT_ORDER = "sortOrder";
     
     // Search
     public final static String SEARCH_STATUS = "status";
