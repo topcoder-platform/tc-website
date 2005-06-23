@@ -8,6 +8,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>06.23.05<br>11:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/development/downloads/topcoder_global.build">Global NAnt properties file now available</A></span><br><br>
+      The NAnt build files distributed with the design and development distributions will use this file to override certain parts of the default.build. This file can be modified to suit your local environment.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/development/downloads/topcoder_global.build">download file</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">Component Documentation</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.22.05<br>12:55 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat">Citigroup Employment Opportunities chat session</A></span><br><br>
       Citigroup recently spoke to the members in the arena just prior to a recent SRM.  See what they had to say about working for Citigroup.
@@ -219,18 +232,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="http://www.roanoke.com/business%5C24837.html" target="_blank">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.03.05<br>5:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">How To Hire Best-of-Breed Programmers for Your Project</A></span><br><br>
-      "TopCoder Software literally calls on the services of thousands of programmers all around the world for its development work -- and only the best results end up getting used in the code they provide to their clients. They believe their approach saves clients money and time. How do they pull it off?" [Sourcing Mag]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.sourcingmag.com/home/home.aspx?i=18_6/3/2005_cn_507_2_00_00" target="_blank">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
