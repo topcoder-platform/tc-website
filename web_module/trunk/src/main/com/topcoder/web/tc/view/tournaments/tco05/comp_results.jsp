@@ -63,10 +63,10 @@ else
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText" nowrap=nowrap><A href="/tc?module=TCCC05ContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" nowrap=nowrap><A href="/tc?module=TCO05ContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="start_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center><a href="/tc?module=TCCC05ContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">view</a></td>
+                                <td class="sidebarText" align=center><a href="/tc?module=TCO05ContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">view</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
@@ -90,12 +90,12 @@ else
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText" nowrap=nowrap><A href="/tc?module=TCCC05ContestDetailsOverall&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" nowrap=nowrap><A href="/tc?module=TCO05ContestDetailsOverall&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="start_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=right><rsc:item format="$#,##0" name="prize_payment" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center><a href="/tc?module=TCCC05ContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">view</a></td>
+                                <td class="sidebarText" align=center><a href="/tc?module=TCO05ContestProjects&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">view</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>
