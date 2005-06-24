@@ -1,4 +1,6 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -8,9 +10,12 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 </head>
 <body>
 
+<% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list")); %>
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="algorithm"/>
@@ -34,14 +39,14 @@
        <td align="left" width="30%">Handle</td>
        <td align="right" width="15%">Rating</td>
     </tr>
+    <%boolean even = false;%>
+    <rsc:iterator list='<%=rsc%>' id="resultRow">
     <tr>
-    <td class="advanceLt" align="left"><tc-webtag:handle coderId="144400"/></td>
-    <td class="advanceLt" align="right">3304</td>
+    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="left"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>'/></td>
+    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>' /></td>
     </tr>
-    <tr>
-    <td class="advanceDk" align="left"><tc-webtag:handle coderId="260835"/></td>
-    <td class="advanceDk" align="right">2883</td>
-    </tr>
+    <%even = !even;%>
+    </rsc:iterator>
 </table>
         </div>
 		</td>
