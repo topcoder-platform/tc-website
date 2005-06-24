@@ -550,9 +550,9 @@
                 </tr>
             </table>
             
-<!-- Component Hierarchy -->
+<!-- Component Dependencies -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding-bottom: 15px">
-                <tr><td><img src="/images/catalog/catpg_comphier.gif" alt="Component Hierarchy" width="161" height="17" border="0" /><br />
+                <tr><td><img src="/images/catalog/catpg_compdep.gif" alt="Component Hierarchy" width="187" height="17" border="0" /><br />
                 		<hr width="100%" size="1" noshade="noshade" />
                 	</td>
                 </tr>
@@ -607,7 +607,7 @@
 <!-- Current Forums begin -->
                 <tr><td><img src="/images/catalog/catpg_cforums.gif" alt="Current Forums" width="121" height="13" border="0" />
                 		<font class="small">Participation in current forums requires user login and may require authorization</font><br />
-						<hr width="100%" size="1" noshade="noshade" /><br />
+						<hr width="100%" size="1" noshade="noshade" />
 
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
 <%  if (activeCollab != null) { %>
