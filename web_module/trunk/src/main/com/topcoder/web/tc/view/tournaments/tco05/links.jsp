@@ -110,23 +110,23 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_description"><img src="/i/tournament/tco05/tabs/L2_detailsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
-<%--				<% if (tabLev2.equals("registrants")) {%>
+				<% if (tabLev2.equals("registrants")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_registrants"><img src="/i/tournament/tco05/tabs/L2_registrantsOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_registrants"><img src="/i/tournament/tco05/tabs/L2_registrantsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 
 				<% if (tabLev2.equals("design")) {%>
-					<td class=nav><A href="/tc?module=tco05Results&ph=112"><img src="/i/tournament/tco05/tabs/L2_designOn.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=TCO05Results&ph=112"><img src="/i/tournament/tco05/tabs/L2_designOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
-					<td class=nav><A href="/tc?module=tco05Results&ph=112"><img src="/i/tournament/tco05/tabs/L2_designOff.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=TCO05Results&ph=112"><img src="/i/tournament/tco05/tabs/L2_designOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 				<% if (tabLev2.equals("development")) {%>
-					<td class=nav><A href="/tc?module=tco05Results&ph=113"><img src="/i/tournament/tco05/tabs/L2_developmentOn.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=TCO05Results&ph=113"><img src="/i/tournament/tco05/tabs/L2_developmentOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
-					<td class=nav><A href="/tc?module=tco05Results&ph=113"><img src="/i/tournament/tco05/tabs/L2_developmentOff.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=TCO05Results&ph=113"><img src="/i/tournament/tco05/tabs/L2_developmentOff.gif" alt="" border=0 /></A></td>
 				<% } %>
---%>
+
 			<% } %>
         		<td class=nav align=left><img src="/i/tournament/tco05/tabs/L2_sideLT.gif" border=0 /></td>
         		<td class=nav width="100%">&#160;</td>
