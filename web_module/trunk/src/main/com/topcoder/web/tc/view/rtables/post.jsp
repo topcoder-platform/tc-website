@@ -367,7 +367,7 @@
                <td valign="middle" class="statText"><div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt; tags is not closed.</div></td>
              </tr>
              <tr>
-               <td><textarea cols="60" rows="15" name="body" wrap="virtual" onKeyDown="tagCounter(document.postForm.body)" onKeyUp="tagCounter(document.postForm.body)></textarea></td>
+               <td><textarea cols="60" rows="15" name="body" wrap="virtual" onKeyDown="tagCounter(document.postForm.body)" onKeyUp="tagCounter(document.postForm.body)"></textarea></td>
              </tr>
              <tr>
                <td align="center" valign="middle" width="5" height="5"><img src="/i/clear.gif"></td>
