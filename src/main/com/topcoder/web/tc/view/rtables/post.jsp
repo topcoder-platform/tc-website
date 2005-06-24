@@ -364,7 +364,10 @@
                <td valign="middle" class="statText">If necessary, you may use &lt;pre&gt;&lt;/pre&gt; tags to format your post.  This is the only tag that is enabled, please use it with care as it will stretch the width of the page.</td>
              </tr>
              <tr>
-               <td><textarea cols="60" rows="15" name="body" wrap="virtual"></textarea></td>
+               <td valign="middle" class="statText"><div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt; tags is not closed.</div></td>
+             </tr>
+             <tr>
+               <td><textarea cols="60" rows="15" name="body" wrap="virtual" onKeyDown="tagCounter(document.postForm.body)" onKeyUp="tagCounter(document.postForm.body)></textarea></td>
              </tr>
              <tr>
                <td align="center" valign="middle" width="5" height="5"><img src="/i/clear.gif"></td>
@@ -399,6 +402,32 @@
    </table>
    <script language="JavaScript" type="text/javascript">
 <!--
+function tagCounter(field) {
+
+    var cnt=0;
+
+    var idx;
+
+    for (idx=0; idx<field.value.length; idx++) {
+
+        if (field.value.substring(idx, idx+6) == "</pre>") {
+
+            if (cnt>0) { cnt--; } idx+=5; continue;
+
+        }
+
+        if (field.value.substring(idx, idx+5) == "<pre>") {
+
+            cnt++; idx+=4; continue;
+
+        } 
+
+    }
+
+    document.getElementById("Warning").style.display = (cnt > 0) ? "" : "none";
+
+}         
+
   var reply = document.postForm
   var authorizedSubmit=false;
   var bodysize = 0;
