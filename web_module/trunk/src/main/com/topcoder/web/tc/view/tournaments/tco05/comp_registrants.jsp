@@ -32,21 +32,23 @@
 <br><br>
 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="300">
     <tbody><tr>
-      <td class="advTitle" colspan="2" width="100%">Registrants</td>
+      <td class="advTitle" colspan="3" width="100%">Registrants</td>
    </tr>
     <tr class="advHeader">
        <td align="left" width="30%">Handle</td>
        <td align="right" width="15%">Design Rating</td>
        <td align="right" width="15%">Development Rating</td>
     </tr>
+    <%boolean even = false;%>
+    <rsc:iterator list="<%=rsc%>" id="resultRow">
     <tr>
-    <td class="advanceLt" align="left"><tc-webtag:handle coderId="144400"/></td>
-    <td class="advanceLt" align="right">3304</td>
+    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="left"><tc-webtag:handle coderId="<%=resultRow.getIntItem("coder_id")%>"/></td>
+    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item name="design_rating" row='<%=resultRow%>' /></td>
+    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item name="dev_rating" row='<%=resultRow%>' /></td>
     </tr>
-    <tr>
-    <td class="advanceDk" align="left"><tc-webtag:handle coderId="260835"/></td>
-    <td class="advanceDk" align="right">2883</td>
-    </tr>
+    <%even = !even;%>
+    </rsc:iterator>
+    
 </table>
 
         </div>
