@@ -28,6 +28,7 @@
     }
 %>
 <%
+String tab = "design";
 if( rscContest.getIntItem(0, "phase_id") == 112)
 {
 %>
@@ -40,6 +41,7 @@ if( rscContest.getIntItem(0, "phase_id") == 112)
 }
 else
 {
+    tab = "development";
 %>
 <jsp:include page="links.jsp" >
 <jsp:param name="tabLev1" value="component"/>
@@ -73,7 +75,7 @@ else
                             <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
                                 <% TCCC05ProjectDetail result = (TCCC05ProjectDetail)lst.get(i); %>
-                                <td class="sidebarText"><a href="/tc?module=MemberProfile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a></td>
+                                <td class="sidebarText"><tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>'/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
                                 <td class="sidebarText" align=center><%=result.getPlaced()%></td>
                                 <td class="sidebarText" align=center><%=result.getPoints()%></td>
