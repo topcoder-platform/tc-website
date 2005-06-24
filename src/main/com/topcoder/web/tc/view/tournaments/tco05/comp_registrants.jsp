@@ -45,8 +45,8 @@
     <rsc:iterator list='<%=rsc%>' id="resultRow">
     <tr>
     <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="left"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>'/></td>
-    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item name="design_rating" row='<%=resultRow%>' /></td>
-    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item name="dev_rating" row='<%=resultRow%>' /></td>
+    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="design_rating" row='<%=resultRow%>' /></td>
+    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="dev_rating" row='<%=resultRow%>' /></td>
     </tr>
     <%even = !even;%>
     </rsc:iterator>
