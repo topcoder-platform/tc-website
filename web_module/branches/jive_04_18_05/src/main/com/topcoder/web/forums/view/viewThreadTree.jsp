@@ -19,11 +19,11 @@
 <tc-webtag:useBean id="activeMessage" name="activeMessage" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
-<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
-<%	User user = (User)request.getAttribute("user");
-	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW)); %>
+<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); 
+	User user = (User)request.getAttribute("user");
+	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW)); 
 
-<%  String cmd = "";
+    String cmd = "";
     String watchMessage = "";
     WatchManager watchManager = forumFactory.getWatchManager();
     if (!authToken.isAnonymous() && watchManager.isWatched(user, thread)) {
@@ -141,7 +141,9 @@
 <tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >> 
 	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
 	<jsp:getProperty name="thread" property="name"/></td>
+    <td align="right"><img src="http://172.16.20.41:8080/jive4/images/rss-24x16.gif"/></td>
 </table>
+
         <p><br/></p>
         </td>
         

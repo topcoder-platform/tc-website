@@ -103,7 +103,13 @@
                     </tr>
                 </tc-webtag:iterator>
             </table>
-            <p>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</p>
+            
+            <table cellpadding="0" cellspacing="0" class="rtbcTable">
+                <tr>
+                    <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
+                    <td align="right"><a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img src="http://172.16.20.41:8080/jive4/images/rss-24x16.gif"/></a></td>
+                </tr>
+            </table>
         </td>
 <!-- Center Column Ends -->
 

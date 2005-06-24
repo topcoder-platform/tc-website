@@ -18,11 +18,11 @@
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
-<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
-<%	User user = (User)request.getAttribute("user");
-	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW)); %>
+<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); 
+	User user = (User)request.getAttribute("user");
+	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW)); 
 
-<%  String cmd = "";
+    String cmd = "";
     String watchMessage = "";
     WatchManager watchManager = forumFactory.getWatchManager();
     if (!authToken.isAnonymous() && watchManager.isWatched(user, thread)) {
@@ -168,8 +168,13 @@
          &#160;&#160;&#160;<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink">NEXT >></A>
         <%  } %>
    </b></td></tr>
+<% } else { %>
+    <td align="right"><img src="http://172.16.20.41:8080/jive4/images/rss-24x16.gif"/></td>
 <% } %>
 </table>
+<% if (paginator.getNumPages() > 1) { %>
+    <br/><img align="right" src="http://172.16.20.41:8080/jive4/images/rss-24x16.gif"/>
+<% } %>
         <p><br/></p>
         </td>
 
