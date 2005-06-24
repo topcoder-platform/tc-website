@@ -21,7 +21,7 @@
 
 <!-- Tab barlinks-->
 <%
-if(Integer.parseInt(request.getParameter("ph")) == 112)
+if( rscContest.getIntItem(0, "phase_id") == 112)
 {
 %>
 <jsp:include page="links.jsp" >
