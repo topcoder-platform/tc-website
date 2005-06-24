@@ -10,7 +10,7 @@ package com.topcoder.web.tc.controller.request.development;
  *
  * @author rfairfax
  */
-public class TCO05ContestDetailsOverall extends TCCC05ContestDetails {
+public class TCO05ContestDetailsOverall extends TCO05ContestDetails {
 
     int getMax() {
         return 3;
