@@ -190,7 +190,7 @@
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
         <td>A thread with a <b>bold title</b> indicates it is either a new thread or has new postings.</td>
-        <td align="right"><img src="http://172.16.20.41:8080/jive4/images/rss-24x16.gif"/></td>
+        <td align="right"><a href="?module=RSS&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>"><img border="none" src="http://172.16.20.41:8080/jive4/images/rss-24x16.gif"/></a></td>
     </tr>
 </table>
 

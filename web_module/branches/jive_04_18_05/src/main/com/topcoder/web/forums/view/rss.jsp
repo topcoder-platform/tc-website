@@ -1,57 +1,39 @@
+<% response.setContentType("text/xml; charset=" + JiveGlobals.getCharacterEncoding()); %><?xml version="1.0" encoding="<%= JiveGlobals.getCharacterEncoding() %>"?>
+
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
-           		 java.util.Iterator,
-                 java.util.Enumeration"
+                 com.jivesoftware.base.JiveGlobals,
+                 com.jivesoftware.base.action.rss.RSSActionSupport,
+                 com.jivesoftware.util.StringUtils,
+           		 java.util.*,
+                 java.text.SimpleDateFormat"
+         contentType="text/xml"
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
-<html>
-<head>
-<title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
-<jsp:include page="script.jsp" />
+<%  SimpleDateFormat formatter = new SimpleDateFormat(RSSActionSupport.DATE_FORMAT); %>
 
-</head>
+<rss version="2.0" xmlns:jf="http://www.jivesoftware.com/xmlns/jiveforums/rss">
 
-<body>
+<channel>
+    <title><%= com.jivesoftware.forum.util.SkinUtils.getCommunityName() %> RSS Feed</title>
+    <link><jsp:getProperty name="sessionInfo" property="absoluteServletPath"/></link>
+    <description>Most recent forum messages</description>
+    <language><%= JiveGlobals.getLocale().getLanguage() %></language>
+    <pubDate><%= formatter.format(new Date()) %></pubDate>
 
-<jsp:include page="top_forums.jsp" >
-    <jsp:param name="level1" value=""/>
-</jsp:include>
+    <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
+	    <item>
+	        <title><%= StringUtils.escapeForXML(message.getSubject()) %></title>
+	        <link><jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=Message&amp;<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/></link>
+	        <description><![CDATA[<%= message.getBody() %>]]></description>
+	        <jf:creationDate><%= formatter.format(message.getCreationDate()) %></jf:creationDate>
+	        <jf:modificationDate><%= formatter.format(message.getModificationDate()) %></jf:modificationDate>
+	        <jf:author><%= message.getUser().getUsername() %></jf:author>
+	        <jf:replyCount><%= (message.getForumThread().getTreeWalker().getRecursiveChildCount(message)) %></jf:replyCount>
+	    </item>
+    </tc-webtag:iterator>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-
-<!-- Left Column Begins-->
-		<td width="180">
-			<jsp:include page="includes/global_left.jsp">
-				<jsp:param name="level1" value=""/>
-				<jsp:param name="level2" value=""/>
-			</jsp:include>
-		</td>
-<!-- Left Column Ends -->
-
-
-<!-- Center Column Begins -->
-        <td width="100%" class="rtBody">
-
-            <jsp:include page="page_title.jsp" >
-                <jsp:param name="image" value="forums"/>
-                <jsp:param name="title" value="&#160;"/>
-            </jsp:include>
-
-        Hello.
-
-        </td>
-<!-- Center Column Ends -->
-
-    </tr>
-</table>
-
-<jsp:include page="foot.jsp" />
-
-</body>
-
-</html>
+</channel>
+</rss>

@@ -156,7 +156,8 @@ function tagCounter(field) {
 <%  if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" onKeyPress="return noenter(event)"/><br/><br/>
 <%  if (errors.get(ForumConstants.MESSAGE_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
-<b>Body:</b><br/><tc-webtag:textArea rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="tagCounter(document.form1.body);AllowTabCharacter()" onKeyUp="tagCounter(document.form1.body)"/>
+<b>Body:</b><font color="red"><span align="left" id="Warning" style="display: none"><br/>Warning: one or more &lt;pre&gt; tags is not closed.</span></font>
+<br/><tc-webtag:textArea rows="15" cols="72" name="<%=ForumConstants.MESSAGE_BODY%>" onKeyDown="tagCounter(document.form1.body);AllowTabCharacter()" onKeyUp="tagCounter(document.form1.body)"/>
 </td>
 </tr>
 <tr><td class="rtFooter"><input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostMessage'"/><input type="image" src="/i/roundTables/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewMessage'"/></td></tr>
