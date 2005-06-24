@@ -364,7 +364,7 @@
                <td valign="middle" class="statText">If necessary, you may use &lt;pre&gt;&lt;/pre&gt; tags to format your post.  This is the only tag that is enabled, please use it with care as it will stretch the width of the page.</td>
              </tr>
              <tr>
-               <td valign="middle" class="statText"><div align="left" id="Warning" style="display: none">Warning: one or more &lt;pre&gt; tags is not closed.</div></td>
+               <td valign="middle" class="statText"><div align="left" id="Warning" style="display: none"><font color="red">Warning: one or more &lt;pre&gt; tags is not closed.</font></div></td>
              </tr>
              <tr>
                <td><textarea cols="60" rows="15" name="body" wrap="virtual" onKeyDown="tagCounter(document.postForm.body)" onKeyUp="tagCounter(document.postForm.body)"></textarea></td>
