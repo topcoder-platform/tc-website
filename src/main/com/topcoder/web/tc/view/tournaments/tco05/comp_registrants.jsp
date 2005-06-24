@@ -1,4 +1,6 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -10,6 +12,9 @@
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 </head>
 <body>
+
+
+<% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list")); %>
 
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
@@ -31,7 +36,8 @@
    </tr>
     <tr class="advHeader">
        <td align="left" width="30%">Handle</td>
-       <td align="right" width="15%">Rating</td>
+       <td align="right" width="15%">Design Rating</td>
+       <td align="right" width="15%">Development Rating</td>
     </tr>
     <tr>
     <td class="advanceLt" align="left"><tc-webtag:handle coderId="144400"/></td>
