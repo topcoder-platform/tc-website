@@ -1623,7 +1623,7 @@ if (action != null) {
                             <tr valign="middle">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminTextCenter">
-                                    <select name="selMasterDependency" size="8" multiple="multiple">
+                                    <select name="selMasterDependency" size="8" multiple="true">
 <%
                             for (int i=0; i < approvedComps.length; i++) {
                                 //debug.addMsg("component version admin", "got master component " + (i+1) + "/" + approvedComps.length);
@@ -1649,7 +1649,7 @@ if (action != null) {
                             <tr valign="middle">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminTextCenter">
-                                    <select name="selVersionDependency" size="4" multiple="multiple">
+                                    <select name="selVersionDependency" size="4" multiple="true">
     <% for (int i=0; i < versionComps.length; i++) {
         //debug.addMsg("component version admin", "got version component " + (i+1) + "/" + versionComps.length);
     %>
