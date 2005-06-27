@@ -875,10 +875,13 @@ if (action != null) {
             strMessage += "Added dependencies";
         } catch (RemoteException re) {
             strError += "RemoteException occurred while adding dependency: " + re.getMessage();
-        } catch (SQLException e) {
+        }
+        /*
+        catch (SQLException e) {
             strError += "SQLException occurred while adding dependency: " + e.getMessage();
         }
-    }
+        */
+     }
 
     if (action.equals("<<")) {
         // Remove dependency
@@ -891,9 +894,12 @@ if (action != null) {
             strMessage += "Removed dependencies";
         } catch (RemoteException re) {
             strError += "RemoteException occurred while removing dependency: " + re.getMessage();
-        } catch (SQLException e) {
+        }
+        /*
+        catch (SQLException e) {
             strError += "SQLException occurred while removing dependency: " + e.getMessage();
         }
+        */
     }
 
     // Example
