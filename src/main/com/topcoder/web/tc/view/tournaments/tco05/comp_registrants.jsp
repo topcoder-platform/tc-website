@@ -37,19 +37,19 @@
       <td class="advTitle" colspan="3" width="100%">Registrants</td>
    </tr>
     <tr class="advHeader">
-       <td align="left" width="30%">Handle</td>
-       <td align="right" width="15%">Design Rating</td>
-       <td align="right" width="15%">Development Rating</td>
+       <td align="left" width="50%">Handle</td>
+       <td align="right" width="25%">Design Rating</td>
+       <td align="right" width="25%">Development Rating</td>
     </tr>
-    <%boolean even = false;%>
-    <rsc:iterator list='<%=rsc%>' id="resultRow">
-    <tr>
-    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="left"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>'/></td>
-    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="design_rating" row='<%=resultRow%>' /></td>
-    <td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="dev_rating" row='<%=resultRow%>' /></td>
-    </tr>
-    <%even = !even;%>
-    </rsc:iterator>
+<%boolean even = false;%>
+<rsc:iterator list='<%=rsc%>' id="resultRow">
+<tr>
+<td class="<%=(even ? "advanceDk" : "advanceLt")%>"><tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>'/></td>
+<td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="design_rating" row='<%=resultRow%>' /></td>
+<td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right"><rsc:item format="###0" ifNull="Unrated" name="dev_rating" row='<%=resultRow%>' /></td>
+</tr>
+<%even = !even;%>
+</rsc:iterator>
     
 </table>
 
