@@ -25,7 +25,7 @@
 <br><br>
 By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to VeriSign and you will be giving VeriSign permission to contact you about their current job opportunities.
 <br><br>               
-<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_success">Submit</A>.
+<A href="/tc?module=JobHit&jid=300&jt=1">Submit</A>.
         </div>
 		</td>
         
