@@ -89,9 +89,8 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
                 // Strip out the document type
                 fileName = fileName.substring(docTypeName.length()).trim();
 
-                // If something has left then that's the document name.  If not, the document name
-                // is "Main" for diagrams, or the document type name for specifications.
                 if (lngType == 2 || lngType == 3 || lngType == 15) {
+                    // If something has left then that's the document name.  If not, the document name is "Main"
                     if (fileName.length() > 0) {
                         name = fileName.trim();
                     } else {
