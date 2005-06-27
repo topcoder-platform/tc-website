@@ -1,0 +1,7 @@
+Hello %REVIEWER_HANDLE{Reviewer's handle}%,
+
+You have been reactivated as a %PROJECT_PHASE{Project phase}% reviewer,
+since you once again meet the minimum requirements.  Congratulations!
+
+Thanks,
+%SENDER_NAME{Sender's name}%

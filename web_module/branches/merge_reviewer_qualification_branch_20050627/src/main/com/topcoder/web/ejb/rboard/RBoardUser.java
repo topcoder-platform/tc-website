@@ -25,6 +25,8 @@ public interface RBoardUser extends EJBObject {
     void setCanReviewFlash(String dataSource, long userId, int phaseId, boolean canReviewFlash) throws RemoteException;
 
     void setCanReviewApplication(String dataSource, long userId, int phaseId, boolean canReviewApplication) throws RemoteException;
+    
+    void setIsExempt(String dataSource, long userId, int phaseId, boolean isExempt) throws RemoteException;
 
     int getStatus(String dataSource, long userId, int phaseId) throws RemoteException;
 
@@ -37,6 +39,8 @@ public interface RBoardUser extends EJBObject {
     boolean canReviewFlash(String dataSource, long userId, int phaseId) throws RemoteException;
 
     boolean canReviewApplication(String dataSource, long userId, int phaseId) throws RemoteException;
+    
+    boolean isExempt(String dataSource, long userId, int phaseId) throws RemoteException;
 
-
+    boolean isQualified(String dataSource, long userId, int phaseId) throws RemoteException;
 }

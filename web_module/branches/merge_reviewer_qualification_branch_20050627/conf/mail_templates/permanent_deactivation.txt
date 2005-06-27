@@ -1,0 +1,10 @@
+Hello %REVIEWER_HANDLE{Reviewer's handle}%,
+
+I am sorry to inform you that your %PROJECT_PHASE{Project phase}% reviewer status has
+been permanently deactivated due to your failure to earn a score of %MINIMUM_SCORE{Minimum qualifying score}%
+or above in a project in the last %PERM_THRESHOLD{Permanent deactivation threshold}% months.  In order to be able to
+perform %PROJECT_PHASE{Project phase}% reviews again, you will need to requalify as a %PROJECT_PHASE{Project phase}%
+reviewer.  Once you requalify, you will need to apply to become a reviewer again.
+
+Thanks,
+%SENDER_NAME{Sender's name}%

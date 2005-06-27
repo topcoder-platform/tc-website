@@ -85,14 +85,19 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
             // document which is expected to follow after the type
             if (fileName.startsWith(docTypeName)) {
                 lngType = docTypeId.longValue();
-                name = docTypeName;
 
                 // Strip out the document type
                 fileName = fileName.substring(docTypeName.length()).trim();
 
-                // If something has left then that's the document name
-                if (fileName.length() > 0) {
-                    name += " - " + fileName.trim();
+                if (lngType == 2 || lngType == 3 || lngType == 15) {
+                    // If something has left then that's the document name.  If not, the document name is "Main".
+                    if (fileName.length() > 0) {
+                        name = fileName.trim();
+                    } else {
+                        name = "Main";
+                    }
+                } else {
+                    name = docTypeName;
                 }
             }
         }
@@ -858,27 +863,36 @@ if (action != null) {
             return;
         }
     }
+
     if (action.equals(">>")) {
         // Add dependency
-        String strDependency = request.getParameter("selMasterDependency");
-        debug.addMsg("component version admin", "adding dependency " + strDependency);
-        if (strDependency != null) {
-            try {
-                componentManager.addDependency(Long.parseLong(strDependency));
-            } catch (Exception e) {
-                debug.addMsg("component version admin", "error: " + e.getMessage());
+        String[] strDependencies = request.getParameterValues("selMasterDependency");
+        try {
+            for (int i = 0; i < strDependencies.length; i++) {
+                debug.addMsg("component version admin", "adding dependency " + strDependencies[i]);
+                componentManager.addDependency(Long.parseLong(strDependencies[i]));
             }
+            strMessage += "Added dependencies";
+        } catch (RemoteException re) {
+            strError += "RemoteException occurred while adding dependency: " + re.getMessage();
+        } catch (SQLException e) {
+            strError += "SQLException occurred while adding dependency: " + e.getMessage();
         }
     }
 
     if (action.equals("<<")) {
         // Remove dependency
-        String strDependency = request.getParameter("selVersionDependency");
-        debug.addMsg("component version admin", "removing dependency " + strDependency);
+        String[] strDependencies = request.getParameterValues("selVersionDependency");
         try {
-        componentManager.removeDependency(Long.parseLong(strDependency));
-        } catch (Exception e) {
-            debug.addMsg("component version admin", "error: " + e.getMessage());
+            for (int i = 0; i < strDependencies.length; i++) {
+                debug.addMsg("component version admin", "removing dependency " + strDependencies[i]);
+                componentManager.removeDependency(Long.parseLong(strDependencies[i]));
+            }
+            strMessage += "Removed dependencies";
+        } catch (RemoteException re) {
+            strError += "RemoteException occurred while removing dependency: " + re.getMessage();
+        } catch (SQLException e) {
+            strError += "SQLException occurred while removing dependency: " + e.getMessage();
         }
     }
 
