@@ -90,7 +90,7 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
                 fileName = fileName.substring(docTypeName.length()).trim();
 
                 if (lngType == 2 || lngType == 3 || lngType == 15) {
-                    // If something has left then that's the document name.  If not, the document name is "Main"
+                    // If something has left then that's the document name.  If not, the document name is "Main".
                     if (fileName.length() > 0) {
                         name = fileName.trim();
                     } else {
