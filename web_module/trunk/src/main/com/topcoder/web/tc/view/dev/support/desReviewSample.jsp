@@ -148,7 +148,7 @@ requirements document AND the forums for the component. </strong>
                                 </td>
                                 <td class="forumTitleCenter" width="10%">
                                     <strong>
-                                        Weight: 300
+                                        Weight: 275
                                     </strong>
                                 </td>
                                 <td class="forumTitleCenter" width="10%">
@@ -568,7 +568,7 @@ the design, appropriately, does not need any patterns/methodologies.
 </p><p class="scorecardQuestion"></p>
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
+                                    Weight: 15
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
                                     
@@ -644,7 +644,7 @@ component with multiple simple changes. </p><p class="scorecardQuestion">Rating 
 </p><p class="scorecardQuestion"></p>
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
+                                    Weight: 15
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
                                     
@@ -730,7 +730,7 @@ appropriately not used.
 </p><p class="scorecardQuestion"></p>
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 30
+                                    Weight: 25
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
                                     
@@ -809,7 +809,7 @@ API.
 </p><p class="scorecardQuestion"></p>
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 30
+                                    Weight: 25
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
                                     
@@ -1033,7 +1033,7 @@ The answers to the questions should be limited to design fundamentals
                                 </td>
                                 <td class="forumTitleCenter" width="10%">
                                     <strong>
-                                        Weight: 100
+                                        Weight: 175
                                     </strong>
                                 </td>
                                 <td class="forumTitleCenter" width="10%">
@@ -1639,7 +1639,7 @@ Reviewers should disregard whether the designer used HTML tags, properly line wr
                                 </td>
                                 <td class="forumTitleCenter" width="10%">
                                     <strong>
-                                        Weight: 250
+                                        Weight: 225
                                     </strong>
                                 </td>
                                 <td class="forumTitleCenter" width="10%">
@@ -1884,7 +1884,7 @@ visually in the diagram.
 </p><p class="scorecardQuestion"></p>
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 10
+                                    Weight: 15
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
                                     
@@ -1952,7 +1952,7 @@ visually in the diagram.
 <p class="scorecardQuestion">Rating 4 - The demo section demonstrates each of the requirements correctly in a clear fashion using a likely customer scenario (i.e. sets up a scenario that is similar to what a user of the component would see) or demonstrates extra functionality or flexibility.</p>
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
-                                    Weight: 20
+                                    Weight: 15
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
                                     
@@ -2197,7 +2197,7 @@ for this rating.
                                 </td>
                                 <td class="forumTitleCenter" width="10%">
                                     <strong>
-                                        Weight: 150
+                                        Weight: 125
                                     </strong>
                                 </td>
                                 <td class="forumTitleCenter" width="10%">

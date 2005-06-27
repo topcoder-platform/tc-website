@@ -8,6 +8,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>06.27.05<br>5:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">New Sample Design Review Scorecard now available</A></span><br><br>
+      The Sample Design Review Scorecard has been updated.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">view</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">Component Documentation</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>06.23.05<br>11:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/i/development/downloads/topcoder_global.build">Global NAnt properties file now available</A></span><br><br>
       The NAnt build files distributed with the design and development distributions will use this file to override certain parts of the default.build. This file can be modified to suit your local environment.
@@ -220,18 +233,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=news&d2=pr_060705">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.07.05<br>10:50 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.roanoke.com/business%5C24837.html" target="_blank">Geeks for Charity holds code to help New River charities</A></span><br><br>
-      "If Brett Malone's plan works, some New River Valley organizations could benefit from a different kind of technology boom." [Roanoke.com]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.roanoke.com/business%5C24837.html" target="_blank">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
