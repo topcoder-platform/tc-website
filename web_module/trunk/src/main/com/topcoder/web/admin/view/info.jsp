@@ -130,7 +130,7 @@
                                         </li>
                                         <li>
                                             In your telnet session to .51, in the ~/web directory, explode the jar by typing
-                                            <span class="input">jar xvf build.jar</span>
+                                            <span class="input">jar xvf topcoder.jar</span>
                                         </li>
                                         <li>
                                             In your telnet session to .51, in the ~/web directory, move the files to the correct
