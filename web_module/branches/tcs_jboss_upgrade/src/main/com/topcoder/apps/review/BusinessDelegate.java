@@ -13,9 +13,9 @@ import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.TCPermission;
 import org.apache.struts.util.MessageResources;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * <p>

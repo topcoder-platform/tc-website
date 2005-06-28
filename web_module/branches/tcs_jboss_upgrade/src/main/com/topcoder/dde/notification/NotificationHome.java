@@ -1,15 +1,14 @@
 /*
  * NotificationHome.java
  *
- * Copyright © 2005, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2005, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.dde.notification;
 
-import java.rmi.RemoteException;
-
 import javax.ejb.CreateException;
 import javax.ejb.EJBHome;
+import java.rmi.RemoteException;
 
 
 /**

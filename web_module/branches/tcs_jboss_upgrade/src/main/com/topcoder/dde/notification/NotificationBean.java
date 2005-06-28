@@ -7,23 +7,15 @@
 package com.topcoder.dde.notification;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import com.topcoder.apps.review.persistence.Common;
-
-import com.topcoder.apps.review.EJBHelper;
 import com.topcoder.apps.review.ConfigHelper;
-
+import com.topcoder.apps.review.EJBHelper;
+import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.file.render.ValueTag;
 import com.topcoder.file.render.XMLDocument;
 import com.topcoder.file.render.xsl.XSLTransformerWrapper;
 import com.topcoder.file.render.xsl.XSLTransformerWrapperException;
 import com.topcoder.message.email.EmailEngine;
 import com.topcoder.message.email.TCSEmailMessage;
-
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.util.log.Level;
@@ -35,22 +27,18 @@ import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
-
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
-
-
-import java.util.Iterator;
-import java.util.Properties;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
 /**
  * This is the concrete implementation of the Notification interface.
