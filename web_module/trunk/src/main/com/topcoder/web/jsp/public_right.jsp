@@ -104,10 +104,8 @@ function find(n) {
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/tournament/tco05/yahoo_right.gif" alt="Yahoo" border="0" /></a><br />
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-<%--
             <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign"><img src="/i/tournament/tco05/verisign_right.gif" alt="Verisign" border="0" /></a><br />
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
---%>
             <jsp:include page="../calendar.jsp" />
 
             <p><br/></p>
