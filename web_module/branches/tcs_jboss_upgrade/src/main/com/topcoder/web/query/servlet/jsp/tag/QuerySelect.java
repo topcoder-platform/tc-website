@@ -30,5 +30,11 @@ public class QuerySelect extends SelectTag {
         return list;
     }
 
+    protected void init() {
+        list=null;
+        super.init();
+    }
+
+
 }
 

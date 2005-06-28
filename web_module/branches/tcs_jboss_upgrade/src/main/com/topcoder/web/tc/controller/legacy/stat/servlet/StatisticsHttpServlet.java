@@ -5,7 +5,6 @@ import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.HttpObjectFactory;
@@ -21,7 +20,10 @@ import org.w3c.dom.Document;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
@@ -29,7 +31,8 @@ import java.util.Properties;
 
 public class StatisticsHttpServlet extends HttpServlet {
     private static Logger log = Logger.getLogger(StatisticsHttpServlet.class);
-    private static final String XML_FILE = ApplicationServer.BASE_DIR + "/resources/stat/statServlet.xml";
+//    private static final String XML_FILE = ApplicationServer.BASE_DIR + "/resources/stat/statServlet.xml";
+    private static final String XML_FILE = "statServlet.xml";
     private static final String LOGGED_IN_ONLY = "1";
     private static final String ACCESS_MAP_KEY = "ACCESSCTRL";
     private Properties mProp = new Properties();
@@ -125,9 +128,9 @@ public class StatisticsHttpServlet extends HttpServlet {
                 return;
             }
             // the next line works for Servlet.jar pre Servlet 2.3
-            Map map = HttpUtils.parseQueryString(sQueryString);
+            //Map map = HttpUtils.parseQueryString(sQueryString);
             // the next line works for Servlet 2.3
-            // Map map = request.getParameterMap();
+            Map map = request.getParameterMap();
 
             ServletContext sctx = null;
             Map accessMap = null;
@@ -152,7 +155,6 @@ public class StatisticsHttpServlet extends HttpServlet {
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
                 session.setAttribute("navigation", nav);
-                ;
 
                 log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " +
                         (nav.isIdentified() ? nav.getSessionInfo().getHandle() : " ") + " **** " +
@@ -172,7 +174,7 @@ public class StatisticsHttpServlet extends HttpServlet {
 
                 if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.isIdentified())) {
                     response.sendRedirect("http://" + request.getServerName() +
-                            "/tc?&module=Login&message=" +
+                            "/tc?module=Login&message=" +
                             "You must log in to view this portion of the site.&nextpage=http://" +
                             request.getServerName() + "/stat?" + replace(sQueryString));
                     return;

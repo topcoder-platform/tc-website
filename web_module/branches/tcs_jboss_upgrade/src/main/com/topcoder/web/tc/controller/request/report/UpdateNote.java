@@ -2,7 +2,7 @@ package com.topcoder.web.tc.controller.request.report;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.user.UserNote;
@@ -10,7 +10,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
 import javax.transaction.Status;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
 
 /**
  * User: dok
@@ -35,22 +35,21 @@ public class UpdateNote extends Base {
 
             Note note = (Note) createEJB(getInitialContext(), Note.class);
             UserNote userNote = (UserNote) createEJB(getInitialContext(), UserNote.class);
-            UserTransaction uTx = null;
+            TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 
             if (StringUtils.checkNull(nId).equals("")) {
                 try {
-                    uTx = Transaction.get();
-                    uTx.begin();
+                    tm.begin();
 
                     long noteId = note.createNote(noteText, getUser().getId(), Constants.INTERNAL_NOTE_TYPE_ID,
                             DBMS.JTS_OLTP_DATASOURCE_NAME, DBMS.OLTP_DATASOURCE_NAME);
                     userNote.createUserNote(Long.parseLong(userId), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
-                    uTx.commit();
+                    tm.commit();
                 } catch (Exception e) {
                     try {
-                        if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                            uTx.rollback();
+                        if (tm!= null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                            tm.rollback();
                         }
                     } catch (Exception te) {
                         throw new TCWebException(e);
@@ -62,16 +61,15 @@ public class UpdateNote extends Base {
             } else {
                 if (StringUtils.checkNull(noteText).equals("")) {
                     try {
-                        uTx = Transaction.get();
-                        uTx.begin();
+                        tm.begin();
                         long noteId = Long.parseLong(nId);
                         note.removeNote(noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
                         userNote.removeUserNote(Long.parseLong(userId), noteId, DBMS.JTS_OLTP_DATASOURCE_NAME);
-                        uTx.commit();
+                        tm.commit();
                     } catch (Exception e) {
                         try {
-                            if (uTx != null && uTx.getStatus() == Status.STATUS_ACTIVE) {
-                                uTx.rollback();
+                            if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE) {
+                                tm.rollback();
                             }
                         } catch (Exception te) {
                             throw new TCWebException(e);

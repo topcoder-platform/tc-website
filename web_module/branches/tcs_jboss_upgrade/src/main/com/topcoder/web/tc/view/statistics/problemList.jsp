@@ -35,11 +35,11 @@
      * Ug, can't think of any other way to do this...
      * Go through the request and pull out all the parameters that would otherwise be lost by
      * clicking on one of the sort links.
-     * @param queryString
+     * @param request
      * @return
      */
-    String addParams(String queryString) {
-        Hashtable h = HttpUtils.parseQueryString(queryString);
+    String addParams(HttpServletRequest request) {
+        Map h = request.getParameterMap();
         StringBuffer buf = new StringBuffer(100);
         Map.Entry me = null;
         for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
@@ -107,6 +107,7 @@
        <TD WIDTH="180" VALIGN="top">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
+                <jsp:param name="level2" value="problem_archive"/>
             </jsp:include>
        </TD>
        <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -152,7 +153,7 @@
                 </tr>
                  <tr>
                     <td align="right" class="statText">Class Name</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                     <td align="right" class="statText">Category</td>
                     <td align="left" class="statText"><tc-webtag:rscSelect name="<%=Constants.CATEGORY%>" list="<%=categories%>" fieldText="category" fieldValue="category"/></td>
                  </tr>
@@ -182,9 +183,9 @@
                 </tr>
                  <tr>
                     <td align="right" class="statText">Minimum Division I Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                     <td align="right" class="statText">Minimum Division II Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -196,9 +197,9 @@
                 </tr>
                  <tr>
                     <td align="right" class="statText">Maximum Division I Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                     <td align="right" class="statText">Maximum Division II Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
                  </tr>
 
                 <tr>

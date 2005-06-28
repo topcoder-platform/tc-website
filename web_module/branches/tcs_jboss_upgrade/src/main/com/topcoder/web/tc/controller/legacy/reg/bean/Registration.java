@@ -18,6 +18,7 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
@@ -26,7 +27,9 @@ import com.topcoder.web.tc.view.reg.tag.StateSelect;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
+import javax.rmi.PortableRemoteObject;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
@@ -291,7 +294,7 @@ public class Registration
         if (step != null && step.equalsIgnoreCase(STEP_1)) {
             notifications.clear();
             log.debug("notifications cleared...");
-        } else if (step !=null && step.equalsIgnoreCase(STEP_2)) {
+        } else if (step != null && step.equalsIgnoreCase(STEP_2)) {
             setSchoolViewable("no");
         }
         super.setStep(step);
@@ -419,7 +422,7 @@ public class Registration
 
             if (isEmpty(this.country)) addError(COUNTRY, "Please choose your country.");
 
-            if (this.country.equals(USA)&&isEmpty(this.state)) addError(STATE, "Please choose your state.");
+            if (this.country.equals(USA) && isEmpty(this.state)) addError(STATE, "Please choose your state.");
 
             if (isEmpty(this.phone)) addError(PHONE, "Please enter your phone number.");
 
@@ -541,7 +544,7 @@ public class Registration
                     log.debug("process school is " + school);
                     if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES)) {
                         employed = true;
-                    } else if ((!isNumber(school)||Integer.parseInt(school)<1) && strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
+                    } else if ((!isNumber(school) || Integer.parseInt(school) < 1) && strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
                         this.schoolName = strAnswerId;
                         this.school = "-1";
                     }
@@ -1552,7 +1555,7 @@ public class Registration
         } else {
             user = new User();
             user.setModified("A");
-            user.setLoggedIn("N");
+            //user.setLoggedIn("N");
             GroupUser groupUser = new GroupUser();
             groupUser.setModified("A");
             groupUser.setUserId(user.getUserId());
@@ -1764,16 +1767,19 @@ public class Registration
 
         InitialContext context = null;
         String activationCode = "";
-        UserTransaction transaction = null;
         try {
             context = TCContext.getInitial();
 
-            UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
-            transaction = Transaction.get();
-            if (Transaction.begin(transaction)) {
+            UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(context.lookup(
+                    UserServicesHome.class.getName()),
+                    UserServicesHome.class);
+
+            TransactionManager tm = (TransactionManager) context.lookup(ApplicationServer.TRANS_MANAGER);
+            try {
+                tm.begin();
                 UserServices userServices;
                 if (isEdit()) {
-                    userServices = userServicesHome.findByPrimaryKey(new Integer(user.getUserId()));
+                    userServices = userServicesHome.findByPrimaryKey(new Long(user.getUserId()));
                 } else {
                     userServices = userServicesHome.create(user);
                     activationCode = StringUtils.getActivationCode(coder.getCoderId());
@@ -1783,65 +1789,77 @@ public class Registration
 
                 userServices.setUser(user);
 
-            }
-            if (!Transaction.commit(transaction)) {
-                throw new TaskException("Unable to commit transaction");
-            }
-            //we're working outsite a transaction now...
-            if (isRegister()) {
-                Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-                PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                PrincipalMgrRemote pmr = pmrh.create();
-                TCSubject tcs = new TCSubject(132456);
-                Collection groups = pmr.getGroups(tcs);
-                GroupPrincipal anonGroup = null;
-                GroupPrincipal userGroup = null;
-                for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                    anonGroup = (GroupPrincipal) iterator.next();
-                    if (anonGroup.getName().equals("Anonymous")) {
-                        break;
+                if (isRegister()) {
+                    Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+                    PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                    PrincipalMgrRemote pmr = pmrh.create();
+                    TCSubject tcs = new TCSubject(132456);
+                    Collection groups = pmr.getGroups(tcs);
+                    GroupPrincipal anonGroup = null;
+                    GroupPrincipal userGroup = null;
+                    for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                        anonGroup = (GroupPrincipal) iterator.next();
+                        if (anonGroup.getName().equals("Anonymous")) {
+                            break;
+                        }
                     }
-                }
-                for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                    userGroup = (GroupPrincipal) iterator.next();
-                    if (userGroup.getName().equals("Users")) {
-                        break;
+                    for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                        userGroup = (GroupPrincipal) iterator.next();
+                        if (userGroup.getName().equals("Users")) {
+                            break;
+                        }
                     }
+
+                    UserPrincipal up = new UserPrincipal("", user.getUserId());
+                    pmr.addUserToGroup(anonGroup, up, tcs);
+                    pmr.addUserToGroup(userGroup, up, tcs);
+                    //refresh the cached object
+                    SecurityHelper.getUserSubject(user.getUserId(), true);
                 }
 
-                UserPrincipal up = new UserPrincipal("", user.getUserId());
-                pmr.addUserToGroup(anonGroup, up, tcs);
-                pmr.addUserToGroup(userGroup, up, tcs);
-            }
+                user.setModified("S");
+                coder.setAllModifiedStable();
 
-            user.setModified("S");
-            coder.setAllModifiedStable();
+                //auto activate
+                if (isRegister() && autoActivate) {
+                    InitialContext ctx = TCContext.getInitial();
+                    com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+                    doLegacyCrap(coder.getCoderId());
+                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
 
-            if (createdSchool) {
-                com.topcoder.web.ejb.school.School s =
-                        (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(context,
-                                com.topcoder.web.ejb.school.School.class);
-                s.setUserId(coder.getCurrentSchool().getSchoolId(), user.getUserId(), DBMS.OLTP_DATASOURCE_NAME);
-            }
-            //auto activate
-            if (isRegister() && autoActivate) {
-                InitialContext ctx = TCContext.getInitial();
-                com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
-                doLegacyCrap(coder.getCoderId());
-                Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
-                email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                        1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                }
+
+                user.setModified("S");
+                coder.setAllModifiedStable();
+
+                if (createdSchool) {
+                    com.topcoder.web.ejb.school.School s =
+                            (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(context,
+                                    com.topcoder.web.ejb.school.School.class);
+                    s.setUserId(coder.getCurrentSchool().getSchoolId(), user.getUserId(), DBMS.OLTP_DATASOURCE_NAME);
+                }
+                //auto activate
+                if (isRegister() && autoActivate) {
+                    InitialContext ctx = TCContext.getInitial();
+                    com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+                    doLegacyCrap(coder.getCoderId());
+                    Email email = (Email) BaseProcessor.createEJB(ctx, Email.class);
+                    email.setStatusId(email.getPrimaryEmailId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                            1, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    userbean.setStatus(coder.getCoderId(), ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
+                }
+
+                tm.commit();
+            } catch (Exception e) {
+                if (tm != null && tm.getStatus() == Status.STATUS_ACTIVE)
+                    tm.rollback();
+                throw e;
+
             }
         } catch (Exception e) {
-            try {
-                if (!Transaction.rollback(transaction)) {
-                    throw new TaskException("Unable to commit or rollback transaction");
-                }
-            } catch (Exception ee) {
-                throw new TaskException(ee);
-            }
-            log.debug(e.toString());
             throw new TaskException(e);
         } finally {
             if (context != null) {
@@ -1890,7 +1908,7 @@ public class Registration
                     msgText.append("major tournaments will require that you have participated in ");
                     msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
                     msgText.append("events here:\n");
-                    msgText.append("<http://www.topcoder.com/?&t=schedule&c=index>\n\n");
+                    msgText.append("<http://www.topcoder.com/?t=schedule&c=index>\n\n");
                     msgText.append("You may view all current development projects here: ");
                     msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
                     msgText.append("with your TopCoder handle and password).\n\n\n");
@@ -1903,10 +1921,10 @@ public class Registration
                     msgText.append("experience to competing in an actual rated event.  The practice ");
                     msgText.append("rooms are always available.\n\n");
                     msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
-                    msgText.append("http://www.topcoder.com/?&t=schedule&c=practice_room\n\n");
+                    msgText.append("http://www.topcoder.com/?t=schedule&c=practice_room\n\n");
                     msgText.append("We also suggest that you read up on the rules and competition process ");
                     msgText.append("from the FAQs and links that are available here:\n");
-                    msgText.append("http://www.topcoder.com/?&t=support&c=index\n\n");
+                    msgText.append("http://www.topcoder.com/?t=support&c=index\n\n");
                     msgText.append("If you have any questions about how to participate, feel free ");
                     msgText.append("to email them to service@topcoder.com.\n\n");
                     msgText.append("Thank you for registering with TopCoder and we look forward ");
@@ -1946,7 +1964,7 @@ public class Registration
                     msgText.append("major tournaments will require that you have participated in ");
                     msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
                     msgText.append("events here:\n");
-                    msgText.append("<http://www.topcoder.com/?&t=schedule&c=index>\n\n");
+                    msgText.append("<http://www.topcoder.com/?t=schedule&c=index>\n\n");
                     msgText.append("You may view all current development projects here: ");
                     msgText.append("<http://www.topcoder.com/?t=development&c=index> (you must login ");
                     msgText.append("with your TopCoder handle and password).\n\n\n");
@@ -1959,10 +1977,10 @@ public class Registration
                     msgText.append("experience to competing in an actual rated event.  The practice ");
                     msgText.append("rooms are always available.\n\n");
                     msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
-                    msgText.append("http://www.topcoder.com/?&t=schedule&c=practice_room\n\n");
+                    msgText.append("http://www.topcoder.com/?t=schedule&c=practice_room\n\n");
                     msgText.append("We also suggest that you read up on the rules and competition process ");
                     msgText.append("from the FAQs and links that are available here:\n");
-                    msgText.append("http://www.topcoder.com/?&t=support&c=index\n\n");
+                    msgText.append("http://www.topcoder.com/?t=support&c=index\n\n");
                     msgText.append("If you have any questions about how to participate, feel free ");
                     msgText.append("to email them to service@topcoder.com.\n\n");
                     msgText.append("Thank you for registering with TopCoder and we look forward ");
@@ -1980,13 +1998,15 @@ public class Registration
         }
     }
 
-    private void doLegacyCrap(int userId) {
+    private void doLegacyCrap(long userId) {
         Context ctx = null;
         com.topcoder.common.web.data.User user = null;
         try {
             ctx = TCContext.getInitial();
-            UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-            UserServices userEJB = userHome.findByPrimaryKey(new Integer(userId));
+            UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
+                    UserServicesHome.class.getName()),
+                    UserServicesHome.class);
+            UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");
 
@@ -2040,7 +2060,9 @@ public class Registration
             Authentication authentication = authenticationServices.getActivation(coderId);
             if (authentication.getUserId().intValue() == coderId && authentication.getActivationCode().equalsIgnoreCase(this.code)) {
                 if (authentication.getStatus().equals("U")) {
-                    UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
+                    UserServicesHome userServicesHome = (UserServicesHome) PortableRemoteObject.narrow(context.lookup(
+                            UserServicesHome.class.getName()),
+                            UserServicesHome.class);
                     UserServices userServices = userServicesHome.findByPrimaryKey(authentication.getUserId());
                     User user = userServices.getUser();
                     user.setStatus("A");

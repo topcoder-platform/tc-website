@@ -33,18 +33,18 @@
         <td width="100%" align="left" class="bodyText">
         <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br/>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="support"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Algorithm Competition Guide"/>  
+           <jsp:param name="image" value="support"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value="Algorithm Competition Guide"/>
         </jsp:include>
 
 		<h2>Competing in a TopCoder Rated Event</h2>
 
 		<a name="when"></a>
 		<p><span class="bodySubtitle">1 When are the Rated Events?</span><br/>
-		TopCoder holds two types of rated events.  Single Round Matches (SRMs) are held weekly.  The day and time of SRMs varies from week-to-week.  See the <A href="/?&t=schedule&c=index">event schedule</A> on the TopCoder's web site for the dates and times of future SRMs.  Please keep in mind that all times on TopCoder's web site are communicated in either Eastern Standard Time (EST / GMT -5) or Eastern Daylight Time (EDT / GMT-4) depending on the time of the year.  The web site will specify for which time zone the time for each match is specified.  In addition, you may elect to receive a reminder email preceding each SRM.  To do so, select to "Next Competition" box under the "Email Notification" heading in your TopCoder profile information.  By checking this option, you will also receive emails regarding upcoming TopCoder tournaments and events.
+		TopCoder holds two types of rated events.  Single Round Matches (SRMs) are held weekly.  The day and time of SRMs varies from week-to-week.  See the <A href="/?t=schedule&c=index">event schedule</A> on the TopCoder's web site for the dates and times of future SRMs.  Please keep in mind that all times on TopCoder's web site are communicated in either Eastern Standard Time (EST / GMT -5) or Eastern Daylight Time (EDT / GMT-4) depending on the time of the year.  The web site will specify for which time zone the time for each match is specified.  In addition, you may elect to receive a reminder email preceding each SRM.  To do so, select to "Next Competition" box under the "Email Notification" heading in your TopCoder profile information.  By checking this option, you will also receive emails regarding upcoming TopCoder tournaments and events.
 		<br/><br/>
-		In addition to SRMs, TopCoder holds two advancement tournaments (the TopCoder Open and the TopCoder Collegiate Challenge) each year. Advancement tournaments are elimination tournaments and generally have a substantial prize purse involved. Each round of a tournament will affect the ratings of all participants, so they are also considered "rated events".  The details on each of these events are posted to TopCoder's site as they are finalized.  You can also view the information and details of most <A href="/?&t=tournaments&c=tourny_index">past tournaments</A>.
+		In addition to SRMs, TopCoder holds two advancement tournaments (the TopCoder Open and the TopCoder Collegiate Challenge) each year. Advancement tournaments are elimination tournaments and generally have a substantial prize purse involved. Each round of a tournament will affect the ratings of all participants, so they are also considered "rated events".  The details on each of these events are posted to TopCoder's site as they are finalized.  You can also view the information and details of most <A href="/?t=tournaments&c=tourny_index">past tournaments</A>.
 		</p>
 
 		<a name="differ"></a>
@@ -125,7 +125,7 @@
 
 		<a name="extracoderule"></a>
 		<p><span class="bodySubtitle">8 Excessive / Extra Code Rule</span><br/>
-		TopCoder has a policy against including extra content in a submission that is not part of the solution the problem. This includes, but is not limited to the following: 
+		TopCoder has a policy against including extra content in a submission that is not part of the solution the problem. This includes, but is not limited to the following:
 		<ul>
 		<li>unused macros</li>
 		<li>unused #define's</li>
@@ -135,7 +135,7 @@
 		<li>unused personal library code</li>
 		<li>comments not directly related to the solution</li>
 		</ul>
-		In ALL cases, TopCoder will make the final decision as to whether or not a code submission has an excessive amount of unused content. If TopCoder determines that a submission violates this policy, the competitor will receive zero points for that submission. No challenges will be overturned or nullified as a result of a violation in this policy. We encourage any TopCoder competitor to notify us in the event that you feel that a code submission during a rated event violates this policy. 
+		In ALL cases, TopCoder will make the final decision as to whether or not a code submission has an excessive amount of unused content. If TopCoder determines that a submission violates this policy, the competitor will receive zero points for that submission. No challenges will be overturned or nullified as a result of a violation in this policy. We encourage any TopCoder competitor to notify us in the event that you feel that a code submission during a rated event violates this policy.
 		<br/><br/>
 		In an effort to help competitors determine how much extra content can be contained in a submission and still not violate this policy, we provide the following general guideline. You may have a maximum of 300 non-space characters that are considered extra content or a maximum of 30% of your submission be considered extra, whichever is greater.
 		</p>

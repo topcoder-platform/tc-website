@@ -4,13 +4,13 @@
 <head>
 <title>TopCoder News Archive</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -24,7 +24,7 @@
 			</jsp:include>
 		</td>
 <!-- Left Column Ends -->
- 
+
 <!-- Center Column Begins -->
          <td width="100%" align="center">
 
@@ -43,7 +43,7 @@
             <tr class="bodyText"><td nowrap="nowrap">03.03.05 4:15 PM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">School name to be made public in Member Profiles</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">02.21.05 9:30 AM&#160;-&#160</td><td width="100%"><A href="/tc">New /tc homepage</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">02.09.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="http://software.topcoder.com/components/subscriptions.jsp">Developer Subscriptions just became FREE</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">02.07.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="/?&t=news_events&c=pr_02_07_05">TC Community Surpasses 50,000 Worldwide</A></td></tr>
+            <tr class="bodyText"><td nowrap="nowrap">02.07.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="/?t=news_events&c=pr_02_07_05">TC Community Surpasses 50,000 Worldwide</A></td></tr>
             </table>
 
         </div>
@@ -53,7 +53,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -65,7 +65,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

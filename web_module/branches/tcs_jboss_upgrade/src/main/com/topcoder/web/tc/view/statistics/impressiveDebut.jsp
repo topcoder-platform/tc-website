@@ -1,11 +1,11 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
@@ -53,13 +53,13 @@ function goTo(selection){
          </TABLE>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
-            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/> 
+            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
-                    Top-25 Overall 
+                    Top-25 Overall
                   </P>
                   <P CLASS="statText">
 	            This chart represents the members who have made the most impressive debuts.
@@ -78,7 +78,7 @@ function goTo(selection){
                       <TD COLSPAN="5" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <TR VALIGN="middle">
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>            
+                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>
                       <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="25%">
             <a href="/stat?c=impressive_debuts&sq=Impressive_Debuts&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Handle</A>
             </TD>
@@ -101,7 +101,7 @@ function goTo(selection){
   <logic:equal name="queryEntries" property="key" value="Impressive_Debuts">
   <logic:present name="queryEntries" property="value">
     <bean:define id="resultSet" name="queryEntries" property="value" type="ResultSetContainer" />
-    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow"> 
+    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
     <tr valign="middle">
             <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 8 /*"coder_score"*/ + "]" %>'/>
           <td CLASS="smallFoot" align="right" height="13"><bean:write name="resultRow" property='<%= "item[" + 9 /*"rank"*/ + "]" %>'/>&nbsp;</td>
@@ -124,14 +124,14 @@ function goTo(selection){
                   </TABLE>
 		    </TD>
 		    </TR>
-              </TABLE>      
+              </TABLE>
             </TD>
            </TR>
            <TR>
              <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
 
          <!-- END BODY -->
@@ -143,7 +143,7 @@ function goTo(selection){
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />

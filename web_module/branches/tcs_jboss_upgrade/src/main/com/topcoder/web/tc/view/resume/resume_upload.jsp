@@ -4,7 +4,7 @@
 <%@ page import="java.util.ArrayList" %>
 
 <jsp:useBean id="ViewUploadTask" scope="request" class="com.topcoder.web.tc.controller.legacy.resume.bean.ViewUploadTask" />
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <HTML>
 <HEAD><TITLE>Resume Upload</TITLE></HEAD>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>

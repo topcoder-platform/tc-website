@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.LoginException;
@@ -13,7 +12,7 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.common.model.CoderSessionInfo;
 
 import java.util.Arrays;
 
@@ -124,9 +123,7 @@ public class Login extends Base {
     }
 
     private void doLegacyCrap(TCRequest request) throws Exception {
-        PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
-                com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
-        TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());
+        TCSubject user = SecurityHelper.getUserSubject(getAuthentication().getActiveUser().getId());
         CoderSessionInfo ret = new CoderSessionInfo(request, getAuthentication(), user.getPrincipals());
         Navigation nav = (Navigation) request.getSession(true).getAttribute("navigation");
         if (nav == null) {

@@ -23,7 +23,7 @@ public class Notification
 
     Iterator notifications;
 
-    private String ccsclass;
+    private String styleClass;
     private boolean selectedOnly;
     private Set selectedValues;
 
@@ -36,14 +36,14 @@ public class Notification
 
     void init() {
         notifications = null;
-        ccsclass = null;
+        styleClass = null;
         selectedValues = null;
         selectedOnly = false;
     }
 
 
-    public void setClass(String ccsclass) {
-        this.ccsclass = ccsclass;
+    public void setStyleClass(String ccsclass) {
+        this.styleClass = ccsclass;
     }
 
 
@@ -91,7 +91,7 @@ public class Notification
             pageContext.setAttribute(NOTIFY_ID, notifyId, PageContext.PAGE_SCOPE);
             pageContext.setAttribute(NOTIFY_NAME, notify.getName(), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(NOTIFY, control, PageContext.PAGE_SCOPE);
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         } else {
             if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {
                 try {
@@ -142,8 +142,8 @@ public class Notification
         s.append(selectedKey);
         s.append("\"");
 
-        if (ccsclass != null) {
-            s.append(" class=\"" + ccsclass + "\"");
+        if (styleClass != null) {
+            s.append(" class=\"" + styleClass + "\"");
         }
         if (selectedValues.contains(selectedKey)) {
             s.append(" checked=\"true\"");
@@ -158,8 +158,8 @@ public class Notification
         StringBuffer s = new StringBuffer(500);
         if (selectedValues.contains(selectedKey)) {
             s.append("<span");
-            if (ccsclass != null) {
-                s.append(" class=\"" + ccsclass + "\"");
+            if (styleClass != null) {
+                s.append(" class=\"" + styleClass + "\"");
             }
             s.append(">");
             s.append(desc);

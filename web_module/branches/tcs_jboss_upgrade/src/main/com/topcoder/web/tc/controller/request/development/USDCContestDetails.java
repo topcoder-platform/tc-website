@@ -14,7 +14,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
-import javax.servlet.http.HttpUtils;
 import java.util.Map;
 
 /**
@@ -30,7 +29,7 @@ public class USDCContestDetails extends StatBase {
             return;
 
         Request dataRequest = new Request();
-        Map map = HttpUtils.parseQueryString(getRequest().getQueryString());
+        Map map = getRequest().getParameterMap();
         map.remove(Constants.MODULE_KEY);
         map.remove(DataAccessConstants.SORT_COLUMN);
         map.remove(DataAccessConstants.SORT_DIRECTION);

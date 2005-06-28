@@ -1,6 +1,6 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.web.tc.Constants"%>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <% int termsId = ((Integer)request.getAttribute(Constants.TERMS_OF_USE_ID)).intValue();%>
 <% String agreeProcessor = null;
     if (termsId == Constants.TCO04_ALGORITHM_TERMS_OF_USE_ID) agreeProcessor="TCO04AlgorithmTermsAgree";
