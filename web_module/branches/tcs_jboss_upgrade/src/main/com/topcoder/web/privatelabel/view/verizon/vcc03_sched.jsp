@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -63,7 +63,7 @@
                     <td width="427" class="bodyCopy">
 
                         <h2 class="pgTitle">Schedule</h2>
-            
+
 <!-- Qualification Description begins -->
                         <p>Registration is unlimited, however only the first 500 eligible individuals to register and activate their registration will be invited to compete.</p>
 <!-- Qualification Description Ends -->
@@ -107,7 +107,7 @@
                                 <td class="sidebarText" align="center">25</td>
                                 <td class="sidebarText" align="center">4 Prize  Winners</td>
                             </tr>
-            
+
                             <tr valign="top">
                                 <td class="sidebarText" colspan="4">
                                     *NOTE: In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.
@@ -117,7 +117,7 @@
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
-                    
+
 <!-- Gutter Begins -->
                     <td width="14"><img src="/i/clear.gif" width="14" height="1" border="0"/></td>
 <!-- Gutter Ends -->

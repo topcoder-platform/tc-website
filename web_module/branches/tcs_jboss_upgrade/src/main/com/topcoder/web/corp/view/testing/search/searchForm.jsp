@@ -4,7 +4,7 @@
 <%@ page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
+<jsp:useBean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
 <%List questionList = searchResults.getQuestions();%>
 <script language="JavaScript"><!--
                         function submitEnter(e) {
@@ -56,7 +56,7 @@
                                     <td class="screeningCellEven" width="25%" align=right>First Name:</td>
                                     <td class="screeningCellEven" width="75%">
                                         <%-- FIRST NAME TEXT BOX--%>
-                                        <tc-webtag:textInput type="text" name="<%=Constants.FIRST_NAME%>" size="30" maxlength="50" onkeypress="submitEnter(event)" />
+                                        <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="50" onKeyPress="submitEnter(event)" />
                                     </td>
                                 </tr>
 
@@ -65,7 +65,7 @@
                                 <tr>
                                     <td class="screeningCellOdd" align=right>Last Name:</td>
                                     <td class="screeningCellOdd">
-                                        <tc-webtag:textInput type="text" name="<%=Constants.LAST_NAME%>" size="30" maxlength="50"  onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="50"  onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
@@ -74,7 +74,7 @@
                                 <tr>
                                     <td class="screeningCellEven" align=right>Email Address:</td>
                                     <td class="screeningCellEven">
-                                        <tc-webtag:textInput type="text" name="<%=Constants.EMAIL_ADDRESS%>" size="30" maxlength="50" onkeypress="submitEnter(event)" />
+                                        <tc-webtag:textInput name="<%=Constants.EMAIL_ADDRESS%>" size="30" maxlength="50" onKeyPress="submitEnter(event)" />
                                     </td>
                                 </tr>
                                 <%
@@ -82,13 +82,13 @@
                                     int counter = 0;
                                 %>
                                 <pl:questionIterator id="question" list="<%=questionList%>">
-                                <%if(question.getId() == Constants.AREA_OF_INTEREST_ID || question.getId() == Constants.DEGREE_ID) { %> 
+                                <%if(question.getId() == Constants.AREA_OF_INTEREST_ID || question.getId() == Constants.DEGREE_ID) { %>
                                 <tr>
                                     <td class="<%=cssClasses[counter % 2]%>" align=right>
                                         <%=question.getText()%>
                                     </td>
                                     <td class="<%=cssClasses[counter++ % 2]%>">
-                                        <pl:demographicInput question="<%=question%>" showmulti="false"/>
+                                        <pl:demographicInput question="<%=question%>"/>
                                     </td>
                                </tr>
                                <%} %>

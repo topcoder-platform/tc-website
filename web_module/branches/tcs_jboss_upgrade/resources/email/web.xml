@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!DOCTYPE web-app PUBLIC 
+<!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
  "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 
 <web-app>
 
- 
+
 <servlet>
   <servlet-name>emailServlet</servlet-name>
   <servlet-class>com.topcoder.web.email.servlet.Controller</servlet-class>
@@ -604,7 +604,7 @@
 
   <init-param>
     <param-name>scheduled_job_choose_command_inputs_add_page</param-name>
-    
+
 <param-value>scheduledjobs/choose-command-inputs-add.jsp</param-value>
     <description>
 
@@ -654,7 +654,7 @@
 
   <init-param>
     <param-name>scheduled_job_choose_command_inputs_edit_page</param-name>
-    
+
 <param-value>scheduledjobs/choose-command-inputs-edit.jsp</param-value>
     <description>
 
@@ -708,12 +708,10 @@
   <url-pattern>emailServlet</url-pattern>
 </servlet-mapping>
 
-<security-constraint>
-  <web-resource-collection>
-    <web-resource-name>email</web-resource-name>
-    <description>all email utility resources</description>
-    <url-pattern>emailServlet</url-pattern>
-    <url-pattern>*.jsp</url-pattern>
-  </web-resource-collection>
-</security-constraint>
+    <taglib>
+        <taglib-uri>email-taglib.tld</taglib-uri>
+        <taglib-location>/WEB-INF/email-taglib.tld</taglib-location>
+    </taglib>
+
+
 </web-app>

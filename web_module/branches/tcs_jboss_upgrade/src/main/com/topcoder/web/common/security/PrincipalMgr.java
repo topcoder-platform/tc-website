@@ -4,6 +4,7 @@ import com.topcoder.security.*;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.web.common.SecurityHelper;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
@@ -288,16 +289,9 @@ public class PrincipalMgr {
     public TCSubject getUserSubject(long userId)
             throws PrincipalMgrException {
         try {
-            PrincipalMgrRemote mgr = home.create();
-            return mgr.getUserSubject(userId);
-
-        } catch (CreateException e) {
-            throw new PrincipalMgrException("Could not obtain PrincipalMgr", e);
-        } catch (GeneralSecurityException e) {
-            throw new PrincipalMgrException("Error performing task", e);
-
-        } catch (RemoteException e) {
-            throw new PrincipalMgrException("System Error", e);
+            return SecurityHelper.getUserSubject(userId);
+        } catch (Exception e) {
+            throw new PrincipalMgrException(e);
         }
     }
 

@@ -58,7 +58,7 @@ public class IteratorTag extends BodyTagSupport {
 
     public int doStartTag() throws JspException {
         index = 0;
-        return elementArray.length > 0 ? EVAL_BODY_TAG : SKIP_BODY;
+        return elementArray.length > 0 ? EVAL_BODY_AGAIN : SKIP_BODY;
     }
 
     public void doInitBody() throws JspException {
@@ -72,7 +72,7 @@ public class IteratorTag extends BodyTagSupport {
         Object element = getElementAt(index++);
         if (element != null) {
             pageContext.setAttribute(getId(), element);
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         } else {
             try {
                 if (bodyContent != null) {

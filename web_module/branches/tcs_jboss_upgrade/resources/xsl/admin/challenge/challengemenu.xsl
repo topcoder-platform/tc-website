@@ -2,9 +2,11 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:import href="../menu.xsl"/>
 <xsl:import href="../top.xsl"/>
-
-
+<!--
 <xsl:import href="challenge_top.xsl"/>
+-->
+
+
 <xsl:preserve-space elements="*"/>
 <xsl:template match="/">
 
@@ -27,65 +29,8 @@
  <tr>
    <td valign="top" align="center">
 
-<form name="frmResults" method="post">
-<xsl:attribute name="action">/admin/contest</xsl:attribute>
-<input type="hidden" name="Task" value=""/>
-<input type="hidden" name="constraintid" value="">
-    <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CONSTRAINTID"/>
-    </xsl:attribute>
-</input>
-<input type="hidden" name="Command" value=""/>
-<input type="hidden" name="results" value="">
-    <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
-    </xsl:attribute>
-</input>
-<input type="hidden" name="filter" value="90"/>
-<input type="hidden" name="remove" value=""/>
-<input type="hidden" name="overturn" value=""/>
-<input type="hidden" name="roundid" value="">
-    <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
-    </xsl:attribute>
-</input>
-<input type="hidden" name="roomid" value="">
-    <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CHALLENGE/Challenge/Contest/RoomId"/>
-    </xsl:attribute>
-</input>
+<!--      <table width="800" cellspacing="0" cellpadding="0" border="0">
 
-
-
-<SCRIPT TYPE="text/Javascript"><![CDATA[
-  function doRemove(id) {
-    document.frmResults.remove.value = id;
-    document.frmResults.Task.value = 'challenge';
-    document.frmResults.Command.value = 'removeChallenge';
-    document.frmResults.submit();
-  }
-  function doOverturn(id) {
-    document.frmResults.overturn.value = id;
-    document.frmResults.Task.value = 'challenge';
-    document.frmResults.Command.value = 'overturnChallenge';
-    document.frmResults.submit();
-  }
-  function doFilter(id) {
-    document.frmResults.filter.value = id;
-    document.frmResults.Task.value = 'challenge';
-    if(document.frmResults.constraintid.value == '1')
-    {
-        document.frmResults.Command.value = 'getChallengeList';
-    } else if(document.frmResults.constraintid.value == '2')  {
-        document.frmResults.Command.value = 'getProblemChallengeList';
-    } else if(document.frmResults.constraintid.value == '3')  {
-        document.frmResults.Command.value = 'getCoderChallengeList';
-    }
-    document.frmResults.submit();
-  }
-]]></SCRIPT>
-
-      <table width="800" cellspacing="0" cellpadding="0" border="0">
         <tr>
           <td><img src="/images/spacer.gif" height="20" width="20" /></td>
         </tr>
@@ -105,7 +50,7 @@
           </td>
         </tr>
 
-      </table>
+      </table>-->
       <table width="800" cellspacing="0" cellpadding="0" border="0">
            <xsl:for-each select="/TC/CHALLENGE/Challenge">
             <tr>
@@ -121,14 +66,14 @@
               </tr>
               <tr>
                 <td>
-                   <a><xsl:attribute name="HREF">JavaScript:doRemove('<xsl:value-of select="ChallengeId"/>')</xsl:attribute>
+                   <a><xsl:attribute name="HREF">/admin?remove=<xsl:value-of select="ChallengeId"/>&amp;Task=challenge&amp;Command=removeChallenge&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;results=<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>&amp;roundid=<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>&amp;roomid=<xsl:value-of select="/TC/CHALLENGE/Challenge/Contest/RoomId"/></xsl:attribute>
                       Nullify
                    </a>
                 </td>
               </tr>
               <tr>
                 <td>
-                   <a><xsl:attribute name="HREF">JavaScript:doOverturn('<xsl:value-of select="ChallengeId"/>')</xsl:attribute>
+                   <a><xsl:attribute name="HREF">/admin?overturn=<xsl:value-of select="ChallengeId"/>&amp;Task=challenge&amp;Command=overturnChallenge&amp;constraintid=<xsl:value-of select="/TC/CONSTRAINTID"/>&amp;results=<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>&amp;roundid=<xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>&amp;roomid=<xsl:value-of select="/TC/CHALLENGE/Challenge/Contest/RoomId"/></xsl:attribute>
                       Overturn
                    </a>
                 </td>
@@ -183,7 +128,6 @@
               </tr>
           </xsl:for-each>
       </table>
-</form>
                 </td>
               </tr>
       </table>

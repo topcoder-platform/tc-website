@@ -5,26 +5,20 @@ import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.admin.XSLConstants;
 import com.topcoder.web.admin.task.Challenge;
 import com.topcoder.web.admin.task.Compilation;
 import com.topcoder.web.admin.task.Home;
 import com.topcoder.web.admin.task.Login;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 
-import javax.naming.Context;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -88,9 +82,30 @@ public final class TC extends HttpServlet {
             // NEED THE TASK TO SEE WHAT THE USER WANTS
             String requestTask = Conversion.checkNull(request.getParameter("Task"));
             String requestCommand = Conversion.checkNull(request.getParameter("Command"));
-            log.info("ADMIN ***** " + requestTask + " ***** " + requestCommand);
+
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
+                    tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
+            TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
+            SessionInfo info = new SessionInfo(tcRequest, authentication, user.getPrincipals());
+
+
+            StringBuffer loginfo = new StringBuffer(100);
+            loginfo.append("[**** ");
+            loginfo.append(info.getHandle());
+            loginfo.append(" **** ");
+            loginfo.append(request.getRemoteAddr());
+            loginfo.append(" **** ");
+            loginfo.append(request.getMethod());
+            loginfo.append(" ");
+            loginfo.append(info.getRequestString());
+            loginfo.append(" ****]");
+            log.info(loginfo);
+
+
             //************************ no task ************************
-            if (isAdmin(request, response)) {
+            if (isAdmin(authentication)) {
                 if (requestTask.equals("")) {
                     if (requestCommand.equals("")) {
                         html = Home.process(request, response, renderer, nav, document);
@@ -223,15 +238,8 @@ public final class TC extends HttpServlet {
     }
 
 
-    private boolean isAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()),
-                HttpObjectFactory.createRequest(request),
-                HttpObjectFactory.createResponse(response),
-                BasicAuthentication.MAIN_SITE);
-        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-        PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-        PrincipalMgrRemote principalMgr = principalMgrHome.create();
-        TCSubject user = principalMgr.getUserSubject(authToken.getActiveUser().getId());
+    private boolean isAdmin(WebAuthentication authToken) throws Exception {
+        TCSubject user = SecurityHelper.getUserSubject(authToken.getActiveUser().getId());
         TCSAuthorization authorization = new TCSAuthorization(user);
         log.debug("groups: " + authorization.getGroups().toString());
         boolean isAdmin = authorization.getGroups().contains("Admin");

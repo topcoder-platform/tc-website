@@ -5,8 +5,8 @@
                  java.util.Map,
                  com.topcoder.web.corp.Constants"
          %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
 %>
@@ -63,7 +63,7 @@
 
             <table border="0" cellspacing="10" cellpadding="0" width="80%">
                  <tr>
-                    <td><div align="center"><p class="button"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" class="button">Add New User</a></p></div></td>
+                    <td><div align="center"><p class="button"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=UserEdit" class="button">Add New User</a></p></div></td>
                 </tr>
             </table>
 
@@ -94,9 +94,9 @@
              <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
                       <% if (sessionInfo.getUserId()==resultRow.getLongItem("user_id")) { %>
-                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                        <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Registration&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
                       <% } else { %>
-                        <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
+                        <A HREF="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A>
                       <% } %>
                     </TD>
                 </tr>
@@ -104,7 +104,7 @@
 
             <table border="0" cellspacing="10" cellpadding="0" width="80%">
                  <tr>
-                    <td><div align="center"><p class="button"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" class="button">Add New User</a></p></div></td>
+                    <td><div align="center"><p class="button"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=UserEdit" class="button">Add New User</a></p></div></td>
                 </tr>
             </table>
 
@@ -120,7 +120,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

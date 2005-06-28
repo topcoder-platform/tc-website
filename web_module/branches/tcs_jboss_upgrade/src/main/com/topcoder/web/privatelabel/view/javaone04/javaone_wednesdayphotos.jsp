@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -59,33 +59,33 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   						<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0"><img src="/i/clear.gif" width="140" height="1"><a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>
   						<p></p>
   						<p class ="regmiddle"><strong><font size="4">Mobility - Wednesday June 30</font></strong></p>
-  						<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_mondayphotos">Monday</a> | <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_tuesdayphotos">Tuesday</a> | Wednesday</p>
-						
-		
-            
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">            
+  						<p class ="regmiddle"><a href="/pl/?module=Static&d1=javaone04&d2=javaone_mondayphotos">Monday</a> | <a href="/pl/?module=Static&d1=javaone04&d2=javaone_tuesdayphotos">Tuesday</a> | Wednesday</p>
+
+
+
+            <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr>
                     <td class="thumbnails" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/events/javaone04/wednesday/image1.jpg');"><img src="/i/events/javaone04/wednesday/image1_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/events/javaone04/wednesday/image2.jpg');"><img src="/i/events/javaone04/wednesday/image2_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/events/javaone04/wednesday/image3.jpg');"><img src="/i/events/javaone04/wednesday/image3_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>                          
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/javaone04/wednesday/image3.jpg');"><img src="/i/events/javaone04/wednesday/image3_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td class="bodyText" align="center"><img src="/i/events/javaone04/wednesday/image1.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
-                </tr>            
-                
+                </tr>
+
                 <tr>
                     <td class="thumbnails" align="center">
                         <a href="Javascript:void changeImage('bigVersion', '/i/events/javaone04/wednesday/image4.jpg');"><img src="/i/events/javaone04/wednesday/image4_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                         <a href="Javascript:void changeImage('bigVersion', '/i/events/javaone04/wednesday/image5.jpg');"><img src="/i/events/javaone04/wednesday/image5_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/events/javaone04/wednesday/image6.jpg');"><img src="/i/events/javaone04/wednesday/image6_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>                       
+                        <a href="Javascript:void changeImage('bigVersion', '/i/events/javaone04/wednesday/image6.jpg');"><img src="/i/events/javaone04/wednesday/image6_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
                     </td>
                 </tr>
             </table>
-					
-					
+
+
 					</td>
 				</tr>
 			</table>

@@ -3,11 +3,7 @@ package com.topcoder.ejb.UserServices;
 import com.topcoder.common.web.data.User;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.ejb.CreateException;
-import javax.ejb.EntityBean;
-import javax.ejb.EntityContext;
-import javax.ejb.FinderException;
-import java.rmi.RemoteException;
+import javax.ejb.*;
 import java.util.Properties;
 
 
@@ -17,22 +13,22 @@ public class UserServicesBean implements EntityBean {
     protected EntityContext ctx;
     protected Properties props;
     protected User user;
-    private static Logger log = Logger.getLogger(UserServicesBean.class);
+    private static final Logger log = Logger.getLogger(UserServicesBean.class);
 
     public UserServicesBean() {
     }
 
 
-    public User getUser() throws RemoteException {
+    public User getUser() {
         return this.user;
     }
 
 
-    public void setUser(User user) throws RemoteException {
+    public void setUser(User user) {
         try {
             this.user = user;
         } catch (Exception ex) {
-            throw new RemoteException("ejb.User.UserServicesBean:setUser:failed:\n", ex);
+            throw new EJBException(ex);
         }
     }
 
@@ -45,13 +41,13 @@ public class UserServicesBean implements EntityBean {
     //
 
 
-    private void activate(User user) throws RemoteException {
+    private void activate(User user) {
         user.setStatus("A");
         setUser(user);
     }
 
 
-    private void inactivate(User user) throws RemoteException {
+    private void inactivate(User user) {
         log.debug("ejb.User.UserServicesBean:inactivate(User) called...\n");
         user.setStatus("I");
         setUser(user);
@@ -70,7 +66,7 @@ public class UserServicesBean implements EntityBean {
      * This process is called activation, and it indicates that the container is associating the bean
      * with a specific EJB object and a specific primary key.
      */
-    public void ejbActivate() throws RemoteException {
+    public void ejbActivate() {
     }
 
 
@@ -78,20 +74,20 @@ public class UserServicesBean implements EntityBean {
      *  The passivate method is called by the container.  It releases held resources
      *  for in order to disassociate the bean from a specific EJB object and a specific primary key.
      */
-    public void ejbPassivate() throws RemoteException {
+    public void ejbPassivate() {
     }
 
 
     /**
      *   Sets coder to inactive based on a status flag.
      */
-    public void ejbRemove() throws RemoteException {
-        Integer pk = new Integer(0);
+    public void ejbRemove() {
+        Long pk = new Long(0);
         try {
-            pk = (Integer) ctx.getPrimaryKey();
+            pk = (Long) ctx.getPrimaryKey();
             UserDb.inactivateUser(pk.intValue());
         } catch (Exception ex) {
-            throw new RemoteException("ejb.User.UserServicesBean:ejbRemove:" + pk.intValue() + ":failed:\n", ex);
+            throw new EJBException(ex);
         }
     }
 
@@ -100,16 +96,16 @@ public class UserServicesBean implements EntityBean {
      *  The ejbLoad method is called by the container.  It updates the in-memory entity
      *  bean object to reflect the current value stored in the database.
      */
-    public void ejbLoad() throws RemoteException {
+    public void ejbLoad() {
         try {
             log.debug("UserServicesBean.ejbLoad called...");
-            Integer pk = (Integer) ctx.getPrimaryKey();
+            Long pk = (Long) ctx.getPrimaryKey();
             User newUser = new User();
-            newUser.setUserId(pk.intValue());
+            newUser.setUserId(pk.longValue());
             UserDb.loadUser(newUser);
             setUser(newUser);
         } catch (Exception ex) {
-            throw new RemoteException("ejb.User.UserServicesBean:ejbLoad:failed:\n", ex);
+            throw new EJBException(ex);
         }
     }
 
@@ -118,12 +114,12 @@ public class UserServicesBean implements EntityBean {
      *  Called from the Container.  Updates the database to reflect the current values of this
      *  in-memory entity bean instance.
      */
-    public void ejbStore() throws RemoteException {
+    public void ejbStore() {
         try {
             log.debug("UserServicesBean.ejbStore called...");
             UserDb.updateUser(this.user);
         } catch (Exception ex) {
-            throw new RemoteException("ejb.User.UserServicesBean:ejbStore:failed:\n", ex);
+            throw new EJBException(ex);
         }
     }
 
@@ -131,7 +127,7 @@ public class UserServicesBean implements EntityBean {
     /**
      *  The setEntityContext method associates this bean instance with a particular context.
      */
-    public void setEntityContext(EntityContext ctx) throws RemoteException {
+    public void setEntityContext(EntityContext ctx) {
         this.ctx = ctx;
     }
 
@@ -140,7 +136,7 @@ public class UserServicesBean implements EntityBean {
      *  The unsetEntityContext method disassociates this bean instance with a particular
      *  context environment.
      */
-    public void unsetEntityContext() throws RemoteException {
+    public void unsetEntityContext() {
         this.ctx = null;
     }
 
@@ -149,29 +145,29 @@ public class UserServicesBean implements EntityBean {
      *  Called after ejbCreate().  Now, the Bean can retrieve its EJB Object from its
      *  context, and pass it as a 'this' argument.
      */
-    public void ejbPostCreate(User user) throws RemoteException {
+    public void ejbPostCreate(User user) {
     }
 
 
-    public Integer ejbCreate(User newUser) throws CreateException, RemoteException {
-        Integer result = null;
+    public Long ejbCreate(User newUser) throws CreateException {
+        Long result = null;
         try {
             UserDb.insertUser(newUser);
             setUser(newUser);
-            result = new Integer(newUser.getUserId());
+            result = new Long(newUser.getUserId());
         } catch (Exception ex) {
-            throw new CreateException("ejb.User.UserServicesBean:ejbCreate():failed:\n" + ex);
+            throw new CreateException("ejbCreate():failed:\n" + ex);
         }
         return result;
     }
 
 
-    public Integer ejbFindByPrimaryKey(Integer key) throws FinderException, RemoteException {
+    public Long ejbFindByPrimaryKey(Long key) throws FinderException {
         try {
             UserDb.getExistingUserId(key);
         } catch (Exception ex) {
             ex.printStackTrace();
-            throw new FinderException("ejb.User.UserServicesBean:ejbFindByPrimaryKey:" + key.intValue() + ":failed:\n" + ex);
+            throw new FinderException("ejbFindByPrimaryKey:" + key + ":failed:\n" + ex);
         }
         return key;
     }

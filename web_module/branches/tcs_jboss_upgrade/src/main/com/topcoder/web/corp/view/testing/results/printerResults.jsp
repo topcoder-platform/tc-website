@@ -17,10 +17,10 @@
 
 </head>
 
-<jsp:useBean id="testSessionInfo" class="com.topcoder.web.corp.model.TestSessionInfo" />
-<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" />
-<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" />
-<jsp:useBean id="testResultsInfo" class="com.topcoder.web.corp.model.TestResultsInfo" />
+<jsp:useBean id="testSessionInfo" class="com.topcoder.web.corp.model.TestSessionInfo" scope="request" />
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" scope="request"/>
+<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" scope="request"/>
+<jsp:useBean id="testResultsInfo" class="com.topcoder.web.corp.model.TestResultsInfo" scope="request"/>
 
 <body>
 
@@ -356,6 +356,9 @@ if ( plugin ) {
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/></td>
+<%--
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" styleClass="bodyText"/></td>
+--%>
                   </tr>
                   <tr><td><br/></td></tr>
                   </table>
@@ -381,6 +384,9 @@ if ( plugin ) {
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="<%=JavaLanguage.JAVA_LANGUAGE%>" class="bodyText"/></td>
+<%--
+		            <td class="screeningCellOdd"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" styleClass="bodyText"/></td>
+--%>
                   </tr>
                   <tr><td><br/></td></tr>
                   </table>
@@ -411,7 +417,7 @@ if ( plugin ) {
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

@@ -22,7 +22,6 @@ import java.util.Set;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import javax.ejb.EJBObject;
-
 /**
  *
  *

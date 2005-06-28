@@ -12,17 +12,6 @@
       <xsl:call-template name="Menu"/>
 
 
-<SCRIPT TYPE="text/Javascript"><![CDATA[
- function doSubmit(roomid) {
-    document.frmResults.Task.value    = 'challenge';
-    document.frmResults.Command.value = 'getChallengeList';
-    document.frmResults.roomid.value = roomid;
-    document.frmResults.filter.value = 90;
-    document.frmResults.submit();
-  }
-]]></SCRIPT>
-
-
 <TABLE width="100%" cellpadding="0" cellspacing="0" border="0" >
   <tr>
     <td valign="center" align="center">
@@ -46,8 +35,7 @@
                 </td>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">JavaScript:doSubmit('<xsl:value-of select="RoomId"/>')
-                      </xsl:attribute>
+                      <xsl:attribute name="HREF">/admin?Task=challenge&amp;Command=getChallengeList&amp;roomid=<xsl:value-of select="RoomId"/>&amp;roundid=<xsl:value-of select="RoundId"/></xsl:attribute>
                       <xsl:value-of select="RoomId"/>
                     </A>
                 </td>
@@ -60,26 +48,6 @@
     </td>
   </tr>
 </TABLE>
-
-<FORM NAME="frmResults" METHOD="POST">
-<xsl:attribute name="ACTION">/admin/contest</xsl:attribute>
-<INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
-<input type="hidden" name="constraintid" value="">
-    <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CONSTRAINTID"/>
-    </xsl:attribute>
-</input>
-<INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
-<INPUT TYPE="HIDDEN" NAME="roomid" VALUE=""/>
-<INPUT TYPE="HIDDEN" NAME="roundid">
-  <xsl:attribute name="VALUE">
-      <xsl:value-of select="/TC/CHALLENGE/Contest/RoundId"/>
-  </xsl:attribute>
-</INPUT>
-<INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
-</FORM>
-
-
 </body>
 
 </html>

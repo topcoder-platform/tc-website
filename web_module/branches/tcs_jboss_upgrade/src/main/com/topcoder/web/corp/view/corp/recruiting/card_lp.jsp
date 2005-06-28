@@ -56,7 +56,7 @@ if ( plugin ) {
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="recruiting"/>
-                <jsp:param name="level2" value=""/> 
+                <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -70,11 +70,11 @@ if ( plugin ) {
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_topcoder_recruiting.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
-                        
+
                         <h2>TopCoder Cards</h2>
 
 <div align="center">
@@ -130,9 +130,9 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="recruiting"/>
-                        <jsp:param name="level2" value="overview"/> 
+                        <jsp:param name="level2" value="overview"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
@@ -144,7 +144,7 @@ document.write('<img src="/i/card/noFlash.gif" width="400" height="410" border="
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

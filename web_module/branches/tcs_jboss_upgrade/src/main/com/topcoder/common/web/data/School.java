@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class School
         implements Serializable, TagRenderer, Comparable, Cloneable, Modifiable {
 
-    private int userId;
+    private long userId;
     private int schoolId;
     private String name;
     private String sortLetter;
@@ -148,7 +148,7 @@ public class School
         this.modified = modified;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -194,7 +194,7 @@ public class School
         return modified;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 

@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -38,11 +38,11 @@
   						<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0"><img src="/i/clear.gif" width="140" height="1"><a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>
   						<p></p>
   						<p class ="regmiddle"><strong><font size="4">Prizes</font></strong></p>
-						<p class ="regmiddle">From each day's Qualification Round, the top four Qualifiers will be invited back in the evening to compete 
-						in a <br/>one-hour head-to-head competition for these exciting grand prizes. In addition, the first 1000 participants 
+						<p class ="regmiddle">From each day's Qualification Round, the top four Qualifiers will be invited back in the evening to compete
+						in a <br/>one-hour head-to-head competition for these exciting grand prizes. In addition, the first 1000 participants
 						receive a JavaOne Coding Challenge t-shirt and messenger bag.</p>
 
-						
+
 			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="30%" class="sidebarTitle">Participant(s)</td>
@@ -54,7 +54,7 @@
                     <td width="70%" class="sidebarText">
                     <ul>
                     <li>One complimentary full Conference pass to the 2005 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
-                    <li>A collection of 23 <A href="Javascript:openWin('/pl/?&module=Static&d1=javaone04&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
+                    <li>A collection of 23 <A href="Javascript:openWin('/pl/?module=Static&d1=javaone04&d2=book_titles','comp',685,655);">Java Series Publications</a>, valued at over $950** </li>
                     <li>One Zodiac Mobile Entertainment console and package from TapWave, valued at $625</li>
                     </ul>
                     </td>
@@ -84,11 +84,11 @@
                     *One Grand Prize and one 1st, 2nd, and 3rd Runner-Up prize awarded daily<br/>
                     **Titles subject to change based on availability
                     </td>
-                    
+
                 </tr>
             </table>
-					
-					
+
+
 					</td>
 				</tr>
 			</table>

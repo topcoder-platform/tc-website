@@ -52,7 +52,7 @@
     <property name="userdir" value="${packagedir}/user" />
     <property name="emailenginedir" value="com/topcoder/message/email" />
     <property name="debug" value="on" />
-    <property name="verbose" value="yes" />
+    <property name="verbose" value="no" />
 
     <property name="libname" value="${distfilename}" />
 
@@ -420,9 +420,7 @@
 
 
     <target name="build-or" depends="">
-         <exec executable="ant" dir=".">
-            <arg line="-f build_or.xml dist"/>
-         </exec>
+        <ant antfile="build_or.xml" target="dist"/>
      </target>
 
      <target name="deploy-expanded" depends="build-or,dist">

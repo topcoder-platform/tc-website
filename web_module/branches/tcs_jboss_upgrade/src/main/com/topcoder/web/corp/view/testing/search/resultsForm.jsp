@@ -5,7 +5,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-<jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
+<jsp:useBean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
 
 <SCRIPT TYPE="text/javascript">
 function getProblemDetail(id) {
