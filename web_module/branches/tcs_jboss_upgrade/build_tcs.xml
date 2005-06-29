@@ -174,9 +174,9 @@
             <metainf dir="${java.dir}/com/topcoder/dde/forum" includes="*.xml"/>
         </jar>
 
-        <jar jarfile="${ejb.jars.dir}/DDEPersistanceLayer.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/persistancelayer/**"/>
-            <metainf dir="${java.dir}/com/topcoder/dde/persistancelayer" includes="*.xml"/>
+        <jar jarfile="${ejb.jars.dir}/DDEPersistenceLayer.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/persistencelayer/**"/>
+            <metainf dir="${java.dir}/com/topcoder/dde/persistencelayer" includes="*.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/notification.jar">
