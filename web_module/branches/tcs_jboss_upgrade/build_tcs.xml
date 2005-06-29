@@ -157,12 +157,65 @@
         </war>
     </target>
 
-    <target name="deploy" depends="war-dde,war-or">
+    <target name="build-ejbs" depends="compile">
+
+        <jar jarfile="${ejb.jars.dir}/admin.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/admin/**"/>
+            <metainf dir="${src.dir}/com/topcoder/dde/admin" includes="*.xml"/>
+        </jar>
+
+        <jar jarfile="${ejb.jars.dir}/catalog.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/catalog/**"/>
+            <metainf dir="${src.dir}/com/topcoder/dde/catalog" includes="*.xml"/>
+        </jar>
+
+        <jar jarfile="${ejb.jars.dir}/ddeforum.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/forum/**"/>
+            <metainf dir="${src.dir}/com/topcoder/dde/forum" includes="*.xml"/>
+        </jar>
+
+        <jar jarfile="${ejb.jars.dir}/DDEPersistanceLayer.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/persistancelayer/**"/>
+            <metainf dir="${src.dir}/com/topcoder/dde/persistancelayer" includes="*.xml"/>
+        </jar>
+
+        <jar jarfile="${ejb.jars.dir}/notification.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**"/>
+            <metainf dir="${src.dir}/com/topcoder/dde/notification" includes="*.xml"/>
+        </jar>
+
+        <jar jarfile="${ejb.jars.dir}/submission.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/submission/**"/>
+            <metainf dir="${src.dir}/com/topcoder/dde/submission" includes="*.xml"/>
+        </jar>
+
+        <jar jarfile="${ejb.jars.dir}/user.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/TCException.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/DDEException.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/Constants.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/ConstantsInt.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/user/**"/>
+            <metainf dir="${src.dir}/com/topcoder/dde/user" includes="*.xml"/>
+        </jar>
+
+    </target>
+
+    <target name="deploy" depends="war-dde,war-or,build-ejbs">
+        <!-- expode wars to deployment directory -->
         <unwar src="${war.dir}/dde.war" dest="${jboss.deploy.dir}/dde.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.war/META-INF"/>
 
         <unwar src="${war.dir}/or.war" dest="${jboss.deploy.dir}/or.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/or.war/META-INF"/>
+
+        <!-- copy ejbs to deploy directory -->
+        <copy todir="${jboss.deploy.dir}">
+            <fileset dir="${ejb.jars.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+
+
     </target>
 
 </project>
