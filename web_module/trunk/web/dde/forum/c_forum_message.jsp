@@ -219,7 +219,7 @@
             Post parent = (Post)postMap.get(new Long(post.getParentPostId()));
             if (parent != null) {
 %>
-                        <p><strong>In reponse to message posted on <%=dateFormat.format(parent.getCreateTime())%> EST by <%=parent.getUsername()%></strong></p>
+                        <p><strong>In response to message posted on <%=dateFormat.format(parent.getCreateTime())%> EST by <%=parent.getUsername()%></strong></p>
 <%          }
         }
 %>

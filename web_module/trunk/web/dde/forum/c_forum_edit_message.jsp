@@ -499,7 +499,7 @@ function textLimit(field, maxlen) {
                             <tr valign="top">
                                 <td class="forumText">
                                     <p><strong>Original</strong></p>
-                                    <p><strong>In reponse to message posted on <%=dateFormat.format(reply.getCreateTime())%> EST by <%=reply.getUsername()%></strong></p>
+                                    <p><strong>In response to message posted on <%=dateFormat.format(reply.getCreateTime())%> EST by <%=reply.getUsername()%></strong></p>
                                     <p><%=textToHtml(reply.getText())%></p>
                                     &nbsp;</td>
                             </tr>
