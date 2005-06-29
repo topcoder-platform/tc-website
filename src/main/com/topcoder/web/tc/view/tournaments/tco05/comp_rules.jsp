@@ -68,7 +68,7 @@ Scoring in the CDDC is determined based on the placement for each submission. Pl
       2nd Place - 7 Points<br />
       3rd Place - 5 points<br />
       4th Place - 4 Points<br />
-      5th Place - 0 Points
+      5th Place (and lower) - 0 Points
       </td>
    </tr>
 </table>
@@ -149,6 +149,7 @@ In the event of a tie of cumulative placement score among the advancers to the C
 <li>Highest cumulative component score of the lesser number of components used to develop the cumulative placement score for the tied competitors.</li>
 <li>If a tie still remains, then the highest individual component score of the lesser number of components used to develop the cumulative placement score for the tied competitors.</li>
 <li>If a tie still remains, then all tied contestants will advance to the online Championship round.</li>
+<li>Components where the competitor earned 0 points will not be counted towards tiebreaker scores.</li>
 </ol>
 
 <strong>Example:</strong><br>
