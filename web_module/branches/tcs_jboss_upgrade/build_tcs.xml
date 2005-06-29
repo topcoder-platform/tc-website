@@ -211,7 +211,7 @@
         <!-- copy ejbs to deploy directory -->
         <copy todir="${jboss.deploy.dir}">
             <fileset dir="${ejb.jars.dir}">
-                <include name="user.jar"/>
+                <include name="*.jar"/>
             </fileset>
         </copy>
 
