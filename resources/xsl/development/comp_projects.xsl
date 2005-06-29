@@ -410,6 +410,7 @@
 <!-- TCO05 DEV END -->
 
 <!-- Open Component Development Projects begins -->
+<!--
             <br/>
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
@@ -507,6 +508,8 @@
                     </xsl:if>
                 </xsl:for-each>
             </table>
+-->
+<!-- Open Component Development Projects ends -->
 
             <br/>
 
@@ -515,7 +518,7 @@
             <p>** Only rated members may register for this component</p>
 
             <p><br/></p>
-<!-- Open Component Development Projects ends -->
+
         </td>
 <!-- Center Column Ends -->
 
