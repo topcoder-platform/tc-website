@@ -91,37 +91,37 @@ Both the design and development competitions will have five (5) weeks of online 
    <tr valign="top">
       <td class="sidebarText">Week 1</td>
       <td class="sidebarText">06.29.2005 9:00AM</td>
-      <td class="sidebarText" align="center">24 Hours</td>
+      <td class="sidebarText" align="center">72 Hours</td>
       <td class="sidebarText">07.06.2005 9:00AM</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 2</td>
       <td class="sidebarText">07.06.2005 9:00AM</td>
-      <td class="sidebarText" align="center">24 Hours</td>
+      <td class="sidebarText" align="center">72 Hours</td>
       <td class="sidebarText">07.13.2005 9:00AM</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 3</td>
       <td class="sidebarText">07.13.2005 9:00AM</td>
-      <td class="sidebarText" align="center">24 Hours</td>
+      <td class="sidebarText" align="center">72 Hours</td>
       <td class="sidebarText">07.20.2005 9:00AM</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 4</td>
       <td class="sidebarText">07.20.2005 9:00AM</td>
-      <td class="sidebarText" align="center">24 Hours</td>
+      <td class="sidebarText" align="center">72 Hours</td>
       <td class="sidebarText">07.27.2005 9:00AM</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Week 5</td>
       <td class="sidebarText">07.27.2005 9:00AM</td>
-      <td class="sidebarText" align="center">24 Hours</td>
+      <td class="sidebarText" align="center">72 Hours</td>
       <td class="sidebarText">08.03.2005 9:00AM</td>
    </tr>
    <tr valign="top">
       <td class="sidebarText">Championship Round (online portion)</td>
       <td class="sidebarText">08.24.2005 9:00AM</td>
-      <td class="sidebarText" align="center">24 Hours</td>
+      <td class="sidebarText" align="center">72 Hours</td>
       <td class="sidebarText">08.31.2005 9:00AM</td>
    </tr>
    <tr valign="top">
