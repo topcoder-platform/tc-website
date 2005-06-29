@@ -222,7 +222,7 @@
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
-                    <xsl:if test="./phase_id=$design-phase and ./status_id!=303 and ./in_tco!=0">
+                    <xsl:if test="./phase_id=$design-phase and ./in_tco!=0">
                         <xsl:variable name="initial_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
                         </xsl:variable>
@@ -428,7 +428,7 @@
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
-                    <xsl:if test="./phase_id=$dev-phase and ./status_id!=303 and ./in_tco!=0">
+                    <xsl:if test="./phase_id=$dev-phase and ./in_tco!=0">
                         <xsl:variable name="initial_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
                         </xsl:variable>
