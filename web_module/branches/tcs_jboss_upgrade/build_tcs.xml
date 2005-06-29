@@ -21,10 +21,10 @@
     <property name="struts.lib.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
 
 
-    <property name="jboss.home.dir" value="../jboss-4.0.2"/>
-    <property name="jboss.deploy.dir" value="${jboss_home}/server/default/deploy"/>
-    <property name="jboss.lib.dir" value="${jboss_home}/server/default/lib"/>
-    <property name="jboss.conf.dir" value="${jboss_home}/server/default/conf"/>
+    <property name="jboss.home.dir" value="${env.JBOSS_HOME}"/>
+    <property name="jboss.deploy.dir" value="${jboss.home.dir}/server/default/deploy"/>
+    <property name="jboss.lib.dir" value="${jboss.home.dir}/server/default/lib"/>
+    <property name="jboss.conf.dir" value="${jboss.home.dir}/server/default/conf"/>
 
     <property name="deprecation" value="false"/>
     <property name="debug" value="true"/>
