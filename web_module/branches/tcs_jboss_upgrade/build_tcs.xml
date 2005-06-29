@@ -215,6 +215,12 @@
             </fileset>
         </copy>
 
+        <copy todir="${jboss.deploy.dir}">
+            <fileset dir="${jars.dir}">
+                <include name="idgenerator.jar"/>
+            </fileset>
+        </copy>
+
 
     </target>
 
