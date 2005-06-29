@@ -30,9 +30,6 @@
     <property name="debug" value="true"/>
 
     <path id="class.path">
-<!--
-        <pathelement location="${classes}"/>
--->
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
         <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
