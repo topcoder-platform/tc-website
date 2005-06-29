@@ -39,7 +39,18 @@
     font-size: 130%;
     font-weight: bold;
     }
-
+.tco05Title{
+    background-color: #FFEA53;	
+	color: #000000;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	white-space: nowrap;
+}
 </style>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
@@ -178,8 +189,36 @@
             </table>
 <!-- Open Component Design Projects ends -->
 
+<!-- TCO05 DESIGN-->
             <br/>
-
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+                <tr>
+                    <td class="tco05Title" colspan="9">TCO05 Component Design Projects</td>
+                </tr>
+                <tr valign="middle">
+                    <td class="projectHeaders" align="center">Catalog</td>
+                    <td width="15%" class="projectHeaders">Project</td>
+                    <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
+                    <td class="projectHeaders" align="center">Registration Ends</td>
+                    <td class="projectHeaders" align="center">Submissions</td>
+                    <td class="projectHeaders" align="center">Payment *</td>
+                    <td class="projectHeaders" align="center">Complexity</td>
+                    <td class="projectHeaders" align="center">Submit by</td>
+                    <td class="projectHeaders" align="center">Details</td>
+                </tr>
+               <tr valign="top">
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+               </tr>
+            </table>
+            <br/>
 <!-- Open Component Development Projects begins -->
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
@@ -279,6 +318,37 @@
                 </xsl:for-each>
             </table>
 
+<!-- TCO05 DEVELOPMENT
+            <br/>
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+                <tr>
+                    <td class="tco05Title" colspan="9">TCO05 Component Development Projects</td>
+                </tr>
+                <tr valign="middle">
+                    <td class="projectHeaders" align="center">Catalog</td>
+                    <td width="15%" class="projectHeaders">Project</td>
+                    <td class="projectHeaders" align="center">Registrants<br/>Rated/Unrated</td>
+                    <td class="projectHeaders" align="center">Registration Ends</td>
+                    <td class="projectHeaders" align="center">Submissions</td>
+                    <td class="projectHeaders" align="center">Payment *</td>
+                    <td class="projectHeaders" align="center">Complexity</td>
+                    <td class="projectHeaders" align="center">Submit by</td>
+                    <td class="projectHeaders" align="center">Details</td>
+                </tr>
+               <tr valign="top">
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+                   <td class="projectCells" align="center"></td>
+               </tr>
+            </table>
+            <br/>
+-->
             <p>* And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!  Please note
             that custom components do not get added to the catalog and therefore do not have royalties.</p>
             <p>** Only rated members may register for this component</p>
