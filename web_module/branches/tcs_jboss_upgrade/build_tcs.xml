@@ -1,6 +1,10 @@
 <project name="topcoder_software" default="compile" basedir=".">
 
 <!--
+    ***********************************************************************************
+    This build file is for building and deploying the topcoder software website.  It
+    is not for executing tests or running utilities etc.
+    ***********************************************************************************
     build ejbs
     deploy (this deploys or and dde expanded, as well as copying over the ejbs and libs)
 -->
