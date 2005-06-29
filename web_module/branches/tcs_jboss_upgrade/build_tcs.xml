@@ -19,7 +19,7 @@
     <property name="web.dir" value="web"/>
     <property name="src.dir" value="src"/>
     <property name="bin.dir" value="${lib.dir}/bin"/>
-    <property name="java" value="${src.dir}/main"/>
+    <property name="java.dir" value="${src.dir}/main"/>
     <property name="shared.src.dir" value="../shared/src/main"/>
     <property name="shared.jar" value="${bin.dir}/shared.jar"/>
     <property name="struts.lib.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
@@ -161,32 +161,32 @@
 
         <jar jarfile="${ejb.jars.dir}/admin.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/admin/**"/>
-            <metainf dir="${src.dir}/com/topcoder/dde/admin" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/dde/admin" includes="*.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/catalog.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/catalog/**"/>
-            <metainf dir="${src.dir}/com/topcoder/dde/catalog" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/dde/catalog" includes="*.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/ddeforum.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/forum/**"/>
-            <metainf dir="${src.dir}/com/topcoder/dde/forum" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/dde/forum" includes="*.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/DDEPersistanceLayer.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/persistancelayer/**"/>
-            <metainf dir="${src.dir}/com/topcoder/dde/persistancelayer" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/dde/persistancelayer" includes="*.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/notification.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**"/>
-            <metainf dir="${src.dir}/com/topcoder/dde/notification" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/dde/notification" includes="*.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/submission.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/submission/**"/>
-            <metainf dir="${src.dir}/com/topcoder/dde/submission" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/dde/submission" includes="*.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/user.jar">
@@ -195,7 +195,7 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/Constants.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/ConstantsInt.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/user/**"/>
-            <metainf dir="${src.dir}/com/topcoder/dde/user" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/dde/user" includes="*.xml"/>
         </jar>
 
     </target>
