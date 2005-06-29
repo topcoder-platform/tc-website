@@ -113,7 +113,7 @@
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
-                    <xsl:if test="./phase_id=$design-phase and ./status_id!=303">
+                    <xsl:if test="./phase_id=$design-phase and ./status_id!=303 and ./in_tco=0">
                         <xsl:variable name="initial_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
                         </xsl:variable>
@@ -217,6 +217,84 @@
                    <td class="projectCells" align="center"></td>
                    <td class="projectCells" align="center"></td>
                </tr>
+               
+               <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                <xsl:variable name="design-phase" select="'112'" />
+                <xsl:variable name="dev-phase" select="'113'" />
+                <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
+                    <xsl:if test="./phase_id=$design-phase and ./status_id!=303 and ./in_tco!=0">
+                        <xsl:variable name="initial_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="posting_date">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="winner_announced">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="final_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="estimated_dev">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
+                        </xsl:variable>
+			<xsl:variable name="reg_end">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template> 9:00 AM ET
+                        </xsl:variable>
+                        <tr valign="top">
+                            <td class="projectCells" align="center">
+                            <xsl:choose>
+                                <xsl:when test="./catalog_name = 'Java' ">
+                                   <img src="/i/development/smJava.gif"/>
+                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Java Custom' ">
+                                   <img src="/i/development/smJavaCustom.gif"/>
+                                </xsl:when>
+                                 <xsl:when test="./catalog_name = '.NET' ">
+                                    <img src="/i/development/netSm.gif"/>
+                                 </xsl:when>
+                                 <xsl:when test="./catalog_name = '.NET Custom' ">
+                                    <img src="/i/development/smNetCustom.gif"/>
+                                 </xsl:when>
+                                 <xsl:when test="./catalog_name = 'Flash' ">
+                                    <img src="/i/development/flashSm.gif"/>
+                                 </xsl:when>
+                                <xsl:otherwise>
+                                   <xsl:value-of select="./catalog_name"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
+                            <td class="projectCells">
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj=',./project_id)"/>
+                                    </xsl:attribute><xsl:value-of select="./component_name"/>
+                                    <xsl:if test="number(./version) &gt;  number('1')">
+                                        Version&#160;<xsl:value-of select="./version_text"/>
+                                    </xsl:if>
+                                </a>
+                                <xsl:if test="./max_unrated_registrants = 0">
+                                        **
+                                </xsl:if>
+                            </td>
+                            <td class="projectCells" align="center">
+                                        <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
+                            </td>
+                            <td class="projectCells" align="center">
+                                <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template> 9:00 AM ET
+                            </td>
+                            <td class="projectCells" align="center">
+                               <xsl:value-of select="./total_submissions"/>
+                            </td>
+                            <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                    <td class="projectCells" align="center">
+                             <xsl:if test="number(./total_inquiries)>0"><A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A></xsl:if>
+                    </td>
+                        </tr>
+                    </xsl:if>
+                </xsl:for-each>
             </table>
             <br/>
 <!-- Open Component Development Projects begins -->
@@ -242,7 +320,7 @@
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
-                    <xsl:if test="./phase_id=$dev-phase and ./status_id!=303">
+                    <xsl:if test="./phase_id=$dev-phase and ./status_id!=303 and ./in_tco=0">
                         <xsl:variable name="initial_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
                         </xsl:variable>
@@ -318,7 +396,6 @@
                 </xsl:for-each>
             </table>
 
-<!-- TCO05 DEVELOPMENT
             <br/>
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
@@ -346,9 +423,88 @@
                    <td class="projectCells" align="center"></td>
                    <td class="projectCells" align="center"></td>
                </tr>
+               
+               <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                <xsl:variable name="design-phase" select="'112'" />
+                <xsl:variable name="dev-phase" select="'113'" />
+                <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
+                    <xsl:if test="./phase_id=$dev-phase and ./status_id!=303 and ./in_tco!=0">
+                        <xsl:variable name="initial_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="posting_date">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="winner_announced">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced_date"/></xsl:call-template>
+                        </xsl:variable>
+                        <xsl:variable name="final_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
+                        </xsl:variable>
+			<xsl:variable name="reg_end">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template> 9:00 AM ET
+
+                        </xsl:variable>
+                        <tr valign="top">
+                            <td class="projectCells" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./catalog_name = 'Java' ">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:when test="./catalog_name = 'Java Custom' ">
+                                  <img src="/i/development/smJavaCustom.gif"/>
+                               </xsl:when>
+                                <xsl:when test="./catalog_name = '.NET' ">
+                                   <img src="/i/development/netSm.gif"/>
+                                </xsl:when>
+                                <xsl:when test="./catalog_name = '.NET Custom' ">
+                                   <img src="/i/development/smNetCustom.gif"/>
+                                </xsl:when>
+                                <xsl:when test="./catalog_name = 'Flash' ">
+                                   <img src="/i/development/flashSm.gif"/>
+                                </xsl:when>
+                               <xsl:otherwise>
+                                  <xsl:value-of select="./catalog_name"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
+                            <td class="projectCells">
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="concat('/tc?module=ProjectDetail&amp;pj=',./project_id)"/>
+                                    </xsl:attribute><xsl:value-of select="./component_name"/>
+                                    <xsl:if test="number(./version) &gt;  number('1')">
+                                        Version&#160;<xsl:value-of select="./version_text"/>
+                                    </xsl:if>
+                                </a>
+                                <xsl:if test="./max_unrated_registrants = 0">
+                                        **
+                                </xsl:if>
+
+                            </td>
+                            <td class="projectCells" align="center">
+                                        <xsl:value-of select="./total_rated_inquiries"/>/<xsl:value-of select="./total_unrated_inquiries"/>
+                            </td>
+                            <td class="projectCells" align="center">
+                                <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="reg_end_date"/></xsl:call-template>  9:00 AM ET
+
+                            </td>
+                            <td class="projectCells" align="center">
+                               <xsl:value-of select="./total_submissions"/>
+                            </td>
+                            <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                            <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
+                            <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+
+                    <td class="projectCells" align="center">
+                             <xsl:if test="number(./total_inquiries)>0"><A><xsl:attribute name="href"><xsl:value-of select="concat('?t=development&amp;c=multiplier_status&amp;pj=', ./project_id)"/></xsl:attribute>details</A></xsl:if>
+                    </td>
+                        </tr>
+                    </xsl:if>
+                </xsl:for-each>
             </table>
             <br/>
--->
+
             <p>* And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!  Please note
             that custom components do not get added to the catalog and therefore do not have royalties.</p>
             <p>** Only rated members may register for this component</p>
