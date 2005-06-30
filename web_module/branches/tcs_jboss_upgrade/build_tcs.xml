@@ -264,6 +264,7 @@
             <fileset dir="${jars.dir}">
                 <include name="security.jar"/>
                 <include name="upload.jar"/>
+                <include name="ifxjdbc.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
