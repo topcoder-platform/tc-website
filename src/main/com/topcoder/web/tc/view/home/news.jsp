@@ -8,6 +8,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.30.05<br>9:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm249_prob">SRM 249 - Problem Set & Analysis</A></span><br><br>
+      An amazingly difficult Division 1 Easy/Division 2 Hard gave this SRM an unusual flavor. Less than one-third of Div 1 received credit for the problem.  Not a single Div 2 submission passed system tests.</td>
+      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm249_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>06.27.05<br>5:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">New Sample Design Review Scorecard now available</A></span><br><br>
       The Sample Design Review Scorecard has been updated.
@@ -224,17 +239,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.07.05<br>10:50 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=pr_060705">Caliper Hires TCS to Enhance Platform & Services</A></span><br><br>
-      "Leading Personality Assessment Firm Employs TopCoder's Reusable Component-Based Methodology to Support IT Functions Across the Enterprise."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=news&d2=pr_060705">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
 
 </table>
 <br><br>
