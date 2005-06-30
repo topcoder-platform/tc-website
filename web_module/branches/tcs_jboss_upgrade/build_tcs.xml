@@ -118,7 +118,7 @@
     </target>
 
     <target name="war-or" depends="compile">
-        <war warfile="${war.dir}/or.war" webxml="${resources.dir}/or/web.xml">
+        <war warfile="${war.dir}/review.war" webxml="${resources.dir}/or/web.xml">
             <fileset dir="${web.dir}/online_review"/>
             <classes dir="${classes.dir}">
                 <include name="com/topcoder/apps/review/cacherefresher/**/*"/>
@@ -300,8 +300,8 @@
         <unwar src="${war.dir}/dde.war" dest="${jboss.deploy.dir}/dde.ear/dde.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.ear/dde.war/META-INF"/>
 
-        <unwar src="${war.dir}/or.war" dest="${jboss.deploy.dir}/dde.ear/or.war/" overwrite="yes"/>
-        <delete dir="${jboss.deploy.dir}/dde.ear/or.war/META-INF"/>
+        <unwar src="${war.dir}/review.war" dest="${jboss.deploy.dir}/dde.ear/review.war/" overwrite="yes"/>
+        <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
 
     </target>
 
