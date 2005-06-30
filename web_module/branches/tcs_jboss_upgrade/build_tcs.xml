@@ -237,7 +237,7 @@
             <fileset dir="${conf.dir}">
                 <include name="com/topcoder/util/config/ConfigManager.properties"/>
                 <include name="com/topcoder/util/cache/refreshable/RefreshableCache.xml"/>
-                <include name="com/topcoder/util/log/logging/Logging.xml"/>
+                <include name="com/topcoder/util/log/Logging.xml"/>
             </fileset>
         </copy>
     </target>
