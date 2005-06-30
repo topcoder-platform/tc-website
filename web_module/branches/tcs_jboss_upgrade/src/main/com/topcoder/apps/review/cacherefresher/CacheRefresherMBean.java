@@ -7,11 +7,11 @@ public interface CacheRefresherMBean extends ServiceMBean {
      * Determine whether the CacheRefresher initialized
      * properly or not.
      *
-     * @return <code>True</code> if the CacheRefresher has
-     * 	been initialised properly; <code>False</code>
+     * @return "true" if the CacheRefresher has
+     * 	been initialised properly; "false"
      * 	otherwise.
      *******************************************************/
-    public Boolean isInitialized();
+    public String isInitialized();
 
     /********************************************************
      * Obtain the init status for this MBean
