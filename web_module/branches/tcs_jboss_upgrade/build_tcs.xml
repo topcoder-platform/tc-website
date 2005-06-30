@@ -206,8 +206,7 @@
 
 
         <jar jarfile="${ejb.jars.dir}/user.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/TCException.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/DDEException.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/DDEException.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/Constants.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/util/ConstantsInt.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/user/**"/>
