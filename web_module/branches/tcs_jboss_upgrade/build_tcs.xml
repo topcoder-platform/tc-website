@@ -289,7 +289,7 @@
             <fileset dir="${ejb.jars.dir}">
                 <include name="*.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs">
+            <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
             </fileset>
         </ear>
