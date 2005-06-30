@@ -125,6 +125,7 @@
                 <include name="com/topcoder/apps/review/autopilottimer/**/*"/>
                 <include name="com/topcoder/apps/review/security/**/*"/>
                 <include name="com/topcoder/apps/review/*"/>
+                <include name="com/topcoder/project/phases/TCPhase.class"/>
                 <include name="com/topcoder/dde/util/ApplicationServer.class"/>
                 <include name="com/topcoder/dde/util/Cookies.class"/>
             </classes>
