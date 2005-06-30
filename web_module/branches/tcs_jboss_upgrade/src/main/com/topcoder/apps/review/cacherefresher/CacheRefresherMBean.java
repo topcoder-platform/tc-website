@@ -11,7 +11,9 @@ public interface CacheRefresherMBean extends ServiceMBean {
      * 	been initialised properly; "false"
      * 	otherwise.
      *******************************************************/
+/*
     public String isInitialized();
+*/
 
     /********************************************************
      * Obtain the init status for this MBean

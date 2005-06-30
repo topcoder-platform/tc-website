@@ -32,7 +32,9 @@ public class AutoPilotTimer
     private static final int DELAY = 5;
     private static Logger logger = Logger.getLogger(AutoPilotTimer.class);
     private static final String NAME = "AutoPilotTimer";
+/*
     private String isInitialized = String.valueOf(false);
+*/
     private static String status = "Not Initialized";
 
     private Timer timer;
@@ -55,9 +57,11 @@ public class AutoPilotTimer
     /* (non-Javadoc)
      * @see com.topcoder.apps.review.cacherefresher.CacheRefresherMBean#isInitialised()
      */
+/*
     public String isInitialized() {
         return isInitialized;
     }
+*/
 
     /* (non-Javadoc)
      * @see com.topcoder.apps.review.cacherefresher.CacheRefresherMBean#getInitStatus()
@@ -233,7 +237,9 @@ public class AutoPilotTimer
 
             timer.scheduleAtFixedRate(new SubmissionTask(), beginDate, //initial delay
                     DELAY * 60 * 1000); //subsequent rate
+/*
             isInitialized = String.valueOf(true);
+*/
         } catch (Exception e) {
             logger.error("AutoPilotTimer: Exception on init: " + e);
             status = "Exception on init: " + e;
