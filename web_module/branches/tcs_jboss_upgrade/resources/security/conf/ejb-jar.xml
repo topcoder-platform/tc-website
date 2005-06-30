@@ -3,6 +3,8 @@
 <ejb-jar>
     <enterprise-beans>
         <session>
+            <description>PrincipalMgr EJB</description>
+            <display-name>PrincipalMgr EJB</display-name>
             <ejb-name>PrincipalMgrEJB</ejb-name>
             <local>com.topcoder.security.admin.PrincipalMgrLocal</local>
             <local-home>com.topcoder.security.admin.PrincipalMgrLocalHome</local-home>
