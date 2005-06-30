@@ -2,7 +2,9 @@
 <jboss>
   <enterprise-beans>
     <session>
+<!--
       <depends>jboss.jca:service=LocalTxCM,name=InformixDS</depends>
+-->
       <ejb-name>ProjectTracker</ejb-name>
 <!--
       <ejb-ref>
@@ -14,7 +16,9 @@
       <local-jndi-name>com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome</local-jndi-name>
     </session>
     <session>
+<!--
       <depends>jboss.jca:service=LocalTxCM,name=InformixDS</depends>
+-->
       <ejb-name>UserManager</ejb-name>
 <!--
       <ejb-ref>
@@ -26,7 +30,9 @@
       <local-jndi-name>com.topcoder.apps.review.projecttracker.UserManagerLocalHome</local-jndi-name>
     </session>
     <session>
+<!--
       <depends>jboss.jca:service=LocalTxCM,name=InformixDS</depends>
+-->
       <ejb-name>DocumentManager</ejb-name>
 <!--
       <ejb-ref>

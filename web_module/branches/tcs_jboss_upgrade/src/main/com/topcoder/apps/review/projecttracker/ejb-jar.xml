@@ -19,6 +19,7 @@
             <ejb-class>com.topcoder.apps.review.projecttracker.ProjectTrackerBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
+<!--
             <ejb-ref>
                 <ejb-ref-name>security/Policy</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
@@ -26,6 +27,7 @@
                 <remote>com.topcoder.security.policy.PolicyRemote</remote>
                 <ejb-link>PolicyEJB</ejb-link>
             </ejb-ref>
+-->
         </session>
         <session>
             <description>UserManager EJB</description>
@@ -38,6 +40,7 @@
             <ejb-class>com.topcoder.apps.review.projecttracker.UserManagerBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
+<!--
             <ejb-ref>
                 <ejb-ref-name>security/PolicyMgr</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
@@ -45,6 +48,7 @@
                 <remote>com.topcoder.security.admin.PolicyMgrRemote</remote>
                 <ejb-link>PolicyMgrEJB</ejb-link>
             </ejb-ref>
+-->
         </session>
         <session>
             <description>DocumentManager EJB</description>
@@ -57,6 +61,7 @@
             <ejb-class>com.topcoder.apps.review.document.DocumentManagerBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
+<!--
             <ejb-ref>
                 <ejb-ref-name>security/Policy</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
@@ -64,6 +69,7 @@
                 <remote>com.topcoder.security.policy.PolicyRemote</remote>
                 <ejb-link>PolicyEJB</ejb-link>
             </ejb-ref>
+-->
         </session>
     </enterprise-beans>
     <assembly-descriptor>
