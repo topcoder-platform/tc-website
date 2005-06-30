@@ -20,6 +20,7 @@
     <property name="resources.dir" value="resources"/>
     <property name="web.dir" value="web"/>
     <property name="src.dir" value="src"/>
+    <property name="conf.dir" value="conf"/>
     <property name="bin.dir" value="${lib.dir}/bin"/>
     <property name="java.dir" value="${src.dir}/main"/>
     <property name="shared.src.dir" value="../shared/src/main"/>
@@ -229,6 +230,14 @@
             <metainf dir="${java.dir}/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
         </jar>
 
+    </target>
+
+    <target name="copy-conf">
+        <copy todir="${jboss.conf.dir}">
+            <fileset dir="${conf.dir}">
+                <include name="com/topcoder/util/config/ConfigManager.properties"/>
+            </fileset>
+        </copy>
     </target>
 
     <target name="copy-libs">
