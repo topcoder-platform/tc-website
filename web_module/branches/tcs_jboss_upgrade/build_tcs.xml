@@ -206,6 +206,11 @@
             <metainf dir="${java.dir}/com/topcoder/apps/review/projecttracker" includes="*.xml"/>
         </jar>
 
+        <jar jarfile="${ejb.jars.dir}/security.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/**"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/**"/>
+            <metainf dir="${resources.dir}/security/conf" includes="*.xml"/>
+        </jar>
 
         <jar jarfile="${ejb.jars.dir}/user.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/DDEException.class"/>
@@ -241,7 +246,7 @@
         </copy>
     </target>
 
-    <target name="copy-libs" depends="build-security">
+    <target name="copy-libs">
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs">
                 <include name="base_exception.jar"/>
@@ -296,29 +301,9 @@
                 <include name="file_class.jar"/>
             </fileset>
         </copy>
-        <copy todir="${jboss.lib.dir}">
-            <fileset dir="${ejb.jars.dir}">
-                <include name="security.jar"/>
-            </fileset>
-        </copy>
     </target>
 
-    <target name="build-security" depends="compile">
-        <jar jarfile="${ejb.jars.dir}/security.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/**"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/**"/>
-            <metainf dir="${resources.dir}/security/conf" includes="*.xml" excludes="application.xml"/>
-        </jar>
-
-        <ear earfile="${ear.dir}/security.ear" appxml="${resources.dir}/security/conf/application.xml">
-            <fileset dir="${ejb.jars.dir}">
-                <include name="security.jar"/>
-            </fileset>
-        </ear>
-    </target>
-
-
-    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars,build-security,copy-libs">
+    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars,copy-libs">
 
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
             <fileset dir="${sar.dir}">
@@ -331,12 +316,6 @@
                 <include name="idgenerator.jar"/>
             </fileset>
         </ear>
-
-        <copy todir="${jboss.deploy.dir}">
-            <fileset dir="${ear.dir}">
-                <include name="security.ear"/>
-            </fileset>
-        </copy>
 
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
