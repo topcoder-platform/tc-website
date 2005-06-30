@@ -43,6 +43,9 @@ What started in 1994 as two Stanford Ph. D. students in a trailer, has quickly b
 We’re always looking ahead and need the smartest engineers in the world to drive our future. Relentless innovation, groundbreaking technology and worldwide influence are just a few of the reasons engineers love working at Yahoo!. (The free coffee, game room breaks and jeans-and-t-shirt atmosphere don’t hurt either.)
 <br><br>               
 If you are interested in joining some of the brightest minds on the Web, <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_confirm">apply now</A>.
+<br><br>
+Yahoo! recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">working for Yahoo!</A>
+
 
         </div>
 		</td>
