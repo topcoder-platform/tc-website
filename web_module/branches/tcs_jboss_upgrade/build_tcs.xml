@@ -300,7 +300,22 @@
         </copy>
     </target>
 
-    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars,copy-libs">
+    <target name="build-security" depends="compile_shared">
+        <jar jarfile="${ejb.jars.dir}/security.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/security/**"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/**"/>
+            <metainf dir="${resources.dir}/security/conf" includes="*.xml" excludes="application.xml"/>
+        </jar>
+
+        <ear earfile="${ear.dir}/security.ear" appxml="${resources.dir}/security/conf/application.xml">
+            <fileset dir="${ejb_jars}">
+                <include name="security.jar"/>
+            </fileset>
+        </ear>
+    </target>
+
+
+    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars,copy-libs,build-security">
 
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
             <fileset dir="${sar.dir}">
@@ -313,6 +328,12 @@
                 <include name="idgenerator.jar"/>
             </fileset>
         </ear>
+
+        <copy todir="${jboss.deploy.dir}">
+            <fileset dir="${ear.dir}">
+                <include name="security.ear"/>
+            </fileset>
+        </copy>
 
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
