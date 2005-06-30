@@ -86,7 +86,7 @@ function openWin(url, name, w, h) {
 
 <p>
 An amazingly difficult Division 1 Easy/Division 2 Hard gave this SRM an unusual flavor.
-Less than one-third of Div 1 received credit for the problem.  Not a single Div 2 hard
+Less than one-third of Div 1 received credit for the problem.  Not a single Div 2 Hard
 submission passed system tests.
 Despite the round's oddities, <b>natori</b> and <b>jdmetz</b> took the top 2 spots with first rate
 performances.  In Division 2, <b>sempiq</b> won by a comfortable margin.
@@ -444,7 +444,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>jdmetz</b> for 818.21 points (5 mins 38 secs)
+      <b>sean_henderson</b> for 828.87 points (4 mins 33 secs)
     </td>
   </tr>
   <tr>
