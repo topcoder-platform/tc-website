@@ -170,6 +170,7 @@
 
         <jar jarfile="${ejb.jars.dir}/catalog.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/catalog/**"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/DDEException.class"/>
             <metainf dir="${java.dir}/com/topcoder/dde/catalog" includes="*.xml"/>
         </jar>
 
