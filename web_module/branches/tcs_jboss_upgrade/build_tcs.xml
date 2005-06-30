@@ -311,7 +311,7 @@
         </jar>
 
         <ear earfile="${ear.dir}/security.ear" appxml="${resources.dir}/security/conf/application.xml">
-            <fileset dir="${ejb_jars}">
+            <fileset dir="${ejb.jars.dir}">
                 <include name="security.jar"/>
             </fileset>
         </ear>
