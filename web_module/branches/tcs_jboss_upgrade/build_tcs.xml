@@ -231,7 +231,7 @@
 
     <target name="copy-libs">
         <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}/tcs}">
+            <fileset dir="${jars.dir}/tcs">
                 <include name="base_exception.jar"/>
                 <include name="document_generation.jar"/>
                 <include name="email_engine.jar"/>
