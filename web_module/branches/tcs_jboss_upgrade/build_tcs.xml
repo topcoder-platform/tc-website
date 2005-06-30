@@ -12,6 +12,7 @@
     <property name="build.dir" value="build"/>
     <property name="war.dir" value="${build.dir}/wars"/>
     <property name="ear.dir" value="${build.dir}/ears"/>
+    <property name="sar.dir" value="${build.dir}/sars"/>
     <property name="ejb.jars.dir" value="${build.dir}/ejb_jars"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="lib.dir" value="lib"/>
@@ -74,6 +75,7 @@
         <mkdir dir="${ejb.jars.dir}"/>
         <mkdir dir="${ear.dir}"/>
         <mkdir dir="${bin.dir}"/>
+        <mkdir dir="${sar.dir}"/>
      </target>
 
     <target name="compile_shared" depends="init">
@@ -201,9 +203,27 @@
 
     </target>
 
-    <target name="deploy" depends="war-dde,war-or,build-ejbs">
+    <target name="build-sars" depends="compile">
+        <jar jarfile="${sar.dir}/cache_refresher.sar" basedir="${classes.dir}" includes="com/topcoder/apps/review/cacherefresher/**">
+            <metainf dir="${java.dir}/com/topcoder/apps/review/cacherefresher" includes="*.xml"/>
+        </jar>
+
+        <jar jarfile="${sar.dir}/auto_pilot_timer.sar" basedir="${classes.dir}" includes="com/topcoder/apps/review/autopilottimer/**,
+                        com/topcoder/apps/review/document/**,
+                        com/topcoder/apps/review/*,
+                        com/topcoder/apps/review/projecttracker/**">
+            <metainf dir="${javasrc}/main/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
+        </jar>
+
+    </target>
+
+
+    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars">
 
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
+            <fileset dir="${sar.dir}">
+                <include name="*.sar"/>
+            </fileset>
            <fileset dir="${ejb.jars.dir}">
                <include name="*.jar"/>
            </fileset>
@@ -230,6 +250,7 @@
            </fileset>
 
         </ear>
+
 
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
