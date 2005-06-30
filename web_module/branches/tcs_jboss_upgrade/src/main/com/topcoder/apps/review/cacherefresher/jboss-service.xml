@@ -6,6 +6,6 @@
 <!--
 		<attribute name="Initialized"></attribute>
 -->
-        <attribute name="InitStatus"></attribute>
+        <attribute name="InitStatus"/>
 	</mbean>
 </server>
