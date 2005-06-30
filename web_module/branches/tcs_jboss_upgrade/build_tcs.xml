@@ -70,9 +70,9 @@
     </path>
 
     <target name="init">
-         <mkdir dir="${classes.dir}"/>
-         <mkdir dir="${ejb.jars.dir}"/>
-         <mkdir dir="${war.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${ejb.jars.dir}"/>
+        <mkdir dir="${ear.dir}"/>
         <mkdir dir="${bin.dir}"/>
      </target>
 
