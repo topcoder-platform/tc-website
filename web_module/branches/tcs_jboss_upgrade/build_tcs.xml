@@ -303,6 +303,11 @@
                 <include name="file_class.jar"/>
             </fileset>
         </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${bin.dir}">
+                <include name="shared.jar"/>
+            </fileset>
+        </copy>
     </target>
 
     <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars,copy-libs">
