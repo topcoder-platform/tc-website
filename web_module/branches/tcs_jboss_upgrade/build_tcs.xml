@@ -241,7 +241,7 @@
         </copy>
     </target>
 
-    <target name="copy-libs">
+    <target name="copy-libs" depends="build-security">
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs">
                 <include name="base_exception.jar"/>
@@ -261,7 +261,6 @@
         </copy>
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}">
-                <include name="security.jar"/>
                 <include name="upload.jar"/>
                 <include name="ifxjdbc.jar"/>
             </fileset>
@@ -297,9 +296,14 @@
                 <include name="file_class.jar"/>
             </fileset>
         </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${ejb.jars.dir}">
+                <include name="security.jar"/>
+            </fileset>
+        </copy>
     </target>
 
-    <target name="build-security" depends="compile_shared">
+    <target name="build-security" depends="compile">
         <jar jarfile="${ejb.jars.dir}/security.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/security/**"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/**"/>
@@ -314,7 +318,7 @@
     </target>
 
 
-    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars,copy-libs,build-security">
+    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars,build-security,copy-libs">
 
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
             <fileset dir="${sar.dir}">
