@@ -24,7 +24,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm249_prob">SRM 249 - Problem Set & Analysis</A></span><br><br>
-      An amazingly difficult Division 1 Easy/Division 2 Hard gave this SRM an unusual flavor. Less than one-third of Div 1 received credit for the problem.  Not a single Div 2 submission passed system tests.</td>
+      An amazingly difficult Division 1 Easy/Division 2 Hard gave this SRM an unusual flavor. Less than one-third of Div 1 Hard received credit for the problem.  Not a single Div 2 submission passed system tests.</td>
       <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
       </td>
    </tr>
