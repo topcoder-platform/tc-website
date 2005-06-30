@@ -3,7 +3,7 @@
 <server>
 	<mbean code="com.topcoder.apps.review.cacherefresher.CacheRefresher"
 		name="topcoder.startup:name=CacheRefresher">
-		<attribute name="Initialised"/>
-        <attribute name="InitStatus"/>
+		<attribute name="Initialized"></attribute>
+        <attribute name="InitStatus"></attribute>
 	</mbean>
 </server>

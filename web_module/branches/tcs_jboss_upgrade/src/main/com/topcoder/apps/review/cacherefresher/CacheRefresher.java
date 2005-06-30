@@ -25,8 +25,8 @@ public class CacheRefresher
     private static final int REFRESH_DELAY = 60;
     private static Logger logger = Logger.getLogger(CacheRefresher.class);
     private static final String NAME = "CacheRefresher";
-    private Boolean isInitialised = Boolean.FALSE;
-    private static String status = "Not Initialised";
+    private Boolean isInitialized = Boolean.FALSE;
+    private static String status = "Not Initialized";
 
     private Timer timer;
 
@@ -48,8 +48,8 @@ public class CacheRefresher
     /* (non-Javadoc)
      * @see com.topcoder.apps.review.cacherefresher.CacheRefresherMBean#isInitialised()
      */
-    public Boolean isInitialised() {
-        return isInitialised;
+    public Boolean isInitialized() {
+        return isInitialized;
     }
 
     /* (non-Javadoc)
@@ -102,7 +102,7 @@ public class CacheRefresher
             timer = new Timer();
             timer.schedule(new RefreshTask(), REFRESH_DELAY * 60 * 1000, //initial delay
                     REFRESH_DELAY * 60 * 1000); //subsequent rate
-            isInitialised = Boolean.TRUE;
+            isInitialized = Boolean.TRUE;
         } catch (Exception e) {
             logger.error("CacheRefresher: Exception on init: " + e);
             status = "Exception on init: " + e;

@@ -11,7 +11,7 @@ public interface CacheRefresherMBean extends ServiceMBean {
      * 	been initialised properly; <code>False</code>
      * 	otherwise.
      *******************************************************/
-    public Boolean isInitialised();
+    public Boolean isInitialized();
 
     /********************************************************
      * Obtain the init status for this MBean
