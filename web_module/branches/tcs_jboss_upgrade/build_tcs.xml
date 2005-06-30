@@ -177,7 +177,7 @@
             <metainf dir="${java.dir}/com/topcoder/dde/forum" includes="*.xml"/>
         </jar>
 
-        <jar jarfile="${ejb.jars.dir}/DDEPersistenceLayer.jar">
+        <jar jarfile="${ejb.jars.dir}/ddePersistenceLayer.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/persistencelayer/**"/>
             <metainf dir="${java.dir}/com/topcoder/dde/persistencelayer" includes="*.xml"/>
         </jar>
