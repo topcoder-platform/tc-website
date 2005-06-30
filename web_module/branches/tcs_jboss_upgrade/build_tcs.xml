@@ -268,7 +268,7 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
-            <fileset dir="${struts.lib.dir}/struts.jar">
+            <fileset dir="${struts.lib.dir}">
                 <include name="struts.jar"/>
             </fileset>
         </copy>
