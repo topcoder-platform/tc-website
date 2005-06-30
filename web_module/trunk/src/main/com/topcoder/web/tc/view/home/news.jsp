@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.30.05<br>9:25 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">Yahoo! chat session</A></span><br><br>
+      Yahoo! recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about working for Yahoo!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.30.05<br>9:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -225,18 +237,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>06.08.05<br>11:40 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=244237&thread=500228&mc=1">More data feeds for accessing TopCoder statistics</A></span><br><br>
-      We've added two more data feeds for people that want to use our statistics in their programs.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/rtables/viewThread.jsp?forum=244237&thread=500228&mc=1">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
 
