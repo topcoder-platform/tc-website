@@ -248,7 +248,7 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}}">
+            <fileset dir="${jars.dir}">
                 <include name="security.jar"/>
                 <include name="upload.jar"/>
             </fileset>
