@@ -200,6 +200,7 @@
         		com/topcoder/apps/review/GeneralSecurityException.class,
         		com/topcoder/apps/review/IncorrectProjectStateException.class,
         		com/topcoder/apps/review/persistence/**,
+                com/topcoder/project/phases/TCPhase.class,
         		com/topcoder/apps/review/security/*Permission.class">
             <metainf dir="${java.dir}/com/topcoder/apps/review/projecttracker" includes="*.xml"/>
         </jar>
