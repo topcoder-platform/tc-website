@@ -31,11 +31,9 @@
     <module>
         <ejb>persistence.jar</ejb>
     </module>
-<!--
     <module>
-        <java>render.jar</java>
+        <java>security.jar</java>
     </module>
--->
     <module>
         <ejb>user.jar</ejb>
     </module>
