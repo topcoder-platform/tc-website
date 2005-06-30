@@ -275,6 +275,7 @@
                 <include name="struts.jar"/>
                 <include name="commons-beanutils.jar"/>
                 <include name="commons-digester.jar"/>
+                <include name="commons-collections.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
