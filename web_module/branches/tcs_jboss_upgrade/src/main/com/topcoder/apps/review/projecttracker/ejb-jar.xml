@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE ejb-jar PUBLIC
-  '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN'
-  'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.d
 
 <ejb-jar>
-    <display-name>ProjectTracker</display-name>
+    <description>ProjectTracker Jar</description>
+    <display-name>ProjectTracker Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>ProjectTracker EJB</description>
+            <display-name>ProjectTracker EJB</display-name>
             <ejb-name>ProjectTracker</ejb-name>
             <local-home>com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome</local-home>
             <local>com.topcoder.apps.review.projecttracker.ProjectTrackerLocal</local>
@@ -27,6 +30,8 @@
             </ejb-ref>
         </session>
         <session>
+            <description>UserManager EJB</description>
+            <display-name>UserManager EJB</display-name>
             <ejb-name>UserManager</ejb-name>
             <local-home>com.topcoder.apps.review.projecttracker.UserManagerLocalHome</local-home>
             <local>com.topcoder.apps.review.projecttracker.UserManagerLocal</local>
@@ -46,6 +51,8 @@
             </ejb-ref>
         </session>
         <session>
+            <description>DocumentManager EJB</description>
+            <display-name>DocumentManager EJB</display-name>
             <ejb-name>DocumentManager</ejb-name>
             <local-home>com.topcoder.apps.review.document.DocumentManagerLocalHome</local-home>
             <home>com.topcoder.apps.review.document.DocumentManagerHome</home>

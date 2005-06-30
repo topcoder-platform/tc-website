@@ -270,6 +270,7 @@
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${struts.lib.dir}">
                 <include name="struts.jar"/>
+                <include name="commons-beanutils.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
