@@ -720,7 +720,7 @@ public final class TaskDevelopment {
         Catalog catalog = null;
         try {
             Context CONTEXT = TCContext.getInitial();
-            Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+            Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
             CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
             catalog = home.create();
 
