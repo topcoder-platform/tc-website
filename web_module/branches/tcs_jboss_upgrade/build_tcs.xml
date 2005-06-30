@@ -76,6 +76,7 @@
         <mkdir dir="${ear.dir}"/>
         <mkdir dir="${bin.dir}"/>
         <mkdir dir="${sar.dir}"/>
+        <mkdir dir="${war.dir}"/>
      </target>
 
     <target name="compile_shared" depends="init">
