@@ -212,7 +212,7 @@
                         com/topcoder/apps/review/document/**,
                         com/topcoder/apps/review/*,
                         com/topcoder/apps/review/projecttracker/**">
-            <metainf dir="${java.dir}/main/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
         </jar>
 
     </target>
