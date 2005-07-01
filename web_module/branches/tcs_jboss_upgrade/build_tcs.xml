@@ -160,7 +160,7 @@
                 <include name="com/topcoder/dde/notification/*.class"/>
                 <include name="com/topcoder/dde/persistencelayer/interfaces/*.class"/>
                 <include name="com/topcoder/dde/submission/*.class"/>
-                <include name="com/topcoder/dde/user    /*.class"/>
+                <include name="com/topcoder/dde/user/*.class"/>
             </classes>
             <webinf dir="${resources.dir}/taglib">
                 <include name="dde.tld"/>
