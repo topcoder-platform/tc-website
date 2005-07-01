@@ -139,18 +139,21 @@
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
             <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
-            <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>June Events:</A></td>
+            <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>July Events:</A></td>
          </tr>
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
-            <b>6/01</b> - SRM 245 - 9:00 PM<br/><br/>
-            <b>6/09</b> - SRM 246 - 1:00 PM<br/><br/>
-            <b>6/13</b> - TCO05 Component Registration Opens - 9:00 AM<br/><br/>
-            <b>6/18</b> - SRM 247 - 12:00 PM<br/><br/>
-            <b>6/21</b> - SRM 248 - 9:00 PM<br/><br/>
-            <b>6/29</b> - SRM 249 - 9:00 PM<br/><br/>
-            <b>6/29</b> - TCO05 Component Registration Closes & Week 1 Projects Posted - 9:00 AM<br/><br/>
+            <b>7/06</b> - TCO05 CDDC Week1 Deadline - 9AM<br/>
+            <b>7/07</b> - SRM 250 - 11:00 AM<br/>
+            <b>7/12</b> - SRM 251 - 9:00 PM<br/>
+            <b>7/13</b> - TCO05 CDDC Week2 Deadline - 9AM<br/>
+            <b>7/19</b> - SRM 252 - 9:00 PM<br/>
+            <b>7/20</b> - TCO05 CDDC Week3 Deadline - 9AM<br/>
+            <b>7/23</b> - SRM 253 - 12:00 PM<br/>
+            <b>7/26</b> - SRM 254 - 7:00 AM<br/>
+            <b>7/27</b> - TCO05 CDDC Week4 Deadline - 9AM<br/>
+            <b>7/28</b> - SRM 255 - 9:00 PM<br/>
             </td>
          </tr>
          <tr>
