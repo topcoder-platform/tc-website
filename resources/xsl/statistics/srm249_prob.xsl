@@ -436,7 +436,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      21 / 65 (32.31%)
+      35 / 65 (53.85%)
     </td>
   </tr>
   <tr>
@@ -450,9 +450,9 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Average Score</b>
--    </td>
+    </td>
     <td class="bodyText" style="background: #eee;">
-      658.62 (for 21 correct submissions)
+      661.05 (for 35 correct submissions)
     </td>
   </tr>
 </table></blockquote>
