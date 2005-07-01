@@ -162,6 +162,40 @@
     <property name="projectphases.jar.name" value="project_phases.jar"/>
     <property name="projectphases.path" value="project_phases/${projectphases.version}"/>
     <property name="projectphases.jar" value="${jarsdir}/tcs/${projectphases.path}/${projectphases.jar.name}"/>
+    <property name="xmiparser.version" value="1.0"/>
+    <property name="xmiparser.jar.name" value="xmi_parser.jar"/>
+    <property name="xmiparser.path" value="xmi_parser/${xmiparser.version}"/>
+    <property name="xmiparser.jar" value="${jarsdir}/tcs/${xmiparser.path}/${xmiparser.jar.name}"/>
+    <property name="datavalidation.version" value="1.0"/>
+    <property name="datavalidation.jar.name" value="data_validation.jar"/>
+    <property name="datavalidation.path" value="data_validation/${datavalidation.version}"/>
+    <property name="datavalidation.jar" value="${jarsdir}/tcs/${datavalidation.path}/${datavalidation.jar.name}"/>
+    <property name="directoryvalidation.version" value="1.0"/>
+    <property name="directoryvalidation.jar.name" value="directory_validation.jar"/>
+    <property name="directoryvalidation.path" value="directory_validation/${directoryvalidation.version}"/>
+    <property name="directoryvalidation.jar" value="${jarsdir}/tcs/${directoryvalidation.path}/${directoryvalidation.jar.name}"/>
+    <property name="compressionutility.version" value="2.0"/>
+    <property name="compressionutility.jar.name" value="compression_utility.jar"/>
+    <property name="compressionutility.path" value="compression_utility/${compressionutility.version}"/>
+    <property name="compressionutility.jar" value="${jarsdir}/tcs/${compressionutility.path}/${compressionutility.jar.name}"/>
+    <property name="magicnumbers.version" value="1.0"/>
+    <property name="magicnumbers.jar.name" value="magic_numbers.jar"/>
+    <property name="magicnumbers.path" value="magic_numbers/${magicnumbers.version}"/>
+    <property name="magicnumbers.jar" value="${jarsdir}/tcs/${magicnumbers.path}/${magicnumbers.jar.name}"/>
+    <property name="genericeventmanager.version" value="1.0"/>
+    <property name="genericeventmanager.jar.name" value="generic_event_manager.jar"/>
+    <property name="genericeventmanager.path" value="generic_event_manager/${genericeventmanager.version}"/>
+    <property name="genericeventmanager.jar" value="${jarsdir}/tcs/${genericeventmanager.path}/${genericeventmanager.jar.name}"/>
+    <property name="executablewrapper.version" value="1.0"/>
+    <property name="executablewrapper.jar.name" value="executable_wrapper.jar"/>
+    <property name="executablewrapper.path" value="executable_wrapper/${executablewrapper.version}"/>
+    <property name="executablewrapper.jar" value="${jarsdir}/tcs/${executablewrapper.path}/${executablewrapper.jar.name}"/>
+    <property name="fileclass.version" value="1.0"/>
+    <property name="fileclass.jar.name" value="file_class.jar"/>
+    <property name="fileclass.path" value="file_class/${fileclass.version}"/>
+    <property name="fileclass.jar" value="${jarsdir}/tcs/${fileclass.path}/${fileclass.jar.name}"/>
+    <property name="screeningtool.jar.name" value="automated_screening_tool.jar"/>
+    <property name="screeningtool.jar" value="${jarsdir}/tcs/${screeningtool.jar.name}"/>
 
     <!-- Xerces -->
     <!-- <property name="cvs_xerces.jar" value="${libdir}/xerces.jar"/> -->
@@ -232,6 +266,14 @@
         <pathelement location="${workdays.jar}" />
         <pathelement location="${typesafeenum.jar}" />
         <pathelement location="${projectphases.jar}" />
+        <pathelement location="${xmiparser.jar}" />
+        <pathelement location="${datavalidation.jar}" />
+        <pathelement location="${directoryvalidation.jar}" />
+        <pathelement location="${compressionutility.jar}" />
+        <pathelement location="${magicnumbers.jar}" />
+        <pathelement location="${genericeventmanager.jar}" />
+        <pathelement location="${fileclass.jar}" />
+        <pathelement location="${screeningtool.jar}" />
 
         <pathelement location="${jbossclient.jar}" />
         <pathelement location="${junit.jar}" />

@@ -79,6 +79,34 @@
     </module>
 
     <module>
+        <java>xmi_parser.jar</java>
+    </module>
+    <module>
+        <java>data_validation.jar</java>
+    </module>
+    <module>
+        <java>directory_validation.jar</java>
+    </module>
+    <module>
+        <java>compression_utility.jar</java>
+    </module>
+    <module>
+        <java>magic_numbers.jar</java>
+    </module>
+    <module>
+        <java>executable_wrapper.jar</java>
+    </module>
+    <module>
+        <java>generic_event_manager.jar</java>
+    </module>
+    <module>
+        <java>file_class.jar</java>
+    </module>
+    <module>
+        <java>automated_screening_tool.jar</java>
+    </module>
+
+    <module>
         <web>
             <web-uri>dde.war</web-uri>
             <context-root>/</context-root>

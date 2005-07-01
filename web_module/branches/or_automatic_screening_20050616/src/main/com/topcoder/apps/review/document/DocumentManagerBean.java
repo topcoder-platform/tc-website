@@ -325,7 +325,7 @@ public class DocumentManagerBean implements SessionBean {
                 InitialSubmission submission = null;
 
                 AbstractSubmission[] submissionArr = getSubmissions(project, requestor,
-                        InitialSubmission.SUBMISSION_TYPE, submissionId, subIsRemoved, false);
+                        InitialSubmission.SUBMISSION_TYPE, submissionId, -1, subIsRemoved, false);
 
                 if (submissionArr.length != 1) {
                     throw new RuntimeException("Could not find matching submission for scorecard!");
@@ -1267,7 +1267,7 @@ public class DocumentManagerBean implements SessionBean {
         info("DM.getInitialSubmission(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
-        AbstractSubmission[] submissions = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, -1, retrieveRemoved, true);
+        AbstractSubmission[] submissions = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, -1, -1, retrieveRemoved, true);
 
         if (submissions == null || submissions.length == 0) {
             // No initial submission has been submitted for this project
@@ -1295,11 +1295,29 @@ public class DocumentManagerBean implements SessionBean {
      * @return InitialSubmission
      */
     public InitialSubmission getInitialSubmission(Project project, long subId, TCSubject requestor) {
-        AbstractSubmission sub[] = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, subId, false, true);
+        AbstractSubmission sub[] = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, subId, -1, false, true);
         if (sub.length == 1) {
             return (InitialSubmission) sub[0];
         } else
             return null;
+    }
+
+    /**
+     * Get an AbstractSubmission with given versionId.
+     *
+     * @param project
+     * @param versionId
+     * @param requestor
+     *
+     * @return AbstractSubmission
+     */
+    public AbstractSubmission getSubmissionByVersion(Project project, long versionId, TCSubject requestor) {
+        AbstractSubmission sub[] = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, -1, versionId, false, true);
+        if (sub.length == 1) {
+            return sub[0];
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -1315,7 +1333,7 @@ public class DocumentManagerBean implements SessionBean {
                 requestor.getUserId());
         FinalFixSubmission ffSubmission = null;
 
-        AbstractSubmission[] submissions = getSubmissions(project, requestor, FinalFixSubmission.SUBMISSION_TYPE, -1, false, false);
+        AbstractSubmission[] submissions = getSubmissions(project, requestor, FinalFixSubmission.SUBMISSION_TYPE, -1, -1, false, false);
         if (submissions == null || submissions.length == 0) {
             // No final fix submission has been submitted for this project
             if (project.getCurrentPhase().getId() == Phase.ID_FINAL_FIXES) {
@@ -1378,7 +1396,7 @@ public class DocumentManagerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     private AbstractSubmission[] getSubmissions(Project project, TCSubject requestor, int submissionType,
-                                                long givenSubmissionId, boolean retrieveRemoved, boolean fixScoring) {
+                                                long givenSubmissionId, long givenVersionId, boolean retrieveRemoved, boolean fixScoring) {
 
         List submissionList = new LinkedList();
 
@@ -1433,6 +1451,34 @@ public class DocumentManagerBean implements SessionBean {
                 ps.setLong(1, givenSubmissionId);
                 ps.setInt(2, submissionType);
                 ps.setBoolean(3, retrieveRemoved);
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Added by WishingBone - Automated Screening
+            } else if (givenVersionId > 0) {
+                ps = conn.prepareStatement(
+                        "SELECT s.submission_id, s.submission_url, " +
+                        "s.sub_pm_review_msg, s.sub_pm_screen_msg, " +
+                        "s.submitter_id, s.is_removed, " +
+                        "s.final_score, s.placement, s.passed_screening, " +
+                        "s.submission_v_id, " +
+                        "su.login_id, su.user_id, " +
+                        "uc.first_name, uc.last_name, e.address email_address, rur.r_user_role_id, s.advanced_to_review " +
+                        "FROM submission s, security_user su, user uc, r_user_role rur, " +
+                        "email e  " +
+                        "WHERE s.submission_v_id = ? AND " +
+                        "s.submission_type = ? AND " +
+                        "s.is_removed = ? AND " +
+                        "e.primary_ind = 1 AND " +
+                        "e.user_id = uc.user_id AND " +
+                        "su.login_id = uc.user_id AND " +
+                        "su.login_id = s.submitter_id AND " +
+                        "rur.login_id = su.login_id AND " +
+                        "rur.cur_version = 1 AND " +
+                        "rur.project_id = s.project_id " +
+                        "ORDER BY rur.r_user_role_id");
+                ps.setLong(1, givenVersionId);
+                ps.setInt(2, submissionType);
+                ps.setBoolean(3, retrieveRemoved);
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
             } else {
                 if (isAdmin || allSubs) {
                     info("DM.getSubmissions(): all submission for project: " + project.getId() + ", submissionType: " + submissionType);
@@ -1514,7 +1560,7 @@ public class DocumentManagerBean implements SessionBean {
                         }
 
                         //InitialSubmission[] submissions = getInitialSubmissions(project, false, fakeSubject);
-                        InitialSubmission[] submissions = (InitialSubmission[]) getSubmissions(project, fakeSubject, InitialSubmission.SUBMISSION_TYPE, -1, false, false);
+                        InitialSubmission[] submissions = (InitialSubmission[]) getSubmissions(project, fakeSubject, InitialSubmission.SUBMISSION_TYPE, -1, -1, false, false);
                         final ReviewScorecard[] scorecards = getReviewScorecard(project, fakeSubject);
                         //Item[] items = new Item[submissions.length];
                         for (int i = 0; i < submissions.length; i++) {
@@ -1596,7 +1642,7 @@ public class DocumentManagerBean implements SessionBean {
                         }
                         if (fixedScoring) {
                             submission = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE,
-                                    submissionId, false, false)[0];
+                                    submissionId, givenVersionId, false, false)[0];
                         } else {
                             submission = new InitialSubmission(submissionId, submissionURL, pmReviewMsg, pmScreeningMsg,
                                     submitter, project, isRemoved, finalScore, placement, passedScreening, advancedToReview, requestor.getUserId(), subVersionId);
@@ -3629,7 +3675,7 @@ public class DocumentManagerBean implements SessionBean {
                 throw new RuntimeException(errorMsg);
             }
 
-            InitialSubmission[] subArr = (InitialSubmission[]) getSubmissions(project, fakeSubject, InitialSubmission.SUBMISSION_TYPE, -1, false, false);
+            InitialSubmission[] subArr = (InitialSubmission[]) getSubmissions(project, fakeSubject, InitialSubmission.SUBMISSION_TYPE, -1, -1, false, false);
 
             info("DM.createScorecards(): subArr.length: " + subArr.length);
             if (subArr.length > 0) {

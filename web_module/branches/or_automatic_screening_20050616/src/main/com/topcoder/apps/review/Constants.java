@@ -143,6 +143,24 @@ public final class Constants {
      */
     public static final String TESTCASE_LIST_KEY = "testcases";
 
+    /**
+     * The request scope attribute under which the warning
+     * responses is stored.
+     */
+    public static final String WARNING_LIST_KEY = "warnings";
+
+    /**
+     * The request scope attribute under which the fatal error
+     * responses is stored.
+     */
+    public static final String ERROR_LIST_KEY = "errors";
+
+    /**
+     * The request scope attribute under which the submission history
+     * is stored.
+     */
+    public static final String HISTORY_LIST_KEY = "history";
+
     // --------------------------------------------------------- Action Mapping
 
     /**
@@ -164,6 +182,16 @@ public final class Constants {
      * The action mapping when login success.
      */
     public final static String SUCCESS_KEY = "success";
+
+    /**
+     * The action mapping when screening passed with warnings.
+     */
+    public final static String WARNING_KEY = "warning";
+
+    /**
+     * The action mapping when screening failed with errors.
+     */
+    public final static String ERROR_KEY = "error";
 
     /**
      * The action mapping when cancel.
@@ -241,6 +269,11 @@ public final class Constants {
      * The parameter of appealer id.
      */
     public static final String APPEALER_ID_KEY = "aid";
+
+    /**
+     * The parameter of version id.
+     */
+    public final static String VERSION_ID_KEY = "vid";
 
     /**
      * Indicates if upload testcases is visible in reviewScorecardList.

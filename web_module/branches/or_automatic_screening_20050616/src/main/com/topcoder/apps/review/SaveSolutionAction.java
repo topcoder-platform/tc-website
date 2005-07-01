@@ -69,6 +69,30 @@ public final class SaveSolutionAction extends ReviewAction {
 
             if (orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Constants.PHASE_SUBMISSION) {
                 result = businessDelegate.submitSolution(data);
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Added by WishingBone - Automated Screening
+                if (result instanceof SuccessResult) {
+                    ScreeningRetrieval screening = (ScreeningRetrieval) result;
+                    String forward = null;
+                    if (screening.getFatalErrors().length > 0) {
+                        forward = Constants.ERROR_KEY;
+                    } else if (screening.getWarnings().length > 0) {
+                        forward = Constants.WARNING_KEY;
+                    } else {
+                        forward = Constants.SUCCESS_KEY;
+                    }
+                    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+                    forwards.addForward(mapping.findForward(forward));
+                    if (screening.getWarnings().length > 0) {
+                        request.setAttribute(Constants.WARNING_LIST_KEY, screening.getWarnings());
+                    }
+                    if (screening.getFatalErrors().length > 0) {
+                        request.setAttribute(Constants.ERROR_LIST_KEY, screening.getFatalErrors());
+                    }
+                }
+                //////////////////////////////////////////////////////////////////////////////////////////////////////
+
             } else {
                 result = businessDelegate.submitFinalFix(data);
 

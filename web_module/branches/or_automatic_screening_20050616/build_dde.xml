@@ -23,6 +23,9 @@
     <property name="configdir" value="conf" />
     <property name="javadocdir" value="${docsdir}/javadoc" />
 
+    <property name="resourcesdir" value="resources" />
+    <property name="taglibdir" value="${resourcesdir}/taglib" />
+    
     <property name="builddir" value="build" />
     <property name="build_classdir" value="${builddir}/classes" />
     <property name="build_testclassdir" value="${builddir}/testClasses" />
@@ -108,6 +111,38 @@
     <property name="base_exception.jar" value="${tcslibdir}/tcs/base_exception/1.0/base_exception.jar"/>
     <property name="logging_wrapper.jar" value="${tcslibdir}/tcs/logging_wrapper/1.0/logging_wrapper.jar"/>
     <property name="refreshable_cache.jar" value="${tcslibdir}/tcs/refreshable_cache/1.0/refreshable_cache.jar"/>
+    <property name="file_class.jar" value="${jardir}/tcs/file_class/1.0/file_class.jar"/>
+
+    <property name="xmiparser.version" value="1.0"/>
+    <property name="xmiparser.jar.name" value="xmi_parser.jar"/>
+    <property name="xmiparser.path" value="xmi_parser/${xmiparser.version}"/>
+    <property name="xmiparser.jar" value="${jardir}/tcs/${xmiparser.path}/${xmiparser.jar.name}"/>
+    <property name="datavalidation.version" value="1.0"/>
+    <property name="datavalidation.jar.name" value="data_validation.jar"/>
+    <property name="datavalidation.path" value="data_validation/${datavalidation.version}"/>
+    <property name="datavalidation.jar" value="${jardir}/tcs/${datavalidation.path}/${datavalidation.jar.name}"/>
+    <property name="directoryvalidation.version" value="1.0"/>
+    <property name="directoryvalidation.jar.name" value="directory_validation.jar"/>
+    <property name="directoryvalidation.path" value="directory_validation/${directoryvalidation.version}"/>
+    <property name="directoryvalidation.jar" value="${jardir}/tcs/${directoryvalidation.path}/${directoryvalidation.jar.name}"/>
+    <property name="compressionutility.version" value="2.0"/>
+    <property name="compressionutility.jar.name" value="compression_utility.jar"/>
+    <property name="compressionutility.path" value="compression_utility/${compressionutility.version}"/>
+    <property name="compressionutility.jar" value="${jardir}/tcs/${compressionutility.path}/${compressionutility.jar.name}"/>
+    <property name="magicnumbers.version" value="1.0"/>
+    <property name="magicnumbers.jar.name" value="magic_numbers.jar"/>
+    <property name="magicnumbers.path" value="magic_numbers/${magicnumbers.version}"/>
+    <property name="magicnumbers.jar" value="${jardir}/tcs/${magicnumbers.path}/${magicnumbers.jar.name}"/>
+    <property name="genericeventmanager.version" value="1.0"/>
+    <property name="genericeventmanager.jar.name" value="generic_event_manager.jar"/>
+    <property name="genericeventmanager.path" value="generic_event_manager/${genericeventmanager.version}"/>
+    <property name="genericeventmanager.jar" value="${jardir}/tcs/${genericeventmanager.path}/${genericeventmanager.jar.name}"/>
+    <property name="executablewrapper.version" value="1.0"/>
+    <property name="executablewrapper.jar.name" value="executable_wrapper.jar"/>
+    <property name="executablewrapper.path" value="executable_wrapper/${executablewrapper.version}"/>
+    <property name="executablewrapper.jar" value="${jardir}/tcs/${executablewrapper.path}/${executablewrapper.jar.name}"/>
+    <property name="screeningtool.jar.name" value="automated_screening_tool.jar"/>
+    <property name="screeningtool.jar" value="${jardir}/tcs/${screeningtool.jar.name}"/>
 
     <property name="review-persistence.jar" value="${onlinereview.jars.dir}/persistence.jar"/>
     <property name="onlinereview.war" value="${onlinereview.jars.dir}/review.war"/>
@@ -173,7 +208,8 @@
         <pathelement location="${upload.jar}"/>
         <pathelement location="${onlinereview.jars.dir}/persistence.jar"/>
         <pathelement location="${base_exception.jar}"/>
-        
+        <pathelement location="${file_class.jar}"/>
+
         <pathelement location="${workdays.jar}" />
         <pathelement location="${typesafeenum.jar}" />
         <pathelement location="${projectphases.jar}" />
@@ -201,9 +237,10 @@
             deprecation="true">
             <include name="com/topcoder/dde/**" />
             <include name="com/topcoder/util/**" />
-            <include name="com/topcoder/web/common/**" />
-            <exclude name="com/topcoder/web/common/render/**" />
-            <exclude name="com/topcoder/web/common/tag/**" />
+            <include name="com/topcoder/web/common/*" />
+            <include name="com/topcoder/web/common/tag/HandleTag.java" />
+            <include name="com/topcoder/web/common/model/**" />
+            <include name="com/topcoder/web/common/security/**" />
         </javac>
     </target>
 
@@ -226,6 +263,7 @@
     </target>
     
     <target name="jar_shared" depends="compile_shared">
+         <mkdir dir="${dist.jars.dir}"/>
          <jar jarfile="${dist.jars.dir}/${shared.jar.name}">
              <fileset dir="${build_classdir}">
                  <include name="com/topcoder/shared/**/*.class"/>
@@ -313,8 +351,9 @@
               todir="${webdir}/WEB-INF/classes/com/topcoder/dde/util/"/>
 
         <copy file="${emailaddressvalidator.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${file_class.jar}" todir="${dist.jars.dir}"/>
         <war warfile="${dde.war}" webxml="web.xml">
-            <lib dir="${dist.jars.dir}" includes="email_address_validator.jar"/>
+            <lib dir="${dist.jars.dir}" includes="email_address_validator.jar,file_class.jar"/>
             <fileset dir="${webdir}/dde">
                 <exclude name="CVS/**/*"/>
                 <exclude name="online_review/**/*"/>
@@ -325,6 +364,9 @@
                 <include name="com/topcoder/dde/util/**"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
             </classes>
+            <webinf dir="${taglibdir}">
+                <include name="dde.tld"/>
+            </webinf>
         </war>
 
         <copy file="${review-persistence.jar}" todir="${dist.jars.dir}"/>
@@ -336,6 +378,15 @@
         <copy file="${refreshable_cache.jar}" todir="${dist.jars.dir}"/>
         <copy file="${object_formatter.jar}" todir="${dist.jars.dir}"/>
         <copy file="${xerces.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${file_class.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${xmiparser.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${datavalidation.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${directoryvalidation.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${compressionutility.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${magicnumbers.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${genericeventmanager.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${executablewrapper.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${screeningtool.jar}" todir="${dist.jars.dir}"/>
 
         <copy file="${emailengine.jar}" todir="${dist.jars.dir}"/>
         <copy file="${upload.jar}" todir="${dist.jars.dir}"/>
@@ -360,7 +411,7 @@
         <jar    jarfile="${dist.jars.dir}/${workdays.jar.name}"
         	update="true"
         	basedir="${build_classdir}"
-        	includes="com/topcoder/date/workdays/TCWorkdays.class" />
+        	includes="com/topcoder/apps/review/TCWorkdays.class" />
     </target>
 
     <target name="make-ear" unless="with-tests" depends="package">

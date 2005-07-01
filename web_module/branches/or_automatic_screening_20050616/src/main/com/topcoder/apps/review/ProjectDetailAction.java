@@ -69,6 +69,14 @@ public final class ProjectDetailAction extends ReviewAction {
         if (result instanceof SuccessResult) {
             UtilityBean utility = (UtilityBean) request.getSession().getAttribute(Constants.UTILITY_KEY);
             ProjectRetrieval pr = (ProjectRetrieval) result;
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Added by WishingBone - Automated Screening
+            if (pr.getHistory() != null && pr.getHistory().length > 0) {
+                request.setAttribute(Constants.HISTORY_LIST_KEY, pr.getHistory());
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             boolean isAdmin = utility.getAdmin();
             boolean isPM = orpd.getUser().equals(pr.getProject().getProjectManager());
             long phaseId = pr.getProject().getCurrentPhase().getId();
