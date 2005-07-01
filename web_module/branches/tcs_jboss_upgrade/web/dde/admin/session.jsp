@@ -28,27 +28,27 @@
 	// Load Stateless EJB's
 	////////////////////////////////////////////
 
-	Object objUserManager = CONTEXT.lookup("dde/UserManager");
+	Object objUserManager = CONTEXT.lookup(UserManagerRemoteHome.EJB_REF_NAME);
 	UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
   	UserManagerRemote USER_MANAGER = userManagerHome.create();
 
-	Object objAdmin = CONTEXT.lookup("AdminLoginEJB");
+	Object objAdmin = CONTEXT.lookup(AdminLoginHome.EJB_REF_NAME);
 	AdminLoginHome adminLoginHome = (AdminLoginHome)  PortableRemoteObject.narrow(objAdmin, AdminLoginHome.class);
   	AdminLogin ADMIN_LOGIN = adminLoginHome.create();
 
-	Object objPrincipalManager = CONTEXT.lookup("security/PrincipalMgr");
+	Object objPrincipalManager = CONTEXT.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
 	PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
 	PrincipalMgrRemote PRINCIPAL_MANAGER = principalManagerHome.create();
 
-	Object objPolicyManager = CONTEXT.lookup("security/PolicyMgr");
+	Object objPolicyManager = CONTEXT.lookup(PolicyMgrRemoteHome.EJB_REF_NAME);
 	PolicyMgrRemoteHome policyManagerHome = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(objPolicyManager, PolicyMgrRemoteHome.class);
 	PolicyMgrRemote POLICY_MANAGER = policyManagerHome.create();
 
-	Object objLogin = CONTEXT.lookup("security/Login");
+	Object objLogin = CONTEXT.lookup(LoginRemoteHome.EJB_REF_NAME);
 	LoginRemoteHome loginHome = (LoginRemoteHome) PortableRemoteObject.narrow(objLogin, LoginRemoteHome.class);
 	LoginRemote LOGIN = loginHome.create();
 
-	Object objPolicy = CONTEXT.lookup("security/Policy");
+	Object objPolicy = CONTEXT.lookup(PolicyRemoteHome.EJB_REF_NAME);
 	PolicyRemoteHome policyHome = (PolicyRemoteHome) PortableRemoteObject.narrow(objPolicy, PolicyRemoteHome.class);
 	PolicyRemote POLICY = policyHome.create();
 
