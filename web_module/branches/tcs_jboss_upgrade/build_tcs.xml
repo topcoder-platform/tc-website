@@ -149,11 +149,18 @@
     <target name="war-dde" depends="compile">
         <war warfile="${war.dir}/dde.war" webxml="${resources.dir}/dde/web.xml">
             <fileset dir="${web.dir}/dde"/>
-            <classes dir="${classes.dir}">
+            <classes dir="${classes.dir}" excludes="**/*Bean.class">
                 <include name="com/topcoder/dde/servlet/**"/>
                 <include name="com/topcoder/dde/request/**"/>
                 <include name="com/topcoder/dde/util/**"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/dde/admin/*.class"/>
+                <include name="com/topcoder/dde/catalog/*.class"/>
+                <include name="com/topcoder/dde/forum/*.class"/>
+                <include name="com/topcoder/dde/notification/*.class"/>
+                <include name="com/topcoder/dde/persistencelayer/interfaces/*.class"/>
+                <include name="com/topcoder/dde/submission/*.class"/>
+                <include name="com/topcoder/dde/user    /*.class"/>
             </classes>
             <webinf dir="${resources.dir}/taglib">
                 <include name="dde.tld"/>
