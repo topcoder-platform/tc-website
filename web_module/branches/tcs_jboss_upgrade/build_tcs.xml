@@ -250,6 +250,9 @@
                 <include name="DataAccess.properties"/>
                 <include name="TCS.properties"/>
             </fileset>
+            <fileset dir="${resources.dir}/security/conf">
+                <include name="com/topcoder/security/Util.properties"/>
+            </fileset>
         </copy>
     </target>
 
