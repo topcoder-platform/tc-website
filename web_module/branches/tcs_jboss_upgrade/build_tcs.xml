@@ -154,13 +154,6 @@
                 <include name="com/topcoder/dde/request/**"/>
                 <include name="com/topcoder/dde/util/**"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
-                <include name="com/topcoder/dde/admin/*.class"/>
-                <include name="com/topcoder/dde/catalog/*.class"/>
-                <include name="com/topcoder/dde/forum/*.class"/>
-                <include name="com/topcoder/dde/notification/*.class"/>
-                <include name="com/topcoder/dde/persistencelayer/interfaces/*.class"/>
-                <include name="com/topcoder/dde/submission/*.class"/>
-                <include name="com/topcoder/dde/user/*.class"/>
             </classes>
             <webinf dir="${resources.dir}/taglib">
                 <include name="dde.tld"/>

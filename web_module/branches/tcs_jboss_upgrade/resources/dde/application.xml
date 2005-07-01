@@ -32,6 +32,9 @@
         <ejb>idgenerator.jar</ejb>
     </module>
     <module>
+        <ejb>notification.jar</ejb>
+    </module>
+    <module>
         <ejb>persistence.jar</ejb>
     </module>
     <module>
