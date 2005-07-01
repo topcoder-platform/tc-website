@@ -42,25 +42,25 @@
 
                 <tr>
                     <td width="30%" class="sidebarText" valign="top">Grand Prize Winner</td>
-                    <td width="70%" class="sidebarText">Aleksandar Nikov</td>
-                    <td width="70%" class="sidebarText">871.19</td>
+                    <td width="70%" class="sidebarText">Steve Dieter</td>
+                    <td width="70%" class="sidebarText">507.64</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">1st Runner Up</td>
-                    <td width="70%" class="sidebarText">Kelly Davis</td>
-                    <td width="70%" class="sidebarText">0.00</td>
+                    <td width="70%" class="sidebarText">Shinya Taniguchi</td>
+                    <td width="70%" class="sidebarText">438.73</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">2nd Runner Up (tie)</td>
-                    <td width="70%" class="sidebarText">Bill Baker</td>
-                    <td width="70%" class="sidebarText">0.00</td>
+                    <td width="70%" class="sidebarText">Kevin Beam</td>
+                    <td width="70%" class="sidebarText">128.81</td>
                 </tr>
 
                 <tr>
-                    <td width="30%" class="sidebarText">2nd Runner Up (tie)</td>
-                    <td width="70%" class="sidebarText">Dejan Pazin</td>
+                    <td width="30%" class="sidebarText">3rd Runner Up (tie)</td>
+                    <td width="70%" class="sidebarText">Adam Browning</td>
                     <td width="70%" class="sidebarText">0.00</td>
                 </tr>
             </table>
