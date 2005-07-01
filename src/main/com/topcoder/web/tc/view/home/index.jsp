@@ -36,7 +36,7 @@
          <tr>
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
             <td class="BIGPromoBox" align="center">
-            <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="JavaOne05" /></a><br/></td>
+            <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="TCO05" /></a><br/></td>
             <td width="50%" class="homeLogo">&#160;</td>
          </tr>            
       </table>
@@ -134,7 +134,7 @@
 <%-- Right Column --%>
       <td class=homeRightCol>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/pl/?&module=Static&d1=javaone05&d2=overview" target="_blank"><img src="/i/home/promos/javaone05_sm.gif" border=0 /></A></td></tr>
+         <tr><td class=homeBigPromo><A href="/pl/?&module=Static&d1=javaone05&d2=wednesday" target="_blank"><img src="/i/home/promos/javaone05_results_sm.gif" border=0 /></A></td></tr>
       </table>
       <table width="100%" border=0 cellpadding=0 cellspacing=0>
          <tr>
