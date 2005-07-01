@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.01.05<br>12:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pl/?&module=Static&d1=javaone05&d2=wednesday">JavaOne 05 Coding Challenge Results</A></span><br><br>
+      Check out the results for all three days of competition.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/pl/?&module=Static&d1=javaone05&d2=wednesday">results</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.30.05<br>9:25 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">Yahoo! chat session</A></span><br><br>
       Yahoo! recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about working for Yahoo!
@@ -220,18 +232,6 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.09.05<br>6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=jpmorgan">JP Morgan</A></span><br><br>
       <A href="/tc?module=Static&d1=contracting&d2=jpmorgan">JP Morgan</A> is offering several positions, available to <strong>ALL</strong> members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.09.05<br>8:55 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo!</A></span><br><br>
-      <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo">Yahoo!</A> is offering various engineering positions, available to <strong>ALL</strong> members.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
