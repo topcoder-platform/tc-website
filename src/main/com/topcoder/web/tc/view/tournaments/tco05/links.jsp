@@ -10,6 +10,7 @@
 <area shape="poly" alt="" coords="392,29, 364,1, 536,1, 564,29" href="/tc?module=Static&d1=tournaments&d2=tco05&d3=comp_description" />
 </map>
 
+
 <table width="100%" border=0 cellpadding=0 cellspacing=0> 
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
@@ -87,12 +88,12 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_description"><img src="/i/tournament/tco05/tabs/L2_detailsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+<%--
 				<% if (tabLev2.equals("registrants")) {%>
 					<td class=nav><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/tournament/tco05/tabs/L2_registrantsOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
 					<td class=nav><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/tournament/tco05/tabs/L2_registrantsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
-<%--
 				<% if (tabLev2.equals("advancers")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_bracket"><img src="/i/tournament/tco05/tabs/L2_advancersOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>

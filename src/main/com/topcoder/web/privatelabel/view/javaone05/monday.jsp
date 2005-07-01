@@ -7,42 +7,33 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-
-<link rel=stylesheet type="text/css" href="http://java.sun.com/javaone/javaone2004.css">
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
-
-<title>2004 JavaOne Coding Challenge</title>
-
-
-
-<jsp:include page="../script.jsp" />
-
-
+<link rel=stylesheet href="/css/javaone05.css">
+<title>2005 JavaOne Coding Challenge</title>
 </head>
-   <body>
-      <div align="center">
-         <table border=0 cellspacing=0 width="800">
+<body>
+<map name="bannerMap">
+<area shape="rect" alt="http://www.sun.com/" coords="697,4,799,72" href="http://www.sun.com/" target="_new">
+<area shape="rect" alt="http://java.sun.com/" coords="624,3,694,72" href="http://java.sun.com/" target="_new">
+<area shape="rect" alt="http://www.sun.com/javaone" coords="0,7,616,70" href="http://www.sun.com/javaone" target="_new">
+</map>
+
+<center>
+<table id="main" width="800" cellpadding="0" cellspacing="0" border="0">
             <tr>
                <td colspan="2" align="left" valign="middle">
-               <img src="/i/events/javaone04/banner_top.gif" width="800" height="106" border="0"/>
+               <img src="/i/events/javaone05/banner_top.gif" border="0" usemap="#bannerMap" alt="JavaOne - Experiencing Java technology through education, industry, and community">
                </td>
             </tr>
             <tr>
                <td valign="top" width="164"><jsp:include page="links.jsp" /></td>
-               <td valign="top">
-            <!-- start breadcrumb -->
-                    <table border="0" cellspacing="0" cellpadding="0" bgcolor="#F0F0F0" >
-                        <tr><td width="19"><img src="/i/clear.gif" width="634" height="20"></td></tr>
-                  </table>
-              <!-- end breadcrumb -->
-                    <p></p>
-                    <img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0"><img src="/i/clear.gif" width="140" height="1"><a href="/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>
-                    <p></p>
-                    <p class ="regmiddle"><strong><font size="4">Web Services Winners - Monday June 28</font></strong></p>
-                  
-                  <p class ="regmiddle">Monday | <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_tuesday">Tuesday</a> | <a href="/pl/?&module=Static&d1=javaone04&d2=javaone_wednesday">Wednesday</a></p>
-                  
-         <table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+               <td valign="top" >
+                 <table border="0" width="100%" cellpadding="7" cellspacing="0"><tr><td valign="top"><img src="/i/events/javaone05/coding_challenge.gif" width="351" height="27" border="0" /></td>
+                 <td align="right" valign="top"><a href="/"><img src="/i/events/javaone05/pbtc_logo.gif" width="130" height="27" border="0" /></a></td></tr></table>
+  						<p class ="regmiddle"><strong><font size="4">Service-oriented Architectures Winners - Monday June 27</font></strong></p>
+						
+						<p class ="regmiddle">Monday | <a href="/pl/?&module=Static&d1=javaone05&d2=tuesday">Tuesday</a> | <a href="/pl/?&module=Static&d1=javaone05&d2=wednesday">Wednesday</a></p>
+						
+			<table width="604" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="30%" class="sidebarTitle">Placement</td>
                     <td width="70%" class="sidebarTitle">Winner</td>
@@ -51,38 +42,38 @@
 
                 <tr>
                     <td width="30%" class="sidebarText" valign="top">Grand Prize Winner</td>
-                    <td width="70%" class="sidebarText">Matthew McEachen</td>
-                    <td width="70%" class="sidebarText">186.94</td>
+                    <td width="70%" class="sidebarText">Peter Levart</td>
+                    <td width="70%" class="sidebarText">520.79</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">1st Runner Up</td>
+                    <td width="70%" class="sidebarText">Michael Weiss-Malik</td>
+                    <td width="70%" class="sidebarText">233.27</td>
+                </tr>
+
+                <tr>
+                    <td width="30%" class="sidebarText">2nd Runner Up (tie)</td>
                     <td width="70%" class="sidebarText">Kevin Forbes</td>
-                    <td width="70%" class="sidebarText">175.33</td>
+                    <td width="70%" class="sidebarText">200.95</td>
                 </tr>
 
                 <tr>
-                    <td width="30%" class="sidebarText">2nd Runner Up (tie)</td>
-                    <td width="70%" class="sidebarText">Douglas Wokoun</td>
-                    <td width="70%" class="sidebarText">0.00</td>
-                </tr>
-
-                <tr>
-                    <td width="30%" class="sidebarText">2nd Runner Up (tie)</td>
-                    <td width="70%" class="sidebarText">Ian Cardenas</td>
-                    <td width="70%" class="sidebarText">0.00</td>
+                    <td width="30%" class="sidebarText">3rd Runner Up (tie)</td>
+                    <td width="70%" class="sidebarText">Ben Houston</td>
+                    <td width="70%" class="sidebarText">189.48</td>
                 </tr>
             </table>
-            
-            <p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_mondayphotos">View Photos</a> from the event.</p>
-            
-
-               
-               
+			
+			<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone05&d2=mondayphotos">View Photos</a> from the event.</p>
+               </td>
+            <tr>
+               <td colspan="2" align="left" valign="middle">
+                  <jsp:include page="foot.jsp" />
                </td>
             </tr>
+            
          </table>
-         <jsp:include page="foot.jsp" />
-      </div>
+</center>
    </body>
 </html>
