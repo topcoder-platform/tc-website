@@ -40,7 +40,7 @@
     font-weight: bold;
     }
 .tco05Title{
-    background-color: #FFEA53;	
+    background-color: #FFEA53;
 	color: #000000;
 	font-size: 14px;
 	font-weight: bold;
@@ -118,7 +118,7 @@
                    <td class="projectCells" align="center"></td>
                    <td class="projectCells" align="center"></td>
                </tr>
-               
+
                <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
@@ -145,6 +145,9 @@
                         <tr valign="top">
                             <td class="projectCells" align="center">
                             <xsl:choose>
+                                <xsl:when test="./is_jsf = 'JSF'">
+                                    <img src="/i/development/smSC.gif"/>
+                                </xsl:when>
                                 <xsl:when test="./catalog_name = 'Java' ">
                                    <img src="/i/development/smJava.gif"/>
                                 </xsl:when>
@@ -199,7 +202,7 @@
             </table>
             <br/>
 <!-- TCO05 DESIGN END -->
-            
+
 <!-- Open Component Design Projects begins -->
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
@@ -327,7 +330,7 @@
                    <td class="projectCells" align="center"></td>
                    <td class="projectCells" align="center"></td>
                </tr>
-               
+
                <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:variable name="design-phase" select="'112'" />
                 <xsl:variable name="dev-phase" select="'113'" />
