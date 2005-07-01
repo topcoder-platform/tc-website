@@ -248,6 +248,9 @@
                         <tr valign="top">
                             <td class="projectCells" align="center">
                             <xsl:choose>
+                                <xsl:when test="./is_jsf = 'JSF'">
+                                    <img src="/i/development/smSC.gif"/>
+                                </xsl:when>
                                 <xsl:when test="./catalog_name = 'Java' ">
                                    <img src="/i/development/smJava.gif"/>
                                 </xsl:when>
@@ -355,6 +358,9 @@
                         <tr valign="top">
                             <td class="projectCells" align="center">
                             <xsl:choose>
+                                <xsl:when test="./is_jsf = 'JSF'">
+                                    <img src="/i/development/smSC.gif"/>
+                                </xsl:when>
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
@@ -456,6 +462,10 @@
                         <tr valign="top">
                             <td class="projectCells" align="center">
                             <xsl:choose>
+                            <xsl:when test="./is_jsf = 'JSF'">
+                                <img src="/i/development/smSC.gif"/>
+                            </xsl:when>
+
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
                                </xsl:when>
