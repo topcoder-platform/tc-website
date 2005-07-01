@@ -107,40 +107,57 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
     public void ejbCreate() {
         try {
+            log.debug("ejbCreate called");
             Context homeBindings = new InitialContext();
-
+            log.debug("blah");
             catalogHome = (LocalDDECompCatalogHome)
                     homeBindings.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
+            log.debug("blah");
             versionsHome = (LocalDDECompVersionsHome)
                     homeBindings.lookup(LocalDDECompVersionsHome.EJB_REF_NAME);
+            log.debug("blah");
             compcatsHome = (LocalDDECompCategoriesHome)
                     homeBindings.lookup(LocalDDECompCategoriesHome.EJB_REF_NAME);
+            log.debug("blah");
             keywordsHome = (LocalDDECompKeywordsHome)
                     homeBindings.lookup(LocalDDECompKeywordsHome.EJB_REF_NAME);
+            log.debug("blah");
             comptechHome = (LocalDDECompTechnologyHome)
                     homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
+            log.debug("blah");
             compforumHome = (LocalDDECompForumXrefHome)
                     homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
+            log.debug("blah");
             categoriesHome = (LocalDDECategoriesHome)
                     homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
+            log.debug("blah");
             technologiesHome = (LocalDDETechnologyTypesHome)
                     homeBindings.lookup(LocalDDETechnologyTypesHome.EJB_REF_NAME);
+            log.debug("blah");
             rolesHome = (LocalDDERolesHome)
                     homeBindings.lookup(LocalDDERolesHome.EJB_REF_NAME);
+            log.debug("blah");
             licenseHome = (LocalDDELicenseLevelHome)
                     homeBindings.lookup(LocalDDELicenseLevelHome.EJB_REF_NAME);
+            log.debug("blah");
             docHome = (LocalDDECompDocumentationHome)
                     homeBindings.lookup(LocalDDECompDocumentationHome.EJB_REF_NAME);
+            log.debug("blah");
             downloadHome = (LocalDDECompDownloadHome)
                     homeBindings.lookup(LocalDDECompDownloadHome.EJB_REF_NAME);
+            log.debug("blah");
             userroleHome = (LocalDDEUserRoleHome)
                     homeBindings.lookup(LocalDDEUserRoleHome.EJB_REF_NAME);
+            log.debug("blah");
             userHome = (LocalDDEUserMasterHome)
                     homeBindings.lookup(LocalDDEUserMasterHome.EJB_REF_NAME);
+            log.debug("blah");
             forumadminHome = (ForumAdminLocalHome)
                     homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
+            log.debug("blah");
             usermanHome = (UserManagerLocalHome)
                     homeBindings.lookup(UserManagerLocalHome.EJB_REF_NAME);
+            log.debug("blah");
 /*
             /** SECURITY MANAGER
     		Hashtable principalMgrEnvironment=new Hashtable();
@@ -152,21 +169,26 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             principalmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.
                     narrow(homeBindings.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
                             PrincipalMgrRemoteHome.class);
+            log.debug("blah");
             policymgrHome = (PolicyMgrRemoteHome) PortableRemoteObject.narrow(
                     homeBindings.lookup(PolicyMgrRemoteHome.EJB_REF_NAME),
                     PolicyMgrRemoteHome.class);
+            log.debug("blah");
             policyHome = (PolicyRemoteHome)
                     PortableRemoteObject.narrow(
                             homeBindings.lookup(PolicyRemoteHome.EJB_REF_NAME),
                             PolicyRemoteHome.class);
 
+            log.debug("blah");
             // Online Review
             projectTrackerHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
                     homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
                     ProjectTrackerHome.class);
+            log.debug("blah");
             documentManagerHome = (DocumentManagerHome) PortableRemoteObject.narrow(
                     homeBindings.lookup(DocumentManagerHome.EJB_REF_NAME),
                     DocumentManagerHome.class);
+            log.debug("blah");
         } catch (NamingException exception) {
             throw new EJBException(
                     "Unable to access persistence layer: " + exception.toString());
