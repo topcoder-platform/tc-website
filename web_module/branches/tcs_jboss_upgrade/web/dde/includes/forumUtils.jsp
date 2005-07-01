@@ -1,7 +1,15 @@
-<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.text.SimpleDateFormat,
+                 com.topcoder.forum.ForumRemote,
+                 com.topcoder.forum.ForumRemoteHome,
+                 javax.rmi.PortableRemoteObject,
+                 com.topcoder.dde.forum.DDEForum,
+                 com.topcoder.dde.forum.DDEForumHome,
+                 com.topcoder.dde.forum.ForumComponent,
+                 java.util.GregorianCalendar,
+                 java.util.Calendar" %>
 <%!
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("E, MMM d, yyyy hh:mm a");
-    
+
     String textToHtml(String in) {
         String text = rtrim(in);
         StringBuffer out = new StringBuffer();
@@ -17,7 +25,7 @@
                         leading = false;
                     }
                     break;
-                case '<':   
+                case '<':
                     out.append("&lt;");
                     leading = false;
                     break;
@@ -43,7 +51,7 @@
         }
         return out.toString();
     }
-    
+
     String rtrim(String s) {
         int i = s.length()-1;
         LOOP: for (; i>=0; i--) {
@@ -72,40 +80,40 @@
         response.sendRedirect("c_active_collab.jsp");
         return;
     }
-    
+
 	long topicId = 0;
     try {
         topicId = Long.parseLong(request.getParameter("t"));
     } catch (NumberFormatException nfe) {
     }
-	
+
 	long threadId = 0;
     try {
         threadId = Long.parseLong(request.getParameter("r"));
     } catch (NumberFormatException nfe) {
     }
-	
+
 	long postId = 0;
     try {
         postId = Long.parseLong(request.getParameter("p"));
     } catch (NumberFormatException nfe) {
     }
-	
+
 	long replyId = 0;
     try {
         replyId = Long.parseLong(request.getParameter("rp"));
     } catch (NumberFormatException nfe) {
     }
-	
-	
+
+
     DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(
             CONTEXT.lookup(DDEForumHome.EJB_REF_NAME), DDEForumHome.class);
     DDEForum ddeforum = ddeforumhome.create();
-    
+
 	ForumRemoteHome forumHome = (ForumRemoteHome) PortableRemoteObject.narrow(
 	        CONTEXT.lookup(ForumRemoteHome.EJB_REF_NAME), ForumRemoteHome.class);
 	ForumRemote forumBean = forumHome.create();
-	
+
     /////////////////////////////////////////////
     //Check for permissions
     /////////////////////////////////////////////
@@ -117,13 +125,13 @@
     long collabForumId = 0;
 	long prevThreadId = 0;
 	long nextThreadId = 0;
-    
+
 	if (loggedOn) {
         canPost = ddeforum.canPost(forumId,tcSubject);
         canModerate = ddeforum.canModerate(forumId,tcSubject);
     }
-    
-    
+
+
     /////////////////////////////////////////////
     //Get linked component information
     /////////////////////////////////////////////
@@ -135,7 +143,7 @@
     } else {
         forumType = com.topcoder.dde.catalog.Forum.SPECIFICATION;
     }
-    
+
     if (forumType == com.topcoder.dde.catalog.Forum.SPECIFICATION) {
         if (!loggedOn) {
             //Redirect to logon page
@@ -152,12 +160,12 @@
     } else {
         //Handle Error here
     }
-    
+
     /////////////////////////////////////////////
     // Set up the date filter.
     /////////////////////////////////////////////
     Calendar date = new GregorianCalendar();
     date.add(Calendar.DATE,-1);
-    
+
     long newSinceTime = date.getTime().getTime();
 %>

@@ -263,7 +263,6 @@
                 <include name="document_generation.jar"/>
                 <include name="email_engine.jar"/>
                 <include name="file_upload.jar"/>
-                <include name="forum.jar"/>
                 <include name="job_scheduling.jar"/>
                 <include name="logging_wrapper.jar"/>
                 <include name="math_matrix.jar"/>
@@ -331,6 +330,9 @@
             </fileset>
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs">
+                <include name="forum.jar"/>
             </fileset>
         </ear>
 
