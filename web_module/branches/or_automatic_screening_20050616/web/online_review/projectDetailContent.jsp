@@ -198,7 +198,7 @@
                 <tr>
                     <td class="forumTextOdd"><review:showDeliverable name="project" property="project" date="true" /></td>
                 </tr>
-<!--
+<logic:notPresent name="history">
 <logic:present name="submission">
                 <tr>
                     <td class="forumTextOdd">
@@ -207,7 +207,7 @@
 					    <html:link page='<%="/submissionDownload.do?id="+projectId+"&sid="+submissionId %>' styleClass="breadcrumbLinks"><bean:message key="prompt.download" /></html:link></td>
                 </tr>
 </logic:present>
--->
+</logic:notPresent>
             </table>
 <logic:present name="finalfix">
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
