@@ -146,7 +146,7 @@
                             <td class="projectCells" align="center">
                             <xsl:choose>
                                 <xsl:when test="./is_jsf = 'JSF'">
-                                    <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><img src="/i/development/smSC.gif"/></a>
+                                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun"><img src="/i/development/smSC.gif"/></a>
                                 </xsl:when>
                                 <xsl:when test="./catalog_name = 'Java' ">
                                    <img src="/i/development/smJava.gif"/>
@@ -249,7 +249,7 @@
                             <td class="projectCells" align="center">
                             <xsl:choose>
                                 <xsl:when test="./is_jsf = 'JSF'">
-                                    <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><img src="/i/development/smSC.gif"/></a>
+                                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun"><img src="/i/development/smSC.gif"/></a>
                                 </xsl:when>
                                 <xsl:when test="./catalog_name = 'Java' ">
                                    <img src="/i/development/smJava.gif"/>
@@ -359,7 +359,7 @@
                             <td class="projectCells" align="center">
                             <xsl:choose>
                                 <xsl:when test="./is_jsf = 'JSF'">
-                                    <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><img src="/i/development/smSC.gif"/></a>
+                                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun"><img src="/i/development/smSC.gif"/></a>
                                 </xsl:when>
                                <xsl:when test="./catalog_name = 'Java' ">
                                   <img src="/i/development/smJava.gif"/>
@@ -463,7 +463,7 @@
                             <td class="projectCells" align="center">
                             <xsl:choose>
                             <xsl:when test="./is_jsf = 'JSF'">
-                                <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun"><img src="/i/development/smSC.gif"/></a>
+                                <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun"><img src="/i/development/smSC.gif"/></a>
                             </xsl:when>
 
                                <xsl:when test="./catalog_name = 'Java' ">
