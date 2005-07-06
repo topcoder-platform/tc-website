@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>07.06.05<br>10:40 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/contest/classes/PopsEdit/PopsEdit.jar">PopsEdit version 2.90 released</A></span><br><br>
+      The newest version of PopsEdit adds functionality like support for mouse wheel scrolling and now supports jdk1.5.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/contest/classes/PopsEdit/PopsEdit.jar">download</A>&#160;|&#160;<A href="/contest/classes/PopsEdit/PopsEdit_release_notes.htm">release notes</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.01.05<br>12:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pl/?&module=Static&d1=javaone05&d2=wednesday">JavaOne 05 Coding Challenge Results</A></span><br><br>
       Check out the results for all three days of competition.
@@ -227,18 +239,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.09.05<br>6:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=jpmorgan">JP Morgan</A></span><br><br>
-      <A href="/tc?module=Static&d1=contracting&d2=jpmorgan">JP Morgan</A> is offering several positions, available to <strong>ALL</strong> members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
