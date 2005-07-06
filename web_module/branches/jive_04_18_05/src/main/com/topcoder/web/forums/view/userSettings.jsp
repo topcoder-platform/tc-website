@@ -48,12 +48,16 @@
                 <jsp:param name="title" value="User Settings"/>
             </jsp:include>
 
-<div class="topLinksL">
-<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> User Settings</span><br><br>
-</div>
-<div class="topLinksR">
-<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br>
-</div>
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+<tr>
+	<td nowrap="nowrap" valign="top">
+   <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> User Settings</span><br><br>
+   </td>
+   <td align="right" nowrap="nowrap" valign="top">
+      <A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;User Settings<br>
+   </td>
+</tr>
+</table>
 
 <%	if (status.equals("error")) { %>
 <br><br><span class="rtHeader"><span class="bigRed">Settings updated with errors:</span></span>
