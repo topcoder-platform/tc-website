@@ -34,6 +34,13 @@
                   <a href="/pl/?&module=Static&d1=google05&d2=reg_closed">Registration</a> &nbsp;|&nbsp;
             <% } %>
 
+<!-- Instructions tab -->
+            <% if (selectedTab.equals("instructions")) {%>
+                 <font color="006633">Instructions</font> &nbsp;|&nbsp; 
+            <% } else { %>
+                  <a href="/pl/?&module=Static&d1=google05&d2=instructions">Instructions</a> &nbsp;|&nbsp; 
+            <% } %>
+
 <!-- FAQ tab -->
             <% if (selectedTab.equals("faq")) {%>
                  <font color="006633">FAQ</font> &nbsp;|&nbsp; 
