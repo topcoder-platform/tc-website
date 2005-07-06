@@ -31,7 +31,7 @@
 	        <jf:creationDate><%= formatter.format(message.getCreationDate()) %></jf:creationDate>
 	        <jf:modificationDate><%= formatter.format(message.getModificationDate()) %></jf:modificationDate>
 	        <jf:author><%= message.getUser().getUsername() %></jf:author>
-	        <jf:replyCount><%= (message.getForumThread().getTreeWalker().getRecursiveChildCount(message)) %></jf:replyCount>
+	        <jf:replyCount><%= (message.getForumThread().getTreeWalker().getChildCount(message)) %></jf:replyCount>
 	    </item>
     </tc-webtag:iterator>
 
