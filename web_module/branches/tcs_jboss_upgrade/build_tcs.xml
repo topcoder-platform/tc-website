@@ -251,6 +251,9 @@
                 <include name="com/topcoder/dde/catalog/confirmationemail.xsl"/>
                 <include name="com/topcoder/message/email/EmailEngine.xml"/>
                 <include name="com/topcoder/servlet/request/FileUpload.xml"/>
+                <include name="com/topcoder/apps/review/workdays.xml"/>
+                <include name="com/topcoder/apps/review/business_logic_config.properties"/>
+                <include name="com/topcoder/apps/review/ReviewResources.properties"/>
             </fileset>
             <fileset dir="${resources.dir}">
                 <include name="ApplicationServer.properties"/>
