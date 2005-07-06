@@ -235,6 +235,7 @@ public class TCLoadRank extends TCLoad {
                 ratings = getCoderRatingsForRound();
             }
             coderCount = ratings.size();
+            Collections.sort(ratings);
 
             // delete all the records for the overall rating rank type
             psDel.executeUpdate();
