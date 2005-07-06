@@ -51,7 +51,7 @@
 <span class=bigRed>No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br/><br/>
 <span class=greenSubtitle>Summary of the Tournament</span><br/>
-The Google&#153; Code Jam 2005 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2005 to identify possible employees for their company.  The Code Jam 2005 will take place between Wednesday, September 1 and Friday, October 15, 2005.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) day of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a "Google Code Jam 2005, Powered by TopCoder" t-shirt.  In addition, Google will award $50,000 in cash prizes to the 50 finalists in the tournament.
+The Google&#153; Code Jam 2005 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2005 to identify possible employees for their company.  The Code Jam 2005 will take place between Wednesday, September 1 and Friday, October 15, 2005.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) day of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a "Google Code Jam 2005, Powered by TopCoder" t-shirt.  In addition, Google will award $50,000 in cash prizes to the 100 finalists in the tournament.
 <br/><br/>
 <b>Eligibility</b><br/>
 All individuals who are 18 years of age or older by September 1, 2005 may register and compete in the Google Code Jam 2005.  
@@ -81,7 +81,7 @@ The Qualification Round will contain ten (10) virtual rooms and five (5) problem
 <br/><br/>
 
 <b>The Competition Field</b><br/>
-Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers from Round 1 will advance to Round 2.  The top 50 scorers from Round 2 will advance to the Championship Round, which will be held onsite at Google’s headquarters in Mountain View, CA, USA.
+Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers from Round 1 will advance to Round 2.  The top 100 scorers from Round 2 will advance to the Championship Round, which will be held onsite at Google’s headquarters in Mountain View, CA, USA.
 <br/><br/>
 The Rounds will be held on the following dates:
 <br/><br/>
@@ -92,17 +92,17 @@ The Rounds will be held on the following dates:
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap=nowrap>Round 1</td>
-<td class="sidebarText">Monday, September 20, 2005<br>Sign in: 6:00 PM - 8:55 PM<br>START: 9:00 PM 
+<td class="sidebarText">Monday, August 29, 2005<br>Sign in: 6:00 PM - 8:55 PM<br>START: 9:00 PM 
 </td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap=nowrap>Round 2</td>
-<td class="sidebarText">Thursday, September 23, 2005<br>START: 9:00 PM
+<td class="sidebarText">Thursday, September 1, 2005<br>START: 9:00 PM
 </td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap=nowrap>Championship Round</td>
-<td class="sidebarText">Friday, October 15, 2005<br>START: 3:45 PM
+<td class="sidebarText">Friday, September 23, 2005<br>START: TBD
 </td>
 </tr>
 <tr valign="top">
@@ -132,7 +132,7 @@ After each round of competition, the top scorers will be identified and will adv
 
 <b>Round 2 (online)</b>
 <ul>
-<li>Up to 250 coders will compete and up to 50 will advance.  The 50 highest scoring competitors will advance to the Championship Round.  Each coder must have positive points to advance, so if there are less than 50 competitors who score positive points, only those competitors with a positive point total will advance.</li>
+<li>Up to 250 coders will compete and up to 100 will advance.  The 100 highest scoring competitors will advance to the Championship Round.  Each coder must have positive points to advance, so if there are less than 100 competitors who score positive points, only those competitors with a positive point total will advance.</li>
 </ul>
 
 <b>NOTE:</b> In the event of a tie for any advancing position, the tie will be resolved in the following manner:
@@ -152,20 +152,20 @@ Each online and onsite round of competition (excluding the Qualification Round) 
 </ul>
 
 <b>Onsite Championship Round</b><br/>
-The 50 advancers from Round 2 will travel to Google’s headquarters to compete in the Championship Round of the tournament being held on Friday, October 15, 2005.  Each finalist must confirm his/her attendance in the Championship Round by September 30, 2005.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
+The 100 advancers from Round 2 will travel to Google’s headquarters to compete in the Championship Round of the tournament being held on Friday, October 15, 2005.  Each finalist must confirm his/her attendance in the Championship Round by September 30, 2005.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
 <br/><br/>
 Google will provide all travel accommodations for each finalist to attend the Championship Round.  In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from Google’s headquarters.  All other expenses are the responsibility of the contestant.   
 <br/><br/>
 TopCoder will determine the room assignments for the Championship Round prior to the start of the Championship Round. 
 <br/><br/>
-The Championship Round will be a single round of 50 coders. The first, second, third and fourth place finishers in the Championship Round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):
+The Championship Round will be a single round of 100 coders. The first, second, third and fourth place finishers in the Championship Round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):
 <ul>
 <li>Total points acquired (higher is better) during online Rounds 1 and 2.</li>
 <li>If a tie still remains in the Championship Round, then the prize money will be distributed equally among the tied coders.</li>
 </ul>
 
 <span class=greenSubtitle>About the Prizes</span><br/>
-All participants who compete in Round 1 will receive a "Google Code Jam 2005, Powered by TopCoder" t-shirt.  In addition, the 50 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
+All participants who compete in Round 1 will receive a "Google Code Jam 2005, Powered by TopCoder" t-shirt.  In addition, the 100 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
 <br/><br/>
 <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
 <tr valign="top">
@@ -178,50 +178,23 @@ All participants who compete in Round 1 will receive a "Google Code Jam 2005, Po
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$7,000
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>3rd place
-finisher* in the Championship Round</td>
+<td class="sidebarText" nowrap>2nd to 10th place</td>
 <td class="sidebarText" nowrap align=right>$5,000
 </td>
+</tr>
+<tr valign="top">
+<td class="sidebarText" nowrap>11th to 25th place</td>
+<td class="sidebarText" nowrap align=right>$2,500
+</td>
 </tr>                
 <tr valign="top">
-<td class="sidebarText" nowrap>4th place
-finisher* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$3,000
+<td class="sidebarText" nowrap>26th to 50th place</td>
+<td class="sidebarText" nowrap align=right>$1,000
 </td>
 </tr>                
 <tr valign="top">
-<td class="sidebarText" nowrap>5th place
-finisher* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$2,000
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>6th - 10th place
-finishers* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$1,000 each
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>11th - 20th place
-finishers* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$750 each
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>21st - 32nd place
-finishers* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$500 each
-</td>
-</tr>
-<tr valign="top">
-<td class="sidebarText" nowrap>33rd - 50th place
-finishers* in the Championship Round</td>
-<td class="sidebarText" nowrap align=right>$250 each
+<td class="sidebarText" nowrap>51st to 100th place</td>
+<td class="sidebarText" nowrap align=right>$750
 </td>
 </tr>
 <tr valign="top">
