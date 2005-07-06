@@ -223,7 +223,7 @@ If you have a question during the competition about the problem statement or abo
 <br><br>
 An administrator will respond to your question in the chat area.
 <br><br>
-If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="google2005@topcoder.com?subject=Question regarding Google Code Jam">google2005@topcoder.com</A> . Please include a detailed description of the problem that you are having. 
+If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <A href="googlecodejam@topcoder.com?subject=Question regarding Google Code Jam">googlecodejam@topcoder.com</A> . Please include a detailed description of the problem that you are having. 
 
 			<br/><br/>
 			To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
