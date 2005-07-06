@@ -12,7 +12,7 @@
 
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">June:&#160;<tc-webtag:handle coderId="10574855"/></td>
+        <td class="statTextBig" bgcolor="#333333">July:&#160;<tc-webtag:handle coderId="10254716"/></td>
     </tr>
 </table>
 
@@ -22,22 +22,24 @@
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText">Rating</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText"></td>
     </tr>
+<%--
     <tr>
         <td class="formHandleEven">SRM 244</td>
         <td class="formHandleEven" align="right">3020</td>
         <td rowspan="4" align="center" valign="middle"><img src="/i/m/petr_mug.gif" alt="" border="0" class="myStatsPhoto"/></td>
     </tr>
+--%>
     <tr>
-        <td class="formHandleEven">SRM 243</td>
-        <td class="formHandleEven" align="right">3000</td>
+        <td class="formHandleEven">SRM 249</td>
+        <td class="formHandleEven" align="right">1965</td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 242</td>
-        <td class="formHandleEven" align="right">2876</td>
+        <td class="formHandleEven">SRM 246</td>
+        <td class="formHandleEven" align="right">1829</td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 241</td>
-        <td class="formHandleEven" align="right">2676</td>
+        <td class="formHandleEven">SRM 245</td>
+        <td class="formHandleEven" align="right">1662</td>
     </tr>
 </table>
 
