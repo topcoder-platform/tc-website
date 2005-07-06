@@ -49,12 +49,13 @@
             <% } %>
 
 <!-- Advancers tab -->
+<%--
             <% if (selectedTab.equals("advancers")) {%>
                  <font color="006633">Advancers</font> &nbsp;|&nbsp; 
             <% } else { %>
                   <a href="/pl/?&module=Static&d1=google05&d2=advancers">Advancers</a> &nbsp;|&nbsp; 
             <% } %>
-
+--%>
 <!-- Practice Arena  tab -->
             <% if (selectedTab.equals("arena")) {%>
                  <font color="006633">Competition Arena</font>
