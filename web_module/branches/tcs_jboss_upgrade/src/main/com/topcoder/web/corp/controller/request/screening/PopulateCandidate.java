@@ -14,6 +14,7 @@ import com.topcoder.web.corp.common.*;
 import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
+import com.topcoder.web.ejb.preferencelevel.NoSuchPreferenceLevelException;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 
