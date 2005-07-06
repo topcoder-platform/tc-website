@@ -113,6 +113,10 @@
             <include name="com/topcoder/sql/**"/>
             <include name="com/topcoder/util/**"/>
             <include name="com/topcoder/security/**"/>
+            <include name="com/topcoder/web/common/*" />
+            <include name="com/topcoder/web/common/tag/HandleTag.java" />
+            <include name="com/topcoder/web/common/model/**" />
+            <include name="com/topcoder/web/common/security/**" />
         </javac>
     </target>
 
