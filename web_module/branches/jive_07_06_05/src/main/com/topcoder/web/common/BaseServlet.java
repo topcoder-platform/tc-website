@@ -131,7 +131,7 @@ public abstract class BaseServlet extends HttpServlet {
             TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
             tcRequest.setAttribute(SESSION_INFO_KEY, info);
-            //todo perhaps this should be configuraable...so implementing classes
+            //todo perhaps this should be configurable...so implementing classes
             //todo don't have to do it if they don't want to
             RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 

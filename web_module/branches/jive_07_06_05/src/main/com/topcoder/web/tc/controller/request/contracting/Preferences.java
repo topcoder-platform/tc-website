@@ -14,7 +14,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.tc.model.Preference;
 import com.topcoder.web.tc.model.PreferenceGroup;
 import com.topcoder.web.tc.model.PreferenceValue;

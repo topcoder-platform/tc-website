@@ -27,7 +27,7 @@ public class TCCC05AlgorithmTerms extends TermsBase {
     }
 
     public String getEventName() {
-        return "TCCC Alogrithm Competition";
+        return "TCCC Algorithm Competition";
     }
 
     public int getTermsId() {

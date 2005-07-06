@@ -103,10 +103,13 @@ public class HandleTag extends TagSupport {
                     rating = rsc.getIntItem(0, "design_rating");
                 else if (development)
                     rating = rsc.getIntItem(0, "development_rating");
-                else
-                    rating = max(rsc.getIntItem(0, "algorithm_rating"),
+                else {
+                    //special case for admins
+                    if (rsc.getIntItem(0, "algorithm_rating")<0) rating =rsc.getIntItem(0, "algorithm_rating");
+                    else rating = max(rsc.getIntItem(0, "algorithm_rating"),
                             rsc.getIntItem(0, "design_rating"),
                             rsc.getIntItem(0, "development_rating"));
+                }
                 output.append(getRatingCSS(rating));
             }
 
@@ -122,6 +125,17 @@ public class HandleTag extends TagSupport {
         }
         return SKIP_BODY;
     }
+    
+    /**
+     * Because the app server (JBoss) is caching the tag,
+     * we have to clear out all the instance variables at the
+     * end of execution.
+     */
+    public int doEndTag() throws JspException {
+        this.link = "";
+        this.cssclass = "";
+        return super.doEndTag();
+    }    
 
     private String getRatingCSS(int rating) {
         if (rating < 0)
