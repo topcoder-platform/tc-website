@@ -339,7 +339,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public UserProjectInfo[] getProjectInfo(TCSubject user) {
-        info("PT.getProjectInfo( " + user.getUserId() + " )");
+        debug("PT.getProjectInfo( " + user.getUserId() + " )");
 
         LinkedList projectInfoList = new LinkedList();
 
