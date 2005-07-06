@@ -22,16 +22,10 @@
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText">Rating</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText"></td>
     </tr>
-<%--
-    <tr>
-        <td class="formHandleEven">SRM 244</td>
-        <td class="formHandleEven" align="right">3020</td>
-        <td rowspan="4" align="center" valign="middle"><img src="/i/m/petr_mug.gif" alt="" border="0" class="myStatsPhoto"/></td>
-    </tr>
---%>
     <tr>
         <td class="formHandleEven">SRM 249</td>
         <td class="formHandleEven" align="right">1965</td>
+        <td rowspan="4" align="center" valign="middle"><img src="/i/m/aboyner_mug.gif" alt="" border="0" class="myStatsPhoto"/></td>
     </tr>
     <tr>
         <td class="formHandleEven">SRM 246</td>
