@@ -964,9 +964,7 @@
                  <include name="User.jar"/>
              </fileset>
          </copy>
-
      </target>
-
 
      <target name="war-techassess" depends="jar_shared, compile_techassess">
          <war warfile="${war.dir}/techassess.war" webxml="${resources}/techassess/web.xml">
@@ -1078,9 +1076,8 @@
                  <include name="ContestAdminServices.jar"/>
              </fileset>
          </copy>
-
      </target>
-
+ 	
      <target name="deploy-security" depends="build-security">
          <copy todir="${jboss_deploy}">
              <fileset dir="${ear.dir}">
