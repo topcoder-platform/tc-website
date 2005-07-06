@@ -42,7 +42,7 @@
 
          <br/><br/>
 
-         <span class="bigTitle">The Google&#153; Code Jam 2005</span>
+         <span class="bigTitle">Google&#153; Code Jam 2005</span>
          <span valign=top>
          <jsp:include page="right.jsp" />
          </span>
