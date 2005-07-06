@@ -143,10 +143,10 @@
                         Plugin Name: <strong>PopsEdit</strong><br />
                         Description: Feature rich editor that has all the features Pops needs<br />
                         Author: Pops<br />
-                        Date: 1/10/2003<br />
+                        Date: 07/06/2005<br />
                         <a href="/contest/classes/PopsEdit/PopsEdit.htm" class="statText">Documentation</a><br />
-                        <a href="/contest/classes/PopsEdit/PopsEdit%20v2.80%20release%20notes.htm" class="statText">Release Notes</a><br />
-                        Version: 2.80<br />
+                        <a href="/contest/classes/PopsEdit/PopsEdit_release_notes.htm" class="statText">Release Notes</a><br />
+                        Version: 2.90<br />
                         EntryPoint: popsedit.EntryPoint (case sensitive)<br />
                         ClassPath: PopsEdit.jar<br />
                         <a href="/contest/classes/PopsEdit/PopsEdit.jar" class="statText">PopsEdit.jar Plugin</a></p>
