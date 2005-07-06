@@ -52,7 +52,7 @@
 <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Watches </span><br><br>
 </div>            
 <div class="topLinksR">
-<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<b>My Watches</b>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+<A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;My Watches&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
 </div><br><br>
 
 <span class="bodySubtitle">Watched Threads: <%=watchManager.getTotalWatchCount(user, JiveConstants.THREAD)%></span><br/>
