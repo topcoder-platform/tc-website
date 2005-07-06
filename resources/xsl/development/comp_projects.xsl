@@ -203,7 +203,7 @@
             <br/>
 <!-- TCO05 DESIGN END -->
 
-<!-- Open Component Design Projects begins -->
+<!-- Open Component Design Projects begins
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
@@ -303,7 +303,7 @@
                     </xsl:if>
                 </xsl:for-each>
             </table>
-<!-- Open Component Design Projects ends -->
+ Open Component Design Projects ends -->
 
 <!-- TCO05 DEV -->
             <br/>
