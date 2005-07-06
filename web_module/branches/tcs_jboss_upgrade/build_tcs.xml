@@ -249,7 +249,7 @@
                 <include name="com/topcoder/dde/catalog/CatalogBean.properties"/>
                 <include name="com/topcoder/dde/catalog/ComponentManagerBean.properties"/>
                 <include name="com/topcoder/dde/catalog/confirmationemail.xsl"/>
-                <include name="com/topcoder/message/email/EmailEngine.xsl"/>
+                <include name="com/topcoder/message/email/EmailEngine.xml"/>
             </fileset>
             <fileset dir="${resources.dir}">
                 <include name="ApplicationServer.properties"/>
