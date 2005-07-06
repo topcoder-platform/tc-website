@@ -250,6 +250,7 @@
                 <include name="com/topcoder/dde/catalog/ComponentManagerBean.properties"/>
                 <include name="com/topcoder/dde/catalog/confirmationemail.xsl"/>
                 <include name="com/topcoder/message/email/EmailEngine.xml"/>
+                <include name="com/topcoder/servlet/request/FileUpload.xml"/>
             </fileset>
             <fileset dir="${resources.dir}">
                 <include name="ApplicationServer.properties"/>

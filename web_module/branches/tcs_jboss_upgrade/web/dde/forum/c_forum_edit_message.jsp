@@ -111,7 +111,7 @@
 
             debug.addMsg("post message", "file upload processed");
             try {
-                forumId = Long.parseLong(fu.getParameter("f"));
+                    forumId = Long.parseLong(fu.getParameter("f"));
             } catch (NumberFormatException nfe) {
             }
 
