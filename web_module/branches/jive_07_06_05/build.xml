@@ -200,7 +200,6 @@
  	         	 <include name="com/topcoder/web/tc/**"/>
  	         	 <include name="com/topcoder/web/ejb/**"/>
  	         	 <include name="com/topcoder/ejb/**"/>
- 	         	 <include name="com/topcoder/shared/util/**"/>
  	         </javac>
  	     </target>
 
@@ -1228,7 +1227,6 @@
  		            	<include name="com/topcoder/web/forums/**/*.class" />
  		            	<include name="com/topcoder/web/tc/**/*.class" />
  		            	<include name="com/topcoder/security/**/*.class" />
- 		            	<include name="com/topcoder/shared/util/*.class" />
  		            </classes>
  		        	<classes dir="${resources}/forums">
  		        		<include name="jive_init.xml" />
