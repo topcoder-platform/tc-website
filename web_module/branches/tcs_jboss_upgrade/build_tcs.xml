@@ -254,6 +254,7 @@
                 <include name="com/topcoder/apps/review/workdays.xml"/>
                 <include name="com/topcoder/apps/review/business_logic_config.properties"/>
                 <include name="com/topcoder/apps/review/ReviewResources.properties"/>
+                <include name="com/topcoder/dde/admin/AdminLoginBean.properties"/>
                 <include name="mail_templates/*.xsl"/>
             </fileset>
             <fileset dir="${resources.dir}">
