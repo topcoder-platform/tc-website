@@ -246,6 +246,9 @@
                 <include name="com/topcoder/util/cache/refreshable/RefreshableCache.xml"/>
                 <include name="com/topcoder/util/log/Logging.xml"/>
                 <include name="com/topcoder/dde/util/ApplicationServer.properties"/>
+                <include name="com/topcoder/dde/catalog/CatalogBean.properties"/>
+                <include name="com/topcoder/dde/catalog/ComponentManagerBean.properties"/>
+                <include name="com/topcoder/dde/catalog/confirmationemail.xsl"/>
             </fileset>
             <fileset dir="${resources.dir}">
                 <include name="ApplicationServer.properties"/>
