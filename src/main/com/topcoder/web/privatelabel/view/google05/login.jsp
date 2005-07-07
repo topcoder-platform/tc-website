@@ -46,7 +46,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -67,7 +67,7 @@ function submitEnter(e) {
                         Note: Your browser must have cookies enabled in order for this to work.<br/><br/>
 
                         <form method="post" name="frmLogin" action="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>">
-                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.google05_LOGIN%>">
+                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_LOGIN%>">
                         <input type="hidden" name="<%=Constants.EVENT_ID%>" value="1">
                         <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="1865">
                            <table border="0" cellpadding="3" cellspacing="0" align="center">

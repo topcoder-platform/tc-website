@@ -2,7 +2,7 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.privatelabel.view.tag.DemographicInput,
-                 com.topcoder.web.common.BaseProcessor, 
+                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/privatelabel.tld" prefix="pl" %>
@@ -49,7 +49,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -66,7 +66,7 @@ function submitEnter(e) {
 
 			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
 			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.google05_REG_CONFIRM%>"/>
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
             <pl:questionIterator id="question" list="<%=questionList%>">
@@ -91,7 +91,7 @@ function submitEnter(e) {
                 </td>
             </tr>
            <tr>
-                <td align="right" nowra> 
+                <td align="right" nowra>
                     Resume
                 </td>
                 <td align="left">
@@ -100,7 +100,7 @@ function submitEnter(e) {
            </tr>
             <tr>
                 <td align="right" valign=bottom nowrap>
-                    <span class="errorText">* Required</span> 
+                    <span class="errorText">* Required</span>
                 </td>
                 <td align="left" valign=bottom>
                     &nbsp;

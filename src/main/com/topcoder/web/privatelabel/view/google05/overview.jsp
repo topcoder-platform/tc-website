@@ -1,9 +1,4 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -32,7 +27,7 @@
       <td width="49%">&#160;</td>
       <td>
          <div class=greenBigBox>
-         
+
          <!-- Tab bar links-->
          <div align=center>
          <jsp:include page="links.jsp" >
@@ -49,7 +44,7 @@
 
          <br/><br/>
 
-It's back!  The Google&#153; Code Jam 2005 is now offering the best coders in the world a chance to compete for $155,000!  Have you got what it takes?  Can you take the pressure?  Know how to solve problems? Know algorithms?  
+It's back!  The Google&#153; Code Jam 2005 is now offering the best coders in the world a chance to compete for $155,000!  Have you got what it takes?  Can you take the pressure?  Know how to solve problems? Know algorithms?
 <br><br>
 If you answered yes to one or more of the above, then the Google&#153; Code Jam 2005 is right up your alley.  Join coders from around the world in this intense competition that requires all your mind has to offer.
 <br><br>
@@ -61,20 +56,20 @@ The tournament is a timed contest where all participants compete online to solve
 <br><br>
 The competition is available in four programming languages - Java, C++, C#, and VB.
 <br><br>
-Here's the line-by-line documentation: 
+Here's the line-by-line documentation:
 <br><br>
 <div class="indented">
    <b>Download the Arena</b><br/>
-   The TopCoder&#174; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to practice on sample problems prior to the competition. 
+   The TopCoder&#174; Competition Arena (a Java Applet) is where you begin. Download the app, read the problem statements, then code solutions, compile and test those solutions and submit the code for points. You can download the arena ahead of time to practice on sample problems prior to the competition.
    <br/><br/>
    <b>Coding Phase</b><br/>
-   At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition. 
+   At the designated date and time, competitors enter the Arena and are placed in groups of ten into virtual rooms. All participants are presented with the same set of three problems of escalating difficulty. In a race to see who can create an accurate solution in the shortest amount of time, competitors try to out-think and out-code their opponents. The Leader Board tallies the points during each step of the competition.
    <br/><br/>
    <b>Challenge Phase</b><br/>
-   During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges. 
+   During the Challenge Phase, competitors view each other's code and try to "break'" that code by passing test cases through the submitted code, with the hope that the results are not satisfied by the software written. Breaking another developer's code is the most direct form of competition for a programmer. In this phase, points are awarded for successful challenges and deducted for unsuccessful challenges.
    <br/><br/>
    <b>System Tests</b><br/>
-   Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field. 
+   Within minutes of the end of the Challenge Phase, the automated, objective system tests determine the accuracy of all submissions and award final points to all competitors. The assessment of your performance and presentation of stats is nearly instantaneous, as is the gratification of knowing how you did against a competitive field.
 </div>
 <br><br>
 <span class="greenSubtitle">Here's what you'll need to know:</span>

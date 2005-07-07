@@ -27,7 +27,7 @@ function submitEnter(e) {
     } else return true;
   }
 </SCRIPT>
- 
+
 <table border=0 width=100% cellpadding=0 cellspacing=0>
 	<tr>
 		<td width="49%">&#160;</td>
@@ -46,7 +46,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -63,7 +63,7 @@ function submitEnter(e) {
 
 			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
 			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.google05_REG_DEMOG%>"/>
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
             <tr>
@@ -304,7 +304,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                 <td align="right" valign=bottom nowrap>
-                    <span class="errorText">* Required</span> 
+                    <span class="errorText">* Required</span>
                 </td>
                 <td align="left" valign=bottom>
                     &nbsp;
@@ -312,7 +312,7 @@ function submitEnter(e) {
             </tr>
             <tr>
                <td colspan="2" align="center">
-                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p> 
+                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                </td>
             </tr>
             </form>

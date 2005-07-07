@@ -1,9 +1,4 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -32,7 +27,7 @@
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -52,7 +47,7 @@
 You may use your handle and password to login to the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you in the competition.
 <br><br>
 <b>What resources can I use to help me during the competition?</b><br>
-You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.  
+You may utilize any reference materials, including those found on the Internet.  You may not collaborate with any other person.
 <br><br>
 <b>Can I use code that has already been written as a part of my solution?</b><br>
 Only code that has been authored by you may be used in a code submission.  No third-party source code may be used as a part of any code submission.
@@ -63,7 +58,7 @@ Yes.  However, if you've already submitted a problem and you choose to submit ag
 <b>What is the Challenge Phase?</b><br>
 The Challenge phase only takes place during Rounds 1 and 2.  It does not take place during the Qualification Round.
 <br><br>
-During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room.  If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result.  If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission.  However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 25 points from your score.  
+During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room.  If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result.  If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission.  However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 25 points from your score.
 <br><br>
 Be sure to read the <A href="/pl/?&module=Static&d1=google05&d2=instructions">Instructions</A> page for a complete explanation.
 <br><br>
