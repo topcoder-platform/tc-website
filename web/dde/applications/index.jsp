@@ -118,7 +118,7 @@
                         quality due to the fact that they have been used and re-used in multiple applications. TopCoder strives to develop as many applications with
                         re-usable components as possible.</p>
                     </td>
-                    <td width="49%" class="bodyText" align="center">
+                    <td width="49%" class="bodyText" align="center"><img src="/images/clear.gif" width="20" height="10" alt="" border="0">
                         <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps_home_scorecard.gif" alt="Uncompromising Quality" width="216" height="212" border="0" /></a><br><br>
                     </td>
                 </tr>
