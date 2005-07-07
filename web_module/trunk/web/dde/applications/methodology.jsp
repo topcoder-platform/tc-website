@@ -69,42 +69,45 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
-<!-- Collaboration begins -->
+<!-- Specification begins -->
                         <p><strong>Specification</strong><br>
-                        The TopCoder Software Project Manager (PM) works with the customer team to create an Application Specification,
-                        high-level Use Cases, Activity Diagrams, a Deployment Diagram and a working prototype for the application.  The
-                        Application Specification defines the functional requirements and scope of the project.  Use Cases and Activity Diagrams
-                        combine to describe the business processes involved in the application.  The Deployment Diagram begins to identify
-                        potential components necessary to create the application.  The Project Manager also works with the customer team
-                        and a TopCoder Software Information Architect to create a working prototype of all GUIs necessary for Development
-                        of the application. </p>
-<!-- Collaboration ends -->
+                        A TopCoder Software Project Manager works hand-in-hand with all appropriate client resources to create a series of 
+                        detailed deliverables outlining the business requirements.</p>
+<!-- Specification ends -->
 
-<!-- Design begins -->
-                        <p><strong>Architecture and Design</strong><br>
-                        The TopCoder Software Project Manager decomposes the Application Specification into multiple application
-                        Design and Development Projects.  These projects are completed through a combination of competition and peer review.
-                        For each Design Project, two Application Architects from the TopCoder member base are contracted to submit designs.
-                        Each of these designs are reviewed and scored by an Architecture Review Board made up of the best TopCoder Architects.
-                        The review process is iterative, allowing designers to incorporate review board suggestions in final design submissions.
-                        One design is selected from this process to move on to Development.</p>
-<!-- Design ends -->
+<!-- Architecture begins -->
+                        <p><strong>Application Architecture</strong><br>
+                        A TopCoder Project Manager and Component Architect design the application using Component Based Development (CBD) 
+                        techniques that result in the division of the application into the most granular components.  At the completion of the 
+                        application architecture phase, a fixed price is provided for the component production, application assembly, and 
+                        certification phases.</p>
+<!-- Architecture ends -->
 
-<!-- Development begins -->
-                        <p><strong>Development and Testing</strong><br>
-                        Two TopCoder Developers are contracted to deliver development submissions.  Each of the submissions are tested and
-                        scored by a Development Review Board made up of the best TopCoder Developers.  This review process is also iterative,
-                        incorporating stress testing, accuracy testing and boundary testing to score the solutions.  One development solution is
-                        selected to move on to Integration.</p>
-<!-- Development ends -->
+<!-- Component Production begins -->
+                        <p><strong>Component Production</strong><br>
+                        Component Production uses the TopCoder Software Component Development Methodology to create the components comprising the application.</p>
+<!-- Component Production ends -->
 
-<!-- Complete begins -->
-                        <p><strong>Integration</strong><br>
-                        All solutions are brought together and system tested in either TopCoder's or the customer's development environment.
-                        The Designers, Developers and Review Boards all collaborate to integrate and test the application.  The application is
-                        deployed in the customer QA environment once TopCoder has approved it internally.  When it has been deployed at the
-                        customer site, it is again system tested and approved by the customer.</li>
-<!-- Complete ends -->
+<!-- Application begins -->
+                        <p><strong>Application Assembly</strong><br>
+                        TopCoder hand-selects only proven members to participate in the assembly of the application.  The application assemblers 
+                        must sign a non-disclosure agreement to protect our clients.  During this phase, the components are linked together 
+                        to build the application.</p>
+<!-- Application ends -->
+
+<!-- Certification begins -->
+                        <p><strong>Certification</strong><br>
+                        The purpose of this phase is to perform system testing of the application on a replicated environment at TopCoder.  
+                        The individual components are rigorously tested as part of the component production process. Thus, certification testing 
+                        occurs at the application level and consists of stress testing, accuracy testing, boundary testing, and integration testing.</p>
+<!-- Certification ends -->
+
+<!-- Deployment begins -->
+                        <p><strong>Deployment</strong><br>
+                        In this phase the fully functioning solution and all associated deliverables are turned over to the client.  
+                        A TopCoder Project Manager and Deployment Engineer visit the client site to deploy the application on the client's 
+                        quality assurance servers.</p>
+<!-- Deployment ends -->
                     </td>
                 </tr>
             </table>
