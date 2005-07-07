@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.07.05<br>9:20 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</A></span><br><br>
+      "With rapid advances in technology occurring everyday, companies are looking for the next generation of leaders to author the code that will provide the backbone for advanced applications."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=news&d2=pr_070705">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>07.06.05<br>10:40 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/contest/classes/PopsEdit/PopsEdit.jar">PopsEdit version 2.90 released</A></span><br><br>
       The newest version of PopsEdit adds functionality like support for mouse wheel scrolling and now supports jdk1.5.
@@ -224,21 +236,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.10.05<br>9:25 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm246_prob">SRM 246 - Problem Set & Analysis</A></span><br><br>
-      This problem set was pretty easy. Some coders completed their work in 20 minutes.</td>
-      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_mug.gif" /><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm246_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 
 </table>
 <br><br>
