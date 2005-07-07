@@ -453,7 +453,6 @@
 <tr><td class="dark"><span class="bigRed">yahoo1</span></td><td class="dark"><span class="bigRed">Thanks everyone for attending the chat session. I will be signing off now.</span></td></tr>
 </table>
 <br><br>               
-If you are interested in joining some of the brightest minds on the Web, <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_confirm">apply now</A>.
 
         </div>
 		</td>
