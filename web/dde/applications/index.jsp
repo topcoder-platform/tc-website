@@ -95,9 +95,8 @@
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Component Catalog</strong><br>
-                        We've spent a year developing substantial <a href="/catalog/c_showroom.jsp">catalogs</a> of re-usable Java and .NET components. Re-using these
-                        bits of software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto
-                        our clients.</p>
+                        In 2001, we began developing substantial <a href="/catalog/c_showroom.jsp">catalogs</a> of re-usable Java and .NET components. Reusing these bits of 
+                        software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto our clients.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
                         <a href="/catalog/c_showroom.jsp"><img src="/images/apps_home_catalog.gif" alt="Component Catalog" width="216" height="152" border="0" /></a>
@@ -131,13 +130,19 @@
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Application Methodology</strong><br>
-                        TopCoder Project Managers work hand-in-hand with our customers to develop specifications for the applications that the customer needs. Once
-                        specification deliverables have been created, two TopCoder members are contracted to perform the design and development. Unlike our
-                        <a href="/components/methodology.jsp">component methodology,</a> only proven members that have been hand-selected may work on
-                        Application projects for our customers. These member must sign non-disclosure agreements to protect our clients. Independent
-                        review boards comprised of our strongest members judge, test, and select the best solution. The winning solution is tested at TopCoder before
-                        deployment at the customers site for further integration and testing. Our rigorous <a href="/applications/methodology.jsp">application methodology,</a>
-                        combined with our competition-tested members and our re-usable components, allow TopCoder to deliver applications of the highest quality.</p>
+                        The TopCoder Application Development Methodology is designed to deliver a repeatable and consistent solution to our customers.  The TopCoder methodology 
+                        is comprised of phases and deliverables.  The six-step methodology is administered by a TopCoder Project Manager skilled in Component Based Development 
+                        (CBD) techniques, requirements gathering, and project management.</p>
+                        
+						<p>During the specification phase, the Project Manager works hand-in-hand with our customers to develop specifications that satisfy all of our customers' 
+						requirements.  In the component architecture phase, the Project Manager and TopCoder Component Architect identify and design the components required to 
+						build the application.  Next, the component production phase uses TopCoder's unique <a href="/components/methodology.jsp">component methodology,</a> to create all of the components.  During the 
+						application assembly phase, the Project Manager hand-selects only proven members to participate in the assembly of the application.  The application 
+						assemblers must sign a non-disclosure agreement to protect our clients.  During this phase, the components are linked together to build the application.  
+						Once assembled, the certification phase begins.  Prior to deployment at the customer's site, the application is rigorously tested at TopCoder.  After 
+						certification, the application is delivered to our customers and deployed to their quality assurance environment, as part of the deployment phase.  Our 
+						rigorous <a href="/applications/methodology.jsp">application methodology,</a> combined with our competition-tested members and our re-usable components, allow TopCoder to deliver applications of the 
+						highest quality.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
                         <a href="/applications/methodology.jsp"><img src="/images/apps_home_meth.gif" alt="Application Methodology" width="253" height="168" border="0" /></a>
