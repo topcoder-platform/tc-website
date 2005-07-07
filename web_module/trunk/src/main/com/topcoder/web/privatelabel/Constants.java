@@ -50,6 +50,14 @@ public class Constants {
     public static String GOOGLE04_LOGIN_PAGE;
     public static String GOOGLE04_REG_CLOSED_PAGE;
 
+    public static String GOOGLE05_REG_PAGE;
+    public static String GOOGLE05_REG_DEMOG_PAGE;
+    public static String GOOGLE05_REG_CONFIRM_PAGE;
+    public static String GOOGLE05_REG_SUCCESS_PAGE;
+    public static String GOOGLE05_ACTIVATION_PAGE;
+    public static String GOOGLE05_LOGIN_PAGE;
+    public static String GOOGLE05_REG_CLOSED_PAGE;
+
     public static String GOOGLE_INDIA_05_REG_PAGE;
     public static String GOOGLE_INDIA_05_REG_DEMOG_PAGE;
     public static String GOOGLE_INDIA_05_REG_CONFIRM_PAGE;
@@ -69,7 +77,7 @@ public class Constants {
     public static String DC_REG_STUDENT_SUCCESS_PAGE;
     public static String DC_REG_PRO_SUCCESS_PAGE;
     public static String DC_ACTIVATION_PAGE;
-    
+
     public static String DC05_REG_PAGE;
     public static String DC05_REG_CONFIRM_PAGE;
     public static String DC05_REG_SUCCESS_PAGE;
@@ -154,6 +162,12 @@ public class Constants {
     public static String GOOGLE04_REG_SUBMIT;
     public static String GOOGLE04_ACTIVATION;
     public static String GOOGLE04_LOGIN;
+    public static String GOOGLE05_REG_MAIN;
+    public static String GOOGLE05_REG_DEMOG;
+    public static String GOOGLE05_REG_CONFIRM;
+    public static String GOOGLE05_REG_SUBMIT;
+    public static String GOOGLE05_ACTIVATION;
+    public static String GOOGLE05_LOGIN;
     public static String GOOGLE_INDIA_05_REG_MAIN;
     public static String GOOGLE_INDIA_05_REG_DEMOG;
     public static String GOOGLE_INDIA_05_REG_CONFIRM;
@@ -188,7 +202,7 @@ public class Constants {
     public static String DC05_REG_MAIN;
     public static String DC05_REG_CONFIRM;
     public static String DC05_REG_SUBMIT;
-    
+
 
     //various constants
     public static int STUDENT;
