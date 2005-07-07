@@ -22,7 +22,10 @@
 		<div class="bodySpacer">
             
 <div align="center"><img src="/i/tournament/tco05/verisign_logo.gif" alt="Verisign" border="0" /></div>
-<br><br>
+<p align="center"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_confirm">Apply now</A>&#160;&#160;|&#160;&#160;
+<A href="/rtables/viewForum.jsp?forum=504996&mc=1">VeriSign Employment Forum</A>&#160;&#160;|&#160;&#160;
+<A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">SRM 250 Chat Transcript</A>
+</p>
 <span class="bigTitle">Where it All Comes Together</span>
 <br><br>
 Billions of times each day, people all over the world will visit Web pages, make phone calls, conduct online purchases, download digital content to mobile devices, and run secure online applications. And at the center, you'll find VeriSign, enabling and protecting each digital interaction. Every day, the world relies on VeriSign intelligent infrastructure services to reap the benefits of the ongoing revolution in digital communications, commerce, and content. 
@@ -44,8 +47,6 @@ Billions of times each day, people all over the world will visit Web pages, make
 E-commerce, content-delivery, and other digital applications have shown explosive growth in recent years, but VeriSign believes that the near future promises much greater rewards. This is where you come in; VeriSign is looking for talented, passionate developers who can see the potential in tomorrow's voice and data networks, and who want to help drive the transformation to a digital economy.
 <br><br>
 <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_confirm">Apply now</A>.
-<br><br>
-Verisign recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">working for Verisign</A>.
         </div>
 		</td>
         
