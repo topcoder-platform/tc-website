@@ -109,7 +109,7 @@
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
-                        <p><strong>Uncompromising Quality</strong><br>
+                        <p><strong>Uncompromising Quality</strong><br><img src="/images/clear.gif" width="20" height="10" alt="" border="0">
                         Differentiating our members by talent through competition insures that only quality developers are working on our code. Each week, hundreds of
                         TopCoder members compete in programming <a href="http://www.topcoder.com">competitions,</a> where they are rated based on the results.
                         Only members with acceptable ratings are allowed to develop software for TopCoder Software.</p>
@@ -144,7 +144,7 @@
 						rigorous <a href="/applications/methodology.jsp">application methodology,</a> combined with our competition-tested members and our re-usable components, allow TopCoder to deliver applications of the 
 						highest quality.</p>
                     </td>
-                    <td width="49%" class="bodyText" align="center">
+                    <td width="49%" class="bodyText" align="center"><img src="/images/clear.gif" width="20" height="10" alt="" border="0">
                         <a href="/applications/methodology.jsp"><img src="/images/apps_home_meth.gif" alt="Application Methodology" width="253" height="168" border="0" /></a>
                     </td>
                 </tr>
