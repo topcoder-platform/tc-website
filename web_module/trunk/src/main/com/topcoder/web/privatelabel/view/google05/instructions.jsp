@@ -113,37 +113,63 @@ The coding window is the most important part of the Competition Arena. It is in 
 The top pane of the coding window contains the problem statement in its entirety. The problem statement explains exactly what it is that you are attempting to accomplish. It includes an explanation of the task, the class and method definitions that your solution must adhere to, all of the constraints for any input parameters, and examples to help clarify the statement. 
 <br><br>
 <strong>Choosing a Language</strong><br>
-The Google Code Jam allows coders to utilize either Java or C++ as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use two different programming languages to solve different problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
+The Google Code Jam allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
 <br><br>
 <strong>Creating a Solution</strong><br>
 The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for both Java and C++:
 <br><br>
-<strong>Java Code Template</strong><br>
-<pre>
-import <necessary classes>
+<b>Java Code Template</b><br>
+<pre>import &lt;necessary classes&gt;
 
-public class <class-name> {
-    public <return-type> <method-name>(<argument-type> arg1) {
+public class &lt;class-name&gt; {
+    public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
         //your source here
-        return <results>;
+        return &lt;result&gt;;
     }
 }
 </pre>
-<br><br>
-<strong>C++ Code Template</strong><br>
-<pre>
-#include 
+
+<b>C++ Code Template</b><br>
+<pre>#include &lt;necessary classes&gt;
+
 using namespace std; //Required for TopCoder gcc compiler
-class 
+
+class &lt;class-name&gt;
 {
     public:
-      ( arg1)
-   {
+    &lt;return-type&gt; &lt;method-name&gt; (&lt;argument-type&gt; arg1)
+    {
         //your source here
-        return ;
-   } 
-} ; 
+        return &lt;result&gt;;
+    };
+};
 </pre>
+
+<b>C# Code Template</b><br>
+<pre>using &lt;necessary classes&gt;;
+
+public class &lt;class-name&gt; {
+    public &lt;return-type&gt; &lt;method-name&gt;(&lt;argument-type&gt; arg1) {
+        //your source here
+        return &lt;result&gt;;
+    }
+}
+</pre>
+
+
+<b>Visual Basic Code Template</b><br>
+<pre>
+Imports &lt;necessary classes&gt;;
+
+Public Class &lt;class-name&gt;
+    Public Function &lt;method-name&gt;(ByVal arg1 As &lt;argument-type&gt;) As &lt;return-type&gt;
+
+        //your source here
+        Return &lt;result&gt;
+    End Function
+End Class
+</pre>
+
 <br>
 
 <strong>Compiling</strong><br>
