@@ -56,7 +56,7 @@
         <td width="99%">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <img src="/images/headApplications.gif" alt="Applications" width="510" height="32" border="0" /><br>
-            <div align="center">
+            <div>
             <img src="/images/apps_home_promo.gif" alt="Faster, Cheaper, Better" width="510" height="110" border="0" />
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
@@ -72,7 +72,7 @@
                 </tr>
             </table>
 
-            <hr width="530" size="1" color="#666666" noshade>
+            <hr width="100%" size="1" color="#666666" noshade>
 
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -89,7 +89,7 @@
                 </tr>
             </table>
 
-             <hr width="530" size="1" color="#666666" noshade>
+             <hr width="100%" size="1" color="#666666" noshade>
 
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -104,7 +104,7 @@
                 </tr>
             </table>
 
-             <hr width="530" size="1" color="#666666" noshade>
+             <hr width="100%" size="1" color="#666666" noshade>
 
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -124,7 +124,7 @@
                 </tr>
             </table>
 
-             <hr width="530" size="1" color="#666666" noshade>
+             <hr width="100%" size="1" color="#666666" noshade>
 
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
