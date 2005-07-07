@@ -58,7 +58,7 @@
             <img src="/images/headApplications.gif" alt="Applications" width="510" height="32" border="0" /><br>
             <div>
             <img src="/images/apps_home_promo.gif" alt="Faster, Cheaper, Better" width="510" height="110" border="0" />
-            <table border="0" cellpadding="5" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="bodyText" align="left">
                         <img src="/images/clear.gif" width="1" height="10" alt="" border="0">
@@ -98,7 +98,7 @@
                         In 2001, we began developing substantial <a href="/catalog/c_showroom.jsp">catalogs</a> of re-usable Java and .NET components. Reusing these bits of 
                         software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto our clients.</p>
                     </td>
-                    <td width="49%" class="bodyText" align="center">
+                    <td width="49%" class="bodyText" align="center"><img src="/images/clear.gif" width="20" height="10" alt="" border="0">
                         <a href="/catalog/c_showroom.jsp"><img src="/images/apps_home_catalog.gif" alt="Component Catalog" width="216" height="152" border="0" /></a><br><br>
                     </td>
                 </tr>
