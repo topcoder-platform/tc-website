@@ -44,6 +44,8 @@ Billions of times each day, people all over the world will visit Web pages, make
 E-commerce, content-delivery, and other digital applications have shown explosive growth in recent years, but VeriSign believes that the near future promises much greater rewards. This is where you come in; VeriSign is looking for talented, passionate developers who can see the potential in tomorrow's voice and data networks, and who want to help drive the transformation to a digital economy.
 <br><br>
 <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_confirm">Apply now</A>.
+<br><br>
+Verisign recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">working for Verisign</A>.
         </div>
 		</td>
         
