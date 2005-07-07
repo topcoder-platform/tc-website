@@ -58,7 +58,7 @@
             <img src="/images/headApplications.gif" alt="Applications" width="510" height="32" border="0" /><br>
             <div align="center">
             <img src="/images/apps_home_promo.gif" alt="Faster, Cheaper, Better" width="510" height="110" border="0" />
-            <table border="0" cellpadding="0" cellspacing="0" width="530">
+            <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="bodyText" align="left">
                         <img src="/images/clear.gif" width="1" height="10" alt="" border="0">
@@ -74,7 +74,7 @@
 
             <hr width="530" size="1" color="#666666" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0" width="530">
+            <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>No-Shore Development</strong><br>
@@ -91,7 +91,7 @@
 
              <hr width="530" size="1" color="#666666" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0" width="530">
+            <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Component Catalog</strong><br>
@@ -106,7 +106,7 @@
 
              <hr width="530" size="1" color="#666666" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0" width="530">
+            <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Uncompromising Quality</strong><br>
@@ -126,7 +126,7 @@
 
              <hr width="530" size="1" color="#666666" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0" width="530">
+            <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Application Methodology</strong><br>
