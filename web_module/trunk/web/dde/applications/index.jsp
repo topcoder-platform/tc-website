@@ -84,7 +84,7 @@
                         TopCoder as contractors, not employees, our fixed costs are much lower than our competition.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
-                        <a href="http://www.topcoder.com/?&t=development&c=components"><img src="/images/apps_home_map.gif" alt="No-Shore Development" width="266" height="125" border="0" /></a><br>
+                        <a href="http://www.topcoder.com/?&t=development&c=components"><img src="/images/apps_home_map.gif" alt="No-Shore Development" width="266" height="125" border="0" /></a><br><br>
                     </td>
                 </tr>
             </table>
@@ -99,7 +99,7 @@
                         software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto our clients.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
-                        <a href="/catalog/c_showroom.jsp"><img src="/images/apps_home_catalog.gif" alt="Component Catalog" width="216" height="152" border="0" /></a><br>
+                        <a href="/catalog/c_showroom.jsp"><img src="/images/apps_home_catalog.gif" alt="Component Catalog" width="216" height="152" border="0" /></a><br><br>
                     </td>
                 </tr>
             </table>
@@ -119,7 +119,7 @@
                         re-usable components as possible.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
-                        <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps_home_scorecard.gif" alt="Uncompromising Quality" width="216" height="212" border="0" /></a><br>
+                        <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps_home_scorecard.gif" alt="Uncompromising Quality" width="216" height="212" border="0" /></a><br><br>
                     </td>
                 </tr>
             </table>
@@ -145,7 +145,7 @@
 						highest quality.</p>
                     </td>
                     <td width="49%" class="bodyText" align="center">
-                        <a href="/applications/methodology.jsp"><img src="/images/apps_home_meth.gif" alt="Application Methodology" width="253" height="168" border="0" /></a><br>
+                        <a href="/applications/methodology.jsp"><img src="/images/apps_home_meth.gif" alt="Application Methodology" width="253" height="168" border="0" /></a>
                     </td>
                 </tr>
             </table>
