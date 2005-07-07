@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">07.07.05 11:25 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">Verisign chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.01.05 12:45 PM - </td><td width="100%"><A href="/pl/?&module=Static&d1=javaone05&d2=wednesday">JavaOne 05 Coding Challenge Results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.30.05 9:25 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">Yahoo! chat session</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.01.05 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about">Announcing the 2005 TopCoder Open</A></td></tr>
