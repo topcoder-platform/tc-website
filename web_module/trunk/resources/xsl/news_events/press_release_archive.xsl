@@ -62,6 +62,8 @@
 <!-- 2005 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
                             
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</A> [July 7]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_062705">TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open</A> [June 27]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Contests</A> [June 20]<br/></td></tr>

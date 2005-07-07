@@ -81,7 +81,7 @@ The Coding Phase is the period during which each contestant attempts to create s
 <ul>
 <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
 <li>In the Online Round One of the Google Code Jam, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
-<li>In the Onsite Final Round of the google2005, the coding phase will last 90 minutes and the contestants will be given four problems to solve.</li>
+<li>In the Onsite Final Round of the Google Code Jam, the coding phase will last 90 minutes and the contestants will be given four problems to solve.</li>
 </ul>
 
 When the competition begins, you may view the problem statements as follows:
@@ -111,7 +111,7 @@ The top pane of the coding window contains the problem statement in its entirety
 The Google Code Jam allows coders to utilize Java, C++, C# or Visual Basic as a competition programming language. You have the option to choose a programming language on a problem-by-problem basis. It is legal for you to use any programming languages to solve each of the problems in a single competition. For this reason, you have the option of choosing the programming language from within the coding window. You can find the language selection area in the upper right area of the coding window - under "Choose your language". Remember to select the appropriate language before you attempt to compile your code. Strange compilation results can be a symptom of having the wrong language selected.
 <br><br>
 <strong>Creating a Solution</strong><br>
-The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for both Java and C++:
+The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members and invoke the appropriate methods. Below you will find code templates for Java, C++, C#, and Visual Basic:
 <br><br>
 <b>Java Code Template</b><br>
 <pre>import &lt;necessary classes&gt;
