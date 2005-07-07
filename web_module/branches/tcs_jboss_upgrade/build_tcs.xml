@@ -122,7 +122,7 @@
 
     <target name="war-or" depends="compile">
         <war warfile="${war.dir}/review.war" webxml="${resources.dir}/or/web.xml">
-            <fileset dir="${web.dir}/online_review"/>
+            <fileset dir="${web.dir}/online_review" excludes="${web.dir}/online_review/images"/>
             <classes dir="${classes.dir}">
                 <include name="com/topcoder/apps/review/cacherefresher/**/*"/>
                 <include name="com/topcoder/apps/review/autopilottimer/**/*"/>
@@ -152,7 +152,7 @@
 
     <target name="war-dde" depends="compile">
         <war warfile="${war.dir}/dde.war" webxml="${resources.dir}/dde/web.xml">
-            <fileset dir="${web.dir}/dde"/>
+            <fileset dir="${web.dir}/dde" excludes="${web.dir}/dde/images"/>
             <classes dir="${classes.dir}" excludes="**/*Bean.class">
                 <include name="com/topcoder/dde/servlet/**"/>
                 <include name="com/topcoder/dde/request/**"/>
