@@ -8,9 +8,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.07.05<br>11:25 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">Verisign chat session</A></span><br><br>
-      Verisign recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about working for Verisign.
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.07.05<br>3:35 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewForum.jsp?forum=504996&mc=2">VeriSign Employment Discussion</A></span><br><br>
+      Discuss career opportunities at VeriSign. Ask questions about their jobs that only VeriSign representatives will have the answers to.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/rtables/viewForum.jsp?forum=504996&mc=2">discuss</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.07.05<br>11:25 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">VeriSign chat session</A></span><br><br>
+      VeriSign recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about working for VeriSign.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -56,7 +68,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>06.30.05<br>9:25 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.30.05<br>9:25 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">Yahoo! chat session</A></span><br><br>
       Yahoo! recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about working for Yahoo!
       </td>
@@ -222,18 +234,6 @@
    <tr><td class="newsLinksCell">
          <A href="/?&t=schedule&c=index">view</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.15.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1">Computer programmer wins big</A></span><br><br>
-      "It's not often a student is awarded $13,000 U.S. for seven hours of work. Gary Linscott, ArtSci '05, took home the cash as the top prize winner in the 2005 TopCoder Collegiate Challenge." [Queen's University - The Journal]
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 
