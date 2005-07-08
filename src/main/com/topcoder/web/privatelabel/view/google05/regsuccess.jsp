@@ -22,30 +22,30 @@ function submitEnter(e) {
 </SCRIPT>
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td align=center>
-			<table border=0 width=100% cellpadding=0 cellspacing=0>
-				<tr>
-					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%"></td>
-				</tr>
-			</table>
-		</td>
-		<td width="49%"></td>
-	</tr>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td>
-			<div class="greenBigBox">
+   <tr>
+      <td width="49%">&#160;</td>
+      <td align=center>
+         <table border=0 width=100% cellpadding=0 cellspacing=0>
+            <tr>
+               <td width="49%"></td>
+               <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
+               <td width="49%"></td>
+            </tr>
+         </table>
+      </td>
+      <td width="49%"></td>
+   </tr>
+   <tr>
+      <td width="49%">&#160;</td>
+      <td>
+         <div class="greenBigBox">
 
-			<!-- Tab bar links-->
-			<div align=center>
-			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="registration"/>
-			</jsp:include>
-			</div>
+         <!-- Tab bar links-->
+         <div align=center>
+         <jsp:include page="links.jsp" >
+         <jsp:param name="selectedTab" value="registration"/>
+         </jsp:include>
+         </div>
 
 <br><br>
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
@@ -58,13 +58,11 @@ function submitEnter(e) {
    </tr>
    <tr>
       <td valign="top">
-      <table cellpadding="0" cellspacing="0" border="0" align="left" style="margin-right: 20px;">
-         <tr><td class="bcOff">General</td></tr>
-         <tr><td class="bcOff">Demographics</td></tr>
-         <tr><td class="bcOff">Confirm</td></tr>
-         <tr><td class="bcOn">Success</td></tr>
-         <tr><td class="bcOff">Activation</td></tr>
-      </table>
+         <div class="regBreadOff">General</div>
+         <div class="regBreadOff">Demographics</div>
+         <div class="regBreadOff">Confirm</div>
+         <div class="regBreadOn">Success</div>
+         <div class="regBreadOff">Activation</div>
       </td>
       <td valign="top" width="100%">
 
@@ -86,16 +84,16 @@ If you encounter any problems, please contact us at <A href="mailto:googlecodeja
 Good luck to you in the Arena!
 </font></p>
 
-			<br><br>
-			To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
+         <br><br>
+         To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
          <br><br><br><br><br>
          </td>
-      </tr>
-   </table>
-			</div>
-		</td>
-		<td width="49%">&#160;</td>
-	<tr>
+         </tr>
+         </table>
+         </div>
+      </td>
+      <td width="49%">&#160;</td>
+   <tr>
 </table>
 <jsp:include page="foot.jsp" />
 </body>

@@ -29,30 +29,30 @@ function submitEnter(e) {
 </SCRIPT>
 
 <table border=0 width=100% cellpadding=0 cellspacing=0>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td align=center>
-			<table border=0 width=100% cellpadding=0 cellspacing=0>
-				<tr>
-					<td width="49%"></td>
-					<td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%"></td>
-				</tr>
-			</table>
-		</td>
-		<td width="49%"></td>
-	</tr>
-	<tr>
-		<td width="49%">&#160;</td>
-		<td>
-			<div class="greenBigBox">
+   <tr>
+      <td width="49%">&#160;</td>
+      <td align=center>
+         <table border=0 width=100% cellpadding=0 cellspacing=0>
+            <tr>
+               <td width="49%"></td>
+               <td valign=bottom align=center><img border=0 src="/i/events/google2005/codejamLogo.gif" alt="Google Code Jam logo"></td>
+               <td width="49%"></td>
+            </tr>
+         </table>
+      </td>
+      <td width="49%"></td>
+   </tr>
+   <tr>
+      <td width="49%">&#160;</td>
+      <td>
+         <div class="greenBigBox">
 
-			<!-- Tab bar links-->
-			<div align=center>
-			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="registration"/>
-			</jsp:include>
-			</div>
+         <!-- Tab bar links-->
+         <div align=center>
+         <jsp:include page="links.jsp" >
+         <jsp:param name="selectedTab" value="registration"/>
+         </jsp:include>
+         </div>
 
 <br><br>
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
@@ -65,18 +65,16 @@ function submitEnter(e) {
    </tr>
    <tr>
       <td valign="top">
-      <table cellpadding="0" cellspacing="0" border="0" align="left" style="margin-right: 20px;">
-         <tr><td class="bcOn">General</td></tr>
-         <tr><td class="bcOff">Demographics</td></tr>
-         <tr><td class="bcOff">Confirm</td></tr>
-         <tr><td class="bcOff">Success</td></tr>
-         <tr><td class="bcOff">Activation</td></tr>
-      </table>
+         <div class="regBreadOn">General</div>
+         <div class="regBreadOff">Demographics</div>
+         <div class="regBreadOff">Confirm</div>
+         <div class="regBreadOff">Success</div>
+         <div class="regBreadOff">Activation</div>
       </td>
       <td valign="top" width="100%">
 
-			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+         <table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
+         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_REG_DEMOG%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -330,19 +328,17 @@ function submitEnter(e) {
                </td>
             </tr>
             </form>
-		</table>
+      </table>
 
-			<br><br>
-			To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
-			</div>
-
+         <br><br>
+         To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
       </td>
       </tr>
       </table>
-
-		</td>
-		<td width="49%">&#160;</td>
-	<tr>
+      </div>
+      </td>
+      <td width="49%">&#160;</td>
+   <tr>
 </table>
 <jsp:include page="foot.jsp" />
 </body>
