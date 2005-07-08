@@ -8,6 +8,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.08.05<br>11:45 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm250_prob">SRM 250 - Problem Set & Analysis</A></span><br><br>
+      Coder in both division stubled over floating point difficulties today, as most div 1 easy and div 2 medium submissions failed.  This left lots of opportunities for challenges, and <tc-webtag:handle coderId="8357090" context="algorithm"/> took advantage with a whopping 250 points in the challenges phase.</td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm250_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.07.05<br>3:35 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewForum.jsp?forum=504996&mc=2">VeriSign Employment Discussion</A></span><br><br>
       Discuss career opportunities at VeriSign. Ask questions about their jobs that only VeriSign representatives will have the answers to.
@@ -222,18 +237,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.17.05<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=schedule&c=index">Calendar updated with new SRMs</A></span><br><br>
-      The TopCoder events calendar has been updated to reflect added SRMs and new sponsorships.  The dates are: 7/19, 7/26, 8/8, and 9/27.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?&t=schedule&c=index">view</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 
