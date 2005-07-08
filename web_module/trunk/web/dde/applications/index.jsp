@@ -56,7 +56,7 @@
         <td width="99%">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <img src="/images/headApplications.gif" alt="Applications" width="510" height="32" border="0" /><br>
-            <div>
+            <div align="center">
             <img src="/images/apps_home_promo.gif" alt="Faster, Cheaper, Better" width="510" height="110" border="0" />
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
@@ -72,9 +72,9 @@
                 </tr>
             </table>
 
-            <hr width="100%" size="1" color="#666666" noshade>
+            <hr width="530" size="1" color="#666666" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>No-Shore Development</strong><br>
@@ -89,27 +89,27 @@
                 </tr>
             </table>
 
-             <hr width="100%" size="1" color="#666666" noshade>
+             <hr width="530" size="1" color="#666666" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Component Catalog</strong><br>
                         In 2001, we began developing substantial <a href="/catalog/c_showroom.jsp">catalogs</a> of re-usable Java and .NET components. Reusing these bits of 
                         software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto our clients.</p>
                     </td>
-                    <td width="49%" class="bodyText" align="center"><img src="/images/clear.gif" width="20" height="10" alt="" border="0">
+                    <td width="49%" class="bodyText" align="center">
                         <a href="/catalog/c_showroom.jsp"><img src="/images/apps_home_catalog.gif" alt="Component Catalog" width="216" height="152" border="0" /></a><br><br>
                     </td>
                 </tr>
             </table>
 
-             <hr width="100%" size="1" color="#666666" noshade>
+             <hr width="530" size="1" color="#666666" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
-                        <p><strong>Uncompromising Quality</strong><br><img src="/images/clear.gif" width="20" height="10" alt="" border="0">
+                        <p><strong>Uncompromising Quality</strong><br>
                         Differentiating our members by talent through competition insures that only quality developers are working on our code. Each week, hundreds of
                         TopCoder members compete in programming <a href="http://www.topcoder.com">competitions,</a> where they are rated based on the results.
                         Only members with acceptable ratings are allowed to develop software for TopCoder Software.</p>
@@ -124,9 +124,9 @@
                 </tr>
             </table>
 
-             <hr width="100%" size="1" color="#666666" noshade>
+             <hr width="530" size="1" color="#666666" noshade>
 
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr valign="top">
                     <td width="49%" class="bodyText">
                         <p><strong>Application Methodology</strong><br>
@@ -144,7 +144,7 @@
 						rigorous <a href="/applications/methodology.jsp">application methodology,</a> combined with our competition-tested members and our re-usable components, allow TopCoder to deliver applications of the 
 						highest quality.</p>
                     </td>
-                    <td width="49%" class="bodyText" align="center"><img src="/images/clear.gif" width="20" height="10" alt="" border="0">
+                    <td width="49%" class="bodyText" align="center">
                         <a href="/applications/methodology.jsp"><img src="/images/apps_home_meth.gif" alt="Application Methodology" width="253" height="168" border="0" /></a>
                     </td>
                 </tr>
