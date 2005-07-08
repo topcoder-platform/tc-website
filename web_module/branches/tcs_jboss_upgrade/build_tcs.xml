@@ -336,7 +336,7 @@
         </copy>
     </target>
 
-    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars,copy-libs">
+    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars">
 
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
             <fileset dir="${sar.dir}">
