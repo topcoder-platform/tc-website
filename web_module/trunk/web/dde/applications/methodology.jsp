@@ -54,20 +54,18 @@
 <!-- Middle Column begins -->
         <td width="100%">
         <div align="center">
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
                 <tr><td class="normal"><img src="/images/apps/apps_title.gif" alt="Applications" width="530" height="30" border="0" /></td></tr>
                 <tr><td class="subhead">Competition-Based Methodology</td></tr>
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
             </table>
 
-            <div align="center">
-                <img src="/images/apps/apps_meth_graph.gif" alt="Application Methodology" width="530" height="200" border="0" />
-            </div>
+            <img src="/images/apps/apps_meth_graph.gif" alt="Application Methodology" width="530" height="200" border="0" />
 
-             <hr width="100%" size="1px" noshade>
+            <hr width="530" size="1px" noshade>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="530">
                 <tr valign="top">
                     <td class="bodyText">
 <!-- Specification begins -->
@@ -113,7 +111,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr>
                     <td colspan="2" class="bodyText" align="center">
                         <p><font size="3"><strong><a href="http://www.topcoder.com/?t=development&c=app_meth">Learn more</a> about the TopCoder Application Methodology.</strong></font></p>
