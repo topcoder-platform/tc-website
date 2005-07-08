@@ -3,14 +3,16 @@
 <xsl:output method="text" media-type="text/rtf"/>
 <xsl:template match="/">
 
-Dear <xsl:value-of select="passwordEmail/firstname"/>
+Welcome to TopCoder Software!
 
-You have requested that your password be sent back to you.
+To activate your new account either click on the following link or enter the URL into your browser:
 
-username: <xsl:value-of select="passwordEmail/username"/>
-password: <xsl:value-of select="passwordEmail/password"/>
+<xsl:value-of select="activationEmail/url"/>
 
-Best,
+If you have additional questions or need assistance, please email service@topcodersoftware.com.
+
+Best regards,
+
 The TopCoder Software Team
 </xsl:template>
 </xsl:stylesheet>
