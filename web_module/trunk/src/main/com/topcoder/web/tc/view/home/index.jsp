@@ -163,7 +163,7 @@
          <tr>
             <td class=homeArrow>&#160;</td>
             <td class=homeText><br/>
-            VeriSign Sponsors 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_007705"> ...more</A><br/>[July 7]<br/><br/>
+            VeriSign Sponsors 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_070705"> ...more</A><br/>[July 7]<br/><br/>
             TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_062705"> ...more</A><br/>[June 27]<br/><br/>
             TopCoder&#174; Announces Return of Cash Prizes to SRMs<A href="/tc?module=Static&d1=news&d2=pr_062005"> ...more</A><br/>[June 20]<br/><br/>
             Computer programmer wins big<A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1" target="_blank"> ...more</A><br/>[May 24 - QU The Journal]<br/><br/>
