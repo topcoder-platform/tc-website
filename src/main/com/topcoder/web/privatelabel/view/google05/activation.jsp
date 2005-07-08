@@ -38,7 +38,7 @@ function submitEnter(e) {
 	<tr>
 		<td width="49%">&#160;</td>
 		<td>
-			<div class=greenBigBox>
+			<div class="greenBigBox">
 
 			<!-- Tab bar links-->
 			<div align=center>
@@ -48,30 +48,38 @@ function submitEnter(e) {
 			</div>
 
 <br><br>
-<div class="bcBox">
-<table cellpadding="0" cellspacing="0" border="0" align="left">
-   <tr><td class="bcOff">General</td></tr>
-   <tr><td class="bcOff">Demographics</td></tr>
-   <tr><td class="bcOff">Confirm</td></tr>
-   <tr><td class="bcOn">Activation</td></tr>
-   <tr><td class="bcOff">Success</td></tr>
-</table>
-</div>
-
-			<br/><br/>
-			<span class=bigTitle>Activation Successful!</span>
-			<span valign=top>
-			<jsp:include page="right_reg.jsp" />
-			</span>
-			<br/><br/>
+<table cellpadding="0" cellspacing="0" border="0" class="bodyText">
+   <tr>
+      <td valign="top" colspan="2">
+      <span class="bigTitle">Activation Successful!</span>
+      <br><br>
+      </td>
+      <td valign="top" rowspan="2"><jsp:include page="right_reg.jsp" /></td>
+   </tr>
+   <tr>
+      <td valign="top">
+      <table cellpadding="0" cellspacing="0" border="0" align="left" style="margin-right: 20px;">
+         <tr><td class="bcOff">General</td></tr>
+         <tr><td class="bcOff">Demographics</td></tr>
+         <tr><td class="bcOff">Confirm</td></tr>
+         <tr><td class="bcOff">Success</td></tr>
+         <tr><td class="bcOn">Activation</td></tr>
+      </table>
+      </td>
+      <td valign="top" width="100%">
 
 			You may practice for the contest by clicking the Competition Arena link above.
-			<br/><br/>
+			<br><br>
 			If you encounter any problems, please contact us at <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>.
 
-			<br/><br/>
+			<br><br>
 			To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
-			</div>
+         <br><br><br><br><br>
+      </td>
+      </tr>
+      </table>
+		</div>
+
 		</td>
 		<td width="49%">&#160;</td>
 	<tr>
