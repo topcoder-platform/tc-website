@@ -88,7 +88,7 @@ function submitEnter(e) {
                     </td>
                 </tr>
                 <tr>
-                    <td align="right" nowrap>
+                    <td align="right">
                     <%if(question.isRequired()) {%><span class="errorText">*</span><%}%>
                         <%=question.getText()%>
                     </td>

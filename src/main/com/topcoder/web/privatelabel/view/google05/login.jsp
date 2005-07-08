@@ -55,13 +55,14 @@ function submitEnter(e) {
 			</div>
 
 
-			<br/><br/>
-			<span class=bigTitle>Registration</span>
-			<span valign=top>
+			<br><br>
+			<div style="float: left">
+			<span class="bigTitle">Registration</span>
+         </div>
+			<div style="float: right">
 			<jsp:include page="right_reg.jsp" />
-			</span>
-
-			<br/><br/>
+			</div>
+			<br><br>
                         Registration will close on Tuesday, August 19 at 2:00PM ET.<br/><br/>
                         If you are currently a TopCoder member or registered for the Google Code Jam 2003/2004, you may enter your handle and password below to use your account for the Google Code Jam 2005.<br/><br/>
 
