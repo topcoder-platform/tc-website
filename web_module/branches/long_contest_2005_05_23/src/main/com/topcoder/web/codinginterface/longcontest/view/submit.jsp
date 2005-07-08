@@ -22,6 +22,7 @@
 <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
 <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="1">Java<br/>
 <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="3">C++<br/>
+<input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="4">C#<br/>
 <input type="submit"/>
 <textarea size=100 name="code">
 <%=request.getSession().getAttribute(Constants.CODE)%>
