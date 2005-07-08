@@ -2,17 +2,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:output method="text" media-type="text/rtf"/>
 <xsl:template match="/">
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:output method="text" media-type="text/rtf"/>
+<xsl:template match="/">
 
-Welcome to TopCoder Software!
+Dear <xsl:value-of select="passwordEmail/firstname"/>
 
-To activate your new account either click on the following link or enter the URL into your browser:
+You have requested that your password be sent back to you.
 
-<xsl:value-of select="activationEmail/url"/>
+username: <xsl:value-of select="passwordEmail/username"/>
+password: <xsl:value-of select="passwordEmail/password"/>
 
-If you have additional questions or need assistance, please email service@topcodersoftware.com.
-
-Best regards,
-
+Best,
 The TopCoder Software Team
 </xsl:template>
 </xsl:stylesheet>

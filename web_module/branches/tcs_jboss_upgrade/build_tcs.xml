@@ -255,6 +255,9 @@
                 <include name="com/topcoder/apps/review/business_logic_config.properties"/>
                 <include name="com/topcoder/apps/review/ReviewResources.properties"/>
                 <include name="com/topcoder/dde/admin/AdminLoginBean.properties"/>
+                <include name="com/topcoder/dde/user/activationEmail.xsl"/>
+                <include name="com/topcoder/dde/user/passwordEmail.xsl"/>
+                <include name="com/topcoder/dde/user/UserManagerBean.properties"/>
                 <include name="mail_templates/*.xsl"/>
             </fileset>
             <fileset dir="${resources.dir}">
