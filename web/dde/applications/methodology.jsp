@@ -55,13 +55,13 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-                <tr><td class="normal"><img src="/images/headApplications.gif" alt="Applications" width="510" height="32" border="0" /></td></tr>
+                <tr><td class="normal"><img src="/images/apps/apps_title.gif" alt="Applications" width="530" height="26" border="0" /></td></tr>
                 <tr><td class="subhead">Competition-Based Methodology</td></tr>
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
             </table>
 
             <div align="center">
-                <img src="/images/apps_meth_promo.gif" alt="Application Methodology" width="510" height="158" border="0" />
+                <img src="/images/apps/apps_meth_graph.gif" alt="Application Methodology" width="530" height="200" border="0" />
             </div>
 
              <hr width="100%" size="1px" noshade>
