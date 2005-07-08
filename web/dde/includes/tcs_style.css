@@ -1865,10 +1865,13 @@ strong { font-weight: bold; }
 
 .subhead
 {
-	font-size: 22px;
+	font-size: 20px;
 	color: #777777;
 	font-weight: bold;
 	font-style: italic;
+	background-image: url(../images/componentBkgd.gif);
+	background-repeat: repeat-y;
+	padding: 5px;
 }
 
 TD, TH
