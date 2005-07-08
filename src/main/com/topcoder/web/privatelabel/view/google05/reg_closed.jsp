@@ -48,15 +48,17 @@ function submitEnter(e) {
 			</div>
 
 
-			<br/><br/>
-			<span class=bigTitle>Registration</span>
-			<span valign=top>
+			<br><br>
+			<div style="float: left">
+			<span class="bigTitle">Registration</span>
+         </div>
+			<div style="float: right">
 			<jsp:include page="right_reg.jsp" />
-			</span>
-			<br/><br/>
+			</div>
+			<br><br>
 
-			<p><font size="-1"><br/>Registration for the Google Code Jam 2005 not currently open..</font></p>
-			<br/><br/>
+			<p><font size="-1"><br>Registration for the Google Code Jam 2005 not currently open..</font></p>
+			<br><br><br><br><br>
 			</div>
 		</td>
 		<td width="49%">&#160;</td>
