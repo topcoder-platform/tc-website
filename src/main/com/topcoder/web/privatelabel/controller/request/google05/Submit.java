@@ -155,9 +155,7 @@ public class Submit extends FullRegSubmit {
                 } else {
                     SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                     StringBuffer buf = new StringBuffer(150);
-                    buf.append("http://");
-                    buf.append(ApplicationServer.SERVER_NAME);
-                    buf.append(info.getServletPath());
+                    buf.append(info.getAbsoluteServletPath());
                     buf.append("?");
                     buf.append(Constants.MODULE_KEY);
                     buf.append("=");
