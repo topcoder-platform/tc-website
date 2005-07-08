@@ -65,7 +65,7 @@ function submitEnter(e) {
                         Registration will close on Tuesday, August 19 at 2:00PM ET.<br/><br/>
                         If you are currently a TopCoder member or registered for the Google Code Jam 2003/2004, you may enter your handle and password below to use your account for the Google Code Jam 2005.<br/><br/>
 
-                        <form method="post" name="frmLogin" action="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>">
+                        <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_LOGIN%>">
                         <input type="hidden" name="<%=Constants.EVENT_ID%>" value="1">
                         <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="1865">
