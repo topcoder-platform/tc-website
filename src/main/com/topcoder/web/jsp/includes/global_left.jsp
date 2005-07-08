@@ -110,7 +110,7 @@
                 	<tr><td id="<%=level3.equals("ultimate")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=usdc_overview">Ultimate Contest</A></td></tr>
                     <tr><td id="<%=level3.equals("descontest2")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=des_bonus_contest_2">Design Bonus Contest 2</A></td></tr>
                     <tr><td id="<%=level3.equals("descontest1")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=bonus_contest_0303">Design Bonus Contest 1</A></td></tr>
-                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=tournaments&c=tourny_index">TCO/TCCC Component Contests</A></td></tr>
+                    <tr><td id="<%=level3.equals("open")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=tournaments&c=tourny_index">TCO & TCCC Component Contests</A></td></tr>
                 <% } %>
                 <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=getting_started" class="<%=level2.equals("support")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" alt="" border="0"/>Support / FAQs</a></td></tr>
                 <% if (level2.equals("support")) { %>

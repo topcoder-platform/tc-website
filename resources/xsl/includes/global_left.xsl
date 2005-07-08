@@ -887,19 +887,6 @@
         <td id="leftSubnav">
             <xsl:attribute name="id">
             <xsl:choose>
-                <xsl:when test="$level3='tco_components'">leftSubnavOn</xsl:when>
-                <xsl:otherwise>leftSubnav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_description</xsl:attribute>TCO Component Contest</A>
-        </td>
-    </tr>
-
-<!-- Component Design Bonus Contest 2 -->
-    <tr>
-        <td id="leftSubnav">
-            <xsl:attribute name="id">
-            <xsl:choose>
                 <xsl:when test="$level3='des_bonus_contest_2'">leftSubnavOn</xsl:when>
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
@@ -920,6 +907,20 @@
             <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=bonus_contest_0303</xsl:attribute>Design Bonus Contest 1</A>
         </td>
     </tr>
+
+<!-- Component Design Bonus Contest 2 -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='tco_components'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>TCO &amp; TCCC Component Contests</A>
+        </td>
+    </tr>
+
         </xsl:if>
   </xsl:template>
 
