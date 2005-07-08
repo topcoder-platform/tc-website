@@ -68,7 +68,7 @@ function submitEnter(e) {
 
                         <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_LOGIN%>">
-                        <input type="hidden" name="<%=Constants.EVENT_ID%>" value="1">
+                        <input type="hidden" name="<%=Constants.EVENT_ID%>" value="3">
                         <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="1865">
                            <table border="0" cellpadding="3" cellspacing="0" align="center">
                               <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
@@ -98,7 +98,7 @@ function submitEnter(e) {
 
                         </form>
                         <br/>
-                        If you are not currently a TopCoder member or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?&module=google05Reg&cid=1865&eid=3">here</a>.
+                        If you are not currently a TopCoder member or do not want to use an existing account, please click <a href="<%=sessionInfo.getSecureAbsoluteServletPath()%>?module=<%=Constants.GOOGLE05_REG_MAIN%>&<%=Constants.COMPANY_ID%>=1865&<%=Constants.EVENT_ID%>=3">here</a>.
 
 			<br/><br/>
 			To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
