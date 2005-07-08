@@ -74,11 +74,12 @@ function submitEnter(e) {
          <div class="regBreadOn">Confirm</div>
          <div class="regBreadOff">Success</div>
          <div class="regBreadOff">Activation</div>
+         <br><br>
+         <span class="bigRed">NOTE: You are not registered yet. You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
       </td>
       <td valign="top" width="100%">
 
-         <span class="bigRed">NOTE: You are not registered yet. You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
-         <br><br>
+         
 
          <table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
            <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
@@ -241,7 +242,7 @@ function submitEnter(e) {
 
             <pl:responseIterator id="resp" list="<%=responseList%>">
                 <tr>
-                    <td align="right" nowrap>
+                    <td align="right">
                         <pl:demographicQuestionText questions="<%=questionMap%>" response="<%=resp%>"/>
                     </td>
                     <td align="left">
