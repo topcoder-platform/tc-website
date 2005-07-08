@@ -85,7 +85,7 @@ function openWin(url, name, w, h) {
 <h2>Match summary</h2>
 
 <p>
-Coder in both division stubled over floating point difficulties today, as most
+Coders in both divisions stumbled over floating point difficulties today, as most
 div 1 easy and div 2 medium submissions failed.  This left lots of opportunities
 for challenges, and misof took advantage with a whopping 250 points in the
 challenges phase.  This, combined with good times on the medium and hard

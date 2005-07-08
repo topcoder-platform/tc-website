@@ -12,7 +12,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm250_prob">SRM 250 - Problem Set & Analysis</A></span><br><br>
-      Coders in both division stumbled over floating point difficulties today, as most div 1 easy and div 2 medium submissions failed.  This left lots of opportunities for challenges, and <tc-webtag:handle coderId="8357090" context="algorithm"/> took advantage with a whopping 250 points in the challenges phase.</td>
+      Coders in both divisions stumbled over floating point difficulties today, as most div 1 easy and div 2 medium submissions failed.  This left lots of opportunities for challenges, and <tc-webtag:handle coderId="8357090" context="algorithm"/> took advantage with a whopping 250 points in the challenges phase.</td>
       <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
       </td>
    </tr>
