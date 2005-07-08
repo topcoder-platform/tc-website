@@ -66,6 +66,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">July 8</td>
+                                <td valign="middle" class="bodyText"><a class="bodyText" href="/tc?module=MemberProfile&amp;cr=7371063">supernova</a></td>
+                                <td valign="middle" class="bodyText"><A href="/tc?module=Static&amp;d1=features&amp;d2=070805" class="bodyText">The Story of Petr Mitrichev - Target in Six Steps</A></td>
+                            </tr>
+
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">May 4</td>
                                 <td valign="middle" class="bodyText"><a class="bodyText" href="/tc?module=MemberProfile&amp;cr=7465390">Dan[Popovici]</a> &amp; <a class="bodyText" href="/tc?module=MemberProfile&amp;cr=294328">mariusmuja</a></td>
                                 <td valign="middle" class="bodyText"><A href="/tc?module=Static&amp;d1=features&amp;d2=050305" class="bodyText">Using Regular Expressions</A></td>
