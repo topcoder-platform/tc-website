@@ -64,6 +64,16 @@ function submitEnter(e) {
 			<jsp:include page="right_reg.jsp" />
 			</span>
 
+<br><br>
+<div class="bcBox">
+<table cellpadding="0" cellspacing="0" border="0" align="left">
+   <tr><td class="bcOff">General</td></tr>
+   <tr><td class="bcOn">Demographics</td></tr>
+   <tr><td class="bcOff">Confirm</td></tr>
+   <tr><td class="bcOff">Activation</td></tr>
+   <tr><td class="bcOff">Success</td></tr>
+</table>
+</div>
 			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
 			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_REG_CONFIRM%>"/>
