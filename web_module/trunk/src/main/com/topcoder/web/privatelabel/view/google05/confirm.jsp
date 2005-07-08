@@ -77,6 +77,9 @@ function submitEnter(e) {
       </td>
       <td valign="top" width="100%">
 
+         <span class="bigRed">NOTE: You are not registered yet. You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
+         <br><br>
+
          <table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
            <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_REG_SUBMIT%>"/>
