@@ -1866,11 +1866,9 @@ strong { font-weight: bold; }
 .subhead
 {
 	font-size: 18px;
-	color: #013466;
+	color: #777777;
 	font-weight: bold;
-	font-style: normal;
-	background-image: url(../images/componentBkgd.gif);
-	background-repeat: repeat-y;
+	font-style: italic;
 	padding: 5px;
 }
 
