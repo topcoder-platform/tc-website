@@ -1865,11 +1865,10 @@ strong { font-weight: bold; }
 
 .subhead
 {
-	font-size: 18px;
+	font-size: 22px;
 	color: #777777;
 	font-weight: bold;
 	font-style: italic;
-	padding: 5px;
 }
 
 TD, TH
