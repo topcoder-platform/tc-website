@@ -1,7 +1,7 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
-<%@ page import="com.topcoder.apps.review.document.SubjectiveScorecardQuestion" %> 
-<%@ page import="com.topcoder.apps.review.document.TestCaseScorecardQuestion" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %>
+<%@ page import="com.topcoder.apps.review.document.SubjectiveScorecardQuestion" %>
+<%@ page import="com.topcoder.apps.review.document.TestCaseScorecardQuestion" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -15,7 +15,7 @@
 <%--
 <logic:equal name="appealForm" property="valid" value="false">
   <tr><td class="errorText"><UL><bean:message key="error.invalidData" /></UL></td></tr>
-</logic:equal>        
+</logic:equal>
 --%>
   <tr>
     <td class="whiteBkgnd">
@@ -24,22 +24,22 @@
           <tr>
             <td width="5%" align="left">
 <logic:equal name="appealForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
-              <img src='<%="images/icon_design.gif" %>' width="66" height="62" alt="">
-</logic:equal>                        
-<logic:notEqual name="appealForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-              <img src='<%="images/icon_development.gif" %>' width="66" height="62" alt="">
+              <img src='<%="/images/icon_design.gif" %>' width="66" height="62" alt="">
+</logic:equal>
+<logic:notEqual name="appealForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+              <img src='<%="/images/icon_development.gif" %>' width="66" height="62" alt="">
 </logic:notEqual>
             </td>
             <td width="5%">
 <logic:equal name="appealForm" property="project.catalog" value="Java">
-              <img src="images/smJava.gif" alt="" width="33" height="17" border="0">
+              <img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 <logic:equal name="appealForm" property="project.catalog" value=".NET">
-              <img src="images/netSm.gif" alt="" width="33" height="17" border="0">
+              <img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
             </td>
             <td width="90%" nowrap class="tableHeader">
-              <strong><bean:write name="appealForm" property="project.projectName" /></strong> 
+              <strong><bean:write name="appealForm" property="project.projectName" /></strong>
               <bean:message key="prompt.version" />
               <bean:write name="appealForm" property="project.projectVersion" />
             </td>
@@ -63,7 +63,7 @@ The following items can NOT be appealed:
             </td>
           </tr>
           <tr>
-            <td class="whiteBkgnd" colspan="3"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+            <td class="whiteBkgnd" colspan="3"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
           </tr>
           <tr>
             <td class="whiteBkgnd" align="center" colspan="3">
@@ -235,7 +235,7 @@ The following items can NOT be appealed:
   <tbody>
     <tr>
       <td height="15">
-        <img height="15" alt="" src="images/clear.gif" width="10" border="0">
+        <img height="15" alt="" src="/images/clear.gif" width="10" border="0">
       </td>
     </tr>
   </tbody>
