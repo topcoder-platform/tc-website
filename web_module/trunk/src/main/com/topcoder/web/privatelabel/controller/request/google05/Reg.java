@@ -35,17 +35,4 @@ public class Reg extends FullReg {
         }
     }
 
-    protected ResultSetContainer getCountryList() throws TCWebException {
-        try {
-            Request request = new Request();
-            request.setContentHandle("country_list_google");
-            Map map = getDataAccess(transDb, true).getData(request);
-            if (map == null)
-                throw new Exception("error getting country list from db");
-            else
-                return (ResultSetContainer) map.get("country_list_google");
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-    }
 }
