@@ -63,8 +63,6 @@
 
         <ant antfile="build.xml" target="clean"/>
         <ant antfile="build_tcs.xml" target="deploy"/>
-        <ant antfile="build_tcs.xml" target="copy-libs"/>
-        <ant antfile="build_tcs.xml" target="copy-conf"/>
 
     </target>
 
