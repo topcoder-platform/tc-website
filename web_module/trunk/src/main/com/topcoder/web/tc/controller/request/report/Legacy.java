@@ -305,7 +305,7 @@ public class Legacy extends Base {
         query.append(" ,da5.demographic_answer_text as degree\n");
         query.append(" ,da6.demographic_answer_text as relocate\n");
         query.append(" ,rs.start_time as last_rated_event\n");
-        query.append(" ,LOWER(u.handle)\n");
+        query.append(" ,u.handle_lower\n");
         query.append(" FROM user u\n");
         query.append(" ,coder c\n");
         query.append(" ,coder_type ct\n");
@@ -365,7 +365,7 @@ public class Legacy extends Base {
         }
         query.append(" AND cs.coder_id = c.coder_id\n");
         if (handle != null && !relocate.equals("")) {
-            query.append(" AND LOWER(u.handle) like LOWER('" + handle + "')\n");
+            query.append(" AND u.handle_lower like LOWER('" + handle + "')\n");
         }
         if (firstName != null && !firstName.equals("")) {
             query.append(" AND LOWER(c.first_name) like LOWER('" + firstName + "')\n");

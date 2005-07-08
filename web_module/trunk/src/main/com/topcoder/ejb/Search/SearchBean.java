@@ -59,7 +59,7 @@ public class SearchBean extends BaseEJB {
         query.append(" ,r.rating");
         query.append(" ,r.num_ratings");
         query.append(" ,(SELECT date FROM calendar WHERE calendar_id = ro.calendar_id)");
-        query.append(" ,LOWER(c.handle) as lower_case_handle");
+        query.append(" ,c.handle_lower as lower_case_handle");
         query.append(" ,CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         query.append(" FROM coder c");
         query.append(" ,rating r");
@@ -75,7 +75,7 @@ public class SearchBean extends BaseEJB {
         if (search.getMonthsSinceLastComp() != -1)
             query.append(" AND ro.calendar_id = cal.calendar_id");
         if (!search.getHandle().equals("%")) {
-            query.append(" AND LOWER(c.handle) LIKE LOWER('");
+            query.append(" AND c.handle_lower LIKE LOWER('");
             query.append(search.getHandle());
             query.append("') ");
         }
@@ -189,7 +189,7 @@ public class SearchBean extends BaseEJB {
         query.append(" ,r.rating");
         query.append(" ,r.num_ratings");
         query.append(" ,(SELECT date FROM calendar WHERE calendar_id = ro.calendar_id)");
-        query.append(" ,lower(c.handle) as lower_case_handle");
+        query.append(" ,c.handle_lower as lower_case_handle");
         query.append(" ,CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         query.append(" FROM coder c");
         query.append(" ,rating r");
@@ -205,7 +205,7 @@ public class SearchBean extends BaseEJB {
         if (search.getMonthsSinceLastComp() != -1)
             query.append(" AND ro.calendar_id = cal.calendar_id");
         if (!search.getHandle().equals("%")) {
-            query.append(" AND LOWER(c.handle) LIKE LOWER('");
+            query.append(" AND c.handle_lower LIKE LOWER('");
             query.append(search.getHandle());
             query.append("') ");
         }

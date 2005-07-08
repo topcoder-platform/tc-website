@@ -28,7 +28,7 @@ import com.topcoder.shared.security.ClassResource;
  * @author rfairfax
  */
 public class PlacementProfile extends BaseProcessor {
-    
+
 
     protected void businessProcessing() throws TCWebException {
         if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
@@ -56,7 +56,7 @@ public class PlacementProfile extends BaseProcessor {
                 sb.append("and p.user_id = u.user_id ");
                 sb.append("and p.preference_id in (2,7) ");
                 if(!handle.equals("")) {
-                    sb.append("and lower(u.handle) like '" + handle.toLowerCase() + "' ");
+                    sb.append("and u.handle_lower like '" + handle.toLowerCase() + "' ");
                 }
                 if(!firstname.equals("")) {
                     sb.append("and lower(c.first_name) like '" + firstname.toLowerCase() + "' ");
@@ -73,7 +73,7 @@ public class PlacementProfile extends BaseProcessor {
                 ResultSetContainer rsc = (ResultSetContainer)m.get("search");
 
                 ArrayList results = new ArrayList();
-                
+
                 log.debug("SIZE: " + rsc.size());
 
                 for(int i = 0; i < rsc.size(); i++) {
@@ -87,17 +87,17 @@ public class PlacementProfile extends BaseProcessor {
 
             //TODO: load recent profiles list
 
-            setNextPage(Constants.PROFILE_MAIN_PAGE); 
+            setNextPage(Constants.PROFILE_MAIN_PAGE);
             setIsNextPageInContext(true);
         } catch (TCWebException tce) {
             throw tce;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        
+
     }
-    
-    protected static DataAccessInt getDataAccess() throws Exception { 
+
+    protected static DataAccessInt getDataAccess() throws Exception {
        DataAccessInt dAccess = null;
        dAccess = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
        return dAccess;
