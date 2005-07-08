@@ -62,9 +62,8 @@ function submitEnter(e) {
 			</span>
 
 			<br/><br/>
-                        Registration will close on Tuesday, September 14 at 6:00PM ET.<br/><br/>
-                        If you are currently a TopCoder member or registered for the Google Code Jam 2003, you may enter your handle and password below to use your account for the Google Code Jam 2005.<br/><br/>
-                        Note: Your browser must have cookies enabled in order for this to work.<br/><br/>
+                        Registration will close on Tuesday, August 19 at 2:00PM ET.<br/><br/>
+                        If you are currently a TopCoder member or registered for the Google Code Jam 2003/2004, you may enter your handle and password below to use your account for the Google Code Jam 2005.<br/><br/>
 
                         <form method="post" name="frmLogin" action="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>">
                         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_LOGIN%>">
@@ -98,7 +97,7 @@ function submitEnter(e) {
 
                         </form>
                         <br/>
-                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?&module=google05Reg&cid=1865&eid=1">here</a>.
+                        If you are not currently a TopCoder member or do not want to use an existing account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?&module=google05Reg&cid=1865&eid=3">here</a>.
 
 			<br/><br/>
 			To find out more detailed information about the Google Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google05&d2=rules">Terms and Conditions</a>.
