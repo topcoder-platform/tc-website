@@ -47,6 +47,16 @@ function submitEnter(e) {
 			</jsp:include>
 			</div>
 
+<br><br>
+<div class="bcBox">
+<table cellpadding="0" cellspacing="0" border="0" align="left">
+   <tr><td class="bcOff">General</td></tr>
+   <tr><td class="bcOff">Demographics</td></tr>
+   <tr><td class="bcOff">Confirm</td></tr>
+   <tr><td class="bcOn">Activation</td></tr>
+   <tr><td class="bcOff">Success</td></tr>
+</table>
+</div>
 
 			<br/><br/>
 			<span class=bigTitle>Activation Successful!</span>

@@ -55,6 +55,17 @@ function submitEnter(e) {
 			</span>
 			<br/><br/>
 
+<br><br>
+<div class="bcBox">
+<table cellpadding="0" cellspacing="0" border="0" align="left">
+   <tr><td class="bcOff">General</td></tr>
+   <tr><td class="bcOff">Demographics</td></tr>
+   <tr><td class="bcOff">Confirm</td></tr>
+   <tr><td class="bcOff">Activation</td></tr>
+   <tr><td class="bcOn">Success</td></tr>
+</table>
+</div>
+
 <b>If you converted your TopCoder / Code Jam 2003 account:</b><br/>
 Your account is active.<br/><br/>
 
