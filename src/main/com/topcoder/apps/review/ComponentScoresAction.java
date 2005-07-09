@@ -139,6 +139,7 @@ public final class ComponentScoresAction extends BaseAction {
 
         // Forward control to the specified URI
         return forward;
+        */
     }
-    */
+
 }
