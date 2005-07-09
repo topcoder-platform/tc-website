@@ -6,3 +6,5 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
 Hello World!
+<bean:define id="submissionId" name="sid" />
+sid=<%= submissionId %>
