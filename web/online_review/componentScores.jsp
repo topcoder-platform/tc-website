@@ -10,6 +10,6 @@
 
 <template:insert template="template.jsp">
 	<template:put name="title"><%=theTitle%></template:put>
-    <template:put name="content" content="ComponentScoresContent.jsp"/>
+    <template:put name="content" content="componentScoresContent.jsp"/>
 </template:insert>
 
