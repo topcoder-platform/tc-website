@@ -52,7 +52,7 @@ public final class ComponentScoresAction extends BaseAction {
         // Create the UserData from the session
         HttpSession session = request.getSession();
 
-        session.setAttribute("pid", (Long) session.getAttribute("pid"));
+        request.setAttribute("pid", (Long) session.getAttribute("pid"));
 
         return mapping.findForward(Constants.SUCCESS_KEY);
 
