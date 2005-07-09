@@ -8,7 +8,7 @@
 <% String theTitle="Component Scores"; %>
 
 Hello, this is ComponentScores.jsp
-<bean:define id="submissionId" name="sid" />
+<bean:define id="submissionId" name="pid" />
 <%= submissionId %>
 
 <template:insert template="template.jsp">
