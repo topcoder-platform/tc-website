@@ -35,10 +35,11 @@
         </jsp:include>
 
             <table border=0 cellpadding=2 cellspacing=0 width="100%">
-            <tr class="bodyText"><td nowrap="nowrap">07.07.05 3:35 PM&#160;-&#160</td><td width="100%"><A href="/rtables/viewForum.jsp?forum=504996&mc=2">VeriSign Employment Discussion</A>.</td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">07.07.05 11:25 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">VeriSign chat session</A>.</td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">06.30.05 9:25 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">Yahoo! chat session</A>.</td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">06.22.05 12:55 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat">Citigroup Employment Opportunities chat session</A>.</td></tr>
+            <tr class="bodyText"><td nowrap="nowrap">07.11.05 5:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun chat session scheduled for SRM 251</A></td></tr>
+            <tr class="bodyText"><td nowrap="nowrap">07.07.05 3:35 PM&#160;-&#160</td><td width="100%"><A href="/rtables/viewForum.jsp?forum=504996&mc=2">VeriSign Employment Discussion</A></td></tr>
+            <tr class="bodyText"><td nowrap="nowrap">07.07.05 11:25 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">VeriSign chat session</A></td></tr>
+            <tr class="bodyText"><td nowrap="nowrap">06.30.05 9:25 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">Yahoo! chat session</A></td></tr>
+            <tr class="bodyText"><td nowrap="nowrap">06.22.05 12:55 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat">Citigroup Employment Opportunities chat session</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">06.16.05 3:20 PM&#160;-&#160</td><td width="100%">New job openings at <A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">06.13.05 10:50 AM&#160;-&#160</td><td width="100%">New job openings at <A href="/tc?module=Static&d1=contracting&d2=smsac">SMS.ac</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">06.09.05 6:30 PM&#160;-&#160</td><td width="100%">New job openings at <A href="/tc?module=Static&d1=contracting&d2=jpmorgan">JP Morgan</A></td></tr>
