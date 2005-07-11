@@ -44,6 +44,8 @@ public class EmailBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             close(ps);
             close(conn);
