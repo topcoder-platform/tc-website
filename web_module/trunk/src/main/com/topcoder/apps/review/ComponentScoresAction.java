@@ -7,7 +7,7 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
-import com.topcoder.apps.review.Document.ComponentScores;
+import com.topcoder.apps.review.document.ComponentScores;
 import com.topcoder.util.log.Level;
 import org.apache.struts.action.*;
 

@@ -7,10 +7,6 @@
 <!-- FIX name -->
 <% String theTitle="Component Scores"; %>
 
-Hello, this is ComponentScores.jsp
-<bean:define id="submissionId" name="pid" />
-<%= submissionId %>
-
 <template:insert template="template.jsp">
 	<template:put name="title"><%=theTitle%></template:put>
     <template:put name="content" content="componentScoresContent.jsp"/>
