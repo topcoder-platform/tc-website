@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
@@ -15,6 +16,7 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 import javax.transaction.UserTransaction;
+import java.rmi.RemoteException;
 
 /**
  *
@@ -129,7 +131,15 @@ public class SimpleRegSubmit extends SimpleRegBase {
             emailId = email.createEmail(userId, transDb, db);
             email.setStatusId(emailId, 1, transDb);
         } else {
-            emailId = email.getPrimaryEmailId(userId, transDb);
+            try {
+                emailId = email.getPrimaryEmailId(userId, transDb);
+            } catch (RemoteException e) {
+                if (e.detail instanceof RowNotFoundException) {
+                    emailId = email.createEmail(userId, transDb, db);
+                    email.setStatusId(emailId, 1, transDb);
+                }
+            }
+
         }
         email.setAddress(emailId, regInfo.getEmail(), transDb);
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);

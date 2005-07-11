@@ -7,16 +7,15 @@ import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EmailBean extends BaseEJB {
-    private static Logger log = Logger.getLogger(EmailBean.class);
+    private final static Logger log = Logger.getLogger(EmailBean.class);
 
-    public long createEmail(long userId, String dataSource, String idDataSource) throws EJBException, RemoteException {
+    public long createEmail(long userId, String dataSource, String idDataSource) throws EJBException {
 
         long email_id = 0;
 
@@ -53,7 +52,7 @@ public class EmailBean extends BaseEJB {
     }
 
     public void setPrimaryEmailId(long userId, long emailId, String dataSource)
-            throws EJBException, RemoteException {
+            throws EJBException {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -102,46 +101,15 @@ public class EmailBean extends BaseEJB {
     }
 
     public long getPrimaryEmailId(long userId, String dataSource)
-            throws EJBException, RemoteException {
-        long email_id = 0;
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        InitialContext ctx = null;
-
-        try {
-
-            StringBuffer query = new StringBuffer(1024);
-            query.append("SELECT email_id ");
-            query.append("FROM email ");
-            query.append("WHERE user_id=? AND primary_ind=1");
-
-            conn = DBMS.getConnection(dataSource);
-            ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, userId);
-
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                email_id = rs.getLong(1);
-            } else {
-                throw(new EJBException("No rows found when selecting from 'email' " +
-                        "with user_id=" + userId + "."));
-            }
-        } catch (SQLException _sqle) {
-            DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-            close(ctx);
-        }
-        return (email_id);
+            throws EJBException {
+        return selectLong("email", "email_id",
+                new String[]{"user_id", "primary_ind"},
+                new String[]{String.valueOf(userId), "1"},
+                dataSource).longValue();
     }
 
     public void setEmailTypeId(long emailId, long emailTypeId, String dataSource)
-            throws EJBException, RemoteException {
+            throws EJBException {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -176,7 +144,7 @@ public class EmailBean extends BaseEJB {
     }
 
     public long getEmailTypeId(long emailId, String dataSource)
-            throws EJBException, RemoteException {
+            throws EJBException {
 
         long email_type_id = 0;
 
@@ -216,7 +184,7 @@ public class EmailBean extends BaseEJB {
     }
 
     public void setAddress(long emailId, String address, String dataSource)
-            throws EJBException, RemoteException {
+            throws EJBException {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -251,7 +219,7 @@ public class EmailBean extends BaseEJB {
     }
 
     public String getAddress(long emailId, String dataSource)
-            throws EJBException, RemoteException {
+            throws EJBException {
 
         String address = "";
 
