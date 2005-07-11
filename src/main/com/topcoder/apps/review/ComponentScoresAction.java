@@ -52,9 +52,9 @@ public final class ComponentScoresAction extends BaseAction {
         // Create the UserData from the session
         HttpSession session = request.getSession();
 
-log(Level.INFO, "QQ pid=" + session.getParameter("pid"));
+log(Level.INFO, "QQ pid=" + request.getParameter("pid"));
 
-        request.setAttribute("pid", (Long) session.getParameter("pid"));
+        request.setAttribute("pid", (Long) request.getParameter("pid"));
 
         return mapping.findForward(Constants.SUCCESS_KEY);
 
