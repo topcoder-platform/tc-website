@@ -8,4 +8,5 @@
 
 
 <bean:define id="compScores" name="componentScores" type="com.topcoder.apps.review.document.ComponentScores" />
-<%= compScores.componentName %>
+<%= compScores.getComponentName() %>
+<%= compScores.getReviewerName(1) %>
