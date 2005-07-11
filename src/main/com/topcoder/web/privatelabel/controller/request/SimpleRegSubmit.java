@@ -134,12 +134,18 @@ public class SimpleRegSubmit extends SimpleRegBase {
             try {
                 emailId = email.getPrimaryEmailId(userId, transDb);
             } catch (RemoteException e) {
+                log.debug("caught remote exception");
                 if (e.detail instanceof RowNotFoundException) {
                     emailId = email.createEmail(userId, transDb, db);
                     email.setStatusId(emailId, 1, transDb);
                 } else {
                     throw e;
                 }
+            } catch (Exception e) {
+                if (log.isDebugEnabled()) {
+                    e.printStackTrace();
+                }
+
             }
 
         }
