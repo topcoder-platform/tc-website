@@ -137,6 +137,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 if (e.detail instanceof RowNotFoundException) {
                     emailId = email.createEmail(userId, transDb, db);
                     email.setStatusId(emailId, 1, transDb);
+                } else {
+                    throw e;
                 }
             }
 
