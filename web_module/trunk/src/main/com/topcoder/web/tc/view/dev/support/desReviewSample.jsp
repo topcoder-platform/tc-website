@@ -1397,14 +1397,7 @@ then need not be duplicated in each implementation. </p><p class="scorecardQuest
 relationships between internal classes and/or external TopCoder
 components are missing from the class diagrams, or more than 90% of
 relationships are missing attribute information. </p><p class="scorecardQuestion">Rating 2 &#8211; A minority (<=49%) of relationships between internal classes and/or external TopCoder components are missing from the class diagrams, or system classes are missing.</p>
-<p class="scorecardQuestion">Rating 3 &#8211; Class diagrams show all
-relationships between internal classes and external entities (both
-TopCoder components and system classes). A considerable number of the
-association attributes (&gt;10%) are either missing or incorrect. </p><p class="scorecardQuestion">Rating 4 &#8211; Class diagrams show all
-relationships between internal classes and external entities (both
-TopCoder components and system classes) and all association attributes
-are correct.
-</p><p class="scorecardQuestion"></p>
+<p class="scorecardQuestion">Rating 3 &#8211; Class diagrams show all relationships between internal classes and external entities (both TopCoder components and system classes). A small  number of the association attributes (<10%) are either missing or incorrect.</p><p class="scorecardQuestion"></p>
                                 </td>
                                 <td class="forumTextOdd" valign="top" width="10%">
                                     Weight: 25
