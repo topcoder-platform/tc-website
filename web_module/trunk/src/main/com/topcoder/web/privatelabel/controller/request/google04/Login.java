@@ -251,7 +251,6 @@ public class Login extends FullLogin {
 
         info.setHandle(getAuthentication().getActiveUser().getUserName());
         info.setPassword(getRequestParameter(Constants.PASSWORD));
-        ;
         info.setPasswordConfirm(getRequestParameter(Constants.PASSWORD));
         info.setEmail(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setEmailConfirm(email.getAddress(email.getPrimaryEmailId(userId, db), db));
