@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.11.05<br>10:10 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=pr_071105">Yahoo! Sponsors 2005 TopCoder Open</A></span><br><br>
+      "Yahoo! truly sees that we are at the dawn of a new era in recruiting in terms of world-class talent and world-wide distribution of that talent," said Rob Hughes, President and COO of TopCoder. "Yahoo!'s return as a longtime sponsor of TopCoder events shows the quality and reach of our member base."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=news&d2=pr_071105">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.08.05<br>4:40 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -230,18 +242,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>06.17.05<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Prize money returns to SRMs, Citigroup to sponsor matches on <A href="/?RoundId=7223&t=schedule&c=srm">6/21</A>, <A href="/?RoundId=8004&t=schedule&c=srm">7/19</A>, and <A href="/?RoundId=8005&t=schedule&c=srm">8/8</A></span><br><br>
-      Compete on any of these SRM's for a chance to win cash prizes.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/?RoundId=7223&t=schedule&c=srm">6/21 SRM</A>&#160;|&#160;<A href="/?RoundId=8004&t=schedule&c=srm">7/19 SRM</A>&#160;|&#160;<A href="/?RoundId=8005&t=schedule&c=srm">8/8 SRM</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
