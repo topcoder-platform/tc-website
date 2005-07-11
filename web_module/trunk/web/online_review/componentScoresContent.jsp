@@ -8,5 +8,25 @@
 
 
 <bean:define id="compScores" name="componentScores" type="com.topcoder.apps.review.document.ComponentScores" />
-<%= compScores.getComponentName() %>
-<%= compScores.getReviewerName(1) %>
+
+
+<logic:equal name="compScores" property='type' value="1">
+Design | <a href="/ComponentScores.do?type=2">Development</a>
+</logic>
+<logic:equal name="compScores" property='type' value="1">
+<a href="/ComponentScores.do?type=1">Design </a> | Development
+</logic>
+
+
+<table border="1">
+	<tr>
+		<td>Developer</td>
+		<td>Submission</td>
+		<td>compScores.getReviewerName(0)<br>() </td>
+		<td>compScores.getReviewerName(1)<br>() </td>
+		<td>compScores.getReviewerName(2)<br>() </td>
+		<td>Final Score</td>
+		<td>Appeals</td>
+		<td>Details</td>
+	</tr>
+</table>
