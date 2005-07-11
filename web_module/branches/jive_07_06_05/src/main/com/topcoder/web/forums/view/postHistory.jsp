@@ -49,10 +49,10 @@
             </jsp:include>
 
 <div class="topLinksL">
-<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Post History >> <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=forumFactory.getUserMessageCount(historyUser)%> posts) </span><br><br>
+<span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=forumFactory.getUserMessageCount(historyUser)%> posts) </span><br><br>
 </div>            
 <div class="topLinksR">
-<A href="?module=History" class="rtbcLink">My Post History</A>160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
 </div>
 
 <br><br>

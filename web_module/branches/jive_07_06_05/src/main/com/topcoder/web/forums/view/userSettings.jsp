@@ -54,7 +54,7 @@
    <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> User Settings</span><br><br>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
-      <A href="?module=History" class="rtbcLink">Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;User Settings<br>
+      <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;User Settings<br>
    </td>
 </tr>
 </table>
