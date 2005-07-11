@@ -89,7 +89,11 @@ public class SimpleRegSubmit extends SimpleRegBase {
 
         long userId = regInfo.getUserId();
         if (userId>0) {
-            user.createUser(regInfo.getUserId(), regInfo.getHandle(), getNewUserStatus(), transDb);
+            char status = Activate.ACTIVE_STATI[1];  //should be 'A'
+            if (regInfo.isNew()) {
+                status = getNewUserStatus();
+            }
+            user.createUser(regInfo.getUserId(), regInfo.getHandle(), status, transDb);
         } else {
             userId = user.createNewUser(regInfo.getHandle(), getNewUserStatus(), transDb);
         }
