@@ -128,10 +128,9 @@ public class Login extends FullLogin {
         boolean hasTCAccount = hasTopCoderAccount() && coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME);
         boolean hasCompanyAccount = hasCompanyAccount();
 
-        FullRegInfo info = null;
+        FullRegInfo info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         if (hasCompanyAccount) {
-            info = getCommonInfo(userId, db);
 
             if (coder.exists(userId, db)) {
                 info.setCoderType(coder.getCoderTypeId(userId, db));
@@ -196,8 +195,6 @@ public class Login extends FullLogin {
                 }
             }
         } else if (hasTCAccount) {
-
-            info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
             log.error(info.getCoderType() + "");
