@@ -19,37 +19,16 @@ public class EmailBean extends BaseEJB {
 
         long email_id = 0;
 
-        Connection conn = null;
-        PreparedStatement ps = null;
-
-        try {
-
-            email_id = IdGeneratorClient.getSeqId("EMAIL_SEQ");
-
-            StringBuffer query = new StringBuffer(1024);
-            query.append("INSERT ");
-            query.append("INTO email (email_id,user_id) ");
-            query.append("VALUES (?,?)");
-
-            conn = DBMS.getConnection(dataSource);
-            ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, email_id);
-            ps.setLong(2, userId);
-
-            int rc = ps.executeUpdate();
-            if (rc != 1) {
-                throw(new EJBException("Wrong number of rows inserted into 'email'. " +
-                        "Inserted " + rc + ", should have inserted 1."));
-            }
-        } catch (SQLException _sqle) {
-            DBMS.printSqlException(true, _sqle);
-            throw(new EJBException(_sqle.getMessage()));
-        } catch (Exception e) {
-            if (log.isDebugEnabled())
-                e.printStackTrace();
-        } finally {
-            close(ps);
-            close(conn);
+        log.debug("into try block");
+        email_id = IdGeneratorClient.getSeqId("EMAIL_SEQ");
+        log.debug("got sequence " + email_id);
+        int rc = insert("email",
+                new String[]{"email_id", "user_id"},
+                new String[]{String.valueOf(email_id), String.valueOf(userId)},
+                dataSource);
+        if (rc != 1) {
+            throw(new EJBException("Wrong number of rows inserted into 'email'. " +
+                    "Inserted " + rc + ", should have inserted 1."));
         }
         return (email_id);
     }
