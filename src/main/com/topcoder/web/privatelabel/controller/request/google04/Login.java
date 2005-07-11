@@ -103,7 +103,7 @@ public class Login extends FullLogin {
         }
         if (!getAuthentication().getUser().isAnonymous()) {
             User user = (User) createEJB(getInitialContext(), User.class);
-            char status = user.getStatus(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            char status = user.getStatus(getUser().getId(), db);
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
                 //Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
                 //ret = coder.exists(getAuthentication().getActiveUser().getId(), db);
