@@ -106,9 +106,8 @@ function AllowTabCharacter() {
 	    <td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>
     </tr>
 </table>
-<div id="Options" style="display: none">Allowed tags: &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;pre&gt;. Syntax highlighting is applied to text within [code][/code] blocks.</div>
+<br/><div id="Options" style="display: none">Allowed tags: &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;pre&gt;. Syntax highlighting is applied to text within [code][/code] blocks.</div>
 
-<br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
 		<%	if (parentMessage != null) { %>
