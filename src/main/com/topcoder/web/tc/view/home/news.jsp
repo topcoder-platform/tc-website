@@ -8,14 +8,14 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.11.05<br>5:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.11.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun chat session scheduled for SRM 251</A></span><br><br>
-      Sun will be in the Arena Applet at 8:00 PM, just before the start of SRM 251, to talk about working for them.
+      Sun will be in the Arena Applet at 8:00 PM, just before the start of SRM 251 to discuss the Java(TM) Studio Creator.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
