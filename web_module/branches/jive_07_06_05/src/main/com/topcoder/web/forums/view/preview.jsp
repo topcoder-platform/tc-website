@@ -106,7 +106,7 @@ function AllowTabCharacter() {
 	    <td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>
     </tr>
 </table>
-<br><div id="Options" style="display: none">Allowed tags: &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;pre&gt;. Syntax highlighting is applied to text within [code][/code] blocks.</div>
+<div id="Options" style="display: none">Allowed tags: &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;pre&gt;. Syntax highlighting is applied to text within [code][/code] blocks.</div>
 
 <br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
