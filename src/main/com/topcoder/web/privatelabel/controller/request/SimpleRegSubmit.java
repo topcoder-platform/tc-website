@@ -130,26 +130,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
         if (regInfo.isNew()) {
             emailId = email.createEmail(userId, transDb, db);
             email.setStatusId(emailId, 1, transDb);
-        } else {
-            try {
-                emailId = email.getPrimaryEmailId(userId, transDb);
-            } catch (RemoteException e) {
-                if (e.detail instanceof RowNotFoundException) {
-                    try {
-                        emailId = email.createEmail(userId, transDb, db);
-                        email.setStatusId(emailId, 1, transDb);
-                    } catch (Exception er) {
-                        log.debug("here is the stack");
-                        if (log.isDebugEnabled()) {
-                            er.printStackTrace();
-                        }
-                        throw er;
-                    }
-                } else {
-                    throw e;
-                }
-            }
-
+        } else if (!email.exists(userId, transDb)) {
+            emailId = email.createEmail(userId, transDb, db);
+            email.setStatusId(emailId, 1, transDb);
         }
         email.setAddress(emailId, regInfo.getEmail(), transDb);
         email.setEmailTypeId(emailId, EMAIL_TYPE, transDb);
