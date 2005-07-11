@@ -95,13 +95,18 @@ function AllowTabCharacter() {
             </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
-	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
-		<%	if (thread != null) { %>
-		>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
-		<%	} %>
-		>> <jsp:getProperty name="message" property="subject"/>
-</td></tr></table>
+    <tr>
+	    <td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
+			<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
+				<%	if (thread != null) { %>
+				>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
+				<%	} %>
+				>> <jsp:getProperty name="message" property="subject"/>
+	    </td>
+	    <td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>
+    </tr>
+</table>
+<br><div id="Options" style="display: none">Allowed tags: &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;pre&gt;. Syntax highlighting is applied to text within [code][/code] blocks.</div>
 
 <br/>
 <table cellpadding="0" cellspacing="0" class="rtTable">
