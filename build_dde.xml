@@ -232,6 +232,7 @@
     </target>
     
     <target name="jar_shared" depends="compile_shared">
+    	<mkdir dir ="${dist.jars.dir}"/>
          <jar jarfile="${dist.jars.dir}/${shared.jar.name}">
              <fileset dir="${build_classdir}">
                  <include name="com/topcoder/shared/**/*.class"/>

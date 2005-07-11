@@ -46,6 +46,10 @@ public class ComponentScores {
         return reviewerNames[n];
     }
 
+    public String getTestCasesURL(int n) {
+        return testCasesURL[n];
+    }
+
     public String getComponentName() {
         return componentName;
     }
