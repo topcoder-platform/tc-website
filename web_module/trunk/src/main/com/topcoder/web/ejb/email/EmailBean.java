@@ -4,6 +4,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
+import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -93,6 +94,16 @@ public class EmailBean extends BaseEJB {
                 new String[]{String.valueOf(userId), "1"},
                 dataSource).longValue();
         log.debug("got " + ret);
+        return ret;
+    }
+
+    public boolean exists(long userId, String dataSource)  throws EJBException {
+        boolean ret = true;
+        try {
+            getPrimaryEmailId(userId, dataSource);
+        } catch (RowNotFoundException e) {
+            ret = false;
+        }
         return ret;
     }
 

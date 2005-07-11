@@ -14,6 +14,8 @@ public interface Email extends EJBObject {
     long getPrimaryEmailId(long userId, String dataSource)
             throws EJBException, RemoteException;
 
+    boolean exists(long userId, String dataSource) throws EJBException, RemoteException;
+
     void setEmailTypeId(long emailId, long emailTypeId, String dataSource)
             throws EJBException, RemoteException;
 
