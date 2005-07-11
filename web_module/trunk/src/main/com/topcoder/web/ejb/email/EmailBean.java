@@ -16,6 +16,7 @@ public class EmailBean extends BaseEJB {
     private final static Logger log = Logger.getLogger(EmailBean.class);
 
     public long createEmail(long userId, String dataSource, String idDataSource) throws EJBException {
+        log.debug("createEmail called with userId " + userId + " datasource " + dataSource + " idatasource " + idDataSource);
 
         long email_id = 0;
 
@@ -84,6 +85,7 @@ public class EmailBean extends BaseEJB {
 
     public long getPrimaryEmailId(long userId, String dataSource)
             throws EJBException {
+        log.debug("getPrimaryEmailId called with user_id : " + userId + " datasource " + dataSource);
         return selectLong("email", "email_id",
                 new String[]{"user_id", "primary_ind"},
                 new String[]{String.valueOf(userId), "1"},
