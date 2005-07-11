@@ -145,7 +145,7 @@ public class Login extends FullLogin {
             ResultSetContainer.ResultSetRow row = null;
             DemographicQuestion question = null;
 
-            if (responses.getRowCount() > 0) {
+            if (!responses.isEmpty()) {
                 for (Iterator it = responses.iterator(); it.hasNext();) {
                     row = (ResultSetContainer.ResultSetRow) it.next();
                     question = findQuestion(row.getLongItem("demographic_question_id"), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
