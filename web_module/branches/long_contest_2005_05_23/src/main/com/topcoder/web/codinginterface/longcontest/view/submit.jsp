@@ -23,6 +23,7 @@
 <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="1">Java<br/>
 <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="3">C++<br/>
 <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="4">C#<br/>
+<input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="5">VB<br/>
 <input type="submit"/>
 <textarea size=100 name="code">
 <%=request.getSession().getAttribute(Constants.CODE)%>
