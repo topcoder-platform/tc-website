@@ -65,7 +65,7 @@
 	            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
 	                << PREV</A>&#160;&#160;&#160;
 	        <%  } %> [
-	        <%  pages = paginator.getPages(5);
+	        <%  pages = paginator.getPages();
 	            for (int i=0; i<pages.length; i++) {
 	        %>  <%  if (pages[i] != null) { %>
 	                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
@@ -74,7 +74,7 @@
                                 <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
 	                            <%= pages[i].getNumber() %></A>
 	                    <%  } %>
-	            <%  } %>
+	            <%  } else { %> ... <%  } %>
 	        <%  } %> ]
 	        <%  if (paginator.getNextPage()) { %>
 	            &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
@@ -112,7 +112,7 @@
                 <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="previousPageStart"/>" class="rtbcLink">
                     << PREV</A>&#160;&#160;&#160;
             <%  } %> [
-            <%  pages = paginator.getPages(5);
+            <%  pages = paginator.getPages();
                 for (int i=0; i<pages.length; i++) {
             %>  <%  if (pages[i] != null) { %>
                         <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
@@ -121,7 +121,7 @@
                                 <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
                                 <%= pages[i].getNumber() %></A>
                         <%  } %>
-                <%  } %>
+                <%  } else { %> ... <%  } %>
             <%  } %> ]
             <%  if (paginator.getNextPage()) { %>
                 &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>

@@ -130,7 +130,7 @@
             				<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
 	                		<%= pages[i].getNumber() %></A>
 	                <%  } %>
-            <%  } %>
+            <%  } else { %> ... <%  } %>
         <%  } %> ]
 		<%  if (paginator.getNextPage()) { %>
 			&#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.START_IDX%>=<jsp:getProperty name="paginator" property="nextPageStart"/>" class="rtbcLink">NEXT >></A>
@@ -167,12 +167,12 @@
 				threadPaginator = new Paginator(new Paging(resultFilter, thread.getMessageCount()));
 
 				if (threadPaginator.getNumPages() > 1) { %> [
-		        <%  pages = threadPaginator.getPages(5);
+		        <%  pages = threadPaginator.getPages();
 		            for (int i=0; i<pages.length; i++) {
 		        %>  <%  if (pages[i] != null) { %>
 	        				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew">
 	                		<%= pages[i].getNumber() %></A>
-		            <%  } %>
+		            <%  } else { %> ... <%  } %>
 		        <%  } %> ]
 		    <%  } %>
 		<%  } else { %>
