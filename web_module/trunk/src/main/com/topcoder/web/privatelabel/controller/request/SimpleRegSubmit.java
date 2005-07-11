@@ -139,6 +139,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                         emailId = email.createEmail(userId, transDb, db);
                         email.setStatusId(emailId, 1, transDb);
                     } catch (Exception er) {
+                        log.debug("here is the stack");
                         if (log.isDebugEnabled()) {
                             er.printStackTrace();
                         }
