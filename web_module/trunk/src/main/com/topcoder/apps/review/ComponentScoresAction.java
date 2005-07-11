@@ -54,7 +54,7 @@ public final class ComponentScoresAction extends BaseAction {
 
 log(Level.INFO, "QQ pid=" + request.getParameter("pid"));
 
-        request.setAttribute("pid", (Long) request.getParameter("pid"));
+        request.setAttribute("pid", request.getParameter("pid"));
 
         return mapping.findForward(Constants.SUCCESS_KEY);
 
