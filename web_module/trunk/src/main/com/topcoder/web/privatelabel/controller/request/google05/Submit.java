@@ -181,15 +181,21 @@ public class Submit extends FullRegSubmit {
             String code = user.getActivationCode(userId, db);
 
             TCSEmailMessage mail = new TCSEmailMessage();
+/*
             if (info.isNew()) {
+*/
                 mail.setSubject("IMPORTANT - Google Code Jam 2005 Activation Email");
+/*
             } else {
                 mail.setSubject("Google Code Jam 2005 Information");
 
             }
+*/
 
             buf.append("You're invited to take part in the Google Code Jam 2005, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
+/*
             if (info.isNew()) {
+*/
                 buf.append("GOOGLE CODE JAM 2005 ACTIVATION INFORMATION\n\n");
                 buf.append("Your Google activation code is ");
                 buf.append(code);
@@ -198,7 +204,9 @@ public class Submit extends FullRegSubmit {
                 buf.append(getUrl(code));
                 buf.append("\n\n");
                 buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
+/*
             }
+*/
             buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google Code Jam 2005.\n\n");
             buf.append("PRACTICING FOR THE EVENT\n");
             buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam 2005.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 7:00AM ET on July 25, 2005 through 5:00PM ET on September 23, 2005.\n\n");
