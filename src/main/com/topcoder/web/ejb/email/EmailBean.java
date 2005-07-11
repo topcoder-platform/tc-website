@@ -86,10 +86,14 @@ public class EmailBean extends BaseEJB {
     public long getPrimaryEmailId(long userId, String dataSource)
             throws EJBException {
         log.debug("getPrimaryEmailId called with user_id : " + userId + " datasource " + dataSource);
-        return selectLong("email", "email_id",
+        long ret = 0;
+
+        ret = selectLong("email", "email_id",
                 new String[]{"user_id", "primary_ind"},
                 new String[]{String.valueOf(userId), "1"},
                 dataSource).longValue();
+        log.debug("got " + ret);
+        return ret;
     }
 
     public void setEmailTypeId(long emailId, long emailTypeId, String dataSource)
