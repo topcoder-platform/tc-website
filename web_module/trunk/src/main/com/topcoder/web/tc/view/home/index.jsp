@@ -36,7 +36,7 @@
          <tr>
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
             <td class="BIGPromoBox" align="center">
-            <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="TCO05" /></a><br/></td>
+            <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="TCO05" /></a><br></td>
             <td width="50%" class="homeLogo">&#160;</td>
          </tr>            
       </table>
@@ -143,17 +143,17 @@
          </tr>
          <tr>
             <td class=homeArrow>&#160;</td>
-            <td class=homeText><br/>
-            <b>7/06</b> - TCO05 CDDC Week1 Deadline - 9AM<br/>
-            <b>7/07</b> - SRM 250 - 11:00 AM<br/>
-            <b>7/12</b> - SRM 251 - 9:00 PM<br/>
-            <b>7/13</b> - TCO05 CDDC Week2 Deadline - 9AM<br/>
-            <b>7/19</b> - SRM 252 - 9:00 PM<br/>
-            <b>7/20</b> - TCO05 CDDC Week3 Deadline - 9AM<br/>
-            <b>7/23</b> - SRM 253 - 12:00 PM<br/>
-            <b>7/26</b> - SRM 254 - 7:00 AM<br/>
-            <b>7/27</b> - TCO05 CDDC Week4 Deadline - 9AM<br/>
-            <b>7/28</b> - SRM 255 - 9:00 PM<br/>
+            <td class=homeText><br>
+            <b>7/06</b> - TCO05 CDDC Week1 Deadline - 9AM<br><br>
+            <b>7/07</b> - SRM 250 - 11 AM - VeriSign<br><br>
+            <b>7/12</b> - SRM 251 - 9 PM - Sun Microsystems<br><br>
+            <b>7/13</b> - TCO05 CDDC Week2 Deadline - 9AM<br><br>
+            <b>7/19</b> - SRM 252 - 9 PM - Citigroup<br><br>
+            <b>7/20</b> - TCO05 CDDC Week3 Deadline - 9AM<br><br>
+            <b>7/23</b> - SRM 253 - 12 PM<br><br>
+            <b>7/26</b> - SRM 254 - 7 AM<br><br>
+            <b>7/27</b> - TCO05 CDDC Week4 Deadline - 9AM<br><br>
+            <b>7/28</b> - SRM 255 - 9 PM<br>
             </td>
          </tr>
          <tr>
@@ -162,13 +162,13 @@
          </tr>
          <tr>
             <td class=homeArrow>&#160;</td>
-            <td class=homeText><br/>
-            TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_071105"> ...more</A><br/>[July 11]<br/><br/>
-            VeriSign Sponsors 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_070705"> ...more</A><br/>[July 7]<br/><br/>
-            TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_062705"> ...more</A><br/>[June 27]<br/><br/>
-            TopCoder&#174; Announces Return of Cash Prizes to SRMs<A href="/tc?module=Static&d1=news&d2=pr_062005"> ...more</A><br/>[June 20]<br/><br/>
-            Computer programmer wins big<A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1" target="_blank"> ...more</A><br/>[May 24 - QU The Journal]<br/><br/>
-            Caliper Hires TCS to Enhance Platform & Services<A href="/tc?module=Static&d1=news&d2=pr_060705"> ...more</A><br/>[June 7]<br/><br/>
+            <td class=homeText><br>
+            TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_071105"> ...more</A><br>[July 11]<br><br>
+            VeriSign Sponsors 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_070705"> ...more</A><br>[July 7]<br><br>
+            TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open<A href="/tc?module=Static&d1=news&d2=pr_062705"> ...more</A><br>[June 27]<br><br>
+            TopCoder&#174; Announces Return of Cash Prizes to SRMs<A href="/tc?module=Static&d1=news&d2=pr_062005"> ...more</A><br>[June 20]<br><br>
+            Computer programmer wins big<A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1" target="_blank"> ...more</A><br>[May 24 - QU The Journal]<br><br>
+            Caliper Hires TCS to Enhance Platform & Services<A href="/tc?module=Static&d1=news&d2=pr_060705"> ...more</A><br>[June 7]<br><br>
             </td>
          </tr>
       </table>
@@ -182,7 +182,7 @@
             <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
-         <br/>
+         <br>
             <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>
     <tr><td width="100%" class="copyright" colspan=7>Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
