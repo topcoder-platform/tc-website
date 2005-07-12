@@ -37,9 +37,9 @@
       <td class="advTitle" colspan="3" width="100%">Registrants</td>
    </tr>
     <tr class="advHeader">
-       <td align="left" width="50%">Handle</td>
-       <td align="right" width="25%">Design Rating</td>
-       <td align="right" width="25%">Development Rating</td>
+       <td align="left" width="50%"><a href="/tc?module=TCO05CompRegistrants<tc-webtag:sort column="1"/>">Handle</a></td>
+       <td align="right" width="25%"><a href="/tc?module=TCO05CompRegistrants<tc-webtag:sort column="2"/>">Design Rating</a></td>
+       <td align="right" width="25%"><a href="/tc?module=TCO05CompRegistrants<tc-webtag:sort column="3"/>">Development Rating</a></td>
     </tr>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
@@ -50,25 +50,25 @@
 </tr>
 <%even = !even;%>
 </rsc:iterator>
-    
+
 </table>
 
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />
