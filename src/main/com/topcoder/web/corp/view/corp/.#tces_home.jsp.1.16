@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Recruiting, Skills Assessment and User Management at TopCoder Employment Services</title>
+<title>Recruiting, Screening and User Management at TopCoder Employment Services</title>
 
 <jsp:include page="includes/css.jsp" />
 
@@ -66,8 +66,8 @@
                       Whether your company seeks to identify and recruit the best talent or develop and recognize employees, TopCoder can provide 
                       expertise and experience in executing online and onsite events.</p>
 
-                        <p><img src="/i/corp/quote_nvidia.gif" width="273" height="170" alt="" border="0" align="right"><span class="bodySubtitle"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=index">Skills Assessment</a></span><br>
-                        The TopCoder Skills Assessment Program allows companies to test the technical abilities of candidates during the interview 
+                        <p><img src="/i/corp/quote_nvidia.gif" width="273" height="170" alt="" border="0" align="right"><span class="bodySubtitle"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=index">Screening</a></span><br>
+                        The TopCoder Screening Program allows companies to test the technical abilities of candidates during the interview 
                         process, thereby reducing the time incurred by in-house engineers. Employers can choose problem sets to test candidates' 
                         problem solving skills with scenarios that mirror on-the-job issues.</p>
 	
@@ -78,31 +78,33 @@
                         
                         <table width="100%" border="0" cellpadding="5" cellspacing="0">
                         	<tr>
-                        		<td width="25%" align="center"><img src="/i/corp/tcesclient_yahoo.gif" width="132" height="50" alt="Yahoo!" border="0"></td>
-                        		<td width="25%" align="center"><img src="/i/corp/tcesclient_nvidia.gif" width="132" height="50" alt="NVIDIA" border="0"></td>
-                        		<td width="25%" align="center"><img src="/i/corp/tcesclient_brooks.gif" width="132" height="50" alt="Brooks" border="0"></td>
-                        		<td width="25%" align="center"><img src="/i/corp/tcesclient_google.gif" width="132" height="50" alt="Google" border="0"></td>
+                        		<td><img src="/i/corp/tcesclient_yahoo.gif" width="132" height="50" alt="Yahoo!" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_nvidia.gif" width="132" height="50" alt="NVIDIA" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_brooks.gif" width="132" height="50" alt="Brooks" border="0" align="right"></td>
+                        		
+                        		<td><img src="/i/corp/tcesclient_google.gif" width="132" height="50" alt="Google" border="0" align="right"></td>
                         	</tr>
                         	<tr>
-                        		<td align="center"><img src="/i/corp/tcesclient_microsoft.gif" width="132" height="50" alt="Microsoft" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_paypal.gif" width="132" height="50" alt="PayPal" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_verizon.gif" width="132" height="50" alt="Verizon" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_apex.gif" width="132" height="50" alt="Appex" border="0"></td>
+                        		<td><img src="/i/corp/tcesclient_microsoft.gif" width="132" height="50" alt="Microsoft" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_paypal.gif" width="132" height="50" alt="PayPal" border="0" align="right"></td>
+                        		
+                        		<td><img src="/i/corp/tcesclient_verizon.gif" width="132" height="50" alt="Verizon" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_apex.gif" width="132" height="50" alt="Appex" border="0" align="centers"></td>
                         	</tr>
                         	<tr>
-                        		<td align="center"><img src="/i/corp/tcesclient_cryptic.gif" width="132" height="50" alt="Cryptic" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_doubleclick.gif" width="132" height="50" alt="DoubleClick" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_fbi.gif" width="132" height="50" alt="FBI" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_appian.gif" width="132" height="50" alt="Appian" border="0"></td>
+                        		<td><img src="/i/corp/tcesclient_cryptic.gif" width="132" height="50" alt="Cryptic" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_doubleclick.gif" width="132" height="50" alt="DoubleClick" border="0" align="center"></td>
+                        		<td><img src="/i/corp/tcesclient_fbi.gif" width="132" height="50" alt="FBI" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_appian.gif" width="132" height="50" alt="Appian" border="0" align="right"></td>
                         	</tr>
                         	<tr>
-                        		<td align="center"><img src="/i/corp/tcesclient_verisign.gif" width="132" height="50" alt="Verisign" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_nsa.gif" width="132" height="50" alt="NSA" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_goldengate.gif" width="132" height="50" alt="Golden Gate" border="0"></td>
-                        		<td align="center"><img src="/i/corp/tcesclient_jpmorgan.gif" width="132" height="50" alt="JP Morgan" border="0"></td>
+                        		<td><img src="/i/corp/tcesclient_verisign.gif" width="132" height="50" alt="Cryptic" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_nsa.gif" width="132" height="50" alt="DoubleClick" border="0" align="center"></td>
+                        		<td><img src="/i/corp/tcesclient_goldengate.gif" width="132" height="50" alt="FBI" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_jpmorgan.gif" width="132" height="50" alt="Appian" border="0" align="right"></td>
                         	</tr>
                         	<tr>
-                        		<td colspan="4" align="center"><img src="/i/corp/tcesclient_citigroup.gif" width="132" height="50" alt="Citigroup" border="0" align="center"></td>
+                        		<td><img src="/i/corp/tcesclient_citigroup.gif" width="132" height="50" alt="Cryptic" border="0" align="right"></td>
                         	</tr>
                         </table>
                         
