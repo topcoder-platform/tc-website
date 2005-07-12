@@ -20,11 +20,12 @@ public class ForumList extends ForumsProcessor {
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
-        
+       
+        Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
 		Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
         
 		getRequest().setAttribute("forums", itForums);
-        getRequest().setAttribute("forumFactory", forumFactory);
+        getRequest().setAttribute("categories", itCategories);
 		
 		setNextPage("/main.jsp");
 		setIsNextPageInContext(true);
