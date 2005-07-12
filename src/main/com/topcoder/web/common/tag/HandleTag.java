@@ -85,9 +85,7 @@ public class HandleTag extends TagSupport {
             }
 
             StringBuffer output = new StringBuffer();
-            output.append("<");
-
-            output.append("a href=\"");
+            output.append("<a href=\"");
             if (link.equals(""))
                 link = DEFAULT_LINK + coderId;
             output.append(link);
