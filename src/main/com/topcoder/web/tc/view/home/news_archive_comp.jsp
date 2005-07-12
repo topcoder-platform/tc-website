@@ -35,6 +35,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">07.12.05 3:50 PM - </td><td width="100%"><A href="http://software.topcoder.com/index.jsp">software.topcoder.com</A> will be down for maintenance on 7/18</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.27.05 5:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">New Sample Design Review Scorecard now available</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.23.05 11:20 AM - </td><td width="100%"><A href="/i/development/downloads/topcoder_global.build">Global NAnt properties file now available</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.17.05 11:55 AM - </td><td width="100%"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=14836181">oldbig scores a perfect 100 in a Component Development Contest</A></td></tr>

@@ -8,6 +8,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>07.12.05<br>3:50 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/index.jsp">software.topcoder.com</A> will be down for maintenance on 7/18</span><br><br>
+      We will be running some scheduled maintenance on the TCS site on Monday 7/18 at 8PM EDT.  The site should be down for no longer than an hour.  Sections of the Development site on <A href="/">www.topcoder.com</A> will be affected as well.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.11.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun chat session scheduled for SRM 251</A></span><br><br>
       Sun will be in the Arena Applet at 8:00 PM, just before the start of SRM 251 to discuss the Java(TM) Studio Creator.
@@ -225,18 +236,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=news&d2=pr_062005">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>06.20.05<br>11:10 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7222">Preferred SRM IDE survey</A></span><br><br>
-      Which of the following IDEs do you use during a TopCoder match?
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?&module=ViewSurvey&sid=7222">vote</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
 
