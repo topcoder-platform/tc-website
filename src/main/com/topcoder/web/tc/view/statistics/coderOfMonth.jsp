@@ -156,9 +156,7 @@
 <span class="bodyText">
 <span class="title">Coder of the Month</span>
 <br><br>
-TopCoder reserves the title of Coder of the Month for any competitor who has had an outstanding month.  Often times, this means that we choose the algorithm competitor with the highest average rating increase.
-<br><br>
-In addition, TopCoder might select a Coder of the Month based on exceptional performance in Component Competitions for a given period of time.  This could include a member who has earned a large amount of winnings or has had an impressive winning streak.
+TopCoder reserves the title of Coder of the Month for any competitor who has had an outstanding month. Some months, this means that we choose the algorithm competitor with an exceptionally high rating increase for the month.  Other times TopCoder may select a Coder of the Month based on exceptional performance in Component Competitions for a given period of time. Perhaps even a member who has earned a large amount of winnings or has had an impressive winning streak.
 </span>
 
 </div>
