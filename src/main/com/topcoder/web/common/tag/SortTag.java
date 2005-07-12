@@ -39,7 +39,10 @@ public class SortTag extends TagSupport {
         String currCol = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String currDir = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         SortInfo defaults = (SortInfo) pageContext.getRequest().getAttribute(SortInfo.REQUEST_KEY);
-        String sortDir = defaults.getDefault(column);
+        String sortDir = null;
+        if (defaults!=null) {
+            sortDir = defaults.getDefault(column);
+        }
         if (sortDir == null) sortDir = "asc";
 
         int finalColumn = column;
