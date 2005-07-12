@@ -76,7 +76,7 @@
 
                         <p><span class="bodySubtitle">Client list</span><br></p>
                         
-                        <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                        <table width="100%" border="1" cellpadding="5" cellspacing="0">
                         	<tr>
                         		<td><img src="/i/corp/tcesclient_yahoo.gif" width="132" height="50" alt="Yahoo!" border="0" align="right"></td>
                         		<td><img src="/i/corp/tcesclient_nvidia.gif" width="132" height="50" alt="NVIDIA" border="0" align="right"></td>
