@@ -22,10 +22,9 @@ public class ForumList extends ForumsProcessor {
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
         
 		Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
-        Iterator itSponsorForums = forumFactory.getForumCategory(6).getForums(resultFilter);
-
+        
 		getRequest().setAttribute("forums", itForums);
-        getRequest().setAttribute("sponsorForums", itSponsorForums);
+        getRequest().setAttribute("forumFactory", forumFactory);
 		
 		setNextPage("/main.jsp");
 		setIsNextPageInContext(true);

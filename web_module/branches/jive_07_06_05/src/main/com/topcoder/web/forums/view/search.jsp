@@ -144,7 +144,7 @@ function noenter(e)
 	for (int i=0; i<resultSizes.length; i++) {
 		if ((query != null && paginator.getPageable().getResultFilter().getNumResults() == resultSizes[i]) || 
             (query == null && (authToken.isAnonymous() || user.getProperty("jiveSearchRange") == null) && resultSizes[i] == ForumConstants.DEFAULT_SEARCH_RANGE) ||
-            (query == null && user != null && resultSizes[i] == Integer.parseInt(user.getProperty("jiveSearchRange")))) { %>
+            (query == null && user != null && user.getProperty("jiveSearchRange") != null && resultSizes[i] == Integer.parseInt(user.getProperty("jiveSearchRange")))) { %>
 			<option value="<%=resultSizes[i]%>" selected><%=resultSizes[i]%></option>
 	<%	} else { %>
 			<option value="<%=resultSizes[i]%>"><%=resultSizes[i]%></option>

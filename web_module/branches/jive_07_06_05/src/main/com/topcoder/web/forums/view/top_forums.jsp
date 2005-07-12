@@ -29,7 +29,7 @@
 <% if ( !authToken.isAnonymous() ) { %>
             <strong>Hello, </strong>
             
-            <tc-webtag:handle darkBG="false" coderId="<%=user.getID()%>"/>
+            <tc-webtag:handle darkBG="true" coderId="<%=user.getID()%>"/>
             &#160;&#160;|&#160;&#160;<a href="/tc?module=Logout" class=loginLinks>Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>
