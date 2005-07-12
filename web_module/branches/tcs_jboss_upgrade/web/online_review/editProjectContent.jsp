@@ -9,7 +9,7 @@
 function editTimeline()
 {
 	document.projectForm.action='<html:rewrite page="/editTimeline.do?action=load" />';
-	document.projectForm.submit.click();
+	document.projectForm.submit();
 }
 
 </script>
