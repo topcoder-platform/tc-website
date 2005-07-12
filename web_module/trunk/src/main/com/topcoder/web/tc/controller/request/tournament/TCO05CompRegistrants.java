@@ -16,6 +16,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.SortInfo;
 
 import java.util.Map;
 
@@ -40,6 +41,13 @@ public class TCO05CompRegistrants extends Base {
             if (!(sortCol.equals("") || sortDir.equals(""))) {
                 rsc.sortByColumn(Integer.parseInt(sortCol), sortDir.equals("asc"));
             }
+
+            SortInfo s = new SortInfo();
+            s.addDefault(rsc.getColumnIndex("handle_lower"), "asc");
+            s.addDefault(rsc.getColumnIndex("design_rating"), "desc");
+            s.addDefault(rsc.getColumnIndex("dev_rating"), "desc");
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
 
             getRequest().setAttribute("list", rsc);
 
