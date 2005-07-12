@@ -1,6 +1,7 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map"%>
+                 java.util.Map,
+                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -28,7 +29,7 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class=bodySpacer>
-            
+
 <span class="bigTitle">Algorithm Competition Registrants</span>
 <br><br>
 <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="300">
@@ -36,8 +37,8 @@
       <td class="advTitle" colspan="2" width="100%">Registrants</td>
    </tr>
     <tr class="advHeader">
-       <td align="left" width="50%">Handle</td>
-       <td align="right" width="50%">Rating</td>
+       <td align="left" width="50%"><a href="/tc?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a></td>
+       <td align="right" width="50%"><a href="/tc?<tc-webtag:sort column="3" includeParams="true"/>">Rating</a></td>
     </tr>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
@@ -50,20 +51,20 @@
 </table>
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />
