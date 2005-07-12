@@ -169,11 +169,11 @@
         <%  } %>
    </b></td></tr>
 <% } else { %>
-    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://172.16.20.41:8080/jive4/images/rss-24x16.gif"/></a></td>
+    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
 <% } %>
 </table>
 <% if (paginator.getNumPages() > 1) { %>
-    <br/><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" align="right" src="http://172.16.20.41:8080/jive4/images/rss-24x16.gif"/></a>
+    <br/><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" align="right" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a>
 <% } %>
         <p><br/></p>
         </td>

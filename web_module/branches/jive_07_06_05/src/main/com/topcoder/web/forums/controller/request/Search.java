@@ -89,7 +89,7 @@ public class Search extends ForumsProcessor {
                 startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
             }
             
-            if (queryTerms.length() <= 0) {
+            if (queryTerms.length() <= 0 && userHandle.equals("")) {
                 addError(ForumConstants.SEARCH_QUERY, ForumConstants.ERR_NO_SEARCH_TERMS);
             }
             if (!userHandle.equals("")) {
