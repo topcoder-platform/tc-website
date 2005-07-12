@@ -18,11 +18,13 @@ public class HandleTag extends TagSupport {
     private boolean algorithm = false;
     private boolean design = false;
     private boolean development = false;
+    private boolean component = false;
 
     public final static String DEFAULT_LINK = "http://" + ApplicationServer.SERVER_NAME + "/tc?module=MemberProfile&cr=";
     public final static String ALGORITHM = "algorithm";
     public final static String DESIGN = "design";
     public final static String DEVELOPMENT = "development";
+    public final static String COMPONENT = "component";
 
     private static final String[] lightStyles =
             {"coderTextOrange", "coderTextWhite", "coderTextGray",
@@ -61,6 +63,7 @@ public class HandleTag extends TagSupport {
         if (s.toLowerCase().trim().equals(ALGORITHM)) algorithm = true;
         if (s.toLowerCase().trim().equals(DESIGN)) design = true;
         if (s.toLowerCase().trim().equals(DEVELOPMENT)) development = true;
+        if (s.toLowerCase().trim().equals(COMPONENT)) component = true;
     }
 
     public int doStartTag() throws JspException {
@@ -95,16 +98,20 @@ public class HandleTag extends TagSupport {
                 output.append(cssclass);
             } else {
                 int rating = 0;
-                if (algorithm)
+                if (algorithm) {
                     rating = rsc.getIntItem(0, "algorithm_rating");
-                else if (design)
+                } else if (design) {
                     rating = rsc.getIntItem(0, "design_rating");
-                else if (development)
+                } else if (development) {
                     rating = rsc.getIntItem(0, "development_rating");
-                else
+                } else if (component) {
+                    rating = max(rsc.getIntItem(0, "design_rating"),
+                            rsc.getIntItem(0, "development_rating"));
+                } else {
                     rating = max(rsc.getIntItem(0, "algorithm_rating"),
                             rsc.getIntItem(0, "design_rating"),
                             rsc.getIntItem(0, "development_rating"));
+                }
                 output.append(getRatingCSS(rating));
             }
 
