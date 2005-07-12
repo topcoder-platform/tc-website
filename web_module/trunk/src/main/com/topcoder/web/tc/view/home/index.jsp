@@ -153,7 +153,7 @@
             <b>7/23</b> - SRM 253 - 12 PM<br><br>
             <b>7/26</b> - SRM 254 - 7 AM<br><br>
             <b>7/27</b> - TCO05 CDDC Week4 Deadline - 9AM<br><br>
-            <b>7/28</b> - SRM 255 - 9 PM<br>
+            <b>7/28</b> - SRM 255 - 9 PM - NSA<br>
             </td>
          </tr>
          <tr>
