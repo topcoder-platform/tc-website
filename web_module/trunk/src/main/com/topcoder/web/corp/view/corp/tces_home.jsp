@@ -104,7 +104,7 @@
                         		<td><img src="/i/corp/tcesclient_jpmorgan.gif" width="132" height="50" alt="Appian" border="0" align="right"></td>
                         	</tr>
                         	<tr>
-                        		<td colspan="4"><img src="/i/corp/tcesclient_citigroup.gif" width="132" height="50" alt="Cryptic" border="0" align="center"></td>
+                        		<td colspan="4" align="center"><img src="/i/corp/tcesclient_citigroup.gif" width="132" height="50" alt="Cryptic" border="0" align="center"></td>
                         	</tr>
                         </table>
                         
