@@ -37,8 +37,8 @@
       <td class="advTitle" colspan="2" width="100%">Registrants</td>
    </tr>
     <tr class="advHeader">
-       <td align="left" width="50%"><a href="/tc?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a></td>
-       <td align="right" width="50%"><a href="/tc?<tc-webtag:sort column="3" includeParams="true"/>">Rating</a></td>
+       <td align="left" width="50%"><a href="/tc?<tc-webtag:sort column="2"/>">Handle</a></td>
+       <td align="right" width="50%"><a href="/tc?<tc-webtag:sort column="3"/>">Rating</a></td>
     </tr>
 <%boolean even = false;%>
 <rsc:iterator list='<%=rsc%>' id="resultRow">
