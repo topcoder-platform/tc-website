@@ -38,7 +38,7 @@ public class TCO05CompRegistrants extends Base {
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
             if (!(sortCol.equals("") || sortDir.equals(""))) {
-                rsc.sortByColumn(sortCol, sortDir.equals("asc"));
+                rsc.sortByColumn(Integer.parseInt(sortCol), sortDir.equals("asc"));
             }
 
             getRequest().setAttribute("list", rsc);
