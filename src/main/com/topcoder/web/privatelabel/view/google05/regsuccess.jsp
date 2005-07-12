@@ -8,19 +8,6 @@
 </head>
 <body>
 
-<SCRIPT type="text/javascript">
-function submitEnter(e) {
-    var keycode;
-    if (window.event) keycode = window.event.keyCode;
-    else if (e) keycode = e.which;
-    else return true;
-    if (keycode == 13) {
-     document.frmLogin.submit();
-     return false;
-    } else return true;
-  }
-</SCRIPT>
-
 <table border=0 width=100% cellpadding=0 cellspacing=0>
    <tr>
       <td width="49%">&#160;</td>
@@ -66,10 +53,6 @@ function submitEnter(e) {
       </td>
       <td valign="top" width="100%">
 
-<b>If you converted your TopCoder / Code Jam 2003 or 2004 account:</b><br>
-Your account is active.<br><br>
-
-<b>For new accounts:</b><br>
 In order to be eligible to compete in the Google Code Jam 2005,
 you must activate your account by following the directions sent to the email
 address provided during registration. You <u>will not</u> be able to compete if you
