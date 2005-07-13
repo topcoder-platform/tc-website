@@ -97,7 +97,7 @@
 		<%  int[] messageCounts = { 10, 15, 25, 50 };
 			int messageRange = ForumConstants.DEFAULT_MESSAGE_RANGE;
             try {
-                Integer.parseInt(user.getProperty("jiveMessageRange"));
+                messageRange = Integer.parseInt(user.getProperty("jiveMessageRange"));
             } catch (Exception ignored) {}
 			for (int i=0; i<messageCounts.length; i++) {
 				if (messageCounts[i] == messageRange) { %>
