@@ -9,9 +9,18 @@ import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 
-import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.security.TCSubject;
 import com.topcoder.web.tc.controller.request.authentication.Login;
 
@@ -29,12 +38,12 @@ import com.jivesoftware.forum.ForumFactory;
 
 /**
  * @author mtong
- * 
+ *
  * Provides session and authentication information to the forum's processors.
  */
 public class ForumsServlet extends BaseServlet {
 	private final static Logger log = Logger.getLogger(ForumsServlet.class);
-    
+
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
         return true;
     }
@@ -48,10 +57,10 @@ public class ForumsServlet extends BaseServlet {
 
 		try {
 			TCSubject user = null;
-            
+
 		    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
 		    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-            
+
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
 		    AuthToken authToken = AuthFactory.getAnonymousAuthToken();
@@ -66,19 +75,19 @@ public class ForumsServlet extends BaseServlet {
                 }
             }*/
 	    	user = getUser(authToken.getUserID());
-            
+
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
 		    tcRequest.setAttribute(SESSION_INFO_KEY, info);
 		    //todo perhaps this should be configurable...so implementing classes
 		    //todo don't have to do it if they don't want to
 		    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-            
+
             com.jivesoftware.base.User forumUser = null;
             ForumFactory forumFactory = ForumFactory.getInstance(authToken);
             if (!authToken.isAnonymous()) {
                 forumUser = forumFactory.getUserManager().getUser(authToken.getUserID());
             }
-            
+
 		    StringBuffer loginfo = new StringBuffer(100);
 		    loginfo.append("[**** ");
             loginfo.append((forumUser == null) ? "anonymous" : forumUser.getUsername());
@@ -101,7 +110,7 @@ public class ForumsServlet extends BaseServlet {
 		                cmd = DEFAULT_PROCESSOR;
 		            if (!isLegalCommand(cmd))
 		                throw new NavigationException();
-                    
+
                     String processorName = PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
 
 		            log.debug("creating request processor for " + processorName);
@@ -150,20 +159,20 @@ public class ForumsServlet extends BaseServlet {
 		    out.flush();
 		}
 	}
-    
+
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
         /* forward to the login page, with a message and a way back */
         StringBuffer nextPage = new StringBuffer(LOGIN_SERVLET).append("?module=Login");
-        
+
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(info.getRequestString());
         nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
         fetchRegularPage(request, response, nextPage.toString(), false);
-                
+
         //request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
         //        "and password.");
         //log.debug("going to " + info.getRequestString() + " on success login");
         //request.setAttribute(NEXT_PAGE_KEY, info.getRequestString());
-           
+
         //request.setAttribute(MODULE, LOGIN_PROCESSOR);
         //fetchRegularPage(request, response, "/login.jsp", true);
         //fetchRegularPage(request, response, LOGIN_SERVLET == null ? info.getServletPath() : LOGIN_SERVLET, true);
@@ -171,7 +180,7 @@ public class ForumsServlet extends BaseServlet {
 
     protected RequestProcessor callProcess(String processorName, HttpServletRequest httpRequest,
             HttpServletResponse httpResponse, TCRequest request, TCResponse response,
-            WebAuthentication authentication, AuthToken authToken, com.jivesoftware.base.User user, 
+            WebAuthentication authentication, AuthToken authToken, com.jivesoftware.base.User user,
             ForumFactory factory) throws Exception {
 		ForumsProcessor rp = null;
 
