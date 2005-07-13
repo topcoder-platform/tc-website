@@ -8,6 +8,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.13.05<br>10:40 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm251_prob">SRM 251 - Problem Set & Analysis</A></span><br><br>
+      In division 1, <tc-webtag:handle coderId="8355516" context="algorithm"/> led the coding phase, followed by <tc-webtag:handle coderId="8357090" context="algorithm"/>, <tc-webtag:handle coderId="144400" context="algorithm"/> and <tc-webtag:handle coderId="9906197" context="algorithm"/>.  However, the challenge phase turned out to be important as <tc-webtag:handle coderId="144400" context="algorithm"/> gained 150 points, and took first place.</td>
+      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm25_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.13.05<br>9:10 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat">Sun chat session</A></span><br><br>
       Sun recently spoke to the members in the arena just prior to a SRM 251. See what they had to say about Java Studio Creator.
@@ -223,21 +238,6 @@
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
  
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>06.21.05<br>11:15 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=probabilities">Understanding Probabilities</A></span><br><br>
-       While it's easy to recognize a problem that deals with probability computations, the solution may not be obvious at all.</td>
-      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=probabilities">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
 
 </table>
 <br><br>
