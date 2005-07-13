@@ -229,9 +229,7 @@ public final class TaskDevelopment {
                 xsldocURLString = XSL_DIR + command + ".xsl";
 
 
-            }
-            /********************** tcs_send *******************/
-            else if (command.equals("tcs_send")) {
+            } else if (command.equals("tcs_send")) {
                 /********** SHOULD BE A FUNCTION ****************/
                 Request dataRequest = null;
                 ResultSetContainer rsc = null;
@@ -544,7 +542,7 @@ public final class TaskDevelopment {
                 } else {
                     requiresLogin = true;
                 }
-            } else if (command.length() > 0 && !request.getParameter("t").equals("app")) {
+            } else if (command.length() > 0) {
                 devTag.addTag(Base.getOpenProjects().getTag("projects", "project"));
                 xsldocURLString = XSL_DIR + command + ".xsl";
             } else {
