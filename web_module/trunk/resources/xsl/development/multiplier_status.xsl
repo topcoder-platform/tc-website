@@ -92,6 +92,9 @@
                         <tr>
                             <td class="projectCells" align="center">
                             <xsl:choose>
+                                <xsl:when test="./is_jsf = 'JSF'">
+                                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun"><img src="/i/development/smSC.gif" border="0" alt=""/></a>
+                                </xsl:when>
                                 <xsl:when test="./root_category_id = 5801776">
                                    <img src="/i/development/smJava.gif"/>
                                 </xsl:when>
@@ -175,6 +178,9 @@
                         <tr>
                             <td class="projectCells" align="center">
                             <xsl:choose>
+                                <xsl:when test="./is_jsf = 'JSF'">
+                                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=sun"><img src="/i/development/smSC.gif" border="0" alt=""/></a>
+                                </xsl:when>
                                 <xsl:when test="./root_category_id = 5801776">
                                    <img src="/i/development/smJava.gif"/>
                                 </xsl:when>
