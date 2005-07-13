@@ -19,7 +19,7 @@ public class ComponentScores {
     private String componentName;
 
     /// the submissions for this component
-    //private SubmissionScores[] submissions;
+    private SubmissionScores[] submissions;
 
 
 
@@ -32,10 +32,14 @@ public class ComponentScores {
 
         testCasesURL = new String[3];
         testCasesURL [0]="url0";
-        testCasesURL [1]="url0";
-        testCasesURL [2]="url0";
+        testCasesURL [1]="url1";
+        testCasesURL [2]="url2";
 
         componentName = "test component";
+        submissions = new SubmissionScores[2];
+        submissions[0]= new SubmissionScores();
+        submissions[1]= new SubmissionScores();
+
     }
 
     public int getType() {
@@ -55,4 +59,7 @@ public class ComponentScores {
     }
 
 
+    public SubmissionScores[] getSubmissions() {
+        return submissions;
+    }
 }
