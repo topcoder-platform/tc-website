@@ -8,6 +8,7 @@ import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.apps.review.document.ComponentScores;
+import com.topcoder.apps.review.document.SubmissionScores;
 import com.topcoder.util.log.Level;
 import org.apache.struts.action.*;
 
@@ -54,7 +55,16 @@ public final class ComponentScoresAction extends BaseAction {
         HttpSession session = request.getSession();
 
 
-        request.setAttribute("componentScores", new ComponentScores());
+        request.setAttribute("componentScores", new ComponentScores(((Integer) session.getAttribute("type")).intValue(),
+                                                                    ((Integer) session.getAttribute("pid")).intValue(),
+                                                                    "Job Scheduler",
+                                                                    new int[] {10022398, 11781622,  10650643 },
+                                                                    new String[] { "slion", "tuenm","quickx0161" },
+                                                                    new String [] { "a","b","c" },
+                                                                    new SubmissionScores[]  { new SubmissionScores(), new SubmissionScores(),new SubmissionScores() }
+                                                                    ));
+
+
 
         return mapping.findForward(Constants.SUCCESS_KEY);
 
