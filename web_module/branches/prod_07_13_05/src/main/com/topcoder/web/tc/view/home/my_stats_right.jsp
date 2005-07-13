@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.model.CoderSessionInfo,
+                 com.topcoder.web.common.model.CoderSessionInfo,
                  com.topcoder.web.common.BaseServlet"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -65,9 +65,9 @@
     <tr>
         <td class="statText">
             <p>You are not rated for any TopCoder Competition.</p>
-            
+
             <p>To learn more about Algorithm Competitions, go to the <a href="/tc?module=Static&d1=help&d2=index" class="statText">Competition Guide.</a></p>
-            
+
             <p>To learn more about Design and Development Competitions, go to <a href="/?t=development&c=comp_meth" class="statText">Component Methodology.</a></p>
         </td>
     </tr>

@@ -123,14 +123,14 @@ public class BasicAuthentication implements WebAuthentication {
         /*
          * check if they're logged in.  accessing the current persistor implementation
          * is quicker than accessing the cookie because of the hash.  if they are
-         * not logged in, hope is not lost, we may have cached them in the persitor
+         * not logged in, hope is not lost, we may have cached them in the persistor
          * before as being "identified", in this case, use that.  if that too is not
          * there, we're forced to go to the cookie, but cache that for subsequence
-         * requests in the persitor.  if they're not in the cookie either, then
+         * requests in the persistor.  if they're not in the cookie either, then
          * they're anonymous
          */
         User u = getUserFromPersistor();
-
+        
         if (u == null) {
             u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
             if (u == null) {
@@ -207,6 +207,17 @@ public class BasicAuthentication implements WebAuthentication {
 
         MessageDigest md = MessageDigest.getInstance("MD5");
         byte[] plain = (Constants.hash_secret + uid + password).getBytes();
+        byte[] raw = md.digest(plain);
+        StringBuffer hex = new StringBuffer();
+        for (int i = 0; i < raw.length; i++)
+            hex.append(Integer.toHexString(raw[i] & 0xff));
+        return hex.toString();
+    }
+    
+    /** Compute a one-way hash of a password, similar to how a userid/password combination is hashed. */
+    public String hashPassword(String password) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] plain = (Constants.hash_secret + password).getBytes();
         byte[] raw = md.digest(plain);
         StringBuffer hex = new StringBuffer();
         for (int i = 0; i < raw.length; i++)
