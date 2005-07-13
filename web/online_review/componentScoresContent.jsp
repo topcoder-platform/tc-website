@@ -11,7 +11,7 @@
 
 
 <logic:equal name="compScores" property='type' value="1">
-Design | <html:link href="/ComponentScores.do?type=2">Development</html_link>
+Design | <html:link href="/ComponentScores.do?type=2">Development</html:link>
 </logic:equal>
 <logic:equal name="compScores" property='type' value="2">
 <a href="/ComponentScores.do?type=1">Design </a> | Development
