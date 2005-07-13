@@ -53,7 +53,7 @@
    </tr>
    <% boolean even = false; %>
    <rsc:iterator list="<%=results%>" id="resultRow">
-       <tr class="<%=even?"light":"dark"%>">
+       <tr class="<%=even?"dark":"light"%>">
           <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/></td>
           <td class="valueR"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM/yyyy"/></td>
        </tr>
