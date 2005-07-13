@@ -55,7 +55,7 @@
    <rsc:iterator list="<%=results%>" id="resultRow">
        <tr class="<%=even?"light":"dark"%>">
           <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/></td>
-          <td class="valueR"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM/yyyy"/>/td>
+          <td class="valueR"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM/yyyy"/></td>
        </tr>
    </rsc:iterator>
 </table>
