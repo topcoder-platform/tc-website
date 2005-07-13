@@ -15,6 +15,7 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.shared.util.ApplicationServer;
 
 import java.util.Arrays;
 
@@ -67,7 +68,8 @@ public class Login extends Base {
                                 log.debug("user active");           
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)); 
                                 //StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Login");
-                                StringBuffer nextPage = new StringBuffer("http://forums.topcoder.com/?module=Login");
+                                //StringBuffer nextPage = new StringBuffer("http://forums.topcoder.com/?module=Login");
+                                StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/forums?module=Login");
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
                                 nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
                                 if (!rememberUser.equals("")) {

@@ -10,6 +10,7 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.shared.util.ApplicationServer;
 
 public class Logout extends Base {
 
@@ -30,7 +31,8 @@ public class Logout extends Base {
             dest = "http://" + info.getServerName() + "/tc";
         }
         //StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Logout");
-        StringBuffer nextPage = new StringBuffer("http://forums.topcoder.com/?module=Logout");
+        //StringBuffer nextPage = new StringBuffer("http://forums.topcoder.com/?module=Logout");
+        StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/forums?module=Logout");
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
         setNextPage(nextPage.toString());
         setIsNextPageInContext(false);
