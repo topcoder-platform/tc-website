@@ -3,7 +3,8 @@
   import="java.text.DecimalFormat,
           java.util.HashMap,
           com.topcoder.web.common.model.CoderSessionInfo,
-          com.topcoder.web.common.BaseServlet" %>
+          com.topcoder.web.common.BaseServlet,
+          com.topcoder.shared.util.ApplicationServer" %>
 <%
    CoderSessionInfo sessionInfo = (CoderSessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
    String styleClass = "coderTextWhite";
@@ -45,7 +46,7 @@
             &#160;&#160;|&#160;&#160;<a href="/tc?&amp;module=Logout" class=loginLinks>Logout</a>
             &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>
-            <a href="/tc?&module=Login" class=loginLinks>Login</a>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login" class=loginLinks>Login</a>
             &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Register</a>
 <%}%>
             &#160;&#160;|&#160;&#160;<a href="/" class=loginLinks>Home</a>
