@@ -70,9 +70,9 @@ public class TCO05ContestDetails extends StatBase {
 
             ResultSetContainer rscDetails = (ResultSetContainer) result.get("tco05_project_results_all");
             ResultSetContainer rscComplete = (ResultSetContainer) result.get("project_details");
-            boolean bComplete = false;
+            boolean isComplete = false;
             if (rscComplete.getIntItem(0, "complete_status") == 1) {
-                bComplete = true;
+                isComplete = true;
             }
 
             for (int j = 0; j < rscDetails.size(); j++) {
@@ -86,7 +86,8 @@ public class TCO05ContestDetails extends StatBase {
                     }
                 }
 
-                addPoints(rscDetails.getStringItem(j, "handle"), rscDetails.getIntItem(j, "user_id"), pts, bComplete);
+                addPoints(rscDetails.getStringItem(j, "handle"), rscDetails.getIntItem(j, "user_id"), pts,
+                        isComplete, rscDetails.getIntItem(j, "submit_ind")==1);
             }
         }
 
@@ -129,7 +130,7 @@ public class TCO05ContestDetails extends StatBase {
         user.setPayment(prz);
     }
 
-    public void addPoints(String handle, int userId, int pts, boolean completed) {
+    public void addPoints(String handle, int userId, int pts, boolean completed, boolean isSubmitted) {
         TCCC05ContestDetail user = null;
         for (int i = 0; i < arr.size(); i++) {
             TCCC05ContestDetail item = (TCCC05ContestDetail) arr.get(i);
@@ -149,6 +150,10 @@ public class TCO05ContestDetails extends StatBase {
         } else {
             user.setIncomplete(user.getIncomplete() + 1);
         }
+        if (isSubmitted) {
+            user.setSubmissionCount(user.getSubmissionCount()+1);
+        }
+
     }
 
     public class myComparator implements Comparator {

@@ -20,6 +20,7 @@ public class TCCC05ContestDetail implements Serializable {
     private ArrayList points;
     private int complete;
     private int incomplete;
+    private int submissionCount;
     private int userID;
     private String payment;
 
@@ -29,6 +30,7 @@ public class TCCC05ContestDetail implements Serializable {
         points = new ArrayList();
         complete = 0;
         incomplete = 0;
+        submissionCount = 0;
         userID = 0;
         payment = "";
     }
@@ -39,6 +41,7 @@ public class TCCC05ContestDetail implements Serializable {
         points = new ArrayList();
         complete = 0;
         incomplete = 0;
+        submissionCount = 0;
         payment = "";
     }
 
@@ -108,6 +111,14 @@ public class TCCC05ContestDetail implements Serializable {
 
     public void setIncomplete(int i) {
         incomplete = i;
+    }
+
+    public int getSubmissionCount() {
+        return submissionCount;
+    }
+
+    public void setSubmissionCount(int submissionCount) {
+        this.submissionCount = submissionCount;
     }
 
 }
