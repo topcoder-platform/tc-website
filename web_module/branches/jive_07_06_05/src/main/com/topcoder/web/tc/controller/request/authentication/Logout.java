@@ -30,6 +30,7 @@ public class Logout extends Base {
             dest = "http://" + info.getServerName() + "/tc";
         }
         StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Logout");
+//      StringBuffer nextPage = new StringBuffer("http://forums.topcoder.com/?module=Logout");
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
         setNextPage(nextPage.toString());
         setIsNextPageInContext(false);
