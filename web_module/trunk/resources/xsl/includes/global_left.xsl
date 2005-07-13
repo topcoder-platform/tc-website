@@ -113,6 +113,19 @@
                     </td>
                 </tr>
 
+<!-- Coder of the Month -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                            <xsl:when test="/TC/Command='coder_of_month'">leftSubnavOn</xsl:when>
+                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=SimpleStats&amp;trans=true&amp;c=com_history&amp;d1=statistics&amp;d2=coderOfMonth</xsl:attribute>Coder of the Month</A>
+                    </td>
+                </tr>
+
 <!-- Advanced Member Search -->
                 <tr>
                     <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewAdvanced</xsl:attribute>Advanced Member Search</A></td>
