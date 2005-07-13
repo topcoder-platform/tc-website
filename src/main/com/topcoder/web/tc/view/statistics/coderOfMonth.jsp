@@ -57,6 +57,7 @@
           <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/></td>
           <td class="valueR"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM/yyyy"/></td>
        </tr>
+       <% even = !even;%>
    </rsc:iterator>
 </table>
 
