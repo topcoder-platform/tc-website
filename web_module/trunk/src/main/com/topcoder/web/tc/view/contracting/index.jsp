@@ -60,12 +60,6 @@ return false;
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=citigroup"><img src="/i/contracting/citigroup_logo.gif" alt="Citigroup" border=0/></A>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=contracting&d2=gentiva"><img src="/i/contracting/gentiva_logo.gif" alt="Gentiva" border=0/></A>
-               <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=contracting&d2=goldengate"><img src="/i/contracting/goldengate_logo.gif" alt="Golden Gate" border=0/></A>
-               <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=contracting&d2=jpmorgan"><img src="/i/contracting/jpmorgan_logo.gif" alt="JP Morgan" border=0/></A>
-               <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa"><img src="/i/contracting/nsa_logo.gif" alt="NSA" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=contracting&d2=smsac"><img src="/i/contracting/smsac_logo.gif" alt="SMS.AC" border=0/></A>
