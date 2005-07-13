@@ -11,12 +11,12 @@
   <xsl:template name="Top">
   <xsl:param name="sectionName"></xsl:param>
   <xsl:param name="level1"></xsl:param>
-
+  <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td class="homeTopBar">
 			<span class="time">Current Member Count</span>
-			&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> - 
+			&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> -
 			<span class="time"><xsl:call-template name="DateTime"/></span>&#160;
 			<a href="Javascript:tcTime()" class="statText"><strong>[Get Time]</strong></a>
 		</td>
