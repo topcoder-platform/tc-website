@@ -1,7 +1,7 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants, 
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.tc.model.TCCC05ContestDetail,
                  java.util.List"%>
@@ -66,6 +66,7 @@ else
                                 <td class="sidebarTitle" align=center>Position Points</td>
                                 <td class="sidebarTitle" align=center>Complete Projects</td>
                                 <td class="sidebarTitle" align=center>Projects In Progess</td>
+                                <td class="sidebarTitle" align=center>Projects Submitted</td>
                                 <td class="sidebarTitle" align=right>Contest Prize</td>
                                 <td class="sidebarTitle" align=center>Results</td>
                             </tr>
@@ -73,7 +74,7 @@ else
                             <tr>
                                 <% TCCC05ContestDetail result = (TCCC05ContestDetail)lst.get(i); %>
                                 <td class="sidebarText" ><tc-webtag:handle context='<%=tab%>' coderId='<%=result.getUserID()%>' />
-                                <% if(result.getIncomplete() > 0)  { 
+                                <% if(result.getIncomplete() > 0)  {
                                     isComplete = false;%>
                                     *
                                 <% } %>
@@ -81,6 +82,7 @@ else
                                 <td class="sidebarText" align=center ><%=result.getPoints()%></td>
                                 <td class="sidebarText" align=center ><%=result.getComplete()%></td>
                                 <td class="sidebarText" align=center ><%=result.getIncomplete()%></td>
+                                <td class="sidebarText" align=center ><%=result.getSubmissionCount()%></td>
                                 <td class="sidebarText" align=right><%=result.getPayment()%></td>
                                 <td class="sidebarText" align=center><a href="/tc?module=TCO05MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a></td>
                             </tr>
@@ -97,20 +99,20 @@ else
 
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />
