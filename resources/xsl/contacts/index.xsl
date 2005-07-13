@@ -119,8 +119,8 @@
                                 </td>
                                     
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:mluce@topcoder.com" class="bodyText">Membership / College Relations</a><br />
-                                    MaryBeth Luce<br />
+                                    <p><a href="mailto:jdamato@topcoder.com" class="bodyText">Membership / College Relations</a><br />
+                                    Jessie D'Amato<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
                                     &#160;</p>
