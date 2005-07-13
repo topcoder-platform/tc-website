@@ -55,8 +55,8 @@ public final class ComponentScoresAction extends BaseAction {
         HttpSession session = request.getSession();
 
 
-        request.setAttribute("componentScores", new ComponentScores(((Integer) session.getAttribute("type")).intValue(),
-                                                                    ((Integer) session.getAttribute("pid")).intValue(),
+        request.setAttribute("componentScores", new ComponentScores(((Integer) request.getAttribute("type")).intValue(),
+                                                                    ((Integer) request.getAttribute("pid")).intValue(),
                                                                     "Job Scheduler",
                                                                     new int[] {10022398, 11781622,  10650643 },
                                                                     new String[] { "slion", "tuenm","quickx0161" },
