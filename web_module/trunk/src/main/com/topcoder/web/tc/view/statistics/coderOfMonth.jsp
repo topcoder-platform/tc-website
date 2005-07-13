@@ -39,7 +39,7 @@
 <jsp:param name="title" value="Coder of the Month Archive"/>
 </jsp:include>
 
-<table class="stat" cellpadding="0" cellspacing="0" width="200" style="float: left; margin-right: 15px; margin-bottom: 15px;">
+<table class="stat" cellpadding="0" cellspacing="0" width="250" style="float: left; margin-right: 15px; margin-bottom: 15px;">
    <tr>
       <td class="title" colspan="2">Coder of the Month Archive</td>
    </tr>
@@ -51,7 +51,7 @@
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
@@ -59,11 +59,15 @@
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
    <tr class="light">
+      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
+      <td class="valueR">06/2005</td>
+   </tr>
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -71,7 +75,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -79,7 +83,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -87,7 +91,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -95,7 +99,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -103,7 +107,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -111,7 +115,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -119,7 +123,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -127,7 +131,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
@@ -135,15 +139,7 @@
       <td class="value"><tc-webtag:handle coderId="10574855"/></td>
       <td class="valueR">06/2005</td>
    </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="light">
+   <tr class="dark">
       <td class="value"><tc-webtag:handle coderId="10254716"/></td>
       <td class="valueR">07/2005</td>
    </tr>
