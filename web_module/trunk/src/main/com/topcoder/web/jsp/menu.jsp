@@ -5,11 +5,6 @@
           com.topcoder.shared.util.ApplicationServer"
 %>
 <%
-   Navigation nav = (Navigation) session.getAttribute ( "navigation" );
-   if ( nav == null ) nav = new Navigation();
-%>
-
-<%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
 %>
 
