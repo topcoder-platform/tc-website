@@ -29,15 +29,15 @@ import com.topcoder.shared.util.logging.Logger;
  * @author rfairfax
  */
 public class WebScreeningBot {
-    
+
     public int COMPANY_ID = 1;
     public String HANDLE = "rfairfax@topcoder.com";
     public String PASSWORD = "EoB7_TCi";
-    
+
     private static Logger log = Logger.getLogger(WebScreeningBot.class);
-    
+
     private final int[] languages = new int[] {JavaLanguage.ID, CPPLanguage.ID, CSharpLanguage.ID};
-    
+
     private String getSubmissionText(int lang) {
         switch(lang) {
             case JavaLanguage.ID:
@@ -52,9 +52,9 @@ public class WebScreeningBot {
                 return "";
         }
     }
-    
+
     boolean errors = false;
-    
+
     public void printErrors() {
         if(errorText.equals("")) {
             errors = false;
@@ -99,41 +99,41 @@ public class WebScreeningBot {
                 e.printStackTrace();
             }
         }
-        
+
     }
-    
+
     String errorText = "";
     String shortError = "";
-    
+
     private void error(String shortText, String longText) {
         shortError += shortText + "\n";
         errorText += longText + "\n";
     }
-    
+
     public void runTests() {
         WebConversation wc = new WebConversation();
         //get the login page
-        WebRequest wr = new GetMethodWebRequest("http://www.topcoder.com/techassess/techassess?module=Login&cm=" + COMPANY_ID + "&sid=27464");
+        WebRequest wr = new GetMethodWebRequest("http://www.topcoder.com/techassess/techassess?module=Login&cm=" + COMPANY_ID + "&sid=27634");
         WebResponse resp = null;
         try {
             resp = wc.getResponse(wr);
             if(!validResponse(resp)) {
                 return;
             }
-            
-            //check to make sure we're on the right page.  
+
+            //check to make sure we're on the right page.
             //In this case, we can check if the login form exists
             if(resp.getFormWithName("loginForm") == null) {
                 error("No login form found", "No login form found");
                 return;
             }
-            
+
             //get the login form
             WebForm form = resp.getFormWithName("loginForm");
             form.setParameter("ha", HANDLE);
             form.setParameter("ps", PASSWORD);
             resp = form.submit();
-            
+
             if(!validResponse(resp)) {
                 return;
             }
@@ -143,13 +143,13 @@ public class WebScreeningBot {
                 error("No frames found", "No frames found");
                 return;
             }
-            
+
             //get mainFrame
             resp = wc.getFrameContents("mainFrame");
             if(!validResponse(resp)) {
                 return;
             }
-            
+
             //get the example link
             WebLink[] links = resp.getLinks();
             WebLink exampleLink = null;
@@ -159,18 +159,18 @@ public class WebScreeningBot {
                     break;
                 }
             }
-            
+
             if(exampleLink == null) {
                 error("No link found", "No link found");
                 return;
             }
-            
+
             exampleLink.click();
             resp = wc.getFrameContents("mainFrame");
             if(!validResponse(resp)) {
                 return;
             }
-            
+
             links = resp.getLinks();
             exampleLink = null;
             for(int i = 0; i < links.length; i++) {
@@ -179,23 +179,23 @@ public class WebScreeningBot {
                     break;
                 }
             }
-            
+
             if(exampleLink == null) {
                 error("No link found", "No link found");
                 return;
             }
-            
+
             exampleLink.click();
             resp = wc.getFrameContents("mainFrame");
             if(!validResponse(resp)) {
                 return;
             }
-            
+
             //loop over languages
             for(int l = 0; l < languages.length; l++) {
-                
+
                 log.info("TESTING " + languages[l]);
-            
+
                 if(resp.getFormWithName("problemForm") == null) {
                     error("No form found", "No form found");
                     return;
@@ -270,7 +270,7 @@ public class WebScreeningBot {
                 testRequest.setParameter("argDim1", "1");
 
                 WebResponse testResp = wc.getResponse(testRequest);
-                
+
                 if(!validResponse(testResp)) {
                     return;
                 }
@@ -280,7 +280,7 @@ public class WebScreeningBot {
                     return;
                 }
             }
-            
+
             //try a submit
             links = resp.getLinks();
             exampleLink = null;
@@ -295,13 +295,13 @@ public class WebScreeningBot {
                 error("No link found", "No link found");
                 return;
             }
-            
+
             exampleLink.click();
             resp = wc.getFrameContents("mainFrame");
             if(!validResponse(resp)) {
                 return;
             }
-            
+
             /*for(int i = 0; i < links.length; i++) {
                 if(links[i].getURLString().indexOf("Logout") != -1) {
                     exampleLink = links[i];
@@ -320,29 +320,29 @@ public class WebScreeningBot {
             error("Exception", e.getMessage());
         }
     }
-    
-    public static void main(String[] args) {       
+
+    public static void main(String[] args) {
         WebScreeningBot client = new WebScreeningBot();
-        
-        boolean b = true; 
+
+        boolean b = true;
         while(b) {
-            client.runTests();  
+            client.runTests();
             client.printErrors();
             try {
                 Thread.sleep(5 * 60 * 1000);
             } catch (Exception e) {
-                
+
             }
-        } 
+        }
     }
-    
+
     //verifies that the return code of the result page is correct
     private boolean validResponse(WebResponse resp) {
         if(resp.getResponseCode() != 200) {
             error("Bad Page Response", "Bad Response Code from " + resp.getURL().toString() + " (Resp: " + resp.getResponseCode() + ")");
             return false;
         }
-        
+
         log.info("Good Response from " + resp.getURL().toString());
         return true;
     }
