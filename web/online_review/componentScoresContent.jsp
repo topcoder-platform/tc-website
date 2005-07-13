@@ -26,17 +26,17 @@ Design | <html:link href="/ComponentScores.do?type=2">Development</html:link>
 		<td> 
 		
 		
-		<bean:write name="compScores" property="reviewerName[0]"/> <br>
+		<bean:write name="compScores" property="reviewerNames[0]"/> <br>
 			<logic:equal name="compScores" property='type' value="2">
 			   (<bean:write name="compScores" property="testCasesURL[0]"/> )
 			</logic:equal>
 		</td>
-		<td> <bean:write name="compScores" property="reviewerName[1]"/> <br>
+		<td> <bean:write name="compScores" property="reviewerNames[1]"/> <br>
 			<logic:equal name="compScores" property='type' value="2">
 			   (<bean:write name="compScores" property="testCasesURL[1]"/> )
 			</logic:equal>
 		</td>
-		<td> <bean:write name="compScores" property="reviewerName[2]"/> <br>
+		<td> <bean:write name="compScores" property="reviewerNames[2]"/> <br>
 			<logic:equal name="compScores" property='type' value="2">
 			   (<bean:write name="compScores" property="testCasesURL[2]"/> )
 			</logic:equal>
@@ -45,7 +45,7 @@ Design | <html:link href="/ComponentScores.do?type=2">Development</html:link>
 		<td>Appeals</td>
 		<td>Details</td>
 	</tr>
-<logic:iterate id="subm" name="compScores" property="submissions">
+<logic:iterate id="subm" name="compScores" property="submissions" type="com.topcoder.apps.review.document.SubmissionScores">
 	<tr>
 		<td>
 			<bean:write name="subm" property="handle"/>
@@ -58,13 +58,13 @@ Design | <html:link href="/ComponentScores.do?type=2">Development</html:link>
 			<bean:write name="subm" property="screeningScore"/>
 		</td>
 		
-<logic:iterate id="reviewerID" indexId="idx" name="compScores" property="reviewerID">
 		<td>	
-			<a href='<%= "review/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + reviewerID + " &sid=" + subm.getUserID()  %>' >
-				<bean:write name="subm" property='<%="reviewScore["+idx+"]"%>' />
+			<a href='<%= "review/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(0) + " &sid=" + subm.getUserID()  %>' >
+				<bean:write name="subm" property="reviewScore[0]" />
 			</a>
 		</td>
-</logic:iterate>		
+		<td></td>
+		<td></td>
 		<td>Final Score</td>
 		<td>Appeals</td>
 		<td>Details</td>
