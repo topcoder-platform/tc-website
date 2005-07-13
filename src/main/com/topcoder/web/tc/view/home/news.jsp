@@ -8,6 +8,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.13.05<br>9:10 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat">Sun chat session</A></span><br><br>
+      Sun recently spoke to the members in the arena just prior to a SRM 251. See what they had to say about Java Studio Creator.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>07.12.05<br>3:50 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/index.jsp">software.topcoder.com</A> will be down for maintenance on 7/18</span><br><br>
       We will be running some scheduled maintenance on the TCS site on Monday 7/18 at 8PM EDT.  The site should be down for no longer than an hour.  Sections of the Development site on <A href="/">www.topcoder.com</A> will be affected as well.
@@ -224,18 +236,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tutorials&d2=probabilities">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>06.20.05<br>3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to SRMs</A></span><br><br>
-      "$5,000 Purse at Stake During Select Matches as TopCoder Opens Sponsorship of Highly Popular Single Round Series"
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=news&d2=pr_062005">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 
