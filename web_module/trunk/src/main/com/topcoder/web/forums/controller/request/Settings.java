@@ -3,22 +3,21 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import java.text.ParseException;
-
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
-import com.jivesoftware.util.CronTimer;
 import com.jivesoftware.forum.action.UserSettingsAction;
-
-import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.PermissionException;
+import com.jivesoftware.util.CronTimer;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.forums.ForumConstants;
+
+import java.text.ParseException;
 
 /**
  * @author mtong
- * 
+ *
  * Manages and saves user settings. Some functionality is replicated from Jive's UserSettingsAction.
  */
 public class Settings extends ForumsProcessor {
@@ -28,13 +27,13 @@ public class Settings extends ForumsProcessor {
             JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.DEFAULT_MAX_MESSAGES_PER_PAGE);
     private int maxSearchResultsPerPage =
         JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.DEFAULT_MAX_SEARCH_RESULTS_PER_PAGE);
-    
+
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
         if (isGuest()) {
         	throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        
+
         int watchFrequency = -1;
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
         if (status.equals("save")) {
@@ -46,7 +45,7 @@ public class Settings extends ForumsProcessor {
             String autoWatchNewTopics = getRequest().getParameter("autoWatchNewTopics");
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
             watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
-            
+
             if (threadsPerPage <= maxThreadsPerPage) {
             	user.setProperty(("jiveThreadRange"), String.valueOf(threadsPerPage));
             } else {
@@ -71,11 +70,11 @@ public class Settings extends ForumsProcessor {
                 addError(ForumConstants.SETTINGS_STATUS, ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
                 status = "error";
             }
-            
+
             user.setProperty(("jiveThreadMode"), threadMode);
             user.setProperty(("jiveAutoWatchNewTopics"), autoWatchNewTopics);
             user.setProperty(("jiveAutoWatchReplies"), autoWatchReplies);
-            
+
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
                 // We've received a request to create a new batch timer
@@ -100,14 +99,14 @@ public class Settings extends ForumsProcessor {
                 watchFrequency = determineWatchFrequency(timer);
             }
         }
-        
+
         getRequest().setAttribute("status", status);
         getRequest().setAttribute("selectedWatchFrequency", new Integer(watchFrequency));
-		
+
 		setNextPage("/userSettings.jsp");
 		setIsNextPageInContext(true);
 	}
-    
+
     private int determineWatchFrequency(CronTimer timer) {
         // determine watch frequency
         if (timer == null) {
@@ -132,7 +131,7 @@ public class Settings extends ForumsProcessor {
             return UserSettingsAction.FREQUENCY_IMMEDIATELY;
         }
     }
-    
+
     private CronTimer createCronTimer(int watchFrequency) {
         try {
             int minute = (int) (Math.random() * 60);

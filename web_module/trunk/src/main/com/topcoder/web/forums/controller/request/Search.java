@@ -3,40 +3,40 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import java.util.*;
-import java.text.SimpleDateFormat;
-
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.web.forums.model.Paging;
-
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserNotFoundException;
-
-import com.jivesoftware.forum.ResultFilter;
-import com.jivesoftware.forum.Query;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.Query;
+import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.model.Paging;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * @author mtong
- * 
+ *
  * Forwards to the search page.
  */
 public class Search extends ForumsProcessor {
     private boolean displayPerThread
         = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread",true);
-    
+
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
-        
+
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.FORUM_NAME);
         resultFilter.setSortOrder(ResultFilter.ASCENDING);
         Iterator itForums = forumFactory.getForums(resultFilter);
-        
+
         HashMap dates = new HashMap();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
@@ -53,20 +53,20 @@ public class Search extends ForumsProcessor {
         dates.put(ForumConstants.SEARCH_DATE_THIS_YEAR, calendar.getTime());
         calendar.add(Calendar.YEAR, -1);
         dates.put(ForumConstants.SEARCH_DATE_LAST_YEAR, calendar.getTime());
-        
+
         getRequest().setAttribute("forums", itForums);
         getRequest().setAttribute("dates", dates);
-        
+
         String mode = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_MODE));
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_STATUS));
-        
+
         if (mode.equals(ForumConstants.SEARCH_MODE_BASIC)) {
             setNextPage("/searchBasic.jsp");
         } else {
             setNextPage("/search.jsp");
         }
         setIsNextPageInContext(true);
-        
+
         if (status.equals("search")) {
             String queryTerms = getRequest().getParameter(ForumConstants.SEARCH_QUERY);
             String searchScope = getRequest().getParameter(ForumConstants.SEARCH_SCOPE);
@@ -74,7 +74,7 @@ public class Search extends ForumsProcessor {
             String userHandle = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_HANDLE));
             String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_SORT_FIELD));
             User sortUser = null;
-            
+
             int resultSize = ForumConstants.DEFAULT_SEARCH_RANGE;
             if (user != null) {
                 try {
@@ -88,7 +88,7 @@ public class Search extends ForumsProcessor {
             if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals("")) {
                 startIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.START_IDX));
             }
-            
+
             if (queryTerms.length() <= 0 && userHandle.equals("")) {
                 addError(ForumConstants.SEARCH_QUERY, ForumConstants.ERR_NO_SEARCH_TERMS);
             }
@@ -99,10 +99,10 @@ public class Search extends ForumsProcessor {
                 	addError(ForumConstants.SEARCH_HANDLE, ForumConstants.ERR_NO_SEARCH_HANDLE);
                 }
             }
-            if (hasErrors()) {                
+            if (hasErrors()) {
                 status = "error";
             }
-            
+
             Query query = null;
             if (searchScope.equals("all")) {
                 query = forumFactory.createQuery();
@@ -112,26 +112,26 @@ public class Search extends ForumsProcessor {
                 query = forum.createQuery();
             }
             query.setQueryString(queryTerms);
-            
+
             if (!dateRange.equals("all")) {
                 query.setAfterDate((Date)dates.get(dateRange));
             }
-            
+
             if (sortUser instanceof User) {
             	query.filterOnUser(sortUser);
             }
-            
+
             if (sortField.equals("") || Integer.parseInt(sortField) == Query.RELEVANCE) {
-                query.setSortField(Query.RELEVANCE);   
+                query.setSortField(Query.RELEVANCE);
             } else if (Integer.parseInt(sortField) == Query.DATE) {
                 query.setSortField(Query.DATE);
             }
             query.setSortOrder(ResultFilter.DESCENDING);
-            
+
             ResultFilter pageFilter = new ResultFilter();
             pageFilter.setStartIndex(startIdx);
             pageFilter.setNumResults(resultSize);
-            
+
             Iterator itResults = null;
             int totalItemCount = 0;
             if (displayPerThread) {
@@ -141,10 +141,10 @@ public class Search extends ForumsProcessor {
                 itResults = query.getResults(startIdx, resultSize);
                 totalItemCount = query.getResultCount();
             }
-            
+
             Paging paging = new Paging(pageFilter, totalItemCount);
             Paginator paginator = new Paginator(paging);
-            
+
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
             getRequest().setAttribute("dateRange", dateRange);
