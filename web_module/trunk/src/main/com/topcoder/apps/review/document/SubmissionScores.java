@@ -63,7 +63,7 @@ public class SubmissionScores {
          return reviewScore[n];
     }
 
-    public double getReviewURL(int n) {
+    public String getReviewURL(int n) {
          return reviewURL[n];
     }
 
