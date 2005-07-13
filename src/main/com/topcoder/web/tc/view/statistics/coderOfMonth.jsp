@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -9,6 +11,7 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 <link type="text/css" rel="stylesheet" href="/css/tcStyles.css"/>
+<% ResultSetContainer results = (ResultSetContainer)((Map)request.getAttribute("resultMap")).get("com_history"); %>
 
 </head>
 
@@ -28,7 +31,7 @@
 			</jsp:include>
 		</td>
 <!-- Left Column Ends -->
- 
+
 <!-- Center Column Begins -->
       <td width="100%" valign="top" align="center">
 
@@ -47,106 +50,13 @@
       <td class="header">Handle</td>
       <td class="headerR">Month</td>
    </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
-   <tr class="dark">
-      <td class="value"><tc-webtag:handle coderId="10254716"/></td>
-      <td class="valueR">07/2005</td>
-   </tr>
-   <tr class="light">
-      <td class="value"><tc-webtag:handle coderId="10574855"/></td>
-      <td class="valueR">06/2005</td>
-   </tr>
+   <% boolean even = false; %>
+   <rsc:iterator list="<%=results%>" id="resultRow">
+       <tr class="<%=even?"light":"dark"%>">
+          <td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>'/></td>
+          <td class="valueR"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM/yyyy"/>/td>
+       </tr>
+   </rsc:iterator>
 </table>
 
 <span class="bodyText">
