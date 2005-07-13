@@ -2,11 +2,12 @@ package com.topcoder.web.tc;
 
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.WebConstants;
 
 import java.lang.reflect.Field;
 import java.util.MissingResourceException;
 
-public class Constants {
+public class Constants implements WebConstants {
 
 
     private static TCResourceBundle bundle = new TCResourceBundle("TC");
@@ -32,7 +33,6 @@ public class Constants {
 
     public static String USER_ID;
     public static String NOTE_ID;
-    public static String HANDLE;
     public static String STATE_CODE;
     public static String COUNTRY_CODE;
     public static String MIN_RATING;

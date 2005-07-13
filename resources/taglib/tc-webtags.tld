@@ -89,6 +89,16 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
+            <name>onKeyDown</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onKeyUp</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>class</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
@@ -145,25 +155,6 @@
         </attribute>
         <attribute>
             <name>id</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-    </tag>
-    <tag>
-        <name>iterator</name>
-        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
-        <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
-        <bodycontent>JSP</bodycontent>
-        <info>
-            generic iterator tag iterates through elements of a Collection
-        </info>
-        <attribute>
-            <name>id</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>list</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
@@ -557,6 +548,85 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    
+    <tag>
+        <name>format</name>
+        <tagclass>com.topcoder.web.common.tag.FormatTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag for format objects
+        </info>
+        <attribute>
+            <name>object</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>ifNull</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+	<tag>
+        <name>beanWrite</name>
+        <tagclass>com.topcoder.web.common.tag.BeanWriteTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag to write out properties of beans stored in a scope attribute
+            variable
+        </info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>property</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <name>iterator</name>
+        <tagclass>com.topcoder.web.common.tag.IteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            generic iterator tag iterates through elements of a Collection
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>iterator</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>type</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
     <tag>
         <name>sort</name>
@@ -582,7 +652,5 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-
-
 
 </taglib>

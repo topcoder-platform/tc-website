@@ -37,7 +37,7 @@ public class LoginBean extends BaseEJB {
             throws AuthenticationException, GeneralSecurityException {
 
         logger.debug("LoginBean.login: " + username);
-
+        
         checkLength(username, SecurityDB.maxUsernameLength);
         checkLength(password, SecurityDB.maxPasswordLength);
 
@@ -117,5 +117,4 @@ public class LoginBean extends BaseEJB {
         TCSubject sub = new TCSubject(pl, userId);
         return sub;
     }
-
 }

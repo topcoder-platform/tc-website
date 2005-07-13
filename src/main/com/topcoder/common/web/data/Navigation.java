@@ -16,7 +16,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.common.model.CoderSessionInfo;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;

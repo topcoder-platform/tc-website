@@ -15,7 +15,7 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.reg.bean.Task;
 import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
-import com.topcoder.web.tc.model.CoderSessionInfo;
+import com.topcoder.web.common.model.CoderSessionInfo;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;

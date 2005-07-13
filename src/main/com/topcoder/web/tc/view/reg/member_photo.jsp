@@ -3,7 +3,7 @@
   import="com.topcoder.common.web.data.Navigation,
   com.topcoder.common.web.data.CoderRegistration
   ,com.topcoder.common.web.util.Conversion,
-          com.topcoder.web.tc.model.CoderSessionInfo"%>
+          com.topcoder.web.common.model.CoderSessionInfo"%>
 
 <%
 try {

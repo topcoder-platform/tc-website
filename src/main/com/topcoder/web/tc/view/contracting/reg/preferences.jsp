@@ -2,7 +2,7 @@
 <%@ page import="com.topcoder.web.tc.Constants,
                  com.topcoder.web.tc.model.PreferenceGroup,
                  java.util.List,
-                 com.topcoder.web.tc.model.CoderSessionInfo,
+                 com.topcoder.web.common.model.CoderSessionInfo,
                  com.topcoder.web.common.BaseServlet,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>

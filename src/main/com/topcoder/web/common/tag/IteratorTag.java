@@ -1,11 +1,14 @@
 package com.topcoder.web.common.tag;
 
 
+import com.topcoder.shared.util.logging.Logger;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 
 /**
@@ -15,41 +18,31 @@ import java.util.Collection;
  */
 public class IteratorTag extends BodyTagSupport {
 
+    private static Logger log = Logger.getLogger(IteratorTag.class);
     // Collection to iterate through
     protected Collection collection;
-    // The Collection as an array
-    protected Object[] elementArray;
-    // index of current element
-    protected int index;
+    // Iterator to iterate through
+    protected Iterator iterator;
 
     protected String type;
 
-    /**
-     * Returns the element at the specified index.  Override
-     * this function if you need to retrieve something outside
-     * of the collection - for example, the collection stores
-     * keys, and you want to iterate through the values that
-     * those keys map to.  Return null when there is no such
-     * element.
-     *
-     * @param index		the index of the desired element
-     *
-     * @return Object	the Object at that index - or null if there is no such Object.
-     */
-
-    Object getElementAt(int index) {
-        if (index < elementArray.length) {
-            return elementArray[index];
-        } else {
-            return null;
-        }
-    }
-
     public void setCollection(Collection collection) {
         // if the collection is null, use an empty list
-        if (collection == null) collection = new ArrayList();
-        this.collection = collection;
-        elementArray = collection.toArray();
+        if (collection == null) {
+            this.collection = new ArrayList();
+        } else {
+            this.collection = collection;
+        }
+        this.iterator = this.collection.iterator();
+    }
+
+    public void setIterator(Iterator iterator) {
+        if (iterator==null) {
+            this.iterator = new ArrayList().iterator();
+        } else {
+            this.iterator = iterator;
+        }
+
     }
 
     public void setType(String type) {
@@ -57,21 +50,22 @@ public class IteratorTag extends BodyTagSupport {
     }
 
     public int doStartTag() throws JspException {
-        index = 0;
-        return elementArray.length > 0 ? EVAL_BODY_TAG : SKIP_BODY;
+        //log.debug("doStartTag() called, collection = " + collection + " iterator = " + iterator);
+        return iterator.hasNext() ? EVAL_BODY_TAG : SKIP_BODY;
     }
 
     public void doInitBody() throws JspException {
-        Object element = getElementAt(index++);
-        if (element != null) {
-            pageContext.setAttribute(getId(), element);
+        //log.debug("doInitBody() called, collection = " + collection + " iterator = " + iterator);
+        if (iterator.hasNext()) {
+            pageContext.setAttribute(getId(), iterator.next());
         }
     }
 
     public int doAfterBody() throws JspException {
-        Object element = getElementAt(index++);
-        if (element != null) {
-            pageContext.setAttribute(getId(), element);
+        //log.debug("doAfterBody() called, collection = " + collection + " iterator = " + iterator);
+        if (iterator.hasNext()) {
+            pageContext.setAttribute(getId(), iterator.next());
+            //log.debug("get attribute " + getId() + " " + pageContext.getAttribute(getId()));
             return EVAL_BODY_TAG;
         } else {
             try {
@@ -92,8 +86,7 @@ public class IteratorTag extends BodyTagSupport {
      */
     public int doEndTag() throws JspException {
         this.collection = null;
-        this.index = 0;
-        this.elementArray = null;
+        this.iterator = null;
         this.type = null;
         return super.doEndTag();
     }
