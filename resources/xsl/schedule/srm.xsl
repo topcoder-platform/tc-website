@@ -63,11 +63,24 @@
                                   <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
                                 </xsl:when>
                                 <xsl:otherwise>
-                                  <IMG ALT="" BORDER="0">
-                                    <xsl:attribute name="SRC"><xsl:value-of select="/TC/SCHEDULE/Round/Details/path"/></xsl:attribute>
-                                    <xsl:attribute name="WIDTH"><xsl:value-of select="/TC/SCHEDULE/Round/Details/width"/></xsl:attribute>
-                                    <xsl:attribute name="HEIGHT"><xsl:value-of select="/TC/SCHEDULE/Round/Details/height"/></xsl:attribute>
-                                  </IMG>
+                                    <xsl:choose>
+                                  <xsl:when test="/TC/SCHEDULE/Round/Details/link=''">
+                                      <IMG ALT="" BORDER="0">
+                                        <xsl:attribute name="SRC"><xsl:value-of select="/TC/SCHEDULE/Round/Details/path"/></xsl:attribute>
+                                        <xsl:attribute name="WIDTH"><xsl:value-of select="/TC/SCHEDULE/Round/Details/width"/></xsl:attribute>
+                                        <xsl:attribute name="HEIGHT"><xsl:value-of select="/TC/SCHEDULE/Round/Details/height"/></xsl:attribute>
+                                      </IMG>
+                                      </xsl:when>
+                                        <xsl:otherwise>
+                                      <a><xsl:attribute name="href"><xsl:value-of select="/TC/SCHEDULE/Round/Details/link"/></xsl:attribute>
+                                          <IMG ALT="" BORDER="0">
+                                            <xsl:attribute name="SRC"><xsl:value-of select="/TC/SCHEDULE/Round/Details/path"/></xsl:attribute>
+                                            <xsl:attribute name="WIDTH"><xsl:value-of select="/TC/SCHEDULE/Round/Details/width"/></xsl:attribute>
+                                            <xsl:attribute name="HEIGHT"><xsl:value-of select="/TC/SCHEDULE/Round/Details/height"/></xsl:attribute>
+                                          </IMG>
+                                      </a>
+                                    </xsl:otherwise>
+                                  </xsl:choose>
                                 </xsl:otherwise>
                               </xsl:choose>
 
@@ -269,10 +282,10 @@
                         <li>In the event that any member who is ineligible to receive prizes places in a position in which they would receive a prize, they will be asked to pick a <a href="?&amp;t=support&amp;c=charities">charity</a> to which to donate their prize. In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</li>
                       </UL>
                       <BR/><BR/>
-                      
+
                       <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
                       </TD></TR>
-                    
+
                     </xsl:when>
                     <xsl:otherwise>
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
@@ -294,7 +307,7 @@
                       Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
                       <A CLASS="bodyText"><xsl:attribute name="HREF">/?t=schedule&amp;c=srm_rules&amp;RoundId=<xsl:value-of select="$roundId"/></xsl:attribute><B>Click here for complete rules &amp; regulations</B></A>
                       </TD></TR>
-                    
+
                     </xsl:otherwise>
                 </xsl:choose>
 
