@@ -3,15 +3,12 @@
  */
 package com.topcoder.web.forums.controller;
 
-import java.util.Iterator;
-
 import com.jivesoftware.base.Filter;
 import com.jivesoftware.base.FilterManager;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.filter.Profanity;
-
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
@@ -21,13 +18,15 @@ import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
 
+import java.util.Iterator;
+
 /**
  * @author mtong
  */
 public class ForumsUtil {
     private static boolean filterHTMLEnabled
         = JiveGlobals.getJiveBooleanProperty("search.filterHTMLEnabled",true);
-    
+
     // use until Jive fixes its version of ForumThread.getLatestMessage()
     public static ForumMessage getLatestMessage(ForumThread thread) {
         ForumMessage lastPost = null;
@@ -41,7 +40,7 @@ public class ForumsUtil {
         }
         return lastPost;
     }
-    
+
     /**
      * Returns the message's subject where the search term(s) appear.
      * @return the message's subject where the search term(s) appear.
@@ -121,7 +120,7 @@ public class ForumsUtil {
 
         return "";
     }
-    
+
     /**
      * Returns a snippet of the message's body where the search term(s) appear.
      * @return a snippet of the message's body where the search term(s) appear.
