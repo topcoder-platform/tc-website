@@ -11,7 +11,7 @@
 
 
 <logic:equal name="compScores" property='type' value="1">
-Design | <a href="/ComponentScores.do?type=2">Development</a>
+Design | <html:link href="/ComponentScores.do?type=2">Development</html_link>
 </logic:equal>
 <logic:equal name="compScores" property='type' value="2">
 <a href="/ComponentScores.do?type=1">Design </a> | Development
@@ -23,7 +23,10 @@ Design | <a href="/ComponentScores.do?type=2">Development</a>
 		<td>Developer</td>
 		<td>Submission</td>
 		<td>Screening</td>
-		<td> <bean:write name="compScores" property="reviewerName[0]"/> <br>
+		<td> 
+		
+		
+		<bean:write name="compScores" property="reviewerName[0]"/> <br>
 			<logic:equal name="compScores" property='type' value="2">
 			   (<bean:write name="compScores" property="testCasesURL[0]"/> )
 			</logic:equal>
@@ -55,15 +58,13 @@ Design | <a href="/ComponentScores.do?type=2">Development</a>
 			<bean:write name="subm" property="screeningScore"/>
 		</td>
 		
-		<td> 
-			<bean:write name="subm" property="reviewScore[0]"/>
+<logic:iterate id="reviewerID" indexId="idx" name="compScores" property="reviewerID">
+		<td>	
+			<a href='<%= "review/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + reviewerID + " &sid=" + subm.getUserID()  %>' >
+				<bean:write name="subm" property='<%="reviewScore["+idx+"]"%>' />
+			</a>
 		</td>
-		<td> 
-			<bean:write name="subm" property="reviewScore[1]"/>
-		</td>
-		<td> 
-			<bean:write name="subm" property="reviewScore[2]"/>
-		</td>
+</logic:iterate>		
 		<td>Final Score</td>
 		<td>Appeals</td>
 		<td>Details</td>

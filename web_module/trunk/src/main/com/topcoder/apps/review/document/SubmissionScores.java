@@ -8,6 +8,8 @@ public class SubmissionScores {
 
     private String handle;
 
+    private int userID;
+
     private String handleURL;       // URL that points to the handle profile
 
     private String submissionURL;   // link for downloading the submission
@@ -26,8 +28,9 @@ public class SubmissionScores {
 
 
     public SubmissionScores() {
-        handle="cucu";
-        handleURL="http://www.topcoder.com/tc?module=MemberProfile&cr=7545675";
+        handle="arylio";
+        userID = 7489235;
+
         submissionURL="x";
         screeningScore=92.7;
         screeningURL = "y";
@@ -43,8 +46,8 @@ public class SubmissionScores {
         return handle;
     }
 
-    public String getHandleURL() {
-        return handleURL;
+    public int  getUserID() {
+        return userID;
     }
 
     public String getSubmissionURL() {
