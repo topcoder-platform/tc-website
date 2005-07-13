@@ -44,7 +44,8 @@ Sun recommends that all TopCoder participants do the following:
 Stay tuned here for information on the Creator 2 Early Access Program launch date.
 <br><br>
 Let the Coding begin!
-
+<br><br>
+Sun recently <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat">spoke to the members</A> in the arena just prior to a recent SRM. See what they had to say about Java Studio Creator.
         </div>
 		</td>
         
