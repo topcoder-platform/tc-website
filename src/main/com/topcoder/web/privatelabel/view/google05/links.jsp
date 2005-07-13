@@ -33,6 +33,9 @@
                  <font color="006633">Registration</font> &nbsp;|&nbsp;
             <% } else { %>
                   <a href="/pl/?module=Static&d1=google05&d2=login">Registration</a> &nbsp;|&nbsp;
+<%--
+                  <a href="/pl/?module=Static&d1=google05&d2=reg_closed">Registration</a> &nbsp;|&nbsp;
+--%>
             <% } %>
 
 <!-- Instructions tab -->
