@@ -8,6 +8,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.13.05<br>11:40 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></span><br><br>
+      See every TopCoder Coder of the Month and a description of the criteria we use to select them.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">view</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.13.05<br>10:40 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -223,21 +234,6 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.22.05<br>9:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm248_prob">SRM 248 - Problem Set & Analysis</A></span><br><br>
-      Turnout was high for SRM 248, as for the first time in a couple of years, there was money up for grabs in a TopCoder SRM! This match broke the previous record of most reds in an SRM.</td>
-      <td class="newsPhoto"><img src="/i/m/NeverMore_mug.gif" /><br>by <tc-webtag:handle coderId="287130" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm248_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 
 </table>
 <br><br>

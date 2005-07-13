@@ -112,3 +112,14 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
+<%-------------------GENERAL TC NEWS-------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.13.05<br>11:40 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></span><br><br>
+      See every TopCoder Coder of the Month and a description of the criteria we use to select them.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">view</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
