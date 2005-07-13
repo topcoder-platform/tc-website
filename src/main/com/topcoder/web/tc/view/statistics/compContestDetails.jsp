@@ -119,7 +119,9 @@
             <TD class="statDk" align="center">Y</TD>
             <TD class="statDk" align="right">80.00</TD>
             <TD class="statDk" align="right">90.00</TD>
-            <TD class="statDk" align="center"><A href="">scorecard</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
@@ -128,7 +130,9 @@
             <TD class="statLt" align="center">Y</TD>
             <TD class="statLt" align="right">80.00</TD>
             <TD class="statLt" align="right">90.00</TD>
-            <TD class="statLt" align="center"><A href="">scorecard</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
@@ -137,7 +141,9 @@
             <TD class="statDk" align="center">Y</TD>
             <TD class="statDk" align="right">80.00</TD>
             <TD class="statDk" align="right">90.00</TD>
-            <TD class="statDk" align="center"><A href="">scorecard</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
@@ -146,7 +152,9 @@
             <TD class="statLt" align="center">Y</TD>
             <TD class="statLt" align="right">80.00</TD>
             <TD class="statLt" align="right">90.00</TD>
-            <TD class="statLt" align="center"><A href="">scorecard</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
@@ -155,7 +163,9 @@
             <TD class="statDk" align="center">Y</TD>
             <TD class="statDk" align="right">80.00</TD>
             <TD class="statDk" align="right">90.00</TD>
-            <TD class="statDk" align="center"><A href="">scorecard</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
@@ -164,7 +174,9 @@
             <TD class="statLt" align="center">Y</TD>
             <TD class="statLt" align="right">80.00</TD>
             <TD class="statLt" align="right">90.00</TD>
-            <TD class="statLt" align="center"><A href="">scorecard</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
@@ -173,7 +185,9 @@
             <TD class="statDk" align="center">Y</TD>
             <TD class="statDk" align="right">80.00</TD>
             <TD class="statDk" align="right">90.00</TD>
-            <TD class="statDk" align="center"><A href="">scorecard</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
@@ -182,7 +196,9 @@
             <TD class="statLt" align="center">Y</TD>
             <TD class="statLt" align="right">80.00</TD>
             <TD class="statLt" align="right">90.00</TD>
-            <TD class="statLt" align="center"><A href="">scorecard</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
+            <TD class="statLt" align="center"><A href="">view</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
@@ -191,7 +207,9 @@
             <TD class="statDk" align="center">Y</TD>
             <TD class="statDk" align="right">80.00</TD>
             <TD class="statDk" align="right">90.00</TD>
-            <TD class="statDk" align="center"><A href="">scorecard</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
+            <TD class="statDk" align="center"><A href="">view</A></TD>
          </tr>
       </table>
       </td>
