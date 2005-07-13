@@ -1191,6 +1191,8 @@
                  <include name="com/topcoder/web/tc/**/*.class"/>
                  <include name="com/topcoder/security/**/*.class"/>
                  <include name="com/fx4m/**/*.class"/>
+                 <include name="com/topcoder/dde/catalog/**/*.class"/>
+                 <include name="com/topcoder/dde/user/**/*.class"/>
              </classes>
              <classes dir="${resources}">
                  <include name="com/topcoder/servlet/request/FileUpload.xml"/>
