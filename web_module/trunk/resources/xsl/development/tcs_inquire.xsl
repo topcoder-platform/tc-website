@@ -2,19 +2,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
-  <xsl:import href="../includes/modules/stats_intro.xsl"/>  
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/dev/public_dev_right.xsl"/>     
+  <xsl:import href="../includes/modules/stats_intro.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/dev/public_dev_right.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <html>
 
 <head>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
 <title>Inquire about the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> project at TopCoder Software Development</title>
-        <xsl:call-template name="CSS"/>      
+        <xsl:call-template name="CSS"/>
 
         <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -39,7 +39,7 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
@@ -48,52 +48,52 @@
             </xsl:call-template>
 
             <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br/>
-            
-                <form name="frmSend" method="POST" action="/?t=development">
+
+                <form name="frmSend" method="POST" action="/">
                 <input type="hidden" name="t" value="development"/>
                 <input type="hidden" name="c" value="tcs_send"/>
-              
+
                 <input type="hidden" name="comp">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/comp"/></xsl:attribute>
                 </input>
-              
+
                 <input type="hidden" name="phase">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/phase"/></xsl:attribute>
                 </input>
-              
+
                 <input type="hidden" name="version">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/version"/></xsl:attribute>
                 </input>
-              
+
                 <input type="hidden" name="date">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
                 </input>
-              
+
                 <input type="hidden" name="Project">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
                 </input>
-              
+
                 <input type="hidden" name="handle">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/handle"/></xsl:attribute>
                 </input>
-		
+
 		<input type="hidden" name="projectId">
                     <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/projectId"/></xsl:attribute>
                 </input>
-              
+
                 <input type="hidden" name="To">
                     <xsl:attribute name="VALUE">service@topcodersoftware.com</xsl:attribute>
                 </input>
-            
+
                 <h2><xsl:value-of select="/TC/DEVELOPMENT/ProjectName"/></h2>
-               
+
                <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
                 Terms &amp; Conditions<br/>
                 <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
                 <textarea name="TermDesc" rows="10" cols="60" readonly="true" class="bodyText" wrap="VIRTUAL">
 ACCEPTANCE OF TERMS OF WORK
 
-By inquiring about the opportunity to design and/or develop a software component and/or application listed on TopCoder's web site(s), you are indicating your agreement to these Terms of Work ("Terms"). If you do not agree to these Terms, please click on "I Do Not Accept These Terms" or exit the site now.  
+By inquiring about the opportunity to design and/or develop a software component and/or application listed on TopCoder's web site(s), you are indicating your agreement to these Terms of Work ("Terms"). If you do not agree to these Terms, please click on "I Do Not Accept These Terms" or exit the site now.
 
 TopCoder may revise these Terms at any time without prior notice and such revisions will be effective upon posting. Please read these Terms thoroughly each time you inquire about designing and/or developing a software component and/or application as the Terms may change periodically.
 
@@ -109,7 +109,7 @@ By indicating your interest in designing or developing a software component and/
 8.    You agree to use your own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
 
 OWNERSHIP AND RIGHTS
-You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property rights, in and to the information posted on TopCoder's website(s).  If TopCoder compensates you for your design or development solution, then you agree to irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such design or development solution, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  If TopCoder does not compensate you for your design or development solution, then you retain any and all rights to ownership of such material submitted to TopCoder.  TopCoder will not gain ownership of this material.  However, by submitting any design documents, source code or any other material to TopCoder, you hereby grant us a perpetual, royalty-free, irrevocable, non-exclusive right and license to use, reproduce and publish such documents, materials or source code for commercial and/or non-commercial use.  
+You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property rights, in and to the information posted on TopCoder's website(s).  If TopCoder compensates you for your design or development solution, then you agree to irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such design or development solution, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder.  If TopCoder does not compensate you for your design or development solution, then you retain any and all rights to ownership of such material submitted to TopCoder.  TopCoder will not gain ownership of this material.  However, by submitting any design documents, source code or any other material to TopCoder, you hereby grant us a perpetual, royalty-free, irrevocable, non-exclusive right and license to use, reproduce and publish such documents, materials or source code for commercial and/or non-commercial use.
 
 You further agree that any and all works of authorship created, authored or developed by you hereunder which TopCoder compensates you for shall be deemed to be "works made for hire" within the meaning of the United States Copyright Law and, as such, all rights therein including copyright shall belong solely and exclusively to TopCoder from the time of their creation.  To the extent any such work of authorship may not be deemed to be a work made for hire, you agree to, and do hereby, irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest including copyright in and to such work.
 
@@ -129,33 +129,33 @@ Documents, graphics and other materials appearing at TopCoder's website(s) may i
 
 LIMITATION OF LIABILITY
 TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT BE LIABLE FOR ANY DAMAGES (INCLUDING, BUT NOT LIMITED TO, DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES), INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF WINNINGS, DATA OR OTHER DAMAGE TO ANY OTHER INTANGIBLE PROPERTY, EVEN IF TOPCODER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, RESULTING FROM (i) THE USE OR INABILITY TO USE IT'S WEBSITE(S), (ii) THE POSTING OF INFORMATION TO, OR THE RECEIPT OF INFORMATION FROM, IT'S WEBSITES, (iii) THE DISCLOSURE OF, UNAUTHORIZED ACCESS TO OR ALTERATION OF ANY TRANSMISSION OR DATA, (iv) THE STATEMENTS OR CONDUCT OF ANY THIRD PARTY OR (v) ANY OTHER MATTER RELATING TO TOPCODER.
- 
+
 CHOICE OF LAW AND FORUM
-These Terms are governed by the laws of the Commonwealth of Massachusetts. You hereby agree to submit to the exclusive jurisdiction of the courts of the Commonwealth of Massachusetts. To the extent that applicable laws have mandatory application to these Terms or give you the right to bring action in any other courts, the above limitations may not apply to you. Use of TopCoder's website(s) and participation in projects posted on TopCoder's website(s) are unauthorized in any jurisdiction that does not give full effect to all provisions of these Terms. 
+These Terms are governed by the laws of the Commonwealth of Massachusetts. You hereby agree to submit to the exclusive jurisdiction of the courts of the Commonwealth of Massachusetts. To the extent that applicable laws have mandatory application to these Terms or give you the right to bring action in any other courts, the above limitations may not apply to you. Use of TopCoder's website(s) and participation in projects posted on TopCoder's website(s) are unauthorized in any jurisdiction that does not give full effect to all provisions of these Terms.
 
 SEVERABILITY AND ENFORCEABILITY
-If any provision or portion of these Terms is held illegal, invalid, or unenforceable, in whole or in part, it shall be modified to the minimum extent necessary to correct any deficiencies or replaced with a provision which is as close as is legally permissible to the provision found invalid or unenforceable and shall not affect the legality, validity or enforceability of any other provisions or portions of these Terms. 
+If any provision or portion of these Terms is held illegal, invalid, or unenforceable, in whole or in part, it shall be modified to the minimum extent necessary to correct any deficiencies or replaced with a provision which is as close as is legally permissible to the provision found invalid or unenforceable and shall not affect the legality, validity or enforceability of any other provisions or portions of these Terms.
 
 TERMINATION/EXCLUSION
-TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with accessing and/or participating in the projects posted on its website(s), and to take any other action it deems appropriate including but not limited to terminating or suspending your use of www.topcoder.com and/or www.topcodersoftware.com for no reason or any reason whatsoever, including improper use of its website(s) or failure to comply with these Terms or the Terms of Use of TopCoder's websites, which are incorporated herein by reference. 
+TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with accessing and/or participating in the projects posted on its website(s), and to take any other action it deems appropriate including but not limited to terminating or suspending your use of www.topcoder.com and/or www.topcodersoftware.com for no reason or any reason whatsoever, including improper use of its website(s) or failure to comply with these Terms or the Terms of Use of TopCoder's websites, which are incorporated herein by reference.
 
 GENERAL
-TopCoder may assign, novate or subcontract any or all of its rights and obligations under these Terms at any time. 
+TopCoder may assign, novate or subcontract any or all of its rights and obligations under these Terms at any time.
 
 If you have any questions regarding these Terms, contact us at service@topcodersoftware.com.
 
 </textarea>
 
                 <p>Agree to Terms <input type="checkbox" name="terms"/></p>
-                
+
                 <p>Comments<br />
                 <img src="/i/clear.gif" alt="" width="10" height="3" border="0"/><br/>
                 <textarea name="Comment" rows="5" cols="50"/></p>
-                
+
                 <p><br/></p>
 
                 <p align="center"><strong><A href="Javascript:submitForm();">Submit Inquiry</A> &gt;&gt;</strong></p>
-              
+
               <script type="text/javascript"><![CDATA[
                 function submitForm() {
                   if (document.frmSend.terms.checked) {document.frmSend.submit();}
@@ -163,11 +163,11 @@ If you have any questions regarding these Terms, contact us at service@topcoders
                   return;
                 }
               ]]></script>
-            
+
             </form>
 
             <p><br/></p>
-            
+
          </td>
 <!-- Center Column Ends -->
 
@@ -177,7 +177,7 @@ If you have any questions regarding these Terms, contact us at service@topcoders
 
 <!-- Right Column Begins -->
         <td width="244">
-            <xsl:call-template name="public_dev_right"/>        
+            <xsl:call-template name="public_dev_right"/>
         </td>
 <!-- Right Column Ends -->
 
