@@ -34,10 +34,10 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
-		<p>
-      These job openings are no longer available.  Please <A href="/tc?module=Static&d1=contracting&d2=index">click here</A> to see what Employment Opportunities are currently posted.
-		<br/><br/>
-		</p>
+<p>
+These job openings are no longer available.  Please <A href="/tc?module=Static&d1=contracting&d2=index">click here</A> to see what Employment Opportunities are currently posted.
+<br/><br/>
+</p>
 
         </div>
         <p><br/></p>
