@@ -12,21 +12,62 @@
 
 <logic:equal name="compScores" property='type' value="1">
 Design | <a href="/ComponentScores.do?type=2">Development</a>
-</logic>
-<logic:equal name="compScores" property='type' value="1">
+</logic:equal>
+<logic:equal name="compScores" property='type' value="2">
 <a href="/ComponentScores.do?type=1">Design </a> | Development
-</logic>
+</logic:equal>
 
 
 <table border="1">
 	<tr>
 		<td>Developer</td>
 		<td>Submission</td>
-		<td>compScores.getReviewerName(0)<br>() </td>
-		<td>compScores.getReviewerName(1)<br>() </td>
-		<td>compScores.getReviewerName(2)<br>() </td>
+		<td>Screening</td>
+		<td> <bean:write name="compScores" property="reviewerName[0]"/> <br>
+			<logic:equal name="compScores" property='type' value="2">
+			   (<bean:write name="compScores" property="testCasesURL[0]"/> )
+			</logic:equal>
+		</td>
+		<td> <bean:write name="compScores" property="reviewerName[1]"/> <br>
+			<logic:equal name="compScores" property='type' value="2">
+			   (<bean:write name="compScores" property="testCasesURL[1]"/> )
+			</logic:equal>
+		</td>
+		<td> <bean:write name="compScores" property="reviewerName[2]"/> <br>
+			<logic:equal name="compScores" property='type' value="2">
+			   (<bean:write name="compScores" property="testCasesURL[2]"/> )
+			</logic:equal>
+		</td>
 		<td>Final Score</td>
 		<td>Appeals</td>
 		<td>Details</td>
 	</tr>
+<logic:iterate id="subm" name="compScores" property="submissions">
+	<tr>
+		<td>
+			<bean:write name="subm" property="handle"/>
+		</td>
+		
+		<td>
+			<bean:write name="subm" property="submissionURL"/>
+		</td>
+		<td>
+			<bean:write name="subm" property="screeningScore"/>
+		</td>
+		
+		<td> 
+			<bean:write name="subm" property="reviewScore[0]"/>
+		</td>
+		<td> 
+			<bean:write name="subm" property="reviewScore[1]"/>
+		</td>
+		<td> 
+			<bean:write name="subm" property="reviewScore[2]"/>
+		</td>
+		<td>Final Score</td>
+		<td>Appeals</td>
+		<td>Details</td>
+
+	</tr>
+</logic:iterate>
 </table>
