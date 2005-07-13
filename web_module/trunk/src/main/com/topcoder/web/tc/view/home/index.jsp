@@ -20,11 +20,11 @@
 %>
  
 <body>
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
+<table width="100%" border="0" cellpadding=0 cellspacing=0>
 <%-- Header --%>
    <tr>
       <td colspan=7>
-      <table width="100%" border=0 cellpadding=0 cellspacing=0>
+      <table width="100%" border="0" cellpadding=0 cellspacing=0>
          <tr>
              <td class=homeTopBar align=left>
                  <span class=time>Current Member Count</span>&#160;:&#160;<%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> -
@@ -46,23 +46,23 @@
 <%-- Banners --%>
    <tr>
       <td width="50%" rowspan=2>&#160;</td>
-      <td class=homeLeftBan><A href="/tc"><img src="/i/home/tab_developercenter.gif" border=0 /></A></td>
+      <td class=homeLeftBan><A href="/tc"><img src="/i/home/tab_developercenter.gif" border="0" /></A></td>
       <td class=homeGutter rowspan=2>&#160;</td>
-      <td class=homeCentBan><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" border=0 /></A></td>
+      <td class=homeCentBan><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" border="0" /></A></td>
       <td class=homeGutter rowspan=2>&#160;</td>
-      <td class=homeRightBan><A href="/?t=news_events&c=index"><img src="/i/home/tab_newsevents.gif" border=0 /></A></td>
+      <td class=homeRightBan><A href="/?t=news_events&c=index"><img src="/i/home/tab_newsevents.gif" border="0" /></A></td>
       <td width="50%" rowspan=2>&#160;</td>
    </tr>
 <%-- Body --%>
    <tr>
 <%-- Left Column --%>
       <td class=homeLeftCol>
-      <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/tc"><img src="/i/home/promos/developercenter.gif" border=0 /></A></td></tr>
+      <table width="100%" border="0" cellpadding=0 cellspacing=0>
+         <tr><td class=homeBigPromo><A href="/tc"><img src="/i/home/promos/developercenter.gif" border="0" /></A></td></tr>
       </table>
-      <table width="100%" border=0 cellpadding=0 cellspacing=0>
+      <table width="100%" border="0" cellpadding=0 cellspacing=0>
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="/tc" class=homeTitleLink>Algorithm Competitions</A></td>
          </tr>
          <tr>
@@ -71,7 +71,7 @@
          </tr>
 
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="/?t=development&c=index" class=homeTitleLink>Software Competitions</A></td>
          </tr>
          <tr>
@@ -80,7 +80,7 @@
          </tr>
 
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="/tc?module=Static&d1=contracting&d2=index" class=homeTitleLink>Employment Opportunities</A></td>
          </tr>
          <tr>
@@ -89,7 +89,7 @@
          </tr>
 
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="/tc?module=Static&d1=about&d2=jobs" class=homeTitleLink>Work for TopCoder</A></td>
          </tr>
          <tr>
@@ -100,12 +100,12 @@
       </td>
 <%-- Center Column --%>
       <td class=homeCentCol>
-      <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/techAssessTool.jpg" border=0 /></A></td></tr>
+      <table width="100%" border="0" cellpadding=0 cellspacing=0>
+         <tr><td class=homeBigPromo><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/promos/placement.gif" alt="Corporate Services" border="0" /></A></td></tr>
       </table>
-      <table width="100%" border=0 cellpadding=0 cellspacing=0>
+      <table width="100%" border="0" cellpadding=0 cellspacing=0>
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class=homeTitleLink>Software</A></td>
          </tr>
          <tr>
@@ -114,7 +114,7 @@
          </tr>
 
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class=homeTitleLink>Marketing Services</A></td>
          </tr>
          <tr>
@@ -122,7 +122,7 @@
             <td class=homeText>Is your company looking to interact with developers from around the world? TopCoder offers many <A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index">opportunities</A> to do just that.</td>
          </tr>
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="/corp/?module=Static&d1=corp&d2=tces_home" class=homeTitleLink>Employment Services</A></td>
          </tr>
          <tr>
@@ -133,12 +133,12 @@
       </td>
 <%-- Right Column --%>
       <td class=homeRightCol>
-      <table width="100%" border=0 cellpadding=0 cellspacing=0>
-         <tr><td class=homeBigPromo><A href="/pl/?&module=Static&d1=javaone05&d2=wednesday" target="_blank"><img src="/i/home/promos/javaone05_results_sm.gif" border=0 /></A></td></tr>
+      <table width="100%" border="0" cellpadding=0 cellspacing=0>
+         <tr><td class=homeBigPromo><A href="/pl/?&module=Static&d1=javaone05&d2=wednesday" target="_blank"><img src="/i/home/promos/javaone05_results_sm.gif" border="0" /></A></td></tr>
       </table>
-      <table width="100%" border=0 cellpadding=0 cellspacing=0>
+      <table width="100%" border="0" cellpadding=0 cellspacing=0>
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="/?t=schedule&c=index" class=homeTitleLink>July Events:</A></td>
          </tr>
          <tr>
@@ -157,7 +157,7 @@
             </td>
          </tr>
          <tr>
-            <td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+            <td class=homeArrow><img src="/i/home/triangle.gif" border="0" /></td>
             <td class=homeTitle><A href="/?t=news_events&c=index" class=homeTitleLink>Press Room Highlights</A></td>
          </tr>
          <tr>
