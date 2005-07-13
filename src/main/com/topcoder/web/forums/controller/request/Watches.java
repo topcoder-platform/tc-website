@@ -3,30 +3,31 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import java.util.Iterator;
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.forum.WatchManager;
 import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 
+import java.util.Iterator;
+
 /**
  * @author mtong
- * 
+ *
  * Forwards to the user's personal watchlist page.
  */
 public class Watches extends ForumsProcessor {
-    
+
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        
+
         WatchManager watchManager = forumFactory.getWatchManager();
-        
+
         String status = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SETTINGS_STATUS));
 		if (status.equals(ForumConstants.WATCHES_UPDATE)) {
 			Iterator threads = watchManager.getAllWatches(user, JiveConstants.THREAD);
@@ -41,11 +42,11 @@ public class Watches extends ForumsProcessor {
                 }
             }
         }
-        
+
         Iterator itThreads = watchManager.getAllWatches(user, JiveConstants.THREAD);
         getRequest().setAttribute("watchManager", watchManager);
         getRequest().setAttribute("threads", itThreads);
-        
+
 		setNextPage("/watches.jsp");
 		setIsNextPageInContext(true);
 	}

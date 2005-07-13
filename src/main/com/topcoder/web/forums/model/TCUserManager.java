@@ -1,16 +1,16 @@
 package com.topcoder.web.forums.model;
 
-import com.jivesoftware.base.UserManagerAdapter;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.User;
+import com.jivesoftware.base.UserManagerAdapter;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.base.database.ConnectionManager;
 import com.jivesoftware.base.database.UserIterator;
 import com.jivesoftware.util.LongList;
 
-import javax.sql.DataSource;
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

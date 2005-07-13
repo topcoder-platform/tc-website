@@ -3,9 +3,9 @@ package com.topcoder.web.forums.model;
 import com.jivesoftware.base.Log;
 
 import javax.naming.Context;
-import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  * User: dok

@@ -4,9 +4,8 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.forum.WatchManager;
 import com.jivesoftware.forum.ForumThread;
-
+import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -14,24 +13,24 @@ import com.topcoder.web.forums.ForumConstants;
 
 /**
  * @author mtong
- * 
+ *
  * Adds or removes a watch from the user's watchlist.
  */
 public class Watch extends ForumsProcessor {
-   
+
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        
+
         WatchManager watchManager = forumFactory.getWatchManager();
         int type = Integer.parseInt(getRequest().getParameter(ForumConstants.WATCH_TYPE));
         long id = Long.parseLong(getRequest().getParameter(ForumConstants.WATCH_ID));
         String cmd = getRequest().getParameter(ForumConstants.WATCH_COMMAND);
         StringBuffer nextPage = new StringBuffer();
         String errors = "";
-        
+
         if (type == JiveConstants.THREAD) {
             ForumThread thread = forumFactory.getForumThread(id);
         	if (cmd.equals("add")) {
@@ -53,7 +52,7 @@ public class Watch extends ForumsProcessor {
             	nextPage.append("&").append(ForumConstants.THREAD_ERROR).append("=").append(errors);
             }
         }
-        
+
         setNextPage(nextPage.toString());
         setIsNextPageInContext(false);
 	}

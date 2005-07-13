@@ -1,13 +1,13 @@
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.AuthFactory;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.BasicAuthentication;
-
-import com.jivesoftware.base.AuthFactory;
 
 public class Login extends ForumsProcessor {
 
@@ -23,17 +23,17 @@ public class Login extends ForumsProcessor {
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         //String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         String password = "";
-        
+
         String queryString = getRequest().getQueryString();
         int destStartIdx = queryString.indexOf("http://");
         String dest = queryString.substring(destStartIdx);
-        
+
         try {
             password = getPassword(forumFactory.getUserManager().getUserID(username));
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        
+
         try {
             if (((BasicAuthentication)getAuthentication()).hashPassword(password).equals(hashedPassword)) {
                 com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
@@ -55,7 +55,7 @@ public class Login extends ForumsProcessor {
         setIsNextPageInContext(false);
         return;
     }
-    
+
     private String getPassword(long userID) throws Exception {
         Request r = new Request();
         r.setContentHandle("user_to_password");

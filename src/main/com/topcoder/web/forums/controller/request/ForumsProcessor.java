@@ -6,7 +6,7 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ForumFactory;
-import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * Base class for forum-related processors, providing message and user data.
  */
-public abstract class ForumsProcessor extends Base {
+public abstract class ForumsProcessor extends BaseProcessor {
     protected HttpServletRequest httpRequest;
     protected HttpServletResponse httpResponse;
     protected AuthToken authToken;

@@ -1,7 +1,7 @@
 package com.topcoder.web.forums.model;
 
-import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.base.Log;
+import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.base.ext.SimpleUserAdapter;
 
 import javax.sql.DataSource;

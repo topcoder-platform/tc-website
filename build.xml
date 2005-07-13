@@ -214,7 +214,7 @@
  	 	             <include name="com/topcoder/utilities/forumConvert/**"/>
  	 	         </javac>
  	 	     </target>
- 	
+
  	<target name="compile_TCUser" depends="init,jar_shared">
  	 	 	    <javac
  	 	 	        srcdir="${java}"
@@ -240,7 +240,7 @@
  		 	 	 	<include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
  		 	 	 </javac>
  		 	</target>
- 	
+
      <target name="javadocs">
          <mkdir dir="${build.javadocs}"/>
          <javadoc
@@ -266,7 +266,7 @@
                  />
          </jar>
      </target>
- 	
+
  	 <target name="package-TCUser" depends="compile_TCUser">
  	     <jar jarfile="${jars.dir}/tcuser.jar">
  	         <fileset dir="${classes}/">
@@ -275,7 +275,7 @@
  	         </fileset>
  	     </jar>
  	 </target>
- 	
+
  	<target name="package-TCAuth" depends="compile_TCAuth">
  	 	 <jar jarfile="${jars.dir}/tcauth.jar">
  	 	     <fileset dir="${classes}/">
@@ -283,7 +283,7 @@
  	 	         <include name="com/topcoder/web/forums/model/TCAuthToken.class"/>
  	 	     </fileset>
  	 	 </jar>
-     </target>	 
+     </target>
 
      <target name="jar_shared" depends="compile_shared">
          <jar jarfile="${shared.jar}">
@@ -1078,7 +1078,7 @@
              </fileset>
          </copy>
      </target>
- 	
+
      <target name="deploy-security" depends="build-security">
          <copy todir="${jboss_deploy}">
              <fileset dir="${ear.dir}">
@@ -1221,13 +1221,24 @@
  		            	<include name="includes/modules/simpleSearch.jsp"/>
  		            </fileset>
  		            <classes dir="${classes}">
- 		                <include name="com/topcoder/common/**/*.class" />
- 		                <include name="com/topcoder/web/common/**/*.class" />
- 		            	<include name="com/topcoder/web/ejb/**/*.class" />
+ 		                <include name="com/topcoder/web/common/*.class" />
+                        <include name="com/topcoder/web/common/model/CoderSessionInfo.class" />
+                        <include name="com/topcoder/web/common/security/WebAuthentication.class" />
  		            	<include name="com/topcoder/web/forums/**/*.class" />
- 		            	<include name="com/topcoder/web/tc/**/*.class" />
- 		            	<include name="com/topcoder/security/**/*.class" />
+ 		            	<include name="com/topcoder/web/tc/controller.request.authentication.Login.class" />
+ 		            	<include name="com/topcoder/security/TCSubject.class" />
+                         <include name="com/topcoder/security/GeneralSecurityException.class" />
  		            </classes>
+<!--
+                     <classes dir="${classes}">
+                         <include name="com/topcoder/common/**/*.class" />
+                         <include name="com/topcoder/web/common/**/*.class" />
+                         <include name="com/topcoder/web/ejb/**/*.class" />
+                         <include name="com/topcoder/web/forums/**/*.class" />
+                         <include name="com/topcoder/web/tc/**/*.class" />
+                         <include name="com/topcoder/security/**/*.class" />
+                     </classes>
+-->
  		        	<classes dir="${resources}/forums">
  		        		<include name="jive_init.xml" />
  		        	</classes>
@@ -1418,7 +1429,7 @@
  	 	         </java>
  	 	     </target>
 
- 	
+
  	<target name="run-ForumUserPropertiesConverter" depends="compile_forumData">
  	 	 	         <java classname="com.topcoder.utilities.forumConvert.ForumUserPropertiesConverter" fork="true">
  	 	 	         	<classpath>
@@ -1432,7 +1443,7 @@
  	 	 	         </java>
  	 	 	     </target>
 
-	
+
      <target name="comp_price" depends="compile">
          <java classname="com.topcoder.web.tc.model.SoftwareComponent" fork="false">
              <classpath>

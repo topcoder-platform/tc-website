@@ -4,11 +4,11 @@ import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.shared.security.SimpleUser;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
