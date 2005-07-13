@@ -3,38 +3,34 @@
  */
 package com.topcoder.web.forums.controller;
 
-import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.util.logging.Logger;
-
-import com.topcoder.web.forums.controller.request.ForumsProcessor;
-
-import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.RequestTracker;
-import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.security.TCSubject;
-import com.topcoder.web.tc.controller.request.authentication.Login;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Set;
-
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.ForumFactory;
+import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.forums.controller.request.ForumsProcessor;
+import com.topcoder.web.tc.controller.request.authentication.Login;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Set;
 
 /**
  * @author mtong
