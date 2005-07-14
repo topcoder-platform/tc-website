@@ -196,6 +196,7 @@
                 <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/<%=level1.equals("forums")?"clear":"nav_arrow_right"%>.gif" border="0"/>Forums</a></td></tr>
     <%-- Forums ends --%>
 
+
     <%-- Support/FAQs begins --%>
                     <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=help&d2=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support / FAQs</a></td></tr>
             <% if (level1.equals("support")) { %>
