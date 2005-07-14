@@ -24,6 +24,9 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.LightAuthentication;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
 
@@ -200,4 +203,13 @@ public class ForumsServlet extends BaseServlet {
 		ret = new CoderSessionInfo(request, auth, groups);
 		return ret;
 	}
+
+    protected WebAuthentication createAuthentication(TCRequest request,
+                                                     TCResponse response) throws Exception {
+        return new LightAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
+    }
+
+
 }
+
+
