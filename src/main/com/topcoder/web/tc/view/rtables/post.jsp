@@ -6,6 +6,7 @@
  */
 --%>
 
+<%--
 <%@ page
     language="java"
     import="java.util.*,
@@ -420,13 +421,13 @@ function tagCounter(field) {
 
             cnt++; idx+=4; continue;
 
-        } 
+        }
 
     }
 
     document.getElementById("Warning").style.display = (cnt > 0) ? "" : "none";
 
-}         
+}
 
   var reply = document.postForm
   var authorizedSubmit=false;
@@ -552,3 +553,4 @@ function tagCounter(field) {
    </BODY>
  </HTML>
 
+--%>

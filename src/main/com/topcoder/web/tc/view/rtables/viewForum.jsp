@@ -1,8 +1,15 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page language="java"%>
+<%
+response.sendRedirect(response.encodeRedirectURL("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/module=ThreadList&forumID="+request.getParameter("forum")));
+    %>
+
 <%--
 /**
  *  viewForum.jsp
  */
 --%>
+<%--
 <%@  page
   language="java"
   import="java.util.*,
@@ -57,8 +64,8 @@
 %>
 
 <%
-String checked1 = ""; 
-String checked2 = ""; 
+String checked1 = "";
+String checked2 = "";
 String checked3 = "";
 String checked4 = "";
 %>
@@ -126,7 +133,7 @@ String checked4 = "";
    // global variables
    // date formatter
 
-   SimpleDateFormat dateFormatter 
+   SimpleDateFormat dateFormatter
      = new SimpleDateFormat("EEE, MMM d yyyy 'at' hh:mm a z");
 
    // number of threads to display per page array:
@@ -232,10 +239,10 @@ String checked4 = "";
                                 <td width="2"><img src="/i/clear.gif" width="2" height="1" /></td>
                                 <td width="25%"><img src="/i/clear.gif" width="1" height="1" /></td>
                             </tr>
-                            
+
                             <tr>
                                 <td valign="bottom" align="left" colspan="7" class="statText">
-                                    <form action="">       
+                                    <form action="">
                                     <input type="hidden" name="forum" value="<%= forumID %>"/>
                                     <input type="hidden" name="start" value="<%= start %>"/>
 
@@ -271,7 +278,7 @@ String checked4 = "";
 
   <%  checked4="";} %>
 
-                            Show 
+                            Show
 
 <% if (responseURL=="") {%>
 
@@ -289,7 +296,7 @@ String checked4 = "";
 
 <%}%>
 
-                              &#160;Messages per page.  
+                              &#160;Messages per page.
 
                                     <noscript>
                                         <input type="submit" value="Change" class="statText">
@@ -297,10 +304,10 @@ String checked4 = "";
                                     </form><img src="/i/clear.gif" width="1" height="2" /><BR/>
                                 </td>
                             </tr>
-                  
-                            <tr><td valign="middle" colspan="7" class="statTextBig" background="/i/steel_gray_bg.gif" Height="18" >&#160;<b><%= forumName %></b> &#160;<font color="#ffffff">&#160;Threads: <%= numThreads %>, Messages: <%= numMessages %></font></td></tr> 
-                            
-                            <tr><td width="1" colspan="7"><img src="/i/clear.gif" width="1" height="1" /></td></tr>                                   
+
+                            <tr><td valign="middle" colspan="7" class="statTextBig" background="/i/steel_gray_bg.gif" Height="18" >&#160;<b><%= forumName %></b> &#160;<font color="#ffffff">&#160;Threads: <%= numThreads %>, Messages: <%= numMessages %></font></td></tr>
+
+                            <tr><td width="1" colspan="7"><img src="/i/clear.gif" width="1" height="1" /></td></tr>
 
                             <tr><td align="right" colspan="7" class="statText" Height="18">
 
@@ -358,7 +365,7 @@ String checked4 = "";
                                 <td background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="2" height="1" /></td>
                                 <td class="statText" valign="middle" background="/i/steel_bluebv_bg.gif"><b>Last Updated</b></td>
                            </tr>
-                           
+
                            <tr><td width="1" colspan="7"><img src="/i/clear.gif" width="1" height="3" /></td></tr>
 
 <% // get an iterator of threads
@@ -455,16 +462,16 @@ String checked4 = "";
 <% }%>
 
                             <tr><td width="1" colspan="7"><img src="/i/clear.gif" width="1" height="10" /></td></tr>
-                        </TABLE>    
+                        </TABLE>
                     </TD>
                     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                 </TR>
-                
-                <TR><TD COLSPAN="3" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>     
+
+                <TR><TD COLSPAN="3" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
             </TABLE>
-            
+
             <p><br></p>
-            
+
         </TD>
 <!-- Center Column Ends -->
 
@@ -481,3 +488,4 @@ String checked4 = "";
 
 </HTML>
 
+--%>

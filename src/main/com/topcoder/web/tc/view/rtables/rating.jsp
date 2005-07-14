@@ -1,5 +1,6 @@
 <%@ page language="java"%>
 
+<%--
 <%! String getUserDisplay(com.coolservlets.forum.User u) {
       String styleClass = "coderTextWhite";
       if ( u.getRating() > 2199 ) {
@@ -20,3 +21,4 @@
       else return "<SPAN class=\""+styleClass+"\">"+u.getUsername()+"</SPAN>";
     }
 %>
+--%>

@@ -1,8 +1,16 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page language="java"%>
+<%
+response.sendRedirect(response.encodeRedirectURL("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/module=Thread&threadID="+request.getParameter("thread")));
+    %>
+
+
 <%--
 /**
  *  viewThread.jsp
  */
 --%>
+<%--
 <%@  page
   language="java"
   import="java.io.*,
@@ -343,9 +351,9 @@ int numReplies = thread.getMessageCount()-1;
      <!---------end header table------------->
 
      <br>
+     --%>
 
-<%-- root message --%>
-                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+<%--                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
                             <tr>
                                 <td><img src="/i/clear.gif" width="1" height="1" /></td>
                                 <td><img src="/i/clear.gif" width="1" height="1" /></td>
@@ -430,3 +438,4 @@ int numReplies = thread.getMessageCount()-1;
 </HTML>
 
 
+--%>
