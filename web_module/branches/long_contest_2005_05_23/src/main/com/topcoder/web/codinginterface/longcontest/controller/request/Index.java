@@ -22,8 +22,6 @@ public class Index extends Base{
             DataAccessInt dataAccess = getDataAccess(false);
             Map m = dataAccess.getData(r);
             request.setAttribute(Constants.LONG_CONTEST_INDEX_KEY, m);
-            ResultSetContainer problems = (ResultSetContainer)m.get("long_problems");
-            //log.debug(problems);
             setNextPage(Constants.INDEX_JSP);
             setIsNextPageInContext(true);
         }catch(Exception e){
