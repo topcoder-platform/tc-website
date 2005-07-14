@@ -20,7 +20,7 @@
             first = true;
             buf.append(params).append('=').append(val);
         }
-        for (Iterator it = h.entrySet().iterator(); it.hasNext();) {
+        for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
             me = (Map.Entry)it.next();
             if(me.getKey().equals(params))continue;
             if(first){
@@ -34,8 +34,8 @@
     }
     String sort(String old, String col, int primary){
         StringBuffer sb = new StringBuffer(20);
-        if(col.equals("C") && primary == LongRoundResults.Record.CODER_ORDER 
-            || col.equals("T") && primary == LongRoundResults.Record.TOTAL_ORDER
+        if(col.equals("C") && primary == LongRoundResults.Record.CODER_SORT
+            || col.equals("T") && primary == LongRoundResults.Record.TOTAL_SORT
             || !col.equals("C") && !col.equals("T") && primary == Integer.parseInt(col)){
             sb.append('-');
         }
@@ -53,11 +53,11 @@
 %>
 <%
     ArrayList al = (ArrayList)request.getAttribute(Constants.RESULTS);
-    int startRow = ((Integer)request.getAttribte(Constants.START_ROW)).intValue();
-    int startCol = ((Integer)request.getAttribte(Constants.START_COL)).intValue();
-    int rowCount = ((Integer)request.getAttribte(Constants.ROW_COUNT)).intValue();
-    int colCount = ((Integer)request.getAttribte(Constants.COL_COUNT)).intValue();
-    int primary = ((Integer)request.getAttribte(Constants.PRIMARY_COLUMN)).intValue();
+    int startRow = ((Integer)request.getAttribute(Constants.START_ROW)).intValue();
+    int startCol = ((Integer)request.getAttribute(Constants.START_COL)).intValue();
+    int rowCount = ((Integer)request.getAttribute(Constants.ROW_COUNT)).intValue();
+    int colCount = ((Integer)request.getAttribute(Constants.COL_COUNT)).intValue();
+    int primary = ((Integer)request.getAttribute(Constants.PRIMARY_COLUMN)).intValue();
     String sort = (String)request.getParameter(Constants.SORT_ORDER);
 %>
 
@@ -65,17 +65,17 @@
 <table>
 <tr>
 <td>
-<A HREF="<%=buildHref(request.getParameterMap(), Consants.SORT_ORDER, sort(sort,"C",primary))%>">Handle</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,"C",primary))%>">Handle</A>
 </td>
 <%
 for(int i = startCol; i<startCol+colCount; i++){
 %>
     <td>
-    <A HREF="<%=buildHref(request.getParameterMap(), Consants.SORT_ORDER, sort(sort,String.valueOf(i),primary))%>"><%=i+1%></A>
+    <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,String.valueOf(i),primary))%>"><%=i+1%></A>
     </td>
 <%}%>
 <td>
-<A HREF="<%=buildHref(request.getParameterMap(), Consants.SORT_ORDER, sort(sort,"T",primary))%>">Final Score</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,"T",primary))%>">Final Score</A>
 </td>
 <%
 for(int i = startRow; i<startRow+rowCount; i++){
@@ -84,7 +84,7 @@ for(int i = startRow; i<startRow+rowCount; i++){
     <tr>
     <td><A HREF="longcontest?module=SubmissionHistory&<%=Constants.CODER_ID%>=<%=rec.getCoderID()%>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>">+</A>
     </td><td>
-    <A HREF="/tc?module=MemberProfile&cr=<%=rec.getCoderId()%>"><%=rec.getHandle()%></A> </td>
+    <A HREF="/tc?module=MemberProfile&cr=<%=rec.getCoderID()%>"><%=rec.getHandle()%></A> </td>
     <% for(int j = startCol; j<startCol+colCount; j++){ %>
         <td><%=rec.getTestScore(j)%></td>
     <%}%>

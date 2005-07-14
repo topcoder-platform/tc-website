@@ -34,7 +34,7 @@ public class ComponentScores extends Base{
             if(startCol == null)startCol = "0";
             if(rowCount == null)rowCount = Constants.DEFAULT_ROW_COUNT;
             if(colCount == null)colCount = Constants.DEFAULT_COL_COUNT;
-            if(sort == null)sort = "C";
+            if(sort == null)sort = "T";
             String key = "LongRoundsResults_"+cid+"_"+rd;
             try {
                 cc = CacheClientFactory.createCacheClient();
@@ -76,6 +76,7 @@ public class ComponentScores extends Base{
             request.setAttribute(Constants.ROW_COUNT, new Integer(rowCount));
             request.setAttribute(Constants.COL_COUNT, new Integer(colCount));
             request.setAttribute(Constants.PRIMARY_COLUMN, new Integer(order[0]));
+            request.setAttribute(Constants.SORT_ORDER,sort);
             setNextPage(Constants.RESULTS_TABLE_JSP);
             setIsNextPageInContext(true);
         }catch(Exception e){
