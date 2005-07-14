@@ -1,5 +1,6 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <br><br>
 <table border="0" cellspacing="0" cellpadding="0" width="525">
    <tr>
@@ -7,13 +8,26 @@
    </tr>
 
 <%--------------------------------------------------------%>
+<%--
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.14.05<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">New TopCoder Forums</A></span><br><br>
-      We're very excited to introduce the new TopCoder Forums. Some of the functionality we've added includes syntax highlighting, RSS, thread watch lists. post editing, and improved searching.
+      We're very excited to introduce the new TopCoder Forums. Some of the functionality we've added includes syntax highlighting, RSS, thread watch lists, post editing, post history listings for every member, and improved searching.
    </tr>
    <tr><td class="newsLinksCell">
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">view</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+--%>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.13.05<br>11:40 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></span><br><br>
+      See every TopCoder Coder of the Month and a description of the criteria we use to select them.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">view</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
