@@ -11,10 +11,10 @@
 
 
 <logic:equal name="compScores" property='type' value="1">
-Design | <html:link href="/ComponentScores.do?type=2">Development</html:link>
+Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getProjectId() %>Development</html:link>
 </logic:equal>
 <logic:equal name="compScores" property='type' value="2">
-<a href="/ComponentScores.do?type=1">Design </a> | Development
+<html:link href='<%= "ComponentScores.do?type=1&pid=" + compScores.getProjectId() %>Design </a> | Development
 </logic:equal>
 
 
@@ -59,19 +59,19 @@ Design | <html:link href="/ComponentScores.do?type=2">Development</html:link>
 		</td>
 		
 		<td>	
-			<a href='<%= "/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(0) + "&sid=" + subm.getUserID()  %>' >
+			<html:link href='<%= "reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(0) + "&sid=" + subm.getUserID()  %>' >
 				<bean:write name="subm" property="reviewScore[0]" />
-			</a>
+			</html:link>
 		</td>
 		<td>	
-			<a href='<%= "/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(1) + "&sid=" + subm.getUserID()  %>' >
+			<html:link href='<%= "reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(1) + "&sid=" + subm.getUserID()  %>' >
 				<bean:write name="subm" property="reviewScore[1]" />
-			</a>
+			</html:link>
 		</td>
 		<td>	
-			<a href='<%= "/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(2) + "&sid=" + subm.getUserID()  %>' >
+			<html:link href='<%= "reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(2) + "&sid=" + subm.getUserID()  %>' >
 				<bean:write name="subm" property="reviewScore[2]" />
-			</a>
+			</html:link>
 		</td>
 		<td>Final Score</td>
 		<td>Appeals</td>
