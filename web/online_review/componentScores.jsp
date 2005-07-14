@@ -4,8 +4,8 @@
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 
 <!-- bean:define id="theName" name="projectInfo" property="projectName" / -->
-<!-- FIX name -->
-<% String theTitle="Component Scores"; %>
 
-    <template:put name="content" content="componentScoresContent.jsp"/>
-
+    <template:insert template="componentScoresTemplate.jsp">
+    	<template:put name="title">Component Scores</template:put>
+        <template:put name="content" content="componentScoresContent.jsp"/>
+</template:insert>

@@ -11,33 +11,46 @@
 
 
 <logic:equal name="compScores" property='type' value="1">
-Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getProjectId() %>Development</html:link>
+Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getProjectId() %>'> Development</html:link>
 </logic:equal>
 <logic:equal name="compScores" property='type' value="2">
-<html:link href='<%= "ComponentScores.do?type=1&pid=" + compScores.getProjectId() %>Design </html:link> | Development
+<html:link href='<%= "ComponentScores.do?type=1&pid=" + compScores.getProjectId() %>'>Design </html:link> | Development
 </logic:equal>
 
+<br>
 
 <table border="1">
 	<tr>
+		<td>Placement</td>
 		<td>Developer</td>
 		<td>Submission</td>
 		<td>Screening</td>
 		<td> 
+		   <html:link href='<%= "http://www.topcoder.com/tc?module=MemberProfile&cr=" + compScores.getReviewerID(0) %>' >
+			<bean:write name="compScores" property="reviewerNames[0]"/> 
+		   </html:link>
 		
-		
-		<bean:write name="compScores" property="reviewerNames[0]"/> <br>
 			<logic:equal name="compScores" property='type' value="2">
+			<br>
 			   (<bean:write name="compScores" property="testCasesURL[0]"/> )
 			</logic:equal>
 		</td>
-		<td> <bean:write name="compScores" property="reviewerNames[1]"/> <br>
+		<td> 
+		   <html:link href='<%= "http://www.topcoder.com/tc?module=MemberProfile&cr=" + compScores.getReviewerID(1) %>' >
+			<bean:write name="compScores" property="reviewerNames[1]"/> 
+		   </html:link>
 			<logic:equal name="compScores" property='type' value="2">
+			<br>
 			   (<bean:write name="compScores" property="testCasesURL[1]"/> )
 			</logic:equal>
 		</td>
-		<td> <bean:write name="compScores" property="reviewerNames[2]"/> <br>
+		<td> 
+		<html:link href='<%= "http://www.topcoder.com/tc?module=MemberProfile&cr=" + compScores.getReviewerID(2) %>' >
+			<bean:write name="compScores" property="reviewerNames[2]"/> 
+		   </html:link>
+
 			<logic:equal name="compScores" property='type' value="2">
+			<br>
 			   (<bean:write name="compScores" property="testCasesURL[2]"/> )
 			</logic:equal>
 		</td>
@@ -48,14 +61,33 @@ Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getP
 <logic:iterate id="subm" name="compScores" property="submissions" type="com.topcoder.apps.review.document.SubmissionScores">
 	<tr>
 		<td>
+			<bean:write name="subm" property="placement"/>
+			
+		</td>
+		<td>
+		   <html:link href='<%= "http://www.topcoder.com/tc?module=MemberProfile&cr=" + subm.getUserID() %>' >
 			<bean:write name="subm" property="handle"/>
+		   </html:link>
+			
 		</td>
 		
+	
 		<td>
-			<bean:write name="subm" property="submissionURL"/>
+			<html:link href='<%= "submissionDownload.do?id=" + compScores.getProjectId() + "&sid=" + subm.getSubmissionID() %>' >
+			download
+			</html:link>
+			<logic:equal name="name="subm" property="placement" value="1">
+			( <html:link href='<%= "submissionDownload.do?id=" + compScores.getProjectId() + "&sid=-1" %>' >
+			  final submission
+			  </html:link>
+			)
+			</logic:equal>
+			
 		</td>
 		<td>
+		  <html:link href='<%= "screeningScorecard.do?action=view&id=" + compScores.getProjectId() + "&sid=" + subm.getUserID()  %>' >
 			<bean:write name="subm" property="screeningScore"/>
+		   </html:link>
 		</td>
 		
 		<td>	
@@ -73,7 +105,17 @@ Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getP
 				<bean:write name="subm" property="reviewScore[2]" />
 			</html:link>
 		</td>
-		<td>Final Score</td>
+		<td>
+		<logic:equal name="name="subm" property="placement" value="1">
+		<html:link href='<%= "aggregation.do?action=view&id=" + compScores.getProjectId() %>' >
+			<bean:write name="subm" property="finalScore" />
+		</html:link>
+		</logic:equal>
+		
+		<logic:notEqual name="name="subm" property="placement" value="1">
+			<bean:write name="subm" property="finalScore" />
+		</logic:notEqual>
+		</td>
 		<td>Appeals</td>
 		<td>Details</td>
 
