@@ -89,7 +89,7 @@ This member has not yet been rated in a competition.
             <tr><td class="cat">School:</td><td class="stat" align="right"><rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
             <% }%>
 <%--
-            <tr><td class="cat" colspan="2"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forums post history]</A></td>
+            <tr><td class="cat" colspan="2"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forum post history]</A></td>
 --%>
          </table>
       </td>
