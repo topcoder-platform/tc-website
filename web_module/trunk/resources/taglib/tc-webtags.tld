@@ -548,7 +548,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
+
     <tag>
         <name>format</name>
         <tagclass>com.topcoder.web.common.tag.FormatTag</tagclass>
@@ -597,7 +597,7 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
+
     <tag>
         <name>iterator</name>
         <tagclass>com.topcoder.web.common.tag.IteratorTag</tagclass>
@@ -609,11 +609,6 @@
         <attribute>
             <name>id</name>
             <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>list</name>
-            <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
