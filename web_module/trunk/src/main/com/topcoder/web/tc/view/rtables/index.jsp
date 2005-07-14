@@ -1,4 +1,10 @@
-<%@  page 
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page language="java"%>
+<%
+response.sendRedirect(response.encodeRedirectURL("http://"+ApplicationServer.FORUMS_SERVER_NAME));
+    %>
+<%--
+<%@  page
   language="java"
   import="java.util.*,
           java.io.*,
@@ -34,7 +40,7 @@
   if(rtUser.equals("")){
     authToken = authFactory.getAnonymousAuthorization();
     session.setAttribute("jiveAuthorization",authToken);
-  }else{    
+  }else{
     authToken = authFactory.getAuthorization(rtUser,rtPassword);
     session.setAttribute("jiveAuthorization",authToken);
   }
@@ -70,9 +76,9 @@
 <!-- Center Column Begins -->
       <TD class="statText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="round_tables"/>  
-           <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Topics"/>  
+           <jsp:param name="image" value="round_tables"/>
+           <jsp:param name="image1" value="steelblue"/>
+           <jsp:param name="title" value="Topics"/>
         </jsp:include>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
           <TR>
@@ -127,13 +133,13 @@
                         <TD VALIGN="top" ALIGN="left" CLASS="statText"><%=dateFormatter.format(forum.getModifiedDate())+(handle==null?"":" by "+getUserDisplay(forum.getUser()))%></TD>
                       </TR>
     <TR>
-      <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>    
+      <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
     </TR>
-<% 
+<%
   }
 %>
     <TR>
-      <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>    
+      <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
     </TR>
     <TR>
       <TD CLASS="statText" COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
@@ -144,9 +150,9 @@
   </TR>
   <TR>
     <TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>     
+  </TR>
 </TABLE>
-         
+
          <p><br></p>
 
     </TD>
@@ -164,3 +170,4 @@
 </HTML>
 
 
+--%>

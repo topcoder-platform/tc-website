@@ -1,3 +1,10 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page language="java"%>
+<%
+    response.sendRedirect(response.encodeRedirectURL("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Search"));
+%>
+
+<%--
 <%@  page
   language="java"
   import="java.util.*,
@@ -16,7 +23,7 @@
   String Redirect_URL = "http://" + request.getServerName();
   String responseURL = response.encodeURL("");
 
-%>        
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -56,7 +63,7 @@
   <TR>
     <TD BGCOLOR="#001B35" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%">
-        
+
         <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="10" BORDER="0"/><BR/>
 
                 <form action="/rtables/search.jsp" method="post" name="searchForm" onSubmit="return authorizedSubmit">
@@ -73,11 +80,11 @@
 
   }
 
-  
+
 
   // get the authToken as a way to get userID's below
 
-  Authorization authToken 
+  Authorization authToken
 
     = (Authorization)session.getAttribute("jiveAuthorization");
 
@@ -87,7 +94,7 @@
 
   // get parameters
 
-  
+
 
   boolean doSearch = ParamUtils.getBooleanParameter(request,"doSearch");
 
@@ -98,9 +105,9 @@
 
 %>
 
-     
 
-    
+
+
 
 <% if (responseURL=="") {
 
@@ -131,13 +138,13 @@
 %>
 
                 </TABLE>
-                
+
 
                 <!---------end header table------------->
 
                 <br>
 
-     
+
 
 <%  /////////////////
 
@@ -264,7 +271,7 @@ function submitEnter(e) {
 
 
 
-  
+
 
 <%  if( searchResults == null || !searchResults.hasNext() ) { %>
 
@@ -357,3 +364,4 @@ function submitEnter(e) {
 
 
 
+--%>
