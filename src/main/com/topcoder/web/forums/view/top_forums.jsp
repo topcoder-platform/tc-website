@@ -46,9 +46,9 @@
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <tr>
 <% if (level1.equals("development")) {%>
-        <td class=homeLogo><a href="/"><img src="/i/logo.gif" border="0"/></a></td>
+        <td class=homeLogo><a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/logo.gif" border="0"/></a></td>
 <% } else { %>
-        <td class=homeLogo><a href="/"><img src="/i/logo_r.gif" border="0"/></a></td>
+        <td class=homeLogo><a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/logo_r.gif" border="0"/></a></td>
 <% } %>
     </tr>
 </table>
