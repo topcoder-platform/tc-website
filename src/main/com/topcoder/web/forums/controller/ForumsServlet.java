@@ -11,6 +11,7 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.NavigationException;
@@ -158,7 +159,7 @@ public class ForumsServlet extends BaseServlet {
 
     protected void handleLogin(HttpServletRequest request, HttpServletResponse response, SessionInfo info) throws Exception {
         /* forward to the login page, with a message and a way back */
-        StringBuffer nextPage = new StringBuffer(LOGIN_SERVLET).append("?module=Login");
+        StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.SERVER_NAME).append(LOGIN_SERVLET).append("?module=Login");
 
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(info.getRequestString());
         nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
