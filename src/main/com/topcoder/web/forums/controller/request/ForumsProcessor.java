@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * Base class for forum-related processors, providing message and user data.
  */
-public abstract class ForumsProcessor extends BaseProcessor {
+public abstract class ForumsProcessor extends Base {
     protected HttpServletRequest httpRequest;
     protected HttpServletResponse httpResponse;
     protected AuthToken authToken;
