@@ -58,7 +58,7 @@
     int rowCount = ((Integer)request.getAttribute(Constants.ROW_COUNT)).intValue();
     int colCount = ((Integer)request.getAttribute(Constants.COL_COUNT)).intValue();
     int primary = ((Integer)request.getAttribute(Constants.PRIMARY_COLUMN)).intValue();
-    String sort = (String)request.getParameter(Constants.SORT_ORDER);
+    String sort = (String)request.getAttribute(Constants.SORT_ORDER);
 %>
 
 
