@@ -87,7 +87,7 @@ public class ForumsServlet extends BaseServlet {
 
 		    StringBuffer loginfo = new StringBuffer(100);
 		    loginfo.append("[**** ");
-            loginfo.append((forumUser == null) ? "anonymous" : forumUser.getUsername());
+            loginfo.append(info.getHandle());
 		    loginfo.append(" **** ");
 		    loginfo.append(request.getRemoteAddr());
 		    loginfo.append(" **** ");
