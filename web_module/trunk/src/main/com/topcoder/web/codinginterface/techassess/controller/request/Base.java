@@ -6,7 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.messaging.TimeExpiredException;
+import com.topcoder.shared.screening.common.TimeExpiredException;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;

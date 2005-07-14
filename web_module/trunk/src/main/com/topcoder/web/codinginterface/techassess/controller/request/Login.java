@@ -8,7 +8,7 @@ import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.messaging.TimeExpiredException;
+import com.topcoder.shared.screening.common.TimeExpiredException;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.dataAccess.QueryRequest;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
