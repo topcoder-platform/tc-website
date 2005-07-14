@@ -89,7 +89,7 @@
 <!-- Left Column Begins-->
 		<td width="180">
 			<jsp:include page="includes/global_left.jsp">
-				<jsp:param name="level1" value=""/>
+				<jsp:param name="level1" value="forums"/>
 				<jsp:param name="level2" value=""/>
 			</jsp:include>
 		</td>
