@@ -1046,17 +1046,25 @@
      </target>
 
      <target name="deploy-admin" depends="compile">
-         <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="ContestAdminServices"/>
+             <param name="unit-class-path" value="com/topcoder/ejb/ContestAdminServices"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/ContestAdminServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/Group.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/ContestAdminServices/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/ContestAdminServices" includes="*.xml"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
          </jar>
          <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
              <fileset dir="${java}/com/topcoder/web/admin/view">
                  <include name="**/*.jsp"/>
              </fileset>
              <classes dir="${classes}">
+                 <include name="com/topcoder/shared/util/"/>
+                 <include name="com/topcoder/shared/docGen/"/>
+                 <include name="com/topcoder/shared/dataAccess/"/>
                  <include name="com/topcoder/web/servlet/admin/"/>
                  <include name="com/topcoder/common/web/"/>
                  <include name="com/topcoder/web/common/"/>
@@ -1066,19 +1074,12 @@
                  <include name="rsc-taglib.tld"/>
                  <include name="tc-webtags.tld"/>
              </webinf>
-             <webinf dir="${resources}/admin">
-                 <include name="jboss-web.xml"/>
-             </webinf>
-         </war>
-         <unwar src="${war.dir}/admin.war" dest="${jboss_deploy}/admin.war/" overwrite="yes"/>
-         <delete dir="${jboss_deploy}/admin.war/META-INF"/>
 
-         <copy todir="${jboss_deploy}">
-             <fileset dir="${ejb_jars}">
-                 <include name="ContestAdminServices.jar"/>
-             </fileset>
-         </copy>
+         </war>
+         <unwar src="${war.dir}/admin.war" dest="${public_html}/admin/" overwrite="yes"/>
+         <delete dir="${public_html}/admin/META-INF"/>
      </target>
+
 
      <target name="deploy-security" depends="build-security">
          <copy todir="${jboss_deploy}">
