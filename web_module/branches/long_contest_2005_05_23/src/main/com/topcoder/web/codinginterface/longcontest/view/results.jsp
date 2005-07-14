@@ -58,6 +58,7 @@
     int rowCount = ((Integer)request.getAttribute(Constants.ROW_COUNT)).intValue();
     int colCount = ((Integer)request.getAttribute(Constants.COL_COUNT)).intValue();
     int primary = ((Integer)request.getAttribute(Constants.PRIMARY_COLUMN)).intValue();
+    int tests = ((LongRoundResults.Record)al.get(0)).getTests().size();
     String sort = (String)request.getAttribute(Constants.SORT_ORDER);
 %>
 
@@ -68,7 +69,7 @@
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,"C",primary))%>">Handle</A>
 </td>
 <%
-for(int i = startCol; i<startCol+colCount; i++){
+for(int i = startCol; i<tests && i<startCol+colCount; i++){
 %>
     <td>
     <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,String.valueOf(i),primary))%>"><%=i+1%></A>
@@ -78,14 +79,14 @@ for(int i = startCol; i<startCol+colCount; i++){
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,"T",primary))%>">Final Score</A>
 </td>
 <%
-for(int i = startRow; i<startRow+rowCount; i++){
+for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
     LongRoundResults.Record rec = (LongRoundResults.Record)al.get(i);
 %>
     <tr>
     <td><A HREF="longcontest?module=SubmissionHistory&<%=Constants.CODER_ID%>=<%=rec.getCoderID()%>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>">+</A>
     </td><td>
     <A HREF="/tc?module=MemberProfile&cr=<%=rec.getCoderID()%>"><%=rec.getHandle()%></A> </td>
-    <% for(int j = startCol; j<startCol+colCount; j++){ %>
+    <% for(int j = startCol; j<tests && j<startCol+colCount; j++){ %>
         <td><%=rec.getTestScore(j)%></td>
     <%}%>
     <td> <%=rec.getScore()%> </td>
