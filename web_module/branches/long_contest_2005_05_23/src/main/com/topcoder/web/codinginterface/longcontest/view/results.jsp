@@ -77,7 +77,7 @@
 for(int i = startCol; i<tests && i<startCol+colCount; i++){
 %>
     <td>
-    <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,String.valueOf(i),primary))%>"><%=i+1%></A>
+    <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,String.valueOf(i+1),primary))%>"><%=i+1%></A>
     </td>
 <%}%>
 <td>
