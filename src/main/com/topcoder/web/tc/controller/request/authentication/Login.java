@@ -25,7 +25,7 @@ public class Login extends Base {
     public static final String PASSWORD = "password";
     public static final String REMEMBER_USER = "rem";
     public static final String STATUS = "status";
-    
+
     public static final String STATUS_START = "start";
 
     protected void businessProcessing() throws TCWebException {
@@ -36,7 +36,7 @@ public class Login extends Base {
         // hack would be to parse out server name from //.../ in next page
         // find server name from sessionInfo
         SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-         
+
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
         log.debug("rememberUser: " + rememberUser);
@@ -65,18 +65,18 @@ public class Login extends Base {
                                 setIsNextPageInContext(true);
                                 return;
                             } else {
-                                log.debug("user active");           
-                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)); 
+                                log.debug("user active");
+                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                                 //StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Login");
                                 //StringBuffer nextPage = new StringBuffer("http://forums.topcoder.com/?module=Login");
-                                StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/forums?module=Login");
+                                StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/?module=Login");
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
                                 nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
                                 if (!rememberUser.equals("")) {
                                     nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
                                 }
                                 nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
-                                
+
                                 setNextPage(nextPage.toString());
                                 setIsNextPageInContext(false);
                                 log.debug("on successful login, going to " + nextPage.toString());
