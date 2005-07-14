@@ -31,6 +31,8 @@
      <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
      <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
      <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
+     <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
+
      <property environment="env"/>
 
      <property name="deprecation" value="true"/>
