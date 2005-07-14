@@ -10,34 +10,29 @@ public class SubmissionScores {
 
     private int userID;
 
-    private String handleURL;       // URL that points to the handle profile
+    private int submissionID;
 
-    private String submissionURL;   // link for downloading the submission
+    private int placement;
 
     private double screeningScore;
 
-    private String screeningURL;    // URL that points to the details of the screening
+    private double[] reviewScore;   // array with the 3 scores obtained in the reviews
 
-    private double []reviewScore;   // array with the 3 scores obtained in the reviews
-
-    private String []reviewURL;     // URL pointing to the details of the 3 reviews
-
-    private String appealsURL;   // FIX va??
+    private double finalScore;
 
     //Appeal []appeals;
 
 
-    public SubmissionScores() {
-        handle="arylio";
-        userID = 7489235;
+    public SubmissionScores(String handle, int userID, int submissionID, int placement,
+                            double screeningScore, double[] reviewScore, double finalScore) {
 
-        submissionURL="x";
-        screeningScore=92.7;
-        screeningURL = "y";
-        reviewScore = new double [3];
-        reviewScore[0]= 90;
-        reviewScore[1]= 93;
-        reviewScore[2]= 96;
+        this.handle = handle;
+        this.userID = userID;
+        this.submissionID = submissionID;
+        this.placement = placement;
+        this.screeningScore = screeningScore;
+        this.reviewScore = reviewScore;
+        this.finalScore = finalScore;
 
 
     }
@@ -46,28 +41,29 @@ public class SubmissionScores {
         return handle;
     }
 
-    public int  getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public String getSubmissionURL() {
-        return submissionURL;
+    public int getSubmissionID() {
+        return userID;
+    }
+
+    public int getPlacement() {
+        return placement;
     }
 
     public double getScreeningScore() {
         return screeningScore;
     }
 
-    public String getScreeningURL() {
-        return screeningURL;
-    }
-
     public double getReviewScore(int n) {
          return reviewScore[n];
     }
 
-    public String getReviewURL(int n) {
-         return reviewURL[n];
+    public double getFinalScore() {
+         return finalScore;
     }
+
 
 }

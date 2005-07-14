@@ -67,7 +67,6 @@ public class ComponentScores {
         return testCasesURL[n];
     }
 
-
     public SubmissionScores[] getSubmissions() {
         return submissions;
     }

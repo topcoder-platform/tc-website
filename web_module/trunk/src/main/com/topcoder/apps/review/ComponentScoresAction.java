@@ -61,8 +61,12 @@ public final class ComponentScoresAction extends BaseAction {
                                                                     new int[] {10022398, 11781622,  10650643 },
                                                                     new String[] { "slion", "tuenm","quickx0161" },
                                                                     new String [] { "a","b","c" },
-                                                                    new SubmissionScores[]  { new SubmissionScores(), new SubmissionScores(),new SubmissionScores() }
-                                                                    ));
+                                                                    new SubmissionScores[]  {
+
+        new SubmissionScores("arylio", 7489235, 15072115,1, 99.0, new double[] { 90, 93, 96}, 93.1),
+        new SubmissionScores("PE", 998760, 15072376,2, 93.0, new double[] { 80, 83, 86}, 83.1)  }  ));
+
+
 
 
 
