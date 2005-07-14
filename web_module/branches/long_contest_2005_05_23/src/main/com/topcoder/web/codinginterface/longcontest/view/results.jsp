@@ -77,7 +77,7 @@ for(int i = startCol; i<startCol+colCount; i++){
 <td>
 <A HREF="<%=buildHref(request.getParameterMap(), Consants.SORT_ORDER, sort(sort,"T",primary))%>">Final Score</A>
 </td>
-
+<%
 for(int i = startRow; i<startRow+rowCount; i++){
     LongRoundResults.Record rec = (LongRoundResults.Record)al.get(i);
 %>
