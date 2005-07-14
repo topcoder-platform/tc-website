@@ -59,12 +59,20 @@ Design | <html:link href="/ComponentScores.do?type=2">Development</html:link>
 		</td>
 		
 		<td>	
-			<a href='<%= "review/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(0) + " &sid=" + subm.getUserID()  %>' >
+			<a href='<%= "/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(0) + "&sid=" + subm.getUserID()  %>' >
 				<bean:write name="subm" property="reviewScore[0]" />
 			</a>
 		</td>
-		<td></td>
-		<td></td>
+		<td>	
+			<a href='<%= "/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(1) + "&sid=" + subm.getUserID()  %>' >
+				<bean:write name="subm" property="reviewScore[1]" />
+			</a>
+		</td>
+		<td>	
+			<a href='<%= "/reviewScorecard.do?action=view&id=" + compScores.getProjectId() +"&rid=" + compScores.getReviewerID(2) + "&sid=" + subm.getUserID()  %>' >
+				<bean:write name="subm" property="reviewScore[2]" />
+			</a>
+		</td>
 		<td>Final Score</td>
 		<td>Appeals</td>
 		<td>Details</td>
