@@ -50,7 +50,8 @@
          <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
          <pathelement location="${jars.dir}/ifxjdbc.jar"/>
          <pathelement location="${jars.dir}/bfograph.jar"/>
-     	 <pathelement location="${jars.dir}/weblog.jar"/>
+         <pathelement location="${jars.dir}/weblogicaux.jar"/>
+         <pathelement location="${jars.dir}/weblog.jar"/>
      	 <pathelement location="${jive.dir}/jivebase.jar"/>
      	 <pathelement location="${jive.dir}/jiveforums.jar"/>
      	 <pathelement location="${jive.dir}/xwork.jar"/>
