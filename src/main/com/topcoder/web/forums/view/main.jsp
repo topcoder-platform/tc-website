@@ -79,10 +79,14 @@
                         <% } %>
                     </tr>
                 </tc-webtag:iterator>
-                <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
+            </table>
+            
+            <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
+            <br><table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
 	                    <td class="rtHeader" width="80%"><jsp:getProperty name="category" property="name"/></td>
-	                    <td class="rtHeader" colspan="3"></td>
+	                    <td class="rtHeader" width="20%">T./M.</td>
+                        <td class="rtHeader" align="center" colspan="2">Last Post</td>
                     </tr>
                     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums()%>'>
 	                    <tr>
@@ -99,8 +103,8 @@
 	                        <% } %>
 	                    </tr>
                     </tc-webtag:iterator>
-                </tc-webtag:iterator>
             </table>
+            </tc-webtag:iterator>
             
             <table cellpadding="0" cellspacing="0" class="rtbcTable">
                 <tr>
