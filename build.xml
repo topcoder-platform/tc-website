@@ -1386,6 +1386,7 @@
                      <webinf dir="${resources}/forums">
                          <include name="jboss-web.xml"/>
                      </webinf>
+<!--
                      <lib dir="${jive.dir}">
                          <include name="jivebase.jar"/>
                          <include name="jiveforums.jar"/>
@@ -1393,6 +1394,7 @@
                          <include name="xwork.jar"/>
                          <include name="htmlparser.jar"/>
                      </lib>
+-->
                      <lib dir="${jars.dir}">
                          <include name="object_formatter.jar"/>
                      </lib>
