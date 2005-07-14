@@ -193,7 +193,7 @@
 <%-- Events ends --%>
 
 	<%-- Forums begins --%>
-                <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("forums")?"bottom":"right"%>.gif" border="0"/>Forums</a></td></tr>
+                <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/<%=level1.equals("forums")?"clear":"nav_arrow_right"%>.gif" border="0"/>Forums</a></td></tr>
     <%-- Forums ends --%>
 
     <%-- Support/FAQs begins --%>
