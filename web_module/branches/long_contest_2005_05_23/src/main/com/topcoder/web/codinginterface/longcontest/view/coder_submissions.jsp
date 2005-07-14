@@ -24,7 +24,7 @@
 <rsc:iterator list="<%=submissions%>" id="resultRow">
 <tr><td>
 <rsc:item name="submission_number" row="<%=resultRow%>"/>
-</td></tr>
+</td><td>
 <% if(over){ %>
 <A href="/longcontest/longcontest?module=ViewCode&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>&<%=Constants.CODER_ID%>=<rsc:item name="coder_id" row="<%=resultRow%>"/>&<%=Constants.SUBMISSION_NUMBER%>=<rsc:item name="submission_number" row="<%=resultRow%>"/>">
 <%}%>
