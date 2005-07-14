@@ -1220,6 +1220,7 @@
  		            	<include name="includes/global_left.jsp"/>
  		            	<include name="includes/modules/simpleSearch.jsp"/>
  		            </fileset>
+                     <!--
  		            <classes dir="${classes}">
  		                <include name="com/topcoder/web/common/*.class" />
                         <include name="com/topcoder/web/common/model/CoderSessionInfo.class" />
@@ -1229,7 +1230,7 @@
  		            	<include name="com/topcoder/security/TCSubject.class" />
                          <include name="com/topcoder/security/GeneralSecurityException.class" />
  		            </classes>
-<!--
+                     -->
                      <classes dir="${classes}">
                          <include name="com/topcoder/common/**/*.class" />
                          <include name="com/topcoder/web/common/**/*.class" />
@@ -1238,7 +1239,6 @@
                          <include name="com/topcoder/web/tc/**/*.class" />
                          <include name="com/topcoder/security/**/*.class" />
                      </classes>
--->
  		        	<classes dir="${resources}/forums">
  		        		<include name="jive_init.xml" />
  		        	</classes>
