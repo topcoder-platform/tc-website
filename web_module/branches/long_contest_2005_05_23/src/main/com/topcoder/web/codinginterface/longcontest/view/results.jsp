@@ -11,18 +11,18 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <%!
-    String buildHref(Map params, String param, String val){
+    String buildHref(Map params, String key, String val){
         StringBuffer buf = new StringBuffer(100);
         buf.append("longcontest?");
         Map.Entry me = null;
         boolean first = false;
         if(params != null){
             first = true;
-            buf.append(params).append('=').append(val);
+            buf.append(key).append('=').append(val);
         }
         for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
             me = (Map.Entry)it.next();
-            if(me.getKey().equals(params))continue;
+            if(me.getKey().equals(key))continue;
             if(first){
                 buf.append('&');
             }else{
@@ -65,6 +65,7 @@
 
 <table>
 <tr>
+<td></td>
 <td>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,"C",primary))%>">Handle</A>
 </td>
