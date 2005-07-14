@@ -67,8 +67,7 @@ public class Login extends Base {
                             } else {
                                 log.debug("user active");
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
-                                //StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Login");
-                                //StringBuffer nextPage = new StringBuffer("http://forums.topcoder.com/?module=Login");
+                                //todo make this https
                                 StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/?module=Login");
                                 nextPage.append("&").append(USER_NAME).append("=").append(username);
                                 nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
