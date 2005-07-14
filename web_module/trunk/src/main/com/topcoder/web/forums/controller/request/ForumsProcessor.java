@@ -27,6 +27,10 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected ForumFactory forumFactory;
     protected User user;
 
+
+    /* TODO there is redundant code stuff that seems to break the design.  hopefully this can be cleaned */
+
+
     /**
      * Subclasses should do their work by implementing this method.
      */
