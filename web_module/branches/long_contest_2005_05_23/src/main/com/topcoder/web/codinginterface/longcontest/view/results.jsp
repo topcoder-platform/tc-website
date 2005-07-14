@@ -28,7 +28,11 @@
             }else{
                 first = true;
             }
-            buf.append(me.getKey()).append('=').append(me.getValue());
+            String[] s = (String[])me.getValue();
+            buf.append(me.getKey()).append('=').append(s[0]);
+            for(int i = 1; i<s.length; i++){
+                buf.append('&').append(me.getKey()).append('=').append(s[i]);
+            }
         }
         return buf.toString();
     }
