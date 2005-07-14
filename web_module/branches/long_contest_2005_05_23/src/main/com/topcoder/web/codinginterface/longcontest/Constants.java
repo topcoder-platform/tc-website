@@ -36,6 +36,17 @@ public class Constants implements CodingInterfaceConstants {
     public static String COMPILE_STATUS;
     public static String LANGUAGES;
     public static String SUBMISSION_NUMBER;
+    public static int RESULTS_REFRESH;
+    public static String SORT_ORDER;
+    public static String RESULTS_TABLE_JSP;
+    public static String RESULTS;
+    public static String START_ROW;
+    public static String START_COL;
+    public static String COL_COUNT;
+    public static String ROW_COUNT;
+    public static String DEFAULT_COL_COUNT;
+    public static String DEFAULT_ROW_COUNT;
+    public static String PRIMARY_COLUMN;
 
     static {
         initialize();
