@@ -34,7 +34,7 @@ public class ComponentScores extends Base{
             if(startCol == null)startCol = "0";
             if(rowCount == null)rowCount = Constants.DEFAULT_ROW_COUNT;
             if(colCount == null)colCount = Constants.DEFAULT_COL_COUNT;
-            if(sort == null)sort = "S";
+            if(sort == null)sort = "C";
             String key = "LongRoundsResults_"+cid+"_"+rd;
             try {
                 cc = CacheClientFactory.createCacheClient();
