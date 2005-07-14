@@ -389,6 +389,7 @@ public final class MainServlet extends BaseServlet {
             document.addTag(new ValueTag("Host", request.getServerName()));
             document.addTag(new ValueTag("CorpHost", ApplicationServer.CORP_SERVER_NAME));
             document.addTag(new ValueTag("SoftwareHost", ApplicationServer.SOFTWARE_SERVER_NAME));
+            document.addTag(new ValueTag("ForumsHost", ApplicationServer.FORUMS_SERVER_NAME));
             document.addTag(new ValueTag("Task", Conversion.checkNull(request.getParameter("t"))));
             document.addTag(new ValueTag("Command", Conversion.checkNull(request.getParameter("c"))));
             SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy");
