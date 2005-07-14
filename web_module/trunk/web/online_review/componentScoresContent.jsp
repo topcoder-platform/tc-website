@@ -14,7 +14,7 @@
 Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getProjectId() %>Development</html:link>
 </logic:equal>
 <logic:equal name="compScores" property='type' value="2">
-<html:link href='<%= "ComponentScores.do?type=1&pid=" + compScores.getProjectId() %>Design </a> | Development
+<html:link href='<%= "ComponentScores.do?type=1&pid=" + compScores.getProjectId() %>Design </html:link> | Development
 </logic:equal>
 
 
