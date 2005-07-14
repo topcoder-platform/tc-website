@@ -31,13 +31,13 @@
             <strong>Hello, </strong>
 
             <tc-webtag:handle darkBG="true" coderId="<%=user.getID()%>"/>
-            &#160;&#160;|&#160;&#160;<a href="<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout" class=loginLinks>Logout</a>
-            &#160;&#160;|&#160;&#160;<a href="<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Update Profile</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout" class=loginLinks>Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>
-            <a href="<%=ApplicationServer.SERVER_NAME%>/tc?module=Login" class=loginLinks>Login</a>
-            &#160;&#160;|&#160;&#160;<a href="<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Register</a>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Login" class=loginLinks>Login</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Register</a>
 <%}%>
-            &#160;&#160;|&#160;&#160;<a href="<%=ApplicationServer.SERVER_NAME%>/" class=loginLinks>Home</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/" class=loginLinks>Home</a>
         </td>
     </tr>
 </table>
