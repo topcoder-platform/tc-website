@@ -193,12 +193,9 @@
  	             deprecation="${deprecation}"
  	             debug="${debug}"
  	             >
- 	             <include name="com/topcoder/web/forums/**"/>
- 	             <include name="com/topcoder/web/common/**"/>
+ 	             <include name="com/topcoder/web/**"/>
 	         	 <include name="com/topcoder/security/**"/>
  	         	 <include name="com/topcoder/common/web/data/**"/>
- 	         	 <include name="com/topcoder/web/tc/**"/>
- 	         	 <include name="com/topcoder/web/ejb/**"/>
  	         	 <include name="com/topcoder/ejb/**"/>
  	         </javac>
  	     </target>
