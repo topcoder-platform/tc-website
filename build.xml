@@ -272,6 +272,7 @@
  	         <fileset dir="${classes}/">
  	             <include name="com/topcoder/web/forums/model/TCUser.class"/>
  	             <include name="com/topcoder/web/forums/model/TCUserManager.class"/>
+                  <include name="com/topcoder/web/forums/model/Common.class"/>
  	         </fileset>
  	     </jar>
  	 </target>
