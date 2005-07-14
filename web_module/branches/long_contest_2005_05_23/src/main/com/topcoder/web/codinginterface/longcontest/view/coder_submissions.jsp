@@ -15,7 +15,7 @@
     m = (Map)request.getAttribute(Constants.LONG_CONTEST_CODER_SUBMISSIONS_KEY);
     ResultSetContainer submissions = (ResultSetContainer)m.get("long_coder_submissions");
     ResultSetContainer tmp = (ResultSetContainer)m.get("long_contest_over");
-    boolean over = tmp.getIntItem(0,0)>0;
+    boolean over = tmp.getBooleanItem(0,0);
     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 %>
 
