@@ -193,9 +193,12 @@
  	             deprecation="${deprecation}"
  	             debug="${debug}"
  	             >
- 	             <include name="com/topcoder/web/**"/>
+ 	             <include name="com/topcoder/web/forums/**"/>
+ 	             <include name="com/topcoder/web/common/**"/>
 	         	 <include name="com/topcoder/security/**"/>
  	         	 <include name="com/topcoder/common/web/data/**"/>
+ 	         	 <include name="com/topcoder/web/tc/**"/>
+ 	         	 <include name="com/topcoder/web/ejb/**"/>
  	         	 <include name="com/topcoder/ejb/**"/>
  	         </javac>
  	     </target>
@@ -1199,7 +1202,7 @@
          <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
      </target>
 
- 	<target name="war-forums" depends="compile_forums">
+ 	<target name="war-forums" depends="compile">
  		        <war warfile="${war.dir}/forums.war" webxml="${resources}/forums/web.xml">
  		            <fileset dir="${java}/com/topcoder/web/forums/view">
  		                <include name="*.*"/>
