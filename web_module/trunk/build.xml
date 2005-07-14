@@ -294,6 +294,552 @@
          </jar>
      </target>
 
+
+
+         <target name="package-EJB-FileConversionBean" depends="compile">
+        <!--<antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="FileConversion"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/fileconversion"/>
+        </antcall>-->
+        <jar jarfile="${ejb_jars}/FileConversion.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+	    <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/fileconversion/**"/>
+	    <metainf dir="${java}/com/topcoder/web/ejb/fileconversion" includes="*.xml"/>
+        </jar>
+    </target>
+
+     <target name="package-EJB-QueryServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="QueryServices"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/query"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/QueryServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-JobPostingServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="JobPostingServices"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/jobposting"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/JobPostingServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-ResumeServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="ResumeServices"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/resume"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/ResumeServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/resume/bean/Resume.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/resume/bean/Resume.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-ReportingBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Reporting"/>
+             <param name="unit-class-path" value="com/topcoder/ejb/Reporting"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Reporting.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/report/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+         </jar>
+     </target>
+
+<!--
+     <target name="package-EJB-RequestServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="RequestServices"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/requestservices"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Reporting.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+         </jar>
+     </target>
+-->
+
+     <target name="package-EJB-ProjectServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="ProjectServices"/>
+             <param name="unit-class-path" value="com/topcoder/web/project/ejb/ProjectServices"/>
+         </antcall>
+     </target>
+
+     <target name="package-EJB-SearchBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Search"/>
+             <param name="unit-class-path" value="com/topcoder/ejb/Search"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Search.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/Sort.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/stat/coder/Coder.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/*.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-PactsServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="PactsServices"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/pacts"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/PactsServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/messaging/QueueMessageSender.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-JavaDocServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="JavaDocServices"/>
+             <param name="unit-class-path" value="com/topcoder/ejb/JavaDocServices"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/JavaDocServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-AuthenticationServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="AuthenticationServices"/>
+             <param name="unit-class-path" value="com/topcoder/ejb/AuthenticationServices"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/AuthenticationServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-EmailServicesBean" depends="compile">
+         <delete dir="${classes}/ejb-stuff"/>
+         <mkdir dir="${classes}/ejb-stuff"/>
+
+         <jar jarfile="${classes}/ejb-stuff/EmailServices.jar">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/EmailServices/**/*.class"/>
+             <zipfileset dir="${shared}/com/topcoder/shared/ejb/EmailServices" includes="*.xml" prefix="META-INF"/>
+         </jar>
+         <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
+             <sysproperty key="compiler" value="javac"/>
+             <sysproperty key="classpath" path="class.path"/>
+             <arg line="${classes}/ejb-stuff/EmailServices.jar ${ejb_jars}/EmailServices.jar"/>
+         </java>
+         <echo message="EmailServices.jar done"/>
+     </target>
+
+     <target name="package-EJB-DataCacheBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="DataCache"/>
+             <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/DataCache.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-UtilBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Util"/>
+             <param name="unit-class-path" value="com/topcoder/ejb/Util"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Util.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-CoderBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Coder"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/coder"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Coder.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-ImageBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Image"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/image"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Image.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/idgeneratorclient/IdGeneratorClient.class"/>
+         </jar>
+     </target>
+
+
+     <target name="package-EJB-DemographicBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Demographic"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/demographic"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Demographic.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-UserBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="User"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/User.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+         </jar>
+     </target>
+
+
+     <target name="package-EJB-SchoolBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="School"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/school"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/School.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-RatingBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Rating"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/rating"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Rating.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-SurveyBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Survey"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/survey"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Survey.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-ProblemRatingBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="ProblemRatingServices"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/problemrating"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/ProblemRatingServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+         </jar>
+     </target>
+
+
+     <target name="package-EJB-EmailBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Email"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Email.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-AddressBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Address"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Address.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-RBoard" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="RBoard"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/rboard"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/RBoard.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-PhoneBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Phone"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Phone.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-ProductBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Product"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Product.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-UserEvent" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="UserEvent"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/userevent"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/UserEvent.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+         </jar>
+     </target>
+
+
+     <target name="package-EJB-NoteBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Note"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Note.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-SessionBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Session"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Session.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-SessionProfileBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="SessionProfile"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/SessionProfile.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-TermsOfUseBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="TermsOfUse"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/TermsOfUse.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-CompanyBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="Company"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/Company.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-ScreeningCoderBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="ScreeningCoder"/>
+             <param name="unit-class-path" value="com/topcoder/web/corp/ejb/coder"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/ScreeningCoder.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-UserServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="UserServices"/>
+             <param name="unit-class-path" value="com/topcoder/ejb/UserServices"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/UserServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/RecordTag.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/XMLDocument.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared.util.ApplicationServer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemoteHome.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemote.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserHome.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/Email.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/EmailHome.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserAddress.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserAddressHome.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/AddressHome.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/Address.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/PhoneHome.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/Phone.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-PasswordBean" depends="compile">
+         <jar
+             jarfile="${ejb_jars}/password.jar"
+             basedir="${classes}"
+             includes="com/topcoder/web/ejb/password/**">
+             <metainf dir="${java}/com/topcoder/web/ejb/password" includes="*.xml"/>
+         </jar>
+     </target>
+
+     <!-- Since Screening Tool 1.1 -->
+     <target name="package-EJB-PreferenceLevelBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="PreferenceLevel"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/preferencelevel"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/PreferenceLevel.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/corp/common/NoSuchPreferenceLevelException.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/corp/common/DuplicatePreferenceLevelException.class"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-CoderSkillBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="CoderSkill"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/coderskill"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/CoderSkill.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coderskill/*"/>
+         </jar>
+     </target>
+
+     <target name="package-EJB-ComponentRegistrationServicesBean" depends="compile">
+         <antcall target="build-ejb-unit">
+             <param name="unit-jar-name" value="ComponentRegistrationServices"/>
+             <param name="unit-class-path" value="com/topcoder/web/ejb/ComponentRegistrationServices"/>
+         </antcall>
+         <jar jarfile="${ejb_jars}/ComponentRegistrationServices.jar" update="true">
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/ComponentRegistrationServices/*"/>
+         </jar>
+     </target>
+
+
+
+
      <target name="package-EJB-Catalog" depends="compile_dde">
          <jar jarfile="${ejb_jars}/catalog.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/dde/catalog/*.class"/>
@@ -328,372 +874,6 @@
          </jar>
      </target>
 
-
-     <target name="package-EJB-FileConversionBean" depends="compile">
-         <jar jarfile="${ejb_jars}/FileConversion.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/file/convert/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/fileconversion/**"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/fileconversion" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-QueryServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/QueryServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/query/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/query" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-JobPostingServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/JobPostingServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/jobposting/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/jobposting" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-ResumeServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/ResumeServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/resume/bean/Resume.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/resume/bean/Resume.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/resume/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/resume" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-ReportingBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Reporting.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/report/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/Reporting/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/Reporting" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-SearchBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Search.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/Sort.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/stat/coder/Coder.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/Search/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/Search" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-PactsServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/PactsServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-JavaDocServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/JavaDocServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/JavaDocServices/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/JavaDocServices" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-AuthenticationServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/AuthenticationServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/AuthenticationServices" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-EmailServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/EmailServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/EmailServices/*.class"/>
-             <metainf dir="${shared}/com/topcoder/shared/ejb/EmailServices" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-DataCacheBean" depends="compile">
-         <jar jarfile="${ejb_jars}/DataCache.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/DataCache/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/DataCache" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-UtilBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Util.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/Util/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/Util" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-CoderBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Coder.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coder/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/coder" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-DemographicBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Demographic.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/demographic/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/demographic" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-UserBean" depends="compile">
-         <jar jarfile="${ejb_jars}/User.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/user" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-SchoolBean" depends="compile">
-         <jar jarfile="${ejb_jars}/School.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/school/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/school" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-RatingBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Rating.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/rating/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/rating" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-SurveyBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Survey.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/survey/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/survey" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-ProblemRatingBean" depends="compile">
-         <jar jarfile="${ejb_jars}/ProblemRatingServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/problemrating/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/problemrating" includes="*.xml"/>
-         </jar>
-     </target>
-
-
-     <target name="package-EJB-EmailBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Email.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/email" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-AddressBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Address.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/address" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-RBoard" depends="compile">
-         <jar jarfile="${ejb_jars}/RBoard.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/rboard/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/rboard" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-PhoneBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Phone.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/phone" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-ProductBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Product.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/product/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/product" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-UserEvent" depends="compile">
-         <jar jarfile="${ejb_jars}/UserEvent.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/userevent/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/userevent" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-NoteBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Note.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/note/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/note" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-SessionBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Session.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/session/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/session" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-SessionProfileBean" depends="compile">
-         <jar jarfile="${ejb_jars}/SessionProfile.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/sessionprofile/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/sessionprofile" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-TermsOfUseBean" depends="compile">
-         <jar jarfile="${ejb_jars}/TermsOfUse.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/termsofuse/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/termsofuse" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-CompanyBean" depends="compile">
-         <jar jarfile="${ejb_jars}/Company.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/IdGenerator.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/sql/SimpleDB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/company/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/company" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-ScreeningCoderBean" depends="compile">
-         <jar jarfile="${ejb_jars}/ScreeningCoder.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/corp/ejb/coder/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/corp/ejb/coder" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-UserServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/UserServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemoteHome.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/password/PasswordRemote.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserHome.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/Email.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/email/EmailHome.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserAddress.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/UserAddressHome.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/AddressHome.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/address/Address.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/PhoneHome.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/phone/Phone.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/ejb/UserServices/*.class"/>
-             <metainf dir="${java}/com/topcoder/ejb/UserServices" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-PasswordBean" depends="compile">
-         <jar
-             jarfile="${ejb_jars}/Password.jar"
-             basedir="${classes}"
-             includes="com/topcoder/web/ejb/password/**">
-             <metainf dir="${java}/com/topcoder/web/ejb/password" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <!-- Since Screening Tool 1.1 -->
-     <target name="package-EJB-PreferenceLevelBean" depends="compile">
-         <jar jarfile="${ejb_jars}/PreferenceLevel.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/TCWebException.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/preferencelevel/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/preferencelevel" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-CoderSkillBean" depends="compile">
-         <jar jarfile="${ejb_jars}/CoderSkill.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coderskill/*"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coderskill/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/coderskill" includes="*.xml"/>
-         </jar>
-     </target>
-
-     <target name="package-EJB-ComponentRegistrationServicesBean" depends="compile">
-         <jar jarfile="${ejb_jars}/ComponentRegistrationServices.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/ComponentRegistrationServices/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/ComponentRegistrationServices" includes="*.xml"/>
-         </jar>
-     </target>
 
 
      <target name="deploy">
