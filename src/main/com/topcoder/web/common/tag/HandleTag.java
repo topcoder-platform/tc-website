@@ -108,7 +108,9 @@ public class HandleTag extends TagSupport {
                     rating = max(rsc.getIntItem(0, "design_rating"),
                             rsc.getIntItem(0, "development_rating"));
                 } else {
-                    rating = max(rsc.getIntItem(0, "algorithm_rating"),
+                    // special case for admins
+                    if (rsc.getIntItem(0, "algorithm_rating")<0) rating =rsc.getIntItem(0, "algorithm_rating");
+                    else rating = max(rsc.getIntItem(0, "algorithm_rating"),
                             rsc.getIntItem(0, "design_rating"),
                             rsc.getIntItem(0, "development_rating"));
                 }
