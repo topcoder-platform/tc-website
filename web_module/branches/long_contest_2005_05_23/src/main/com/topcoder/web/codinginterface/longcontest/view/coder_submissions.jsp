@@ -31,7 +31,7 @@
 </A>
 <%}%>
 </td><td>
-<rsc:item name="score" row="<%=resultRow%>"/>
+<rsc:item name="submission_points" row="<%=resultRow%>"/>
 </td></tr>
 </rsc:iterator>
 </table>
