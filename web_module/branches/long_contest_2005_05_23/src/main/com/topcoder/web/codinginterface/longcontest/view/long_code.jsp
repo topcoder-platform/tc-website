@@ -13,7 +13,7 @@
     ResultSetContainer.ResultSetRow p;
     m = (Map)request.getAttribute(Constants.LONG_CODE_KEY);
     ResultSetContainer rsc = (ResultSetContainer)m.get("long_code");
-    String code = rsc.getString(0,0);
+    String code = rsc.getStringItem(0,0);
 %>
 
 <%=code%>
