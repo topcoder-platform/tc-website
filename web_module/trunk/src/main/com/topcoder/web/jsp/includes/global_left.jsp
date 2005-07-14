@@ -94,7 +94,7 @@
                         <tr><td id="<%=level2.equals("pacts")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="http://<%=ApplicationServer.SERVER_NAME%>/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</A></td></tr>
                     <% } %>
                 <% } %>
-                <tr><td id="<%=level2.equals("rTables")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/rtables/viewForum.jsp?forum=205768&mc=916" class="<%=level2.equals("rTables")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("rTables")?"bottom":"right"%>.gif" alt="" border="0"/>TC Developer Round Tables</a></td></tr>
+                <tr><td id="<%=level2.equals("rTables")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=205768&sortField=9&sortOrder=0" class="<%=level2.equals("rTables")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("rTables")?"bottom":"right"%>.gif" alt="" border="0"/>Component Competition Discussion</a></td></tr>
                 <tr><td id="<%=level2.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_active_collab.jsp?ft=2" class="<%=level2.equals("forums")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("forums")?"bottom":"right"%>.gif" alt="" border="0"/>TCS Developer Forums</a></td></tr>
                 <tr><td id="<%=level2.equals("components")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=comp_projects" class="<%=level2.equals("components")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("components")?"bottom":"right"%>.gif" alt="" border="0"/>Components</a></td></tr>
                 <% if (level2.equals("components")) { %>
@@ -192,9 +192,9 @@
             <% } %>
 <%-- Events ends --%>
 
-	<%-- Round Tables begins --%>
-                <tr><td id="<%=level1.equals("rtables")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/rtables/index.jsp" class="<%=level1.equals("rtables")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("rtables")?"bottom":"right"%>.gif" border="0"/>Round Tables (Forums)</a></td></tr>
-    <%-- Round Tables ends --%>
+	<%-- Forums begins --%>
+                <tr><td id="<%=level1.equals("forums")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>" class="<%=level1.equals("forums")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("forums")?"bottom":"right"%>.gif" border="0"/>Forums</a></td></tr>
+    <%-- Forums ends --%>
 
     <%-- Support/FAQs begins --%>
                     <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=help&d2=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support / FAQs</a></td></tr>
