@@ -12,7 +12,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.14.05<br>6:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">New TopCoder Forums</A></span><br><br>
-      We're very excited to introduce the new TopCoder Forums. Some of the functionality we've added includes syntax highlighting, RSS, thread watch lists, post editing, post history listings for every member, and improved searching.
+      We're very excited to introduce the new TopCoder Forums. Some of the functionality we've added includes syntax highlighting, RSS, thread watch lists, post previewing, post editing, post history listings for every member, and improved searching.
    </tr>
    <tr><td class="newsLinksCell">
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">view</A>&#160;|&#160;

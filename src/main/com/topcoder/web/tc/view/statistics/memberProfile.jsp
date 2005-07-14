@@ -2,6 +2,7 @@
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.Map"%>
 
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -86,10 +87,10 @@ This member has not yet been rated in a competition.
             <tr><td class="cat">Country:</td><td class="stat" align="right"><rsc:item name="country_name" set="<%=rscCoderData%>"/></td></tr>
             <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
             <tr><td class="cat">School:</td><td class="stat" align="right"><rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
-<%--
-            <tr><td class="cat" colspan="2"><A href="/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forums post history]</A></td>
---%>
             <% }%>
+<%--
+            <tr><td class="cat" colspan="2"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forums post history]</A></td>
+--%>
          </table>
       </td>
       <td class="quoteCell">
