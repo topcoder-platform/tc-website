@@ -1223,8 +1223,7 @@
  		            <classes dir="${classes}">
  		                <include name="com/topcoder/web/common/*.class" />
                         <include name="com/topcoder/web/common/model/CoderSessionInfo.class" />
-                        <include name="com/topcoder/web/common/security/WebAuthentication.class" />
-                         <include name="com/topcoder/web/common/security/BasicAuthentication.class" />
+                        <include name="com/topcoder/web/common/security/*.class" />
  		            	<include name="com/topcoder/web/forums/**/*.class" />
  		            	<include name="com/topcoder/web/tc/controller.request.authentication.Login.class" />
  		            	<include name="com/topcoder/security/TCSubject.class" />
