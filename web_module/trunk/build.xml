@@ -874,6 +874,36 @@
          </jar>
      </target>
 
+     <target name="build-ejb-unit" depends="compile">
+         <property name="deploy-desc-path" value="${unit-class-path}"/>
+         <!-- check if rebuild required -->
+         <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}.jar">
+             <srcfiles dir="${classes}" includes="${unit-class-path}/**/*.class"/>
+             <srcfiles dir="${java}/${deploy-desc-path}" includes="*.xml"/>
+         </uptodate>
+         <antcall target="conditional-build-ejb-unit"/>
+     </target>
+
+     <target name="conditional-build-ejb-unit" unless="remake-ejb-unit">
+         <!-- recreate -->
+         <property name="tmp-dir" value="${classes}/ejb-stuff"/>
+         <delete dir="${tmp-dir}"/>
+         <mkdir dir="${tmp-dir}"/>
+         <!-- zip 'sources' -->
+         <echo message="getting deployment descriptors from ${deploy-desc-path}"/>
+         <jar jarfile="${tmp-dir}/${unit-jar-name}.jar">
+             <zipfileset dir="${classes}" includes="${unit-class-path}/**/*.class"/>
+             <zipfileset dir="${java}/${deploy-desc-path}" includes="*.xml" prefix="META-INF"/>
+         </jar>
+         <!-- rmi-iiop for weblogic -->
+         <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
+             <sysproperty key="compiler" value="javac"/>
+             <sysproperty key="classpath" path="class.path"/>
+             <arg line="${tmp-dir}/${unit-jar-name}.jar ${ejb_jars}/${unit-jar-name}.jar"/>
+         </java>
+         <echo message="${unit-jar-name}.jar done"/>
+     </target>
+
 
 
      <target name="deploy">
