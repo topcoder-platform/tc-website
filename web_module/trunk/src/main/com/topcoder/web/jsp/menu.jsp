@@ -16,11 +16,11 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-        <td class="topNav" nowrap><A href="/tc" class="topLink">Competition Home</A></td>
+        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="topLink">Competition Home</A></td>
 
-        <td class="topNav" nowrap><A href="/?t=development&c=index" class="topLink">Development</A></td>
+        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=index" class="topLink">Development</A></td>
 
-        <td class="topNav" nowrap><A href="/tc?module=Static&d1=contracting&d2=index" class="topLink">Employment Opportunities</A></td>
+        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=contracting&d2=index" class="topLink">Employment Opportunities</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>

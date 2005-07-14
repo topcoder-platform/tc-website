@@ -7,7 +7,7 @@ package com.topcoder.web.forums;
  * @author mtong
  */
 public interface ForumConstants {
-    public final static String FORUMS_DIR = "/forums/";
+    public final static String FORUMS_DIR = "/";
     
     public final static String CATEGORY_ID = "categoryID";
 	public final static String FORUM_ID = "forumID";

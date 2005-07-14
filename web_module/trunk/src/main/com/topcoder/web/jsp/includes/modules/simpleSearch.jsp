@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.common.WebConstants"%>
+<%@ page import="com.topcoder.web.common.WebConstants,
+                 com.topcoder.shared.util.ApplicationServer" %>
 <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr>
                     <td id="leftNavTitle">
@@ -23,7 +24,7 @@
                             </tr>
 
                             <tr>
-                                <td class="statTextBig" colspan="2" nowrap>&#160;<A href="/tc?module=ViewAdvanced"><strong>Advanced Search</strong></A></td></form>
+                                <td class="statTextBig" colspan="2" nowrap>&#160;<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAdvanced"><strong>Advanced Search</strong></A></td></form>
                             </tr>
                         </table>
                     </td>

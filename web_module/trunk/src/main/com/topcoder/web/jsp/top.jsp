@@ -46,14 +46,14 @@
         <td class=homeTopBar width="100%" align=right valign="bottom">
 <% if ( !sessionInfo.isAnonymous() ) { %>
             <strong>Hello, </strong><span class="smallText">&#160;
-            <a href="/tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a></span>
-            &#160;&#160;|&#160;&#160;<a href="/tc?&amp;module=Logout" class=loginLinks>Logout</a>
-            &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Update Profile</a>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a></span>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Logout" class=loginLinks>Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>
-            <a href="/tc?&module=Login" class=loginLinks>Login</a>
-            &#160;&#160;|&#160;&#160;<a href="/Registration" class=loginLinks>Register</a>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login" class=loginLinks>Login</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Register</a>
 <%}%>
-            &#160;&#160;|&#160;&#160;<a href="/" class=loginLinks>Home</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/" class=loginLinks>Home</a>
         </td>
     </tr>
 </table>
@@ -62,9 +62,9 @@
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
     <tr>
 <% if (level1.equals("development")) {%>
-        <td class=homeLogo><a href="/"><img src="/i/logo.gif" border="0"/></a></td>
+        <td class=homeLogo><a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/logo.gif" border="0"/></a></td>
 <% } else { %>
-		<td class=homeLogo><a href="/"><img src="/i/logo_r.gif" border="0"/></a></td>
+		<td class=homeLogo><a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/logo_r.gif" border="0"/></a></td>
 <% } %>
     </tr>
 </table>
