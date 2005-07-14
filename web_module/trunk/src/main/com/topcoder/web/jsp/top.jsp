@@ -4,9 +4,13 @@
           java.util.HashMap,
           com.topcoder.web.common.model.CoderSessionInfo,
           com.topcoder.web.common.BaseServlet,
-          com.topcoder.shared.util.ApplicationServer" %>
+          com.topcoder.shared.util.ApplicationServer,
+          com.topcoder.common.web.data.Navigation" %>
 <%
-   CoderSessionInfo sessionInfo = (CoderSessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+    Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+    if (nav==null) nav = new Navigation(request, response);
+    request.getSession(true).setAttribute("navigation", nav);
+    CoderSessionInfo sessionInfo = nav.getSessionInfo();
    String styleClass = "coderTextWhite";
    int rating = 0;
    if (!sessionInfo.isAnonymous()) {
