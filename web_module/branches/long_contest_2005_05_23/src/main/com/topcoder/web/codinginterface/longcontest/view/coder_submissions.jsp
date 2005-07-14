@@ -1,6 +1,7 @@
 <%@  page
   language="java"
   import="java.util.*,
+          java.text.SimpleDateFormat,
           com.topcoder.web.codinginterface.longcontest.*,
           com.topcoder.shared.dataAccess.resultSet.*"
 
