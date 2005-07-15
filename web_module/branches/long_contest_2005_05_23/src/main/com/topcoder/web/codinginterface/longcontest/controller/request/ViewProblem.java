@@ -71,10 +71,10 @@ public class ViewProblem extends Base{
                 if(hasCacheConnection){
                     cc.set(key,html, 1000*60*Constants.PROBLEM_REFRESH);
                 }
-                setNextPage(Constants.PROBLEM_STATEMENT_JSP);
-                setIsNextPageInContext(true);
             }
             request.setAttribute(Constants.PROBLEM_STATEMENT_KEY,html);
+            setNextPage(Constants.PROBLEM_STATEMENT_JSP);
+            setIsNextPageInContext(true);
         }catch(Exception e){
             e.printStackTrace();
             throw new TCWebException("Error retrieving page.");
