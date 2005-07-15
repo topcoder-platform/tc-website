@@ -18,7 +18,7 @@
 
 <table>
 <tr><td>Problem Name</td>
-<td></td><td></td>Start time</td><td>End time</td></tr>
+<td></td><td></td><td>Start time</td><td>End time</td></tr>
 <rsc:iterator list="<%=problems%>" id="resultRow">
 <tr><td>
 <A href="longcontest?module=ViewProblem&<%=Constants.COMPONENT_ID%>=<rsc:item name="component_id" row="<%=resultRow%>"/>&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>">

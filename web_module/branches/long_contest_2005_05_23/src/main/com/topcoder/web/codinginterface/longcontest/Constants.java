@@ -47,6 +47,9 @@ public class Constants implements CodingInterfaceConstants {
     public static String DEFAULT_COL_COUNT;
     public static String DEFAULT_ROW_COUNT;
     public static String PRIMARY_COLUMN;
+    public static String PROBLEM_STATEMENT_KEY;
+    public static String PROBLEM_STATEMENT_JSP;
+    public static int PROBLEM_REFRESH;
 
     static {
         initialize();
