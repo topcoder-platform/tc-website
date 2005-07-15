@@ -154,7 +154,7 @@ TopCoder will determine the room assignments for the Semifinal rooms prior to th
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Wildcard Round</td>
-      <td width="50%" class="sidebarText">Friday, October 14, 9:00 AM</td>
+      <td width="50%" class="sidebarText">Friday, October 14, 8:00 AM</td>
    </tr>
    <tr>
       <td width="50%" class="sidebarText">Championship Round</td>

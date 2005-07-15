@@ -157,7 +157,7 @@ The Qualification Round will be open for 24 hours and a maximum of 750 competito
       <td class="sidebarText" nowrap=nowrap>Wildcard Round</td>
       <td class="sidebarText">
          Friday, October 14th<br />
-         Compete: 9:00 AM PDT<br />
+         Compete: 8:00 AM PDT<br />
       </td>
       <td class="sidebarText">12</td>
       <td class="sidebarText">2 - Championship Round</td>
