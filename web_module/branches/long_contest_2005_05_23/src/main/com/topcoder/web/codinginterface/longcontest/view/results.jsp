@@ -80,7 +80,7 @@
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(Math.max(0,startCol-colCount)))%>">&lt;&lt;</A>
 <%}%>
 </td>
-<td colspan=100>
+<td colspan=100 align=right>
 <%if(startCol+colCount < tests){%>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+colCount))%>">&gt;&gt;</A>
 <%}%>
@@ -110,9 +110,9 @@ for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
     </td><td>
     <A HREF="/tc?module=MemberProfile&cr=<%=rec.getCoderID()%>"><%=rec.getHandle()%></A> </td>
     <% for(int j = startCol; j<tests && j<startCol+colCount; j++){ %>
-        <td><%=df.format(rec.getTestScore(j))%></td>
+        <td align=right><%=df.format(rec.getTestScore(j))%></td>
     <%}%>
-    <td> <%=df.format(rec.getScore())%> </td>
+    <td align=right><%=df.format(rec.getScore())%> </td>
     </tr>
 <%}%>
 <tr>
@@ -121,7 +121,7 @@ for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(Math.max(0,startCol-colCount)))%>">&lt;&lt;</A>
 <%}%>
 </td>
-<td colspan=100>
+<td colspan=100 align=right>
 <%if(startCol+colCount < tests){%>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+colCount))%>">&gt;&gt;</A>
 <%}%>
