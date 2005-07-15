@@ -1393,6 +1393,7 @@
                          <include name="velocity-dep.jar"/>
                          <include name="xwork.jar"/>
                          <include name="htmlparser.jar"/>
+     					 <include name="ognl.jar"/>
                      </lib>
 -->
                      <lib dir="${jars.dir}">
