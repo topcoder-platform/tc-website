@@ -4,8 +4,8 @@
          		 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>                 
-                 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
   String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
@@ -21,6 +21,7 @@
 <html>
 <head>
 <title>TopCoder | Login</title>
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <jsp:include page="script.jsp" />
 

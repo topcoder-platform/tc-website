@@ -15,6 +15,7 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
 
@@ -51,7 +52,7 @@
 <tr>
    	<td nowrap="nowrap" valign="top">
        <jsp:include page="searchHeader.jsp" ></jsp:include>
-    </td>	
+    </td>
    	<td align="right" nowrap="nowrap" valign="top">
    		<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
    	</td>
@@ -69,7 +70,7 @@
                         <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
                         	<br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="forum" property="messageCount"/></td>
-                        <% if (forum.getMessageCount() > 0) { %> 
+                        <% if (forum.getMessageCount() > 0) { %>
 	                        <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	                        <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
 	                   		<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
@@ -80,7 +81,7 @@
                     </tr>
                 </tc-webtag:iterator>
             </table>
-            
+
             <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
             <br><table cellpadding="0" cellspacing="0" class="rtTable">
                     <tr>
@@ -93,7 +94,7 @@
 	                        <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
 	                            <br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
 	                        <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="forum" property="messageCount"/></td>
-	                        <% if (forum.getMessageCount() > 0) { %> 
+	                        <% if (forum.getMessageCount() > 0) { %>
 	                            <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	                            <td class="rtThreadCell"><b><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
 	                            <td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
@@ -104,8 +105,6 @@
 	                    </tr>
                     </tc-webtag:iterator>
             </table>
-            </tc-webtag:iterator>
-            
             <table cellpadding="0" cellspacing="0" class="rtbcTable">
                 <tr>
                     <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
