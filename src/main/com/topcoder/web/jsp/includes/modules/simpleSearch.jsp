@@ -8,7 +8,7 @@
                         </table>
 
                         <table border="0" cellspacing="3" cellpadding="0">
-                            <tr valign="middle"><form name="simpleSearchForm" method="get" action="/tc">
+                            <tr valign="middle"><form name="simpleSearchForm" method="get" action="http://<%=ApplicationServer.SERVER_NAME%>/tc">
                                 <td valign="middle">
                                     <input type="hidden" name="module" value="SimpleSearch" />
                                     <input type="text" name="<%=WebConstants.HANDLE%>" value="Handle:" size="12" maxlength="15" 
