@@ -63,15 +63,18 @@ public class Submit extends Base {
 
             String code = StringUtils.checkNull(request.getParameter(Constants.CODE));
             if(code.length()==0){
-                ResultSetContainer rsc = (ResultSetContainer)m.get("long_recent_submission");
-                if(rsc.size() > 0){
-                    code = rsc.getStringItem(0,"submission_text");
-                    language = rsc.getIntItem(0,"language_id");
-                    request.setAttribute(Constants.CODE, code);
-                    request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
-                }else{
-                    request.setAttribute(Constants.CODE, "");
-                    request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(-1));
+                code = (String)request.getSession().getAttribute(Constants.CODE);
+                if(code == null){
+                    ResultSetContainer rsc = (ResultSetContainer)m.get("long_recent_submission");
+                    if(rsc.size() > 0){
+                        code = rsc.getStringItem(0,"submission_text");
+                        language = rsc.getIntItem(0,"language_id");
+                        request.getSession().setAttribute(Constants.CODE, code);
+                        request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
+                    }else{
+                        request.getSession().setAttribute(Constants.CODE, "");
+                        request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, new Integer(-1));
+                    }
                 }
                 setNextPage(Constants.SUBMISSION_JSP);
                 setIsNextPageInContext(true);
@@ -90,10 +93,10 @@ public class Submit extends Base {
 
             LongCompileResponse res = receive(30*1000,uid,cid);
             //send errors and stuff
-            request.setAttribute(Constants.CODE, code);
-            request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
-            request.setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
-            request.setAttribute(Constants.COMPILE_MESSAGE, res.getCompileError());
+            request.getSession().setAttribute(Constants.CODE, code);
+            request.getSession().setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
+            request.getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
+            request.getSession().setAttribute(Constants.COMPILE_MESSAGE, res.getCompileError());
 
             closeProcessingPage(buildProcessorRequestString("Submit",
                         new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},

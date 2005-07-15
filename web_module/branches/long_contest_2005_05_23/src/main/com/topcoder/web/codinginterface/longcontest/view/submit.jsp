@@ -14,21 +14,20 @@
 </head>
 <body>
 <%
-    Boolean stat = ((Boolean)request.getAttribute(Constants.COMPILE_STATUS));
-    String error = ((String)request.getAttribute(Constants.COMPILE_MESSAGE));
+    Boolean stat = ((Boolean)request.getSession().getAttribute(Constants.COMPILE_STATUS));
+    String error = ((String)request.getSession().getAttribute(Constants.COMPILE_MESSAGE));
     String status = "";
     if(stat != null){
         status = stat.booleanValue()?"Your code compile successfully.":"Your code did not compile successfully.";
     }else{
         error = "";
     }
-    int checked = ((Integer)request.getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
+    int checked = ((Integer)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
     ResultSetContainer langs = (ResultSetContainer)request.getAttribute(Constants.LANGUAGES);
 %>
 
 <%=status%><br/>
 <%=error%>
-<%=langs%>
 <form action="/longcontest/longcontest?module=Submit" method="POST">
 <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
 <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
@@ -39,7 +38,7 @@ name="<%=Constants.LANGUAGE_ID%>" value="<%=resultRow.getIntItem("language_id")%
 </rsc:iterator>
 <input type="submit"/>
 <textarea size=100 name="code">
-<%=request.getAttribute(Constants.CODE)%>
+<%=request.getSession().getAttribute(Constants.CODE)%>
 </textarea>
 </form>
 </body>
