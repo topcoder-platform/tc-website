@@ -1363,9 +1363,6 @@
                         <include name="com/topcoder/web/common/security/*.class" />
                          <include name="com/topcoder/web/forums/**/*.class" />
                          <include name="com/topcoder/web/tc/controller.request.authentication.Login.class" />
-                         <include name="com/topcoder/security/TCSubject.class" />
-                         <include name="com/topcoder/security/admin/PrincipalMgrRemote.class" />
-                         <include name="com/topcoder/security/GeneralSecurityException.class" />
                      </classes>
 <!--
                      <classes dir="${classes}">
