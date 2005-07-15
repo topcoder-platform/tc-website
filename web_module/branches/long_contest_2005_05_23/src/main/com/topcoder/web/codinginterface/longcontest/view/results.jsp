@@ -75,7 +75,7 @@
 <%}%>
 <table>
 <tr>
-<td></td><td>
+<td colspan=2></td><td>
 <%if(startCol > 0){%>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(Math.max(0,startCol-colCount)))%>">&lt;&lt;</A>
 <%}%>
@@ -117,7 +117,7 @@ for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
     </tr>
 <%}%>
 <tr>
-<td></td><td>
+<td colspan=2></td><td>
 <%if(startCol > 0){%>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(Math.max(0,startCol-colCount)))%>">&lt;&lt;</A>
 <%}%>
