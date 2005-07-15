@@ -28,6 +28,7 @@
 
 <%=status%><br/>
 <%=error%>
+<%=langs%>
 <form action="/longcontest/longcontest?module=Submit" method="POST">
 <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
 <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
