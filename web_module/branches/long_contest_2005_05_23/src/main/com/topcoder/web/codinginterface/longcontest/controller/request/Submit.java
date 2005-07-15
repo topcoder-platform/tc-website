@@ -58,17 +58,21 @@ public class Submit extends Base {
             r.setProperty(Constants.ROUND_ID,String.valueOf(rid));
             DataAccessInt dataAccess = getDataAccess(false);
             Map m = dataAccess.getData(r);
-            request.setAttribute(Constants.LONG_CONTEST_CODER_SUBMISSIONS_KEY, m);
             ResultSetContainer lang = (ResultSetContainer)m.get("long_languages");
             request.setAttribute(Constants.LANGUAGES, lang);
 
             String code = StringUtils.checkNull(request.getParameter(Constants.CODE));
             if(code.length()==0){
                 ResultSetContainer rsc = (ResultSetContainer)m.get("long_recent_submission");
-                code = rsc.getStringItem(0,0);
-                language = rsc.getIntItem(0,1);
-                request.setAttribute(Constants.CODE, code);
-                request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
+                if(rsc.size() > 0){
+                    code = rsc.getStringItem(0,"submission_text");
+                    language = rsc.getIntItem(0,"language_id");
+                    request.setAttribute(Constants.CODE, code);
+                    request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
+                }else{
+                    request.setAttribute(Constants.CODE, "");
+                    request.setAttribute(Constants.SELECTED_LANGUAGE, -1);
+                }
                 setNextPage(Constants.SUBMISSION_JSP);
                 setIsNextPageInContext(true);
                 return;
