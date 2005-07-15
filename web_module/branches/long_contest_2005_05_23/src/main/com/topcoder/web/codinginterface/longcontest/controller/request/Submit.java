@@ -46,11 +46,11 @@ public class Submit extends Base {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         long uid = getUser().getId();
-        int pid = 0, rid = 0, cid = 0, language;
+        int cid = 0, rid = 0, cd = 0, language;
         try {
-            pid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
+            cid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
             rid = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
-            cid = Integer.parseInt(request.getParameter(Constants.CONTEST_ID));
+            cd = Integer.parseInt(request.getParameter(Constants.CONTEST_ID));
             Request r = new Request();
             r.setContentHandle("long_submission");
             r.setProperty(Constants.CODER_ID,String.valueOf(uid));
@@ -78,7 +78,7 @@ public class Submit extends Base {
                 return;
             }
             language = Integer.parseInt(request.getParameter(Constants.LANGUAGE_ID));
-            LongCompileRequest lcr = new LongCompileRequest((int)uid,pid,rid,cid,language,ApplicationServer.WEB_SERVER_ID,code);
+            LongCompileRequest lcr = new LongCompileRequest((int)uid,cid,rid,cd,language,ApplicationServer.WEB_SERVER_ID,code);
 
             synchronized(waiting){
                 if(!waiting.add(new Long(uid)))throw new TCWebException("A submit request.is already being processed.");
@@ -88,7 +88,7 @@ public class Submit extends Base {
 
             showProcessingPage("Compiling...");
 
-            LongCompileResponse res = receive(30*1000,uid,pid);
+            LongCompileResponse res = receive(30*1000,uid,cid);
             //send errors and stuff
             request.setAttribute(Constants.CODE, code);
             request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
@@ -97,7 +97,7 @@ public class Submit extends Base {
 
             closeProcessingPage(buildProcessorRequestString("Submit",
                         new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
-                        new String[]{String.valueOf(rid),String.valueOf(cid),String.valueOf(pid),String.valueOf(language)}));
+                        new String[]{String.valueOf(rid),String.valueOf(cd),String.valueOf(cid),String.valueOf(language)}));
         }catch(TimeOutException e){
             synchronized(waiting){
                 waiting.remove(new Long(uid));
