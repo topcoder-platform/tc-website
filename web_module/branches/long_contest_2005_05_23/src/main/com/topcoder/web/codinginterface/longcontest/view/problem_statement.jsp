@@ -8,9 +8,7 @@
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%
-    String html = request.getAttribute(Constants.PROBLEM_STATEMENT_KEY);
-%>
+<%= request.getAttribute(Constants.PROBLEM_STATEMENT_KEY); %>
 
 <%=html%>
 
