@@ -51,6 +51,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PROBLEM_STATEMENT_KEY;
     public static String PROBLEM_STATEMENT_JSP;
     public static int PROBLEM_REFRESH;
+    public static String CLASS_NAME;
 
     static {
         initialize();
@@ -76,9 +77,12 @@ public class Constants implements CodingInterfaceConstants {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
                 }
-                if (f[i].get(null) == null)
+                if (f[i].get(null) == null){
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
-                else
+                    if (f[i].getType().getName().equals("java.lang.String")) {
+                        f[i].set(null, f[i].getName());
+                    }
+                }else
                     log.debug(f[i].getName() + " <== " + f[i].get(null));
 
             } catch (Exception e) {

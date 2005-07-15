@@ -59,7 +59,13 @@ public class Submit extends Base {
             DataAccessInt dataAccess = getDataAccess(false);
             Map m = dataAccess.getData(r);
             ResultSetContainer lang = (ResultSetContainer)m.get("long_languages");
-            request.setAttribute(Constants.LANGUAGES, lang);
+            boolean started = ((ResultSetContainer)m.get("long_contest_started")).getBooleanItem(0,0);
+            if(!started){
+                throw new TCWebException("The contest has not started yet.");
+            }
+            String className = ((ResultSetContainer)m.get("long_class_name")).getStringItem(0,0);
+            request.getSession().setAttribute(Constants.LANGUAGES, lang);
+            request.getSession().setAttribute(Constants.CLASS_NAME, className);
 
             String code = StringUtils.checkNull(request.getParameter(Constants.CODE));
             if(code.length()==0){

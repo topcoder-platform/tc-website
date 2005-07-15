@@ -50,6 +50,10 @@ public class ViewProblem extends Base{
                 r.setProperty(Constants.ROUND_ID,String.valueOf(rd));
                 DataAccessInt dataAccess = getDataAccess(false);
                 Map m = dataAccess.getData(r);
+                boolean started = ((ResultSetContainer)m.get("long_contest_started")).getBooleanItem(0,0);
+                if(!started){
+                    throw new TCWebException("The contest has not started yet.");
+                }
                 ResultSetContainer rsc = null;
                 if(isAdmin){
                     rsc = (ResultSetContainer) m.get("long_problem_xml_admin");
@@ -75,6 +79,8 @@ public class ViewProblem extends Base{
             request.setAttribute(Constants.PROBLEM_STATEMENT_KEY,html);
             setNextPage(Constants.PROBLEM_STATEMENT_JSP);
             setIsNextPageInContext(true);
+        }catch(TCWebException e){
+            throw e;
         }catch(Exception e){
             e.printStackTrace();
             throw new TCWebException("Error retrieving page.");

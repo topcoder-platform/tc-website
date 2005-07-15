@@ -10,7 +10,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <html>
 <head>
-<title>Submit</title>
+<title>Submit - <%=request.getAttribute(Constants.CLASS_NAME)%></title>
 </head>
 <body>
 <%
@@ -23,7 +23,7 @@
         error = "";
     }
     int checked = ((Integer)request.getSession().getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
-    ResultSetContainer langs = (ResultSetContainer)request.getAttribute(Constants.LANGUAGES);
+    ResultSetContainer langs = (ResultSetContainer)request.getSession().getAttribute(Constants.LANGUAGES);
 %>
 
 <%=status%><br/>
@@ -43,3 +43,11 @@ name="<%=Constants.LANGUAGE_ID%>" value="<%=resultRow.getIntItem("language_id")%
 </form>
 </body>
 </html>
+<%
+    request.getSession().removeAttribute(Constants.COMPILE_STATUS);
+    request.getSession().removeAttribute(Constants.COMPILE_MESSAGE);
+    request.getSession().removeAttribute(Constants.SELECTED_LANGUAGE);
+    request.getSession().removeAttribute(Constants.CODE);
+    request.getSession().removeAttribute(Constants.LANGUAGES);
+    request.getSession().removeAttribute(Constants.CLASS_NAME);
+%>
