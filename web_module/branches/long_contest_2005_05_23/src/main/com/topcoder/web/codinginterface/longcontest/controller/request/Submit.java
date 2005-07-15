@@ -1,10 +1,7 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -34,11 +31,16 @@ import com.topcoder.shared.messaging.messages.LongCompileResponse;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.netCommon.screening.response.ScreeningBaseResponse;
 import com.topcoder.shared.netCommon.screening.response.ScreeningTimeExpiredResponse;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.web.common.TCRequest;
 
 public class Submit extends Base {
     private static final Set waiting = new HashSet();
 
     protected void businessProcessing() throws TCWebException {
+        TCRequest request = getRequest();
 
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -46,47 +48,48 @@ public class Submit extends Base {
         long uid = getUser().getId();
         int pid = 0, rid = 0, cid = 0, language;
         try {
-            pid = Integer.parseInt(getRequest().getParameter(Constants.COMPONENT_ID));
-        } catch (Exception e) {
-            throw new TCWebException("Error parsing "+Constants.COMPONENT_ID+": " + getRequest().getParameter(Constants.COMPONENT_ID));
-        }
-        try {
-            rid = Integer.parseInt(getRequest().getParameter(Constants.ROUND_ID));
-        } catch (Exception e) {
-            throw new TCWebException("Error parsing "+Constants.ROUND_ID+": " + getRequest().getParameter(Constants.ROUND_ID));
-        }
-        try {
-            cid = Integer.parseInt(getRequest().getParameter(Constants.CONTEST_ID));
-        } catch (Exception e) {
-            throw new TCWebException("Error parsing "+Constants.CONTEST_ID+": " + getRequest().getParameter(Constants.CONTEST_ID));
-        }
-        String code = StringUtils.checkNull(getRequest().getParameter(Constants.CODE));
-        if(code.length()==0){
-            setNextPage(Constants.SUBMISSION_JSP);
-            setIsNextPageInContext(true);
-            return;
-        }
-        try {
-            language = Integer.parseInt(getRequest().getParameter(Constants.LANGUAGE_ID));
-        } catch (Exception e) {
-            throw new TCWebException("Error parsing "+Constants.LANGUAGE_ID+": " + getRequest().getParameter(Constants.LANGUAGE_ID));
-        }
-        LongCompileRequest lcr = new LongCompileRequest((int)uid,pid,rid,cid,language,ApplicationServer.WEB_SERVER_ID,code);
+            pid = Integer.parseInt(request.getParameter(Constants.COMPONENT_ID));
+            rid = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
+            cid = Integer.parseInt(request.getParameter(Constants.CONTEST_ID));
+            Request r = new Request();
+            r.setContentHandle("long_submission");
+            r.setProperty(Constants.CODER_ID,String.valueOf(uid));
+            r.setProperty(Constants.COMPONENT_ID,String.valueOf(cid));
+            r.setProperty(Constants.ROUND_ID,String.valueOf(rid));
+            DataAccessInt dataAccess = getDataAccess(false);
+            Map m = dataAccess.getData(r);
+            request.setAttribute(Constants.LONG_CONTEST_CODER_SUBMISSIONS_KEY, m);
+            ResultSetContainer lang = (ResultSetContainer)m.get("long_languages");
+            request.setAttribute(Constants.LANGUAGES, lang);
 
-        synchronized(waiting){
-            if(!waiting.add(new Long(uid)))throw new TCWebException("A submit request is already being processed.");
-        }
+            String code = StringUtils.checkNull(request.getParameter(Constants.CODE));
+            if(code.length()==0){
+                ResultSetContainer rsc = (ResultSetContainer)m.get("long_recent_submission");
+                code = rsc.getStringItem(0,0);
+                language = rsc.getIntItem(0,1);
+                request.setAttribute(Constants.CODE, code);
+                request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
+                setNextPage(Constants.SUBMISSION_JSP);
+                setIsNextPageInContext(true);
+                return;
+            }
+            language = Integer.parseInt(request.getParameter(Constants.LANGUAGE_ID));
+            LongCompileRequest lcr = new LongCompileRequest((int)uid,pid,rid,cid,language,ApplicationServer.WEB_SERVER_ID,code);
 
-        send(lcr);
+            synchronized(waiting){
+                if(!waiting.add(new Long(uid)))throw new TCWebException("A submit request.is already being processed.");
+            }
 
-        try{
+            send(lcr);
+
             showProcessingPage("Compiling...");
 
             LongCompileResponse res = receive(30*1000,uid,pid);
             //send errors and stuff
-            getRequest().getSession().setAttribute(Constants.CODE, code);
-            getRequest().getSession().setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
-            getRequest().getSession().setAttribute(Constants.COMPILE_MESSAGE, res.getCompileError());
+            request.setAttribute(Constants.CODE, code);
+            request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
+            request.setAttribute(Constants.COMPILE_STATUS, new Boolean(res.getCompileStatus()));
+            request.setAttribute(Constants.COMPILE_MESSAGE, res.getCompileError());
 
             closeProcessingPage(buildProcessorRequestString("Submit",
                         new String[]{Constants.ROUND_ID,Constants.CONTEST_ID,Constants.COMPONENT_ID,Constants.LANGUAGE_ID},
@@ -96,7 +99,7 @@ public class Submit extends Base {
                 waiting.remove(new Long(uid));
             }
             throw new TCWebException("Your code compilation timed out.");
-        }catch(IOException e){
+        } catch (Exception e) {
             synchronized(waiting){
                 waiting.remove(new Long(uid));
             }

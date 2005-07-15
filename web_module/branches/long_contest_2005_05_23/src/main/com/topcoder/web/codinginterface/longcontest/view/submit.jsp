@@ -13,20 +13,31 @@
 <title>Submit</title>
 </head>
 <body>
+<%
+    Boolean stat = ((Boolean)request.getAttribute(Constants.COMPILE_STATUS));
+    String error = ((String)request.getAttribute(Constants.COMPILE_MESSAGE));
+    String status = "";
+    if(stat != null){
+        status = stat.booleanValue()?"Your code compile successfully.":"Your code did not compile successfully.";
+    }
+    Integer lng = ((Integer)request.getAttribute(Constants.SELECTED_LANGUAGE));
+    int checked = lng == null ? -1 : lng.intValue();
 
-<%=request.getSession().getAttribute(Constants.COMPILE_STATUS)%><br/>
-<%=request.getSession().getAttribute(Constants.COMPILE_MESSAGE)%>
+%>
+
+<%=status%><br/>
+<%=error%>
 <form action="/longcontest/longcontest?module=Submit" method="POST">
 <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
 <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
 <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
-<input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="1">Java<br/>
-<input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="3">C++<br/>
-<input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="4">C#<br/>
-<input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="5">VB<br/>
+<rsc:iterator list="<%=problems%>" id="resultRow">
+<input type="radio" <%=<%=resultRow.getIntItem("language_id")%> == selected ? "checked ":""%>
+name="<%=Constants.LANGUAGE_ID%>" value="<%=resultRow.getIntItem("language_id")%>"><%=resultRow.getStringItem("language_name")%><br/>
+</rsc:iterator>
 <input type="submit"/>
 <textarea size=100 name="code">
-<%=request.getSession().getAttribute(Constants.CODE)%>
+<%=request.getAttribute(Constants.CODE)%>
 </textarea>
 </form>
 </body>

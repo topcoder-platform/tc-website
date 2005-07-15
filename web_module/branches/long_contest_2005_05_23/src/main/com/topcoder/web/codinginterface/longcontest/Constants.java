@@ -35,6 +35,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String COMPILE_MESSAGE;
     public static String COMPILE_STATUS;
     public static String LANGUAGES;
+    public static String SELECTED_LANGUAGE;
     public static String SUBMISSION_NUMBER;
     public static int RESULTS_REFRESH;
     public static String SORT_ORDER;
