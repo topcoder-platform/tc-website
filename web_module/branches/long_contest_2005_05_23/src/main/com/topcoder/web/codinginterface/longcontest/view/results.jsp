@@ -82,7 +82,7 @@
 </td>
 <td colspan=100>
 <%if(startCol+colCount < tests){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+ColCount))%>">&gt;&gt;</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+colCount))%>">&gt;&gt;</A>
 <%}%>
 </td>
 </tr>
@@ -123,7 +123,7 @@ for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
 </td>
 <td colspan=100>
 <%if(startCol+colCount < tests){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+ColCount))%>">&gt;&gt;</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+colCount))%>">&gt;&gt;</A>
 <%}%>
 </td>
 </tr>
