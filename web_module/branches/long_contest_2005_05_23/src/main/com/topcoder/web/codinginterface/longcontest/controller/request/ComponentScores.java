@@ -120,7 +120,7 @@ public class ComponentScores extends Base{
             al.add(new Double(score));
             testCases.add(new Integer(test_id));
         }
-        it = it.keySet().iterator();
+        it = totalScores.keySet().iterator();
         while(it.hasNext()){
             Object key = it.next();
             ArrayList al = (ArrayList)testScores.get(key);
