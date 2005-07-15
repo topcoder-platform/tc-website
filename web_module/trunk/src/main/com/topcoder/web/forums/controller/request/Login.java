@@ -39,7 +39,7 @@ public class Login extends ForumsProcessor {
             if (((BasicAuthentication)getAuthentication()).hashPassword(password).equals(hashedPassword)) {
                 com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
                 authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
-                getAuthentication().login(new SimpleUser(0, username, password), rememberUser.equals("on"));
+                getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
             } else {
                 log.debug("forum password hash not matched");
                 throw new Exception();
