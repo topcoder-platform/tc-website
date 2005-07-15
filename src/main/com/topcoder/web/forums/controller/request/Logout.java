@@ -12,12 +12,13 @@ import com.topcoder.web.common.TCWebException;
  * @author mtong
  */
 public class Logout extends ForumsProcessor {
-    
+
     protected void businessProcessing() throws TCWebException {
         String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
-        
+
         AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
-        
+        getAuthentication().logout();
+
         setNextPage(dest);
         setIsNextPageInContext(false);
     }
