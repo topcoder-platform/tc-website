@@ -116,6 +116,7 @@ public class ComponentScores extends Base{
             int coder_id = rsr.getIntItem("coder_id");
             double score = rsr.getDoubleItem("score");
             ArrayList al = (ArrayList)testScores.get(new Integer(coder_id));
+            if(al == null)continue;
             al.add(new Double(score));
             testCases.add(new Integer(test_id));
         }
