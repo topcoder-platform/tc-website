@@ -62,8 +62,6 @@ return false;
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa"><img src="/i/contracting/nsa_logo.gif" alt="NSA" border=0/></A>
                <hr noshade="noshade" size="1" />
-               <A href="/tc?module=Static&d1=contracting&d2=smsac"><img src="/i/contracting/smsac_logo.gif" alt="SMS.AC" border=0/></A>
-               <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign"><img src="/i/contracting/verisign_logo.gif" alt="VeriSign" border=0/></A>
                <hr noshade="noshade" size="1" />
                <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo"><img src="/i/contracting/yahoo_logo.gif" alt="Yahoo!" border=0/></A>
