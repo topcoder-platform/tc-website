@@ -71,7 +71,7 @@ public class Submit extends Base {
                     request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(language));
                 }else{
                     request.setAttribute(Constants.CODE, "");
-                    request.setAttribute(Constants.SELECTED_LANGUAGE, -1);
+                    request.setAttribute(Constants.SELECTED_LANGUAGE, new Integer(-1));
                 }
                 setNextPage(Constants.SUBMISSION_JSP);
                 setIsNextPageInContext(true);

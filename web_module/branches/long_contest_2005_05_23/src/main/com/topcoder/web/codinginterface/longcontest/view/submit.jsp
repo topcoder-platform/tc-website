@@ -19,10 +19,11 @@
     String status = "";
     if(stat != null){
         status = stat.booleanValue()?"Your code compile successfully.":"Your code did not compile successfully.";
+    }else{
+        error = "";
     }
-    Integer lng = ((Integer)request.getAttribute(Constants.SELECTED_LANGUAGE));
-    int checked = lng == null ? -1 : lng.intValue();
-
+    int checked = ((Integer)request.getAttribute(Constants.SELECTED_LANGUAGE)).intValue();
+    ResultSetContainer langs = (ResultSetContainer)request.getAttribute(Constants.LANGUAGES);
 %>
 
 <%=status%><br/>
@@ -31,7 +32,7 @@
 <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
 <input type="hidden" name="<%=Constants.CONTEST_ID%>" value="<%=request.getParameter(Constants.CONTEST_ID)%>">
 <input type="hidden" name="<%=Constants.COMPONENT_ID%>" value="<%=request.getParameter(Constants.COMPONENT_ID)%>">
-<rsc:iterator list="<%=problems%>" id="resultRow">
+<rsc:iterator list="<%=langs%>" id="resultRow">
 <input type="radio" <%=<%=resultRow.getIntItem("language_id")%> == selected ? "checked ":""%>
 name="<%=Constants.LANGUAGE_ID%>" value="<%=resultRow.getIntItem("language_id")%>"><%=resultRow.getStringItem("language_name")%><br/>
 </rsc:iterator>
