@@ -28,11 +28,13 @@ public class ViewCode extends Base{
             ResultSetContainer rsc = (ResultSetContainer)m.get("long_contest_over");
             boolean over = rsc.getBooleanItem(0,0);
             if(!over){
-                throw new Exception("Long contest is not over yet.");
+                throw new TCWebException("Long contest is not over yet.");
             }
             request.setAttribute(Constants.LONG_CODE_KEY, m);
             setNextPage(Constants.LONG_CODE_JSP);
             setIsNextPageInContext(true);
+        }catch(TCWebException e){
+            throw e;
         }catch(Exception e){
             e.printStackTrace();
             throw new TCWebException("Error retrieving page.");

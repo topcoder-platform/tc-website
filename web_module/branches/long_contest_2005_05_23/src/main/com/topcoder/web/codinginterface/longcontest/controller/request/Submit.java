@@ -60,8 +60,12 @@ public class Submit extends Base {
             Map m = dataAccess.getData(r);
             ResultSetContainer lang = (ResultSetContainer)m.get("long_languages");
             boolean started = ((ResultSetContainer)m.get("long_contest_started")).getBooleanItem(0,0);
+            boolean over = ((ResultSetContainer)m.get("long_contest_over")).getBooleanItem(0,0);
             if(!started){
                 throw new TCWebException("The contest has not started yet.");
+            }
+            if(over){
+                throw new TCWebException("The contest is over.");
             }
             String className = ((ResultSetContainer)m.get("long_class_name")).getStringItem(0,0);
             request.getSession().setAttribute(Constants.LANGUAGES, lang);
@@ -112,6 +116,8 @@ public class Submit extends Base {
                 waiting.remove(new Long(uid));
             }
             throw new TCWebException("Your code compilation timed out.");
+        }catch(TCWebException e){
+            throw e;
         } catch (Exception e) {
             synchronized(waiting){
                 waiting.remove(new Long(uid));
