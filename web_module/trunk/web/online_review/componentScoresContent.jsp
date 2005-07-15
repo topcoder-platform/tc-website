@@ -18,6 +18,7 @@ Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getP
 </logic:equal>
 
 <br>
+<br>
 
 <table border="1">
 	<tr>
@@ -76,7 +77,7 @@ Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getP
 			<html:link href='<%= "submissionDownload.do?id=" + compScores.getProjectId() + "&sid=" + subm.getSubmissionID() %>' >
 			download
 			</html:link>
-			<logic:equal name="name="subm" property="placement" value="1">
+			<logic:equal name="subm" property="placement" value="1">
 			( <html:link href='<%= "submissionDownload.do?id=" + compScores.getProjectId() + "&sid=-1" %>' >
 			  final submission
 			  </html:link>
@@ -106,13 +107,13 @@ Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getP
 			</html:link>
 		</td>
 		<td>
-		<logic:equal name="name="subm" property="placement" value="1">
+		<logic:equal name="subm" property="placement" value="1">
 		<html:link href='<%= "aggregation.do?action=view&id=" + compScores.getProjectId() %>' >
 			<bean:write name="subm" property="finalScore" />
 		</html:link>
 		</logic:equal>
 		
-		<logic:notEqual name="name="subm" property="placement" value="1">
+		<logic:notEqual name="subm" property="placement" value="1">
 			<bean:write name="subm" property="finalScore" />
 		</logic:notEqual>
 		</td>

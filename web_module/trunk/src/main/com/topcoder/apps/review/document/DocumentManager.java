@@ -378,6 +378,10 @@ public interface DocumentManager extends EJBObject {
                                       boolean saveNew, boolean saveQuestions)
             throws RemoteException;
 
+
+    public ComponentScores getComponentScores(int type, long projectId)
+            throws RemoteException;
+
     /**
      * @param project
      */

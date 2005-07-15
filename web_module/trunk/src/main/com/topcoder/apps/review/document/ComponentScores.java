@@ -10,7 +10,7 @@ public class ComponentScores {
     private int type;
 
     /// The id for this project
-    private int projectId;
+    private long projectId;
 
     /// name of this component
     private String componentName;
@@ -30,7 +30,7 @@ public class ComponentScores {
 
 
 
-    public ComponentScores(int type, int projectId, String componentName, int[] reviewerID, String[] reviewerNames,
+    public ComponentScores(int type, long projectId, String componentName, int[] reviewerID, String[] reviewerNames,
                             String[] testCasesURL, SubmissionScores[] submissions) {
         this.type = type;
         this.projectId = projectId;
@@ -47,7 +47,7 @@ public class ComponentScores {
         return type;
     }
 
-    public int getProjectId() {
+    public long getProjectId() {
         return projectId;
     }
 
