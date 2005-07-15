@@ -120,6 +120,16 @@ public class ComponentScores extends Base{
             al.add(new Double(score));
             testCases.add(new Integer(test_id));
         }
+        it = it.keySet().iterator();
+        while(it.hasNext()){
+            Object key = it.next();
+            ArrayList al = (ArrayList)testScores.get(key);
+            if(al.size() != testCases.size()){
+                totalScores.remove(key);
+                testScores.remove(key);
+                coders.remove(key);
+            }
+        }
         return new LongRoundResults(new ArrayList(testScores.values()), new ArrayList(testCases), new ArrayList(coders.keySet()), new ArrayList(totalScores.values()), new ArrayList(coders.values()), cid, rd);
     }
 }
