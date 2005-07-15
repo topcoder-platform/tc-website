@@ -130,6 +130,7 @@ public class ComponentScores extends Base{
                 coders.remove(key);
             }
         }
+        log.info(coders);
         return new LongRoundResults(new ArrayList(testScores.values()), new ArrayList(testCases), new ArrayList(coders.keySet()), new ArrayList(totalScores.values()), new ArrayList(coders.values()), cid, rd);
     }
 }
