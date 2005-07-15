@@ -9,6 +9,3 @@
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%= request.getAttribute(Constants.PROBLEM_STATEMENT_KEY) %>
-
-<%=html%>
-
