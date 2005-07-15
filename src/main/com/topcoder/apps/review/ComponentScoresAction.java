@@ -7,6 +7,7 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
+import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.ComponentScores;
 import com.topcoder.apps.review.document.SubmissionScores;
 import com.topcoder.util.log.Level;
@@ -54,7 +55,7 @@ public final class ComponentScoresAction extends BaseAction {
         // Create the UserData from the session
         HttpSession session = request.getSession();
 
-
+/*
         request.setAttribute("componentScores", new ComponentScores(Integer.parseInt(request.getParameter("type")),
                                                                     Integer.parseInt(request.getParameter("pid")),
                                                                     "Job Scheduler",
@@ -64,11 +65,21 @@ public final class ComponentScoresAction extends BaseAction {
                                                                     new SubmissionScores[]  {
 
         new SubmissionScores("arylio", 7489235, 15072115,1, 99.0, new double[] { 90, 93, 96}, 93.1),
-        new SubmissionScores("PE", 998760, 15072376,2, 93.0, new double[] { 80, 83, 86}, 83.1)  }  ));
+        new SubmissionScores("PE", 9998760, 15072376,2, 93.0, new double[] { 80, 83, 86}, 83.1)  }  ));
+*/
+
+        try {
+
+            DocumentManagerLocal documentManager = EJBHelper.getDocumentManager();
+
+            ComponentScores cs =   documentManager.getComponentScores(Integer.parseInt(request.getParameter("type")),
+                                                                      Long.parseLong(request.getParameter("pid")));
 
 
-
-
+            request.setAttribute("componentScores", cs);
+        } catch (Exception e) {
+            return mapping.findForward(Constants.FAILURE_KEY);
+        }
 
         return mapping.findForward(Constants.SUCCESS_KEY);
 
