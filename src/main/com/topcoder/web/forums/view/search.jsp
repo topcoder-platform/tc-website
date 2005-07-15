@@ -12,7 +12,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
-<tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/> 
+<tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%	User user = (User)request.getAttribute("user");
@@ -21,7 +21,7 @@
     Query query = (Query)request.getAttribute("query");
     String searchScope = (String)request.getAttribute("searchScope");
     String dateRange = (String)request.getAttribute("dateRange");
-    String status = (String)request.getAttribute("status"); 
+    String status = (String)request.getAttribute("status");
     String mode = (String)request.getAttribute("mode");
     Iterator results = (Iterator)request.getAttribute("results"); %>
 
@@ -37,6 +37,7 @@ function noenter(e)
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
 <jsp:include page="script.jsp" />
@@ -87,7 +88,7 @@ function noenter(e)
          <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
       </td>
    </tr>
-   
+
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
       <td class="rtTextCell100">
@@ -142,7 +143,7 @@ function noenter(e)
 <select size="1" name="<%=ForumConstants.SEARCH_RESULT_SIZE%>" id="<%=ForumConstants.SEARCH_RESULT_SIZE%>">
 <%  int[] resultSizes = { 10, 20, 30, 50 };
 	for (int i=0; i<resultSizes.length; i++) {
-		if ((query != null && paginator.getPageable().getResultFilter().getNumResults() == resultSizes[i]) || 
+		if ((query != null && paginator.getPageable().getResultFilter().getNumResults() == resultSizes[i]) ||
             (query == null && (authToken.isAnonymous() || user.getProperty("jiveSearchRange") == null) && resultSizes[i] == ForumConstants.DEFAULT_SEARCH_RANGE) ||
             (query == null && user != null && user.getProperty("jiveSearchRange") != null && resultSizes[i] == Integer.parseInt(user.getProperty("jiveSearchRange")))) { %>
 			<option value="<%=resultSizes[i]%>" selected><%=resultSizes[i]%></option>

@@ -19,9 +19,9 @@
 <tc-webtag:useBean id="activeMessage" name="activeMessage" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
-<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); 
+<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
 	User user = (User)request.getAttribute("user");
-	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW)); 
+	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
 
     String cmd = "";
     String watchMessage = "";
@@ -39,6 +39,7 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
 
@@ -60,7 +61,7 @@
 			</jsp:include>
 		</td>
 <!-- Left Column Ends -->
- 
+
 <!-- Center Column Begins -->
          <td width="100%" class="rtBody">
 
@@ -77,7 +78,7 @@
    <td align="right" nowrap="nowrap" valign="top">
    <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<jsp:getProperty name="thread" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
    class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
-   View: 
+   View:
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=flat" class="rtbcLink">Flat</A>&#160;&#160;|
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;&#160;|
    <span class="currentPage">Tree</span>
@@ -85,8 +86,8 @@
    </td>
 </tr>
 
-<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >> 
-	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
+<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
+	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
 <jsp:getProperty name="thread" property="name"/></td>
 </tr>
 </table>
@@ -123,7 +124,7 @@
 	<tr>
 		<td class="rtThreadCellWrap">
 		<%  boolean active = message.getID() == activeMessage.getID();
-			int depth=thread.getTreeWalker().getMessageDepth(message); 
+			int depth=thread.getTreeWalker().getMessageDepth(message);
 			int width=Math.min(depth*10, 500);
 		if (depth > 0) { %><img src="/images/clear.gif" width="<%=width%>" height="1"/><% } %>
 		<% if (active) { %>
@@ -134,19 +135,19 @@
       	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
       	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/></strong></td>
     </tr>
-	</tc-webtag:iterator>        
+	</tc-webtag:iterator>
 </table>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >> 
-	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >> 
+<tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>
+	<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A> >>
 	<jsp:getProperty name="thread" property="name"/></td>
     <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>"><img border="none" src="http://www.topcoder.com/i/interface/btn_rss.gif"/></a></td>
 </table>
 
         <p><br/></p>
         </td>
-        
+
 <!-- Center Column Ends -->
 
     </tr>

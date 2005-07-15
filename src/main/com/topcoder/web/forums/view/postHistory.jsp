@@ -16,6 +16,7 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
 <jsp:include page="script.jsp" />
@@ -51,7 +52,7 @@
 
 <div class="topLinksL">
 <span class="rtbc"><a href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</a> >> Post History: <tc-webtag:handle coderId="<%=historyUser.getID()%>"/> (<%=forumFactory.getUserMessageCount(historyUser)%> posts) </span><br><br>
-</div>            
+</div>
 <div class="topLinksR">
 <%  if (user.getUsername() == historyUser.getUsername()) { %>
 <b>My Post History</b>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
@@ -104,7 +105,7 @@
       	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/></strong></td>
       	<td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getChildCount(message)%></td>
     </tr>
-	</tc-webtag:iterator>        
+	</tc-webtag:iterator>
 </table>
 
         </td>
