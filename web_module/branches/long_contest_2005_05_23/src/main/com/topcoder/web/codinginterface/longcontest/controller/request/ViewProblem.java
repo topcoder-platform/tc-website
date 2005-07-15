@@ -31,7 +31,7 @@ public class ViewProblem extends Base{
             int rd = Integer.parseInt(request.getParameter(Constants.ROUND_ID));
             boolean hasCacheConnection = true;
             boolean isAdmin = false;//getUser().isAdmin();  TODO fix this
-            String key = "LongProblem_"+rd+"_"+cid;
+            String key = isAdmin+"_LongProblem_"+rd+"_"+cid;
             try {
                 cc = CacheClientFactory.createCacheClient();
                 html = (String)cc.get(key);
@@ -41,14 +41,25 @@ public class ViewProblem extends Base{
             }
             if(html == null){
                 Request r = new Request();
-                r.setContentHandle("long_problem");
+                if(isAdmin){
+                    r.setContentHandle("long_problem_admin");
+                }else{
+                    r.setContentHandle("long_problem");
+                }
+                r.setProperty(Constants.COMPONENT_ID,String.valueOf(cid));
+                r.setProperty(Constants.ROUND_ID,String.valueOf(rd));
                 DataAccessInt dataAccess = getDataAccess(false);
                 Map m = dataAccess.getData(r);
-                ResultSetContainer rsc = (ResultSetContainer) m.get("long_problem_xml");
+                ResultSetContainer rsc = null;
+                if(isAdmin){
+                    rsc = (ResultSetContainer) m.get("long_problem_xml_admin");
+                }else{
+                    rsc = (ResultSetContainer) m.get("long_problem_xml");
+                }
                 ResultSetContainer.ResultSetRow rr = null;
                 rr = rsc.getRow(0);
-                String className = rr.getItem("class_name").toString();
-                String problemText = rr.getItem("problem_text").toString();
+                String className = rr.getStringItem("class_name");
+                String problemText = rr.getStringItem("componentString");
                 StringReader reader = new StringReader(problemText);
                 ProblemComponent pc [] = new ProblemComponent[1];
                 pc[0] = new ProblemComponentFactory().buildFromXML(reader, true);
