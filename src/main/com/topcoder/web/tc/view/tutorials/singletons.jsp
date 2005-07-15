@@ -30,7 +30,7 @@
 
          <div class="tutorBodyFull">
             
-            <h2>Singleton Pattern</h2>
+            <h2>The Singleton Pattern</h2>
 
 			<p>
 			<img src="/i/m/Pops_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />

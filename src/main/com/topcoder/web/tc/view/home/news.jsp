@@ -25,7 +25,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.15.05<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=singletons">Singleton Pattern Tutorial</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=singletons">The Singleton Pattern</A></span><br><br>
        Singletons are generally used in applications to provide access to a single instance of an object that will be shared across an application and will generally include managers, queues, models, pools, connections etc.</td>
       <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
       </td>
