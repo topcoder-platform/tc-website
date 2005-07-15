@@ -1,6 +1,7 @@
 <%@  page
   language="java"
   import="java.util.*,
+          java.text.*,
           com.topcoder.web.codinginterface.longcontest.*,
           com.topcoder.shared.common.LongRoundResults,
           com.topcoder.shared.dataAccess.resultSet.*"
@@ -64,10 +65,28 @@
     int primary = ((Integer)request.getAttribute(Constants.PRIMARY_COLUMN)).intValue();
     int tests = ((LongRoundResults.Record)al.get(0)).getTests().size();
     String sort = (String)request.getAttribute(Constants.SORT_ORDER);
+    DecimalFormat df = new DecimalFormat("0.000");
 %>
 
-
+<%if(startRow+rowCount < al.size()){%>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, startRow+rowCount)%>">next page</A>
+<%}%>
+<%if(startRow > 0){%>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, Math.max(0,startRow-rowCount))%>">next page</A>
+<%}%>
 <table>
+<tr>
+<td>
+<%if(startCol > 0){%>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, Math.max(0,startCol-colCount))%>">&lt;&lt;</A>
+<%}%>
+</td>
+<td colspan=100>
+<%if(startCol+colCount < tests){%>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, startCol+ColCount)%>">&gt;&gt;</A>
+<%}%>
+</td>
+</tr>
 <tr>
 <td></td>
 <td>
@@ -92,11 +111,29 @@ for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
     </td><td>
     <A HREF="/tc?module=MemberProfile&cr=<%=rec.getCoderID()%>"><%=rec.getHandle()%></A> </td>
     <% for(int j = startCol; j<tests && j<startCol+colCount; j++){ %>
-        <td><%=rec.getTestScore(j)%></td>
+        <td><%=df.format(rec.getTestScore(j))%></td>
     <%}%>
-    <td> <%=rec.getScore()%> </td>
+    <td> <%=df.format(rec.getScore())%> </td>
     </tr>
 <%}%>
+<tr>
+<td>
+<%if(startCol > 0){%>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, Math.max(0,startCol-colCount))%>">&lt;&lt;</A>
+<%}%>
+</td>
+<td colspan=100>
+<%if(startCol+colCount < tests){%>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, startCol+ColCount)%>">&gt;&gt;</A>
+<%}%>
+</td>
+</tr>
 </table>
 
+<%if(startRow+rowCount < al.size()){%>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, startRow+rowCount)%>">next page</A>
+<%}%>
+<%if(startRow > 0){%>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, Math.max(0,startRow-rowCount))%>">next page</A>
+<%}%>
 
