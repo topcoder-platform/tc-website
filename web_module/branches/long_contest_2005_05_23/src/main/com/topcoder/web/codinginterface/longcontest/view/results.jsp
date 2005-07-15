@@ -10,7 +10,6 @@
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <%!
     String buildHref(Map params, String key, String val){
         StringBuffer buf = new StringBuffer(100);
@@ -69,21 +68,21 @@
 %>
 
 <%if(startRow+rowCount < al.size()){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, startRow+rowCount)%>">next page</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, String.valueOf(startRow+rowCount))%>">next page</A>
 <%}%>
 <%if(startRow > 0){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, Math.max(0,startRow-rowCount))%>">next page</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, String.valueOf(Math.max(0,startRow-rowCount)))%>">next page</A>
 <%}%>
 <table>
 <tr>
 <td>
 <%if(startCol > 0){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, Math.max(0,startCol-colCount))%>">&lt;&lt;</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(Math.max(0,startCol-colCount)))%>">&lt;&lt;</A>
 <%}%>
 </td>
 <td colspan=100>
 <%if(startCol+colCount < tests){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, startCol+ColCount)%>">&gt;&gt;</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+ColCount))%>">&gt;&gt;</A>
 <%}%>
 </td>
 </tr>
@@ -119,21 +118,21 @@ for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
 <tr>
 <td>
 <%if(startCol > 0){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, Math.max(0,startCol-colCount))%>">&lt;&lt;</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(Math.max(0,startCol-colCount)))%>">&lt;&lt;</A>
 <%}%>
 </td>
 <td colspan=100>
 <%if(startCol+colCount < tests){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, startCol+ColCount)%>">&gt;&gt;</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+ColCount))%>">&gt;&gt;</A>
 <%}%>
 </td>
 </tr>
 </table>
 
 <%if(startRow+rowCount < al.size()){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, startRow+rowCount)%>">next page</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, String.valueOf(startRow+rowCount))%>">next page</A>
 <%}%>
 <%if(startRow > 0){%>
-<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, Math.max(0,startRow-rowCount))%>">next page</A>
+<A HREF="<%=buildHref(request.getParameterMap(), Constants.START_ROW, String.valueOf(Math.max(0,startRow-rowCount)))%>">next page</A>
 <%}%>
 
