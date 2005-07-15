@@ -59,6 +59,10 @@
 					&#160;-&#160;<a href="/tc?module=Static&d1=features&d2=041905"><strong>Section 3: appeals phase do's</strong></a><br>
 					&#160;-&#160;<a href="/tc?module=Static&d1=features&d2=042505"><strong>Section 4: the wrap up</strong></a><br>
 				</td></tr>
+				<tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="119676" context="design"/>
+					</td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=singletons"><strong>Singleton Pattern</strong></a>
+				</td></tr>
 			</table>
         </div>
         <p><br></p>

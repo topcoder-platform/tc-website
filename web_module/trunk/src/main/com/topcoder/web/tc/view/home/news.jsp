@@ -22,6 +22,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.15.05<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=singletons">Singleton Pattern Tutorial</A></span><br><br>
+       Singletons are generally used in applications to provide access to a single instance of an object that will be shared across an application and will generally include managers, queues, models, pools, connections etc.</td>
+      <td class="newsPhoto"><img src="/i/m/Pops_mug.gif" /><br>by <tc-webtag:handle coderId="119676" context="design"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=singletons">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.13.05<br>11:40 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></span><br><br>
       See every TopCoder Coder of the Month and a description of the criteria we use to select them.
@@ -219,19 +234,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">view</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">Component Documentation</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>06.23.05<br>11:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/i/development/downloads/topcoder_global.build">Global NAnt properties file now available</A></span><br><br>
-      The NAnt build files distributed with the design and development distributions will use this file to override certain parts of the default.build. This file can be modified to suit your local environment.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/i/development/downloads/topcoder_global.build">download file</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=dev&d2=support&d3=compDocumentation">Component Documentation</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
