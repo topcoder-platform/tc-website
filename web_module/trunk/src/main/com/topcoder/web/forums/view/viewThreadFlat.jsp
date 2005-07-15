@@ -18,9 +18,9 @@
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 
-<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); 
+<%	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
 	User user = (User)request.getAttribute("user");
-	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW)); 
+	String threadView = StringUtils.checkNull(request.getParameter(ForumConstants.THREAD_VIEW));
 
     String cmd = "";
     String watchMessage = "";
@@ -38,6 +38,7 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
 
@@ -76,7 +77,7 @@
    <td align="right" nowrap="nowrap" valign="top">
    <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<jsp:getProperty name="thread" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
    class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
-   View: 
+   View:
    <span class="currentPage">Flat</span>&#160;&#160;|
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;&#160;|
    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>&<%=ForumConstants.THREAD_VIEW%>=tree" class="rtbcLink">Tree</A>

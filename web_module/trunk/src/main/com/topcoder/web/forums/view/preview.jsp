@@ -17,7 +17,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage parentMessage = (ForumMessage)request.getAttribute("parentMessage");
-	ForumThread thread = (ForumThread)request.getAttribute("thread"); 
+	ForumThread thread = (ForumThread)request.getAttribute("thread");
 	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
 <script type="text/javascript">
@@ -27,7 +27,7 @@ function noenter(e)
   return !(k == 13);
 }
 
-function toggle(targetId) 
+function toggle(targetId)
 {
     target = document.getElementById(targetId);
     if (target.style.display == "none") {
@@ -38,29 +38,30 @@ function toggle(targetId)
 }
 
 // IE only
-function AllowTabCharacter() {   
-    if (event != null) {      
-        if (event.srcElement) {         
-            if (event.srcElement.value) {            
-                if (event.keyCode == 9) {  // tab character               
-                    if (document.selection != null) {             
-                        document.selection.createRange().text = '\t';                  
-                        event.returnValue = false;               
-                    } else {                  
-                        event.srcElement.value += '\t';                  
-                        return false;         
-                    }            
-                }          
-            }      
-        }   
+function AllowTabCharacter() {
+    if (event != null) {
+        if (event.srcElement) {
+            if (event.srcElement.value) {
+                if (event.keyCode == 9) {  // tab character
+                    if (document.selection != null) {
+                        document.selection.createRange().text = '\t';
+                        event.returnValue = false;
+                    } else {
+                        event.srcElement.value += '\t';
+                        return false;
+                    }
+                }
+            }
+        }
     }
-}       
+}
 </script>
 
 <html>
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
 <jsp:include page="script.jsp" />

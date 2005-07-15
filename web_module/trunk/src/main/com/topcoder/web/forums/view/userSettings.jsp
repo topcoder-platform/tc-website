@@ -15,6 +15,7 @@
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <link type="text/css" rel="stylesheet" href="/css/stats.css"/>
 <jsp:include page="script.jsp" />
@@ -172,11 +173,11 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
       <td class="rtTextCell100">
-<input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio" 
+<input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
 	<%= ("true".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
 <label for="autoWatchNewTopicsYes">Yes</label>
 &#160;
-<input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio" 
+<input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio"
 	<%= (user.getProperty("jiveAutoWatchNewTopics") == null || "false".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
 <label for="autoWatchNewTopicsNo">No</label>
       </td>
@@ -184,11 +185,11 @@
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
       <td class="rtTextCell100">
-<input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio" 
+<input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio"
 	<%= ("true".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
 <label for="autoWatchRepliesYes">Yes</label>
 &#160;
-<input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio" 
+<input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio"
 	<%= (user.getProperty("jiveAutoWatchReplies") == null || "false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
 <label for="autoWatchRepliesNo">No</label>
       </td>
@@ -196,13 +197,13 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>
       <td class="rtTextCell100">
          <select size=1 name="watchFrequency">
-         	<option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>" 
+         	<option value="<%= UserSettingsAction.FREQUENCY_IMMEDIATELY %>"
        			<%= (UserSettingsAction.FREQUENCY_IMMEDIATELY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Immediately (default)</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_DAY %>" 
+         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_DAY %>"
        			<%= (UserSettingsAction.FREQUENCY_ONCE_A_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per day</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY %>" 
+         	<option value="<%= UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY %>"
        			<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Every other day</option>
-         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>" 
+         	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>"
        			<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per week</option>
          </select>
          (<%= user.getEmail() %>)

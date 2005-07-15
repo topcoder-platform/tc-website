@@ -16,7 +16,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  ForumMessage message = (ForumMessage)request.getAttribute("message");
-	ForumThread thread = (ForumThread)request.getAttribute("thread"); 
+	ForumThread thread = (ForumThread)request.getAttribute("thread");
 	HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
 <script type="text/javascript">
@@ -26,7 +26,7 @@ function noenter(e)
     return !(k == 13);
 }
 
-function toggle(targetId) 
+function toggle(targetId)
 {
     target = document.getElementById(targetId);
     if (target.style.display == "none") {
@@ -37,29 +37,30 @@ function toggle(targetId)
 }
 
 // IE only
-function AllowTabCharacter() {   
-    if (event != null) {      
-        if (event.srcElement) {         
-            if (event.srcElement.value) {            
-                if (event.keyCode == 9) {  // tab character               
-                    if (document.selection != null) {             
-                        document.selection.createRange().text = '\t';                  
-                        event.returnValue = false;               
-                    } else {                  
-                        event.srcElement.value += '\t';                  
-                        return false;         
-                    }            
-                }          
-            }      
-        }   
+function AllowTabCharacter() {
+    if (event != null) {
+        if (event.srcElement) {
+            if (event.srcElement.value) {
+                if (event.keyCode == 9) {  // tab character
+                    if (document.selection != null) {
+                        document.selection.createRange().text = '\t';
+                        event.returnValue = false;
+                    } else {
+                        event.srcElement.value += '\t';
+                        return false;
+                    }
+                }
+            }
+        }
     }
-}   
+}
 </script>
 
 <html>
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
 
@@ -85,7 +86,7 @@ function AllowTabCharacter() {
 <!-- Center Column Begins -->
 <%  String postHeading = "";
 	String postDesc = "";
-	
+
 	if (postMode.equals("New")) {
 		postHeading = "New Thread";
 		postDesc = "Create a new thread";
@@ -118,7 +119,7 @@ function AllowTabCharacter() {
 			<A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&mc=<jsp:getProperty name="forum" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="forum" property="name"/></A>
 				<%	if (thread != null) { %>
 					>> <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtbcLink"><jsp:getProperty name="thread" property="name"/></A>
-				<%	} %>	
+				<%	} %>
 				>> <%=postHeading%>
 	    </td>
 	    <td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>

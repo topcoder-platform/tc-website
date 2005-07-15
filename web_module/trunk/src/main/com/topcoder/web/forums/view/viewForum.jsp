@@ -25,8 +25,8 @@
 
 <%	User user = (User)request.getAttribute("user");
     String sortField = (String)request.getAttribute("sortField");
-    String sortOrder = (String)request.getAttribute("sortOrder"); 
-    
+    String sortOrder = (String)request.getAttribute("sortOrder");
+
     StringBuffer linkBuffer = new StringBuffer("?module=ThreadList");
     linkBuffer.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
     linkBuffer.append("&").append(ForumConstants.MESSAGE_COUNT).append("=").append(forum.getMessageCount());
@@ -66,13 +66,14 @@
     if (!sortOrder.equals("")) {
         linkBuffer.append("&").append(ForumConstants.SORT_ORDER).append("=").append(sortOrder);
     }
-    String link = linkBuffer.toString();    
+    String link = linkBuffer.toString();
 %>
 
 <html>
 <head>
 <title>TopCoder Forums</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
 <jsp:include page="script.jsp" />
 
@@ -149,7 +150,7 @@
 </tr>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
     <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); %>
-    <tr>    
+    <tr>
     <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	<td class="rtThreadCellWrap">
 		<%	if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
