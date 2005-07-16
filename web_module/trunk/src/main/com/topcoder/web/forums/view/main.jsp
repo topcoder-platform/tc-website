@@ -9,7 +9,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<%  User user = (User)request.getAttribute("user"); %>
+<%  User user = (User)request.getAttribute("user"); 
+    ResultFilter resultFilter = request.getAttribute("resultFilter"); %>
 
 <html>
 <head>
@@ -68,7 +69,7 @@
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
                     <tr>
                         <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
-                        	<br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
+                        	<br/><div class="rtDescIndent"><tc-webtag:beanWrite name="forum" property="modificationDate" format="MMM dd, yyyy h:mm a"/><jsp:getProperty name="forum" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="forum" property="messageCount"/></td>
                         <% if (forum.getMessageCount() > 0) { %>
 	                        <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
@@ -89,7 +90,7 @@
 	                    <td class="rtHeader" width="20%">T./M.</td>
                         <td class="rtHeader" align="center" colspan="2">Last Post</td>
                     </tr>
-                    <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums()%>'>
+                    <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums(resultFilter)%>'>
 	                    <tr>
 	                        <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
 	                            <br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
