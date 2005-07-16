@@ -63,7 +63,7 @@
     int colCount = ((Integer)request.getAttribute(Constants.COL_COUNT)).intValue();
     int primary = ((Integer)request.getAttribute(Constants.PRIMARY_COLUMN)).intValue();
     int tests = ((LongRoundResults.Record)al.get(0)).getTests().size();
-    boolean over = ((Boolean)request.getAttribute(Constants.OVER)).booleanValue();
+    boolean over = ((Boolean)request.getAttribute(Constants.CONTEST_OVER)).booleanValue();
     String sort = (String)request.getAttribute(Constants.SORT_ORDER);
     String className = (String)request.getAttribute(Constants.CLASS_NAME);
     DecimalFormat df = new DecimalFormat("0.000");

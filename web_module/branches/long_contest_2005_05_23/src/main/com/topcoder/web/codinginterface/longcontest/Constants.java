@@ -52,7 +52,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String PROBLEM_STATEMENT_JSP;
     public static int PROBLEM_REFRESH;
     public static String CLASS_NAME;
-    public static String OVER;
+    public static String CONTEST_OVER;
 
     static {
         initialize();

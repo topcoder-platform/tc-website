@@ -96,9 +96,9 @@ public class ComponentScores extends Base{
         ResultSetContainer scores = (ResultSetContainer)m.get("long_scores");
         ResultSetContainer tests = (ResultSetContainer)m.get("long_test_scores");
         int count = ((ResultSetContainer)m.get("long_test_count")).getIntItem(0,0);
-        boolean started = (ResultSetContainer)m.get("long_contest_started").getBooleanItem(0,0);
-        boolean over = (ResultSetContainer)m.get("long_contest_over").getBooleanItem(0,0);
-        String className = (ResultSetContainer)m.get("long_class_name").getStringItem(0,0);
+        boolean started = ((ResultSetContainer)m.get("long_contest_started")).getBooleanItem(0,0);
+        boolean over = ((ResultSetContainer)m.get("long_contest_over")).getBooleanItem(0,0);
+        String className = ((ResultSetContainer)m.get("long_class_name")).getStringItem(0,0);
         if(!started){
             throw new TCWebException("The contest has not started yet.");
         }
