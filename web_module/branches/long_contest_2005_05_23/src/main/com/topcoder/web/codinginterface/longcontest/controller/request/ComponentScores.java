@@ -79,6 +79,8 @@ public class ComponentScores extends Base{
             request.setAttribute(Constants.SORT_ORDER,sort);
             setNextPage(Constants.RESULTS_TABLE_JSP);
             setIsNextPageInContext(true);
+        }catch(TCWebException e){
+            throw e;
         }catch(Exception e){
             e.printStackTrace();
             throw new TCWebException("Error retrieving page.");
@@ -94,6 +96,14 @@ public class ComponentScores extends Base{
         ResultSetContainer scores = (ResultSetContainer)m.get("long_scores");
         ResultSetContainer tests = (ResultSetContainer)m.get("long_test_scores");
         int count = ((ResultSetContainer)m.get("long_test_count")).getIntItem(0,0);
+        boolean started = (ResultSetContainer)m.get("long_contest_started").getBooleanItem(0,0);
+        boolean over = (ResultSetContainer)m.get("long_contest_over").getBooleanItem(0,0);
+        String className = (ResultSetContainer)m.get("long_class_name").getStringItem(0,0);
+        if(!started){
+            throw new TCWebException("The contest has not started yet.");
+        }
+        getRequest().setAttribute(Constants.CONTEST_OVER,new Boolean(over));
+        getRequest().setAttribute(Constants.CLASS_NAME,className);
         Map totalScores = new TreeMap();//need to use tree for the ordering
         Map testScores = new TreeMap();
         Map coders = new TreeMap();
@@ -124,7 +134,7 @@ public class ComponentScores extends Base{
         while(it.hasNext()){
             Object key = it.next();
             ArrayList al = (ArrayList)testScores.get(key);
-            if(al.size() != testCases.size()){
+            if(al.size() != count){
                 totalScores.remove(key);
                 testScores.remove(key);
                 coders.remove(key);

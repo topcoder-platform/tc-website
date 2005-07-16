@@ -63,7 +63,9 @@
     int colCount = ((Integer)request.getAttribute(Constants.COL_COUNT)).intValue();
     int primary = ((Integer)request.getAttribute(Constants.PRIMARY_COLUMN)).intValue();
     int tests = ((LongRoundResults.Record)al.get(0)).getTests().size();
+    boolean over = ((Boolean)request.getAttribute(Constants.OVER)).booleanValue();
     String sort = (String)request.getAttribute(Constants.SORT_ORDER);
+    String className = (String)request.getAttribute(Constants.CLASS_NAME);
     DecimalFormat df = new DecimalFormat("0.000");
 %>
 
@@ -76,13 +78,13 @@
 <table>
 <tr>
 <td colspan=2></td><td>
-<%if(startCol > 0){%>
+<%if(over && startCol > 0){%>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(Math.max(0,startCol-colCount)))%>">&lt;&lt;</A>
 <%}%>
 </td>
 <td colspan="<%=Math.min(tests-startCol,colCount)-2%>"></td>
 <td align=right>
-<%if(startCol+colCount < tests){%>
+<%if(over && startCol+colCount < tests){%>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+colCount))%>">&gt;&gt;</A>
 <%}%>
 </td><td></td>
@@ -93,7 +95,7 @@
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,"C",primary))%>">Handle</A>
 </td>
 <%
-for(int i = startCol; i<tests && i<startCol+colCount; i++){
+for(int i = startCol; i<tests && i<startCol+colCount && over; i++){
 %>
     <td>
     <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,String.valueOf(i+1),primary))%>"><%=i+1%></A>
@@ -103,7 +105,7 @@ for(int i = startCol; i<tests && i<startCol+colCount; i++){
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,"T",primary))%>">Final Score</A>
 </td>
 <%
-for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
+for(int i = startRow; i < al.size() && i<startRow+rowCount && over; i++){
     LongRoundResults.Record rec = (LongRoundResults.Record)al.get(i);
 %>
     <tr>
@@ -118,13 +120,13 @@ for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
 <%}%>
 <tr>
 <td colspan=2></td><td>
-<%if(startCol > 0){%>
+<%if(over && startCol > 0){%>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(Math.max(0,startCol-colCount)))%>">&lt;&lt;</A>
 <%}%>
 </td>
 <td colspan="<%=Math.min(tests-startCol,colCount)-2%>"></td>
 <td align=right>
-<%if(startCol+colCount < tests){%>
+<%if(over && startCol+colCount < tests){%>
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.START_COL, String.valueOf(startCol+colCount))%>">&gt;&gt;</A>
 <%}%>
 </td><td></td>
