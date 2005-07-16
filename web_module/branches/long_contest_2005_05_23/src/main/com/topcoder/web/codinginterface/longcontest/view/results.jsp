@@ -105,14 +105,14 @@ for(int i = startCol; i<tests && i<startCol+colCount && over; i++){
 <A HREF="<%=buildHref(request.getParameterMap(), Constants.SORT_ORDER, sort(sort,"T",primary))%>">Final Score</A>
 </td>
 <%
-for(int i = startRow; i < al.size() && i<startRow+rowCount && over; i++){
+for(int i = startRow; i < al.size() && i<startRow+rowCount; i++){
     LongRoundResults.Record rec = (LongRoundResults.Record)al.get(i);
 %>
     <tr>
     <td><A HREF="longcontest?module=SubmissionHistory&<%=Constants.CODER_ID%>=<%=rec.getCoderID()%>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.ROUND_ID%>=<%=request.getParameter(Constants.ROUND_ID)%>&<%=Constants.COMPONENT_ID%>=<%=request.getParameter(Constants.COMPONENT_ID)%>">+</A>
     </td><td>
     <A HREF="/tc?module=MemberProfile&cr=<%=rec.getCoderID()%>"><%=rec.getHandle()%></A> </td>
-    <% for(int j = startCol; j<tests && j<startCol+colCount; j++){ %>
+    <% for(int j = startCol; j<tests && j<startCol+colCount && over; j++){ %>
         <td align=right><%=df.format(rec.getTestScore(j))%></td>
     <%}%>
     <td align=right><%=df.format(rec.getScore())%> </td>
