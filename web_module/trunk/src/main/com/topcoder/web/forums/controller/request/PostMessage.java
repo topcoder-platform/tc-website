@@ -3,9 +3,11 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -83,6 +85,7 @@ public class PostMessage extends ForumsProcessor {
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT)));
 		message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
 
+        WatchManager watchManager = forumFactory.getWatchManager();
 		if (!threadIDStr.equals("")) {
 			threadID = Long.parseLong(threadIDStr);
 			thread = forum.getThread(threadID);
@@ -90,10 +93,18 @@ public class PostMessage extends ForumsProcessor {
 				messageID = Long.parseLong(messageIDStr);
 				ForumMessage parentMessage = forumFactory.getMessage(messageID);
 				thread.addMessage(parentMessage, message);
+                if ("true".equals(user.getProperty("jiveAutoWatchReplies")) && !watchManager.isWatched(user, thread) && 
+                        watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.DEFAULT_MAX_THREAD_WATCHES) {
+                    watchManager.createWatch(user, thread);
+                }
 			}
 		} else {
 			thread = forum.createThread(message);
 			forum.addThread(thread);
+            if ("true".equals(user.getProperty("jiveAutoWatchNewTopics")) && !watchManager.isWatched(user, thread) && 
+                    watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.DEFAULT_MAX_THREAD_WATCHES) {
+                watchManager.createWatch(user, thread);
+            }
 		}
 
 		setNextPage("?module=Message&" + ForumConstants.MESSAGE_ID + "=" + message.getID());
