@@ -10,7 +10,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%  User user = (User)request.getAttribute("user"); 
-    ResultFilter resultFilter = request.getAttribute("resultFilter"); %>
+    ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); %>
 
 <html>
 <head>
