@@ -26,6 +26,7 @@ public class ForumList extends ForumsProcessor {
 
 		getRequest().setAttribute("forums", itForums);
         getRequest().setAttribute("categories", itCategories);
+        getRequest().setAttribute("resultFilter", resultFilter);
 
 		setNextPage("/main.jsp");
 		setIsNextPageInContext(true);
