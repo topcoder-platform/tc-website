@@ -8,9 +8,8 @@
    </tr>
 
 <%--------------------------------------------------------%>
-<%--
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.14.05<br>6:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.18.05<br>8:31 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">New TopCoder Forums</A></span><br><br>
       We're very excited to introduce the new TopCoder Forums. Some of the functionality we've added includes syntax highlighting, RSS, thread watch lists, post previewing, post editing, post history listings for every member, and improved searching.
    </tr>
@@ -18,7 +17,6 @@
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">view</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
---%>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -60,7 +58,7 @@
          <A href="/index?t=statistics&c=srm25_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
- 
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.13.05<br>9:10 AM</td>
@@ -137,7 +135,7 @@
          <A href="/index?t=statistics&c=srm250_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
- 
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.07.05<br>3:35 PM</td>
@@ -224,7 +222,7 @@
          <A href="/index?t=statistics&c=srm249_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
- 
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>06.27.05<br>5:45 PM</td>
