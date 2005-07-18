@@ -82,7 +82,6 @@ public class PostMessage extends ForumsProcessor {
 			message = forum.createMessage(user);
 		}
 		message.setSubject(com.jivesoftware.util.StringUtils.escapeHTMLTags(subject));
-		log.debug("@@@@@ SUBJECT: " + message.getSubject());
 		message.setBody(body);
 
         WatchManager watchManager = forumFactory.getWatchManager();
