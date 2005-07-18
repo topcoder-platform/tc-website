@@ -91,6 +91,7 @@
 </tr>
 </table>
 
+<%-------------POSTS---------------%>
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
 	<%  int depth=thread.getTreeWalker().getMessageDepth(message);
 		int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5));
@@ -109,7 +110,7 @@
       <%   } %>
       </td></tr>
 		<tr><td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-		<%  if (message.getUser().getProperty("imagePath") != null) { %>
+		<%  if (!("false".equals(message.getUser().getProperty("jiveDisplayMemberPhoto"))) && message.getUser().getProperty("imagePath") != null) { %>
 			<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 		<%  } %>
 		<span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A></div></td>
@@ -117,6 +118,7 @@
 </table>
 </div>
 </tc-webtag:iterator>
+<%-------------POSTS END---------------%>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>

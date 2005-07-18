@@ -131,7 +131,7 @@
    <tr>
       <td class="rtPosterCell">
       <div class="rtPosterSpacer">
-      <%  if (message.getUser().getProperty("imagePath") != null) { %>
+      <%  if (!("false".equals(message.getUser().getProperty("jiveDisplayMemberPhoto"))) && message.getUser().getProperty("imagePath") != null) { %>
       <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
       <%  } %>
       <span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=forumFactory.getUserMessageCount(message.getUser())%> posts</A>
