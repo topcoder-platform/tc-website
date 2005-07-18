@@ -29,8 +29,7 @@
         <td class=homeTopBar width="100%" align=right>
 <% if ( !authToken.isAnonymous() ) { %>
             <strong>Hello, </strong>
-
-            <tc-webtag:handle darkBG="true" coderId="<%=user.getID()%>"/>
+            <span class="smallText">&#160;<tc-webtag:handle darkBG="true" coderId="<%=user.getID()%>"/></span>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout" class=loginLinks>Logout</a>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>
