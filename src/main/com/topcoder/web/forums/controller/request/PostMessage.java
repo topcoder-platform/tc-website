@@ -81,9 +81,8 @@ public class PostMessage extends ForumsProcessor {
 		} else {
 			message = forum.createMessage(user);
 		}
-		message.setSubject(com.jivesoftware.util.StringUtils.escapeHTMLTags(
-                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT)));
-		message.setBody(getRequest().getParameter(ForumConstants.MESSAGE_BODY));
+		message.setSubject(com.jivesoftware.util.StringUtils.escapeHTMLTags(subject));
+		message.setBody(body);
 
         WatchManager watchManager = forumFactory.getWatchManager();
 		if (!threadIDStr.equals("")) {
