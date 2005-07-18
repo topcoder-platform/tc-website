@@ -1,5 +1,4 @@
-<%@ page import="com.topcoder.apps.review.ApplicationServer" %>
-<!-- Main Navigation bar begins -->
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%><!-- Main Navigation bar begins -->
 <%
     boolean isDevelopmentPage = "true".equals(request.getParameter("isDevelopmentPage"));
 %>
@@ -8,8 +7,8 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
         <td class="topNav" nowrap><a href="/" class="topLink">Software</a></td>
-        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.TC_SERVER%>/corp/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
-        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.TC_SERVER%>/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Marketing Services</a></td>
+        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>/corp/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
+        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Marketing Services</a></td>
         <td class="topNav" width="49%">&#160;</td>
     </tr>
 </table>
