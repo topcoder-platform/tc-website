@@ -21,7 +21,7 @@
 
 
 function arena() {
-  w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
+  w=window.open("http://www.topcoder.com/tc?module=Static&d1=applet&d2=launch","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
   return;
 }
 
