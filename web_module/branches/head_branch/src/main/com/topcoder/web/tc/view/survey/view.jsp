@@ -1,14 +1,15 @@
 <%@ page import="com.topcoder.web.tc.Constants,
                  com.topcoder.web.tc.view.tag.AnswerInput,
-                 com.topcoder.web.tc.model.Question"%>
+                 com.topcoder.web.tc.model.Question,
+                 java.util.List"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:useBean id="questionInfo" scope="request" class="java.util.List" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<% List questionInfo = (List)request.getAttribute("questionInfo");%>
 <jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 
 <head>
@@ -46,11 +47,11 @@
                   <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
                      <tr>
                         <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
-                        <p align="right" class="bodyText"><a href="/tc?&module=SurveyList">Archive</a></p></td>
+                        <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
                      </tr>
                   </table>
 
-               <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm">
+               <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="surveyForm">
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
                   <% int i=1; %>

@@ -28,7 +28,7 @@ public interface AuthenticationServices extends EJBObject {
      * @param userId the user's id.
      * @return boolean true for a sector agreement
      */
-    public boolean agreed(int sectorId, int userId)
+    public boolean agreed(int sectorId, long userId)
             throws RemoteException;
 
     /**
@@ -36,7 +36,7 @@ public interface AuthenticationServices extends EJBObject {
      * @param coderId the user's id.
      * @return an Authentication object representing the coder's credentials
      */
-    public Authentication getActivation(int coderId)
+    public Authentication getActivation(long coderId)
             throws RemoteException;
 
     /**
@@ -76,7 +76,7 @@ public interface AuthenticationServices extends EJBObject {
      * @param userId the user's id.
      * @param authorized the authorized status of the sector access.
      */
-    public void insertSectorAccess(int sectorId, int userId, String authorized)
+    public void insertSectorAccess(int sectorId, long userId, String authorized)
             throws RemoteException;
 
     /**
@@ -84,7 +84,7 @@ public interface AuthenticationServices extends EJBObject {
      * @param sectorId the secured area.
      * @param userId the user's id.
      */
-    public void insertSectorAgreement(int sectorId, int userId)
+    public void insertSectorAgreement(int sectorId, long userId)
             throws RemoteException;
 
     /**
@@ -100,7 +100,7 @@ public interface AuthenticationServices extends EJBObject {
      * @param userId a valid user id.
      * @return a populated user object.
      */
-    public User loadUser(int userId)
+    public User loadUser(long userId)
             throws RemoteException;
 
 }

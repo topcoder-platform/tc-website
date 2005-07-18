@@ -67,7 +67,6 @@ public class Submit extends FullRegSubmit {
         }
     }
 
-
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
         UserTransaction tx = null;
 
@@ -112,6 +111,51 @@ public class Submit extends FullRegSubmit {
 
 
     protected long store(SimpleRegInfo regInfo) throws Exception {
+/*
+    protected long commit(SimpleRegInfo regInfo) throws TCWebException {
+        TransactionManager tm = null;
+
+        long ret = 0;
+        UserPrincipal newUser = null;
+        try {
+            tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
+
+            PrincipalMgrRemote mgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+            newUser = mgr.createUser(regInfo.getHandle(), regInfo.getPassword(), CREATE_USER);
+
+            ret = store(regInfo, newUser);
+            tm.commit();
+        } catch (Exception e) {
+            Exception ex = null;
+            try {
+                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
+                    tm.rollback();
+                }
+            } catch (Exception x) {
+                throw new TCWebException(e);
+            }
+
+            try {
+                //since we don't have a transaction spanning the security
+                //stuff, attempt to remove this newly created user manually
+                if (newUser != null && newUser.getId() > 0 && regInfo.isNew()) {
+                    PrincipalMgrRemote mgr = (PrincipalMgrRemote)
+                            com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+                    mgr.removeUser(newUser, CREATE_USER);
+                }
+            } catch (Exception x) {
+                if (ex==null) ex = x;
+                throw new TCWebException(x);
+            }
+            throw new TCWebException(e);
+        }
+        return ret;
+    }
+
+
+    protected long store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
+*/
         long ret = super.storeWithoutCoder(regInfo);
 
         //need to add coder record to avoid breaking a bunch of foreign keys

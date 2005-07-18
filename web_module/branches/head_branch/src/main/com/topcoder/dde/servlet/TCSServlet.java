@@ -1,21 +1,21 @@
 package com.topcoder.dde.servlet;
 
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.dde.util.TCSAuthentication;
+import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
-import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.security.TCSubject;
-import com.topcoder.dde.util.TCSAuthentication;
+import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.*;
+import com.topcoder.web.common.security.WebAuthentication;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import java.util.MissingResourceException;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.MissingResourceException;
 
 /**
  * @author  dok

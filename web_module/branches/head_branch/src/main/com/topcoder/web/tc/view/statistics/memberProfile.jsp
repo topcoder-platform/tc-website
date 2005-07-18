@@ -13,7 +13,6 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/stats.css"/>
 </head>
-
 <body>
 
 <jsp:include page="../../top.jsp" >
@@ -45,7 +44,6 @@
 <% if(rscCoderData.size() == 0) {%>
 This member has not yet been rated in a competition.
 <% } else { %>
-
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr><td class="tableTitle" colspan="3">&#160;</td></tr>
    <tr>

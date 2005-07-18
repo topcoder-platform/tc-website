@@ -9,17 +9,9 @@
 <jsp:include page="../script.jsp" />
 
 <SCRIPT type="text/javascript">
-if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
-  // Linux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/crpfStyle_linux.css"/>');
-} else {
-  // NonLinux Stylesheets
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/crpfStyle.css"/>');
-}
 </SCRIPT>
 
 </head>
@@ -52,7 +44,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                <table align="center">
                   <tr>
                      <td>
-                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
+                     <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
@@ -73,7 +65,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                <blockquote>
                <h2>Advancers</h2>
 <!-- Online Rounds begins -->
-            <p align="right"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_advancers">Round 1</a>&#160;|&#160;Finals</p>
+            <p align="right"><a href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_advancers">Round 1</a>&#160;|&#160;Finals</p>
             <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="3" bgcolor="#4E9DD5">Finals</td>

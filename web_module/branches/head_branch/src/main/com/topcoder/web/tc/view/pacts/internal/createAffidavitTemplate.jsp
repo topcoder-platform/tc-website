@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants,
                  com.topcoder.web.tc.Constants"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
     <head>
         <title>PACTS</title>

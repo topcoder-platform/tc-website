@@ -1,10 +1,10 @@
-<%@ page 
+<%@ page
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 
 <% //common code that pulls out the request bean.
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
@@ -57,20 +57,20 @@ function goTo(selection){
          </TABLE>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
-            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/> 
+            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
 
-<% if (sDivision.equals("2")){ %>  
+<% if (sDivision.equals("2")){ %>
                     This chart ranks the Top-10 in Room Wins while competing in Division-II
                   </P>
                   <P CLASS="statText">
                     See Room Wins for <A CLASS="statText" HREF="/stat?c=all_time_wins_by_div&dn=1">Division-I</A>
 <% } else { %>
-                    This chart ranks the Top-10 in Room Wins while competing in Division-I 
+                    This chart ranks the Top-10 in Room Wins while competing in Division-I
                   </P>
                   <P CLASS="statText">
                     See Room Wins for <A CLASS="statText" HREF="/stat?c=all_time_wins_by_div&dn=2">Division-II</A>
@@ -91,7 +91,7 @@ function goTo(selection){
                       <TD COLSPAN="3" CLASS="smallFoot" WIDTH="1"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                     </TR>
                     <TR VALIGN="middle">
-                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>            
+                      <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="10" HEIGHT="18">&nbsp;</TD>
                       <TD CLASS="statText" background="/i/steel_bluebv_bg.gif" ALIGN="center" WIDTH="50%">
             <a href="/stat?c=all_time_wins_by_div&dn=<%=sDivision%>&sq=All_Time_Wins_By_Division&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Handle</a>
             </TD>
@@ -108,7 +108,7 @@ function goTo(selection){
   <logic:equal name="queryEntries" property="key" value="All_Time_Wins_By_Division">
   <logic:present name="queryEntries" property="value">
     <bean:define id="resultSet" name="queryEntries" property="value" type="ResultSetContainer" />
-    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow"> 
+    <logic:iterate name="resultSet" id="resultRow" type="ResultSetContainer.ResultSetRow">
     <tr valign="middle">
             <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 2 /*"coder_score"*/ + "]" %>'/>
           <td CLASS="smallFoot" align="right" height="13"><bean:write name="resultRow" property='<%= "item[" + 4 /*"rank"*/ + "]" %>'/>&nbsp;</td>
@@ -129,14 +129,14 @@ function goTo(selection){
                   </TABLE>
            </TD>
            </TR>
-              </TABLE>      
+              </TABLE>
             </TD>
            </TR>
            <TR>
              <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-           </TR>     
+           </TR>
          </TABLE>
-         
+
          <p><br></p>
 
          <!-- END BODY -->
@@ -148,7 +148,7 @@ function goTo(selection){
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->       
+    <!-- Gutter Ends -->
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />

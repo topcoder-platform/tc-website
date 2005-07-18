@@ -11,7 +11,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Hashtable;
@@ -38,13 +37,13 @@ public class StatXMLParser {
     }
 
     public static Document getXMLDocument(String sFileName) throws IOException {
-        InputStream in = (InputStream) new FileInputStream(sFileName);
+        InputStream in = StatXMLParser.class.getClassLoader().getResource(sFileName).openStream();
         return getXMLDocument(in);
     }
 
     /**
      * retrieves the global error page from the XML file
-     * @param Document the XML document
+     * @param doc the XML document
      * @return String the error page to forward to
      */
     public static String getGlobalErrorFwd(Document doc) {
@@ -55,7 +54,7 @@ public class StatXMLParser {
 
     /**
      *Creates a QuickStatListBean using an XML document
-     *@param Document the XML document
+     *@param doc the XML document
      *@return QuickStatListBean
      */
     public static QuickStatListBean buildQuickStatListBean(Document doc) {
@@ -79,7 +78,7 @@ public class StatXMLParser {
 
     /**
      *Creates a CoderRatingStyleBean using an XML document
-     *@param Document the XML document
+     *@param doc the XML document
      *@return CoderRatingStyleBean
      */
     public static CoderRatingStyleBean buildCoderRatingStyleBean(Document doc) {
@@ -110,7 +109,7 @@ public class StatXMLParser {
 
     /**
      *Creates a content map using an XML document
-     *@param Document the XML document
+     *@param doc the XML document
      *@return Map
      */
     public static Map buildContentMap(Document doc) {
@@ -136,7 +135,7 @@ public class StatXMLParser {
 
     /**
      *Creates the access/security map using an XML document
-     *@param Document the XML document
+     *@param doc the XML document
      *@return Map
      */
     public static Map buildAccessMap(Document doc) {

@@ -3,9 +3,9 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.BaseServlet,
                  com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -46,7 +46,7 @@ function submitEnter(e) {
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -98,10 +98,10 @@ function submitEnter(e) {
 
                         </form>
                         <br/>
-                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?&module=Google04Reg&cid=1865&eid=1">here</a>.
+                        If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?module=Google04Reg&cid=1865&eid=1">here</a>.
 
 			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

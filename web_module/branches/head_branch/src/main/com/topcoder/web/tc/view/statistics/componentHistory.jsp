@@ -4,10 +4,10 @@
 
 %>
 
-<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
  <HEAD>

@@ -31,9 +31,9 @@ public final class Challenge {
     private static final String PROBLEM_MENU_PAGE = DIR + "challengeproblemmenu.xsl";
     private static final String ROUND_MENU_PAGE = DIR + "challengeroundmenu.xsl";
     private static final String CODER_MENU_PAGE = DIR + "challengecodermenu.xsl";
-    private static final String ROUNDSEGMENT_MENU_PAGE = DIR + "roundsegmentmenu.xsl";
+    /*private static final String ROUNDSEGMENT_MENU_PAGE = DIR + "roundsegmentmenu.xsl";
     private static final String CONTEST_RESULTS_PAGE = DIR + "contestresults.xsl";
-    private static Logger log = Logger.getLogger(Challenge.class);
+    */private static Logger log = Logger.getLogger(Challenge.class);
 
 
     public static String process(HttpServletRequest request, HttpServletResponse response,
@@ -44,41 +44,43 @@ public final class Challenge {
         String result = null;
         RecordTag contestTag = new RecordTag("CHALLENGE");
         HashMap sessionObjects = nav.getSessionObjects();
+/*
         ArrayList roundList = null;
         ArrayList challengeList = null;
         Integer roomId = null;
         Integer roundId = null;
+*/
 
         try {
             String command = Conversion.checkNull(request.getParameter("Command"));
             if (command.equals("getRoundMenu")) {
-                result = getRoundMenuScreen(renderer, request, document, nav, contestTag, sessionObjects);
+                result = getRoundMenuScreen(renderer, document, contestTag);
 
             } else if (command.equals("getProblemList")) {
-                result = getProblemMenuScreen(renderer, request, document, nav, contestTag, sessionObjects);
+                result = getProblemMenuScreen(renderer, request, document, contestTag, sessionObjects);
 
             } else if (command.equals("getCoderList")) {
-                result = getCoderMenuScreen(renderer, request, document, nav, contestTag, sessionObjects);
+                result = getCoderMenuScreen(renderer, request, document, contestTag, sessionObjects);
 
             } else if (command.equals("getProblemChallengeList")) {
-                result = getProblemChallengeList(renderer, request, document, nav, contestTag, sessionObjects);
+                result = getProblemChallengeList(renderer, request, document, contestTag, sessionObjects);
 
             } else if (command.equals("getCoderChallengeList")) {
-                result = getCoderChallengeList(renderer, request, document, nav, contestTag, sessionObjects);
+                result = getCoderChallengeList(renderer, request, document, contestTag, sessionObjects);
 
             } else if (command.equals("getChallengeList")) {
-                result = getChallengeList(renderer, request, document, nav, contestTag, sessionObjects);
+                result = getChallengeList(renderer, request, document, contestTag, sessionObjects);
 
             } else if (command.equals("getRoomList")) {
-                result = getRoomList(renderer, request, document, nav, contestTag, sessionObjects);
+                result = getRoomList(renderer, request, document, contestTag);
 
             } else if (command.equals("removeChallenge")) {
-                removeChallenge(renderer, request, document, nav, contestTag, sessionObjects);
-                result = getChallengeList(renderer, request, document, nav, contestTag, sessionObjects);
+                removeChallenge(request);
+                result = getChallengeList(renderer, request, document, contestTag, sessionObjects);
             } else if (command.equals("overturnChallenge")) {
 
-                overturnChallenge(renderer, request, document, nav, contestTag, sessionObjects);
-                result = getChallengeList(renderer, request, document, nav, contestTag, sessionObjects);
+                overturnChallenge(request);
+                result = getChallengeList(renderer, request, document, contestTag, sessionObjects);
             }
 
         } catch (Exception e) {
@@ -90,7 +92,7 @@ public final class Challenge {
     }
 
     private static String getRoomList(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                      XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
+                                      XMLDocument document, RecordTag contestTag)
             throws NavigationException {
         String result = null;
         ContestAdminServices contestEJB = null;
@@ -101,7 +103,7 @@ public final class Challenge {
             try {
                 contestEJB = (ContestAdminServices) BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 int roundId = Integer.parseInt(request.getParameter("roundid"));
-                int filter = Integer.parseInt(request.getParameter("filter"));
+                roomList = contestEJB.getRoomList(roundId);
                 roomList = contestEJB.getRoomList(roundId);
             } catch (Exception e) {
                 log.error("Challenge: getRoomList error retrieving room list .");
@@ -135,7 +137,7 @@ public final class Challenge {
     }
 
     private static String getCoderChallengeList(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                                XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
+                                                XMLDocument document, RecordTag contestTag, HashMap sessionObjects)
             throws NavigationException {
         log.info("Servlet: Challenge: getCoderChallengeList called ");
         String result = null;
@@ -232,7 +234,7 @@ public final class Challenge {
 
 
     private static String getProblemChallengeList(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                                  XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
+                                                  XMLDocument document, RecordTag contestTag, HashMap sessionObjects)
             throws NavigationException {
         log.info("Servlet: Challenge: getProblemChallengeList called ");
         String result = null;
@@ -329,7 +331,7 @@ public final class Challenge {
 
 
     private static String getChallengeList(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                           XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
+                                           XMLDocument document, RecordTag contestTag, HashMap sessionObjects)
             throws NavigationException {
         log.info("Servlet: Challenge: getChallengeList called ");
         String result = null;
@@ -427,9 +429,7 @@ public final class Challenge {
     }
 
 
-    private static void removeChallenge(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                        XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
-            throws NavigationException {
+    private static void removeChallenge(HttpServletRequest request) throws NavigationException {
         ContestAdminServices contestEJB = null;
 
         try {
@@ -457,8 +457,8 @@ public final class Challenge {
         }
     }
 
-    private static void overturnChallenge(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                          XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects)
+    private static void overturnChallenge(HttpServletRequest request
+                                          )
             throws NavigationException {
         ContestAdminServices contestEJB = null;
 
@@ -488,7 +488,7 @@ public final class Challenge {
     }
 
     private static String getProblemMenuScreen(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                               XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects
+                                               XMLDocument document, RecordTag contestTag, HashMap sessionObjects
                                                ) throws NavigationException {
         log.info("Servlet Challenge: getProblemMenuScreen called  ");
         String result = null;
@@ -532,10 +532,8 @@ public final class Challenge {
                 ctx = null;
             }
 
-            Object a = null;
             try {
                 for (int i = 0; i < problemList.size(); i++) {
-                    a = problemList.get(i);
                     contestTag.addTag(((Problem) problemList.get(i)).getXML());
                 }
             } catch (Exception ex) {
@@ -562,7 +560,7 @@ public final class Challenge {
 
 
     private static String getCoderMenuScreen(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                             XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects
+                                             XMLDocument document, RecordTag contestTag, HashMap sessionObjects
                                              ) throws NavigationException {
         String result = null;
         ContestAdminServices contestEJB = null;
@@ -621,10 +619,8 @@ public final class Challenge {
                 ctx = null;
             }
 
-            Object a = null;
             try {
                 for (int i = 0; i < coderList.size(); i++) {
-                    a = coderList.get(i);
                     contestTag.addTag(((com.topcoder.common.web.data.SystemTestCaseReport) coderList.get(i)).getXML());
                 }
             } catch (Exception ex) {
@@ -649,8 +645,8 @@ public final class Challenge {
         return result;
     }
 
-    private static String getRoundMenuScreen(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                             XMLDocument document, Navigation nav, RecordTag contestTag, HashMap sessionObjects
+    private static String getRoundMenuScreen(HTMLRenderer HTMLmaker,
+                                             XMLDocument document, RecordTag contestTag
                                              ) throws NavigationException {
         String result = null;
         ContestAdminServices contestEJB = null;
@@ -674,10 +670,8 @@ public final class Challenge {
                 ctx = null;
             }
 
-            Object a = null;
             try {
                 for (int i = 0; i < roundList.size(); i++) {
-                    a = roundList.get(i);
                     contestTag.addTag(((Round) roundList.get(i)).getXML());
                 }
             } catch (Exception ex) {

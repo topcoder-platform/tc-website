@@ -339,7 +339,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public UserProjectInfo[] getProjectInfo(TCSubject user) {
-        info("PT.getProjectInfo( " + user.getUserId() + " )");
+        debug("PT.getProjectInfo( " + user.getUserId() + " )");
 
         LinkedList projectInfoList = new LinkedList();
 
@@ -354,7 +354,7 @@ public class ProjectTrackerBean implements SessionBean {
             try {
                 Context ctx = new InitialContext();
                 PolicyRemoteHome pHome = (PolicyRemoteHome) PortableRemoteObject.narrow(ctx.lookup(
-                        "java:comp/env/security/Policy"), PolicyRemoteHome.class);
+                        PolicyRemoteHome.EJB_REF_NAME), PolicyRemoteHome.class);
                 PolicyRemote policy = pHome.create();
                 isAdmin = policy.checkPermission(user, new AdminPermission());
             } catch (Exception e1) {

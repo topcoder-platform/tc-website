@@ -26,7 +26,7 @@
 		<td width="49%">&#160;</td>
 		<td>
 			<div class=greenBigBox>
-			
+
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
@@ -104,7 +104,7 @@
 					<td class="sidebarTitle" width="25%">Round</td>
 					<td class="sidebarTitle" width="35%">Date and Time*</td>
 					<td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-					<td class="sidebarTitle" width="19%" align="center"># of Advancers</td> 
+					<td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Championship Round</td>
@@ -118,7 +118,7 @@
 			</table>
 
 			<br/><br/>
-			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
+			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>

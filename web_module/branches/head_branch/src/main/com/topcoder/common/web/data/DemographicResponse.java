@@ -16,7 +16,7 @@ public class DemographicResponse
         , Modifiable {
 
 
-    private int coderId;
+    private long coderId;
     private int demographicQuestionId;
     private int demographicAnswerId;
     private String demographicResponseText;
@@ -69,7 +69,7 @@ public class DemographicResponse
     }
 
     //Set
-    public void setCoderId(int coderId) {
+    public void setCoderId(long coderId) {
         this.coderId = coderId;
     }
 
@@ -91,7 +91,7 @@ public class DemographicResponse
 
 
     // Get
-    public int getCoderId() {
+    public long getCoderId() {
         return coderId;
     }
 

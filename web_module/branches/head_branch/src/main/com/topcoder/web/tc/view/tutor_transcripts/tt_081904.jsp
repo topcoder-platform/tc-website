@@ -4,13 +4,13 @@
 <head>
 <title>Tutor Transcripts</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="tutor_transcripts"/>
             </jsp:include>
@@ -29,9 +29,9 @@
          <td width="100%" align="center">
 
          <div class="tutorBody">
-            
+
             <h2>SRM 208 Tutor Transcript</h2>
-            
+
 			<table width="100%" border="0" cellspacing="0" class=bodyText>
 				<tr><td class=tutorHeader>Handle</td><td width="100%" class=tutorHeader>Comment</td></tr>
 <tr><td class=tutorOdd><b>vorthys</b></td><td class=tutorOdd>howdy folks</td></tr>
@@ -256,7 +256,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -268,7 +268,7 @@
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

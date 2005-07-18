@@ -16,18 +16,18 @@ public class AnswerInput extends BaseTag {
     public static final String PREFIX = "question_";
     public static final String ANSWER_TEXT = "answerText";
 
-    private String cssclass;
+    private String styleClass;
     private Question question;
     private Iterator answers;
     private boolean processed = false;
 
     public AnswerInput() {
         super();
-        cssclass = null;
+        styleClass = null;
     }
 
-    public void setClass(String cssclass) {
-        this.cssclass = cssclass;
+    public void setStyleClass(String cssclass) {
+        this.styleClass = cssclass;
     }
 
     public void setQuestion(Question question) {
@@ -57,7 +57,7 @@ public class AnswerInput extends BaseTag {
                 pageContext.setAttribute(ANSWER_TEXT, "", PageContext.PAGE_SCOPE);
                 pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
                 processed = true;
-                return EVAL_BODY_TAG;
+                return EVAL_BODY_AGAIN;
             }
         } else if (answers != null && answers.hasNext()) {
             answer = (Answer) answers.next();
@@ -68,7 +68,7 @@ public class AnswerInput extends BaseTag {
             }
             pageContext.setAttribute(ANSWER_TEXT, answer.getText(), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
-            return EVAL_BODY_TAG;
+            return EVAL_BODY_AGAIN;
         } else {
             return wrapItUp();
         }
@@ -95,8 +95,8 @@ public class AnswerInput extends BaseTag {
             s.append("rows=\"").append(8).append("\" ");
             s.append("wrap=\"").append("virtual").append("\" ");
             s.append("name=\"").append(name).append("\" ");
-            if (cssclass != null) {
-                s.append("class=\"").append(cssclass).append("\" ");
+            if (styleClass != null) {
+                s.append("class=\"").append(styleClass).append("\" ");
             }
             s.append(">");
             s.append(getDefaultValue() == null ? "" : getDefaultValue());
@@ -106,8 +106,8 @@ public class AnswerInput extends BaseTag {
             s.append(" name=\"");
             s.append(name);
             s.append("\"");
-            if (cssclass != null) {
-                s.append(" class=\"" + cssclass + "\"");
+            if (styleClass != null) {
+                s.append(" class=\"" + styleClass + "\"");
             }
             s.append(" value=\"");
             s.append(getDefaultValue() == null ? "" : getDefaultValue());
@@ -124,9 +124,9 @@ public class AnswerInput extends BaseTag {
         s.append("<input type=\"checkbox\" name=\"");
         s.append(name);
         s.append("\"");
-        if (cssclass != null) {
+        if (styleClass != null) {
             s.append(" class=\"");
-            s.append(cssclass);
+            s.append(styleClass);
             s.append("\"");
         }
         if (getDefaultValue() != null && getDefaultValue().equals("true")) {
@@ -143,9 +143,9 @@ public class AnswerInput extends BaseTag {
         s.append("<input type=\"radio\" name=\"");
         s.append(name);
         s.append("\"");
-        if (cssclass != null) {
+        if (styleClass != null) {
             s.append(" class=\"");
-            s.append(cssclass);
+            s.append(styleClass);
             s.append("\"");
         }
         s.append(" value=\"");
@@ -160,7 +160,7 @@ public class AnswerInput extends BaseTag {
     }
 
     protected void init() {
-        this.cssclass = null;
+        this.styleClass = null;
         this.question = null;
         this.answers = null;
         this.processed = false;

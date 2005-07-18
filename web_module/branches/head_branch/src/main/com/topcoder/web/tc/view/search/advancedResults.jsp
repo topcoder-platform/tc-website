@@ -4,7 +4,7 @@
 <%@ page language="java"  %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
+<jsp:useBean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 <% ResultSetContainer results = memberSearch.getResults();%>
 
 <html>
@@ -56,8 +56,8 @@
 <!-- Center Column Begins -->
  <td class="bodyText"><img src="/i/clear.gif" width="510" height="10"border="0"><br>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="statisticsw"/>  
-           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="image" value="statisticsw"/>
+           <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="Member Search Results"/>
          </jsp:include>
 
@@ -66,8 +66,7 @@
                           <br/>
                           <jsp:include page="results.jsp"/>
                       </form>
-
-        </td> 
+        </td>
 
 
 <!-- Center Column Ends -->

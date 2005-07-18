@@ -19,7 +19,7 @@
           com.topcoder.web.common.SessionInfo"
 
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -37,16 +37,16 @@
                 com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
 				dataRequest.setContentHandle("srm_demo_last_match");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
-				
+
 				           DataAccessInt dai = new CachedDataAccess(
                                     dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
-					
+
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_last_match");
-					
-					
-			%>	
+
+
+			%>
 <table width="100%" class="srmFrame">
 <tr><td colspan="2" class="srmQuestion">Repeat Participant Aging</td></tr>
 <tr>

@@ -1,5 +1,5 @@
 <%@ page language="java" %>
-<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -13,7 +13,7 @@
     }
 </script>
 
-<!-- Start Title -->			
+<!-- Start Title -->
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
     <html:form action="/saveScreeningScorecard">
     <html:hidden property="id" />
@@ -25,29 +25,29 @@
 <logic:equal name="screeningScorecardForm" property="valid" value="false">
 	<tr>
 		<td class="errorText"><UL><bean:message key="error.invalidData" /></UL></td></tr>
-</logic:equal>    
+</logic:equal>
 	<tr>
 		<td class="whiteBkgnd">
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
 				<tr>
 					<td width="5%" align="left">
-<logic:equal name="screeningScorecardForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_design.gif" %>' width="66" height="62" alt="">
-</logic:equal>						
-<logic:notEqual name="screeningScorecardForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">                    
-						<img src='<%="images/icon_development.gif" %>' width="66" height="62" alt="">
+<logic:equal name="screeningScorecardForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_design.gif" %>' width="66" height="62" alt="">
+</logic:equal>
+<logic:notEqual name="screeningScorecardForm" property="project.projectType.id" value="<%=String.valueOf(ProjectType.ID_DESIGN)%>">
+						<img src='<%="/images/icon_development.gif" %>' width="66" height="62" alt="">
 </logic:notEqual>
 					</td>
                     <td width="5%">
 <logic:equal name="screeningScorecardForm" property="project.catalog" value="Java">
-                        <img src="images/smJava.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 <logic:equal name="screeningScorecardForm" property="project.catalog" value=".NET">
-                        <img src="images/netSm.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 					</td>
 					<td width="40%" nowrap class="tableHeader">
-				        <strong><bean:write name="screeningScorecardForm" property="project.name" /></strong> 
+				        <strong><bean:write name="screeningScorecardForm" property="project.name" /></strong>
     			        <bean:message key="prompt.version" />
     			        <bean:write name="screeningScorecardForm" property="project.version" />
 					</td>
@@ -56,23 +56,23 @@
 					    <html:link page='<%="/submissionDownload.do?id="+theForm.getProject().getId()+"&sid="+theForm.getSubmissionId()%>' styleClass="breadcrumbLinks"><bean:message key="prompt.download" /></html:link></td>
 				</tr>
 				<tr>
-					<td class="whiteBkgnd" colspan="4"><img src="images/clear.gif" alt="" width="1" height="1" border="0"></td>
+					<td class="whiteBkgnd" colspan="4"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
 				</tr>
 			</table>
-			
+
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
 				<tr>
 					<td class="blackBkgnd" colspan="2">
-                        <bean:write name="screeningScorecardForm" property="project.projectType.name" /> Screening Scorecard 
+                        <bean:write name="screeningScorecardForm" property="project.projectType.name" /> Screening Scorecard
 						- <bean:message key="prompt.submission" /> <review:showSubmissionId name="screeningScorecardForm" property="submission" /></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="forumTextOdd">For the <bean:write name="screeningScorecardForm" property="project.projectType.name" /> Checklist, mark each deliverable as Yes, it exists; No, it does not exist; N/A, this deliverable was not required. For the <bean:write name="screeningScorecardForm" property="project.projectType.name" /> Review, provide a score for each statement according to the dropdown answers.</td>
 				</tr>
 			</table>
-						
-			
-			
+
+
+
 <!-- Start Text -->
 <logic:iterate id="question" indexId="qIdx" name="screeningScorecardForm" property="questions">
 <!--
@@ -80,7 +80,7 @@
         <a name="lastPosition"></a>
     </logic:equal>
  -->
-    
+
 	<logic:equal name="question" property="groupFirst" value="true">
 			<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr>
@@ -90,7 +90,7 @@
 	</logic:equal>
     <logic:equal name="question" property="first" value="true">
 		    <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" class="forumBkgd">
-					
+
 			    <tr>
 			    	<td width="90%" class="forumTitle">
 			    	    <strong><bean:write name="question" property="scorecardSection" /></strong></td>
@@ -144,11 +144,11 @@
 				        		    <html:submit styleClass="submitButton" onclick='<%="set(this.form,"+doDel+","+qIdx+","+rIdx+")"%>'>
 				        		        <bean:message key="button.delete" /></html:submit></td>
 				        		<td width="5%" valign="middle" class="forumTextOdd">&nbsp;
-			<logic:equal name="question" property="responseNum" value="<%=String.valueOf(rIdx.intValue()+1)%>">				        		
+			<logic:equal name="question" property="responseNum" value="<%=String.valueOf(rIdx.intValue()+1)%>">
 				        		    <% String doAdd = "'add'"; %>
 				        		    <html:submit styleClass="submitButton" onclick='<%="set(this.form,"+doAdd+","+qIdx+","+rIdx+")"%>'>
 				        		        <bean:message key="button.add" /></html:submit>
-			</logic:equal>				        		        
+			</logic:equal>
 				        		        </td>
 				        	</tr>
 				        </table>
@@ -156,32 +156,32 @@
 				</tr>
 		</logic:iterate>
 	</logic:notEqual>
-    <logic:equal name="question" property="last" value="true">	
+    <logic:equal name="question" property="last" value="true">
 		    </table>
-<!-- spacer  -->										
+<!-- spacer  -->
 		    <table width="100%" border="0" cellpadding="2" cellspacing="0">
 		    	<tr>
-		    		<td class="normal"><img src="images/clear.gif" alt="" width="1" height="5" border="0"></td>
+		    		<td class="normal"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
 		    	</tr>
 		    </table>
-		
+
 	</logic:equal>
-</logic:iterate>			
-		
-		
+</logic:iterate>
+
+
 	</td></tr>
-					
-<!-- Bottom Buttons -->	
-					
+
+<!-- Bottom Buttons -->
+
 	<tr>
 		<td align="center" class="lightBkgnd">
 			<table border="0" cellpadding="0" cellspacing="4">
 				<tr>
-<logic:equal name="utility" property="admin" value="false">				
+<logic:equal name="utility" property="admin" value="false">
 					<td>
 					    <html:submit styleClass="submitButton" onclick="set(this.form,'save', -1, -1)">
 					        <bean:message key="button.save" /></html:submit></td>
-</logic:equal>					        
+</logic:equal>
 					<td>
 					    <html:submit styleClass="submitButton" onclick="set(this.form,'finish', -1, -1)">
 					        <bean:message key="button.finish" /></html:submit></td>

@@ -7,17 +7,9 @@
 <jsp:include page="../script.jsp" />
 
 <SCRIPT type="text/javascript">
-if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
-  // Linux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/crpfStyle_linux.css"/>');
-} else {
-  // NonLinux Stylesheets
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/crpfStyle.css"/>');
-}
 </SCRIPT>
 
 </head>
@@ -50,7 +42,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                <table align="center">
                   <tr>
                      <td>
-                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
+                     <A href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_photos"><img src="/i/events/crpf03/crfp_banner.jpg" width="510" height="160" border="0" alt="TopCoder Charity Challenge benefiting the CRPF;T"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
@@ -115,11 +107,11 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                   participation in this tournament, or participation in any tournament-related activity, or the receipt, use or misuse of a prize.
                   TopCoder and CRPF specifically disclaim all liability associated with, and makes no warranties with regard to, any prize given.</p>
 
-                  <p>In addition, all prizewinners agree to cooperate with TopCoder's and CRPFÕs publicity efforts, without further compensation. This
+                  <p>In addition, all prizewinners agree to cooperate with TopCoder's and CRPFï¿½s publicity efforts, without further compensation. This
                   includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, for this or
                   similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder and CRPF and any and
                   all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify TopCoder if a third-party
-                  contacts the prizewinner regarding employment opportunities and/or media interest as a result of the prizewinnerÕs participation in the
+                  contacts the prizewinner regarding employment opportunities and/or media interest as a result of the prizewinnerï¿½s participation in the
                   tournament.</p>
 
                   <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this tournament,

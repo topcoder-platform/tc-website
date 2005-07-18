@@ -2,8 +2,8 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -23,16 +23,16 @@
 	<tr><td><div><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
 	<tr>
 		<td>
-			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
-				<tr> 
+			<table cellspacing="0" cellpadding="0" border="0" width="100%">
+				<tr>
 <%--
-                    <td class=demoLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
+                    <td class=demoLeftCol valign="top"><a href="/pl/?module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td>
 --%>
 					<td width="100%" valign="top">
-						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+						<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DEMO_REG_DEMOG%>"/>
-            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
-            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
+            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="companyId"/>"/>
+            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="eventId"/>"/>
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                             <tr>
                                 <td class="demoBodyTitle" align=left>Application Information
@@ -175,7 +175,7 @@
                         </tr>
                         <tr>
                             <td class="demoRegQuestion">
-                                <span class="demoErrorText">* Required</span> 
+                                <span class="demoErrorText">* Required</span>
                             </td>
                             <td class="demoRegAnswer">
                                 &nbsp;
@@ -189,9 +189,9 @@
                         </tr>
                         </table>
                         </form>
-						
+
 						<p><br/></p>
-					</td> 
+					</td>
 
 				</tr>
 			</table>

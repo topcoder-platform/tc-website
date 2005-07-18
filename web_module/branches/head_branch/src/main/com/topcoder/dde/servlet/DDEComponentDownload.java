@@ -30,18 +30,16 @@ public class DDEComponentDownload extends DownloadServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
-        Hashtable environment = new Hashtable();
-        environment.put(Context.PROVIDER_URL, "localhost:1099");
-        environment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
         Context context = null;
         try {
-            context = new InitialContext(environment);
+            context = new InitialContext();
 
             catalogHome = (CatalogHome) PortableRemoteObject.narrow(
                     context.lookup(CatalogHome.EJB_REF_NAME), CatalogHome.class);
             componentManagerHome = (ComponentManagerHome) PortableRemoteObject.narrow(
                     context.lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
         } catch (Exception e) {
+            throw new ServletException(e);
         } finally {
             if (context != null) try {
                 context.close();
@@ -59,6 +57,7 @@ public class DDEComponentDownload extends DownloadServlet {
             ComponentManager compMgr = componentManagerHome.create(compId);
             return (compMgr.canDownload(tcSubject));
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }

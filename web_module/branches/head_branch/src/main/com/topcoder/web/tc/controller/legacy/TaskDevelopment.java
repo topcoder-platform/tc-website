@@ -28,10 +28,10 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.model.SoftwareComponent;
+import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -681,7 +681,7 @@ public final class TaskDevelopment {
 
         ComponentManager componentMgr = null;
         try {
-            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            Context CONTEXT = TCContext.getInitial();
             Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId);
@@ -699,7 +699,7 @@ public final class TaskDevelopment {
 
         ComponentManager componentMgr = null;
         try {
-            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+            Context CONTEXT = TCContext.getInitial();
             Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             componentMgr = home.create(componentId, version);
@@ -717,8 +717,8 @@ public final class TaskDevelopment {
 
         Catalog catalog = null;
         try {
-            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-            Object objTechTypes = CONTEXT.lookup("CatalogEJB");
+            Context CONTEXT = TCContext.getInitial();
+            Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
             CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
             catalog = home.create();
 
@@ -734,7 +734,7 @@ public final class TaskDevelopment {
 
 
     static void register(long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version) throws Exception {
-        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+        Context ctx = TCContext.getInitial();
 
 
         log.debug("creating user");
@@ -770,7 +770,7 @@ public final class TaskDevelopment {
 
     static long getActiveForumId(long componentId) throws Exception {
 
-        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+        Context ctx = TCContext.getInitial();
         Object objTechTypes = ctx.lookup("ComponentManagerEJB");
         ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
         ComponentManager componentMgr = home.create(componentId);

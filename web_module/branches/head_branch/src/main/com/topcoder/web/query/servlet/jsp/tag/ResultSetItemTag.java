@@ -30,5 +30,13 @@ public class ResultSetItemTag extends TagSupport {
         return SKIP_BODY;
     }
 
+
+    public int doEndTag() throws JspException {
+        name=null;
+        row=null;
+        return super.doEndTag();
+    }
+
+
 }
 

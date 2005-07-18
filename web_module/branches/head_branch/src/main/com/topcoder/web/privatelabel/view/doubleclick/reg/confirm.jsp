@@ -1,12 +1,14 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.List,
+                 java.util.Map" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="privatelabel.tld" prefix="pl" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
-<jsp:usebean id="responseList" class="java.util.List" scope="request" />
-<jsp:usebean id="questionMap" class="java.util.Map" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<% List responseList = (List)request.getAttribute("responseList");%>
+<% Map questionMap = (Map)request.getAttribute("questionMap");%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -42,7 +44,7 @@
 		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
 
-        <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+        <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DC_REG_SUBMIT%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
@@ -51,7 +53,7 @@
                 <tr>
                      <td class="dc_regTableQuestion"><b>Personal</b></td>
                     <td class="dc_regTableAnswer">
-                        <a class="bodyText_link" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.DC_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                        <a class="bodyText_link" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.DC_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                     </td>
                 </tr>
                 <tr>
@@ -124,15 +126,15 @@
                     <td class="dc_regTableAnswer"><jsp:getProperty name="regInfo" property="CountryName"/></td>
                 </tr>
              </table>
-             
+
              <p><br/></p>
 
-                
+
              <table width="100%" cellpadding="0" cellspacing="3">
                 <tr>
                     <td class="dc_regTableQuestion"><b>Demographics</b></td>
                     <td class="dc_regTableAnswer">
-                        <a class="bodyText_link" href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.DC_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
+                        <a class="bodyText_link" href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.DC_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
                     </td>
                 </tr>
 

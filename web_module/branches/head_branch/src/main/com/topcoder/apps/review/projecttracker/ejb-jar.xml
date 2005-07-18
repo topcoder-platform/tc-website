@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE ejb-jar PUBLIC
-  '-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN'
-  'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd'>
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
 
 <ejb-jar>
-    <display-name>ProjectTracker</display-name>
+    <description>ProjectTracker Jar</description>
+    <display-name>ProjectTracker Jar</display-name>
     <enterprise-beans>
         <session>
+            <description>ProjectTracker EJB</description>
+            <display-name>ProjectTracker EJB</display-name>
             <ejb-name>ProjectTracker</ejb-name>
             <local-home>com.topcoder.apps.review.projecttracker.ProjectTrackerLocalHome</local-home>
             <local>com.topcoder.apps.review.projecttracker.ProjectTrackerLocal</local>
@@ -16,17 +19,19 @@
             <ejb-class>com.topcoder.apps.review.projecttracker.ProjectTrackerBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
+<!--
             <ejb-ref>
                 <ejb-ref-name>security/Policy</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
                 <home>com.topcoder.security.policy.PolicyRemoteHome</home>
                 <remote>com.topcoder.security.policy.PolicyRemote</remote>
-<!--
                 <ejb-link>PolicyEJB</ejb-link>
--->
             </ejb-ref>
+-->
         </session>
         <session>
+            <description>UserManager EJB</description>
+            <display-name>UserManager EJB</display-name>
             <ejb-name>UserManager</ejb-name>
             <local-home>com.topcoder.apps.review.projecttracker.UserManagerLocalHome</local-home>
             <local>com.topcoder.apps.review.projecttracker.UserManagerLocal</local>
@@ -35,17 +40,19 @@
             <ejb-class>com.topcoder.apps.review.projecttracker.UserManagerBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
+<!--
             <ejb-ref>
                 <ejb-ref-name>security/PolicyMgr</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
                 <home>com.topcoder.security.admin.PolicyMgrRemoteHome</home>
                 <remote>com.topcoder.security.admin.PolicyMgrRemote</remote>
-<!--
                 <ejb-link>PolicyMgrEJB</ejb-link>
--->
             </ejb-ref>
+-->
         </session>
         <session>
+            <description>DocumentManager EJB</description>
+            <display-name>DocumentManager EJB</display-name>
             <ejb-name>DocumentManager</ejb-name>
             <local-home>com.topcoder.apps.review.document.DocumentManagerLocalHome</local-home>
             <home>com.topcoder.apps.review.document.DocumentManagerHome</home>
@@ -54,15 +61,15 @@
             <ejb-class>com.topcoder.apps.review.document.DocumentManagerBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
+<!--
             <ejb-ref>
                 <ejb-ref-name>security/Policy</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
                 <home>com.topcoder.security.policy.PolicyRemoteHome</home>
                 <remote>com.topcoder.security.policy.PolicyRemote</remote>
-<!--
                 <ejb-link>PolicyEJB</ejb-link>
--->
             </ejb-ref>
+-->
         </session>
     </enterprise-beans>
     <assembly-descriptor>

@@ -1,8 +1,11 @@
+<%@ page import="java.util.List"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="/tc.tld" prefix="tc" %>
-<jsp:useBean id="questionInfo" scope="request" class="java.util.List" />
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<% List questionInfo = (List)request.getAttribute("questionInfo");%>
+
+
 <html>
 
 <head>
@@ -98,7 +101,7 @@
                   <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
                      <tr>
                         <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
-                        <p align="right" class="bodyText"><a href="/tc?&module=SurveyList">Archive</a></p></td>
+                        <p align="right" class="bodyText"><a href="/tc?module=SurveyList">Archive</a></p></td>
                      </tr>
                   </table>
 

@@ -6,12 +6,14 @@
  */
 package com.topcoder.apps.review.document;
 
+import java.io.Serializable;
+
 /**
  * Represents a ScorecardQuestionTemplate for scorecard editing.
  *
  * @author FatClimber
  */
-public class TQuestion {
+public class TQuestion implements Serializable {
     private long qTemplateVID;
     private long qTemplateId;
     private long projectType;
