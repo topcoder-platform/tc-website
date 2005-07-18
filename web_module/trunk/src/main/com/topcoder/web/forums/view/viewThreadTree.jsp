@@ -107,7 +107,7 @@
    </td></tr>
    <tr>
    <td class="rtPosterCell"><div class="rtPosterSpacer">
-   <%  if (!("false".equals(message.getUser().getProperty("jiveDisplayMemberPhoto"))) && activeMessage.getUser().getProperty("imagePath") != null) { %>
+   <%  if (!("false".equals(activeMessage.getUser().getProperty("jiveDisplayMemberPhoto"))) && activeMessage.getUser().getProperty("imagePath") != null) { %>
       		<img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
    <%  } %>
    <span class="bodyText"><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=forumFactory.getUserMessageCount(activeMessage.getUser())%> posts</A></div></td>
