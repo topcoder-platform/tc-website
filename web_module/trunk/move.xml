@@ -85,7 +85,7 @@
         <ant antfile="build.xml" target="war-forums"/>
 
         <copy todir="../jboss-4.0.2/server/default/lib">
-            <fileset dir="build/lib/bin">
+            <fileset dir="lib/bin">
                 <include name="shared.jar"/>
             </fileset>
         </copy>
