@@ -182,7 +182,7 @@
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
 	<td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
 	<td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
-	<td class="rtThreadCell"><b><tc-webtag:beanWrite name="thread" property="modificationDate" format="MMM dd, yyyy h:mm a"/></b></td>
+	<td class="rtThreadCell"><b><A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=lastPost.getID()%>" class="rtLinkNew"><tc-webtag:beanWrite name="thread" property="modificationDate" format="MMM dd, yyyy h:mm a"/></A></b></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=lastPost.getUser().getID()%>"/></td>
 	</tr>
 </tc-webtag:iterator>
