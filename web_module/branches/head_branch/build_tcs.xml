@@ -338,8 +338,7 @@
         </copy>
     </target>
 
-    <target name="deploy" depends="war-dde,war-or,build-ejbs,build-sars">
-
+    <target name="build-ear" depends="war-dde,war-or,build-ejbs,build-sars">
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
             <fileset dir="${sar.dir}">
                 <include name="*.sar"/>
@@ -354,7 +353,9 @@
                 <include name="forum.jar"/>
             </fileset>
         </ear>
+    </target>
 
+    <target name="deploy" depends="build-ear">
         <ant target="explode"/>
     </target>
 

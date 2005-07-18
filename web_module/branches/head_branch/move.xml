@@ -62,7 +62,7 @@
         </exec>
 
         <ant antfile="build.xml" target="clean"/>
-        <ant antfile="build_tcs.xml" target="deploy"/>
+        <ant antfile="build_tcs.xml" target="build-ear"/>
 
     </target>
 
