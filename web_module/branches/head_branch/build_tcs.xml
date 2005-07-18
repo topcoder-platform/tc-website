@@ -355,6 +355,10 @@
             </fileset>
         </ear>
 
+        <ant target="explode"/>
+    </target>
+
+    <target name="explode" depends="">
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
 
@@ -363,7 +367,6 @@
 
         <unwar src="${war.dir}/review.war" dest="${jboss.deploy.dir}/dde.ear/review.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
-
     </target>
 
 </project>
