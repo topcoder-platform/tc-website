@@ -168,30 +168,42 @@
       </td>
    </tr>
    <tr>
+      <td class="rtTextCell" nowrap="nowrap"><strong>Display member photo:</strong></td>
+      <td class="rtTextCell100">
+		<input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
+		    <%= (user.getProperty("jiveDisplayMemberPhoto") == null || "true".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
+		<label for="jiveDisplayMemberPhotoYes">Yes</label>
+		&#160;
+		<input name="displayMemberPhoto" value="false" id="displayMemberPhotoNo" type="radio"
+		    <%= ("false".equals(user.getProperty("jiveDisplayMemberPhoto"))) ? "checked" : ""%>>
+		<label for="jiveDisplayMemberPhotoNo">No</label>
+      </td>
+   </tr>
+   <tr>
       <td class="rtHeader" colspan="2">Watch Preferences</td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I create:</strong></td>
       <td class="rtTextCell100">
-<input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
-	<%= ("true".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
-<label for="autoWatchNewTopicsYes">Yes</label>
-&#160;
-<input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio"
-	<%= (user.getProperty("jiveAutoWatchNewTopics") == null || "false".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
-<label for="autoWatchNewTopicsNo">No</label>
+		<input name="autoWatchNewTopics" value="true" id="autoWatchNewTopicsYes" type="radio"
+			<%= ("true".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
+		<label for="autoWatchNewTopicsYes">Yes</label>
+		&#160;
+		<input name="autoWatchNewTopics" value="false" id="autoWatchNewTopicsNo" type="radio"
+			<%= (user.getProperty("jiveAutoWatchNewTopics") == null || "false".equals(user.getProperty("jiveAutoWatchNewTopics"))) ? "checked" : ""%>>
+		<label for="autoWatchNewTopicsNo">No</label>
       </td>
    </tr>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Always watch threads I reply to:</strong></td>
       <td class="rtTextCell100">
-<input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio"
-	<%= ("true".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
-<label for="autoWatchRepliesYes">Yes</label>
-&#160;
-<input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio"
-	<%= (user.getProperty("jiveAutoWatchReplies") == null || "false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
-<label for="autoWatchRepliesNo">No</label>
+		<input name="autoWatchReplies" value="true" id="autoWatchRepliesYes" type="radio"
+			<%= ("true".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
+		<label for="autoWatchRepliesYes">Yes</label>
+		&#160;
+		<input name="autoWatchReplies" value="false" id="autoWatchRepliesNo" type="radio"
+			<%= (user.getProperty("jiveAutoWatchReplies") == null || "false".equals(user.getProperty("jiveAutoWatchReplies"))) ? "checked" : ""%>>
+		<label for="autoWatchRepliesNo">No</label>
       </td>
    <tr>
       <td class="rtTextCell" nowrap="nowrap"><strong>Send watch emails:</strong></td>

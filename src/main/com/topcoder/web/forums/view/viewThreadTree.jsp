@@ -92,6 +92,7 @@
 </tr>
 </table>
 
+<%-------------ACTIVE POST---------------%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr><td class="rtHeader" colspan="2">
    <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="activeMessage" property="subject"/>
@@ -106,14 +107,16 @@
    </td></tr>
    <tr>
    <td class="rtPosterCell"><div class="rtPosterSpacer">
-   <%  if (activeMessage.getUser().getProperty("imagePath") != null) { %>
+   <%  if (!("false".equals(message.getUser().getProperty("jiveDisplayMemberPhoto"))) && activeMessage.getUser().getProperty("imagePath") != null) { %>
       		<img src="<%=activeMessage.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
    <%  } %>
    <span class="bodyText"><tc-webtag:handle coderId="<%=activeMessage.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=activeMessage.getUser().getID()%>"><%=forumFactory.getUserMessageCount(activeMessage.getUser())%> posts</A></div></td>
    <td class="rtTextCell" width="100%"><jsp:getProperty name="activeMessage" property="body"/>
    </td></tr>
 </table>
+<%-------------ACTIVE POST ENDS----------%>
 
+<%-------------POSTS---------------%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="100%">Subject</td>
@@ -137,6 +140,7 @@
     </tr>
 	</tc-webtag:iterator>
 </table>
+<%-------------POSTS END---------------%>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td class="rtbc"><A href="<%=ForumConstants.FORUMS_DIR%>" class="rtbcLink">Forums</A> >>

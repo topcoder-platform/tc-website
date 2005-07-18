@@ -42,6 +42,7 @@ public class Settings extends ForumsProcessor {
             int messagesPerHistoryPage = Integer.parseInt(getRequest().getParameter("messagesPerHistoryPage"));
             int resultsPerSearchPage = Integer.parseInt(getRequest().getParameter("resultsPerSearchPage"));
             String threadMode = getRequest().getParameter("threadMode");
+            String displayMemberPhoto = getRequest().getParameter("displayMemberPhoto");
             String autoWatchNewTopics = getRequest().getParameter("autoWatchNewTopics");
             String autoWatchReplies = getRequest().getParameter("autoWatchReplies");
             watchFrequency = Integer.parseInt(getRequest().getParameter("watchFrequency"));
@@ -72,6 +73,7 @@ public class Settings extends ForumsProcessor {
             }
 
             user.setProperty(("jiveThreadMode"), threadMode);
+            user.setProperty(("jiveDisplayMemberPhoto"), displayMemberPhoto);
             user.setProperty(("jiveAutoWatchNewTopics"), autoWatchNewTopics);
             user.setProperty(("jiveAutoWatchReplies"), autoWatchReplies);
 
