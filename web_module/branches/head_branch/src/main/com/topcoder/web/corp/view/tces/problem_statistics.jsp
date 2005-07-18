@@ -1,4 +1,4 @@
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.web.corp.common.*,
@@ -6,7 +6,7 @@
           com.topcoder.web.corp.common.JSPUtils,
           com.topcoder.web.corp.common.TCESConstants" %>
 
-<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+<%@ taglib uri="tces-taglib.tld" prefix="tces"%>
 
 <SCRIPT LANGUAGE="JavaScript">
 <!-- Begin
@@ -24,7 +24,7 @@ function openWnd(pageUrl) {
 </SCRIPT>
 
 <jsp:useBean id="ProblemStatisticsTask" scope="request" class="com.topcoder.web.corp.controller.request.tces.ProblemStatisticsTask" />
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -65,9 +65,9 @@ function openWnd(pageUrl) {
 					<tces:trailIterator id="trailItem" trailList="<%=ProblemStatisticsTask.getTrail()%>">
 					<A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
 					</tces:trailIterator>
-					<A HREF="<jsp:getProperty name="ProblemStatisticsTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>" >Problem Submissions</A> &gt;
+					<A HREF="<jsp:getProperty name="ProblemStatisticsTask" property="servletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>" >Problem Submissions</A> &gt;
 					<br/>
-					<span class=testHead>Problem Statistics: <jsp:getProperty name="ProblemStatisticsTask" property="Handle"/></span>
+					<span class=testHead>Problem Statistics: <jsp:getProperty name="ProblemStatisticsTask" property="handle"/></span>
 					<br/><br/>
 					<B>Problem Name:</B> <%= ProblemStatisticsTask.getStatistic("class_name") %>
 					<br/>
@@ -78,7 +78,7 @@ function openWnd(pageUrl) {
 					<B>Event Name:</B> <%= ProblemStatisticsTask.getStatistic("contest_name") %>
 					<br/>
 					<B># of Competitors:</B> <%= ProblemStatisticsTask.getStatistic("problems_presented") %>
-		      
+
 		              <p>
 		                <A HREF="javascript:openWnd('<%=sessionInfo.getServletPath()%>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATEMENT_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%=ProblemStatisticsTask.getProblemID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%=ProblemStatisticsTask.getRoundId()%>')" class="bodyText">
 		                  View Problem Statement
@@ -103,15 +103,15 @@ function openWnd(pageUrl) {
                   <TD class="screeningHeader" align=center>Avg. Time for<br/>Correct Subs.</TD>
                 </TR>
 
-                
+
 
 				<%
 				int i=0;
 				%>
 	                <tces:rowIterator id="language" rowList="<%=(List)ProblemStatisticsTask.getProblemStatsByLanguage()%>">
-					<% 
+					<%
 					i++;
-					%> 
+					%>
                   <TR>
                     <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <nobr><b><%= language.getItem("language_name").toString() %></b></nobr>
@@ -146,9 +146,9 @@ function openWnd(pageUrl) {
                   </TR>
                 </tces:rowIterator>
 
-					<% 
+					<%
 					i++;
-					%> 
+					%>
                   <TR>
                     <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <b>All</b>

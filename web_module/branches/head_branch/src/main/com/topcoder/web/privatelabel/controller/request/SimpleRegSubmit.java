@@ -2,7 +2,7 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.RowNotFoundException;
@@ -59,19 +59,18 @@ public class SimpleRegSubmit extends SimpleRegBase {
     }
 
     protected long commit(SimpleRegInfo regInfo) throws TCWebException {
-        UserTransaction tx = null;
-
+        TransactionManager tm = null;
         long ret = 0;
         try {
-            tx = Transaction.get();
-            Transaction.begin(tx);
+            tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
 
             ret = store(regInfo);
-            Transaction.commit(tx);
+            tm.commit();
         } catch (Exception e) {
             try {
-                if (tx != null) {
-                    Transaction.rollback(tx);
+                if (tm != null && tm.getStatus()==Status.STATUS_ACTIVE) {
+                    tm.rollback();
                 }
             } catch (Exception x) {
                 throw new TCWebException(e);

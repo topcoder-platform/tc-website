@@ -32,4 +32,9 @@ public class RowIteratorTag extends IteratorTag {
         return super.doStartTag();
     }
 
+    public void release() {
+        rowList= null;
+        super.release();
+    }
+
 }

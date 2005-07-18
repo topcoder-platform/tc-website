@@ -5,16 +5,15 @@ import com.topcoder.security.Util;
 import org.apache.log4j.Logger;
 
 import javax.ejb.EJBException;
-import java.rmi.RemoteException;
 
 public class PasswordBean implements javax.ejb.SessionBean {
 
-    private static Logger logger = Logger.getLogger(PasswordBean.class);
+    private static final Logger logger = Logger.getLogger(PasswordBean.class);
 
     public void ejbCreate() throws EJBException {
     }
 
-    public void ejbRemove() throws RemoteException {
+    public void ejbRemove() {
     }
 
     public void ejbActivate() {

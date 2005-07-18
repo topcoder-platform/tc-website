@@ -67,10 +67,10 @@ if ( plugin ) {
 </SCRIPT>
 </HEAD>
 
-<jsp:useBean id="submissionInfo" class="com.topcoder.web.corp.model.SubmissionInfo" />
-<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" />
-<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" />
-<jsp:useBean id="problemInfo" class="com.topcoder.web.corp.model.ProblemInfo" />
+<jsp:useBean id="submissionInfo" class="com.topcoder.web.corp.model.SubmissionInfo" scope="request"/>
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" scope="request"/>
+<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" scope="request" />
+<jsp:useBean id="problemInfo" class="com.topcoder.web.corp.model.ProblemInfo" scope="request"/>
 
 <body>
 
@@ -254,7 +254,7 @@ if ( plugin ) {
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+  <jsp:include page="/foot.jsp" />
 
 </body>
 </html>

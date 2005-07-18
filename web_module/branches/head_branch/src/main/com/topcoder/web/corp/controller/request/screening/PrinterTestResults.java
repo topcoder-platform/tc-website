@@ -10,7 +10,6 @@ import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.ProblemInfo;
 import com.topcoder.web.corp.model.SubmissionInfo;
 
-import javax.servlet.http.HttpUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +32,7 @@ public class PrinterTestResults extends TestResults {
 
             //get notes
             Request dr = new Request();
-            dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+            dr.setProperties(getRequest().getParameterMap());
             dr.setContentHandle("noteList");
             dr.setProperty("uid", String.valueOf(getUser().getId()));
             dr.setProperty("cid", String.valueOf(cinfo.getUserId()));

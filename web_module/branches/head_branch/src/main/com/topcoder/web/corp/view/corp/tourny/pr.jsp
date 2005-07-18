@@ -28,7 +28,7 @@
         <td width="170">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="tourny"/>
-                <jsp:param name="level2" value="pr"/> 
+                <jsp:param name="level2" value="pr"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -42,17 +42,17 @@
         <td width="100%">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_event_sponsorship.gif" alt="" width="546" height="41" border="0"></td></tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="99%">
                         <img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"><br>
-                        
+
                         <h2 class="corpHead">Tournament - On-site Arena</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
                             <tr><td class="sidebarTitle">TOURNAMENT PACKAGE LINKS:</td></tr>
-                            
+
                             <tr valign="top">
                                 <td class="sidebarText">
                                     <a href="/tc?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
@@ -67,82 +67,82 @@
                             </tr>
                         </table></td></tr>
                         </table>
-                        
-                        <p>Public relations is a key component of all tournament marketing. Outreach for every tournament 
+
+                        <p>Public relations is a key component of all tournament marketing. Outreach for every tournament
                         begins immediately following the signing of a sponsor.</p>
-                        
-                        <p>TopCoder has received a significant amount of media coverage surrounding each of the two tournaments 
-                        held to date. In addition to the releases sent out, media from around the country, including television 
-                        stations, have run editorials on TopCoder, the membership, semifinalists and champions, and the 
+
+                        <p>TopCoder has received a significant amount of media coverage surrounding each of the two tournaments
+                        held to date. In addition to the releases sent out, media from around the country, including television
+                        stations, have run editorials on TopCoder, the membership, semifinalists and champions, and the
                         business model in general.</p>
-                        
-                        <p>See our complete list of <a href="/index?t=news_events&amp;c=index" class="bodyText">press releases</a> 
+
+                        <p>See our complete list of <a href="/index?t=news_events&amp;c=index" class="bodyText">press releases</a>
                         and <a href="/index?t=news_events&amp;c=articles" class="bodyText">articles</a> to date.</p>
-                    
+
                         <p>Following is a sample from the 2002 Collegiate Challenge.</p>
-                        
+
                         <div align="center">
                         <table width="75%" border="0" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
                             <tr>
                                 <td width="50%" class="bodyText" bgcolor="#CCCCCC"><strong>Focus:</strong></td>
                                 <td width="50%" class="bodyText" bgcolor="#CCCCCC"><strong>Distribution:</strong></td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Announce sponsoring company</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
                                     CollegeWire</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Top 10 Schools</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
                                     CollegeWire</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Kickoff</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
                                     CollegeWire</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Regional Championship Results</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
                                     CollegeWire<br/>
                                     Individual Campuses</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Semfinal/Championship Announcement</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
                                     CollegeWire</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Semifinal Results</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
                                     CollegeWire<br/>
                                     Individual Campuses</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Semifinal Results "Final Four"</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">PRNewswire<br/>
                                     CollegeWire<br/>
                                     Individual Campuses</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Championship Results</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">Photo/Caption for AP1000</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Championship Results</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">Broadcast VNR</td>
                             </tr>
-                    
+
                             <tr valign="top">
                                 <td class="bodyText" bgcolor="#FFFFFF">Tournament Wrapup</td>
                                 <td class="bodyText" bgcolor="#FFFFFF">Broadcast VNR<br/>
@@ -151,7 +151,7 @@
                             </tr>
                         </table>
                         </div>
-                                                
+
                         <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is in an SRM Package?</a></p>
 
                         <p><br/></p>
@@ -162,9 +162,9 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column begins -->
-                    <jsp:include page="../../right.jsp">
+                    <jsp:include page="/right.jsp">
                         <jsp:param name="level1" value="sponsor"/>
-                        <jsp:param name="level2" value="srm_index"/> 
+                        <jsp:param name="level2" value="srm_index"/>
                     </jsp:include>
 <!-- Right Column ends -->
 
@@ -176,7 +176,7 @@
 </table>
 
 <!-- Footer begins -->
-  <jsp:include page="../../foot.jsp"/>
+  <jsp:include page="/foot.jsp"/>
 <!-- Footer ends -->
 
 </body>

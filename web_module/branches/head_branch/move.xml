@@ -61,9 +61,8 @@
             <arg line="update -dP src"/>
         </exec>
 
-        <ant antfile="build_or.xml" target="clean"/>
-        <ant antfile="build_or.xml" target="dist"/>
-        <ant antfile="build_dde.xml" target="dist"/>
+        <ant antfile="build.xml" target="clean"/>
+        <ant antfile="build_tcs.xml" target="deploy"/>
 
     </target>
 
@@ -99,6 +98,7 @@
 
 
     </target>
+
 
 
 </project>

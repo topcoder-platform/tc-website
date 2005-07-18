@@ -4,7 +4,7 @@
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.Map,com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils"
 %>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <META HTTP-EQUIV="refresh" content="10">
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -35,7 +35,7 @@ H2 { font-size: 150%; }
 H3 { font-size: 125%; }
 
 .problem
-{ 
+{
 	font-size: 20px;
 	font-weight: bold;
 	text-decoration: none;
@@ -44,32 +44,32 @@ H3 { font-size: 125%; }
 }
 
 .spacer
-{ 
+{
     padding: 10px;
     background-color: #FFFFFF;
 }
 
 .leaderTable
-{ 
-    background-color: #EEEEEE;	
+{
+    background-color: #EEEEEE;
     vertical-align: top;
 }
 
 .leaderParentL
-{ 
-    border: 1px solid #594FBF; 
+{
+    border: 1px solid #594FBF;
 }
 
 .leaderParentR
-{ 
-    border-top: 1px solid #594FBF; 
-    border-bottom: 1px solid #594FBF; 
-    border-right: 1px solid #594FBF; 
+{
+    border-top: 1px solid #594FBF;
+    border-bottom: 1px solid #594FBF;
+    border-right: 1px solid #594FBF;
 }
 
 .leaderTitle
-{ 
-    background-color: #594FBF;	
+{
+    background-color: #594FBF;
 	color: #FFFFFF;
 	font-size: 17px;
 	font-weight: bold;
@@ -81,9 +81,9 @@ H3 { font-size: 125%; }
 	padding-right: 5px;
 }
 
-.leaderHeader 
-{ 
-    background-color: #CCCCCC;	
+.leaderHeader
+{
+    background-color: #CCCCCC;
 	color: #333333;
 	font-size: 17px;
 	font-weight: bold;

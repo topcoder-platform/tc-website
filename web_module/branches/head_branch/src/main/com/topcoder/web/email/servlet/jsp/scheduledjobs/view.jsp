@@ -12,7 +12,7 @@
 
 <p class="bodyTextBig">Viewing job</p>
 
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
+<%@ taglib uri="email-taglib.tld" prefix="email"%>
 
 <%@ page import="java.util.*" %>
 

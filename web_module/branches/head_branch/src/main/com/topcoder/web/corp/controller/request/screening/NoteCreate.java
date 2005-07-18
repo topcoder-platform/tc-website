@@ -5,7 +5,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.*;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.PermissionDeniedException;
@@ -16,7 +16,7 @@ import com.topcoder.web.ejb.note.NoteHome;
 import com.topcoder.web.ejb.user.UserNote;
 import com.topcoder.web.ejb.user.UserNoteHome;
 
-import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
 import java.util.Map;
 
 /**
@@ -76,9 +76,8 @@ public class NoteCreate extends BaseScreeningProcessor {
                 return;
             }
 
-            UserTransaction ut = Transaction.get(getInitialContext());
-            ut.begin();
-
+            TransactionManager tm = (TransactionManager)getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
             try {
                 NoteHome nHome = (NoteHome) getInitialContext().lookup(NoteHome.class.getName());
                 Note note = nHome.create();
@@ -94,10 +93,10 @@ public class NoteCreate extends BaseScreeningProcessor {
 
                 unote.createUserNote(Long.parseLong(candId), noteId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);
             } catch (Exception e) {
-                ut.rollback();
+                tm.rollback();
                 throw e;
             }
-            ut.commit();
+            tm.commit();
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
