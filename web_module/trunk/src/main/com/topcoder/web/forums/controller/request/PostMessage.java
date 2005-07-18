@@ -33,7 +33,8 @@ public class PostMessage extends ForumsProcessor {
         String threadIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-		String subject = getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim();
+		String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags
+            (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
 
         Forum forum = forumFactory.getForum(forumID);
@@ -81,7 +82,7 @@ public class PostMessage extends ForumsProcessor {
 		} else {
 			message = forum.createMessage(user);
 		}
-		message.setSubject(com.jivesoftware.util.StringUtils.escapeHTMLTags(subject));
+		message.setSubject(subject);
 		message.setBody(body);
 
         WatchManager watchManager = forumFactory.getWatchManager();
