@@ -45,8 +45,7 @@
 
         <td class=homeTopBar width="100%" align=right valign="bottom">
 <% if ( !sessionInfo.isAnonymous() ) { %>
-            <strong>Hello, </strong><span class="smallText">&#160;
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a></span>
+            <strong>Hello,</strong>&#160;<span class="smallText"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MemberProfile&cr=<%=sessionInfo.getUserId()%>" class="<%=styleClass%>"><%=sessionInfo.getHandle()%></a></span>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Logout" class=loginLinks>Logout</a>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.SERVER_NAME%>/Registration" class=loginLinks>Update Profile</a>
 <% } else { %>

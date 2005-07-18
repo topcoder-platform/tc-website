@@ -15,16 +15,14 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td class="homeTopBar">
-			<span class="time">Current Member Count</span>
-			&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> -
+			<span class="time">Current Member Count</span>&#160;:&#160;<xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> -
 			<span class="time"><xsl:call-template name="DateTime"/></span>&#160;
-			<a href="Javascript:tcTime()" class="statText"><strong>[Get Time]</strong></a>
+			<a href="Javascript:tcTime()" class="time"><strong>[Get Time]</strong></a>
 		</td>
         <td class="homeTopBar" width="100%" align="right">
             <xsl:choose>
                 <xsl:when test="/TC/LoggedIn='true'">
-                    <strong>Hello, </strong><span class="smallText">&#160;
-                    <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
+                    <strong>Hello,</strong>&#160;<span class="smallText"><A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=member_profile&amp;Coder_Id=<xsl:value-of select="/TC/UserId"/></xsl:attribute>
                     <xsl:attribute name="class"><xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="/TC/Rating"/></xsl:with-param></xsl:call-template></xsl:attribute>
                     <xsl:value-of select="/TC/Handle"/>
                     </A></span>
