@@ -75,11 +75,6 @@ public class PreviewMessage extends ForumsProcessor {
             return;
 		}
         
-        log.debug("HOT DEPLOY TEST!!");
-        log.debug("HOT DEPLOY TEST!!");
-        log.debug("HOT DEPLOY TEST!!");
-        log.debug("HOT DEPLOY TEST!!");
-        
         ForumMessage message = forum.createMessage(user);   // message for preview
         message.setSubject(subject);
         message.setBody(body);
