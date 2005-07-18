@@ -67,6 +67,39 @@
 
     </target>
 
+    <target name="package-forums" depends="">
+        <delete dir="src"/>
+        <delete dir="resources"/>
+        <delete dir="build"/>
+        <delete dir="../shared/src"/>
+        <delete file="forums.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build.xml" target="war-forums"/>
+
+        <copy todir="../jboss-4.0.2/server/default/lib">
+            <fileset dir="build/lib/bin">
+                <include name="shared.jar"/>
+            </fileset>
+        </copy>
+
+        <jar destfile="forums.jar" update="true">
+            <fileset dir="../">
+                <include name="jboss-4.0.2/server/default/deploy/forums.war"/>
+                <include name="jboss-4.0.2/server/default/lib/shared.jar"/>
+            </fileset>
+        </jar>
+
+
+    </target>
+
 
 </project>
 
