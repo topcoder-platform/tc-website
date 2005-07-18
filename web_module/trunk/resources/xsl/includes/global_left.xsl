@@ -156,10 +156,10 @@
                 <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="my_home_row"/>
 
-<!-- Development Round Tables -->
+<!-- Development Forums -->
                 <tr>
                     <td id="leftNav">
-                        <A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/rtables/viewForum.jsp?forum=205768&amp;mc=916</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TC Developer Round Tables</A>
+                        <A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=ThreadList&amp;forumID=205768&amp;sortField=9&amp;sortOrder=0</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TC Developer Forums</A>
                     </td>
                 </tr>
 
