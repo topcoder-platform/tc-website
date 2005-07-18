@@ -21,12 +21,12 @@
 
 
 function arena() {
-  w=window.open("http://www.topcoder.com/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
+  w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
   return;
 }
 
 function tcTime() {
-  w=window.open("http://www.topcoder.com/contest/time.html","Time","top=2,left=2,width=250,height=50,resizable=yes,status=1");
+  w=window.open("/contest/time.html","Time","top=2,left=2,width=250,height=50,resizable=yes,status=1");
   return;
 }
 
