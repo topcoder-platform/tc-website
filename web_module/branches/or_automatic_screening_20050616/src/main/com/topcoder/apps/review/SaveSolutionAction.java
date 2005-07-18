@@ -9,6 +9,7 @@ import com.topcoder.util.log.Level;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForwards;
+import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -74,16 +75,20 @@ public final class SaveSolutionAction extends ReviewAction {
                 // Added by WishingBone - Automated Screening
                 if (result instanceof SuccessResult) {
                     ScreeningRetrieval screening = (ScreeningRetrieval) result;
+                    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
                     String forward = null;
-                    if (screening.getFatalErrors().length > 0) {
+                    if (!screening.isDone()) {
+                        forwards.addForward(new ActionForward("showScreening.do?action=refresh&id=" + orpd.getProject().getId() + "&vid=" + screening.getVersionId(), true));
+                    } else if (screening.getFatalErrors().length > 0) {
                         forward = Constants.ERROR_KEY;
                     } else if (screening.getWarnings().length > 0) {
                         forward = Constants.WARNING_KEY;
                     } else {
                         forward = Constants.SUCCESS_KEY;
                     }
-                    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-                    forwards.addForward(mapping.findForward(forward));
+                    if (forward != null) {
+                        forwards.addForward(mapping.findForward(forward));
+                    }
                     if (screening.getWarnings().length > 0) {
                         request.setAttribute(Constants.WARNING_LIST_KEY, screening.getWarnings());
                     }

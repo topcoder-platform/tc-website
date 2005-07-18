@@ -15,6 +15,8 @@ import com.topcoder.app.screening.ProjectType;
 import com.topcoder.app.screening.ScreeningTool;
 import com.topcoder.app.screening.QueryInterface;
 import com.topcoder.app.screening.ScreeningResponse;
+import com.topcoder.app.screening.ScreeningJob;
+import com.topcoder.app.screening.ScreeningRequest;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -138,26 +140,15 @@ public class SubmitSolution implements Model {
                 }
             }
             if (type != null) {
-                new ScreeningTool().screen(
-                        new File(ConfigHelper.getSubmissionPathPrefix() + destFilename),
-                        type,
-                        initialSubmissions[0].getId());
+                long versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId());
+                ScreeningJob.placeRequest(new ScreeningRequest(0,
+                        versionId,
+                        ConfigHelper.getSubmissionPathPrefix() + destFilename,
+                        type));
+                return new ScreeningRetrieval(versionId);
+            } else {
+                return new ScreeningRetrieval(new ScreeningResponse[0], new ScreeningResponse[0]);
             }
-
-            QueryInterface query = ScreeningTool.createQuery();
-            ScreeningResponse[] responses = query.getCurrentSubmissionDetails(initialSubmissions[0].getId());
-            List warnings = new ArrayList();
-            List fatalErrors = new ArrayList();
-            for (int i = 0; i < responses.length; ++i) {
-                if ("Warning".equals(responses[i].getSeverity())) {
-                    warnings.add(responses[i]);
-                } else if ("Fatal Error".equals(responses[i].getSeverity())) {
-                    fatalErrors.add(responses[i]);
-                }
-            }
-            return new ScreeningRetrieval(
-                    (ScreeningResponse[]) warnings.toArray(new ScreeningResponse[warnings.size()]),
-                    (ScreeningResponse[]) fatalErrors.toArray(new ScreeningResponse[fatalErrors.size()]));
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult

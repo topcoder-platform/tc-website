@@ -141,6 +141,10 @@
     <property name="executablewrapper.jar.name" value="executable_wrapper.jar"/>
     <property name="executablewrapper.path" value="executable_wrapper/${executablewrapper.version}"/>
     <property name="executablewrapper.jar" value="${jardir}/tcs/${executablewrapper.path}/${executablewrapper.jar.name}"/>
+    <property name="dbconnectionfactory.version" value="1.0"/>
+    <property name="dbconnectionfactory.jar.name" value="db_connection_factory.jar"/>
+    <property name="dbconnectionfactory.path" value="db_connection_factory/${dbconnectionfactory.version}"/>
+    <property name="dbconnectionfactory.jar" value="${jardir}/tcs/${dbconnectionfactory.path}/${dbconnectionfactory.jar.name}"/>
     <property name="screeningtool.jar.name" value="automated_screening_tool.jar"/>
     <property name="screeningtool.jar" value="${jardir}/tcs/${screeningtool.jar.name}"/>
 
@@ -386,6 +390,7 @@
         <copy file="${magicnumbers.jar}" todir="${dist.jars.dir}"/>
         <copy file="${genericeventmanager.jar}" todir="${dist.jars.dir}"/>
         <copy file="${executablewrapper.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${dbconnectionfactory.jar}" todir="${dist.jars.dir}"/>
         <copy file="${screeningtool.jar}" todir="${dist.jars.dir}"/>
 
         <copy file="${emailengine.jar}" todir="${dist.jars.dir}"/>

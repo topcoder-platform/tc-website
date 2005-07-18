@@ -68,6 +68,22 @@ public class ShowScreeningAction extends ReviewAction {
 
         if (result instanceof SuccessResult) {
             ScreeningRetrieval screening = (ScreeningRetrieval) result;
+            String forward = null;
+            if (!"refresh".equals(String.valueOf(request.getParameter(Constants.ACTION_KEY)))) {
+                forward = Constants.VIEW_KEY;
+            } else if (!screening.isDone()) {
+                request.setAttribute("vid", new Long(screening.getVersionId()));
+                forward = Constants.REFRESH_KEY;
+            } else if (screening.getFatalErrors().length > 0) {
+                forward = Constants.ERROR_KEY;
+            } else if (screening.getWarnings().length > 0) {
+                forward = Constants.WARNING_KEY;
+            } else {
+                forward = Constants.SUCCESS_KEY;
+            }
+            forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+            forwards.addForward(mapping.findForward(forward));
+
             if (screening.getWarnings().length > 0) {
                 request.setAttribute(Constants.WARNING_LIST_KEY, screening.getWarnings());
             }

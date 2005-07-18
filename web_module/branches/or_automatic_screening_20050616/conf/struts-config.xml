@@ -300,6 +300,7 @@
         <action
                 path="/saveSolution"
                 type="com.topcoder.apps.review.SaveSolutionAction">
+            <forward name="refresh" path="/refreshScreening.jsp"/>
             <forward name="success" path="/screeningSuccess.jsp"/>
             <forward name="warning" path="/screeningWarning.jsp"/>
             <forward name="error" path="/screeningError.jsp"/>
@@ -309,7 +310,11 @@
         <action
                 path="/showScreening"
                 type="com.topcoder.apps.review.ShowScreeningAction">
-            <forward name="success" path="/showScreening.jsp"/>
+            <forward name="view" path="/showScreening.jsp"/>
+            <forward name="refresh" path="/refreshScreening.jsp"/>
+            <forward name="success" path="/screeningSuccess.jsp"/>
+            <forward name="warning" path="/screeningWarning.jsp"/>
+            <forward name="error" path="/screeningError.jsp"/>
         </action>
 
         <!-- Remove Submission -->

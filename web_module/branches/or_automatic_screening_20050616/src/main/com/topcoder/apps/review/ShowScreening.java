@@ -85,7 +85,7 @@ public class ShowScreening implements Model {
                         documentManager.getInitialSubmission(project, submissionDownloadData.getSubmissionId(), user.getTCSubject());
                 if (initialSubmission != null) {
                     submitter = initialSubmission.getSubmitter();
-                    responses = query.getSubmissionDetails(submissionDownloadData.getSubmissionId());
+                    responses = query.getCurrentSubmissionDetails(submissionDownloadData.getSubmissionId());
                 }
             }
 
@@ -104,6 +104,10 @@ public class ShowScreening implements Model {
             long userRoleId = RoleHelper.getSubmitterUserRoleId(submitter, project.getParticipants());
             if (userRoleId == -1) {
                 return new FailureResult("Cannot find the submitter user role for the submitter");
+            }
+
+            if (responses.length == 0) {
+                return new ScreeningRetrieval(submissionDownloadData.getVersionId());
             }
 
             List warnings = new ArrayList();

@@ -103,6 +103,9 @@
         <java>file_class.jar</java>
     </module>
     <module>
+        <java>db_connection_factory.jar</java>
+    </module>
+    <module>
         <java>automated_screening_tool.jar</java>
     </module>
 

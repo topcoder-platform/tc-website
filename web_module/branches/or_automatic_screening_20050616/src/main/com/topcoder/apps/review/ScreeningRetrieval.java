@@ -14,14 +14,34 @@ import com.topcoder.app.screening.ScreeningResponse;
 public class ScreeningRetrieval extends SuccessResult {
 
     /**
+     * Whether the screening is done.
+     */
+    private boolean done = true;
+
+    /**
+     * The submission version id.
+     */
+    private long versionId = -1;
+
+    /**
      * The warning responses.
      */
-    private ScreeningResponse[] warnings = null;
+    private ScreeningResponse[] warnings = new ScreeningResponse[0];
 
     /**
      * The fatal error responses.
      */
-    private ScreeningResponse[] fatalErrors = null;
+    private ScreeningResponse[] fatalErrors = new ScreeningResponse[0];
+
+    /**
+     * Constructor.
+     *
+     * @param versionId the version id.
+     */
+    ScreeningRetrieval(long versionId) {
+        this.versionId = versionId;
+        this.done = false;
+    }
 
     /**
      * Constructor.
@@ -32,6 +52,24 @@ public class ScreeningRetrieval extends SuccessResult {
     ScreeningRetrieval(ScreeningResponse[] warnings, ScreeningResponse[] fatalErrors) {
         this.warnings = warnings;
         this.fatalErrors = fatalErrors;
+    }
+
+    /**
+     * Get the version id.
+     *
+     * @return the version id.
+     */
+    public long getVersionId() {
+        return this.versionId;
+    }
+
+    /**
+     * Whether the screening is done.
+     *
+     * @return whether the screening is done.
+     */
+    public boolean isDone() {
+        return this.done;
     }
 
     /**
