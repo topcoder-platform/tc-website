@@ -1,0 +1,105 @@
+<!--
+    This build script provides targets to assist in the
+    moving of code to a production environment
+ -->
+<project name="topcoder" default="" basedir=".">
+
+    <target name="package-topcoder" depends="">
+        <delete dir="src"/>
+        <delete dir="resources"/>
+        <delete dir="build"/>
+        <delete dir="../shared/src"/>
+        <delete file="topcoder.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build.xml" target="deploy"/>
+        <ant antfile="build.xml" target="package-Jive"/>
+
+        <jar destfile="./lib/bin/classes.jar" update="true">
+            <fileset dir="./build/classes">
+                <include name="**"/>
+            </fileset>
+        </jar>
+
+        <jar destfile="topcoder.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/**"/>
+                <include name="build/wars/**"/>
+                <include name="resources/xsl/**"/>
+                <include name="resources/taglib/**"/>
+                <include name="resources/tc/**"/>
+                <include name="resources/state/**"/>
+                <include name="resources/corp/**"/>
+                <include name="resources/email/**"/>
+                <include name="resources/privatelabel/**"/>
+                <include name="resources/TC.properties"/>
+                <include name="resources/PrivateLabel.properties"/>
+                <include name="move.xml"/>
+                <include name="lib/bin/Jive.jar"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/classes.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+    <target name="package-techassess" depends="">
+
+
+    </target>
+
+    <target name="package-software" depends="">
+        <cvs command="update -Pd"/>
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build_or.xml" target="clean"/>
+        <ant antfile="build_or.xml" target="dist"/>
+        <ant antfile="build_dde.xml" target="dist"/>
+
+    </target>
+
+    <target name="package-forums" depends="">
+        <delete dir="src"/>
+        <delete dir="resources"/>
+        <delete dir="build"/>
+        <delete dir="../shared/src"/>
+        <delete file="forums.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build.xml" target="war-forums"/>
+
+        <copy todir="../jboss-4.0.2/server/default/lib">
+            <fileset dir="lib/bin">
+                <include name="shared.jar"/>
+            </fileset>
+        </copy>
+
+        <jar destfile="forums.jar" update="true">
+            <fileset dir="../">
+                <include name="jboss-4.0.2/server/default/deploy/forums.war"/>
+                <include name="jboss-4.0.2/server/default/lib/shared.jar"/>
+            </fileset>
+        </jar>
+
+
+    </target>
+
+
+</project>
+
