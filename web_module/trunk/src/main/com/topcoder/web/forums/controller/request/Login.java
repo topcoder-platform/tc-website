@@ -58,6 +58,7 @@ public class Login extends ForumsProcessor {
         setIsNextPageInContext(false);
         return;
     }
+    //todo use userid to password, or get rid of this entirely
 
     private String getPassword(long userID) throws Exception {
         Request r = new Request();
