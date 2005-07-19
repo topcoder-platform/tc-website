@@ -5069,8 +5069,8 @@ public class DocumentManagerBean implements SessionBean {
     }
 
 
-    public ComponentScores getComponentScores(int type, long projectId) {
-        return new ComponentScores(type, projectId, projectId,
+    public ComponentScores getComponentScores(long projectId) {
+        return new ComponentScores(1, projectId, projectId,
                                                                     "Job Scheduler", 5,
                                                                     new int[] {10022398, 11781622,  10650643 },
                                                                     new String[] { "slion", "tuenm","quickx0161" },
