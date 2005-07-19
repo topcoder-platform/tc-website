@@ -59,18 +59,22 @@
                 <tr><td class="normal"><img src="/images/apps/apps_title.gif" alt="Applications" width="530" height="30" border="0" /></td></tr>
                 <tr><td class="subhead">Competition-Based Methodology</td></tr>
                 <tr><td height="15"><img src="/images/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>
-
-            <img src="/images/apps/apps_meth_graph.gif" alt="Application Methodology" width="530" height="200" border="0" />
-            <p>The TopCoder Software Application Development Methodology utilizes the TopCoder Software Component Catalog and distributed member base to create robust, 
-            high quality applications. It combines our Component Development Methodology with our peer review, component customization, and application integration processes.  
-            This methodology is designed to deliver a repeatable and consistent solution to our customers.</p>
-            
 			</table>
-            <hr width="530" size="1px" noshade>
+			
+            <img src="/images/apps/apps_meth_graph.gif" alt="Application Methodology" width="530" height="200" border="0" />
+
+            
+            
 
             <table border="0" cellspacing="0" cellpadding="0" width="530">
                 <tr valign="top">
                     <td class="bodyText">
+					<p>The TopCoder Software Application Development Methodology utilizes the TopCoder Software Component Catalog and distributed member base to create robust, 
+					high quality applications. It combines our Component Development Methodology with our peer review, component customization, and application integration processes.  
+					This methodology is designed to deliver a repeatable and consistent solution to our customers.</p>
+					
+				<hr width="530" size="1px" noshade>
+            
 <!-- Specification begins -->
                         <p class=catalogIndexHeader>Specification</p>
 						<p>A TopCoder Software Project Manager performs the specification phase of the project hand-in-hand with all appropriate client resources.  
@@ -145,7 +149,7 @@
 <!-- Application begins -->
                         <p class=catalogIndexHeader>Application Assembly</p>
                         <p>In this phase, a TopCoder Software application assembly team assembles the application using the component pieces.  The result of this phase is:
-						<li><strong>Complete Applicatio:</strong> Fully unit tested, documented and system tested implementation of the specification.<br><br>
+						<li><strong>Complete Application:</strong> Fully unit tested, documented and system tested implementation of the specification.<br><br>
 </p>
 <!-- Application ends -->
 
