@@ -61,7 +61,8 @@ public class Activate extends Base {
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
                 } else if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
-                    throw new NavigationException("Account has already been activated.");
+                    //just send them to the home page
+                    setIsNextPageInContext(false);
                 } else {
                     throw new NavigationException("Your account can not be activated.");
                 }
