@@ -72,8 +72,8 @@
                 <tr valign="top">
                     <td class="bodyText">
 <!-- Specification begins -->
-                        <p><strong>Specification</strong><br>
-						A TopCoder Software Project Manager performs the specification phase of the project hand-in-hand with all appropriate client resources.  
+                        <p class=catalogIndexHeader>Specification</p>
+						<p>A TopCoder Software Project Manager performs the specification phase of the project hand-in-hand with all appropriate client resources.  
 						At the conclusion of the specification phase, the applicable deliverables outlined below are presented to the client: <br>
 
 						<li><strong>Application Requirements Specification:</strong> Serves as a scope document, describing what functionality is to be included in the application, 
@@ -122,8 +122,8 @@
 <!-- Architecture ends -->
 
 <!-- Component Production begins -->
-                        <p><strong>Component Production</strong><br>
-                        In this phase, the TopCoder Software Component Development Methodology is used to design and develop components.  The deliverables for each component are:
+                        <p class=catalogIndexHeader>Component Production</p>
+                        <p>In this phase, the TopCoder Software Component Development Methodology is used to design and develop components.  The deliverables for each component are:
 
 						<li><strong>Component Specifications:</strong> Individual specifications are defined for each new component, whether the component is being added to 
 						the TopCoder Component Catalog or custom built for the application. 
@@ -143,23 +143,23 @@
 <!-- Component Production ends -->
 
 <!-- Application begins -->
-                        <p><strong>Application Assembly</strong><br>
-                        In this phase, a TopCoder Software application assembly team assembles the application using the component pieces.  The result of this phase is:
+                        <p class=catalogIndexHeader>Application Assembly</p>
+                        <p>In this phase, a TopCoder Software application assembly team assembles the application using the component pieces.  The result of this phase is:
 						<li><strong>Complete Applicatio:</strong> Fully unit tested, documented and system tested implementation of the specification.<br><br>
 </p>
 <!-- Application ends -->
 
 <!-- Certification begins -->
-                        <p><strong>Certification</strong><br>
-                        The purpose of this phase is to perform system testing for the application on a quality assurance environment at TopCoder.
+                        <p class=catalogIndexHeader>Certification</p>
+                        <p>The purpose of this phase is to perform system testing for the application on a quality assurance environment at TopCoder.
 						<li><strong>Certified solution:</strong> Solution certified on the required platform and technologies. Verify the Quality Assurance Plan has been properly implemented.
 						<li><strong>Certified performance:</strong> The solution will be certified to perform to the expectation of the user as defined by the deliverables from the Specification Phase.
 </p>
 <!-- Certification ends -->
 
 <!-- Deployment begins -->
-                        <p><strong>Deployment</strong><br>
-                        In this phase the fully functioning solution and all associated deliverables are turned over to the client.  
+                        <p class=catalogIndexHeader>Deployment</p>
+                        <p>In this phase the fully functioning solution and all associated deliverables are turned over to the client.  
                         A TopCoder Project Manager and Deployment Engineer visit the client site to deploy the application on the client's 
                         quality assurance servers.</p>
 <!-- Deployment ends -->
