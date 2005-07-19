@@ -78,7 +78,8 @@ public class TCUser extends SimpleUserAdapter {
 				" and u.user_id = x.coder_id " +
 				" and x.image_id = i.image_id " +
 				" and i.path_id = p.path_id " +
-				" and i.image_type_id = 1 ";
+				" and i.image_type_id = 1 " + 
+                " and display_flag = 1 ";
 
         final String FIND_BY_ID =
                 QUERY +
