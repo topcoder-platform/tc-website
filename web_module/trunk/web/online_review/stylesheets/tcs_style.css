@@ -111,7 +111,7 @@
 	text-align: left;
 }
 
-.adminLeftNav { background: #BABABA url(../../images/adminLeftNavBkgd.gif); }
+.adminLeftNav { background: #BABABA url(//images/adminLeftNavBkgd.gif); }
 
 .adminLeftNavSmall
 {
@@ -214,7 +214,7 @@
 	font-size: 11px;
 	font-weight: normal;
 	font-style: normal;
-	background: #4F4F4F url(../../images/navBarAdminBkgd.gif);
+	background: #4F4F4F url(//images/navBarAdminBkgd.gif);
 }
 
 A:link
@@ -1013,7 +1013,7 @@ A.leftOn:active
 	color: #FFF;
 	font-size: 12px;
 	font-weight: bold;
-	background-image: url(../images/left_nav_select_bkgd.gif);
+	background-image: url(/images/left_nav_select_bkgd.gif);
 	background-color: #585858;
 	vertical-align: middle;
 	padding-left: 5px;
@@ -1052,7 +1052,7 @@ A.leftOn:active
 	color: #FFF;
 	font-size: 12px;
 	font-weight: bold;
-	background-image: url(../images/left_nav_select_bkgd.gif);
+	background-image: url(/images/left_nav_select_bkgd.gif);
 	background-color: #585858;
 	vertical-align: middle;
 	padding-left: 15px;
@@ -1091,7 +1091,7 @@ A.leftOn:active
 	color: #CCC;
 	font-size: 12px;
 	font-weight: bold;
-	background-image: url(../images/left_nav_select_bkgd.gif);
+	background-image: url(/images/left_nav_select_bkgd.gif);
 	background-color: #585858;
 	vertical-align: middle;
 	padding-left: 5px;
@@ -1658,7 +1658,7 @@ strong { font-weight: bold; }
 	color: #013466;
 	font-weight: bold;
 	font-style: normal;
-	background-image: url(../images/componentBkgd.gif);
+	background-image: url(/images/componentBkgd.gif);
 	background-repeat: repeat-y;
 	padding: 5px;
 }
@@ -1740,7 +1740,7 @@ TD, TH
 	color: #FFF;
 	font-weight: bold;
 	vertical-align: middle;
-	background-image: url(../images/graybv_lite_bg.gif);
+	background-image: url(/images/graybv_lite_bg.gif);
 	background-color: #666;
 	white-space: nowrap;
 }
@@ -1761,7 +1761,7 @@ TD, TH
 	font-weight: bold;
 	vertical-align: middle;
 	color: #FFF;
-	background-image: url(../images/graybv_lite_bg.gif);
+	background-image: url(/images/graybv_lite_bg.gif);
 	background-color: #666;
 }
 
@@ -1886,7 +1886,7 @@ TD, TH
 .topNavBar
 {
 	background-color: #900;
-	background-image: url(../images/redbv_lite_bg.gif);
+	background-image: url(/images/redbv_lite_bg.gif);
 }
 
 .topNav
@@ -1896,7 +1896,7 @@ TD, TH
 	color: #FFF;
 	white-space: nowrap;
 	background-color: #900;
-	background-image: url(../images/redbv_lite_bg.gif);
+	background-image: url(/images/redbv_lite_bg.gif);
 	padding-left: 10px;
 	padding-top: 3px;
 	padding-right: 10px;
@@ -1910,7 +1910,7 @@ TD, TH
 	color: #FFF;
 	white-space: nowrap;
 	background-color: #600;
-	background-image: url(../images/redbv_dark_bg.gif);
+	background-image: url(/images/redbv_dark_bg.gif);
 	padding-left: 10px;
 	padding-top: 3px;
 	padding-right: 10px;
