@@ -219,8 +219,8 @@
 
         <jar jarfile="${ejb.jars.dir}/user.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/DDEException.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/Constants.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/ConstantsInt.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/util/Constants.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/util/ConstantsInt.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/user/**"/>
             <metainf dir="${java.dir}/com/topcoder/dde/user" includes="*.xml"/>
         </jar>
