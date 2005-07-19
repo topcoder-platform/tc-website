@@ -70,8 +70,6 @@
                 <tr valign="top">
                     <td class="bodyText">
                     
-                    <hr width="530" size="1px" noshade><br>
-                    
 					<p>The TopCoder Software Application Development Methodology utilizes the TopCoder Software Component Catalog and distributed member base to create robust, 
 					high quality applications. It combines our Component Development Methodology with our peer review, component customization, and application integration processes.  
 					This methodology is designed to deliver a repeatable and consistent solution to our customers.</p>
