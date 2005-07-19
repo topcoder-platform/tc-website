@@ -34,10 +34,12 @@
 The 2005 TopCoder Open ("TCO") Sponsor Track Competition will take place between August 16 and September 7, 2005.  This algorithm competition will consist of one (1) online qualification round and four (4) online elimination rounds.    
 <br><br>
 <a name="eligibility"></a>
+<a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Eligibility</span><br>
 Employees and interns of all official TCO sponsors who are TopCoder members and are at least 18 years of age as of August 16, 2005 are eligible to compete in the Sponsor Track  Competition.  TCO sponsor employees and interns may register to become a TopCoder member by navigating to www.topcoder.com, clicking on "Developer Center" and then clicking on "Register" in the upper right corner of the screen.
 <br><br>
 <a name="registration"></a>
+<a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Registration</span><br>
 Registration for the 2005 TopCoder Open Sponsor Track Competition will open at 9:00AM EDT on Monday, August 1, 2005, and will close at 9:00AM EDT on Tuesday, August 16, 2005.  In order to be eligible to compete in the Sponsor Track Competition, competitors must be a registered TopCoder member and must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition, however each individual may only register once.
 <br><br>
@@ -58,6 +60,7 @@ Upon logging in to the TopCoder Arena during the Qualification Round, each compe
 <li>By rating (higher is better) prior to the Qualification Round.</li>
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
+<a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Online Elimination Rounds</span><br>
 Everyone who competes in an online round must login to the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. Sponsor employees and interns from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Daylight Time (GMT -4), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
 <br><br>
@@ -138,6 +141,7 @@ NOTE:  In the event of a tie for any advancing position during the online rounds
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
 <a name="structure"></a>
+<a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Competition Round Structure</span><br>
 With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: The format of these competition rounds is similar to the format of TopCoder Single Round Matches.  The rules in place for the Single Round Matches as of August 16, 2005 will also apply to the online rounds of the Sponsor Track Competition.)
 <ul>
@@ -146,6 +150,7 @@ With the exception of the Qualification Round, each online and onsite round of c
 <li><b>The System Testing Phase</b> is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem.  No test cases from the Challenge Phase of the Sponsor Track Competition will be added to the test cases used for the System Testing Phase of the Sponsor Track Competition.</li>
 </ul>
 <a name="conditions"></a>
+<a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>
 <span class="bodySubtitle">Conditions of Participation</span><br>
 By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters.  
 <br><br>
