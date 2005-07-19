@@ -102,8 +102,8 @@
 <!-- Specification ends -->
 
 <!-- Architecture begins -->
-                        <p><strong>Application Architecture</strong><br>
-                        In this phase, the TopCoder Project Manager and Component Architect design the application using Component Based Development (CBD) techniques that 
+                        <p class=catalogIndexHeader>Application Architecture</p>
+                        <p>In this phase, the TopCoder Project Manager and Component Architect design the application using Component Based Development (CBD) techniques that 
                         result in the division of the application into the most granular components.  Deliverables include:
 
 						<li><strong>Design Specification Document:</strong> This document details the technical design of the application, which includes the interactions of components, 
