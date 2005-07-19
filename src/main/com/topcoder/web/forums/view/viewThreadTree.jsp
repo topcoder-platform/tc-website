@@ -95,7 +95,7 @@
 <%-------------ACTIVE POST---------------%>
 <table cellpadding="0" cellspacing="0" class="rtTable">
    <tr><td class="rtHeader" colspan="2">
-   <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="activeMessage" property="subject"/>
+   <a name=<jsp:getProperty name="activeMessage" property="ID"/>><tc-webtag:beanWrite name="activeMessage" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="activeMessage" property="subject"/>
       <%  if (activeMessage.getParentMessage() != null) { %>
       		(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getParentMessage().getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=activeMessage.getParentMessage().getUser().getID()%>"/>)
       <%  } %>
@@ -136,7 +136,7 @@
 			<A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="message" property="ID"/><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="rtbcLink"><jsp:getProperty name="message" property="subject"/></A></td>
 		<% } %>
       	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></td>
-      	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/></strong></td>
+      	<td class="rtThreadCell"><strong><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/></strong></td>
     </tr>
 	</tc-webtag:iterator>
 </table>
