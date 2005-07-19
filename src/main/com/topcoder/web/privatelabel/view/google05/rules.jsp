@@ -140,7 +140,7 @@ Each online and onsite round of competition (excluding the Qualification Round) 
 
 <ul>
 <li>The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.</li>
-<li>The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 50 points as a penalty, applied against their total score in that round of competition.</li>
+<li>The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 25 points as a penalty, applied against their total score in that round of competition.</li>
 <li>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</li>
 </ul>
 
@@ -156,7 +156,7 @@ The Championship Round will be a single round of 100 coders. Placement in the Ch
 </ul>
 
 <span class=greenSubtitle>About the Prizes</span><br>
-All participants who compete in Round 1 will receive a "Google Code Jam 2005, Powered by TopCoder" t-shirt.  In addition, the 100 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
+All participants who compete in Round 1 will receive a "Google Code Jam 2005" t-shirt.  In addition, the 100 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
 <br><br>
 <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
 <tr valign="top">
@@ -189,11 +189,6 @@ All participants who compete in Round 1 will receive a "Google Code Jam 2005, Po
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" nowrap>Up to 500 competitors who compete in Round 1 </td>
-<td class="sidebarText" nowrap align=right>"Google Code Jam 2005, Powered by TopCoder" t-shirt
-</td>
-</tr>
-<tr valign="top">
 <td class="sidebarText" colspan="2">* Winner must be present at the onsite round to receive prize.</td>
 </tr>
 </table>
@@ -211,7 +206,7 @@ Prizewinners will be announced upon completion of the Championship Round.  Any p
 <li>Affidavit of Eligibility and Liability and Publicity Release </li>
 <li>Applicable tax form</li>
 </ul>
-Prizes will be presented onsite upon receipt of the documents identified above.  All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive.  Unclaimed or undeliverable prizes will not be awarded.
+Prizes will be announced onsite upon receipt of the documents identified above.  All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive.  Unclaimed or undeliverable prizes will not be awarded.
 <br><br>
 As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder.
 <br><br>

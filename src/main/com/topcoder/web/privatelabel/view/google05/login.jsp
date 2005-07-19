@@ -63,7 +63,7 @@ function submitEnter(e) {
 			<jsp:include page="right_reg.jsp" />
 			</div>
 			<br><br>
-                        Registration will close on Tuesday, August 19 at 2:00PM ET.<br/><br/>
+                        Registration will close on Friday, August 19 at 5:00PM EDT.<br/><br/>
                         If you are currently a TopCoder member or registered for the Google Code Jam 2003/2004, you may enter your handle and password below to use your account for the Google Code Jam 2005.<br/><br/>
 
                         <form method="post" name="frmLogin" action="<%=sessionInfo.getSecureAbsoluteServletPath()%>">

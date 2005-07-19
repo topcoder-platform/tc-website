@@ -45,9 +45,7 @@
 			<br/><br/>
 
 <span class="greenSubtitle">Loading the Competition Arena</span><br>
-The Competition Arena is a Java Applet that requires the Java 1.4 runtime to be installed on your machine. Load the application by clicking the Competition Arena link at the left. Once you click the button, you will be notified if you need to upgrade your Java runtime. If so, please follow the steps of the installation wizard to upgrade your system. If an upgrade is not required, the application will load automatically and present you with a red "Launch Competition Arena" button.
-<br><br>
-You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
+Load the application by clicking the Competition Arena link at the top.  You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
 <br><br>
 <span class="greenSubtitle">Logging in to the Competition Arena</span><br>
 Once the Competition Arena launches, you will be presented with a login screen.
@@ -80,8 +78,8 @@ From within the competition room, you will access the problem statements that yo
 The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. The amount of time you will be given will vary depending on the round of competition:
 <ul>
 <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
-<li>In the Online Round One of the Google Code Jam, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
-<li>In the Onsite Final Round of the Google Code Jam, the coding phase will last 90 minutes and the contestants will be given four problems to solve.</li>
+<li>In the Online Rounds One of the Google Code Jam, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
+<li>In the Onsite Final Round of the Google Code Jam, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</li>
 </ul>
 
 When the competition begins, you may view the problem statements as follows:
@@ -179,7 +177,7 @@ Once your code has been successfully compiled, you have the option of executing 
 <br><br>
 If your compiled code executes successfully (without errors) for the input parameters that you've provided, you will be presented with the return value(s) that your code produced. In the event that an error occurs during the execution of your code, you will be presented with the error message(s) that the execution of your code produced.
 <br><br>
-<i>Important note: All code submissions must run in under eight (8) seconds for ALL test cases, otherwise the code submission will be marked as incorrect, and you will not receive any points.</i>
+<i>Important note: All code submissions must run in under two (2) seconds for ALL test cases, otherwise the code submission will be marked as incorrect, and you will not receive any points.</i>
 <br><br>
 <strong>NOTE:</strong> any standard output (i.e., System.out.println) from the execution of your class/method will be returned to you along with the results of your test. This may be useful for debugging your code.  You may want to remove these system outputs prior to submitting to increase the efficiency of your submission.
 <br><br>
