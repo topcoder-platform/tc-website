@@ -18,7 +18,7 @@
 <!-- Body-->
 	<tr valign=top>
 		<td valign=top align=center>
-		<div class=bodySpacer>
+		<div class="bodySpacer">
             
 <span class="bigTitle">Official Rules and Regulations</span>
 <br><br>
