@@ -72,8 +72,7 @@ public final class ComponentScoresAction extends BaseAction {
 
             DocumentManagerLocal documentManager = EJBHelper.getDocumentManager();
 
-            ComponentScores cs =   documentManager.getComponentScores(Integer.parseInt(request.getParameter("type")),
-                                                                      Long.parseLong(request.getParameter("pid")));
+            ComponentScores cs =   documentManager.getComponentScores(Long.parseLong(request.getParameter("pid")));
 
 
             request.setAttribute("componentScores", cs);

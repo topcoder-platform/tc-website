@@ -19,7 +19,30 @@ Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getP
 
 <br>
 <br>
+<table>
+<tr>
+<td>
+	<table>
+		<tr>
+			<td colspan = 2>	
+			  <logic:equal name="compScores" property='type' value="1">Design Contest Details</logic:equal>
+		  	  <logic:equal name="compScores" property='type' value="2">Development Contest Details</logic:equal>
+		  	 </td> 
+		  	 
+		</tr>
+		<tr>
+			<td><b>Inquiries</b></td>
+			<td align="right">
+				<bean:write name="compScores" property="inquiries"/> 
+			</td>				
+		</tr>
+		
+		
+	</table>
 
+</td>
+
+<td>
 <table border="1">
 	<tr>
 		<td>Placement</td>
@@ -122,4 +145,7 @@ Design | <html:link href='<%= "ComponentScores.do?type=2&pid=" + compScores.getP
 
 	</tr>
 </logic:iterate>
+</table>
+</td>
+</tr>
 </table>

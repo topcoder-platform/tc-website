@@ -379,7 +379,7 @@ public interface DocumentManager extends EJBObject {
             throws RemoteException;
 
 
-    public ComponentScores getComponentScores(int type, long projectId)
+    public ComponentScores getComponentScores(long projectId)
             throws RemoteException;
 
     /**
