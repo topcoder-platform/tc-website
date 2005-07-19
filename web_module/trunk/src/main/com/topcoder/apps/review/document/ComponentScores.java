@@ -12,8 +12,14 @@ public class ComponentScores {
     /// The id for this project
     private long projectId;
 
+    /// The id for the other type (design <=> dev) of project
+    private long otherTypeProjectId;
+
     /// name of this component
     private String componentName;
+
+    /// number of inquiries
+    private int inquiries;
 
     /// array for the id's of the 3 reviewers
     private int[] reviewerID;
@@ -30,11 +36,15 @@ public class ComponentScores {
 
 
 
-    public ComponentScores(int type, long projectId, String componentName, int[] reviewerID, String[] reviewerNames,
-                            String[] testCasesURL, SubmissionScores[] submissions) {
+    public ComponentScores(int type, long projectId, long otherTypeProjectId,
+                           String componentName, int inquiries,
+                           int[] reviewerID, String[] reviewerNames, String[] testCasesURL,
+                           SubmissionScores[] submissions) {
         this.type = type;
         this.projectId = projectId;
+        this.otherTypeProjectId = otherTypeProjectId;
         this.componentName = componentName;
+        this.inquiries = inquiries;
         this.reviewerID = reviewerID;
         this.reviewerNames = reviewerNames;
         this.testCasesURL = testCasesURL;
@@ -51,8 +61,16 @@ public class ComponentScores {
         return projectId;
     }
 
+    public long getOtherTypeProjectId() {
+        return projectId;
+    }
+
     public String getComponentName() {
         return componentName;
+    }
+
+    public int getInquiries() {
+        return inquiries;
     }
 
     public int getReviewerID(int n) {
@@ -70,4 +88,43 @@ public class ComponentScores {
     public SubmissionScores[] getSubmissions() {
         return submissions;
     }
+
+    public int getSubmissionsNumber() {
+        return submissions.length;
+    }
+
+    public double getSumbissionsPercent() {
+        return inquiries == 0? 0 : (double) getSubmissionsNumber() / getInquiries() * 100.0;
+    }
+
+    public int getPassedNumber() {
+        int n = 0;
+        for(int i = 0; i < submissions.length; i++)
+            if (submissions[i].getPassedReview())  n++;
+
+        return n;
+    }
+
+    public double getPassedPercent() {
+        return getSubmissionsNumber() == 0? 0 : (double) getPassedNumber() / getSubmissionsNumber();
+    }
+
+    public double getAvgInitialScore() {
+        double total = 0;
+        for(int i = 0; i < submissions.length; i++)
+            total += submissions[i].getInitialScore();
+
+        return submissions.length == 0? 0 : total / submissions.length;
+
+    }
+
+    public double getAvgFinalScore() {
+        double total = 0;
+        for(int i = 0; i < submissions.length; i++)
+            total += submissions[i].getFinalScore();
+
+        return submissions.length == 0? 0 : total / submissions.length;
+
+    }
+
 }
