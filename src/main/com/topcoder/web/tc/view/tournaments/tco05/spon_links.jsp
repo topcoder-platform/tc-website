@@ -6,11 +6,7 @@
 <table width="100%" border="0" cellpadding=0 cellspacing=0> 
 	<tr>
 		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_description"><img src="/i/tournament/tco05/tco05_logo.gif" border="0"/></A></td>
-		<td valign=middle align=center rowspan="2">
-<%--
-      <a href="/tc?module=tco05AlgorithmTerms"><img src="/i/tournament/tco05/tco05_headline.gif" border="0"/></a>
---%>
-      </td>
+		<td valign=middle align=center rowspan="2"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_description"><img src="/i/tournament/tco05/sponsortrack_logo.gif" alt="Sponsor Track" border="0"/></a></td>
 		<td valign=top align=right rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco05/tc_logo.gif" border="0"/></a></td>
 	</tr>
 	<tr><td><br></td></tr>
