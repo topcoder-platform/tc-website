@@ -22,6 +22,11 @@
 				<% } else { %>
 					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_description"><img src="/i/tournament/tco05/tabs/L2_detailsOff.gif" alt="" border="0" /></A></td>
 				<% } %>
+				<% if (tabLev2.equals("registration")) {%>
+					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_reg"><img src="/i/tournament/tco05/tabs/L2_registrationOn.gif" alt="" border="0" /></A></td>
+				<% } else { %>
+					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_reg"><img src="/i/tournament/tco05/tabs/L2_registrationOff.gif" alt="" border="0" /></A></td>
+				<% } %>
 <%--
 				<% if (tabLev2.equals("registrants")) {%>
 					<td class="nav"><A href="/tc?module=TCO05AlgRegistrants"><img src="/i/tournament/tco05/tabs/L2_registrantsOn.gif" alt="" border="0" /></A></td>
@@ -57,6 +62,8 @@
 						<td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_description"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tco05/tabs/L3_descriptionOn.gif" border="0" /><% } else { %><img src="/i/tournament/tco05/tabs/L3_descriptionOff.gif" border="0" /><% } %></a></td>
 						<td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tco05/tabs/L3_scheduleOn.gif" border="0" /><% } else { %><img src="/i/tournament/tco05/tabs/L3_scheduleOff.gif" border="0" /><% } %></a></td>
 						<td class="subnav"><a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rules"><% if (tabLev3.equals("rules")) {%><img src="/i/tournament/tco05/tabs/L3_rulesOn.gif" border="0" /><% } else { %><img src="/i/tournament/tco05/tabs/L3_rulesOff.gif" border="0" /><% } %></a></td>
+					<% } else if (tabLev2.equals("registration")) {%>
+						<td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
 					<% } else if (tabLev2.equals("registrants")) {%>
 						<td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
 					<% } else if (tabLev2.equals("advancers")) {%>

@@ -19,7 +19,7 @@
 <!-- Body-->
 	<tr valign=top>
 		<td valign=top align=center>
-		<div class=bodySpacer>
+		<div class="bodySpacer">
             
 <span class="bigTitle">2005 TopCoder Open - Overview</span>
 <br><br>
