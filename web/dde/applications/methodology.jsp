@@ -73,26 +73,26 @@
 						A TopCoder Software Project Manager performs the specification phase of the project hand-in-hand with all appropriate client resources.  
 						At the conclusion of the specification phase, the applicable deliverables outlined below are presented to the client: <br>
 
-						<li> Application Requirements Specification - Serves as a scope document, describing what functionality is to be included in the application, 
+						<li><strong>Application Requirements Specification<strong> - Serves as a scope document, describing what functionality is to be included in the application, 
 						as well as what functionality is not to be included.
 
-						<li> High Level Use Cases Diagrams - Includes UML use cases that describe primary actors and processes involved in the application.
+						<li><strong>High Level Use Cases Diagrams</strong> - Includes UML use cases that describe primary actors and processes involved in the application.
 
-						<li> Activity Diagrams - UML Diagrams used to depict the business processes that will be automated by the application.
+						<li><strong>Activity Diagrams</strong> - UML Diagrams used to depict the business processes that will be automated by the application.
 
-						<li> Architecture Diagram – Defines the logical and physical layout of the system and explains design constraints such as third-party software, 
+						<li><strong>Architecture Diagram</strong> – Defines the logical and physical layout of the system and explains design constraints such as third-party software, 
 						language, platforms, standards and protocols.
 
-						<li> Site Map and Site Definition – Describes the logical layout and flow of the user interface as well as detailed page or screen definitions.
+						<li><strong>Site Map and Site Definition</strong> – Describes the logical layout and flow of the user interface as well as detailed page or screen definitions.
 
-						<li> Prototype - A graphical rendition of the application user interface.  This includes the look, feel and navigation of the system.  
+						<li><strong>Prototype</strong> - A graphical rendition of the application user interface.  This includes the look, feel and navigation of the system.  
 						The prototype is used both as an iterative tool for TopCoder Project Managers to develop Functional Requirements, as well as direction for TopCoder 
 						Design and Development Teams.  Prototypes are developed by TopCoder Software Creative Designers and Information Architects.
 
-						<li> Quality Assurance Plan – Defines the overall testing strategy and detailed test scenarios that verify the adherence of the application 
+						<li><strong>Quality Assurance Plan</strong> – Defines the overall testing strategy and detailed test scenarios that verify the adherence of the application 
 						to all of the requirements.
 
-						<li> Logical ER Model – Describes the data storage model, including all major entities and relationships that the application will require.  
+						<li><strong>Logical ER Model</strong> – Describes the data storage model, including all major entities and relationships that the application will require.  
 						This deliverable is produced only for applications that require persistent data storage.
 
 </p>
