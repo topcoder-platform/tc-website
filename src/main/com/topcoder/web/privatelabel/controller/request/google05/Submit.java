@@ -209,15 +209,15 @@ public class Submit extends FullRegSubmit {
 */
             buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google Code Jam 2005.\n\n");
             buf.append("PRACTICING FOR THE EVENT\n");
-            buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam 2005.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM ET on July 25, 2005 through 5:00PM ET on September 23, 2005.\n\n");
+            buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam 2005.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM EDT on July 25, 2005 through 5:00PM EDT on September 23, 2005.\n\n");
             buf.append("You can access the practice rooms by navigating to http://www.topcoder.com/googlecodejam and clicking on the Competition Arena tab.\n\n");
             buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
-            buf.append("You may participate in the Qualification Round at any time between Monday, August 22 at Noon ET and Tuesday, August 23 at Noon ET (GMT -4).  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
+            buf.append("You may participate in the Qualification Round at any time between Monday, August 22 at Noon EDT and Tuesday, August 23 at Noon EDT (GMT -4).  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
             buf.append("LAUNCHING THE ARENA\n");
             buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://www.topcoder.com/googlecodejam and clicking on the Competition Arena tab.\n\n");
             buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
             //buf.append("Mac OS X  users need to have the Java 1.4.x runtime installed, which requires OS X version 10.2.x.\n\n");
-            buf.append("We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/googlecodejam and downloading the competition manual.\n\n");
+            buf.append("We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/googlecodejam and clicking the Instructions link at the top.\n\n");
             buf.append("If you have any questions about how to participate, please email them to googlecodejam@topcoder.com\n\n");
             buf.append("Thank you for registering for the Google Code Jam 2005.  We look forward to seeing you in the Arena!\n\n");
 
