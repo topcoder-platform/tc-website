@@ -110,7 +110,7 @@ function AllowTabCharacter() {
 <br/><div id="Options" style="display: none">Allowed tags: &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;img&gt;, &lt;pre&gt;. Syntax highlighting is applied to text within [code][/code] blocks.</div>
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
-	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM dd, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
+	<tr><td class="rtHeader" colspan="2"><a name=<jsp:getProperty name="message" property="ID"/>><tc-webtag:beanWrite name="message" property="modificationDate" format="MMM d, yyyy 'at' h:mm a z"/> | <jsp:getProperty name="message" property="subject"/>
 		<%	if (parentMessage != null) { %>
 				(response to <A href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<%=parentMessage.getID()%>" class="rtbcLink">post</A> by <tc-webtag:handle coderId="<%=parentMessage.getUser().getID()%>"/>)
 		<%	} %>
