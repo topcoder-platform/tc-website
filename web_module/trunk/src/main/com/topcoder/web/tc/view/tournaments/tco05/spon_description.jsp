@@ -74,9 +74,6 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rule
 	</tr>
 	
 </table>
-	
-	
-
 
 <jsp:include page="../../foot.jsp" />
 
