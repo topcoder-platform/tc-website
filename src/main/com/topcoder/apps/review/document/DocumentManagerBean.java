@@ -5070,15 +5070,17 @@ public class DocumentManagerBean implements SessionBean {
 
 
     public ComponentScores getComponentScores(int type, long projectId) {
-        return new ComponentScores(type, projectId,
-                                                                    "Job Scheduler",
+        return new ComponentScores(type, projectId, projectId,
+                                                                    "Job Scheduler", 5,
                                                                     new int[] {10022398, 11781622,  10650643 },
                                                                     new String[] { "slion", "tuenm","quickx0161" },
                                                                     new String [] { "a","b","c" },
                                                                     new SubmissionScores[]  {
 
-        new SubmissionScores("arylio", 7489235, 15072115,1, 99.0, new double[] { 90, 93, 96}, 93.1),
-        new SubmissionScores("PE", 9998760, 15072376,2, 93.0, new double[] { 80, 83, 86}, 83.1)  }  );
+        new SubmissionScores("arylio", 7489235, 15072115, new java.util.Date(2005, 1, 1), new java.util.Date (2005, 1, 4),
+                1, true, true, 99.0, new double[] { 90, 93, 96}, 90.2, 93.1),
+        new SubmissionScores("PE", 9998760, 15072376,  new java.util.Date(2005, 1, 1), new java.util.Date (2005, 1, 4),
+                2, true, true, 93.0, new double[] { 80, 83, 86}, 80.5, 83.1)  }  );
     }
 
 
