@@ -173,8 +173,6 @@
             <table border="0" cellpadding="0" cellspacing="0" width="530">
                 <tr>
                     <td colspan="2" class="bodyText" align="center">
-                        <p><font size="3"><strong><a href="http://www.topcoder.com/?t=development&c=app_meth">Learn more</a> about the TopCoder Application Methodology.</strong></font></p>
-
                         <p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
                     </td>
                 </tr>
