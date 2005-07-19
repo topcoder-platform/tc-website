@@ -64,14 +64,14 @@ height="450"
 id="appSuite"
 align="top"
 <param name="allowScriptAccess" value="sameDomain" />
-<param name="movie" value="/images/flash/appSuiteDetails.swf?whichXML=<%=request.getParameter("appSuiteID")%>.xml"/>
+<param name="movie" value="/flash/appSuites/appSuiteDetails.swf?whichXML=<%=request.getParameter("appSuiteID")%>.xml"/>
 <param name="menu" value="false" />
 <param name="align" value="t" />
 <param name="salign" value="t" />
 <param name="menu" value="false" />
 <param name="bgcolor" value="#FFFFFF" />
 <embed
-src="/images/flash/appSuiteDetails.swf?whichXML=<%=request.getParameter("appSuiteID")%>.xml"
+src="/flash/appSuites/appSuiteDetails.swf?whichXML=<%=request.getParameter("appSuiteID")%>.xml"
 menu="false"
 quality="high"
 bgcolor="#FFFFFF"
