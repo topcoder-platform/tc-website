@@ -73,7 +73,7 @@
 					high quality applications. It combines our Component Development Methodology with our peer review, component customization, and application integration processes.  
 					This methodology is designed to deliver a repeatable and consistent solution to our customers.</p>
 					
-				<hr width="530" size="1px" noshade>
+				<hr width="530" size="1px" noshade><br><br>
             
 <!-- Specification begins -->
                         <p class=catalogIndexHeader>Specification</p>
