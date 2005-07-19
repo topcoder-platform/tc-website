@@ -73,7 +73,7 @@
 						A TopCoder Software Project Manager performs the specification phase of the project hand-in-hand with all appropriate client resources.  
 						At the conclusion of the specification phase, the applicable deliverables outlined below are presented to the client: <br>
 
-						<li><strong>Application Requirements Specification<strong> - Serves as a scope document, describing what functionality is to be included in the application, 
+						<li><strong>Application Requirements Specification</strong> - Serves as a scope document, describing what functionality is to be included in the application, 
 						as well as what functionality is not to be included.
 
 						<li><strong>High Level Use Cases Diagrams</strong> - Includes UML use cases that describe primary actors and processes involved in the application.
