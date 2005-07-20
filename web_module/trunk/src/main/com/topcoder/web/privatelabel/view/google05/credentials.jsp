@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.privatelabel.Constants"%>
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -48,9 +49,11 @@
          <br><br>
 
 			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-			<form action="" method="GET" name="regForm">
+			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET" name="regForm">
+            <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
             <tr>
                 <td colspan="2" class="errorText" align="center">
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
             <tr>
@@ -58,7 +61,7 @@
                     Email Address
                 </td>
                 <td width="60%">
-                    <input type="text" name="" size="30" maxlength="100" onKeyPress="" />
+                    <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
                 </td>
             </tr>
             <tr><td></td><td><a href="javascript: document.regForm.submit();">Send Email</a></td></tr>
