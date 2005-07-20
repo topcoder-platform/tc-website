@@ -104,4 +104,8 @@ public interface ForumConstants {
         "Please enter some search terms.";
     public final static String ERR_NO_SEARCH_HANDLE = 
         "No user exists with the specified handle.";
+    
+    // Occur when attempting to change the query string while posting a message
+    public final static String ERR_THREAD_NOT_FOUND = "Thread not found in forum.";
+    public final static String ERR_MESSAGE_NOT_FOUND = "Message not found in thread.";
 }

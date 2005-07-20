@@ -8,6 +8,8 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.WatchManager;
+import com.jivesoftware.forum.ForumThreadNotFoundException;
+import com.jivesoftware.forum.ForumMessageNotFoundException;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -38,6 +40,24 @@ public class PostMessage extends ForumsProcessor {
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
 
         Forum forum = forumFactory.getForum(forumID);
+        ForumMessage message = null;
+        ForumThread thread = null;
+        try {
+            threadID = Long.parseLong(threadIDStr);
+            thread = forum.getThread(threadID);
+        } catch (NumberFormatException nfe) {    
+        } catch (ForumThreadNotFoundException fte) {
+            addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_THREAD_NOT_FOUND);
+        }
+        try {
+            messageID = Long.parseLong(messageIDStr);
+            if (thread != null) {
+                message = thread.getMessage(messageID);
+            }
+        } catch (NumberFormatException nfe) {    
+        } catch (ForumMessageNotFoundException fme) {
+            addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_MESSAGE_NOT_FOUND);
+        }
 
 		if (subject.equals("")) {
 			addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
@@ -60,7 +80,6 @@ public class PostMessage extends ForumsProcessor {
             setDefault(ForumConstants.MESSAGE_BODY, body);
 
             if (!messageIDStr.equals("") && !threadIDStr.equals("")) {
-                ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
                 getRequest().setAttribute("thread", message.getForumThread());
                 getRequest().setAttribute("message", message);
             }
@@ -74,12 +93,7 @@ public class PostMessage extends ForumsProcessor {
 			return;
 		}
 
-	    ForumMessage message = null;
-	    ForumThread thread = null;
-		if (!messageIDStr.equals("") && !postMode.equals("Reply")) {
-			messageID = Long.parseLong(messageIDStr);
-			message = forumFactory.getMessage(messageID);
-		} else {
+        if (messageIDStr.equals("") || postMode.equals("Reply")) {
 			message = forum.createMessage(user);
 		}
 		message.setSubject(subject);
@@ -87,10 +101,7 @@ public class PostMessage extends ForumsProcessor {
 
         WatchManager watchManager = forumFactory.getWatchManager();
 		if (!threadIDStr.equals("")) {
-			threadID = Long.parseLong(threadIDStr);
-			thread = forum.getThread(threadID);
 			if (postMode.equals("Reply")) {
-				messageID = Long.parseLong(messageIDStr);
 				ForumMessage parentMessage = forumFactory.getMessage(messageID);
 				thread.addMessage(parentMessage, message);
                 if ("true".equals(user.getProperty("jiveAutoWatchReplies")) && !watchManager.isWatched(user, thread) && 
