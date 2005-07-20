@@ -27,24 +27,6 @@ import java.util.Map;
  */
 public class Submit extends FullRegSubmit {
 
-    //protected UserPrincipal commit(SimpleRegInfo regInfo) throws TCWebException {
-    protected long store(SimpleRegInfo regInfo) throws Exception {
-        long userId = super.store(regInfo);
-
-        try {
-            User user = (User) createEJB(getInitialContext(), User.class);
-            user.setPassword(userId, regInfo.getPassword(), transDb);
-
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-
-        //handleActivation(regInfo, regInfo.getUserId());
-        
-        return userId;
-    }
 
     protected void setNextPage() {
         SessionInfo sInfo = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -76,12 +58,12 @@ public class Submit extends FullRegSubmit {
             buf.append("If you have any questions about how to participate, please email them to dccc@topcoder.com.\n\n");
             buf.append("Thank you for registering for the DoubleClick 2005 Coding Challenge.  We look forward to seeing you in the Arena!\n\n");
             buf.append("- TopCoder Competitions Team");
-            
+
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
             mail.setFromAddress("dccc@topcoder.com", "DoubleClick Coding Challenge Team");
             log.info("sent registration email to " + info.getEmail());
-            
+
             EmailEngine.send(mail);
         } catch (Exception e) {
             throw new TCWebException(e);

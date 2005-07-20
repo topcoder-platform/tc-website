@@ -56,8 +56,6 @@ public class Submit extends FullRegSubmit {
                     resumeServices.putResume(userId, fileType, fileName, fileBytes, transDb);
                 }
             }
-            User user = (User) createEJB(getInitialContext(), User.class);
-            user.setPassword(userId, info.getPassword(), transDb);
 
         } catch (TCWebException e) {
             throw e;
