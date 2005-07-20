@@ -59,34 +59,6 @@ function submitEnter(e) {
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="PasswordEmail"/>
                     <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>" />
                     <tr>
-                        <td class="errorText" colspan="2">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bodyText">
-                            First Name
-                        </td>
-                        <td>
-                             <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="errorText">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%></tc-webtag:errorIterator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bodyText">
-                            Last Name
-                        </td>
-                        <td>
-                             <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onkeypress="submitEnter(event)"/>
-                        </td>
-                    </tr>
-
-                    <tr>
                         <td class="errorText">
                             <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%></tc-webtag:errorIterator>
                         </td>
