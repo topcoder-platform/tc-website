@@ -21,8 +21,9 @@
 		<div class="bodySpacer">
             
 <span class="bigTitle">Registration</span>
-Please 
-
+<br><br>
+<b>Company name:</b>&#160;&#160;
+<input type="text" name="" size="30" maxlength="100" onKeyPress="" />
 <br><br>
 <div align="center">
 <iframe width="590" height="300" marginWidth="5" src="/i/tournament/tco05/reg.html"></iframe>
