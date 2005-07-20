@@ -23,7 +23,7 @@ public class PreviewMessage extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         
-        long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
+        long forumID = -1;
         long threadID = -1;
         long messageID = -1;
         
