@@ -8,7 +8,7 @@
                  com.jivesoftware.forum.ForumMessage,
          		 com.jivesoftware.forum.ResultFilter,
          		 com.jivesoftware.forum.action.util.Page,
-         		 com.jivesoftware.forum.action.util.Paginator,
+         		 com.topcoder.web.forums.model.Paginator,
          		 java.util.Iterator,
                  java.util.Enumeration"
 %>
