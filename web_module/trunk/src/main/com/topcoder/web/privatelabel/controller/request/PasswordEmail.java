@@ -23,13 +23,12 @@ import javax.naming.Context;
  */
 public class PasswordEmail extends RegistrationBase {
 
-    protected void registrationProcessing() throws TCWebException {}
     protected SimpleRegInfo makeRegInfo() throws Exception {
         return new SimpleRegInfo();
     }
 
 
-    protected void businessProcessing() throws TCWebException {
+    protected void registrationProcessing() throws TCWebException {
         String firstName = StringUtils.checkNull(getRequest().getParameter(Constants.FIRST_NAME));
         String lastName = StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME));
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
