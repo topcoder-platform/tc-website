@@ -452,7 +452,9 @@
                                 <li class="tier2">
                                     <a name="software1"></a>How do I do a production move for the www.topcodersoftware.com?
                                     <ol>
-                                        <li>Telnet to 192.168.10.151 and login as apps</li>
+                                        <li>This is all different now and a process hasn't been nailed down.  Ask dok.</li>
+<%--
+                                        <li>Telnet to 192.168.12.151 and login as apps</li>
                                         <li><span class="input">cd stage</span></li>
                                         <li>
                                             Backup what is currently deployed so that you have a copy in case there is a problem
@@ -472,10 +474,18 @@
                                         </li>
                                         <li>Move to the jboss directory with <span class="input">jbb</span></li>
                                         <li>Start jboss with <span class="input">./run.sh</span></li>
+--%>
                                     </ol>
                                 </li>
                                 <li class="tier2">
                                     <a name="software2"></a>What do I do if I'm getting marshalling errors on ResultSetContainer objects?
+                                    <p>
+                                        This is currently highly unlikely as there is currently a cache running on the same box as the
+                                        new software site.  Once we get the TopCoder site updated to jboss, we'll likely start using the
+                                        same cache again.
+
+                                    </p>
+<%--
                                     <p>
                                         This means that there is a difference between the ResultSetContainer object that the cache has
                                         and the ResultSetContainer object that the application server has.  In this case, it's likely that the
@@ -490,6 +500,7 @@
                                         </li>
                                         <li>Restart the application server, you can pick out the details <a href="#software1">href</a></li>
                                     </ol>
+--%>
                                 </li>
                                 <li class="tier2">
                                     <a name="software3"></a>How do I build the code for www.topcodesoftware.com?
