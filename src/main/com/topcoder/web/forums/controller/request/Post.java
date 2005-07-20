@@ -24,18 +24,25 @@ public class Post extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-        long forumID = Long.parseLong(getRequest().getParameter(ForumConstants.FORUM_ID));
-        String threadIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_ID));
+		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);        
+        String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        
+        long forumID = -1;
+        if (postMode.equals("New")) {
+            forumID = Long.parseLong(forumIDStr);
+        } else if (postMode.equals("Edit") || postMode.equals("Reply")) {
+            long messageID = Long.parseLong(messageIDStr);
+            ForumMessage message = forumFactory.getMessage(messageID);
+            forumID = message.getForum().getID();
+        }
 
 		setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
-		setDefault(ForumConstants.THREAD_ID, getRequest().getParameter(ForumConstants.THREAD_ID));
 		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
 		setDefault(ForumConstants.POST_MODE, postMode);
 
         Forum forum = forumFactory.getForum(forumID);
-        if (!messageIDStr.equals("") && !threadIDStr.equals("")) {
+        if (!messageIDStr.equals("")) {
             ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
             String replySubject = message.getSubject();
             String editSubject = message.getSubject();

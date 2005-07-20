@@ -131,7 +131,6 @@ function AllowTabCharacter() {
 <form name="form1" method="post" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>">
 <tc-webtag:hiddenInput name="module"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.THREAD_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.MESSAGE_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
