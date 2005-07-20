@@ -106,6 +106,5 @@ public interface ForumConstants {
         "No user exists with the specified handle.";
     
     // Occur when attempting to change the query string while posting a message
-    public final static String ERR_THREAD_NOT_FOUND = "Thread not found in forum.";
-    public final static String ERR_MESSAGE_NOT_FOUND = "Message not found in thread.";
+    public final static String ERR_POST_MODE_UNRECOGNIZED = "Post mode unrecognized.";
 }

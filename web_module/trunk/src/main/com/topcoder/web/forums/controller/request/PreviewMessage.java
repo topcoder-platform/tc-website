@@ -5,6 +5,7 @@ package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumThread;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
@@ -26,30 +27,44 @@ public class PreviewMessage extends ForumsProcessor {
         long threadID = -1;
         long messageID = -1;
         
-        Forum forum = forumFactory.getForum(forumID);
+        Forum forum = null; 
+        ForumMessage message = null;
+        ForumThread thread = null;
         
-        String threadIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_ID));
+        String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
                 getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         
+        if (postMode.equals("New")) {
+            forumID = Long.parseLong(forumIDStr);
+            forum = forumFactory.getForum(forumID);
+        } else if (postMode.equals("Reply") || postMode.equals("Edit")) {
+            messageID = Long.parseLong(messageIDStr);
+            message = forumFactory.getMessage(messageID);
+            forum = message.getForum();
+            forumID = forum.getID();
+            thread = message.getForumThread();
+            threadID = thread.getID();
+        } else {
+            addError(ForumConstants.MESSAGE_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
+        }
+        
         getRequest().setAttribute("forumFactory", forumFactory);
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
         
         setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
-        setDefault(ForumConstants.THREAD_ID, getRequest().getParameter(ForumConstants.THREAD_ID));
         setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
         setDefault(ForumConstants.POST_MODE, postMode);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
         setDefault(ForumConstants.MESSAGE_BODY, body);
         
-        if (!messageIDStr.equals("") && !threadIDStr.equals("")) {
-            ForumMessage message = forumFactory.getMessage(Long.parseLong(messageIDStr));
-            getRequest().setAttribute("thread", message.getForumThread());
-            getRequest().setAttribute("message", message);  // message for validation
+        if (message != null && thread != null) {
+            getRequest().setAttribute("thread", thread);
+            getRequest().setAttribute("message", message);  // message for validation - only used if errors exist
             if (postMode.equals("Reply")) {
             	getRequest().setAttribute("parentMessage", message);
             } else {
@@ -75,11 +90,11 @@ public class PreviewMessage extends ForumsProcessor {
             return;
 		}
         
-        ForumMessage message = forum.createMessage(user);   // message for preview
-        message.setSubject(subject);
-        message.setBody(body);
+        ForumMessage previewMessage = forum.createMessage(user);   // message for preview
+        previewMessage.setSubject(subject);
+        previewMessage.setBody(body);
 		
-        getRequest().setAttribute("message", message);        
+        getRequest().setAttribute("message", previewMessage);        
         
         setNextPage("/preview.jsp");
 		setIsNextPageInContext(true);
