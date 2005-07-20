@@ -5,7 +5,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
@@ -15,8 +14,9 @@ import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
-import javax.transaction.UserTransaction;
-import java.rmi.RemoteException;
+import javax.transaction.TransactionManager;
+import javax.transaction.Status;
+
 
 /**
  *
