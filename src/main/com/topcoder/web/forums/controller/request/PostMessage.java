@@ -80,7 +80,7 @@ public class PostMessage extends ForumsProcessor {
             setDefault(ForumConstants.MESSAGE_BODY, body);
 
             if (!messageIDStr.equals("") && !threadIDStr.equals("")) {
-                getRequest().setAttribute("thread", message.getForumThread());
+                getRequest().setAttribute("thread", thread);
                 getRequest().setAttribute("message", message);
             }
 
