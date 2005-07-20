@@ -8,6 +8,13 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.UserPrincipal;
+
+import javax.naming.Context;
 
 /**
  * @author  dok
@@ -51,6 +58,21 @@ public class PasswordEmail extends RegistrationBase {
                     setNextPage("/recoverPassword.jsp");
                     setIsNextPageInContext(true);
                 } else {
+
+                    Context context = null;
+                    String password = null;
+                    try {
+                        context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                            ApplicationServer.SECURITY_PROVIDER_URL);
+                        PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                        PrincipalMgrRemote pmr = pmrh.create();
+                        UserPrincipal p = pmr.getUser(rsc.getLongItem(0, "user_id"));
+                        password = pmr.getPassword(p.getId());
+                    } finally {
+                        close(context);
+                    }
+
+
                     TCSEmailMessage mail = new TCSEmailMessage();
                     mail.setSubject("TopCoder Password Information");
                     StringBuffer msgText = new StringBuffer(1000);
@@ -58,7 +80,7 @@ public class PasswordEmail extends RegistrationBase {
                     msgText.append("Handle:  ");
                     msgText.append(rsc.getStringItem(0, "handle"));
                     msgText.append("\nPassword:  ");
-                    msgText.append(rsc.getStringItem(0, "password"));
+                    msgText.append(password);
                     msgText.append("\n\nThank You for registering with TopCoder!\n");
                     msgText.append("\n\nPlease do not reply to this e-mail.\n");
                     mail.setBody(msgText.toString());
