@@ -120,7 +120,7 @@ function AllowTabCharacter() {
 	<%  if (user.getProperty("imagePath") != null) { %>
 		<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 	<%  } %>
-	<span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
+	<span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 	<td class="rtTextCell100"><jsp:getProperty name="message" property="body"/></td>
 	</tr>
 </table>
@@ -139,7 +139,7 @@ function AllowTabCharacter() {
 <%  if (user.getProperty("imagePath") != null) { %>
 	<img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
 <%  } %>
-<tc-webtag:handle coderId="<%=user.getID()%>"/><br/><A href="/"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
+<tc-webtag:handle coderId="<%=user.getID()%>"/><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=forumFactory.getUserMessageCount(user)%> posts</A></div></td>
 <td class="rtTextCell100">
 <% if (errors.get(ForumConstants.MESSAGE_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.MESSAGE_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
 <b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.MESSAGE_SUBJECT%>" onKeyPress="return noenter(event)"/><br/><br/>
