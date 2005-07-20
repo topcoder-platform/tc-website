@@ -51,6 +51,7 @@
 			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
 			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET" name="regForm">
             <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE05_CREDENTIALS%>"/>
             <tr>
                 <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
