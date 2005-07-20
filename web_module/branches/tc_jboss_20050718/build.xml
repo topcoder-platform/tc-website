@@ -444,11 +444,7 @@
      </target>
 
      <target name="package-EJB-ImageBean" depends="compile">
-         <antcall target="build-ejb-unit">
-             <param name="unit-jar-name" value="Image"/>
-             <param name="unit-class-path" value="com/topcoder/web/ejb/image"/>
-         </antcall>
-         <jar jarfile="${ejb_jars}/Image.jar" update="true">
+         <jar jarfile="${ejb_jars}/Image.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
@@ -458,7 +454,7 @@
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/idgeneratorclient/IdGeneratorClient.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/coder/*.class"/>
-             <metainf dir="${java}/com/topcoder/web/ejb/coder" includes="*.xml"/>
+             <metainf dir="${java}/com/topcoder/web/ejb/image" includes="*.xml"/>
          </jar>
      </target>
 
@@ -1274,6 +1270,7 @@
 -->
          <antcall target="package-EJB-EmailBean"/>
          <antcall target="package-EJB-FileConversionBean"/>
+         <antcall target="package-EJB-ImageBean"/>
          <antcall target="package-EJB-JavaDocServicesBean"/>
          <antcall target="package-EJB-JobPostingServicesBean"/>
 <!--
