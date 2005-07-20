@@ -42,6 +42,8 @@
 			<jsp:include page="right.jsp" />
 			</span>
 			<br/><br/>
+            <A href="/pl/?module=Google05Credentials&cid=1865">Forgot your password?</A>
+			<br/><br/>
 Click <A href="/pl/?&module=Static&d1=google05&d2=instructions">here</A> to read to the <A href="/pl/?&module=Static&d1=google05&d2=instructions">Instructions</A> page.
 <br/><br/>
 Click <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java Applet</A>.
