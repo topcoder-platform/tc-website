@@ -21,10 +21,15 @@
 		<div class="bodySpacer">
             
 <span class="bigTitle">Registration</span>
+Please 
+
 <br><br>
-reg goes here
+<div align="center">
+<iframe width="590" height="300" marginWidth="5" src="/i/tournament/tco05/reg.html"></iframe>
 <br><br>
-See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rules">rules and regulations</A> for more details.
+<A href="#">I Agree</A>
+<br><br>
+</div>
         </div>
 		</td>
         
