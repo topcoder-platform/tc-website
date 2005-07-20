@@ -35,7 +35,7 @@ public class PasswordEmail extends RegistrationBase {
                 r.setProperty(Constants.EMAIL, clean(email));
                 ResultSetContainer rsc = (ResultSetContainer) getDataAccess(db).getData(r).get("password_email");
                 if (rsc.isEmpty()) {
-                    addError(Constants.FIRST_NAME, "Sorry, the information you supplied was not found.");
+                    addError(Constants.EMAIL, "Sorry, the information you supplied was not found.");
                 } else if (rsc.size() > 1) {
                     log.warn(rsc.size() + " users found with email: " + email);
                 }
