@@ -170,6 +170,7 @@ public class Constants {
     public static String GOOGLE05_REG_SUBMIT;
     public static String GOOGLE05_ACTIVATION;
     public static String GOOGLE05_LOGIN;
+    public static String GOOGLE05_CREDENTIALS;
     public static String GOOGLE_INDIA_05_REG_MAIN;
     public static String GOOGLE_INDIA_05_REG_DEMOG;
     public static String GOOGLE_INDIA_05_REG_CONFIRM;
