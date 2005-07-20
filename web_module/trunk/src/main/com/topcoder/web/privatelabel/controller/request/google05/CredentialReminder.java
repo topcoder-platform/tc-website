@@ -11,11 +11,11 @@ import com.topcoder.web.privatelabel.Constants;
 public class CredentialReminder extends BaseCredentialReminder {
 
     protected String getStartPage() {
-        return Constants.GOOGLE_05_CREDENTIALS_PAGE;
+        return Constants.GOOGLE05_CREDENTIALS_PAGE;
     }
 
     protected String getSuccessPage() {
-        return Constants.GOOGLE_05_CREDENTIALS_SENT_PAGE;
+        return Constants.GOOGLE05_CREDENTIALS_SENT_PAGE;
     }
 }
 
