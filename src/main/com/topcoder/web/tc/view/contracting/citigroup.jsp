@@ -52,7 +52,7 @@ Our proprietary trading and risk analysis software is the lifeblood of our busin
 <br><br>
 Citigroup recently chatted with the members about Employment Opportunities before several SRMs. Take a look:<br>
 <A href="/tc?module=Static&d1=contracting&d2=citigroup_chat">06.21.05</A><br>
-<A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_072005">07.20.05</A>
+<A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">07.19.05</A>
 <br/><br/>
       <a href="/tc?module=JobHit&jid=297&jt=4">Apply now to be contacted by Citigroup!</a>
 		<br/><br/>
