@@ -97,6 +97,8 @@ public class SimpleRegSubmit extends SimpleRegBase {
         user.setMiddleName(userId, regInfo.getMiddleName(), transDb);
         user.setLastName(userId, regInfo.getLastName(), transDb);
         user.setActivationCode(userId, StringUtils.getActivationCode(userId), transDb);
+        user.setPassword(userId, regInfo.getPassword(), transDb);
+
 
         //create address
         long addressId = 0;
