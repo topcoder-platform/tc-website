@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.20.05<br>11:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">Citigroup Employment Opportunities chat session</A></span><br><br>
+      Citigroup recently chatted with the members about Employment Opportunities before SRM 252. Take a look.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">details</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.18.05<br>4:50 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup">Citigroup chat session scheduled for SRM 252</A></span><br><br>
       Citigroup will be in the Arena Applet at 8:00 PM, just before the start of SRM 252 to discuss working at Citigroup.
@@ -218,21 +230,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>06.30.05<br>9:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm249_prob">SRM 249 - Problem Set & Analysis</A></span><br><br>
-      An amazingly difficult Division 1 Easy/Division 2 Hard gave this SRM an unusual flavor. Less than one-third of Div 1 Hard received credit for the problem.  Not a single Div 2 submission passed system tests.</td>
-      <td class="newsPhoto"><img src="/i/m/brett1479_mug.gif" /><br>by <tc-webtag:handle coderId="251317" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm249_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
 
 
