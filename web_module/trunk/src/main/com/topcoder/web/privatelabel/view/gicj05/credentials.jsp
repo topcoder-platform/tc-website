@@ -49,7 +49,7 @@
          <br/><br/><br/><br/>
 
 			<table cellpadding="0" cellspacing="5" class="bodyText" align="center" width="100%" border="0">
-			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET" name="regForm">
+			<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.GOOGLE_INDIA_05_CREDENTIALS%>"/>
             <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
             <tr>

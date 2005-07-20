@@ -64,7 +64,7 @@
                     Email Address
                 </td>
                 <td width="60%">
-                    <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="15" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
+                    <tc-webtag:textInput name="<%=Constants.EMAIL%>"  size="20" maxlength="<%=Constants.MAX_EMAIL_LENGTH%>"/>
                 </td>
             </tr>
             <tr><td></td><td><a href="javascript: document.regForm.submit();">Send Email</a></td></tr>
