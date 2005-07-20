@@ -57,6 +57,7 @@ function submitEnter(e) {
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <form method="post" name="frmPass" action="/pl/">
                     <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="PasswordEmail"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>" />
                     <tr>
                         <td class="errorText">
                             <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator>

@@ -34,6 +34,7 @@ public class PasswordEmail extends RegistrationBase {
         String lastName = StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME));
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
         if (firstName.equals("") && lastName.equals("") && email.equals("")) {
+            setDefault(Constants.COMPANY_ID, getRequest().getParameter(Constants.COMPANY_ID));
             setNextPage("/recoverPassword.jsp");
             setIsNextPageInContext(true);
         } else {
