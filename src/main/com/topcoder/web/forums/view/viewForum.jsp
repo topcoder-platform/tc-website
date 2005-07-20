@@ -104,6 +104,8 @@
             <jsp:param name="title" value="&#160;"/>
         </jsp:include>
 
+pages: <%=paginator.getNumPages()%>
+
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr valign="top">
     <td nowrap="nowrap" valign="top">
