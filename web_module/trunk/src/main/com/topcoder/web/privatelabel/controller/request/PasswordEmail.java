@@ -8,13 +8,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.UserPrincipal;
-
-import javax.naming.Context;
 
 /**
  * @author  dok
@@ -29,29 +22,22 @@ public class PasswordEmail extends RegistrationBase {
 
 
     protected void registrationProcessing() throws TCWebException {
-        String firstName = StringUtils.checkNull(getRequest().getParameter(Constants.FIRST_NAME));
-        String lastName = StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME));
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
-        if (firstName.equals("") && lastName.equals("") && email.equals("")) {
+        if (email.equals("")) {
             setDefault(Constants.COMPANY_ID, getRequest().getParameter(Constants.COMPANY_ID));
             setNextPage("/recoverPassword.jsp");
             setIsNextPageInContext(true);
         } else {
-            if (firstName.equals("")) addError(Constants.FIRST_NAME, "Please enter your first name.");
-            if (lastName.equals("")) addError(Constants.LAST_NAME, "Please enter your last name.");
-            if (email.equals("")) addError(Constants.EMAIL, "Please enter your email address.");
 
             try {
                 Request r = new Request();
                 r.setContentHandle("password_email");
-                r.setProperty(Constants.FIRST_NAME, clean(firstName));
-                r.setProperty(Constants.LAST_NAME, clean(lastName));
                 r.setProperty(Constants.EMAIL, clean(email));
                 ResultSetContainer rsc = (ResultSetContainer) getDataAccess(db).getData(r).get("password_email");
                 if (rsc.isEmpty()) {
                     addError(Constants.FIRST_NAME, "Sorry, the information you supplied was not found.");
                 } else if (rsc.size() > 1) {
-                    log.warn(rsc.size() + " users found with first/last/email: " + firstName + "/" + lastName + "/" + email);
+                    log.warn(rsc.size() + " users found with email: " + email);
                 }
 
                 if (hasErrors()) {
