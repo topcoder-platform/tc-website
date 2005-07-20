@@ -69,7 +69,6 @@
 
     <target name="package-forums" depends="">
         <delete dir="src"/>
-        <delete dir="resources"/>
         <delete dir="build"/>
         <delete dir="../shared/src"/>
         <delete file="forums.jar"/>
