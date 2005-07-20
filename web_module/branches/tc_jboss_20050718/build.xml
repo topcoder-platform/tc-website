@@ -386,6 +386,8 @@
              <zipfileset dir="${classes}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/common/NavigationException.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/web/common/TCWebException.class"/>
              <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
          </jar>
      </target>
@@ -1290,18 +1292,12 @@
 -->
          <antcall target="package-EJB-SurveyBean"/>
          <antcall target="package-EJB-RBoard"/>
-         <antcall target="package-EJB-ImageBean"/>
          <!--
                   <antcall target="package-EJB-RequestServicesBean"/>
          -->
          <antcall target="package-EJB-UserEvent"/>
          <!-- Since Screening Tool 1.1 -->
-         <antcall target="package-EJB-PreferenceLevelBean"/>
-         <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
-         <antcall target="package-EJB-CoderSkillBean"/>
-         <antcall target="package-EJB-FileConversionBean"/>
          <antcall target="package-EJB-UserBean"/>
-
          <!--
                   <antcall target="package-EJB-UserEvent"/>
          -->
