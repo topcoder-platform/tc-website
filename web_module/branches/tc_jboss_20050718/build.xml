@@ -124,6 +124,7 @@
      </target>
 
 
+<!--
      <target name="compile_dde" depends="compile_shared">
          <echo message="java.vm.version=${java.vm.version}"/>
          <javac srcdir="${java}"
@@ -137,6 +138,8 @@
              <exclude name="com/topcoder/web/common/tag/**"/>
          </javac>
      </target>
+-->
+<!--
      <target name="compile_or" depends="">
          <echo message="java.vm.version=${java.vm.version}"/>
          <javac srcdir="${java}"
@@ -153,6 +156,7 @@
              <include name="com/topcoder/apps/review/security/*Permission.class"/>
          </javac>
      </target>
+-->
 
 
      <target name="compile_techassess" depends="init">
@@ -281,6 +285,7 @@
          </jar>
      </target>
 
+<!--
      <target name="package-EJB-Catalog" depends="compile_dde">
          <jar jarfile="${ejb_jars}/catalog.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/dde/catalog/*.class"/>
@@ -315,6 +320,7 @@
          </jar>
      </target>
 
+-->
 
      <target name="package-EJB-FileConversionBean" depends="compile">
          <jar jarfile="${ejb_jars}/FileConversion.jar">
@@ -1256,17 +1262,23 @@
      <target name="deploy-tc">
          <antcall target="package-EJB-AddressBean"/>
          <antcall target="package-EJB-AuthenticationServicesBean"/>
+<!--
          <antcall target="package-EJB-Catalog"/>
+-->
          <antcall target="package-EJB-CoderBean"/>
          <antcall target="package-EJB-CoderSkillBean"/>
          <antcall target="package-EJB-ComponentRegistrationServicesBean"/>
          <antcall target="package-EJB-DataCacheBean"/>
+<!--
          <antcall target="package-EJB-DDEPersistence"/>
+-->
          <antcall target="package-EJB-EmailBean"/>
          <antcall target="package-EJB-FileConversionBean"/>
          <antcall target="package-EJB-JavaDocServicesBean"/>
          <antcall target="package-EJB-JobPostingServicesBean"/>
+<!--
          <antcall target="package-EJB-ORPersistence"/>
+-->
          <antcall target="package-EJB-PactsServicesBean"/>
          <antcall target="package-EJB-PasswordBean"/>
          <antcall target="package-EJB-PhoneBean"/>
@@ -1276,7 +1288,9 @@
          <antcall target="package-EJB-ReportingBean"/>
          <antcall target="package-EJB-ResumeServicesBean"/>
          <antcall target="package-EJB-SearchBean"/>
+<!--
          <antcall target="package-EJB-SoftwareUser"/>
+-->
          <antcall target="package-EJB-SurveyBean"/>
          <antcall target="package-EJB-RBoard"/>
          <antcall target="package-EJB-ImageBean"/>
