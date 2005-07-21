@@ -36,7 +36,7 @@ The 2005 TopCoder Open ("TCO") Sponsor Track Competition will take place between
 <br><br>
 <a name="eligibility"></a>
 <span class="bodySubtitle">Eligibility</span><br>
-Employees and interns of all official TCO sponsors who are TopCoder members and are at least 18 years of age as of August 16, 2005 are eligible to compete in the Sponsor Track  Competition.  TCO sponsor employees and interns may register to become a TopCoder member by navigating to www.topcoder.com, clicking on "Developer Center" and then clicking on "Register" in the upper right corner of the screen.
+Employees and interns of all official TCO sponsors who are TopCoder members and are at least 18 years of age as of August 16, 2005 are eligible to compete in the Sponsor Track  Competition.  TCO sponsor employees and interns may register to become a TopCoder member <A href="/reg/index.jsp">here</A>.
 <br><br>
 <a name="registration"></a>
 <span class="bodySubtitle">Registration</span><br>
