@@ -258,7 +258,7 @@
                 </TR>
 
                 <xsl:choose>
-                    <xsl:when test="$roundId='7223' or $roundId='8004' or $roundId='8005'">
+                    <xsl:when test="$roundId='7223' or $roundId='8004' or $roundId='8005' or $roundId='7227'">
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
                         <B>Single Round Match Description</B>
