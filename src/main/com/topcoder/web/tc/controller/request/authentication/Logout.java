@@ -11,6 +11,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.utilities.SiteTest;
 
 public class Logout extends Base {
 
@@ -30,11 +31,20 @@ public class Logout extends Base {
         if (dest.equals("")) {
             dest = "http://" + info.getServerName() + "/tc";
         }
-        //StringBuffer nextPage = new StringBuffer("http://").append(info.getServerName()).append("/forums?module=Logout");
-        //StringBuffer nextPage = new StringBuffer("http://forums.topcoder.com/?module=Logout");
-        StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/?module=Logout");
-        nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
-        setNextPage(nextPage.toString());
+        
+        String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
+        SiteTest siteTest = new SiteTest();
+        boolean forumsServerActive = siteTest.check(forumsURL);
+        if (forumsServerActive) {
+            StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Logout");
+            nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
+            setNextPage(nextPage.toString());
+        } else {
+            if (dest.startsWith(forumsURL)) {
+                dest = "http://"+ApplicationServer.SERVER_NAME+"/tc";
+            }
+            setNextPage(dest);
+        }
         setIsNextPageInContext(false);
     }
 

@@ -8,6 +8,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.utilities.SiteTest;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.ejb.email.Email;
@@ -67,18 +68,29 @@ public class Login extends Base {
                             } else {
                                 log.debug("user active");
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+                                String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
+                                
                                 //todo make this https
-                                StringBuffer nextPage = new StringBuffer("http://").append(ApplicationServer.FORUMS_SERVER_NAME).append("/?module=Login");
-                                nextPage.append("&").append(USER_NAME).append("=").append(username);
-                                nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
-                                if (!rememberUser.equals("")) {
-                                    nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
+                                SiteTest siteTest = new SiteTest();
+                                boolean forumsServerActive = siteTest.check(forumsURL);
+                                if (forumsServerActive) {
+                                    StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
+                                    nextPage.append("&").append(USER_NAME).append("=").append(username);
+                                    nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
+                                    if (!rememberUser.equals("")) {
+                                        nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
+                                    }
+                                    nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
+                                    setNextPage(nextPage.toString());
+                                } else {
+                                    if (dest.startsWith(forumsURL)) {
+                                        dest = "http://"+ApplicationServer.SERVER_NAME+"/tc";
+                                    }
+                                    setNextPage(dest);
                                 }
-                                nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
-
-                                setNextPage(nextPage.toString());
+                                
                                 setIsNextPageInContext(false);
-                                log.debug("on successful login, going to " + nextPage.toString());
+                                log.debug("on successful login, going to " + getNextPage());
                                 getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
                                 doLegacyCrap(getRequest());
                                 return;
