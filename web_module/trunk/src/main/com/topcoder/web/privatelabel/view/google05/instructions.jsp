@@ -78,7 +78,7 @@ From within the competition room, you will access the problem statements that yo
 The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. The amount of time you will be given will vary depending on the round of competition:
 <ul>
 <li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
-<li>In the Online Rounds One of the Google Code Jam, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
+<li>In the Online Rounds of the Google Code Jam, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
 <li>In the Onsite Final Round of the Google Code Jam, the coding phase will last 75 minutes and the contestants will be given three problems to solve.</li>
 </ul>
 
@@ -231,7 +231,9 @@ Double click on any of the point values (shown in green) to view the source code
 You may only submit a challenge if you have at least zero points at the time of the challenge. A given submission may only be successfully challenged once. If any competitor has already successfully challenged a submission, it may not be further challenged.
 <br><br>
 <span class="greenSubtitle">System Testing Phase</span><br>
-After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case. <i>Any submission that fails any test case will be deemed incorrect, and will result in a loss of all points for that submission. In addition, any submission that runs longer than eight (8) seconds for any test case will be deemed incorrect, and will result in a loss of all points</i>.
+After the Challenge Phase, all submissions will be run through a series of test cases.  In the case of the qualification round, the system tests will be run following the entire length of the qualification period.  These test cases will compare an expected result against a received result to determine if the code submission works for each test case. 
+<br><br>
+<i>Any submission that fails any test case will be deemed incorrect, and will result in a loss of all points for that submission. In addition, any submission that runs longer than two (2) seconds for any test case will be deemed incorrect, and will result in a loss of all points</i>.
 <br><br>
 If your submission passes all of the test cases, you will keep the points that were assigned to you when you submitted the problem. Your final score for each round will cumulate the points remaining from the System Testing Phase and any points gained or lost during the Challenge Phase.
 <br><br>
