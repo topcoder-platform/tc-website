@@ -26,7 +26,7 @@
 	<tr>
 		<td width="49%">&#160;</td>
 		<td>
-			<div class=greenBigBox>
+			<div class="greenBigBox">
 
 			<!-- Tab bar links-->
 			<div align=center>
@@ -37,15 +37,15 @@
 
 
 			<br><br>
-			<span class=bigTitle>Official Rules and Regulations</span>
+			<span class="bigTitle">Official Rules and Regulations</span>
 			<span valign=top>
 			<jsp:include page="right.jsp" />
 			</span>
 			<br><br>
 
-<span class=bigRed>No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
+<span class="bigRed">No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br><br>
-<span class=greenSubtitle>Summary of the Tournament</span><br>
+<span class="greenSubtitle">Summary of the Tournament</span><br>
 The Google&#153; Code Jam 2005 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2005 to identify possible employees for their company.  The Code Jam 2005 will take place between Monday, July 25, 2005 and Friday, September 23, 2005.  It begins with a 4-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) qualification round, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a Google Code Jam 2005 t-shirt.  In addition, Google will award $155,000 in cash prizes to the 100 finalists in the tournament.
 <br><br>
 <b>Eligibility</b><br>
