@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.21.05<br>3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/cnn_072105.pdf">On your marks, get set, code!</A></span><br><br>
+      "TopCoder chief operating officer Rob Hughes told CNN that the competitions were growing in popularity among software engineers, as well as among technology companies who use them to scout for future employees."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/pdfs/press_room/cnn_072105.pdf">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>07.21.05<br>2:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=7227&t=schedule&c=srm">July 23 SRM to Include Prize Money</A></span><br><br>
       The $5,000 in prize money that was originally allocated for SRM 252 has been reallocated to SRM 253 on Saturday July 23.
@@ -218,18 +230,6 @@
    <tr><td class="newsLinksCell">
          <A href="/contest/classes/PopsEdit/PopsEdit.jar">download</A>&#160;|&#160;<A href="/contest/classes/PopsEdit/PopsEdit_release_notes.htm">release notes</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.01.05<br>12:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pl/?&module=Static&d1=javaone05&d2=wednesday">JavaOne 05 Coding Challenge Results</A></span><br><br>
-      Check out the results for all three days of competition.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/pl/?&module=Static&d1=javaone05&d2=wednesday">results</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
