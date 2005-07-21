@@ -4,9 +4,11 @@
                  com.topcoder.web.tc.model.ContractingResponse,
                  com.topcoder.web.tc.model.ContractingResponseGroup,
                  java.util.Iterator,
-                 com.topcoder.web.common.StringUtils" %>
+                 com.topcoder.web.common.StringUtils,
+                 java.util.List" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:include page="nocache.jsp"/>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
