@@ -35,6 +35,7 @@
         </jsp:include>
 
             <table border=0 cellpadding=2 cellspacing=0 width="100%">
+            <tr class="bodyText"><td nowrap="nowrap">07.21.05 2:30 PM&#160;-&#160</td><td width="100%"><A href="/?RoundId=7227&t=schedule&c=srm">July 23 SRM to Include Prize Money</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">07.06.05 10:40 PM&#160;-&#160</td><td width="100%"><A href="/contest/classes/PopsEdit/PopsEdit.jar">PopsEdit version 2.90 released</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">06.16.05 3:20 PM&#160;-&#160</td><td width="100%">Prize money returns to SRMs, Citigroup to sponsor matches on <A href="/?RoundId=7223&t=schedule&c=srm">6/21</A>, <A href="/?RoundId=8004&t=schedule&c=srm">7/19</A>, and <A href="/?RoundId=8005&t=schedule&c=srm">8/8</A></td></tr>
             <tr class="bodyText"><td nowrap="nowrap">06.16.05 3:20 PM&#160;-&#160</td><td width="100%"><A href="/?&t=schedule&c=index">Calendar updated with new SRMs</A></td></tr>

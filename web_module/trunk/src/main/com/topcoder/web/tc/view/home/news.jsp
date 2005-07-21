@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>07.21.05<br>2:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=7227&t=schedule&c=srm">July 23 SRM to Include Prize Money</A></span><br><br>
+      The $5,000 in prize money that was originally allocated for SRM 252 has been reallocated to SRM 253 on Saturday July 23.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?RoundId=7227&t=schedule&c=srm">details</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.20.05<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=contracting&d2=citigroup_chat_071905">Citigroup Employment Opportunities chat session</A></span><br><br>
       Citigroup recently chatted with the members about Employment Opportunities before SRM 252. Take a look.
@@ -217,18 +229,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/pl/?&module=Static&d1=javaone05&d2=wednesday">results</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>06.30.05<br>9:25 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">Yahoo! chat session</A></span><br><br>
-      Yahoo! recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about working for Yahoo!
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=yahoo_chat">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
