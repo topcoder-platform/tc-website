@@ -20,7 +20,7 @@
      <property name="conf" value="conf"/>
      <property name="taglib" value="${resources}/taglib"/>
      <property name="images" value="images"/>
-     <property name="Jive.jar" value="${bin}/Jive.jar"/>
+     <!--<property name="Jive.jar" value="${bin}/Jive.jar"/>-->
      <property name="shared.jar" value="${bin}/shared.jar"/>
      <property name="web" value="src/main/com/topcoder/web"/>
      <!--
@@ -269,14 +269,14 @@
          <delete dir="${bin}"/>
      </target>
 
-     <target name="package-Jive" depends="compile">
+     <!--<target name="package-Jive" depends="compile">
          <jar jarfile="${Jive.jar}">
              <fileset dir="${classes}/"
                  includes="com/coolservlets/**"
                  />
          </jar>
      </target>
-
+-->
      <target name="jar_shared" depends="compile_shared">
          <jar jarfile="${shared.jar}">
              <fileset dir="${classes}">
@@ -729,7 +729,7 @@
                  <include name="DBMS.properties"/>
                  <include name="DataAccess.properties"/>
                  <include name="PrivateLabel.properties"/>
-                 <include name="jive.properties"/>
+                 <!--<include name="jive.properties"/>-->
                  <include name="problem.xsd"/>
                  <include name="ProblemParser.properties"/>
                  <include name="Resume.properties"/>
@@ -750,12 +750,14 @@
              </fileset>
          </copy>
      </target>
-     <target name="move-libs" depends="package-Jive">
+     <target name="move-libs" depends="">
+<!--
          <copy todir="${jboss_lib}">
              <fileset dir="${bin}">
                  <include name="Jive.jar"/>
              </fileset>
          </copy>
+-->
          <copy todir="${jboss_lib}">
              <fileset dir="${bin}">
                  <include name="shared.jar"/>
