@@ -28,9 +28,9 @@
           <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
      -->
      <property name="jboss_home" value="../jboss-4.0.2"/>
-     <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
-     <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
-     <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
+     <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
+     <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
+     <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
      <property environment="env"/>
 
      <property name="deprecation" value="true"/>
