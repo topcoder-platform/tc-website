@@ -10,12 +10,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.21.05<br>3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/cnn_072105.pdf">On your marks, get set, code!</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/cnn_072105.pdf">On your marks, get set, code!</A> [PDF]</span><br><br>
       "TopCoder chief operating officer Rob Hughes told CNN that the competitions were growing in popularity among software engineers, as well as among technology companies who use them to scout for future employees."
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/pdfs/press_room/cnn_072105.pdf">full story</A>&#160;|&#160;
+         <A href="/pdfs/press_room/cnn_072105.pdf">full story</A> [PDF]&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
