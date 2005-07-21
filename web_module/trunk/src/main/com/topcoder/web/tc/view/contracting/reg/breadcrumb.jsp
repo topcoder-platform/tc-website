@@ -2,36 +2,36 @@
     final String[] phases = new String[] {"preferences", "languages", "technologies", "os", "databases", "industries", "confirm", "success"};
     String phase;
     boolean isEdit;
-    
+
     void setUp(String s, boolean b) {
         phase = s;
         isEdit = b;
     }
-    
+
     boolean showLink(String ph) {
         if(isEdit) {
            return true;
         }
-        
+
         if(getOrder(ph) < getOrder(phase))
             return true;
-        
+
         return false;
     }
-    
+
     int getOrder(String ph) {
         for(int i = 0; i < phases.length; i++) {
             if(phases[i].equals(ph))
                 return i;
         }
-        
-        return 999;        
+
+        return 999;
     }
 %>
 <%
     String phase = request.getParameter("phase")==null?"":request.getParameter("phase");
     boolean isEdit = ((String)request.getAttribute("isEdit")).equals("true");
-    
+
     setUp(phase, isEdit);
 %>
 <table width=100% border=0 cellspacing=0 cellpadding=0 align=right valign=top class=bodyText>

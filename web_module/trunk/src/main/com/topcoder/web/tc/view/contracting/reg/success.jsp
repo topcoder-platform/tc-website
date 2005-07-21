@@ -1,5 +1,6 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<jsp:include page="nocache.jsp"/>
 <html>
 <head>
 <title>TopCoder Placement Registration</title>
