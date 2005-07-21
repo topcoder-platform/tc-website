@@ -13,7 +13,7 @@ package com.topcoder.web.tc.controller.request.development;
 public class TCO05ContestDetailsOverall extends TCO05ContestDetails {
 
     int getMax() {
-        return 3;
+        return 4;
     }
 
 }
