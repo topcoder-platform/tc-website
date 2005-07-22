@@ -218,7 +218,7 @@
        			<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Every other day</option>
          	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>"
        			<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per week</option>
-            <option value="<%= UserSettingsAction.FREQUENCY_NEVER %>"
+            <option value="<%= Settings.FREQUENCY_NEVER %>"
                 <%= (Settings.FREQUENCY_NEVER == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Never</option>
          </select>
          (<%= user.getEmail() %>)
