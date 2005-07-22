@@ -28,6 +28,10 @@ public class Settings extends ForumsProcessor {
     private int maxSearchResultsPerPage =
         JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.DEFAULT_MAX_SEARCH_RESULTS_PER_PAGE);
 
+    // For watch email notification setting of "never"
+    public final static int FREQUENCY_NEVER = -1;
+    private int FREQUENCY_NEVER_YEAR = 1981;
+    
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
         if (isGuest()) {
@@ -126,6 +130,9 @@ public class Settings extends ForumsProcessor {
                 timer.getNextFireTime().getTime() == JiveConstants.WEEK) {
             return UserSettingsAction.FREQUENCY_ONCE_A_WEEK;
         }
+        else if (timer.getCronExpression().endsWith(String.valueOf(FREQUENCY_NEVER_YEAR))) {
+            return FREQUENCY_NEVER;
+        }
         else {
             // unknown
             Log.warn("Unknown watch frequency for user " + user.getUsername() +
@@ -153,6 +160,9 @@ public class Settings extends ForumsProcessor {
             }
             else if (watchFrequency == UserSettingsAction.FREQUENCY_ONCE_A_WEEK) {
                 return new CronTimer("0 " + minute + " " + hour + " ? * " + day);
+            }
+            else if (watchFrequency == FREQUENCY_NEVER) {
+                return new CronTimer("0 15 10 ? * 6L " + FREQUENCY_NEVER_YEAR);    // time in the past
             }
         }
         catch (ParseException e) {

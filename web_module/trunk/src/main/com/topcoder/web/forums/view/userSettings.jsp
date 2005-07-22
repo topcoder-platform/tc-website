@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
          		 com.jivesoftware.forum.action.UserSettingsAction,
+                 com.topcoder.web.forums.controller.request.Settings,
          		 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -217,6 +218,8 @@
        			<%= (UserSettingsAction.FREQUENCY_EVERY_OTHER_DAY == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Every other day</option>
          	<option value="<%= UserSettingsAction.FREQUENCY_ONCE_A_WEEK %>"
        			<%= (UserSettingsAction.FREQUENCY_ONCE_A_WEEK == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Once per week</option>
+            <option value="<%= UserSettingsAction.FREQUENCY_NEVER %>"
+                <%= (Settings.FREQUENCY_NEVER == selectedWatchFrequency.intValue()) ? "selected" : "" %>>Never</option>
          </select>
          (<%= user.getEmail() %>)
       </td>

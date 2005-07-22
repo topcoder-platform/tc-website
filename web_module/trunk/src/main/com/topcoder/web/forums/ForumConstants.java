@@ -25,7 +25,7 @@ public interface ForumConstants {
     public final static String MESSAGE_COUNT = "mc";
 	
 	public final static String START_IDX = "start";
-	
+    
 	public final static String POST_MODE = "mode";
     
     public final static String SETTINGS_STATUS = "status";
