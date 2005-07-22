@@ -1276,7 +1276,6 @@
                  <include name="com/topcoder/web/common/**/*.class"/>
                  <include name="com/topcoder/web/tc/**/*.class"/>
                  <include name="com/topcoder/security/**/*.class"/>
-             	 <include name="com/topcoder/utilities/SiteTest.class"/>
                  <include name="com/fx4m/**/*.class"/>
              </classes>
              <classes dir="${resources}">
