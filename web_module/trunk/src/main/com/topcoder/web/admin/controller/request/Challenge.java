@@ -128,7 +128,7 @@ public class Challenge extends BaseProcessor {
             }
 
             document.addTag(contestTag);
-            log.debug(document.getXML(2));
+            //log.debug(document.getXML(2));
             String xsldocURLString = ROOM_MENU_PAGE;
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
@@ -198,7 +198,7 @@ public class Challenge extends BaseProcessor {
             }
             document.addTag(contestTag);
             document.addTag(new ValueTag("CONSTRAINTID", constraintId));
-            log.debug(document.getXML(2));
+            //log.debug(document.getXML(2));
             log.debug("This is the code that is running");
             String xsldocURLString = CHALLENGE_MENU_PAGE;
             result = HTMLmaker.render(document, xsldocURLString);
@@ -272,7 +272,7 @@ public class Challenge extends BaseProcessor {
 
             document.addTag(contestTag);
             document.addTag(new ValueTag("CONSTRAINTID", constraintId));
-            log.debug(document.getXML(2));
+            //log.debug(document.getXML(2));
             String xsldocURLString = CHALLENGE_MENU_PAGE;
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
@@ -347,7 +347,7 @@ public class Challenge extends BaseProcessor {
 
             document.addTag(contestTag);
             document.addTag(new ValueTag("CONSTRAINTID", constraintId));
-            log.debug(document.getXML(2));
+            //log.debug(document.getXML(2));
             String xsldocURLString = CHALLENGE_MENU_PAGE;
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
@@ -465,7 +465,7 @@ public class Challenge extends BaseProcessor {
 
             try {
                 document.addTag(contestTag);
-                log.debug(document.getXML(2));
+                //log.debug(document.getXML(2));
                 String xsldocURLString = PROBLEM_MENU_PAGE;
                 result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
@@ -521,7 +521,7 @@ public class Challenge extends BaseProcessor {
 
             try {
                 document.addTag(contestTag);
-                log.debug(document.getXML(2));
+                //log.debug(document.getXML(2));
                 String xsldocURLString = CODER_MENU_PAGE;
                 result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
@@ -569,7 +569,7 @@ public class Challenge extends BaseProcessor {
 
             try {
                 document.addTag(contestTag);
-                log.debug(document.getXML(2));
+                //log.debug(document.getXML(2));
                 String xsldocURLString = ROUND_MENU_PAGE;
                 result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {

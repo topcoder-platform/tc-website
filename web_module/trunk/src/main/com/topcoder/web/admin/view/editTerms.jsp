@@ -48,7 +48,7 @@
 
                             <tr>
                                 <td align="left">
-                                    <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="40" cols="150"/>
+                                    <tc-webtag:textArea name="<%=Constants.TERMS%>" rows="40" cols="120"/>
                                 </td>
                             </tr>
                             <tr>
