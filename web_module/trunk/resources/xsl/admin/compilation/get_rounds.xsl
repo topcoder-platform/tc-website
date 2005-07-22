@@ -78,7 +78,7 @@
 
                 <a>
 
-                  <xsl:attribute name="href">/admin/?module=Challenge&amp;Command=get_coders&amp;RoundId=<xsl:value-of select="RoundId"/></xsl:attribute>
+                  <xsl:attribute name="href">/admin/?module=Compilation&amp;Command=get_coders&amp;RoundId=<xsl:value-of select="RoundId"/></xsl:attribute>
 
                   <xsl:value-of select="RoundId"/>
 
