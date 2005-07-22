@@ -29,7 +29,7 @@
 
 <form name="frmResults" method="post">
 <xsl:attribute name="action">/admin/contest</xsl:attribute>
-<input type="hidden" name="Task" value=""/>
+<input type="hidden" name="module" value=""/>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
         <xsl:value-of select="/TC/CONSTRAINTID"/>
@@ -60,19 +60,19 @@
 <SCRIPT TYPE="text/Javascript"><![CDATA[
   function doRemove(id) {
     document.frmResults.remove.value = id;
-    document.frmResults.Task.value = 'challenge';
+    document.frmResults.module.value = 'Challenge';
     document.frmResults.Command.value = 'removeChallenge';
     document.frmResults.submit();
   }
   function doOverturn(id) {
     document.frmResults.overturn.value = id;
-    document.frmResults.Task.value = 'challenge';
+    document.frmResults.module.value = 'Challenge';
     document.frmResults.Command.value = 'overturnChallenge';
     document.frmResults.submit();
   }
   function doFilter(id) {
     document.frmResults.filter.value = id;
-    document.frmResults.Task.value = 'challenge';
+    document.frmResults.module.value = 'Challenge';
     if(document.frmResults.constraintid.value == '1')
     {
         document.frmResults.Command.value = 'getChallengeList';
