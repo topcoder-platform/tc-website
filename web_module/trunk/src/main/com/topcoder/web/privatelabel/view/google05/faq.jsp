@@ -63,7 +63,7 @@ During the Challenge Phase, you have the opportunity to view the source code sub
 Be sure to read the <A href="/pl/?&module=Static&d1=google05&d2=instructions">Instructions</A> page for a complete explanation.
 <br><br>
 <b>How will I know if I have advanced the next round of the Google Code Jam?</b><br>
-As soon as the Testing Phase has been completed, the advancers to the next round will be posted at <A href="/googlecodejam">www.topcoder.com/googlecodejam</A>.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
+As soon as the Testing Phase has been completed, the advancers to the next round will be posted <A href="/pl/?&module=Static&d1=google05&d2=overview">here</A>.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
 <br><br>
 Questions not addressed here should be directed to <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>
 <br><br>

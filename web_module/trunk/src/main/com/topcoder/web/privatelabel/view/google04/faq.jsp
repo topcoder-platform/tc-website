@@ -64,7 +64,7 @@
 			During the Challenge Phase, you have the opportunity to view the source code submissions of the other competitors in your room.  If you believe that any of the submissions are flawed, you may challenge the submission with a specific test case that you feel will result in that submission returning the wrong result.  If your challenge is successful, and the submission returns the wrong result, you will be awarded 50 points and the competitor will lose the points for the challenged submission.  However, if your challenge is unsuccessful, and the submission returns the correct result for the test case, you will lose 50 points from your score.  Please read the updated <A href="/i/events/google2004/competitionManual2.pdf">Competition Manual</A> for a complete explanation.
 			<br/><br/>
 			<b>How will I know if I have advanced to Round 2 of the Google Code Jam?</b><br/>
-			As soon as the Testing Phase has been completed, the advancers to Round 2 will be posted at <A href="/googlecodejam">www.topcoder.com/googlecodejam</A>.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
+			As soon as the Testing Phase has been completed, the advancers to Round 2 will be posted <A href="/pl/?&module=Static&d1=google04&d2=overview">here</A>.  In addition, an email will be sent to all participants indicating whether or not each has advanced.
 			<br/><br/>
 			Questions not addressed here should be directed to <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>
 			<br/><br/>
