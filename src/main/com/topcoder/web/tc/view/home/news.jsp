@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.22.05<br>11:05 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=dataStructures">Data Structures</A></span><br><br>
+       Even though computers can perform literally millions of mathematical computations per second, when a problem gets large and complicated, performance can nonetheless be an important consideration.</td>
+      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=dataStructures">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.21.05<br>3:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/pdfs/press_room/cnn_072105.pdf">On your marks, get set, code!</A> [PDF]</span><br><br>
       "TopCoder chief operating officer Rob Hughes told CNN that the competitions were growing in popularity among software engineers, as well as among technology companies who use them to scout for future employees."
@@ -218,18 +233,6 @@
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=news&d2=pr_070705">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>07.06.05<br>10:40 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/contest/classes/PopsEdit/PopsEdit.jar">PopsEdit version 2.90 released</A></span><br><br>
-      The newest version of PopsEdit adds functionality like support for mouse wheel scrolling and now supports jdk1.5.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/contest/classes/PopsEdit/PopsEdit.jar">download</A>&#160;|&#160;<A href="/contest/classes/PopsEdit/PopsEdit_release_notes.htm">release notes</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
 
