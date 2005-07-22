@@ -8,7 +8,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.utilities.SiteTest;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.ejb.email.Email;
