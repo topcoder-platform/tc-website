@@ -8,10 +8,10 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SiteTest;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.utilities.SiteTest;
 
 public class Logout extends Base {
 
