@@ -186,6 +186,14 @@ document.write( '</object> ');
 }
 // -->
 </SCRIPT>
+<SCRIPT language="JavaScript">
+<!--
+if (!MM_FlashCanPlay){
+document.write( '<A href="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" target="_blank"> ');
+document.write( '<img src="/i/interface/getFlash.gif" alt="Get Flash" border="0"></A> ');
+}
+// -->
+</SCRIPT>
       </td>
    </tr>
 </table>
