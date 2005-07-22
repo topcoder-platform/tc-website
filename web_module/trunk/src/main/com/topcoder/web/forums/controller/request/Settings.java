@@ -118,6 +118,9 @@ public class Settings extends ForumsProcessor {
         if (timer == null) {
             return UserSettingsAction.FREQUENCY_IMMEDIATELY;
         }
+        else if (timer.getCronExpression().endsWith(String.valueOf(FREQUENCY_NEVER_YEAR))) {
+            return FREQUENCY_NEVER;
+        }
         else if (timer.getNextFireTimeAfter(timer.getNextFireTime()).getTime() -
                 timer.getNextFireTime().getTime() == JiveConstants.DAY) {
             return UserSettingsAction.FREQUENCY_ONCE_A_DAY;
@@ -129,9 +132,6 @@ public class Settings extends ForumsProcessor {
         else if (timer.getNextFireTimeAfter(timer.getNextFireTime()).getTime() -
                 timer.getNextFireTime().getTime() == JiveConstants.WEEK) {
             return UserSettingsAction.FREQUENCY_ONCE_A_WEEK;
-        }
-        else if (timer.getCronExpression().endsWith(String.valueOf(FREQUENCY_NEVER_YEAR))) {
-            return FREQUENCY_NEVER;
         }
         else {
             // unknown
