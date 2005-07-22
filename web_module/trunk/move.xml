@@ -14,6 +14,7 @@
         <cvs command="update -Pd" package="src"/>
         <cvs command="update -Pd" package="resources"/>
         <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build.xml"/>
 
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP src"/>
@@ -76,6 +77,7 @@
         <cvs command="update -Pd" package="src"/>
         <cvs command="update -Pd" package="resources"/>
         <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build.xml"/>
 
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP src"/>
