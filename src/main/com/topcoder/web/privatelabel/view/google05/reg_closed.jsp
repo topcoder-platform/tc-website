@@ -57,7 +57,7 @@ function submitEnter(e) {
 			</div>
 			<br><br>
 
-			<p><font size="-1"><br>Registration for the Google Code Jam 2005 is not currently open..</font></p>
+			<p><font size="-1"><br>Registration for the Google Code Jam 2005 will open on July 25th.</font></p>
 			<br><br><br><br><br>
 			</div>
 		</td>
