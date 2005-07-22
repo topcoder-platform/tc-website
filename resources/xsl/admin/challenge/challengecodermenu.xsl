@@ -60,7 +60,7 @@
 </TABLE>
 
 <FORM NAME="frmResults" METHOD="POST">
-     <xsl:attribute name="ACTION">/admin/contest</xsl:attribute>
+     <xsl:attribute name="ACTION">/admin/</xsl:attribute>
      <INPUT TYPE="HIDDEN" NAME="module" VALUE=""/>
      <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
      <INPUT TYPE="HIDDEN" NAME="coderid" VALUE=""/>

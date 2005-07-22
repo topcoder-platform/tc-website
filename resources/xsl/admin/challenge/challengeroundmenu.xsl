@@ -103,7 +103,7 @@
 </TABLE>
 
 <FORM NAME="frmResults" METHOD="POST">
-<xsl:attribute name="ACTION">/admin/contest</xsl:attribute>
+<xsl:attribute name="ACTION">/admin/</xsl:attribute>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
         <xsl:value-of select="/TC/CONSTRAINTID"/>
