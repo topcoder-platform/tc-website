@@ -88,7 +88,7 @@
 
                 <a>
 
-                  <xsl:attribute name="href">/admin/?module=Challenge&amp;Command=get_problems&amp;RoundId=<xsl:value-of select="../RoundId"/>&amp;CoderId=<xsl:value-of select="CoderId"/>&amp;ProblemId=<xsl:value-of select="ProblemId"/></xsl:attribute>
+                  <xsl:attribute name="href">/admin/?module=Compilation&amp;Command=get_problems&amp;RoundId=<xsl:value-of select="../RoundId"/>&amp;CoderId=<xsl:value-of select="CoderId"/>&amp;ProblemId=<xsl:value-of select="ProblemId"/></xsl:attribute>
 
                   <xsl:value-of select="ProblemId"/>
 
