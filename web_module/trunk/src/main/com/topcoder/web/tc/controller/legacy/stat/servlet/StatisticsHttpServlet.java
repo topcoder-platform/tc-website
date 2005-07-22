@@ -11,6 +11,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.RequestTracker;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -25,6 +27,8 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
+import java.util.Collections;
 
 
 public class StatisticsHttpServlet extends HttpServlet {
@@ -120,7 +124,7 @@ public class StatisticsHttpServlet extends HttpServlet {
         String sQueryString = request.getQueryString();
         if (sQueryString != null) {
             //check to redirect member profile requests to new servlet
-            if(request.getParameter("c") != null && request.getParameter("c").equals("member_profile")) {
+            if (request.getParameter("c") != null && request.getParameter("c").equals("member_profile")) {
                 response.sendRedirect("http://" + request.getServerName() + "/tc?module=MemberProfile&cr=" + request.getParameter("cr"));
                 return;
             }
@@ -149,14 +153,22 @@ public class StatisticsHttpServlet extends HttpServlet {
                         tcRequest,
                         HttpObjectFactory.createResponse(response),
                         BasicAuthentication.MAIN_SITE);
+                SessionInfo info = new SessionInfo(tcRequest, authentication, Collections.EMPTY_SET);
                 RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
                 session.setAttribute("navigation", nav);
-                ;
 
-                log.info("[**** stats **** " + dataRequest.getContentHandle() + " **** " +
-                        (nav.isIdentified() ? nav.getSessionInfo().getHandle() : " ") + " **** " +
-                        request.getRemoteHost() + " ****]");
+                StringBuffer loginfo = new StringBuffer(100);
+                loginfo.append("[**** ");
+                loginfo.append(info.getHandle());
+                loginfo.append(" **** ");
+                loginfo.append(request.getRemoteAddr());
+                loginfo.append(" **** ");
+                loginfo.append(request.getMethod());
+                loginfo.append(" ");
+                loginfo.append(info.getRequestString());
+                loginfo.append(" ****]");
+                log.info(loginfo);
 
                 //hoke so that we can reload the properties file on the fly
                 if (dataRequest.getContentHandle().equals("reload")) {
@@ -171,10 +183,13 @@ public class StatisticsHttpServlet extends HttpServlet {
                 }
 
                 if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.isIdentified())) {
-                    response.sendRedirect("http://" + request.getServerName() +
-                            "/tc?&module=Login&message=" +
-                            "You must log in to view this portion of the site.&nextpage=http://" +
-                            request.getServerName() + "/stat?" + replace(sQueryString));
+
+                    request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
+                            "and password.");
+                    request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
+
+                    request.setAttribute("module", "Login");
+                    fetchRegularPage(request, response, "/tc", true);
                     return;
                 }
                 request.setAttribute("REQUEST_BEAN", dataRequest);
@@ -204,6 +219,22 @@ public class StatisticsHttpServlet extends HttpServlet {
                 }
             }
             return buffer.toString();
+        }
+    }
+
+
+    protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
+                                          boolean forward) throws Exception {
+
+        if (forward) {
+            if (!dest.startsWith("/")) {
+                dest = "/" + dest;
+            }
+            log.debug("forwarding to " + dest);
+            getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
+        } else {
+            log.debug("redirecting to " + dest);
+            response.sendRedirect(response.encodeRedirectURL(dest));
         }
     }
 
