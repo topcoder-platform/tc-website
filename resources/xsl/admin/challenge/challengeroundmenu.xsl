@@ -110,7 +110,7 @@
     </xsl:attribute>
 </input>
 
-<INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
+<INPUT TYPE="HIDDEN" NAME="module" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="roundid" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>

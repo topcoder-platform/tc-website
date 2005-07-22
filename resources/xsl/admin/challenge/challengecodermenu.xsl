@@ -61,7 +61,7 @@
 
 <FORM NAME="frmResults" METHOD="POST">
      <xsl:attribute name="ACTION">/admin/contest</xsl:attribute>
-     <INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
+     <INPUT TYPE="HIDDEN" NAME="module" VALUE=""/>
      <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
      <INPUT TYPE="HIDDEN" NAME="coderid" VALUE=""/>
      <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>

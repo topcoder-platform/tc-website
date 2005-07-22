@@ -14,7 +14,7 @@
 
 <SCRIPT TYPE="text/Javascript"><![CDATA[
  function doSubmit(roomid) {
-    document.frmResults.Task.value    = 'challenge';
+    document.frmResults.module.value    = 'Challenge';
     document.frmResults.Command.value = 'getChallengeList';
     document.frmResults.roomid.value = roomid;
     document.frmResults.filter.value = 90;
@@ -63,7 +63,7 @@
 
 <FORM NAME="frmResults" METHOD="POST">
 <xsl:attribute name="ACTION">/admin/contest</xsl:attribute>
-<INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
+<INPUT TYPE="HIDDEN" NAME="module" VALUE=""/>
 <input type="hidden" name="constraintid" value="">
     <xsl:attribute name="value">
         <xsl:value-of select="/TC/CONSTRAINTID"/>
