@@ -18,7 +18,7 @@
 
 <SCRIPT TYPE="text/Javascript"><![CDATA[
  function doSubmit(coderid) {
-    document.frmResults.Task.value    = 'challenge';
+    document.frmResults.module.value    = 'Challengee';
     document.frmResults.Command.value = 'getCoderChallengeList';
     document.frmResults.coderid.value = coderid;
     document.frmResults.filter.value = 90;
