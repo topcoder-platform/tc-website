@@ -151,6 +151,7 @@ if ( plugin ) {
          </table>
       </td>
    </tr>
+<%--
    <tr>
       <td colspan="2" align="center" style="border-top: 1px solid #999999;">
 <SCRIPT language="JavaScript">
@@ -196,4 +197,5 @@ document.write( '<img src="/i/interface/getFlash.gif" alt="Get Flash" border="0"
 </SCRIPT>
       </td>
    </tr>
+--%>
 </table>
