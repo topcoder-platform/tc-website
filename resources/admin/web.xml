@@ -4,13 +4,6 @@
 <web-app>
 
     <servlet>
-        <servlet-name>Admin</servlet-name>
-        <display-name>Admin</display-name>
-        <description>Admin App</description>
-        <servlet-class>com.topcoder.web.admin.controller.TC</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>MainServlet</servlet-name>
         <display-name>MainServlet</display-name>
         <description>Main Controller of Security Tool</description>
@@ -47,11 +40,6 @@
         <!-- begin application specific parameters -->
         <!-- end application specific parameters -->
     </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Admin</servlet-name>
-        <url-pattern>/contest</url-pattern>
-    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>

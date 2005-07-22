@@ -1,47 +1,63 @@
-package com.topcoder.web.admin.task;
+package com.topcoder.web.admin.controller.request;
 
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.data.Round;
-import com.topcoder.common.web.util.Conversion;
-import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
-import com.topcoder.shared.docGen.xml.RecordTag;
-import com.topcoder.shared.docGen.xml.ValueTag;
-import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.admin.XSLConstants;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.admin.XSLConstants;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.common.web.xml.HTMLRenderer;
+import com.topcoder.common.web.data.Round;
+import com.topcoder.common.web.util.Conversion;
+import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
 
 import javax.naming.InitialContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.PrintWriter;
 
-public final class Compilation {
+/**
+ * @author  dok
+ * @version  $Revision$ $Date$
+ * Create Date: Jul 22, 2005
+ */
+public class Compilation extends BaseProcessor {
 
 
     private static final String DIR = XSLConstants.DIR + "compilation/";
     private static Logger log = Logger.getLogger(Compilation.class);
 
-    public static String process(HttpServletRequest request, HttpServletResponse response,
-                                 HTMLRenderer renderer, Navigation nav, XMLDocument document)
+
+    public void businessProcessing() throws Exception {
+        HTMLRenderer renderer = new HTMLRenderer();
+        XMLDocument doc = new XMLDocument("TC");
+
+        String ret = process(getRequest(), renderer, doc);
+        PrintWriter out = getResponse().getWriter();
+        out.print(ret);
+        out.flush();
+
+    }
+
+
+
+
+    public static String process(TCRequest request, HTMLRenderer renderer, XMLDocument document)
             throws NavigationException {
 
         String result = null;
         RecordTag compilationTag = new RecordTag("COMPILATION");
-        HashMap sessionObjects = nav.getSessionObjects();
 
         try {
             String command = Conversion.checkNull(request.getParameter("Command"));
             if (command.equals("get_rounds")) {
-                result = getRounds(renderer, request, document, nav, compilationTag);
+                result = getRounds(renderer, document, compilationTag);
             } else if (command.equals("get_coders")) {
-                result = getCoders(renderer, request, document, nav, compilationTag);
+                result = getCoders(renderer, request, document, compilationTag);
             } else if (command.equals("get_problems")) {
-                result = getCompilations(renderer, request, document, nav, compilationTag);
+                result = getCompilations(renderer, request, document, compilationTag);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,8 +67,7 @@ public final class Compilation {
         return result;
     }
 
-    private static String getRounds(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                    XMLDocument document, Navigation nav, RecordTag compilationTag)
+    private static String getRounds(HTMLRenderer HTMLmaker, XMLDocument document, RecordTag compilationTag)
             throws NavigationException {
         String result = null;
         ContestAdminServices contestAdminServicesEJB = null;
@@ -92,8 +107,8 @@ public final class Compilation {
         return result;
     }
 
-    private static String getCoders(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                    XMLDocument document, Navigation nav, RecordTag compilationTag)
+    private static String getCoders(HTMLRenderer HTMLmaker, TCRequest request,
+                                    XMLDocument document, RecordTag compilationTag)
             throws NavigationException {
         String result = null;
         ContestAdminServices contestAdminServicesEJB = null;
@@ -136,8 +151,8 @@ public final class Compilation {
     }
 
 
-    private static String getCompilations(HTMLRenderer HTMLmaker, HttpServletRequest request,
-                                          XMLDocument document, Navigation nav, RecordTag compilationTag)
+    private static String getCompilations(HTMLRenderer HTMLmaker, TCRequest request,
+                                          XMLDocument document, RecordTag compilationTag)
             throws NavigationException {
         String result = null;
         ContestAdminServices contestAdminServicesEJB = null;
@@ -178,6 +193,7 @@ public final class Compilation {
         }
         return result;
     }
+
 
 
 }
