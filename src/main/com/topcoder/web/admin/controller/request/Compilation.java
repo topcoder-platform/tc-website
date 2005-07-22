@@ -95,7 +95,7 @@ public class Compilation extends BaseProcessor {
             }
 
             document.addTag(compilationTag);
-            log.debug(document.getXML(2));
+            //log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_rounds.xsl";
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
@@ -138,7 +138,7 @@ public class Compilation extends BaseProcessor {
             }
 
             document.addTag(compilationTag);
-            log.debug(document.getXML(2));
+            //log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_coders.xsl";
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
@@ -182,7 +182,7 @@ public class Compilation extends BaseProcessor {
             }
 
             document.addTag(compilationTag);
-            log.debug(document.getXML(2));
+            //log.debug(document.getXML(2));
             String xsldocURLString = DIR + "get_compilations.xsl";
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
