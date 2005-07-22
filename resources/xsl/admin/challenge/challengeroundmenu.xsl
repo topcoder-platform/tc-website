@@ -18,7 +18,7 @@
 <SCRIPT TYPE="text/Javascript"><![CDATA[
 
  function doRound(roundId) {
-    document.frmResults.Task.value    = 'challenge';
+    document.frmResults.module.value    = 'Challenge';
     document.frmResults.Command.value = 'getRoomList';
     document.frmResults.roundid.value = roundId;
     document.frmResults.filter.value = 90;
@@ -26,7 +26,7 @@
   }
 
  function doProblem(roundId) {
-    document.frmResults.Task.value    = 'challenge';
+    document.frmResults.module.value    = 'Challenge';
     document.frmResults.Command.value = 'getProblemList';
     document.frmResults.roundid.value = roundId;
     document.frmResults.filter.value = 90;
@@ -34,7 +34,7 @@
   }
 
  function doCoder(roundId) {
-    document.frmResults.Task.value    = 'challenge';
+    document.frmResults.module.value    = 'Challenge';
     document.frmResults.Command.value = 'getCoderList';
     document.frmResults.roundid.value = roundId;
     document.frmResults.filter.value = 90;
