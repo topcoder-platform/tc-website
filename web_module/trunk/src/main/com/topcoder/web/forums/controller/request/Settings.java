@@ -30,7 +30,7 @@ public class Settings extends ForumsProcessor {
 
     // For watch email notification setting of "never"
     public final static int FREQUENCY_NEVER = -1;
-    private int FREQUENCY_NEVER_YEAR = 1981;
+    private int FREQUENCY_NEVER_YEAR = 2098;
     
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
@@ -162,7 +162,7 @@ public class Settings extends ForumsProcessor {
                 return new CronTimer("0 " + minute + " " + hour + " ? * " + day);
             }
             else if (watchFrequency == FREQUENCY_NEVER) {
-                return new CronTimer("0 15 10 ? * 6L " + FREQUENCY_NEVER_YEAR);    // time in the past
+                return new CronTimer("0 15 10 ? * 6L " + FREQUENCY_NEVER_YEAR);    // time never reached
             }
         }
         catch (ParseException e) {
