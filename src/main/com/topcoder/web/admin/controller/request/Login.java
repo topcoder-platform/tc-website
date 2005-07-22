@@ -26,6 +26,7 @@ public class Login extends BaseProcessor {
         String passw = getRequest().getParameter(KEY_USER_PASS);
         if (handle == null || handle.trim().length() == 0) {
             setNextPage(LOGIN_PAGE);
+            setIsNextPageInContext(true);
         } else {
             log.debug("login attempt[login/passw]: " + handle + "/" + passw);
             User possibleUser = new SimpleUser(0, handle, passw);
