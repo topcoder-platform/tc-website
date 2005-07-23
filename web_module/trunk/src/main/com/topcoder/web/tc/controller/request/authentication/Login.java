@@ -70,9 +70,8 @@ public class Login extends Base {
                                 String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
 
                                 //todo make this https
-                                //SiteTest siteTest = new SiteTest();
-                                //boolean forumsServerActive = siteTest.check(forumsURL);
-				boolean forumsServerActive = true;
+                                SiteTest siteTest = new SiteTest();
+                                boolean forumsServerActive = siteTest.check(forumsURL);
                                 if (forumsServerActive) {
                                     StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
                                     nextPage.append("&").append(USER_NAME).append("=").append(username);
