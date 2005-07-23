@@ -33,8 +33,9 @@ public class Logout extends Base {
         }
         
         String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
-        SiteTest siteTest = new SiteTest();
-        boolean forumsServerActive = siteTest.check(forumsURL);
+        //SiteTest siteTest = new SiteTest();
+        //boolean forumsServerActive = siteTest.check(forumsURL);
+	boolean forumsServerActive = true;
         if (forumsServerActive) {
             StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Logout");
             nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
