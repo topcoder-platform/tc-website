@@ -13,14 +13,14 @@ import com.topcoder.shared.util.logging.Logger;
 /**
 *
 * @author mtong
-* 
+*
 * Checks if a site can be accessed normally. This class can be expanded in the future to include
 * additional tests.
 */
 public class SiteTest {
-    
+
     private static Logger log = Logger.getLogger(SiteTest.class);
-    
+
     public boolean check(String url) {
         WebConversation wc = new WebConversation();
         WebRequest wr = new GetMethodWebRequest(url);
@@ -28,11 +28,12 @@ public class SiteTest {
         try {
             resp = wc.getResponse(wr);
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
         return validResponse(resp);
     }
-    
+
     //  verifies that the return code of the result page is correct
     private boolean validResponse(WebResponse resp) {
         if(resp.getResponseCode() != 200) {

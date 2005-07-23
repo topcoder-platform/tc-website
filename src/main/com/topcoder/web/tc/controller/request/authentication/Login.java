@@ -69,12 +69,10 @@ public class Login extends Base {
                                 String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                                 String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
 
-/*
                                 //todo make this https
                                 SiteTest siteTest = new SiteTest();
                                 boolean forumsServerActive = siteTest.check(forumsURL);
                                 if (forumsServerActive) {
-*/
                                     StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
                                     nextPage.append("&").append(USER_NAME).append("=").append(username);
                                     nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
@@ -83,14 +81,12 @@ public class Login extends Base {
                                     }
                                     nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                     setNextPage(nextPage.toString());
-/*
                                 } else {
                                     if (dest.startsWith(forumsURL)) {
                                         dest = "http://"+ApplicationServer.SERVER_NAME+"/tc";
                                     }
                                     setNextPage(dest);
                                 }
-*/
 
                                 setIsNextPageInContext(false);
                                 log.debug("on successful login, going to " + getNextPage());
