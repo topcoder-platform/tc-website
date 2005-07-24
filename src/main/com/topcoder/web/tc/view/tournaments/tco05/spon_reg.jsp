@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -19,31 +20,31 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class="bodySpacer">
-            
+
 <span class="bigTitle">Registration</span>
 <br><br>
 <b>Company name:</b>&#160;&#160;
 <input type="text" name="" size="30" maxlength="100" onKeyPress="" />
 <br><br>
 <div align="center">
-<iframe width="590" height="300" marginWidth="5" src="/i/tournament/tco05/reg.html"></iframe>
+<iframe width="590" height="300" marginWidth="5" src="/tc?module=Terms&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCO05_SPONSOR_TERMS_ID%>"></iframe>
 <br><br>
 <A href="#">I Agree</A>
 <br><br>
 </div>
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
 
 <jsp:include page="../../foot.jsp" />
