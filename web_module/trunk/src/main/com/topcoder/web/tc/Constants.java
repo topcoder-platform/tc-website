@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.WebConstants;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.MissingResourceException;
 
 public class Constants implements WebConstants {
@@ -237,7 +238,7 @@ public class Constants implements WebConstants {
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
-                if (!ignore(f[i].getName())) {
+                if (!ignore(f[i].getName()) && !Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
                         try {
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
