@@ -11,13 +11,8 @@ import java.util.MissingResourceException;
 public class Constants implements WebConstants {
 
 
-    private static TCResourceBundle bundle = new TCResourceBundle("TC");
-    private static boolean isInitialized = false;
-    private static Logger log = Logger.getLogger(Constants.class);
-    /**
-     *  variables that shouldn't be initialized
-     */
-    private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle"};
+    private static final TCResourceBundle bundle = new TCResourceBundle("TC");
+    private static final Logger log = Logger.getLogger(Constants.class);
 
     public static String STATIC_PREFIX;
     public static String DEFAULT_PAGE;
@@ -31,6 +26,7 @@ public class Constants implements WebConstants {
     public static String LAST_NAME;
     public static String EMAIL;
     public static String ACTIVATION_CODE;
+    public static final String COMPANY_NAME = "compName";
 
     public static String USER_ID;
     public static String NOTE_ID;
@@ -145,6 +141,7 @@ public class Constants implements WebConstants {
     public static int TCO05_EVENT_ID;
     public static int TCO05_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCO05_COMPONENT_TERMS_OF_USE_ID;
+    public static final int TCO05_SPONSOR_COMPANY_QUESTION_ID = 30;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
@@ -238,7 +235,7 @@ public class Constants implements WebConstants {
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
-                if (!ignore(f[i].getName()) && !Modifier.isFinal(f[i].getModifiers())) {
+                if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
                         try {
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
@@ -263,18 +260,6 @@ public class Constants implements WebConstants {
                 e.printStackTrace();
             }
         }
-        isInitialized = true;
     }
 
-    public static boolean isInitialized() {
-        return isInitialized;
-    }
-
-    private static boolean ignore(String name) {
-        boolean found = false;
-        for (int i = 0; i < ignoreList.length && !found; i++) {
-            found |= ignoreList[i].equals(name);
-        }
-        return found;
-    }
 }
