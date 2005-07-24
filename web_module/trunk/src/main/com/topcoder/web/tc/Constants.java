@@ -237,7 +237,7 @@ public class Constants implements WebConstants {
         Field[] f = Constants.class.getFields();
         for (int i = 0; i < f.length; i++) {
             try {
-                if (!ignore(f[i].getName())) {
+                if (!ignore(f[i].getName()) && f[i].isAccessible()) {
                     if (f[i].getType().getName().equals("int")) {
                         try {
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
