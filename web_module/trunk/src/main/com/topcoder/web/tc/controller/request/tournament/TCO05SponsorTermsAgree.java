@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller.request.tournament;
 import com.topcoder.web.tc.controller.request.Static;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.DBMS;
