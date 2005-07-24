@@ -1,9 +1,12 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
 import com.topcoder.web.tc.controller.request.Static;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.util.DBMS;
 
 /**
  * @author  dok
@@ -17,7 +20,9 @@ public class TCO05SponsorTerms extends Static {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new SimpleResource(this.getClass().getName()));
         } else {
-            UserTermsOfUse ut = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
+            TermsOfUse terms = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
+            getRequest().setAttribute("terms", terms.getText(Constants.TCO05_SPONSOR_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME));
+
             super.businessProcessing();
         }
 
