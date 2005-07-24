@@ -22,7 +22,6 @@ public class TCO05SponsorTerms extends Static {
         } else {
             TermsOfUse terms = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
             getRequest().setAttribute("terms", terms.getText(Constants.TCO05_SPONSOR_TERMS_ID, DBMS.OLTP_DATASOURCE_NAME));
-
             super.businessProcessing();
         }
 
