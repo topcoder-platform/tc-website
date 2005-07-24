@@ -1,6 +1,8 @@
 <%@ page import="com.topcoder.web.tc.Constants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
 <title>2005 TopCoder Open - Computer Programming Tournament</title>
@@ -22,15 +24,19 @@
 		<div class="bodySpacer">
 
 <span class="bigTitle">Registration</span>
-<br><br>
+<br /><br />
+<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
 <b>Company name:</b>&#160;&#160;
-<input type="text" name="" size="30" maxlength="100" onKeyPress="" />
-<br><br>
+<tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br /></tc-webtag:errorIterator>
+<br />
+<tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="30" maxlength="100"/>
+<br /><br />
 <div align="center">
 <iframe width="590" height="300" marginWidth="5" src="/tc?module=Terms&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCO05_SPONSOR_TERMS_ID%>"></iframe>
-<br><br>
+<br /><br />
 <A href="#">I Agree</A>
-<br><br>
+<br /><br />
+</form>
 </div>
         </div>
 		</td>
