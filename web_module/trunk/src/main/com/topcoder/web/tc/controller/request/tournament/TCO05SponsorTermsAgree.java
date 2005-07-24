@@ -13,7 +13,7 @@ import com.topcoder.shared.util.DBMS;
  * @version  $Revision$ $Date$
  * Create Date: Jul 24, 2005
  */
-public class TCO05SponsorTerms extends Static {
+public class TCO05SponsorTermsAgree extends Static {
 
     protected void businessProcessing() throws Exception {
         //load up the terms
