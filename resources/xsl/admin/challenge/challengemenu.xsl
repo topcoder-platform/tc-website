@@ -36,11 +36,6 @@
     </xsl:attribute>
 </input>
 <input type="hidden" name="Command" value=""/>
-<input type="hidden" name="results" value="">
-    <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
-    </xsl:attribute>
-</input>
 <input type="hidden" name="filter" value="90"/>
 <input type="hidden" name="remove" value=""/>
 <input type="hidden" name="overturn" value=""/>
@@ -58,20 +53,23 @@
 
 
 <SCRIPT TYPE="text/Javascript"><![CDATA[
-  function doRemove(id) {
+  function doRemove(id,roundid) {
     document.frmResults.remove.value = id;
+    document.frmResults.roundid.value = roundid;
     document.frmResults.module.value = 'Challenge';
     document.frmResults.Command.value = 'removeChallenge';
     document.frmResults.submit();
   }
-  function doOverturn(id) {
+  function doOverturn(id,roundid) {
     document.frmResults.overturn.value = id;
+    document.frmResults.roundid.value = roundid;
     document.frmResults.module.value = 'Challenge';
     document.frmResults.Command.value = 'overturnChallenge';
     document.frmResults.submit();
   }
-  function doFilter(id) {
+  function doFilter(id,roundid) {
     document.frmResults.filter.value = id;
+    document.frmResults.roundid.value = roundid;
     document.frmResults.module.value = 'Challenge';
     if(document.frmResults.constraintid.value == '1')
     {
@@ -121,14 +119,14 @@
               </tr>
               <tr>
                 <td>
-                   <a><xsl:attribute name="HREF">JavaScript:doRemove('<xsl:value-of select="ChallengeId"/>')</xsl:attribute>
+                   <a><xsl:attribute name="HREF">JavaScript:doRemove('<xsl:value-of select="ChallengeId"/>','<xsl:value-of select="RoundId"/>')</xsl:attribute>
                       Nullify
                    </a>
                 </td>
               </tr>
               <tr>
                 <td>
-                   <a><xsl:attribute name="HREF">JavaScript:doOverturn('<xsl:value-of select="ChallengeId"/>')</xsl:attribute>
+                   <a><xsl:attribute name="HREF">JavaScript:doOverturn('<xsl:value-of select="ChallengeId"/>','<xsl:value-of select="RoundId"/>')</xsl:attribute>
                       Overturn
                    </a>
                 </td>
