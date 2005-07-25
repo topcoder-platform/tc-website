@@ -6,7 +6,6 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
-/tc?&module=ViewSurvey&sid=7227
 
 <%--------------------------------------------------------%>
    <tr>
