@@ -465,7 +465,7 @@ public class Challenge extends BaseProcessor {
 
             try {
                 document.addTag(contestTag);
-                //log.debug(document.getXML(2));
+                log.debug(document.getXML(2));
                 String xsldocURLString = PROBLEM_MENU_PAGE;
                 result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
