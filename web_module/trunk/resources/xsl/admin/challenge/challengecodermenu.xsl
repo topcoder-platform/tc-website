@@ -17,10 +17,11 @@
 
 
 <SCRIPT TYPE="text/Javascript"><![CDATA[
- function doSubmit(coderid) {
+ function doSubmit(coderid,roundid) {
     document.frmResults.module.value    = 'Challenge';
     document.frmResults.Command.value = 'getCoderChallengeList';
     document.frmResults.coderid.value = coderid;
+    document.frmResults.roundid.value = roundid;
     document.frmResults.filter.value = 90;
     document.frmResults.submit();
   }
@@ -44,7 +45,7 @@
             <tr>
                 <td>
                     <A>
-                      <xsl:attribute name="HREF">JavaScript:doSubmit('<xsl:value-of select="CoderId"/>')
+                      <xsl:attribute name="HREF">JavaScript:doSubmit('<xsl:value-of select="CoderId"/>','<xsl:value-of select="RoundId"/>')
                       </xsl:attribute>
                       <xsl:value-of select="CoderId"/>
                     </A>
@@ -70,11 +71,7 @@
              <xsl:value-of select="/TC/CONSTRAINTID"/>
          </xsl:attribute>
      </input>
-     <input type="hidden" name="roundid" value="">
-         <xsl:attribute name="value">
-             <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
-         </xsl:attribute>
-     </input>
+     <input type="hidden" name="roundid" value=""/>
 
      <INPUT TYPE="HIDDEN" NAME="problemid" VALUE=""/>
 </FORM>
