@@ -41,7 +41,7 @@
 <input type="hidden" name="overturn" value=""/>
 <input type="hidden" name="roundid" value="">
     <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
+        <xsl:value-of select="/TC/CHALLENGE/RoundId"/>
     </xsl:attribute>
 </input>
 <input type="hidden" name="roomid" value="">
