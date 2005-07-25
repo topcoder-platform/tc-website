@@ -46,7 +46,7 @@
 </input>
 <input type="hidden" name="roomid" value="">
     <xsl:attribute name="value">
-        <xsl:value-of select="/TC/CHALLENGE/Challenge/Contest/RoomId"/>
+        <xsl:value-of select="/TC/CHALLENGE/RoomId"/>
     </xsl:attribute>
 </input>
 
