@@ -61,6 +61,8 @@
 <!-- 2005  -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
 
+                            <tr><td class="newsText"><A href="http://www.google.com/intl/en/press/pressrel/codejam3.html" target="_blank">Registration Opens for Google Code Jam 2005</A> [July 25 - Google]<br/></td></tr>
+
                             <tr><td class="newsText"><A href="/pdfs/press_room/cnn_072105.pdf">On your marks, get set, code!</A> [July 21]<br/></td></tr>
 
                             <tr><td class="newsText"><A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1" target="_blank">Computer programmer wins big</A> [May 24 - QU The Journal]</td></tr>
