@@ -41,7 +41,9 @@
 <span class="bc">
 <A HREF="/tc?module=MemberProfile&cr=<%=request.getParameter("cr")%>" class="bcLink">Member Profile</A>
 &#160;|&#160;<A HREF='/stat?c=ratings_history&cr=<%=request.getParameter("cr")%>' class="bcLink">Rating History</A>
+<%--
 &#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=request.getParameter("cr")%>','800','600', 'history')" class="bcLink">Rating History Graph</A>
+--%>
 &#160;|&#160;<A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="bcLink">Rating Distribution Graph</A>
 &#160;|&#160;Earnings History
 </span>
