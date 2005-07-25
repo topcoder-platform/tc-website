@@ -6,6 +6,7 @@ import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.ejb.coder.Coder;
 
 import java.util.Arrays;
 
@@ -34,7 +35,10 @@ public abstract class FullLogin extends FullReg {
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
                 try {
                     getAuthentication().login(new SimpleUser(0, handle, password));
-                    ret = true;
+                    Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+                    if (coder.exists(getAuthentication().getActiveUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+                        ret = true;
+                    }
                 } catch (LoginException l) {
                     if (!hasError(Constants.HANDLE))
                         addError(Constants.HANDLE, l.getMessage());
