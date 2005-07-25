@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.25.05<br>9:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm253_prob">SRM 253 - Problem Set & Analysis</A></span><br><br>
+      SRM 253 had a large turnout, and also offered cash prizes to the top finishers in each room.  Coincidence? <tc-webtag:handle coderId="8355516" context="algorithm"/> finished first in division 1, with the fastest time on the 1000-point problem.</td>
+      <td class="newsPhoto"><img src="/i/m/legakis_mug.gif" /><br>by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm253_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.22.05<br>11:05 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -118,7 +133,7 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm25_prob">full story</A>&#160;|&#160;
+         <A href="/index?t=statistics&c=srm251_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
 
@@ -221,18 +236,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.07.05<br>9:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</A></span><br><br>
-      "With rapid advances in technology occurring everyday, companies are looking for the next generation of leaders to author the code that will provide the backbone for advanced applications."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=news&d2=pr_070705">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
 
