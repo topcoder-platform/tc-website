@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.25.05<br>10:50 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">Registration Opens for Google Code Jam 2005</A></span><br><br>
+      "Google's annual online coding competition consisting of a series of problem-solving challenges that invite participants to select a programming language and use their programming skills to code solutions to the problems."
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">full story</A>&#160;|&#160;
+         <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.25.05<br>9:20 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -223,18 +235,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/rtables/viewForum.jsp?forum=504996&mc=2">discuss</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.07.05<br>11:25 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">VeriSign chat session</A></span><br><br>
-      VeriSign recently spoke to the members in the arena just prior to a recent SRM. See what they had to say about working for VeriSign.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=verisign_chat">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
