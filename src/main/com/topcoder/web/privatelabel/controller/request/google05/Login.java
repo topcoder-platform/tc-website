@@ -123,10 +123,12 @@ public class Login extends FullLogin {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-        long userId = getAuthentication().getActiveUser().getId();
 
-        boolean hasTCAccount = hasTopCoderAccount() && coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME);
+        boolean hasTCAccount = hasTopCoderAccount();
         boolean hasCompanyAccount = hasCompanyAccount();
+
+        //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
+        long userId = getAuthentication().getActiveUser().getId();
 
         FullRegInfo info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
