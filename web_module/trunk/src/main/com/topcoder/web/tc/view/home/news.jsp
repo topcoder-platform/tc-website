@@ -6,6 +6,7 @@
    <tr>
       <td class="newsTitle" align="right" colspan="2"><i>TopCoder News</i></td>
    </tr>
+/tc?&module=ViewSurvey&sid=7227
 
 <%--------------------------------------------------------%>
    <tr>
@@ -17,6 +18,18 @@
    <tr><td class="newsLinksCell">
          <A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>07.25.05<br>9:20 AM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7227">New SRM format survey</A></span><br><br>
+      TopCoder is considering changing its SRM format.  How do you feel about this change?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=7227">view survey</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -224,18 +237,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm250_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>07.07.05<br>3:35 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewForum.jsp?forum=504996&mc=2">VeriSign Employment Discussion</A></span><br><br>
-      Discuss career opportunities at VeriSign. Ask questions about their jobs that only VeriSign representatives will have the answers to.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/rtables/viewForum.jsp?forum=504996&mc=2">discuss</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 
