@@ -58,6 +58,7 @@ public class Challenge extends BaseProcessor {
 
         try {
             String command = Conversion.checkNull(request.getParameter("Command"));
+            document.addTag(new ValueTag("Command", command));
             if (command.equals("getRoundMenu")) {
                 result = getRoundMenuScreen(renderer, document, contestTag);
 
@@ -252,6 +253,7 @@ public class Challenge extends BaseProcessor {
                 }
 
                 contestTag.addTag(new ValueTag("RoundId", roundId));
+                contestTag.addTag(new ValueTag("ProblemId", problemId));
                 log.debug("Challenge: getProblemChallengeList: constraintid set to " + constraintId);
                 log.debug("Challenge: getProblemChallengeList: filter set to " + filter);
                 log.debug("Challenge: getProblemChallengeList: roundId set to " + roundId);
@@ -328,6 +330,7 @@ public class Challenge extends BaseProcessor {
                 }
                 contestTag.addTag(new ValueTag("RoundId", roundId));
                 contestTag.addTag(new ValueTag("RoomId", roomId));
+
 
                 log.debug("Challenge: getChallengeList: constraintid set to " + constraintId);
                 log.debug("Challenge: getChallengeList: filter set to " + filter);

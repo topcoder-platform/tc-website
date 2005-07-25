@@ -35,7 +35,11 @@
         <xsl:value-of select="/TC/CONSTRAINTID"/>
     </xsl:attribute>
 </input>
-<input type="hidden" name="Command" value=""/>
+<input type="hidden" name="Command">
+    <xsl:attribute name="value">
+        <xsl:value-of select="/TC/Command"/>
+    </xsl:attribute>
+</input>
 <input type="hidden" name="filter" value="90"/>
 <input type="hidden" name="remove" value=""/>
 <input type="hidden" name="overturn" value=""/>
@@ -44,6 +48,11 @@
         <xsl:value-of select="/TC/CHALLENGE/RoundId"/>
     </xsl:attribute>
 </input>
+    <input type="hidden" name="problemid" value="">
+        <xsl:attribute name="value">
+            <xsl:value-of select="/TC/CHALLENGE/ProblemId"/>
+        </xsl:attribute>
+    </input>
 <input type="hidden" name="roomid" value="">
     <xsl:attribute name="value">
         <xsl:value-of select="/TC/CHALLENGE/RoomId"/>
@@ -70,14 +79,16 @@
   function doFilter(id) {
     document.frmResults.filter.value = id;
     document.frmResults.module.value = 'Challenge';
-    if(document.frmResults.constraintid.value == '1')
+/*    if(document.frmResults.constraintid.value == '1')
     {
         document.frmResults.Command.value = 'getChallengeList';
     } else if(document.frmResults.constraintid.value == '2')  {
         document.frmResults.Command.value = 'getProblemChallengeList';
     } else if(document.frmResults.constraintid.value == '3')  {
         document.frmResults.Command.value = 'getCoderChallengeList';
-    }
+    } else if(document.frmResults.constraintid.value == '0')  {
+        document.frmResults.Command.value = 'getChallengeList';
+    }*/
     document.frmResults.submit();
   }
 ]]></SCRIPT>
