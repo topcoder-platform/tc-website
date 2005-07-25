@@ -67,9 +67,8 @@
     document.frmResults.Command.value = 'overturnChallenge';
     document.frmResults.submit();
   }
-  function doFilter(id,roundid) {
+  function doFilter(id) {
     document.frmResults.filter.value = id;
-    document.frmResults.roundid.value = roundid;
     document.frmResults.module.value = 'Challenge';
     if(document.frmResults.constraintid.value == '1')
     {
