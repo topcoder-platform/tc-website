@@ -166,7 +166,7 @@ document.write( '<object ');
 document.write( 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
 document.write( 'codebase="http://fpdownload.macromedia.com" ');
 document.write( '/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
-document.write( 'width="100%" ');
+document.write( 'width="600" ');
 document.write( 'height="400" ');
 document.write( 'id="ratingHistory" ');
 document.write( 'align="middle"> ');
@@ -181,7 +181,7 @@ document.write( 'src="/flash/ratingHistory.swf?competitionType=alg&coderID=<%=re
 document.write( 'menu="true" ');
 document.write( 'quality="high" ');
 document.write( 'bgcolor="#EEEEEE" ');
-document.write( 'width="100%" ');
+document.write( 'width="600" ');
 document.write( 'height="400" ');
 document.write( 'name="ratingHistory" ');
 document.write( 'align="middle" ');
