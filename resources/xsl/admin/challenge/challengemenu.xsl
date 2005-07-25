@@ -79,9 +79,6 @@
   function doFilter(id) {
     document.frmResults.filter.value = id;
     document.frmResults.module.value = 'Challenge';
-    if(document.frmResults.constraintid.value == '2')
-        document.frmResults.Command.value = 'getProblemChallengeList';
-    }
     document.frmResults.submit();
   }
 ]]></SCRIPT>
