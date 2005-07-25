@@ -97,6 +97,10 @@
                <tc-webtag:handle coderId="7371063" context="algorithm"/>
 					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=probabilities"><strong>Understanding Probabilities</strong></a>
 				</td></tr>
+				<tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="10407399" context="algorithm"/>
+					</td><td class="bodyText" nowrap=nowrap><a href="tc?module=Static&d1=tutorials&d2=dataStructures"><strong>Data Structures</strong></a>
+				</td></tr>
 			</table>
         </div>
         <p><br></p>

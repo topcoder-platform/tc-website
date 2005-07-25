@@ -9,6 +9,16 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.25.05<br>12:20 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">New Rating History Graphs</span><br><br>
+Algorithm, Design, and Development Statistics tabs under Member Profiles now include Rating History Graphs.
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.25.05<br>10:50 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">Registration Opens for Google Code Jam 2005</A></span><br><br>
       "Google's annual online coding competition consisting of a series of problem-solving challenges that invite participants to select a programming language and use their programming skills to code solutions to the problems."
@@ -221,21 +231,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=features&d2=070805">full story</A>&#160;|&#160;
          <A href="/?&t=features&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.08.05<br>11:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm250_prob">SRM 250 - Problem Set & Analysis</A></span><br><br>
-      Coders in both divisions stumbled over floating point difficulties today, as most div 1 easy and div 2 medium submissions failed.  This left lots of opportunities for challenges, and <tc-webtag:handle coderId="8357090" context="algorithm"/> took advantage with a whopping 250 points in the challenges phase.</td>
-      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm250_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
 
 
