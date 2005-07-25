@@ -71,6 +71,6 @@
             <% if (selectedTab.equals("forum")) {%>
                  <font color="006633">Code Jam Group</font>
             <% } else { %>
-                  <a href="http://groups-beta.google.com/group/google-code?hl=en" target="_blank">Code Jam Group</a>
+<a href="/?t=sponsor&c=link&link=http://groups-beta.google.com/group/google-code?hl=en&refer=gcj05site" target="_blank">Code Jam Group</a>
             <% } %>
 </font>
