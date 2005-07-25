@@ -53,7 +53,7 @@ All individuals who are at least 18 years old by August 22 may register and comp
 <br><br>
 Registrants who are 18 years of age or older are eligible to win cash prizes, unless otherwise prohibited. The Google Code Jam 2005 is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 <br><br>
-Employees of Google and TopCoder and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
+Full and part-time employees of Google and TopCoder as well as those who are performing internships from July 25 - September 23, 2005 and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.
 <br><br>
 
 <b>Registration</b><br>
