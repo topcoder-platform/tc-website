@@ -175,6 +175,9 @@ public class Challenge extends BaseProcessor {
                 } catch (Exception ignore) {
                 }
 
+                contestTag.addTag(new ValueTag("RoundId", roundId));
+
+
                 log.debug("Challenge: getCoderChallengeList: constraintid set to " + constraintId);
                 log.debug("Challenge: getCoderChallengeList: filter set to " + filter);
                 log.debug("Challenge: getCoderChallengeList: roundId set to " + roundId);
@@ -248,6 +251,7 @@ public class Challenge extends BaseProcessor {
                 } catch (Exception ignore) {
                 }
 
+                contestTag.addTag(new ValueTag("RoundId", roundId));
                 log.debug("Challenge: getProblemChallengeList: constraintid set to " + constraintId);
                 log.debug("Challenge: getProblemChallengeList: filter set to " + filter);
                 log.debug("Challenge: getProblemChallengeList: roundId set to " + roundId);
@@ -322,6 +326,8 @@ public class Challenge extends BaseProcessor {
                     roomId = Integer.parseInt(request.getParameter("roomid"));
                 } catch (Exception ignore) {
                 }
+                contestTag.addTag(new ValueTag("RoundId", roundId));
+                contestTag.addTag(new ValueTag("RoomId", roomId));
 
                 log.debug("Challenge: getChallengeList: constraintid set to " + constraintId);
                 log.debug("Challenge: getChallengeList: filter set to " + filter);
