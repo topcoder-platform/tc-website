@@ -36,7 +36,7 @@ Registration is not currently open, the registration period is from August 1, 20
     <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="30" maxlength="100"/>
     <br /><br />
     <div align="center">
-    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Terms&<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.TCO05_SPONSOR_TERMS_ID%>"></iframe>
+    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_reg_content"></iframe>
     <br /><br />
     <A href="Javascript:document.regForm.submit();">I Agree</A>
     <br /><br />
