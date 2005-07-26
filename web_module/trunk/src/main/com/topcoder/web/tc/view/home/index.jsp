@@ -163,12 +163,12 @@
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
+            Registration Opens for Google Code Jam 2005 <A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">...more</A><br>[July 25]<br><br>
             On your marks, get set, code! [PDF] <A href="/pdfs/press_room/cnn_072105.pdf">...more</A><br>[July 21]<br><br>
             TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open <A href="/tc?module=Static&d1=news&d2=pr_071105">...more</A><br>[July 11]<br><br>
             VeriSign Sponsors 2005 TopCoder Open <A href="/tc?module=Static&d1=news&d2=pr_070705">...more</A><br>[July 7]<br><br>
             TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open <A href="/tc?module=Static&d1=news&d2=pr_062705">...more</A><br>[June 27]<br><br>
             TopCoder&#174; Announces Return of Cash Prizes to SRMs <A href="/tc?module=Static&d1=news&d2=pr_062005">...more</A><br>[June 20]<br><br>
-            Computer programmer wins big <A href="http://www.queensjournal.ca/articlephp/point-vol133/issue1/news/story1" target="_blank">...more</A><br>[May 24 - QU The Journal]<br><br>
             </td>
          </tr>
       </table>
