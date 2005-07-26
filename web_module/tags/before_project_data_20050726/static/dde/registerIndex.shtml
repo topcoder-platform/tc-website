@@ -1,0 +1,447 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<body class="body" marginheigh="0" marginwidth="0">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navNone.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><strong>Register New Account</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="165" height="5" border="0" /></td></tr>
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headRegNewAcct.gif" alt="Register New Account" width="545" height="35" border="0" /></td></tr>
+				<tr><td class="subhead"></td></tr>
+			</table>
+				
+			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
+				<tr valign="top">
+					<td align="center">
+						<table width="500" cellpadding="0" cellspacing="0" border="0" align="center">
+							<tr><td><img src="images/regContactInfoHead.gif" alt="Contact Information" width="500" height="29" border="0" /></td></tr>
+						</table>
+
+						<table width="500" border="0" cellspacing="4" cellpadding="0" align="center" class="register">
+<!-- Column Setting Row -->
+							<tr valign="middle">
+								<td class="registerText" width="5" rowspan="22"><img src="images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+								<td class="registerText" width="175"><img src="images/clear.gif" width="175" height="1" border="0"/></td>
+								<td class="registerText" width="290" ><img src="images/clear.gif" width="290" height="1" border="0" /></td>
+								<td class="registerText" width="5" rowspan="22"><img src="images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- First Name Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- First Name -->
+							<tr valign="middle">
+								<td class="registerLabel">First Name</td>
+								<td class="registerText"><input class="registerForm" type="text" name="firstName" value ="" size="30" maxlength="30"></td>
+							</tr>
+
+<!-- Last Name Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Last Name -->
+							<tr valign="middle">
+								<td class="registerLabel">Last Name</td>
+								<td class="registerText"><input class="registerForm" type="text" name="lastName" value ="" size="30" maxlength="30"></td>
+							</tr>
+
+<!-- Company Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Company -->
+							<tr valign="middle">
+								<td class="registerLabel">Company</td>
+								<td class="registerText"><input class="registerForm" type="text" name="company" value ="" size="30" maxlength="30"></td>
+							</tr>
+
+<!-- Address 1 Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Address 1 -->
+							<tr valign="middle">
+								<td class="registerLabel">Address 1</td>
+								<td class="registerText"><input class="registerForm" type="text" name="address1" value ="" size="30" maxlength="50"></td>
+							</tr>
+
+<!-- Address 2 Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Address 2 -->
+							<tr valign="middle">
+								<td class="registerLabel">Address 2</td>
+								<td class="registerText"><input class="registerForm" type="text" name="address2" value ="" size="30" maxlength="50"></td>
+							</tr>
+
+<!-- City Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- City -->
+							<tr valign="middle">
+								<td class="registerLabel">City</td>
+								<td class="registerText"><input class="registerForm" type="text" name="city" value ="" size="30" maxlength="30"></td>
+							</tr>
+	
+<!-- State Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- State -->
+							<tr valign="middle">
+								<td class="registerLabel">State</td>
+								<td class="registerText"><!--#include virtual="includes/stateList.shtml" --></td>
+							</tr>
+
+<!-- Messageal Code Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Messageal Code -->
+							<tr valign="middle">
+								<td class="registerLabel">Zip / Messageal Code</td>
+								<td class="registerText"><input class="registerForm" type="text" name="zip" value ="" size="10" maxlength="10"></td>
+							</tr>
+
+<!-- Country Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Country -->
+							<tr valign="middle">
+								<td class="registerLabel">Country</td>
+								<td align="left" class="registerText"><!--#include virtual="includes/countryList.shtml" --></td>
+							</tr>
+
+<!-- Telephone Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Telephone -->
+							<tr valign="middle">
+								<td class="registerLabel">Telephone</td>
+								<td class="registerText"><input class="registerForm" type="text" name="phone" value ="" size="30" maxlength="20"></td>
+							</tr>
+
+							<tr valign="middle">
+								<td height="5" class="registerText" colspan="2"><img src="images/clear.gif" alt="" width="10" height="5" border="0"/></td>
+							</tr>
+						</table>
+	
+						<table width="500" cellpadding="0" cellspacing="0" border="0" align="center">
+							<tr><td><img src="images/regFoot.gif" alt="" width="500" height="10" border="0" /></td></tr>
+							<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+							<tr><td><img src="images/regUserNamePassHead.gif" alt="Contact Information" width="500" height="29" border="0" /></td></tr>
+						</table>
+
+						<table width="500" border="0" cellspacing="4" cellpadding="0" align="center" class="register">
+<!-- Column Setting Row -->
+							<tr valign="middle">
+								<td class="registerText" width="5" rowspan="13"><img src="images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+								<td class="registerText" width="175"><img src="images/clear.gif" width="175" height="1" border="0"/></td>
+								<td class="registerText" width="290" ><img src="images/clear.gif" width="290" height="1" border="0" /></td>
+								<td class="registerText" width="5" rowspan="13"><img src="images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- User Name Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- User Name -->
+							<tr valign="middle">
+								<td class="registerLabel">User Name</td>
+								<td class="registerText"><input class="registerForm" type="text" name="handle" value ="" size="30" maxlength="15"></td>
+							</tr>
+
+<!-- Password Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Password -->
+							<tr valign="middle">
+								<td class="registerLabel">Password</td>
+								<td class="registerText"><input class="registerForm" type="password" name="password" value ="" size="30" maxlength="15"></td>
+							</tr>
+
+							<tr valign="top">
+								<td class="registerText"><img src="images/clear.gif" width="1" height="1" border="0" /></td>
+								<td class="registerSmall">Minimum of 7 characters, maximum of 15</td>
+							</tr>  
+
+<!-- Re-Type Password Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Re-Type Password -->
+							<tr valign="middle">
+								<td class="registerLabel">Re-type Password</td>
+								<td class="registerText"><input class="registerForm" type="password" name="confirmPassword" value ="" size="30" maxlength="15"></td>
+							</tr>
+
+<!-- Email Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Email -->
+							<tr valign="middle">
+								<td class="registerLabel">Email</td>
+								<td class="registerText"><input class="registerForm" type="text" name="email" value ="" size="30" maxlength="100"></td>
+							</tr>
+
+							<tr valign="top">
+								<td class="registerText"><img src="images/clear.gif" width="1" height="1" border="0" /></td>
+								<td class="registerSmall">An email will be sent to authorize your account activation.<br></td>
+							</tr>
+
+<!-- Re-Type Email Error Text -->
+							<tr valign="middle">
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Re-Type Email -->
+							<tr valign="middle">
+								<td class="registerLabel">Re-type Email</td>
+								<td class="registerText"><input class="registerForm" type="text" name="confirmEmail" value ="" size="30" maxlength="100"></td>
+							</tr>
+
+							<tr valign="middle">
+								<td height="5" class="registerText" colspan="2"><img src="images/clear.gif" alt="" width="10" height="5" border="0"/></td>
+							</tr>
+						</table>
+
+						<table width="500" cellpadding="0" cellspacing="0" border="0" align="center">
+							<tr><td><img src="images/regFoot.gif" alt="" width="500" height="10" border="0" /></td></tr>
+							<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+							<tr><td><img src="images/regAddInfoHead.gif" alt="Contact Information" width="500" height="29" border="0" /></td></tr>
+						</table>
+
+						<table width="500" border="0" cellspacing="4" cellpadding="0" align="center" class="register">
+<!-- Column Setting Row -->
+							<tr valign="middle">
+								<td width="5"><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td width="175"><img src="images/clear.gif" width="115" height="1" border="0"/></td>
+								<td width="20" ><img src="images/clear.gif" width="15" height="1" border="0" /></td>
+								<td width="270" ><img src="images/clear.gif" width="265" height="1" border="0" /></td>
+								<td width="5"><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- Technologies Error Text -->
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerText"></td>
+								<td class="registerText"></td>
+								<td class="errorText"></td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- Technologies -->
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel">Which technologies does your company use?</td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="j2ee"></td>
+								<td class="registerText" nowrap>J2EE</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+										
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="net"></td>
+								<td class="registerText" nowrap>.Net</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+										
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="com"></td>
+								<td class="registerText" nowrap>COM / COM+</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+			
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="webServices"></td>
+								<td class="registerText" nowrap>Web Services</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+				
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="java"></td>
+								<td class="registerText" nowrap>Java</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+				
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="cPlus"></td>
+								<td class="registerText" nowrap>C / C++</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+				
+							<tr valign="middle">
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+								<td class="registerLabel"></td>
+								<td class="registerText" width="1"><input type="checkbox" name="technologies" value ="ejb"></td>
+								<td class="registerText" nowrap>EJB</td>
+								<td><img src="images/clear.gif" width="5" height="1" border="0"/></td>
+							</tr>
+						</table>
+
+<!-- TopCoder Software News -->
+						<table width="500" border="0" cellspacing="4" cellpadding="0" align="center" class="register">
+							<tr valign="middle">
+								<td class="registerText" width="5"><img src="images/clear.gif" width="5" height="1" border="0" /></td>
+								<td class="registerLabel" width="175">Do you want to receive news about TopCoder Software?</td>
+								<td class="registerText" width="1"><input type="radio" name="newsSet" value="yes"></td>
+								<td class="registerText" nowrap>Yes</td>
+								<td class="registerText" width="5"><img src="images/clear.gif" width="5" height="1" border="0" /></td>
+								<td class="registerText" width="1"><input type="radio" name="newsSet" value="no"></td>
+								<td class="registerText" nowrap>No</td>
+								<td class="registerText" width="190"><img src="images/clear.gif" width="190" height="1" border="0" /></td>
+								<td class="registerText" width="5"><img src="images/clear.gif" width="5" height="1" border="0" /></td>
+							</tr>
+
+							<tr valign="middle">
+								<td height="5" class="registerText" colspan="9"><img src="images/clear.gif" alt="" width="10" height="5" border="0"/></td>
+							</tr>
+						</table>
+
+						<table width="500" cellpadding="0" cellspacing="0" border="0" align="center">
+							<tr><td><img src="images/regFoot.gif" alt="" width="500" height="10" border="0" /></td></tr>
+							<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+							<tr><td><img src="images/regTermsHead.gif" alt="Contact Information" width="500" height="29" border="0" /></td></tr>
+						</table>
+
+						<table width="500" border="0" cellspacing="5" cellpadding="0" align="center" class="register">
+<!-- Column Setting Row -->
+							<tr valign="middle">
+								<td class="registerText" width="5" rowspan="4"><img src="images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+								<td class="registerText" width="490"><img src="images/clear.gif" width="470" height="1" border="0"/></td>
+								<td class="registerText" width="5" rowspan="4"><img src="images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+							</tr>
+
+<!-- Terms & Conditions Error Text -->
+							<tr valign="middle">
+								<td class="errorText"></td>
+							</tr>
+
+<!-- Terms & Conditions -->
+							<tr valign="middle">
+								<td class="registerText" nowrap align="center"><strong>I Agree to the <a class="registerLinks" href="termsIndex.shtml">Terms and Conditions</a></strong><img src="images/clear.gif" alt="" width="5" height="10" border="0" /><input type="checkbox" name="terms"></td>
+							</tr>
+						</table>
+
+						<table width="500" cellpadding="0" cellspacing="10" border="0" class="compSearch">
+							<tr valign="middle">
+								<td class="adminControl"><input class="adminControlButton" type="submit" name="reply" value="&nbsp;Clear Fields&nbsp;"></input><img src="images/clear.gif" alt="" width="10" height="10" border="0" /><input class="adminControlButton" type="submit" name="reply" value="&nbsp;Continue&nbsp;"></input></td>
+							</tr>
+						</table>
+
+						<table width="500" cellpadding="0" cellspacing="0" border="0" align="center">
+							<tr><td><img src="images/regFoot.gif" alt="" width="500" height="10" border="0" /></td></tr>
+							<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></form></tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+<!--Middle Column ends -->
+
+<!-- Gutter 2 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+<!-- Gutter 2 ends -->
+
+<!-- Right Column begins -->
+		<td width="245">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="245" height="15" border="0" /></td></tr>
+			</table>
+		</td>
+<!--Right Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>
