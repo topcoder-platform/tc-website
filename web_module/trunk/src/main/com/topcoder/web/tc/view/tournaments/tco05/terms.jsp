@@ -17,7 +17,7 @@
 
 <!-- Tab barlinks-->
 <jsp:include page="links.jsp" >
-<jsp:param name="tabLev1" value="component"/>
+<jsp:param name="tabLev1" value="algorithm"/>
 <jsp:param name="tabLev2" value="details"/>
 <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
