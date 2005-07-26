@@ -42,7 +42,7 @@
 			<jsp:include page="right.jsp" />
 			</span>
 			<br/><br/>
-            <A href="/pl/?module=Google05Credentials&cid=1865">Forgot your password?</A>
+            If you have a 2005 Google Code Jam account but you forgot your password, <A href="/pl/?module=Google05Credentials&cid=1865">click here</A>.
 			<br/><br/>
 Click <A href="/pl/?&module=Static&d1=google05&d2=instructions">here</A> to read to the <A href="/pl/?&module=Static&d1=google05&d2=instructions">Instructions</A> page.
 <br/><br/>
