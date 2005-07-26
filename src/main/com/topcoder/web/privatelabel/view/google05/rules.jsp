@@ -145,7 +145,7 @@ Each online and onsite round of competition (excluding the Qualification Round) 
 </ul>
 
 <b>Onsite Championship Round</b><br>
-The 100 advancers from Round 2 will travel to Google's headquarters to compete in the Championship Round of the tournament being held on Friday, September 23, 2005.  Each finalist must confirm his/her attendance in the Championship Round by September 8, 2005.  If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
+The 100 advancers from Round 2 will travel to Google's headquarters to compete in the Championship Round of the tournament being held on Friday, September 23, 2005.  Each finalist must confirm his/her attendance in the Championship Round by September 8, 2005. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the US by that date and time. If a contestant does not confirm his/her attendance in the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest scorer from Round 2.
 <br><br>
 Google will provide all travel accommodations for each finalist to attend the Championship Round.  In addition, Google will provide overnight accommodations and all travel arrangements to and from the airport, as well as to and from Google's headquarters.  All other expenses are the responsibility of the contestant.
 <br><br>

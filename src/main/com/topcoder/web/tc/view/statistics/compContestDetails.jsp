@@ -91,8 +91,7 @@
             <TD CLASS="tableHeader" rowspan="2">Handle</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Date inquired</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Date submitted</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">Passed</TD>
-            <TD CLASS="tableHeader" rowspan="2" align="center">Screening Score</TD>
+            <TD CLASS="tableHeader" rowspan="2" align="center" colspan="2">Screening Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Initial Score</TD>
             <TD CLASS="tableHeader" rowspan="2" align="center">Final Score</TD>
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
@@ -105,8 +104,8 @@
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
-            <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statLt" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statLt" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
             <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
@@ -117,8 +116,8 @@
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
-            <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
             <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
@@ -129,8 +128,8 @@
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
-            <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statLt" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statLt" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
             <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
@@ -141,8 +140,8 @@
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
-            <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
             <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
@@ -153,8 +152,8 @@
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
-            <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statLt" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statLt" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
             <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
@@ -165,8 +164,8 @@
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
-            <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
             <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
@@ -177,8 +176,8 @@
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
-            <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statLt" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statLt" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
             <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
@@ -189,8 +188,8 @@
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
-            <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
             <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
@@ -201,25 +200,25 @@
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
-            <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
-            <TD class="statLt" align="center">80.00</TD>
-            <TD class="statLt" align="center">90.00</TD>
-            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">65.00</A></TD>
+            <TD class="statLt" align="left"><img src="/i/stats/fail.gif" alt="fail" border="0" /></TD>
+            <TD class="statLt" align="center"></TD>
+            <TD class="statLt" align="center"></TD>
+            <TD class="statLt" align="center"></TD>
+            <TD class="statLt" align="center"></TD>
+            <TD class="statLt" align="center"></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
-            <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
-            <TD class="statDk" align="center">80.00</TD>
-            <TD class="statDk" align="center">90.00</TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">55.00</A></TD>
+            <TD class="statDk" align="left"><img src="/i/stats/fail.gif" alt="fail" border="0" /></TD>
+            <TD class="statDk" align="center"></TD>
+            <TD class="statDk" align="center"></TD>
+            <TD class="statDk" align="center"></TD>
+            <TD class="statDk" align="center"></TD>
+            <TD class="statDk" align="center"></TD>
          </tr>
       </table>
       </td>
