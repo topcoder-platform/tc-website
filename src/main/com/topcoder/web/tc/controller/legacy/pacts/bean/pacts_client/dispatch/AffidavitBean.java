@@ -11,6 +11,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch;
 
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
@@ -240,7 +241,8 @@ public class AffidavitBean implements PactsConstants {
             UserProfile profile = upb.getUserProfile(affidavit.getHeader().getUser().getId());
             UserDemographics demog = upb.getUserDemographics(affidavit.getHeader().getUser().getId());
             //first we must form the xml from the info
-            RecordTag tc = new RecordTag("TC");
+            XMLDocument tc = new XMLDocument("TC");
+            //RecordTag tc = new RecordTag("TC");
             RecordTag a = new RecordTag("Affidavit");
             //get most of the info from the payment
             a.addTag(new ValueTag("first_name", payment.getFirstName()));
