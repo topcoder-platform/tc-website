@@ -32,7 +32,7 @@ public class HTMLRenderer {
             cache = XSLTransformerCache.getInstance();
             baos = new ByteArrayOutputStream();
             wrapper = cache.getXSLTransformerWrapper(xsldocURLString);
-            wrapper.transform(new StringReader(xmldocObject.createXML()), baos);
+            wrapper.transform(new StringReader(xmldocObject.getXML()), baos);
             return baos.toString();
 
         } catch (Exception e) {
@@ -55,7 +55,7 @@ public class HTMLRenderer {
             } catch (Exception ex) {
                 log.error("failed to read through file looking for bad characters: " + ex.getMessage());
             }
-            log.debug(xmldocObject.createXML());
+            log.debug(xmldocObject.getXML());
             e.printStackTrace();
             throw new TCException("ejb.HTMLRenderer.HTMLRendererBean:render:ERROR:\n" + e);
         }
