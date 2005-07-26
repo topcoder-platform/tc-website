@@ -47,8 +47,10 @@ Santa Clara Marriott, Santa Clara, CA, USA</li>
 
 The competition is free and you must be 18 years or older to be eligible.  
 <br><br>
-Login to the <A href="/tc">Competition Homepage</A> to view your registration information. 
+<%--
+Click <A href="/tc?module=TCO05AlgorithmTerms">here</A> to register for the TCO Algorithm Competition.
 <br><br>
+--%>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_rules">rules and regulations</A> for full details.
         </div>
 		</td>
