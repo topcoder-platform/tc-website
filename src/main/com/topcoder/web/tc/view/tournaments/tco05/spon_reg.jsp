@@ -30,8 +30,8 @@ Registration is not currently open, the registration period is from August 1, 20
 --%>
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO05SponsorTermsAgree"/>
+    <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br /></tc-webtag:errorIterator><br /></span>
     <b>Company name:</b>&#160;&#160;
-    <tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br /></tc-webtag:errorIterator>
     <br />
     <tc-webtag:textInput name="<%=Constants.COMPANY_NAME%>" size="30" maxlength="100"/>
     <br /><br />
