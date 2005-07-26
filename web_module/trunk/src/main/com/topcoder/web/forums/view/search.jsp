@@ -107,18 +107,18 @@ function noenter(e)
     <%  } %>
 </tc-webtag:iterator>
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
-<%  searchScopeValue = "c" + category.getID();
-    if (searchScope != null && searchScope.equals(searchScopeValue)) { %>
-        <option value="<%=searchScopeValue%>" selected><jsp:getProperty name="category" property="name"/></option>
+<%  String categoryValue = "c" + category.getID();
+    if (searchScope != null && searchScope.equals(categoryValue)) { %>
+        <option value="<%=categoryValue%>" selected><jsp:getProperty name="category" property="name"/></option>
     <%  } else { %>
-        <option value="<%=searchScopeValue%>"><jsp:getProperty name="category" property="name"/></option>
+        <option value="<%=categoryValue%>"><jsp:getProperty name="category" property="name"/></option>
     <%  } %>
     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums()%>'>
-	<%  searchScopeValue = "f" + forum.getID();
-	    if (searchScope != null && searchScope.equals(searchScopeValue)) { %>
-	        <option value="<%=searchScopeValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+	<%  String forumValue = "f" + forum.getID();
+	    if (searchScope != null && searchScope.equals(forumValue)) { %>
+	        <option value="<%=forumValue%>" selected>&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
 	    <%  } else { %>
-	        <option value="<%=searchScopeValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
+	        <option value="<%=forumValue%>">&#149;&#160;<jsp:getProperty name="forum" property="name"/></option>
 	    <%  } %>
     </tc-webtag:iterator>
 </tc-webtag:iterator>
