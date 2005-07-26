@@ -95,9 +95,9 @@ public class WebPage extends RecordTag implements Serializable {
         preText.append(prependText);
 
         if (offSet > 0) {
-            preText.append(super.createXML(offSet));
+            preText.append(super.createXML(true, offSet));
         } else {
-            preText.append(super.createXML());
+            preText.append(super.createXML(true));
         }
 
         return preText.toString();
@@ -108,7 +108,7 @@ public class WebPage extends RecordTag implements Serializable {
         StringBuffer preText = new StringBuffer(96);
         preText.append(prependText);
 
-        preText.append(super.createXML());
+        preText.append(super.createXML(true));
 
         return preText.toString();
 

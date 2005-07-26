@@ -281,7 +281,7 @@ public class AffidavitBean implements PactsConstants {
 
             log.debug(tc.getXML());
             TransformerFactory tFactory = TransformerFactory.newInstance();
-            StringReader xmlIn = new StringReader(tc.getXML());
+            StringReader xmlIn = new StringReader(tc.getXML(false));
             StringReader xslIn = new StringReader(text);
             Source xmlSource = new StreamSource(xmlIn);
             Source xslSource = new StreamSource(xslIn);
