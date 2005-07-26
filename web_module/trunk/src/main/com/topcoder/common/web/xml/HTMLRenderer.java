@@ -55,6 +55,8 @@ public class HTMLRenderer {
             } catch (Exception ex) {
                 log.error("failed to read through file looking for bad characters: " + ex.getMessage());
             }
+            log.debug(xmldocObject.createXML());
+            e.printStackTrace();
             throw new TCException("ejb.HTMLRenderer.HTMLRendererBean:render:ERROR:\n" + e);
         }
     }
