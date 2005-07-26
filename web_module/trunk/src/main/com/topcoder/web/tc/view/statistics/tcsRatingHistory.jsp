@@ -143,7 +143,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
    <tr>
       <td>               
       <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         <tr><td class="tableTitle" colspan="5">
+         <tr><td class="tableTitle" colspan="6">
          <% if(srb.getProperty("pi").equals("113")){%>
          Development
          <% } else { %>
@@ -154,9 +154,10 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
          <TR>
             <TD CLASS="tableHeader"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Date</a></TD>
             <TD CLASS="tableHeader" WIDTH="40%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Contest</a></TD>
-            <TD CLASS="tableHeader" WIDTH="20%" align="right"><a href="<%=sSortUrl%>&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Place</a></TD>
-            <TD CLASS="tableHeader" WIDTH="20%" align="right"><a href="<%=sSortUrl%>&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Score</a></TD>
-            <TD CLASS="tableHeader" WIDTH="20%" align="right"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Rating</a></TD>
+            <TD CLASS="tableHeader" WIDTH="15%" align="right"><a href="<%=sSortUrl%>&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Place</a></TD>
+            <TD CLASS="tableHeader" WIDTH="15%" align="right"><a href="<%=sSortUrl%>&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Score</a></TD>
+            <TD CLASS="tableHeader" WIDTH="15%" align="right"><a href="<%=sSortUrl%>&sc=5&sd=<%= "5".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>">Rating</a></TD>
+            <TD CLASS="tableHeader" WIDTH="15%" align="right">&#160;</TD>
          </TR>
          <%boolean even = true;%>
          <logic:iterate name="resultSet" id="resultRow2" type="ResultSetContainer.ResultSetRow">
@@ -166,6 +167,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 13 /* placed */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 7 /* score */ + "]" %>'/></TD>
             <TD class="<%=even?"statLt":"statDk"%>" align="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
+            <TD class="<%=even?"statLt":"statDk"%>" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=statistics&d2=compContestDetails" class="statLink">contest details</A></TD>
          </TR>
          <%even=!even;%>
          </logic:iterate>
