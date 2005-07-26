@@ -153,7 +153,7 @@
       <td class="rtTextCell" nowrap="nowrap"><strong>Thread Page View:</strong></td>
       <td class="rtTextCell100">
 		<select size="1" name="threadMode">
-		<%  String[][] threadModes = {{"flat","Flat"},{"threaded","Threaded"},{"tree","Tree"}};
+		<%  String[][] threadModes = {{"flat","Flat (oldest to newest)"},{"flat_new","Flat (newest to oldest)"},{"threaded","Threaded"},{"tree","Tree"}};
 			String currentMode = ForumConstants.DEFAULT_GUEST_THREAD_VIEW;
             try {
                 currentMode = user.getProperty("jiveThreadMode");
