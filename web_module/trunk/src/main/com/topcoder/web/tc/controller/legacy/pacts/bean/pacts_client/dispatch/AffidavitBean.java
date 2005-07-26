@@ -279,7 +279,7 @@ public class AffidavitBean implements PactsConstants {
                 a.addTag(new ValueTag("current_school", demog.getSchoolName()));
             tc.addTag(a);
 
-            log.debug(tc.getXML());
+            log.debug(tc.getXML(false, 2));
             TransformerFactory tFactory = TransformerFactory.newInstance();
             StringReader xmlIn = new StringReader(tc.getXML(false));
             StringReader xslIn = new StringReader(text);
