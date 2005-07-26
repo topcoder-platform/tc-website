@@ -59,6 +59,11 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>rows</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
