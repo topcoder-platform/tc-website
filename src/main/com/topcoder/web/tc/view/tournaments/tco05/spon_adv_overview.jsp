@@ -19,10 +19,10 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class=bodySpacer>
-            
+
 <span class="bigTitle">Advancers - Overview</span>
 <br><br>
-Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tccc05_alg_adv_overview&trans=true&d1=tournaments&d2=tccc05&d3=alg_adv_overview">here</a> to reset the list to its originally sorted format.
+Click a column title to sort the list of advancers by that column. Click <a href="/tc?module=SimpleStats&c=tco05_spon_alg_adv_overview&trans=true&d1=tournaments&d2=tco05&d3=spon_adv_overview">here</a> to reset the list to its originally sorted format.
 <br><br>
 <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
    <tr class="advHeader">
@@ -55,17 +55,17 @@ Click a column title to sort the list of advancers by that column. Click <a href
 </table>
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
 
 <jsp:include page="../../foot.jsp" />
