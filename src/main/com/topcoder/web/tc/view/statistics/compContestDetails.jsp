@@ -35,12 +35,11 @@
 <jsp:param name="title" value="Component Contest Details"/>
 </jsp:include>
 
-<span class="bigHandle">Component: <A href="" class="bcLink">IP Server</A></span>
-<br>
-<span class="bodySubtitle">Contest Details&#160;>&#160;</span><br>
+<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink">IP Server</A> ></span><br>
 <span class="bc">
-<A HREF="/" class="bcLink">Design Contest</A>
-&#160;|&#160;Development Contest
+06.01.05
+&#160;|&#160;<A HREF="/" class="bcLink">07.01.05</A>
+&#160;|&#160;<A HREF="/" class="bcLink">08.01.05</A>
 </span>
 
 <div class="pagingBox">&#160;</div>
@@ -53,31 +52,31 @@
          Development Contest Details
          </td></tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Inquiries</TD>
-            <TD class="stat" align="right">5</TD>
+            <td class="cat" nowrap="nowrap">Inquiries:</TD>
+            <TD class="stat" align="right">15</TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Submissions</TD>
-            <TD class="stat" align="right">5</TD>
+            <td class="cat" nowrap="nowrap">Submissions:</TD>
+            <TD class="stat" align="right">10</TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Submission Percentage</TD>
+            <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
             <TD class="stat" align="right">100.00%</TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Passed</TD>
+            <td class="cat" nowrap="nowrap">Passed:</TD>
             <TD class="stat" align="right">3</TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Passed Percentage</TD>
+            <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
             <TD class="stat" align="right">60.00%</TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Avg Initial Score</TD>
+            <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
             <TD class="stat" align="right">80.00</TD>
          </tr>
          <tr>
-            <td class="cat" nowrap="nowrap">Avg Final Score</TD>
+            <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
             <TD class="stat" align="right">90.00</TD>
          </tr>
       </TABLE>
@@ -107,120 +106,120 @@
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
             <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
             <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
             <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
             <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
             <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
             <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
             <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
             <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
             <TD class="statLt" align="center">06.21.05</TD>
             <TD class="statLt" align="center">Y</TD>
-            <TD class="statLt" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statLt" align="center">80.00</TD>
             <TD class="statLt" align="center">90.00</TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
-            <TD class="statLt" align="center"><A href="">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statLt" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statDk" align="center">06.01.05</TD>
             <TD class="statDk" align="center">06.21.05</TD>
             <TD class="statDk" align="center">Y</TD>
-            <TD class="statDk" align="center"><A href="screening scorecard">80.00</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
             <TD class="statDk" align="center">80.00</TD>
             <TD class="statDk" align="center">90.00</TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
       </table>
       </td>
