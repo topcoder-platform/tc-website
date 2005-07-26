@@ -1,7 +1,7 @@
 <table class=smallBoxTable align=right cellspacing=0 cellpadding=0>
 	<tr>
 		<td align=center class=smallBlackBox>
-		<A href="http://www.topcoder.com"><img src="/i/events/google2005/pbtc_logo.gif" border=0/></A>
+		<A href="/"><img src="/i/events/google2005/pbtc_logo.gif" alt="Powered by TopCoder" border="0"/></A>
 		</td>
 	</tr>
 	<tr><td>&#160;</td></tr>
