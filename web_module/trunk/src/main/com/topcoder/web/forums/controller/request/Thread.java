@@ -65,7 +65,13 @@ public class Thread extends ForumsProcessor {
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
         if (threadView.equals("flat") ||
                 (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) ||
-                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat"))) {
+                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat"))) {           
+            itMessages = thread.getMessages(resultFilter);
+            setNextPage("/viewThreadFlat.jsp");
+        } else if (threadView.equals("flat_new") ||
+                (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat_new")) ||
+                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat_new"))) {           
+            resultFilter.setSortOrder(ResultFilter.DESCENDING);
             itMessages = thread.getMessages(resultFilter);
             setNextPage("/viewThreadFlat.jsp");
         } else if (threadView.equals("threaded") ||
@@ -86,6 +92,7 @@ public class Thread extends ForumsProcessor {
             setNextPage("/viewThreadTree.jsp");
         }
 
+        getRequest().setAttribute("resultFilter", resultFilter);
 		getRequest().setAttribute("messages", itMessages);
 		setIsNextPageInContext(true);
 	}
