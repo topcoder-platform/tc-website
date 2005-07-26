@@ -22,6 +22,7 @@
   ResultSetContainer addressList = null;
   ResultSetContainer violationList = null;
   ResultSetContainer statusList = null;
+  ResultSetContainer jobList = null;
   ResultSetContainer.ResultSetRow p = null;
   ArrayList detailList = null;
   Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY);
@@ -82,6 +83,7 @@
       addressList = (ResultSetContainer)((Map)detailList.get(k)).get("address_history");
       violationList = (ResultSetContainer)((Map)detailList.get(k)).get("violations");
       statusList = (ResultSetContainer)((Map)detailList.get(k)).get("status_changed");
+        jobList = (ResultSetContainer)((Map)detailList.get(k)).get("job_list");
 
 %>
 
@@ -357,6 +359,34 @@
 <%
         }
 %>
+
+<%
+        if (!jobList.isEmpty()) {
+%>
+  <br/><br/>
+  <table cellpadding="5" cellspacing="0">
+    <tr><td colspan="3"><b>Job Hits</b></td></tr>
+    <tr>
+      <td><b>Company</b></td>
+      <td><b>Campaign</b></td>
+      <td><b>Job</b></td>
+      <td><b>Date</b></td>
+      </tr>
+
+       <rsc:iterator list="<%=jobList%>" id="resultRow">
+    <tr>
+      <td><rsc:item name="company_name" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="campaign_name" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="job_desc" row="<%=resultRow%>"/></td>
+      <td><rsc:item name="timestamp" row="<%=resultRow%>" format="MM/dd/yyyy hh:mm a"/></td>
+      </tr>
+    </rsc:iterator>
+  </table>
+<%
+        }
+%>
+
+
   <br/>
   <br/>
 
