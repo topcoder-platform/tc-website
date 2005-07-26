@@ -25,9 +25,8 @@
 
 <span class="bigTitle">Registration</span>
 <br /><br />
-<%--
 Registration is not currently open, the registration period is from August 1, 2005 9:00 AM EDT to August 16, 2005 9:00 AM EDT.
---%>
+<%--
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO05SponsorTermsAgree"/>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.COMPANY_NAME%>"><%=err%><br /></tc-webtag:errorIterator><br /></span>
@@ -41,6 +40,7 @@ Registration is not currently open, the registration period is from August 1, 20
     <A href="Javascript:document.regForm.submit();">I Agree</A>
     <br /><br />
 </form>
+--%>
 </div>
         </div>
 		</td>
