@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>07.26.05<br>8:45 AM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=8006">Journal/Blog survey</A></span><br><br>
+       What is your interest in TopCoder provided journals / blogs?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=8006">view survey</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General Competition News" border="0" /><br>07.25.05<br>12:20 PM</td>
       <td class="newsTextCell"><span class="newsTitle">New Rating History Graphs</span><br><br>
 Algorithm, Design, and Development Statistics tabs under Member Profiles now include Rating History Graphs.
@@ -216,21 +228,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=news&d2=pr_071105">full story</A>&#160;|&#160;
          <A href="/?t=news_events&c=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.08.05<br>4:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=070805">The Story of Petr Mitrichev - Target in Six Steps</A></span><br><br>
-       Beating the previous record held by snewman of 8 matches, he has already risen to 4th in the overall algorithm ranking. This is truly amazing, but what is the secret of his success? What makes him so good?</td>
-      <td class="newsPhoto"><img src="/i/m/supernova_mug.gif" /><br>by <tc-webtag:handle coderId="7371063" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=070805">full story</A>&#160;|&#160;
-         <A href="/?&t=features&c=index">archive</A>
    </td></tr>
 
 
