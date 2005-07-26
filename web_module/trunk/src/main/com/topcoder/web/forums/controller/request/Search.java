@@ -7,6 +7,7 @@ import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserNotFoundException;
+import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.Query;
 import com.jivesoftware.forum.ResultFilter;
@@ -15,6 +16,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -35,7 +37,8 @@ public class Search extends ForumsProcessor {
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.FORUM_NAME);
         resultFilter.setSortOrder(ResultFilter.ASCENDING);
-        Iterator itForums = forumFactory.getForums(resultFilter);
+        Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
+        Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
 
         HashMap dates = new HashMap();
         Calendar calendar = Calendar.getInstance();
@@ -55,6 +58,7 @@ public class Search extends ForumsProcessor {
         dates.put(ForumConstants.SEARCH_DATE_LAST_YEAR, calendar.getTime());
 
         getRequest().setAttribute("forums", itForums);
+        getRequest().setAttribute("categories", itCategories);
         getRequest().setAttribute("dates", dates);
 
         String mode = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_MODE));
@@ -110,6 +114,19 @@ public class Search extends ForumsProcessor {
             	long forumID = Long.parseLong(searchScope.substring(1));
                 Forum forum = forumFactory.getForum(forumID);
                 query = forum.createQuery();
+            } else if (searchScope.startsWith("c")) {
+                long categoryID = Long.parseLong(searchScope.substring(1));
+                ArrayList forumList = new ArrayList();
+                ForumCategory category = forumFactory.getForumCategory(categoryID);
+                Iterator itCategoryForums = category.getForums(resultFilter);
+                while (itCategoryForums.hasNext()) {
+                    Forum f = (Forum)itCategoryForums.next();
+                    if (!forumList.contains(f)) {
+                        forumList.add(f);
+                    }
+                }
+                query = forumFactory.getQueryManager().createQuery(
+                        (Forum[]) forumList.toArray(new Forum[forumList.size()]));
             }
             query.setQueryString(queryTerms);
 
