@@ -6,7 +6,6 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.sax.SAXTransformerFactory;
