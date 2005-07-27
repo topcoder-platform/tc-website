@@ -63,17 +63,17 @@
                             
                             <tr><td class="prHead"><A href="http://www.google.com/intl/en/press/pressrel/codejam3.html" target="_blank">Registration Opens for Google Code Jam 2005</A> [July 25 - Google]<br/></td></tr>
 
-                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_071105">TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open</A> [July 11]<br/></td></tr>
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_071105">TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open</A> [July 11]<br/></td></tr>
 
-                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</A> [July 7]<br/></td></tr>
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</A> [July 7]<br/></td></tr>
 
-                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_062705">TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open</A> [June 27]<br/></td></tr>
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062705">TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open</A> [June 27]<br/></td></tr>
 
-                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Contests</A> [June 20]<br/></td></tr>
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Contests</A> [June 20]<br/></td></tr>
 
-                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_061305">TopCoder Announces Registration for 2005 TopCoder Open Programming Tournament</A> [June 13]<br/></td></tr>
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_061305">TopCoder Announces Registration for 2005 TopCoder Open Programming Tournament</A> [June 13]<br/></td></tr>
 
-                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_060705">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform &amp; Services</A> [June 7]<br/></td></tr>
+                            <tr><td class="prHead"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060705">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform &amp; Services</A> [June 7]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_05_02_05">TopCoder&#174;-Powered Coding Challenge to Feature at Sun's 2005 JavaOne<sup>SM</sup> Conference</A> [May 2]<br/></td></tr>
 
