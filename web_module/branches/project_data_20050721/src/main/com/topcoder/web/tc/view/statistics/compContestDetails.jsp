@@ -16,6 +16,16 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
+
+HELLO
+<% ResultSetContainer rscProjects = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("find_projects"); %>
+<%= rscProjects.getIntItem(0, "project_id"); %>
+
+
+
+
+
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
@@ -26,7 +36,7 @@
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
- 
+
 <!-- Center Column Begins -->
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
