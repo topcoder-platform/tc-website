@@ -14,7 +14,7 @@ public class DesignRatingDistribution extends RatingDistribution {
     protected Request getDistributionRequest() {
         Request r = new Request();
         r.setContentHandle("dd_component_rating_distribution");
-        r.setProperty("pi", String.valueOf(SoftwareComponent.DEV_PHASE));
+        r.setProperty("pi", String.valueOf(SoftwareComponent.DESIGN_PHASE));
         return r;
     }
 
