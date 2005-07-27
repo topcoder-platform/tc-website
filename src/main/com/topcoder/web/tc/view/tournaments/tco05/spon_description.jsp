@@ -49,13 +49,13 @@ How to Register for the TCO Sponsor Track Competition:
 <br><br>
 <span class="bodySubtitle">Already a TopCoder Member?</span>
 <ul>
-<li>Click <A href="#">here</A> to register for the TCO Sponsor Track Competition</li>
+<li>Click <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_reg">here</A> to register for the TCO Sponsor Track Competition</li>
 </ul>
 <span class="bodySubtitle">Not Yet a TopCoder Member?</span>
 <ul>
-<li>Click <A href="/reg/index.jsp">here</A> to sign up as a TopCoder member</li>
+<li>Click <A href="/Registration">here</A> to sign up as a TopCoder member</li>
 <li>Check your email and activate your new TopCoder account</li>
-<li>Click <A href="#">here</A> to register for the Sponsor Track Competition</li>
+<li>Click <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_reg">here</A> to register for the TCO Sponsor Track Competition</li>
 </ul>
 The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. 
 <br><br>
