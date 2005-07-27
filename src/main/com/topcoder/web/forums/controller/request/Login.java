@@ -25,12 +25,14 @@ public class Login extends ForumsProcessor {
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         //String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         String password = "";
+        long userID = -1;
 
         String queryString = getRequest().getQueryString();
         int destStartIdx = queryString.indexOf("http://");
         String dest = queryString.substring(destStartIdx);
 
         try {
+            userID = forumFactory.getUserManager().getUserID(username);
             password = getPassword(forumFactory.getUserManager().getUserID(username));
         } catch (Exception e) {
             throw new TCWebException(e);
@@ -40,14 +42,14 @@ public class Login extends ForumsProcessor {
             if (((BasicAuthentication)getAuthentication()).hashPassword(password).equals(hashedPassword)) {
                 //com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
                 //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
+                //getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
+                getAuthentication().login(new SimpleUser(userID, username, password), rememberUser.equals("on"));
                 authToken = TCAuthFactory.getAuthToken(getHttpRequest(), getHttpResponse());
-                getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
             } else {
                 log.debug("forum password hash not matched");
                 throw new Exception();
             }
         } catch (Exception e) {
-            log.debug(e.getMessage());
             log.debug("login failed for: " + dest);
             AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
             getAuthentication().logout();
