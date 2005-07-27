@@ -68,13 +68,13 @@ public class ForumsServlet extends BaseServlet {
             try {
 		        authToken = TCAuthFactory.getAuthToken(request, response);
             } catch (UnauthorizedException uae) {}
-            if (log.isDebugEnabled()) {
+            /* if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
                     log.debug("*** Uses custom auth ***");
                 } else {
                     log.debug("*** Does not use custom auth ***");
                 }
-            }
+            } */
 	    	user = getUser(authToken.getUserID());
 
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
