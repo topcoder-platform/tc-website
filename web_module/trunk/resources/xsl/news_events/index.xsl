@@ -53,7 +53,10 @@
                 <xsl:with-param name="title"></xsl:with-param>
             </xsl:call-template>
             
-            <p>This page has moved.  You will be redirected to the Press Room in just a moment.</p>
+            <p>This page has moved.  You will be redirected to the Press Room in just a moment.
+            <br /><br />
+            Click <A href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">here</A> to get to the page manually.
+            </p>
             
             <p><br /></p>
 

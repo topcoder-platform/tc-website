@@ -53,7 +53,7 @@
             </xsl:call-template>
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                <tr><td class="bodyText"><div align="right"><A href="/?t=news_events&amp;c=index">Current News</A>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=press_release_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<strong>Articles Archive</strong></div></td></tr>
+                <tr><td class="bodyText"><div align="right"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">Current News</A>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=press_release_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<strong>Articles Archive</strong></div></td></tr>
             </table>
 
             <table width="100%" border="0" cellpadding="4" cellspacing="0">

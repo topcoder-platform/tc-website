@@ -328,7 +328,7 @@
 							filter out the cream of the crop," says Choe. [April 13]
 							</td></tr>
 							
-							<tr><td class="bodyText" bgcolor="#FFFFFF"><strong><A href="http://www.topcoder.com/?t=news_events&c=index" target="blank">View All</A></strong></td></tr>
+							<tr><td class="bodyText" bgcolor="#FFFFFF"><strong><A href="http://www.topcoder.com/tc?module=Static&d1=pressroom&d2=index" target="blank">View All</A></strong></td></tr>
 <!-- TopCoder News Ends-->					
                 		<tr><td bgcolor="#FFFFFF"><hr noshade size="1" width="100%"></hr></td></tr>
                 		

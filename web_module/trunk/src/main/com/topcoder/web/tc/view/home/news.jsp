@@ -38,7 +38,7 @@ Algorithm, Design, and Development Statistics tabs under Member Profiles now inc
    </tr>
    <tr><td class="newsLinksCell">
          <A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -92,7 +92,7 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/pdfs/press_room/cnn_072105.pdf">full story</A> [PDF]&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -221,13 +221,13 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>07.11.05<br>10:10 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=news&d2=pr_071105">Yahoo! Sponsors 2005 TopCoder Open</A></span><br><br>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_071105">Yahoo! Sponsors 2005 TopCoder Open</A></span><br><br>
       "Yahoo! truly sees that we are at the dawn of a new era in recruiting in terms of world-class talent and world-wide distribution of that talent," said Rob Hughes, President and COO of TopCoder. "Yahoo!'s return as a longtime sponsor of TopCoder events shows the quality and reach of our member base."
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=news&d2=pr_071105">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
+         <A href="/tc?module=Static&d1=pressroom&d2=pr_071105">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 
@@ -240,8 +240,8 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr class="bodyText">
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_tc"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /></A></td>
       <td width="50%"><A href="/tc?module=Static&d1=home&d2=news_archive_tc">General TopCoder News</A></td>
-      <td><A href="/?t=news_events&c=index"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /></A></td>
-      <td width="50%"><A href="/?t=news_events&c=index">Press Releases & Articles</A></td>
+      <td><A href="/tc?module=Static&d1=pressroom&d2=index"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /></A></td>
+      <td width="50%"><A href="/tc?module=Static&d1=pressroom&d2=index">Press Releases & Articles</A></td>
    </tr>
    <tr class="bodyText">
       <td><A href="/tc?module=Static&d1=home&d2=news_archive_alg"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /></A></td>

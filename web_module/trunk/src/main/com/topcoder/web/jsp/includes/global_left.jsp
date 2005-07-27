@@ -49,7 +49,7 @@
 <%-- Review Boards ends --%>
 
 <%-- Press Room begins --%>
-                <tr><td id="<%=level1.equals("press_room")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=news_events&c=index" class="<%=level1.equals("press_room")?"leftOn":"left"%>"><img alt="" src="/images/<%=level1.equals("press_room")?"clear":"nav_arrow_right"%>.gif" border="0"/>Press Room</a></td></tr>
+                <tr><td id="<%=level1.equals("press_room")?"leftNavSelect":"leftNav"%>"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=pressroom&d2=index" class="<%=level1.equals("press_room")?"leftOn":"left"%>"><img alt="" src="/images/<%=level1.equals("press_room")?"clear":"nav_arrow_right"%>.gif" border="0"/>Press Room</a></td></tr>
 <%-- Press Room ends --%>
 
 <%-- Management begins --%>

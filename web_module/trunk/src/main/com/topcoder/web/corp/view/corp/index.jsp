@@ -5,7 +5,7 @@
 <head>
 
 <title>TopCoder Corporate Services</title>
-
+<jsp:include page="../script.jsp" />
 <jsp:include page="includes/css.jsp" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>

@@ -80,10 +80,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <!--  TCO05 Verisign -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/tc?module=Static&d1=news&d2=pr_071105"><img src="/i/pressroom/yahoo_logo.gif" alt="yahoo" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_071105"><img src="/i/pressroom/yahoo_logo.gif" alt="yahoo" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=news&d2=pr_071105">TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_071105">TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open</A></strong></font><br />
                         "Yahoo! truly sees that we are at the dawn of a new era in recruiting in terms of world-class talent and world-wide distribution of that talent," said Rob Hughes, President and COO of TopCoder. "Yahoo!'s return as a longtime sponsor of TopCoder events shows the quality and reach of our member base."<span class="prHead"> [July 11]</span></p>
                     </td>
                 </tr>
@@ -94,10 +94,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <!--  TCO05 Verisign -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/tc?module=Static&d1=news&d2=pr_070705"><img src="/i/pressroom/verisign_logo.gif" alt="Verisign" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_070705"><img src="/i/pressroom/verisign_logo.gif" alt="Verisign" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=news&d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_070705">VeriSign Sponsors 2005 TopCoder Open</A></strong></font><br />
                         "With rapid advances in technology occurring everyday, companies are looking for the next generation of leaders to author the code that will provide the backbone for advanced applications."<span class="prHead"> [July 7]</span></p>
                     </td>
                 </tr>
@@ -108,10 +108,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <!--  TCO05 Sun -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/tc?module=Static&d1=news&d2=pr_062705"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_062705"><img src="/i/pressroom/tco05_logo.gif" alt="TCO05" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=news&d2=pr_062705">TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_062705">TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open</A></strong></font><br />
                         "Sun is excited that this year's TopCoder Open Component Competition will introduce a Java-centric theme," said Dan Roberts, Group Manager Development Tools Marketing at Sun Microsystems.<span class="prHead"> [June 27]</span></p>
                     </td>
                 </tr>
@@ -122,10 +122,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <!--  SRM Prizes -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/tc?module=Static&d1=news&d2=pr_062005"><img src="/i/pressroom/tc_srm_prizes.gif" alt="TC SRM Prizes" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_062005"><img src="/i/pressroom/tc_srm_prizes.gif" alt="TC SRM Prizes" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=news&d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Contests</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_062005">TopCoder&#174; Announces Return of Cash Prizes to Weekly Online Programming Contests</A></strong></font><br />
                         $5,000 Purse at Stake During Select Matches as TopCoder Opens Sponsorship of Highly Popular Single Round Series.<span class="prHead"> [June 20]</span></p>
                     </td>
                 </tr>
@@ -151,10 +151,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
 <!--  Caliper -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/tc?module=Static&d1=news&d2=pr_060705"><img src="/i/pressroom/caliper_logo.gif" alt="Caliper" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_060705"><img src="/i/pressroom/caliper_logo.gif" alt="Caliper" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=news&d2=pr_060705">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform & Services</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_060705">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform & Services</A></strong></font><br />
                         Leading Personality Assessment Firm Employs TopCoder's Reusable Component-Based Methodology to Support IT Functions Across the Enterprise.<span class="prHead"> [June 7]</span></p>
                     </td>
                 </tr>
@@ -211,10 +211,10 @@ TopCoder chief operating officer Rob Hughes told CNN that the competitions were 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A href="/tc?module=Static&d1=news&d2=art_051205"><img src="/i/pressroom/twst_logo.gif" alt="The Wall Street Transcript" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=art_051205"><img src="/i/pressroom/twst_logo.gif" alt="The Wall Street Transcript" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&d1=news&d2=art_051205">Interview with Jack Hughes</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=art_051205">Interview with Jack Hughes</A></strong></font><br />
 						   The following is an interview The Wall Street Transcript had with Jack Hughes.<span class="prHead"> [April 22 - The Wall Street Transcript]</span></p>
                     </td>
                 </tr>

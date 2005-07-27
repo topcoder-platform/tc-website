@@ -50,7 +50,7 @@
       <td class="homeGutter" rowspan=2>&#160;</td>
       <td class="homeCentBan"><A href="/corp/?module=Static&d1=corp&d2=index"><img src="/i/home/tab_corporateservices.gif" border="0" /></A></td>
       <td class="homeGutter" rowspan=2>&#160;</td>
-      <td class="homeRightBan"><A href="/?t=news_events&c=index"><img src="/i/home/tab_newsevents.gif" border="0" /></A></td>
+      <td class="homeRightBan"><A href="/tc?module=Static&d1=pressroom&d2=index"><img src="/i/home/tab_newsevents.gif" border="0" /></A></td>
       <td width="50%" rowspan=2>&#160;</td>
    </tr>
 <%-- Body --%>
@@ -158,17 +158,17 @@
          </tr>
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/?t=news_events&c=index" class=homeTitleLink>Press Room Highlights</A></td>
+            <td class="homeTitle"><A href="/tc?module=Static&d1=pressroom&d2=index" class=homeTitleLink>Press Room Highlights</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
             Registration Opens for Google Code Jam 2005 <A href="http://www.google.com/intl/en/press/pressrel/codejam3.html">...more</A><br>[July 25]<br><br>
             On your marks, get set, code! [PDF] <A href="/pdfs/press_room/cnn_072105.pdf">...more</A><br>[July 21]<br><br>
-            TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open <A href="/tc?module=Static&d1=news&d2=pr_071105">...more</A><br>[July 11]<br><br>
-            VeriSign Sponsors 2005 TopCoder Open <A href="/tc?module=Static&d1=news&d2=pr_070705">...more</A><br>[July 7]<br><br>
-            TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open <A href="/tc?module=Static&d1=news&d2=pr_062705">...more</A><br>[June 27]<br><br>
-            TopCoder&#174; Announces Return of Cash Prizes to SRMs <A href="/tc?module=Static&d1=news&d2=pr_062005">...more</A><br>[June 20]<br><br>
+            TopCoder&#174; Announces Return of Premier Sponsor to 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_071105">...more</A><br>[July 11]<br><br>
+            VeriSign Sponsors 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_070705">...more</A><br>[July 7]<br><br>
+            TopCoder Announces Sun Microsystems as Title Sponsor for 2005 TopCoder Open <A href="/tc?module=Static&d1=pressroom&d2=pr_062705">...more</A><br>[June 27]<br><br>
+            TopCoder&#174; Announces Return of Cash Prizes to SRMs <A href="/tc?module=Static&d1=pressroom&d2=pr_062005">...more</A><br>[June 20]<br><br>
             </td>
          </tr>
       </table>
@@ -178,7 +178,7 @@
     <tr><td class="homeFooter" colspan=7>
             <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=news_events&c=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
+            <A href="/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
