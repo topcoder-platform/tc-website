@@ -21,7 +21,7 @@
 
 <xsl:call-template name="CSS"/>      
 
-<meta http-equiv="Refresh" content="5; URL=/tc?module=Static&amp;d1=news&amp;d2=index" />
+<meta http-equiv="Refresh" content="5; URL=/tc?module=Static&amp;d1=pressroom&amp;d2=index" />
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
 

@@ -71,7 +71,7 @@
 
                             <tr><td class="newsText"><A href="http://www.boilerstation.com/planet/stories/200505160purdue_planet1116219600.shtml" target="_blank">Purdue computer programmer making his mark in competitions</A> [May 16 - Boiler Station]</td></tr>
 
-                            <tr><td class="newsText"><A href="/tc?module=Static&amp;d1=news&amp;d2=art_051205">Interview with Jack Hughes</A> [April 22 - The Wall Street Transcript]</td></tr>
+                            <tr><td class="newsText"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_051205">Interview with Jack Hughes</A> [April 22 - The Wall Street Transcript]</td></tr>
 
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_04_08_05">Code Warriors</A> [April 8 - Chronicle of Higher Education]</td></tr>
 

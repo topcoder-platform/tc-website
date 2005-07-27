@@ -531,7 +531,7 @@
                 <xsl:call-template name="reviewboard_row"/>
 
                 <tr>
-                    <td id="leftNavSelect"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/clear.gif" border="0"/>Press Room</A></td>
+                    <td id="leftNavSelect"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=pressroom&amp;d2=index</xsl:attribute><img alt="" width="10" height="10" src="/i/clear.gif" border="0"/>Press Room</A></td>
                 </tr>
 
                 <xsl:call-template name="management_row"/>
@@ -726,7 +726,7 @@
 </xsl:template>
 
 <xsl:template name="press_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/clear.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Room</A></td></tr>
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/clear.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=pressroom&amp;d2=index</xsl:attribute>Press Room</A></td></tr>
 </xsl:template>
 
 <xsl:template name="management_row">
