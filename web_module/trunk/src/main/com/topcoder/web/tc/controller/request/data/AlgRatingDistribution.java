@@ -17,8 +17,6 @@ import java.util.Map;
 import java.util.Iterator;
 
 import org.xml.sax.helpers.AttributesImpl;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 
 /**
  * @author  dok
