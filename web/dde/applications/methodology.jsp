@@ -141,7 +141,7 @@
 
 						<li><strong>Working solution:</strong> Fully unit tested, documented and system tested implementation of the design.
 
-						<li><strong>Test Cases:</strong> Test Cases covering unit tests, stress tests, accuracy tests and boundary tests.  All test cases are written using the JUnit framework.<br><br>
+						<li><strong>Test Cases:</strong> Test Cases covering unit tests, stress tests, accuracy tests and boundary tests.  Test cases are automated when appropriate.<br><br>
 </p>
 <!-- Component Production ends -->
 
@@ -162,9 +162,9 @@
 
 <!-- Deployment begins -->
                         <p class=catalogIndexHeader>Deployment</p>
-                        <p>In this phase the fully functioning solution and all associated deliverables are turned over to the client.  
-                        A TopCoder Project Manager and Deployment Engineer visit the client site to deploy the application on the client's 
-                        quality assurance servers.</p>
+                        <p>In this phase the fully functioning solution and all associated deliverables will be turned over to the client.  
+                        An onsite TopCoder Project Manager and TopCoder Deployment Engineers will deploy the application on quality assurance servers.
+                        </p>
 <!-- Deployment ends -->
                     </td>
                 </tr>
