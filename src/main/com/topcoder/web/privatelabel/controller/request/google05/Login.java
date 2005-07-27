@@ -130,7 +130,11 @@ public class Login extends FullLogin {
         //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
         long userId = getAuthentication().getActiveUser().getId();
 
-        FullRegInfo info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+
+        FullRegInfo info = null;
+        if (!getAuthentication().getActiveUser().isAnonymous()) {
+            info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        }
 
         if (hasCompanyAccount) {
 
