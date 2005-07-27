@@ -70,7 +70,7 @@ public class AlgRatingDistribution extends Base {
                         if (i<rsc.getColumnCount()-1) {
                             bucketAtts.addAttribute("", "", "max", "", String.valueOf((i+1)*100-1));
                         } else {
-                            bucketAtts.addAttribute("", "", "max", "", "INF");
+                            bucketAtts.addAttribute("", "", "max", "", String.valueOf(Integer.MAX_VALUE));
                         }
                         //add the content of the bucket, the number of people in it
                         hd.startElement("", "", "bucket", bucketAtts);
