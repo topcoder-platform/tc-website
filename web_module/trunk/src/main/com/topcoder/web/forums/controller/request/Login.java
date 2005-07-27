@@ -9,6 +9,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.forums.model.*;
 
 public class Login extends ForumsProcessor {
 
@@ -38,7 +39,8 @@ public class Login extends ForumsProcessor {
         try {
             if (((BasicAuthentication)getAuthentication()).hashPassword(password).equals(hashedPassword)) {
                 com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
-                authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
+                //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
+                authToken = AuthFactory.getAuthToken(getHttpRequest(), getHttpResponse());
                 getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
             } else {
                 log.debug("forum password hash not matched");
