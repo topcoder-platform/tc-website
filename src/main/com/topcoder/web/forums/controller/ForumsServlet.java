@@ -29,6 +29,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
+import com.topcoder.web.forums.model.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -67,13 +68,13 @@ public class ForumsServlet extends BaseServlet {
             try {
 		        authToken = AuthFactory.getAuthToken(request, response);
             } catch (UnauthorizedException uae) {}
-            /*if (log.isDebugEnabled()) {
+            if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
                     log.debug("*** Uses custom auth ***");
                 } else {
                     log.debug("*** Does not use custom auth ***");
                 }
-            }*/
+            }
 	    	user = getUser(authToken.getUserID());
 
 		    info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
