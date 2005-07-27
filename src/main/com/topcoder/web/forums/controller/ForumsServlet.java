@@ -64,9 +64,9 @@ public class ForumsServlet extends BaseServlet {
 
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-		    AuthToken authToken = AuthFactory.getAnonymousAuthToken();
+		    AuthToken authToken = TCAuthFactory.getAnonymousAuthToken();
             try {
-		        authToken = AuthFactory.getAuthToken(request, response);
+		        authToken = TCAuthFactory.getAuthToken(request, response);
             } catch (UnauthorizedException uae) {}
             if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
