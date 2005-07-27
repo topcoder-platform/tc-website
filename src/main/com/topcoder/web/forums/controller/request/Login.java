@@ -47,6 +47,7 @@ public class Login extends ForumsProcessor {
                 throw new Exception();
             }
         } catch (Exception e) {
+            log.debug(e.getMessage());
             log.debug("login failed for: " + dest);
             AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
             getAuthentication().logout();
