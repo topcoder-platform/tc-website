@@ -69,11 +69,7 @@ abstract class RatingDistribution extends Base {
                         //create the min and max attributes for this bucket
                         bucketAtts = new AttributesImpl();
                         bucketAtts.addAttribute("", "", "min", "int", String.valueOf(i*100));
-                        if (i<rsc.getColumnCount()-1) {
-                            bucketAtts.addAttribute("", "", "max", "", String.valueOf((i+1)*100-1));
-                        } else {
-                            bucketAtts.addAttribute("", "", "max", "", String.valueOf(Integer.MAX_VALUE));
-                        }
+                       bucketAtts.addAttribute("", "", "max", "", String.valueOf((i+1)*100-1));
                         //add the content of the bucket, the number of people in it
                         hd.startElement("", "", "bucket", bucketAtts);
                         hd.characters(rsr.getStringItem(i).toCharArray(), 0, rsr.getStringItem(i).length());
