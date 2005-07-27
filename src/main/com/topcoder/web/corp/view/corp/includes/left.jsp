@@ -65,7 +65,7 @@
 <%--
                 <tr><td id="leftNav"><a href="" class="left">Client List</a></td></tr>
 --%>
-                <tr><td id="leftNav"><a href="/?t=news_events&c=index" class="left">Press Room</a></td></tr>
+                <tr><td id="leftNav"><a href="/tc?module=Static&d1=pressroom&d2=index" class="left">Press Room</a></td></tr>
                 <tr><td id="leftNav"><a href="/tc" class="left">Developer Center</a></td></tr>
     <% } else { %>
                 <tr><td id="leftNavTitle">Corporate Services:</td></tr>

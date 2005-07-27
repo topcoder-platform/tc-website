@@ -53,7 +53,7 @@
             </xsl:call-template>
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                <tr><td class="bodyText"><div align="right"><A href="/?t=news_events&amp;c=index">Go to Press Releases</A></div></td></tr>
+                <tr><td class="bodyText"><div align="right"><A href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">Go to Press Releases</A></div></td></tr>
             
                 <tr valign="top">
                     <td class="bodyText" width="100%">          

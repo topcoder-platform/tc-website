@@ -49,7 +49,7 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="http://www.computeruser.com/articles/2404,1,1,1,0401,05.html" target="_blank">full story</A>&#160;|&#160;
-         <A href="/?t=news_events&c=index">archive</A>
+         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
    </td></tr>
 
 <%------------------EMPLOYMENT OPPS--------------------------------------%>
