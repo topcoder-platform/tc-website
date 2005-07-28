@@ -41,7 +41,7 @@ public class CompContestDetails extends Base {
 //                        and phase_id = ('type == 1'? 112 : 113)
 //                        and status_id in (4,5,6)
 //                        order by posting_date
-
+// x
             DataAccessInt dai;
             Map result;
             ResultSetContainer rsc;
