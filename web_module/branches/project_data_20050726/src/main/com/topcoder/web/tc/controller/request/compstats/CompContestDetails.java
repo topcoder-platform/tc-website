@@ -129,7 +129,7 @@ public class CompContestDetails extends Base {
             getRequest().setAttribute("resultMap", result);
 
 
-            setNextPage("/statistics/compContestDetails.jsp");
+            setNextPage("/compstats/compContestDetails.jsp");
             setIsNextPageInContext(true);
 
         } catch (TCWebException we) {
