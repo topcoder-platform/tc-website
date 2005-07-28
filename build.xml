@@ -19,7 +19,6 @@
      <property name="resources" value="resources"/>
      <property name="taglib" value="${resources}/taglib"/>
      <property name="images" value="images"/>
-     <property name="Jive.jar" value="${bin}/Jive.jar"/>
      <property name="shared.jar" value="${bin}/shared.jar"/>
      <property name="web" value="src/main/com/topcoder/web"/>
      <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
@@ -232,14 +231,6 @@
          <!-- kill the entire build dir -->
          <delete dir="${build}"/>
          <delete dir="${bin}"/>
-     </target>
-
-     <target name="package-Jive" depends="compile">
-         <jar jarfile="${Jive.jar}">
-             <fileset dir="${classes}/"
-                 includes="com/coolservlets/**"
-                 />
-         </jar>
      </target>
 
      <target name="jar_shared" depends="compile_shared">
