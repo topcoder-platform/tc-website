@@ -1,6 +1,6 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.web.tc.Constants"%>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <% int termsId = ((Integer)request.getAttribute(Constants.TERMS_OF_USE_ID)).intValue();%>
 <% String agreeProcessor = null;
     if (termsId == Constants.TCO05_ALGORITHM_TERMS_OF_USE_ID) agreeProcessor="TCO05AlgorithmTermsAgree";
@@ -37,19 +37,19 @@
 
 			</div>
 		</td>
-         
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tco05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />
