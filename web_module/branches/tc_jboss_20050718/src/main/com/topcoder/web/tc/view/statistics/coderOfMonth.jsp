@@ -73,7 +73,7 @@ TopCoder reserves the title of Coder of the Month for any competitor who has had
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -85,7 +85,7 @@ TopCoder reserves the title of Coder of the Month for any competitor who has had
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 

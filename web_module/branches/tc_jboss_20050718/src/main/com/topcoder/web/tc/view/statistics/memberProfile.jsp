@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -120,7 +120,7 @@ This member has not yet been rated in a competition.
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -132,7 +132,7 @@ This member has not yet been rated in a competition.
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 
