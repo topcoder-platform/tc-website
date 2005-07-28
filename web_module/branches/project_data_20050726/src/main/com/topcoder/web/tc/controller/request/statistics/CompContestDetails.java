@@ -32,7 +32,7 @@ public class CompContestDetails extends Base {
             String projId;
             String compId;
             String versId;
-            String type;
+            String phaseId;
 
             Request r = new Request();
             r.setContentHandle("find_projects");
@@ -51,26 +51,26 @@ public class CompContestDetails extends Base {
             // 2. if there is comp,vers,type and pid use that project
             // 3. if there is just pid, use that project and find out its comp+vers+type
             if(hasParameter("comp")) {
-                if(!hasParameter("type")) {
-                    throw new TCWebException("parameter 'type' expected when 'comp' is specified");
+                if(!hasParameter("pi")) {
+                    throw new TCWebException("parameter 'pi' expected when 'comp' is specified");
                 }
-                if(!hasParameter("vers")) {
+                if(!hasParameter("vr")) {
                     throw new TCWebException("parameter 'vers' expected when 'comp' is specified");
                 }
 
                 compId = getRequest().getParameter("comp");
-                type = getRequest().getParameter("type");
-                versId = getRequest().getParameter("versId");
+                phaseId = getRequest().getParameter("pi");
+                versId = getRequest().getParameter("vr");
 
 
-                if(hasParameter("pid")) {
-                    projId = getRequest().getParameter("pid");
+                if(hasParameter("pj")) {
+                    projId = getRequest().getParameter("pj");
                 } else {
                     // get the winning project
 
-                    r.setProperty("component_id", compId);
-                    r.setProperty("version_id", versId);
-                    r.setProperty("phase_id", type == "1" ? "112" : "113");
+                    r.setProperty("comp", compId);
+                    r.setProperty("vr", versId);
+                    r.setProperty("pi", phaseId);
 
                     dai = getDataAccess(true);
                     result = dai.getData(r);
@@ -93,7 +93,7 @@ public class CompContestDetails extends Base {
 
             } else {
                 if(!hasParameter("pid")) {
-                    throw new TCWebException("either comp+vers+type or pid expected as parameters");
+                    throw new TCWebException("either comp+vr+pi or pj expected as parameters");
                 }
 
                     dai = getDataAccess(true);
