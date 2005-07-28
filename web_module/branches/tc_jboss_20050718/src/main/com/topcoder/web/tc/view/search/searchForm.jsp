@@ -112,7 +112,7 @@
 
                                 <tr>
                                     <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
