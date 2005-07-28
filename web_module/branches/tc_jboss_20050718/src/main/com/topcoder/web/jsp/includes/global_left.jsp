@@ -238,7 +238,7 @@
 
     <% if (level1.equals("home")) { %>
 
-            <jsp:include page="../../home/coder_of_month.jsp" />
+            <jsp:include page="/home/coder_of_month.jsp" />
             <img alt="" width="1" height="9" src="/i/clear.gif" border="0"/><br />
             <jsp:include page="../calendar.jsp" />
     <% } %>
