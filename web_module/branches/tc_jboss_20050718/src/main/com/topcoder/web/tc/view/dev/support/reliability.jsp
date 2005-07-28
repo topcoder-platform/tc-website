@@ -19,7 +19,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
                 <jsp:param name="level3" value="reliability"/>
@@ -34,71 +34,71 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
-            
+
 <h2>Development Faq</h2>
 <p>If you have any questions concerning Reliability Rating that are not answered here, please send an email to <A href="mailto:service@topcoder.com">service@topcoder.com</A>.</p>
 
 <h3>Reliability Rating</h3>
-<p>Member profiles have been modified to reflect a reliability factor for all component design and development competitions. 
-The reliability factor is calculated as the percent of projects that a member registers for in which that same 
+<p>Member profiles have been modified to reflect a reliability factor for all component design and development competitions.
+The reliability factor is calculated as the percent of projects that a member registers for in which that same
 member presents a timely submission that passes screening.</p>
 
 <p>When figuring out the reliability bonus for a project, the reliability rating at the time the participant signed up for the project is used.  A participant with no previous projects is considered to have no reliability rating, and therefore gets no bonus.</p>
 
-<p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed 
-80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10% 
-of the prize. For Reliability Ratings equal to or exceeding 90% and less than 95%, winning members will receive a bonus equal 
-to 15% of the prize. And winning members with a Reliability Rating equal to or exceeding of 95% will receive a bonus equal 
+<p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed
+80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10%
+of the prize. For Reliability Ratings equal to or exceeding 90% and less than 95%, winning members will receive a bonus equal
+to 15% of the prize. And winning members with a Reliability Rating equal to or exceeding of 95% will receive a bonus equal
 to 20% of the prize. The following is an example of payouts based on the member's Reliability Rating:</p>
 
 
 			<table width="400" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
 
                 <tr>
-                	
+
                 	<td class="sidebarTitle">0% - 79%</td>
                     <td class="sidebarTitle">80% - 89%</td>
                     <td class="sidebarTitle">90% - 94%</td>
                     <td class="sidebarTitle">95 - 100%</td>
                 </tr>
-                
-                
+
+
                 <tr>
-                	
+
                     <td class="sidebarText">$5,000</td>
                     <td class="sidebarText">$5,500</td>
                     <td class="sidebarText">$5,750</td>
                     <td class="sidebarText">$6,000</td>
                 </tr>
                 <tr>
-                	
+
                     <td class="sidebarText">$2,000</td>
                     <td class="sidebarText">$2,200</td>
                     <td class="sidebarText">$2,300</td>
                     <td class="sidebarText">$2,400</td>
-                </tr>                
+                </tr>
                 <tr>
-                	
+
                     <td class="sidebarText">$500</td>
                     <td class="sidebarText">$550</td>
                     <td class="sidebarText">$575</td>
                     <td class="sidebarText">$600</td>
                 </tr>
                	<tr>
-               		
+
                     <td class="sidebarText">$200</td>
                     <td class="sidebarText">$220</td>
                     <td class="sidebarText">$230</td>
                     <td class="sidebarText">$240</td>
                 </tr>
                	<tr>
-               		
+
                     <td class="sidebarText">$100</td>
                     <td class="sidebarText">$110</td>
                     <td class="sidebarText">$115</td>
                     <td class="sidebarText">$120</td>
-                </tr> 
-                               
+                </tr>
+
             </table>
 
             <p><br/></p>

@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
-                 com.topcoder.shared.dataAccess.DataAccessConstants, 
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.util.ApplicationServer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -23,7 +23,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="support"/>
                 <jsp:param name="level3" value="devTutorial"/>
@@ -37,7 +37,7 @@
 
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
-			
+
 		<p><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Back to tutorial</A></p>
 
 			<h2>Unit Tests - Java</h2>
@@ -51,12 +51,12 @@
 <pre>/**
  * UnitTests.java
  *
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2004, TopCoder, Inc. All rights reserved
  */</pre>
-		<p>Next, add the package. Our example package is com.topcoder.util.tutorial. Your 
+		<p>Next, add the package. Our example package is com.topcoder.util.tutorial. Your
 			package will be specific to your project.</p>
 <pre>package com.topcoder.util.tutorial;</pre>
-		<p>After this, you'll need some basic imports for your code to compile against the 
+		<p>After this, you'll need some basic imports for your code to compile against the
 			JUnit library.</p>
 <pre>import junit.framework.Test;
 import junit.framework.TestCase;
@@ -70,7 +70,7 @@ import junit.framework.TestSuite;
  */
 public class UnitTests extends TestCase {
 }</pre>
-		<p>This class will only contain one method: suite(). The suite() function 
+		<p>This class will only contain one method: suite(). The suite() function
 			aggregates all the test cases you will create.</p>
 <pre>/**
  * Creates a test suite containing all Unit Tests
@@ -92,8 +92,8 @@ return suite;</pre>
 		<p>First, we'll need to create a Java source file for this unit test, TutorialLayoutTest.java.</p>
 <pre>/**
  * TutorialLayoutTest.java
- * 
- * Copyright © 2004, TopCoder, Inc. All rights reserved
+ *
+ * Copyright ï¿½ 2004, TopCoder, Inc. All rights reserved
  */
 package com.topcoder.util.tutorial;
 
@@ -117,7 +117,7 @@ public class TutorialLayoutTest extends TestCase
 
 <pre>// File name and path for test saves
 private static final String SAVEAS_OUTPUT = "test_files/unit_tests/output/test_saveas.txt";
-// Reference blank save file 
+// Reference blank save file
 private static final String SAVEAS_BLANK_REFERENCE = "test_files/unit_tests/blank_saveas.txt";
 
 /**
@@ -133,7 +133,7 @@ public void testSaveAsBlank()
 }</pre>
 		<p>First, we've added a couple of private variables that will hold the rather long string values used in our tests. You can add private variables to your unit tests just like you would in any class. Next, there is the actual test function, testSaveAsBlank(). It creates an instance of the class we're testing, and calls the function we're testing. Next, we use JUnit to test an assertion.&nbsp; Here, the assertion is that the function file_compare returns true.&nbsp; If it does not return true, the test will fail, and "Files do not match." will be given as the reason for failure.</p>
 		<p>Now that we have one test, we can easily copy that test to create more tests!&nbsp; Let's write a test that verifies a more complex object saves as expected.</p>
-<pre>// Reference complex save file 
+<pre>// Reference complex save file
 private static final String SAVEAS_COMPLEX_REFERENCE = "test_files/unit_tests/complex_saveas.txt";
 
 /**
@@ -142,12 +142,12 @@ private static final String SAVEAS_COMPLEX_REFERENCE = "test_files/unit_tests/co
 public void testSaveAsComplex()
 {
 	TutorialLayout test_object = new TutorialLayout(TutorialLayout.MULTIPLE_DOCUMENT, true);
-	
+
 	// Add objects to the blank layout.
 	test_object.Add(new TutorialContents());
 	test_object.Add(new TutorialIndex());
 	test_object.Add(new TutorialChapter("First Chapter"));
-	
+
 	test_object.SaveAs(SAVEAS_OUTPUT);
 
 	assertTrue("Files do not match.", file_compare(SAVEAS_OUTPUT, SAVEAS_COMPLEX_REFERENCE));
@@ -159,17 +159,17 @@ public void testSaveAsComplex()
  * Tests SaveAs for failure with null input.
  */
 public void testSaveAsNull()
-{	
+{
 	TutorialLayout test_object = new TutorialLayout(TutorialLayout.SINGLE_DOCUMENT, true);
 
-	try 
+	try
 	{
 		// This call should throw an IAE
 		test_object.SaveAs(null);
-		
+
 		fail("Did not throw exception.");
-	} 
-	catch (IllegalArgumentException iae) { /* expected */ }        	
+	}
+	catch (IllegalArgumentException iae) { /* expected */ }
 }</pre>
 		<p>This code is very simple. If the SaveAs call does not throw an exception, which will be caught in the try/catch block, the next line to be executed is a call to fail. Unlike assertions, we are not testing anything.&nbsp; If the statement is ever reached, the test will fail immediately, with the given message.</p>
 		<p>Note that so far, we have a bit of duplicate code. Also, you may have wondered,&nbsp;what if the output files are somehow already on the system? How can I guarantee a clean environment and reduce code duplication?</p>		<h4>setUp() and tearDown()</h4>

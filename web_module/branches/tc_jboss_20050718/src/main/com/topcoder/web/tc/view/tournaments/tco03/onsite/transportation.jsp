@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -47,21 +47,21 @@
 </jsp:include>
 
             <h2>Transportation to Mohegan Sun</h2>
-            
+
             <p><strong>By Car</strong><br/>
-            Mohegan Sun is conveniently located only minutes off Interstates 95, 90 and 91 in Uncasville, Connecticut. View  
+            Mohegan Sun is conveniently located only minutes off Interstates 95, 90 and 91 in Uncasville, Connecticut. View
             <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=directions">driving directions</a></p>
-            
+
             <p><strong>By Plane</strong><br/>
-            Mohegan Sun is just a short drive from Hartford's Bradley International Airport and Providence's T.F. Green International Airport. Each 
-            offers direct, non-stop flights from more than 35 major cities, via several national and regional airlines, including American, Continental, 
-            Delta, MetroJet, Northwest, Southwest, United Airlines, US Airways and others. 
-            Visit <a href="http://www.bradleyairport.com/" target="_blank">www.bradleyairport.com</a> or 
+            Mohegan Sun is just a short drive from Hartford's Bradley International Airport and Providence's T.F. Green International Airport. Each
+            offers direct, non-stop flights from more than 35 major cities, via several national and regional airlines, including American, Continental,
+            Delta, MetroJet, Northwest, Southwest, United Airlines, US Airways and others.
+            Visit <a href="http://www.bradleyairport.com/" target="_blank">www.bradleyairport.com</a> or
             <a href="http://www.pvdairport.com/" target="_blank">www.pvdairport.com</a> for specific information.</p>
-            
+
             <p><strong>By Bus</strong><br/>
-            Line Run buses operate on a regular schedule, through different markets. Tickets for Line Run buses are sold at bus depots and various 
-            convenience stores in towns throughout New England and Long Island. Learn more about 
+            Line Run buses operate on a regular schedule, through different markets. Tickets for Line Run buses are sold at bus depots and various
+            convenience stores in towns throughout New England and Long Island. Learn more about
             <a href="http://www.mohegansun.com/plan_visit/bus_pkgs.jsp#bus" target="_blank">bus packages.</a></p>
 
             <p><strong>By Rail</strong><br/>
@@ -70,7 +70,7 @@
 
             <p><strong>By Ferry</strong> (from Long Island)<br/>
             View the Mohegan Sun <a href="http://www.mohegansun.com/plan_visit/orient_ferry_schedule.htm" target="_blank">Ferry Schedule</a></p>
-            
+
             <p>See more <a href="http://www.mohegansun.com/plan_visit/faq_transportation.jsp" target="_blank">transportation info</a> on the Mohegan Sun web site.</p>
 
          <p><br/></p>

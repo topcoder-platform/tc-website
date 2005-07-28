@@ -18,7 +18,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../../includes/global_left.jsp">
+            <jsp:include page="..//includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -49,12 +49,12 @@
             <p class="terciary">
                 Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room1_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room1_analysis">Problem Analysis</a>
             </p>
-            
+
             <div class="leadPhoto">
             <img src="/i/tournament/tco03/room1/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">bstanescu enjoying the moment<br/><br/></span>
             </div>
-            
+
             <h2>bstanescu outcodes number one seed to take Room 1</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
@@ -72,7 +72,7 @@
 
             <p>The round's outcome was quite an upset.  SnapDragon, the second highest rated member and number one seed for the tournament, was the favorite pick-to-win for the match.  Additionally, many spectators were rooting for dpecora as he was the underdog of all 16 semi-finalists.</p>
 
-            <p>Stay tuned for the next round, as we wait to see if there are more upsets to come. </p> 
+            <p>Stay tuned for the next round, as we wait to see if there are more upsets to come. </p>
 
             <p><br/></p>
         </td>

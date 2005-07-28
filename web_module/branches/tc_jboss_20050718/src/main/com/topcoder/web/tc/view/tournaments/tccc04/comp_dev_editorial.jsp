@@ -16,7 +16,7 @@ function openWin(url, name) {
     win.focus();
 }
 </script>
-    
+
 </head>
 
 <body>
@@ -29,7 +29,7 @@ function openWin(url, name) {
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
                 <jsp:param name="level2" value="tournaments"/>
             </jsp:include>
@@ -48,9 +48,9 @@ function openWin(url, name) {
 <!-- Tab bar links-->
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="component"/>
-   <jsp:param name="tabLev2" value="development"/> 
+   <jsp:param name="tabLev2" value="development"/>
    <jsp:param name="tabLev3" value="editorial"/>
-</jsp:include> 
+</jsp:include>
 
             <img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
             <div class="leadPhoto">
@@ -58,7 +58,7 @@ function openWin(url, name) {
             <img src="/i/tournament/tccc04/onsite_photos/dev_finals.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">roma and his check<br/><br/></span>
             </div>
-            
+
             <h2>roma takes the development title</h2>
 
             <p>by <a href="/tc?module=MemberProfile&cr=251989">AdamSelene</a>, <br/>
@@ -67,9 +67,9 @@ function openWin(url, name) {
             </p>
 
 <p>
-A five hour struggle with bugs both large and small has ended, with roma finishing ahead of preben and gladius.  Along with a year's bragging rights, roma netted $15,000 in today's match.  The competition was largely quiet until the last two hours, with roma diving into the development addendum, and gladius exploring the Configuration Manager component.  The addendum proved to be a stumbling block for all competitors, but roma emerged victorious by a margin of nearly 15 points.  
+A five hour struggle with bugs both large and small has ended, with roma finishing ahead of preben and gladius.  Along with a year's bragging rights, roma netted $15,000 in today's match.  The competition was largely quiet until the last two hours, with roma diving into the development addendum, and gladius exploring the Configuration Manager component.  The addendum proved to be a stumbling block for all competitors, but roma emerged victorious by a margin of nearly 15 points.
 </p>
-	
+
 <h3>THE ROAD TO THE FINALS</h3>
 
 <p>
