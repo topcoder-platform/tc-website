@@ -42,6 +42,16 @@ public class TCAuthFactory extends AuthFactory {
         } catch (Exception e) {
             Log.error(e);
         }
+        if (auth.getActiveUser().isAnonymous() && 
+                httpServletRequest.getParameter("password") != null && 
+                httpServletRequest.getParameter("username") != null) {
+            try {
+                auth.login(new SimpleUser(0, httpServletRequest.getParameter("username"), 
+                    httpServletRequest.getParameter("password")), false);
+            } catch (Exception e) {
+                Log.error(e);
+            }
+        }
         return new TCAuthToken(auth.getActiveUser().getId());
     }
 
