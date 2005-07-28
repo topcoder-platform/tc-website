@@ -1,4 +1,10 @@
-<%@  page language="java"  %>
+<%@  page language="java"
+    import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          java.util.Map"%>
+
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -41,7 +47,7 @@
 
 HELLO
 <% ResultSetContainer rscProjects = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("find_projects"); %>
-<%= rscProjects.getIntItem(0, "project_id"); %>
+<%= rscProjects.getIntItem(0, "project_id") %>
 
 
 
