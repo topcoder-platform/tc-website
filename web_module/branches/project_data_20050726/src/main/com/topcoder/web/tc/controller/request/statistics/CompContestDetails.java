@@ -50,15 +50,15 @@ public class CompContestDetails extends Base {
             // 1. if there is comp, vers and type, use the winning project
             // 2. if there is comp,vers,type and pid use that project
             // 3. if there is just pid, use that project and find out its comp+vers+type
-            if(hasParameter("comp")) {
+            if(hasParameter("compid")) {
                 if(!hasParameter("pi")) {
-                    throw new TCWebException("parameter 'pi' expected when 'comp' is specified");
+                    throw new TCWebException("parameter 'pi' expected when 'compid' is specified");
                 }
                 if(!hasParameter("vr")) {
-                    throw new TCWebException("parameter 'vers' expected when 'comp' is specified");
+                    throw new TCWebException("parameter 'vers' expected when 'compid' is specified");
                 }
 
-                compId = getRequest().getParameter("comp");
+                compId = getRequest().getParameter("compid");
                 phaseId = getRequest().getParameter("pi");
                 versId = getRequest().getParameter("vr");
 
@@ -68,7 +68,7 @@ public class CompContestDetails extends Base {
                 } else {
                     // get the winning project
 
-                    r.setProperty("comp", compId);
+                    r.setProperty("compid", compId);
                     r.setProperty("vr", versId);
                     r.setProperty("pi", phaseId);
 
