@@ -6,8 +6,12 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 
+import com.topcoder.shared.util.logging.Logger;
+
+
 abstract public class Base extends BaseProcessor {
 
+protected static final Logger log = Logger.getLogger("com.topcoder.shared.util.logging.Logger");
 
     public DataAccessInt getDataAccess() throws Exception {
         return getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, false);
@@ -18,6 +22,7 @@ abstract public class Base extends BaseProcessor {
     }
 
     public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
+        log.debug("Accessing to " + DBMS.TCS_DW_DATASOURCE_NAME);
         if (datasource == null) return null;
         DataAccessInt dAccess = null;
         if (cached)
