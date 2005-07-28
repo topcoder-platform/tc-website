@@ -1,6 +1,6 @@
 <%@  page language="java"  %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -22,7 +22,7 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class="bodySpacer">
-            
+
         <p class="bigTitle">Component Design Competition Finals</p>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" align="center" class="formFrame">
@@ -34,7 +34,7 @@
                   <td class="advHeader" align="right" width="15%"><A href="/tc?module=MemberProfile&cr=289824">MPhk</a>&#160;&#160;</td>
                </tr>
 
-                <tr>  
+                <tr>
                   <td class="advCell" align="left" colspan=5>Final scores (by reviewer):</td>
                 </tr>
                 <tr>
@@ -58,7 +58,7 @@
 
                 <tr><td class="advCell" colspan=5>&#160;</td></tr>
 
-                <tr>  
+                <tr>
                   <td class="advCell" align="left"><b>Final score:<b></td>
                   <td class="advCell" align="right"><b>435.56</A>&#160;&#160;<b></td>
                   <td class="advCell" align="right"><b>429.44</A>&#160;&#160;<b></td>
@@ -79,20 +79,20 @@
 
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tccc05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />

@@ -8,7 +8,7 @@
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="struts-logic.tld" prefix="logic" %>
   <!--
   <%= request.getAttribute("QUERY") %>
   -->

@@ -5,7 +5,7 @@
 <% ResultSetContainer memberList = (ResultSetContainer)request.getAttribute("memberList"); %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
 

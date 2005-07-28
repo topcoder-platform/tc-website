@@ -1,5 +1,5 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <br><br>
 <table border="0" cellspacing="0" cellpadding="0" width="525">

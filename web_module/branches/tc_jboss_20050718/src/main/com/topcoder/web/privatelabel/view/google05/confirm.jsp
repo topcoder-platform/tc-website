@@ -4,8 +4,8 @@ com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
 com.topcoder.web.privatelabel.view.tag.DemographicInput,
 com.topcoder.web.common.BaseProcessor,
 com.topcoder.shared.util.ApplicationServer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="/privatelabel.tld" prefix="pl" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.ResumeRegInfo" scope="session" />
 <jsp:usebean id="responseList" class="java.util.List" scope="request" />
@@ -79,7 +79,7 @@ function submitEnter(e) {
       </td>
       <td valign="top" width="100%">
 
-         
+
 
          <table width="100%" cellpadding="0" cellspacing="5" class="bodyText" align="center" >
            <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">

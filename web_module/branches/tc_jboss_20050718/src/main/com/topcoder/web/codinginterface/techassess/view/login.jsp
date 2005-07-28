@@ -2,7 +2,7 @@
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.codinginterface.CodingInterfaceConstants,
                  java.util.HashMap"%>
-<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>

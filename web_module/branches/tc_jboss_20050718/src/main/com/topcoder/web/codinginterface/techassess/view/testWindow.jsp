@@ -7,8 +7,8 @@
                  com.topcoder.shared.netCommon.screening.ScreeningConstants,
                  java.net.URLEncoder"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
-<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <tc-webtag:useBean id="prob" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" toScope="page" property="problem"/>
 <tc-webtag:useBean id="problemInfo" name="<%=Constants.PROBLEM%>" type="com.topcoder.web.codinginterface.techassess.model.ProblemInfo" toScope="page" />
 <tc-webtag:useBean id="language" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" toScope="page" property="language"/>
