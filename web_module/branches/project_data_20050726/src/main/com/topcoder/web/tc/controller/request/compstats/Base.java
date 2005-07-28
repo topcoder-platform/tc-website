@@ -11,7 +11,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 abstract public class Base extends BaseProcessor {
 
-protected static final Logger log = Logger.getLogger(Base.getClass());
+protected static final Logger log = Logger.getLogger(Base.class);
 
     public DataAccessInt getDataAccess() throws Exception {
         return getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, false);
