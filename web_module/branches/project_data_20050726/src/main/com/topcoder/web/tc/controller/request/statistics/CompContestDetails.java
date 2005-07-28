@@ -43,7 +43,7 @@ public class CompContestDetails extends Base {
 //                        order by posting_date
 // x
             DataAccessInt dai;
-            Map result;
+            Map result = null;
             ResultSetContainer rsc;
 
 
