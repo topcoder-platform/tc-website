@@ -26,7 +26,7 @@
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
- 
+
 <!-- Center Column Begins -->
 <TD CLASS="statTableSpacer" WIDTH="100%" VALIGN="top">
 
@@ -37,6 +37,14 @@
 
 <span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink">IP Server</A> ></span><br>
 <span class="bc">
+
+
+HELLO
+<% ResultSetContainer rscProjects = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("find_projects"); %>
+<%= rscProjects.getIntItem(0, "project_id"); %>
+
+
+
 06.01.05
 &#160;|&#160;<A HREF="/" class="bcLink">07.01.05</A>
 &#160;|&#160;<A HREF="/" class="bcLink">08.01.05</A>
