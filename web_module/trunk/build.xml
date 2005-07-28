@@ -203,6 +203,18 @@
  		 	 	 	<include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
  		 	 	 </javac>
  		 	</target>
+ 	
+ 	<target name="compile_TCFilters" depends="init,jar_shared">
+ 	 		 	 	<javac
+ 	 		 	 	 	srcdir="${java}"
+ 	 		 	 	 	destdir="${classes}"
+ 	 		 	 	 	classpathref="class.path"
+ 	 		 	 	 	deprecation="${deprecation}"
+ 	 		 	 	 	debug="${debug}"
+ 	 		 	 	 	>
+ 	 		 	 	 	<include name="com/topcoder/web/forums/util/filter/*.java"/>
+ 	 		 	 	 </javac>
+ 	 		 	</target>
 
      <target name="javadocs">
          <mkdir dir="${build.javadocs}"/>
@@ -1041,7 +1053,16 @@
  	 	 </jar>
      </target>
 
-
+ 	<target name="package-TCFilters" depends="compile_TCFilters">
+ 	 	 	 <jar jarfile="${jars.dir}/tcfilters.jar">
+ 	 	 	     <fileset dir="${classes}/">
+ 	 	 	         <include name="com/topcoder/web/forums/util/filter/*.class"/>
+ 	 	 	     </fileset>
+ 	 	 	 	 <fileset dir="${resources}/forums/filter">
+ 	 	 	 	 	 <include name="**/*.properties"/>
+ 	 	 	 	 </fileset>
+ 	 	 	 </jar>
+ 	     </target>
 
      <target name="build-ejb-unit" depends="compile">
          <property name="deploy-desc-path" value="${unit-class-path}"/>
