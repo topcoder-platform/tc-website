@@ -47,7 +47,7 @@
 
 HELLO
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates"); %>
-<% bool first = true; %>
+<% boolean first = true; %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
                     <% if(!first) { %>
                        &#160;|&#160;
