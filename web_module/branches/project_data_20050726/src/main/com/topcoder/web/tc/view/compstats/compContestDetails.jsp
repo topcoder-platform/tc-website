@@ -133,11 +133,11 @@
             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context="development"/></TD>
          </tr>
 
-<rsc:iterator list="<%=submissions%>" id="row">
+<rsc:iterator list="<%=submissions%>" id="resultRow">
 
          <tr>
-            <TD class="statDk"><tc-webtag:handle coderId='<%= row.getLongItem("user_id") %>' context="development"/></TD>
-<!--
+            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context="development"/></TD>
+
             <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
             <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
 
@@ -145,26 +145,7 @@
                                                 <rsc:item name="<%=resultRow%>" name="screening_score" format="#.##" ifNull="N/A" />
                                             </A></TD>
 
-            <TD class="statDk" align="left">
-                <% if (resultRow.getIntItem("passed_screening") == 1) { %>
-                    <img src="/i/stats/pass.gif" alt="pass" border="0" />
-                <% } else { %>
-                    <img src="/i/stats/fail.gif" alt="fail" border="0" />
-                <% } %>
 
-            </TD>
-            <TD class="statDk" align="center"><rsc:item name="<%=resultRow%>" name="initial_score" format="#.##" ifNull="" /></TD>
-            <TD class="statDk" align="center"><rsc:item name="<%=resultRow%>" name="final_score" format="#.##" ifNull="" /></TD>
-            <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item name="<%=resultRow%>" name="score1" format="#.##" ifNull="" />
-                                              </A></TD>
-            <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item name="<%=resultRow%>" name="score2" format="#.##" ifNull="" />
-                                              </A></TD>
-            <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item name="<%=resultRow%>" name="score3" format="#.##" ifNull="" />
-                                              </A></TD>
-                                              -->
          </tr>
 </rsc:iterator>
       </table>
