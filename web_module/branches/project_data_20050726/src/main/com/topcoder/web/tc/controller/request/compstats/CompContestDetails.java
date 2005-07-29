@@ -27,6 +27,21 @@ import java.util.Map;
  */
 public class CompContestDetails extends Base {
 
+    private ResultSetContainer findProjects(String compId, String versId, String phaseId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("find_projects");
+
+        // Find all the projects that match with the component id, version and phase
+        r.setProperty("compid", compId);
+        r.setProperty("vr", versId);
+        r.setProperty("pi", phaseId);
+
+        DataAccessInt dai = getDataAccess(true);
+        Map result = dai.getData(r);
+        return (ResultSetContainer) result.get("find_projects");
+    }
+
+
     protected void businessProcessing() throws TCWebException {
         try {
             String projId;
@@ -34,65 +49,49 @@ public class CompContestDetails extends Base {
             String versId;
             String phaseId;
 
-            Request r = new Request();
-            r.setContentHandle("find_projects");
-//                        select project_id from project where component_id = 'compId'
-//                        and version_id = 'versId'
-//                        and phase_id = ('type == 1'? 112 : 113)
-//                        and status_id in (4,5,6)
-//                        order by posting_date
-// x
-            DataAccessInt dai;
-            Map result = null;
-            ResultSetContainer dates = null;
 
+            ResultSetContainer dates = null;
 
             // 1. if there is comp, vers and type, use the winning project
             // 2. if there is comp,vers,type and pid use that project
             // 3. if there is just pid, use that project and find out its comp+vers+type
-            if(hasParameter("compid")) {
-                if(!hasParameter("pi")) {
+            if (hasParameter("compid")) {
+                if (!hasParameter("pi")) {
                     throw new TCWebException("parameter 'pi' expected when 'compid' is specified");
                 }
-                if(!hasParameter("vr")) {
+                if (!hasParameter("vr")) {
                     throw new TCWebException("parameter 'vers' expected when 'compid' is specified");
                 }
 
                 compId = getRequest().getParameter("compid");
-                phaseId = getRequest().getParameter("pi");
                 versId = getRequest().getParameter("vr");
+                phaseId = getRequest().getParameter("pi");
+
+                dates = findProjects(compId, versId, phaseId);
+
+                if (dates.size() == 0) {
+                    throw new TCWebException("component with compId=" + compId + ", vr= " + versId + ", pi=" + phaseId + " not found.");
+                }
 
 
-                if(hasParameter("pj")) {
+                if (hasParameter("pj")) {
+                    // if the project was passed as a parameter, use it.
                     projId = getRequest().getParameter("pj");
                 } else {
-                    // get the winning project
 
-                    r.setProperty("compid", compId);
-                    r.setProperty("vr", versId);
-                    r.setProperty("pi", phaseId);
-
-                    dai = getDataAccess(true);
-                    result = dai.getData(r);
-                    dates = (ResultSetContainer) result.get("find_projects");
-
-                    if(dates.size() == 0) {
-//                        select project_id from project where component_id = 'compId'
-//                        and version_id = 'versId'
-//                        and phase_id = ('type == 1'? 112 : 113)
-//                        and status_id = 4
-
+                    // the project wasn't passed as a parameter, so the "best" project must be found:
+                    // - if there is a closed project (with status=4), choose it
+                    // - if not, choose the one that has the later date (the last, because they're ordered)
+                    for (int i=0; i < dates.size(); i++) {
+                        projId = dates.getStringItem(i, "project_id");
+                        if (dates.getIntItem(i,"status_id") == 4) {
+                            break;
+                        }
                     }
-                    if(dates.size() > 1) {
-                        throw new TCWebException("more than one winner found for that component; this shouldn't happen!");
-                    }
-
-                    projId = dates.getStringItem(0, "project_id");
-
                 }
 
             } else {
-                if(!hasParameter("pid")) {
+                if(!hasParameter("pj")) {
                     throw new TCWebException("either comp+vr+pi or pj expected as parameters");
                 }
 
@@ -100,8 +99,8 @@ public class CompContestDetails extends Base {
                     result = dai.getData(r);
                     dates = (ResultSetContainer) result.get("find_projects");
 
-/*                projId = getRequest().getParameter("pid");
-
+                projId = getRequest().getParameter("pj");
+/*
                 Request r = new Request();
                 r.setContentHandle("comp_contest_details");
                 r.setProperty("project_id", projId);
@@ -117,7 +116,17 @@ public class CompContestDetails extends Base {
 */
             }
 
+            Request r = new Request();
+            r.setContentHandle("comp_contest_details");
 
+            r.setProperty("pj", projId);
+
+            DataAccessInt dai = getDataAccess(true);
+            Map result = dai.getData(r);
+
+
+            getRequest().setAttribute("resultMap", result);
+            getRequest().setAttribute("pid", Long.decode(projId));
             getRequest().setAttribute("dates", dates);
 
 
