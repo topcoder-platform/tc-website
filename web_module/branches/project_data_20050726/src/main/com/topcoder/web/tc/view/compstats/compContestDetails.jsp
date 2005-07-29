@@ -49,6 +49,9 @@ HELLO
 <% ResultSetContainer rscProjects = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("find_projects"); %>
 <%= rscProjects.getIntItem(0, "project_id") %>
 
+                 <rsc:iterator list="<%=dates%>" id="resultRow">
+                    &#160;|&#160;<A HREF="/" class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>"/></A>
+                 </rsc:iterator>
 
 
 06.01.05

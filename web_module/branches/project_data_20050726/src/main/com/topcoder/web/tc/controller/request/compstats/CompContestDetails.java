@@ -44,7 +44,7 @@ public class CompContestDetails extends Base {
 // x
             DataAccessInt dai;
             Map result = null;
-            ResultSetContainer rsc;
+            ResultSetContainer dates;
 
 
             // 1. if there is comp, vers and type, use the winning project
@@ -74,20 +74,20 @@ public class CompContestDetails extends Base {
 
                     dai = getDataAccess(true);
                     result = dai.getData(r);
-                    rsc = (ResultSetContainer) result.get("find_projects");
+                    dates = (ResultSetContainer) result.get("find_projects");
 
-                    if(rsc.size() == 0) {
+                    if(dates.size() == 0) {
 //                        select project_id from project where component_id = 'compId'
 //                        and version_id = 'versId'
 //                        and phase_id = ('type == 1'? 112 : 113)
 //                        and status_id = 4
 
                     }
-                    if(rsc.size() > 1) {
+                    if(dates.size() > 1) {
                         throw new TCWebException("more than one winner found for that component; this shouldn't happen!");
                     }
 
-                    projId = rsc.getStringItem(0, "project_id");
+                    projId = dates.getStringItem(0, "project_id");
 
                 }
 
@@ -98,7 +98,7 @@ public class CompContestDetails extends Base {
 
                     dai = getDataAccess(true);
                     result = dai.getData(r);
-                    rsc = (ResultSetContainer) result.get("find_projects");
+                    dates = (ResultSetContainer) result.get("find_projects");
 
 /*                projId = getRequest().getParameter("pid");
 
@@ -118,15 +118,7 @@ public class CompContestDetails extends Base {
             }
 
 
-
-
-
-
-
-
-
-
-            getRequest().setAttribute("resultMap", result);
+            getRequest().setAttribute("dates", dates);
 
 
             setNextPage("/compstats/compContestDetails.jsp");
