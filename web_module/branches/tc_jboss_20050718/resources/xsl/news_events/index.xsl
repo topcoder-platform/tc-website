@@ -2,12 +2,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/pr_right_col.xsl"/>     
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/pr_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 
@@ -15,11 +15,11 @@
 
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>TopCoder Press Room - Press Releases and Articles featured in other publications</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -44,25 +44,25 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="5" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->	
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">press_room</xsl:with-param>
                 <xsl:with-param name="title"></xsl:with-param>
             </xsl:call-template>
-            
+
             <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr><td class="bodyText"><div align="right"><strong>Current News</strong>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=press_release_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<A href="/?t=news_events&amp;c=article_archive">Articles Archive</A></div></td></tr>
             </table>
-            
+
 <!-- 2005 -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
             </table>
-            
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            
+
 <!--  TCO05 Verisign -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -140,7 +140,7 @@
                     <td width="274"><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_060705"><img src="/i/pressroom/caliper_logo.gif" alt="Caliper" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_060705">Caliper Hires TopCoder Software&#153; to Enhance Organizational Development Platform &amp; Services</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/tc?module=Static&amp;d1=news&amp;d2=pr_060705">Caliper Hires TopCoder Software(TM) to Enhance Organizational Development Platform &amp; Services</A></strong></font><br />
                         Leading Personality Assessment Firm Employs TopCoder's Reusable Component-Based Methodology to Support IT Functions Across the Enterprise.<span class="prHead"> [June 7]</span></p>
                     </td>
                 </tr>
@@ -392,7 +392,7 @@
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_02_15_05"><img src="/i/pressroom/tcs_logo.gif" alt="TCS" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_02_15_05">TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_02_15_05">TopCoder Software(TM) Opens Access to Reusable Java(TM) and .NET(TM) Component Catalogs</A></strong></font><br />
                         TopCoder Software today announced TopCoder Software is providing individual member developers free subscriptions to its full catalog of software components.<span class="prHead"> [February 15]</span></p>
                     </td>
                 </tr>
@@ -501,14 +501,14 @@
             </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            
+
 <!-- 2004 -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
             </table>
-            
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            
+
 <!-- TCCC05 YAHOO -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -1009,7 +1009,7 @@
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
- 
+
 <!-- JavaOne  -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -1023,7 +1023,7 @@
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
- 
+
 <!-- TCO Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -1102,15 +1102,15 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.fortune.com/fortune/print/0,15935,594536,00.html" target="_blank">Geek Gods</A></strong></font><br />
-                        Eleven years of practice and training have brought "Tomek" to this final match. He's spent the past hour in seclusion, meditating to achieve mental focus, then 
-                        stretching and hopping to warm up. As the judges call his name, Tomek smiles, flashes peace signs to the spectators, and sits at a computer keyboard. "You may begin," 
+                        Eleven years of practice and training have brought "Tomek" to this final match. He's spent the past hour in seclusion, meditating to achieve mental focus, then
+                        stretching and hopping to warm up. As the judges call his name, Tomek smiles, flashes peace signs to the spectators, and sits at a computer keyboard. "You may begin,"
                         says an announcer.<span class="prHead"> [March 5]</span></p>
                     </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
- 
+
 <!-- Mass High Tech article -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -1119,7 +1119,7 @@
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=64966&amp;cat_id=3" target="_blank">Regional programmers take the TopCoder challenge</A></strong></font><br />
                        Called the TopCoder Collegiate Challenge and this year sponsored by Yahoo, the event is a nail-biting competition among a field of the world's most promising technologists, all vying for $100,000 in prize money. <span class="prHead">[March 1]</span></p>
-                        
+
                     </td>
                 </tr>
             </table>
@@ -1130,12 +1130,12 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_03_01_04"><img src="/i/pressroom/dccc.gif" alt="DoubleClick" width="135" height="100" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td> 
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_03_01_04">Columbia University Student Wins DoubleClick's 2004 TopCoder Programming Challenge</A></strong></font><br />
-                        Jason Winokur of Columbia University has won the DoubleClick 2004 Coding Challenge.  In the DoubleClick employee competition, 
-                        first place finisher was Eliot Horowitz of the New York City office.  The competition was open to all eligible students at Columbia 
-                        University and New York University as well as DoubleClick employees. The tournament was designed to highlight the competitors' 
+                        Jason Winokur of Columbia University has won the DoubleClick 2004 Coding Challenge.  In the DoubleClick employee competition,
+                        first place finisher was Eliot Horowitz of the New York City office.  The competition was open to all eligible students at Columbia
+                        University and New York University as well as DoubleClick employees. The tournament was designed to highlight the competitors'
                         relative skills in the analysis of complex algorithmic problems and the ability to write software to solve those problems.<span class="prHead"> [March 1]</span></p>
                     </td>
                 </tr>
@@ -1164,9 +1164,9 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_02_02_04">TopCoder Announces DoubleClick 2004 Coding Challenge</A></strong></font><br />
-                        Having self-administered coding competitions for its employees for the last two years, DoubleClick is now 
-                        turning to TopCoder to expand this year's competition to include external applicants. The DoubleClick 2004 
-                        Coding Challenge is open to all DoubleClick employees worldwide. As an added dimension this year, DoubleClick 
+                        Having self-administered coding competitions for its employees for the last two years, DoubleClick is now
+                        turning to TopCoder to expand this year's competition to include external applicants. The DoubleClick 2004
+                        Coding Challenge is open to all DoubleClick employees worldwide. As an added dimension this year, DoubleClick
                         is also opening the contest to students at two local universities - Columbia and NYU.<span class="prHead"> [February 2]</span></p>
                     </td>
                 </tr>
@@ -1181,16 +1181,16 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.computerworld.com/developmenttopics/development/story/0,10801,89274,00.html?SKC=development-89274" target="_blank">Standards penetrate telecom industry</A></strong></font><br />
-                        Transferring phone numbers between telecommunications service providers seems like a logical 
-                        feature that should have always existed. However, it took an act of Congress to enable the Federal 
-                        Communications Commission to announce that cell phone numbers could be transferred between carriers 
+                        Transferring phone numbers between telecommunications service providers seems like a logical
+                        feature that should have always existed. However, it took an act of Congress to enable the Federal
+                        Communications Commission to announce that cell phone numbers could be transferred between carriers
                         beginning last fall. (As if it were so simple that an act of Congress could make it work.).<span class="prHead"> [January 26]</span></p>
                     </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
- 
+
 <!-- Digital Journal.com -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -1198,15 +1198,15 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.digitaljournal.com/news/?articleID=3913" target="_blank">World's Top Coder Takes Home $50,000 in Computing Contest</A></strong></font><br />
-                        Czajka began the tournament as the #2 seed, rated second among more than 34,000 developers in the TopCoder online community. 
-                        After "out-coding" Jimmy Mardell of Stockholm, Sweden, Bogdan Stanescu of Fairfax, VA, and Jiqing Tang of Hong Kong in the 
+                        Czajka began the tournament as the #2 seed, rated second among more than 34,000 developers in the TopCoder online community.
+                        After "out-coding" Jimmy Mardell of Stockholm, Sweden, Bogdan Stanescu of Fairfax, VA, and Jiqing Tang of Hong Kong in the
                         Championship round, Czajka earned his spot as the highest-rated TopCoder member.<span class="prHead"> [January 9]</span></p>
                     </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
- 
+
  <!-- Mason Gazette -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -1214,13 +1214,13 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://gazette.gmu.edu/articles/index.php?id=5180" target="_blank">George Mason Student Wins Third Place in International Coding Competition</A></strong></font><br />
-                        Computer science Ph.D. candidate Bogdan Stanescu won third place in the international 2003 TopCoder Open programming tournament 
-                        sponsored by Intel. Of the top 4 finishers, he was the only one representing the United States in the contest that concluded in early December. 
+                        Computer science Ph.D. candidate Bogdan Stanescu won third place in the international 2003 TopCoder Open programming tournament
+                        sponsored by Intel. Of the top 4 finishers, he was the only one representing the United States in the contest that concluded in early December.
                         <span class="prHead"> [January 9]</span></p>
                     </td>
                 </tr>
             </table>
-            
+
             <p><br /></p>
 
         </td>

@@ -6,6 +6,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% ResultSetContainer donationInfo = (ResultSetContainer)request.getAttribute("donationInfo");%>
 <% ResultSetContainer donationTotal = (ResultSetContainer)request.getAttribute("donationTotal");%>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
