@@ -44,7 +44,7 @@ public class CompContestDetails extends Base {
 // x
             DataAccessInt dai;
             Map result = null;
-            ResultSetContainer dates;
+            ResultSetContainer dates = null;
 
 
             // 1. if there is comp, vers and type, use the winning project
