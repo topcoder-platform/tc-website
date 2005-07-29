@@ -20,71 +20,17 @@
 		<td valign=top align=center>
 		<div class="bodySpacer">
             
-<span class="bigTitle">Schedule of Online Competitions</span>
-<br><br>
-<table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-   <tr>
-      <td class="sidebarTitle" width="20%">Round</td>
-      <td class="sidebarTitle" width="40%">Date and Time* (all Eastern Daylight Time)</td>
-      <td class="sidebarTitle" width="20%"># of Competitors</td>
-      <td class="sidebarTitle" width="20%"># of Advancers</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Qualification Round</td>
-      <td class="sidebarText">
-      START: Tuesday, August 16th<br>
-      12:00 PM (noon)
-      <br><br>
-      END: Wednesday, August 17, 2005<br>
-      12:00PM (noon)
-      </td>
-      <td class="sidebarText">All eligible registered competitors</td>
-      <td class="sidebarText">Top 20 scorers in each of 5 Qualification Round Problem Sets</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Online Round #1</td>
-      <td class="sidebarText">
-      Saturday, August 20th<br>   
-      Login by 11:55 AM<br>
-      START: 12:00 PM (noon)
-      </td>
-      <td class="sidebarText">100</td>
-      <td class="sidebarText">50</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Online Round #2</td>
-      <td class="sidebarText">
-      Wednesday, August 24th<br>   
-      Login by 9:25 PM<br>
-      START: 9:30 PM
-      </td>
-      <td class="sidebarText">50</td>
-      <td class="sidebarText">25</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Online Round #3</td>
-      <td class="sidebarText">
-      Wednesday, August 31st<br>   
-      Login by 9:25 PM<br>
-      START: 9:30 PM
-      </td>
-      <td class="sidebarText">25</td>
-      <td class="sidebarText">10</td>
-   </tr>
-   <tr valign="top">
-      <td class="sidebarText">Online Round #4</td>
-      <td class="sidebarText">
-      Wednesday, September 7th<br>   
-      Login by 9:25 PM<br>
-      START: 9:30 PM
-      </td>
-      <td class="sidebarText">10</td>
-      <td class="sidebarText">1 - Champion</td>
-   </tr>
-   <tr><td class="sidebarText" colspan="4">*NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td></tr>
-</table>
-<br><br>
-See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rules">rules and regulations</A> for more details.
+<%-- REG CONTENT STARTS HERE --%>
+    <%
+        URL termsURL = new URL(sessionInfo.getAbsoluteServletPath()+"?module=Terms&"+Constants.TERMS_OF_USE_ID+"="+Constants.TCO05_SPONSOR_TERMS_ID);
+        InputStream is = termsURL.openStream();
+        int count = is.available();
+        for (int i=0; i<count; i++) {
+            out.write(is.read());
+        }
+        is.close();
+    %>
+<%-- REG CONTENT ENDS HERE --%>
         </div>
 		</td>
         
