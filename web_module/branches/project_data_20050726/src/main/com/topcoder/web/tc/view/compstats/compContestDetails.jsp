@@ -139,10 +139,11 @@
             <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context="development"/></TD>
             <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
             <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
-            <TD class="statDk" align="right"><A href="do me!">
+    <!--
+    <TD class="statDk" align="right"><A href="do me!">
                                                 <rsc:item name="<%=resultRow%>" name="screening_score" format="#.##" ifNull="N/A" />
                                             </A></TD>
-<!--
+
             <TD class="statDk" align="left">
                 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
                     <img src="/i/stats/pass.gif" alt="pass" border="0" />
