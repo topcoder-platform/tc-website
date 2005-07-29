@@ -22,7 +22,7 @@
             
 <span class="bigTitle">Description of the Sponsor Track Competition</span>
 <br><br>
-So your company is sponsoring this year's TopCoder Open.  You know how employees are never allowed to enter and win their own company's events?  Have no frets, we've got a special competition for you.  
+Just because your employer is a sponsor of this year's TopCoder Open doesn't mean you have to be entirely left out.  TopCoder has structured a special competition for you.  
 <br><br>
 We're giving employees and interns of the sponsors of the TopCoder Open 2005 a tournament of their own. It's a chance to compete among your peers in the Sponsor Track Competition.
 <ul>

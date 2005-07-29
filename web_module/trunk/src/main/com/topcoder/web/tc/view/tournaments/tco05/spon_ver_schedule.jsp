@@ -84,7 +84,7 @@
    <tr><td class="sidebarText" colspan="4">*NOTE:  In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td></tr>
 </table>
 <br><br>
-See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rules">rules and regulations</A> for more details.
+See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_rules">rules and regulations</A> for more details.
         </div>
 		</td>
         
