@@ -57,7 +57,7 @@
                         first=true;
                         }
                     %>
-<jsp:getProperty name="sessionInfo" property="servletPath"/>
+<!-- jsp:getProperty name="sessionInfo" property="servletPath"/ -->
 
                     <% if (resultRow.getLongItem("project_id") == projectId) { %>
                         <rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
