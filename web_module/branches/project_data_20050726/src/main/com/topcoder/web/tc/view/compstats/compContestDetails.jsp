@@ -75,39 +75,6 @@
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
    <tr>
       <td class="divider" >
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-         <tr><td class="tableTitle" colspan="2">
-         Development Contest Details
-         </td></tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Inquiries:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "num_inquiries") %></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Submissions:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "num_submissions") %></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "submission_percent") %></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Passed:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "passed") %></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "passed_percent") %></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "avg_raw_score") %></TD>
-         </tr>
-         <tr>
-            <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "avg_final_score") %></TD>
-         </tr>
-      </TABLE>
       </TD>
       </td>
       <td width="75%" valign="top">
