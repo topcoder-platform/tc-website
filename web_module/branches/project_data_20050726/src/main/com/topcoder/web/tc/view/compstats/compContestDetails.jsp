@@ -45,7 +45,7 @@
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
    ResultSetContainer submissions = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submissions");
-   System.out.println(submissions.toString());
+   System.out.println("submission:" + submissions.toString() + "---");
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
 %>
