@@ -44,7 +44,7 @@
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
-   ResultSetContainer submissions = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submission");
+   ResultSetContainer submissions = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submissions");
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
 %>
@@ -61,7 +61,6 @@
                         first=false;
                         }
                     %>
-<!-- jsp:getProperty name="sessionInfo" property="servletPath"/ -->
 
                     <% if (resultRow.getLongItem("project_id") == projectId) { %>
                         <rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
