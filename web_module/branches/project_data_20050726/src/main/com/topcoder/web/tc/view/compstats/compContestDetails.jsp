@@ -123,9 +123,9 @@
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
          </tr>
          <tr>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="<%= reviewers.getIntItem(0, 'reviewer_id') %>" context="development"/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="<%= reviewers.getIntItem(1, 'reviewer_id') %>" context="development"/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="<%= reviewers.getIntItem(2, 'reviewer_id') %>" context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getIntItem(0, "reviewer_id") %>' context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getIntItem(1, "reviewer_id") %>' context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getIntItem(2, "reviewer_id") %>' context="development"/></TD>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
