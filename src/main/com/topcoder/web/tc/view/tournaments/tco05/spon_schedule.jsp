@@ -90,11 +90,18 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rule
         
          
 <!-- Right Column-->
-        <td width=170 align=right>
-            <jsp:include page="../../public_right.jsp">
-            <jsp:param name="level1" value="tco05"/>
-            </jsp:include>
-         </td>
+<td width="170" align="right">
+<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+<img src="/i/tournament/tco05/sun_right.gif" alt="Sun" border="0" /><br />
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<img src="/i/tournament/tco05/nsa_right.gif" alt="NSA" border="0" /><br />
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<img src="/i/tournament/tco05/yahoo_right.gif" alt="Yahoo" border="0" /><br />
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<img src="/i/tournament/tco05/verisign_right.gif" alt="Verisign" border="0" /><br />
+<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+<jsp:include page="../../calendar.jsp" />
+</td>
 		
 	</tr>
 	
