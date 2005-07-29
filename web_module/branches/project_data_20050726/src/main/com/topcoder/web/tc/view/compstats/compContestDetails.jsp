@@ -141,9 +141,6 @@
             <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
             <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
 
-    <TD class="statDk" align="right"><A href="do me!">
-                                                <rsc:item name="<%=resultRow%>" name="screening_score" format="#.##" ifNull="N/A" />
-                                            </A></TD>
 
 
          </tr>
