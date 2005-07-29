@@ -45,9 +45,6 @@ public class CompContestDetails extends Base {
     protected void businessProcessing() throws TCWebException {
         try {
             String projId = null;
-            String compId;
-            String versId;
-            String phaseId;
 
 
             ResultSetContainer dates = null;
@@ -63,14 +60,10 @@ public class CompContestDetails extends Base {
                     throw new TCWebException("parameter 'vers' expected when 'compid' is specified");
                 }
 
-                compId = getRequest().getParameter("compid");
-                versId = getRequest().getParameter("vr");
-                phaseId = getRequest().getParameter("pi");
-
-                dates = findProjects(compId, versId, phaseId);
+                dates = findProjects(getRequest().getParameter("compid"), getRequest().getParameter("vr"), getRequest().getParameter("pi"));
 
                 if (dates.size() == 0) {
-                    throw new TCWebException("component with compId=" + compId + ", vr= " + versId + ", pi=" + phaseId + " not found.");
+                    throw new TCWebException("component not found.");
                 }
 
 
@@ -95,23 +88,9 @@ public class CompContestDetails extends Base {
                     throw new TCWebException("either comp+vr+pi or pj expected as parameters");
                 }
 
-
                 projId = getRequest().getParameter("pj");
-/*
-                Request r = new Request();
-                r.setContentHandle("comp_contest_details");
-                r.setProperty("project_id", projId);
-
-                DataAccessInt dai = getDataAccess(true);
-                Map result = dai.getData(r);
-                ResultSetContainer rsc = (ResultSetContainer) result.get("???");
-
-                //select component_id, version_id, phase from project where project_id = 'projectId'
-                if(rsc.size() == 0) {
-                }
-                //compId =
-*/
             }
+
 
             Request r = new Request();
             r.setContentHandle("comp_contest_details");
