@@ -202,7 +202,7 @@
  		 	 	 	<include name="com/topcoder/web/forums/model/TCAuthToken.java"/>
  		 	 	 </javac>
  		 	</target>
- 	
+
  	<target name="compile_TCFilters" depends="init,jar_shared">
  	 		 	 	<javac
  	 		 	 	 	srcdir="${java}"
@@ -1246,10 +1246,10 @@
                  <include name="public_right.jsp"/>
              </fileset>
              <classes dir="${classes}">
-                 <include name="com/topcoder/shared/util/"/>
-                 <include name="com/topcoder/shared/dataAccess/"/>
-                 <include name="com/topcoder/web/common/"/>
-                 <include name="com/topcoder/web/privatelabel/"/>
+                 <include name="com/topcoder/shared/util/**/*.class"/>
+                 <include name="com/topcoder/shared/dataAccess/**/*.class"/>
+                 <include name="com/topcoder/web/common/**/*.class"/>
+                 <include name="com/topcoder/web/privatelabel/**/*.class"/>
              </classes>
              <webinf dir="${resources}/taglib">
                  <include name="tc-webtags.tld"/>
