@@ -95,9 +95,6 @@ public class CompContestDetails extends Base {
                     throw new TCWebException("either comp+vr+pi or pj expected as parameters");
                 }
 
-                    dai = getDataAccess(true);
-                    result = dai.getData(r);
-                    dates = (ResultSetContainer) result.get("find_projects");
 
                 projId = getRequest().getParameter("pj");
 /*

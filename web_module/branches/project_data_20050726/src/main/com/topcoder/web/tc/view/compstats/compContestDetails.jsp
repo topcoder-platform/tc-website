@@ -45,9 +45,11 @@
 <span class="bc">
 
 
-HELLO
-<% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates"); %>
-<% boolean first = true; %>
+<% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
+   ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("get_reviewers");
+
+   long projectId = ((Long) request.getAttribute("pid")).longValue();
+%>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
                     <% if(!first) { %>
                        &#160;|&#160;
@@ -55,14 +57,15 @@ HELLO
                         first=true;
                         }
                     %>
+<jsp:getProperty name="sessionInfo" property="servletPath"/>
 
-                    <A HREF='<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></A>
+                    <% if (resultRow.getLongItem("project_id") == projectId) { %>
+                        <rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
+                    <% } else { %>
+                        <A HREF='<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></A>
+                    <% } %>
                  </rsc:iterator>
-END
 
-06.01.05
-&#160;|&#160;<A HREF="/" class="bcLink">07.01.05</A>
-&#160;|&#160;<A HREF="/" class="bcLink">08.01.05</A>
 </span>
 
 <div class="pagingBox">&#160;</div>
@@ -120,9 +123,9 @@ END
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
          </tr>
          <tr>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="286907" context="development"/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="299180" context="development"/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="299904" context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="<%= reviewers.getIntItem(0, 'reviewer_id') %>" context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="<%= reviewers.getIntItem(1, 'reviewer_id') %>" context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId="<%= reviewers.getIntItem(2, 'reviewer_id') %>" context="development"/></TD>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
