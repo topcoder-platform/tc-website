@@ -133,10 +133,10 @@
             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context="development"/></TD>
          </tr>
 
-<rsc:iterator list="<%=submissions%>" id="resultRow">
+<rsc:iterator list="<%=submissions%>" id="row">
 
          <tr>
-            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context="development"/></TD>
+            <TD class="statDk"><tc-webtag:handle coderId='<%= row.getLongItem("user_id") %>' context="development"/></TD>
 <!--
             <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
             <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
