@@ -9,6 +9,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.29.05<br>12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm255_prob">SRM 255 - Problem Set & Analysis</A></span><br><br>
+      In division 1 after a little time spent solving the easy problem, coders divided into two groups. The first one opened the medium problem (600 points), the second opened the hard (800 points).</td>
+      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_mug.gif" /><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm255_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.27.05<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=nsa">NSA chat session scheduled for SRM 255</A></span><br><br>
       NSA will be in the Arena Applet at 8:00 PM on 7/28, just before the start of SRM 255, to discuss working at NSA.
@@ -231,18 +246,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>07.11.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">Sun chat session scheduled for SRM 251</A></span><br><br>
-      Sun will be in the Arena Applet at 8:00 PM, just before the start of SRM 251 to discuss the Java(TM) Studio Creator.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
 
