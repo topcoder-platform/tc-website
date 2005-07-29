@@ -49,7 +49,7 @@
 %>
 
 
-<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A> <rsc:item set="<%=projectInfo%>" name="version_text"/></span><br>
+<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
 <span class="bc">
 
                  <rsc:iterator list="<%=dates%>" id="resultRow">
@@ -82,31 +82,31 @@
          </td></tr>
          <tr>
             <td class="cat" nowrap="nowrap">Inquiries:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "num_inquiries") %></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_inquiries" ifNull="N/A" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submissions:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "num_submissions") %></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="num_submissions" ifNull="N/A" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
-            <TD class="stat" align="right"> </TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="#.##" ifNull="N/A" /> %</TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "passed") %></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed" ifNull="N/A" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="#.##" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="#.##" ifNull="N/A" /> %</TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "avg_raw_score") %></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="#.##" ifNull="N/A" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "avg_final_score") %></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="#.##" ifNull="N/A" /></TD>
          </tr>
       </TABLE>
 
