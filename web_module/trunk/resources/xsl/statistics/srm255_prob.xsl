@@ -345,7 +345,7 @@ the index i (i &gt; K) the X<sub>K</sub> will be the same as the element with th
 		X = A*F(X)+B;
 	}
 
-</pre>;
+</pre>
 
 
 <font size="+2">
