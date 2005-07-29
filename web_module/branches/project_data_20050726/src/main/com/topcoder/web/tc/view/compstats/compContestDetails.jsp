@@ -45,12 +45,13 @@
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
    ResultSetContainer submissions = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submissions");
+   System.out.println(submissions.toString());
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
 %>
 
 
-<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
+<span class="bodySubtitle">Development Statistics > Contest Details > <A href="do me!" class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
 <span class="bc">
 
                  <rsc:iterator list="<%=dates%>" id="resultRow">
@@ -65,7 +66,7 @@
                     <% if (resultRow.getLongItem("project_id") == projectId) { %>
                         <rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
                     <% } else { %>
-                        <A HREF='<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></A>
+                        <A HREF='do me!<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></A>
                     <% } %>
                  </rsc:iterator>
 
@@ -127,40 +128,41 @@
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
          </tr>
          <tr>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getIntItem(0, "reviewer_id") %>' context="development"/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getIntItem(1, "reviewer_id") %>' context="development"/></TD>
-            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getIntItem(2, "reviewer_id") %>' context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>' context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>' context="development"/></TD>
+            <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context="development"/></TD>
          </tr>
 
 <rsc:iterator list="<%=submissions%>" id="resultRow">
 
          <tr>
-            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getIntItem("user_id") %>' context="development"/></TD>
+            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context="development"/></TD>
             <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
             <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
-            <TD class="statDk" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">
+            <TD class="statDk" align="right"><A href="do me!">
                                                 <rsc:item name="<%=resultRow%>" name="screening_score" format="#.##" ifNull="N/A" />
                                             </A></TD>
-            <TD class="statDk" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
+            <TD class="statDk" align="left">
+                <% if (resultRow.getIntItem("passed_screening") == 1) { %>
+                    <img src="/i/stats/pass.gif" alt="pass" border="0" />
+                <% } else { %>
+                    <img src="/i/stats/fail.gif" alt="fail" border="0" />
+                <% } %>
+
+            </TD>
             <TD class="statDk" align="center"><rsc:item name="<%=resultRow%>" name="initial_score" format="#.##" ifNull="" /></TD>
             <TD class="statDk" align="center"><rsc:item name="<%=resultRow%>" name="final_score" format="#.##" ifNull="" /></TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
-            <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
+            <TD class="statDk" align="center"><A href="do me!">
+                                                   <rsc:item name="<%=resultRow%>" name="score1" format="#.##" ifNull="" />
+                                              </A></TD>
+            <TD class="statDk" align="center"><A href="do me!">
+                                                   <rsc:item name="<%=resultRow%>" name="score2" format="#.##" ifNull="" />
+                                              </A></TD>
+            <TD class="statDk" align="center"><A href="do me!">
+                                                   <rsc:item name="<%=resultRow%>" name="score3" format="#.##" ifNull="" />
+                                              </A></TD>
          </tr>
 </rsc:iterator>
-         <tr>
-            <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
-            <TD class="statLt" align="center">06.01.05</TD>
-            <TD class="statLt" align="center">06.21.05</TD>
-            <TD class="statLt" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">65.00</A></TD>
-            <TD class="statLt" align="left"><img src="/i/stats/fail.gif" alt="fail" border="0" /></TD>
-            <TD class="statLt" align="center"></TD>
-            <TD class="statLt" align="center"></TD>
-            <TD class="statLt" align="center"></TD>
-            <TD class="statLt" align="center"></TD>
-            <TD class="statLt" align="center"></TD>
-         </tr>
       </table>
       </td>
    </TR>
