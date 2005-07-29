@@ -142,6 +142,7 @@
             <TD class="statDk" align="right"><A href="do me!">
                                                 <rsc:item name="<%=resultRow%>" name="screening_score" format="#.##" ifNull="N/A" />
                                             </A></TD>
+<!--
             <TD class="statDk" align="left">
                 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
                     <img src="/i/stats/pass.gif" alt="pass" border="0" />
@@ -161,6 +162,7 @@
             <TD class="statDk" align="center"><A href="do me!">
                                                    <rsc:item name="<%=resultRow%>" name="score3" format="#.##" ifNull="" />
                                               </A></TD>
+                                              -->
          </tr>
 </rsc:iterator>
       </table>
