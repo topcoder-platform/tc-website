@@ -153,16 +153,16 @@
                                                 <rsc:item row="<%=resultRow%>" name="screening_score" format="#.##" ifNull="N/A" />
                                             </A></TD>
 
-            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="#.##" ifNull="" /></TD>
-            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="final_score" format="#.##" ifNull="" /></TD>
+            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="#.##" ifNull="&nbsp;" /></TD>
+            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="final_score" format="#.##" ifNull="&nbsp;" /></TD>
             <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item row="<%=resultRow%>" name="score1" format="#.##" ifNull="" />
+                                                   <rsc:item row="<%=resultRow%>" name="score1" format="#.##" ifNull="&nbsp;" />
                                               </A></TD>
             <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item row="<%=resultRow%>" name="score2" format="#.##" ifNull="" />
+                                                   <rsc:item row="<%=resultRow%>" name="score2" format="#.##" ifNull="&nbsp;" />
                                               </A></TD>
             <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item row="<%=resultRow%>" name="score3" format="#.##" ifNull="" />
+                                                   <rsc:item row="<%=resultRow%>" name="score3" format="#.##" ifNull="&nbsp;" />
                                               </A></TD>
 
 
