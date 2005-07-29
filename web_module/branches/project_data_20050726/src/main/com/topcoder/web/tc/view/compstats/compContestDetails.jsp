@@ -41,18 +41,20 @@
 <jsp:param name="title" value="Component Contest Details"/>
 </jsp:include>
 
-<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink">IP Server</A> ></span><br>
-<span class="bc">
-
-
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
-   ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
+//   ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
 
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
 %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
+
+
+<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink">IP Server</A> ></span><br>
+<span class="bc">
+
+
                     <% if(!first) { %>
                        &#160;|&#160;
                     <% } else {
