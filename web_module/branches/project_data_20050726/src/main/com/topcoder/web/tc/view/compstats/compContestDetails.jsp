@@ -47,9 +47,16 @@
 
 HELLO
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates"); %>
-
+<% bool first = true; %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
-                    &#160;|&#160;<A HREF='<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></A>
+                    <% if(!first) { %>
+                       &#160;|&#160;
+                    <% } else {
+                        first=true;
+                        }
+                    %>
+
+                    <A HREF='<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></A>
                  </rsc:iterator>
 END
 
