@@ -44,6 +44,7 @@
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
+   ResultSetContainer submissions = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submission");
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
 %>
@@ -131,18 +132,24 @@
             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getIntItem(1, "reviewer_id") %>' context="development"/></TD>
             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getIntItem(2, "reviewer_id") %>' context="development"/></TD>
          </tr>
+
+<rsc:iterator list="<%=submissions%>" id="resultRow">
+
          <tr>
-            <TD class="statDk"><tc-webtag:handle coderId="278342" context="development"/></TD>
-            <TD class="statDk" align="center">06.01.05</TD>
-            <TD class="statDk" align="center">06.21.05</TD>
-            <TD class="statDk" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">80.00</A></TD>
+            <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getIntItem("user_id") %>' context="development"/></TD>
+            <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
+            <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
+            <TD class="statDk" align="right"><A href="/tc?module=Static&d1=statistics&d2=screeningScorecard">
+                                                <rsc:item name="<%=resultRow%>" name="screening_score" format="#.##" ifNull="N/A" />
+                                            </A></TD>
             <TD class="statDk" align="left"><img src="/i/stats/pass.gif" alt="pass" border="0" /></TD>
-            <TD class="statDk" align="center">80.00</TD>
-            <TD class="statDk" align="center">90.00</TD>
+            <TD class="statDk" align="center"><rsc:item name="<%=resultRow%>" name="initial_score" format="#.##" ifNull="" /></TD>
+            <TD class="statDk" align="center"><rsc:item name="<%=resultRow%>" name="final_score" format="#.##" ifNull="" /></TD>
             <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
             <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
             <TD class="statDk" align="center"><A href="/tc?module=Static&d1=statistics&d2=reviewScorecard">89.99</A></TD>
          </tr>
+</rsc:iterator>
          <tr>
             <TD class="statLt"><tc-webtag:handle coderId="278342" context="development"/></TD>
             <TD class="statLt" align="center">06.01.05</TD>
