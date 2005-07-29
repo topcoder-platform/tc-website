@@ -141,6 +141,25 @@
             <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
             <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
 
+            <TD class="statDk" align="left">
+                <% if (resultRow.getIntItem("passed_screening") == 1) { %>
+                    <img src="/i/stats/pass.gif" alt="pass" border="0" />
+                <% } else { %>
+                    <img src="/i/stats/fail.gif" alt="fail" border="0" />
+                <% } %>
+
+            </TD>
+            <TD class="statDk" align="center"><rsc:item name="<%=resultRow%>" name="initial_score" format="#.##" ifNull="" /></TD>
+            <TD class="statDk" align="center"><rsc:item name="<%=resultRow%>" name="final_score" format="#.##" ifNull="" /></TD>
+            <TD class="statDk" align="center"><A href="do me!">
+                                                   <rsc:item name="<%=resultRow%>" name="score1" format="#.##" ifNull="" />
+                                              </A></TD>
+            <TD class="statDk" align="center"><A href="do me!">
+                                                   <rsc:item name="<%=resultRow%>" name="score2" format="#.##" ifNull="" />
+                                              </A></TD>
+            <TD class="statDk" align="center"><A href="do me!">
+                                                   <rsc:item name="<%=resultRow%>" name="score3" format="#.##" ifNull="" />
+                                              </A></TD>
 
 
          </tr>
