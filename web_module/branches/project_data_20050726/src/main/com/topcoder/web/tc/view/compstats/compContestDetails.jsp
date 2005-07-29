@@ -46,6 +46,8 @@
 
 
 HELLO
+<% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates"); %>
+
                  <rsc:iterator list="<%=dates%>" id="resultRow">
                     &#160;|&#160;<A HREF="/" class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>"/></A>
                  </rsc:iterator>
