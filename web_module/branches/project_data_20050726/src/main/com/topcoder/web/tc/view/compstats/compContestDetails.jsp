@@ -43,14 +43,14 @@
 
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
-   ResultSetRow projectInfo = ((ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info")).getRow(0);
+   ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
 
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
 %>
 
 
-<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink"><%= projectInfo.getStringItem("component_name") %></A> ></span><br>
+<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink"><%= projectInfo.getStringItem(0, "component_name") %></A> ></span><br>
 <span class="bc">
 
                  <rsc:iterator list="<%=dates%>" id="resultRow">
@@ -83,31 +83,31 @@
          </td></tr>
          <tr>
             <td class="cat" nowrap="nowrap">Inquiries:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem("num_inquiries") %></TD>
+            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "num_inquiries") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submissions:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem("num_submissions") %></TD>
+            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "num_submissions") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem("submission_percent") %></TD>
+            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "submission_percent") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getIntItem("passed") %></TD>
+            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "passed") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem("passed_percent") %></TD>
+            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "passed_percent") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem("avg_raw_score") %></TD>
+            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "avg_raw_score") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem("avg_final_score") %></TD>
+            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "avg_final_score") %></TD>
          </tr>
       </TABLE>
 
