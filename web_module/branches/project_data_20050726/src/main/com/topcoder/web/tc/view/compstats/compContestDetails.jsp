@@ -49,12 +49,13 @@
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("get_reviewers");
 
    long projectId = ((Long) request.getAttribute("pid")).longValue();
+   boolean first = true;
 %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
                     <% if(!first) { %>
                        &#160;|&#160;
                     <% } else {
-                        first=true;
+                        first=false;
                         }
                     %>
 <!-- jsp:getProperty name="sessionInfo" property="servletPath"/ -->
