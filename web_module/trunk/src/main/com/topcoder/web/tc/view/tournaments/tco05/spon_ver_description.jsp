@@ -22,44 +22,19 @@
             
 <span class="bigTitle">Description of the Sponsor Track Competition</span>
 <br><br>
-So your company is sponsoring this year's TopCoder Open.  You know how employees are never allowed to enter and win their own company's events?  Have no frets, we've got a special competition for you.  
-<br><br>
-We're giving employees and interns of the sponsors of the TopCoder Open 2005 a tournament of their own. It's a chance to compete among your peers in the Sponsor Track Competition.
-<ul>
-<li><b>Registration</b><br>
-Begins: August 1, 2005 9:00AM EDT<br>
-Ends: August 16, 2005 9:00AM EDT
-</li>
-<li><b>Qualification Round</b><br>
-Begins: August 16, 2005 Noon EDT<br>
-Ends: August 17, 2005 Noon EDT
-</li>
-<li><b>Online Elimination Rounds</b><br>
-August 20, 2005<br>
-August 24, 2005<br>
-August 31, 2005
-</li>
-<li><b>Online Final Round</b><br>
-September 7, 2005
-</li>
-</ul>
+Welcome to the VeriSign sponsor track of the 2005 TopCoder Open
+competition.   This competition is being sponsored in partnership with
+VeriSign Human Resources, VSS, VNDS and O&I's Common Application
+Framework(CAF)* team.   VeriSign employees are ineligible to participate
+in the TopCoder competition.  However, we wanted to give you the opportunity to participate and demonstrate your talents, so we have up a special track to allow VeriSign employees to compete along side members of the TopCoder community.  We think this is an exciting event and we're glad you've chosen to participate.  
 
-<span class="bigTitle">Register Now</span><br>
-How to Register for the TCO Sponsor Track Competition:
+Best of luck and let the competition begin!
+
+
+
+*The Common Application Framework is a joint initiative between O&I, VNDS, VCS and VSS dedicated to developing a collection of non-application specific software components for use with Java-based online transaction processing systems. For more information about using CAF in your project, contact Grady Bryant (mailto:gbryant@verisign.com).
 <br><br>
-<span class="bodySubtitle">Already a TopCoder Member?</span>
-<ul>
-<li>Click <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_reg">here</A> to register for the TCO Sponsor Track Competition</li>
-</ul>
-<span class="bodySubtitle">Not Yet a TopCoder Member?</span>
-<ul>
-<li>Click <A href="/Registration">here</A> to sign up as a TopCoder member</li>
-<li>Check your email and activate your new TopCoder account</li>
-<li>Click <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_reg">here</A> to register for the TCO Sponsor Track Competition</li>
-</ul>
-The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. 
-<br><br>
-See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rules">rules and regulations</A> for more details.
+See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_rules">rules and regulations</A> for more details.
         </div>
 		</td>
         
