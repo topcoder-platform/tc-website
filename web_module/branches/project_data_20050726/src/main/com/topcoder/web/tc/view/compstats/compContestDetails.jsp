@@ -44,13 +44,12 @@
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
-   if (projectInfo == null) System.out.println("projectInfo is null!!!");
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
 %>
 
 
-<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink"><%= projectInfo.getStringItem(0, "component_name") %></A> ></span><br>
+<span class="bodySubtitle">Development Statistics > Contest Details > <A href="" class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/></A> <rsc:item set="<%=projectInfo%>" name="version_text"/></span><br>
 <span class="bc">
 
                  <rsc:iterator list="<%=dates%>" id="resultRow">
@@ -91,7 +90,7 @@
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "submission_percent") %></TD>
+            <TD class="stat" align="right"> </TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed:</TD>
@@ -99,7 +98,7 @@
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
-            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "passed_percent") %></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="#.##" ifNull="N/A" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
