@@ -54,9 +54,7 @@
                     Competitions provide an understanding of a person's capabilities through a demonstration of skill. What was lacking in the world of programming
                     competitions was a format that offered immediate and objective scoring. The solution was the creation of a "Single Round Match".</p>
 
-                    <p>In order to drive repeated participation, TopCoder developed "Tournaments" that offer larger cash prizes to the members who successfully code their
-                    way through weekly Single Round Matches and build a rating that puts them in a seeding for either the Invitational Tournament (open to all members)
-                    or Collegiate Challenge (open to college students only).</p>
+                    <p>In addition to regular Single Round Matches, TopCoder holds two major multiple-round, elimination tournaments each year.  These tournaments span many weeks and include significant prize purses along three independent tracks of competition: algorithm, component design, and component development.</p>
 
                     <p><span class="bodySubtitle">How Members Benefit</span></p>
 
