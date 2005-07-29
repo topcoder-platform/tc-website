@@ -46,7 +46,8 @@
 
 
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
-   ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("get_reviewers");
+   ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
+   ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
 
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
@@ -80,23 +81,23 @@
          </td></tr>
          <tr>
             <td class="cat" nowrap="nowrap">Inquiries:</TD>
-            <TD class="stat" align="right">15</TD>
+            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "num_inquiries") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submissions:</TD>
-            <TD class="stat" align="right">10</TD>
+            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "num_submissions") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
-            <TD class="stat" align="right">100.00%</TD>
+            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "submission_percent") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed:</TD>
-            <TD class="stat" align="right">3</TD>
+            <TD class="stat" align="right"><%= projectInfo.getIntItem(0, "passed") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
-            <TD class="stat" align="right">60.00%</TD>
+            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "passed_percent") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
