@@ -1,5 +1,9 @@
+<%@ page import="java.net.URL,
+                 com.topcoder.web.tc.Constants,
+                 java.io.InputStream"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
 <title>2005 TopCoder Open - Computer Programming Tournament</title>
