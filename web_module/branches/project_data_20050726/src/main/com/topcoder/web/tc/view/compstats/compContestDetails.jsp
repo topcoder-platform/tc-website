@@ -101,11 +101,11 @@
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
-            <TD class="stat" align="right">80.00</TD>
+            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "avg_raw_score") %></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
-            <TD class="stat" align="right">90.00</TD>
+            <TD class="stat" align="right"><%= projectInfo.getDoubleItem(0, "avg_final_score") %></TD>
          </tr>
       </TABLE>
       </TD>
