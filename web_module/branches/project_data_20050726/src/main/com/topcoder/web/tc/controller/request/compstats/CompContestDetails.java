@@ -100,6 +100,10 @@ public class CompContestDetails extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
 
+            // if the dates of the other projects are still not known (because we had the project and not the component id)
+            // is time to look them up, because we have the component info now.
+            if (dates == null) {
+            }
 
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("pid", Long.decode(projId));

@@ -42,8 +42,8 @@
 </jsp:include>
 
 <% ResultSetContainer dates = (ResultSetContainer)request.getAttribute("dates");
-   ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
-   ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
+   //ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
+   //ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
 
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
