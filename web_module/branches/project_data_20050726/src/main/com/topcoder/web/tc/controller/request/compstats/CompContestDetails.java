@@ -44,7 +44,7 @@ public class CompContestDetails extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            String projId;
+            String projId = null;
             String compId;
             String versId;
             String phaseId;
