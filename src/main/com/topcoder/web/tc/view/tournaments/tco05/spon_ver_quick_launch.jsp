@@ -8,7 +8,7 @@
 
 <title>Competition Arena</title>
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="../../script.jsp" />
 
 <SCRIPT type="text/javascript">
     function getReq(){u='?module=Static&d1=faq&d2=soft_req';window.open(u);close();}
