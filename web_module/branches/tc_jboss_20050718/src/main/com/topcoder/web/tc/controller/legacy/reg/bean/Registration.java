@@ -1,7 +1,21 @@
 package com.topcoder.web.tc.controller.legacy.reg.bean;
 
-import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.Cache;
+import com.topcoder.common.web.data.User;
+import com.topcoder.common.web.data.CoderRegistration;
+import com.topcoder.common.web.data.Notify;
+import com.topcoder.common.web.data.DemographicAssignment;
+import com.topcoder.common.web.data.DemographicQuestion;
+import com.topcoder.common.web.data.DemographicResponse;
+import com.topcoder.common.web.data.School;
+import com.topcoder.common.web.data.State;
+import com.topcoder.common.web.data.CoderType;
+import com.topcoder.common.web.data.Language;
+import com.topcoder.common.web.data.Editor;
+import com.topcoder.common.web.data.Country;
+import com.topcoder.common.web.data.GroupUser;
+import com.topcoder.common.web.data.DemographicAnswer;
+import com.topcoder.common.web.data.Authentication;
 import com.topcoder.ejb.AuthenticationServices.AuthenticationServices;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.UserServices.UserServices;
