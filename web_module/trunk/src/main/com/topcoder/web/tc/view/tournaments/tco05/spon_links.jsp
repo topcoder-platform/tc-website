@@ -48,6 +48,11 @@
 					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=alg_finals_analysis"><img src="/i/tournament/tco05/tabs/L2_summaryOff.gif" alt="" border="0" /></A></td>
 				<% } %>
 --%>
+				<% if (tabLev2.equals("competitionArena")) {%>
+					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_arena"><img src="/i/tournament/tco05/tabs/L2_competitionArenaOn.gif" alt="" border="0" /></A></td>
+				<% } else { %>
+					<td class="nav"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_arena"><img src="/i/tournament/tco05/tabs/L2_competitionArenaOff.gif" alt="" border="0" /></A></td>
+				<% } %>
         		<td class="nav" align=left><img src="/i/tournament/tco05/tabs/L2_sideLT.gif" border="0" /></td>
         		<td class="nav" width="100%">&#160;</td>
 			</tr>
@@ -69,6 +74,8 @@
 					<% } else if (tabLev2.equals("registration")) {%>
 						<td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
 					<% } else if (tabLev2.equals("registrants")) {%>
+						<td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
+					<% } else if (tabLev2.equals("competitionArena")) {%>
 						<td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
 					<% } else if (tabLev2.equals("advancers")) {%>
 						<td class="subnav"><a href="/tc?module=SimpleStats&c=tco05_spon_alg_qual&trans=true&d1=tournaments&d2=tco05&d3=spon_qualification"><% if (tabLev3.equals("qualification")) {%><img src="/i/tournament/tco05/tabs/L3_qualificationOn.gif" border="0" /><% } else { %><img src="/i/tournament/tco05/tabs/L3_qualificationOff.gif" border="0" /><% } %></a></td>
