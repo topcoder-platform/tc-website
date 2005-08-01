@@ -49,14 +49,21 @@ public class TCO05SponsorTermsAgree extends Static {
                         tm.rollback();
                     throw e;
                 }
-                setNextPage("/tournaments/tco05/spon_reg_success.jsp");
+                setNextPage(getSuccessPage());
                 setIsNextPageInContext(true);
             } else {
-                setNextPage("/tournaments/tco05/spon_reg.jsp");
+                setNextPage(getStartPage());
                 setIsNextPageInContext(true);
             }
         }
 
     }
 
+    protected String getSuccessPage() {
+        return "/tournaments/tco05/spon_reg_success.jsp";
+    }
+
+    protected String getStartPage() {
+        return "/tournaments/tco05/spon_reg.jsp";
+    }
 }
