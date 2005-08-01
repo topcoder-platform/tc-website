@@ -160,6 +160,7 @@ public final class Navigation
     //get
 
 
+/*
     public boolean cookiesEnabled(HttpServletRequest request, HttpServletResponse response) {
         boolean result = false;
         StringBuffer url = new StringBuffer(100);
@@ -169,6 +170,7 @@ public final class Navigation
         if (response.encodeURL(url.toString()).equals(url.toString())) result = true;
         return result;
     }
+*/
 
     /**
      * deprecated
