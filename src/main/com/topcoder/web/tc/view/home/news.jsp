@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>08.01.05<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/?RoundId=8012&t=schedule&c=srm">SRM added on 08.22</A></span><br><br>
+      We've added a new SRM to the schedule on August 22.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/?RoundId=8012&t=schedule&c=srm">details</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.29.05<br>12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -235,17 +247,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/comp.gif" alt="Component Competition News" border="0" /><br>07.12.05<br>3:50 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://software.topcoder.com/index.jsp">software.topcoder.com</A> will be down for maintenance on 7/18</span><br><br>
-      We will be running some scheduled maintenance on the TCS site on Monday 7/18 at 8PM EDT.  The site should be down for no longer than an hour.  Sections of the Development site on <A href="/">www.topcoder.com</A> will be affected as well.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
 
