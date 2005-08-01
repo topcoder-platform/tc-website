@@ -52,7 +52,7 @@
 
 <span class="bodySubtitle">Development Statistics > Contest Details > <A href="do me!" class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
 <span class="bc">
-
+<% if (dates.size() > 1) { %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
 
                     <% if(!first) { %>
@@ -68,6 +68,7 @@
                         <A HREF='do me!<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink"><rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></A>
                     <% } %>
                  </rsc:iterator>
+<% } %>
 
 </span>
 
@@ -166,7 +167,7 @@
                                             </A></TD>
 
             <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="&nbsp;" /></TD>
-            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="&nbsp;" /></TD>
+            <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="&nbsp;" /></b></TD>
 
 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
             <TD class="statDk" align="center"><A href="do me!">
