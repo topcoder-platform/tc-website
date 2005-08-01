@@ -44,6 +44,8 @@ TopCoder members who are 18 years of age or older as of August 16, 2005 are elig
 <br><br>
 Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.  If a competitor's employer signs up as an official sponsor of the tournament on or after August 1, 2005, then that competitor will be disqualified from participating further in the tournament.  TopCoder members who are performing internships for any official tournament sponsor between August 1 and October 14, 2005 are also ineligible to compete.  
 <br><br>
+Those ineligible to compete, email <A href="mailto:jdamato@topcoder.com">Jessie D’Amato</A> for information on other opportunities.
+<br><br>
 In the event that a competitor is disqualified from any round, no other competitors will be added in his/her place.  The only exception to this is advancement to the onsite rounds.
 <br><br>
 <a name="registration"></a>
