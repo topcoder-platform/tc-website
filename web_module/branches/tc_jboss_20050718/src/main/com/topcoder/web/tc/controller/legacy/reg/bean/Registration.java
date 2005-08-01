@@ -261,11 +261,14 @@ public class Registration
             ArrayList notifyList = null;
             try {
                 notifyList = Notification.getNotifications();
+                log.debug("got " + notifyList.size() + " notifications");
             } catch (Exception e) {
+                e.printStackTrace();
                 notifyList = new ArrayList(0);
             }
             notifications = new HashSet(notifyList.size());
             for (int i = 0; i < notifyList.size(); i++) {
+                log.debug(notifyList.get(i).getClass());
                 Notify notify = (Notify) notifyList.get(i);
                 notifications.add(Integer.toString(notify.getNotifyId()));
             }
