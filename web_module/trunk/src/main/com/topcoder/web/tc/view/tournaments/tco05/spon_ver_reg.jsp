@@ -27,7 +27,7 @@
 <br /><br />
 <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="regForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO05VerisignTermsAgree"/>
-    <tc-webtag:hiddenInput name="<%=Constants.COMPANY_NAME%>" value="Verisign"/>
+    <tc-webtag:hiddenInput name="<%=Constants.COMPANY_NAME%>" value="VeriSign"/>
     <div align="center">
     <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_reg_content"></iframe>
     <br /><br />
