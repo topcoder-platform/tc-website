@@ -66,7 +66,7 @@ public class Login extends Base {
                                 return;
                             } else {
                                 log.debug("user active");
-                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)).replaceAll("&","%26");
                                 String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
 
                                 //todo make this https
@@ -79,7 +79,7 @@ public class Login extends Base {
                                     if (!rememberUser.equals("")) {
                                         nextPage.append("&").append(REMEMBER_USER).append("=").append(rememberUser);
                                     }
-                                    nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(getResponse().encodeRedirectURL(dest));
+                                    nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(dest);
                                     setNextPage(nextPage.toString());
                                 } else {
                                     if (dest.startsWith(forumsURL)) {
