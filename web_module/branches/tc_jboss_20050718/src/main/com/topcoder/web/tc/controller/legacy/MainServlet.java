@@ -216,9 +216,11 @@ public final class MainServlet extends BaseServlet {
                 responseWritten = true;
             }
             //************************ search ************************
+/*
             else if (requestTask.equals("search")) {
                 HTMLString = TaskSearch.process(request, response, htmlMaker, nav, document);
             }
+*/
             //************************ static  ************************
             else if (requestTask.equals("") || requestCommand.equals("")) {
                 fetchRegularPage(request, response, com.topcoder.web.tc.Constants.HOME_PAGE, true);
@@ -366,7 +368,9 @@ public final class MainServlet extends BaseServlet {
                             HttpServletResponse response, XMLDocument document) throws TCException {
         // ADD ALL XML TAGS BASIC TO ALL REQUESTS
         try {
+/*
             document.addTag(new ValueTag("CookiesEnabled", nav.cookiesEnabled(request, response)));
+*/
             document.addTag(new ValueTag("Host", request.getServerName()));
             document.addTag(new ValueTag("CorpHost", ApplicationServer.CORP_SERVER_NAME));
             document.addTag(new ValueTag("SoftwareHost", ApplicationServer.SOFTWARE_SERVER_NAME));

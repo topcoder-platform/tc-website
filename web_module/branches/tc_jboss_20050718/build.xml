@@ -1198,6 +1198,8 @@
                  <include name="com/topcoder/web/privatelabel/"/>
                  <include name="com/topcoder/web/tc/Constants.class"/>
                  <include name="com/topcoder/common/web/error/TCException.class"/>
+                 <include name="com/topcoder/common/web/data/User.class"/>
+                 <include name="com/topcoder/common/web/data/Browser.class"/>
              </classes>
              <webinf dir="${resources}/privatelabel">
                  <include name="jboss-web.xml"/>

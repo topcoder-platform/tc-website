@@ -11,7 +11,6 @@ import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +24,7 @@ import java.util.HashMap;
 public final class Navigation
         implements Serializable {
 
-    private Browser browser;
+//    private Browser browser;
 //    private boolean serializable;
 //    private User userSerializable;
     private User user;
@@ -89,7 +88,7 @@ public final class Navigation
      * The constructor for the class. Initializes instance variables.
      */
     public Navigation() {
-        browser = null;
+//        browser = null;
 //        serializable = false;
         user = new User();
 //        userSerializable = new User();
@@ -100,7 +99,9 @@ public final class Navigation
     public Navigation(TCRequest request, CoderSessionInfo info) throws TCException {
         this();
         this.info = info;
+/*
         init(request);
+*/
     }
 
     public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
@@ -112,7 +113,9 @@ public final class Navigation
                     tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
             TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
+/*
             init(tcRequest);
+*/
         } catch (Exception e) {
             throw new TCException();
         }
@@ -126,12 +129,15 @@ public final class Navigation
                     request, tcResponse, BasicAuthentication.MAIN_SITE);
             TCSubject user = SecurityHelper.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(request, authentication, user.getPrincipals());
+/*
             init(request);
+*/
         } catch (Exception e) {
             e.printStackTrace();
             throw new TCException();
         }
     }
+/*
 
     private void init(TCRequest request) {
         String appName = StringUtils.checkNull(request.getParameter("AppName"));
@@ -147,6 +153,7 @@ public final class Navigation
             browser.setUserAgent(StringUtils.checkNull(request.getParameter("UserAgent")));
         }
     }
+*/
 
 
 
@@ -172,9 +179,11 @@ public final class Navigation
         // return this.serializable;
     }
 
+/*
     public Browser getBrowser() {
         return this.browser;
     }
+*/
 
     public int getUserId() {
         return (int) info.getUserId();
@@ -237,9 +246,11 @@ public final class Navigation
 */
     }
 
+/*
     public void setBrowser(Browser browser) {
         this.browser = browser;
     }
+*/
 
     public void setUser(User user) {
 //        if (serializable) {
@@ -255,6 +266,7 @@ public final class Navigation
         this.sessionObjects = sessionObjects;
     }
 
+/*
     public Scroll getScroll(int Returns, String sessionKey)
             throws Exception {
         log.debug("coder:task:getScroll called...");
@@ -276,6 +288,7 @@ public final class Navigation
         }
         return result;
     }
+*/
 
     public CoderSessionInfo getSessionInfo() {
         return info;

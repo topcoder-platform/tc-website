@@ -15,7 +15,7 @@
                     </form>
                 </tr>
 
-                <tr><td class="statTextBig" colspan="3" nowrap><img src="/images/clear.gif" width="5" height="5" border="0"/><br />&#160;&#160;<A href="http://www.topcoder.com/?t=search" class="statText">&gt; Advanced Search</A></td></tr>
+                <tr><td class="statTextBig" colspan="3" nowrap><img src="/images/clear.gif" width="5" height="5" border="0"/><br />&#160;&#160;<A href="http://www.topcoder.com/tc?module=ViewAdvanced" class="statText">&gt; Advanced Search</A></td></tr>
             </table>
 
             <table border="0" cellspacing="0" cellpadding="0" width="180">
