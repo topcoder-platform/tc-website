@@ -168,13 +168,18 @@
 				threadPaginator = new Paginator(new Paging(resultFilter, thread.getMessageCount()));
 
 				if (threadPaginator.getNumPages() > 1) { %> [
-		        <%  pages = threadPaginator.getPages();
+		        <%  pages = threadPaginator.getPages(4);
 		            for (int i=0; i<pages.length; i++) {
 		        %>  <%  if (pages[i] != null) { %>
-	        				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew">
+	        				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkOld">
 	                		<%= pages[i].getNumber() %></A>
-		            <%  } else { %> ... <%  } %>
-		        <%  } %> ]
+		            <%  } %>
+		        <%  } %>
+                <%  if (threadPaginator.getNumPages() > 4) { %>
+                    <%  if (threadPaginator.getNumPages()-4 > 1) { %> ... <%  } %>
+                    <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=<%=(threadPaginator.getNumPages()-1)*threadPaginator.getRange()%>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkOld">
+                            <%= threadPaginator.getNumPages() %></A>
+                <%  } %> ]
 		    <%  } %>
 		<%  } else { %>
 			<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
