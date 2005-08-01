@@ -1,1 +1,2 @@
+<a href="/tc?module=TCO05AlgorithmTerms"><IMG SRC="/i/home/promos/tco05_alg_reg.gif" BORDER="0" ALT="Algorithm Registration Open" /></a><br/>
 <a href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><IMG SRC="/i/home/promos/tco05.gif" BORDER="0" ALT="TCO05" /></a><br/>
