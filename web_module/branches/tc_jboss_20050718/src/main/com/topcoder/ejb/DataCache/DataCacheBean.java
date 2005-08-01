@@ -1,8 +1,24 @@
 package com.topcoder.ejb.DataCache;
 
-import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.common.web.util.DateTime;
+import com.topcoder.common.web.data.Round;
+import com.topcoder.common.web.data.RoundSegment;
+import com.topcoder.common.web.data.Organization;
+import com.topcoder.common.web.data.Contest;
+import com.topcoder.common.web.data.ContestNav;
+import com.topcoder.common.web.data.Language;
+import com.topcoder.common.web.data.Country;
+import com.topcoder.common.web.data.State;
+import com.topcoder.common.web.data.DemographicAssignment;
+import com.topcoder.common.web.data.Referral;
+import com.topcoder.common.web.data.JobType;
+import com.topcoder.common.web.data.Editor;
+import com.topcoder.common.web.data.Degree;
+import com.topcoder.common.web.data.DemographicAnswer;
+import com.topcoder.common.web.data.Group;
+import com.topcoder.common.web.data.Notify;
+import com.topcoder.common.web.data.School;
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
@@ -432,7 +448,6 @@ public class DataCacheBean extends BaseEJB {
     /*********************************************************************************************
      * getOrganizations
      * Get the organizations coders belong to
-     * @author Steve Burrows
      * @return ArrayList of Organizations
      * @throws TCException
      *********************************************************************************************

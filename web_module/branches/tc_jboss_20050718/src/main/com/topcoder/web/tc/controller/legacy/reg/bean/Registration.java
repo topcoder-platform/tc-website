@@ -283,6 +283,7 @@ public class Registration
             notifications = new HashSet(notifyList.size());
             for (int i = 0; i < notifyList.size(); i++) {
                 log.debug(notifyList.get(i).getClass());
+                log.debug("notify class: " + Notify.class.getName());
                 Notify notify = (Notify) notifyList.get(i);
                 notifications.add(Integer.toString(notify.getNotifyId()));
             }
