@@ -89,12 +89,12 @@ public class DocumentManagerBean implements SessionBean {
      * @return ScreeningScorecard[]
      */
     public ScreeningScorecard[] getScreeningScorecard(Project project, TCSubject requestor) {
-        info("DM.getScreeningScorecard(), projectId: " + project.getId() + ", requestorId: " +
+        debug("DM.getScreeningScorecard(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
         AbstractScorecard[] absScore = getScorecards(project, requestor, ScreeningScorecard.SCORECARD_TYPE, -1, -1, false);
 
-        info("DM.getScreeningScorecard(), nrScorecards: " + absScore.length);
+        debug("DM.getScreeningScorecard(), nrScorecards: " + absScore.length);
         return (ScreeningScorecard[]) absScore;
     }
 
@@ -113,12 +113,12 @@ public class DocumentManagerBean implements SessionBean {
      * @return ScreeningScorecard[]
      */
     public ScreeningScorecard[] getScreeningScorecardFull(Project project, TCSubject requestor) {
-        info("DM.getScreeningScorecardFull(), projectId: " + project.getId() + ", requestorId: " +
+        debug("DM.getScreeningScorecardFull(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
         AbstractScorecard[] absScore = getScorecards(project, requestor, ScreeningScorecard.SCORECARD_TYPE, -1, -1, true);
 
-        info("DM.getScreeningScorecard(), nrScorecards: " + absScore.length);
+        debug("DM.getScreeningScorecard(), nrScorecards: " + absScore.length);
         return (ScreeningScorecard[]) absScore;
     }
 
@@ -131,7 +131,7 @@ public class DocumentManagerBean implements SessionBean {
      * @return ReviewScorecard[]
      */
     public ReviewScorecard[] getReviewScorecardFull(Project project, TCSubject requestor) {
-        info("DM.getReviewScorecardFull(), projectId: " + project.getId() + ", requestorId: " +
+        debug("DM.getReviewScorecardFull(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
         AbstractScorecard[] absScore = getScorecards(project, requestor, ReviewScorecard.SCORECARD_TYPE, -1, -1, true);
@@ -148,7 +148,7 @@ public class DocumentManagerBean implements SessionBean {
      * @return ReviewScorecard[]
      */
     public ReviewScorecard[] getReviewScorecard(Project project, TCSubject requestor) {
-        info("DM.getReviewScorecard(), projectId: " + project.getId() + ", requestorId: " +
+        debug("DM.getReviewScorecard(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
         AbstractScorecard[] absScore = getScorecards(project, requestor, ReviewScorecard.SCORECARD_TYPE, -1, -1, false);
@@ -168,7 +168,7 @@ public class DocumentManagerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public ReviewScorecard getReviewScorecard(Project project, long reviewerId, long submitterId, TCSubject requestor) {
-        info("DM.getReviewScorecard(), projectId: " + project.getId() +
+        debug("DM.getReviewScorecard(), projectId: " + project.getId() +
                 ", reviewerId: " + reviewerId +
                 ", submitterId: " + submitterId +
                 ", requestorId: " + requestor.getUserId());
@@ -656,7 +656,7 @@ public class DocumentManagerBean implements SessionBean {
             IncorrectProjectStateException,
             GeneralSecurityException,
             ConcurrentModificationException {
-        info("DM.saveReviewScorecard(), scorecardId: " + scorecard.getId());
+        debug("DM.saveReviewScorecard(), scorecardId: " + scorecard.getId());
         saveScorecard(scorecard, requestor);
     }
 
@@ -678,7 +678,7 @@ public class DocumentManagerBean implements SessionBean {
             IncorrectProjectStateException,
             GeneralSecurityException,
             ConcurrentModificationException {
-        info("DM.saveScreeningScorecard(), scorecardId: " + scorecard.getId());
+        debug("DM.saveScreeningScorecard(), scorecardId: " + scorecard.getId());
         saveScorecard(scorecard, requestor);
     }
 
@@ -858,7 +858,7 @@ public class DocumentManagerBean implements SessionBean {
                         rs = null;
                         ps = null;
                     }
-                    info("DM.saveScorecard(), Saving a new scorecard, id: " + scorecard.getId());
+                    debug("DM.saveScorecard(), Saving a new scorecard, id: " + scorecard.getId());
                 }
 
                 ps = conn.prepareStatement(
@@ -900,12 +900,12 @@ public class DocumentManagerBean implements SessionBean {
                 Common.close(ps);
                 ps = null;
 
-                info("DM.saveScorecard(): Scorecard inserted");
+                debug("DM.saveScorecard(): Scorecard inserted");
             }
             // end of save scorecard
 
             ScorecardQuestion[] scorecardQuestion = scorecard.getQuestions();
-            info("DM.saveScorecard(): questionSaving()");
+            debug("DM.saveScorecard(): questionSaving()");
             int nrOfQuestions = scorecardQuestion == null ? 0 : scorecardQuestion.length;
             for (int i = 0; i < nrOfQuestions; i++) {
                 //info("Question: " + i + "/" + scorecardQuestion.length);
@@ -987,7 +987,7 @@ public class DocumentManagerBean implements SessionBean {
                         e1.printStackTrace();
                         throw new RuntimeException(e1);
                     }
-                    info("New ScorecardQuestion, id: " + question.getId());
+                    debug("New ScorecardQuestion, id: " + question.getId());
                 }
 
                 psInsertScorecardQuestion = conn.prepareStatement(
@@ -1156,7 +1156,7 @@ public class DocumentManagerBean implements SessionBean {
                         Common.close(ps);
                         ps = null;
 
-                        info("DM.saveSubjectiveResponses(): subjectiveResponse cur_version set to 0");
+                        debug("DM.saveSubjectiveResponses(): subjectiveResponse cur_version set to 0");
                     } else {
                         // New SubjectiveResponse
                         try {
@@ -1264,7 +1264,7 @@ public class DocumentManagerBean implements SessionBean {
      * @return InitialSubmission[]
      */
     public InitialSubmission[] getInitialSubmissions(Project project, boolean retrieveRemoved, TCSubject requestor) {
-        info("DM.getInitialSubmission(), projectId: " + project.getId() + ", requestorId: " +
+        debug("DM.getInitialSubmission(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
         AbstractSubmission[] submissions = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, -1, retrieveRemoved, true);
@@ -1311,7 +1311,7 @@ public class DocumentManagerBean implements SessionBean {
      * @return FinalFixSubmission
      */
     public FinalFixSubmission getFinalFixSubmission(Project project, TCSubject requestor) {
-        info("DM.getFinalFixes(), projectId: " + project.getId() + ", requestorId: " +
+        debug("DM.getFinalFixes(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
         FinalFixSubmission ffSubmission = null;
 
@@ -1435,7 +1435,7 @@ public class DocumentManagerBean implements SessionBean {
                 ps.setBoolean(3, retrieveRemoved);
             } else {
                 if (isAdmin || allSubs) {
-                    info("DM.getSubmissions(): all submission for project: " + project.getId() + ", submissionType: " + submissionType);
+                    debug("DM.getSubmissions(): all submission for project: " + project.getId() + ", submissionType: " + submissionType);
                     if (retrieveRemoved) {
                         ps = conn.prepareStatement(SQLAdminRemoved);
                     } else {
@@ -1648,7 +1648,7 @@ public class DocumentManagerBean implements SessionBean {
             throws InvalidEditException,
             IncorrectProjectStateException,
             ConcurrentModificationException {
-        info("DM.saveInitialSubmission(), submissionId: " + submission.getId());
+        debug("DM.saveInitialSubmission(), submissionId: " + submission.getId());
         saveSub(submission, requestor);
     }
 
@@ -1664,7 +1664,7 @@ public class DocumentManagerBean implements SessionBean {
             throws InvalidEditException,
             IncorrectProjectStateException,
             ConcurrentModificationException {
-        info("DM.saveFinalFixSubmission(), submissionId: " + submission.getId());
+        debug("DM.saveFinalFixSubmission(), submissionId: " + submission.getId());
         saveSub(submission, requestor);
     }
 
@@ -1804,7 +1804,7 @@ public class DocumentManagerBean implements SessionBean {
                     } finally {
                         Common.close(null, ps, rs);
                     }
-                    info("DM.saveSub(): Saving a new submission, id: " + submission.getId());
+                    debug("DM.saveSub(): Saving a new submission, id: " + submission.getId());
                 }
 
                 try {
@@ -1907,7 +1907,7 @@ public class DocumentManagerBean implements SessionBean {
      */
     public TestCaseReview[] getTestCaseReview(Project project, TCSubject requestor) {
 
-        info("DM.getTestCaseReview(), projectId: " + project.getId() +
+        debug("DM.getTestCaseReview(), projectId: " + project.getId() +
                 ", requestorId: " + requestor.getUserId());
 
         List reviewList = new LinkedList();
@@ -2008,7 +2008,7 @@ public class DocumentManagerBean implements SessionBean {
                         }
                     }
                     if (isCreated == false) {
-                        info("DM.getTestCaseReview(): Creating review, reviewerId: " + reviewer.getId() +
+                        debug("DM.getTestCaseReview(): Creating review, reviewerId: " + reviewer.getId() +
                                 " ,revieweeId: " + roleArr[i].getUser().getId());
                         TestCaseReview testCaseReview = new TestCaseReview(-1, null, project, null,
                                 reviewer, roleArr[i].getUser(), false, requestor.getUserId(), -1);
@@ -2154,7 +2154,7 @@ public class DocumentManagerBean implements SessionBean {
                     } finally {
                         Common.close(null, ps, rs);
                     }
-                    info("DM.saveTestCaseReview(): Saving a new TestCaseReview, id: " + tcReview.getId());
+                    debug("DM.saveTestCaseReview(): Saving a new TestCaseReview, id: " + tcReview.getId());
                 }
                 try {
                     ps = conn.prepareStatement(
@@ -2214,7 +2214,7 @@ public class DocumentManagerBean implements SessionBean {
     }
 
     private AggregationWorksheet getAggregation(Project project, TCSubject requestor, boolean retrieveResponses) {
-        info("DM.getAggregation(): projectId: " + project.getId() + ", requestorId: " +
+        debug("DM.getAggregation(): projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
         AggregationWorksheet aggWorksheet = null;
@@ -2260,7 +2260,7 @@ public class DocumentManagerBean implements SessionBean {
                 AggregationResponse[] aggRespArr = null;
                 if (retrieveResponses) {
                     aggRespArr = getAggregationResponses(aggWorksheetId, isWinner);
-                    info("DM.getAggregation(): nr # aggResp: " + aggRespArr.length);
+                    debug("DM.getAggregation(): nr # aggResp: " + aggRespArr.length);
                 }
 
                 aggWorksheet = new AggregationWorksheet(aggWorksheetId, isCompleted, isPMReviewed, aggregator,
@@ -2292,7 +2292,7 @@ public class DocumentManagerBean implements SessionBean {
             DocumentAlreadySubmittedException,
             IncorrectProjectStateException,
             ConcurrentModificationException {
-        info("DM.saveAggregation(): worksheetId: " + worksheet.getId());
+        debug("DM.saveAggregation(): worksheetId: " + worksheet.getId());
 
         long requestorId = worksheet.getRequestorId();
 
@@ -2448,7 +2448,7 @@ public class DocumentManagerBean implements SessionBean {
                         error(errorMsg);
                         throw new RuntimeException(errorMsg);
                     }
-                    info("DM.saveAggregation(): Saving a new worksheet, id: " + worksheet.getId());
+                    debug("DM.saveAggregation(): Saving a new worksheet, id: " + worksheet.getId());
                 }
 
                 try {
@@ -2479,7 +2479,7 @@ public class DocumentManagerBean implements SessionBean {
                     Common.close(ps);
                 }
 
-                info("DM.saveAggregation(): AggregationWorksheet inserted");
+                debug("DM.saveAggregation(): AggregationWorksheet inserted");
             }
 
             // Save aggregationResponses
@@ -2510,10 +2510,10 @@ public class DocumentManagerBean implements SessionBean {
 
 
                 for (int i = 0; i < aggRespArr.length; i++) {
-                    info("DM.saveAggregation(), saving aggResp nr: " + i);
+                    debug("DM.saveAggregation(), saving aggResp nr: " + i);
                     if (aggRespArr[i].getDirty() == true ||
                             aggRespArr[i].getSubjectiveResponse().getDirty() == true) {
-                        info("DM.saveAggregation(), saving aggResp = dirty");
+                        debug("DM.saveAggregation(), saving aggResp = dirty");
                         if (aggRespArr[i].getId() != -1) {
                             psSel.clearParameters();
                             psSel.setLong(1, aggRespArr[i].getId());
@@ -2558,7 +2558,7 @@ public class DocumentManagerBean implements SessionBean {
                                 e1.printStackTrace();
                                 throw new RuntimeException(e1);
                             }
-                            info("DM.saveAggregation(): Saving a new AggregationResponse, id: " + aggRespArr[i].getId());
+                            debug("DM.saveAggregation(): Saving a new AggregationResponse, id: " + aggRespArr[i].getId());
                         }
 
                         psIns.clearParameters();
@@ -2583,7 +2583,7 @@ public class DocumentManagerBean implements SessionBean {
                             ejbContext.setRollbackOnly();
                             throw new InvalidEditException(errorMsg);
                         }
-                        info("DM.saveAggregation(): aggResponse inserted");
+                        debug("DM.saveAggregation(): aggResponse inserted");
 
                     }
                 }
@@ -2610,7 +2610,7 @@ public class DocumentManagerBean implements SessionBean {
      * @return AggregationReview[]
      */
     public AggregationReview[] getAggregationReview(Project project, TCSubject requestor) {
-        info("DM.getAggregationReview(), projectId: " + project.getId() + ", requestorId: " +
+        debug("DM.getAggregationReview(), projectId: " + project.getId() + ", requestorId: " +
                 requestor.getUserId());
 
         AggregationReview aggReview = null;
@@ -2697,7 +2697,7 @@ public class DocumentManagerBean implements SessionBean {
         if (Common.isRole(project, requestor.getUserId(), Role.ID_REVIEWER) &&
                 project.getCurrentPhase().getId() == Phase.ID_AGGREGATION_REVIEW) {
             if (aggReviewList.size() == 0) {
-                info("DocumentManagerBean.getAggregationReview(), creating new AggregationReview, " +
+                debug("DocumentManagerBean.getAggregationReview(), creating new AggregationReview, " +
                         "projectId: " + project.getId() + ", requestorId: " + requestor.getUserId());
 
                 AggregationWorksheet aggWorksheet = getAggregation(project, requestor);
@@ -2842,7 +2842,7 @@ public class DocumentManagerBean implements SessionBean {
                         Common.close(ps);
                     }
 
-                    info("DM.saveAggregationReview(): Saving a new AggregationReview, id: " + aggReview.getId());
+                    debug("DM.saveAggregationReview(): Saving a new AggregationReview, id: " + aggReview.getId());
                 }
 
                 try {
@@ -2904,7 +2904,7 @@ public class DocumentManagerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public FinalReview getFinalReview(Project project, boolean retrieveFull, TCSubject requestor) {
-        info("DM.getFinalReview(), projectId: " + project.getId() +
+        debug("DM.getFinalReview(), projectId: " + project.getId() +
                 ", requestorId: " + requestor.getUserId());
 
         FinalReview finalReview = null;
@@ -3037,7 +3037,7 @@ public class DocumentManagerBean implements SessionBean {
      * @return AggregationResponse[]
      */
     private AggregationResponse[] getAggregationResponses(long aggWorksheetId, boolean isWinner) {
-        info("DM.getAggregationResponses(), isWinner " + isWinner);
+        debug("DM.getAggregationResponses(), isWinner " + isWinner);
         return getAggregationResponses(aggWorksheetId, -1, isWinner);
     }
 
@@ -3450,7 +3450,7 @@ public class DocumentManagerBean implements SessionBean {
                     } finally {
                         Common.close(null, ps, rs);
                     }
-                    info("DM.saveFinalReview(): Saving a new FinalReview, id: " + finalReview.getId());
+                    debug("DM.saveFinalReview(): Saving a new FinalReview, id: " + finalReview.getId());
                 }
                 try {
                     ps =
@@ -3553,7 +3553,7 @@ public class DocumentManagerBean implements SessionBean {
                                 e1.printStackTrace();
                                 throw new RuntimeException(e1);
                             }
-                            info("DM.saveAggregationReview(): Saving a new FinalReview, id: " + finalReview.getId());
+                            debug("DM.saveAggregationReview(): Saving a new FinalReview, id: " + finalReview.getId());
                         }
 
                         // If the final fix status is null, we don't need to save it yet.
@@ -3603,8 +3603,8 @@ public class DocumentManagerBean implements SessionBean {
         int scorecardType = (int) project.getCurrentPhase().getId() - 1;
         long projectTypeId = project.getProjectType().getId();
 
-        info("DM.createScorecards(), project: " + project.getId());
-        info("Type: " + scorecardType + "  ,projectType: " + projectTypeId);
+        debug("DM.createScorecards(), project: " + project.getId());
+        debug("Type: " + scorecardType + "  ,projectType: " + projectTypeId);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -3631,9 +3631,9 @@ public class DocumentManagerBean implements SessionBean {
 
             InitialSubmission[] subArr = (InitialSubmission[]) getSubmissions(project, fakeSubject, InitialSubmission.SUBMISSION_TYPE, -1, false, false);
 
-            info("DM.createScorecards(): subArr.length: " + subArr.length);
+            debug("DM.createScorecards(): subArr.length: " + subArr.length);
             if (subArr.length > 0) {
-                info("DM.createScorecards(): subArr[0]." + subArr[0].getId());
+                debug("DM.createScorecards(): subArr[0]." + subArr[0].getId());
             }
 
 //            if (project.getCurrentPhase().getId() == Phase.ID_REVIEW &&
@@ -3673,9 +3673,9 @@ public class DocumentManagerBean implements SessionBean {
                 // since authorId is always given.
                 authorArr = getReviewers(project, scorecardType);
             }
-            info("DM.createScorecards(): authorArr.length: " + authorArr.length);
+            debug("DM.createScorecards(): authorArr.length: " + authorArr.length);
             if (authorArr.length > 0) {
-                info("DM.createScorecards(): authorArr[0]." + authorArr[0].getId());
+                debug("DM.createScorecards(): authorArr[0]." + authorArr[0].getId());
             }
             ScorecardQuestion[] questionArr = null;
             if (retrieveQuestions && subArr.length > 0 && authorArr.length > 0) {
@@ -3709,7 +3709,7 @@ public class DocumentManagerBean implements SessionBean {
                 List questionList = new LinkedList();
                 while (rs.next()) {
                     long templateVID = rs.getLong(1);
-                    info("DM.createScorecards(): templateVID: " + templateVID);
+                    debug("DM.createScorecards(): templateVID: " + templateVID);
                     String questionText = rs.getString(2);
                     int questionWeight = rs.getInt(3);
                     int questionSeqLoc = rs.getInt(4);
@@ -3837,7 +3837,7 @@ public class DocumentManagerBean implements SessionBean {
      * @param project
      */
     public void createAggregation(Project project) {
-        info("DM.createAggregation(), project: " + project.getId());
+        debug("DM.createAggregation(), project: " + project.getId());
         // for every reviewscorecard and subjectiveresponse,
         // and for the screeningscorecard and subjectiveresponse,
         // create AggregationResponse
@@ -3865,10 +3865,10 @@ public class DocumentManagerBean implements SessionBean {
         // Check if aggregation worksheet already exists
         AggregationWorksheet agg = getAggregation(project, fakeSubject);
         if (agg != null) {
-            info("DM.createAggregation(), aggregation worksheet already exists " +
+            debug("DM.createAggregation(), aggregation worksheet already exists " +
                     ", projectId: " + project.getId());
             //return;
-            info("DM.createAggregation(), removing existing worksheet!");
+            debug("DM.createAggregation(), removing existing worksheet!");
             Connection conn = null;
             PreparedStatement ps = null;
             ResultSet rs = null;
@@ -3934,7 +3934,7 @@ public class DocumentManagerBean implements SessionBean {
 
         AggregationResponse[] aggRespArr = (AggregationResponse[]) aggRespList.toArray(
                 new AggregationResponse[aggRespList.size()]);
-        info("DM.createAggregation(): nr # aggResp: " + aggRespArr.length);
+        debug("DM.createAggregation(): nr # aggResp: " + aggRespArr.length);
 
         AggregationWorksheet worksheet = new AggregationWorksheet(-1, false, false,
                 aggregator, aggRespArr, project, fakeSubject.getUserId(), -1);
@@ -3970,7 +3970,7 @@ public class DocumentManagerBean implements SessionBean {
             hasSubj = true;
         }
         if (hasSubj) {
-            info("DM.createAggregation(): (not)saving subjective responses, " +
+            debug("DM.createAggregation(): (not)saving subjective responses, " +
                     "subjRespArr.length: " + subjRespArr.length);
             for (int k = 0; k < subjRespArr.length; k++) {
                 AggregationResponse aggResp = new AggregationResponse(-1, subjRespArr[k],
@@ -4026,7 +4026,7 @@ public class DocumentManagerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public TestCase[] getTestCases(Project project, long reqReviewerId, TCSubject requestor) {
-        info("DM.getTestCases(), projectId: " + project.getId() +
+        debug("DM.getTestCases(), projectId: " + project.getId() +
                 ", reviewerId: " + reqReviewerId +
                 ", requestorId: " + requestor.getUserId());
 
@@ -4066,7 +4066,7 @@ public class DocumentManagerBean implements SessionBean {
 
             while (rs.next()) {
                 long testcasesId = rs.getLong(1);
-                info("DM.getTestCases(): found testcases, id: " + testcasesId);
+                debug("DM.getTestCases(): found testcases, id: " + testcasesId);
                 String testcasesURLstring = rs.getString(2);
                 long reviewerId = rs.getLong(3);
                 long tcVersionId = rs.getLong(4);
@@ -4227,7 +4227,7 @@ public class DocumentManagerBean implements SessionBean {
                     } finally {
                         Common.close(null, ps, rs);
                     }
-                    info("DM.saveTestCase(): Saving a new testcase, id: " + testCase.getId());
+                    debug("DM.saveTestCase(): Saving a new testcase, id: " + testCase.getId());
                 }
 
                 try {
@@ -4312,7 +4312,7 @@ public class DocumentManagerBean implements SessionBean {
      * @return Appeal[]
      */
     public Appeal[] getAppeals(Project project, long aid, long qid, TCSubject requestor) {
-        info("DM.getAppeals(), projectId: " + project.getId() +
+        debug("DM.getAppeals(), projectId: " + project.getId() +
                 ", appealerId: " + aid +
                 ", questionId: " + qid +
                 ", requestorId: " + requestor.getUserId());
@@ -4388,7 +4388,7 @@ public class DocumentManagerBean implements SessionBean {
                     qid != -1 &&
                     Common.isRole(project, requestor.getUserId(), Role.ID_DESIGNER_DEVELOPER)) {
                 // Create new appeal-object
-                info("DM.getAppeals(), creating new appeal-object.");
+                debug("DM.getAppeals(), creating new appeal-object.");
 
                 Common.close(ps);
                 ps = conn.prepareStatement(
@@ -4446,7 +4446,7 @@ public class DocumentManagerBean implements SessionBean {
      * @throws ConcurrentModificationException
      */
     public void saveAppeal(Appeal appeal, Project project, TCSubject requestor) throws DocumentAlreadySubmittedException, ConcurrentModificationException {
-        info("DM.saveAppeal(), appealId: " + appeal.getId() +
+        debug("DM.saveAppeal(), appealId: " + appeal.getId() +
                 ", questionId: " + appeal.getQuestion().getId() +
                 ", requestorId: " + requestor.getUserId());
 
@@ -4576,7 +4576,7 @@ public class DocumentManagerBean implements SessionBean {
                     } finally {
                         Common.close(null, ps, rs);
                     }
-                    info("DM.saveAppeal(): Saving a new Appeal, id: " + appeal.getId());
+                    debug("DM.saveAppeal(): Saving a new Appeal, id: " + appeal.getId());
                 }
 
                 try {
@@ -4600,8 +4600,8 @@ public class DocumentManagerBean implements SessionBean {
                     ps.setLong(2, appeal.getAppealer().getId());
                     ps.setLong(3, appeal.getQuestion().getId());
                     ps.setBoolean(4, appeal.isResolved());
-                    info("text: " + appeal.getAppealText());
-                    info("response: " + appeal.getAppealResponse());
+                    debug("text: " + appeal.getAppealText());
+                    debug("response: " + appeal.getAppealResponse());
                     ps.setString(5, appeal.getAppealText());
                     if (appeal.getAppealResponse() == null) {
                         ps.setNull(6, Types.CLOB);
@@ -4647,7 +4647,7 @@ public class DocumentManagerBean implements SessionBean {
     }
 
     public ScorecardTemplate[] getScorecardTemplates() {
-        info("DM.getScorecardTemplates()");
+        debug("DM.getScorecardTemplates()");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -4866,7 +4866,7 @@ public class DocumentManagerBean implements SessionBean {
 
     public void saveScorecardTemplate(ScorecardTemplate template,
                                       boolean saveNew, boolean saveQuestions) {
-        info("DMB.saveScorecardTemplate(), tId: " + template.getId() +
+        debug("DMB.saveScorecardTemplate(), tId: " + template.getId() +
                 " , saveNew: " + saveNew + " ,saveQuestions: " + saveQuestions);
         Connection conn = null;
         PreparedStatement ps = null;
@@ -4945,10 +4945,10 @@ public class DocumentManagerBean implements SessionBean {
                             "(?,?,?,?)");
                     groups[i].setGroupId(idGen.nextId());
                     groups[i].setGroupSeqLoc(i + 1);
-                    info("1: " + groups[i].getGroupId());
-                    info("2: " + groups[i].getGroupName());
-                    info("3: " + groups[i].getGroupSeqLoc());
-                    info("4: " + template.getId());
+                    debug("1: " + groups[i].getGroupId());
+                    debug("2: " + groups[i].getGroupName());
+                    debug("3: " + groups[i].getGroupSeqLoc());
+                    debug("4: " + template.getId());
                     ps.setLong(1, groups[i].getGroupId());
                     ps.setString(2, groups[i].getGroupName());
                     ps.setInt(3, groups[i].getGroupSeqLoc());
@@ -5027,7 +5027,7 @@ public class DocumentManagerBean implements SessionBean {
 
             // save scorecard_template
             if (saveNew) {
-                info("Saving new scorecard_template");
+                debug("Saving new scorecard_template");
                 template.setStatus(0);
                 ps = conn.prepareStatement(
                         "INSERT INTO scorecard_template " +

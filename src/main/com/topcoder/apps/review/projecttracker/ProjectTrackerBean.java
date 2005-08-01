@@ -119,7 +119,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public Project getProjectById(long projectId, TCSubject requestor) {
-        info("PT.getProjectById(), projectId: " + projectId + ", requestId: " + requestor.getUserId());
+        debug("PT.getProjectById(), projectId: " + projectId + ", requestId: " + requestor.getUserId());
 
         Project project = null;
 
@@ -239,9 +239,9 @@ public class ProjectTrackerBean implements SessionBean {
                 if (rsForum.next()) {
                     forumId = rsForum.getLong(1);
                 }
-                info("PT.getProjectById(): forumId: " + forumId);
+                debug("PT.getProjectById(): forumId: " + forumId);
 
-                info("PT.getProjectById(): forumId: " + forumId);
+                debug("PT.getProjectById(): forumId: " + forumId);
 
                 long[] templateId = getProjectTemplates(projectId);
 
@@ -339,7 +339,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     public UserProjectInfo[] getProjectInfo(TCSubject user) {
-        info("PT.getProjectInfo( " + user.getUserId() + " )");
+        debug("PT.getProjectInfo( " + user.getUserId() + " )");
 
         LinkedList projectInfoList = new LinkedList();
 
@@ -547,7 +547,7 @@ public class ProjectTrackerBean implements SessionBean {
             throws InvalidEditException,
             GeneralSecurityException,
             ConcurrentModificationException {
-        info("PT.saveProject( " + project.getId() + " )");
+        debug("PT.saveProject( " + project.getId() + " )");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -601,7 +601,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setLong(1, project.getId());
 
                     int nr = ps.executeUpdate();
-                    info("PT.saveProject(): cur_version set to 0");
+                    debug("PT.saveProject(): cur_version set to 0");
 
                     if (nr == 0) {
                         String errorMsg = "PT.saveProject(): Trying to save non-existing project, projectId: " + project.getId();
@@ -643,7 +643,7 @@ public class ProjectTrackerBean implements SessionBean {
                         throw new InvalidEditException(errorMsg);
                     }
 
-                    info("PT.saveProject(): about to set parameters for insert");
+                    debug("PT.saveProject(): about to set parameters for insert");
                     if (Common.tooBig(project.getOverview()) ||
                             Common.tooBig(project.getNotes()) ||
                             Common.tooBig(reason)) {
@@ -693,7 +693,7 @@ public class ProjectTrackerBean implements SessionBean {
                         ejbContext.setRollbackOnly();
                         throw new InvalidEditException(errorMsg);
                     }
-                    info("PT.saveProject(): inserted new project version!");
+                    debug("PT.saveProject(): inserted new project version!");
                 } finally {
                     Common.close(ps);
                 }
@@ -701,11 +701,11 @@ public class ProjectTrackerBean implements SessionBean {
 
                 if (oldPhaseId != currentPhase.getId()) {
                     if (currentPhase.getId() == Phase.ID_AGGREGATION) {
-                        info("PT.saveProject(), Creating Aggregation Worksheet");
+                        debug("PT.saveProject(), Creating Aggregation Worksheet");
                         documentManager.createAggregation(project);
                     } else if (currentPhase.getId() == Phase.ID_SCREENING ||
                             currentPhase.getId() == Phase.ID_REVIEW) {
-                        info("PT.saveProject(), Selecting scorecard template for project");
+                        debug("PT.saveProject(), Selecting scorecard template for project");
                         int scorecardType;
                         long scorecardTemplateId;
                         if (currentPhase.getId() == Phase.ID_SCREENING) {
@@ -1323,7 +1323,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @throws RuntimeException DOCUMENT ME!
      */
     private UserRole[] getUserRoles(long projectId, User user) {
-        info("PT.getUserRoles(), project: " + projectId + ", user: " + (user == null ? -1 : user.getId()));
+        debug("PT.getUserRoles(), project: " + projectId + ", user: " + (user == null ? -1 : user.getId()));
 
         List userRoleList = new LinkedList();
 
@@ -1594,7 +1594,7 @@ public class ProjectTrackerBean implements SessionBean {
             Date[] dates,
             TCSubject requestor,
             long levelId) throws TCException {
-        info("PT.createProject: compVersId: " + compVersId);
+        debug("PT.createProject: compVersId: " + compVersId);
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1624,11 +1624,11 @@ public class ProjectTrackerBean implements SessionBean {
             Common.close(rs);
             Common.close(ps);
 
-            info("About to create new projectId!");
+            debug("About to create new projectId!");
             projectId = idGen.nextId();
             long modUserId = requestor.getUserId();
             long firstPhaseInstanceId = idGen.nextId();
-            info("projectId: " + firstPhaseInstanceId);
+            debug("projectId: " + firstPhaseInstanceId);
 
             // Create project
             ps = conn.prepareStatement(
@@ -1664,7 +1664,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps.executeUpdate();
 
             // Create phase instances for project
-            info("Creating phase instances");
+            debug("Creating phase instances");
             PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
             Phase[] phaseArr = phaseManager.getPhases();
 
@@ -1722,7 +1722,7 @@ public class ProjectTrackerBean implements SessionBean {
 
 
             // Create payment infos?
-            info("Creating payment infos");
+            debug("Creating payment infos");
             ps = conn.prepareStatement(
                     "INSERT INTO payment_info "
                     + "(payment_info_v_id, payment_info_id, "
@@ -1747,7 +1747,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps = null;
 
             // Create user roles for project
-            info("Creating user roles");
+            debug("Creating user roles");
             long revRespId = 1;
             // TODO Change to references
             ps = conn.prepareStatement(
@@ -1812,7 +1812,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps = null;
 
             // Create security manager roles for project
-            info("Creating security manager roles");
+            debug("Creating security manager roles");
             PrincipalMgrRemote principalMgr;
             PolicyMgrRemote policyMgr;
             try {
@@ -2003,7 +2003,7 @@ public class ProjectTrackerBean implements SessionBean {
 
             return result;
         } catch (Exception e) {
-            info("Couldn't calculate the project dates due to: " + e);
+            debug("Couldn't calculate the project dates due to: " + e);
             return null;
         }
 
@@ -2089,7 +2089,7 @@ public class ProjectTrackerBean implements SessionBean {
 
     public void userInquiry(long userId, long projectId)
             throws TCException {
-        info("PT.userInquiry; userId: " + userId +
+        debug("PT.userInquiry; userId: " + userId +
                 " ,projectId: " + projectId);
 
         Connection conn = null;
@@ -2291,7 +2291,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @return
      */
     private long getRoleId(String roleName) {
-        info("PT.getRoleId(), roleName: " + roleName);
+        debug("PT.getRoleId(), roleName: " + roleName);
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -2327,7 +2327,7 @@ public class ProjectTrackerBean implements SessionBean {
      * @return array with screening and review template id:s
      */
     public long[] getProjectTemplates(long projectId) {
-        info("PT.getProjectTemplates(), projectId: " + projectId);
+        debug("PT.getProjectTemplates(), projectId: " + projectId);
 
         long[] ret = new long[2];
         ret[0] = -1;
@@ -2572,7 +2572,7 @@ public class ProjectTrackerBean implements SessionBean {
     private void ddeRename(long componentId, long compVersId,
                            String oldName, String newName,
                            String oldVersion, String newVersion) {
-        info("PT.ddeRename(), componentId: " + componentId +
+        debug("PT.ddeRename(), componentId: " + componentId +
                 "compVersId: " + compVersId);
         Connection conn = null;
         PreparedStatement ps = null;
@@ -2679,7 +2679,7 @@ public class ProjectTrackerBean implements SessionBean {
                 long ptId = ((Long) iterProjectType.next()).longValue();
                 String oldV = (String) iterOldVersion.next();
                 String newV = (String) iterNewVersion.next();
-                info("PT.ddeRename(), renaming roles for project, compVersId: " + cvId);
+                debug("PT.ddeRename(), renaming roles for project, compVersId: " + cvId);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
                 ProjectType projectType = projectTypeManager.getProjectType(ptId);
