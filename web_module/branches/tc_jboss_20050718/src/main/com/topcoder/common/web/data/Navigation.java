@@ -3,11 +3,15 @@ package com.topcoder.common.web.data;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
