@@ -25,7 +25,6 @@
         </exec>
 
         <ant antfile="build.xml" target="deploy"/>
-        <ant antfile="build.xml" target="package-Jive"/>
 
         <jar destfile="./lib/bin/classes.jar" update="true">
             <fileset dir="./build/classes">
