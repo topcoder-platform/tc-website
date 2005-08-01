@@ -66,7 +66,7 @@ public class Login extends Base {
                                 return;
                             } else {
                                 log.debug("user active");
-                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)).replaceAll("&","%26");
+                                String dest = StringUtils.replace(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)),"&","%26");
                                 String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
 
                                 //todo make this https
