@@ -147,7 +147,6 @@
          </tr>
 
 <rsc:iterator list="<%=submissions%>" id="resultRow">
-
          <tr>
             <TD class="statDk"><tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id") %>' context="development"/></TD>
 
