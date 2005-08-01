@@ -45,7 +45,6 @@
    ResultSetContainer reviewers = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("reviewers_for_project");
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_info");
    ResultSetContainer submissions = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submissions");
-   System.out.println("submission:" + submissions.toString() + "---");
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
 %>
@@ -91,7 +90,7 @@
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Submission Percentage:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="#.##'%'" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="submission_percent" format="0.00'%'" ifNull="N/A" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed:</TD>
@@ -99,15 +98,15 @@
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Passed Percentage:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="#.##'%'" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="passed_percent" format="0.00'%'" ifNull="N/A" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Initial Score:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="#.##" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_raw_score" format="0.00" ifNull="N/A" /></TD>
          </tr>
          <tr>
             <td class="cat" nowrap="nowrap">Avg Final Score:</TD>
-            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="#.##" ifNull="N/A" /></TD>
+            <TD class="stat" align="right"><rsc:item set="<%=projectInfo%>" name="avg_final_score" format="0.00" ifNull="N/A" /></TD>
          </tr>
       </TABLE>
 
@@ -128,9 +127,22 @@
             <TD CLASS="tableHeader" colspan="3" align="center">Reviewers</TD>
          </tr>
          <tr>
+         <%
+            if (reviewers.size() == 3) {
+         %>
             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(0, "reviewer_id") %>' context="development"/></TD>
             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(1, "reviewer_id") %>' context="development"/></TD>
             <TD CLASS="tableHeader" align="center"><tc-webtag:handle coderId='<%= reviewers.getLongItem(2, "reviewer_id") %>' context="development"/></TD>
+         <% } else if (reviewers.size() == 0) { // probably the project hasnt arrived to review phase
+         %>
+             <TD CLASS="tableHeader" align="center">-</TD>
+             <TD CLASS="tableHeader" align="center">-</TD>
+             <TD CLASS="tableHeader" align="center">-</TD>
+         <% } else {
+              throw new Exception("0 or 3 reviewers expected.");
+              }
+         %>
+
          </tr>
 
 <rsc:iterator list="<%=submissions%>" id="resultRow">
@@ -150,20 +162,27 @@
 
             </TD>
             <TD class="statDk" align="right"><A href="do me!">
-                                                <rsc:item row="<%=resultRow%>" name="screening_score" format="#.##" ifNull="N/A" />
+                                                <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="N/A" />
                                             </A></TD>
 
-            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="#.##" ifNull="&nbsp;" /></TD>
-            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="final_score" format="#.##" ifNull="&nbsp;" /></TD>
+            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="&nbsp;" /></TD>
+            <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="&nbsp;" /></TD>
+
+<% if (resultRow.getIntItem("passed_screening") == 1) { %>
             <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item row="<%=resultRow%>" name="score1" format="#.##" ifNull="&nbsp;" />
+                                                   <rsc:item row="<%=resultRow%>" name="score1" format="0.00"  />
                                               </A></TD>
             <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item row="<%=resultRow%>" name="score2" format="#.##" ifNull="&nbsp;" />
+                                                   <rsc:item row="<%=resultRow%>" name="score2" format="0.00" />
                                               </A></TD>
             <TD class="statDk" align="center"><A href="do me!">
-                                                   <rsc:item row="<%=resultRow%>" name="score3" format="#.##" ifNull="&nbsp;" />
+                                                   <rsc:item row="<%=resultRow%>" name="score3" format="0.00" />
                                               </A></TD>
+                <% } else { %>
+                    <TD class="statDk" align="center">&nbsp;</TD>
+                    <TD class="statDk" align="center">&nbsp;</TD>
+                    <TD class="statDk" align="center">&nbsp;</TD>
+                <% } %>
 
 
          </tr>
