@@ -23,7 +23,7 @@
                 <tr>
                     <td valign="top">
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
-							<tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: July</td></tr>
+							<tr><td colspan="7" class="statTextBig" nowrap="nowrap" height="18">&#160;Match Dates: August</td></tr>
                             
                             <tr> 
                                 <td id="calendarDays" width="15%">S</td>
@@ -37,64 +37,54 @@
                         
                             <tr>
                                 <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarMini">1</td>
-                                <td id="calendarMini">2</td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">1</A></td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7992&amp;t=schedule&amp;c=srm">2</A></td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">3</A></td>
+                                <td id="calendarMini">4</td>
+                                <td id="calendarMini">5</td>
+                                <td id="calendarMini">6</td>
                             </tr>
                       
                             <tr> 
-                                <td id="calendarMini">3</td>
-                                <td id="calendarMini">4</td>
-                                <td id="calendarMini">5</td>
-                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">6</A></td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7225&amp;t=schedule&amp;c=srm">7</A></td>
-                                <td id="calendarMini">8</td>
+                                <td id="calendarMini">7</td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8005&amp;t=schedule&amp;c=srm">8</A></td>
                                 <td id="calendarMini">9</td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7993&amp;t=schedule&amp;c=srm">10</A></td>
+                                <td id="calendarMini">11</td>
+                                <td id="calendarMini">12</td>
+                                <td id="calendarMini">13</td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendarMini">10</td>
-                                <td id="calendarMini">11</td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7226&amp;t=schedule&amp;c=srm">12</A></td>
-                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">13</A></td>
                                 <td id="calendarMini">14</td>
                                 <td id="calendarMini">15</td>
-                                <td id="calendarMini">16</td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">16</A></td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">17</A></td>
+                                <td id="calendarMini">18</td>
+                                <td id="calendarMini">19</td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">20</A></td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendarMini">17</td>
-                                <td id="calendarMini">18</td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8004&amp;t=schedule&amp;c=srm">19</A></td>
-                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">20</A></td>
                                 <td id="calendarMini">21</td>
                                 <td id="calendarMini">22</td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7227&amp;t=schedule&amp;c=srm">23</A></td>
-                            </tr>
-                            
-                            <tr> 
-                                <td id="calendarMini">24</td>
+                                <td id="calendarMini">23</td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">24</A></td>
                                 <td id="calendarMini">25</td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=8006&amp;t=schedule&amp;c=srm">26</A></td>
-                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=comp_schedule">27</A></td>
-                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7228&amp;t=schedule&amp;c=srm">28</A></td>
-                                <td id="calendarMini">29</td>
-                                <td id="calendarMini">30</td>
+                                <td id="calendarMini">26</td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7994&amp;t=schedule&amp;c=srm">27</A></td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendarMini">31</td>
+                                <td id="calendarMini">28</td>
+                                <td id="calendarMini">29</td>
+                                <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=7995&amp;t=schedule&amp;c=srm">30</A></td>
+                                <td id="calendarTCO05Mini"><A id="calendarTCO05Date" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco05&amp;d3=about">31</A></td>
                                 <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarBlankMini">&#160;</td> 
-                                <td id="calendarBlankMini">&#160;</td> 
-                           </tr>   
-
+                            </tr>
+                            
                             <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=schedule&amp;c=index</xsl:attribute>More Match Dates&#160;</A></td></tr>
                         </table>
                     </td>
