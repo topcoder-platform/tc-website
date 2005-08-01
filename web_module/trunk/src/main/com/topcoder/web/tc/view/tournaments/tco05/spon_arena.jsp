@@ -5,6 +5,7 @@
 <title>2005 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCO05style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+<jsp:include page="../../script.jsp" />
 </head>
 <body>
 
@@ -19,7 +20,7 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class=bodySpacer>
-            
+
 <span class="bigTitle">Competition Arena</span>
 <br><br>
 Click <a href="Javascript:openWin('','Arena',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco05&d3=spon_quick_launch','comp',300,275);">Java Applet</A>.
@@ -33,8 +34,8 @@ If you experience problems loading or running the Competition Arena please conta
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rules">rules and regulations</A> for more details.
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
 <td width="170" align="right">
 <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
@@ -49,9 +50,9 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rule
 <jsp:include page="../../calendar.jsp" />
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 </td>
-		
+
 	</tr>
-	
+
 </table>
 
 <jsp:include page="../../foot.jsp" />
