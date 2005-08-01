@@ -417,8 +417,11 @@
 
      <target name="package-EJB-DataCacheBean" depends="compile">
          <jar jarfile="${ejb_jars}/DataCache.jar">
-             <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+             <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
              <zipfileset dir="${classes}" includes="com/topcoder/ejb/DataCache/*.class"/>
