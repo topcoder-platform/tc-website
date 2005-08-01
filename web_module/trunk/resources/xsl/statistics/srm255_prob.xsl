@@ -84,9 +84,9 @@ function openWin(url, name, w, h) {
 
 <h2>Match summary</h2>
 
-<p>In Division 1, after some time spent working on the easy problem, most coders divided into two distinct groups. The first group opened the medium problem (600 points) next, while the second went for the hard (800 points). At first glance the second group seemed to have the better approach, but many of the hard problem solutions turned out to be wrong. bladerunner took the 1st place with the help of 7 successful challenges, lovro was 2nd and Savior finished in 3rd. sabbir_yousuf become yellow by taking the 4th place. Interestingly, dexter_bg gained 297 rating points without any problem passed.
+<p>In Division 1, after some time spent working on the easy problem, most coders divided into two distinct groups. The first group opened the medium problem (600 points) next, while the second went for the hard (800 points). At first glance the second group seemed to have the better approach, but many of the hard problem solutions turned out to be wrong. <b>bladerunner</b> took the 1st place with the help of 7 successful challenges, <b>lovro</b> was 2nd and <b>Savior</b> finished in 3rd. <b>sabbir_yousuf</b> became yellow by taking the 4th place. Interestingly, <b>dexter_bg</b> gained 297 rating points without passing any problems.
 </p>
-<p>In Division 2, the top performer was Protean, followed by crem and xaep. More than 70 coders finished with all three problems correct.</p>
+<p>In Division 2, the top performer was <b>Protean</b>, followed by <b>crem</b> and <b>xaep</b>. More than 70 coders finished with all three problems correct.</p>
 
 <H1>
 The Problems
