@@ -20,7 +20,7 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class="bodySpacer">
-            
+
 <span class="bigTitle">Competition Arena</span>
 <br><br>
 Click <a href="Javascript:openWin('','Arena',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_quick_launch','comp',300,275);">Java Applet</A>.
@@ -29,13 +29,13 @@ Click <a href="/" target="_blank">here</a> to run the Competition Arena as a <a 
 <br/><br/>
 Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
 <br/><br/>
-If you experience problems loading or running the Competition Arena please contact  <A href="mailto:support@topcoder.com">support@topcoder.com</A>.
+If you experience problems loading or running the Competition Arena please contact  <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
 <br><br><br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_rules">rules and regulations</A> for more details.
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
 <td width="170" align="right">
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
@@ -43,9 +43,9 @@ See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 <jsp:include page="../../calendar.jsp" />
 </td>
-		
+
 	</tr>
-	
+
 </table>
 
 <jsp:include page="../../foot.jsp" />

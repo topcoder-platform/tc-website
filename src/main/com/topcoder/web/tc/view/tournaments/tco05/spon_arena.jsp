@@ -29,7 +29,7 @@ Click <a href="/" target="_blank">here</a> to run the Competition Arena as a <a 
 <br/><br/>
 Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
 <br/><br/>
-If you experience problems loading or running the Competition Arena please contact  <A href="mailto:support@topcoder.com">support@topcoder.com</A>.
+If you experience problems loading or running the Competition Arena please contact  <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
 <br><br><br><br>
 See the official <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=spon_rules">rules and regulations</A> for more details.
         </div>
