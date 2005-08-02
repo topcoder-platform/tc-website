@@ -205,6 +205,7 @@ public class StatisticsHttpServlet extends HttpServlet {
 
         }
     }
+/*
 
     private String replace(String s) {
 
@@ -221,6 +222,7 @@ public class StatisticsHttpServlet extends HttpServlet {
             return buffer.toString();
         }
     }
+*/
 
 
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
