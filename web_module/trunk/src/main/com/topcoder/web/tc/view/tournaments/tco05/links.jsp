@@ -16,21 +16,17 @@
 <% if (tabLev1.equals("overview")) {%>
 	<tr>
 		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/tournament/tco05/tco05_logo.gif" border=0/></A></td>
-		<td valign=middle align=center rowspan=2></td>
-		<td valign=top align=right rowspan=2 width="50%"><a href="/"><img src="/i/tournament/tco05/tc_logo.gif" border=0/></a></td>
+		<td valign="middle" align="center"><a href="/tc?module=TCO05AlgorithmTerms"><IMG SRC="/i/home/promos/tco05_alg_reg.gif" BORDER="0" ALT="Algorithm Registration Open" /></a></td>
+		<td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco05/tc_logo.gif" border=0/></a></td>
 	</tr>
-	<tr><td class=topNavBox><img src="/i/tournament/tco05/tabs/L1_overviewOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
+	<tr><td class="topNavBox" colspan="2"><img src="/i/tournament/tco05/tabs/L1_overviewOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("algorithm")) { %>
 	<tr>
 		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/tournament/tco05/tco05_logo.gif" border=0/></A></td>
-		<td valign=middle align=center rowspan=2>
-<%--
-      <a href="/tc?module=tco05AlgorithmTerms"><img src="/i/tournament/tco05/tco05_headline.gif" border=0/></a>
---%>
-      </td>
-		<td valign=top align=right rowspan=2 width="50%"><a href="/"><img src="/i/tournament/tco05/tc_logo.gif" border=0/></a></td>
+		<td valign="middle" align="center"><a href="/tc?module=TCO05AlgorithmTerms"><IMG SRC="/i/home/promos/tco05_alg_reg.gif" BORDER="0" ALT="Algorithm Registration Open" /></a></td>
+		<td valign="top" align="right" rowspan="2" width="50%"><a href="/"><img src="/i/tournament/tco05/tc_logo.gif" border=0/></a></td>
 	</tr>
-	<tr><td class=topNavBox><img src="/i/tournament/tco05/tabs/L1_algOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
+	<tr><td class="topNavBox" colspan="2"><img src="/i/tournament/tco05/tabs/L1_algOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("component")) { %>
 	<tr>
 		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=about"><img src="/i/tournament/tco05/tco05_logo.gif" border=0/></A></td>
@@ -49,7 +45,7 @@
 		<td colspan=3>
 		<table border=0 cellspacing=0 cellpadding=0 width="100%">
     		<tr>
-        		<td class=nav>&#160;&#160;&#160;</td>
+        		<td class="nav">&#160;&#160;&#160;</td>
         		<td class=nav align=right><img src="/i/tournament/tco05/tabs/L2_sideDK.gif" border=0 /></td>
 
 			<% if (tabLev1.equals("overview")) { %>
