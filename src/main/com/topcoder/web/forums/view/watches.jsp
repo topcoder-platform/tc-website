@@ -2,14 +2,18 @@
          		 com.topcoder.web.forums.ForumConstants,
          		 com.jivesoftware.base.JiveConstants,
          		 com.jivesoftware.forum.stats.ViewCountManager,
+                 com.jivesoftware.forum.ReadTracker,
          		 java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="watchManager" name="watchManager" type="com.jivesoftware.forum.WatchManager" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+
+<%  ReadTracker readTracker = forumFactory.getReadTracker(); %>
 
 <html>
 <head>
@@ -77,7 +81,8 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 <tc-webtag:useBean id="rootMessage" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="rootMessage"/>
 <tc-webtag:useBean id="latestMessage" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 <tr>
-	<td class="rtThreadCellWrap"><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="rootMessage" property="ID"/>" class="rtLinkNew"><jsp:getProperty name="thread" property="name"/></a></td>
+    <%  String linkClass = (readTracker.getReadStatus(user, thread) == ReadTracker.READ) ? "rtLinkOld" : "rtbcLink"; %>
+	<td class="rtThreadCellWrap"><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="rootMessage" property="ID"/>" class="<%=linkClass%>"><jsp:getProperty name="thread" property="name"/></a></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=rootMessage.getUser().getID()%>"/></td>
 	<td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
 	<td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
