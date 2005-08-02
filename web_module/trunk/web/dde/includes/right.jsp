@@ -48,8 +48,6 @@
                     </tr>
                 </table>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
-                <a href="/components/free_components.jsp" target="_top"><img src="/images/promos/promo_free_comps_third.gif" alt="Free Components" width="170" height="120" border="0"></a><br>
-                <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <a href="/forum/c_active_collab.jsp" target="_top"><img src="/images/promos/promo_cust_forums_third.gif" alt="Customer Forums" width="170" height="120" border="0"></a><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <a href="http://www.topcoder.com/rtables/viewForum.jsp?forum=205768&mc=3" target="_top"><img src="/images/promos/promo_roundtables_third.gif" alt="Member Round Tables" width="170" height="120" border="0"></a><br>

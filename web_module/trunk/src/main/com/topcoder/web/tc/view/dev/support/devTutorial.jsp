@@ -227,10 +227,6 @@
 				sure to review sections 1.2, 1.3 and 2 of the component specification to ensure 
 				you are familiar with the technologies employed. 
 			</p>
-			<p>If you are having a problem deciding on a project, and want to see some 
-				real, fully detailed design material, check out the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/components/free_components.jsp" target="_blank">
-					Free Components</a> TopCoder Software offers.  Those distributions 
-				will contain all the documents and code referenced throughout this tutorial.</p>
 			<span class=bodySubtitle>Project Registration</span>
 			<p>Now that you've found a project you're comfortable with, and you have the time 
 				to complete it, you're ready to register!  Click on the Register link on 
