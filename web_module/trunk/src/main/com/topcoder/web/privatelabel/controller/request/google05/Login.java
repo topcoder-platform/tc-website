@@ -134,7 +134,7 @@ public class Login extends FullLogin {
         if (!getAuthentication().getActiveUser().isAnonymous()) {
             if (userExists(getAuthentication().getActiveUser().getUserName())) {
                 removeError(Constants.HANDLE);
-                addError(Constants.HANDLE, "You have already created an account for this event, there is no need to login.");
+                addError(Constants.HANDLE, "You have already created an account for this event.");
                 return null;
             }
             info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
