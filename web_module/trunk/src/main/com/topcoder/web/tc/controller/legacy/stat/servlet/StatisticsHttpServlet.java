@@ -189,7 +189,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                     request.setAttribute(BaseServlet.NEXT_PAGE_KEY, info.getRequestString());
 
                     request.setAttribute("module", "Login");
-                    fetchRegularPage(request, response, "/tc", true);
+                    fetchRegularPage(request, response, "/tc", false);
                     return;
                 }
                 request.setAttribute("REQUEST_BEAN", dataRequest);
