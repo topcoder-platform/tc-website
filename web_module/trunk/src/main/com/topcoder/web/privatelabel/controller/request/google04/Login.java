@@ -89,7 +89,7 @@ public class Login extends FullLogin {
 
     }
 
-    protected boolean hasCompanyAccount() throws Exception {
+    protected boolean hasCommonAccount() throws Exception {
         String handle = getRequestParameter(Constants.HANDLE);
         String password = getRequestParameter(Constants.PASSWORD);
 
@@ -119,7 +119,7 @@ public class Login extends FullLogin {
         long userId = getAuthentication().getActiveUser().getId();
 
         boolean hasTCAccount = hasTopCoderAccount() && coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME);
-        boolean hasCompanyAccount = hasCompanyAccount();
+        boolean hasCompanyAccount = hasCommonAccount();
 
         FullRegInfo info = null;
 

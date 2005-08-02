@@ -17,6 +17,7 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.Request;
 
 import java.util.*;
 
@@ -100,7 +101,7 @@ public class Login extends FullLogin {
         }
     }
 
-    protected boolean hasCompanyAccount() throws Exception {
+    protected boolean hasCommonAccount() throws Exception {
         String handle = getRequestParameter(Constants.HANDLE);
         String password = getRequestParameter(Constants.PASSWORD);
 
@@ -121,22 +122,35 @@ public class Login extends FullLogin {
 
     }
 
+    protected boolean hasEventAccount() throws Exception {
+        String handle = getRequestParameter(Constants.HANDLE);
+        String password = getRequestParameter(Constants.PASSWORD);
+
+        Request r = new Request();
+        r.setContentHandle("event_account");
+        r.setProperty("hn", handle);
+        r.setProperty("pass", password);
+
+        ResultSetContainer rsc = (ResultSetContainer) getDataAccess(db).getData(r).get("event_account");
+        return !rsc.isEmpty();
+
+
+    }
+
     protected SimpleRegInfo makeRegInfo() throws Exception {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         FullRegInfo info = null;
 
-        boolean hasTCAccount = hasTopCoderAccount();
-        boolean hasCompanyAccount = hasCompanyAccount();
+        if (hasEventAccount()) {
+            addError(Constants.HANDLE, "You have already created an account for this event.");
+            return null;
+        } else {
+            boolean hasTCAccount = hasTopCoderAccount();
+            boolean hasCompanyAccount = hasCommonAccount();
 
-        //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
-        long userId = getAuthentication().getActiveUser().getId();
+            //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
+            long userId = getAuthentication().getActiveUser().getId();
 
-        if (!getAuthentication().getActiveUser().isAnonymous()) {
-            if (userExists(getAuthentication().getActiveUser().getUserName())) {
-                removeError(Constants.HANDLE);
-                addError(Constants.HANDLE, "You have already created an account for this event.");
-                return null;
-            }
             info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             if (hasCompanyAccount) {

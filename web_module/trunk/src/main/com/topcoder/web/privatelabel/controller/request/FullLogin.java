@@ -77,6 +77,6 @@ public abstract class FullLogin extends FullReg {
     }
 
 
-    abstract protected boolean hasCompanyAccount() throws Exception;
+    abstract protected boolean hasCommonAccount() throws Exception;
 
 }
