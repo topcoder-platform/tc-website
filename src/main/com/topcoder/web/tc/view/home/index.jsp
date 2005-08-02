@@ -140,21 +140,26 @@
       <table width="100%" border="0" cellpadding=0 cellspacing=0>
          <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" border="0" /></td>
-            <td class="homeTitle"><A href="/?t=schedule&c=index" class=homeTitleLink>July Events:</A></td>
+            <td class="homeTitle"><A href="/?t=schedule&c=index" class="homeTitleLink">August Events:</A></td>
          </tr>
          <tr>
             <td class="homeArrow">&#160;</td>
             <td class="homeText"><br>
-            <b>7/06</b> - TCO05 CDDC Week1 Deadline - 9AM<br><br>
-            <b>7/07</b> - SRM 250 - 11 AM - VeriSign<br><br>
-            <b>7/12</b> - SRM 251 - 9 PM - Sun Microsystems<br><br>
-            <b>7/13</b> - TCO05 CDDC Week2 Deadline - 9AM<br><br>
-            <b>7/19</b> - SRM 252 - 9 PM - Citigroup<br><br>
-            <b>7/20</b> - TCO05 CDDC Week3 Deadline - 9AM<br><br>
-            <b>7/23</b> - SRM 253 - 12 PM<br><br>
-            <b>7/26</b> - SRM 254 - 7 AM<br><br>
-            <b>7/27</b> - TCO05 CDDC Week4 Deadline - 9AM<br><br>
-            <b>7/28</b> - SRM 255 - 9 PM - NSA<br>
+            <b>8/01</b> - TCO05 Alg Registration Opens - 9AM<br><br>
+            <b>8/02</b> - SRM 256 - 11AM<br><br>
+            <b>8/03</b> - TCO05 CDDC Week5 Deadline - 9AM<br><br>
+            <b>8/08</b> - SRM 257 - 9PM - Citigroup<br><br>
+            <b>8/10</b> - SRM 258 - 9PM - Sun Microsystems<br><br>
+            <b>8/16</b> - TCO05 Alg Qualification Start - 12noon<br><br>
+            <b>8/17</b> - TCO05 Alg Qualification End - 12noon<br><br>
+            <b>8/20</b> - TCO05 Alg Round 1 - 12noon<br><br>
+            <b>8/22</b> - SRM 259 - 7AM<br><br>
+            <b>8/24</b> - TCO05 Alg Round 2 - 930PM<br><br>
+            <b>8/24</b> - TCO05 CDDC Championship Round Projects Posted - 9AM<br><br>
+            <b>8/27</b> - SRM 260 - 12PM<br><br>
+            <b>8/30</b> - SRM 261 - 9PM - NSA<br><br>
+            <b>8/31</b> - TCO05 Alg Round 3 - 930PM<br><br>
+            <b>8/31</b> - TCO05 CDDC Championship Round Deadline - 9AM<br><br>
             </td>
          </tr>
          <tr>
