@@ -123,6 +123,7 @@ public class Login extends FullLogin {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+        FullRegInfo info = null;
 
         boolean hasTCAccount = hasTopCoderAccount();
         boolean hasCompanyAccount = hasCompanyAccount();
@@ -130,56 +131,98 @@ public class Login extends FullLogin {
         //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
         long userId = getAuthentication().getActiveUser().getId();
 
-
-        FullRegInfo info = null;
-        if (!getAuthentication().getActiveUser().isAnonymous()) {
-            info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        }
-
-        if (hasCompanyAccount) {
-
-            if (coder.exists(userId, db)) {
-                info.setCoderType(coder.getCoderTypeId(userId, db));
-            } else if (coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
-                info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
+        User user = (User)createEJB(getInitialContext(), User.class);
+        if (user.userExists(userId, db)) {
+            addError(Constants.HANDLE, "You've already converted your account.");
+        } else {
+            if (!getAuthentication().getActiveUser().isAnonymous()) {
+                info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             }
 
-            //load up the demographic information
-            Response response = (Response) createEJB(getInitialContext(), Response.class);
-            ResultSetContainer responses = response.getResponses(userId, db);
+            if (hasCompanyAccount) {
 
-            ResultSetContainer.ResultSetRow row = null;
-            DemographicQuestion question = null;
-
-            if (!responses.isEmpty()) {
-                for (Iterator it = responses.iterator(); it.hasNext();) {
-                    row = (ResultSetContainer.ResultSetRow) it.next();
-                    question = findQuestion(row.getLongItem("demographic_question_id"), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
-                    DemographicResponse r = new DemographicResponse();
-                    r.setQuestionId(question.getId());
-                    r.setSort(row.getIntItem("sort"));
-                    if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                            question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                        r.setAnswerId(row.getLongItem("demographic_answer_id"));
-                    } else {
-                        r.setText(row.getStringItem("demographic_response"));
-                    }
-                    info.addResponse(r);
+                if (coder.exists(userId, db)) {
+                    info.setCoderType(coder.getCoderTypeId(userId, db));
+                } else if (coder.exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
+                    info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
                 }
-            } else {
-                responses = response.getResponses(userId, DBMS.OLTP_DATASOURCE_NAME);
+
+                //load up the demographic information
+                Response response = (Response) createEJB(getInitialContext(), Response.class);
+                ResultSetContainer responses = response.getResponses(userId, db);
+
+                ResultSetContainer.ResultSetRow row = null;
+                DemographicQuestion question = null;
+
+                if (!responses.isEmpty()) {
+                    for (Iterator it = responses.iterator(); it.hasNext();) {
+                        row = (ResultSetContainer.ResultSetRow) it.next();
+                        question = findQuestion(row.getLongItem("demographic_question_id"), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                        DemographicResponse r = new DemographicResponse();
+                        r.setQuestionId(question.getId());
+                        r.setSort(row.getIntItem("sort"));
+                        if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                            r.setAnswerId(row.getLongItem("demographic_answer_id"));
+                        } else {
+                            r.setText(row.getStringItem("demographic_response"));
+                        }
+                        info.addResponse(r);
+                    }
+                } else {
+                    responses = response.getResponses(userId, DBMS.OLTP_DATASOURCE_NAME);
+
+                    log.debug(responses.toString());
+
+                    row = null;
+                    question = null;
+
+                    for (Iterator it = responses.iterator(); it.hasNext();) {
+                        row = (ResultSetContainer.ResultSetRow) it.next();
+                        long tcQuestionId = row.getLongItem("demographic_question_id");
+                        //only add the response if we have a mapping for it
+                        if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
+                            question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                            if (question != null) {
+                                DemographicResponse r = new DemographicResponse();
+                                r.setQuestionId(question.getId());
+                                r.setSort(row.getIntItem("sort"));
+                                if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                        question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                                    long answerId = row.getLongItem("demographic_answer_id");
+                                    //check if we have a mapping for the answer, if so, add the response
+                                    if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
+                                        r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
+                                        info.addResponse(r);
+                                    }
+                                } else {
+                                    r.setText(row.getStringItem("demographic_response"));
+                                    info.addResponse(r);
+                                }
+                            }
+                        }
+                    }
+                }
+            } else if (hasTCAccount) {
+
+                info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
+                log.error(info.getCoderType() + "");
+
+                //load up the demographic information
+                Response response = (Response) createEJB(getInitialContext(), Response.class);
+                ResultSetContainer responses = response.getResponses(userId, DBMS.OLTP_DATASOURCE_NAME);
 
                 log.debug(responses.toString());
 
-                row = null;
-                question = null;
+                ResultSetContainer.ResultSetRow row = null;
+                DemographicQuestion question = null;
 
                 for (Iterator it = responses.iterator(); it.hasNext();) {
                     row = (ResultSetContainer.ResultSetRow) it.next();
                     long tcQuestionId = row.getLongItem("demographic_question_id");
                     //only add the response if we have a mapping for it
                     if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                        question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, Constants.PROFESSIONAL, Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
+                        question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
                         if (question != null) {
                             DemographicResponse r = new DemographicResponse();
                             r.setQuestionId(question.getId());
@@ -200,50 +243,12 @@ public class Login extends FullLogin {
                     }
                 }
             }
-        } else if (hasTCAccount) {
 
-            info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
-            log.error(info.getCoderType() + "");
-
-            //load up the demographic information
-            Response response = (Response) createEJB(getInitialContext(), Response.class);
-            ResultSetContainer responses = response.getResponses(userId, DBMS.OLTP_DATASOURCE_NAME);
-
-            log.debug(responses.toString());
-
-            ResultSetContainer.ResultSetRow row = null;
-            DemographicQuestion question = null;
-
-            for (Iterator it = responses.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow) it.next();
-                long tcQuestionId = row.getLongItem("demographic_question_id");
-                //only add the response if we have a mapping for it
-                if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                    question = findQuestion(((Long) TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions(transDb, info.getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID))));
-                    if (question != null) {
-                        DemographicResponse r = new DemographicResponse();
-                        r.setQuestionId(question.getId());
-                        r.setSort(row.getIntItem("sort"));
-                        if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                                question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                            long answerId = row.getLongItem("demographic_answer_id");
-                            //check if we have a mapping for the answer, if so, add the response
-                            if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
-                                r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
-                                info.addResponse(r);
-                            }
-                        } else {
-                            r.setText(row.getStringItem("demographic_response"));
-                            info.addResponse(r);
-                        }
-                    }
-                }
+            if (info == null) {
+                addError(Constants.HANDLE, "Invalid Login");
             }
         }
 
-        if (info == null) {
-            addError(Constants.HANDLE, "Invalid Login");
-        }
 
         //returning null if they don't have an account in either system
         return info;
