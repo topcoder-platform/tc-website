@@ -88,7 +88,7 @@ public class GoogleLogin extends FullLogin {
 
     }
 
-    protected boolean hasCompanyAccount() throws Exception {
+    protected boolean hasCommonAccount() throws Exception {
         String handle = getRequestParameter(Constants.HANDLE);
         String password = getRequestParameter(Constants.PASSWORD);
 
@@ -115,7 +115,7 @@ public class GoogleLogin extends FullLogin {
     protected SimpleRegInfo makeRegInfo() throws Exception {
 
         boolean hasTCAccount = hasTopCoderAccount();
-        boolean hasCompanyAccount = hasCompanyAccount();
+        boolean hasCompanyAccount = hasCommonAccount();
 
         FullRegInfo info = null;
 
