@@ -131,13 +131,12 @@ public class Login extends FullLogin {
         //this must be done after the account checks, cuz that's where they get logged in...confusing?  yes
         long userId = getAuthentication().getActiveUser().getId();
 
-        User user = (User)createEJB(getInitialContext(), User.class);
-        if (user.userExists(userId, db)) {
-            addError(Constants.HANDLE, "You have already created an account for this event, there is no need to login.");
-        } else {
-            if (!getAuthentication().getActiveUser().isAnonymous()) {
-                info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        if (!getAuthentication().getActiveUser().isAnonymous()) {
+            if (userExists(getAuthentication().getActiveUser().getUserName())) {
+                addError(Constants.HANDLE, "You have already created an account for this event, there is no need to login.");
+                return null;
             }
+            info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             if (hasCompanyAccount) {
 
@@ -243,10 +242,11 @@ public class Login extends FullLogin {
                     }
                 }
             }
+        }
 
-            if (info == null) {
-                addError(Constants.HANDLE, "Invalid Login");
-            }
+
+        if (info == null) {
+            addError(Constants.HANDLE, "Invalid Login");
         }
 
 
@@ -266,7 +266,6 @@ public class Login extends FullLogin {
 
         info.setHandle(getAuthentication().getActiveUser().getUserName());
         info.setPassword(getRequestParameter(Constants.PASSWORD));
-        ;
         info.setPasswordConfirm(getRequestParameter(Constants.PASSWORD));
         info.setEmail(email.getAddress(email.getPrimaryEmailId(userId, db), db));
         info.setEmailConfirm(email.getAddress(email.getPrimaryEmailId(userId, db), db));
