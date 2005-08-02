@@ -133,6 +133,7 @@ public class Login extends FullLogin {
 
         if (!getAuthentication().getActiveUser().isAnonymous()) {
             if (userExists(getAuthentication().getActiveUser().getUserName())) {
+                removeError(Constants.HANDLE);
                 addError(Constants.HANDLE, "You have already created an account for this event, there is no need to login.");
                 return null;
             }
@@ -245,10 +246,12 @@ public class Login extends FullLogin {
         }
 
 
+/*
         if (info == null && !hasErrors()) {
             addError(Constants.HANDLE, "Invalid Login");
         }
 
+*/
 
         //returning null if they don't have an account in either system
         return info;
