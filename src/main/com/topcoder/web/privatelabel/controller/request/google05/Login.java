@@ -133,7 +133,7 @@ public class Login extends FullLogin {
 
         User user = (User)createEJB(getInitialContext(), User.class);
         if (user.userExists(userId, db)) {
-            addError(Constants.HANDLE, "You've already converted your account.");
+            addError(Constants.HANDLE, "You have already created an account for this event, there is no need to login.");
         } else {
             if (!getAuthentication().getActiveUser().isAnonymous()) {
                 info = getCommonInfo(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
