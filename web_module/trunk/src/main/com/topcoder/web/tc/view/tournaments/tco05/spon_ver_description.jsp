@@ -22,7 +22,7 @@
             
 <span class="bigTitle">Description of the Sponsor Track Competition</span>
 <br><br>
-Welcome to the VeriSign Sponsor Track of the 2005 TopCoder Open competition.   This competition is being sponsored in partnership with VeriSign Human Resources, VSS, VNDS and O&I's Common Application Framework(CAF)* team.   VeriSign employees are ineligible to participate in the TopCoder competition.  However, we wanted to give you the opportunity to participate and demonstrate your talents, so we have up a special track to allow VeriSign employees to compete along side members of the TopCoder community.  We think this is an exciting event and we're glad you've chosen to participate.
+Welcome to the VeriSign Sponsor Track of the 2005 TopCoder Open competition.   This competition is being sponsored in partnership with VeriSign Human Resources, VSS, VNDS and O&I's Common Application Framework(CAF)* team.   VeriSign employees are ineligible to participate in the TopCoder competition.  However, we wanted to give you the opportunity to participate and demonstrate your talents, so we have set up a special track to allow VeriSign employees to compete along side members of the TopCoder community.  We think this is an exciting event and we're glad you've chosen to participate.
 <br><br>
 Best of luck and let the competition begin!
 <br><br>
