@@ -23,9 +23,9 @@
 
 <span class="bigTitle">Competition Arena</span>
 <br><br>
-Click <a href="Javascript:openWin('','Arena',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_quick_launch','comp',300,275);">Java Applet</A>.
+Click <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco05&d3=spon_ver_quick_launch','comp',300,275);">Java Applet</A>.
 <br/><br/>
-Click <a href="/" target="_blank">here</a> to run the Competition Arena as a <a href="/contest/arena/ContestAppletSponsorVeriSign.jnlp" target="_blank">Java Web Start Application</A>.
+Click <a href="/contest/arena/ContestAppletSponsorVeriSign.jnlp" target="_blank">here</a> to run the Competition Arena as a <a href="/contest/arena/ContestAppletSponsorVeriSign.jnlp" target="_blank">Java Web Start Application</A>.
 <br/><br/>
 Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
 <br/><br/>
