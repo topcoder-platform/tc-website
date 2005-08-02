@@ -61,6 +61,7 @@ public class ThreadList extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itThreads = forum.getThreads(resultFilter);
 
+        getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("threads", itThreads);
 		getRequest().setAttribute("paginator", paginator);

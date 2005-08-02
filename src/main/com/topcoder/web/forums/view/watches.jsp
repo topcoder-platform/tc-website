@@ -81,8 +81,11 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 <tc-webtag:useBean id="rootMessage" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="rootMessage"/>
 <tc-webtag:useBean id="latestMessage" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 <tr>
-    <%  String linkClass = (readTracker.getReadStatus(user, thread) == ReadTracker.READ) ? "rtLinkOld" : "rtbcLink"; %>
-	<td class="rtThreadCellWrap"><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="rootMessage" property="ID"/>" class="<%=linkClass%>"><jsp:getProperty name="thread" property="name"/></a></td>
+    <%  if (readTracker.getReadStatus(user, thread) == ReadTracker.READ) { %>
+        <td class="rtThreadCellWrap"><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="rootMessage" property="ID"/>" class="rtLinkOld"><jsp:getProperty name="thread" property="name"/></a></td>
+    <%  } else { %>
+        <td class="rtThreadCellWrap"><b><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="rootMessage" property="ID"/>" class="rtLinkNew"><jsp:getProperty name="thread" property="name"/></a></b></td>
+    <%  } %>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=rootMessage.getUser().getID()%>"/></td>
 	<td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
 	<td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>&#160;&#160;&#160;&#160;</td>
