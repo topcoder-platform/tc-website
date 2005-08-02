@@ -27,11 +27,8 @@ public class Login extends ForumsProcessor {
         String password = "";
         long userID = -1;
         
-        log.debug("@@@!@!!!dest: " +dest);
-        
-        String queryString = getRequest().getQueryString();
-        int destStartIdx = queryString.indexOf("http://");
-        log.debug("@@@!@!!!qstring: " +queryString.substring(destStartIdx));
+        //String queryString = getRequest().getQueryString();
+        //int destStartIdx = queryString.indexOf("http://");
         //String dest = queryString.substring(destStartIdx);
 
         try {
