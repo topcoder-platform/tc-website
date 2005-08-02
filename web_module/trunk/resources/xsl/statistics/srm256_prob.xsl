@@ -165,16 +165,16 @@ naturally use takes care of that.
 </p>
 
 <font size="+2">
-<b><a href="/stat?c=problem_statement&amp;pm=4692&amp;rd=7992" name="4692">ImageRepeat</a></b>
+<b><a href="/stat?c=problem_statement&amp;pm=4698&amp;rd=7992" name="4698">MagicCube</a></b>
 </font>
-<A href="Javascript:openProblemRating(4692)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
-Used as: Division One - Level Three: <blockquote><table cellspacing="2">
+<A href="Javascript:openProblemRating(4698)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br />
+Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr>
     <td class="bodyText" style="background: #eee;">
       <b>Value</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      1000
+      550
     </td>
   </tr>
   <tr>
@@ -182,7 +182,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Submission Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      108 / 256 (42.19%)
+      149 / 375 (39.73%)
     </td>
   </tr>
   <tr>
@@ -190,7 +190,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Success Rate</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      42 / 108 (38.89%)
+      121 / 149 (81.21%)
     </td>
   </tr>
   <tr>
@@ -198,7 +198,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>High Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      <b>ivan_metelsky</b> for 834.84 points (13 mins 11 secs)
+      <b>embe</b> for 527.05 points (5 mins 58 secs)
     </td>
   </tr>
   <tr>
@@ -206,7 +206,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
       <b>Average Score</b>
     </td>
     <td class="bodyText" style="background: #eee;">
-      606.01 (for 42 correct submissions)
+      334.00 (for 121 correct submissions)
     </td>
   </tr>
 </table></blockquote>
