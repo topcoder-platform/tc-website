@@ -71,7 +71,7 @@
 					In order to view designs you will need to have a UML tool installed.  TopCoder members currently use the free version of <a href="http://www.gentleware.com/">Poseidon</a>.</p>
 			
 					<p><span class="bodySubtitle">Step 3 - View Sample Component and Documentation</span><br/>
-					Download and get familiar with the <a href=" http://software.topcoder.com/components/free_components.jsp">sample components</a>.</p>
+					Download and get familiar with some <a href="http://software.topcoder.com/catalog/index.jsp">existing components</a>.</p>
 			
 					<p><span class="bodySubtitle">Step 4 - Choose a component to design</span><br/>
 					On the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_projects">Component Projects</a> page you will see a list of design projects available.  Click on a particular component, and then read the Project definition.  In addition to reading the project definition read the component requirements specification.  The link to the requirement specifications should exist on the component project definition page.</p>
@@ -109,7 +109,7 @@
 					In order to view designs you will need to have a UML tool installed.  TopCoder members currently use the free version of <a href="http://www.gentleware.com/">Poseidon</a>.</p>
 					
 					<p><span class="bodySubtitle">Step 3 - View Sample Component and Documentation</span><br/>
-					Download and get familiar with the <a href=" http://software.topcoder.com/components/free_components.jsp">sample components</a>.</p>
+					Download and get familiar with some <a href="http://software.topcoder.com/catalog/index.jsp">existing components</a>.</p>
 					
 					<p><span class="bodySubtitle">Step 4 - Choose a component to develop</span><br/>			
 					On the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_projects">Component Projects</a> page you will see a list of development projects available.  Click on a particular component, and then read the Project definition.  In addition to reading the project definition read the component requirements specification.  The link to the requirement specifications should exist on the component project definition page.</p>
