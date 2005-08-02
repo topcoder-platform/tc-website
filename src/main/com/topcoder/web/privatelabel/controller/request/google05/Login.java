@@ -245,7 +245,7 @@ public class Login extends FullLogin {
         }
 
 
-        if (info == null) {
+        if (info == null && !hasErrors()) {
             addError(Constants.HANDLE, "Invalid Login");
         }
 
