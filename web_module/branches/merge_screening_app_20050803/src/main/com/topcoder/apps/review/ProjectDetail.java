@@ -5,9 +5,9 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.*;
-import com.topcoder.app.screening.ScreeningTool;
-import com.topcoder.app.screening.QueryInterface;
-import com.topcoder.app.screening.ScreeningRecord;
+import com.topcoder.apps.screening.ScreeningTool;
+import com.topcoder.apps.screening.QueryInterface;
+import com.topcoder.apps.screening.ScreeningRecord;
 
 /**
  * This Model provides business logic through which users view project details.

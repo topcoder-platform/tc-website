@@ -11,12 +11,12 @@ import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
 import com.topcoder.apps.review.projecttracker.UserProjectInfo;
 import com.topcoder.util.format.FormatMethodFactory;
 
-import com.topcoder.app.screening.ProjectType;
-import com.topcoder.app.screening.ScreeningTool;
-import com.topcoder.app.screening.QueryInterface;
-import com.topcoder.app.screening.ScreeningResponse;
-import com.topcoder.app.screening.ScreeningJob;
-import com.topcoder.app.screening.ScreeningRequest;
+import com.topcoder.apps.screening.ProjectType;
+import com.topcoder.apps.screening.ScreeningTool;
+import com.topcoder.apps.screening.QueryInterface;
+import com.topcoder.apps.screening.ScreeningResponse;
+import com.topcoder.apps.screening.ScreeningJob;
+import com.topcoder.apps.screening.ScreeningRequest;
 
 import java.io.File;
 import java.io.FileOutputStream;

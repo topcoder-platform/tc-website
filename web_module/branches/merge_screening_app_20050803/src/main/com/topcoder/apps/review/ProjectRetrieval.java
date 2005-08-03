@@ -7,7 +7,7 @@ import com.topcoder.apps.review.document.AbstractScorecard;
 import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.document.TestCase;
 import com.topcoder.apps.review.projecttracker.Project;
-import com.topcoder.app.screening.ScreeningRecord;
+import com.topcoder.apps.screening.ScreeningRecord;
 
 /**
  * Retrieval class used by the Model classes to return a project and the scorecards for that project.

@@ -3,7 +3,7 @@
  */
 package com.topcoder.apps.review;
 
-import com.topcoder.app.screening.ScreeningResponse;
+import com.topcoder.apps.screening.ScreeningResponse;
 
 /**
  * Retrieval class used by the Model classes to return screening responses.

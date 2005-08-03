@@ -9,9 +9,9 @@ import com.topcoder.apps.review.document.InitialSubmission;
 import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.projecttracker.*;
 
-import com.topcoder.app.screening.ScreeningTool;
-import com.topcoder.app.screening.QueryInterface;
-import com.topcoder.app.screening.ScreeningResponse;
+import com.topcoder.apps.screening.ScreeningTool;
+import com.topcoder.apps.screening.QueryInterface;
+import com.topcoder.apps.screening.ScreeningResponse;
 import java.util.List;
 import java.util.ArrayList;
 
