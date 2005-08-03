@@ -158,7 +158,7 @@
 </tr>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
     <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); 
-        String trackerClass = (readTracker.getReadStatus(user, thread) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+        String trackerClass = (user == null || readTracker.getReadStatus(user, thread) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
     <tr>
     <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	<td class="rtThreadCellWrap">
