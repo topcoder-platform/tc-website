@@ -26,10 +26,10 @@
 					</td>
                     <td width="5%">
 <logic:equal name="project" property="project.catalog" value="Java">
-                        <img src="//images/smJava.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/smJava.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 <logic:equal name="project" property="project.catalog" value=".NET">
-                        <img src="//images/netSm.gif" alt="" width="33" height="17" border="0">
+                        <img src="/images/netSm.gif" alt="" width="33" height="17" border="0">
 </logic:equal>
 					</td>
                     <td width="40%" nowrap class="tableHeader">
@@ -47,7 +47,7 @@
                     <review:showString name="project" property="overview" /></td>
                 </tr>
                 <tr>
-                    <td class="whiteBkgnd" colspan="4"><img src="//images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                    <td class="whiteBkgnd" colspan="4"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
                 </tr>
             </table>
 
@@ -59,7 +59,7 @@
                     <td colspan="<%=theProject.getTimeline().length+1%>" class="timelineSubtitle"><strong><bean:message key="prompt.timeline" /></strong></td>
                 </tr>
                 <tr>
-                    <td class="timelineTitleCenter" width="1"><img src="//images/clear.gif" alt="" width="1" height="1" border="0"></td>
+                    <td class="timelineTitleCenter" width="1"><img src="/images/clear.gif" alt="" width="1" height="1" border="0"></td>
                     <logic:iterate id="phaseInstance" name="project" property="timeline">
                         <td class="timelineTitleCenter" width="12%"><bean:write name="phaseInstance" property="phase.name" /></td>
                     </logic:iterate>
@@ -167,7 +167,7 @@
   </table>
   <table border="0" cellpadding="0" cellspacing="1" class="whiteBkgd" width="100%">
     <tr>
-      <td class="forumTextOdd"><img src="//images/clear.gif" alt="" width="1" height="5" border="0"></td>
+      <td class="forumTextOdd"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
     </tr>
  </table>
 </logic:present>
@@ -235,7 +235,7 @@
 </logic:present>
             <table border="0" cellpadding="0" cellspacing="1" class="whiteBkgd" width="100%">
                 <tr>
-                    <td class="forumTextOdd"><img src="//images/clear.gif" alt="" width="1" height="5" border="0"></td>
+                    <td class="forumTextOdd"><img src="/images/clear.gif" alt="" width="1" height="5" border="0"></td>
                 </tr>
             </table>
 <logic:present name="history">
@@ -355,7 +355,7 @@
     </tr>
 </table>
 
-    <img src="//images/clear.gif" alt="" width="1" height="5" border="0"><br/>
+    <img src="/images/clear.gif" alt="" width="1" height="5" border="0"><br/>
 
 <!-- End lists -->
 
