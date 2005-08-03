@@ -29,7 +29,6 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
-import com.topcoder.web.forums.model.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,9 +63,9 @@ public class ForumsServlet extends BaseServlet {
 
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-		    AuthToken authToken = TCAuthFactory.getAnonymousAuthToken();
+		    AuthToken authToken = AuthFactory.getAnonymousAuthToken();
             try {
-		        authToken = TCAuthFactory.getAuthToken(request, response);
+		        authToken = AuthFactory.getAuthToken(request, response);
             } catch (UnauthorizedException uae) {}
             /* if (log.isDebugEnabled()) {
                 if (authToken instanceof TCAuthToken) {
