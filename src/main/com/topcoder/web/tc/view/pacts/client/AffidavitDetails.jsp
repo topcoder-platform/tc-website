@@ -78,7 +78,9 @@ All four requirements must be met for TopCoder to release payment.
   paid. You need only have one affidavit notarized. <i>All subsequent winnings will be paid upon
   receipt of an affirmed TopCoder affidavit.</i>
   </LI>
-  <LI><B>One completed tax form on file with TopCoder.</B><BR>
+  <LI><B>One completed tax form on file with TopCoder.</B><BR />
+      Tax forms can be faxed (860.657.4276), scanned and sent via email (payments@topcoder.com), or sent via postal service (TopCoder, Inc., ATTN: Payments, 703 Hebron Avenue, Glastonbury, CT, USA, 06033).
+      <br />
       <A class="bodyText" href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></A><BR>
       The <B>W-9 form</B> should be filled out by all U.S. Citizens, including U.S resident aliens.<BR>
       <A class="bodyText" href="/contest/iw9.pdf">Click here for W-9 form instructions >></A><BR>
@@ -90,7 +92,7 @@ All four requirements must be met for TopCoder to release payment.
 </UL>
 
 
-                    Mailing address for forms and affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033, USA
+                    Mailing address for affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033, USA
 
 <% if (!a.hasNotarizedAffidavit()||a.canAffirmOnline()) { %>
 <p><a href="PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%=a.getAffidavit().getHeader().getId()%>">click here for a printer friendly version of the affidavit</a></p>
