@@ -4,8 +4,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.email.Email;
