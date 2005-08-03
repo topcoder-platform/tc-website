@@ -157,17 +157,14 @@
 <td class="rtHeader" align="center" colspan="2"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></td>
 </tr>
 <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
-    <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); %>
+    <%  ForumMessage lastPost = ForumsUtil.getLatestMessage(thread); 
+        String trackerClass = (readTracker.getReadStatus(user, thread) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
     <tr>
     <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	<td class="rtThreadCellWrap">
 		<%	if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
-            <%  if (readTracker.getReadStatus(user, thread) == ReadTracker.READ) { %>
-				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="rtLinkOld"><%=thread.getRootMessage().getSubject()%></A>
-            <%  } else { %>
-                <b><A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A></b>
-            <%  } %>
-		<%	    Paginator threadPaginator;
+				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+			<%  Paginator threadPaginator;
 				ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
 				resultFilter.setStartIndex(0);
 				int range = ForumConstants.DEFAULT_MESSAGE_RANGE;
@@ -194,11 +191,7 @@
                 <%  } %> ]
 		    <%  } %>
 		<%  } else { %>
-            <%  if (readTracker.getReadStatus(user, thread) == ReadTracker.READ) { %>
-	            <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>" class="rtLinkOld"><%=thread.getRootMessage().getSubject()%></A>
-		    <%  } else { %>
-                <b><A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A></b>
-            <%  } %>
+	            <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
         <%  } %></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
 	<td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
