@@ -25,13 +25,11 @@
   CLASSPATH=$CLASSPATH:../resources/automatic_screening
 
 
-echo "WTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTF
 echo $CLASSPATH
-echo "WTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTF
 
 #while ((1))
 #do
   echo "SHELL: Starting automatic screening"
-  nohup $JAVA java -cp $CLASSPATH com.topcoder.apps.screening.ScreeningJob $1 $2 $3 > automatic_screening.log 2>&1 &
+  nohup $JAVA -cp $CLASSPATH com.topcoder.apps.screening.ScreeningJob $1 $2 $3 > automatic_screening.log 2>&1 &
   echo "SHELL: Automatic screening has started up..."
 #done

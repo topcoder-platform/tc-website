@@ -250,9 +250,7 @@
     </target>
     
     <target name="build-screening" depends="compile">
-        <jar jarfile="${bin.dir}/screening.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/app/screening/**"/>
-        </jar>
+        <jar jarfile="${bin.dir}/screening.jar" basedir="${classes.dir}" includes="com/topcoder/apps/screening/**"/>
     </target>
 
     <target name="copy-conf">
