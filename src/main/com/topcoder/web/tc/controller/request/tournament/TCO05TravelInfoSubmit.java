@@ -22,6 +22,6 @@ public class TCO05TravelInfoSubmit  extends BaseSubmitTravelInfo {
     }
 
     protected String[] getRecipients() {
-        return new String[]{"mluce@topcoder.com"};
+        return new String[]{"gpaul@topcoder.com"};
     }
 }
