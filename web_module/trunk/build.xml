@@ -1409,10 +1409,13 @@
                          <include name="object_formatter.jar"/>
                      </lib>
                  </war>
-                 <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
-             <delete dir="${jboss_deploy}/forums.war/META-INF"/>
+            <antcall target="explode-forums"/>
          </target>
 
+     <target name="explode-forums" depends="">
+        <unwar src="${war.dir}/forums.war" dest="${jboss_deploy}/forums.war" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/forums.war/META-INF"/>
+     </target>
 
      <target name="moveQueries" depends="compile">
          <java classname="com.topcoder.utilities.querymover.QueryMover" fork="no">

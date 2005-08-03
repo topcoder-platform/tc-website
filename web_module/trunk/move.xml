@@ -72,7 +72,9 @@
     </target>
 
     <target name="package-forums" depends="">
+<!--
         <delete dir="src"/>
+-->
         <delete dir="build"/>
         <delete dir="../shared/src"/>
         <delete file="forums.jar"/>
@@ -88,16 +90,18 @@
 
         <ant antfile="build.xml" target="war-forums"/>
 
+<!--
         <copy todir="../jboss-4.0.2/server/default/lib">
             <fileset dir="lib/bin">
                 <include name="shared.jar"/>
             </fileset>
         </copy>
+-->
 
         <jar destfile="forums.jar" update="true">
-            <fileset dir="../">
-                <include name="jboss-4.0.2/server/default/deploy/forums.war"/>
-                <include name="jboss-4.0.2/server/default/lib/shared.jar"/>
+            <fileset dir=".">
+                <include name="build/wars/forums.war"/>
+                <include name="lib/bin/shared.jar"/>
             </fileset>
         </jar>
 
