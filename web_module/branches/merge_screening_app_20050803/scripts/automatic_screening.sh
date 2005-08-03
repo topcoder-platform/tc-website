@@ -22,6 +22,7 @@
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/typesafe_enum/1.0/typesafe_enum.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/xmi_parser/1.0/xmi_parser.jar
   CLASSPATH=$CLASSPATH:../lib/jars/xercesImpl.jar
+  CLASSPATH=$CLASSPATH:../lib/jars/xmlParserAPIs.jar
   CLASSPATH=$CLASSPATH:../resources/automatic_screening
 
 

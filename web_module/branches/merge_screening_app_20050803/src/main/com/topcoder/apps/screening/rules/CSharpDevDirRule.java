@@ -33,7 +33,7 @@ public class CSharpDevDirRule implements ScreeningRule {
             MyValidationLogger vLogger = new MyValidationLogger(logger);
             new DirectoryManager(vLogger).validate(
                     new XmlFileLoader(new File(ClassLoader.getSystemResource(
-                            "com/topcoder/app/screening/rules/CSharpDevDirRule.xml").toString().substring(5))),
+                            "com/topcoder/apps/screening/rules/CSharpDevDirRule.xml").toString().substring(5))),
                     root.getAbsolutePath());
             return vLogger.isSuccessful();
         } catch (Exception ex) {

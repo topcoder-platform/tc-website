@@ -25,7 +25,7 @@ public class JavaCheckStyleRule implements ScreeningRule {
     /**
      * The namespace for the configuration.
      */
-    private static final String NAMESPACE = "com.topcoder.app.screening.rules.JavaCheckStyleRule";
+    private static final String NAMESPACE = "com.topcoder.apps.screening.rules.JavaCheckStyleRule";
 
     /**
      * The name of the property in the configuration file that contains the checkstyle command.

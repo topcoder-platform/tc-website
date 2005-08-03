@@ -31,7 +31,7 @@ public class ScreeningJob extends TimerTask {
     /**
      * The namespace for the configuration.
      */
-    private static final String NAMESPACE = "com.topcoder.app.screening.ScreeningJob";
+    private static final String NAMESPACE = "com.topcoder.apps.screening.ScreeningJob";
 
     /**
      * The name of the property in the configuration file that contains the number of threads.

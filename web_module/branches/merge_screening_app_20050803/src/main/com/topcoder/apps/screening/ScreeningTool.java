@@ -27,7 +27,7 @@ public class ScreeningTool {
     /**
      * The namespace for the configuration.
      */
-    private static final String NAMESPACE = "com.topcoder.app.screening.ScreeningTool";
+    private static final String NAMESPACE = "com.topcoder.apps.screening.ScreeningTool";
 
     /**
      * The name of the property in the configuration file that contains the temp folder.
