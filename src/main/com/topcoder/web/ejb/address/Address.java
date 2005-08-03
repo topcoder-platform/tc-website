@@ -82,6 +82,8 @@ public interface Address extends EJBObject {
      */
     String getCountryCode(long addressId, String dataSource) throws RemoteException, EJBException;
 
+    String getCountryName(long addressId, String dataSource) throws RemoteException, EJBException;
+
     /**
      *
      *
