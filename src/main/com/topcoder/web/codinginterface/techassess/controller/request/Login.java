@@ -45,48 +45,10 @@ public class Login extends Base {
             } catch (NumberFormatException e) {
                 throw new NavigationException("Request missing required parameter");
             }
-        } else {
-            if (hasParameter(Constants.HANDLE)) {
-
-
-                try {
-                    getSessionId();
-                } catch (Exception e) {
-                    //look up the session in the db.  this is a temp hoke, remove this once old session have expired.
-                    QueryRequest q = new QueryRequest();
-
-                    StringBuffer buf = new StringBuffer(1000);
-                    buf.append("select s.session_id");
-                    buf.append(" from session s");
-                    buf.append(" , user u");
-                    buf.append("      , session_profile sp");
-                    buf.append(" where s.user_id = u.user_id");
-                    buf.append("    and sp.session_profile_id = s.session_profile_id");
-                    buf.append("    and current between s.begin_time and s.end_time");
-                    buf.append("    and sp.company_id=").append(getCompanyId());
-                    buf.append("    and u.handle = '").append(getRequest().getParameter(Constants.HANDLE)).append("'");
-                    q.addQuery("main", buf.toString());
-                    QueryDataAccess qda = new QueryDataAccess(DBMS.SCREENING_OLTP_DATASOURCE_NAME);
-                    Map m = qda.getData(q);
-                    ResultSetContainer rsc = (ResultSetContainer)m.get("main");
-                    if (rsc.isEmpty()) {
-                        addError(Constants.HANDLE, "Sorry you do not have an active session at this time.");
-                    } else {
-                        log.debug("got session " + rsc.getLongItem(0, "session_id"));
-                        setSessionId(rsc.getLongItem(0, "session_id"));
-                    }
-
-                }
-
-            }
-
-
         }
-/*
-        } else if (!hasParameter(Constants.SESSION_ID)&&getSessionId()<0) {
+        else if (!hasParameter(Constants.SESSION_ID) && getSessionId() < 0) {
             throw new NavigationException("Request missing required parameter");
         }
-*/
 
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE);
