@@ -5,6 +5,9 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
 import com.topcoder.apps.review.projecttracker.*;
+import com.topcoder.app.screening.ScreeningTool;
+import com.topcoder.app.screening.QueryInterface;
+import com.topcoder.app.screening.ScreeningRecord;
 
 /**
  * This Model provides business logic through which users view project details.
@@ -94,7 +97,19 @@ public class ProjectDetail implements Model {
             // Get scorecard template id:s
             long[] templateId = projectTracker.getProjectTemplates(project.getId());
 
-            return new ProjectRetrieval(project, temp, submissions, testCases, templateId);
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Added by WishingBone - Automated Screening
+            QueryInterface query = ScreeningTool.createQuery();
+            ScreeningRecord[] history = null;
+            if (PermissionHelper.isAdmin(user) || user.equals(project.getProjectManager())) {
+                history = query.getAllSubmissions(project.getId());
+            } else {
+                history = query.getSubmissionStatus(project.getId(), user.getId());
+            }
+            ProjectRetrieval pr = new ProjectRetrieval(project, temp, submissions, testCases, templateId);
+            pr.setHistory(history);
+            return pr;
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
         } catch (RuntimeException e) {

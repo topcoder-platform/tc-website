@@ -9,25 +9,27 @@ import com.topcoder.apps.review.document.InitialSubmission;
 import com.topcoder.apps.review.document.AbstractSubmission;
 import com.topcoder.apps.review.projecttracker.*;
 
-import java.net.URL;
+import com.topcoder.app.screening.ScreeningTool;
+import com.topcoder.app.screening.QueryInterface;
+import com.topcoder.app.screening.ScreeningResponse;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
- * This Model provides business logic through which users can download a submission.
+ * This Model provides business logic through which users can read screening responses.
  *
- * @author adic
+ * @author WishingBone
  * @version 1.0
  */
-public class SubmissionDownload implements Model {
+public class ShowScreening implements Model {
 
     /**
-     * Method for downloading the actual binary data of a submission. Available for admins, PMs and reviewers.
+     * Method for retrieving the screening responses.
      *
      * @param data a SubmissionDownloadData object with the populated user, project (user info project)
      *        and submission id
      *
-     * @return a SubmissionDownloadRetrieval if the project was retrieved successfully containing the filename that
-     *         the user should see (instead of the real local filename) and an input stream from where to read the
-     submission data
+     * @return a ScreeningRetrieval if the project was retrieved successfully containing responses
      *         a FailureResult object if the data object is not populated correctly or if the user doesn't have
      *         project permission
      *         a FailureResult containing an exception in case one is thrown
@@ -37,7 +39,6 @@ public class SubmissionDownload implements Model {
         LogHelper.logModel(this, data);
 
         if (!(data instanceof SubmissionDownloadData)) {
-            // should never happen if front-end works properly
             return new FailureResult("Invalid ActionData object, expected SubmissionDownloadData");
         }
 
@@ -45,73 +46,56 @@ public class SubmissionDownload implements Model {
 
         SecurityEnabledUser user = submissionDownloadData.getUser();
         if (user == null) {
-            // should never happen if front-end works properly
             return new FailureResult("Null user, you have to login first");
         }
 
         UserProjectInfo userProjectInfo = submissionDownloadData.getProject();
         if (userProjectInfo == null) {
-            // should never happen if front-end works properly
             return new FailureResult("Null project");
         }
 
         try {
-            // check permission: admin, PM or any type of reviewer
             boolean isJustSubmitter = false;
             if (!PermissionHelper.isAdmin(user) && !PermissionHelper.hasAnyReviewerPermission(user, userProjectInfo)
                     && !RoleHelper.isProductManager(user, userProjectInfo)) {
                 if (!PermissionHelper.hasSubmitPermission(user, userProjectInfo)) {
-                    return new FailureResult("You don't have permission to download submissions for this project");
+                    return new FailureResult("You don't have permission to read screening responses for this project");
                 } else {
                     isJustSubmitter = true;
                 }
             }
 
-            // get project
             ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
             Project project = projectTracker.getProject(submissionDownloadData.getProject(), user.getTCSubject());
 
-            // get the URL for the submission (it points to a local filename)
             DocumentManagerLocal documentManager = EJBHelper.getDocumentManager();
-            URL submissionURL = null;
             User submitter = null;
+            ScreeningResponse[] responses = null;
+            QueryInterface query = ScreeningTool.createQuery();
 
-            // ID > 0 means initial submission
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Added by WishingBone - Automated Screening
             if (submissionDownloadData.getVersionId() > 0) {
                 AbstractSubmission submission =
                         documentManager.getSubmissionByVersion(project, submissionDownloadData.getVersionId(), user.getTCSubject());
                 if (submission != null) {
-                    submissionURL = submission.getURL();
                     submitter = submission.getSubmitter();
+                    responses = query.getSubmissionDetails(submissionDownloadData.getVersionId());
                 }
-            } else
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if (submissionDownloadData.getSubmissionId() > 0) {
-                // find the submission with that id
+            } else if (submissionDownloadData.getSubmissionId() > 0) {
                 InitialSubmission initialSubmission =
                         documentManager.getInitialSubmission(project, submissionDownloadData.getSubmissionId(), user.getTCSubject());
                 if (initialSubmission != null) {
-                    submissionURL = initialSubmission.getURL();
                     submitter = initialSubmission.getSubmitter();
-                }
-                // ID <= 0 means final fix submission
-            } else {
-                FinalFixSubmission submission = documentManager.getFinalFixSubmission(project, user.getTCSubject());
-                if (submission != null) {
-                    submissionURL = submission.getURL();
-                    submitter = submission.getSubmitter();
+                    responses = query.getCurrentSubmissionDetails(submissionDownloadData.getSubmissionId());
                 }
             }
 
-            if (submissionURL == null || submitter == null) {
-                return new FailureResult("Submission cannot be found or you don't have permission to access it");
+            if (responses == null || submitter == null) {
+                return new FailureResult("Screening responses cannot be found or you don't have permission to access it");
             }
 
             if (isJustSubmitter && (submitter.getId() != user.getId() &&
                     submissionDownloadData.getProject().getCurrentPhaseInstance().getPhase().getId() != Phase.ID_APPEALS)) {
-                return new FailureResult("A submitter can download only his/her submission");
+                return new FailureResult("A submitter can view only his/her screening responses");
             }
 
             // build the filename that should be seen by the downloader (instead of the real local filename)
@@ -121,13 +105,24 @@ public class SubmissionDownload implements Model {
             if (userRoleId == -1) {
                 return new FailureResult("Cannot find the submitter user role for the submitter");
             }
-            String userFilename = "Submitter_" + userRoleId + "_"
-                    + project.getName() + getExtension(submissionURL.getFile());
-            //LogHelper.log("URL.toString() is " + submissionURL.toString());
-            //LogHelper.log("URL.getFile() is " + submissionURL.getFile());
-            return new SubmissionDownloadRetrieval(userFilename, submissionURL.openStream());
 
-            // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
+            if (responses.length == 0) {
+                return new ScreeningRetrieval(submissionDownloadData.getVersionId());
+            }
+
+            List warnings = new ArrayList();
+            List fatalErrors = new ArrayList();
+            for (int i = 0; i < responses.length; ++i) {
+                if ("Warning".equals(responses[i].getSeverity())) {
+                    warnings.add(responses[i]);
+                } else if ("Fatal Error".equals(responses[i].getSeverity())) {
+                    fatalErrors.add(responses[i]);
+                }
+            }
+            return new ScreeningRetrieval(
+                    (ScreeningResponse[]) warnings.toArray(new ScreeningResponse[warnings.size()]),
+                    (ScreeningResponse[]) fatalErrors.toArray(new ScreeningResponse[fatalErrors.size()]));
+
         } catch (RuntimeException e) {
             LogHelper.log("", e);
             throw e;
@@ -139,17 +134,4 @@ public class SubmissionDownload implements Model {
         }
     }
 
-    /**
-     * Returns the extension part of a filename (including .) or "" if there is no extension.
-     *
-     * @param s the filename
-     *
-     * @return the extension
-     */
-    static String getExtension(String s) {
-        int pos = s.lastIndexOf('.');
-        return pos >= 0 ? s.substring(pos) : "";
-    }
-
 }
-
