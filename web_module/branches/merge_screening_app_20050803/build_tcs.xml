@@ -69,6 +69,14 @@
         <pathelement location="${jars.dir}/tcs/tcsUtil.jar"/>
         <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
         <pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
+        <pathelement location="${jars.dir}/tcs/compression_utility/2.0/compression_utility.jar"/>
+        <pathelement location="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
+        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/directory_validation/1.0/directory_validation.jar"/>
+        <pathelement location="${jars.dir}/tcs/generic_event_manager/1.0/generic_event_manager.jar"/>
+        <pathelement location="${jars.dir}/tcs/magic_numbers/1.0/magic_numbers.jar"/>
+        <pathelement location="${jars.dir}/tcs/xmi_parser/1.0/xmi_parser.jar"/>
+        <pathelement location="${jars.dir}/tcs/executable_wrapper.jar"/>
     </path>
 
     <target name="init">
@@ -239,6 +247,12 @@
             <metainf dir="${java.dir}/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
         </jar>
 
+    </target>
+    
+    <target name="build-screening" depends="compile">
+        <jar jarfile="${bin.dir}/screening.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/app/screening/**"/>
+        </jar>
     </target>
 
     <target name="copy-conf">
