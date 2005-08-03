@@ -1,5 +1,5 @@
 <CMConfig>  
-  <Config name="com.topcoder.app.screening.rules.JavaCheckStyleRule">
+  <Config name="com.topcoder.apps.screening.rules.JavaCheckStyleRule">
     <Property name="checkstyle_command">
         <Value>/home/dev/checkstyle-3.4/bin/tc_checks.sh</Value>
     </Property>
