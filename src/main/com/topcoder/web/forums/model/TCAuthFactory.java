@@ -36,10 +36,8 @@ public class TCAuthFactory extends AuthFactory {
      * @return
      * @throws UnauthorizedException
      */
-    public static AuthToken getAuthToken(HttpServletRequest httpServletRequest,
-                                         HttpServletResponse httpServletResponse) throws UnauthorizedException {
-        
-        log.debug("***IN CUSTOM AUTH");
+    public AuthToken createAuthToken(HttpServletRequest httpServletRequest,
+                                     HttpServletResponse httpServletResponse) throws UnauthorizedException {        
         WebAuthentication auth = null;
         try {
             auth = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
@@ -47,9 +45,6 @@ public class TCAuthFactory extends AuthFactory {
         } catch (Exception e) {
             log.error(e);
         }
-        log.debug("@@@ACTIVE USER: "+auth.getActiveUser().getUserName());
-        log.debug("@@@USERNAME: "+httpServletRequest.getParameter("username"));
-        log.debug("@@@PASSWORD: "+httpServletRequest.getParameter("password"));
         if (auth.getActiveUser().isAnonymous() && 
                 httpServletRequest.getParameter("username") != null && 
                 httpServletRequest.getParameter("password") != null) {
@@ -60,9 +55,6 @@ public class TCAuthFactory extends AuthFactory {
                 log.error(e);
             }
         }
-        log.debug("***ACTIVE USER: "+auth.getActiveUser().getUserName());
-        log.debug("***USERNAME: "+httpServletRequest.getParameter("username"));
-        log.debug("***PASSWORD: "+httpServletRequest.getParameter("password"));
         return new TCAuthToken(auth.getActiveUser().getId());
     }
 

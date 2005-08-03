@@ -63,25 +63,17 @@ public class Thread extends ForumsProcessor {
         // Use the setting chosen on the page if selected, or the user's default
         // preference otherwise.
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
-        if (threadView.equals("flat") ||
-                (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) ||
-                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat"))) {           
+        if (isSelectedView(threadView, "flat")) {           
             itMessages = thread.getMessages(resultFilter);
             setNextPage("/viewThreadFlat.jsp");
-        } else if (threadView.equals("flat_new") ||
-                (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat_new")) ||
-                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("flat_new"))) {           
+        } else if (isSelectedView(threadView, "flat_new")) { 
             resultFilter.setSortOrder(ResultFilter.DESCENDING);
             itMessages = thread.getMessages(resultFilter);
             setNextPage("/viewThreadFlat.jsp");
-        } else if (threadView.equals("threaded") ||
-                (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("threaded")) ||
-                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("threaded"))) {
+        } else if (isSelectedView(threadView, "threaded")) {
             itMessages = thread.getTreeWalker().getRecursiveMessages();
             setNextPage("/viewThreadThreaded.jsp");
-        } else if (threadView.equals("tree") ||
-                (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("tree")) ||
-                (threadView.equals("") && user.getProperty("jiveThreadMode").equals("tree"))) {
+        } else if (isSelectedView(threadView, "tree")) {
             String messageID = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
             if (!messageID.equals("")) {
             	getRequest().setAttribute("activeMessage", thread.getMessage(Long.parseLong(messageID)));
@@ -96,4 +88,10 @@ public class Thread extends ForumsProcessor {
 		getRequest().setAttribute("messages", itMessages);
 		setIsNextPageInContext(true);
 	}
+    
+    private boolean isSelectedView(String threadView, String view) {
+        return (threadView.equals(view) ||
+                (threadView.equals("") && (authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals(view)) ||
+                (threadView.equals("") && user.getProperty("jiveThreadMode").equals(view))); 
+    }
 }
