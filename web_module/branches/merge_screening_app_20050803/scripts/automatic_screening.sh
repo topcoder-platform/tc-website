@@ -1,4 +1,6 @@
-#!/bin/ksh
+#!/bin/bash
+
+  JAVA=/usr/java/bin/java
 
   CLASSPATH="."
   CLASSPATH=$CLASSPATH:../lib/bin/screening.jar
@@ -22,4 +24,14 @@
   CLASSPATH=$CLASSPATH:../lib/jars/xerces.jar
   CLASSPATH=$CLASSPATH:../resources/automatic_screening
 
-java -cp $CLASSPATH com.topcoder.apps.screening.ScreeningJob $1 $2 $3
+
+echo "WTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTF
+echo $CLASSPATH
+echo "WTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTFWTF
+
+#while ((1))
+#do
+  echo "SHELL: Starting automatic screening"
+  nohup $JAVA java -cp $CLASSPATH com.topcoder.apps.screening.ScreeningJob $1 $2 $3 > automatic_screening.log 2>&1 &
+  echo "SHELL: Automatic screening has started up..."
+#done
