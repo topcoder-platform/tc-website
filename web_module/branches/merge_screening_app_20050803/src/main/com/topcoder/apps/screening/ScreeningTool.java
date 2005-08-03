@@ -3,8 +3,7 @@
  */
 package com.topcoder.apps.screening;
 
-import com.topcoder.util.log.Log;
-import com.topcoder.util.log.Level;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.file.TCSFile;
 import java.io.File;
@@ -95,7 +94,7 @@ public class ScreeningTool {
      * @param type the project type of this submission.
      * @param submissionId the submission id of the submission.
      */
-    public void screen(Log log, File file, ProjectType type, long submissionVId) {
+    public void screen(Logger log, File file, ProjectType type, long submissionVId) {
         if (log == null) {
             throw new NullPointerException("log should not be null.");
         }
@@ -120,7 +119,7 @@ public class ScreeningTool {
                 long start = System.currentTimeMillis();
                 boolean result = rule.screen(file, root, logger);
                 long end = System.currentTimeMillis();
-                log.log(Level.INFO, rule.getClass().getName() + ": " + (result ? "pass" : "fail") + " with " + (end - start) + "ms.");
+                log.info(rule.getClass().getName() + ": " + (result ? "pass" : "fail") + " with " + (end - start) + "ms.");
                 if (!result) {
                     success = false;
                 }

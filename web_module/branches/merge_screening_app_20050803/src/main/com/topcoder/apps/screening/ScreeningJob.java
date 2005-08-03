@@ -4,9 +4,7 @@
 package com.topcoder.apps.screening;
 
 import com.topcoder.util.config.ConfigManager;
-import com.topcoder.util.log.LogFactory;
-import com.topcoder.util.log.Log;
-import com.topcoder.util.log.Level;
+import com.topcoder.shared.util.logging.Logger;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.List;
@@ -88,7 +86,7 @@ public class ScreeningJob extends TimerTask {
     /**
      * The log to use.
      */
-    private Log log = null;
+    private Logger log = null;
 
     /**
      * Creates a ScreeningJob. It initializes all the fields and could propagate exception to command line.
@@ -103,7 +101,7 @@ public class ScreeningJob extends TimerTask {
         this.screener = screener;
         this.threads = new Thread[num];
         resetPendingTasks();
-        log = LogFactory.getLog(LOG_NAME);
+        log = Logger.getLogger(ScreeningJob.class);
     }
 
     /**
@@ -117,16 +115,16 @@ public class ScreeningJob extends TimerTask {
         isRunning = true;
 
         try {
-            log.log(Level.INFO, "Running at " + new Date() + ".");
+            log.info("Running at " + new Date() + ".");
             // If all the threads are running, just quite this iteration.
             if (getCurrentLoad() == this.num) {
-                log.log(Level.INFO, "All jobs are loaded.");
+                log.info("All jobs are loaded.");
                 return;
             }
 
             // Pull all the pending request from database queue.
             List requests = pullRequests();
-            log.log(Level.INFO, "Pulled " + requests.size() + " tasks.");
+            log.info("Pulled " + requests.size() + " tasks.");
 
             // Tries to dispatch tasks for the threads.
             for (int i = 0; i < this.num; ++i) {
@@ -185,7 +183,7 @@ public class ScreeningJob extends TimerTask {
             stmt.setLong(1, screener);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
-            log.log(Level.ERROR, sqle.toString());
+            log.error(sqle.toString());
         } finally {
             DbHelper.dispose(conn, stmt, null);
         }
@@ -220,7 +218,7 @@ public class ScreeningJob extends TimerTask {
                 requests.add(new ScreeningRequest(submitterId, submissionVId, submissionPath, projectType));
             }
         } catch (SQLException sqle) {
-            log.log(Level.ERROR, sqle.toString());
+            log.error(sqle.toString());
         } finally {
             DbHelper.dispose(conn, stmt, rs);
         }
@@ -253,7 +251,7 @@ public class ScreeningJob extends TimerTask {
                     return request;
                 }
             } catch (SQLException sqle) {
-            log.log(Level.ERROR, sqle.toString());
+            log.error(sqle.toString());
             } finally {
                 DbHelper.dispose(conn, stmt, null);
             }
@@ -275,7 +273,7 @@ public class ScreeningJob extends TimerTask {
             stmt.setLong(1, submissionVId);
             stmt.executeUpdate();
         } catch (SQLException sqle) {
-            log.log(Level.ERROR, sqle.toString());
+            log.error(sqle.toString());
         } finally {
             DbHelper.dispose(conn, stmt, null);
         }
@@ -422,14 +420,14 @@ public class ScreeningJob extends TimerTask {
             buffer.append(request.getSubmissionPath());
             buffer.append(" at ");
 
-            log.log(Level.INFO, "Thread " + id + ": start " + buffer.toString() + new Date());
-            log.log(Level.INFO, "Current load " + getCurrentLoad() + "/" + num);
+            log.info("Thread " + id + ": start " + buffer.toString() + new Date());
+            log.info("Current load " + getCurrentLoad() + "/" + num);
 
             tool.screen(log, new File(request.getSubmissionPath()), request.getProjectType(), request.getSubmissionVId());
             completeRequest(request.getSubmissionVId());
 
-            log.log(Level.INFO, "Thread " + id + ": end " + buffer.toString() + new Date());
-            log.log(Level.INFO, "Current load " + (getCurrentLoad() - 1) + "/" + num);
+            log.info("Thread " + id + ": end " + buffer.toString() + new Date());
+            log.info("Current load " + (getCurrentLoad() - 1) + "/" + num);
         }
 
     }
