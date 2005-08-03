@@ -489,8 +489,8 @@ public class AddressBean extends BaseEJB {
 
 
     public String getCountryName(String countryCode, String dataSource) {
-        return selectString("country_name",
-                "country",
+        return selectString("country",
+                "country_name",
                 new String[]{"country_code"},
                 new String[]{String.valueOf(countryCode)},
                 dataSource);

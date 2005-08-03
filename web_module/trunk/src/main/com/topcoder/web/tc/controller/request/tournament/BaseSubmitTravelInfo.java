@@ -71,7 +71,7 @@ public abstract class BaseSubmitTravelInfo extends Base {
             buf.append(address.getAddress2(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             buf.append("\n");
             buf.append(address.getCity(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            buf.append(" ");
+            buf.append(", ");
             String countryCode = address.getCountryCode(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             if ("840".equals(countryCode)) {
                 buf.append(address.getStateCode(addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
@@ -87,17 +87,18 @@ public abstract class BaseSubmitTravelInfo extends Base {
                     DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME);
             buf.append("Email ").append(emailAddress);
             buf.append("\n");
-            buf.append("\n");
             Phone phone = (Phone)createEJB(getInitialContext(), Phone.class);
             buf.append("Phone ").append(phone.getNumber(phone.getPrimaryPhoneId(getUser().getId(),
                     DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            buf.append("\n");
+            buf.append("\n");
 
             Map.Entry me = null;
             Response response = (Response)createEJB(getInitialContext(), Response.class);
             for (Iterator it = questions.entrySet().iterator(); it.hasNext();) {
                 me = (Map.Entry) it.next();
                 buf.append(me.getValue());
-                buf.append("\n");
+                buf.append(":\n");
                 buf.append(answers.get(me.getKey()));
                 buf.append("\n\n");
 
