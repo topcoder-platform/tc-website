@@ -203,7 +203,7 @@
             <br/>
 <!-- TCO05 DESIGN END -->
 
-<!-- Open Component Design Projects begins
+<!-- Open Component Design Projects begins -->
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
@@ -303,9 +303,9 @@
                     </xsl:if>
                 </xsl:for-each>
             </table>
- Open Component Design Projects ends -->
+<!-- Open Component Design Projects ends -->
 
-<!-- TCO05 DEV -->
+<!-- TCO05 DEV 
             <br/>
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
@@ -416,10 +416,9 @@
                     </xsl:if>
                 </xsl:for-each>
             </table>
-<!-- TCO05 DEV END -->
+ TCO05 DEV END -->
 
 <!-- Open Component Development Projects begins -->
-<!--
             <br/>
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
@@ -521,7 +520,6 @@
                     </xsl:if>
                 </xsl:for-each>
             </table>
--->
 <!-- Open Component Development Projects ends -->
 
             <br/>
