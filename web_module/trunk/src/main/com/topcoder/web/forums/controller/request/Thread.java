@@ -5,7 +5,9 @@ package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
+import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ResultFilter;
+import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
 import com.topcoder.web.common.StringUtils;
@@ -59,7 +61,14 @@ public class Thread extends ForumsProcessor {
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("paginator", paginator);
-
+        
+        ReadTracker readTracker = forumFactory.getReadTracker();
+        itMessages = thread.getMessages();
+        while (itMessages.hasNext()) {
+            ForumMessage message = (ForumMessage)itMessages.next();
+            readTracker.markRead(user, message);
+        }
+        
         // Use the setting chosen on the page if selected, or the user's default
         // preference otherwise.
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
@@ -83,7 +92,7 @@ public class Thread extends ForumsProcessor {
             itMessages = thread.getTreeWalker().getRecursiveMessages();
             setNextPage("/viewThreadTree.jsp");
         }
-
+        
         getRequest().setAttribute("resultFilter", resultFilter);
 		getRequest().setAttribute("messages", itMessages);
 		setIsNextPageInContext(true);
