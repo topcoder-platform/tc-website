@@ -23,7 +23,7 @@
      <property name="web" value="src/main/com/topcoder/web"/>
      <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
      <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
-     <property name="jboss_home" value="../jboss-4.0.1"/>
+     <property name="jboss_home" value="../jboss-4.0.2"/>
      <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
      <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
      <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
