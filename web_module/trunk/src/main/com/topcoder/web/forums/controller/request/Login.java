@@ -9,7 +9,6 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.forums.model.*;
 
 public class Login extends ForumsProcessor {
 
@@ -44,7 +43,7 @@ public class Login extends ForumsProcessor {
                 //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                 //getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
                 getAuthentication().login(new SimpleUser(userID, username, password), rememberUser.equals("on"));
-                authToken = TCAuthFactory.getAuthToken(getHttpRequest(), getHttpResponse());
+                authToken = AuthFactory.getAuthToken(getHttpRequest(), getHttpResponse());
             } else {
                 log.debug("forum password hash not matched");
                 throw new Exception();
