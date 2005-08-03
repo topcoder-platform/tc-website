@@ -5,6 +5,7 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.web.tc.Constants;
@@ -54,8 +55,12 @@ public abstract class BaseSubmitTravelInfo extends BaseProcessor {
                 buf.append(answers.get(me.getKey()));
                 buf.append("\n\n");
 
-                response.createResponse(getUser().getId(),
-                        Long.parseLong(me.getKey().toString()), answers.get(me.getKey()).toString());
+                if (response.exists(getUser().getId(), Long.parseLong(me.getKey().toString()))) {
+                    throw new NavigationException("You have already filled out this form.");
+                } else {
+                    response.createResponse(getUser().getId(),
+                            Long.parseLong(me.getKey().toString()), answers.get(me.getKey()).toString());
+                }
             }
 
             TCSEmailMessage mail = new TCSEmailMessage();
