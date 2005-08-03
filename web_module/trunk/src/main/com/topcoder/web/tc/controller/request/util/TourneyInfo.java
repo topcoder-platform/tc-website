@@ -18,7 +18,7 @@ public class TourneyInfo extends Static {
     protected void businessProcessing() throws Exception {
 
         if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new SimpleResource("TCCC04Terms"));
+            throw new PermissionException(getUser(), new SimpleResource("TCO05Terms"));
         } else {
             DataAccess dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request dataRequest = new Request();
