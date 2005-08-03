@@ -6,6 +6,7 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Enumeration;
@@ -43,6 +44,7 @@ public abstract class BaseSubmitTravelInfo extends BaseProcessor {
             buf.append(getUser().getUserName());
             buf.append(" has answered your questions thusly\n\n");
             Map.Entry me = null;
+            Response response = (Response)createEJB(getInitialContext(), Response.class);
             for (Iterator it = questions.entrySet().iterator(); it.hasNext();) {
                 me = (Map.Entry) it.next();
                 buf.append(me.getKey());
@@ -51,6 +53,9 @@ public abstract class BaseSubmitTravelInfo extends BaseProcessor {
                 buf.append("\n");
                 buf.append(answers.get(me.getKey()));
                 buf.append("\n\n");
+
+                response.createResponse(getUser().getId(),
+                        Long.parseLong(me.getKey().toString()), answers.get(me.getKey()).toString());
             }
 
             TCSEmailMessage mail = new TCSEmailMessage();
