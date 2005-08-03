@@ -64,7 +64,6 @@ public class LoginBean extends BaseEJB {
             ps1.setString(1, username);
             ps1.setString(2, encPassword);
             rs1 = ps1.executeQuery();
-            logger.debug("user_id: "+username+" | password: "+password+" | enc: "+encPassword);
 
             //if this returns a result there was an exact username and password match
             //ResultSet rs1 = Util.getResults(conn, query);
