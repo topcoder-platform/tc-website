@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
-  JAVA=/usr/java/bin/java
+  JAVA=/usr/bin/java
 
   CLASSPATH="."
   CLASSPATH=$CLASSPATH:../lib/bin/screening.jar
@@ -21,7 +21,7 @@
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/magic_numbers/1.0/magic_numbers.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/typesafe_enum/1.0/typesafe_enum.jar
   CLASSPATH=$CLASSPATH:../lib/jars/tcs/xmi_parser/1.0/xmi_parser.jar
-  CLASSPATH=$CLASSPATH:../lib/jars/xerces.jar
+  CLASSPATH=$CLASSPATH:../lib/jars/xercesImpl.jar
   CLASSPATH=$CLASSPATH:../resources/automatic_screening
 
 
