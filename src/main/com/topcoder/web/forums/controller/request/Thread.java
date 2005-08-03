@@ -65,9 +65,10 @@ public class Thread extends ForumsProcessor {
         ReadTracker readTracker = forumFactory.getReadTracker();
         itMessages = thread.getMessages();
         if (user != null && !authToken.isAnonymous()) {
-        while (itMessages.hasNext()) {
-            ForumMessage message = (ForumMessage)itMessages.next();
-            readTracker.markRead(user, message);
+            while (itMessages.hasNext()) {
+                ForumMessage message = (ForumMessage)itMessages.next();
+                readTracker.markRead(user, message);
+            }
         }
         
         // Use the setting chosen on the page if selected, or the user's default
