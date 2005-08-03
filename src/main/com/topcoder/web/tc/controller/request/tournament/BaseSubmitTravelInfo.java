@@ -83,8 +83,9 @@ public abstract class BaseSubmitTravelInfo extends Base {
             buf.append("\n");
             buf.append("\n");
             Email email = (Email)createEJB(getInitialContext(), Email.class);
-            buf.append("Email ").append(email.getAddress(email.getPrimaryEmailId(getUser().getId(),
-                    DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            String emailAddress =email.getAddress(email.getPrimaryEmailId(getUser().getId(),
+                    DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            buf.append("Email ").append(emailAddress);
             buf.append("\n");
             buf.append("\n");
             Phone phone = (Phone)createEJB(getInitialContext(), Phone.class);
@@ -117,9 +118,7 @@ public abstract class BaseSubmitTravelInfo extends Base {
                 mail.addToAddress(recipients[i], TCSEmailMessage.TO);
             }
 
-            Email email = (Email) createEJB(getInitialContext(), Email.class);
-            mail.setFromAddress(email.getAddress(email.getPrimaryEmailId(getUser().getId(),
-                    DBMS.OLTP_DATASOURCE_NAME), DBMS.OLTP_DATASOURCE_NAME));
+            mail.setFromAddress(emailAddress);
             EmailEngine.send(mail);
             setNextPage(getSuccessPage());
             setIsNextPageInContext(false);
