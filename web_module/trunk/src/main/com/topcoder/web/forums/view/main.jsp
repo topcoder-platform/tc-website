@@ -1,3 +1,8 @@
+<%  response.setHeader( "Expires", "Sat, 6 May 1995 12:00:00 GMT" );
+    response.setHeader( "Cache-Control", "no-store, no-cache, must-revalidate" );
+    response.addHeader( "Cache-Control", "post-check=0, pre-check=0" );
+    response.setHeader( "Pragma", "no-cache" ); %>
+
 <%@ page import="com.topcoder.web.common.BaseServlet,
          		 com.topcoder.web.forums.ForumConstants,
                  com.jivesoftware.base.JiveConstants,
@@ -14,7 +19,8 @@
 
 <%  User user = (User)request.getAttribute("user"); 
     ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
-    ReadTracker readTracker = forumFactory.getReadTracker(); %>
+    ReadTracker readTracker = forumFactory.getReadTracker(); 
+    String trackerClass = ""; %>
 
 <html>
 <head>
@@ -71,7 +77,7 @@
                     <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
-                    <%  String trackerClass = (user == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                    <%  trackerClass = (user == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                     <tr>
                         <td class="rtThreadCellWrap">
                         <%  if (user == null) { %>
@@ -101,7 +107,7 @@
                         <td class="rtHeader" align="center" colspan="2">Last Post</td>
                     </tr>
                     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums(resultFilter)%>'>
-	                    <%  String trackerClass = (user == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+	                    <%  trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                         <tr>
 	                        <td class="rtThreadCellWrap">
                                 <%  if (user == null) { %>
