@@ -9,6 +9,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.LightAuthentication;
 
 public class Login extends ForumsProcessor {
 
@@ -37,7 +38,7 @@ public class Login extends ForumsProcessor {
         //    throw new TCWebException(e);
         //}
         log.debug("***************** before user is obtained from cookie");
-        User user = ((BasicAuthentication)getAuthentication()).checkCookie();
+        User user = ((LightAuthentication)getAuthentication()).checkCookie();
         if (user == null) { log.debug("--> null user"); } else {
         log.debug("userid: "+user.getId());
         log.debug("username: "+user.getUserName());
