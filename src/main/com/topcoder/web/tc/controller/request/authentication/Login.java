@@ -2,9 +2,8 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
@@ -20,7 +19,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import java.util.Arrays;
 
 public class Login extends Base {
-    
+
     public static final String USER_ID = "userid";
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
@@ -53,13 +52,19 @@ public class Login extends Base {
             } else {
                 try {
                     try {
-                        long userId = getUserId(username);
-                        if (userId < 0)
-                            throw new LoginException("Incorrect handle.");
-                        char status = getStatus(userId);
+                        TCSubject sub = null;
+                        //we need to check if they got the right user name and password before we check anything else
+                        try {
+                            LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
+                            sub = login.login(username, password);
+                        } catch (Exception e) {
+                            throw new LoginException("Handle or password incorrect.");
+                        }
+                        char status = getStatus(sub.getUserId());
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status) > 0) {
-                            if (getEmailStatus(userId) != EmailActivate.ACTIVE_STATUS) {
+                            //check if they have an active email address
+                            if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
                                 getAuthentication().logout();
                                 log.debug("inactive email");
                                 setNextPage(Constants.EMAIL_ACTIVATE);
@@ -75,7 +80,7 @@ public class Login extends Base {
                                 boolean forumsServerActive = siteTest.check(forumsURL);
                                 if (forumsServerActive) {
                                     StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
-                                    nextPage.append("&").append(USER_ID).append("=").append(userId);
+                                    nextPage.append("&").append(USER_ID).append("=").append(sub.getUserId());
                                     nextPage.append("&").append(USER_NAME).append("=").append(username);
                                     nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
                                     if (!rememberUser.equals("")) {
@@ -175,6 +180,7 @@ public class Login extends Base {
         }
     }
 
+/*
     private long getUserId(String handle) throws Exception {
         Request r = new Request();
         r.setContentHandle("user_id_using_handle");
@@ -185,5 +191,6 @@ public class Login extends Base {
         else
             return rsc.getLongItem(0, "user_id");
     }
+*/
 
 }
