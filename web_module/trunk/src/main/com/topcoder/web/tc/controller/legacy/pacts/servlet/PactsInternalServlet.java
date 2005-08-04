@@ -1218,7 +1218,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             // Add the Affidavit and the Payment
             DataInterfaceBean dib = new DataInterfaceBean();
-            long affidavit_id = dib.addAffidavit(a, request.getParameter("text"), p);
+            String text = "".equals(StringUtils.checkNull(request.getParameter("text")))?null:request.getParameter("text");
+            long affidavit_id = dib.addAffidavit(a, text, p);
 
 
             // Now get the Affidavit to view and give it to the JSP
