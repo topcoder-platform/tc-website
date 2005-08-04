@@ -47,7 +47,8 @@ public class TCAuthFactory extends AuthFactory {
         }
         if (auth.getActiveUser().isAnonymous() && 
                 httpServletRequest.getParameter("username") != null && 
-                httpServletRequest.getParameter("password") != null) {
+                httpServletRequest.getParameter("password") != null &&
+                httpServletRequest.getParameter("password").length() <= 31) {
             try {
                 auth.login(new SimpleUser(0, httpServletRequest.getParameter("username"), 
                     httpServletRequest.getParameter("password")), false);

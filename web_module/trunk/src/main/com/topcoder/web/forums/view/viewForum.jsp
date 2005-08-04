@@ -163,7 +163,11 @@
     <tc-webtag:useBean id="message" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 	<td class="rtThreadCellWrap">
 		<%	if (((authToken.isAnonymous() || user.getProperty("jiveThreadMode") == null) && ForumConstants.DEFAULT_GUEST_THREAD_VIEW.equals("flat")) || user.getProperty("jiveThreadMode").equals("flat")) { %>
+            <%  if (!authToken.isAnonymous()) { %>
 				<A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+            <%  } else { %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&<%=ForumConstants.START_IDX%>=0&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+            <%  } %>
 			<%  Paginator threadPaginator;
 				ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
 				resultFilter.setStartIndex(0);
@@ -191,7 +195,11 @@
                 <%  } %> ]
 		    <%  } %>
 		<%  } else { %>
+            <%  if (!authToken.isAnonymous()) { %>
 	            <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>" class="<%=trackerClass%>"><%=thread.getRootMessage().getSubject()%></A>
+            <%  } else { %>
+                <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<jsp:getProperty name="thread" property="ID"/>&mc=<jsp:getProperty name="thread" property="messageCount"/>" class="rtLinkNew"><%=thread.getRootMessage().getSubject()%></A>
+            <%  } %>
         <%  } %></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=thread.getRootMessage().getUser().getID()%>"/></td>
 	<td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>

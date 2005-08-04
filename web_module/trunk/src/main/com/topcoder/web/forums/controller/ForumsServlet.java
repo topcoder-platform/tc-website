@@ -64,7 +64,6 @@ public class ForumsServlet extends BaseServlet {
 
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-            //User cookieUser = ((BasicAuthentication)authentication).checkCookie();
 		    AuthToken authToken = AuthFactory.getAnonymousAuthToken();
             try {
 		        authToken = AuthFactory.getAuthToken(request, response);
