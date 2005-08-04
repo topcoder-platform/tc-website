@@ -63,12 +63,8 @@ public class Thread extends ForumsProcessor {
 		getRequest().setAttribute("paginator", paginator);
         
         ReadTracker readTracker = forumFactory.getReadTracker();
-        itMessages = thread.getMessages();
         if (user != null && !authToken.isAnonymous()) {
-            while (itMessages.hasNext()) {
-                ForumMessage message = (ForumMessage)itMessages.next();
-                readTracker.markRead(user, message);
-            }
+            readTracker.markRead(user, thread.getLatestMessage());
         }
         
         // Use the setting chosen on the page if selected, or the user's default

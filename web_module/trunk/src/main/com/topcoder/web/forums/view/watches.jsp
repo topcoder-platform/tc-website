@@ -86,7 +86,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 <tc-webtag:useBean id="rootMessage" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="rootMessage"/>
 <tc-webtag:useBean id="latestMessage" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
 <tr>
-    <%  String trackerClass = (user == null || readTracker.getReadStatus(user, thread) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+    <%  String trackerClass = (user == null || readTracker.getReadStatus(user, latestMessage) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
     <td class="rtThreadCellWrap"><a href="?module=Message&<%=ForumConstants.MESSAGE_ID%>=<jsp:getProperty name="rootMessage" property="ID"/>" class="<%=trackerClass%>"><jsp:getProperty name="thread" property="name"/></a></td>
 	<td class="rtThreadCell"><tc-webtag:handle coderId="<%=rootMessage.getUser().getID()%>"/></td>
 	<td class="rtThreadCell" align="right"><%=thread.getMessageCount()-1%>&#160;&#160;&#160;&#160;&#160;</td>
