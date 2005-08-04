@@ -363,28 +363,31 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c.close();
                 throw new NoObjectFoundException("No affidavit details found with ID " + affidavitId);
             }
-            long paymentId = Long.parseLong(rsc.getItem(0, "payment_id").toString());
+            boolean hasPayment = rsc.getStringItem(0, "payment_id")!=null;
             hm.put(AFFIDAVIT_DETAIL, rsc);
 
-            // Get payment header for affidavit
-            StringBuffer selectPaymentHeader = new StringBuffer(300);
-            selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
-            selectPaymentHeader.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
-            selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
-            selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_detail pd, ");
-            selectPaymentHeader.append("status_lu s, user u ");
-            selectPaymentHeader.append("WHERE p.payment_id = " + paymentId + " ");
-            selectPaymentHeader.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
-            selectPaymentHeader.append("AND pt.payment_type_id = pd.payment_type_id ");
-            selectPaymentHeader.append("AND s.status_id = pd.status_id ");
-            selectPaymentHeader.append("AND p.user_id = u.user_id ");
+            if (hasPayment) {
+                long paymentId = Long.parseLong(rsc.getItem(0, "payment_id").toString());
+                // Get payment header for affidavit
+                StringBuffer selectPaymentHeader = new StringBuffer(300);
+                selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
+                selectPaymentHeader.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
+                selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, p.review ");
+                selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_detail pd, ");
+                selectPaymentHeader.append("status_lu s, user u ");
+                selectPaymentHeader.append("WHERE p.payment_id = " + paymentId + " ");
+                selectPaymentHeader.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+                selectPaymentHeader.append("AND pt.payment_type_id = pd.payment_type_id ");
+                selectPaymentHeader.append("AND s.status_id = pd.status_id ");
+                selectPaymentHeader.append("AND p.user_id = u.user_id ");
 
-            rsc = runSelectQuery(c, selectPaymentHeader.toString(), false);
-            if (rsc.getRowCount() == 0) {
-                c.close();
-                throw new NoObjectFoundException("No payment header details found for payment ID " + paymentId);
+                rsc = runSelectQuery(c, selectPaymentHeader.toString(), false);
+                if (rsc.getRowCount() == 0) {
+                    c.close();
+                    throw new NoObjectFoundException("No payment header details found for payment ID " + paymentId);
+                }
+                hm.put(PAYMENT_HEADER_LIST, rsc);
             }
-            hm.put(PAYMENT_HEADER_LIST, rsc);
 
             c.close();
             c = null;
