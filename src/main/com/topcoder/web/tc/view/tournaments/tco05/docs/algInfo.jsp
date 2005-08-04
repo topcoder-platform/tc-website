@@ -107,6 +107,10 @@
                             </ol>
 --%>
 
+                        <p>
+                        <span class=bodySubtitle>Reminder, you will not receive any prize money for Round #4 and/or
+                        advance as an onsite finalist unless all above items are completed by 9:00 PM EDT on Wednesday, September 7.</span>
+                        </p>
                         <p>If you have questions, please contact <a href="mailto:jdamato@topcoder.com" >Jessie D'Amato</a>.</p>
                         <p><br/></p>
 
