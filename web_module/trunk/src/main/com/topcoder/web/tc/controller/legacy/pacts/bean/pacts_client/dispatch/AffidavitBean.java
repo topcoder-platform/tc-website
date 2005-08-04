@@ -183,7 +183,10 @@ public class AffidavitBean implements PactsConstants {
 
         a.setAffidavit(getAffidavit(affidavitId));
         a.setAffidavitText(getAffidavitText(affidavitId));
-        a.setPayment(bean.getPayment(a.getAffidavit().getPayment().getId()));
+
+        if (a.getAffidavit().getPayment()!=null && a.getAffidavit().getPayment().getId()>0) {
+            a.setPayment(bean.getPayment(a.getAffidavit().getPayment().getId()));
+        }
 
         // Added by STK 5/28/02 so that entered birthdays can
         // be added to the affidavit text.
