@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+ "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+
+
+    <servlet>
+        <servlet-name>query</servlet-name>
+        <display-name>query</display-name>
+        <description>The query tool servlet</description>
+        <servlet-class>com.topcoder.web.query.servlet.Controller</servlet-class>
+
+        <!-- begin parameters required by BaseServlet -->
+        <init-param>
+            <param-name>module_key</param-name>
+            <param-value>t</param-value>
+            <description>the url parameter that defines which processor to execute</description>
+        </init-param>
+        <init-param>
+            <param-name>default_processor</param-name>
+            <param-value>DBSelection</param-value>
+            <description>the processor to execute if non is specified in the request</description>
+        </init-param>
+        <init-param>
+            <param-name>login_processor</param-name>
+            <param-value>Login</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+        <init-param>
+            <param-name>login_servlet</param-name>
+            <param-value>/tc</param-value>
+            <description>the servlet path to use when we need to direct the user to login</description>
+        </init-param>
+        <init-param>
+            <param-name>processor_path</param-name>
+            <param-value>com.topcoder.web.query.request.</param-value>
+            <description>the path to the processors for this app</description>
+        </init-param>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>errorPage.jsp</param-value>
+            <description>where to forward for errors</description>
+        </init-param>
+        <!-- end  parameters required by BaseServlet -->
+
+
+        <init-param>
+            <param-name>db_selection_page</param-name>
+            <param-value>dbSelection.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_package</param-name>
+            <param-value>com.topcoder.web.query.request</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>errorPage.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>login_page</param-name>
+            <param-value>login.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>command_list_page</param-name>
+            <param-value>commandList.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_list_page</param-name>
+            <param-value>queryList.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>command_detail_page</param-name>
+            <param-value>commandDetail.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_detail_page</param-name>
+            <param-value>queryDetail.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_group_page</param-name>
+            <param-value>modifyGroup.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_command_page</param-name>
+            <param-value>modifyCommand.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_query_page</param-name>
+            <param-value>modifyQuery.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_query_input_page</param-name>
+            <param-value>modifyQueryInput.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_input_page</param-name>
+            <param-value>modifyInput.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_command_query_page</param-name>
+            <param-value>modifyCommandQuery.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_search_page</param-name>
+            <param-value>querySearch.jsp</param-value>
+            <description></description>
+        </init-param>
+
+
+
+        <init-param>
+            <param-name>step_param</param-name>
+            <param-value>s</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>handle_param</param-name>
+            <param-value>h</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>password_param</param-name>
+            <param-value>pass</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>db_param</param-name>
+            <param-value>db</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>command_id_param</param-name>
+            <param-value>CommandId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_id_param</param-name>
+            <param-value>QueryId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>input_id_param</param-name>
+            <param-value>InputId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>group_id_param</param-name>
+            <param-value>GroupId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>command_desc_param</param-name>
+            <param-value>CommandDesc</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_name_param</param-name>
+            <param-value>Name</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>column_index_param</param-name>
+            <param-value>ColumnIndex</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_text_param</param-name>
+            <param-value>Text</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>input_code_param</param-name>
+            <param-value>InputCode</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>input_desc_param</param-name>
+            <param-value>InputDesc</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>data_type_id_param</param-name>
+            <param-value>DataTypeId</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>group_desc_param</param-name>
+            <param-value>GroupDesc</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>optional_param</param-name>
+            <param-value>Optional</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>default_value_param</param-name>
+            <param-value>DefaultValue</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>sort_order_param</param-name>
+            <param-value>SortOrder</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>ranking_param</param-name>
+            <param-value>Ranking</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>servlet_path_param</param-name>
+            <param-value>ServletPath</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>search_criteria_param</param-name>
+            <param-value>SearchCriteria</param-value>
+            <description></description>
+        </init-param>
+
+
+        <init-param>
+            <param-name>login_task</param-name>
+            <param-value>Login</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>login_task</param-name>
+            <param-value>Login</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>db_selection_task</param-name>
+            <param-value>DBSelection</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>command_list_task</param-name>
+            <param-value>CommandList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_list_task</param-name>
+            <param-value>QueryList</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>command_detail_task</param-name>
+            <param-value>CommandDetail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_detail_task</param-name>
+            <param-value>QueryDetail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_group_task</param-name>
+            <param-value>ModifyGroup</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_command_task</param-name>
+            <param-value>ModifyCommand</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_query_task</param-name>
+            <param-value>ModifyQuery</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_query_input_task</param-name>
+            <param-value>ModifyQueryInput</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_input_task</param-name>
+            <param-value>ModifyInput</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_command_query_task</param-name>
+            <param-value>ModifyCommandQuery</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_search_task</param-name>
+            <param-value>QuerySearch</param-value>
+            <description></description>
+        </init-param>
+
+
+
+        <init-param>
+            <param-name>login_name</param-name>
+            <param-value>Login</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>db_selection_name</param-name>
+            <param-value>DB Selection</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>command_list_name</param-name>
+            <param-value>Command List</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_list_name</param-name>
+            <param-value>Query List</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>command_detail_name</param-name>
+            <param-value>Command Detail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_detail_name</param-name>
+            <param-value>Query Detail</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_group_name</param-name>
+            <param-value>Command Group Edit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_command_name</param-name>
+            <param-value>Command Edit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_query_name</param-name>
+            <param-value>Query Edit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_query_input_name</param-name>
+            <param-value>Query Input Associations Edit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_input_name</param-name>
+            <param-value>Input Edit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>modify_command_query_name</param-name>
+            <param-value>Command Query Associations Edit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>query_search_name</param-name>
+            <param-value>Query Search</param-value>
+            <description></description>
+        </init-param>
+
+
+
+        <init-param>
+            <param-name>new_step</param-name>
+            <param-value>new</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>save_step</param-name>
+            <param-value>save</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>remove_step</param-name>
+            <param-value>remove</param-value>
+            <description></description>
+        </init-param>
+
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>query</servlet-name>
+        <url-pattern>query</url-pattern>
+    </servlet-mapping>
+
+</web-app>
