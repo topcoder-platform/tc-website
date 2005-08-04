@@ -36,6 +36,7 @@ public class Login extends ForumsProcessor {
         //} catch (Exception e) {
         //    throw new TCWebException(e);
         //}
+        log.debug("***************** before user is obtained from cookie");
         User user = ((BasicAuthentication)getAuthentication()).checkCookie();
         log.debug("userid: "+user.getId());
         log.debug("username: "+user.getUserName());
