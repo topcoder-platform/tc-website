@@ -58,7 +58,6 @@
 
 
                                 <li>
-                                    <p>
                                     <% if (info.getIntItem(0, "has_tax_form")==0) {%>
                                         <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276), scanned and sent via email (<a href="mailto:mluce@topcoder.com">mluce@topcoder.com</a>), or postmarked on or before 9:00 PM EST on Wednesday, February 2.</p>
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN).  If you don't know which form
@@ -75,7 +74,6 @@
                                         <p><strong>TAX FORM</strong></p>
                                         We already have your tax form on file.  You do NOT need to complete and return another form.
                                     <% }%>
-                                    </p>
                                 </li>
 
                                 <li>
