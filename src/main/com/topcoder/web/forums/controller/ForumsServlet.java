@@ -10,6 +10,7 @@ import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.BaseServlet;
@@ -63,6 +64,11 @@ public class ForumsServlet extends BaseServlet {
 
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
+            User cookieUser = ((BasicAuthentication)authentication).checkCookie();
+            if (cookieUser == null) { log.debug("###--> null user"); } else {
+                log.debug("###userid: "+cookieUser.getId());
+                log.debug("###username: "+cookieUser.getUserName());
+                log.debug("###password: "+cookieUser.getPassword()); }
 		    AuthToken authToken = AuthFactory.getAnonymousAuthToken();
             try {
 		        authToken = AuthFactory.getAuthToken(request, response);
