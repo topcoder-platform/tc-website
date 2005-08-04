@@ -4,7 +4,7 @@ import com.jivesoftware.base.AuthFactory;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.User;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -30,19 +30,21 @@ public class Login extends ForumsProcessor {
         //int destStartIdx = queryString.indexOf("http://");
         //String dest = queryString.substring(destStartIdx);
 
-        try {
-            userID = forumFactory.getUserManager().getUserID(username);
-            password = getPassword(forumFactory.getUserManager().getUserID(username));
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
+        //try {
+        //    userID = forumFactory.getUserManager().getUserID(username);
+        //    password = getPassword(forumFactory.getUserManager().getUserID(username));
+        //} catch (Exception e) {
+        //    throw new TCWebException(e);
+        //}
+        User user = ((BasicAuthentication)getAuthentication()).checkCookie();
 
         try {
             if (((BasicAuthentication)getAuthentication()).hashPassword(password).equals(hashedPassword)) {
                 //com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
                 //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                 //getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
-                getAuthentication().login(new SimpleUser(userID, username, password), rememberUser.equals("on"));
+                //getAuthentication().login(new SimpleUser(userID, username, password), rememberUser.equals("on"));
+                getAuthentication().login(user, rememberUser.equals("on"));
                 authToken = AuthFactory.getAuthToken(getHttpRequest(), getHttpResponse());
             } else {
                 log.debug("forum password hash not matched");
