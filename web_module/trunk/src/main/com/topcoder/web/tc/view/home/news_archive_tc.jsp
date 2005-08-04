@@ -35,20 +35,20 @@
             <jsp:param name="title" value="General News"/>
         </jsp:include>
 
-            <table border=0 cellpadding=2 cellspacing=0 width="100%">
-            <tr class="bodyText"><td nowrap="nowrap">07.25.05 12:20 PM&#160;-&#160</td><td width="100%">New Rating History Graphs</td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">07.18.05 8:30 AM&#160;-&#160</td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">New TopCoder Forums</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">07.13.05 11:40 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">06.08.05 11:40 AM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=500228&mc=1">More data feeds for accessing TopCoder statistics</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">06.03.05 4:00 PM&#160;-&#160</td><td width="100%">Event calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">05.12.05 5:50 PM&#160;-&#160</td><td width="100%">Ratings have been updated</td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">05.11.05 6:00 PM&#160;-&#160</td><td width="100%">New Member Profiles</td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">05.09.05 11:20 AM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">New Algorithm, Design, and Development rating formulas</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">03.03.05 4:15 PM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">School name to be made public in Member Profiles</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">02.21.05 9:30 AM&#160;-&#160</td><td width="100%"><A href="/tc">New /tc homepage</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">02.09.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="http://software.topcoder.com/components/subscriptions.jsp">Developer Subscriptions just became FREE</A></td></tr>
-            <tr class="bodyText"><td nowrap="nowrap">02.07.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="/?&t=news_events&c=pr_02_07_05">TC Community Surpasses 50,000 Worldwide</A></td></tr>
-            </table>
+<table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">07.25.05 12:20 PM&#160;-&#160</td><td width="100%">New Rating History Graphs</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">07.18.05 8:30 AM&#160;-&#160</td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>">New TopCoder Forums</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">07.13.05 11:40 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">Coder of the Month Archive</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.08.05 11:40 AM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=500228&mc=1">More data feeds for accessing TopCoder statistics</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.03.05 4:00 PM&#160;-&#160</td><td width="100%">Event calendar updated for <A href="/index?t=schedule&c=aug_05">August</A>, <A href="/index?t=schedule&c=sep_05">September</A>, and <A href="/index?t=schedule&c=oct_05">October</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.12.05 5:50 PM&#160;-&#160</td><td width="100%">Ratings have been updated</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.11.05 6:00 PM&#160;-&#160</td><td width="100%">New Member Profiles</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.09.05 11:20 AM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=496018&mc=1">New Algorithm, Design, and Development rating formulas</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.03.05 4:15 PM&#160;-&#160</td><td width="100%"><A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">School name to be made public in Member Profiles</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.21.05 9:30 AM&#160;-&#160</td><td width="100%"><A href="/tc">New /tc homepage</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.09.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="http://software.topcoder.com/components/subscriptions.jsp">Developer Subscriptions just became FREE</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">02.07.05 9:00 AM&#160;-&#160</td><td width="100%"><A href="/?&t=news_events&c=pr_02_07_05">TC Community Surpasses 50,000 Worldwide</A></td></tr>
+</table>
 
         </div>
         <p><br/></p>
