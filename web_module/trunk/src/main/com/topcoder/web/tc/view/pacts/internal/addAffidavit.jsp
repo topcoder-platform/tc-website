@@ -102,6 +102,7 @@
 		</td></tr>
 </table>
 <h2>Add Payment</h2>
+<p>If you do not not wish to associate a payment with this affidavit, just leave this section blank.</p>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
 		<td><b>Status:</b></td>
