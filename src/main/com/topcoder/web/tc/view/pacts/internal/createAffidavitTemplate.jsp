@@ -23,6 +23,8 @@
                             <option value="<%=PactsConstants.CONTEST_WINNING_AFFIDAVIT%>">SRM Contest Winning</option>
                             <option value="<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>">TCCC05 Algorithm</option>
                             <option value="<%=PactsConstants.TCCC05_COMPONENT_AFFIDAVIT%>">TCCC05 Component</option>
+                            <option value="<%=PactsConstants.TCO05_ALGORITHM_AFFIDAVIT%>">TCO05 Algorithm</option>
+                            <option value="<%=PactsConstants.TCO05_COMPONENT_AFFIDAVIT%>">TCO05 Component</option>
                           </select>
                         </td>
                     </tr>

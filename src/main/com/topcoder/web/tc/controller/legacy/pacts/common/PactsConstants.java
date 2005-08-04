@@ -40,6 +40,8 @@ public interface PactsConstants {
     public static final int CONTEST_WINNING_AFFIDAVIT = 1;
     public static final int TCCC05_ALGORITHM_AFFIDAVIT = 2;
     public static final int TCCC05_COMPONENT_AFFIDAVIT = 3;
+    public static final int TCO05_ALGORITHM_AFFIDAVIT = 4;
+    public static final int TCO05_COMPONENT_AFFIDAVIT = 5;
 
     // Payment type codes
     public static final int CONTEST_PAYMENT = 1;
