@@ -37,6 +37,9 @@ public class Login extends ForumsProcessor {
         //    throw new TCWebException(e);
         //}
         User user = ((BasicAuthentication)getAuthentication()).checkCookie();
+        log.debug("userid: "+user.getId());
+        log.debug("username: "+user.getUserName());
+        log.debug("password: "+user.getPassword());
 
         try {
             if (((BasicAuthentication)getAuthentication()).hashPassword(user.getPassword()).equals(hashedPassword)) {
@@ -51,6 +54,7 @@ public class Login extends ForumsProcessor {
                 throw new Exception();
             }
         } catch (Exception e) {
+            log.debug(e.getMessage());
             log.debug("login failed for: " + dest);
             AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
             getAuthentication().logout();
