@@ -163,6 +163,7 @@
             <TD class="statDk" align="center"><rsc:item name="inquire_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
             <TD class="statDk" align="center"><rsc:item name="submit_timestamp" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="N/A" /></TD>
 
+            <TD class="statDk" align="right"><rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="N/A" /></TD>
             <TD class="statDk" align="left">
                 <% if (resultRow.getIntItem("passed_screening") == 1) { %>
                     <img src="/i/stats/pass.gif" alt="pass" border="0" />
@@ -171,9 +172,6 @@
                 <% } %>
 
             </TD>
-            <TD class="statDk" align="right">
-                                                <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="N/A" />
-                                            </TD>
 
             <TD class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="initial_score" format="0.00" ifNull="&nbsp;" /></TD>
             <TD class="statDk" align="center"><b><rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="&nbsp;" /></b></TD>
