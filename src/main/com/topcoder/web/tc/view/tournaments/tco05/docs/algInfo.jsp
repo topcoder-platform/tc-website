@@ -45,8 +45,8 @@
                                 <p>
                                     <span class=bodySubtitle>QUESTIONNAIRE</span> - Form must be completed and submitted by 9:00 PM EDT on Wednesday, September 7.
                                     View the <a href="/tc?module=ViewSurvey&sid=210">2005 TopCoder Open Questionnaire</a>.
-                                    NOTE: All questions are mandatory.  The answers to questions 1-15 may be included in the 2005 TCO Program or
-                                    used in onsite introductions, at TopCoder's discretion.  The answers to questions 16 - 20 will be
+                                    NOTE: All questions are mandatory.  The answers to questions 1-19 may be included in the 2005 TCO Program or
+                                    used in onsite introductions, at TopCoder's discretion.  The answers to questions 20 - 24 will be
                                     provided to Sun Microsystems.
 
                                 </p>
