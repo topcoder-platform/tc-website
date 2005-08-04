@@ -602,7 +602,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += "Affidavit Description was invalid.<br>\n";
 
                         log.debug("payment dec:" + request.getParameter("payment_desc")+":");
-                        if (request.getParameter("payment_desc")!=null) {
+                        if (!"".equals(StringUtils.checkNull(request.getParameter("payment_desc")))) {
                             if (!checkParam(INT_TYPE, request.getParameter("payment_status_id"), true))
                                 message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
                             if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))

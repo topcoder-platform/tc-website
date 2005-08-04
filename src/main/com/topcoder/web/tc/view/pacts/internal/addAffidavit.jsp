@@ -83,7 +83,7 @@
 		<tr>
 		<td><b>Status:</b></td>
 		<td>
-            <tc-webtag:rscSelect name="affidavit_status_id" list='<%=astati%>' fieldText="status_desc" fieldValue="status_id" selectedValue="<%=astatus%>"/>
+            <tc-webtag:rscSelect name="affidavit_status_id" list='<%=astati%>' fieldText="status_desc" fieldValue="status_id" selectedValue="<%=String.valueOf(astatus)%>"/>
 		</td>
 		</tr>
 		<tr>
@@ -92,10 +92,10 @@
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
-            <tc-webtag:rscSelect name="affidavit_type_id" list='<%=affidavitTypes%>' fieldText="affidavit_type_desc" fieldValue="affidavit_type_id" selectedValue="<%=atype%>"/>
+            <tc-webtag:rscSelect name="affidavit_type_id" list='<%=affidavitTypes%>' fieldText="affidavit_type_desc" fieldValue="affidavit_type_id" selectedValue="<%=String.valueOf(atype)%>"/>
 		</td></tr>
 		<tr><td><b>Round:</b></td><td>
-            <tc-webtag:rscSelect name="round_id" list='<%=rounds%>' fieldText="name" fieldValue="round_id" selectedValue="<%=round%>"/>
+            <tc-webtag:rscSelect name="round_id" list='<%=rounds%>' fieldText="name" fieldValue="round_id" selectedValue="<%=String.valueOf(round)%>"/>
         </td></tr>
         <tr><td colspan="2">If you don't know what to fill in below, then you can leave it blank.  We'll
         figure it out using the affidavit type you chose above.</td></tr>
@@ -109,7 +109,7 @@
 		<tr>
 		<td><b>Status:</b></td>
 		<td>
-            <tc-webtag:rscSelect name="payment_status_id" list='<%=pstati%>' fieldText="status_desc" fieldValue="status_id" selectedValue="<%=pstatus%>"/>
+            <tc-webtag:rscSelect name="payment_status_id" list='<%=pstati%>' fieldText="status_desc" fieldValue="status_id" selectedValue="<%=String.valueOf(pstatus)%>"/>
 		</td>
 		</tr>
 		<tr>
@@ -118,7 +118,7 @@
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
-            <tc-webtag:rscSelect name="payment_type_id" list='<%=paymentTypes%>' fieldText="payment_type_desc" fieldValue="payment_type_id" selectedValue="<%=ptype%>"/>
+            <tc-webtag:rscSelect name="payment_type_id" list='<%=paymentTypes%>' fieldText="payment_type_desc" fieldValue="payment_type_id" selectedValue="<%=String.valueOf(ptype)%>"/>
 		</td></tr>
 		<tr>
 		<td><b>Net Amount:</b></td><td>
