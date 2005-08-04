@@ -250,7 +250,7 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     /** Check each cookie in the request header for a cookie set above. */
-    private User checkCookie() {
+    public User checkCookie() {
         log.debug("checkCookie called...");
         Cookie[] ca = request.getCookies();
         for (int i = 0; ca != null && i < ca.length; i++) {
