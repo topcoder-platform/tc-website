@@ -199,7 +199,7 @@
                     <br/><br/>
             <font color="#ff0000">PLEASE NOTE:</font>
             Guests are invited to attend the TCO05 and TopCoder can help make travel and lodging arrangements. However,
-            all costs (hotel, travel, meals, etc.) are at the guest’s own expense.
+            all costs (hotel, travel, meals, etc.) are at the guest's own expense.
                 <br/><br/>
                 </td>
             </tr>
