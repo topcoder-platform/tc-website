@@ -343,8 +343,6 @@ public class ScreeningJob extends TimerTask {
         try {
             conn = DbHelper.getConnection();
             return getVersionId(submissionId, conn);
-        } catch (SQLException sqle) {
-            throw new DatabaseException("getVersionId() fails.", sqle);
         } finally {
             DbHelper.dispose(conn, null, null);
         }
@@ -384,8 +382,6 @@ public class ScreeningJob extends TimerTask {
         try {
             conn = DbHelper.getConnection();
             placeRequest(request, conn);
-        } catch (SQLException sqle) {
-            throw new DatabaseException("placeRequest() fails.", sqle);
         } finally {
             DbHelper.dispose(conn, null, null);
         }
