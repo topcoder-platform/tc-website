@@ -64,12 +64,7 @@ public class ForumsServlet extends BaseServlet {
 
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-            User cookieUser = ((BasicAuthentication)authentication).checkCookie();
-            log.debug("###numCookies: "+tcRequest.getCookies().length);
-            if (cookieUser == null) { log.debug("###--> null user"); } else {
-                log.debug("###userid: "+cookieUser.getId());
-                log.debug("###username: "+cookieUser.getUserName());
-                log.debug("###password: "+cookieUser.getPassword()); }
+            //User cookieUser = ((BasicAuthentication)authentication).checkCookie();
 		    AuthToken authToken = AuthFactory.getAnonymousAuthToken();
             try {
 		        authToken = AuthFactory.getAuthToken(request, response);
