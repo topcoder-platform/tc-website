@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.forums.controller.request;
 
+import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
@@ -47,6 +48,7 @@ public class History extends ForumsProcessor {
         }
 
         ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
+        resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(range);
