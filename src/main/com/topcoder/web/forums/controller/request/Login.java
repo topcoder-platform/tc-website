@@ -39,7 +39,7 @@ public class Login extends ForumsProcessor {
         User user = ((BasicAuthentication)getAuthentication()).checkCookie();
 
         try {
-            if (((BasicAuthentication)getAuthentication()).hashPassword(password).equals(hashedPassword)) {
+            if (((BasicAuthentication)getAuthentication()).hashPassword(user.getPassword()).equals(hashedPassword)) {
                 //com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
                 //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                 //getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
