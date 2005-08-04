@@ -5,6 +5,7 @@ package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.InitialSubmission;
+import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.projecttracker.Project;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerLocal;
 import com.topcoder.apps.review.projecttracker.SecurityEnabledUser;
@@ -22,6 +23,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
@@ -140,11 +143,21 @@ public class SubmitSolution implements Model {
                 }
             }
             if (type != null) {
-                long versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId());
+                Connection conn = Common.getDataSource().getConnection();
+                
+                long versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
                 ScreeningJob.placeRequest(new ScreeningRequest(0,
                         versionId,
                         ConfigHelper.getSubmissionPathPrefix() + destFilename,
-                        type));
+                        type),
+                        conn);
+                        
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    // ignore
+                }
+                
                 return new ScreeningRetrieval(versionId);
             } else {
                 return new ScreeningRetrieval(new ScreeningResponse[0], new ScreeningResponse[0]);
