@@ -97,6 +97,8 @@
 		<tr><td><b>Round:</b></td><td>
             <tc-webtag:rscSelect name="round_id" list='<%=rounds%>' fieldText="name" fieldValue="round_id"/>
         </td></tr>
+        <tr><td colspan="2">If you don't know what to fill in below, then you can leave it blank.  We'll
+        figure it out using the affidavit type you chose above.</td></tr>
 		<tr><td>Text:</td><td>
 		<textarea name="text" rows=10 cols=80><%=text%></textarea>
 		</td></tr>
