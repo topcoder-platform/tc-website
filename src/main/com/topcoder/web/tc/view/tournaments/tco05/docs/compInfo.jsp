@@ -52,14 +52,19 @@
                                 </p>
                                 </li>
                                 <li>
-                                <p><span class=bodySubtitle>AFFIDAVIT</span> - must be affirmed online or notarized and postmarked on or before 9:00 PM EST on Wednesday, February 2.</p>
+                                <p><span class=bodySubtitle>AFFIDAVIT</span> - must be affirmed online or notarized and
+                                postmarked on or before 9:00 PM EDT on Wednesday, September 7.  If sent by mail, it
+                                must be received at TopCoder by October 5, 2005.</p>
                                 <p>See <a href="/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits page</a> for status of affidavits due.</p>
                                 </li>
 
 
                                 <li>
                                     <% if (info.getIntItem(0, "has_tax_form")==0) {%>
-                                        <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276), scanned and sent via email (<a href="mailto:mluce@topcoder.com">mluce@topcoder.com</a>), or postmarked on or before 9:00 PM EST on Wednesday, February 2.</p>
+                                        <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276), scanned and
+                                        sent via email (<a href="mailto:jdamato@topcoder.com">jdamato@topcoder.com</a>), or
+                                        postmarked on or before 9:00 PM EDT on Wednesday, September 7.  If sent by mail,
+                                        it must be received at TopCoder by October 5, 2005.</p>
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN).  If you don't know which form
                                         applies to you, please refer to the instructions below:</p>
 
