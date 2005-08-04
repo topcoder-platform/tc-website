@@ -13,6 +13,7 @@ import com.jivesoftware.forum.stats.ViewCountManager;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
+import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.Iterator;
 
@@ -64,7 +65,7 @@ public class Thread extends ForumsProcessor {
         
         ReadTracker readTracker = forumFactory.getReadTracker();
         if (user != null && !authToken.isAnonymous()) {
-            readTracker.markRead(user, thread.getLatestMessage());
+            readTracker.markRead(user, ForumsUtil.getLatestMessage(thread));
         }
         
         // Use the setting chosen on the page if selected, or the user's default
