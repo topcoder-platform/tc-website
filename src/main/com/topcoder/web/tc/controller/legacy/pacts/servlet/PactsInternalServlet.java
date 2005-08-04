@@ -601,6 +601,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         if (!checkParam(STRING_TYPE, request.getParameter("affidavit_desc"), true))
                             message += "Affidavit Description was invalid.<br>\n";
 
+                        log.debug("payment dec:" + request.getParameter("payment_desc")+":");
                         if (request.getParameter("payment_desc")!=null) {
                             if (!checkParam(INT_TYPE, request.getParameter("payment_status_id"), true))
                                 message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
@@ -622,6 +623,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                 message += " date in the format " + DATE_FORMAT_STRING;
                                 message += ".<br>\n";
                             }
+                        } else {
+                            log.debug("payment desc was null");
                         }
                         if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_printed"), true)) {
                             message += "Date Printed is invalid make sure it is a legal";
