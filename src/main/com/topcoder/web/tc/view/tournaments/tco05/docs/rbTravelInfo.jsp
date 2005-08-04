@@ -50,7 +50,7 @@
             </p>
 
             <p>
-                <b>At the TCO05, you will be sharing a hotel room with another competitor.</b>  Please fill in the
+                <b>At the TCO05, you will be sharing a hotel room with another Review Board member.</b>  Please fill in the
                 appropriate space with your roommate preference if you have one.  We will do our best to accommodate your request.
             </p>
 
