@@ -57,6 +57,7 @@ public class Login extends Base {
                         try {
                             LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
                             sub = login.login(username, password);
+                            log.debug("correct user name and password");
                         } catch (Exception e) {
                             throw new LoginException("Handle or password incorrect.");
                         }
