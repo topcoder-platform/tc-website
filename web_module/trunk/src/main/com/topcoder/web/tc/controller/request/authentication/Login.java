@@ -20,7 +20,8 @@ import com.topcoder.shared.util.ApplicationServer;
 import java.util.Arrays;
 
 public class Login extends Base {
-
+    
+    public static final String USER_ID = "userid";
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
     public static final String REMEMBER_USER = "rem";
@@ -67,13 +68,14 @@ public class Login extends Base {
                             } else {
                                 log.debug("user active");
                                 String dest = StringUtils.replace(StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY)),"&","%26");
-                                String forumsURL = "http://"+ApplicationServer.FORUMS_SERVER_NAME;
+                                String forumsURL = "https://"+ApplicationServer.FORUMS_SERVER_NAME;
 
                                 //todo make this https
                                 SiteTest siteTest = new SiteTest();
                                 boolean forumsServerActive = siteTest.check(forumsURL);
                                 if (forumsServerActive) {
                                     StringBuffer nextPage = new StringBuffer(forumsURL).append("/?module=Login");
+                                    nextPage.append("&").append(USER_ID).append("=").append(userId);
                                     nextPage.append("&").append(USER_NAME).append("=").append(username);
                                     nextPage.append("&").append(PASSWORD).append("=").append(((BasicAuthentication)getAuthentication()).hashPassword(password));
                                     if (!rememberUser.equals("")) {

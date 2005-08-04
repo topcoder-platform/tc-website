@@ -4,27 +4,39 @@ import com.jivesoftware.base.AuthFactory;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.BasicAuthentication;
 
+/**
+ * @author mtong
+ *
+ * Logs into the forums, redirecting the user to the chosen page. 
+ */
 public class Login extends ForumsProcessor {
 
+    public static final String USER_ID = "userid";
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
     public static final String REMEMBER_USER = "rem";
 
     protected void businessProcessing() throws TCWebException, GeneralSecurityException {
 
-        /* may be null */
+        long userID = -1;
         String username = getRequest().getParameter(USER_NAME);
         String hashedPassword = getRequest().getParameter(PASSWORD);
         String rememberUser = StringUtils.checkNull(getRequest().getParameter(REMEMBER_USER));
         String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
         String password = "";
-        long userID = -1;
+        
+        try {
+            userID = Long.parseLong(getRequest().getParameter(USER_ID));
+            password = getPassword(userID);
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
         
         //String queryString = getRequest().getQueryString();
         //int destStartIdx = queryString.indexOf("http://");
@@ -36,21 +48,15 @@ public class Login extends ForumsProcessor {
         //} catch (Exception e) {
         //    throw new TCWebException(e);
         //}
-        log.debug("***************** before user is obtained from cookie");
-        log.debug("###numCookies: "+getRequest().getCookies().length);
-        User user = ((BasicAuthentication)getAuthentication()).checkCookie();
-        if (user == null) { log.debug("--> null user"); } else {
-        log.debug("userid: "+user.getId());
-        log.debug("username: "+user.getUserName());
-        log.debug("password: "+user.getPassword()); }
+
+        //User user = ((BasicAuthentication)getAuthentication()).checkCookie();
 
         try {
-            if (((BasicAuthentication)getAuthentication()).hashPassword(user.getPassword()).equals(hashedPassword)) {
+            if (((BasicAuthentication)getAuthentication()).hashPassword(getPassword(userID)).equals(hashedPassword)) {
                 //com.jivesoftware.base.User forumUser = forumFactory.getUserManager().getUser(username);
                 //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                 //getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
-                //getAuthentication().login(new SimpleUser(userID, username, password), rememberUser.equals("on"));
-                getAuthentication().login(user, rememberUser.equals("on"));
+                getAuthentication().login(new SimpleUser(userID, username, password), rememberUser.equals("on"));
                 authToken = AuthFactory.getAuthToken(getHttpRequest(), getHttpResponse());
             } else {
                 log.debug("forum password hash not matched");

@@ -64,7 +64,7 @@ public class ForumsServlet extends BaseServlet {
 
             //set up security objects and session info
 		    authentication = createAuthentication(tcRequest, tcResponse);
-            User cookieUser = ((LightAuthentication)authentication).checkCookie();
+            User cookieUser = ((BasicAuthentication)authentication).checkCookie();
             log.debug("###numCookies: "+tcRequest.getCookies().length);
             if (cookieUser == null) { log.debug("###--> null user"); } else {
                 log.debug("###userid: "+cookieUser.getId());
