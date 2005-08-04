@@ -3,14 +3,18 @@
                  com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.ReadTracker,
            		 java.util.Iterator,
                  java.util.Enumeration"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
+
 <%  User user = (User)request.getAttribute("user"); 
-    ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); %>
+    ResultFilter resultFilter = (ResultFilter)request.getAttribute("resultFilter"); 
+    ReadTracker readTracker = forumFactory.getReadTracker(); %>
 
 <html>
 <head>
@@ -67,8 +71,14 @@
                     <td class="rtHeader" align="center" colspan="2">Last Post</td>
                 </tr>
                 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
+                    <%  String trackerClass = (user == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                     <tr>
-                        <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
+                        <td class="rtThreadCellWrap">
+                        <%  if (user == null) { %>
+                            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
+                        <%  } else { %>
+                            <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="<%=trackerClass%>"><jsp:getProperty name="forum" property="name"/></A>
+                        <%  } %>
                         	<br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
                         <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="forum" property="messageCount"/></td>
                         <% if (forum.getMessageCount() > 0) { %>
@@ -91,8 +101,14 @@
                         <td class="rtHeader" align="center" colspan="2">Last Post</td>
                     </tr>
                     <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=category.getForums(resultFilter)%>'>
-	                    <tr>
-	                        <td class="rtThreadCellWrap"><A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
+	                    <%  String trackerClass = (user == null || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                        <tr>
+	                        <td class="rtThreadCellWrap">
+                                <%  if (user == null) { %>
+                                <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.MESSAGE_COUNT%>=<jsp:getProperty name="forum" property="messageCount"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="rtLinkNew"><jsp:getProperty name="forum" property="name"/></A>
+                                <%  } else { %>
+                                <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<jsp:getProperty name="forum" property="ID"/>&<%=ForumConstants.SORT_FIELD%>=<%=JiveConstants.MODIFICATION_DATE%>&<%=ForumConstants.SORT_ORDER%>=<%=ResultFilter.DESCENDING%>" class="<%=trackerClass%>"><jsp:getProperty name="forum" property="name"/></A>
+                                <%  } %>
 	                            <br/><div class="rtDescIndent"><jsp:getProperty name="forum" property="description"/></div></td>
 	                        <td class="rtThreadCell"><jsp:getProperty name="forum" property="threadCount"/>&#160;/&#160;<jsp:getProperty name="forum" property="messageCount"/></td>
 	                        <% if (forum.getMessageCount() > 0) { %>

@@ -24,6 +24,7 @@ public class ForumList extends ForumsProcessor {
         Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
 		Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
 
+        getRequest().setAttribute("forumFactory", forumFactory);
 		getRequest().setAttribute("forums", itForums);
         getRequest().setAttribute("categories", itCategories);
         getRequest().setAttribute("resultFilter", resultFilter);

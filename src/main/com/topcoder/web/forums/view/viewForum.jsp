@@ -37,7 +37,6 @@
 
     StringBuffer linkBuffer = new StringBuffer("?module=ThreadList");
     linkBuffer.append("&").append(ForumConstants.FORUM_ID).append("=").append(forum.getID());
-    linkBuffer.append("&").append(ForumConstants.MESSAGE_COUNT).append("=").append(forum.getMessageCount());
 
     StringBuffer threadLinkBuffer = new StringBuffer(linkBuffer.toString());
     StringBuffer dateLinkBuffer = new StringBuffer(linkBuffer.toString());
