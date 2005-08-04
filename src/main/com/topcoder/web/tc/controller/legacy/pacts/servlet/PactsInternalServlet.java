@@ -1203,7 +1203,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             // Make the Payment
             Payment p = null;
-            if (request.getParameter("payment_desc")!=null) {
+            if (!"".equals(StringUtils.checkNull(request.getParameter("payment_desc")))) {
                 p = new Payment(
                     Long.parseLong(request.getParameter("user_id")),
                     request.getParameter("payment_desc"),
