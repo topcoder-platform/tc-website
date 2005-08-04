@@ -369,7 +369,7 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}/tcs/executable_wrapper/1.0">
+            <fileset dir="${jars.dir}">
                 <include name="executable_wrapper.jar"/>
             </fileset>
         </copy>
