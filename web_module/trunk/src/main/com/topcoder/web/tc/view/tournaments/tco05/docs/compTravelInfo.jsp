@@ -146,14 +146,8 @@
               <td align="left"><input type="text" name="a42" size="50"/></td>
             </tr>
 
-<%--
             <tr>
-              <td align="right"><input type="hidden" name="q43" value="Preferred arrival date"/>Preferred arrival date:</td>
-              <td align="left"><select name="a43"><option value="Tuesday, October 11">Tuesday, October 11</option><option value="Wednesday, October 12">Wednesday, October 12</option></select></td>
-           </tr>
---%>
-            <tr>
-              <td align="right"><input type="hidden" name="q44" value="Preferred arrival time"/>Preferred arrival time:</td>
+              <td align="right"><input type="hidden" name="q44" value="October 11, 2005 - Preferred arrival time"/>October 11, 2005 - Preferred arrival time:</td>
               <td align="left"><select name="a44"><option value="AM">AM</option><option value="PM">PM</option></select></td>
            </tr>
 
