@@ -340,10 +340,28 @@ public class ScreeningJob extends TimerTask {
      */
     public static long getVersionId(long submissionId) {
         Connection conn = null;
+        try {
+            conn = DbHelper.getConnection();
+            return getVersionId(submissionId, conn);
+        } catch (SQLException sqle) {
+            throw new DatabaseException("getVersionId() fails.", sqle);
+        } finally {
+            DbHelper.dispose(conn, null, null);
+        }
+    }
+    
+    /**
+     * Get the version id for the current submission, using a specified connection.
+     *
+     * @param submissionId the submission id.
+     * @param conn the connection to use.
+     *
+     * @return the submission version id.
+     */
+    public static long getVersionId(long submissionId, Connection conn) {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            conn = DbHelper.getConnection();
             stmt = conn.prepareStatement("SELECT submission_v_id FROM submission WHERE submission_id = ? AND cur_version = 1");
             stmt.setLong(1, submissionId);
             rs = stmt.executeQuery();
@@ -352,7 +370,7 @@ public class ScreeningJob extends TimerTask {
         } catch (SQLException sqle) {
             throw new DatabaseException("getVersionId() fails.", sqle);
         } finally {
-            DbHelper.dispose(conn, stmt, rs);
+            DbHelper.dispose(null, stmt, rs);
         }
     }
 
@@ -363,10 +381,26 @@ public class ScreeningJob extends TimerTask {
      */
     public static void placeRequest(ScreeningRequest request) {
         Connection conn = null;
+        try {
+            conn = DbHelper.getConnection();
+            placeRequest(request, conn);
+        } catch (SQLException sqle) {
+            throw new DatabaseException("placeRequest() fails.", sqle);
+        } finally {
+            DbHelper.dispose(conn, null, null);
+        }
+    }
+    
+    /**
+     * Place a request in the database queue, using a specific connection.
+     *
+     * @param request the request to place.
+     * @param conn the connection to use.
+     */
+    public static void placeRequest(ScreeningRequest request, Connection conn) {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
                     "INSERT INTO screening_task(submission_v_id, submission_path, screening_project_type_id) VALUES(?, ?, ?)");
             stmt.setLong(1, request.getSubmissionVId());
@@ -376,7 +410,7 @@ public class ScreeningJob extends TimerTask {
         } catch (SQLException sqle) {
             throw new DatabaseException("placeRequest() fails.", sqle);
         } finally {
-            DbHelper.dispose(conn, stmt, null);
+            DbHelper.dispose(null, stmt, null);
         }
     }
 
