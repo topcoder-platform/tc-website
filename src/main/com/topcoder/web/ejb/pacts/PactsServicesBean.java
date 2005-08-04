@@ -1914,6 +1914,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (a.getRoundId() != null)
                 roundStr = "" + a.getRoundId().longValue();
 
+            String localText = text;
+            if (text==null) {
+                log.debug("get the affidavit text from the db");
+                StringBuffer getAffidavitTexts = new StringBuffer(300);
+                getAffidavitTexts.append("SELECT att.text ");
+                getAffidavitTexts.append("FROM affidavit_template att, country_affidavit_template_xref x, coder c ");
+                getAffidavitTexts.append("WHERE att.affidavit_type_id = " + a.getHeader().getTypeId());
+                getAffidavitTexts.append(" and att.affidavit_template_id =x.affidavit_template_id ");
+                getAffidavitTexts.append(" and c.country_code = x.country_code ");
+                getAffidavitTexts.append(" and c.coder_id = " + a.getHeader().getUser().getId());
+                ResultSetContainer rsc = runSelectQuery(c, getAffidavitTexts.toString(), false);
+                if (rsc.isEmpty()) {
+                    throw new Exception("Couldn't find an affidavit template for user " + a.getHeader().getUser().getId());
+                }
+                localText = rsc.getStringItem(0, "text");
+            }
+
             insertAffidavit.append("INSERT INTO affidavit ");
             insertAffidavit.append(" (round_id, affidavit_id, user_id, status_id, notarized, affirmed, ");
             insertAffidavit.append("  payment_id, affidavit_desc, affidavit_type_id, text, date_created, date_affirmed) ");
@@ -1926,7 +1943,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(5, 0); // affirmed
             ps.setString(6, a.getHeader().getDescription());
             ps.setInt(7, a.getHeader().getTypeId());
-            ps.setBytes(8, DBMS.serializeTextString(text));
+            ps.setBytes(8, DBMS.serializeTextString(localText));
             //todo STUPID!!!! make this a default in the database
             ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_created
             ps.executeUpdate();

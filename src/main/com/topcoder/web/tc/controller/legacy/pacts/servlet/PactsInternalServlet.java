@@ -600,31 +600,34 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += "Invalid parameter round_id = " + request.getParameter("round_id") + ".<br>\n";
                         if (!checkParam(STRING_TYPE, request.getParameter("affidavit_desc"), true))
                             message += "Affidavit Description was invalid.<br>\n";
-                        if (!checkParam(INT_TYPE, request.getParameter("payment_status_id"), true))
-                            message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
-                        if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
-                            message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
-                        if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
-                            message += "Payment Description was invalid.<br>\n";
-                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
-                            message += "Date Paid is invalid make sure it is a legal";
-                            message += " date in the format " + DATE_FORMAT_STRING;
-                            message += ".<br>\n";
+
+                        if (request.getParameter("payment_desc")!=null) {
+                            if (!checkParam(INT_TYPE, request.getParameter("payment_status_id"), true))
+                                message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
+                            if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
+                                message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                            if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
+                                message += "Payment Description was invalid.<br>\n";
+                            if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
+                                message += "Date Paid is invalid make sure it is a legal";
+                                message += " date in the format " + DATE_FORMAT_STRING;
+                                message += ".<br>\n";
+                            }
+                            if (!checkParam(NULL_DOUBLE_TYPE, request.getParameter("net_amount"), true))
+                                message += "Net Amount was invalid.<br>\n";
+                            if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
+                                message += "Gross Amount was invalid.<br>\n";
+                            if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_due"), true)) {
+                                message += "Date Due is invalid make sure it is a legal";
+                                message += " date in the format " + DATE_FORMAT_STRING;
+                                message += ".<br>\n";
+                            }
                         }
                         if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_printed"), true)) {
                             message += "Date Printed is invalid make sure it is a legal";
                             message += " date in the format " + DATE_FORMAT_STRING;
                             message += ".<br>\n";
                         }
-                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_due"), true)) {
-                            message += "Date Due is invalid make sure it is a legal";
-                            message += " date in the format " + DATE_FORMAT_STRING;
-                            message += ".<br>\n";
-                        }
-                        if (!checkParam(NULL_DOUBLE_TYPE, request.getParameter("net_amount"), true))
-                            message += "Net Amount was invalid.<br>\n";
-                        if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
-                            message += "Gross Amount was invalid.<br>\n";
                         if (message.length() == 0)
                             doAddAffidavitPost(request, response);
                         else {
@@ -1196,7 +1199,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             if (net == null || net.equals("")) net = "0";
 
             // Make the Payment
-            Payment p = new Payment(
+            Payment p = null;
+            if (request.getParameter("payment_desc")!=null) {
+                p = new Payment(
                     Long.parseLong(request.getParameter("user_id")),
                     request.getParameter("payment_desc"),
                     Integer.parseInt(request.getParameter("payment_type_id")),
@@ -1205,9 +1210,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     Double.parseDouble(net),
                     Double.parseDouble(request.getParameter("gross_amount")),
                     Integer.parseInt(request.getParameter("payment_status_id")));
-
-            p.setDueDate(TCData.dateForm(request.getParameter("date_due")));
-
+                p.setDueDate(TCData.dateForm(request.getParameter("date_due")));
+            }
 
             // Add the Affidavit and the Payment
             DataInterfaceBean dib = new DataInterfaceBean();
