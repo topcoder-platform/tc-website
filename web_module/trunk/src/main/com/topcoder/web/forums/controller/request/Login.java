@@ -38,9 +38,10 @@ public class Login extends ForumsProcessor {
         //}
         log.debug("***************** before user is obtained from cookie");
         User user = ((BasicAuthentication)getAuthentication()).checkCookie();
+        if (user == null) { log.debug("--> null user"); } else {
         log.debug("userid: "+user.getId());
         log.debug("username: "+user.getUserName());
-        log.debug("password: "+user.getPassword());
+        log.debug("password: "+user.getPassword()); }
 
         try {
             if (((BasicAuthentication)getAuthentication()).hashPassword(user.getPassword()).equals(hashedPassword)) {
