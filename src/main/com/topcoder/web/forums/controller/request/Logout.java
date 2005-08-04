@@ -10,6 +10,8 @@ import com.topcoder.web.common.TCWebException;
 
 /**
  * @author mtong
+ * 
+ * Logs out of the forums.
  */
 public class Logout extends ForumsProcessor {
 
