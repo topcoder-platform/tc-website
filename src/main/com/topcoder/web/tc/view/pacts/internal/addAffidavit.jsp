@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
@@ -64,103 +65,40 @@
 <h1>PACTS</h1>
 <h2>Add Affidavit</h2>
 
-<%		out.print("<font color=\"#FF0000\">" + message + "</font>");
-		out.print("<form action=\"" + PactsConstants.INTERNAL_SERVLET_URL);
-		out.print("\" method=\"post\"><input type=\"hidden\" name=\"");
-		out.print(PactsConstants.USER_ID+"\" value=\""+user.getId()+"\">");
-
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.TASK_STRING+"\" value=\""+PactsConstants.ADD_TASK+"\">");
-		out.print("<input type=\"hidden\" name=\""+PactsConstants.CMD_STRING+"\" value=\""+PactsConstants.AFFIDAVIT_CMD+"\">");
-%>
+<font color="#FF0000"><%=message%></font>
+<form action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+  <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="<%=user.getId()%>"/>
+  <input type="hidden" name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.ADD_TASK%>"/>
+  <input type="hidden" name="<%=PactsConstants.CMD_STRING%>" value="<%=PactsConstants.AFFIDAVIT_CMD%>"/>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
 		<td><b>User:</b></td>
-<% 			out.print("<td><a href=\"");
-			out.print(PactsConstants.INTERNAL_SERVLET_URL);
-			out.print("?"+PactsConstants.TASK_STRING+"=");
-			out.print(PactsConstants.VIEW_TASK+"&");
-			out.print(PactsConstants.CMD_STRING+"=");
-			out.print(PactsConstants.USER_CMD+"&");
-			out.print(PactsConstants.USER_ID+"=");
-			out.print(user.getId());
-			out.print("\">"+user.getHandle()+"</a></td>\n");
-%>
+        <td><a href="<%=PactsConstants.INTERNAL_SERVLET_URL+"?"+PactsConstants.TASK_STRING+"="+PactsConstants.VIEW_TASK+"&"+PactsConstants.CMD_STRING+"="+PactsConstants.USER_CMD+"&"+PactsConstants.USER_ID+"="+user.getId()%>"><%=user.getHandle()%></a></td>
 		</tr>
 		<tr>
 		<td><b>Notarized:</b></td><td>
-<%		out.print("<input type=\"radio\" name=\""+PactsConstants.IS_NOTARIZED+"\" value=\"true\" "); if (notarized.equals("true")) out.print("checked"); out.print(">Yes<br>");
-		out.print("<input type=\"radio\" name=\""+PactsConstants.IS_NOTARIZED+"\" value=\"false\" "); if (!notarized.equals("true")) out.print("checked"); out.print(">No");
-%>
+            <input type="radio" name="<%=PactsConstants.IS_NOTARIZED%>" value="true" <%= notarized.equals("true")?"checked":""%>/>Yes<br />
+            <input type="radio" name="<%=PactsConstants.IS_NOTARIZED%>" value="true" <%= notarized.equals("true")?"checked":""%>/>No
 		</td></tr>
 		<tr>
 		<td><b>Status:</b></td>
 		<td>
-		<select name="affidavit_status_id">
-<%		int rowCount;
-		String s;
-		long s_id;
-		ResultSetContainer.ResultSetRow rsr;
-		if (astati != null) {
-			rowCount = astati.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = astati.getRow(n);
-				out.print("<option value=");
-				s_id = TCData.getTCInt(rsr,"status_id",0,true);
-				out.print(s_id);
-				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (astatus < 0 && s.equals(PactsConstants.DEFAULT_AFFIDAVIT_STATUS)) {
-					out.print(" selected");
-				} else if (s_id == astatus) out.print(" selected");
-				out.print(">" + s + "</option>\n");
-			}
-		}
-%>
-		</select>
+            <tc-webtag:rscSelect name="affidavit_status_id" list='<%=astati%>' fieldText="status_desc" fieldValue="status_id"/>
 		</td>
 		</tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-		<input type=text width=25 name="affidavit_desc" value="<% out.print(adesc); %>">
+		<input type=text width=25 name="affidavit_desc" value="<%=adesc%>">
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
-		<select name="affidavit_type_id">
-<%		if (affidavitTypes != null) {
-			rowCount = affidavitTypes.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = affidavitTypes.getRow(n);
-				out.print("<option value=");
-				s_id = TCData.getTCInt(rsr,"affidavit_type_id",0,true);
-				out.print(s_id);
-				s = TCData.getTCString(rsr,"affidavit_type_desc","default affidavit type",true);
-				if (atype < 0 && s.equals(PactsConstants.DEFAULT_AFFIDAVIT_TYPE)) {
-					out.print(" selected");
-				} else if (s_id == atype) out.print(" selected");
-				out.print(">" + s + "</option>\n");
-			}
-		}
-%>
-		</select>
+            <tc-webtag:rscSelect name="affidavit_type_id" list='<%=affidavitTypes%>' fieldText="affidavit_type_desc" fieldValue="affidavit_type_id"/>
 		</td></tr>
 		<tr><td><b>Round:</b></td><td>
-		<select name="round_id">
-		<option value="-1">None</option>
-<%		if (rounds != null) {
-			rowCount = rounds.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = rounds.getRow(n);
-				out.print("<option value=");
-				s_id = TCData.getTCLong(rsr,"round_id",0,true);
-				out.print(s_id);
-				s = TCData.getTCString(rsr,"name","default round name",true);
-				if (s_id == round) out.print(" selected");
-				out.print(">" + s + "</option>\n");
-			}
-		}
-%>
-		</select></td></tr>
+            <tc-webtag:rscSelect name="round_id" list='<%=rounds%>' fieldText="name" fieldValue="round_id"/>
+        </td></tr>
 		<tr><td>Text:</td><td>
-		<textarea name="text" rows=10 cols=80><% out.print(text); %></textarea>
+		<textarea name="text" rows=10 cols=80><%=text%></textarea>
 		</td></tr>
 </table>
 <h2>Add Payment</h2>
@@ -168,23 +106,7 @@
 		<tr>
 		<td><b>Status:</b></td>
 		<td>
-		<select name="payment_status_id">
-<%		if (pstati != null) {
-			rowCount = pstati.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = pstati.getRow(n);
-				out.print("<option value=");
-				s_id = TCData.getTCInt(rsr,"status_id",0,true);
-				out.print(s_id);
-				s = TCData.getTCString(rsr,"status_desc","default status",true);
-				if (pstatus < 0 && s.equals(PactsConstants.DEFAULT_AFFIDAVIT_PAYMENT_STATUS)) {
-					out.print(" selected");
-				} else if (pstatus == s_id) out.print(" selected");
-				out.print(">" + s + "</option>\n");
-			}
-		}
-%>
-		</select>
+            <tc-webtag:rscSelect name="payment_status_id" list='<%=pstati%>' fieldText="status_desc" fieldValue="status_id"/>
 		</td>
 		</tr>
 		<tr>
@@ -193,23 +115,7 @@
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>
-		<select name="payment_type_id">
-<%		if (paymentTypes != null) {
-			rowCount = paymentTypes.getRowCount();
-			for (int n = 0; n < rowCount; n++) {
-				rsr = paymentTypes.getRow(n);
-				out.print("<option value=");
-				s_id = TCData.getTCInt(rsr,"payment_type_id",0,true);
-				out.print(s_id);
-				s = TCData.getTCString(rsr,"payment_type_desc","default payment type",true);
-				if (ptype < 0 && s.equals(PactsConstants.DEFAULT_AFFIDAVIT_PAYMENT_TYPE)) {
-					out.print(" selected");
-				} else if (ptype == s_id) out.print(" selected");
-				out.print(">" + s + "</option>\n");
-			}
-		}
-%>
-		</select>
+            <tc-webtag:rscSelect name="payment_type_id" list='<%=paymentTypes%>' fieldText="payment_type_desc" fieldValue="payment_type_id"/>
 		</td></tr>
 		<tr>
 		<td><b>Net Amount:</b></td><td>
