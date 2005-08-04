@@ -344,6 +344,51 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/xmi_parser/1.0">
+                <include name="xmi_parser.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/data_validation/1.0">
+                <include name="data_validation.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/directory_validation/1.0">
+                <include name="directory_validation.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/compression_utility/2.0">
+                <include name="compression_utility.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/magic_numbers/1.0">
+                <include name="magic_numbers.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/executable_wrapper/1.0">
+                <include name="executable_wrapper.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/generic_event_manager/1.0">
+                <include name="generic_event_manager.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
+                <include name="db_connection_factory.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
+            <fileset dir="${bin.dir}">
+                <include name="screening.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss.lib.dir}">
             <fileset dir="${bin.dir}">
                 <include name="shared.jar"/>
             </fileset>
