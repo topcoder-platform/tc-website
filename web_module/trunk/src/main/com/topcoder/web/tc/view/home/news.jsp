@@ -9,6 +9,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Member Survey" border="0" /><br>08.04.05<br>10:25 AM</td>
+     <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=7992">Learning environment survey</A></span><br><br>
+       Which of the following do you feel taught you the most about programming?
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?&module=ViewSurvey&sid=7992">view survey</A>&#160;|&#160;
+         <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>08.02.05<br>2:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -235,21 +247,6 @@ One of the most crucial aspects to how quickly a problem can be solved is how th
    <tr><td class="newsLinksCell">
          <A href="/tc?module=SimpleStats&trans=true&c=com_history&d1=statistics&d2=coderOfMonth">view</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>07.13.05<br>10:40 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm251_prob">SRM 251 - Problem Set & Analysis</A></span><br><br>
-      In division 1, <tc-webtag:handle coderId="8355516" context="algorithm"/> led the coding phase, followed by <tc-webtag:handle coderId="8357090" context="algorithm"/>, <tc-webtag:handle coderId="144400" context="algorithm"/> and <tc-webtag:handle coderId="9906197" context="algorithm"/>.  However, the challenge phase turned out to be important as <tc-webtag:handle coderId="144400" context="algorithm"/> gained 150 points, and took first place.</td>
-      <td class="newsPhoto"><img src="/i/m/lbackstrom_mug.gif" /><br>by <tc-webtag:handle coderId="159052" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm251_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
 
 
