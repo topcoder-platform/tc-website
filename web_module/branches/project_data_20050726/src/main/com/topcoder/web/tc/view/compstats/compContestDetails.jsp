@@ -47,10 +47,22 @@
    ResultSetContainer submissions = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("submissions");
    long projectId = ((Long) request.getAttribute("pid")).longValue();
    boolean first = true;
+
+    String imgName="";
+    if (projectInfo.getStringItem(0,"category_desc").equals("Java")) {
+        imgName = "http://www.topcoder.com/i/development/smJava.gif";
+    }
+    if (projectInfo.getStringItem(0,"category_desc").equals(".NET")) {
+        imgName = "http://www.topcoder.com/i/development/netSm.gif";
+    }
+
 %>
 
 
-<span class="bodySubtitle">Development Statistics > Contest Details > <A href="do me!" class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
+<span class="bodySubtitle">Development Statistics > Contest Details > <rsc:item set="<%=projectInfo%>" name="phase_desc"/> > <img src='<%=imgName%>' alt='<rsc:item set="<%=projectInfo%>" name="category_desc"/>' border="0" />
+<img src="/i/stats/pass.gif" alt="pass" border="0" />
+
+<A href='https://software.topcoder.com/catalog/c_component.jsp?comp=<rsc:item set="<%=projectInfo%>" name="component_id"/>&ver=<rsc:item set="<%=projectInfo%>" name="version_id"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></A></span><br>
 <span class="bc">
 <% if (dates.size() > 1) { %>
                  <rsc:iterator list="<%=dates%>" id="resultRow">
