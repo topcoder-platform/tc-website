@@ -42,7 +42,7 @@ function noenter(e)
 
 <body>
 
-<jsp:include page="top_forums.jsp" >
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
