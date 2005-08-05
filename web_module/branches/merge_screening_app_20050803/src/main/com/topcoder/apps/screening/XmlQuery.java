@@ -148,14 +148,42 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getSubmissionStatus(long projectId, long submitterId) {
+        Connection conn = null;
+        try {
+            conn = DbHelper.getConnection();
+            return getSubmissionStatus(projectId, submitterId, conn);
+        } finally {
+            DbHelper.dispose(conn, null, null);
+        }
+    }
+    
+    /**
+     * <strong>Purpose</strong>:
+     * Obtains details about the screening processes run for all submission by a given submitter to a given project.
+     * Each response code and dynamic response text will be returned.  This version of the method uses a specified connection.
+     *
+     * <strong>Valid Args</strong>:
+     * An integer.
+     *
+     * <strong>Valid Return Values</strong>:
+     * A String.
+     *
+     * @param projectId The id of the project to investigate.
+     * @param submitterId The identifier for a submitter.
+     * @param conn The connection to use.
+     * @return An XML String containing the results of the query.
+     * @throws InvalidProjectNameException if the 'project' parameter does not correspond to an existing project.
+     * @throws InvalidSubmitterIdException if the 'submitterId' parameter does not correspond to an exisiting
+     *                                     submitter.
+     * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
+     */
+    public ScreeningRecord[] getSubmissionStatus(long projectId, long submitterId, Connection conn) {
         List submissions = new ArrayList();
 
-        Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             List warnings = new ArrayList();
-            conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
                     "SELECT UNIQUE submission.submission_v_id " +
                     "FROM submission, screening_results, screening_response, response_severity " +
@@ -208,7 +236,7 @@ public class XmlQuery implements QueryInterface {
         } catch (SQLException sqle) {
             throw new DatabaseException("getSubmissionStatus() fails.", sqle);
         } finally {
-            DbHelper.dispose(conn, stmt, rs);
+            DbHelper.dispose(null, stmt, rs);
         }
 
         return (ScreeningRecord[]) submissions.toArray(new ScreeningRecord[submissions.size()]);
@@ -231,14 +259,39 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningRecord[] getAllSubmissions(long projectId) {
+        Connection conn = null;
+        try {
+            conn = DbHelper.getConnection();
+            return getAllSubmissions(projectId, conn);
+        } finally {
+            DbHelper.dispose(conn, null, null);
+        }
+    }
+
+    /**
+     * <strong>Purpose</strong>:
+     * Obtains details about the screening processes run for all submissions to a particular project. Each response
+     * code and dynamic response text will be returned.  This version of the method uses a specified connection.
+     *
+     * <strong>Valid Args</strong>:
+     * A non-null string.
+     *
+     * <strong>Valid Return Values</strong>:
+     * A String.
+     *
+     * @param project The id of the project to investigate.
+     * @param conn The connection to use.
+     * @return An XML String containing the results of the query.
+     * @throws InvalidProjectNameException if the 'project' parameter does not correspond to an existing project.
+     * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
+     */
+    public ScreeningRecord[] getAllSubmissions(long projectId, Connection conn) {
         List submissions = new ArrayList();
 
-        Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             List warnings = new ArrayList();
-            conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
                     "SELECT UNIQUE submission.submission_v_id " +
                     "FROM submission, screening_results, screening_response, response_severity " +
@@ -292,10 +345,9 @@ public class XmlQuery implements QueryInterface {
         } catch (SQLException sqle) {
             throw new DatabaseException("getSubmissionStatus() fails.", sqle);
         } finally {
-            DbHelper.dispose(conn, stmt, rs);
+            DbHelper.dispose(null, stmt, rs);
         }
 
         return (ScreeningRecord[]) submissions.toArray(new ScreeningRecord[submissions.size()]);
     }
-
 }
