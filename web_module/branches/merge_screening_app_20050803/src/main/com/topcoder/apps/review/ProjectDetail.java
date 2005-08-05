@@ -9,6 +9,8 @@ import com.topcoder.apps.screening.ScreeningTool;
 import com.topcoder.apps.screening.QueryInterface;
 import com.topcoder.apps.screening.ScreeningRecord;
 
+import java.sql.Connection;
+
 /**
  * This Model provides business logic through which users view project details.
  *
@@ -101,10 +103,20 @@ public class ProjectDetail implements Model {
             // Added by WishingBone - Automated Screening
             QueryInterface query = ScreeningTool.createQuery();
             ScreeningRecord[] history = null;
-            if (PermissionHelper.isAdmin(user) || user.equals(project.getProjectManager())) {
-                history = query.getAllSubmissions(project.getId());
-            } else {
-                history = query.getSubmissionStatus(project.getId(), user.getId());
+            Connection conn = null;
+            try {
+                conn = Common.getDataSource().getConnection();
+                if (PermissionHelper.isAdmin(user) || user.equals(project.getProjectManager())) {
+                    history = query.getAllSubmissions(project.getId(), conn);
+                } else {
+                    history = query.getSubmissionStatus(project.getId(), user.getId(), conn);
+                }
+            } finally {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+                    // ignore
+                }
             }
             ProjectRetrieval pr = new ProjectRetrieval(project, temp, submissions, testCases, templateId);
             pr.setHistory(history);

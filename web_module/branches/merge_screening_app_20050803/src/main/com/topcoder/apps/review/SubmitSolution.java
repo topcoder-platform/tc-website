@@ -24,7 +24,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
@@ -143,19 +142,23 @@ public class SubmitSolution implements Model {
                 }
             }
             if (type != null) {
-                Connection conn = Common.getDataSource().getConnection();
+                Connection conn = null;
                 
-                long versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
-                ScreeningJob.placeRequest(new ScreeningRequest(0,
-                        versionId,
-                        ConfigHelper.getSubmissionPathPrefix() + destFilename,
-                        type),
-                        conn);
-                        
                 try {
-                    conn.close();
-                } catch (SQLException e) {
-                    // ignore
+                    conn = Common.getDataSource().getConnection();
+                
+                    long versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
+                    ScreeningJob.placeRequest(new ScreeningRequest(0,
+                            versionId,
+                            ConfigHelper.getSubmissionPathPrefix() + destFilename,
+                            type),
+                            conn);
+                } finally {    
+                    try {
+                        conn.close();
+                    } catch (Exception e) {
+                        // ignore
+                    }
                 }
                 
                 return new ScreeningRetrieval(versionId);
