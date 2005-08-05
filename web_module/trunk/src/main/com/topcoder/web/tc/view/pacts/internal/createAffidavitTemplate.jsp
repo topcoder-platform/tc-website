@@ -1,7 +1,13 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants,
-                 com.topcoder.web.tc.Constants"%>
+                 com.topcoder.web.tc.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<%
+	ResultSetContainer affidavitTypes = (ResultSetContainer)
+		request.getAttribute(PactsConstants.AFFIDAVIT_TYPE_LIST);
+    %>
+
 <html>
     <head>
         <title>PACTS</title>
@@ -18,14 +24,7 @@
                     <tr><td><tc-webtag:errorIterator id="err" name="<%=PactsConstants.AFFIDAVIT_TEXT%>"><%=err%></tc-webtag:errorIterator></td></tr>
                     <tr>
                         <td align="center">
-                          <select name="<%=PactsConstants.AFFIDAVIT_TYPE_ID%>" size="1">
-                            <option value="">Make a Selection</option>
-                            <option value="<%=PactsConstants.CONTEST_WINNING_AFFIDAVIT%>">SRM Contest Winning</option>
-                            <option value="<%=PactsConstants.TCCC05_ALGORITHM_AFFIDAVIT%>">TCCC05 Algorithm</option>
-                            <option value="<%=PactsConstants.TCCC05_COMPONENT_AFFIDAVIT%>">TCCC05 Component</option>
-                            <option value="<%=PactsConstants.TCO05_ALGORITHM_AFFIDAVIT%>">TCO05 Algorithm</option>
-                            <option value="<%=PactsConstants.TCO05_COMPONENT_AFFIDAVIT%>">TCO05 Component</option>
-                          </select>
+                        <tc-webtag:rscSelect name="<%=PactsConstants.AFFIDAVIT_TYPE_ID%>" list='<%=affidavitTypes%>' fieldText="affidavit_type_desc" fieldValue="affidavit_type_id"/>
                         </td>
                     </tr>
                     <tr><td>

@@ -6,6 +6,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
+import java.util.Map;
+
 /**
  * @author  dok
  * @version  $Revision$ $Date$
@@ -14,9 +16,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 public class CreateAffidavitTemplate extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
-
-        //get affidavit text
-        //get affidavit type
 
         try {
             setNextPage(INTERNAL_CREATE_AFFIDAVIT);
@@ -29,6 +28,9 @@ public class CreateAffidavitTemplate extends BaseProcessor implements PactsConst
                         getRequest().getParameter(AFFIDAVIT_TEXT));
                 addError(AFFIDAVIT_TEXT, "Success");
             } else {
+                DataInterfaceBean dib = new DataInterfaceBean();
+                Map map = dib.getAffidavitTypes();
+                getRequest().setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
                 addError(AFFIDAVIT_TEXT, "Text must not be null and you must select an affidavit type");
             }
         } catch (NumberFormatException e) {
