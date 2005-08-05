@@ -18,6 +18,9 @@ public class CreateAffidavitTemplate extends BaseProcessor implements PactsConst
     protected void businessProcessing() throws TCWebException {
 
         try {
+            DataInterfaceBean dib = new DataInterfaceBean();
+            Map map = dib.getAffidavitTypes();
+            getRequest().setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
             setNextPage(INTERNAL_CREATE_AFFIDAVIT);
             setIsNextPageInContext(true);
 
@@ -28,9 +31,6 @@ public class CreateAffidavitTemplate extends BaseProcessor implements PactsConst
                         getRequest().getParameter(AFFIDAVIT_TEXT));
                 addError(AFFIDAVIT_TEXT, "Success");
             } else {
-                DataInterfaceBean dib = new DataInterfaceBean();
-                Map map = dib.getAffidavitTypes();
-                getRequest().setAttribute(AFFIDAVIT_TYPE_LIST, map.get(AFFIDAVIT_TYPE_LIST));
                 addError(AFFIDAVIT_TEXT, "Text must not be null and you must select an affidavit type");
             }
         } catch (NumberFormatException e) {
