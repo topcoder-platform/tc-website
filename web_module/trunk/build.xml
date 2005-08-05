@@ -1369,6 +1369,9 @@
                          <include name="com/topcoder/common/web/error/TCException.class" />
                          <include name="com/topcoder/common/web/data/Navigation.class" />
                      	 <include name="com/topcoder/common/web/data/User.class" />
+                     	 <include name="com/topcoder/common/web/data/SecureObject.class" />
+                     	 <include name="com/topcoder/common/web/data/PermissionAssignee.class" />
+                     	 <include name="com/topcoder/common/web/data/User.class" />
                          <include name="com/topcoder/web/common/tag/*.class" />
                          <include name="com/topcoder/web/common/model/CoderSessionInfo.class" />
                          <include name="com/topcoder/ejb/UserServices/UserServices.class" />
