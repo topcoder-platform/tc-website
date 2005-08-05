@@ -412,10 +412,6 @@
         </ear>
     </target>
 
-    <target name="deploy" depends="build-ear">
-        <ant target="explode"/>
-    </target>
-
     <target name="explode" depends="">
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
@@ -427,5 +423,7 @@
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
     </target>
 
+    <target name="deploy" depends="build-ear,build-screening">
+        <ant target="explode"/>
+    </target>
 </project>
-

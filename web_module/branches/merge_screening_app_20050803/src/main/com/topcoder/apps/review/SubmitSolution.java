@@ -143,11 +143,12 @@ public class SubmitSolution implements Model {
             }
             if (type != null) {
                 Connection conn = null;
+                long versionId;
                 
                 try {
                     conn = Common.getDataSource().getConnection();
                 
-                    long versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
+                    versionId = ScreeningJob.getVersionId(initialSubmissions[0].getId(), conn);
                     ScreeningJob.placeRequest(new ScreeningRequest(0,
                             versionId,
                             ConfigHelper.getSubmissionPathPrefix() + destFilename,

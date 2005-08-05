@@ -3,6 +3,8 @@
  */
 package com.topcoder.apps.screening;
 
+import java.sql.Connection;
+
 /**
  * <strong>Purpose</strong>:
  * The interface that defines the contract to be met by classes used to obtain details about auto-screening

@@ -4,6 +4,7 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.*;
+import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.apps.screening.ScreeningTool;
 import com.topcoder.apps.screening.QueryInterface;
