@@ -134,4 +134,5 @@ public interface QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     ScreeningRecord[] getAllSubmissions(long projectId, Connection conn);
+    
 }

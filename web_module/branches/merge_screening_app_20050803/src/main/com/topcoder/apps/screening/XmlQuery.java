@@ -383,4 +383,5 @@ public class XmlQuery implements QueryInterface {
 
         return (ScreeningRecord[]) submissions.toArray(new ScreeningRecord[submissions.size()]);
     }
+
 }
