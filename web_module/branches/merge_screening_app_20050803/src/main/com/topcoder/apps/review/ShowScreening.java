@@ -12,6 +12,8 @@ import com.topcoder.apps.review.projecttracker.*;
 import com.topcoder.apps.screening.ScreeningTool;
 import com.topcoder.apps.screening.QueryInterface;
 import com.topcoder.apps.screening.ScreeningResponse;
+
+import java.sql.Connection;
 import java.util.List;
 import java.util.ArrayList;
 
