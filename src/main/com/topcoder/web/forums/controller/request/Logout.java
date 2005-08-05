@@ -20,6 +20,7 @@ public class Logout extends ForumsProcessor {
 
         AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
         getAuthentication().logout();
+        getRequest().getSession().invalidate();
 
         setNextPage(dest);
         setIsNextPageInContext(false);
