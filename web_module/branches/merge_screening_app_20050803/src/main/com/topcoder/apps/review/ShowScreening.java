@@ -7,6 +7,7 @@ import com.topcoder.apps.review.document.DocumentManagerLocal;
 import com.topcoder.apps.review.document.FinalFixSubmission;
 import com.topcoder.apps.review.document.InitialSubmission;
 import com.topcoder.apps.review.document.AbstractSubmission;
+import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.review.projecttracker.*;
 
 import com.topcoder.apps.screening.ScreeningTool;
