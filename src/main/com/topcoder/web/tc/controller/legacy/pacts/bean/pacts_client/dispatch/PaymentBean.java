@@ -70,5 +70,11 @@ public class PaymentBean implements PactsConstants {
 
         return plist.getHeaderList();
     }
+
+    public Payment getEmptyPayment(long userId) throws Exception {
+        log.debug("getEmptyPayment called");
+        DataInterfaceBean bean = new DataInterfaceBean();
+        return bean.getEmptyPayment(userId);
+    }
 }
 

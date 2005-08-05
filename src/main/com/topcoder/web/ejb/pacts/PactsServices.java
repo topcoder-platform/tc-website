@@ -21,159 +21,161 @@ import java.util.Map;
 
 public interface PactsServices extends EJBObject {
     // Object retrieval
-    public Map getAffidavit(long affidavitId) throws RemoteException, SQLException;
+    Map getAffidavit(long affidavitId) throws RemoteException, SQLException;
 
-    public Map getContract(long contractId) throws RemoteException, SQLException;
+    Map getContract(long contractId) throws RemoteException, SQLException;
 
-    public Map getNote(long noteId) throws RemoteException, SQLException;
+    Map getNote(long noteId) throws RemoteException, SQLException;
 
-    public Map getPayment(long paymentId) throws RemoteException, SQLException;
+    Map getPayment(long paymentId) throws RemoteException, SQLException;
 
-    public Map getPaymentAuditTrail(long paymentId) throws RemoteException, SQLException;
+    Map getPaymentAuditTrail(long paymentId) throws RemoteException, SQLException;
 
-    public Map getUserProfile(long userId) throws RemoteException, SQLException;
+    Map getUserProfile(long userId) throws RemoteException, SQLException;
 
-    public Map getUserProfileHeader(long userId) throws RemoteException, SQLException;
+    Map getUserProfileHeader(long userId) throws RemoteException, SQLException;
 
-    public Map getTaxForm(long taxFormId) throws RemoteException, SQLException;
+    Map getTaxForm(long taxFormId) throws RemoteException, SQLException;
 
-    public Map getUserTaxForm(long userId, long taxFormId) throws RemoteException, SQLException;
+    Map getUserTaxForm(long userId, long taxFormId) throws RemoteException, SQLException;
 
     // Subobject retrieval
-    public Map getUserAffidavitList(long userId) throws RemoteException, SQLException;
+    Map getUserAffidavitList(long userId) throws RemoteException, SQLException;
 
-    public Map getUserContractList(long userId) throws RemoteException, SQLException;
+    Map getUserContractList(long userId) throws RemoteException, SQLException;
 
-    public Map getUserPaymentList(long userId) throws RemoteException, SQLException;
+    Map getUserPaymentList(long userId) throws RemoteException, SQLException;
 
-    public Map getUserTaxFormList(long userId) throws RemoteException, SQLException;
+    Map getUserTaxFormList(long userId) throws RemoteException, SQLException;
 
-    public Map getNoteList(long objectId, int objectType, long taxFormUserId)
+    Map getNoteList(long objectId, int objectType, long taxFormUserId)
             throws RemoteException, SQLException;
 
-    public Map getContractPaymentList(long contractId) throws RemoteException, SQLException;
+    Map getContractPaymentList(long contractId) throws RemoteException, SQLException;
 
-    public Map getText(long objectId, int objectType)
+    Map getText(long objectId, int objectType)
             throws RemoteException, SQLException;
 
     // Type listings and other miscellaneous retrieval
-    public Map getAffidavitTypes() throws RemoteException, SQLException;
+    Map getAffidavitTypes() throws RemoteException, SQLException;
 
-    public Map getContractTypes() throws RemoteException, SQLException;
+    Map getContractTypes() throws RemoteException, SQLException;
 
-    public Map getNoteTypes() throws RemoteException, SQLException;
+    Map getNoteTypes() throws RemoteException, SQLException;
 
-    public Map getPaymentTypes() throws RemoteException, SQLException;
+    Map getPaymentTypes() throws RemoteException, SQLException;
 
-    public Map getModificationRationales() throws RemoteException, SQLException;
+    Map getModificationRationales() throws RemoteException, SQLException;
 
-    public Map getStatusCodes() throws RemoteException, SQLException;
+    Map getStatusCodes() throws RemoteException, SQLException;
 
-    public Map getStatusCodes(int objectType) throws RemoteException, SQLException;
+    Map getStatusCodes(int objectType) throws RemoteException, SQLException;
 
-    public Map getUserTypes() throws RemoteException, SQLException;
+    Map getUserTypes() throws RemoteException, SQLException;
 
-    public Map getRounds() throws RemoteException, SQLException;
+    Map getRounds() throws RemoteException, SQLException;
 
-    public Map getDemographicData(long userId) throws RemoteException, SQLException;
+    Map getDemographicData(long userId) throws RemoteException, SQLException;
 
     // Search routines
-    public Map findAffidavits(Map searchCriteria) throws RemoteException, SQLException;
+    Map findAffidavits(Map searchCriteria) throws RemoteException, SQLException;
 
-    public Map findContracts(Map searchCriteria) throws RemoteException, SQLException;
+    Map findContracts(Map searchCriteria) throws RemoteException, SQLException;
 
-    public Map findNoteObjects(long noteId) throws RemoteException, SQLException;
+    Map findNoteObjects(long noteId) throws RemoteException, SQLException;
 
-    public Map findNotes(Map searchCriteria) throws RemoteException, SQLException;
+    Map findNotes(Map searchCriteria) throws RemoteException, SQLException;
 
-    public Map findPayments(Map searchCriteria) throws RemoteException, SQLException;
+    Map findPayments(Map searchCriteria) throws RemoteException, SQLException;
 
-    public Map findTaxForms(Map searchCriteria) throws RemoteException, SQLException;
+    Map findTaxForms(Map searchCriteria) throws RemoteException, SQLException;
 
-    public Map findUserTaxForms(Map searchCriteria) throws RemoteException, SQLException;
+    Map findUserTaxForms(Map searchCriteria) throws RemoteException, SQLException;
 
-    public Map findUsers(Map searchCriteria) throws RemoteException, SQLException;
+    Map findUsers(Map searchCriteria) throws RemoteException, SQLException;
 
     // Data update routines
     // Additions
-    public long addAffidavit(Affidavit a, String affidavitText)
+    long addAffidavit(Affidavit a, String affidavitText)
             throws RemoteException, IllegalUpdateException, SQLException;
 
-    public long addAffidavit(Affidavit a, String affidavitText, Payment p)
+    long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws RemoteException, IllegalUpdateException, SQLException;
 
-    public long addContract(Contract c, String contractText) throws RemoteException, SQLException;
+    long addContract(Contract c, String contractText) throws RemoteException, SQLException;
 
-    public long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException;
+    long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException;
 
-    public long addContractPayment(long contractId, Payment p)
+    long addContractPayment(long contractId, Payment p)
             throws RemoteException, IllegalUpdateException, SQLException;
 
-    public long addTaxForm(TaxForm t, String taxFormText)
+    long addTaxForm(TaxForm t, String taxFormText)
             throws RemoteException, IllegalUpdateException, SQLException;
 
-    public void addUserTaxForm(TaxForm t) throws RemoteException, SQLException;
+    void addUserTaxForm(TaxForm t) throws RemoteException, SQLException;
 
-    public long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
+    long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
             throws RemoteException, SQLException;
 
-    public void addObjectNoteLink(long objectId, int objectType, long taxFormUserId, long noteId)
+    void addObjectNoteLink(long objectId, int objectType, long taxFormUserId, long noteId)
             throws RemoteException, SQLException;
 
     // Updates
-    public void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate)
+    void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
 
-    public void updateAffidavit(Affidavit a) throws RemoteException, NoObjectFoundException, SQLException;
+    void updateAffidavit(Affidavit a) throws RemoteException, NoObjectFoundException, SQLException;
 
-    public void updateContract(Contract c) throws RemoteException, NoObjectFoundException, SQLException;
+    void updateContract(Contract c) throws RemoteException, NoObjectFoundException, SQLException;
 
-    public void updatePayment(Payment p)
+    void updatePayment(Payment p)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
 
-    public void updateTaxForm(TaxForm t)
+    void updateTaxForm(TaxForm t)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
 
-    public void updateUserTaxForm(TaxForm t)
+    void updateUserTaxForm(TaxForm t)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
 
-    public void updateText(long objectId, int objectType, String newText)
+    void updateText(long objectId, int objectType, String newText)
             throws RemoteException, NoObjectFoundException, SQLException;
 
     // Special payment update routines
-    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
+    void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
             throws RemoteException, IllegalUpdateException, JMSException;
 
-    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
+    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
             throws RemoteException, SQLException;
 
-    public void reviewPayments(long paymentId[])
+    void reviewPayments(long paymentId[])
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
 
-    public void markPaymentsPaid(long paymentId[])
+    void markPaymentsPaid(long paymentId[])
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
 
     // Utility routines
-    public boolean canAffirmAffidavit(long userId, int affidavitTypeId)
+    boolean canAffirmAffidavit(long userId, int affidavitTypeId)
             throws RemoteException, SQLException;
 
-    public String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException;
+    String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException;
 
-    public int generateRoundPayments(long roundId, boolean makeChanges)
+    int generateRoundPayments(long roundId, boolean makeChanges)
             throws IllegalUpdateException, RemoteException, SQLException;
 
-    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
+    int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, RemoteException, SQLException;
 
-    public int expireOldAffidavits() throws RemoteException, SQLException;
+    int expireOldAffidavits() throws RemoteException, SQLException;
 
-    public void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException;
+    void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException;
 
-    public boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws RemoteException, SQLException;
+    boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws RemoteException, SQLException;
 
-    public boolean hasAllDemographicAnswers(long userId) throws RemoteException, SQLException;
+    boolean hasAllDemographicAnswers(long userId) throws RemoteException, SQLException;
 
-    public boolean hasTaxForm(long userId) throws RemoteException, SQLException;
+    boolean hasTaxForm(long userId) throws RemoteException, SQLException;
+
+    Payment getEmptyPayment(long userId) throws RemoteException, SQLException;
 
 
 }

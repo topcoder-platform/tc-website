@@ -1350,6 +1350,11 @@ public class DataInterfaceBean implements PactsConstants {
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
 
+    public Payment getEmptyPayment(long userId) throws RemoteException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.getEmptyPayment(userId);
+    }
+
 
 }
 
