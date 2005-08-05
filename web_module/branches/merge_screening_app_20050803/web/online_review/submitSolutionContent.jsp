@@ -1,6 +1,6 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.apps.review.projecttracker.ProjectType,
-                 com.topcoder.shared.util.ApplicationServer" %>
+                 com.topcoder.apps.review.ApplicationServer" %>
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
