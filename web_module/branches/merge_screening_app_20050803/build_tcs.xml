@@ -423,6 +423,7 @@
         <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
     </target>
 
-    <target name="deploy" depends="build-ear,build-screening,explode">
+    <target name="deploy" depends="build-ear,build-screening">
+        <antcall target="explode"/>
     </target>
 </project>
