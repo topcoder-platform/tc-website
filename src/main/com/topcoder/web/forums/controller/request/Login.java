@@ -57,7 +57,7 @@ public class Login extends ForumsProcessor {
                 //authToken = AuthFactory.loginUser(username, password, rememberUser.equals("on"), getHttpRequest(), getHttpResponse());
                 //getAuthentication().login(new SimpleUser(authToken.getUserID(), username, password), rememberUser.equals("on"));
                 getAuthentication().login(new SimpleUser(userID, username, password), rememberUser.equals("on"));
-                authToken = AuthFactory.getAuthToken(getHttpRequest(), getHttpResponse());
+                //authToken = AuthFactory.getAuthToken(getHttpRequest(), getHttpResponse());
             } else {
                 log.debug("forum password hash not matched");
                 throw new Exception();
