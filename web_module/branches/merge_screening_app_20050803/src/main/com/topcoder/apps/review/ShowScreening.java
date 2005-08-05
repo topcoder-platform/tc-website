@@ -73,19 +73,30 @@ public class ShowScreening implements Model {
             ScreeningResponse[] responses = null;
             QueryInterface query = ScreeningTool.createQuery();
 
-            if (submissionDownloadData.getVersionId() > 0) {
-                AbstractSubmission submission =
-                        documentManager.getSubmissionByVersion(project, submissionDownloadData.getVersionId(), user.getTCSubject());
-                if (submission != null) {
-                    submitter = submission.getSubmitter();
-                    responses = query.getSubmissionDetails(submissionDownloadData.getVersionId());
+            Connection conn = null;
+            try {
+                conn = Common.getDataSource().getConnection();
+                
+                if (submissionDownloadData.getVersionId() > 0) {
+                    AbstractSubmission submission =
+                            documentManager.getSubmissionByVersion(project, submissionDownloadData.getVersionId(), user.getTCSubject());
+                    if (submission != null) {
+                        submitter = submission.getSubmitter();
+                        responses = query.getSubmissionDetails(submissionDownloadData.getVersionId(), conn);
+                    }
+                } else if (submissionDownloadData.getSubmissionId() > 0) {
+                    InitialSubmission initialSubmission =
+                            documentManager.getInitialSubmission(project, submissionDownloadData.getSubmissionId(), user.getTCSubject());
+                    if (initialSubmission != null) {
+                        submitter = initialSubmission.getSubmitter();
+                        responses = query.getCurrentSubmissionDetails(submissionDownloadData.getSubmissionId(), conn);
+                    }
                 }
-            } else if (submissionDownloadData.getSubmissionId() > 0) {
-                InitialSubmission initialSubmission =
-                        documentManager.getInitialSubmission(project, submissionDownloadData.getSubmissionId(), user.getTCSubject());
-                if (initialSubmission != null) {
-                    submitter = initialSubmission.getSubmitter();
-                    responses = query.getCurrentSubmissionDetails(submissionDownloadData.getSubmissionId());
+            } finally {
+                try {
+                    conn.close();
+                } catch (Exception e) {
+                    // ignore
                 }
             }
 
