@@ -36,13 +36,48 @@ public class XmlQuery implements QueryInterface {
      * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
      */
     public ScreeningResponse[] getSubmissionDetails(long submissionVId) {
+        Connection conn = null;
+        try {
+            conn = DbHelper.getConnection();
+            return getSubmissionDetails(submissionVId, conn);
+        } finally {
+            DbHelper.dispose(conn, null, null);
+        }
+    }
+    
+    public ScreeningResponse[] getCurrentSubmissionDetails(long submissionId) {
+        Connection conn = null;
+        try {
+            conn = DbHelper.getConnection();
+            return getCurrentSubmissionDetails(submissionId, conn);
+        } finally {
+            DbHelper.dispose(conn, null, null);
+        }
+    }
+    
+    /**
+     * <strong>Purpose</strong>:
+     * Obtains details about the screening process that was run for a particular submission. Each response code
+     * and dynamic response text will be returned. This version of the method uses a specified connection.
+     *
+     * <strong>Valid Args</strong>:
+     * An integer.
+     *
+     * <strong>Valid Return Values</strong>:
+     * A String.
+     *
+     * @param submissionVId The database identifier of the submission.
+     * @param conn The connection to use.
+     * @return An XML String containing the results of the query.
+     * @throws InvalidSubmissionIdException if the parameter does not correspond to any submission.
+     * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
+     */
+    public ScreeningResponse[] getSubmissionDetails(long submissionVId, Connection conn) {
         List responses = null;
 
-        Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
                     "SELECT severity_text, response_code, response_text, dynamic_response_text " +
                     "FROM response_severity, screening_response, screening_results, submission " +
@@ -58,20 +93,18 @@ public class XmlQuery implements QueryInterface {
         } catch (SQLException sqle) {
             throw new DatabaseException("getSubmissionDetails() fails.", sqle);
         } finally {
-            DbHelper.dispose(conn, stmt, rs);
+            DbHelper.dispose(null, stmt, rs);
         }
 
         return (ScreeningResponse[]) responses.toArray(new ScreeningResponse[responses.size()]);
     }
 
-    public ScreeningResponse[] getCurrentSubmissionDetails(long submissionId) {
+    public ScreeningResponse[] getCurrentSubmissionDetails(long submissionId, Connection conn) {
         List responses = null;
 
-        Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
-            conn = DbHelper.getConnection();
             stmt = conn.prepareStatement(
                     "SELECT severity_text, response_code, response_text, dynamic_response_text " +
                     "FROM response_severity, screening_response, screening_results, submission " +
@@ -88,7 +121,7 @@ public class XmlQuery implements QueryInterface {
         } catch (SQLException sqle) {
             throw new DatabaseException("getCurrentSubmissionDetails() fails.", sqle);
         } finally {
-            DbHelper.dispose(conn, stmt, rs);
+            DbHelper.dispose(null, stmt, rs);
         }
 
         return (ScreeningResponse[]) responses.toArray(new ScreeningResponse[responses.size()]);

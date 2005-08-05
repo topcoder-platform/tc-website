@@ -37,6 +37,26 @@ public interface QueryInterface {
 
     /**
      * <strong>Purpose</strong>:
+     * Obtains details about the screening process that was run for a particular submission. Each response code
+     * and dynamic response text will be returned. This version of the method uses a specified connection.
+     *
+     * <strong>Valid Args</strong>:
+     * An integer.
+     *
+     * <strong>Valid Return Values</strong>:
+     * A String.
+     *
+     * @param submissionVId The database identifier of the submission.
+     * @param conn The connection to use.
+     * @return An XML String containing the results of the query.
+     * @throws InvalidSubmissionIdException if the parameter does not correspond to any submission.
+     * @throws DatabaseException if an error occured at the database level while attempting to retrieve the results.
+     */
+    ScreeningResponse[] getSubmissionDetails(long submissionVId, Connection conn);
+    ScreeningResponse[] getCurrentSubmissionDetails(long submissionId, Connection conn);
+    
+    /**
+     * <strong>Purpose</strong>:
      * Obtains details about the screening processes run for all submission by a given submitter to a given project.
      * Each response code and dynamic response text will be returned.
      *
