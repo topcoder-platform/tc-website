@@ -46,7 +46,72 @@ public class ReviewProjectDetail extends Base {
                     numSubmissionsPassed = 1;
                 }
 
-                if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE) {
+                /// --- by cucu ---
+
+                    ResultSetContainer reviewers = (ResultSetContainer) results.get("reviewers");
+                    ResultSetContainer.ResultSetRow row = null;
+                    //add all the positions
+                    for (Iterator it = reviewers.iterator(); it.hasNext();) {
+                        row = (ResultSetContainer.ResultSetRow) it.next();
+                        //this one has not been assigned yet
+                        if (row.getStringItem("handle") == null) {
+                            reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
+                                    numSubmissions,
+                                    numSubmissionsPassed,
+                                    detail.getIntItem(0, "phase_id"),
+                                    detail.getIntItem(0, "level_id"),
+                                    detail.getLongItem(0, "project_id"),
+                                    row.getIntItem("review_resp_id")));
+                        } else {
+                            //this one has been assigned
+                            reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
+                                    numSubmissions,
+                                    numSubmissionsPassed,
+                                    detail.getIntItem(0, "phase_id"),
+                                    detail.getIntItem(0, "level_id"),
+                                    row.getLongItem("user_id"),
+                                    row.getStringItem("handle"),
+                                    row.getIntItem("primary") == 1,
+                                    detail.getLongItem(0, "project_id"),
+                                    row.getIntItem("review_resp_id")));
+                        }
+                    }
+
+                    //if there is no primary spot in the list, put one in there
+                    //and make sure it's the Failure reviewer
+                    ReviewBoardApplication app = null;
+                    boolean hasPrimary = false;
+                    for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                        app = (ReviewBoardApplication) it.next();
+                        hasPrimary |= app.isPrimary();
+                    }
+                    if (!hasPrimary) {
+                        if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE) {
+
+                            for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                                app = (ReviewBoardApplication) it.next();
+
+                                //set a primary to be the failure test spot, but only do it
+                                //if it's not filled.  perhaps we put someone in there
+                                //who didn't want to be primary, failure is primary is just
+                                //a convention, not a rule.  in this case, someone would have to
+                                //be set primary manually
+                                if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
+                                    app.setPrimary(true);
+                            }
+                        } else {
+                            for (Iterator it = reviewerList.iterator(); it.hasNext() && !hasPrimary;) {
+                                app = (ReviewBoardApplication) it.next();
+                                if (!app.isSpotFilled()) {
+                                    app.setPrimary(true);
+                                    hasPrimary = true;
+                                }
+                            }
+                        }
+
+                    }
+/// --- end by cucu ---
+/*                if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE) {
                     ResultSetContainer reviewers = (ResultSetContainer) results.get("development_reviewers");
                     ResultSetContainer.ResultSetRow row = null;
                     //add all the positions
@@ -144,6 +209,7 @@ public class ReviewProjectDetail extends Base {
                         }
                     }
                 }
+                */
 
                 getRequest().setAttribute("reviewerList", reviewerList);
 
