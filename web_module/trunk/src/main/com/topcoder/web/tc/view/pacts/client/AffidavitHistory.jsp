@@ -111,14 +111,19 @@ function goTo(selection){
 
 	    // payment
             vec.clear();
-	    DecimalFormat decf = new DecimalFormat("0.00");
-	    str = "$" + decf.format(affidavits[i-1].getPayment().getRecentNetAmount());
-	    vec.add(new String(PactsConstants.PAYMENT_ID + "=" +
-	            affidavits[i-1].getPayment().getId()));
-	    href = PactsHtmlHelpers.createPactsHtmlHref(
-	            PactsConstants.MEMBER_SERVLET_URL,
-	            vec, PactsConstants.PAYMENT_TASK,
-	            PactsConstants.PAYMENT_DETAILS_CMD, str, "bodyText");
+        if (affidavits[i-1].getPayment().getId()<1) {
+            vec.add("");
+            href = "";
+        } else {
+            DecimalFormat decf = new DecimalFormat("0.00");
+            str = "$" + decf.format(affidavits[i-1].getPayment().getRecentNetAmount());
+            vec.add(new String(PactsConstants.PAYMENT_ID + "=" +
+                    affidavits[i-1].getPayment().getId()));
+            href = PactsHtmlHelpers.createPactsHtmlHref(
+                    PactsConstants.MEMBER_SERVLET_URL,
+                    vec, PactsConstants.PAYMENT_TASK,
+                    PactsConstants.PAYMENT_DETAILS_CMD, str, "bodyText");
+        }
 	    tableData.setElement(i,2,href);
 
 	    // notarized
