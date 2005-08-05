@@ -186,6 +186,13 @@ public class AffidavitBean implements PactsConstants {
 
         if (a.getAffidavit().getPayment()!=null && a.getAffidavit().getPayment().getId()>0) {
             a.setPayment(bean.getPayment(a.getAffidavit().getPayment().getId()));
+        } else {
+            try {
+                a.setPayment(bean.getEmptyPayment(a.getAffidavit().getHeader().getUser().getId()));
+            } catch (Exception e) {
+                e.printStackTrace();
+                //todo don't friggin swallow exceptions in the damn app
+            }
         }
 
         // Added by STK 5/28/02 so that entered birthdays can

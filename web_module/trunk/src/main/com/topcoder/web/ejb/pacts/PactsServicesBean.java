@@ -363,7 +363,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c.close();
                 throw new NoObjectFoundException("No affidavit details found with ID " + affidavitId);
             }
-            boolean hasPayment = rsc.getStringItem(0, "payment_id")!=null;
+            boolean hasPayment = rsc.getStringItem(0, "payment_id") != null;
             hm.put(AFFIDAVIT_DETAIL, rsc);
 
             if (hasPayment) {
@@ -493,6 +493,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some problem retrieving the data
      */
     public Map getPayment(long paymentId) throws SQLException {
+        log.debug("getpayment(long) called..");
         StringBuffer selectPaymentDetails = new StringBuffer(300);
         selectPaymentDetails.append("SELECT pd.payment_detail_id, pd.net_amount, pd.gross_amount, ");
         selectPaymentDetails.append("pd.date_paid, pd.date_printed, pd.status_id, s.status_desc, ");
@@ -554,6 +555,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // Helper function to retrieve payment information
     private Map doPayment(long paymentId, String detailsQuery) throws SQLException {
+        log.debug("dopayment(long, String) called...");
         StringBuffer selectPaymentHeader = new StringBuffer(300);
         selectPaymentHeader.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, ");
         selectPaymentHeader.append("pt.payment_type_desc, pd.net_amount, pd.status_id, s.status_desc, ");
@@ -684,7 +686,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, c.first_name, c.middle_name, c.last_name FROM user u, coder c");
         selectHeader.append(" WHERE user_id = " + userId + " ");
-        selectHeader.append( " AND u.user_id = c.coder_id");
+        selectHeader.append(" AND u.user_id = c.coder_id");
 
         StringBuffer selectGroups = new StringBuffer(300);
         selectGroups.append("SELECT group_id FROM group_user ");
@@ -1918,7 +1920,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 roundStr = "" + a.getRoundId().longValue();
 
             String localText = text;
-            if (text==null) {
+            if (text == null) {
                 log.debug("get the affidavit text from the db");
                 StringBuffer getAffidavitTexts = new StringBuffer(300);
                 getAffidavitTexts.append("SELECT att.text ");
@@ -2065,7 +2067,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ResultSetContainer rsc = runSelectQuery(c, checkPaid.toString(), false);
         int paidRecords = Integer.parseInt(rsc.getItem(0, 0).toString());
         if (paidRecords > 0) {
-            throw new PaymentPaidException("Payment " + p.getHeader().getId()+ " has already been paid " +
+            throw new PaymentPaidException("Payment " + p.getHeader().getId() + " has already been paid " +
                     "and cannot be updated");
         }
     }
@@ -2078,7 +2080,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // specified in the default tax form for the payee's country.  If that isn't available
         // we just set net amount = gross amount.
 
-        if (p.getNetAmount()!= 0)
+        if (p.getNetAmount() != 0)
             return;
 
         log.debug("In fillPaymentNetAmount");
@@ -2092,7 +2094,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getUserWithholding.append("SELECT utf.withholding_amount, utf.withholding_percentage, ");
         getUserWithholding.append("utf.use_percentage ");
         getUserWithholding.append("FROM user_tax_form_xref utf, coder c, country ");
-        getUserWithholding.append("WHERE c.coder_id = " + p.getHeader().getUser().getId()+ " ");
+        getUserWithholding.append("WHERE c.coder_id = " + p.getHeader().getUser().getId() + " ");
         getUserWithholding.append("AND c.country_code = country.country_code ");
         getUserWithholding.append("AND country.default_taxform_id = utf.tax_form_id ");
         getUserWithholding.append("AND utf.user_id = " + p.getHeader().getUser().getId());
@@ -2108,7 +2110,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWithholding.append("SELECT tf.default_withholding_amount, tf.default_withholding_percentage,");
             getWithholding.append("tf.use_percentage AS default_use_percentage ");
             getWithholding.append("FROM tax_form tf, coder c, country ");
-            getWithholding.append("WHERE c.coder_id = " + p.getHeader().getUser().getId()+ " ");
+            getWithholding.append("WHERE c.coder_id = " + p.getHeader().getUser().getId() + " ");
             getWithholding.append("AND c.country_code = country.country_code ");
             getWithholding.append("AND country.default_taxform_id = tf.tax_form_id");
 
@@ -2126,9 +2128,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.setNetAmount(p.getGrossAmount());
         if (dataFound) {
             if (usePercent == 1) {
-                p.setNetAmount(p.getNetAmount()* (1 - withholdPercent));
+                p.setNetAmount(p.getNetAmount() * (1 - withholdPercent));
             } else {
-                p.setNetAmount(p.getNetAmount()- withholdAmount);
+                p.setNetAmount(p.getNetAmount() - withholdAmount);
             }
 
             // Net amount can't be negative
@@ -2185,7 +2187,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 selectAddress.append("c.address1, c.address2, c.first_name, c.middle_name, ");
                 selectAddress.append("c.last_name, state.state_name, country.country_name ");
                 selectAddress.append("FROM coder c, OUTER state, OUTER country ");
-                selectAddress.append("WHERE c.coder_id = " + p.getHeader().getUser().getId()+ " ");
+                selectAddress.append("WHERE c.coder_id = " + p.getHeader().getUser().getId() + " ");
                 selectAddress.append("AND state.state_code = c.state_code ");
                 selectAddress.append("AND country.country_code = c.country_code ");
 
@@ -2225,7 +2227,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId());
                 if (rsc.getRowCount() > 0) {
                     Payment referPay = new Payment();
-                    referPay.setGrossAmount(p.getGrossAmount()* REFERRAL_PERCENTAGE);
+                    referPay.setGrossAmount(p.getGrossAmount() * REFERRAL_PERCENTAGE);
                     referPay.setNetAmount(0);
                     referPay.setStatusId(PAYMENT_OWED_STATUS);
                     long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
@@ -2488,7 +2490,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getDefaults.append("FROM tax_form WHERE tax_form_id = " + t.getHeader().getId());
             ResultSetContainer rsc = runSelectQuery(c, getDefaults.toString(), false);
             if (rsc.getRowCount() != 1) {
-                throw new SQLException("Tax form ID " + t.getHeader().getId()+ " not found or not unique");
+                throw new SQLException("Tax form ID " + t.getHeader().getId() + " not found or not unique");
             }
 
             double withholdAmount = TCData.getTCDouble(rsc.getRow(0), "default_withholding_amount");
@@ -2936,7 +2938,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         if (rowsModified == 0)
-            throw new NoObjectFoundException("Contract " + c.getHeader().getId()+ " not found in database");
+            throw new NoObjectFoundException("Contract " + c.getHeader().getId() + " not found in database");
     }
 
     /**
@@ -2961,21 +2963,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             ResultSetContainer.ResultSetRow addressData = null;
 
-            if (p.getStatusId()== READY_TO_PRINT_STATUS) {
+            if (p.getStatusId() == READY_TO_PRINT_STATUS) {
                 StringBuffer selectAddresses = new StringBuffer(300);
                 selectAddresses.append("SELECT c.country_code, c.zip, c.state_code, c.city, ");
                 selectAddresses.append("c.address1, c.address2, c.first_name, c.middle_name, ");
                 selectAddresses.append("c.last_name, state.state_name, country.country_name, ");
                 selectAddresses.append("p.payment_id ");
                 selectAddresses.append("FROM coder c, payment p, OUTER state, OUTER country ");
-                selectAddresses.append("WHERE p.payment_id = " + p.getHeader().getId()+ " ");
+                selectAddresses.append("WHERE p.payment_id = " + p.getHeader().getId() + " ");
                 selectAddresses.append("AND c.coder_id = p.user_id ");
                 selectAddresses.append("AND state.state_code = c.state_code ");
                 selectAddresses.append("AND country.country_code = c.country_code ");
 
                 ResultSetContainer rsc = runSelectQuery(c, selectAddresses.toString(), false);
                 if (rsc.getRowCount() == 0)
-                    throw new NoObjectFoundException("Payment " + p.getHeader().getId()+ " not found in database");
+                    throw new NoObjectFoundException("Payment " + p.getHeader().getId() + " not found in database");
                 addressData = rsc.getRow(0);
             }
 
@@ -3031,7 +3033,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // We have a problem if the payment net amount is <= 0.  Put the payment
         // on hold.
-        if (p.getNetAmount()<= 0)
+        if (p.getNetAmount() <= 0)
             p.setStatusId(PAYMENT_ON_HOLD_STATUS);
 
         try {
@@ -3182,7 +3184,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         if (rowsModified == 0) {
-            throw new NoObjectFoundException("Tax form " + t.getHeader().getId()+ " not found in database");
+            throw new NoObjectFoundException("Tax form " + t.getHeader().getId() + " not found in database");
         }
     }
 
@@ -3254,8 +3256,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (rowsModified == 0) {
             StringBuffer sb = new StringBuffer(300);
-            sb.append("User tax form with user ID " + t.getHeader().getUser().getId()+ " and tax form ID ");
-            sb.append(t.getHeader().getUser()+ " not found in database");
+            sb.append("User tax form with user ID " + t.getHeader().getUser().getId() + " and tax form ID ");
+            sb.append(t.getHeader().getUser() + " not found in database");
             throw new NoObjectFoundException(sb.toString());
         }
     }
@@ -4284,19 +4286,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     pairAdd.append("Added an affidavit/payment pair with the following information:\n");
                     pairAdd.append("Affidavit round ID: " + a.getRoundId().longValue() + "\n");
                     pairAdd.append("Affidavit user ID: " + a.getHeader().getUser().getId() + "\n");
-                    pairAdd.append("Affidavit status ID: " + a.getHeader().getStatusId()+ "\n");
-                    pairAdd.append("Affidavit description: " + a.getHeader().getDescription()+ "\n");
-                    pairAdd.append("Affidavit type ID: " + a.getHeader().getTypeId()+ "\n");
+                    pairAdd.append("Affidavit status ID: " + a.getHeader().getStatusId() + "\n");
+                    pairAdd.append("Affidavit description: " + a.getHeader().getDescription() + "\n");
+                    pairAdd.append("Affidavit type ID: " + a.getHeader().getTypeId() + "\n");
                     pairAdd.append("Affidavit text (start): ");
                     if (text != null) {
                         pairAdd.append(text.substring(0, 50));
                     }
                     pairAdd.append("\nPayment gross amount: " + p.getGrossAmount() + "\n");
                     pairAdd.append("Payment status ID: " + p.getStatusId() + "\n");
-                    pairAdd.append("Payment description: " + p.getHeader().getDescription()+ "\n");
+                    pairAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
                     pairAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
                     pairAdd.append("Payment due date: " + p.getDueDate() + "\n");
-                    pairAdd.append("Payment user ID: " + p.getHeader().getUser().getId()+ "\n");
+                    pairAdd.append("Payment user ID: " + p.getHeader().getUser().getId() + "\n");
                     ResultSetContainer referRsc = getReferrer(c, p.getHeader().getUser().getId());
                     pairAdd.append("Added referral payment: " + (referRsc.getRowCount() == 1 ? "yes" : "no") + "\n");
                     pairAdd.append("----------------------------------");
@@ -4453,5 +4455,63 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             close(conn);
         }
     }
+
+
+    public Payment getEmptyPayment(long userId) throws SQLException {
+        log.debug("getemptypayment called...");
+        StringBuffer query = new StringBuffer(1000);
+        query.append(" select c.last_name ");
+        query.append(" , c.first_name ");
+        query.append(" , c.middle_name ");
+        query.append(" , c.address1 ");
+        query.append(" , c.address2 ");
+        query.append(" , c.city ");
+        query.append(" , s.state_name ");
+        query.append(" , co.country_name ");
+        query.append(" , c.state_code ");
+        query.append(" , c.country_code ");
+        query.append(" , c.zip ");
+        query.append(" from coder c ");
+        query.append(" , outer state s ");
+        query.append(" , country co ");
+        query.append(" where c.country_code = co.country_code ");
+        query.append(" and c.state_code = s.state_code ");
+        query.append(" and c.coder_id = ").append(userId);
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+
+            conn = DBMS.getConnection();
+            ResultSetContainer rsc = runSelectQuery(conn, query.toString(), false);
+
+            if (rsc.isEmpty()) {
+                throw new EJBException("could not find user information for user " + userId );
+            } else {
+                Payment ret = new Payment();
+                ret.setAddress1(rsc.getStringItem(0, "address1"));
+                ret.setAddress2(rsc.getStringItem(0, "address2"));
+                ret.setFirstName(rsc.getStringItem(0, "first_name"));
+                ret.setLastName(rsc.getStringItem(0, "last_name"));
+                ret.setMiddleName(rsc.getStringItem(0, "middle_name"));
+                ret.setCity(rsc.getStringItem(0, "city"));
+                ret.setState(rsc.getStringItem(0, "state_name"));
+                ret.setCountry(rsc.getStringItem(0, "country_name"));
+                ret.setZip(rsc.getStringItem(0, "zip"));
+                ret.setStateCode(rsc.getStringItem(0, "state_code"));
+                ret.setCountryCode(rsc.getStringItem(0, "country_code"));
+                return ret;
+            }
+
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
+        }
+    }
+
 }
 
