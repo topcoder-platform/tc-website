@@ -45,12 +45,14 @@
          <jsp:param name="title" value="Activation"/>
          </jsp:include>
 
+         <div align="center"><A href="/tc?module=TCO05AlgorithmTerms"><img src="/i/registration/tco05_reg.gif" alt="TCO05 Registration" border="0" /></A></div>
          <p>
          <span class="bodySubtitle">Your account has been successfully activated. Thank You!</span>
          <br><br>
          <A HREF="/tc?&module=Login&<%=BaseServlet.NEXT_PAGE_KEY%>=/" class="bodyText">Click here</A> to login to your account, or check some of the great services that we offer to TopCoder members:
          <br>
          </p>
+         
             <table border=0 cellpadding=5 cellspacing=0 width="100%">
                 <tr>
                     <td class="bodyText" valign="top" width="150"><A href="/tc?module=Static&d1=contracting&d2=index"><img src="/i/registration/icon_emp_opps.gif" border=0/></A></td>
