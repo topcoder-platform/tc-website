@@ -43,7 +43,7 @@ function submitEnter(e) {
 <body>
 
 <!-- Top begins -->
-<jsp:include page="top_forums.jsp" >
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value="login"/>
 </jsp:include>
 <!-- Top ends -->
